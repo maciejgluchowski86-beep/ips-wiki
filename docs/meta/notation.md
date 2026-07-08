@@ -24,6 +24,29 @@ This page records common notation for the public wiki.
 | \(\nu\) | invariant measure, when unique or distinguished | ergodicity |
 | \(\mu P_t\) | law at time \(t\) started from law \(\mu\) | ergodicity |
 
+## Subset notation
+
+Use unambiguous subset notation:
+
+$$
+A\subseteq B
+\quad\text{means subset, possibly equal,}
+$$
+
+$$
+A\subsetneq B
+\quad\text{means strict subset,}
+$$
+
+and
+
+$$
+A\Subset B
+\quad\text{means finite subset in this countable-lattice setting.}
+$$
+
+Do not use \(\subset\), since it is ambiguous between non-strict and strict inclusion.
+
 ## Lattice convention
 
 The default index object is a lattice \(\Lambda\), not an abstract site set. A graph description is an alternative way of encoding the neighbourhoods of \(\Lambda\). The neighbour set \(N(i)\) does not contain \(i\), while
