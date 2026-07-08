@@ -2,53 +2,41 @@
 title: Lattice and graph
 status: definition
 tags:
-  - site space
-  - graph
   - lattice
+  - graph
   - neighbourhoods
+  - site space
 ---
 
 # Lattice and graph
 
-The site space specifies where the components of a configuration live and which sites may influence which updates. It is used to define the configuration space of an [interacting particle system](interacting-particle-system.md), the flip rates of a [spin system](spin-system.md), and the dependence sets of [local functions](local-functions.md).
+A lattice is the default index set for configurations in this wiki. It is denoted by \(\Lambda\), and the standard examples are \(\Z\) and \(\Z^d\). A lattice may also be described as a graph by specifying which sites are neighbours.
 
-## Site set
+## Configuration space
 
-A site set is a countable set \(I\). For a single-site state space \(E\), the configuration space is
-
-$$
-\Omega=E^I.
-$$
-
-For \(A\subset I\) and \(\eta\in\Omega\), write \(\eta|_A\) or \(\eta_A\) for the restriction of \(\eta\) to \(A\).
-
-## Graph description
-
-A graph description consists of a countable simple graph \(G=(I,E_G)\). The graph may be undirected or directed. For a directed graph, define the out-neighbourhood and in-neighbourhood by
+Given a lattice \(\Lambda\) and a single-site state space \(\mathcal S\), the configuration space is
 
 $$
-N^+(i)=\{j\in I:(i,j)\in E_G\},
-\qquad
-N^-(i)=\{j\in I:(j,i)\in E_G\}.
+\Omega=\mathcal S^\Lambda.
 $$
 
-For an undirected graph these coincide, and one writes
+For \(A\subset\Lambda\) and \(\eta\in\Omega\), write \(\eta|_A\) or \(\eta_A\) for the restriction of \(\eta\) to \(A\). These restrictions are used in the definition of [local functions](local-functions.md) and local transition rates for [interacting particle systems](interacting-particle-system.md).
+
+## Neighbourhood description
+
+A neighbourhood system assigns to each \(i\in\Lambda\) a set \(N(i)\subset\Lambda\setminus\{i\}\). The set \(N(i)\) consists of the neighbours of \(i\) and does not contain \(i\). Write
 
 $$
-N(i)=\{j\in I:\{i,j\}\in E_G\}.
+N_*(i)=N(i)\cup\{i\}
 $$
 
-It is often convenient to include the site itself and write
+for the neighbourhood together with the site itself.
 
-$$
-N_*(i)=N(i)\cup\{i\}.
-$$
+A local update rate at \(i\) typically depends on \(\eta|_{N_*(i)}\), or on a specified finite subset of \(N_*(i)\). For a [spin system](spin-system.md), this means that the flip rate at \(i\) depends only on the spin at \(i\) and finitely many neighbouring spins.
 
-For a local spin system, the flip rate at \(i\) typically depends on \(\eta|_{N_*(i)}\) or on a specified finite subset of \(N_*(i)\).
+## Translation-invariant lattice convention
 
-## Lattice-neighbourhood description
-
-On \(I=\Z^d\), locality is often described by a finite neighbourhood shape \(N\subset\Z^d\setminus\{0\}\). Then
+On \(\Lambda=\Z^d\), locality is often described by a finite neighbourhood shape \(N\subset\Z^d\setminus\{0\}\). Then
 
 $$
 N(i)=i+N,
@@ -56,8 +44,24 @@ N(i)=i+N,
 N_*(i)=i+(N\cup\{0\}).
 $$
 
-This description is equivalent to a translation-invariant directed graph with edges \((i,i+u)\) for \(u\in N\). If \(N=-N\), the corresponding graph can be treated as undirected.
+Here \(N(i)\) does not contain \(i\), while \(N_*(i)\) does.
+
+## Graph description
+
+The same data can be encoded by a directed graph \(G=(\Lambda,E_G)\), with
+
+$$
+N(i)=\{j\in\Lambda:(i,j)\in E_G\}.
+$$
+
+For an undirected graph, this becomes
+
+$$
+N(i)=\{j\in\Lambda:\{i,j\}\in E_G\}.
+$$
+
+A translation-invariant neighbourhood shape \(N\subset\Z^d\setminus\{0\}\) corresponds to the directed graph with edges \((i,i+u)\) for \(u\in N\). If \(N=-N\), the corresponding graph can be treated as undirected.
 
 ## Finite range
 
-A lattice model has finite range if there is a finite set \(N\) such that all rates at site \(i\) depend only on \(\eta|_{i+N_*}\). On a general graph, the analogous condition is that each update has a finite dependence set, usually uniformly bounded in size or graph distance.
+A lattice model has finite range if the relevant update rates depend only on \(\eta|_{N_*(i)}\) for a finite neighbourhood shape \(N\). On a graph, the analogous condition is finite dependence on a neighbourhood of uniformly bounded graph distance.
