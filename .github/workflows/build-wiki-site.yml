@@ -4,11 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'docs/**'
-      - 'mkdocs.yml'
-      - 'requirements.txt'
-      - '.github/workflows/build-wiki-site.yml'
   workflow_dispatch:
 
 concurrency:
