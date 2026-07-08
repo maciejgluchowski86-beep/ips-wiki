@@ -9,13 +9,11 @@ tags:
 
 # Local functions
 
-Local functions are observables that depend on only finitely many sites. They form the natural initial domain for generators of infinite-volume interacting particle systems.
-
-**Related pages.** [Lattice and graph](lattice-and-graph.md), [spin system](spin-system.md), [interacting particle system](interacting-particle-system.md), [ergodicity](ergodicity.md).
+Local functions are observables that depend on only finitely many sites. They form the natural initial domain for generators of infinite-volume [interacting particle systems](interacting-particle-system.md) and [spin systems](spin-system.md).
 
 ## Definition
 
-Let \(I\) be a countable site set and let \(\Omega=E^I\). A function \(f:\Omega\to\R\) is local if there is a finite set \(A\subset I\) such that
+Let \(I\) be a countable [site set](lattice-and-graph.md) and let \(\Omega=E^I\). A function \(f:\Omega\to\R\) is local if there is a finite set \(A\subset I\) such that
 
 $$
 \eta|_A=\xi|_A
@@ -51,4 +49,4 @@ the expression is initially interpreted for local \(f\). If \(f\) depends only o
 
 ## Topological role
 
-When \(E\) is finite and \(I\) is countable, \(\Omega=E^I\) is compact in the product topology. Local functions are continuous and form a convergence-determining algebra. Thus weak convergence of probability measures can often be checked against local functions.
+When \(E\) is finite and \(I\) is countable, \(\Omega=E^I\) is compact in the product topology. Local functions are continuous and form a convergence-determining algebra. Thus weak convergence of probability measures, as in the local-function formulation of [ergodicity](ergodicity.md), can often be checked against local functions.
