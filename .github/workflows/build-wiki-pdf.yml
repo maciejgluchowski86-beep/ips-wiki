@@ -1,0 +1,42 @@
+name: Build wiki PDF
+
+on:
+  push:
+    paths:
+      - 'wiki-src/**'
+      - 'wiki-meta/**'
+      - '.github/workflows/build-wiki-pdf.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            latexmk \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-bibtex-extra \
+            biber
+
+      - name: Build PDF
+        working-directory: wiki-src
+        run: |
+          latexmk -pdf -interaction=nonstopmode -halt-on-error wiki-book.tex
+          mkdir -p ../wiki-pdf
+          cp wiki-book.pdf ../wiki-pdf/ips-wiki.pdf
+
+      - name: Upload compiled wiki PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: ips-wiki-pdf
+          path: wiki-pdf/ips-wiki.pdf
