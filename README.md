@@ -2,27 +2,31 @@
 
 This repository is a source-of-truth wiki for interacting particle systems, spin systems, ergodicity, and related literature.
 
-The working principle is:
+The wiki is article-first, not book-first. Each entry is a separate Markdown page under `docs/entries/`, with TeX math rendered in the web view and ordinary Markdown links between entries.
 
-1. Entries are written as small LaTeX source files in `wiki-src/entries/`.
-2. Shared notation, macros, and style rules live in `wiki-meta/`.
-3. `wiki-src/wiki-book.tex` compiles the entries into a readable PDF.
-4. Changes should preserve explicit proof status, source status, and links between related entries.
+## Reading target
 
-The first stable reading target is the compiled PDF produced by the `Build wiki PDF` GitHub Actions workflow. The source files remain editable by hand, by Codex, or by a ChatGPT project with repository access.
+The intended reading target is the rendered MkDocs site, not a single compiled PDF.
+
+- Source pages: `docs/`
+- Entry pages: `docs/entries/`
+- Meta/style pages: `docs/meta/`
+- Site configuration: `mkdocs.yml`
+
+GitHub Actions contains a `Build wiki site` workflow. It builds the site from `docs/` and deploys it through GitHub Pages when Pages is enabled for the repository.
 
 ## Current entries
 
-- Spin system: `wiki-src/entries/spin-system.tex`
-- Ergodicity: `wiki-src/entries/ergodicity.tex`
+- Spin system: `docs/entries/spin-system.md`
+- Ergodicity: `docs/entries/ergodicity.md`
 
 ## Entry workflow
 
 1. Draft a mock entry in chat.
 2. Check terminology, notation, and proof status against existing entries.
 3. Add literature references and cross-links.
-4. Commit the approved entry to `wiki-src/entries/`.
-5. Rebuild the PDF.
+4. Commit the approved entry to `docs/entries/`.
+5. Rebuild the site.
 
 ## Mathematical status convention
 
