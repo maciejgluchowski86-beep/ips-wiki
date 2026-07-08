@@ -9,9 +9,7 @@ tags:
 
 # Interacting particle system
 
-An interacting particle system is a continuous-time Markov process on a product configuration space. Unlike a spin system, the single-site state space need not be two-state and the allowed updates need not be single-site flips.
-
-**Related pages.** [Lattice and graph](lattice-and-graph.md), [local functions](local-functions.md), [spin system](spin-system.md), [ergodicity](ergodicity.md).
+An interacting particle system is a continuous-time Markov process on a product configuration space over a countable [site set](lattice-and-graph.md). Unlike a [spin system](spin-system.md), the single-site state space need not be two-state and the allowed updates need not be single-site flips.
 
 **References.** Liggett, *Interacting Particle Systems*; Liggett, *Stochastic Interacting Systems*.
 
@@ -37,7 +35,7 @@ a, & j=i,\\
 \end{cases}
 $$
 
-Then the generator acts on local functions by
+Then the generator acts on [local functions](local-functions.md) by
 
 $$
 \cL f(\eta)
@@ -58,6 +56,10 @@ $$
 $$
 
 where each rate \(r_\theta\) is local and nonnegative, and the family of maps is locally finite enough for \(\cL f\) to be well-defined on local functions.
+
+## Ergodicity
+
+The long-time behaviour of an IPS is often formulated in terms of invariant measures and [ergodicity](ergodicity.md). In infinite volume, convergence to equilibrium is typically checked against local functions.
 
 ## Relation to spin systems
 
