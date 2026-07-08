@@ -4,22 +4,24 @@ title: Style decisions
 
 # Style decisions
 
-This page records durable style choices for the IPS wiki. Agents should consult it before drafting or editing entries.
+This page records durable style choices for the public IPS wiki.
 
 ## Current defaults
 
-- Prefer short entries with explicit mathematical status.
-- Begin each entry with a plain-language purpose paragraph.
+- Write entries as mathematical reference articles, not as commentary about the wiki.
+- Keep visible metadata minimal: related pages and references are useful; proof status should be clear from the text or front matter.
+- Prefer short entries with explicit mathematical scope.
 - Separate definitions, conventions, standard facts, and proof-dependent claims.
 - Use Markdown links between entries, for example `[ergodicity](../entries/ergodicity.md)`.
 - Do not present heuristic or project-specific claims as standard literature.
 - Keep notation close to the research repo conventions when possible.
 - Use `\varepsilon`, not `\epsilon`.
-- Use shared MathJax macros such as `\Z`, `\N`, `\R`, `\pP`, `\E`, and `\cL`.
-- Prefer rendered pages as the reading interface; raw Markdown is the editable source.
+- Use TeX delimiters `\(...\)` for inline math and `$$...$$` for displayed math.
+- Do not put private strategy, raw scratch work, credentials, personal data, or unpublished claims without proof status into this public repository.
 
-## Open style questions
+## Current mathematical conventions
 
-- Should entries be organized alphabetically, thematically, or by dependency order in the navigation?
-- Should each entry contain a short "What this is not" paragraph when a term has competing meanings?
-- Should literature notes be embedded in entries or moved to separate literature pages?
+- A spin system is two-state and uses single-site flip updates.
+- A finite-state product process with more than two single-site states, or with more general update maps, is called an interacting particle system.
+- The site space should be specified either as a graph or as a lattice with neighbourhoods.
+- Infinite-volume generators are first interpreted on local functions.
