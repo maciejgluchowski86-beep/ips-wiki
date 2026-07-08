@@ -27,6 +27,13 @@ This page records durable style choices for the public IPS wiki.
 - Prefer semantic links such as `[local functions](local-functions.md)` over navigation lists.
 - Use short index/navigation pages only for deliberate curated paths, not as substitutes for inline links.
 
+## Subset convention
+
+- Use `\subseteq` for subset, possibly equal.
+- Use `\subsetneq` for strict subset.
+- Use `\Subset` for finite subsets in the countable-lattice setting.
+- Do not use `\subset`, since it is ambiguous.
+
 ## Current mathematical conventions
 
 - The default index object is a lattice \(\Lambda\). A graph is an alternative description of neighbourhoods on \(\Lambda\).
