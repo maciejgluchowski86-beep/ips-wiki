@@ -1,12 +1,12 @@
 # IPS Wiki
 
-This repository is a source-of-truth wiki for interacting particle systems, spin systems, ergodicity, and related literature.
+This repository is a public-facing wiki for interacting particle systems, spin systems, ergodicity, and related literature.
 
-The wiki is article-first, not book-first. Each entry is a separate Markdown page under `docs/entries/`, with TeX math rendered in the web view and ordinary Markdown links between entries.
+The wiki is article-first. Each entry is a separate Markdown page under `docs/entries/`, with TeX math rendered in the web view and ordinary Markdown links between entries.
 
 ## Reading target
 
-The intended reading target is the rendered MkDocs site, not a single compiled PDF.
+The intended reading target is the rendered MkDocs site.
 
 - Source pages: `docs/`
 - Entry pages: `docs/entries/`
@@ -15,8 +15,11 @@ The intended reading target is the rendered MkDocs site, not a single compiled P
 
 GitHub Actions contains a `Build wiki site` workflow. It builds the site from `docs/` and deploys it through GitHub Pages when Pages is enabled for the repository.
 
-## Current entries
+## Current core entries
 
+- Lattice and graph: `docs/entries/lattice-and-graph.md`
+- Local functions: `docs/entries/local-functions.md`
+- Interacting particle system: `docs/entries/interacting-particle-system.md`
 - Spin system: `docs/entries/spin-system.md`
 - Ergodicity: `docs/entries/ergodicity.md`
 
@@ -28,9 +31,13 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 4. Commit the approved entry to `docs/entries/`.
 5. Rebuild the site.
 
+## Public-content rule
+
+This repository is intended to be safe for public viewing. Do not add private research strategy, raw scratch work, credentials, personal information, copyrighted source text, or unpublished claims stated without proof status.
+
 ## Mathematical status convention
 
-Each entry should label its status as one of:
+Each entry should label its status in front matter as one of:
 
 - `definition`
 - `standard fact`
