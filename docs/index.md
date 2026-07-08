@@ -1,13 +1,18 @@
 # IPS Wiki
 
-This is an article-first wiki for interacting particle systems, spin systems, ergodicity, and related research.
+This is a public-facing mathematical wiki for interacting particle systems, spin systems, ergodicity, and related research.
 
-Each entry is a separate page with rendered TeX math and ordinary links to neighboring entries. The source files are Markdown, so they can be edited directly, by Codex, or through a ChatGPT project with repository access.
+Each article is a separate page with rendered TeX math and ordinary links to neighboring entries. The source files are Markdown under `docs/`.
 
-## Current entries
+## Core entries
 
-- [Spin system](entries/spin-system.md)
-- [Ergodicity](entries/ergodicity.md)
+A minimal dependency order is:
+
+1. [Lattice and graph](entries/lattice-and-graph.md)
+2. [Local functions](entries/local-functions.md)
+3. [Interacting particle system](entries/interacting-particle-system.md)
+4. [Spin system](entries/spin-system.md)
+5. [Ergodicity](entries/ergodicity.md)
 
 ## Meta pages
 
@@ -16,8 +21,6 @@ Each entry is a separate page with rendered TeX math and ordinary links to neigh
 - [Entry template](meta/entry-template.md)
 - [References](meta/references.md)
 
-## Entry status labels
+## Public-content rule
 
-Each entry should label its status as one of: `definition`, `standard fact`, `proved here`, `conditional`, `heuristic`, `open`, or `obsolete`.
-
-Mathematical claims that are not definitions or standard facts should include a proof, citation, or explicit gap marker.
+This repository is intended to be safe for public viewing. Entries should contain definitions, standard facts, cited literature summaries, and carefully labeled project-level concepts. Private research strategy, raw scratch work, credentials, personal information, and unpublished claims stated without proof status do not belong here.
