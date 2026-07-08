@@ -20,11 +20,11 @@ $$
 \Omega=\mathcal S^\Lambda.
 $$
 
-For \(A\subset\Lambda\) and \(\eta\in\Omega\), write \(\eta|_A\) or \(\eta_A\) for the restriction of \(\eta\) to \(A\). These restrictions are used in the definition of [local functions](local-functions.md) and local transition rates for [interacting particle systems](interacting-particle-system.md).
+For \(A\subseteq\Lambda\) and \(\eta\in\Omega\), write \(\eta|_A\) or \(\eta_A\) for the restriction of \(\eta\) to \(A\). These restrictions are used in the definition of [local functions](local-functions.md) and local transition rates for [interacting particle systems](interacting-particle-system.md).
 
 ## Neighbourhood description
 
-A neighbourhood system assigns to each \(i\in\Lambda\) a set \(N(i)\subset\Lambda\setminus\{i\}\). The set \(N(i)\) consists of the neighbours of \(i\) and does not contain \(i\). Write
+A neighbourhood system assigns to each \(i\in\Lambda\) a set \(N(i)\subseteq\Lambda\setminus\{i\}\). The set \(N(i)\) consists of the neighbours of \(i\) and does not contain \(i\). Write
 
 $$
 N_*(i)=N(i)\cup\{i\}
@@ -36,7 +36,7 @@ A local update rate at \(i\) typically depends on \(\eta|_{N_*(i)}\), or on a sp
 
 ## Translation-invariant lattice convention
 
-On \(\Lambda=\Z^d\), locality is often described by a finite neighbourhood shape \(N\subset\Z^d\setminus\{0\}\). Then
+On \(\Lambda=\Z^d\), locality is often described by a finite neighbourhood shape \(N\Subset\Z^d\setminus\{0\}\). Then
 
 $$
 N(i)=i+N,
@@ -60,7 +60,7 @@ $$
 N(i)=\{j\in\Lambda:\{i,j\}\in E_G\}.
 $$
 
-A translation-invariant neighbourhood shape \(N\subset\Z^d\setminus\{0\}\) corresponds to the directed graph with edges \((i,i+u)\) for \(u\in N\). If \(N=-N\), the corresponding graph can be treated as undirected.
+A translation-invariant neighbourhood shape \(N\Subset\Z^d\setminus\{0\}\) corresponds to the directed graph with edges \((i,i+u)\) for \(u\in N\). If \(N=-N\), the corresponding graph can be treated as undirected.
 
 ## Finite range
 
