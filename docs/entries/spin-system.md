@@ -9,15 +9,13 @@ tags:
 
 # Spin system
 
-A spin system is a continuous-time interacting particle system with two possible states at each site. The state space is usually written as \(\{0,1\}^I\), or equivalently as \(\{-1,+1\}^I\). The defining feature is that updates are single-site flips.
-
-**Related pages.** [Lattice and graph](lattice-and-graph.md), [local functions](local-functions.md), [interacting particle system](interacting-particle-system.md), [ergodicity](ergodicity.md).
+A spin system is a continuous-time [interacting particle system](interacting-particle-system.md) with two possible states at each site. The state space is usually written as \(\{0,1\}^I\), or equivalently as \(\{-1,+1\}^I\). The defining feature is that updates are single-site flips.
 
 **References.** Liggett, *Interacting Particle Systems*; Liggett, *Stochastic Interacting Systems*.
 
 ## Definition
 
-Let \(I\) be a countable site set. A configuration is an element
+Let \(I\) be a countable [site set](lattice-and-graph.md). A configuration is an element
 
 $$
 \eta\in \Omega=\{0,1\}^I.
@@ -33,7 +31,7 @@ $$
 \end{cases}
 $$
 
-A spin system is a continuous-time Markov process on \(\Omega\) whose generator acts on local functions by
+A spin system is a continuous-time Markov process on \(\Omega\) whose generator acts on [local functions](local-functions.md) by
 
 $$
 \cL f(\eta)
@@ -45,7 +43,7 @@ where \(c_i(\eta)\ge0\) is the flip rate at site \(i\) in configuration \(\eta\)
 
 ## Locality
 
-The flip rate \(c_i\) is usually assumed to be local: there is a finite neighbourhood \(N_*(i)\subset I\), often containing \(i\), such that \(c_i(\eta)\) depends only on \(\eta|_{N_*(i)}\). On a translation-invariant lattice one often writes \(N_*(i)=i+N_*\) for a fixed finite neighbourhood shape \(N_*\subset\Z^d\).
+The flip rate \(c_i\) is usually assumed to be local: there is a finite [neighbourhood](lattice-and-graph.md) \(N_*(i)\subset I\), often containing \(i\), such that \(c_i(\eta)\) depends only on \(\eta|_{N_*(i)}\). On a translation-invariant lattice one often writes \(N_*(i)=i+N_*\) for a fixed finite neighbourhood shape \(N_*\subset\Z^d\).
 
 ## Positive rates
 
@@ -56,6 +54,10 @@ $$
 $$
 
 or, when the rates are translation-invariant and depend on finitely many coordinates, as positivity of the finite list of local rates.
+
+## Ergodicity
+
+Questions about long-time convergence of a spin system are formulated using invariant measures and [ergodicity](ergodicity.md). In infinite volume, local functions are the standard observables for testing convergence.
 
 ## Relation to general IPS
 
