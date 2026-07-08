@@ -13,7 +13,7 @@ Local functions are observables that depend on only finitely many lattice sites.
 
 ## Definition
 
-Let \(\Lambda\) be a [lattice](lattice-and-graph.md), let \(\mathcal S\) be a single-site state space, and let \(\Omega=\mathcal S^\Lambda\). A function \(f:\Omega\to\R\) is local if there is a finite set \(A\subset\Lambda\) such that
+Let \(\Lambda\) be a [lattice](lattice-and-graph.md), let \(\mathcal S\) be a single-site state space, and let \(\Omega=\mathcal S^\Lambda\). A function \(f:\Omega\to\R\) is local if there is a finite set \(A\Subset\Lambda\) such that
 
 $$
 \eta|_A=\xi|_A
@@ -29,13 +29,13 @@ If a minimal dependence set exists, it is denoted by \(\supp(f)\). More generall
 
 ## Cylinder functions
 
-Local functions are also called cylinder functions. If \(A\subset\Lambda\) is finite and \(g:\mathcal S^A\to\R\), then
+Local functions are also called cylinder functions. If \(A\Subset\Lambda\) and \(g:\mathcal S^A\to\R\), then
 
 $$
 f(\eta)=g(\eta|_A)
 $$
 
-defines a local function. Conversely, every local function has this form for some finite \(A\).
+defines a local function. Conversely, every local function has this form for some finite \(A\Subset\Lambda\).
 
 ## Role in generators
 
