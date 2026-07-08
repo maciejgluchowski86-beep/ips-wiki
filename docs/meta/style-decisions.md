@@ -29,7 +29,11 @@ This page records durable style choices for the public IPS wiki.
 
 ## Current mathematical conventions
 
+- The default index object is a lattice \(\Lambda\). A graph is an alternative description of neighbourhoods on \(\Lambda\).
+- The single-site state space is denoted by \(\mathcal S\), not \(E\).
+- The neighbour set \(N(i)\) does not contain \(i\). The enlarged set \(N_*(i)=N(i)\cup\{i\}\) does contain \(i\).
 - A spin system is two-state and uses single-site flip updates.
 - A finite-state product process with more than two single-site states, or with more general update maps, is called an interacting particle system.
-- The site space should be specified either as a graph or as a lattice with neighbourhoods.
 - Infinite-volume generators are first interpreted on local functions.
+- For an IPS semigroup, use \(P_t\), with \(P_t=e^{t\cL}\) only as formal generator notation when appropriate.
+- Distinguish unique invariant measure, ergodicity, and uniform exponential ergodicity.
