@@ -4,7 +4,7 @@ title: Entry template
 
 # Entry template
 
-Use this template for a new wiki article.
+Use this template for a new public wiki article.
 
 ```markdown
 ---
@@ -17,28 +17,32 @@ tags:
 
 # <Title>
 
-<Purpose paragraph. State what this entry fixes and which later entries use it.>
+<Mathematical opening paragraph. State the object or property directly. Avoid saying what the page does for the wiki.>
 
-**Status.** <Mathematical status.>
+**Related pages.** [<entry>](<entry>.md), [<entry>](<entry>.md).
 
-**Links.** Related entries: [<entry>](<entry>.md).
+**References.** <References or "None yet".>
 
-**Main references.** <References or "None yet".>
+## Definition
 
-!!! definition "<Name>"
-    <Definition.>
+<Definition.>
 
-!!! convention "<Name>"
-    <Convention, if needed.>
+## Basic facts
 
-!!! remark "<Name>"
-    <Clarification, warning, project-specific usage, or relation to neighboring entries.>
+<Standard facts, with hypotheses.>
+
+## Conventions
+
+<Conventions, only if needed.>
 ```
 
 ## Rules
 
 - Use one article per concept.
 - Use ordinary Markdown links for cross-links.
-- Use TeX delimiters `\(...\)` and `\[...\]` for math.
+- Use `\(...\)` for inline math.
+- Use `$$...$$` for displayed math.
+- Do not use raw `\[...\]` display blocks in entries.
 - Do not silently upgrade a heuristic claim into a standard fact.
 - Prefer separate short pages to long survey-style entries.
+- Keep public entries free of private scratch work and unpublished claims without proof status.
