@@ -9,9 +9,7 @@ tags:
 
 # Ergodicity
 
-Ergodicity is the property that the process forgets its initial distribution and converges to a unique invariant law. For infinite-volume spin systems and interacting particle systems, convergence is usually tested against local functions.
-
-**Related pages.** [Spin system](spin-system.md), [interacting particle system](interacting-particle-system.md), [local functions](local-functions.md).
+Ergodicity is the property that a Markov process forgets its initial distribution and converges to a unique invariant law. For infinite-volume [spin systems](spin-system.md) and [interacting particle systems](interacting-particle-system.md), convergence is usually tested against [local functions](local-functions.md).
 
 **References.** Liggett, *Interacting Particle Systems*; Liggett, *Stochastic Interacting Systems*; Levin, Peres, and Wilmer, *Markov Chains and Mixing Times*.
 
