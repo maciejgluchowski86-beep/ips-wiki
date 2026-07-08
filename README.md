@@ -2,7 +2,7 @@
 
 This repository is a public-facing wiki for interacting particle systems, spin systems, ergodicity, and related literature.
 
-The wiki is article-first. Each entry is a separate Markdown page under `docs/entries/`, with TeX math rendered in the web view and ordinary Markdown links between entries.
+The wiki is article-first. Each entry is a separate Markdown page under `docs/entries/`, with TeX math rendered in the web view and ordinary Markdown links between entries. Cross-links should usually be inline links through relevant words and phrases, not top-level related-page lists.
 
 ## Reading target
 
@@ -26,10 +26,10 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 ## Entry workflow
 
 1. Draft a mock entry in chat.
-2. Check terminology, notation, and proof status against existing entries.
-3. Add literature references and cross-links.
+2. Check terminology, notation, proof status, and inline links against existing entries.
+3. Add literature references where appropriate.
 4. Commit the approved entry to `docs/entries/`.
-5. Rebuild the site.
+5. The site deploys automatically after the push to `main`.
 
 ## Public-content rule
 
