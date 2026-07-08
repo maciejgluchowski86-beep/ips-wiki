@@ -10,11 +10,11 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 
 ## Current core entries
 
-1. `docs/entries/lattice-and-graph.md`: site spaces as graphs or lattice neighbourhood systems.
+1. `docs/entries/lattice-and-graph.md`: lattice notation \(\Lambda\), neighbourhoods \(N(i)\), enlarged neighbourhoods \(N_*(i)\), and graph descriptions.
 2. `docs/entries/local-functions.md`: finite-dependence observables and their role in generators.
-3. `docs/entries/interacting-particle-system.md`: general product-space Markov process with local updates.
-4. `docs/entries/spin-system.md`: two-state single-site flip system.
-5. `docs/entries/ergodicity.md`: convergence-to-equilibrium notion and local-function formulation.
+3. `docs/entries/interacting-particle-system.md`: general product-space Markov process on \(\mathcal S^\Lambda\) with local updates.
+4. `docs/entries/spin-system.md`: two-state single-site flip system, generator, and semigroup/kernel notation.
+5. `docs/entries/ergodicity.md`: IPS-specific distinction between unique invariant measure, ergodicity, and uniform exponential ergodicity.
 
 ## Current conventions
 
@@ -23,6 +23,9 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 - Cross-links should usually be Wikipedia-style inline links through relevant words or phrases.
 - Do not use top-level "Related pages" lists on ordinary entries.
 - Use `\(...\)` for inline math and `$$...$$` for display math.
+- Use \(\Lambda\) for the lattice and \(\mathcal S\) for the single-site state space.
+- A graph is an alternative description of neighbourhoods on \(\Lambda\).
+- \(N(i)\) does not contain \(i\), while \(N_*(i)=N(i)\cup\{i\}\) does.
 - Spin system means two-state single-site flip system.
 - IPS is the broader class allowing larger single-site spaces and more general local update maps.
 - Shared notation and durable style choices live in `docs/meta/`.
