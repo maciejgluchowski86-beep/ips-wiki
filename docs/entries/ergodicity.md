@@ -4,49 +4,102 @@ status: definition
 tags:
   - invariant measure
   - convergence to equilibrium
-  - mixing
+  - uniform exponential ergodicity
 ---
 
 # Ergodicity
 
-Ergodicity is the property that a Markov process forgets its initial distribution and converges to a unique invariant law. For infinite-volume [spin systems](spin-system.md) and [interacting particle systems](interacting-particle-system.md), convergence is usually tested against [local functions](local-functions.md).
+For an [interacting particle system](interacting-particle-system.md), ergodicity is a convergence-to-equilibrium property. It is stronger than uniqueness of an invariant measure and weaker than uniform exponential ergodicity.
 
 **References.** Liggett, *Interacting Particle Systems*; Liggett, *Stochastic Interacting Systems*; Levin, Peres, and Wilmer, *Markov Chains and Mixing Times*.
 
-## Definition
+## Setup
 
-Let \((S(t))_{t\ge0}\) be the Markov semigroup of a process on a configuration space \(\Omega\). A probability measure \(\nu\) on \(\Omega\) is invariant if
+Let \(\Lambda\) be a countable [lattice](lattice-and-graph.md), let \(\mathcal S\) be a finite single-site state space, and let
 
 $$
-\nu S(t)=\nu
+\Omega=\mathcal S^\Lambda.
+$$
+
+Let \((P_t)_{t\ge0}\) be the Markov semigroup of an interacting particle system on \(\Omega\). For a probability measure \(\mu\) on \(\Omega\), write \(\mu P_t\) for the law at time \(t\) started from \(\mu\):
+
+$$
+\int_\Omega f(\eta)\, (\mu P_t)(d\eta)
+=
+\int_\Omega P_t f(\eta)\,\mu(d\eta).
+$$
+
+## Invariant measure
+
+A probability measure \(\nu\) on \(\Omega\) is invariant if
+
+$$
+\nu P_t=\nu
 \qquad\text{for every }t\ge0.
 $$
 
-The process is ergodic if there is a probability measure \(\nu\) such that, for every initial probability measure \(\mu\),
+An IPS has a unique invariant measure if exactly one probability measure \(\nu\) satisfies this identity. Uniqueness alone does not assert that \(\mu P_t\) converges to \(\nu\) as \(t\to\infty\).
+
+## Ergodicity
+
+The IPS is ergodic if there is a probability measure \(\nu\) such that, for every initial probability measure \(\mu\) on \(\Omega\),
 
 $$
-\mu S(t)\Rightarrow \nu
+\mu P_t\Rightarrow \nu
 \qquad\text{as }t\to\infty.
 $$
 
-Here \(\Rightarrow\) denotes weak convergence of probability measures.
+Here \(\Rightarrow\) denotes weak convergence of probability measures on \(\Omega\). The limiting measure \(\nu\) is invariant, and ergodicity implies uniqueness of the invariant measure.
+
+Indeed, if \(\rho\) is invariant, then \(\rho P_t=\rho\) for all \(t\ge0\). By ergodicity, \(\rho P_t\Rightarrow\nu\), hence \(\rho=\nu\).
 
 ## Local-function formulation
 
-For a spin system on \(\{0,1\}^I\) with \(I\) countable, the product topology makes \(\Omega\) compact and metrizable. In this setting the convergence above is equivalent to
+When \(\mathcal S\) is finite and \(\Lambda\) is countable, the product topology makes \(\Omega\) compact and metrizable. In this setting, \(\mu P_t\Rightarrow\nu\) is equivalent to
 
 $$
-\lim_{t\to\infty} \int S(t)f(\eta)\,\mu(d\eta)
+\lim_{t\to\infty} \int_\Omega P_t f(\eta)\,\mu(d\eta)
 =
-\int f(\eta)\,\nu(d\eta)
+\int_\Omega f(\eta)\,\nu(d\eta)
 $$
 
-for every continuous function \(f\). Since local functions form a convergence-determining algebra, it is often enough to verify the same limit for every local function \(f\).
+for every continuous function \(f\). Since [local functions](local-functions.md) form a convergence-determining algebra, it is often enough to verify the same limit for every local function \(f\).
 
-## Uniqueness of the invariant measure
+For point-mass initial laws, this reads
 
-Ergodicity implies uniqueness of the invariant measure. Indeed, if \(\rho\) is invariant, then \(\rho S(t)=\rho\) for all \(t\ge0\). By ergodicity, \(\rho S(t)\Rightarrow\nu\), hence \(\rho=\nu\).
+$$
+\lim_{t\to\infty} P_t f(\eta)
+=
+\int_\Omega f(\xi)\,\nu(d\xi)
+$$
 
-## Quantitative variants
+for every initial configuration \(\eta\in\Omega\) and every local function \(f\).
 
-Ergodicity is qualitative. Stronger notions include exponential convergence, uniform convergence over initial states, spectral-gap estimates, logarithmic Sobolev estimates, and mixing-time bounds. These require separate hypotheses and should not be inferred from ergodicity alone.
+## Uniform exponential ergodicity
+
+Uniform exponential ergodicity is a quantitative strengthening of ergodicity. One common local-function formulation is that there are constants \(C<\infty\) and \(\gamma>0\) such that
+
+$$
+\sup_{\eta\in\Omega}
+\left|P_t f(\eta)-\int_\Omega f(\xi)\,\nu(d\xi)\right|
+\le
+C e^{-\gamma t}\,\|f\|_*
+$$
+
+for all \(t\ge0\) and all functions \(f\) in a specified class, with a specified norm \(\|\cdot\|_*\). The choice of function class and norm is part of the statement. For example, \(\|f\|_*\) might be a weighted local-dependence norm rather than the sup norm.
+
+Uniform exponential ergodicity implies ergodicity. It is not implied by uniqueness of the invariant measure, and it should not be inferred from qualitative ergodicity unless a quantitative estimate is proved.
+
+## Hierarchy
+
+The relevant implication chain is
+
+$$
+\text{uniform exponential ergodicity}
+\quad\Longrightarrow\quad
+\text{ergodicity}
+\quad\Longrightarrow\quad
+\text{unique invariant measure}.
+$$
+
+Neither reverse implication holds in general without additional hypotheses.
