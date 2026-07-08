@@ -23,6 +23,7 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 - Cross-links should usually be Wikipedia-style inline links through relevant words or phrases.
 - Do not use top-level "Related pages" lists on ordinary entries.
 - Use `\(...\)` for inline math and `$$...$$` for display math.
+- Use `\subseteq` for subset, `\subsetneq` for strict subset, and `\Subset` for finite subsets. Do not use `\subset`.
 - Use \(\Lambda\) for the lattice and \(\mathcal S\) for the single-site state space.
 - A graph is an alternative description of neighbourhoods on \(\Lambda\).
 - \(N(i)\) does not contain \(i\), while \(N_*(i)=N(i)\cup\{i\}\) does.
