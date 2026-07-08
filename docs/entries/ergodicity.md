@@ -9,40 +9,46 @@ tags:
 
 # Ergodicity
 
-This entry fixes the wiki convention for ergodicity of a spin system. The convention is convergence to a unique limiting invariant law, not merely extremality of an invariant measure or measure-preserving ergodicity of a shift action.
+Ergodicity is the property that the process forgets its initial distribution and converges to a unique invariant law. For infinite-volume spin systems and interacting particle systems, convergence is usually tested against local functions.
 
-**Status.** Definition and convention.
+**Related pages.** [Spin system](spin-system.md), [interacting particle system](interacting-particle-system.md), [local functions](local-functions.md).
 
-**Links.** Depends on [spin system](spin-system.md).
+**References.** Liggett, *Interacting Particle Systems*; Liggett, *Stochastic Interacting Systems*; Levin, Peres, and Wilmer, *Markov Chains and Mixing Times*.
 
-**Main references.** Liggett, *Interacting Particle Systems*; Liggett, *Stochastic Interacting Systems*; Levin, Peres, and Wilmer, *Markov Chains and Mixing Times*.
+## Definition
 
-Let \((S(t))_{t\ge0}\) be the Markov semigroup of a [spin system](spin-system.md) on \(\Omega=E^\Lambda\). If \(\mu\) is a probability measure on \(\Omega\), then \(\mu S(t)\) denotes the law at time \(t\) started from \(\mu\).
+Let \((S(t))_{t\ge0}\) be the Markov semigroup of a process on a configuration space \(\Omega\). A probability measure \(\nu\) on \(\Omega\) is invariant if
 
-!!! definition "Ergodicity"
-    A spin system is ergodic if there is a probability measure \(\nu\) on \(\Omega\) such that, for every initial probability measure \(\mu\) on \(\Omega\),
-    \[
-        \mu S(t) \Rightarrow \nu
-        \qquad\text{as }t\to\infty,
-    \]
-    where \(\Rightarrow\) denotes weak convergence of probability measures on \(\Omega\).
+$$
+\nu S(t)=\nu
+\qquad\text{for every }t\ge0.
+$$
 
-In particular, \(\nu\) is invariant. Indeed, if \(s\ge0\), then
-\[
-    \nu S(s)
-    =\lim_{t\to\infty} \mu S(t+s)
-    =\nu,
-\]
-whenever the semigroup is continuous enough to pass the limit through the fixed-time map. This is the usual situation for Feller spin systems on compact product spaces.
+The process is ergodic if there is a probability measure \(\nu\) such that, for every initial probability measure \(\mu\),
 
-!!! remark "Uniqueness"
-    The definition implies uniqueness of the invariant measure. If \(\rho\) is invariant, then \(\rho S(t)=\rho\) for all \(t\), while ergodicity gives \(\rho S(t)\Rightarrow\nu\). Hence \(\rho=\nu\).
+$$
+\mu S(t)\Rightarrow \nu
+\qquad\text{as }t\to\infty.
+$$
 
-!!! remark "Finite versus infinite state space"
-    For a finite irreducible continuous-time Markov chain, ergodicity is equivalent to convergence to the unique stationary distribution. Infinite spin systems require more care: convergence may be weak convergence against local functions, and uniqueness of an invariant measure alone need not be the most convenient formulation in a proof.
+Here \(\Rightarrow\) denotes weak convergence of probability measures.
 
-!!! convention "Wiki convention"
-    When an entry says that a spin system is ergodic without further qualification, it means the convergence above. Stronger statements, such as exponential ergodicity, uniform convergence over initial states, spectral gap bounds, or quantitative mixing, must be stated separately.
+## Local-function formulation
 
-!!! remark "Relation to the Positive Rates Conjecture"
-    For the Positive Rates Conjecture program, the target conclusion is ergodicity in the above convergence-to-equilibrium sense for one-dimensional positive-rate spin systems. Project-specific routes should state whether they prove this conclusion directly, prove a stronger quantitative version, or only establish a conditional reduction.
+For a spin system on \(\{0,1\}^I\) with \(I\) countable, the product topology makes \(\Omega\) compact and metrizable. In this setting the convergence above is equivalent to
+
+$$
+\lim_{t\to\infty} \int S(t)f(\eta)\,\mu(d\eta)
+=
+\int f(\eta)\,\nu(d\eta)
+$$
+
+for every continuous function \(f\). Since local functions form a convergence-determining algebra, it is often enough to verify the same limit for every local function \(f\).
+
+## Uniqueness of the invariant measure
+
+Ergodicity implies uniqueness of the invariant measure. Indeed, if \(\rho\) is invariant, then \(\rho S(t)=\rho\) for all \(t\ge0\). By ergodicity, \(\rho S(t)\Rightarrow\nu\), hence \(\rho=\nu\).
+
+## Quantitative variants
+
+Ergodicity is qualitative. Stronger notions include exponential convergence, uniform convergence over initial states, spectral-gap estimates, logarithmic Sobolev estimates, and mixing-time bounds. These require separate hypotheses and should not be inferred from ergodicity alone.
