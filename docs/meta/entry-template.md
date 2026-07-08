@@ -17,9 +17,7 @@ tags:
 
 # <Title>
 
-<Mathematical opening paragraph. State the object or property directly. Avoid saying what the page does for the wiki.>
-
-**Related pages.** [<entry>](<entry>.md), [<entry>](<entry>.md).
+<Mathematical opening paragraph. State the object or property directly. Link prerequisite concepts inline at their first natural use. Avoid saying what the page does for the wiki.>
 
 **References.** <References or "None yet".>
 
@@ -39,7 +37,10 @@ tags:
 ## Rules
 
 - Use one article per concept.
+- Use Wikipedia-style inline links through relevant words and phrases.
+- Do not add a top-level "Related pages" list to ordinary entries.
 - Use ordinary Markdown links for cross-links.
+- Link a concept the first time it is mathematically useful; do not link every repetition.
 - Use `\(...\)` for inline math.
 - Use `$$...$$` for displayed math.
 - Do not use raw `\[...\]` display blocks in entries.
