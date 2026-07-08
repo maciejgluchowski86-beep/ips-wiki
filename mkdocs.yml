@@ -19,6 +19,9 @@ theme:
 nav:
   - Home: index.md
   - Entries:
+      - Lattice and graph: entries/lattice-and-graph.md
+      - Local functions: entries/local-functions.md
+      - Interacting particle system: entries/interacting-particle-system.md
       - Spin system: entries/spin-system.md
       - Ergodicity: entries/ergodicity.md
   - Meta:
