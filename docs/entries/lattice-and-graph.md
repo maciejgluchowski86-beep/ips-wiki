@@ -10,9 +10,7 @@ tags:
 
 # Lattice and graph
 
-The site space specifies where the components of a configuration live and which sites may influence which updates. Two common descriptions are useful: a graph description and a lattice-neighbourhood description.
-
-**Related pages.** [Spin system](spin-system.md), [interacting particle system](interacting-particle-system.md), [local functions](local-functions.md).
+The site space specifies where the components of a configuration live and which sites may influence which updates. It is used to define the configuration space of an [interacting particle system](interacting-particle-system.md), the flip rates of a [spin system](spin-system.md), and the dependence sets of [local functions](local-functions.md).
 
 ## Site set
 
