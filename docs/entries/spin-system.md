@@ -43,7 +43,7 @@ where \(c_i(\eta)\ge0\) is the flip rate at site \(i\) in configuration \(\eta\)
 
 ## Locality
 
-The flip rate \(c_i\) is usually assumed to be local: there is a finite [neighbourhood](lattice-and-graph.md) \(N_*(i)\subset\Lambda\), containing \(i\), such that \(c_i(\eta)\) depends only on \(\eta|_{N_*(i)}\). The neighbour set \(N(i)\) itself does not contain \(i\), and \(N_*(i)=N(i)\cup\{i\}\). On a translation-invariant lattice one often writes \(N_*(i)=i+N_*\) for a fixed finite neighbourhood shape \(N_*\subset\Z^d\) containing \(0\).
+The flip rate \(c_i\) is usually assumed to be local: there is a finite [neighbourhood](lattice-and-graph.md) \(N_*(i)\Subset\Lambda\), containing \(i\), such that \(c_i(\eta)\) depends only on \(\eta|_{N_*(i)}\). The neighbour set \(N(i)\) itself does not contain \(i\), and \(N_*(i)=N(i)\cup\{i\}\). On a translation-invariant lattice one often writes \(N_*(i)=i+N_*\) for a fixed finite neighbourhood shape \(N_*\Subset\Z^d\) containing \(0\).
 
 ## Kernel and semigroup
 
