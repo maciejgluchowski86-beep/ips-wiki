@@ -1,0 +1,46 @@
+% Entry: Ergodicity
+% Status: definition
+% Tags: invariant measure; convergence to equilibrium; mixing
+
+\section{Ergodicity}\label{ent:ergodicity}
+
+This entry fixes the wiki convention for ergodicity of a spin system. The convention is convergence to a unique limiting invariant law, not merely extremality of an invariant measure or measure-preserving ergodicity of a shift action.
+
+\wikistatus{Definition and convention.}
+\wikilinks{Depends on \cref{ent:spin-system}.}
+\wikirefs{Standard Markov-process background: \cite{Liggett1985IPS,Liggett1999SIS,LevinPeresWilmer2017}.}
+
+Let \((S(t))_{t\ge0}\) be the Markov semigroup of a spin system on \(\Omega=E^\Lambda\). If \(\mu\) is a probability measure on \(\Omega\), then \(\mu S(t)\) denotes the law at time \(t\) started from \(\mu\).
+
+\begin{defn}[Ergodicity]\label{def:ergodicity}
+A spin system is ergodic if there is a probability measure \(\nu\) on \(\Omega\) such that, for every initial probability measure \(\mu\) on \(\Omega\),
+\[
+    \mu S(t) \Rightarrow \nu
+    \qquad\text{as }t\to\infty,
+\]
+where \(\Rightarrow\) denotes weak convergence of probability measures on \(\Omega\).
+\end{defn}
+
+In particular, \(\nu\) is invariant. Indeed, if \(s\ge0\), then
+\[
+    \nu S(s)
+    =\lim_{t\to\infty} \mu S(t+s)
+    =\nu,
+\]
+whenever the semigroup is continuous enough to pass the limit through the fixed time map. This is the usual situation for Feller spin systems on compact product spaces.
+
+\begin{rem}[Uniqueness]\label{rem:ergodicity-uniqueness}
+The definition implies uniqueness of the invariant measure. If \(\rho\) is invariant, then \(\rho S(t)=\rho\) for all \(t\), while ergodicity gives \(\rho S(t)\Rightarrow\nu\). Hence \(\rho=\nu\).
+\end{rem}
+
+\begin{rem}[Finite versus infinite state space]\label{rem:finite-infinite-ergodicity}
+For a finite irreducible continuous-time Markov chain, ergodicity is equivalent to convergence to the unique stationary distribution. Infinite spin systems require more care: convergence may be weak convergence against local functions, and uniqueness of an invariant measure alone need not be the most convenient formulation in a proof.
+\end{rem}
+
+\begin{conv}[Wiki convention]\label{conv:ergodicity-wiki}
+When an entry says that a spin system is ergodic without further qualification, it means the convergence in \cref{def:ergodicity}. Stronger statements, such as exponential ergodicity, uniform convergence over initial states, spectral gap bounds, or quantitative mixing, must be stated separately.
+\end{conv}
+
+\begin{rem}[Relation to the Positive Rates Conjecture]\label{rem:ergodicity-prc}
+For the Positive Rates Conjecture program, the target conclusion is ergodicity in the above convergence-to-equilibrium sense for one-dimensional positive-rate spin systems. Project-specific routes should state whether they prove this conclusion directly, prove a stronger quantitative version, or only establish a conditional reduction.
+\end{rem}
