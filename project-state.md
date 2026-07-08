@@ -6,7 +6,7 @@ This file records the current state of the IPS wiki. Keep it short and overwrite
 
 The wiki is article-first and public-facing. Source pages live under `docs/`, and each entry is a separate Markdown page under `docs/entries/`. TeX math is rendered by the MkDocs site through MathJax. Internal links are ordinary Markdown links between pages.
 
-The build target is the `Build wiki site` GitHub Actions workflow. It builds the MkDocs site from `docs/` and deploys through GitHub Pages when Pages is enabled for the repository.
+The build target is the `Build wiki site` GitHub Actions workflow. It builds the MkDocs site from `docs/` and deploys through GitHub Pages after every push to `main`.
 
 ## Current core entries
 
@@ -20,7 +20,8 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 
 - Public pages should not contain private strategy, raw scratch work, personal information, credentials, copyrighted source text, or unpublished claims without proof status.
 - Entries should be mathematical articles, not commentary about the wiki.
-- Cross-links use Markdown page links.
+- Cross-links should usually be Wikipedia-style inline links through relevant words or phrases.
+- Do not use top-level "Related pages" lists on ordinary entries.
 - Use `\(...\)` for inline math and `$$...$$` for display math.
 - Spin system means two-state single-site flip system.
 - IPS is the broader class allowing larger single-site spaces and more general local update maps.
