@@ -1,0 +1,47 @@
+site_name: IPS Wiki
+site_description: Wiki for interacting particle systems, spin systems, ergodicity, and related research.
+site_author: Maciej Głuchowski
+repo_url: https://github.com/maciejgluchowski86-beep/ips-wiki
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.instant
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Entries:
+      - Spin system: entries/spin-system.md
+      - Ergodicity: entries/ergodicity.md
+  - Meta:
+      - Notation: meta/notation.md
+      - Style decisions: meta/style-decisions.md
+      - Entry template: meta/entry-template.md
+      - References: meta/references.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
