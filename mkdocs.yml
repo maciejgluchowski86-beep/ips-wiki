@@ -21,6 +21,7 @@ nav:
   - Home: index.md
   - Core entries:
       - Lattice and graph: entries/lattice-and-graph.md
+      - Polynomial-growth lattice: entries/polynomial-growth-lattice.md
       - Local functions: entries/local-functions.md
       - Monomials: entries/monomials.md
       - Interacting particle system: entries/interacting-particle-system.md
