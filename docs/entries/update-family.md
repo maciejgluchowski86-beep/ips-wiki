@@ -9,7 +9,7 @@ tags:
 
 # Update family
 
-An update family specifies which local vacancy patterns allow a constrained refresh. It is the combinatorial input for a [kinetically constrained spin model](kinetically-constrained-spin-model.md).
+An update family specifies which local vacancy patterns allow a constrained refresh. It is the combinatorial input for a [kinetically constrained spin model](kinetically-constrained-spin-model.md), including the [FA-1f model](fa-1f-model.md) and the [East model](east-model.md).
 
 ## Definition
 
@@ -31,7 +31,7 @@ c_i(\eta)
 \ind\{\exists U\in\mathcal U_i\text{ such that }\eta(j)=0\text{ for every }j\in U\}.
 $$
 
-Equivalently, using vacancy indicators,
+Equivalently, using vacancy indicators written in the [monomial](monomials.md) notation,
 
 $$
 c_i(\eta)
@@ -68,4 +68,4 @@ $$
 
 ## Monotonicity
 
-With the convention that \(0\) is facilitating, constraints are decreasing in the product order on configurations: changing more sites from \(0\) to \(1\) can only destroy legal updates. This monotonicity is a property of the constraint, not of the full dynamics, and KCSM are generally non-attractive.
+With the convention that \(0\) is facilitating, constraints are decreasing in the product order on configurations: changing more sites from \(0\) to \(1\) can only destroy [legal updates](legal-update.md). This monotonicity is a property of the constraint, not of the full dynamics, and KCSM are generally non-attractive.
