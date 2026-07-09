@@ -9,13 +9,13 @@ tags:
 
 # FA-1f model
 
-The Fredrickson-Andersen one-spin facilitated model, abbreviated FA-1f, is the [KCSM](kinetically-constrained-spin-model.md) in which a site may refresh when at least one neighbour is vacant.
+The Fredrickson-Andersen one-spin facilitated model, abbreviated FA-1f, is the [KCSM](kinetically-constrained-spin-model.md) in which a site may refresh when at least one neighbour is vacant. It is the basic nonoriented analogue of the [East model](east-model.md).
 
 **References.** Hartarsky and Toninelli, *Kinetically constrained models*; Blondel, Cancrini, Martinelli, Roberto, and Toninelli, *Fredrickson-Andersen one spin facilitated model out of equilibrium*.
 
 ## Definition on a lattice
 
-Let \(\Lambda\) be a [lattice](lattice-and-graph.md) with finite neighbour sets \(N(i)\). The FA-1f update family at \(i\) is
+Let \(\Lambda\) be a [lattice](lattice-and-graph.md) with finite neighbour sets \(N(i)\). The FA-1f [update family](update-family.md) at \(i\) is
 
 $$
 \mathcal U_i=\bigl\{\{j\}:j\in N(i)\bigr\}.
@@ -52,6 +52,8 @@ $$
 \bigl(E_i^q f(\eta)-f(\eta)\bigr).
 $$
 
+A refresh occurs only at a [legal update](legal-update.md), meaning a clock ring whose site has at least one vacant neighbour.
+
 ## Nearest-neighbour FA-1f on \(\Z^d\)
 
 On \(\Lambda=\Z^d\) with nearest-neighbour graph,
@@ -64,4 +66,4 @@ Then a site updates if at least one nearest neighbour is vacant. This is the sta
 
 ## Noncooperative character
 
-FA-1f is noncooperative: a single vacancy can facilitate the motion and creation of further vacancies through legal updates. This distinguishes it from cooperative models such as FA-2f, where larger local vacancy patterns are required.
+FA-1f is noncooperative: a single vacancy can facilitate the motion and creation of further vacancies through legal updates. This distinguishes it from cooperative models such as FA-2f, where larger local vacancy patterns are required. Known convergence results are recorded in [FA-1f out of equilibrium](fa-1f-out-of-equilibrium.md).
