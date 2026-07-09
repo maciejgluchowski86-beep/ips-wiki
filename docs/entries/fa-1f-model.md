@@ -52,7 +52,7 @@ $$
 \bigl(E_i^q f(\eta)-f(\eta)\bigr).
 $$
 
-A refresh occurs only at a [legal update](legal-update.md), meaning a clock ring whose site has at least one vacant neighbour.
+A refresh occurs only at a [legal update](legal-update.md), meaning a clock ring whose site has at least one vacant neighbour. The corresponding finite-set dual is recorded in [monomial duality for FA-1f](monomial-duality-for-fa-1f.md).
 
 ## Nearest-neighbour FA-1f on \(\Z^d\)
 
