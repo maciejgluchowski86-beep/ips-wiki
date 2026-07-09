@@ -9,7 +9,7 @@ tags:
 
 # Legal update
 
-A legal update is a clock ring at which the local kinetic constraint is satisfied. The term is used for [kinetically constrained spin models](kinetically-constrained-spin-model.md) and their graphical constructions.
+A legal update is a clock ring at which the local kinetic constraint is satisfied. The term is used for [kinetically constrained spin models](kinetically-constrained-spin-model.md), their [update families](update-family.md), and graphical constructions.
 
 ## Definition
 
@@ -31,4 +31,4 @@ $$
 
 is a legal path if each transition \(\eta_k\to\eta_{k+1}\) changes at most one site and, whenever it changes site \(i\), the constraint at \(i\) is satisfied in \(\eta_k\).
 
-Legal paths are used to describe communication classes, blocked configurations, and the connection between KCSM and bootstrap percolation.
+Legal paths are used to describe communication classes, blocked configurations, and the connection between KCSM and bootstrap percolation. For concrete model constraints, see the [FA-1f model](fa-1f-model.md) and the [East model](east-model.md).
