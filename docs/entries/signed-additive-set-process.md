@@ -34,29 +34,21 @@ $$
 \beta_i(\vn)=0.
 $$
 
-For \(i\in A\), define the source-killing and source-keeping set maps
+For \(Y=(A,\sigma)\) with \(i\in A\), define the source-killing and source-keeping update maps
 
 $$
-D_{i,S}A=(A\setminus\{i\})\cup S,
-\qquad
-B_{i,S}A=A\cup S.
+D_{i,S}Y=\left((A\setminus\{i\})\cup S,\sigma\sigma_i^\delta(S)\right),
 $$
 
-A source-killing update with source \(i\) and activated neighbour set \(S\) is
+and
 
 $$
-(A,\sigma)\to(D_{i,S}A,\sigma\sigma_i^\delta(S))
+B_{i,S}Y=\left(A\cup S,\sigma\sigma_i^\beta(S)\right).
 $$
 
-and occurs at rate \(\delta_i(S)\). It removes the source site \(i\) and activates \(S\).
+The update \(D_{i,S}\) removes the source site \(i\), activates \(S\), and changes the sign by \(\sigma_i^\delta(S)\). It occurs at rate \(\delta_i(S)\).
 
-A source-keeping update with source \(i\) and activated neighbour set \(S\) is
-
-$$
-(A,\sigma)\to(B_{i,S}A,\sigma\sigma_i^\beta(S))
-$$
-
-and occurs at rate \(\beta_i(S)\). It keeps the source site \(i\) and activates \(S\). The convention \(\beta_i(\vn)=0\) removes the source-keeping empty update.
+The update \(B_{i,S}\) keeps the source site \(i\), activates \(S\), and changes the sign by \(\sigma_i^\beta(S)\). It occurs at rate \(\beta_i(S)\). The convention \(\beta_i(\vn)=0\) removes the source-keeping empty update.
 
 ## Generator
 
@@ -64,13 +56,14 @@ The generator is
 
 $$
 \begin{aligned}
-\cD F(A,\sigma)
+\cD f(Y)
 ={}&
 \sum_{i\in A}\sum_{S\subseteq N(i)}\delta_i(S)
-\left(F(D_{i,S}A,\sigma\sigma_i^\delta(S))-F(A,\sigma)\right)\\
+\left(f(D_{i,S}Y)-f(Y)\right)\\
 &+
 \sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\ne\vn}}\beta_i(S)
-\left(F(B_{i,S}A,\sigma\sigma_i^\beta(S))-F(A,\sigma)\right).
+\left(f(B_{i,S}Y)-f(Y)\right),
+\qquad Y=(A,\sigma).
 \end{aligned}
 $$
 
