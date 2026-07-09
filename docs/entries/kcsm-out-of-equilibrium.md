@@ -9,7 +9,7 @@ tags:
 
 # KCSM out of equilibrium
 
-Out-of-equilibrium KCSM questions concern convergence when the initial law is not the Bernoulli product invariant measure \(\mu_q\). They are motivated by quenches and by the failure of many standard tools for constrained non-attractive dynamics.
+Out-of-equilibrium KCSM questions concern convergence when the initial law is not the Bernoulli product invariant measure \(\mu_q\). They are motivated by quenches and by the failure of many standard tools for constrained non-attractive dynamics. This infinite-volume topic is distinct from finite-volume [KCSM relaxation and mixing](kcsm-relaxation-and-mixing.md).
 
 **References.** Hartarsky and F. Toninelli, *Kinetically constrained models out of equilibrium*, Theorem 3.3; Hartarsky and Toninelli, *Kinetically constrained models*.
 
@@ -25,7 +25,7 @@ for suitable [local functions](local-functions.md) \(f\).
 
 ## High-vacancy theorem
 
-Let \(\mathcal U\) be a translation-invariant update family on \(\Z^d\). Let \(\widetilde q_c^{\mathrm{KCM}}\) be the critical vacancy density for positive spectral gap of the corresponding infinite-volume KCSM.
+Let \(\mathcal U\) be a translation-invariant [update family](update-family.md) on \(\Z^d\). Let \(\widetilde q_c^{\mathrm{KCM}}\) be the critical vacancy density for positive spectral gap of the corresponding infinite-volume KCSM.
 
 **Theorem.** Fix \(\alpha>0\). There exist constants \(\varepsilon\in(0,1)\) and \(c>0\), depending on \(\mathcal U\) and \(\alpha\), such that the following holds. Let \((\eta_t)_{t\ge0}\) be the infinite-volume \(\mathcal U\)-KCSM with equilibrium vacancy density
 
