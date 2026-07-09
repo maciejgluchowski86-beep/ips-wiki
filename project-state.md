@@ -11,12 +11,13 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 ## Current core entries
 
 1. `docs/entries/lattice-and-graph.md`: lattice notation \(\Lambda\), neighbourhoods \(N(i)\), enlarged neighbourhoods \(N_*(i)\), reachability, orientation, and graph descriptions.
-2. `docs/entries/local-functions.md`: finite-dependence observables and their role in generators.
-3. `docs/entries/monomials.md`: monomials \(\chi_A\) and algebraic identities.
-4. `docs/entries/interacting-particle-system.md`: general product-space Markov process on \(\mathcal S^\Lambda\) with local updates.
-5. `docs/entries/spin-system.md`: two-state single-site flip system, generator, and semigroup/kernel notation.
-6. `docs/entries/oriented-spin-system.md`: spin systems on oriented lattices, with orientation defined by reachability through \(N(i)\).
-7. `docs/entries/ergodicity.md`: IPS-specific distinction between unique invariant measure, ergodicity, and uniform exponential ergodicity.
+2. `docs/entries/polynomial-growth-lattice.md`: graph distance, balls, and \((k,D)\)-polynomial growth.
+3. `docs/entries/local-functions.md`: finite-dependence observables and their role in generators.
+4. `docs/entries/monomials.md`: monomials \(\chi_A\) and algebraic identities.
+5. `docs/entries/interacting-particle-system.md`: general product-space Markov process on \(\mathcal S^\Lambda\) with local updates.
+6. `docs/entries/spin-system.md`: two-state single-site flip system, generator, and semigroup/kernel notation.
+7. `docs/entries/oriented-spin-system.md`: spin systems on oriented lattices, with orientation defined by reachability through \(N(i)\).
+8. `docs/entries/ergodicity.md`: IPS-specific distinction between unique invariant measure, ergodicity, and uniform exponential ergodicity.
 
 ## Current KCSM entries
 
@@ -28,8 +29,8 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 6. `docs/entries/east-model.md`: East model on an oriented lattice using \(N(i)\).
 7. `docs/entries/kcsm-relaxation-and-mixing.md`: relaxation time, mixing time, and precutoff terminology.
 8. `docs/entries/kcsm-out-of-equilibrium.md`: general out-of-equilibrium setup.
-9. `docs/entries/fa-1f-out-of-equilibrium.md`: known FA-1f out-of-equilibrium results.
-10. `docs/entries/east-out-of-equilibrium.md`: known East out-of-equilibrium results.
+9. `docs/entries/fa-1f-out-of-equilibrium.md`: theorem records for known FA-1f out-of-equilibrium convergence results.
+10. `docs/entries/east-out-of-equilibrium.md`: theorem records for known East out-of-equilibrium convergence results.
 
 ## Current conventions
 
