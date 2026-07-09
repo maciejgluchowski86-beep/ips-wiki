@@ -11,7 +11,7 @@ tags:
 
 Out-of-equilibrium KCSM questions concern convergence when the initial law is not the Bernoulli product invariant measure \(\mu_q\). They are motivated by quenches and by the failure of many standard tools for constrained non-attractive dynamics.
 
-**References.** Hartarsky and Toninelli, *Kinetically constrained models*; Hartarsky and F. Toninelli, *Kinetically constrained models out of equilibrium*.
+**References.** Hartarsky and F. Toninelli, *Kinetically constrained models out of equilibrium*, Theorem 3.3; Hartarsky and Toninelli, *Kinetically constrained models*.
 
 ## Setup
 
@@ -23,15 +23,35 @@ $$
 
 for suitable [local functions](local-functions.md) \(f\).
 
-A common quench initial law is another Bernoulli product measure \(\mu_{q_0}\) with \(q_0\ne q\). Deterministic initial configurations are also important, especially for oriented models and front problems.
+## High-vacancy theorem
 
-## Obstructions
+Let \(\mathcal U\) be a translation-invariant update family on \(\Z^d\). Let \(\widetilde q_c^{\mathrm{KCM}}\) be the critical vacancy density for positive spectral gap of the corresponding infinite-volume KCSM.
 
-KCSM may have blocked configurations or regions that cannot be legally updated. Therefore convergence can depend on the model, the lattice, the vacancy density \(q\), and the initial law \(\nu\). The invariant measure \(\mu_q\) may be reversible without being the unique invariant measure on the full configuration space.
+**Theorem.** Fix \(\alpha>0\). There exist constants \(\varepsilon\in(0,1)\) and \(c>0\), depending on \(\mathcal U\) and \(\alpha\), such that the following holds. Let \((\eta_t)_{t\ge0}\) be the infinite-volume \(\mathcal U\)-KCSM with equilibrium vacancy density
 
-## High-vacancy regime
+$$
+q\in[1-\varepsilon,1]
+$$
 
-For general KCSM, the most robust out-of-equilibrium results are in high vacancy density regimes. In the current convention this means \(q\) close to \(1\). Hartarsky and F. Toninelli prove exponential convergence to equilibrium in infinite volume and linear-time precutoff in finite volume for a broad class of KCSM in this regime, including critical models covered by their hypotheses.
+and initial law \(\mu_{q_0}\), where
+
+$$
+q_0\in[\widetilde q_c^{\mathrm{KCM}}+\alpha,1].
+$$
+
+Then for every local function \(f:\{0,1\}^{\Z^d}\to\R\) and every \(t\ge0\),
+
+$$
+\left|\E_{\mu_{q_0}}[f(\eta_t)]-\mu_q(f)\right|
+\le
+c^{-1}e^{-ct}\|f\|_\infty |\supp(f)|.
+$$
+
+This is Hartarsky--F. Toninelli, Theorem 3.3, translated from their convention in which the facilitating state is \(1\) to the wiki convention in which the facilitating state is \(0\).
+
+## Initial laws beyond product measures
+
+The product initial law in the theorem is not essential. The proof also applies to initial laws whose vacancy field stochastically dominates \(\mu_{q_0}\) in the natural product order.
 
 ## Model-specific pages
 
