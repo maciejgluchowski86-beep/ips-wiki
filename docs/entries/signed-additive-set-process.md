@@ -15,11 +15,17 @@ $$
 (A_t,\sigma_t)\in\{A:A\Subset\Lambda\}\times\{-1,+1\}.
 $$
 
-It is specified by two families of real weights
+It is specified by nonnegative rates
 
 $$
-\delta_i(S),\quad \beta_i(S)\in\R,
-\qquad i\in\Lambda,\quad S\subseteq N(i).
+\delta_i(S),\quad \beta_i(S)\ge0,
+\qquad i\in\Lambda,\quad S\subseteq N(i),
+$$
+
+and sign labels
+
+$$
+\sigma_i^\delta(S),\quad \sigma_i^\beta(S)\in\{-1,+1\}.
 $$
 
 For \(i\in A\), define the source-killing and source-keeping set maps
@@ -30,23 +36,23 @@ D_{i,S}A=(A\setminus\{i\})\cup S,
 B_{i,S}A=A\cup S.
 $$
 
-A nonzero weight \(\delta_i(S)\) gives the source-killing update
+A source-killing update with source \(i\) and activated neighbour set \(S\) is
 
 $$
-(A,\sigma)\to(D_{i,S}A,\sigma\operatorname{sgn}\delta_i(S))
+(A,\sigma)\to(D_{i,S}A,\sigma\sigma_i^\delta(S))
 $$
 
-at rate \(|\delta_i(S)|\). This update removes the source site \(i\) and activates the neighbour set \(S\).
+and occurs at rate \(\delta_i(S)\). It removes the source site \(i\) and activates \(S\).
 
-A nonzero weight \(\beta_i(S)\) gives the source-keeping update
+A source-keeping update with source \(i\) and activated neighbour set \(S\) is
 
 $$
-(A,\sigma)\to(B_{i,S}A,\sigma\operatorname{sgn}\beta_i(S))
+(A,\sigma)\to(B_{i,S}A,\sigma\sigma_i^\beta(S))
 $$
 
-at rate \(|\beta_i(S)|\), provided \(S\not\subseteq A\). This update keeps the source site \(i\) and activates the neighbour set \(S\).
+and occurs at rate \(\beta_i(S)\), provided \(S\not\subseteq A\). It keeps the source site \(i\) and activates \(S\).
 
-The restriction \(S\not\subseteq A\) only removes null set updates from the Markov generator.
+The restriction \(S\not\subseteq A\) removes source-keeping updates that do not change the set \(A\). In duality equations, those omitted terms are represented by a diagonal coefficient.
 
 ## Generator
 
@@ -56,18 +62,18 @@ $$
 \begin{aligned}
 \cD F(A,\sigma)
 ={}&
-\sum_{i\in A}\sum_{S\subseteq N(i)}|\delta_i(S)|
-\left(F(D_{i,S}A,\sigma\operatorname{sgn}\delta_i(S))-F(A,\sigma)\right)\\
+\sum_{i\in A}\sum_{S\subseteq N(i)}\delta_i(S)
+\left(F(D_{i,S}A,\sigma\sigma_i^\delta(S))-F(A,\sigma)\right)\\
 &+
-\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\not\subseteq A}}|\beta_i(S)|
-\left(F(B_{i,S}A,\sigma\operatorname{sgn}\beta_i(S))-F(A,\sigma)\right).
+\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\not\subseteq A}}\beta_i(S)
+\left(F(B_{i,S}A,\sigma\sigma_i^\beta(S))-F(A,\sigma)\right).
 \end{aligned}
 $$
 
 The omitted source-keeping updates with \(S\subseteq A\) contribute the diagonal coefficient
 
 $$
-\Gamma(A)=\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\subseteq A}}\beta_i(S)
+\Gamma(A)=\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\subseteq A}}\sigma_i^\beta(S)\beta_i(S)
 $$
 
 in duality equations.
