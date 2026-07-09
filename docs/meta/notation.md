@@ -27,6 +27,9 @@ This page records common notation for the public wiki.
 | \(E_i^q\) | Bernoulli refresh operator at site \(i\) | KCSM |
 | \(\mathcal U_i\) | update family at site \(i\) | KCSM |
 | \(\chi_A\) | monomial \(\prod_{i\in A}\eta(i)\) | algebra/duality |
+| \(\chi_A^\theta\) | theta monomial assigning value \(1\) to state \(1\) | algebra/duality |
+| \(\bar\chi_A^\theta\) | theta monomial assigning value \(1\) to state \(0\) | algebra/duality |
+| \((A_t,\sigma_t)\) | finite-set dual process with sign coordinate | duality |
 | \(\nu\) | invariant measure, when unique or distinguished | ergodicity |
 | \(\mu P_t\) | law at time \(t\) started from law \(\mu\) | ergodicity |
 
