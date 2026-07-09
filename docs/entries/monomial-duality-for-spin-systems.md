@@ -86,15 +86,20 @@ $$
 H(Y,\eta)=\sigma\chi_A(\eta).
 $$
 
-The Feynman--Kac potential is
+The Feynman--Kac potential depends only on \(A\). Write
 
 $$
-V(Y)=
-\sum_{i\in A}\sum_{S\subseteq N(i)}\delta_i(S)
+V(A)=\sum_{i\in A}V_i,
+$$
+
+where
+
+$$
+V_i=
+\sum_{S\subseteq N(i)}\delta_i(S)
 +
-\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\ne\vn}}\beta_i(S)
-+
-\sum_{i\in A}a_i^\beta(\vn).
+\sum_{\substack{S\subseteq N(i)\\ S\ne\vn}}\beta_i(S)
++a_i^\beta(\vn).
 $$
 
 The generator of the dual process acts on the first coordinate of \(H\) by
@@ -116,7 +121,7 @@ Then
 $$
 \cL_\eta H(Y,\eta)
 =
-\cD H(Y,\eta)+V(Y)H(Y,\eta),
+\cD H(Y,\eta)+V(A)H(Y,\eta),
 $$
 
 and therefore
@@ -125,7 +130,7 @@ $$
 \E_\eta[\chi_A(\eta_t)]
 =
 \E_{(A,+)}\left[
-\sigma_t\exp\left(\int_0^t V(Y_s)\,ds\right)
+\sigma_t\exp\left(\int_0^t V(A_s)\,ds\right)
 \chi_{A_t}(\eta)
 \right].
 $$
