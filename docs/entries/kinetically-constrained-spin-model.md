@@ -36,7 +36,7 @@ Let \(\mathcal U_i\) be an [update family](update-family.md) at each site \(i\in
 $$
 \cL f(\eta)
 =
-\sum_{i\in\Lambda} c_i(\eta)\bigl(E_i^q f(\eta)-f(\eta)\bigr),
+\sum_{i\in\Lambda} c_i(\eta)(E_i^q f(\eta)-f(\eta)),
 $$
 
 where \(E_i^q\) is the [Bernoulli refresh operator](bernoulli-refresh-operator.md):
@@ -58,7 +58,9 @@ The refresh form is equivalent to a flip generator with constrained state-depend
 $$
 \cL f(\eta)
 =
-\sum_{i\in\Lambda} c_i(\eta)igl(q\eta(i)+p(1-\eta(i))\bigr)igl(f(\eta^i)-f(\eta)\bigr).
+\sum_{i\in\Lambda} c_i(\eta)
+\left(q\eta(i)+p(1-\eta(i))\right)
+\left(f(\eta^i)-f(\eta)\right).
 $$
 
 Thus every KCSM is a spin system, but its flip rates are degenerate whenever the constraint is not satisfied.
