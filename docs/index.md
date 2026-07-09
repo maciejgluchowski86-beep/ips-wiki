@@ -10,9 +10,26 @@ A minimal dependency order is:
 
 1. [Lattice and graph](entries/lattice-and-graph.md)
 2. [Local functions](entries/local-functions.md)
-3. [Interacting particle system](entries/interacting-particle-system.md)
-4. [Spin system](entries/spin-system.md)
-5. [Ergodicity](entries/ergodicity.md)
+3. [Monomials](entries/monomials.md)
+4. [Interacting particle system](entries/interacting-particle-system.md)
+5. [Spin system](entries/spin-system.md)
+6. [Oriented spin system](entries/oriented-spin-system.md)
+7. [Ergodicity](entries/ergodicity.md)
+
+## KCSM entries
+
+The KCSM block uses the standard convention that `0` is the facilitating state. The vacancy density is \(q\), and \(p=1-q\) is the density of occupied sites.
+
+1. [Bernoulli refresh operator](entries/bernoulli-refresh-operator.md)
+2. [Update family](entries/update-family.md)
+3. [Kinetically constrained spin model](entries/kinetically-constrained-spin-model.md)
+4. [Legal update](entries/legal-update.md)
+5. [FA-1f model](entries/fa-1f-model.md)
+6. [East model](entries/east-model.md)
+7. [KCSM relaxation and mixing](entries/kcsm-relaxation-and-mixing.md)
+8. [KCSM out of equilibrium](entries/kcsm-out-of-equilibrium.md)
+9. [FA-1f out of equilibrium](entries/fa-1f-out-of-equilibrium.md)
+10. [East out of equilibrium](entries/east-out-of-equilibrium.md)
 
 ## Meta pages
 
