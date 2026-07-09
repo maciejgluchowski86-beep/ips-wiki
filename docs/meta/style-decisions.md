@@ -29,10 +29,10 @@ This page records durable style choices for the public IPS wiki.
 
 ## Subset convention
 
-- Use the non-strict subset command ending in `eq` for subset, possibly equal.
-- Use the strict subset command ending in `neq` for strict subset.
-- Use `\Subset` for finite subsets in the countable-lattice setting.
-- Do not use the bare ambiguous subset command.
+- Prefer the non-strict subset command ending in `eq` for subset, possibly equal.
+- Prefer the strict subset command ending in `neq` for strict subset.
+- Prefer `\Subset` for finite subsets in the countable-lattice setting.
+- Avoid the bare ambiguous subset command in polished entries.
 
 ## Current mathematical conventions
 
