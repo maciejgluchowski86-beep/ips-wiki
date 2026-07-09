@@ -23,8 +23,7 @@ A minimal dependency order is:
 2. [Theta monomials](entries/theta-monomials.md)
 3. [Signed additive set process](entries/signed-additive-set-process.md)
 4. [Monomial duality for spin systems](entries/monomial-duality-for-spin-systems.md)
-5. [Monomial duality for FA-1f](entries/monomial-duality-for-fa-1f.md)
-6. [Duality noise lemma](entries/duality-noise-lemma.md)
+5. [Duality noise lemma](entries/duality-noise-lemma.md)
 
 ## KCSM entries
 
@@ -37,10 +36,11 @@ The KCSM block uses the standard convention that `0` is the facilitating state. 
 5. [Legal update](entries/legal-update.md)
 6. [FA-1f model](entries/fa-1f-model.md)
 7. [East model](entries/east-model.md)
-8. [KCSM relaxation and mixing](entries/kcsm-relaxation-and-mixing.md)
-9. [KCSM out of equilibrium](entries/kcsm-out-of-equilibrium.md)
-10. [FA-1f out of equilibrium](entries/fa-1f-out-of-equilibrium.md)
-11. [East out of equilibrium](entries/east-out-of-equilibrium.md)
+8. [Monomial duality for FA-1f](entries/monomial-duality-for-fa-1f.md)
+9. [KCSM relaxation and mixing](entries/kcsm-relaxation-and-mixing.md)
+10. [KCSM out of equilibrium](entries/kcsm-out-of-equilibrium.md)
+11. [FA-1f out of equilibrium](entries/fa-1f-out-of-equilibrium.md)
+12. [East out of equilibrium](entries/east-out-of-equilibrium.md)
 
 ## Meta pages
 
