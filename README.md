@@ -39,6 +39,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Graphical construction of signed additive set process: `docs/entries/graphical-construction-of-signed-additive-set-process.md`
 - Successful interaction: `docs/entries/successful-interaction.md`
 - Patch: `docs/entries/patch.md`
+- Conditional patch data: `docs/entries/conditional-patch-data.md`
 
 ## Current KCSM entries
 
