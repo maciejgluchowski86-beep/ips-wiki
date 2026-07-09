@@ -76,17 +76,7 @@ a_i^\delta(S)\chi_{(A\setminus\{i\})\cup S}
 a_i^\beta(S)\chi_{A\cup S}.
 $$
 
-Thus the only dual updates are activations of subsets of neighbouring sites. The \(\delta\)-update kills the source site \(i\); the \(\beta\)-update keeps it.
-
-The diagonal coefficient is
-
-$$
-\Gamma(A)=\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\subseteq A}}
-a_i^\beta(S)
-=
-\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\subseteq A}}
-\sigma_i^\beta(S)\beta_i(S).
-$$
+Thus the only dual updates are activations of subsets of neighbouring sites. The \(\delta\)-update kills the source site \(i\); the \(\beta\)-update keeps it. If \(S\subseteq A\), the \(\beta\)-update does not change the set coordinate, but it is still part of the dual process and may change the sign coordinate.
 
 ## Dual process
 
@@ -102,9 +92,7 @@ $$
 V(A)=
 \sum_{i\in A}\sum_{S\subseteq N(i)}\delta_i(S)
 +
-\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\not\subseteq A}}\beta_i(S)
-+
-\Gamma(A).
+\sum_{i\in A}\sum_{S\subseteq N(i)}\beta_i(S).
 $$
 
 Then
