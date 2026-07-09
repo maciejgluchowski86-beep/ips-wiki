@@ -9,26 +9,26 @@ tags:
 
 # East model
 
-The East model is an [oriented](oriented-spin-system.md) [KCSM](kinetically-constrained-spin-model.md). A site may refresh only when at least one specified predecessor is vacant.
+The East model is an [oriented spin system](oriented-spin-system.md) and a [KCSM](kinetically-constrained-spin-model.md). A site may refresh only when at least one oriented neighbour is vacant.
 
 **References.** Hartarsky and Toninelli, *Kinetically constrained models*; Cancrini, Martinelli, Schonmann, and Toninelli, *Facilitated oriented spin models: some non equilibrium results*; Marêché, *Exponential convergence to equilibrium for the \(d\)-dimensional East model*.
 
 ## Definition on an oriented lattice
 
-Let \(\Lambda\) be an oriented lattice. Write \(j\to i\) when \(j\) may facilitate the update at \(i\), and let \(D(i)\Subset\operatorname{Pred}(i)\) be the chosen East predecessor set at \(i\). The East update family is
+Let \(\Lambda\) be an oriented lattice with neighbour sets \(N(i)\). The East update family at \(i\) is
 
 $$
-\mathcal U_i=\bigl\{\{j\}:j\in D(i)\bigr\}.
+\mathcal U_i=\bigl\{\{j\}:j\in N(i)\bigr\}.
 $$
 
 Therefore
 
 $$
-c_i(\eta)=\ind\{\exists j\in D(i):\eta(j)=0\}
-=1-\chi_{D(i)}(\eta).
+c_i(\eta)=\ind\{\exists j\in N(i):\eta(j)=0\}
+=1-\chi_{N(i)}(\eta).
 $$
 
-The one-predecessor East model is the special case \(D(i)=\{j_i\}\), giving
+The one-neighbour East model is the special case \(N(i)=\{j_i\}\), giving
 
 $$
 c_i(\eta)=1-\eta(j_i).
@@ -41,32 +41,32 @@ With vacancy density \(q\), occupied density \(p=1-q\), and [Bernoulli refresh o
 $$
 \cL f(\eta)
 =
-\sum_{i\in\Lambda}\bigl(1-\chi_{D(i)}(\eta)\bigr)
+\sum_{i\in\Lambda}\bigl(1-\chi_{N(i)}(\eta)\bigr)
 \bigl(E_i^q f(\eta)-f(\eta)\bigr).
 $$
 
 ## One-dimensional East model
 
-On \(\Lambda=\Z\), the right-facilitated East convention has arrows
+For the right-facilitated East model on \(\Lambda=\Z\), take
 
 $$
-i+1\to i.
+N(i)=\{i+1\}.
 $$
 
-Thus \(D(i)=\{i+1\}\), and
+Then
 
 $$
 c_i(\eta)=1-\eta(i+1).
 $$
 
-The site \(i\) can update exactly when its right neighbour is vacant.
+The site \(i\) can update exactly when its right neighbour is vacant. In this convention, \(i\to j\) means that \(j\) is reachable from \(i\) by repeatedly moving through neighbour sets, so the one-dimensional right-facilitated East lattice satisfies \(i\to j\) exactly when \(j\ge i\).
 
 ## Higher-dimensional East model
 
 On \(\Z^d\), one standard East-like choice is
 
 $$
-D(i)=\{i+e_1,\ldots,i+e_d\},
+N(i)=\{i+e_1,\ldots,i+e_d\},
 $$
 
-so that a site can update if at least one forward coordinate neighbour is vacant. This corresponds to the update family with singleton rules in the positive coordinate directions.
+so that a site can update if at least one forward coordinate neighbour is vacant.
