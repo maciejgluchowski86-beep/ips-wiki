@@ -32,7 +32,6 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Theta monomials: `docs/entries/theta-monomials.md`
 - Signed additive set process: `docs/entries/signed-additive-set-process.md`
 - Monomial duality for spin systems: `docs/entries/monomial-duality-for-spin-systems.md`
-- Monomial duality for FA-1f: `docs/entries/monomial-duality-for-fa-1f.md`
 - Duality noise lemma: `docs/entries/duality-noise-lemma.md`
 
 ## Current KCSM entries
@@ -44,6 +43,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Legal update: `docs/entries/legal-update.md`
 - FA-1f model: `docs/entries/fa-1f-model.md`
 - East model: `docs/entries/east-model.md`
+- Monomial duality for FA-1f: `docs/entries/monomial-duality-for-fa-1f.md`
 - KCSM relaxation and mixing: `docs/entries/kcsm-relaxation-and-mixing.md`
 - KCSM out of equilibrium: `docs/entries/kcsm-out-of-equilibrium.md`
 - FA-1f out of equilibrium: `docs/entries/fa-1f-out-of-equilibrium.md`
