@@ -44,23 +44,23 @@ a_i^\delta(S)=c_i^0(S),
 a_i^\beta(S)=-c_i^0(S)-c_i^1(S).
 $$
 
-The associated nonnegative dual rates and signs are
+The associated nonnegative source-killing rates and signs are
 
 $$
 \delta_i(S)=|a_i^\delta(S)|,
 \qquad
-\sigma_i^\delta(S)=\operatorname{sgn}a_i^\delta(S),
+\sigma_i^\delta(S)=\operatorname{sgn}a_i^\delta(S).
 $$
 
-and
+For source-keeping updates use the convention \(\beta_i(\vn)=0\). For \(S\ne\vn\), set
 
 $$
 \beta_i(S)=|a_i^\beta(S)|,
 \qquad
-\sigma_i^\beta(S)=\operatorname{sgn}a_i^\beta(S),
+\sigma_i^\beta(S)=\operatorname{sgn}a_i^\beta(S).
 $$
 
-with an arbitrary choice of sign when the corresponding rate is \(0\).
+Signs at zero rates are arbitrary.
 
 ## Generator action
 
@@ -76,7 +76,7 @@ a_i^\delta(S)\chi_{(A\setminus\{i\})\cup S}
 a_i^\beta(S)\chi_{A\cup S}.
 $$
 
-Thus the only dual updates are activations of subsets of neighbouring sites. The \(\delta\)-update kills the source site \(i\); the \(\beta\)-update keeps it. If \(S\subseteq A\), the \(\beta\)-update does not change the set coordinate, but it is still part of the dual process and may change the sign coordinate.
+Thus the only dual updates are activations of subsets of neighbouring sites. The \(\delta\)-update kills the source site \(i\); the \(\beta\)-update keeps it. The source-keeping empty term is not a dual update and is absorbed into the Feynman--Kac potential.
 
 ## Dual process
 
@@ -92,7 +92,9 @@ $$
 V(A)=
 \sum_{i\in A}\sum_{S\subseteq N(i)}\delta_i(S)
 +
-\sum_{i\in A}\sum_{S\subseteq N(i)}\beta_i(S).
+\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\ne\vn}}\beta_i(S)
++
+\sum_{i\in A}a_i^\beta(\vn).
 $$
 
 Then
