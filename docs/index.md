@@ -9,12 +9,13 @@ Each article is a separate page with rendered TeX math and ordinary links to nei
 A minimal dependency order is:
 
 1. [Lattice and graph](entries/lattice-and-graph.md)
-2. [Local functions](entries/local-functions.md)
-3. [Monomials](entries/monomials.md)
-4. [Interacting particle system](entries/interacting-particle-system.md)
-5. [Spin system](entries/spin-system.md)
-6. [Oriented spin system](entries/oriented-spin-system.md)
-7. [Ergodicity](entries/ergodicity.md)
+2. [Polynomial-growth lattice](entries/polynomial-growth-lattice.md)
+3. [Local functions](entries/local-functions.md)
+4. [Monomials](entries/monomials.md)
+5. [Interacting particle system](entries/interacting-particle-system.md)
+6. [Spin system](entries/spin-system.md)
+7. [Oriented spin system](entries/oriented-spin-system.md)
+8. [Ergodicity](entries/ergodicity.md)
 
 ## KCSM entries
 
