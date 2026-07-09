@@ -30,7 +30,7 @@ $$
 The Bernoulli product measure with vacancy density \(q\) is
 
 $$
-\mu_q=\bigotimes_{i\in\Lambda}\bigl(q\delta_0+p\delta_1\bigr).
+\mu_q=\bigotimes_{i\in\Lambda}\left(q\delta_0+p\delta_1\right).
 $$
 
 ## Refresh operator
@@ -40,13 +40,15 @@ For a function \(f:\Omega\to\R\), define
 $$
 E_i^q f(\eta)
 =
-q f(\eta^{i,0})+p f(\eta^{i,1}),
+q f(\eta^{i,0})+p f(\eta^{i,1}).
 $$
 
-where \(\eta^{i,a}\) is the configuration obtained from \(\eta\) by setting site \(i\) to \(a\). Equivalently,
+Here \(\eta^{i,a}\) is the configuration obtained from \(\eta\) by setting site \(i\) to \(a\). Equivalently,
 
 $$
-E_i^q f(\eta)=\int f(\xi)\,\mu_q(d\xi(i)\mid \xi(j)=\eta(j)\text{ for }j\ne i).
+E_i^q f(\eta)
+=
+\int f(\xi)\,\mu_q(d\xi(i)\mid \xi(j)=\eta(j)\text{ for }j\ne i).
 $$
 
 Thus \(E_i^q\) averages over the spin at \(i\) and leaves all other spins fixed.
@@ -58,7 +60,8 @@ On \(\{0,1\}^\Lambda\), the refresh generator \(E_i^q-I\) can be written as a fl
 $$
 (E_i^q-I)f(\eta)
 =
-\bigl(q\eta(i)+p(1-\eta(i))\bigr)igl(f(\eta^i)-f(\eta)\bigr).
+\left(q\eta(i)+p(1-\eta(i))\right)
+\left(f(\eta^i)-f(\eta)\right).
 $$
 
 This identity explains why Bernoulli-refresh KCSM are special cases of [spin systems](spin-system.md).
