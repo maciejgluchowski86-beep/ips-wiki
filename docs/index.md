@@ -17,6 +17,13 @@ A minimal dependency order is:
 7. [Oriented spin system](entries/oriented-spin-system.md)
 8. [Ergodicity](entries/ergodicity.md)
 
+## Duality entries
+
+1. [Duality](entries/duality.md)
+2. [Theta monomials](entries/theta-monomials.md)
+3. [Signed additive set process](entries/signed-additive-set-process.md)
+4. [Monomial duality for spin systems](entries/monomial-duality-for-spin-systems.md)
+
 ## KCSM entries
 
 The KCSM block uses the standard convention that `0` is the facilitating state. The vacancy density is \(q\), and \(p=1-q\) is the density of occupied sites.
