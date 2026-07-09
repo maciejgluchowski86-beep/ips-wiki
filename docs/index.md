@@ -21,9 +21,13 @@ A minimal dependency order is:
 
 1. [Duality](entries/duality.md)
 2. [Theta monomials](entries/theta-monomials.md)
-3. [Signed additive set process](entries/signed-additive-set-process.md)
-4. [Monomial duality for spin systems](entries/monomial-duality-for-spin-systems.md)
-5. [Duality noise lemma](entries/duality-noise-lemma.md)
+3. [Monomial duality for spin systems](entries/monomial-duality-for-spin-systems.md)
+4. [Duality noise lemma](entries/duality-noise-lemma.md)
+
+## Signed additive set processes
+
+1. [Signed additive set process](entries/signed-additive-set-process.md)
+2. [Graphical construction of signed additive set process](entries/graphical-construction-of-signed-additive-set-process.md)
 
 ## KCSM entries
 
