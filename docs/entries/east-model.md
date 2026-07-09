@@ -9,7 +9,7 @@ tags:
 
 # East model
 
-The East model is an [oriented spin system](oriented-spin-system.md) and a [KCSM](kinetically-constrained-spin-model.md). A site may refresh only when at least one oriented neighbour is vacant. It is the oriented analogue of the one-neighbour [FA-1f model](fa-1f-model.md).
+The East model is an [oriented spin system](oriented-spin-system.md) and a [KCSM](kinetically-constrained-spin-model.md). A site may refresh only when at least one oriented neighbour is vacant. Equivalently, it is the [FA-1f model](fa-1f-model.md) on an oriented lattice.
 
 **References.** Hartarsky and Toninelli, *Kinetically constrained models*; Cancrini, Martinelli, Schonmann, and Toninelli, *Facilitated oriented spin models: some non equilibrium results*; Marêché, *Exponential convergence to equilibrium for the \(d\)-dimensional East model*.
 
