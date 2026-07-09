@@ -9,11 +9,13 @@ tags:
 
 # Signed additive set process
 
-A signed additive set process is a Markov process
+A signed additive set process is a Markov process on finite subsets of a [lattice](lattice-and-graph.md), with an additional sign coordinate,
 
 $$
 (A_t,\sigma_t)\in\{A:A\Subset\Lambda\}\times\{-1,+1\}.
 $$
+
+The process is designed for finite-set [duality](duality.md) formulas for [spin systems](spin-system.md). In [monomial duality for spin systems](monomial-duality-for-spin-systems.md), the set coordinate indexes the [monomial](monomials.md) and the sign coordinate records signs of coefficients.
 
 It is specified by nonnegative rates
 
