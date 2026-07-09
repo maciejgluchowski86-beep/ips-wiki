@@ -30,7 +30,7 @@ A minimal dependency order is:
 2. [Graphical construction of signed additive set process](entries/graphical-construction-of-signed-additive-set-process.md)
 3. [Successful interaction](entries/successful-interaction.md)
 4. [Patch](entries/patch.md)
-5. [Conditional patch data](entries/conditional-patch-data.md)
+5. [Patch consistency event](entries/patch-consistency-event.md)
 
 ## KCSM entries
 
