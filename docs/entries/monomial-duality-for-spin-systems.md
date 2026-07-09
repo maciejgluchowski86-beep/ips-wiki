@@ -80,16 +80,16 @@ Thus the only dual updates are activations of subsets of neighbouring sites. The
 
 ## Dual process
 
-Let \((A_t,\sigma_t)\) be the [signed additive set process](signed-additive-set-process.md) with rates \(\delta_i(S)\), \(\beta_i(S)\) and signs \(\sigma_i^\delta(S)\), \(\sigma_i^\beta(S)\). Its duality function is
+Let \(Y=(A,\sigma)\), and let \((Y_t)=(A_t,\sigma_t)\) be the [signed additive set process](signed-additive-set-process.md) with rates \(\delta_i(S)\), \(\beta_i(S)\), signs \(\sigma_i^\delta(S)\), \(\sigma_i^\beta(S)\), and update maps \(D_{i,S}\), \(B_{i,S}\). Its duality function is
 
 $$
-H(A,\sigma,\eta)=\sigma\chi_A(\eta).
+H(Y,\eta)=\sigma\chi_A(\eta).
 $$
 
 The Feynman--Kac potential is
 
 $$
-V(A)=
+V(Y)=
 \sum_{i\in A}\sum_{S\subseteq N(i)}\delta_i(S)
 +
 \sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\ne\vn}}\beta_i(S)
@@ -97,12 +97,26 @@ V(A)=
 \sum_{i\in A}a_i^\beta(\vn).
 $$
 
+The generator of the dual process acts on the first coordinate of \(H\) by
+
+$$
+\begin{aligned}
+\cD H(Y,\eta)
+={}&
+\sum_{i\in A}\sum_{S\subseteq N(i)}\delta_i(S)
+\left(H(D_{i,S}Y,\eta)-H(Y,\eta)\right)\\
+&+
+\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\ne\vn}}\beta_i(S)
+\left(H(B_{i,S}Y,\eta)-H(Y,\eta)\right).
+\end{aligned}
+$$
+
 Then
 
 $$
-\cL_\eta H(A,\sigma,\eta)
+\cL_\eta H(Y,\eta)
 =
-\cD_{A,\sigma}H(A,\sigma,\eta)+V(A)H(A,\sigma,\eta),
+\cD H(Y,\eta)+V(Y)H(Y,\eta),
 $$
 
 and therefore
@@ -110,8 +124,8 @@ and therefore
 $$
 \E_\eta[\chi_A(\eta_t)]
 =
-\E_{A,+}\left[
-\sigma_t\exp\left(\int_0^t V(A_s)\,ds\right)
+\E_{(A,+)}\left[
+\sigma_t\exp\left(\int_0^t V(Y_s)\,ds\right)
 \chi_{A_t}(\eta)
 \right].
 $$
