@@ -19,12 +19,27 @@ theme:
 
 nav:
   - Home: index.md
-  - Entries:
+  - Core entries:
       - Lattice and graph: entries/lattice-and-graph.md
       - Local functions: entries/local-functions.md
+      - Monomials: entries/monomials.md
       - Interacting particle system: entries/interacting-particle-system.md
       - Spin system: entries/spin-system.md
+      - Oriented spin system: entries/oriented-spin-system.md
       - Ergodicity: entries/ergodicity.md
+  - KCSM:
+      - Bernoulli refresh operator: entries/bernoulli-refresh-operator.md
+      - Update family: entries/update-family.md
+      - Kinetically constrained spin model: entries/kinetically-constrained-spin-model.md
+      - Legal update: entries/legal-update.md
+      - KCSM relaxation and mixing: entries/kcsm-relaxation-and-mixing.md
+      - KCSM out of equilibrium: entries/kcsm-out-of-equilibrium.md
+  - Models:
+      - FA-1f model: entries/fa-1f-model.md
+      - East model: entries/east-model.md
+  - Out of equilibrium:
+      - FA-1f out of equilibrium: entries/fa-1f-out-of-equilibrium.md
+      - East out of equilibrium: entries/east-out-of-equilibrium.md
   - Meta:
       - Notation: meta/notation.md
       - Style decisions: meta/style-decisions.md
