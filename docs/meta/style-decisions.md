@@ -39,6 +39,8 @@ This page records durable style choices for the public IPS wiki.
 - The default index object is a lattice \(\Lambda\). A graph is an alternative description of neighbourhoods on \(\Lambda\).
 - The single-site state space is denoted by \(\mathcal S\), not \(E\).
 - The neighbour set \(N(i)\) does not contain \(i\). The enlarged set \(N_*(i)=N(i)\cup\{i\}\) does contain \(i\).
+- Orientation is defined using reachability through neighbour sets: \(i\to j\) means there is a chain from \(i\) to \(j\) with each next site in the previous site's neighbour set.
+- An oriented lattice is one where \(i\to j\) and \(i\ne j\) imply not \(j\to i\). Do not introduce extra predecessor/successor notation unless a later page genuinely needs it.
 - For KCSM, \(0\) is the facilitating or vacant state, \(q\) is the density of zeros, and \(p=1-q\).
 - A spin system is two-state and uses single-site flip updates.
 - A finite-state product process with more than two single-site states, or with more general update maps, is called an interacting particle system.
