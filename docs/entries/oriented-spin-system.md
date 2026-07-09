@@ -4,53 +4,42 @@ status: definition
 tags:
   - oriented lattice
   - spin systems
-  - KCSM
 ---
 
 # Oriented spin system
 
-An oriented spin system is a [spin system](spin-system.md) on a directed lattice whose update rates depend only on sites in the allowed direction of information flow. The basic condition is that information cannot return to where it started.
+An oriented spin system is a [spin system](spin-system.md) on an oriented [lattice](lattice-and-graph.md).
 
 ## Oriented lattice
 
-An oriented lattice is a lattice \(\Lambda\) equipped with a directed graph structure and no directed cycles. Write
+The lattice \(\Lambda\) is equipped with neighbour sets \(N(i)\). Write
 
 $$
-j\to i
+i\to j
 $$
 
-when information is allowed to flow from \(j\) to \(i\), or equivalently when \(j\) may influence the update at \(i\). Define the predecessor and successor sets by
+if there is a finite chain
 
 $$
-\operatorname{Pred}(i)=\{j\in\Lambda:j\to i\},
-\qquad
-\operatorname{Succ}(i)=\{j\in\Lambda:i\to j\}.
+i=i_0,i_1,\ldots,i_n=j
 $$
 
-The absence of directed cycles means there is no finite sequence
+such that \(i_{k+1}\in N(i_k)\) for every \(k<n\). The lattice is oriented if, whenever \(i\to j\) and \(i\ne j\), one has not \(j\to i\).
 
-$$
-i_0\to i_1\to\cdots\to i_n=i_0
-$$
-
-with \(n\ge1\). This is the structural condition that prevents information from flowing back.
+Thus information can follow neighbour sets, but it cannot return to where it started.
 
 ## Oriented spin system
 
-A spin system on an oriented lattice is oriented if the flip rate at \(i\) depends only on the spin at \(i\) and on finitely many predecessors of \(i\). Thus there is a finite set
+A spin system on an oriented lattice is called an oriented spin system. No extra notation is needed: the orientation is already contained in the neighbour sets \(N(i)\).
 
-$$
-D(i)\Subset \operatorname{Pred}(i)\cup\{i\}
-$$
-
-such that \(c_i(\eta)\) depends only on \(\eta|_{D(i)}\).
+For a local spin system, the flip rate at site \(i\) is still written as \(c_i(\eta)\), and it is still a function of finitely many coordinates in \(N_*(i)=N(i)\cup\{i\}\).
 
 ## Oriented KCSM
 
-A [kinetically constrained spin model](kinetically-constrained-spin-model.md) is oriented if each update rule at \(i\) uses only predecessors of \(i\):
+A [kinetically constrained spin model](kinetically-constrained-spin-model.md) on an oriented lattice is an oriented KCSM. Its update families satisfy
 
 $$
-\mathcal U_i\subseteq\{U:U\Subset\operatorname{Pred}(i)\}.
+\mathcal U_i\subseteq\{U:U\Subset N(i)\}.
 $$
 
-The [East model](east-model.md) is the basic example. With the convention \(j\to i\) meaning that \(j\) facilitates \(i\), the one-dimensional East model has arrows \(i+1\to i\).
+The [East model](east-model.md) is the basic example.
