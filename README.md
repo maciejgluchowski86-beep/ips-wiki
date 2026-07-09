@@ -32,6 +32,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Theta monomials: `docs/entries/theta-monomials.md`
 - Signed additive set process: `docs/entries/signed-additive-set-process.md`
 - Monomial duality for spin systems: `docs/entries/monomial-duality-for-spin-systems.md`
+- Monomial duality for FA-1f: `docs/entries/monomial-duality-for-fa-1f.md`
 - Duality noise lemma: `docs/entries/duality-noise-lemma.md`
 
 ## Current KCSM entries
