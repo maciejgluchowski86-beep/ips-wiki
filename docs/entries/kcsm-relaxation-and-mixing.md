@@ -9,7 +9,7 @@ tags:
 
 # KCSM relaxation and mixing
 
-Relaxation and mixing quantify the approach to equilibrium of a finite-volume [kinetically constrained spin model](kinetically-constrained-spin-model.md). They are distinct from qualitative [ergodicity](ergodicity.md) and from infinite-volume out-of-equilibrium convergence.
+Relaxation and mixing quantify the approach to equilibrium of a finite-volume [kinetically constrained spin model](kinetically-constrained-spin-model.md). They are distinct from qualitative [ergodicity](ergodicity.md) and from infinite-volume [out-of-equilibrium](kcsm-out-of-equilibrium.md) convergence.
 
 ## Spectral gap and relaxation time
 
@@ -33,7 +33,7 @@ t_{\mathrm{mix}}(\varepsilon)
 \right\}.
 $$
 
-For a sequence of boxes or finite graphs, one studies the growth of \(t_{\mathrm{mix}}(\varepsilon)\) with system size and with the vacancy density \(q\).
+For a sequence of boxes or finite graphs, one studies the growth of \(t_{\mathrm{mix}}(\varepsilon)\) with system size and with the vacancy density \(q\). Model-specific behaviour differs strongly between examples such as the [FA-1f model](fa-1f-model.md) and the [East model](east-model.md).
 
 ## Precutoff
 
