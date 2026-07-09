@@ -1,6 +1,6 @@
 # IPS Wiki
 
-This repository is a public-facing wiki for interacting particle systems, spin systems, ergodicity, and related literature.
+This repository is a public-facing wiki for interacting particle systems, spin systems, ergodicity, duality, and related literature.
 
 The wiki is article-first. Each entry is a separate Markdown page under `docs/entries/`, with TeX math rendered in the web view and ordinary Markdown links between entries. Cross-links should usually be inline links through relevant words and phrases, not top-level related-page lists.
 
@@ -18,12 +18,20 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 ## Current core entries
 
 - Lattice and graph: `docs/entries/lattice-and-graph.md`
+- Polynomial-growth lattice: `docs/entries/polynomial-growth-lattice.md`
 - Local functions: `docs/entries/local-functions.md`
 - Monomials: `docs/entries/monomials.md`
 - Interacting particle system: `docs/entries/interacting-particle-system.md`
 - Spin system: `docs/entries/spin-system.md`
 - Oriented spin system: `docs/entries/oriented-spin-system.md`
 - Ergodicity: `docs/entries/ergodicity.md`
+
+## Current duality entries
+
+- Duality: `docs/entries/duality.md`
+- Theta monomials: `docs/entries/theta-monomials.md`
+- Signed additive set process: `docs/entries/signed-additive-set-process.md`
+- Monomial duality for spin systems: `docs/entries/monomial-duality-for-spin-systems.md`
 
 ## Current KCSM entries
 
