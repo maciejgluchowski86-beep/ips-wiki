@@ -25,8 +25,7 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 2. `docs/entries/theta-monomials.md`: \(\chi_A^\theta\), barred theta monomials, basis property, and algebraic identities.
 3. `docs/entries/signed-additive-set-process.md`: finite-subset process with sign coordinate, source-killing and source-keeping activations.
 4. `docs/entries/monomial-duality-for-spin-systems.md`: monomial duality for spin systems via a signed additive set process and Feynman--Kac potential.
-5. `docs/entries/monomial-duality-for-fa-1f.md`: concise specialization of monomial duality to hard and soft FA-1f, including pure-death perturbations.
-6. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
+5. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
 
 ## Current KCSM entries
 
@@ -37,10 +36,11 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 5. `docs/entries/legal-update.md`: legal clock rings and legal paths.
 6. `docs/entries/fa-1f-model.md`: FA-1f on an arbitrary lattice.
 7. `docs/entries/east-model.md`: East model as FA-1f on an oriented lattice using \(N(i)\).
-8. `docs/entries/kcsm-relaxation-and-mixing.md`: relaxation time, mixing time, and precutoff terminology.
-9. `docs/entries/kcsm-out-of-equilibrium.md`: general out-of-equilibrium setup.
-10. `docs/entries/fa-1f-out-of-equilibrium.md`: theorem records for known FA-1f out-of-equilibrium convergence results.
-11. `docs/entries/east-out-of-equilibrium.md`: theorem records for known East out-of-equilibrium convergence results.
+8. `docs/entries/monomial-duality-for-fa-1f.md`: systematic dual rates, signs, and Feynman--Kac weights for hard/soft FA-1f with optional pure-death perturbation.
+9. `docs/entries/kcsm-relaxation-and-mixing.md`: relaxation time, mixing time, and precutoff terminology.
+10. `docs/entries/kcsm-out-of-equilibrium.md`: general out-of-equilibrium setup.
+11. `docs/entries/fa-1f-out-of-equilibrium.md`: theorem records for known FA-1f out-of-equilibrium convergence results.
+12. `docs/entries/east-out-of-equilibrium.md`: theorem records for known East out-of-equilibrium convergence results.
 
 ## Current conventions
 
