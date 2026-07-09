@@ -9,11 +9,13 @@ tags:
 
 # Monomial duality for spin systems
 
-This entry gives the finite-set dual for a [spin system](spin-system.md) in the monomial basis
+This entry gives the finite-set [duality](duality.md) for a [spin system](spin-system.md) in the ordinary [monomial](monomials.md) basis
 
 $$
 \chi_A(\eta)=\prod_{i\in A}\eta(i).
 $$
+
+The dual process is a [signed additive set process](signed-additive-set-process.md). Variants with deformed basis functions use the same algebraic philosophy as [theta monomials](theta-monomials.md), while perturbative comparison arguments can use the [duality noise lemma](duality-noise-lemma.md).
 
 ## Rate coefficients
 
@@ -29,7 +31,7 @@ $$
 c_i(\eta)=(1-\eta(i))c_i^0(\eta)+\eta(i)c_i^1(\eta),
 $$
 
-where \(c_i^x(\eta)=c_i(\eta^{i,x})\). The functions \(c_i^0\) and \(c_i^1\) depend only on \(N(i)\). Expand them as
+where \(c_i^x(\eta)=c_i(\eta^{i,x})\). The functions \(c_i^0\) and \(c_i^1\) depend only on the neighbour set \(N(i)\) from the [lattice and graph](lattice-and-graph.md) convention. Expand them as
 
 $$
 c_i^x(\eta)=\sum_{S\subseteq N(i)}c_i^x(S)\chi_S(\eta),
@@ -80,7 +82,7 @@ Thus the only dual updates are activations of subsets of neighbouring sites. The
 
 ## Dual process
 
-Let \(Y=(A,\sigma)\), and let \((Y_t)=(A_t,\sigma_t)\) be the [signed additive set process](signed-additive-set-process.md) with rates \(\delta_i(S)\), \(\beta_i(S)\), signs \(\sigma_i^\delta(S)\), \(\sigma_i^\beta(S)\), and update maps \(D_{i,S}\), \(B_{i,S}\). Its duality function is
+Let \(Y=(A,\sigma)\), and let \((Y_t)=(A_t,\sigma_t)\) be the signed additive set process with rates \(\delta_i(S)\), \(\beta_i(S)\), signs \(\sigma_i^\delta(S)\), \(\sigma_i^\beta(S)\), and update maps \(D_{i,S}\), \(B_{i,S}\). Its duality function is
 
 $$
 H(Y,\eta)=\sigma\chi_A(\eta).
