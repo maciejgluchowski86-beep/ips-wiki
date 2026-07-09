@@ -9,7 +9,7 @@ tags:
 
 # Monomials
 
-Monomials are local observables on \(\{0,1\}^\Lambda\). They are useful for algebraic manipulations of [spin-system](spin-system.md) generators and later duality constructions.
+Monomials are [local functions](local-functions.md) on \(\{0,1\}^\Lambda\). They are useful for algebraic manipulations of [spin-system](spin-system.md) generators and for [duality](duality.md) constructions such as [monomial duality for spin systems](monomial-duality-for-spin-systems.md). The deformed version is recorded separately as [theta monomials](theta-monomials.md).
 
 ## Definition
 
@@ -84,14 +84,14 @@ p\chi_{A\setminus\{i\}}-\chi_A, & i\in A.
 \end{cases}
 $$
 
-These identities are often the starting point for duality computations.
+These identities are often the starting point for duality computations and for checking the monomial examples in the [duality noise lemma](duality-noise-lemma.md).
 
 ## Vacancy indicators
 
-Since the KCSM convention uses \(0\) as the facilitating state, vacancy events are written using products of \(1-\eta(i)\). For \(A\Subset\Lambda\),
+Since the [KCSM](kinetically-constrained-spin-model.md) convention uses \(0\) as the facilitating state, vacancy events are written using products of \(1-\eta(i)\). For \(A\Subset\Lambda\),
 
 $$
 \prod_{i\in A}(1-\eta(i))
 $$
 
-is the indicator that every site in \(A\) is vacant.
+is the indicator that every site in \(A\) is vacant. This is \(\bar\chi_A^0\) in the notation of [theta monomials](theta-monomials.md).
