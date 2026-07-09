@@ -28,6 +28,7 @@ A minimal dependency order is:
 
 1. [Signed additive set process](entries/signed-additive-set-process.md)
 2. [Graphical construction of signed additive set process](entries/graphical-construction-of-signed-additive-set-process.md)
+3. [Successful interaction](entries/successful-interaction.md)
 
 ## KCSM entries
 
