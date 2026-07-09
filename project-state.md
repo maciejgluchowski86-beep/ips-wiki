@@ -38,7 +38,7 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 - Cross-links should usually be Wikipedia-style inline links through relevant words or phrases.
 - Do not use top-level "Related pages" lists on ordinary entries.
 - Use `\(...\)` for inline math and `$$...$$` for display math.
-- Use unambiguous subset notation: non-strict, strict, and finite-subset commands are distinct; the bare ambiguous subset command is forbidden by CI.
+- Subset notation is a style convention, not a build constraint: prefer distinct notation for non-strict, strict, and finite subsets in polished entries.
 - Use \(\Lambda\) for the lattice and \(\mathcal S\) for the single-site state space.
 - A graph is an alternative description of neighbourhoods on \(\Lambda\).
 - \(N(i)\) does not contain \(i\), while \(N_*(i)=N(i)\cup\{i\}\) does.
