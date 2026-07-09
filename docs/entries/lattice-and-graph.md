@@ -10,7 +10,7 @@ tags:
 
 # Lattice and graph
 
-A lattice is the default index set for configurations in this wiki. It is denoted by \(\Lambda\), and the standard examples are \(\Z\) and \(\Z^d\). A lattice may also be described as a graph by specifying which sites are neighbours.
+A lattice is the default index set for configurations in this wiki. It is denoted by \(\Lambda\), and the standard examples are \(\Z\) and \(\Z^d\). A lattice may also be described as a graph by specifying neighbour sets \(N(i)\).
 
 ## Configuration space
 
@@ -24,7 +24,13 @@ For \(A\subseteq\Lambda\) and \(\eta\in\Omega\), write \(\eta|_A\) or \(\eta_A\)
 
 ## Neighbourhood description
 
-A neighbourhood system assigns to each \(i\in\Lambda\) a set \(N(i)\subseteq\Lambda\setminus\{i\}\). The set \(N(i)\) consists of the neighbours of \(i\) and does not contain \(i\). Write
+A neighbourhood system assigns to each \(i\in\Lambda\) a set
+
+$$
+N(i)\subseteq\Lambda\setminus\{i\}.
+$$
+
+The set \(N(i)\) consists of the neighbours of \(i\) and does not contain \(i\). Write
 
 $$
 N_*(i)=N(i)\cup\{i\}
@@ -33,6 +39,24 @@ $$
 for the neighbourhood together with the site itself.
 
 A local update rate at \(i\) typically depends on \(\eta|_{N_*(i)}\), or on a specified finite subset of \(N_*(i)\). For a [spin system](spin-system.md), this means that the flip rate at \(i\) depends only on the spin at \(i\) and finitely many neighbouring spins.
+
+## Reachability and orientation
+
+Given the neighbour sets \(N(i)\), write
+
+$$
+i\to j
+$$
+
+if there is a finite chain
+
+$$
+i=i_0,i_1,\ldots,i_n=j
+$$
+
+such that \(i_{k+1}\in N(i_k)\) for every \(k<n\). Thus \(\to\) denotes reachability by following neighbour sets.
+
+The lattice is oriented if reachability is antisymmetric: whenever \(i\to j\) and \(i\ne j\), one has not \(j\to i\). Equivalently, the directed graph determined by the neighbour sets has no directed cycles.
 
 ## Translation-invariant lattice convention
 
