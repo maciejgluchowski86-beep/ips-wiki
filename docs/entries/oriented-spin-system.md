@@ -8,7 +8,7 @@ tags:
 
 # Oriented spin system
 
-An oriented spin system is a [spin system](spin-system.md) on an oriented [lattice](lattice-and-graph.md).
+An oriented spin system is a [spin system](spin-system.md) on an oriented [lattice](lattice-and-graph.md). Oriented KCSM examples include the [East model](east-model.md), and their out-of-equilibrium behaviour is recorded separately under [East out of equilibrium](east-out-of-equilibrium.md).
 
 ## Oriented lattice
 
@@ -36,10 +36,10 @@ For a local spin system, the flip rate at site \(i\) is still written as \(c_i(\
 
 ## Oriented KCSM
 
-A [kinetically constrained spin model](kinetically-constrained-spin-model.md) on an oriented lattice is an oriented KCSM. Its update families satisfy
+A [kinetically constrained spin model](kinetically-constrained-spin-model.md) on an oriented lattice is an oriented KCSM. Its [update families](update-family.md) satisfy
 
 $$
 \mathcal U_i\subseteq\{U:U\Subset N(i)\}.
 $$
 
-The [East model](east-model.md) is the basic example.
+The East model is the basic example.
