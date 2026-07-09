@@ -33,13 +33,14 @@ The KCSM block uses the standard convention that `0` is the facilitating state. 
 1. [Bernoulli refresh operator](entries/bernoulli-refresh-operator.md)
 2. [Update family](entries/update-family.md)
 3. [Kinetically constrained spin model](entries/kinetically-constrained-spin-model.md)
-4. [Legal update](entries/legal-update.md)
-5. [FA-1f model](entries/fa-1f-model.md)
-6. [East model](entries/east-model.md)
-7. [KCSM relaxation and mixing](entries/kcsm-relaxation-and-mixing.md)
-8. [KCSM out of equilibrium](entries/kcsm-out-of-equilibrium.md)
-9. [FA-1f out of equilibrium](entries/fa-1f-out-of-equilibrium.md)
-10. [East out of equilibrium](entries/east-out-of-equilibrium.md)
+4. [Soft KCSM](entries/soft-kcsm.md)
+5. [Legal update](entries/legal-update.md)
+6. [FA-1f model](entries/fa-1f-model.md)
+7. [East model](entries/east-model.md)
+8. [KCSM relaxation and mixing](entries/kcsm-relaxation-and-mixing.md)
+9. [KCSM out of equilibrium](entries/kcsm-out-of-equilibrium.md)
+10. [FA-1f out of equilibrium](entries/fa-1f-out-of-equilibrium.md)
+11. [East out of equilibrium](entries/east-out-of-equilibrium.md)
 
 ## Meta pages
 
