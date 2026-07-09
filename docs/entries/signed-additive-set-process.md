@@ -28,6 +28,12 @@ $$
 \sigma_i^\delta(S),\quad \sigma_i^\beta(S)\in\{-1,+1\}.
 $$
 
+The convention is
+
+$$
+\beta_i(\vn)=0.
+$$
+
 For \(i\in A\), define the source-killing and source-keeping set maps
 
 $$
@@ -50,7 +56,7 @@ $$
 (A,\sigma)\to(B_{i,S}A,\sigma\sigma_i^\beta(S))
 $$
 
-and occurs at rate \(\beta_i(S)\). It keeps the source site \(i\) and activates \(S\). This update is still included when \(B_{i,S}A=A\); in that case it may only change the sign coordinate.
+and occurs at rate \(\beta_i(S)\). It keeps the source site \(i\) and activates \(S\). The convention \(\beta_i(\vn)=0\) removes the source-keeping empty update.
 
 ## Generator
 
@@ -63,7 +69,7 @@ $$
 \sum_{i\in A}\sum_{S\subseteq N(i)}\delta_i(S)
 \left(F(D_{i,S}A,\sigma\sigma_i^\delta(S))-F(A,\sigma)\right)\\
 &+
-\sum_{i\in A}\sum_{S\subseteq N(i)}\beta_i(S)
+\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\ne\vn}}\beta_i(S)
 \left(F(B_{i,S}A,\sigma\sigma_i^\beta(S))-F(A,\sigma)\right).
 \end{aligned}
 $$
