@@ -36,13 +36,31 @@ c_i^x(\eta)=\sum_{S\subseteq N(i)}c_i^x(S)\chi_S(\eta),
 \qquad x\in\{0,1\}.
 $$
 
-Define signed update coefficients
+Define the signed coefficients
 
 $$
-\delta_i(S)=c_i^0(S),
+a_i^\delta(S)=c_i^0(S),
 \qquad
-\beta_i(S)=-c_i^0(S)-c_i^1(S).
+a_i^\beta(S)=-c_i^0(S)-c_i^1(S).
 $$
+
+The associated nonnegative dual rates and signs are
+
+$$
+\delta_i(S)=|a_i^\delta(S)|,
+\qquad
+\sigma_i^\delta(S)=\operatorname{sgn}a_i^\delta(S),
+$$
+
+and
+
+$$
+\beta_i(S)=|a_i^\beta(S)|,
+\qquad
+\sigma_i^\beta(S)=\operatorname{sgn}a_i^\beta(S),
+$$
+
+with an arbitrary choice of sign when the corresponding rate is \(0\).
 
 ## Generator action
 
@@ -52,23 +70,27 @@ $$
 \cL\chi_A
 =
 \sum_{i\in A}\sum_{S\subseteq N(i)}
-\delta_i(S)\chi_{(A\setminus\{i\})\cup S}
+a_i^\delta(S)\chi_{(A\setminus\{i\})\cup S}
 +
 \sum_{i\in A}\sum_{S\subseteq N(i)}
-\beta_i(S)\chi_{A\cup S}.
+a_i^\beta(S)\chi_{A\cup S}.
 $$
 
 Thus the only dual updates are activations of subsets of neighbouring sites. The \(\delta\)-update kills the source site \(i\); the \(\beta\)-update keeps it.
 
-The coefficient of \(\chi_A\) in \(\cL\chi_A\) is
+The diagonal coefficient is
 
 $$
-\Gamma(A)=\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\subseteq A}}\beta_i(S).
+\Gamma(A)=\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\subseteq A}}
+a_i^\beta(S)
+=
+\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\subseteq A}}
+\sigma_i^\beta(S)\beta_i(S).
 $$
 
 ## Dual process
 
-Let \((A_t,\sigma_t)\) be the [signed additive set process](signed-additive-set-process.md) with coefficients \(\delta_i(S)\) and \(\beta_i(S)\). Its duality function is
+Let \((A_t,\sigma_t)\) be the [signed additive set process](signed-additive-set-process.md) with rates \(\delta_i(S)\), \(\beta_i(S)\) and signs \(\sigma_i^\delta(S)\), \(\sigma_i^\beta(S)\). Its duality function is
 
 $$
 H(A,\sigma,\eta)=\sigma\chi_A(\eta).
@@ -78,9 +100,9 @@ The Feynman--Kac potential is
 
 $$
 V(A)=
-\sum_{i\in A}\sum_{S\subseteq N(i)}|\delta_i(S)|
+\sum_{i\in A}\sum_{S\subseteq N(i)}\delta_i(S)
 +
-\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\not\subseteq A}}|\beta_i(S)|
+\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\not\subseteq A}}\beta_i(S)
 +
 \Gamma(A).
 $$
