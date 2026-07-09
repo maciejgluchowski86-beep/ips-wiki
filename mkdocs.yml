@@ -33,7 +33,6 @@ nav:
       - Theta monomials: entries/theta-monomials.md
       - Signed additive set process: entries/signed-additive-set-process.md
       - Monomial duality for spin systems: entries/monomial-duality-for-spin-systems.md
-      - Monomial duality for FA-1f: entries/monomial-duality-for-fa-1f.md
       - Duality noise lemma: entries/duality-noise-lemma.md
   - KCSM:
       - Bernoulli refresh operator: entries/bernoulli-refresh-operator.md
@@ -41,6 +40,7 @@ nav:
       - Kinetically constrained spin model: entries/kinetically-constrained-spin-model.md
       - Soft KCSM: entries/soft-kcsm.md
       - Legal update: entries/legal-update.md
+      - Monomial duality for FA-1f: entries/monomial-duality-for-fa-1f.md
       - KCSM relaxation and mixing: entries/kcsm-relaxation-and-mixing.md
       - KCSM out of equilibrium: entries/kcsm-out-of-equilibrium.md
   - Models:
