@@ -13,15 +13,30 @@ The intended reading target is the rendered MkDocs site.
 - Meta/style pages: `docs/meta/`
 - Site configuration: `mkdocs.yml`
 
-GitHub Actions contains a `Build wiki site` workflow. It builds the site from `docs/` and deploys it through GitHub Pages when Pages is enabled for the repository.
+GitHub Actions contains a `Build wiki site` workflow. It builds the site from `docs/` and deploys it through GitHub Pages after every push to `main` when Pages is enabled for the repository.
 
 ## Current core entries
 
 - Lattice and graph: `docs/entries/lattice-and-graph.md`
 - Local functions: `docs/entries/local-functions.md`
+- Monomials: `docs/entries/monomials.md`
 - Interacting particle system: `docs/entries/interacting-particle-system.md`
 - Spin system: `docs/entries/spin-system.md`
+- Oriented spin system: `docs/entries/oriented-spin-system.md`
 - Ergodicity: `docs/entries/ergodicity.md`
+
+## Current KCSM entries
+
+- Bernoulli refresh operator: `docs/entries/bernoulli-refresh-operator.md`
+- Update family: `docs/entries/update-family.md`
+- Kinetically constrained spin model: `docs/entries/kinetically-constrained-spin-model.md`
+- Legal update: `docs/entries/legal-update.md`
+- FA-1f model: `docs/entries/fa-1f-model.md`
+- East model: `docs/entries/east-model.md`
+- KCSM relaxation and mixing: `docs/entries/kcsm-relaxation-and-mixing.md`
+- KCSM out of equilibrium: `docs/entries/kcsm-out-of-equilibrium.md`
+- FA-1f out of equilibrium: `docs/entries/fa-1f-out-of-equilibrium.md`
+- East out of equilibrium: `docs/entries/east-out-of-equilibrium.md`
 
 ## Entry workflow
 
