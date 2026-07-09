@@ -52,7 +52,7 @@ $$
 
 and occurs at rate \(\beta_i(S)\), provided \(S\not\subseteq A\). It keeps the source site \(i\) and activates \(S\).
 
-The restriction \(S\not\subseteq A\) removes source-keeping updates that do not change the set \(A\). In duality equations, those omitted terms are represented by a diagonal coefficient.
+The restriction \(S\not\subseteq A\) removes source-keeping updates that do not change the set coordinate.
 
 ## Generator
 
@@ -69,13 +69,5 @@ $$
 \left(F(B_{i,S}A,\sigma\sigma_i^\beta(S))-F(A,\sigma)\right).
 \end{aligned}
 $$
-
-The omitted source-keeping updates with \(S\subseteq A\) contribute the diagonal coefficient
-
-$$
-\Gamma(A)=\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\subseteq A}}\sigma_i^\beta(S)\beta_i(S)
-$$
-
-in duality equations.
 
 Ignoring the sign coordinate, the source-killing and source-keeping maps preserve unions. The sign is an additional coordinate carried by the dual process.
