@@ -45,6 +45,7 @@ jobs:
           failures = []
 
           subset_pattern = re.compile(r"\\subset(?!eq|neq)")
+          fragile_tex_pattern = re.compile(r"\\big[lr]")
           subset_allowed = {Path("docs/meta/notation.md")}
 
           for path in paths:
@@ -61,6 +62,10 @@ jobs:
                   if path not in subset_allowed and subset_pattern.search(line):
                       failures.append(
                           f"{path}:{line_no}: forbidden ambiguous subset notation; use subseteq, subsetneq, or Subset"
+                      )
+                  if fragile_tex_pattern.search(line):
+                      failures.append(
+                          f"{path}:{line_no}: avoid fragile TeX delimiter commands bigl/bigr; use left/right or ordinary parentheses"
                       )
 
           if failures:
