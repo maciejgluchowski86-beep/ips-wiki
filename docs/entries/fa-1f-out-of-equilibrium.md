@@ -9,7 +9,7 @@ tags:
 
 # FA-1f out of equilibrium
 
-This entry records a convergence-to-equilibrium theorem for the [FA-1f model](fa-1f-model.md) started from a non-stationary initial law.
+This entry records a convergence-to-equilibrium theorem for the [FA-1f model](fa-1f-model.md) started from a non-stationary initial law. It is a model-specific instance of the broader [KCSM out-of-equilibrium](kcsm-out-of-equilibrium.md) problem.
 
 **Reference.** Blondel, Cancrini, Martinelli, Roberto, and Toninelli, *Fredrickson-Andersen one spin facilitated model out of equilibrium*, Theorem 2.1 and Remarks 2.3--2.4.
 
@@ -29,7 +29,7 @@ $$
 \kappa:=\sup_{i\in\Lambda}\E_\nu\left[\theta_0^{R_i(\eta)}\right]<\infty.
 $$
 
-Then for every local function \(f\), there is a constant
+Then for every [local function](local-functions.md) \(f\), there is a constant
 
 $$
 c=c(q,k,D,\kappa,|\supp(f)|)<\infty
@@ -49,4 +49,4 @@ $$
 
 ## Product initial laws
 
-If \(\nu=\mu_{q_0}\) is a Bernoulli product initial law with vacancy density \(q_0>0\), then the exponential-moment hypothesis on \(R_i\) holds for a suitable \(\theta_0>1\). Thus the theorem applies to every non-degenerate product initial law \(\mu_{q_0}\) with \(q_0>0\).
+If \(\nu=\mu_{q_0}\) is a Bernoulli product initial law with vacancy density \(q_0>0\), then the exponential-moment hypothesis on \(R_i\) holds for a suitable \(\theta_0>1\). Thus the theorem applies to every non-degenerate product initial law \(\mu_{q_0}\) with \(q_0>0\). The analogous model-specific oriented result is recorded under [East out of equilibrium](east-out-of-equilibrium.md).
