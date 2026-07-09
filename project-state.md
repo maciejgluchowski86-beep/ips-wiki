@@ -23,9 +23,13 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 
 1. `docs/entries/duality.md`: concise operator and Feynman--Kac duality definition.
 2. `docs/entries/theta-monomials.md`: \(\chi_A^\theta\), barred theta monomials, basis property, and algebraic identities.
-3. `docs/entries/signed-additive-set-process.md`: finite-subset process with sign coordinate, source-killing and source-keeping activations.
-4. `docs/entries/monomial-duality-for-spin-systems.md`: monomial duality for spin systems via a signed additive set process and Feynman--Kac potential.
-5. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
+3. `docs/entries/monomial-duality-for-spin-systems.md`: monomial duality for spin systems via a signed additive set process and Feynman--Kac potential.
+4. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
+
+## Current signed additive set process entries
+
+1. `docs/entries/signed-additive-set-process.md`: finite-subset process with sign coordinate, source-killing and source-keeping activations.
+2. `docs/entries/graphical-construction-of-signed-additive-set-process.md`: Poisson spacetime construction of the signed additive set process from interaction marks.
 
 ## Current KCSM entries
 
@@ -70,3 +74,5 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 - Attractiveness.
 - Bootstrap percolation.
 - Blocked configuration.
+- Successful interaction.
+- Patch representation for monomial duality.
