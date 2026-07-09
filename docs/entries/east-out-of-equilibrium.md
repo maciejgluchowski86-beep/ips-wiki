@@ -9,7 +9,7 @@ tags:
 
 # East out of equilibrium
 
-This entry records convergence-to-equilibrium theorems for the [East model](east-model.md) started from non-stationary initial configurations.
+This entry records convergence-to-equilibrium theorems for the [East model](east-model.md) started from non-stationary initial configurations. It is the oriented counterpart to model-specific results such as [FA-1f out of equilibrium](fa-1f-out-of-equilibrium.md) and belongs to the broader [KCSM out-of-equilibrium](kcsm-out-of-equilibrium.md) topic.
 
 **References.** Cancrini, Martinelli, Schonmann, and Toninelli, *Facilitated oriented spin models: some non equilibrium results*, Theorem 3.1; Hartarsky and Toninelli, *Kinetically constrained models*, Theorem 7.6.
 
@@ -23,7 +23,7 @@ $$
 
 Let \((P_t)_{t\ge0}\) be the East semigroup and let \(\mu_q\) be the Bernoulli product measure with vacancy density \(q\).
 
-**Theorem.** Let \(\eta\in\{0,1\}^{\Z}\). Assume that \(\eta\) has infinitely many vacancies to the right of \(\supp(f)\). Then there exists \(m>0\), and for each local function \(f\) there exist \(C_f<\infty\) and \(t_0=t_0(\eta,f)\) such that, for all \(t>t_0\),
+**Theorem.** Let \(\eta\in\{0,1\}^{\Z}\). Assume that \(\eta\) has infinitely many vacancies to the right of \(\supp(f)\). Then there exists \(m>0\), and for each [local function](local-functions.md) \(f\) there exist \(C_f<\infty\) and \(t_0=t_0(\eta,f)\) such that, for all \(t>t_0\),
 
 $$
 \left|P_t f(\eta)-\mu_q(f)\right|
