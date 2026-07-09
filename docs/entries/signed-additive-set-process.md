@@ -12,10 +12,10 @@ tags:
 A signed additive set process is a Markov process on finite subsets of a [lattice](lattice-and-graph.md), with an additional sign coordinate,
 
 $$
-(A_t,\sigma_t)\in\{A:A\Subset\Lambda\}\times\{-1,+1\}.
+(A_t,\sigma_t)\in\{A:A\Subset\Lambda\}\times\{+,-\}.
 $$
 
-The process is designed for finite-set [duality](duality.md) formulas for [spin systems](spin-system.md). In [monomial duality for spin systems](monomial-duality-for-spin-systems.md), the set coordinate indexes the [monomial](monomials.md) and the sign coordinate records signs of coefficients.
+Signs are multiplied by the usual sign rule, and act on real numbers by \(+x=x\) and \(-x=-x\). The process is designed for finite-set [duality](duality.md) formulas for [spin systems](spin-system.md). In [monomial duality for spin systems](monomial-duality-for-spin-systems.md), the set coordinate indexes the [monomial](monomials.md) and the sign coordinate records signs of coefficients.
 
 It is specified by nonnegative rates
 
@@ -27,7 +27,7 @@ $$
 and sign labels
 
 $$
-\sigma_i^\delta(S),\quad \sigma_i^\beta(S)\in\{-1,+1\}.
+\sigma_i^\delta(S),\quad \sigma_i^\beta(S)\in\{+,-\}.
 $$
 
 The convention is
