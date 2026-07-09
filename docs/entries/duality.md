@@ -9,7 +9,7 @@ tags:
 
 # Duality
 
-Let \((\eta_t)_{t\ge0}\) be a Markov process with generator \(L\), and let \((Y_t)_{t\ge0}\) be another Markov process with generator \(D\). The state \(Y_t\) may include signs or other bookkeeping variables.
+Let \((\eta_t)_{t\ge0}\) be a Markov process with generator \(L\), and let \((Y_t)_{t\ge0}\) be another Markov process with generator \(D\). In [interacting particle system](interacting-particle-system.md) applications, \(\eta_t\) is usually the physical process and \(Y_t\) is an auxiliary process chosen to make selected observables tractable. The state \(Y_t\) may include signs or other bookkeeping variables, as in a [signed additive set process](signed-additive-set-process.md).
 
 A function
 
@@ -47,4 +47,4 @@ $$
 \right].
 $$
 
-The second form is the Feynman--Kac duality form. The first form is the special case \(V=0\).
+The second form is the Feynman--Kac duality form. The first form is the special case \(V=0\). The [monomial duality for spin systems](monomial-duality-for-spin-systems.md) is a concrete finite-set example, and the [duality noise lemma](duality-noise-lemma.md) records a basic perturbation rule for comparison arguments.
