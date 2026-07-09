@@ -40,6 +40,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Bernoulli refresh operator: `docs/entries/bernoulli-refresh-operator.md`
 - Update family: `docs/entries/update-family.md`
 - Kinetically constrained spin model: `docs/entries/kinetically-constrained-spin-model.md`
+- Soft KCSM: `docs/entries/soft-kcsm.md`
 - Legal update: `docs/entries/legal-update.md`
 - FA-1f model: `docs/entries/fa-1f-model.md`
 - East model: `docs/entries/east-model.md`
