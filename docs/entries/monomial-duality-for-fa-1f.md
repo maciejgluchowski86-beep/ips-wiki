@@ -10,104 +10,121 @@ tags:
 
 # Monomial duality for FA-1f
 
-This entry records the specialization of [monomial duality for spin systems](monomial-duality-for-spin-systems.md) to the [FA-1f model](fa-1f-model.md). The resulting dual process is the [signed additive set process](signed-additive-set-process.md) determined by the coefficients below.
+This entry records the [signed additive set process](signed-additive-set-process.md) appearing in [monomial duality for spin systems](monomial-duality-for-spin-systems.md) for the [FA-1f model](fa-1f-model.md). Write \(p=1-q\), where \(q\) is the vacancy density. The source-keeping empty update is omitted: \(\beta_i(\vn)=0\).
 
-The notation is that of the general monomial duality entry. Thus
-
-$$
-a_i^\delta(S)=c_i^0(S),
-\qquad
-a_i^\beta(S)=-c_i^0(S)-c_i^1(S),
-$$
-
-and the nonnegative rates and signs are obtained from these signed coefficients. The convention \(\beta_i(\vn)=0\) is in force.
+Only the rates listed below are nonzero. All omitted rates are zero, and signs attached to zero rates are irrelevant.
 
 ## Hard FA-1f
 
-For hard FA-1f on a site with \(N(i)\ne\vn\), the only nonzero signed coefficients are
+Assume \(N(i)\ne\vn\). The nonzero rates and signs at source site \(i\) are
 
 $$
-a_i^\delta(\vn)=p,
+\delta_i(\vn)=p,
 \qquad
-a_i^\delta(N(i))=-p,
+\sigma_i^\delta(\vn)=+1,
+$$
+
+$$
+\delta_i(N(i))=p,
+\qquad
+\sigma_i^\delta(N(i))=-1,
 $$
 
 and
 
 $$
-a_i^\beta(\vn)=-1,
+\beta_i(N(i))=1,
 \qquad
-a_i^\beta(N(i))=1.
+\sigma_i^\beta(N(i))=+1.
 $$
 
-All other coefficients vanish. Therefore the source-killing rates are \(p\) for \(S=\vn\) and \(p\) for \(S=N(i)\), with signs \(+1\) and \(-1\), respectively. The only nonzero source-keeping rate is \(1\) for \(S=N(i)\), with sign \(+1\).
-
-The Feynman--Kac potential is
+The site Feynman--Kac weight is
 
 $$
-V(A)=\sum_{i\in A}V_i,
-\qquad
 V_i=2p.
 $$
 
-If \(N(i)=\vn\), the hard FA-1f constraint is identically zero at \(i\), so the site contributes no rates and no potential.
+Thus \(V(A)=\sum_{i\in A}V_i=2p|A|\). If \(N(i)=\vn\), the hard FA-1f constraint at \(i\) is identically zero, so all dual rates and \(V_i\) are zero.
 
 ## Soft FA-1f
 
-For [soft KCSM](soft-kcsm.md), the FA-1f constraint is replaced by
+For [soft KCSM](soft-kcsm.md), the FA-1f constraint is
 
 $$
-c_i^\varepsilon(\eta)=1-(1-\varepsilon_i)\chi_{N(i)}(\eta).
+c_i^\varepsilon(\eta)=1-(1-\varepsilon_i)\chi_{N(i)}(\eta),
+\qquad \varepsilon_i\in[0,1].
 $$
 
-For \(N(i)\ne\vn\), the nonzero signed coefficients are
+Assume \(N(i)\ne\vn\). The nonzero rates and signs are
 
 $$
-a_i^\delta(\vn)=p,
+\delta_i(\vn)=p,
 \qquad
-a_i^\delta(N(i))=-(1-\varepsilon_i)p,
+\sigma_i^\delta(\vn)=+1,
+$$
+
+$$
+\delta_i(N(i))=(1-\varepsilon_i)p,
+\qquad
+\sigma_i^\delta(N(i))=-1,
 $$
 
 and
 
 $$
-a_i^\beta(\vn)=-1,
+\beta_i(N(i))=1-\varepsilon_i,
 \qquad
-a_i^\beta(N(i))=1-\varepsilon_i.
+\sigma_i^\beta(N(i))=+1.
 $$
 
-Consequently,
+The site Feynman--Kac weight is
 
 $$
-V_i^\varepsilon=2p-\varepsilon_i(1+p),
+V_i^\varepsilon=2p-\varepsilon_i(1+p).
+$$
+
+If \(N(i)=\vn\), the only nonzero rate is
+
+$$
+\delta_i(\vn)=\varepsilon_i p,
 \qquad
-V^\varepsilon(A)=\sum_{i\in A}V_i^\varepsilon.
+\sigma_i^\delta(\vn)=+1,
 $$
 
-If \(N(i)=\vn\), then \(c_i^\varepsilon\equiv\varepsilon_i\). The only nonzero source-killing rate is \(\varepsilon_i p\) for \(S=\vn\), and
+and
 
 $$
 V_i^\varepsilon=-\varepsilon_i q.
 $$
 
-## Adding pure deaths
+## Hard FA-1f with pure deaths
 
-Add pure deaths at rates \(d_i\ge0\):
-
-$$
-\mathcal N_d^0 f(\eta)=\sum_{i\in\Lambda}d_i\eta(i)\left(f(\eta^{i,0})-f(\eta)\right).
-$$
-
-By the [duality noise lemma](duality-noise-lemma.md), this perturbation does not change the dual process. It only subtracts \(d_i\) from the site potential. Thus, for \(N(i)\ne\vn\),
+Add pure deaths at rates \(d_i\ge0\). By the [duality noise lemma](duality-noise-lemma.md), the dual rates and signs are exactly the hard FA-1f rates and signs above. Only the Feynman--Kac weight changes:
 
 $$
-V_i^{d}=2p-d_i
+V_i^d=2p-d_i
 $$
 
-for hard FA-1f with pure deaths, and
+when \(N(i)\ne\vn\), and
+
+$$
+V_i^d=-d_i
+$$
+
+when \(N(i)=\vn\).
+
+## Soft FA-1f with pure deaths
+
+With both softening and pure deaths, the dual rates and signs are exactly the soft FA-1f rates and signs above. Only the Feynman--Kac weight changes:
 
 $$
 V_i^{\varepsilon,d}=2p-\varepsilon_i(1+p)-d_i
 $$
 
-for soft FA-1f with pure deaths. If \(N(i)=\vn\), the soft-death potential is \(-\varepsilon_i q-d_i\).
+when \(N(i)\ne\vn\), and
+
+$$
+V_i^{\varepsilon,d}=-\varepsilon_i q-d_i
+$$
+
+when \(N(i)=\vn\).
