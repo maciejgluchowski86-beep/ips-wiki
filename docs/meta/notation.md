@@ -17,10 +17,15 @@ This page records common notation for the public wiki.
 | \(\eta,\xi\) | configurations | IPS/spin systems |
 | \(\eta^i\) | configuration obtained by flipping site \(i\) | spin systems |
 | \(\eta^{i,a}\) | configuration obtained by setting site \(i\) to \(a\) | finite-state IPS |
-| \(c_i(\eta)\) | flip rate at site \(i\) | spin systems |
-| \(c_i^a(\eta)\) | rate of setting site \(i\) to \(a\) | finite-state IPS |
+| \(c_i(\eta)\) | flip rate or constraint at site \(i\) | spin systems/KCSM |
 | \(\cL\) | generator | Markov processes |
 | \(P_t\) | Markov semigroup or transition kernel | IPS/spin systems |
+| \(q\) | density of the KCSM facilitating state \(0\) | KCSM |
+| \(p\) | \(1-q\), density of state \(1\) | KCSM |
+| \(\mu_q\) | Bernoulli product measure with zero density \(q\) | KCSM |
+| \(E_i^q\) | Bernoulli refresh operator at site \(i\) | KCSM |
+| \(\mathcal U_i\) | update family at site \(i\) | KCSM |
+| \(\chi_A\) | monomial \(\prod_{i\in A}\eta(i)\) | algebra/duality |
 | \(\nu\) | invariant measure, when unique or distinguished | ergodicity |
 | \(\mu P_t\) | law at time \(t\) started from law \(\mu\) | ergodicity |
 
@@ -45,7 +50,7 @@ A\Subset B
 \quad\text{means finite subset in this countable-lattice setting.}
 $$
 
-Do not use \(\subset\), since it is ambiguous between non-strict and strict inclusion.
+Do not use the bare ambiguous subset command.
 
 ## Lattice convention
 
@@ -64,3 +69,7 @@ $$
 $$
 
 A process with a larger single-site state space or more general update maps is called an interacting particle system.
+
+## KCSM convention
+
+For kinetically constrained spin models, \(0\) is the facilitating or vacant state. The parameter \(q\) is the density of zeros and \(p=1-q\) is the density of ones.
