@@ -9,7 +9,9 @@ tags:
 
 # Duality noise lemma
 
-Let \((\eta_t)\) have generator \(\cL\), and suppose \(H\) has the [duality](duality.md) relation
+The duality noise lemma is a comparison tool for Feynman--Kac [duality](duality.md). It says that a Markov perturbation acting diagonally with non-positive eigenvalue on the duality function preserves the dual process and only lowers the Feynman--Kac potential.
+
+Let \((\eta_t)\) have generator \(\cL\), and suppose \(H\) has the relation
 
 $$
 \cL_\eta H(y,\eta)=\cD_yH(y,\eta)+V(y)H(y,\eta).
@@ -29,11 +31,11 @@ $$
 \cD_yH(y,\eta)+(V(y)-\varepsilon r(y))H(y,\eta).
 $$
 
-Thus \(\cL\) and \(\cL+\varepsilon\mathcal N\) have the same dual process. The perturbation only decreases the Feynman--Kac potential from \(V\) to \(V-\varepsilon r\).
+Thus \(\cL\) and \(\cL+\varepsilon\mathcal N\) have the same dual process. The perturbation only decreases the Feynman--Kac potential from \(V\) to \(V-\varepsilon r\). For finite-set duals such as [monomial duality for spin systems](monomial-duality-for-spin-systems.md), this lets one compare processes while keeping the same [signed additive set process](signed-additive-set-process.md).
 
 ## Monomial examples
 
-For the monomial
+For the [monomial](monomials.md)
 
 $$
 \chi_A(\eta)=\prod_{i\in A}\eta(i),
@@ -54,7 +56,7 @@ $$
 \mathcal N^0\chi_A=-\left(\sum_{i\in A}d_i\right)\chi_A.
 $$
 
-For the conjugate monomial
+For the conjugate monomial, the \(\theta=0\) barred [theta monomial](theta-monomials.md)
 
 $$
 \bar\chi_A(\eta)=\prod_{i\in A}(1-\eta(i)),
