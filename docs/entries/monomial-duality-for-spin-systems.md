@@ -51,7 +51,7 @@ The associated nonnegative source-killing rates and signs are
 $$
 \delta_i(S)=|a_i^\delta(S)|,
 \qquad
-\sigma_i^\delta(S)=\operatorname{sgn}a_i^\delta(S).
+\sigma_i^\delta(S)=\operatorname{sgn}_\pm a_i^\delta(S).
 $$
 
 For source-keeping updates use the convention \(\beta_i(\vn)=0\). For \(S\ne\vn\), set
@@ -59,10 +59,10 @@ For source-keeping updates use the convention \(\beta_i(\vn)=0\). For \(S\ne\vn\
 $$
 \beta_i(S)=|a_i^\beta(S)|,
 \qquad
-\sigma_i^\beta(S)=\operatorname{sgn}a_i^\beta(S).
+\sigma_i^\beta(S)=\operatorname{sgn}_\pm a_i^\beta(S).
 $$
 
-Signs at zero rates are arbitrary.
+Here \(\operatorname{sgn}_\pm x\) is \(+\) for \(x>0\) and \(-\) for \(x<0\). Signs at zero rates are arbitrary.
 
 ## Generator action
 
@@ -85,8 +85,10 @@ Thus the only dual updates are activations of subsets of neighbouring sites. The
 Let \(Y=(A,\sigma)\), and let \((Y_t)=(A_t,\sigma_t)\) be the signed additive set process with rates \(\delta_i(S)\), \(\beta_i(S)\), signs \(\sigma_i^\delta(S)\), \(\sigma_i^\beta(S)\), and update maps \(D_{i,S}\), \(B_{i,S}\). Its duality function is
 
 $$
-H(Y,\eta)=\sigma\chi_A(\eta).
+H(Y,\eta)=\sigma\chi_A(\eta),
 $$
+
+where the sign \(\sigma\in\{+,-\}\) acts on the real number \(\chi_A(\eta)\).
 
 The Feynman--Kac potential depends only on \(A\). Write
 
