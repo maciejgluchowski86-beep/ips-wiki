@@ -36,6 +36,7 @@ nav:
   - Signed additive set processes:
       - Signed additive set process: entries/signed-additive-set-process.md
       - Graphical construction of signed additive set process: entries/graphical-construction-of-signed-additive-set-process.md
+      - Successful interaction: entries/successful-interaction.md
   - KCSM:
       - Bernoulli refresh operator: entries/bernoulli-refresh-operator.md
       - Update family: entries/update-family.md
