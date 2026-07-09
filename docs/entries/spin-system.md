@@ -9,7 +9,7 @@ tags:
 
 # Spin system
 
-A spin system is a continuous-time [interacting particle system](interacting-particle-system.md) with two possible states at each site. The state space is usually written as \(\{0,1\}^\Lambda\), or equivalently as \(\{-1,+1\}^\Lambda\). The defining feature is that updates are single-site flips.
+A spin system is a continuous-time [interacting particle system](interacting-particle-system.md) with two possible states at each site. The state space is usually written as \(\{0,1\}^\Lambda\), or equivalently as \(\{-1,+1\}^\Lambda\). The defining feature is that updates are single-site flips. Algebraic computations often use [monomials](monomials.md), and one resulting duality construction is [monomial duality for spin systems](monomial-duality-for-spin-systems.md).
 
 **References.** Liggett, *Interacting Particle Systems*; Liggett, *Stochastic Interacting Systems*.
 
@@ -75,7 +75,7 @@ $$
 \inf_i \inf_\eta c_i(\eta)>0,
 $$
 
-or, when the rates are translation-invariant and depend on finitely many coordinates, as positivity of the finite list of local rates.
+or, when the rates are translation-invariant and depend on finitely many coordinates, as positivity of the finite list of local rates. This condition is separate from [KCSM](kinetically-constrained-spin-model.md) constraints, where many local rates are intentionally zero.
 
 ## Ergodicity
 
