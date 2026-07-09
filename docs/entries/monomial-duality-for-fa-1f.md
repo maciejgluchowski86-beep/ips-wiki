@@ -21,13 +21,13 @@ Assume \(N(i)\ne\vn\). The nonzero rates and signs at source site \(i\) are
 $$
 \delta_i(\vn)=p,
 \qquad
-\sigma_i^\delta(\vn)=+1,
+\sigma_i^\delta(\vn)=+,
 $$
 
 $$
 \delta_i(N(i))=p,
 \qquad
-\sigma_i^\delta(N(i))=-1,
+\sigma_i^\delta(N(i))=-,
 $$
 
 and
@@ -35,7 +35,7 @@ and
 $$
 \beta_i(N(i))=1,
 \qquad
-\sigma_i^\beta(N(i))=+1.
+\sigma_i^\beta(N(i))=+.
 $$
 
 The site Feynman--Kac weight is
@@ -60,13 +60,13 @@ Assume \(N(i)\ne\vn\). The nonzero rates and signs are
 $$
 \delta_i(\vn)=p,
 \qquad
-\sigma_i^\delta(\vn)=+1,
+\sigma_i^\delta(\vn)=+,
 $$
 
 $$
 \delta_i(N(i))=(1-\varepsilon_i)p,
 \qquad
-\sigma_i^\delta(N(i))=-1,
+\sigma_i^\delta(N(i))=-,
 $$
 
 and
@@ -74,7 +74,7 @@ and
 $$
 \beta_i(N(i))=1-\varepsilon_i,
 \qquad
-\sigma_i^\beta(N(i))=+1.
+\sigma_i^\beta(N(i))=+.
 $$
 
 The site Feynman--Kac weight is
@@ -88,7 +88,7 @@ If \(N(i)=\vn\), the only nonzero rate is
 $$
 \delta_i(\vn)=\varepsilon_i p,
 \qquad
-\sigma_i^\delta(\vn)=+1,
+\sigma_i^\delta(\vn)=+,
 $$
 
 and
