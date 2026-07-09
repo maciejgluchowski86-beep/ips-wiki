@@ -28,6 +28,11 @@ nav:
       - Spin system: entries/spin-system.md
       - Oriented spin system: entries/oriented-spin-system.md
       - Ergodicity: entries/ergodicity.md
+  - Duality:
+      - Duality: entries/duality.md
+      - Theta monomials: entries/theta-monomials.md
+      - Signed additive set process: entries/signed-additive-set-process.md
+      - Monomial duality for spin systems: entries/monomial-duality-for-spin-systems.md
   - KCSM:
       - Bernoulli refresh operator: entries/bernoulli-refresh-operator.md
       - Update family: entries/update-family.md
