@@ -10,12 +10,12 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 
 ## Current core entries
 
-1. `docs/entries/lattice-and-graph.md`: lattice notation \(\Lambda\), neighbourhoods \(N(i)\), enlarged neighbourhoods \(N_*(i)\), and graph descriptions.
+1. `docs/entries/lattice-and-graph.md`: lattice notation \(\Lambda\), neighbourhoods \(N(i)\), enlarged neighbourhoods \(N_*(i)\), reachability, orientation, and graph descriptions.
 2. `docs/entries/local-functions.md`: finite-dependence observables and their role in generators.
 3. `docs/entries/monomials.md`: monomials \(\chi_A\) and algebraic identities.
 4. `docs/entries/interacting-particle-system.md`: general product-space Markov process on \(\mathcal S^\Lambda\) with local updates.
 5. `docs/entries/spin-system.md`: two-state single-site flip system, generator, and semigroup/kernel notation.
-6. `docs/entries/oriented-spin-system.md`: spin systems on directed acyclic lattices.
+6. `docs/entries/oriented-spin-system.md`: spin systems on oriented lattices, with orientation defined by reachability through \(N(i)\).
 7. `docs/entries/ergodicity.md`: IPS-specific distinction between unique invariant measure, ergodicity, and uniform exponential ergodicity.
 
 ## Current KCSM entries
@@ -25,7 +25,7 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 3. `docs/entries/kinetically-constrained-spin-model.md`: general KCSM generator.
 4. `docs/entries/legal-update.md`: legal clock rings and legal paths.
 5. `docs/entries/fa-1f-model.md`: FA-1f on an arbitrary lattice.
-6. `docs/entries/east-model.md`: East model on an oriented lattice.
+6. `docs/entries/east-model.md`: East model on an oriented lattice using \(N(i)\).
 7. `docs/entries/kcsm-relaxation-and-mixing.md`: relaxation time, mixing time, and precutoff terminology.
 8. `docs/entries/kcsm-out-of-equilibrium.md`: general out-of-equilibrium setup.
 9. `docs/entries/fa-1f-out-of-equilibrium.md`: known FA-1f out-of-equilibrium results.
@@ -42,6 +42,8 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 - Use \(\Lambda\) for the lattice and \(\mathcal S\) for the single-site state space.
 - A graph is an alternative description of neighbourhoods on \(\Lambda\).
 - \(N(i)\) does not contain \(i\), while \(N_*(i)=N(i)\cup\{i\}\) does.
+- Orientation uses only \(N(i)\): \(i\to j\) means there is a chain from \(i\) to \(j\) following neighbour sets; oriented means reachability is antisymmetric.
+- Do not introduce predecessor/successor notation for orientation unless a later page genuinely needs it.
 - For KCSM, \(0\) is the facilitating state, \(q\) is the density of zeros, and \(p=1-q\).
 - Spin system means two-state single-site flip system.
 - IPS is the broader class allowing larger single-site spaces and more general local update maps.
