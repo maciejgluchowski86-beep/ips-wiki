@@ -9,7 +9,7 @@ tags:
 
 # Local functions
 
-Local functions are observables that depend on only finitely many lattice sites. They form the natural initial domain for generators of infinite-volume [interacting particle systems](interacting-particle-system.md) and [spin systems](spin-system.md).
+Local functions are observables that depend on only finitely many lattice sites. They form the natural initial domain for generators of infinite-volume [interacting particle systems](interacting-particle-system.md) and [spin systems](spin-system.md). In two-state systems, [monomials](monomials.md) give a basic family of local functions.
 
 ## Definition
 
@@ -49,4 +49,4 @@ the expression is initially interpreted for local \(f\). If \(f\) depends only o
 
 ## Topological role
 
-When \(\mathcal S\) is finite and \(\Lambda\) is countable, \(\Omega=\mathcal S^\Lambda\) is compact in the product topology. Local functions are continuous and form a convergence-determining algebra. Thus weak convergence of probability measures, as in the local-function formulation of [ergodicity](ergodicity.md), can often be checked against local functions.
+When \(\mathcal S\) is finite and \(\Lambda\) is countable, \(\Omega=\mathcal S^\Lambda\) is compact in the product topology. Local functions are continuous and form a convergence-determining algebra. Thus weak convergence of probability measures, as in the local-function formulation of [ergodicity](ergodicity.md), can often be checked against local functions. They are also the observables in [KCSM out-of-equilibrium](kcsm-out-of-equilibrium.md) convergence statements.
