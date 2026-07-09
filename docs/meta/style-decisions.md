@@ -29,16 +29,17 @@ This page records durable style choices for the public IPS wiki.
 
 ## Subset convention
 
-- Use `\subseteq` for subset, possibly equal.
-- Use `\subsetneq` for strict subset.
+- Use the non-strict subset command ending in `eq` for subset, possibly equal.
+- Use the strict subset command ending in `neq` for strict subset.
 - Use `\Subset` for finite subsets in the countable-lattice setting.
-- Do not use `\subset`, since it is ambiguous.
+- Do not use the bare ambiguous subset command.
 
 ## Current mathematical conventions
 
 - The default index object is a lattice \(\Lambda\). A graph is an alternative description of neighbourhoods on \(\Lambda\).
 - The single-site state space is denoted by \(\mathcal S\), not \(E\).
 - The neighbour set \(N(i)\) does not contain \(i\). The enlarged set \(N_*(i)=N(i)\cup\{i\}\) does contain \(i\).
+- For KCSM, \(0\) is the facilitating or vacant state, \(q\) is the density of zeros, and \(p=1-q\).
 - A spin system is two-state and uses single-site flip updates.
 - A finite-state product process with more than two single-site states, or with more general update maps, is called an interacting particle system.
 - Infinite-volume generators are first interpreted on local functions.
