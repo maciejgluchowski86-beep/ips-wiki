@@ -99,15 +99,33 @@ This is the formulation in Hartarsky--Toninelli, *Kinetically constrained models
 
 ## Higher-dimensional product initial laws
 
+For \(r\ge0\), define
+
+$$
+Q_+(r)=\{0,\ldots,\lfloor r\rfloor\}^d
+$$
+
+and
+
+$$
+Q_-(r)=-Q_+(r)\setminus\{0\}.
+$$
+
 Marêché's Theorem 2.2 gives an integrated version for initial laws. In the orientation convention above, define condition \((C_+)\) by requiring that there exist constants \(a,A>0\) such that, for every \(\ell\ge0\),
 
 $$
-\nu\left(\eta(y)=1\text{ for every }y\in\{0,\ldots,\lfloor\ell\rfloor\}^d\right)
+\nu\left(\eta(y)=1\text{ for every }y\in Q_+(\ell)\right)
 \le
 A\exp(-a\ell).
 $$
 
-If \(\nu\) satisfies \((C_+)\), then there exist constants \(\chi=\chi(q)>0\), \(c_1=c_1(q,\nu)>0\), and \(C_1=C_1(q,\nu)<\infty\) such that, for all \(t\ge0\) and all local functions \(f\) with support in the corresponding oriented box of size \(\chi t^{1/d}\),
+If \(\nu\) satisfies \((C_+)\), then there exist constants \(\chi=\chi(q)>0\), \(c_1=c_1(q,\nu)>0\), and \(C_1=C_1(q,\nu)<\infty\) such that, for all \(t\ge0\) and all local functions \(f\) with
+
+$$
+\supp(f)\subseteq Q_-(\chi t^{1/d}),
+$$
+
+one has
 
 $$
 \int\left|P_t f(\eta)-\mu_q(f)\right|\,\nu(d\eta)
