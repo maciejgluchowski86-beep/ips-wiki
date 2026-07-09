@@ -19,6 +19,13 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 7. `docs/entries/oriented-spin-system.md`: spin systems on oriented lattices, with orientation defined by reachability through \(N(i)\).
 8. `docs/entries/ergodicity.md`: IPS-specific distinction between unique invariant measure, ergodicity, and uniform exponential ergodicity.
 
+## Current duality entries
+
+1. `docs/entries/duality.md`: concise operator and Feynman--Kac duality definition.
+2. `docs/entries/theta-monomials.md`: \(\chi_A^\theta\), barred theta monomials, basis property, and algebraic identities.
+3. `docs/entries/signed-additive-set-process.md`: finite-subset process with sign coordinate, source-killing and source-keeping activations.
+4. `docs/entries/monomial-duality-for-spin-systems.md`: monomial duality for spin systems via a signed additive set process and diagonal term.
+
 ## Current KCSM entries
 
 1. `docs/entries/bernoulli-refresh-operator.md`: Bernoulli product measure and one-site refresh operator.
