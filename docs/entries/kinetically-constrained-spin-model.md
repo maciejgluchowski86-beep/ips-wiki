@@ -63,7 +63,7 @@ $$
 \left(f(\eta^i)-f(\eta)\right).
 $$
 
-Thus every KCSM is a spin system, but its flip rates are degenerate whenever the constraint is not satisfied.
+Thus every KCSM is a spin system, but its flip rates are degenerate whenever the constraint is not satisfied. The [soft KCSM](soft-kcsm.md) variant replaces the zero illegal-update rate by a positive softened rate.
 
 ## Reversibility and convergence questions
 
