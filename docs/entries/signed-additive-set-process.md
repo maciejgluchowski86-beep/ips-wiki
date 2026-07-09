@@ -50,9 +50,7 @@ $$
 (A,\sigma)\to(B_{i,S}A,\sigma\sigma_i^\beta(S))
 $$
 
-and occurs at rate \(\beta_i(S)\), provided \(S\not\subseteq A\). It keeps the source site \(i\) and activates \(S\).
-
-The restriction \(S\not\subseteq A\) removes source-keeping updates that do not change the set coordinate.
+and occurs at rate \(\beta_i(S)\). It keeps the source site \(i\) and activates \(S\). This update is still included when \(B_{i,S}A=A\); in that case it may only change the sign coordinate.
 
 ## Generator
 
@@ -65,7 +63,7 @@ $$
 \sum_{i\in A}\sum_{S\subseteq N(i)}\delta_i(S)
 \left(F(D_{i,S}A,\sigma\sigma_i^\delta(S))-F(A,\sigma)\right)\\
 &+
-\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\not\subseteq A}}\beta_i(S)
+\sum_{i\in A}\sum_{S\subseteq N(i)}\beta_i(S)
 \left(F(B_{i,S}A,\sigma\sigma_i^\beta(S))-F(A,\sigma)\right).
 \end{aligned}
 $$
