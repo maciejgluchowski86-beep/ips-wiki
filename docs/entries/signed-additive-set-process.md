@@ -15,16 +15,14 @@ $$
 (A_t,\sigma_t)\in\{A:A\Subset\Lambda\}\times\{-1,+1\}.
 $$
 
-It is specified by signed coefficients
+It is specified by two families of real weights
 
 $$
 \delta_i(S),\quad \beta_i(S)\in\R,
 \qquad i\in\Lambda,\quad S\subseteq N(i).
 $$
 
-The coefficient \(\delta_i(S)\) kills the source site \(i\) and activates \(S\). The coefficient \(\beta_i(S)\) keeps the source site \(i\) and activates \(S\).
-
-For \(i\in A\), define
+For \(i\in A\), define the source-killing and source-keeping set maps
 
 $$
 D_{i,S}A=(A\setminus\{i\})\cup S,
@@ -32,19 +30,25 @@ D_{i,S}A=(A\setminus\{i\})\cup S,
 B_{i,S}A=A\cup S.
 $$
 
-The transitions are
+A nonzero weight \(\delta_i(S)\) gives the source-killing update
 
 $$
 (A,\sigma)\to(D_{i,S}A,\sigma\operatorname{sgn}\delta_i(S))
 $$
 
-at rate \(|\delta_i(S)|\), and, when \(S\not\subseteq A\),
+at rate \(|\delta_i(S)|\). This update removes the source site \(i\) and activates the neighbour set \(S\).
+
+A nonzero weight \(\beta_i(S)\) gives the source-keeping update
 
 $$
 (A,\sigma)\to(B_{i,S}A,\sigma\operatorname{sgn}\beta_i(S))
 $$
 
-at rate \(|\beta_i(S)|\). Coefficients equal to \(0\) produce no transition.
+at rate \(|\beta_i(S)|\), provided \(S\not\subseteq A\). This update keeps the source site \(i\) and activates the neighbour set \(S\).
+
+The restriction \(S\not\subseteq A\) only removes null set updates from the Markov generator.
+
+## Generator
 
 The generator is
 
@@ -60,10 +64,12 @@ $$
 \end{aligned}
 $$
 
-The omitted terms with \(S\subseteq A\) in the \(\beta\)-sum are null set updates. In duality formulas they contribute the diagonal coefficient
+The omitted source-keeping updates with \(S\subseteq A\) contribute the diagonal coefficient
 
 $$
-\Gamma(A)=\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\subseteq A}}\beta_i(S).
+\Gamma(A)=\sum_{i\in A}\sum_{\substack{S\subseteq N(i)\\ S\subseteq A}}\beta_i(S)
 $$
 
-The unsigned set maps \(A\mapsto D_{i,S}A\) and \(A\mapsto B_{i,S}A\), applied only when \(i\in A\), preserve unions. The sign is an additional coordinate.
+in duality equations.
+
+Ignoring the sign coordinate, the source-killing and source-keeping maps preserve unions. The sign is an additional coordinate carried by the dual process.
