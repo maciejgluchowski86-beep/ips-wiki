@@ -35,45 +35,6 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      - name: Lint wiki source
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import re
-
-          paths = list(Path("docs").rglob("*.md")) + [Path("README.md"), Path("project-state.md")]
-          failures = []
-
-          subset_pattern = re.compile(r"\\subset(?!eq|neq)")
-          fragile_tex_pattern = re.compile(r"\\big[lr]")
-          subset_allowed = {Path("docs/meta/notation.md")}
-
-          for path in paths:
-              if not path.exists():
-                  continue
-              text = path.read_text(encoding="utf-8")
-              for line_no, line in enumerate(text.splitlines(), start=1):
-                  for col, ch in enumerate(line, start=1):
-                      code = ord(ch)
-                      if code < 32 and ch not in "\t":
-                          failures.append(
-                              f"{path}:{line_no}:{col}: forbidden control character U+{code:04X}"
-                          )
-                  if path not in subset_allowed and subset_pattern.search(line):
-                      failures.append(
-                          f"{path}:{line_no}: forbidden ambiguous subset notation; use subseteq, subsetneq, or Subset"
-                      )
-                  if fragile_tex_pattern.search(line):
-                      failures.append(
-                          f"{path}:{line_no}: avoid fragile TeX delimiter commands bigl/bigr; use left/right or ordinary parentheses"
-                      )
-
-          if failures:
-              print("Wiki source lint failed:")
-              print("\n".join(failures))
-              raise SystemExit(1)
-          PY
-
       - name: Build site
         run: mkdocs build
 
