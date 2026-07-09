@@ -9,13 +9,7 @@ tags:
 
 # Successful interaction
 
-Fix a [signed additive set process](signed-additive-set-process.md) with graphical mark set \(P\), constructed as in the [graphical construction](graphical-construction-of-signed-additive-set-process.md). Write
-
-$$
-Y_t=(A_t,\sigma_t).
-$$
-
-For \(S\ne\vn\), a type-\(S\) successful interaction is a mark
+Fix a [signed additive set process](signed-additive-set-process.md) with graphical mark set \(P\), constructed as in the [graphical construction](graphical-construction-of-signed-additive-set-process.md). For \(S\ne\vn\), a type-\(S\) successful interaction is a mark
 
 $$
 (i,t,\alpha,S)\in P,
