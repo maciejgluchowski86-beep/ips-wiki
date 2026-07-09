@@ -1,160 +1,103 @@
-# Compilation instructions for IPS wiki entries
+# Compilation procedure for IPS wiki edits
 
-This file records working instructions for adding or editing entries in the IPS wiki. It is intended for ChatGPT/Codex-style agents editing the repository.
+This file records the general operating procedure for adding or editing entries. It is not a style guide and should not duplicate notation, writing conventions, or entry templates. Those live in:
 
-## Startup routine
+- `docs/meta/style-decisions.md`
+- `docs/meta/notation.md`
+- `docs/meta/entry-template.md`
 
-Before a substantive entry edit, read:
+## 1. Bootstrap the repository context
+
+Before a substantive edit, read:
 
 1. `project-state.md`.
 2. `README.md`.
 3. `docs/meta/style-decisions.md`.
 4. `docs/meta/notation.md`.
-5. The nearest parent entries and adjacent entries relevant to the requested change.
+5. `docs/meta/entry-template.md` when creating a new entry.
+6. The existing entries that are direct parents, children, or close neighbours of the requested change.
 
-For example, before writing a model-specific duality entry, read `docs/entries/duality.md`, `docs/entries/signed-additive-set-process.md`, `docs/entries/monomial-duality-for-spin-systems.md`, the model entry, and any general entry that the model-specific entry should specialize.
+Do not start from memory alone when the edit depends on current repository structure or current conventions.
 
-## General writing principle
+## 2. Classify the requested change
 
-Entries should be modular reference pages, not self-contained lecture notes. Use existing entries by inline links and specialize them. Do not rederive general theory in a model-specific page.
+Determine whether the request is one of the following:
 
-A model-specific entry should usually contain only the data needed to apply the general construction. A general-definition entry should define the concept once, so later entries can link to it.
+- a new entry;
+- a content edit to an existing entry;
+- a notation or style-convention edit;
+- a navigation/placement edit;
+- a link-audit or cross-reference edit;
+- a metadata/state update;
+- a deletion or merger.
 
-## When to create a separate entry
+For mixed requests, separate the parts and apply the relevant procedure to each one.
 
-Create or use a general entry when a concept is not model-specific. Examples:
+## 3. Locate the authoritative files
 
-- softening a constraint belongs in `soft-kcsm.md`, not only inside an FA-1f page;
-- perturbations that preserve a dual process belong in `duality-noise-lemma.md`, not in every model page;
-- finite-set signed dual processes belong in `signed-additive-set-process.md`, not in each example.
+For every edit, identify which files are authoritative for the change.
 
-Then the model-specific entry should link to the general entry and record only the specialization.
+- Mathematical or expository content belongs in `docs/entries/`.
+- Durable notation belongs in `docs/meta/notation.md`.
+- Durable prose/style decisions belong in `docs/meta/style-decisions.md`.
+- Reusable entry skeletons belong in `docs/meta/entry-template.md`.
+- Site navigation belongs in `mkdocs.yml`.
+- Public index listings belong in `docs/index.md`.
+- Repository state summaries belong in `project-state.md`.
+- Repository overview listings belong in `README.md`.
 
-## Entry structure
+Do not encode durable style or notation choices in this file.
 
-Use front matter:
+## 4. Decide whether a new entry is needed
 
-```markdown
----
-title: Entry title
-status: definition | standard fact | proved here | conditional | heuristic | open | obsolete
-tags:
-  - tag
----
-```
+Before creating a new entry, check whether the concept already has a natural home. Prefer editing or linking an existing general entry when the concept is already covered there.
 
-Write as a mathematical article. Avoid meta-commentary about the wiki except in meta files. Use inline links at the first natural mathematically useful occurrence. Do not add top-level "Related pages" sections.
+Create a new entry only when it will be a stable reference page with a clear scope. If the requested material is a special case of an existing entry, make the new entry a compact specialization and link to the parent entry instead of reproducing the parent construction.
 
-## Specialization entries
+## 5. Draft the edit against existing structure
 
-For a specialization entry, use a compact, systematic format.
+Use the existing wiki graph. A new or edited entry should fit into the current dependency structure and link to the nearest relevant entries.
 
-1. State the parent construction by link.
-2. State the convention or model parameters.
-3. List the final usable data.
-4. Avoid derivations unless the entry is explicitly a proof entry.
+Before writing, identify:
 
-For example, a model-specific monomial-duality entry should list the actual dual rates, signs, and Feynman--Kac weights. It should not list intermediate signed coefficients unless the entry is specifically about the derivation.
+- the parent entries the page depends on;
+- sibling entries that should be cross-linked;
+- downstream entries that should link back to the new or edited page;
+- whether navigation or index listings should change.
 
-## Duality and signed-process conventions
+## 6. Apply the edit
 
-Use the sign set
+Make the smallest coherent set of file changes. Avoid unrelated cleanup in the same edit unless the user asked for a broad cleanup pass.
 
-$$
-\{+,-\},
-$$
+For new entries, usually update:
 
-not \(\{+1,-1\}\), for signed process states and sign labels. Signs multiply by the usual sign rule and act on real numbers by \(+x=x\), \(-x=-x\).
+1. the new file in `docs/entries/`;
+2. `mkdocs.yml`, if the entry should appear in navigation;
+3. `docs/index.md`, if it should appear on the public index;
+4. `README.md`, if it belongs in the current-entry lists;
+5. `project-state.md`, if the repository structure or active entry set changes;
+6. nearby entries that should link to the new page.
 
-For signed additive set processes, use the convention
+For ordinary content edits, do not update navigation or project state unless the edit changes structure, scope, or public entry lists.
 
-$$
-\beta_i(\vn)=0.
-$$
+## 7. Check consistency before committing
 
-The update maps should include the sign update:
+Before committing, check:
 
-$$
-D_{i,S}Y=\left((A\setminus\{i\})\cup S,\sigma\sigma_i^\delta(S)\right),
-$$
+- the edited files still satisfy the conventions recorded in `docs/meta/`;
+- all internal Markdown links point to existing files;
+- navigation paths in `mkdocs.yml` match actual paths;
+- front matter is present for new entries;
+- no private research notes or raw scratch work were added to public pages;
+- the edit does not duplicate material that should be linked instead.
 
-$$
-B_{i,S}Y=\left(A\cup S,\sigma\sigma_i^\beta(S)\right).
-$$
+## 8. Commit and report
 
-When a Feynman--Kac potential is site-local, write
+Use focused commit messages describing the actual change. If several unrelated changes are required, split them into separate commits when practical.
 
-$$
-V(A)=\sum_{i\in A}V_i
-$$
+In the final report, state:
 
-and then give the formula for \(V_i\).
-
-## Model-specific duality template
-
-For each case in a model-specific duality entry, list the following fields explicitly:
-
-1. Nonzero source-killing rates \(\delta_i(S)\).
-2. Source-killing signs \(\sigma_i^\delta(S)\in\{+,-\}\).
-3. Nonzero source-keeping rates \(\beta_i(S)\).
-4. Source-keeping signs \(\sigma_i^\beta(S)\in\{+,-\}\).
-5. Site Feynman--Kac weight \(V_i\).
-
-All omitted rates should be declared zero once. Signs attached to zero rates are irrelevant.
-
-For perturbations covered by the duality noise lemma, do not restate the proof. State that the dual rates and signs are unchanged, and give only the changed \(V_i\).
-
-## KCSM conventions
-
-For KCSM entries:
-
-- \(0\) is the facilitating or vacant state.
-- \(q\) is the vacancy density.
-- \(p=1-q\) is the density of state \(1\).
-- The hard constraint is usually denoted \(c_i\).
-- A soft constraint is
-
-$$
-c_i^\varepsilon(\eta)=\varepsilon_i+(1-\varepsilon_i)c_i(\eta).
-$$
-
-For FA-1f,
-
-$$
-c_i(\eta)=1-\chi_{N(i)}(\eta),
-$$
-
-so
-
-$$
-c_i^\varepsilon(\eta)=1-(1-\varepsilon_i)\chi_{N(i)}(\eta).
-$$
-
-The East model should be described as FA-1f on an oriented lattice, not merely as an analogue.
-
-## Navigation and placement
-
-Place entries where readers will look for them, not necessarily under the most abstract topic. For example, an FA-1f duality entry belongs in the KCSM section even though it uses duality.
-
-When adding a new entry, update as needed:
-
-1. `mkdocs.yml` navigation.
-2. `docs/index.md`.
-3. `README.md`.
-4. `project-state.md`.
-5. Nearby entries that should link to the new entry.
-
-Do not update navigation for minor edits to existing entries unless placement changes.
-
-## Style checks before committing
-
-Before committing, check the entry for:
-
-- no unnecessary rederivation of linked parent material;
-- final operational objects stated directly;
-- consistent notation from `docs/meta/notation.md`;
-- no bare ambiguous subset command in polished prose;
-- no `\epsilon`; use `\varepsilon`;
-- no numeric sign-state convention \(\{+1,-1\}\) for signed processes;
-- no top-level "Related pages" list;
-- no private project strategy or raw scratch work.
+- which files were created or changed;
+- the substantive effect of the edit;
+- the commit SHA or SHAs;
+- any checks that were not run or any uncertainty that remains.
