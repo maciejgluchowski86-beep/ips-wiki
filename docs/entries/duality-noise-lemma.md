@@ -42,7 +42,7 @@ $$
 pure deaths are noise. If
 
 $$
-\mathcal N^- f(\eta)
+\mathcal N^0 f(\eta)
 =
 \sum_{i\in\Lambda}d_i\eta(i)\left(f(\eta^{i,0})-f(\eta)\right),
 \qquad d_i\ge0,
@@ -51,7 +51,7 @@ $$
 then
 
 $$
-\mathcal N^-\chi_A=-\left(\sum_{i\in A}d_i\right)\chi_A.
+\mathcal N^0\chi_A=-\left(\sum_{i\in A}d_i\right)\chi_A.
 $$
 
 For the conjugate monomial
@@ -63,7 +63,7 @@ $$
 pure births are noise. If
 
 $$
-\mathcal N^+ f(\eta)
+\mathcal N^1 f(\eta)
 =
 \sum_{i\in\Lambda}b_i(1-\eta(i))\left(f(\eta^{i,1})-f(\eta)\right),
 \qquad b_i\ge0,
@@ -72,7 +72,7 @@ $$
 then
 
 $$
-\mathcal N^+\bar\chi_A=-\left(\sum_{i\in A}b_i\right)\bar\chi_A.
+\mathcal N^1\bar\chi_A=-\left(\sum_{i\in A}b_i\right)\bar\chi_A.
 $$
 
 ## Proof
