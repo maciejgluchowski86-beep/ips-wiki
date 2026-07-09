@@ -37,6 +37,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 
 - Signed additive set process: `docs/entries/signed-additive-set-process.md`
 - Graphical construction of signed additive set process: `docs/entries/graphical-construction-of-signed-additive-set-process.md`
+- Successful interaction: `docs/entries/successful-interaction.md`
 
 ## Current KCSM entries
 
