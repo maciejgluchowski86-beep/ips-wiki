@@ -9,7 +9,7 @@ tags:
 
 # Kinetically constrained spin model
 
-A kinetically constrained spin model is a [spin system](spin-system.md) whose single-site refreshes are allowed only when a local vacancy constraint is satisfied. The invariant reference measure is a Bernoulli product measure, but the kinetic constraints can create slow relaxation, blocked configurations, and non-attractive dynamics.
+A kinetically constrained spin model is a [spin system](spin-system.md) whose single-site refreshes are allowed only when a local vacancy constraint is satisfied. The constraint is specified by an [update family](update-family.md), and each legal refresh uses the [Bernoulli refresh operator](bernoulli-refresh-operator.md). The invariant reference measure is a Bernoulli product measure, but the kinetic constraints can create slow relaxation, blocked configurations, and non-attractive dynamics.
 
 **References.** Hartarsky and Toninelli, *Kinetically constrained models*; Cancrini, Martinelli, Roberto, and Toninelli, *Kinetically constrained spin models*.
 
@@ -31,7 +31,7 @@ is the density of ones. The corresponding Bernoulli product measure is \(\mu_q\)
 
 ## Generator
 
-Let \(\mathcal U_i\) be an [update family](update-family.md) at each site \(i\in\Lambda\), and let \(c_i\) be the induced constraint. The KCSM generator is
+Let \(\mathcal U_i\) be an update family at each site \(i\in\Lambda\), and let \(c_i\) be the induced constraint. The KCSM generator is
 
 $$
 \mathcal L f(\eta)
@@ -39,13 +39,13 @@ $$
 \sum_{i\in\Lambda} c_i(\eta)(E_i^q f(\eta)-f(\eta)).
 $$
 
-Here \(E_i^q\) is the [Bernoulli refresh operator](bernoulli-refresh-operator.md):
+Here \(E_i^q\) is the Bernoulli refresh operator:
 
 $$
 E_i^q f(\eta)=q f(\eta^{i,0})+p f(\eta^{i,1}).
 $$
 
-A clock ring at site \(i\) is legal if \(c_i(\eta)=1\). At a legal ring, the spin at \(i\) is refreshed from Bernoulli\((p)\) on \(\{0,1\}\), equivalently from \(q\delta_0+p\delta_1\).
+A clock ring at site \(i\) is a [legal update](legal-update.md) if \(c_i(\eta)=1\). At a legal ring, the spin at \(i\) is refreshed from Bernoulli\((p)\) on \(\{0,1\}\), equivalently from \(q\delta_0+p\delta_1\).
 
 ## Constraint does not use the updated spin
 
@@ -65,6 +65,6 @@ $$
 
 Thus every KCSM is a spin system, but its flip rates are degenerate whenever the constraint is not satisfied.
 
-## Reversibility
+## Reversibility and convergence questions
 
-Because legal updates refresh from the one-site marginal of \(\mu_q\), and because \(c_i\) does not depend on \(\eta(i)\), the measure \(\mu_q\) is reversible for the KCSM dynamics. Reversibility does not by itself imply [ergodicity](ergodicity.md), since constraints may create blocked classes or several invariant measures.
+Because legal updates refresh from the one-site marginal of \(\mu_q\), and because \(c_i\) does not depend on \(\eta(i)\), the measure \(\mu_q\) is reversible for the KCSM dynamics. Reversibility does not by itself imply [ergodicity](ergodicity.md), since constraints may create blocked classes or several invariant measures. Quantitative finite-volume convergence is recorded under [KCSM relaxation and mixing](kcsm-relaxation-and-mixing.md), while infinite-volume non-stationary convergence is recorded under [KCSM out of equilibrium](kcsm-out-of-equilibrium.md).
