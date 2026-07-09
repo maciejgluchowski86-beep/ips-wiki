@@ -24,7 +24,8 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 1. `docs/entries/duality.md`: concise operator and Feynman--Kac duality definition.
 2. `docs/entries/theta-monomials.md`: \(\chi_A^\theta\), barred theta monomials, basis property, and algebraic identities.
 3. `docs/entries/signed-additive-set-process.md`: finite-subset process with sign coordinate, source-killing and source-keeping activations.
-4. `docs/entries/monomial-duality-for-spin-systems.md`: monomial duality for spin systems via a signed additive set process and diagonal term.
+4. `docs/entries/monomial-duality-for-spin-systems.md`: monomial duality for spin systems via a signed additive set process and Feynman--Kac potential.
+5. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
 
 ## Current KCSM entries
 
