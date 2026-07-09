@@ -32,6 +32,7 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 2. `docs/entries/graphical-construction-of-signed-additive-set-process.md`: Poisson mark construction of the signed additive set process.
 3. `docs/entries/successful-interaction.md`: nonempty-target graphical marks whose source is active, and the sigma algebra revealing them.
 4. `docs/entries/patch.md`: active one-site spacetime intervals between successful touches, classified by boundary type.
+5. `docs/entries/conditional-patch-data.md`: endpoint data of each patch revealed by the successful-interaction sigma algebra.
 
 ## Current KCSM entries
 
@@ -76,4 +77,5 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 - Attractiveness.
 - Bootstrap percolation.
 - Blocked configuration.
+- Patch consistency event.
 - Patch factorization for monomial duality.
