@@ -145,6 +145,8 @@ $$
 
 The hard model is the case \(\varepsilon_i=0\). The fully softened case \(\varepsilon_i=1\) is the unconstrained Bernoulli refresh at site \(i\), for which the only remaining dual update is \(D_{i,\vn}\) at rate \(p\) and \(V_i=-q\).
 
+If \(N(i)=\vn\), then \(g_i^\varepsilon\equiv\varepsilon_i\). In that isolated-site case, the soft model has only \(D_{i,\vn}\) at rate \(\varepsilon_i p\) and has site potential \(V_i^\varepsilon=-\varepsilon_i q\).
+
 ## Adding pure deaths
 
 Let
@@ -163,13 +165,13 @@ $$
 =-\left(\sum_{i\in A}d_i\right)\chi_A.
 $$
 
-Therefore pure deaths do not change the dual update maps. They only subtract \(d_i\) from the site potential. For hard FA-1f with pure deaths,
+Therefore pure deaths do not change the dual update maps. They only subtract \(d_i\) from the site potential. For hard FA-1f with pure deaths and \(N(i)\ne\vn\),
 
 $$
 V_i^{0,d}=2p-d_i.
 $$
 
-For soft FA-1f with pure deaths,
+For soft FA-1f with pure deaths and \(N(i)\ne\vn\),
 
 $$
 V_i^{\varepsilon,d}
@@ -177,6 +179,8 @@ V_i^{\varepsilon,d}
 \qquad
 V^{\varepsilon,d}(A)=\sum_{i\in A}V_i^{\varepsilon,d}.
 $$
+
+For an isolated site, the corresponding soft-death potential is \(-\varepsilon_i q-d_i\).
 
 Thus softening changes the dual rates through the factor \(1-\varepsilon_i\), while pure deaths keep the chosen soft-FA dual process fixed and only decrease the Feynman--Kac potential.
 
