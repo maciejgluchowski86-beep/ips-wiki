@@ -12,6 +12,7 @@ This page records common notation for the public wiki.
 | \(G=(\Lambda,E_G)\) | graph description of the lattice | graph/lattice entries |
 | \(N(i)\) | neighbour set of \(i\), not containing \(i\) | local models |
 | \(N_*(i)\) | \(N(i)\cup\{i\}\), neighbours plus the site itself | local models |
+| \(i\to j\) | \(j\) is reachable from \(i\) by following neighbour sets | oriented lattices |
 | \(\mathcal S\) | single-site state space | IPS entries |
 | \(\Omega\) | configuration space, usually \(\mathcal S^\Lambda\) | IPS/spin systems |
 | \(\eta,\xi\) | configurations | IPS/spin systems |
@@ -59,6 +60,8 @@ The default index object is a lattice \(\Lambda\), not an abstract site set. A g
 $$
 N_*(i)=N(i)\cup\{i\}.
 $$
+
+The relation \(i\to j\) means reachability by following neighbour sets: there is a finite chain \(i=i_0,i_1,\ldots,i_n=j\) with \(i_{k+1}\in N(i_k)\). The lattice is oriented when \(i\to j\) and \(i\ne j\) imply not \(j\to i\).
 
 ## Spin-system convention
 
