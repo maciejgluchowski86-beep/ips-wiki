@@ -41,12 +41,23 @@ $$
 \text{ with }(i,t,\beta,S)\in\mathcal I_T^S\}.
 $$
 
+Set
+
+$$
+\mathcal S_T^0(i)
+=
+\begin{cases}
+\{0\}, & i\in A_0,\\
+\vn, & i\notin A_0.
+\end{cases}
+$$
+
 Define the possible initial and terminal boundary times by
 
 $$
 \mathcal S_T(i)
 =
-\bigl(\{0\}:i\in A_0\bigr)
+\mathcal S_T^0(i)
 \cup\mathcal T_T^{\mathsf I}(i)
 \cup\mathcal T_T^{\mathsf O,\beta}(i),
 $$
@@ -58,8 +69,6 @@ $$
 =
 \{T\}\cup\mathcal T_T^{\mathsf I}(i)\cup\mathcal T_T^{\mathsf O}(i).
 $$
-
-Here \((\{0\}:i\in A_0)\) means \(\{0\}\) if \(i\in A_0\), and \(\vn\) otherwise.
 
 A patch at \(i\) is a spacetime interval
 
