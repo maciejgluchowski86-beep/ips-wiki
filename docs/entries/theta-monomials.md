@@ -9,6 +9,8 @@ tags:
 
 # Theta monomials
 
+Theta monomials are one-parameter deformations of the ordinary [monomials](monomials.md) on \(\{0,1\}^\Lambda\). They are useful when changing basis for [spin-system](spin-system.md) generators and in variants of finite-set [duality](duality.md).
+
 For \(\theta\in\R\), define
 
 $$
@@ -30,7 +32,7 @@ $$
 \prod_{i\in A}\left(1-\eta(i)+\theta\eta(i)\right).
 $$
 
-Thus \(\chi_A^\theta\) assigns value \(1\) to state \(1\), while \(\bar\chi_A^\theta\) assigns value \(1\) to state \(0\).
+Thus \(\chi_A^\theta\) assigns value \(1\) to state \(1\), while \(\bar\chi_A^\theta\) assigns value \(1\) to state \(0\). The case \(\theta=0\) gives the ordinary occupied-site monomial and its vacancy analogue.
 
 ## Special cases
 
@@ -58,7 +60,7 @@ $$
 \{\chi_A^\theta:A\subseteq\Delta\}
 $$
 
-is a basis for functions depending only on \(\Delta\). The one-site inversion identities are
+is a basis for functions depending only on \(\Delta\), hence for [local functions](local-functions.md) with dependence set contained in \(\Delta\). The one-site inversion identities are
 
 $$
 \eta(i)=\frac{u_\theta(\eta(i))-\theta}{1-\theta},
@@ -117,3 +119,5 @@ $$
 =
 (1+\theta)\bar\chi_{A\setminus\{i\}}^\theta(\eta)-2\bar\chi_A^\theta(\eta).
 $$
+
+These identities parallel the replacement identities for ordinary [monomials](monomials.md) and can be used in the same style of generator calculation as [monomial duality for spin systems](monomial-duality-for-spin-systems.md).
