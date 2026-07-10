@@ -75,7 +75,7 @@ When the generator is bounded on the relevant finite-dimensional space, this is 
 
 ## Ergodicity
 
-The long-time behaviour of an IPS is often formulated in terms of invariant measures and [ergodicity](ergodicity.md). In infinite volume, convergence to equilibrium is typically checked against local functions.
+The long-time behaviour of an IPS is often formulated in terms of [invariant measures](invariant-measure.md) and [ergodicity](ergodicity.md). In infinite volume, convergence to equilibrium is typically checked against local functions.
 
 ## Relation to spin systems
 
