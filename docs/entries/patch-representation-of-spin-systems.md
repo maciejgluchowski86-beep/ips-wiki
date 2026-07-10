@@ -43,28 +43,26 @@ P_t(\chi_A)(\xi)
 \right].
 $$
 
-We split the random weight inside this expectation into one factor per patch. Fix the successful-interaction sigma algebra \(\cG_t\), so that the patch family, boundary types, and initial skeletons are fixed. For a patch \(P=\{i\}\times[s_-,s_+)\), let \(X^P\) be the local active indicator from the [patch consistency event](patch-consistency-event.md). Write \(\sigma_i^\alpha(S)=\sigma_i^\delta(S)\) when \(\alpha=\delta\), and \(\sigma_i^\alpha(S)=\sigma_i^\beta(S)\) when \(\alpha=\beta\). Define the sign assigned to \(P\) by
+We split the random weight inside this expectation into one factor per patch. Fix the successful-interaction sigma algebra \(\cG_t\), so that the patch family, boundary types, and initial skeletons are fixed. For a patch \(P=\{i\}\times[s_-,s_+)\), let \(X^P\) be the local active indicator from the [patch consistency event](patch-consistency-event.md). Write \(\sigma_i^\alpha(S)=\sigma_i^\delta(S)\) when \(\alpha=\delta\), and \(\sigma_i^\alpha(S)=\sigma_i^\beta(S)\) when \(\alpha=\beta\). The sign assigned to \(P\) is the source-side sign of its initial outgoing boundary:
 
 $$
-\begin{aligned}
-\Sigma_P^-&=
+\Sigma_P
+=
 \begin{cases}
 \sigma_i^\alpha(S),
 & \operatorname{type}_-(P)=\mathsf O
 \text{ and }(i,s_-,\alpha,S)\in\Pi_P^-,\\
-1, & \operatorname{type}_-(P)\in\{\mathsf S,\mathsf I\},
+1, & \operatorname{type}_-(P)\in\{\mathsf S,\mathsf I\}.
 \end{cases}
-\\
-\Sigma_P^\circ
-&=
-\prod_{\substack{(i,u,\alpha,S)\in\Pi_P^\circ\\ X^P_{u-}=1}}
-\sigma_i^\alpha(S),
-\\
-\Sigma_P&=\Sigma_P^-\Sigma_P^\circ.
-\end{aligned}
 $$
 
-The assignment is source-side. A successful split or birth contributes its sign to the \(\mathsf O\)-initial patch at its source, while incoming target patches carry no sign from that interaction. Interior interactions contribute a sign exactly when their source is active. On the consistency event, there are no active-source split or birth interactions in the interior of a patch, so the only possible interior sign contributions are active deaths.
+There is no additional interior sign. On \(\operatorname{Cons}(P)\), an interior interaction with nonempty target \(S\ne\vn\) can occur only when the source is inactive, so it is ignored by the dual process. The only active-source interaction that can occur in the interior of a patch is a pure death \(D_{i,\vn}\). In the spin-system duality construction its signed coefficient is
+
+$$
+a_i^\delta(\vn)=c_i^0(\vn)=c_i(\mathbf 0)\ge0,
+$$
+
+so \(\sigma_i^\delta(\vn)=+1\). Hence patch interiors affect the active-time integral and the terminal active state, but they do not contribute to \(\sigma_t\).
 
 The local Feynman--Kac factor of \(P\) is
 
@@ -112,7 +110,7 @@ $$
 \end{aligned}
 $$
 
-The first identity uses that the dual starts with sign \(+\) and every sign-changing interaction is assigned to exactly one source patch. The second identity uses \(V(A_s)=\sum_{i\in A_s}V_i\) and the fact that the patches cover active spacetime. The third identity uses that only end patches reach time \(t\); an active site at time \(t\) contributes the factor \(\xi(i)\), while an inactive end patch contributes \(1\). Hence, conditional on \(\cG_t\), the duality weight equals
+The first identity uses that the dual starts with sign \(+\), every split or birth sign is assigned to the source patch beginning at that successful interaction, and interior pure deaths have sign \(+1\). The second identity uses \(V(A_s)=\sum_{i\in A_s}V_i\) and the fact that the patches cover active spacetime. The third identity uses that only end patches reach time \(t\); an active site at time \(t\) contributes the factor \(\xi(i)\), while an inactive end patch contributes \(1\). Hence, conditional on \(\cG_t\), the duality weight equals
 
 $$
 \prod_{P\in\mathcal B_t} f_P
