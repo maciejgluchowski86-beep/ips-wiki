@@ -16,29 +16,33 @@ $$
 P=\{i\}\times[s,t)
 $$
 
-before horizon \(T\). Let \(I\) be the interaction set of the underlying [signed additive set process](signed-additive-set-process.md). The internal interaction set of \(P\) is
+before horizon \(T\). Let \(I\) be the interaction set of the underlying [signed additive set process](signed-additive-set-process.md). The patch interaction set is
 
 $$
 \Pi_P
 =
+\{(j,s,\alpha,S)\in I:s>0,\ S\ne\vn,\ j=i\text{ or }i\in S\}
+\cup
 \{(i,u,\alpha,S)\in I:s<u<t\}.
 $$
 
-The local patch measure \(\mathbb P_P\) is the law of the source-\(i\) Poisson interaction processes restricted to \((s,t)\). Write \(\mathbb E_P\) for expectation under \(\mathbb P_P\). Under \(\mathbb P_P\), the local active indicator is
+Thus \(\Pi_P\) contains the interaction that begins the patch, unless \(s=0\), together with the source-\(i\) interactions strictly inside the patch.
+
+The local patch measure \(\mathbb P_P\) is the law of \(\Pi_P\): the initial interaction, when present, is fixed by \(\cG_T\), while the source-\(i\) Poisson interaction processes in \((s,t)\) keep their Poisson law. Write \(\mathbb E_P\) for expectation under \(\mathbb P_P\). Under \(\mathbb P_P\), the local active indicator is
 
 $$
 X^P_u=\mathbf 1_{\{i\in A_u\}},
 \qquad s\le u<t.
 $$
 
-Its initial value is fixed by the initial boundary of \(P\):
+Its initial value is read from the initial boundary of \(P\):
 
 $$
 X^P_s
 =
 \begin{cases}
 1, & \operatorname{type}_-(P)\in\{\mathsf S,\mathsf I\},\\
-\mathbf 1_{\{(i,s,\beta,S)\in\mathcal I_T^S\text{ for some }S\ne\vn\}}, & \operatorname{type}_-(P)=\mathsf O.
+\mathbf 1_{\{(i,s,\beta,S)\in\Pi_P\text{ for some }S\ne\vn\}}, & \operatorname{type}_-(P)=\mathsf O.
 \end{cases}
 $$
 
@@ -51,7 +55,7 @@ $$
 =
 \left\{
 X^P_{u-}=0
-\text{ for every }(i,u,\alpha,S)\in\Pi_P\text{ with }S\ne\vn
+\text{ for every }(i,u,\alpha,S)\in\Pi_P\text{ with }s<u<t\text{ and }S\ne\vn
 \right\}
 \cap C_+(P),
 $$
