@@ -51,4 +51,4 @@ $$
 \mu_{\mathbf p^\star}\le_{\mathrm{st}}\nu.
 $$
 
-The converse does not hold in general.
+The converse does not hold in general. Evolved monomials are compared under ordered mixing profiles in [monomial monotonicity for high-density measures](monomial-monotonicity-for-high-density-measures.md).
