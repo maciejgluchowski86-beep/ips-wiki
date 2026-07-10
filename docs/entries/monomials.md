@@ -9,7 +9,7 @@ tags:
 
 # Monomials
 
-Monomials are [local functions](local-functions.md) on \(\{0,1\}^\Lambda\). They are useful for algebraic manipulations of [spin-system](spin-system.md) generators and for [duality](duality.md) constructions such as [monomial duality for spin systems](monomial-duality-for-spin-systems.md). The deformed version is recorded separately as [theta monomials](theta-monomials.md).
+Under a [Bernoulli product measure](bernoulli-product-measure.md), their expectations factor into products of one-site densities. Monomials are [local functions](local-functions.md) on \(\{0,1\}^\Lambda\). They are useful for algebraic manipulations of [spin-system](spin-system.md) generators and for [duality](duality.md) constructions such as [monomial duality for spin systems](monomial-duality-for-spin-systems.md). The deformed version is recorded separately as [theta monomials](theta-monomials.md).
 
 ## Definition
 
