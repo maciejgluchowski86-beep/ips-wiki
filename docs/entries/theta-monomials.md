@@ -36,25 +36,25 @@ Thus \(\chi_A^\theta\) assigns value \(1\) to state \(1\), while \(\bar\chi_A^\t
 
 ## Special cases
 
-$$
-\chi_A^0=\chi_A,
-\qquad
-\bar\chi_A^0=\prod_{i\in A}(1-\eta(i)),
-\qquad
-\chi_A^1=\bar\chi_A^1=1.
-$$
-
-Also
+The basic special cases are
 
 $$
-\chi_A^{-1}=\prod_{i\in A}(2\eta(i)-1),
-\qquad
-\bar\chi_A^{-1}=\prod_{i\in A}(1-2\eta(i)).
+\begin{aligned}
+\chi_A^0&=\chi_A,
+&
+\bar\chi_A^0&=\prod_{i\in A}(1-\eta(i)),
+&
+\chi_A^1&=\bar\chi_A^1=1,
+\\
+\chi_A^{-1}&=\prod_{i\in A}(2\eta(i)-1),
+&
+\bar\chi_A^{-1}&=\prod_{i\in A}(1-2\eta(i)).
+\end{aligned}
 $$
 
 ## Basis property
 
-If \(\theta\ne1\) and \(\Delta\Subset\Lambda\), then
+If \(\theta\ne1\) and \(\Delta\Subset\Lambda\), then the family
 
 $$
 \{\chi_A^\theta:A\subseteq\Delta\}
@@ -84,7 +84,7 @@ $$
 u_\theta^2=(1+\theta)u_\theta-\theta.
 $$
 
-Consequently,
+Consequently, the product identity is
 
 $$
 \chi_A^\theta\chi_B^\theta
