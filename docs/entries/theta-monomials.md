@@ -104,20 +104,18 @@ $$
 \bar\chi_A^\theta(\eta^i)=\bar\chi_A^\theta(\eta).
 $$
 
-If \(i\in A\), then
+If \(i\in A\), the flip identities are
 
 $$
+\begin{aligned}
 \chi_A^\theta(\eta^i)-\chi_A^\theta(\eta)
-=
+&=
 (1+\theta)\chi_{A\setminus\{i\}}^\theta(\eta)-2\chi_A^\theta(\eta),
-$$
-
-and
-
-$$
+\\
 \bar\chi_A^\theta(\eta^i)-\bar\chi_A^\theta(\eta)
-=
+&=
 (1+\theta)\bar\chi_{A\setminus\{i\}}^\theta(\eta)-2\bar\chi_A^\theta(\eta).
+\end{aligned}
 $$
 
 These identities parallel the replacement identities for ordinary [monomials](monomials.md) and can be used in the same style of generator calculation as [monomial duality for spin systems](monomial-duality-for-spin-systems.md).
