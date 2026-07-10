@@ -28,10 +28,10 @@ $$
 The Feynman--Kac version replaces the generator identity by
 
 $$
-L_\eta H(y,\eta)=D_yH(y,\eta)+V(y)H(y,\eta),
+L_\eta H(y,\eta)=D_yH(y,\eta)+V(y)H(y,\eta).
 $$
 
-and gives
+The corresponding semigroup identity is
 
 $$
 \E_\eta[H(y,\eta_t)]
