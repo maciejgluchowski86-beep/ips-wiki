@@ -41,6 +41,8 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Patch: `docs/entries/patch.md`
 - Patch consistency event: `docs/entries/patch-consistency-event.md`
 - Patch factorization: `docs/entries/patch-factorization.md`
+- Patch contribution: `docs/entries/patch-contribution.md`
+- Patch representation of spin systems: `docs/entries/patch-representation-of-spin-systems.md`
 
 ## Current KCSM entries
 
