@@ -9,7 +9,7 @@ tags:
 
 # Kinetically constrained spin model
 
-A kinetically constrained spin model is a [spin system](spin-system.md) whose single-site refreshes are allowed only when a local vacancy constraint is satisfied. The constraint is specified by an [update family](update-family.md), and each legal refresh uses the [Bernoulli refresh operator](bernoulli-refresh-operator.md). The invariant reference measure is a Bernoulli product measure, but the kinetic constraints can create slow relaxation, blocked configurations, and non-attractive dynamics.
+A kinetically constrained spin model is a [spin system](spin-system.md) whose single-site refreshes are allowed only when a local vacancy constraint is satisfied. The constraint is specified by an [update family](update-family.md), and each legal refresh uses the [Bernoulli refresh operator](bernoulli-refresh-operator.md). The [invariant measure](invariant-measure.md) used as the reference measure is a Bernoulli product measure, but the kinetic constraints can create slow relaxation, blocked configurations, and non-attractive dynamics.
 
 **References.** Hartarsky and Toninelli, *Kinetically constrained models*; Cancrini, Martinelli, Roberto, and Toninelli, *Kinetically constrained spin models*.
 
