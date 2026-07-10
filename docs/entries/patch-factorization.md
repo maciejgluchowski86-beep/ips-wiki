@@ -27,14 +27,6 @@ $$
 \bigvee_{P\in\mathcal P_T}\mathcal F_P.
 $$
 
-For a finite family \(A\) of interactions, write
-
-$$
-R_A=\{A\subseteq I\}.
-$$
-
-Thus \(R_A\) is the event that all interactions in \(A\) occur in the graphical construction; it does not assert that these are the only interactions.
-
 ## Statement
 
 Conditional on \(\cG_T\), the law of the patch interaction data factors over patches:
@@ -64,6 +56,14 @@ The product is finite under the local-finiteness assumption in the graphical con
 Condition on \(\cG_T\). This fixes the successful-interaction set \(\mathcal I_T\), hence also the patch set \(\mathcal P_T\), the boundary times, the boundary types, and the initial interaction contained in each \(\Pi_P\).
 
 The patches cover all active spacetime. Every initially active site begins a patch at time \(0\). Every successful interaction touches its source and all its target sites; at each touched site it is both the terminal boundary of the preceding patch and the initial boundary of the following patch, except at the endpoints \(0\) and \(T\). Thus an interaction outside patches is either a revealed successful boundary interaction or has inactive source and does not change the process.
+
+For a finite family \(A\) of interactions, write
+
+$$
+R_A=\{A\subseteq I\}.
+$$
+
+Thus \(R_A\) is the event that all interactions in \(A\) occur in the graphical construction; it does not assert that these are the only interactions.
 
 Let
 
