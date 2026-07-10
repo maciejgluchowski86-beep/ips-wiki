@@ -13,48 +13,48 @@ tags:
 Fix a [patch](patch.md)
 
 $$
-Q=\{i\}\times[s,t)
+P=\{i\}\times[s,t)
 $$
 
-before horizon \(T\). Let \(P\) be the graphical mark set of the underlying [signed additive set process](signed-additive-set-process.md). The internal mark set of \(Q\) is
+before horizon \(T\). Let \(I\) be the interaction set of the underlying [signed additive set process](signed-additive-set-process.md). The internal interaction set of \(P\) is
 
 $$
-\Pi_Q
+\Pi_P
 =
-\{(i,u,\alpha,R)\in P:s<u<t\}.
+\{(i,u,\alpha,R)\in I:s<u<t\}.
 $$
 
-The local patch measure \(\mathbb P_Q\) is the law of \(\Pi_Q\), with the source-\(i\) Poisson mark processes restricted to \((s,t)\). Under \(\mathbb P_Q\), define the local active indicator \(X^Q_u\), \(s\le u<t\), by \(X^Q_s=1\). Source-killing marks set \(X^Q\) to \(0\) when \(X^Q\) is active; source-keeping marks leave it active. Marks arriving while \(X^Q\) is inactive are ignored.
+The local patch measure \(\mathbb P_P\) is the law of \(\Pi_P\), with the source-\(i\) Poisson interaction processes restricted to \((s,t)\). Under \(\mathbb P_P\), define the local active indicator \(X^P_u\), \(s\le u<t\), by \(X^P_s=1\). Source-killing interactions set \(X^P\) to \(0\) when \(X^P\) is active; source-keeping interactions leave it active. Interactions arriving while \(X^P\) is inactive are ignored.
 
-The consistency event of \(Q\) is
+The consistency event of \(P\) is
 
 $$
-\operatorname{Cons}(Q)
+\operatorname{Cons}(P)
 =
 \left\{
-X^Q_{u-}=0
-\text{ for every }(i,u,\alpha,R)\in\Pi_Q\text{ with }R\ne\vn
+X^P_{u-}=0
+\text{ for every }(i,u,\alpha,R)\in\Pi_P\text{ with }R\ne\vn
 \right\}
-\cap C_+(Q),
+\cap C_+(P),
 $$
 
 where
 
 $$
-C_+(Q)
+C_+(P)
 =
 \begin{cases}
-\{X^Q_{t-}=1\}, & \operatorname{type}_+(Q)=\mathsf O,\\
-\Omega_Q, & \operatorname{type}_+(Q)\ne\mathsf O.
+\{X^P_{t-}=1\}, & \operatorname{type}_+(P)=\mathsf O,\\
+\Omega_P, & \operatorname{type}_+(P)\ne\mathsf O.
 \end{cases}
 $$
 
-Here \(\Omega_Q\) is the sample space of the local mark process. The first condition says that no nonempty-target source mark from \(i\) is attempted while \(i\) is active in the interior of the patch. The second condition says that an outgoing terminal boundary can occur only if the source is active immediately before that boundary.
+Here \(\Omega_P\) is the sample space of the local interaction process. The first condition says that no nonempty-target source interaction from \(i\) is attempted while \(i\) is active in the interior of the patch. The second condition says that an outgoing terminal boundary can occur only if the source is active immediately before that boundary.
 
-When \(\mathbb P_Q(\operatorname{Cons}(Q))>0\), define the conditioned patch measure by
+When \(\mathbb P_P(\operatorname{Cons}(P))>0\), define the conditioned patch measure by
 
 $$
-\mathbb P_Q^{\operatorname{cons}}(\cdot)
+\mathbb P_P^{\operatorname{cons}}(\cdot)
 =
-\mathbb P_Q(\cdot\mid\operatorname{Cons}(Q)).
+\mathbb P_P(\cdot\mid\operatorname{Cons}(P)).
 $$
