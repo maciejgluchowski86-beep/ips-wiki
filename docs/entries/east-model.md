@@ -55,7 +55,7 @@ $$
 N(i)=\{i+1\}.
 $$
 
-Then
+The corresponding constraint is
 
 $$
 c_i(\eta)=1-\eta(i+1).
