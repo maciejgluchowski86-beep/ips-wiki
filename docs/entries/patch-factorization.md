@@ -49,7 +49,7 @@ $$
 \mathbb E_P^{\operatorname{cons}}[f_P(\Pi_P)].
 $$
 
-The product is finite under the local-finitess assumption in the graphical construction.
+The product is finite under the local-finiteness assumption in the graphical construction.
 
 ## Proof
 
