@@ -14,10 +14,10 @@ tags:
 
 Fix a [signed additive set process](signed-additive-set-process.md), its graphical construction, and a horizon \(T<\infty\). Let \(\cG_T\) be the [successful-interaction](successful-interaction.md) sigma algebra, and let \(\mathcal P_T\) be the set of [patches](patch.md). This factorization is the probabilistic input for the [patch contribution](patch-contribution.md) formulas and the [patch representation of spin systems](patch-representation-of-spin-systems.md).
 
-For \(P\in\mathcal P_T\), let \(\Pi_P\), \(\Omega_P\), \(\mathbb P_P\), \(\mathbb E_P\), \(\operatorname{Cons}(P)\), \(\mathbb P_P^{\operatorname{cons}}\), and \(\mathbb E_P^{\operatorname{cons}}\) be as in the [patch consistency event](patch-consistency-event.md) entry. Set
+For \(P\in\mathcal P_T\), let \(\Sigma_P\), \(\Omega_P\), \(\mathbb P_P\), \(\mathbb E_P\), \(\operatorname{Cons}(P)\), \(\mathbb P_P^{\operatorname{cons}}\), and \(\mathbb E_P^{\operatorname{cons}}\) be as in the [patch consistency event](patch-consistency-event.md) entry. Set
 
 $$
-\mathcal F_P=\sigma(\Pi_P).
+\mathcal F_P=\sigma(\Sigma_P).
 $$
 
 The patch sigma algebra is
@@ -42,12 +42,12 @@ Equivalently, for bounded measurable functions \(f_P:\Omega_P\to\mathbb R\),
 
 $$
 \mathbb E\left[
-\prod_{P\in\mathcal P_T} f_P(\Pi_P)
+\prod_{P\in\mathcal P_T} f_P(\Sigma_P)
 \middle|\cG_T
 \right]
 =
 \prod_{P\in\mathcal P_T}
-\mathbb E_P^{\operatorname{cons}}[f_P(\Pi_P)].
+\mathbb E_P^{\operatorname{cons}}[f_P(\Sigma_P)].
 $$
 
 The product is finite under the local-finiteness assumption in the graphical construction.
@@ -74,7 +74,7 @@ Thus \(R_A\) is the event that all listed source-time-target interactions occur 
 Let
 
 $$
-Z=\prod_{P\in\mathcal P_T} f_P(\Pi_P).
+Z=\prod_{P\in\mathcal P_T} f_P(\Sigma_P).
 $$
 
 Since \(R_{\mathcal I_T}\) reveals that every listed successful-interaction skeleton occurs, while \(\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\) guarantees that no additional successful interaction occurs inside any patch and that outgoing terminal boundaries have active source, the pair of conditions
@@ -96,7 +96,7 @@ $$
 \right].
 $$
 
-It remains to compute the inner conditional expectation. Condition on \(R_{\mathcal I_T}\). This fixes the initial skeleton in each \(\Pi_P\). For an \(\mathsf O\)-initial patch beginning at skeleton \((i,s,S)\), the update kind is still random and is sampled by
+It remains to compute the inner conditional expectation. Condition on \(R_{\mathcal I_T}\). This fixes the initial skeleton in each \(\Sigma_P\). For an \(\mathsf O\)-initial patch beginning at skeleton \((i,s,S)\), the update kind is still random and is sampled by
 
 $$
 \mathbb P((i,s,\beta,S)\in I\mid (i,s,\delta,S)\in I\text{ or }(i,s,\beta,S)\in I)
@@ -106,9 +106,9 @@ $$
 
 and similarly the split probability is \(\delta_i(S)/(\delta_i(S)+\beta_i(S))\). These birth/split choices are independent for distinct outgoing initial skeletons, and are independent of the source-time Poisson processes strictly inside the patches. Incoming initial skeletons contribute no birth/split mark to the target patch data.
 
-The remaining random interactions in \(\Pi_P\) have source \(i\) and times \(s<u<t\) for \(P=\{i\}\times[s,t)\). These source-time regions are pairwise disjoint: distinct sites use independent Poisson processes, while two patches at the same site have disjoint time intervals. Therefore the patch data \(\Pi_P\), with their initial skeletons fixed but with outgoing initial birth/split choices retained, are independent under the conditional law given \(R_{\mathcal I_T}\).
+The remaining random interactions in \(\Sigma_P\) have source \(i\) and times \(s<u<t\) for \(P=\{i\}\times[s,t)\). These source-time regions are pairwise disjoint: distinct sites use independent Poisson processes, while two patches at the same site have disjoint time intervals. Therefore the patch data \(\Sigma_P\), with their initial skeletons fixed but with outgoing initial birth/split choices retained, are independent under the conditional law given \(R_{\mathcal I_T}\).
 
-For each patch, \(\operatorname{Cons}(P)\) depends only on \(\Pi_P\), and after conditioning on \(R_{\mathcal I_T}\) it has positive probability. Therefore the elementary product-conditioning identity applies: if \((X_k,B_k)\) are independent and \(\mathbb P(B_k)>0\), then
+For each patch, \(\operatorname{Cons}(P)\) depends only on \(\Sigma_P\), and after conditioning on \(R_{\mathcal I_T}\) it has positive probability. Therefore the elementary product-conditioning identity applies: if \((X_k,B_k)\) are independent and \(\mathbb P(B_k)>0\), then
 
 $$
 \mathbb E\left[\prod_k X_k\middle|\bigcap_k B_k\right]
@@ -116,13 +116,13 @@ $$
 \prod_k \mathbb E[X_k\mid B_k].
 $$
 
-Applying this identity to the independent patch data under \(R_{\mathcal I_T}\), with \(X_P=f_P(\Pi_P)\) and \(B_P=\operatorname{Cons}(P)\), gives
+Applying this identity to the independent patch data under \(R_{\mathcal I_T}\), with \(X_P=f_P(\Sigma_P)\) and \(B_P=\operatorname{Cons}(P)\), gives
 
 $$
 \mathbb E\left[Z\middle|R_{\mathcal I_T},\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\right]
 =
 \prod_{P\in\mathcal P_T}
-\mathbb E_P^{\operatorname{cons}}[f_P(\Pi_P)].
+\mathbb E_P^{\operatorname{cons}}[f_P(\Sigma_P)].
 $$
 
 The right-hand side is \(\cG_T\)-measurable, because \(\cG_T\) fixes the patches, their boundary types, and their initial skeletons. Substituting this identity into the tower-property formula gives the claim.
