@@ -53,28 +53,36 @@ The product is finite under the local-finiteness assumption in the graphical con
 
 ## Proof
 
-Condition on a value of \(\cG_T\). This fixes the successful interactions, hence also the patch set \(\mathcal P_T\), the boundary times, and the boundary types.
+Condition on \(\cG_T\). This fixes the successful interactions, hence also the patch set \(\mathcal P_T\), the boundary times, and the boundary types.
 
 The patches cover all active spacetime. Every initially active site begins a patch at time \(0\). Every successful interaction touches its source and all its target sites; at each touched site it is both the terminal boundary of the preceding patch and the initial boundary of the following patch, except at the endpoints \(0\) and \(T\). Thus an interaction outside patch interiors is either a revealed successful boundary interaction or has inactive source and does not change the process.
 
-For distinct patches \(P\), the sets \(\Pi_P\) use disjoint source-time restrictions of the independent Poisson interaction processes. Hence the unrestricted variables \(\{\Pi_P:P\in\mathcal P_T\}\) are independent, with laws \(\mathbb P_P\).
-
-After the successful boundary interactions are fixed, the condition that there are no additional successful interactions inside the patch interiors is exactly
+Let
 
 $$
-\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P).
+C_T=igcap_{P\in\mathcal P_T}\operatorname{Cons}(P).
 $$
 
-This event is a product event: \(\operatorname{Cons}(P)\) depends only on \(\Pi_P\). Thus, by independence,
+Since \(\cG_T\) records the actual successful interactions, the event \(C_T\) holds almost surely after conditioning on \(\cG_T\). Hence, by the tower property, for
+
+$$
+Z=\prod_{P\in\mathcal P_T} f_P(\Pi_P),
+$$
+
+we have
+
+$$
+\mathbb E[Z\mid\cG_T]
+=
+\mathbb E\left[\mathbb E[Z\mid\cG_T,C_T]\mid\cG_T\right].
+$$
+
+Given \(\cG_T\), the boundary interactions are fixed. For distinct patches \(P\), the sets \(\Pi_P\) use disjoint source-time restrictions of the independent Poisson interaction processes. Moreover, \(\operatorname{Cons}(P)\) depends only on \(\Pi_P\). Therefore the inner conditional expectation factors:
 
 $$
 \begin{aligned}
-&\mathbb E\left[
-\prod_{P\in\mathcal P_T} f_P(\Pi_P)
-\middle|\cG_T
-\right]
-\\
-&\qquad=
+\mathbb E[Z\mid\cG_T,C_T]
+&=
 \frac{
 \prod_{P\in\mathcal P_T}
 \mathbb E_P\left[f_P(\Pi_P)\mathbf 1_{\operatorname{Cons}(P)}\right]
@@ -83,10 +91,10 @@ $$
 \mathbb P_P(\operatorname{Cons}(P))
 }
 \\
-&\qquad=
+&=
 \prod_{P\in\mathcal P_T}
 \mathbb E_P^{\operatorname{cons}}[f_P(\Pi_P)].
 \end{aligned}
 $$
 
-This proves the factorization.
+The right-hand side is \(\cG_T\)-measurable, because \(\cG_T\) fixes the patches and their boundary types. Substituting into the tower-property identity gives the stated formula.
