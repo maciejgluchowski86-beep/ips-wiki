@@ -48,18 +48,6 @@ $$
 
 Inside \((s,t)\), deaths and splits set \(X^P\) to \(0\) when \(X^P\) is active, births leave it active, and interactions arriving while \(X^P\) is inactive are ignored.
 
-The initial boundary consistency event is
-
-$$
-C_-(P)
-=
-\begin{cases}
-\{i\in A_0\}, & \operatorname{type}_-(P)=\mathsf S,\\
-\{(j,s,\alpha,S)\in\Pi_P\text{ for some }j,\alpha,S\text{ with }i\in S\}, & \operatorname{type}_-(P)=\mathsf I,\\
-\{(i,s,\alpha,S)\in\Pi_P\text{ for some }\alpha\in\{\delta,\beta\},\ S\ne\vn\}, & \operatorname{type}_-(P)=\mathsf O.
-\end{cases}
-$$
-
 The terminal boundary consistency event is
 
 $$
@@ -76,8 +64,6 @@ The consistency event of \(P\) is
 $$
 \operatorname{Cons}(P)
 =
-C_-(P)
-\cap
 \left\{
 X^P_{u-}=0
 \text{ for every }(i,u,\alpha,S)\in\Pi_P\text{ with }s<u<t\text{ and }S\ne\vn
@@ -85,6 +71,20 @@ X^P_{u-}=0
 \cap C_+(P).
 $$
 
-Here \(\Omega_P\) is the sample space of the local interaction process. The condition \(C_-(P)\) says that the patch begins at an active site at time \(0\), at an incoming successful interaction, or at an outgoing successful interaction, according to its initial type. The interior condition says that no split or birth from source \(i\) is attempted while \(i\) is active in the interior of the patch. The condition \(C_+(P)\) says that an outgoing terminal boundary can occur only if the source is active immediately before that boundary.
+Here \(\Omega_P\) is the sample space of the local interaction process. The interior condition says that no split or birth from source \(i\) is attempted while \(i\) is active in the interior of the patch. The condition \(C_+(P)\) says that an outgoing terminal boundary can occur only if the source is active immediately before that boundary.
 
-Define \(\mathbb P_P^{\operatorname{cons}}\) as the regular conditional law of \(\mathbb P_P\) given \(\operatorname{Cons}(P)\). Write \(\mathbb E_P^{\operatorname{cons}}\) for expectation under \(\mathbb P_P^{\operatorname{cons}}\).
+When \(\mathbb P_P(\operatorname{Cons}(P))>0\), define the conditioned patch measure by
+
+$$
+\mathbb P_P^{\operatorname{cons}}(\cdot)
+=
+\mathbb P_P(\cdot\mid\operatorname{Cons}(P)).
+$$
+
+Write \(\mathbb E_P^{\operatorname{cons}}\) for expectation under \(\mathbb P_P^{\operatorname{cons}}\). Equivalently,
+
+$$
+\mathbb E_P^{\operatorname{cons}}[f]
+=
+\mathbb E_P[f\mid\operatorname{Cons}(P)].
+$$
