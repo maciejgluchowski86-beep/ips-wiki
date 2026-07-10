@@ -44,7 +44,9 @@ In particular, every \(\nu\in\mathcal M_\star\) satisfies
 $$
 \mu_{\mathbf p^\star}\bigl(P_t(\chi_A)\bigr)
 \le
-\nu\bigl(P_t(\chi_A)\bigr).
+\nu\bigl(P_t(\chi_A)\bigr)
+\le
+\mu_{\mathbf 1}\bigl(P_t(\chi_A)\bigr).
 $$
 
 ## Proof
