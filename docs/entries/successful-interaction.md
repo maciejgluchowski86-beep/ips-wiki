@@ -9,26 +9,16 @@ tags:
 
 # Successful interaction
 
-Fix a [signed additive set process](signed-additive-set-process.md) with interaction set \(I\), constructed as in the [graphical construction](graphical-construction-of-signed-additive-set-process.md). For \(S\ne\vn\), a type-\(S\) successful interaction is a source-time-target skeleton
-
-$$
-(i,t,S)
-$$
-
-such that
+Fix a [signed additive set process](signed-additive-set-process.md) with interaction set \(I\), constructed as in the [graphical construction](graphical-construction-of-signed-additive-set-process.md). For \(S\ne\vn\), a type-\(S\) successful interaction is a source-time-target skeleton \((i,t,S)\) such that
 
 $$
 (i,t,\alpha,S)\in I
 \quad\text{for some }\alpha\in\{\delta,\beta\},
+\qquad
+ i\in A_{t-}.
 $$
 
-and whose source is active when the interaction occurs:
-
-$$
-i\in A_{t-}.
-$$
-
-The successful-interaction skeleton records the source, time, and target set, but not whether the interaction is a split or a birth.
+The successful-interaction skeleton records the [interaction source and target](graphical-construction-of-signed-additive-set-process.md#poisson-interaction-sets), but not whether the interaction is a split or a birth.
 
 For a time horizon \(T<\infty\), let
 
@@ -38,7 +28,7 @@ $$
 \{(i,t,S):t\le T,\ i\in A_{t-},\ (i,t,\alpha,S)\in I\text{ for some }\alpha\in\{\delta,\beta\}\}.
 $$
 
-The set of all successful interactions before time \(T\) is
+The set of all successful-interaction skeletons before time \(T\) is
 
 $$
 \mathcal I_T
@@ -57,4 +47,4 @@ $$
 \sigma\left(Y_0,\mathcal I_T\right).
 $$
 
-It reveals all successful interactions with nonempty target set up to time \(T\), but it does not reveal whether an outgoing successful interaction is a split or a birth.
+It reveals all successful interactions with nonempty target set up to time \(T\), but it does not reveal whether an outgoing successful interaction is a split or a birth. The resulting boundary data are used to define [patches](patch.md).
