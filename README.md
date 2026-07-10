@@ -21,6 +21,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Polynomial-growth lattice: `docs/entries/polynomial-growth-lattice.md`
 - Local functions: `docs/entries/local-functions.md`
 - Monomials: `docs/entries/monomials.md`
+- Bernoulli product measure: `docs/entries/bernoulli-product-measure.md`
 - Interacting particle system: `docs/entries/interacting-particle-system.md`
 - Spin system: `docs/entries/spin-system.md`
 - Pure noise spin system: `docs/entries/pure-noise-spin-system.md`
@@ -36,6 +37,8 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Patch factorization: `docs/entries/patch-factorization.md`
 - Patch contribution: `docs/entries/patch-contribution.md`
 - Patch positivity property: `docs/entries/patch-positivity-property.md`
+- Patch critical density: `docs/entries/patch-critical-density.md`
+- High-density measure: `docs/entries/high-density-measure.md`
 - Patch representation of spin systems: `docs/entries/patch-representation-of-spin-systems.md`
 - Duality noise lemma: `docs/entries/duality-noise-lemma.md`
 
@@ -59,6 +62,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Monomial duality for FA-1f: `docs/entries/monomial-duality-for-fa-1f.md`
 - Patch contributions for FA-1f: `docs/entries/patch-contributions-for-fa-1f.md`
 - Patch positivity for FA-1f: `docs/entries/patch-positivity-for-fa-1f.md`
+- Patch critical density for FA-1f: `docs/entries/patch-critical-density-for-fa-1f.md`
 - KCSM relaxation and mixing: `docs/entries/kcsm-relaxation-and-mixing.md`
 - KCSM out of equilibrium: `docs/entries/kcsm-out-of-equilibrium.md`
 - FA-1f out of equilibrium: `docs/entries/fa-1f-out-of-equilibrium.md`
