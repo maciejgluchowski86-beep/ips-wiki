@@ -32,15 +32,6 @@ $$
 \text{ with }(i,t,\alpha,S)\in\mathcal I_T^S\}.
 $$
 
-The source-keeping outgoing touch times are
-
-$$
-\mathcal T_T^{\mathsf O,\beta}(i)
-=
-\{t\le T:\exists S\ne\vn
-\text{ with }(i,t,\beta,S)\in\mathcal I_T^S\}.
-$$
-
 Set
 
 $$
@@ -59,7 +50,7 @@ $$
 =
 \mathcal S_T^0(i)
 \cup\mathcal T_T^{\mathsf I}(i)
-\cup\mathcal T_T^{\mathsf O,\beta}(i),
+\cup\mathcal T_T^{\mathsf O}(i),
 $$
 
 and
@@ -86,7 +77,7 @@ $$
 \begin{cases}
 \mathsf S, & s=0,\\
 \mathsf I, & s\in\mathcal T_T^{\mathsf I}(i),\\
-\mathsf O, & s\in\mathcal T_T^{\mathsf O,\beta}(i),
+\mathsf O, & s\in\mathcal T_T^{\mathsf O}(i),
 \end{cases}
 $$
 
@@ -118,6 +109,8 @@ $$
 \mathsf{OI},\ \mathsf{OO},\ \mathsf{OE}.
 $$
 
-The patches cover the active spacetime region between successful touches. Spacetime regions that are never active are not covered by patches.
+Every initially active site begins a patch at time \(0\). Every successful interaction cuts spacetime at both its source and target sites, so it is a terminal boundary for the patch immediately before the interaction and an initial boundary for the patch immediately after the interaction at each touched site.
+
+Every active spacetime point is contained in a patch. Interactions outside patches have inactive source, except for interactions on successful boundary times already recorded by \(\mathcal I_T^S\).
 
 On the null event of simultaneous successful touches at the same site, use the deterministic ordering of interactions fixed in the graphical construction.
