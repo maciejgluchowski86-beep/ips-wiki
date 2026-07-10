@@ -28,6 +28,7 @@ nav:
       - Spin system: entries/spin-system.md
       - Pure noise spin system: entries/pure-noise-spin-system.md
       - Oriented spin system: entries/oriented-spin-system.md
+      - Invariant measure: entries/invariant-measure.md
       - Ergodicity: entries/ergodicity.md
   - Duality:
       - Duality: entries/duality.md
