@@ -18,7 +18,8 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 6. `docs/entries/spin-system.md`: two-state single-site flip system, generator, and semigroup/kernel notation.
 7. `docs/entries/pure-noise-spin-system.md`: independent Bernoulli refresh spin system and pure-noise perturbations.
 8. `docs/entries/oriented-spin-system.md`: spin systems on oriented lattices, with orientation defined by reachability through \(N(i)\).
-9. `docs/entries/ergodicity.md`: IPS-specific distinction between unique invariant measure, ergodicity, and uniform exponential ergodicity.
+9. `docs/entries/invariant-measure.md`: invariant measures and the Krylov--Bogoliubov existence theorem inside a preserved weakly closed convex class.
+10. `docs/entries/ergodicity.md`: IPS-specific distinction between unique invariant measure, ergodicity, and uniform exponential ergodicity.
 
 ## Current duality entries
 
@@ -76,7 +77,6 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 
 ## Next likely additions
 
-- Invariant measure.
 - Feller property.
 - Positive rates.
 - Positive Rates Conjecture.
