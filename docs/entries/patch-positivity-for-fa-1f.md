@@ -13,17 +13,17 @@ tags:
 
 This entry applies the [patch positivity property](patch-positivity-property.md) to the [FA-1f model](fa-1f-model.md) and its soft perturbation. Write \(p=1-q\), where \(q\) is the vacancy density.
 
-For hard and soft FA-1f, including the hard case \(arepsilon_i=0\), the relevant spin-rate coefficients are
+For hard and soft FA-1f, including the hard case \(\varepsilon_i=0\), the relevant spin-rate coefficients are
 
 $$
 \begin{aligned}
 c_i^0(\vn)&=p,
 &
- c_i^1(\vn)&=q,
+c_i^1(\vn)&=q,
 \\
 c_i^0(N(i))&=-(1-\varepsilon_i)p,
 &
- c_i^1(N(i))&=-(1-\varepsilon_i)q.
+c_i^1(N(i))&=-(1-\varepsilon_i)q.
 \end{aligned}
 $$
 
@@ -46,4 +46,4 @@ $$
 =-(1-\varepsilon_i)p d_i.
 $$
 
-Consequently, pure-death perturbations preserve patch positivity only in the degenerate cases \(d_i=0\), \(p=0\), or \(arepsilon_i=1\). In the usual nontrivial regime \(p>0\), \(d_i>0\), and \(arepsilon_i<1\), pure deaths destroy the patch positivity property.
+Consequently, pure-death perturbations preserve patch positivity only in the degenerate cases \(d_i=0\), \(p=0\), or \(\varepsilon_i=1\). In the usual nontrivial regime \(p>0\), \(d_i>0\), and \(\varepsilon_i<1\), pure deaths destroy the patch positivity property.
