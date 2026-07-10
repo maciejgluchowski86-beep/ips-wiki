@@ -11,19 +11,19 @@ tags:
 
 A pure noise spin system is a [spin system](spin-system.md) with no interaction between sites. Each site refreshes spontaneously from a prescribed Bernoulli law.
 
-Let \(r=(r_i)_{i\in\Lambda}\) with \(r_i\in[0,1]\). The unit-rate pure noise generator is
+Let \(r=(r_i)_{i\in\Lambda}\) with \(r_i\in[0,1]\). The pure noise generator is
 
 $$
-\mathcal N^r f(\eta)
+\mathcal N^r f
 =
 \sum_{i\in\Lambda}
-\left((1-r_i)f(\eta^{i,0})+r_i f(\eta^{i,1})-f(\eta)\right).
+\left(E_i^r(f)-f\right).
 $$
 
 Equivalently, the site \(i\) flip rate is
 
 $$
-(1-r_i)\eta(i)+r_i(1-\eta(i)).
+c_i(\eta) = (1-r_i)\eta(i)+r_i(1-\eta(i)).
 $$
 
 Thus \(\mathcal N^r\) has only empty-neighbour spin-rate coefficients:
