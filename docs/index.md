@@ -32,6 +32,8 @@ A minimal dependency order is:
 4. [Patch](entries/patch.md)
 5. [Patch consistency event](entries/patch-consistency-event.md)
 6. [Patch factorization](entries/patch-factorization.md)
+7. [Patch contribution](entries/patch-contribution.md)
+8. [Patch representation of spin systems](entries/patch-representation-of-spin-systems.md)
 
 ## KCSM entries
 
