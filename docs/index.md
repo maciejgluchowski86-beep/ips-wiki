@@ -12,12 +12,13 @@ A minimal dependency order is:
 2. [Polynomial-growth lattice](entries/polynomial-growth-lattice.md)
 3. [Local functions](entries/local-functions.md)
 4. [Monomials](entries/monomials.md)
-5. [Interacting particle system](entries/interacting-particle-system.md)
-6. [Spin system](entries/spin-system.md)
-7. [Pure noise spin system](entries/pure-noise-spin-system.md)
-8. [Oriented spin system](entries/oriented-spin-system.md)
-9. [Invariant measure](entries/invariant-measure.md)
-10. [Ergodicity](entries/ergodicity.md)
+5. [Bernoulli product measure](entries/bernoulli-product-measure.md)
+6. [Interacting particle system](entries/interacting-particle-system.md)
+7. [Spin system](entries/spin-system.md)
+8. [Pure noise spin system](entries/pure-noise-spin-system.md)
+9. [Oriented spin system](entries/oriented-spin-system.md)
+10. [Invariant measure](entries/invariant-measure.md)
+11. [Ergodicity](entries/ergodicity.md)
 
 ## Duality entries
 
@@ -27,8 +28,10 @@ A minimal dependency order is:
 4. [Patch factorization](entries/patch-factorization.md)
 5. [Patch contribution](entries/patch-contribution.md)
 6. [Patch positivity property](entries/patch-positivity-property.md)
-7. [Patch representation of spin systems](entries/patch-representation-of-spin-systems.md)
-8. [Duality noise lemma](entries/duality-noise-lemma.md)
+7. [Patch critical density](entries/patch-critical-density.md)
+8. [High-density measure](entries/high-density-measure.md)
+9. [Patch representation of spin systems](entries/patch-representation-of-spin-systems.md)
+10. [Duality noise lemma](entries/duality-noise-lemma.md)
 
 ## Signed additive set processes
 
@@ -52,10 +55,11 @@ The KCSM block uses the standard convention that `0` is the facilitating state. 
 8. [Monomial duality for FA-1f](entries/monomial-duality-for-fa-1f.md)
 9. [Patch contributions for FA-1f](entries/patch-contributions-for-fa-1f.md)
 10. [Patch positivity for FA-1f](entries/patch-positivity-for-fa-1f.md)
-11. [KCSM relaxation and mixing](entries/kcsm-relaxation-and-mixing.md)
-12. [KCSM out of equilibrium](entries/kcsm-out-of-equilibrium.md)
-13. [FA-1f out of equilibrium](entries/fa-1f-out-of-equilibrium.md)
-14. [East out of equilibrium](entries/east-out-of-equilibrium.md)
+11. [Patch critical density for FA-1f](entries/patch-critical-density-for-fa-1f.md)
+12. [KCSM relaxation and mixing](entries/kcsm-relaxation-and-mixing.md)
+13. [KCSM out of equilibrium](entries/kcsm-out-of-equilibrium.md)
+14. [FA-1f out of equilibrium](entries/fa-1f-out-of-equilibrium.md)
+15. [East out of equilibrium](entries/east-out-of-equilibrium.md)
 
 ## Meta pages
 
