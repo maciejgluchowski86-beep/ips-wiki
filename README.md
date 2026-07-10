@@ -25,6 +25,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Spin system: `docs/entries/spin-system.md`
 - Pure noise spin system: `docs/entries/pure-noise-spin-system.md`
 - Oriented spin system: `docs/entries/oriented-spin-system.md`
+- Invariant measure: `docs/entries/invariant-measure.md`
 - Ergodicity: `docs/entries/ergodicity.md`
 
 ## Current duality entries
