@@ -68,7 +68,7 @@ The site \(i\) can update exactly when its right neighbour is vacant. In this co
 On \(\Z^d\), one standard East-like choice is
 
 $$
-N(i)=\{i+e_1,\ldots,i+e_d\},
+N(i)=\{i+e_1,\ldots,i+e_d\}.
 $$
 
-so that a site can update if at least one forward coordinate neighbour is vacant. Known convergence results are recorded in [East out of equilibrium](east-out-of-equilibrium.md).
+With this choice, a site can update if at least one forward coordinate neighbour is vacant. Known convergence results are recorded in [East out of equilibrium](east-out-of-equilibrium.md).
