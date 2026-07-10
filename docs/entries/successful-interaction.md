@@ -9,7 +9,7 @@ tags:
 
 # Successful interaction
 
-Fix a [signed additive set process](signed-additive-set-process.md) with interaction set \(I\), constructed as in the [graphical construction](graphical-construction-of-signed-additive-set-process.md). For \(S\ne\vn\), a type-\(S\) successful interaction is an interaction
+Fix a [signed additive set process](signed-additive-set-process.md) with interaction set \(I\), constructed as in the [graphical construction](graphical-construction-of-signed-additive-set-process.md). For \(S\ne\vn\), a type-\(S\) successful interaction is a split or birth
 
 $$
 (i,t,\alpha,S)\in I,
@@ -31,7 +31,7 @@ $$
 \{(i,t,\alpha,S)\in I:t\le T,\ i\in A_{t-}\}.
 $$
 
-Thus \(I\) is the full interaction set, while \(\mathcal I_T^S\) is the set of type-\(S\) successful interactions before time \(T\).
+Thus \(I\) is the full interaction set, while \(\mathcal I_T^S\) is the set of type-\(S\) successful interactions before time \(T\). Deaths have target set \(\vn\), so they are not successful interactions.
 
 The successful-interaction sigma algebra is
 
