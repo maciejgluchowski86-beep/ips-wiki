@@ -10,7 +10,7 @@ tags:
 
 # Monomial monotonicity for high-density measures
 
-For a spin system with the [patch positivity property](patch-positivity-property.md), evolved [monomials](monomials.md) are monotone under coordinatewise ordering of the mixing profiles of [high-density measures](high-density-measure.md).
+For a spin system with the [patch positivity property](patch-positivity-property.md), evolved [monomials](monomials.md) are monotone under coordinatewise ordering of the mixing profiles of [high-density measures](high-density-measure.md). A reflected comparison also applies to profiles below the patch critical density.
 
 **References.** None yet.
 
@@ -87,3 +87,84 @@ $$
 $$
 
 Apply this inequality to the coupled profiles \(\mathbf p_0\le\mathbf p_1\) and average over their coupling.
+
+
+## Domination below the critical density
+
+Let
+
+$$
+\nu_-
+=
+\int\mu_{\mathbf q}\,\Pi_-(d\mathbf q),
+\qquad
+\nu_+
+=
+\int\mu_{\mathbf p}\,\Pi_+(d\mathbf p).
+$$
+
+Suppose that \(\Pi_-\) and \(\Pi_+\) admit a coupling \((\mathbf q,\mathbf p)\) such that
+
+$$
+\mathbf q\le\mathbf p,
+\qquad
+\mathbf q+\mathbf p\ge2\mathbf p^\star
+\qquad\text{almost surely}.
+$$
+
+Then, for every \(A\Subset\Lambda\) and \(t\ge0\),
+
+$$
+\nu_-\bigl(P_t(\chi_A)\bigr)
+\le
+\nu_+\bigl(P_t(\chi_A)\bigr).
+$$
+
+### Proof
+
+Fix profiles satisfying the two displayed inequalities. For every end patch, the affine contribution is nondecreasing, so
+
+$$
+C^{\mathbf q}(P)\le C^{\mathbf p}(P).
+$$
+
+Moreover, affinity gives
+
+$$
+C^{\mathbf q}(P)+C^{\mathbf p}(P)
+=
+2C^{(\mathbf q+\mathbf p)/2}(P)
+\ge0,
+$$
+
+because \((\mathbf q+\mathbf p)/2\ge\mathbf p^\star\). Therefore
+
+$$
+\left|C^{\mathbf q}(P)\right|
+\le
+C^{\mathbf p}(P).
+$$
+
+Using the Bernoulli-averaged patch representation and the nonnegativity of the bulk contributions,
+
+$$
+\begin{aligned}
+\mu_{\mathbf q}\bigl(P_t(\chi_A)\bigr)
+&\le
+\mathbb E_A\left[
+\prod_{P\in\mathcal B_t}C(P)
+\prod_{P\in\mathcal E_t}\left|C^{\mathbf q}(P)\right|
+\right]
+\\
+&\le
+\mathbb E_A\left[
+\prod_{P\in\mathcal B_t}C(P)
+\prod_{P\in\mathcal E_t}C^{\mathbf p}(P)
+\right]
+\\
+&=
+\mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr).
+\end{aligned}
+$$
+
+Average this inequality over the coupled profiles.
