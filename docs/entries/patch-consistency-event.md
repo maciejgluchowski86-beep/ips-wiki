@@ -21,10 +21,28 @@ before horizon \(T\). Let \(I\) be the interaction set of the underlying [signed
 $$
 \Pi_P
 =
-\{(i,u,\alpha,R)\in I:s<u<t\}.
+\{(i,u,\alpha,S)\in I:s<u<t\}.
 $$
 
-The local patch measure \(\mathbb P_P\) is the law of \(\Pi_P\), with the source-\(i\) Poisson interaction processes restricted to \((s,t)\). Under \(\mathbb P_P\), define the local active indicator \(X^P_u\), \(s\le u<t\), by \(X^P_s=1\). Source-killing interactions set \(X^P\) to \(0\) when \(X^P\) is active; source-keeping interactions leave it active. Interactions arriving while \(X^P\) is inactive are ignored.
+The local patch measure \(\mathbb P_P\) is the law of the source-\(i\) Poisson interaction processes restricted to \((s,t)\). Under \(\mathbb P_P\), the local active indicator is
+
+$$
+X^P_u=\mathbf 1_{\{i\in A_u\}},
+\qquad s\le u<t.
+$$
+
+Its initial value is fixed by the initial boundary of \(P\):
+
+$$
+X^P_s
+=
+\begin{cases}
+1, & \operatorname{type}_-(P)\in\{\mathsf S,\mathsf I\},\\
+\mathbf 1_{\{(i,s,\beta,S)\in\mathcal I_T^S\text{ for some }S\ne\vn\}}, & \operatorname{type}_-(P)=\mathsf O.
+\end{cases}
+$$
+
+Inside \((s,t)\), source-killing interactions set \(X^P\) to \(0\) when \(X^P\) is active, source-keeping interactions leave it active, and interactions arriving while \(X^P\) is inactive are ignored.
 
 The consistency event of \(P\) is
 
@@ -33,7 +51,7 @@ $$
 =
 \left\{
 X^P_{u-}=0
-\text{ for every }(i,u,\alpha,R)\in\Pi_P\text{ with }R\ne\vn
+\text{ for every }(i,u,\alpha,S)\in\Pi_P\text{ with }S\ne\vn
 \right\}
 \cap C_+(P),
 $$
