@@ -40,6 +40,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Successful interaction: `docs/entries/successful-interaction.md`
 - Patch: `docs/entries/patch.md`
 - Patch consistency event: `docs/entries/patch-consistency-event.md`
+- Patch factorization: `docs/entries/patch-factorization.md`
 
 ## Current KCSM entries
 
