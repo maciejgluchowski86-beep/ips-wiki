@@ -14,45 +14,22 @@ The patch positivity property is a coefficient criterion ensuring that every bul
 
 ## Criterion
 
-Assume first that
+All bulk patch contributions at source site \(i\) are nonnegative for every patch length and every initial interaction target if and only if, for every nonempty \(S\subseteq N(i)\),
 
 $$
-c_i^0(\vn)+c_i^1(\vn)>0.
-$$
-
-Then all bulk patch contributions at source site \(i\) are nonnegative for every patch length and every initial interaction target if and only if, for every nonempty \(S\subseteq N(i)\),
-
-$$
-c_i^0(S)+c_i^1(S)\le0
-$$
-
-and
-
-$$
-c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)\ge0.
-$$
-
-If
-
-$$
-c_i^0(\vn)+c_i^1(\vn)=0,
-$$
-
-then, since \(c_i^0(\vn)\) and \(c_i^1(\vn)\) are nonnegative rates, this is equivalent to
-
-$$
-c_i(\mathbf 0)=0,
+\begin{cases}
+c_i^0(S)+c_i^1(S)\le0,
 \qquad
-c_i(\mathbf 0^{i,1})=0.
+c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)\ge0,
+& c_i^0(\vn)+c_i^1(\vn)>0,\\[0.6em]
+c_i^0(S)+c_i^1(S)\le0,
+\qquad
+c_i^1(S)\le0,
+& c_i^0(\vn)+c_i^1(\vn)=0.
+\end{cases}
 $$
 
-In this degenerate case, the first inequality remains the condition for the \(\mathsf{OO}\) row, while the \(\mathsf{OI}\) row requires
-
-$$
-c_i^1(S)\le0
-$$
-
-for every nonempty \(S\subseteq N(i)\). This exceptional case is usually peripheral because both empty-neighbour flip rates vanish.
+The second line is the degenerate case: since \(c_i^0(\vn)\) and \(c_i^1(\vn)\) are nonnegative rates, \(c_i^0(\vn)+c_i^1(\vn)=0\) is equivalent to \(c_i(\mathbf 0)=0\) and \(c_i(\mathbf 0^{i,1})=0\). This case is usually peripheral because both empty-neighbour flip rates vanish.
 
 ## Proof
 
