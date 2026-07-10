@@ -78,7 +78,7 @@ C(P)=
 +
 \beta_i(S_-(P))\sigma_i^\beta(S_-(P))\psi_i(\Delta,1)
 }{
-\delta_i(S_-(P))+eta_i(S_-(P))\phi_i(\Delta)
+\delta_i(S_-(P))+\beta_i(S_-(P))\phi_i(\Delta)
 },
 & \operatorname{type}(P)=\mathsf{OI},\\[1.4em]
 \sigma_i^\beta(S_-(P))e^{v_i\Delta},
@@ -104,7 +104,7 @@ C(\xi,P)
 +
 \beta_i(S_-(P))\sigma_i^\beta(S_-(P))\psi_i(\Delta,z)
 }{
-\delta_i(S_-(P))+eta_i(S_-(P))\phi_i(\Delta)
+\delta_i(S_-(P))+\beta_i(S_-(P))\phi_i(\Delta)
 }.
 $$
 
