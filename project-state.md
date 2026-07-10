@@ -14,12 +14,13 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 2. `docs/entries/polynomial-growth-lattice.md`: graph distance, balls, and \((k,D)\)-polynomial growth.
 3. `docs/entries/local-functions.md`: finite-dependence observables and their role in generators.
 4. `docs/entries/monomials.md`: monomials \(\chi_A\) and algebraic identities.
-5. `docs/entries/interacting-particle-system.md`: general product-space Markov process on \(\mathcal S^\Lambda\) with local updates.
-6. `docs/entries/spin-system.md`: two-state single-site flip system, generator, and semigroup/kernel notation.
-7. `docs/entries/pure-noise-spin-system.md`: independent Bernoulli refresh spin system and pure-noise perturbations.
-8. `docs/entries/oriented-spin-system.md`: spin systems on oriented lattices, with orientation defined by reachability through \(N(i)\).
-9. `docs/entries/invariant-measure.md`: invariant measures and the Krylov--Bogoliubov existence theorem inside a preserved weakly closed convex class.
-10. `docs/entries/ergodicity.md`: IPS-specific distinction between unique invariant measure, ergodicity, and uniform exponential ergodicity.
+5. `docs/entries/bernoulli-product-measure.md`: homogeneous and inhomogeneous Bernoulli product measures, monomial moments, and coordinatewise stochastic order.
+6. `docs/entries/interacting-particle-system.md`: general product-space Markov process on \(\mathcal S^\Lambda\) with local updates.
+7. `docs/entries/spin-system.md`: two-state single-site flip system, generator, and semigroup/kernel notation.
+8. `docs/entries/pure-noise-spin-system.md`: independent Bernoulli refresh spin system and pure-noise perturbations.
+9. `docs/entries/oriented-spin-system.md`: spin systems on oriented lattices, with orientation defined by reachability through \(N(i)\).
+10. `docs/entries/invariant-measure.md`: invariant measures and the Krylov--Bogoliubov existence theorem inside a preserved weakly closed convex class.
+11. `docs/entries/ergodicity.md`: IPS-specific distinction between unique invariant measure, ergodicity, and uniform exponential ergodicity.
 
 ## Current duality entries
 
@@ -29,8 +30,10 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 4. `docs/entries/patch-factorization.md`: product decomposition of patch laws conditional on successful interactions.
 5. `docs/entries/patch-contribution.md`: explicit bulk and end patch contribution formulas in dual-rate form and spin-rate form.
 6. `docs/entries/patch-positivity-property.md`: coefficient criterion guaranteeing nonnegative bulk patch contributions.
-7. `docs/entries/patch-representation-of-spin-systems.md`: representation theorem expressing \(P_t\chi_A\) as an expectation over products of patch contributions.
-8. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
+7. `docs/entries/patch-critical-density.md`: minimal one-density profile making every affine end-patch contribution nonnegative, with an explicit coefficient formula.
+8. `docs/entries/high-density-measure.md`: mixtures of Bernoulli product measures with profiles above the patch critical density.
+9. `docs/entries/patch-representation-of-spin-systems.md`: representation theorem expressing \(P_t\chi_A\) as an expectation over products of patch contributions.
+10. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
 
 ## Current signed additive set process entries
 
@@ -52,10 +55,11 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 8. `docs/entries/monomial-duality-for-fa-1f.md`: systematic dual rates, signs, and Feynman--Kac weights for hard/soft FA-1f with optional pure-death perturbation.
 9. `docs/entries/patch-contributions-for-fa-1f.md`: hard FA-1f patch contributions with explicit bulk and end formulas.
 10. `docs/entries/patch-positivity-for-fa-1f.md`: verification that FA-1f has patch positivity and characterization of pure-noise perturbations preserving it.
-11. `docs/entries/kcsm-relaxation-and-mixing.md`: relaxation time, mixing time, and precutoff terminology.
-12. `docs/entries/kcsm-out-of-equilibrium.md`: general out-of-equilibrium setup.
-13. `docs/entries/fa-1f-out-of-equilibrium.md`: theorem records for known FA-1f out-of-equilibrium convergence results.
-14. `docs/entries/east-out-of-equilibrium.md`: theorem records for known East out-of-equilibrium convergence results.
+11. `docs/entries/patch-critical-density-for-fa-1f.md`: identification of the FA-1f patch critical density with its equilibrium one-density.
+12. `docs/entries/kcsm-relaxation-and-mixing.md`: relaxation time, mixing time, and precutoff terminology.
+13. `docs/entries/kcsm-out-of-equilibrium.md`: general out-of-equilibrium setup.
+14. `docs/entries/fa-1f-out-of-equilibrium.md`: theorem records for known FA-1f out-of-equilibrium convergence results.
+15. `docs/entries/east-out-of-equilibrium.md`: theorem records for known East out-of-equilibrium convergence results.
 
 ## Current conventions
 
