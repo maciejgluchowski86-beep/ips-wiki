@@ -95,6 +95,24 @@ C(\xi,P)
 \end{cases}
 $$
 
+## Affine extension for end patches
+
+Let \(P\in\mathcal E_T\) be an end patch based at \(i\). Its contribution depends on the terminal configuration only through \(\xi(i)\), and is affine in that variable. For \(p\in[0,1]\), define
+
+$
+C^p(P)
+=
+(1-p)C(0,P)+pC(1,P).
+$
+
+Equivalently, \(C^p(P)\) is obtained from the end-patch formula by replacing \(\xi(i)\) with \(p\). For a one-density profile \(\mathbf p=(p_i)_{i\in\Lambda}\), write
+
+$
+C^{\mathbf p}(P)=C^{p_i}(P)
+$
+
+when \(P\) is based at \(i\). The [patch critical density](patch-critical-density.md) is the smallest profile for which these affine end contributions are nonnegative.
+
 ## Spin-system rate form
 
 In the spin-rate notation of [monomial duality for spin systems](monomial-duality-for-spin-systems.md), the quantities in the preceding display are
