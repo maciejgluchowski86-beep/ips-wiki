@@ -71,15 +71,17 @@ C(P)
 \dfrac{\psi_i(\Delta,1)}{\varphi_i(\Delta)},
 & \operatorname{type}_-(P)\in\{\mathsf S,\mathsf I\},\\[1.2em]
 \dfrac{
-\delta_i(S_-(P))\sigma_i^\delta(S_-(P))
+\delta_i(S)\sigma_i^\delta(S)
 +
-\beta_i(S_-(P))\sigma_i^\beta(S_-(P))\psi_i(\Delta,1)
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,1)
 }{
-\delta_i(S_-(P))+\beta_i(S_-(P))\varphi_i(\Delta)
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
 },
-& \operatorname{type}_-(P)=\mathsf O.
+& \operatorname{type}_-(P)=\mathsf O,
 \end{cases}
 $$
+
+where in the \(\mathsf O\)-initial row, \(S\) is the [initial interaction target](graphical-construction-of-signed-additive-set-process.md#poisson-interaction-sets).
 
 For a bulk patch with late type \(\mathsf O\),
 
@@ -89,10 +91,12 @@ C(P)
 \begin{cases}
 e^{V_i\Delta},
 & \operatorname{type}_-(P)\in\{\mathsf S,\mathsf I\},\\[0.8em]
-\sigma_i^\beta(S_-(P))e^{V_i\Delta},
-& \operatorname{type}_-(P)=\mathsf O.
+\sigma_i^\beta(S)e^{V_i\Delta},
+& \operatorname{type}_-(P)=\mathsf O,
 \end{cases}
 $$
+
+where in the \(\mathsf O\)-initial row, \(S\) is the initial interaction target.
 
 For an end patch, write \(z=\xi(i)\). Then
 
@@ -103,17 +107,17 @@ C(\xi,P)
 \dfrac{\psi_i(\Delta,z)}{\varphi_i(\Delta)},
 & \operatorname{type}_-(P)\in\{\mathsf S,\mathsf I\},\\[1.2em]
 \dfrac{
-\delta_i(S_-(P))\sigma_i^\delta(S_-(P))
+\delta_i(S)\sigma_i^\delta(S)
 +
-\beta_i(S_-(P))\sigma_i^\beta(S_-(P))\psi_i(\Delta,z)
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,z)
 }{
-\delta_i(S_-(P))+\beta_i(S_-(P))\varphi_i(\Delta)
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
 },
-& \operatorname{type}_-(P)=\mathsf O.
+& \operatorname{type}_-(P)=\mathsf O,
 \end{cases}
 $$
 
-Here \(S_-(P)\) is the target set in the initial skeleton of an \(\mathsf O\)-initial patch. It is not used for \(\mathsf S\)- or \(\mathsf I\)-initial patches.
+where in the \(\mathsf O\)-initial row, \(S\) is the initial interaction target.
 
 ## Spin-system rate form
 
@@ -179,7 +183,7 @@ $$
 \beta_i(S)=|c_i^0(S)+c_i^1(S)|.
 $$
 
-Therefore the \(\mathsf O\)-initial rows become, with \(S=S_-(P)\),
+Therefore the \(\mathsf O\)-initial rows become, with \(S\) the initial interaction target,
 
 $$
 C(P)
