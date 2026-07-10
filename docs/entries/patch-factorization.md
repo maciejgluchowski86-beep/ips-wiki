@@ -80,25 +80,13 @@ $$
 \right].
 $$
 
-Given \(\cG_T\), the initial interaction in each \(\Pi_P\) is fixed. The remaining random parts of \(\Pi_P\) are disjoint source-time restrictions of the independent Poisson interaction processes. Since \(\operatorname{Cons}(P)\) depends only on \(\Pi_P\), the inner conditional expectation factors:
+Given \(\cG_T\), the only remaining randomness in different \(\Pi_P\)'s comes from disjoint source-time restrictions of the independent Poisson interaction processes. The conditioning event above is the intersection of the patchwise events \(\operatorname{Cons}(P)\), each of which depends only on \(\Pi_P\). Therefore, in the regular conditional sense,
 
 $$
-\begin{aligned}
-&\mathbb E\left[Z\middle|\cG_T,\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\right]
-\\
-&\qquad=
-\frac{
-\prod_{P\in\mathcal P_T}
-\mathbb E_P\left[f_P(\Pi_P)\mathbf 1_{\operatorname{Cons}(P)}\right]
-}{
-\prod_{P\in\mathcal P_T}
-\mathbb P_P(\operatorname{Cons}(P))
-}
-\\
-&\qquad=
+\mathbb E\left[Z\middle|\cG_T,\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\right]
+=
 \prod_{P\in\mathcal P_T}
 \mathbb E_P^{\operatorname{cons}}[f_P(\Pi_P)].
-\end{aligned}
 $$
 
 The right-hand side is \(\cG_T\)-measurable, because \(\cG_T\) fixes the patches and their boundary types. Substituting into the tower-property identity gives the stated formula.
