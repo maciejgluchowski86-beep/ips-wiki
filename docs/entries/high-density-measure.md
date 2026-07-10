@@ -52,11 +52,13 @@ The mixing profile may be random and spatially inhomogeneous. Conditional on the
 
 ## Basic properties
 
-The family \(\mathcal M_\star\) is convex. It is also weakly compact, and hence weakly closed, when \(\Lambda\) is countable. Indeed, \(\mathcal R_\star\) is compact in the product topology, and the map
+The family \(\mathcal M_\star\) is convex. It is also weakly compact, and hence weakly closed, when \(\Lambda\) is countable. Indeed, \(\mathcal R_\star\) and the space of probability measures on \(\mathcal R_\star\) are compact in their weak topologies, and the mixing map
 
-$$
-\mathbf r\longmapsto\mu_{\mathbf r}
-$$
+$
+\Pi
+\longmapsto
+\int_{\mathcal R_\star}\mu_{\mathbf r}\,\Pi(d\mathbf r)
+$
 
 is continuous when tested against local functions.
 
