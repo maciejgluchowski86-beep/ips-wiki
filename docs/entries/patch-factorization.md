@@ -49,7 +49,7 @@ $$
 \mathbb E_P^{\operatorname{cons}}[f_P(\Pi_P)].
 $$
 
-The product is finite under the local-finiteness assumption in the graphical construction.
+The product is finite under the local-finitess assumption in the graphical construction.
 
 ## Proof
 
@@ -57,36 +57,34 @@ Condition on \(\cG_T\). This fixes the successful interactions, hence also the p
 
 The patches cover all active spacetime. Every initially active site begins a patch at time \(0\). Every successful interaction touches its source and all its target sites; at each touched site it is both the terminal boundary of the preceding patch and the initial boundary of the following patch, except at the endpoints \(0\) and \(T\). Thus an interaction outside patches is either a revealed successful boundary interaction or has inactive source and does not change the process.
 
-Since \(\cG_T\) records the actual successful interactions, the event
-
-$$
-\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)
-$$
-
-holds almost surely after conditioning on \(\cG_T\). Hence, by the tower property, for
+For
 
 $$
 Z=\prod_{P\in\mathcal P_T} f_P(\Pi_P),
 $$
 
-we have
+use the tower property in the form
 
 $$
 \mathbb E[Z\mid\cG_T]
 =
 \mathbb E\left[
-\mathbb E\left[Z\middle|\cG_T,\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\right]
+\mathbb E\left[Z\middle|\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\right]
 \middle|\cG_T
 \right].
 $$
 
-Given \(\cG_T\), the only remaining randomness in different \(\Pi_P\)'s comes from disjoint source-time restrictions of the independent Poisson interaction processes. The conditioning event above is the intersection of the patchwise events \(\operatorname{Cons}(P)\), each of which depends only on \(\Pi_P\). Therefore, in the regular conditional sense,
+Here the patch family and the boundary types are those fixed by \(\cG_T\). Once these are fixed, the event \(\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\) contains the same successful-interaction information as \(\cG_T\): the initial boundary condition \(C_-(P)\) gives the interaction that begins each patch, the interior condition excludes further successful interactions inside patches, and \(C_+(P)\) gives the required activity before outgoing terminal boundaries.
+
+It remains to compute the inner conditional expectation. The initial boundary interaction in each \(\Pi_P\) is fixed by the corresponding condition \(C_-(P)\). The remaining random interactions in \(\Pi_P\) have source \(i\) and times \(s<u<t\) for \(P=\{i\}\times[s,t)\). These source-time regions are pairwise disjoint: distinct sites use independent Poisson processes, while two patches at the same site have disjoint time intervals. Hence the remaining patch interaction data are independent before conditioning.
+
+Moreover, \(\operatorname{Cons}(P)\) depends only on \(\Pi_P\). Therefore conditioning on the intersection of all consistency events conditions independent factors by their own patchwise events. Thus, in the regular conditional sense,
 
 $$
-\mathbb E\left[Z\middle|\cG_T,\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\right]
+\mathbb E\left[Z\middle|\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\right]
 =
 \prod_{P\in\mathcal P_T}
 \mathbb E_P^{\operatorname{cons}}[f_P(\Pi_P)].
 $$
 
-The right-hand side is \(\cG_T\)-measurable, because \(\cG_T\) fixes the patches and their boundary types. Substituting into the tower-property identity gives the stated formula.
+Substituting this identity into the tower-property formula gives the claim.
