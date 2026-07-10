@@ -46,7 +46,7 @@ a_i^\delta(S)=c_i^0(S),
 a_i^\beta(S)=-c_i^0(S)-c_i^1(S).
 $$
 
-The associated nonnegative source-killing rates and signs are
+The associated nonnegative death and split rates and signs are
 
 $$
 \delta_i(S)=|a_i^\delta(S)|,
@@ -54,7 +54,7 @@ $$
 \sigma_i^\delta(S)=\operatorname{sgn}_\pm a_i^\delta(S).
 $$
 
-For source-keeping updates use the convention \(\beta_i(\vn)=0\). For \(S\ne\vn\), set
+For births use the convention \(\beta_i(\vn)=0\). For \(S\ne\vn\), set
 
 $$
 \beta_i(S)=|a_i^\beta(S)|,
@@ -78,7 +78,7 @@ a_i^\delta(S)\chi_{(A\setminus\{i\})\cup S}
 a_i^\beta(S)\chi_{A\cup S}.
 $$
 
-Thus the only dual updates are activations of subsets of neighbouring sites. The \(\delta\)-update kills the source site \(i\); the \(\beta\)-update keeps it. The source-keeping empty term is not a dual update and is absorbed into the Feynman--Kac potential.
+Thus the only dual updates are activations of subsets of neighbouring sites. The \(\delta\)-update is a death when \(S=\vn\) and a split when \(S\ne\vn\). The \(\beta\)-update is a birth when \(S\ne\vn\). The empty birth term is not a dual update and is absorbed into the Feynman--Kac potential.
 
 ## Dual process
 
