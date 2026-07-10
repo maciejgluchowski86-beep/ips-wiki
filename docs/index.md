@@ -31,6 +31,7 @@ A minimal dependency order is:
 3. [Successful interaction](entries/successful-interaction.md)
 4. [Patch](entries/patch.md)
 5. [Patch consistency event](entries/patch-consistency-event.md)
+6. [Patch factorization](entries/patch-factorization.md)
 
 ## KCSM entries
 
