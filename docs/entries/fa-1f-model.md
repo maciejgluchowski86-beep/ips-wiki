@@ -27,13 +27,7 @@ $$
 c_i(\eta)=\ind\{\exists j\in N(i):\eta(j)=0\}.
 $$
 
-Using the [monomials](monomials.md)
-
-$$
-\chi_A(\eta)=\prod_{j\in A}\eta(j),
-$$
-
-the same constraint is
+In [monomial](monomials.md) notation, the same constraint is
 
 $$
 c_i(\eta)=1-\chi_{N(i)}(\eta).
@@ -62,7 +56,7 @@ $$
 N(i)=\{i\pm e_k:1\le k\le d\}.
 $$
 
-Then a site updates if at least one nearest neighbour is vacant. This is the standard FA-1f model.
+A site updates if at least one nearest neighbour is vacant. This is the standard FA-1f model.
 
 ## Noncooperative character
 
