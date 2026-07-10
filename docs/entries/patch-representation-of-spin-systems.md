@@ -46,7 +46,7 @@ $$
 We split the random weight inside this expectation into one factor per patch. Fix the successful-interaction sigma algebra \(\cG_t\), so that the patch family, boundary types, and initial skeletons are fixed. For a patch \(P=\{i\}\times[s_-,s_+)\), let \(X^P\) be the local active indicator from the [patch consistency event](patch-consistency-event.md). Write \(\sigma_i^\alpha(S)=\sigma_i^\delta(S)\) when \(\alpha=\delta\), and \(\sigma_i^\alpha(S)=\sigma_i^\beta(S)\) when \(\alpha=\beta\). The sign assigned to \(P\) is the source-side sign of its initial outgoing boundary:
 
 $$
-\Sigma_P
+\sigma_P
 =
 \begin{cases}
 \sigma_i^\alpha(S),
@@ -62,7 +62,7 @@ $$
 a_i^\delta(\vn)=c_i^0(\vn)=c_i(\mathbf 0)\ge0,
 $$
 
-so \(\sigma_i^\delta(\vn)=+1\). Hence patch interiors affect the active-time integral and the terminal active state, but they do not contribute to \(\sigma_t\).
+so \(\sigma_i^\delta(\vn)=+\). Hence patch interiors affect the active-time integral and the terminal active state, but they do not contribute to \(\sigma_t\).
 
 The local Feynman--Kac factor of \(P\) is
 
@@ -86,9 +86,9 @@ $$
 The pre-averaged patch factors are
 
 $$
-f_P=\Sigma_P R_P,
+f_P=\sigma_P R_P,
 \qquad
-f_P^\xi=\Sigma_P R_P T_P^\xi.
+f_P^\xi=\sigma_P R_P T_P^\xi.
 $$
 
 The global sign, potential, and terminal monomial split exactly as
@@ -97,7 +97,7 @@ $$
 \begin{aligned}
 \sigma_t
 &=
-\prod_{P\in\mathcal P_t}\Sigma_P,
+\prod_{P\in\mathcal P_t}\sigma_P,
 \\
 \exp\left(\int_0^t V(A_s)\,ds\right)
 &=
@@ -110,7 +110,7 @@ $$
 \end{aligned}
 $$
 
-The first identity uses that the dual starts with sign \(+\), every split or birth sign is assigned to the source patch beginning at that successful interaction, and interior pure deaths have sign \(+1\). The second identity uses \(V(A_s)=\sum_{i\in A_s}V_i\) and the fact that the patches cover active spacetime. The third identity uses that only end patches reach time \(t\); an active site at time \(t\) contributes the factor \(\xi(i)\), while an inactive end patch contributes \(1\). Hence, conditional on \(\cG_t\), the duality weight equals
+The first identity uses that the dual starts with sign \(+\), every split or birth sign is assigned to the source patch beginning at that successful interaction, and interior pure deaths have sign \(+\). The second identity uses \(V(A_s)=\sum_{i\in A_s}V_i\) and the fact that the patches cover active spacetime. The third identity uses that only end patches reach time \(t\); an active site at time \(t\) contributes the factor \(\xi(i)\), while an inactive end patch contributes \(1\). Hence, conditional on \(\cG_t\), the duality weight equals
 
 $$
 \prod_{P\in\mathcal B_t} f_P
