@@ -31,7 +31,7 @@ $$
 c_i(\eta)=(1-\eta(i))c_i^0(\eta)+\eta(i)c_i^1(\eta),
 $$
 
-where \(c_i^x(\eta)=c_i(\eta^{i,x})\). The functions \(c_i^0\) and \(c_i^1\) depend only on the neighbour set \(N(i)\) from the [lattice and graph](lattice-and-graph.md) convention. Expand them as
+where \(c_i^x(\eta)=c_i(\eta^{i,x})\). The functions \(c_i^0\) and \(c_i^1\) depend only on the neighbour set \(N(i)\) from the [lattice and graph](lattice-and-graph.md) convention. Their monomial expansions are
 
 $$
 c_i^x(\eta)=\sum_{S\subseteq N(i)}c_i^x(S)\chi_S(\eta),
@@ -94,11 +94,7 @@ The Feynman--Kac potential depends only on \(A\). Write
 
 $$
 V(A)=\sum_{i\in A}V_i,
-$$
-
-where
-
-$$
+\qquad
 V_i=
 \sum_{S\subseteq N(i)}\delta_i(S)
 +
@@ -120,7 +116,7 @@ $$
 \end{aligned}
 $$
 
-Then
+The resulting Feynman--Kac duality identity is
 
 $$
 \cL_\eta H(Y,\eta)
@@ -128,7 +124,7 @@ $$
 \cD H(Y,\eta)+V(A)H(Y,\eta),
 $$
 
-and therefore
+so
 
 $$
 \E_\eta[\chi_A(\eta_t)]
