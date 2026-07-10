@@ -11,21 +11,21 @@ tags:
 
 # Patch positivity for FA-1f
 
-This entry applies the [patch positivity property](patch-positivity-property.md) to the [FA-1f model](fa-1f-model.md) and to [pure-noise perturbations](pure-noise-spin-system.md). Write \(p=1-q\), where \(q\) is the FA-1f vacancy density.
+This entry applies the [patch positivity property](patch-positivity-property.md) to the [FA-1f model](fa-1f-model.md) and to [pure-noise perturbations](pure-noise-spin-system.md).
 
 ## FA-1f
 
-Hard FA-1f has the patch positivity property. More generally, the standard soft FA-1f with constraint \(1-(1-\varepsilon_i)\chi_{N(i)}\) has patch positivity for every \(\varepsilon_i\in[0,1]\).
+The FA-1f model has the patch positivity property.
 
 Indeed, the only nonzero nonempty-neighbour coefficients are
 
 $$
- c_i^0(N(i))=-(1-\varepsilon_i)p,
+ c_i^0(N(i))=-p,
 \qquad
- c_i^1(N(i))=-(1-\varepsilon_i)q,
+ c_i^1(N(i))=-q,
 $$
 
-while
+and the empty-neighbour coefficients are
 
 $$
  c_i^0(\vn)=p,
@@ -33,46 +33,43 @@ $$
  c_i^1(\vn)=q.
 $$
 
-The two patch-positivity inequalities are therefore
+The two inequalities in the patch positivity criterion become
 
 $$
-\begin{aligned}
- c_i^0(N(i))+c_i^1(N(i))&=-(1-\varepsilon_i)\le0,
-\\
- c_i^1(\vn)c_i^0(N(i))-c_i^0(\vn)c_i^1(N(i))&=0.
-\end{aligned}
+ c_i^0(N(i))+c_i^1(N(i))=-1\le0,
+\qquad
+ c_i^1(\vn)c_i^0(N(i))-c_i^0(\vn)c_i^1(N(i))=0.
 $$
 
-All other nonempty-neighbour coefficients are zero, so the criterion holds at every source site.
+All other nonempty-neighbour coefficients are zero.
 
 ## Pure-noise perturbations
 
-Add pure noise at site \(i\) with rate \(\lambda_i\ge0\) and occupied-site density \(p_i^{\mathrm{noise}}\). Equivalently, its vacancy density is \(q_i^{\mathrm{noise}}=1-p_i^{\mathrm{noise}}\). This changes only the empty-neighbour coefficients:
+For a pure noise perturbation \(\mathcal L_{\mathrm{FA}}+\mathcal N^r\), patch positivity is preserved if and only if
 
 $$
- c_i^0(\vn)=p+\lambda_i p_i^{\mathrm{noise}},
+ r_i\ge p
+$$
+
+at every site with nonempty neighbour set and nontrivial FA-1f constraint.
+
+The perturbation changes only the empty-neighbour coefficients:
+
+$$
+ c_i^0(\vn)=p+r_i,
 \qquad
- c_i^1(\vn)=q+\lambda_i q_i^{\mathrm{noise}}.
+ c_i^1(\vn)=q+(1-r_i),
 $$
 
-The first patch-positivity inequality is unchanged. The second becomes
+while the nonempty-neighbour coefficients remain \(c_i^0(N(i))=-p\) and \(c_i^1(N(i))=-q\). The first patch-positivity inequality is unchanged, and the second becomes
 
 $$
 \begin{aligned}
-&\left(q+\lambda_i q_i^{\mathrm{noise}}\right)\left(-(1-\varepsilon_i)p\right)
--
-\left(p+\lambda_i p_i^{\mathrm{noise}}\right)\left(-(1-\varepsilon_i)q\right)
+&\left(q+1-r_i\right)(-p)-\left(p+r_i\right)(-q)
 \\
 &\qquad
-=\lambda_i(1-\varepsilon_i)\left(qp_i^{\mathrm{noise}}-p q_i^{\mathrm{noise}}\right)
-=\lambda_i(1-\varepsilon_i)\left(p_i^{\mathrm{noise}}-p\right).
+= r_i-p.
 \end{aligned}
 $$
 
-Thus a pure-noise perturbation preserves patch positivity exactly when
-
-$$
- p_i^{\mathrm{noise}}\ge p,
-$$
-
-apart from the automatic cases \(\lambda_i=0\) or \(\varepsilon_i=1\). Equivalently, the noise vacancy density satisfies \(q_i^{\mathrm{noise}}\le q\). Pure births correspond to \(p_i^{\mathrm{noise}}=1\), so they preserve patch positivity; pure deaths correspond to \(p_i^{\mathrm{noise}}=0\), so they do not preserve it in the nontrivial regime \(p>0\).
+Thus the criterion is exactly \(r_i\ge p\). Pure births correspond to \(r_i=1\), so they preserve patch positivity. Pure deaths correspond to \(r_i=0\), so they do not preserve it unless the FA-1f occupied density is zero.
