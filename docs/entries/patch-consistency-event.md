@@ -24,7 +24,7 @@ $$
 \{(i,u,\alpha,S)\in I:s<u<t\}.
 $$
 
-The local patch measure \(\mathbb P_P\) is the law of the source-\(i\) Poisson interaction processes restricted to \((s,t)\). Under \(\mathbb P_P\), the local active indicator is
+The local patch measure \(\mathbb P_P\) is the law of the source-\(i\) Poisson interaction processes restricted to \((s,t)\). Write \(\mathbb E_P\) for expectation under \(\mathbb P_P\). Under \(\mathbb P_P\), the local active indicator is
 
 $$
 X^P_u=\mathbf 1_{\{i\in A_u\}},
@@ -75,4 +75,12 @@ $$
 \mathbb P_P^{\operatorname{cons}}(\cdot)
 =
 \mathbb P_P(\cdot\mid\operatorname{Cons}(P)).
+$$
+
+Write \(\mathbb E_P^{\operatorname{cons}}\) for expectation under \(\mathbb P_P^{\operatorname{cons}}\). Equivalently,
+
+$$
+\mathbb E_P^{\operatorname{cons}}[f]
+=
+\mathbb E_P[f\mid\operatorname{Cons}(P)].
 $$
