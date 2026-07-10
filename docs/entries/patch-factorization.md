@@ -13,7 +13,7 @@ tags:
 
 Fix a [signed additive set process](signed-additive-set-process.md), its graphical construction, and a horizon \(T<\infty\). Let \(\cG_T\) be the [successful-interaction](successful-interaction.md) sigma algebra, and let \(\mathcal P_T\) be the set of [patches](patch.md).
 
-For \(P\in\mathcal P_T\), let \(\Pi_P\), \(\Omega_P\), \(\mathbb P_P\), \(\operatorname{Cons}(P)\), and \(\mathbb P_P^{\operatorname{cons}}\) be as in the [patch consistency event](patch-consistency-event.md) entry. Set
+For \(P\in\mathcal P_T\), let \(\Pi_P\), \(\Omega_P\), \(\mathbb P_P\), \(\mathbb E_P\), \(\operatorname{Cons}(P)\), \(\mathbb P_P^{\operatorname{cons}}\), and \(\mathbb E_P^{\operatorname{cons}}\) be as in the [patch consistency event](patch-consistency-event.md) entry. Set
 
 $$
 \mathcal F_P=\sigma(\Pi_P).
@@ -46,10 +46,7 @@ $$
 \right]
 =
 \prod_{P\in\mathcal P_T}
-\mathbb E_{\mathbb P_P}\left[
- f_P(\Pi_P)
- \middle|\operatorname{Cons}(P)
-\right].
+\mathbb E_P^{\operatorname{cons}}[f_P(\Pi_P)].
 $$
 
 The product is finite under the local-finiteness assumption in the graphical construction.
@@ -80,7 +77,7 @@ $$
 &\qquad=
 \frac{
 \prod_{P\in\mathcal P_T}
-\mathbb E_{\mathbb P_P}\left[f_P(\Pi_P)\mathbf 1_{\operatorname{Cons}(P)}\right]
+\mathbb E_P\left[f_P(\Pi_P)\mathbf 1_{\operatorname{Cons}(P)}\right]
 }{
 \prod_{P\in\mathcal P_T}
 \mathbb P_P(\operatorname{Cons}(P))
@@ -88,10 +85,7 @@ $$
 \\
 &\qquad=
 \prod_{P\in\mathcal P_T}
-\mathbb E_{\mathbb P_P}\left[
- f_P(\Pi_P)
- \middle|\operatorname{Cons}(P)
-\right].
+\mathbb E_P^{\operatorname{cons}}[f_P(\Pi_P)].
 \end{aligned}
 $$
 
