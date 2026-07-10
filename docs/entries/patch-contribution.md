@@ -10,7 +10,7 @@ tags:
 
 # Patch contribution
 
-This entry gives the local factors \(C(P)\) and \(C(\xi,P)\) used in the [patch representation of spin systems](patch-representation-of-spin-systems.md). The [patch positivity property](patch-positivity-property.md) gives a coefficient criterion under which all bulk factors are nonnegative.
+This entry gives the local factors \(C(P)\) and \(C(\xi,P)\) used in the [patch representation of spin systems](patch-representation-of-spin-systems.md). The [patch positivity property](patch-positivity-property.md) gives a coefficient criterion under which all bulk factors are nonnegative, while the [patch critical density](patch-critical-density.md) determines when the affine end factors are nonnegative.
 
 Let
 
