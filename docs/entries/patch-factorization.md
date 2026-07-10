@@ -19,7 +19,7 @@ $$
 \mathcal F_P=\sigma(\Pi_P).
 $$
 
-The patch-interior sigma algebra is
+The patch sigma algebra is
 
 $$
 \mathcal F_T^{\operatorname{patch}}
@@ -29,7 +29,7 @@ $$
 
 ## Statement
 
-Conditional on \(\cG_T\), the law of the patch interiors factors over patches:
+Conditional on \(\cG_T\), the law of the patch interaction data factors over patches:
 
 $$
 \mathbb P\left(\cdot\mid\cG_T\right)\big|_{\mathcal F_T^{\operatorname{patch}}}
@@ -53,17 +53,17 @@ The product is finite under the local-finiteness assumption in the graphical con
 
 ## Proof
 
-Condition on \(\cG_T\). This fixes the successful interactions, hence also the patch set \(\mathcal P_T\), the boundary times, and the boundary types.
+Condition on \(\cG_T\). This fixes the successful interactions, hence also the patch set \(\mathcal P_T\), the boundary times, the boundary types, and the initial interaction contained in each \(\Pi_P\).
 
-The patches cover all active spacetime. Every initially active site begins a patch at time \(0\). Every successful interaction touches its source and all its target sites; at each touched site it is both the terminal boundary of the preceding patch and the initial boundary of the following patch, except at the endpoints \(0\) and \(T\). Thus an interaction outside patch interiors is either a revealed successful boundary interaction or has inactive source and does not change the process.
+The patches cover all active spacetime. Every initially active site begins a patch at time \(0\). Every successful interaction touches its source and all its target sites; at each touched site it is both the terminal boundary of the preceding patch and the initial boundary of the following patch, except at the endpoints \(0\) and \(T\). Thus an interaction outside patches is either a revealed successful boundary interaction or has inactive source and does not change the process.
 
-Let
+Since \(\cG_T\) records the actual successful interactions, the event
 
 $$
-C_T=\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P).
+\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)
 $$
 
-Since \(\cG_T\) records the actual successful interactions, the event \(C_T\) holds almost surely after conditioning on \(\cG_T\). Hence, by the tower property, for
+holds almost surely after conditioning on \(\cG_T\). Hence, by the tower property, for
 
 $$
 Z=\prod_{P\in\mathcal P_T} f_P(\Pi_P),
@@ -74,15 +74,19 @@ we have
 $$
 \mathbb E[Z\mid\cG_T]
 =
-\mathbb E\left[\mathbb E[Z\mid\cG_T,C_T]\mid\cG_T\right].
+\mathbb E\left[
+\mathbb E\left[Z\middle|\cG_T,\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\right]
+\middle|\cG_T
+\right].
 $$
 
-Given \(\cG_T\), the boundary interactions are fixed. For distinct patches \(P\), the sets \(\Pi_P\) use disjoint source-time restrictions of the independent Poisson interaction processes. Moreover, \(\operatorname{Cons}(P)\) depends only on \(\Pi_P\). Therefore the inner conditional expectation factors:
+Given \(\cG_T\), the initial interaction in each \(\Pi_P\) is fixed. The remaining random parts of \(\Pi_P\) are disjoint source-time restrictions of the independent Poisson interaction processes. Since \(\operatorname{Cons}(P)\) depends only on \(\Pi_P\), the inner conditional expectation factors:
 
 $$
 \begin{aligned}
-\mathbb E[Z\mid\cG_T,C_T]
-&=
+&\mathbb E\left[Z\middle|\cG_T,\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\right]
+\\
+&\qquad=
 \frac{
 \prod_{P\in\mathcal P_T}
 \mathbb E_P\left[f_P(\Pi_P)\mathbf 1_{\operatorname{Cons}(P)}\right]
@@ -91,7 +95,7 @@ $$
 \mathbb P_P(\operatorname{Cons}(P))
 }
 \\
-&=
+&\qquad=
 \prod_{P\in\mathcal P_T}
 \mathbb E_P^{\operatorname{cons}}[f_P(\Pi_P)].
 \end{aligned}
