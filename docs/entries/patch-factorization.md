@@ -60,7 +60,7 @@ The patches cover all active spacetime. Every initially active site begins a pat
 Let
 
 $$
-C_T=igcap_{P\in\mathcal P_T}\operatorname{Cons}(P).
+C_T=\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P).
 $$
 
 Since \(\cG_T\) records the actual successful interactions, the event \(C_T\) holds almost surely after conditioning on \(\cG_T\). Hence, by the tower property, for
