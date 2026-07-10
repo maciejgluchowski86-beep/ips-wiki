@@ -28,10 +28,10 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 
 ## Current signed additive set process entries
 
-1. `docs/entries/signed-additive-set-process.md`: finite-subset process with sign coordinate, source-killing and source-keeping activations.
+1. `docs/entries/signed-additive-set-process.md`: finite-subset process with sign coordinate, deaths, splits, and births.
 2. `docs/entries/graphical-construction-of-signed-additive-set-process.md`: Poisson interaction construction of the signed additive set process.
-3. `docs/entries/successful-interaction.md`: nonempty-target interactions whose source is active, and the sigma algebra revealing them.
-4. `docs/entries/patch.md`: active one-site spacetime intervals between successful touches, classified by boundary type.
+3. `docs/entries/successful-interaction.md`: nonempty-target split or birth interactions whose source is active, and the sigma algebra revealing them.
+4. `docs/entries/patch.md`: one-site spacetime intervals cut by successful touches, classified by boundary type.
 5. `docs/entries/patch-consistency-event.md`: local patch measure, consistency event, and conditioned patch measure.
 6. `docs/entries/patch-factorization.md`: product decomposition of patch-interior laws conditional on successful interactions.
 
