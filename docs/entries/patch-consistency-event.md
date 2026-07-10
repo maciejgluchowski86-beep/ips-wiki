@@ -10,33 +10,18 @@ tags:
 
 # Patch consistency event
 
-Fix a [patch](patch.md)
+Fix a [patch](patch.md) \(P=\{i\}\times[s,t)\) before horizon \(T\). Let \(I\) be the interaction set of the underlying [signed additive set process](signed-additive-set-process.md). The patch interaction data are
 
 $$
-P=\{i\}\times[s,t)
-$$
-
-before horizon \(T\). Let \(I\) be the interaction set of the underlying [signed additive set process](signed-additive-set-process.md). The patch interaction data are
-
-$$
-\Pi_P
-=
-\Pi_P^-\cup\Pi_P^\circ,
-$$
-
-where
-
-$$
+\begin{aligned}
+\Pi_P&=\Pi_P^-\cup\Pi_P^\circ,
+\\
 \Pi_P^\circ
-=
+&=
 \{(i,u,\alpha,S)\in I:s<u<t\},
-$$
-
-and the initial-boundary data are
-
-$$
+\\
 \Pi_P^-
-=
+&=
 \begin{cases}
 \vn, & s=0,\\
 \{(j,s,S):S\ne\vn,\ i\in S,\ (j,s,\alpha,S)\in I\text{ for some }\alpha\in\{\delta,\beta\}\},
@@ -44,9 +29,10 @@ $$
 \{(i,s,\alpha,S)\in I:S\ne\vn\},
 & \operatorname{type}_-(P)=\mathsf O.
 \end{cases}
+\end{aligned}
 $$
 
-Thus an incoming initial boundary contributes only its source-time-target skeleton to \(\Pi_P\). An outgoing initial boundary contributes the update kind as well, because a birth keeps the source active while a split removes it.
+An incoming initial boundary contributes only its source-time-target skeleton to \(\Pi_P\). An outgoing initial boundary contributes the update kind as well, because a birth keeps the source active while a split removes it.
 
 The local patch measure \(\mathbb P_P\) is the law of \(\Pi_P\) conditional on the initial skeleton that begins the patch. If \(s=0\), this means only that the site is initially active. If \(\operatorname{type}_-(P)=\mathsf I\), the incoming skeleton \((j,s,S)\) with \(i\in S\) is fixed. If \(\operatorname{type}_-(P)=\mathsf O\), the source-time-target skeleton \((i,s,S)\) is fixed, but the update kind is sampled by
 
@@ -123,4 +109,4 @@ $$
 \mathbb E_P[f\mid\operatorname{Cons}(P)].
 $$
 
-Thus \(\mathbb E_P^{\operatorname{cons}}\) includes both the initial-skeleton conditioning built into \(\mathbb E_P\) and the patch consistency conditioning.
+Thus \(\mathbb E_P^{\operatorname{cons}}\) includes both the initial-skeleton conditioning built into \(\mathbb E_P\) and the patch consistency conditioning. This conditioned law is the local input to [patch factorization](patch-factorization.md).
