@@ -10,7 +10,7 @@ tags:
 
 # Graphical construction of signed additive set process
 
-The graphical construction realizes a [signed additive set process](signed-additive-set-process.md) from independent Poisson marks in spacetime. The marks, together with the initial state, determine the full path \((A_t,\sigma_t)\).
+The graphical construction realizes a [signed additive set process](signed-additive-set-process.md) from independent Poisson interactions in spacetime. The interactions, together with the initial state, determine the full path \((A_t,\sigma_t)\).
 
 ## Poisson interaction sets
 
@@ -20,7 +20,7 @@ $$
 I_{i,S}^\delta\subseteq [0,\infty)
 $$
 
-be a Poisson point process of rate \(\delta_i(S)\). Its times are the source-killing interactions of type \((i,S,\delta)\).
+be a Poisson point process of rate \(\delta_i(S)\). Its times are deaths when \(S=\vn\), and splits when \(S\ne\vn\).
 
 For every \(i\in\Lambda\) and nonempty \(S\subseteq N(i)\), let
 
@@ -28,7 +28,7 @@ $$
 I_{i,S}^\beta\subseteq [0,\infty)
 $$
 
-be a Poisson point process of rate \(\beta_i(S)\). Its times are the source-keeping interactions of type \((i,S,\beta)\).
+be a Poisson point process of rate \(\beta_i(S)\). Its times are births.
 
 All processes
 
@@ -94,13 +94,13 @@ The process \((Y_t)_{t\ge0}\) constructed from the interaction set \(I\) is the 
 
 ## Proof
 
-Fix a state \(Y=(A,\sigma)\). Conditional on \(Y_t=Y\), only interactions whose source lies in \(A\) can change the state. For \(h\downarrow0\), the probability that exactly one relevant source-killing interaction \((i,\cdot,\delta,S)\) occurs in \((t,t+h]\) is
+Fix a state \(Y=(A,\sigma)\). Conditional on \(Y_t=Y\), only interactions whose source lies in \(A\) can change the state. For \(h\downarrow0\), the probability that exactly one relevant death or split \((i,\cdot,\delta,S)\) occurs in \((t,t+h]\) is
 
 $$
 \delta_i(S)h+o(h),
 $$
 
-and the resulting state is \(D_{i,S}Y\). Similarly, for \(S\ne\vn\), the probability that exactly one relevant source-keeping interaction \((i,\cdot,\beta,S)\) occurs in \((t,t+h]\) is
+and the resulting state is \(D_{i,S}Y\). Similarly, for \(S\ne\vn\), the probability that exactly one relevant birth \((i,\cdot,\beta,S)\) occurs in \((t,t+h]\) is
 
 $$
 \beta_i(S)h+o(h),
