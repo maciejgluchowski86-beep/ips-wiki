@@ -26,6 +26,7 @@ nav:
       - Monomials: entries/monomials.md
       - Interacting particle system: entries/interacting-particle-system.md
       - Spin system: entries/spin-system.md
+      - Pure noise spin system: entries/pure-noise-spin-system.md
       - Oriented spin system: entries/oriented-spin-system.md
       - Ergodicity: entries/ergodicity.md
   - Duality:
