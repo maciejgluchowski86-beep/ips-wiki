@@ -53,17 +53,22 @@ The product is finite under the local-finiteness assumption in the graphical con
 
 ## Proof
 
-Condition on \(\cG_T\). This fixes the successful-interaction set \(\mathcal I_T\), hence also the patch set \(\mathcal P_T\), the boundary times, the boundary types, and the initial interaction contained in each \(\Pi_P\).
+Condition on \(\cG_T\). This fixes the successful-interaction skeleton set \(\mathcal I_T\), hence also the patch set \(\mathcal P_T\), the boundary times, the boundary types, and the initial skeleton built into each \(\mathbb P_P\). It does not reveal whether an outgoing successful interaction is a split or a birth.
 
 The patches cover all active spacetime. Every initially active site begins a patch at time \(0\). Every successful interaction touches its source and all its target sites; at each touched site it is both the terminal boundary of the preceding patch and the initial boundary of the following patch, except at the endpoints \(0\) and \(T\). Thus an interaction outside patches is either a revealed successful boundary interaction or has inactive source and does not change the process.
 
-For a finite family \(A\) of interactions, write
+For a finite family \(A\) of interaction skeletons \((i,t,S)\), write
 
 $$
-R_A=\{A\subseteq I\}.
+R_A
+=
+\left\{
+\text{for every }(i,t,S)\in A,
+\ (i,t,\delta,S)\in I\text{ or }(i,t,\beta,S)\in I
+\right\}.
 $$
 
-Thus \(R_A\) is the event that all interactions in \(A\) occur in the graphical construction; it does not assert that these are the only interactions.
+Thus \(R_A\) is the event that all listed source-time-target interactions occur in the graphical construction; it does not assert that these are the only interactions and it does not reveal the update kind.
 
 Let
 
@@ -71,7 +76,7 @@ $$
 Z=\prod_{P\in\mathcal P_T} f_P(\Pi_P).
 $$
 
-Since \(R_{\mathcal I_T}\) reveals that every listed successful interaction occurs, while \(\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\) guarantees that no additional successful interaction occurs inside any patch and that outgoing terminal boundaries have active source, the pair of conditions
+Since \(R_{\mathcal I_T}\) reveals that every listed successful-interaction skeleton occurs, while \(\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\) guarantees that no additional successful interaction occurs inside any patch and that outgoing terminal boundaries have active source, the pair of conditions
 
 $$
 R_{\mathcal I_T},
@@ -79,7 +84,7 @@ R_{\mathcal I_T},
 \bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)
 $$
 
-reveals the same successful-interaction information as \(\cG_T\), after \(Y_0\) is fixed. Hence the tower property gives
+reveals the same successful-interaction skeleton information as \(\cG_T\), after \(Y_0\) is fixed. Hence the tower property gives
 
 $$
 \mathbb E[Z\mid\cG_T]
@@ -90,7 +95,17 @@ $$
 \right].
 $$
 
-It remains to compute the inner conditional expectation. Condition on \(R_{\mathcal I_T}\). This fixes the initial boundary interaction in each \(\Pi_P\). The remaining random interactions in \(\Pi_P\) have source \(i\) and times \(s<u<t\) for \(P=\{i\}\times[s,t)\). These source-time regions are pairwise disjoint: distinct sites use independent Poisson processes, while two patches at the same site have disjoint time intervals. Therefore the remaining patch interaction data are independent under the conditional law given \(R_{\mathcal I_T}\).
+It remains to compute the inner conditional expectation. Condition on \(R_{\mathcal I_T}\). This fixes the initial skeleton in each \(\Pi_P\). For an \(\mathsf O\)-initial patch beginning at skeleton \((i,s,S)\), the update kind is still random and is sampled by
+
+$$
+\mathbb P((i,s,\beta,S)\in I\mid (i,s,\delta,S)\in I\text{ or }(i,s,\beta,S)\in I)
+=
+\frac{\beta_i(S)}{\delta_i(S)+\beta_i(S)},
+$$
+
+and similarly the split probability is \(\delta_i(S)/(\delta_i(S)+\beta_i(S))\). These birth/split choices are independent for distinct outgoing initial skeletons, and are independent of the source-time Poisson processes strictly inside the patches. Incoming initial skeletons contribute no birth/split mark to the target patch data.
+
+The remaining random interactions in \(\Pi_P\) have source \(i\) and times \(s<u<t\) for \(P=\{i\}\times[s,t)\). These source-time regions are pairwise disjoint: distinct sites use independent Poisson processes, while two patches at the same site have disjoint time intervals. Therefore the patch data \(\Pi_P\), with their initial skeletons fixed but with outgoing initial birth/split choices retained, are independent under the conditional law given \(R_{\mathcal I_T}\).
 
 For each patch, \(\operatorname{Cons}(P)\) depends only on \(\Pi_P\), and after conditioning on \(R_{\mathcal I_T}\) it has positive probability. Therefore the elementary product-conditioning identity applies: if \((X_k,B_k)\) are independent and \(\mathbb P(B_k)>0\), then
 
@@ -109,4 +124,4 @@ $$
 \mathbb E_P^{\operatorname{cons}}[f_P(\Pi_P)].
 $$
 
-The right-hand side is \(\cG_T\)-measurable, because \(\cG_T\) fixes the patches and their boundary types. Substituting this identity into the tower-property formula gives the claim.
+The right-hand side is \(\cG_T\)-measurable, because \(\cG_T\) fixes the patches, their boundary types, and their initial skeletons. Substituting this identity into the tower-property formula gives the claim.
