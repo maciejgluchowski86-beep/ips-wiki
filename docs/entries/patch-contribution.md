@@ -33,7 +33,7 @@ $$
 Define
 
 $$
-\phi_i(\Delta)
+\varphi_i(\Delta)
 =
 e^{-\alpha_i\Delta}
 +
@@ -61,7 +61,7 @@ If the early type is \(\mathsf S\) or \(\mathsf I\), then
 $$
 C(P)=
 \begin{cases}
-\dfrac{\psi_i(\Delta,1)}{\phi_i(\Delta)},
+\dfrac{\psi_i(\Delta,1)}{\varphi_i(\Delta)},
 & \operatorname{type}(P)\in\{\mathsf{SI},\mathsf{II}\},\\[1.2em]
 e^{v_i\Delta},
 & \operatorname{type}(P)\in\{\mathsf{SO},\mathsf{IO}\}.
@@ -78,7 +78,7 @@ C(P)=
 +
 \beta_i(S_-(P))\sigma_i^\beta(S_-(P))\psi_i(\Delta,1)
 }{
-\delta_i(S_-(P))+\beta_i(S_-(P))\phi_i(\Delta)
+\delta_i(S_-(P))+\beta_i(S_-(P))\varphi_i(\Delta)
 },
 & \operatorname{type}(P)=\mathsf{OI},\\[1.4em]
 \sigma_i^\beta(S_-(P))e^{v_i\Delta},
@@ -91,7 +91,7 @@ For an end patch, write \(z=\xi(i)\). If the early type is \(\mathsf S\) or \(\m
 $$
 C(\xi,P)
 =
-\frac{\psi_i(\Delta,z)}{\phi_i(\Delta)}.
+\frac{\psi_i(\Delta,z)}{\varphi_i(\Delta)}.
 $$
 
 If the early type is \(\mathsf O\), then
@@ -104,7 +104,7 @@ C(\xi,P)
 +
 \beta_i(S_-(P))\sigma_i^\beta(S_-(P))\psi_i(\Delta,z)
 }{
-\delta_i(S_-(P))+\beta_i(S_-(P))\phi_i(\Delta)
+\delta_i(S_-(P))+\beta_i(S_-(P))\varphi_i(\Delta)
 }.
 $$
 
@@ -155,7 +155,7 @@ $$
 Therefore
 
 $$
-\phi_i(\Delta)
+\varphi_i(\Delta)
 =
 e^{-\alpha_i\Delta}
 +
@@ -182,7 +182,7 @@ C_{\mathsf{OI}}(P)
 \frac{
 c_i^0(S)-\left(c_i^0(S)+c_i^1(S)\right)\psi_i(\Delta,1)
 }{
-|c_i^0(S)|+|c_i^0(S)+c_i^1(S)|\phi_i(\Delta)
+|c_i^0(S)|+|c_i^0(S)+c_i^1(S)|\varphi_i(\Delta)
 },
 $$
 
@@ -200,8 +200,8 @@ C_{\mathsf{OE}}(\xi,P)
 \frac{
 c_i^0(S)-\left(c_i^0(S)+c_i^1(S)\right)\psi_i(\Delta,\xi(i))
 }{
-|c_i^0(S)|+|c_i^0(S)+c_i^1(S)|\phi_i(\Delta)
+|c_i^0(S)|+|c_i^0(S)+c_i^1(S)|\varphi_i(\Delta)
 }.
 $$
 
-The remaining rows are the same formulas from the dual-rate form with the displayed \(\phi_i\), \(\psi_i\), and \(v_i\).
+The remaining rows are the same formulas from the dual-rate form with the displayed \(\varphi_i\), \(\psi_i\), and \(v_i\).
