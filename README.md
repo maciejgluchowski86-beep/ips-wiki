@@ -56,6 +56,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - East model: `docs/entries/east-model.md`
 - Monomial duality for FA-1f: `docs/entries/monomial-duality-for-fa-1f.md`
 - Patch contributions for FA-1f: `docs/entries/patch-contributions-for-fa-1f.md`
+- Patch positivity for FA-1f: `docs/entries/patch-positivity-for-fa-1f.md`
 - KCSM relaxation and mixing: `docs/entries/kcsm-relaxation-and-mixing.md`
 - KCSM out of equilibrium: `docs/entries/kcsm-out-of-equilibrium.md`
 - FA-1f out of equilibrium: `docs/entries/fa-1f-out-of-equilibrium.md`
