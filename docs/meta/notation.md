@@ -21,6 +21,10 @@ This page records common notation for the public wiki.
 | \(c_i(\eta)\) | flip rate or constraint at site \(i\) | spin systems/KCSM |
 | \(\cL\) | generator | Markov processes |
 | \(P_t\) | Markov semigroup or transition kernel | IPS/spin systems |
+| \(\mathbf p=(p_i)_{i\in\Lambda}\) | one-density profile | Bernoulli product measures |
+| \(\mu_{\mathbf p}\) | Bernoulli product measure with one-density profile \(\mathbf p\) | spin systems |
+| \(\mathbf p^\star=(p_i^\star)_{i\in\Lambda}\) | patch critical density profile | patch positivity |
+| \(\mathcal M_\star\) | family of high-density measures | patch positivity |
 | \(q\) | density of the KCSM facilitating state \(0\) | KCSM |
 | \(p\) | \(1-q\), density of state \(1\) | KCSM |
 | \(\mu_q\) | Bernoulli product measure with zero density \(q\) | KCSM |
