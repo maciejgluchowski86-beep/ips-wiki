@@ -10,164 +10,103 @@ tags:
 
 # Patch critical density
 
-For a spin system with the [patch positivity property](patch-positivity-property.md), the patch critical density is the smallest terminal one-density for which every affine end-patch contribution is nonnegative. It may depend on the source site.
+For a spin system with the [patch positivity property](patch-positivity-property.md), the patch critical density is the smallest terminal one-density for which every end-patch contribution is nonnegative.
 
 **References.** None yet.
 
-## Affine end contribution
-
-Let
-
-$$
-P=\{i\}\times[s_-,t)\in\mathcal E_t
-$$
-
-be an end patch based at \(i\). Since its [patch contribution](patch-contribution.md) depends on the terminal configuration only through \(\xi(i)\), define its affine extension by
-
-$$
-C^r(P)
-=
-(1-r)C(0,P)+rC(1,P),
-\qquad r\in[0,1].
-$$
-
-Equivalently, \(C^r(P)\) is obtained from the end-patch formula by replacing \(\xi(i)\) with \(r\).
-
 ## Definition
 
-The patch critical density at site \(i\) is
+Use the [affine extension of an end-patch contribution](patch-contribution.md#affine-extension-for-end-patches). The patch critical density at site \(i\) is
 
 $$
 p_i^\star
 =
 \inf\left\{
-r\in[0,1]:
-C^r(P)\ge0
+p\in[0,1]:
+C^p(P)\ge0
 \text{ for every possible end patch }P\text{ based at }i
 \right\}.
 $$
 
-The collection
+The patch critical density profile is
 
 $$
-\mathbf p^\star=(p_i^\star)_{i\in\Lambda}
+\mathbf p^\star=(p_i^\star)_{i\in\Lambda}.
 $$
 
-is the patch critical density profile. For a translation-invariant model it is constant, and its common value is denoted by \(p^\star\).
-
-Patch positivity implies \(C^1(P)\ge0\) for every end patch, so \(p_i^\star\in[0,1]\).
+For a translation-invariant model the profile is constant, and its common value is denoted by \(p^\star\).
 
 ## Coefficient formula
 
-Use the coefficient notation from [monomial duality for spin systems](monomial-duality-for-spin-systems.md). For every nonempty \(S\subseteq N(i)\), set
-
-$$
-r_i(S)
-=
-\begin{cases}
-\displaystyle
-\max\left\{
-0,
-\frac{c_i^0(S)}
-{c_i^0(S)+c_i^1(S)}
-\right\},
-& c_i^0(S)+c_i^1(S)<0,
-\\[1.2em]
-0,
-& c_i^0(S)+c_i^1(S)=0.
-\end{cases}
-$$
-
-Then
+In the coefficient notation of [monomial duality for spin systems](monomial-duality-for-spin-systems.md),
 
 $$
 p_i^\star
 =
-\sup_{\vn\ne S\subseteq N(i)}r_i(S),
+\sup\left(
+\{0\}
+\cup
+\left\{
+\frac{c_i^0(S)}
+{c_i^0(S)+c_i^1(S)}
+:
+\begin{array}{c}
+\vn\ne S\subseteq N(i),\\
+c_i^0(S)+c_i^1(S)<0
+\end{array}
+\right\}
+\right).
 $$
 
-with the convention that the supremum is \(0\) when there is no nonempty interaction target.
+Under patch positivity, every ratio contributing to the supremum is at most \(1\), so \(p_i^\star\in[0,1]\). If there is no nonempty interaction target, then \(p_i^\star=0\).
 
-Under patch positivity, \(0\le r_i(S)\le1\), so the formula indeed defines a density.
+## Proof
 
-## Derivation
-
-Write
+The \(\mathsf{SE}\) and \(\mathsf{IE}\) end contributions are nonnegative for every \(p\in[0,1]\). For an \(\mathsf{OE}\) end patch with initial interaction target \(S\), the denominator is positive and the numerator is
 
 $$
-a=c_i^0(\vn),
-\qquad
-b=c_i^1(\vn),
-\qquad
-u=c_i^0(S),
-\qquad
-v=c_i^1(S).
+c_i^0(S)
+-
+\left(c_i^0(S)+c_i^1(S)\right)\psi_i(\Delta,p).
 $$
 
-The \(\mathsf{SE}\) and \(\mathsf{IE}\) end contributions are nonnegative for every \(r\in[0,1]\), so only the \(\mathsf{OE}\) row can impose a positive threshold. Its denominator is positive whenever the patch can occur, and its numerator is
+Patch positivity gives
 
 $$
-N_{i,S}(\Delta,r)
-=
-u-(u+v)\psi_i(\Delta,r).
+c_i^0(S)+c_i^1(S)\le0,
 $$
 
-Suppose first that \(a+b>0\). Then
+so this numerator is nondecreasing in \(p\). If
 
 $$
-\psi_i(\Delta,r)
-=
-\frac{a}{a+b}
-+
-\left(r-\frac{a}{a+b}\right)e^{-(a+b)\Delta},
+c_i^0(\vn)+c_i^1(\vn)>0,
 $$
 
-and hence
+then, as a function of the patch length, the numerator interpolates between
 
 $$
-N_{i,S}(\Delta,r)
-=
-N_{i,S}(\infty,r)
-+
-\left(
-N_{i,S}(0,r)-N_{i,S}(\infty,r)
-\right)e^{-(a+b)\Delta},
-$$
-
-where
-
-$$
-N_{i,S}(0,r)=u-(u+v)r
+c_i^0(S)
+-
+\left(c_i^0(S)+c_i^1(S)\right)p
 $$
 
 and
 
 $$
-N_{i,S}(\infty,r)
-=
-\frac{bu-av}{a+b}.
+\frac{
+c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)
+}{
+c_i^0(\vn)+c_i^1(\vn)
+}.
 $$
 
-The patch-positivity criterion gives
+The second expression is nonnegative by patch positivity. Hence the contribution is nonnegative for every patch length exactly when the first expression is nonnegative. If \(c_i^0(S)+c_i^1(S)<0\), this is equivalent to
 
 $$
-u+v\le0,
-\qquad
-bu-av\ge0.
+p
+\ge
+\frac{c_i^0(S)}
+{c_i^0(S)+c_i^1(S)}.
 $$
 
-Thus the limiting numerator is already nonnegative, and the numerator is nonnegative for every patch length if and only if
-
-$$
-u-(u+v)r\ge0.
-$$
-
-If \(u+v<0\), this is equivalent to
-
-$$
-r\ge\frac{u}{u+v}.
-$$
-
-If \(u+v=0\), patch positivity forces \(u\ge0\), so this target imposes no positive threshold.
-
-If \(a+b=0\), then \(\psi_i(\Delta,r)=r\). The degenerate patch-positivity criterion gives \(u+v\le0\) and \(v\le0\), and the same calculation yields the same threshold. Taking the positive part and then the supremum over nonempty targets proves the coefficient formula.
+If \(c_i^0(S)+c_i^1(S)=0\), patch positivity gives \(c_i^0(S)\ge0\), so this target imposes no restriction. When \(c_i^0(\vn)+c_i^1(\vn)=0\), the same conclusion follows directly from \(\psi_i(\Delta,p)=p\). Taking the supremum over nonempty targets proves the formula.
