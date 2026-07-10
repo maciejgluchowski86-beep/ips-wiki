@@ -9,7 +9,7 @@ tags:
 
 # Ergodicity
 
-For an [interacting particle system](interacting-particle-system.md), ergodicity is a convergence-to-equilibrium property. It is stronger than uniqueness of an invariant measure and weaker than uniform exponential ergodicity.
+For an [interacting particle system](interacting-particle-system.md), ergodicity is a convergence-to-equilibrium property. It is stronger than uniqueness of an [invariant measure](invariant-measure.md) and weaker than uniform exponential ergodicity.
 
 **References.** Liggett, *Interacting Particle Systems*; Liggett, *Stochastic Interacting Systems*; Levin, Peres, and Wilmer, *Markov Chains and Mixing Times*.
 
@@ -31,7 +31,7 @@ $$
 
 ## Invariant measure
 
-A probability measure \(\nu\) on \(\Omega\) is invariant if
+A probability measure \(\nu\) on \(\Omega\) is [invariant](invariant-measure.md) if
 
 $$
 \nu P_t=\nu
