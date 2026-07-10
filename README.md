@@ -23,6 +23,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Monomials: `docs/entries/monomials.md`
 - Interacting particle system: `docs/entries/interacting-particle-system.md`
 - Spin system: `docs/entries/spin-system.md`
+- Pure noise spin system: `docs/entries/pure-noise-spin-system.md`
 - Oriented spin system: `docs/entries/oriented-spin-system.md`
 - Ergodicity: `docs/entries/ergodicity.md`
 
