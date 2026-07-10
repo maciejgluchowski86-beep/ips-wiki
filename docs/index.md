@@ -24,8 +24,9 @@ A minimal dependency order is:
 3. [Monomial duality for spin systems](entries/monomial-duality-for-spin-systems.md)
 4. [Patch factorization](entries/patch-factorization.md)
 5. [Patch contribution](entries/patch-contribution.md)
-6. [Patch representation of spin systems](entries/patch-representation-of-spin-systems.md)
-7. [Duality noise lemma](entries/duality-noise-lemma.md)
+6. [Patch positivity property](entries/patch-positivity-property.md)
+7. [Patch representation of spin systems](entries/patch-representation-of-spin-systems.md)
+8. [Duality noise lemma](entries/duality-noise-lemma.md)
 
 ## Signed additive set processes
 
