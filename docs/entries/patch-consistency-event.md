@@ -28,7 +28,7 @@ $$
 
 Thus \(\Pi_P\) contains the interaction that begins the patch, unless \(s=0\), together with the source-\(i\) interactions strictly inside the patch.
 
-The local patch measure \(\mathbb P_P\) is the law of \(\Pi_P\): the initial interaction, when present, is fixed by \(\cG_T\), while the source-\(i\) Poisson interaction processes in \((s,t)\) keep their Poisson law. Write \(\mathbb E_P\) for expectation under \(\mathbb P_P\). Under \(\mathbb P_P\), the local active indicator is
+The local patch measure \(\mathbb P_P\) is the law of \(\Pi_P\). Write \(\mathbb E_P\) for expectation under \(\mathbb P_P\). Under \(\mathbb P_P\), the local active indicator is
 
 $$
 X^P_u=\mathbf 1_{\{i\in A_u\}},
@@ -48,19 +48,19 @@ $$
 
 Inside \((s,t)\), deaths and splits set \(X^P\) to \(0\) when \(X^P\) is active, births leave it active, and interactions arriving while \(X^P\) is inactive are ignored.
 
-The consistency event of \(P\) is
+The initial boundary consistency event is
 
 $$
-\operatorname{Cons}(P)
+C_-(P)
 =
-\left\{
-X^P_{u-}=0
-\text{ for every }(i,u,\alpha,S)\in\Pi_P\text{ with }s<u<t\text{ and }S\ne\vn
-\right\}
-\cap C_+(P),
+\begin{cases}
+\{i\in A_0\}, & \operatorname{type}_-(P)=\mathsf S,\\
+\{(j,s,\alpha,S)\in\Pi_P\text{ for some }j,\alpha,S\text{ with }i\in S\}, & \operatorname{type}_-(P)=\mathsf I,\\
+\{(i,s,\alpha,S)\in\Pi_P\text{ for some }\alpha\in\{\delta,\beta\},\ S\ne\vn\}, & \operatorname{type}_-(P)=\mathsf O.
+\end{cases}
 $$
 
-where
+The terminal boundary consistency event is
 
 $$
 C_+(P)
@@ -71,20 +71,20 @@ C_+(P)
 \end{cases}
 $$
 
-Here \(\Omega_P\) is the sample space of the local interaction process. The first condition says that no split or birth from source \(i\) is attempted while \(i\) is active in the interior of the patch. The second condition says that an outgoing terminal boundary can occur only if the source is active immediately before that boundary.
-
-When \(\mathbb P_P(\operatorname{Cons}(P))>0\), define the conditioned patch measure by
+The consistency event of \(P\) is
 
 $$
-\mathbb P_P^{\operatorname{cons}}(\cdot)
+\operatorname{Cons}(P)
 =
-\mathbb P_P(\cdot\mid\operatorname{Cons}(P)).
+C_-(P)
+\cap
+\left\{
+X^P_{u-}=0
+\text{ for every }(i,u,\alpha,S)\in\Pi_P\text{ with }s<u<t\text{ and }S\ne\vn
+\right\}
+\cap C_+(P).
 $$
 
-Write \(\mathbb E_P^{\operatorname{cons}}\) for expectation under \(\mathbb P_P^{\operatorname{cons}}\). Equivalently,
+Here \(\Omega_P\) is the sample space of the local interaction process. The condition \(C_-(P)\) says that the patch begins at an active site at time \(0\), at an incoming successful interaction, or at an outgoing successful interaction, according to its initial type. The interior condition says that no split or birth from source \(i\) is attempted while \(i\) is active in the interior of the patch. The condition \(C_+(P)\) says that an outgoing terminal boundary can occur only if the source is active immediately before that boundary.
 
-$$
-\mathbb E_P^{\operatorname{cons}}[f]
-=
-\mathbb E_P[f\mid\operatorname{Cons}(P)].
-$$
+Define \(\mathbb P_P^{\operatorname{cons}}\) as the regular conditional law of \(\mathbb P_P\) given \(\operatorname{Cons}(P)\). Write \(\mathbb E_P^{\operatorname{cons}}\) for expectation under \(\mathbb P_P^{\operatorname{cons}}\).
