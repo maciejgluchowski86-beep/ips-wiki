@@ -43,22 +43,18 @@ In the coefficient notation of [monomial duality for spin systems](monomial-dual
 $$
 p_i^\star
 =
-\sup\left(
-\{0\}
-\cup
-\left\{
+\max\left\{
+0,
+\sup_{\substack{
+\vn\ne S\subseteq N(i)\\
+c_i^0(S)+c_i^1(S)<0
+}}
 \frac{c_i^0(S)}
 {c_i^0(S)+c_i^1(S)}
-:
-\begin{array}{c}
-\vn\ne S\subseteq N(i),\\
-c_i^0(S)+c_i^1(S)<0
-\end{array}
-\right\}
-\right).
+\right\}.
 $$
 
-Under patch positivity, every ratio contributing to the supremum is at most \(1\), so \(p_i^\star\in[0,1]\). If there is no nonempty interaction target, then \(p_i^\star=0\).
+Under patch positivity, every ratio contributing to the supremum is at most \(1\), so \(p_i^\star\in[0,1]\). The inner supremum is defined to be \(0\) when its index set is empty.
 
 ## Proof
 
