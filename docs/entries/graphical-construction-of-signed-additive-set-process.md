@@ -48,6 +48,8 @@ I
 \{(i,t,\beta,S):t\in I_{i,S}^\beta\}.
 $$
 
+For an interaction \((i,t,\alpha,S)\in I\), the site \(i\) is the interaction source and the set \(S\) is the interaction target. Deaths have empty interaction target. Splits and births have nonempty interaction target.
+
 Assume the usual local-finiteness condition: starting from any finite active set, only finitely many relevant interactions are encountered on every bounded time interval. This holds, for example, in the finite-range bounded-rate setting.
 
 ## Pathwise construction
