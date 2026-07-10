@@ -33,6 +33,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Monomial duality for spin systems: `docs/entries/monomial-duality-for-spin-systems.md`
 - Patch factorization: `docs/entries/patch-factorization.md`
 - Patch contribution: `docs/entries/patch-contribution.md`
+- Patch positivity property: `docs/entries/patch-positivity-property.md`
 - Patch representation of spin systems: `docs/entries/patch-representation-of-spin-systems.md`
 - Duality noise lemma: `docs/entries/duality-noise-lemma.md`
 
