@@ -10,222 +10,198 @@ tags:
 
 # Patch contribution
 
-This entry defines the local contribution of a [patch](patch.md) in the monomial [duality](monomial-duality-for-spin-systems.md) representation of a [spin system](spin-system.md). Bulk patches have contribution \(C(P)\). End patches have contribution \(C(\xi,P)\), because they also see the terminal configuration \(\xi\).
+This entry gives the local factors \(C(P)\) and \(C(\xi,P)\) used in the [patch representation of spin systems](patch-representation-of-spin-systems.md).
 
-Throughout, signs are identified with the numbers \(\pm1\). Fix a patch
+Let
 
 $$
-P=\{i\}\times[s,t),
+P=\{i\}\times[s_-,s_+),
 \qquad
-\nu=t-s.
+\Delta=s_+-s_-.
 $$
 
-Assume the signed additive set process comes with the site potential
+Write \(v_i\) for the site potential of the signed dual, and set
 
 $$
-V(A)=\sum_{i\in A}V_i.
-$$
-
-For the source site \(i\), set
-
-$$
-d_i=\delta_i(\vn),
-\qquad
-\varepsilon_i=\sigma_i^\delta(\vn),
-$$
-
-and
-
-$$
-r_i=
-\sum_{S\ne\vn}\left(\delta_i(S)+\beta_i(S)\right),
-\qquad
-\lambda_i=d_i+r_i.
-$$
-
-Here \(d_i\) is the death rate, while \(r_i\) is the total rate of nonempty-target outgoing interactions from an active source. Define
-
-$$
-\Phi_i(u)=\int_0^u e^{(V_i-\lambda_i)a}\,da,
-$$
-
-and
-
-$$
-p_i(u)
+\alpha_i
 =
-e^{-\lambda_i u}+d_i\int_0^u e^{-\lambda_i a}\,da.
-$$
-
-The quantity \(p_i(u)\) is the probability that, starting active, no forbidden nonempty-target outgoing interaction occurs before time \(u\), allowing a death before \(u\). The corresponding signed Feynman--Kac numerators are
-
-$$
-n_i(u)
-=
-e^{(V_i-\lambda_i)u}+d_i\varepsilon_i\Phi_i(u),
-$$
-
-and, for an end patch,
-
-$$
-n_i^\xi(u)
-=
-\xi(i)e^{(V_i-\lambda_i)u}+d_i\varepsilon_i\Phi_i(u).
-$$
-
-Thus, for a patch that starts active without an outgoing initial sign,
-
-$$
-A_i(u)=\frac{n_i(u)}{p_i(u)},
-\qquad
-E_i^\xi(u)=\frac{n_i^\xi(u)}{p_i(u)},
-\qquad
-O_i(u)=e^{V_i u}.
-$$
-
-The term \(A_i(u)\) is used for terminal type \(\mathsf I\), \(E_i^\xi(u)\) for terminal type \(\mathsf E\), and \(O_i(u)\) for terminal type \(\mathsf O\). The last formula follows because terminal type \(\mathsf O\) forces the patch to stay active until the terminal outgoing boundary.
-
-## Outgoing initial boundary
-
-If \(\operatorname{type}_-(P)=\mathsf O\), write \(S_-(P)\) for the target set in the initial skeleton \((i,s,S_-(P))\). Conditional on this skeleton, the initial outgoing interaction is a birth with probability
-
-$$
-\pi_i^\beta(S)
-=
-\frac{\beta_i(S)}{\delta_i(S)+\beta_i(S)},
-$$
-
-and a split with probability
-
-$$
-\pi_i^\delta(S)
-=
-\frac{\delta_i(S)}{\delta_i(S)+\beta_i(S)}.
-$$
-
-The birth sign is \(\sigma_i^\beta(S)\), and the split sign is \(\sigma_i^\delta(S)\). For \(S=S_-(P)\), define
-
-$$
-A_i^S(u)
-=
-\frac{
-\pi_i^\beta(S)\sigma_i^\beta(S)n_i(u)
+\sum_{S\subseteq N(i)}\delta_i(S)
 +
-\pi_i^\delta(S)\sigma_i^\delta(S)
-}{
-\pi_i^\beta(S)p_i(u)+\pi_i^\delta(S)
-},
+\sum_{\vn\ne S\subseteq N(i)}\beta_i(S).
 $$
 
-and
+Define
 
 $$
-E_i^{S,\xi}(u)
+\phi_i(\Delta)
 =
-\frac{
-\pi_i^\beta(S)\sigma_i^\beta(S)n_i^\xi(u)
+e^{-\alpha_i\Delta}
 +
-\pi_i^\delta(S)\sigma_i^\delta(S)
-}{
-\pi_i^\beta(S)p_i(u)+\pi_i^\delta(S)
-}.
+\delta_i(\vn)
+\int_0^\Delta e^{-\alpha_i s}\,ds,
 $$
 
-For terminal type \(\mathsf O\), consistency forces the initial outgoing interaction to be a birth, so
+and, for \(z\in\{0,1\}\),
 
 $$
-O_i^S(u)=\sigma_i^\beta(S)e^{V_i u}.
+\psi_i(\Delta,z)
+=
+z e^{-(\alpha_i-v_i)\Delta}
++
+\delta_i(\vn)
+\int_0^\Delta e^{-(\alpha_i-v_i)s}\,ds.
 $$
 
-These expressions are understood on skeletons for which the displayed denominators are positive.
+The formulas below are understood on patches for which the displayed denominators are positive.
 
-## Contribution functions
+## Dual-rate form
 
-For a bulk patch \(P\in\mathcal B_T\), define
+If the early type is \(\mathsf S\) or \(\mathsf I\), then
 
 $$
 C(P)=
 \begin{cases}
-A_i(\nu),
-& \operatorname{type}_-(P)\in\{\mathsf S,\mathsf I\},\ \operatorname{type}_+(P)=\mathsf I,\\
-O_i(\nu),
-& \operatorname{type}_-(P)\in\{\mathsf S,\mathsf I\},\ \operatorname{type}_+(P)=\mathsf O,\\
-A_i^{S_-(P)}(\nu),
-& \operatorname{type}_-(P)=\mathsf O,\ \operatorname{type}_+(P)=\mathsf I,\\
-O_i^{S_-(P)}(\nu),
-& \operatorname{type}_-(P)=\mathsf O,\ \operatorname{type}_+(P)=\mathsf O.
+\dfrac{\psi_i(\Delta,1)}{\phi_i(\Delta)},
+& \operatorname{type}(P)\in\{\mathsf{SI},\mathsf{II}\},\\[1.2em]
+e^{v_i\Delta},
+& \operatorname{type}(P)\in\{\mathsf{SO},\mathsf{IO}\}.
 \end{cases}
 $$
 
-For an end patch \(P\in\mathcal E_T\), define
+If the early type is \(\mathsf O\), let \(S_-(P)\) be the target set in the initial skeleton. Then
 
 $$
-C(\xi,P)=
+C(P)=
 \begin{cases}
-E_i^\xi(\nu),
-& \operatorname{type}_-(P)\in\{\mathsf S,\mathsf I\},\\
-E_i^{S_-(P),\xi}(\nu),
-& \operatorname{type}_-(P)=\mathsf O.
+\dfrac{
+\delta_i(S_-(P))\sigma_i^\delta(S_-(P))
++
+\beta_i(S_-(P))\sigma_i^\beta(S_-(P))\psi_i(\Delta,1)
+}{
+\delta_i(S_-(P))+eta_i(S_-(P))\phi_i(\Delta)
+},
+& \operatorname{type}(P)=\mathsf{OI},\\[1.4em]
+\sigma_i^\beta(S_-(P))e^{v_i\Delta},
+& \operatorname{type}(P)=\mathsf{OO}.
 \end{cases}
 $$
 
-Equivalently, \(C(P)\) and \(C(\xi,P)\) are the conditional expectations of the local sign and Feynman--Kac weight under \(\mathbb P_P^{\operatorname{cons}}\), with the additional terminal factor \(\xi(i)\) exactly when the end patch is active at time \(T\).
+For an end patch, write \(z=\xi(i)\). If the early type is \(\mathsf S\) or \(\mathsf I\), then
+
+$$
+C(\xi,P)
+=
+\frac{\psi_i(\Delta,z)}{\phi_i(\Delta)}.
+$$
+
+If the early type is \(\mathsf O\), then
+
+$$
+C(\xi,P)
+=
+\frac{
+\delta_i(S_-(P))\sigma_i^\delta(S_-(P))
++
+\beta_i(S_-(P))\sigma_i^\beta(S_-(P))\psi_i(\Delta,z)
+}{
+\delta_i(S_-(P))+eta_i(S_-(P))\phi_i(\Delta)
+}.
+$$
 
 ## Spin-system rate form
 
-For a spin system in the monomial basis, write
+Let \(c_i^0(S)\) and \(c_i^1(S)\) be the monomial coefficients used in [monomial duality for spin systems](monomial-duality-for-spin-systems.md). Set
 
 $$
-c_i^x(\eta)=\sum_{S\subseteq N(i)}c_i^x(S)\chi_S(\eta),
-\qquad x\in\{0,1\}.
-$$
-
-The dual rates, signs, and site potential are
-
-$$
-d_i=|c_i^0(\vn)|,
+a_i(S)=c_i^0(S),
 \qquad
-\varepsilon_i=\operatorname{sgn}_\pm c_i^0(\vn),
+b_i(S)=-c_i^0(S)-c_i^1(S).
 $$
 
+Then
+
 $$
-r_i=
-\sum_{S\ne\vn}
-\left(
-|c_i^0(S)|+|c_i^0(S)+c_i^1(S)|
-\right),
+\delta_i(S)=|a_i(S)|,
+\qquad
+\sigma_i^\delta(S)=\operatorname{sgn}_\pm a_i(S),
+$$
+
+and, for \(S\ne\vn\),
+
+$$
+\beta_i(S)=|b_i(S)|,
+\qquad
+\sigma_i^\beta(S)=\operatorname{sgn}_\pm b_i(S).
+$$
+
+Moreover
+
+$$
+\alpha_i
+=
+\sum_{S\subseteq N(i)}|c_i^0(S)|
++
+\sum_{\vn\ne S\subseteq N(i)}|c_i^0(S)+c_i^1(S)|,
 $$
 
 and
 
 $$
-V_i=
-\sum_{S\subseteq N(i)}|c_i^0(S)|
+v_i
+=
+\alpha_i-c_i^0(\vn)-c_i^1(\vn).
+$$
+
+Therefore
+
+$$
+\phi_i(\Delta)
+=
+e^{-\alpha_i\Delta}
 +
-\sum_{S\ne\vn}|c_i^0(S)+c_i^1(S)|
--c_i^0(\vn)-c_i^1(\vn).
+|c_i^0(\vn)|
+\int_0^\Delta e^{-\alpha_i s}\,ds,
 $$
 
-For \(S\ne\vn\),
+and
 
 $$
-\pi_i^\delta(S)
+\psi_i(\Delta,z)
 =
-\frac{|c_i^0(S)|}{|c_i^0(S)|+|c_i^0(S)+c_i^1(S)|},
+z e^{-(\alpha_i-v_i)\Delta}
++
+|c_i^0(\vn)|
+\int_0^\Delta e^{-(\alpha_i-v_i)s}\,ds.
 $$
 
+The only rows involving nonempty \(S_-(P)\) become, for \(S=S_-(P)\),
+
 $$
-\pi_i^\beta(S)
+C_{\mathsf{OI}}(P)
 =
-\frac{|c_i^0(S)+c_i^1(S)|}{|c_i^0(S)|+|c_i^0(S)+c_i^1(S)|},
+\frac{
+c_i^0(S)-\left(c_i^0(S)+c_i^1(S)\right)\psi_i(\Delta,1)
+}{
+|c_i^0(S)|+|c_i^0(S)+c_i^1(S)|\phi_i(\Delta)
+},
 $$
 
-with signs
-
 $$
-\sigma_i^\delta(S)=\operatorname{sgn}_\pm c_i^0(S),
-\qquad
-\sigma_i^\beta(S)=\operatorname{sgn}_\pm\left(-c_i^0(S)-c_i^1(S)\right).
+C_{\mathsf{OO}}(P)
+=
+\operatorname{sgn}_\pm\left(-c_i^0(S)-c_i^1(S)\right)e^{v_i\Delta},
 $$
 
-Substituting these quantities into the formulas above gives the patch contributions directly in terms of the spin-system rate coefficients \(c_i^0(S)\) and \(c_i^1(S)\).
+and
+
+$$
+C_{\mathsf{OE}}(\xi,P)
+=
+\frac{
+c_i^0(S)-\left(c_i^0(S)+c_i^1(S)\right)\psi_i(\Delta,\xi(i))
+}{
+|c_i^0(S)|+|c_i^0(S)+c_i^1(S)|\phi_i(\Delta)
+}.
+$$
+
+The remaining rows are the same formulas from the dual-rate form with the displayed \(\phi_i\), \(\psi_i\), and \(v_i\).
