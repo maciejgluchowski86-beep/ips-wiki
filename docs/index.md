@@ -22,7 +22,10 @@ A minimal dependency order is:
 1. [Duality](entries/duality.md)
 2. [Theta monomials](entries/theta-monomials.md)
 3. [Monomial duality for spin systems](entries/monomial-duality-for-spin-systems.md)
-4. [Duality noise lemma](entries/duality-noise-lemma.md)
+4. [Patch factorization](entries/patch-factorization.md)
+5. [Patch contribution](entries/patch-contribution.md)
+6. [Patch representation of spin systems](entries/patch-representation-of-spin-systems.md)
+7. [Duality noise lemma](entries/duality-noise-lemma.md)
 
 ## Signed additive set processes
 
@@ -31,9 +34,6 @@ A minimal dependency order is:
 3. [Successful interaction](entries/successful-interaction.md)
 4. [Patch](entries/patch.md)
 5. [Patch consistency event](entries/patch-consistency-event.md)
-6. [Patch factorization](entries/patch-factorization.md)
-7. [Patch contribution](entries/patch-contribution.md)
-8. [Patch representation of spin systems](entries/patch-representation-of-spin-systems.md)
 
 ## KCSM entries
 
