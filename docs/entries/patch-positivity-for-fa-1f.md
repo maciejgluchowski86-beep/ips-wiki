@@ -11,7 +11,7 @@ tags:
 
 # Patch positivity for FA-1f
 
-This entry applies the [patch positivity property](patch-positivity-property.md) to the [FA-1f model](fa-1f-model.md) and to [pure-noise perturbations](pure-noise-spin-system.md).
+This entry applies the [patch positivity property](patch-positivity-property.md) to the [FA-1f model](fa-1f-model.md), whose end-factor threshold is the [FA-1f patch critical density](patch-critical-density-for-fa-1f.md), and to [pure-noise perturbations](pure-noise-spin-system.md).
 
 ## FA-1f
 
