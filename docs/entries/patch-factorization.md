@@ -55,7 +55,7 @@ The product is finite under the local-finiteness assumption in the graphical con
 
 Condition on a value of \(\cG_T\). This fixes the successful interactions, hence also the patch set \(\mathcal P_T\), the boundary times, and the boundary types.
 
-The patches cover all active spacetime between successful interactions. Indeed, every initially active site begins a patch at time \(0\), every incoming successful interaction begins a patch at its target, and every source-keeping outgoing successful interaction begins the next patch at its source. A source-killing outgoing successful interaction only terminates the source patch. Therefore any interaction outside patch interiors either occurs at a revealed successful boundary or has inactive source and does not change the process.
+The patches cover all active spacetime. Every initially active site begins a patch at time \(0\). Every successful interaction touches its source and all its target sites; at each touched site it is both the terminal boundary of the preceding patch and the initial boundary of the following patch, except at the endpoints \(0\) and \(T\). Thus an interaction outside patch interiors is either a revealed successful boundary interaction or has inactive source and does not change the process.
 
 For distinct patches \(P\), the sets \(\Pi_P\) use disjoint source-time restrictions of the independent Poisson interaction processes. Hence the unrestricted variables \(\{\Pi_P:P\in\mathcal P_T\}\) are independent, with laws \(\mathbb P_P\).
 
