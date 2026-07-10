@@ -50,7 +50,7 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 7. `docs/entries/east-model.md`: East model as FA-1f on an oriented lattice using \(N(i)\).
 8. `docs/entries/monomial-duality-for-fa-1f.md`: systematic dual rates, signs, and Feynman--Kac weights for hard/soft FA-1f with optional pure-death perturbation.
 9. `docs/entries/patch-contributions-for-fa-1f.md`: hard FA-1f patch contributions with explicit bulk and end formulas.
-10. `docs/entries/patch-positivity-for-fa-1f.md`: verification that hard and soft FA-1f satisfy patch positivity, and characterization of pure-noise perturbations preserving it.
+10. `docs/entries/patch-positivity-for-fa-1f.md`: verification that FA-1f has patch positivity and characterization of pure-noise perturbations preserving it.
 11. `docs/entries/kcsm-relaxation-and-mixing.md`: relaxation time, mixing time, and precutoff terminology.
 12. `docs/entries/kcsm-out-of-equilibrium.md`: general out-of-equilibrium setup.
 13. `docs/entries/fa-1f-out-of-equilibrium.md`: theorem records for known FA-1f out-of-equilibrium convergence results.
