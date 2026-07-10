@@ -56,7 +56,7 @@ $$
 and
 
 $$
-\mathcal E_T(i)
+\mathcal R_T(i)
 =
 \{T\}\cup\mathcal T_T^{\mathsf I}(i)\cup\mathcal T_T^{\mathsf O}(i).
 $$
@@ -67,7 +67,7 @@ $$
 P=\{i\}\times [s,t)
 $$
 
-where \(s\in\mathcal S_T(i)\), \(t\in\mathcal E_T(i)\), \(s<t\), and there is no element of \(\mathcal S_T(i)\cup\mathcal E_T(i)\) strictly between \(s\) and \(t\). The set of all patches before horizon \(T\) is denoted by \(\mathcal P_T\).
+where \(s\in\mathcal S_T(i)\), \(t\in\mathcal R_T(i)\), \(s<t\), and there is no element of \(\mathcal S_T(i)\cup\mathcal R_T(i)\) strictly between \(s\) and \(t\). The set of all patches before horizon \(T\) is denoted by \(\mathcal P_T\).
 
 For \(P=\{i\}\times[s,t)\), define the initial type by
 
@@ -109,7 +109,25 @@ $$
 \mathsf{OI},\ \mathsf{OO},\ \mathsf{OE}.
 $$
 
-Every initially active site begins a patch at time \(0\). Every successful interaction cuts spacetime at both its source and target sites, so it is a terminal boundary for the patch immediately before the interaction and an initial boundary for the patch immediately after the interaction at each touched site.
+The end patches are the patches whose terminal type is \(\mathsf E\):
+
+$$
+\mathcal E_T
+=
+\{P\in\mathcal P_T:\operatorname{type}_+(P)=\mathsf E\}.
+$$
+
+The bulk patches are the remaining patches:
+
+$$
+\mathcal B_T
+=
+\mathcal P_T\setminus\mathcal E_T.
+$$
+
+Equivalently, \(\mathcal B_T\) consists of patches whose terminal boundary is a successful incoming or outgoing touch, while \(\mathcal E_T\) consists of patches reaching the time horizon. The distinction is used in [patch contributions](patch-contribution.md): bulk patches have contribution \(C(P)\), while end patches have contribution \(C(\xi,P)\).
+
+Every initially active site begins a patch at time \(0\). Every successful interaction cuts spacetime at both its source and target sites, so it is a terminal boundary for the patch immediately before the interaction, if such a patch is present, and an initial boundary for the patch immediately after the interaction at each touched site.
 
 Every active spacetime point is contained in a patch. Interactions outside patches have inactive source, except for interactions on successful boundary times already recorded by \(\mathcal I_T^S\).
 
