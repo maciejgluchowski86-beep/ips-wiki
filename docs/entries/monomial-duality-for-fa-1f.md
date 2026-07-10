@@ -10,7 +10,7 @@ tags:
 
 # Monomial duality for FA-1f
 
-This entry records the [signed additive set process](signed-additive-set-process.md) appearing in [monomial duality for spin systems](monomial-duality-for-spin-systems.md) for the [FA-1f model](fa-1f-model.md). Write \(p=1-q\), where \(q\) is the vacancy density. The source-keeping empty update is omitted: \(\beta_i(\vn)=0\).
+This entry records the [signed additive set process](signed-additive-set-process.md) appearing in [monomial duality for spin systems](monomial-duality-for-spin-systems.md) for the [FA-1f model](fa-1f-model.md). Write \(p=1-q\), where \(q\) is the vacancy density. The source-keeping empty update is omitted: \(\beta_i(\vn)=0\). The resulting hard FA-1f [patch contribution](patch-contribution.md) formulas are recorded separately as [patch contributions for FA-1f](patch-contributions-for-fa-1f.md).
 
 Only the rates listed below are nonzero. All omitted rates are zero, and signs attached to zero rates are irrelevant.
 
@@ -19,23 +19,19 @@ Only the rates listed below are nonzero. All omitted rates are zero, and signs a
 Assume \(N(i)\ne\vn\). The nonzero rates and signs at source site \(i\) are
 
 $$
-\delta_i(\vn)=p,
-\qquad
-\sigma_i^\delta(\vn)=+,
-$$
-
-$$
-\delta_i(N(i))=p,
-\qquad
-\sigma_i^\delta(N(i))=-,
-$$
-
-and
-
-$$
-\beta_i(N(i))=1,
-\qquad
-\sigma_i^\beta(N(i))=+.
+\begin{aligned}
+\delta_i(\vn)&=p,
+&
+\sigma_i^\delta(\vn)&=+,
+\\
+\delta_i(N(i))&=p,
+&
+\sigma_i^\delta(N(i))&=-,
+\\
+\beta_i(N(i))&=1,
+&
+\sigma_i^\beta(N(i))&=+.
+\end{aligned}
 $$
 
 The site Feynman--Kac weight is
@@ -58,23 +54,19 @@ $$
 Assume \(N(i)\ne\vn\). The nonzero rates and signs are
 
 $$
-\delta_i(\vn)=p,
-\qquad
-\sigma_i^\delta(\vn)=+,
-$$
-
-$$
-\delta_i(N(i))=(1-\varepsilon_i)p,
-\qquad
-\sigma_i^\delta(N(i))=-,
-$$
-
-and
-
-$$
-\beta_i(N(i))=1-\varepsilon_i,
-\qquad
-\sigma_i^\beta(N(i))=+.
+\begin{aligned}
+\delta_i(\vn)&=p,
+&
+\sigma_i^\delta(\vn)&=+,
+\\
+\delta_i(N(i))&=(1-\varepsilon_i)p,
+&
+\sigma_i^\delta(N(i))&=-,
+\\
+\beta_i(N(i))&=1-\varepsilon_i,
+&
+\sigma_i^\beta(N(i))&=+.
+\end{aligned}
 $$
 
 The site Feynman--Kac weight is
@@ -83,17 +75,13 @@ $$
 V_i^\varepsilon=2p-\varepsilon_i(1+p).
 $$
 
-If \(N(i)=\vn\), the only nonzero rate is
+If \(N(i)=\vn\), the only nonzero rate and the site weight are
 
 $$
 \delta_i(\vn)=\varepsilon_i p,
 \qquad
 \sigma_i^\delta(\vn)=+,
-$$
-
-and
-
-$$
+\qquad
 V_i^\varepsilon=-\varepsilon_i q.
 $$
 
