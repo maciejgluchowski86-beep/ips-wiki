@@ -20,6 +20,12 @@ This page records durable style choices for the public IPS wiki.
 - Use TeX delimiters `\(...\)` for inline math and `$$...$$` for displayed math.
 - Do not put private strategy, raw scratch work, credentials, personal data, or unpublished claims without proof status into this public repository.
 
+## Mathematical prose around displays
+
+- Do not leave isolated bridge fragments such as "with", "Thus", or "and" between displayed formulas.
+- Prefer a full sentence that introduces one display containing the whole aligned calculation, or put the connective inside the display using an aligned environment.
+- Avoid splitting one definition across several displays when a single aligned display is clearer.
+
 ## Linking convention
 
 - Link a concept the first time it is mathematically useful in an entry.
