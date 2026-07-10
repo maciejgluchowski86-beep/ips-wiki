@@ -10,13 +10,14 @@ tags:
 
 # Monomial duality for FA-1f
 
-This entry records the [signed additive set process](signed-additive-set-process.md) appearing in [monomial duality for spin systems](monomial-duality-for-spin-systems.md) for the [FA-1f model](fa-1f-model.md). Write \(p=1-q\), where \(q\) is the vacancy density. The source-keeping empty update is omitted: \(\beta_i(\vn)=0\). The resulting hard FA-1f [patch contribution](patch-contribution.md) formulas are recorded separately as [patch contributions for FA-1f](patch-contributions-for-fa-1f.md).
+This entry records the [signed additive set process](signed-additive-set-process.md) appearing in [monomial duality for spin systems](monomial-duality-for-spin-systems.md) for the [FA-1f model](fa-1f-model.md). Write \(p=1-q\), where \(q\) is the vacancy density. The source-keeping empty update is omitted: \(eta_i(n)=0\). The resulting hard FA-1f [patch contribution](patch-contribution.md) formulas are recorded separately as [patch contributions for FA-1f](patch-contributions-for-fa-1f.md), and their positivity is checked in [patch positivity for FA-1f](patch-positivity-for-fa-1f.md).
 
 Only the rates listed below are nonzero. All omitted rates are zero, and signs attached to zero rates are irrelevant.
 
 ## Hard FA-1f
 
-Assume \(N(i)\ne\vn\). The nonzero rates and signs at source site \(i\) are
+Assume \(N(i)
+en\). The nonzero rates and signs at source site \(i\) are
 
 $$
 \begin{aligned}
@@ -40,7 +41,7 @@ $$
 V_i=2p.
 $$
 
-Thus \(V(A)=\sum_{i\in A}V_i=2p|A|\). If \(N(i)=\vn\), the hard FA-1f constraint at \(i\) is identically zero, so all dual rates and \(V_i\) are zero.
+Thus \(V(A)=\sum_{i\in A}V_i=2p|A|\). If \(N(i)=n\), the hard FA-1f constraint at \(i\) is identically zero, so all dual rates and \(V_i\) are zero.
 
 ## Soft FA-1f
 
@@ -51,7 +52,8 @@ c_i^\varepsilon(\eta)=1-(1-\varepsilon_i)\chi_{N(i)}(\eta),
 \qquad \varepsilon_i\in[0,1].
 $$
 
-Assume \(N(i)\ne\vn\). The nonzero rates and signs are
+Assume \(N(i)
+en\). The nonzero rates and signs are
 
 $$
 \begin{aligned}
@@ -75,7 +77,7 @@ $$
 V_i^\varepsilon=2p-\varepsilon_i(1+p).
 $$
 
-If \(N(i)=\vn\), the only nonzero rate and the site weight are
+If \(N(i)=n\), the only nonzero rate and the site weight are
 
 $$
 \delta_i(\vn)=\varepsilon_i p,
@@ -93,13 +95,14 @@ $$
 V_i^d=2p-d_i
 $$
 
-when \(N(i)\ne\vn\), and
+when \(N(i)
+en\), and
 
 $$
 V_i^d=-d_i
 $$
 
-when \(N(i)=\vn\).
+when \(N(i)=n\).
 
 ## Soft FA-1f with pure deaths
 
@@ -109,10 +112,11 @@ $$
 V_i^{\varepsilon,d}=2p-\varepsilon_i(1+p)-d_i
 $$
 
-when \(N(i)\ne\vn\), and
+when \(N(i)
+en\), and
 
 $$
 V_i^{\varepsilon,d}=-\varepsilon_i q-d_i
 $$
 
-when \(N(i)=\vn\).
+when \(N(i)=n\).
