@@ -9,7 +9,7 @@ tags:
 
 # Bernoulli refresh operator
 
-The Bernoulli refresh operator replaces the spin at one lattice site by an independent Bernoulli variable. It is the basic local update in [kinetically constrained spin models](kinetically-constrained-spin-model.md), and its action on [monomials](monomials.md) gives the elementary identities used in constrained-spin computations.
+The Bernoulli refresh operator replaces the spin at one lattice site by an independent Bernoulli variable drawn from a [Bernoulli product measure](bernoulli-product-measure.md). It is the basic local update in [kinetically constrained spin models](kinetically-constrained-spin-model.md), and its action on [monomials](monomials.md) gives the elementary identities used in constrained-spin computations.
 
 ## Bernoulli product measure
 
@@ -27,7 +27,7 @@ q=\mu_q(\eta(i)=0),
 p=1-q=\mu_q(\eta(i)=1).
 $$
 
-The Bernoulli product measure with vacancy density \(q\) is
+In the notation of the general Bernoulli product measure entry, the homogeneous measure with vacancy density \(q\) is
 
 $$
 \mu_q=\bigotimes_{i\in\Lambda}\left(q\delta_0+p\delta_1\right).
