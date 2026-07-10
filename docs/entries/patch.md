@@ -12,15 +12,15 @@ tags:
 
 Fix a [signed additive set process](signed-additive-set-process.md), its [graphical construction](graphical-construction-of-signed-additive-set-process.md), and a horizon \(T<\infty\). Let \(\mathcal I_T^S\) be the type-\(S\) [successful interaction](successful-interaction.md) set.
 
-A type-\(S\) successful interaction \((i,t,\alpha,S)\) touches its source \(i\) as an outgoing touch and each target \(j\in S\) as an incoming touch.
+A type-\(S\) successful interaction \((i,t,S)\) touches its source \(i\) as an outgoing touch and each target \(j\in S\) as an incoming touch.
 
 For \(i\in\Lambda\), define
 
 $$
 \mathcal T_T^{\mathsf I}(i)
 =
-\{t\le T:\exists j\in\Lambda,\ \exists S\ne\vn,\ \exists\alpha\in\{\delta,\beta\}
-\text{ with }(j,t,\alpha,S)\in\mathcal I_T^S\text{ and }i\in S\},
+\{t\le T:\exists j\in\Lambda,\ \exists S\ne\vn
+\text{ with }(j,t,S)\in\mathcal I_T^S\text{ and }i\in S\},
 $$
 
 and
@@ -28,8 +28,8 @@ and
 $$
 \mathcal T_T^{\mathsf O}(i)
 =
-\{t\le T:\exists S\ne\vn,\ \exists\alpha\in\{\delta,\beta\}
-\text{ with }(i,t,\alpha,S)\in\mathcal I_T^S\}.
+\{t\le T:\exists S\ne\vn
+\text{ with }(i,t,S)\in\mathcal I_T^S\}.
 $$
 
 Set
