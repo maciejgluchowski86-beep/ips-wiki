@@ -47,15 +47,7 @@ The successful-interaction sigma algebra is
 $$
 \cG_T
 =
-\sigma\left(Y_0,\{\mathcal I_T^S:S\ne\vn\}\right).
+\sigma\left(Y_0,\mathcal I_T\right).
 $$
 
-Equivalently, \(\cG_T=\sigma(Y_0,\mathcal I_T)\). It reveals all successful interactions with nonempty target set up to time \(T\). If the initial state is deterministic, this reduces to
-
-$$
-\cG_T
-=
-\sigma\left(\{\mathcal I_T^S:S\ne\vn\}\right)
-=
-\sigma(\mathcal I_T).
-$$
+It reveals all successful interactions with nonempty target set up to time \(T\).
