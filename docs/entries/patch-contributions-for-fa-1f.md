@@ -10,7 +10,7 @@ tags:
 
 # Patch contributions for FA-1f
 
-This entry specializes the general [patch contribution](patch-contribution.md) formulas to the hard [FA-1f model](fa-1f-model.md). It uses the rates and signs from [monomial duality for FA-1f](monomial-duality-for-fa-1f.md). Write \(p=1-q\), where \(q\) is the vacancy density, and assume \(N(i)\ne\vn\).
+This entry specializes the general [patch contribution](patch-contribution.md) formulas to the hard [FA-1f model](fa-1f-model.md). The associated end-factor threshold is recorded as the [patch critical density for FA-1f](patch-critical-density-for-fa-1f.md). It uses the rates and signs from [monomial duality for FA-1f](monomial-duality-for-fa-1f.md). Write \(p=1-q\), where \(q\) is the vacancy density, and assume \(N(i)\ne\vn\).
 
 For a patch \(P=\{i\}\times[s_-,s_+)\), set \(\Delta=s_+-s_-\). The only nonempty target for source \(i\) is \(N(i)\), so in every \(\mathsf O\)-initial row the initial interaction target is \(S=N(i)\). The hard FA-1f substitution gives
 
