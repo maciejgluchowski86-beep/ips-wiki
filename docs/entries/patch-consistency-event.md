@@ -42,7 +42,7 @@ X^P_s
 \end{cases}
 $$
 
-Inside \((s,t)\), source-killing interactions set \(X^P\) to \(0\) when \(X^P\) is active, source-keeping interactions leave it active, and interactions arriving while \(X^P\) is inactive are ignored.
+Inside \((s,t)\), deaths and splits set \(X^P\) to \(0\) when \(X^P\) is active, births leave it active, and interactions arriving while \(X^P\) is inactive are ignored.
 
 The consistency event of \(P\) is
 
@@ -67,7 +67,7 @@ C_+(P)
 \end{cases}
 $$
 
-Here \(\Omega_P\) is the sample space of the local interaction process. The first condition says that no nonempty-target source interaction from \(i\) is attempted while \(i\) is active in the interior of the patch. The second condition says that an outgoing terminal boundary can occur only if the source is active immediately before that boundary.
+Here \(\Omega_P\) is the sample space of the local interaction process. The first condition says that no split or birth from source \(i\) is attempted while \(i\) is active in the interior of the patch. The second condition says that an outgoing terminal boundary can occur only if the source is active immediately before that boundary.
 
 When \(\mathbb P_P(\operatorname{Cons}(P))>0\), define the conditioned patch measure by
 
