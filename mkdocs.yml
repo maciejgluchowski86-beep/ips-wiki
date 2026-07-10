@@ -34,6 +34,7 @@ nav:
       - Monomial duality for spin systems: entries/monomial-duality-for-spin-systems.md
       - Patch factorization: entries/patch-factorization.md
       - Patch contribution: entries/patch-contribution.md
+      - Patch positivity property: entries/patch-positivity-property.md
       - Patch representation of spin systems: entries/patch-representation-of-spin-systems.md
       - Duality noise lemma: entries/duality-noise-lemma.md
   - Signed additive set processes:
