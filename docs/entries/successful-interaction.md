@@ -31,7 +31,16 @@ $$
 \{(i,t,\alpha,S)\in I:t\le T,\ i\in A_{t-}\}.
 $$
 
-Thus \(I\) is the full interaction set, while \(\mathcal I_T^S\) is the set of type-\(S\) successful interactions before time \(T\). Deaths have target set \(\vn\), so they are not successful interactions.
+The set of all successful interactions before time \(T\) is
+
+$$
+\mathcal I_T
+=
+\bigcup_{\substack{i\in\Lambda,\ S\subseteq N(i)\\ S\ne\vn}}
+\{(i,t,\alpha,S)\in\mathcal I_T^S\}.
+$$
+
+Thus \(I\) is the full interaction set, \(\mathcal I_T^S\) is the set of type-\(S\) successful interactions before time \(T\), and \(\mathcal I_T\) is the set of all successful interactions before time \(T\). Deaths have target set \(\vn\), so they are not successful interactions.
 
 The successful-interaction sigma algebra is
 
@@ -41,10 +50,12 @@ $$
 \sigma\left(Y_0,\{\mathcal I_T^S:S\ne\vn\}\right).
 $$
 
-It reveals all successful interactions with nonempty target set up to time \(T\). If the initial state is deterministic, this reduces to
+Equivalently, \(\cG_T=\sigma(Y_0,\mathcal I_T)\). It reveals all successful interactions with nonempty target set up to time \(T\). If the initial state is deterministic, this reduces to
 
 $$
 \cG_T
 =
-\sigma\left(\{\mathcal I_T^S:S\ne\vn\}\right).
+\sigma\left(\{\mathcal I_T^S:S\ne\vn\}\right)
+=
+\sigma(\mathcal I_T).
 $$
