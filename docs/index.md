@@ -16,7 +16,8 @@ A minimal dependency order is:
 6. [Spin system](entries/spin-system.md)
 7. [Pure noise spin system](entries/pure-noise-spin-system.md)
 8. [Oriented spin system](entries/oriented-spin-system.md)
-9. [Ergodicity](entries/ergodicity.md)
+9. [Invariant measure](entries/invariant-measure.md)
+10. [Ergodicity](entries/ergodicity.md)
 
 ## Duality entries
 
