@@ -14,8 +14,9 @@ A minimal dependency order is:
 4. [Monomials](entries/monomials.md)
 5. [Interacting particle system](entries/interacting-particle-system.md)
 6. [Spin system](entries/spin-system.md)
-7. [Oriented spin system](entries/oriented-spin-system.md)
-8. [Ergodicity](entries/ergodicity.md)
+7. [Pure noise spin system](entries/pure-noise-spin-system.md)
+8. [Oriented spin system](entries/oriented-spin-system.md)
+9. [Ergodicity](entries/ergodicity.md)
 
 ## Duality entries
 
