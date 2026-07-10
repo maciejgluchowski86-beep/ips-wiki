@@ -121,10 +121,10 @@ The resulting Feynman--Kac duality identity is
 $$
 \cL_\eta H(Y,\eta)
 =
-\cD H(Y,\eta)+V(A)H(Y,\eta),
+\cD H(Y,\eta)+V(A)H(Y,\eta).
 $$
 
-so
+The corresponding semigroup formula is
 
 $$
 \E_\eta[\chi_A(\eta_t)]
