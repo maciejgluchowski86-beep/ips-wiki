@@ -15,7 +15,7 @@ $$
 \chi_A(\eta)=\prod_{i\in A}\eta(i).
 $$
 
-The dual process is a [signed additive set process](signed-additive-set-process.md). Variants with deformed basis functions use the same algebraic philosophy as [theta monomials](theta-monomials.md), while perturbative comparison arguments can use the [duality noise lemma](duality-noise-lemma.md).
+The dual process is a [signed additive set process](signed-additive-set-process.md). Variants with deformed basis functions use the same algebraic philosophy as [theta monomials](theta-monomials.md), while perturbative comparison arguments can use the [duality noise lemma](duality-noise-lemma.md). The patchwise refinement of this formula is separated into [patch factorization](patch-factorization.md), [patch contribution](patch-contribution.md), and the [patch representation of spin systems](patch-representation-of-spin-systems.md).
 
 ## Rate coefficients
 
