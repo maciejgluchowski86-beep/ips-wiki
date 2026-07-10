@@ -73,32 +73,44 @@ $$
 A patch at \(i\) is a spacetime interval
 
 $$
-\{i\}\times [s,t)
+P=\{i\}\times [s,t)
 $$
 
 where \(s\in\mathcal S_T(i)\), \(t\in\mathcal E_T(i)\), \(s<t\), and there is no element of \(\mathcal S_T(i)\cup\mathcal E_T(i)\) strictly between \(s\) and \(t\). The set of all patches before horizon \(T\) is denoted by \(\mathcal P_T\).
 
-The initial boundary type of \(\{i\}\times[s,t)\) is \(\mathsf S\), \(\mathsf I\), or \(\mathsf O\) according as
+For \(P=\{i\}\times[s,t)\), define the initial type by
 
 $$
-s=0,
-\qquad
-s\in\mathcal T_T^{\mathsf I}(i),
-\qquad
-s\in\mathcal T_T^{\mathsf O,\beta}(i).
+\operatorname{type}_-(P)
+=
+\begin{cases}
+\mathsf S, & s=0,\\
+\mathsf I, & s\in\mathcal T_T^{\mathsf I}(i),\\
+\mathsf O, & s\in\mathcal T_T^{\mathsf O,\beta}(i),
+\end{cases}
 $$
 
-The terminal boundary type is \(\mathsf E\), \(\mathsf I\), or \(\mathsf O\) according as
+and the terminal type by
 
 $$
-t=T,
-\qquad
-t\in\mathcal T_T^{\mathsf I}(i),
-\qquad
-t\in\mathcal T_T^{\mathsf O}(i).
+\operatorname{type}_+(P)
+=
+\begin{cases}
+\mathsf E, & t=T,\\
+\mathsf I, & t\in\mathcal T_T^{\mathsf I}(i),\\
+\mathsf O, & t\in\mathcal T_T^{\mathsf O}(i).
+\end{cases}
 $$
 
-The patch type is the ordered pair of boundary types. The possible types are
+The patch type is
+
+$$
+\operatorname{type}(P)
+=
+\operatorname{type}_-(P)\operatorname{type}_+(P).
+$$
+
+The possible types are
 
 $$
 \mathsf{SI},\ \mathsf{SO},\ \mathsf{SE},\quad
@@ -108,4 +120,4 @@ $$
 
 The patches cover the active spacetime region between successful touches. Spacetime regions that are never active are not covered by patches.
 
-On the null event of simultaneous successful touches at the same site, use the deterministic ordering of marks fixed in the graphical construction.
+On the null event of simultaneous successful touches at the same site, use the deterministic ordering of interactions fixed in the graphical construction.
