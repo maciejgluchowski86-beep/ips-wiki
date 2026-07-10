@@ -31,6 +31,9 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Duality: `docs/entries/duality.md`
 - Theta monomials: `docs/entries/theta-monomials.md`
 - Monomial duality for spin systems: `docs/entries/monomial-duality-for-spin-systems.md`
+- Patch factorization: `docs/entries/patch-factorization.md`
+- Patch contribution: `docs/entries/patch-contribution.md`
+- Patch representation of spin systems: `docs/entries/patch-representation-of-spin-systems.md`
 - Duality noise lemma: `docs/entries/duality-noise-lemma.md`
 
 ## Current signed additive set process entries
@@ -40,9 +43,6 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Successful interaction: `docs/entries/successful-interaction.md`
 - Patch: `docs/entries/patch.md`
 - Patch consistency event: `docs/entries/patch-consistency-event.md`
-- Patch factorization: `docs/entries/patch-factorization.md`
-- Patch contribution: `docs/entries/patch-contribution.md`
-- Patch representation of spin systems: `docs/entries/patch-representation-of-spin-systems.md`
 
 ## Current KCSM entries
 
