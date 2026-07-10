@@ -49,10 +49,11 @@ The KCSM block uses the standard convention that `0` is the facilitating state. 
 7. [East model](entries/east-model.md)
 8. [Monomial duality for FA-1f](entries/monomial-duality-for-fa-1f.md)
 9. [Patch contributions for FA-1f](entries/patch-contributions-for-fa-1f.md)
-10. [KCSM relaxation and mixing](entries/kcsm-relaxation-and-mixing.md)
-11. [KCSM out of equilibrium](entries/kcsm-out-of-equilibrium.md)
-12. [FA-1f out of equilibrium](entries/fa-1f-out-of-equilibrium.md)
-13. [East out of equilibrium](entries/east-out-of-equilibrium.md)
+10. [Patch positivity for FA-1f](entries/patch-positivity-for-fa-1f.md)
+11. [KCSM relaxation and mixing](entries/kcsm-relaxation-and-mixing.md)
+12. [KCSM out of equilibrium](entries/kcsm-out-of-equilibrium.md)
+13. [FA-1f out of equilibrium](entries/fa-1f-out-of-equilibrium.md)
+14. [East out of equilibrium](entries/east-out-of-equilibrium.md)
 
 ## Meta pages
 
