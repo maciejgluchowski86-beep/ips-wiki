@@ -24,6 +24,7 @@ nav:
       - Polynomial-growth lattice: entries/polynomial-growth-lattice.md
       - Local functions: entries/local-functions.md
       - Monomials: entries/monomials.md
+      - Bernoulli product measure: entries/bernoulli-product-measure.md
       - Interacting particle system: entries/interacting-particle-system.md
       - Spin system: entries/spin-system.md
       - Pure noise spin system: entries/pure-noise-spin-system.md
@@ -37,6 +38,8 @@ nav:
       - Patch factorization: entries/patch-factorization.md
       - Patch contribution: entries/patch-contribution.md
       - Patch positivity property: entries/patch-positivity-property.md
+      - Patch critical density: entries/patch-critical-density.md
+      - High-density measure: entries/high-density-measure.md
       - Patch representation of spin systems: entries/patch-representation-of-spin-systems.md
       - Duality noise lemma: entries/duality-noise-lemma.md
   - Signed additive set processes:
@@ -54,6 +57,7 @@ nav:
       - Monomial duality for FA-1f: entries/monomial-duality-for-fa-1f.md
       - Patch contributions for FA-1f: entries/patch-contributions-for-fa-1f.md
       - Patch positivity for FA-1f: entries/patch-positivity-for-fa-1f.md
+      - Patch critical density for FA-1f: entries/patch-critical-density-for-fa-1f.md
       - KCSM relaxation and mixing: entries/kcsm-relaxation-and-mixing.md
       - KCSM out of equilibrium: entries/kcsm-out-of-equilibrium.md
   - Models:
