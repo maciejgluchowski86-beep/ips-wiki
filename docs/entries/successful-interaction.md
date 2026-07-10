@@ -9,15 +9,15 @@ tags:
 
 # Successful interaction
 
-Fix a [signed additive set process](signed-additive-set-process.md) with graphical mark set \(P\), constructed as in the [graphical construction](graphical-construction-of-signed-additive-set-process.md). For \(S\ne\vn\), a type-\(S\) successful interaction is a mark
+Fix a [signed additive set process](signed-additive-set-process.md) with interaction set \(I\), constructed as in the [graphical construction](graphical-construction-of-signed-additive-set-process.md). For \(S\ne\vn\), a type-\(S\) successful interaction is an interaction
 
 $$
-(i,t,\alpha,S)\in P,
+(i,t,\alpha,S)\in I,
 \qquad
 \alpha\in\{\delta,\beta\},
 $$
 
-whose source is active when the mark occurs:
+whose source is active when the interaction occurs:
 
 $$
 i\in A_{t-}.
@@ -28,10 +28,10 @@ For a time horizon \(T<\infty\), let
 $$
 \mathcal I_T^S
 =
-\{(i,t,\alpha,S)\in P:t\le T,\ i\in A_{t-}\}.
+\{(i,t,\alpha,S)\in I:t\le T,\ i\in A_{t-}\}.
 $$
 
-Thus \(\mathcal I_T^S\) is the set of type-\(S\) successful interactions before time \(T\).
+Thus \(I\) is the full interaction set, while \(\mathcal I_T^S\) is the set of type-\(S\) successful interactions before time \(T\).
 
 The successful-interaction sigma algebra is
 
