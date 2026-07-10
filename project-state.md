@@ -33,7 +33,8 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 7. `docs/entries/patch-critical-density.md`: minimal one-density profile making every affine end-patch contribution nonnegative, with an explicit coefficient formula.
 8. `docs/entries/high-density-measure.md`: mixtures of Bernoulli product measures with profiles above the patch critical density.
 9. `docs/entries/patch-representation-of-spin-systems.md`: representation theorem expressing \(P_t\chi_A\) as an expectation over products of patch contributions.
-10. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
+10. `docs/entries/monomial-monotonicity-for-high-density-measures.md`: comparison of evolved monomials under coordinatewise ordered high-density mixing profiles.
+11. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
 
 ## Current signed additive set process entries
 
