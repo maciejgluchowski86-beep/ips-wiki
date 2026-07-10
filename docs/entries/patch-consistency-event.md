@@ -14,13 +14,13 @@ Fix a [patch](patch.md) \(P=\{i\}\times[s,t)\) before horizon \(T\). Let \(I\) b
 
 $$
 \begin{aligned}
-\Pi_P&=\Pi_P^-\cup\Pi_P^\circ,
+\Sigma_P&=\Sigma_P^-\cup\Sigma_P^\circ,
 \\
-\Pi_P^\circ
+\Sigma_P^\circ
 &=
 \{(i,u,\alpha,S)\in I:s<u<t\},
 \\
-\Pi_P^-
+\Sigma_P^-
 &=
 \begin{cases}
 \vn, & s=0,\\
@@ -32,16 +32,16 @@ $$
 \end{aligned}
 $$
 
-An incoming initial boundary contributes only its source-time-target skeleton to \(\Pi_P\). An outgoing initial boundary contributes the update kind as well, because a birth keeps the source active while a split removes it.
+An incoming initial boundary contributes only its source-time-target skeleton to \(\Sigma_P\). An outgoing initial boundary contributes the update kind as well, because a birth keeps the source active while a split removes it.
 
-The local patch measure \(\mathbb P_P\) is the law of \(\Pi_P\) conditional on the initial skeleton that begins the patch. If \(s=0\), this means only that the site is initially active. If \(\operatorname{type}_-(P)=\mathsf I\), the incoming skeleton \((j,s,S)\) with \(i\in S\) is fixed. If \(\operatorname{type}_-(P)=\mathsf O\), the source-time-target skeleton \((i,s,S)\) is fixed, but the update kind is sampled by
+The local patch measure \(\mathbb P_P\) is the law of \(\Sigma_P\) conditional on the initial skeleton that begins the patch. If \(s=0\), this means only that the site is initially active. If \(\operatorname{type}_-(P)=\mathsf I\), the incoming skeleton \((j,s,S)\) with \(i\in S\) is fixed. If \(\operatorname{type}_-(P)=\mathsf O\), the source-time-target skeleton \((i,s,S)\) is fixed, but the update kind is sampled by
 
 $$
-\mathbb P_P((i,s,\beta,S)\in\Pi_P)
+\mathbb P_P((i,s,\beta,S)\in\Sigma_P)
 =
 \frac{\beta_i(S)}{\delta_i(S)+\beta_i(S)},
 \qquad
-\mathbb P_P((i,s,\delta,S)\in\Pi_P)
+\mathbb P_P((i,s,\delta,S)\in\Sigma_P)
 =
 \frac{\delta_i(S)}{\delta_i(S)+\beta_i(S)}.
 $$
@@ -62,7 +62,7 @@ X^P_s
 =
 \begin{cases}
 1, & \operatorname{type}_-(P)\in\{\mathsf S,\mathsf I\},\\
-\mathbf 1_{\{(i,s,\beta,S)\in\Pi_P\text{ for some }S\ne\vn\}}, & \operatorname{type}_-(P)=\mathsf O.
+\mathbf 1_{\{(i,s,\beta,S)\in\Sigma_P\text{ for some }S\ne\vn\}}, & \operatorname{type}_-(P)=\mathsf O.
 \end{cases}
 $$
 
@@ -86,7 +86,7 @@ $$
 =
 \left\{
 X^P_{u-}=0
-\text{ for every }(i,u,\alpha,S)\in\Pi_P\text{ with }s<u<t\text{ and }S\ne\vn
+\text{ for every }(i,u,\alpha,S)\in\Sigma_P\text{ with }s<u<t\text{ and }S\ne\vn
 \right\}
 \cap C_+(P).
 $$
