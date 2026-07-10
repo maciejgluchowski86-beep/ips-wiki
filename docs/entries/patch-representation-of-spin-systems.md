@@ -51,7 +51,7 @@ $$
 \begin{cases}
 \sigma_i^\alpha(S),
 & \operatorname{type}_-(P)=\mathsf O
-\text{ and }(i,s_-,\alpha,S)\in\Pi_P^-,\\
+\text{ and }(i,s_-,\alpha,S)\in\Sigma_P^-,\\
 1, & \operatorname{type}_-(P)\in\{\mathsf S,\mathsf I\}.
 \end{cases}
 $$
