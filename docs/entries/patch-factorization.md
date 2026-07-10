@@ -27,6 +27,14 @@ $$
 \bigvee_{P\in\mathcal P_T}\mathcal F_P.
 $$
 
+For a finite family \(A\) of interactions, write
+
+$$
+R_A=\{A\subseteq I\}.
+$$
+
+Thus \(R_A\) is the event that all interactions in \(A\) occur in the graphical construction; it does not assert that these are the only interactions.
+
 ## Statement
 
 Conditional on \(\cG_T\), the law of the patch interaction data factors over patches:
@@ -53,38 +61,52 @@ The product is finite under the local-finiteness assumption in the graphical con
 
 ## Proof
 
-Condition on \(\cG_T\). This fixes the successful interactions, hence also the patch set \(\mathcal P_T\), the boundary times, the boundary types, and the initial interaction contained in each \(\Pi_P\).
+Condition on \(\cG_T\). This fixes the successful-interaction set \(\mathcal I_T\), hence also the patch set \(\mathcal P_T\), the boundary times, the boundary types, and the initial interaction contained in each \(\Pi_P\).
 
 The patches cover all active spacetime. Every initially active site begins a patch at time \(0\). Every successful interaction touches its source and all its target sites; at each touched site it is both the terminal boundary of the preceding patch and the initial boundary of the following patch, except at the endpoints \(0\) and \(T\). Thus an interaction outside patches is either a revealed successful boundary interaction or has inactive source and does not change the process.
 
-For
+Let
 
 $$
-Z=\prod_{P\in\mathcal P_T} f_P(\Pi_P),
+Z=\prod_{P\in\mathcal P_T} f_P(\Pi_P).
 $$
 
-use the tower property in the form
+Since \(R_{\mathcal I_T}\) reveals that every listed successful interaction occurs, while \(\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\) guarantees that no additional successful interaction occurs inside any patch and that outgoing terminal boundaries have active source, the pair of conditions
+
+$$
+R_{\mathcal I_T},
+\qquad
+\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)
+$$
+
+reveals the same successful-interaction information as \(\cG_T\), after \(Y_0\) is fixed. Hence the tower property gives
 
 $$
 \mathbb E[Z\mid\cG_T]
 =
 \mathbb E\left[
-\mathbb E\left[Z\middle|\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\right]
+\mathbb E\left[Z\middle|R_{\mathcal I_T},\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\right]
 \middle|\cG_T
 \right].
 $$
 
-Here the patch family and the boundary types are those fixed by \(\cG_T\). Once these are fixed, the event \(\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\) contains the same successful-interaction information as \(\cG_T\): the initial boundary condition \(C_-(P)\) gives the interaction that begins each patch, the interior condition excludes further successful interactions inside patches, and \(C_+(P)\) gives the required activity before outgoing terminal boundaries.
+It remains to compute the inner conditional expectation. Condition on \(R_{\mathcal I_T}\). This fixes the initial boundary interaction in each \(\Pi_P\). The remaining random interactions in \(\Pi_P\) have source \(i\) and times \(s<u<t\) for \(P=\{i\}\times[s,t)\). These source-time regions are pairwise disjoint: distinct sites use independent Poisson processes, while two patches at the same site have disjoint time intervals. Therefore the remaining patch interaction data are independent under the conditional law given \(R_{\mathcal I_T}\).
 
-It remains to compute the inner conditional expectation. The initial boundary interaction in each \(\Pi_P\) is fixed by the corresponding condition \(C_-(P)\). The remaining random interactions in \(\Pi_P\) have source \(i\) and times \(s<u<t\) for \(P=\{i\}\times[s,t)\). These source-time regions are pairwise disjoint: distinct sites use independent Poisson processes, while two patches at the same site have disjoint time intervals. Hence the remaining patch interaction data are independent before conditioning.
-
-Moreover, \(\operatorname{Cons}(P)\) depends only on \(\Pi_P\). Therefore conditioning on the intersection of all consistency events conditions independent factors by their own patchwise events. Thus, in the regular conditional sense,
+For each patch, \(\operatorname{Cons}(P)\) depends only on \(\Pi_P\), and after conditioning on \(R_{\mathcal I_T}\) it has positive probability. Therefore the elementary product-conditioning identity applies: if \((X_k,B_k)\) are independent and \(\mathbb P(B_k)>0\), then
 
 $$
-\mathbb E\left[Z\middle|\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\right]
+\mathbb E\left[\prod_k X_k\middle|\bigcap_k B_k\right]
+=
+\prod_k \mathbb E[X_k\mid B_k].
+$$
+
+Applying this identity to the independent patch data under \(R_{\mathcal I_T}\), with \(X_P=f_P(\Pi_P)\) and \(B_P=\operatorname{Cons}(P)\), gives
+
+$$
+\mathbb E\left[Z\middle|R_{\mathcal I_T},\bigcap_{P\in\mathcal P_T}\operatorname{Cons}(P)\right]
 =
 \prod_{P\in\mathcal P_T}
 \mathbb E_P^{\operatorname{cons}}[f_P(\Pi_P)].
 $$
 
-Substituting this identity into the tower-property formula gives the claim.
+The right-hand side is \(\cG_T\)-measurable, because \(\cG_T\) fixes the patches and their boundary types. Substituting this identity into the tower-property formula gives the claim.
