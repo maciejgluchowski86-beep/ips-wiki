@@ -17,7 +17,7 @@ Throughout, signs are identified with the numbers \(\pm1\). Fix a patch
 $$
 P=\{i\}\times[s,t),
 \qquad
-u=t-s.
+\nu=t-s.
 $$
 
 Assume the signed additive set process comes with the site potential
