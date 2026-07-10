@@ -89,7 +89,10 @@ Before committing, check:
 - navigation paths in `mkdocs.yml` match actual paths;
 - front matter is present for new entries;
 - no private research notes or raw scratch work were added to public pages;
-- the edit does not duplicate material that should be linked instead.
+- the edit does not duplicate material that should be linked instead;
+- every edited math page has been fetched again from GitHub after writing and its TeX delimiters and backslashes have been inspected in the stored source;
+- commands such as `\\nu`, `\\Omega`, `\\text`, `\\ge`, and `\\int` were not altered by JSON, JavaScript, shell, or API string escaping;
+- when content is generated programmatically, TeX-bearing text is passed through a raw or otherwise byte-preserving string representation.
 
 ## 8. Commit and report
 
