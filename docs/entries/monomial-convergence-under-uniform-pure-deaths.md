@@ -25,20 +25,7 @@ c_i^1(\xi)\ge\varepsilon
 \text{ and }\xi\in\{0,1\}^{\Lambda}.
 $$
 
-Equivalently,
-
-$$
-\cL
-=
-\cL^\varepsilon+\varepsilon\mathcal N^0,
-\qquad
-\mathcal N^0f(\xi)
-=
-\sum_{i\in\Lambda}
-\xi(i)\left(f(\xi^{i,0})-f(\xi)\right),
-$$
-
-where \(\cL^\varepsilon\) is another spin-system generator. Let
+Set
 
 $$
 \mathbf p^-
@@ -46,21 +33,7 @@ $$
 \left(2\mathbf p^\star-\mathbf 1\right)\vee\mathbf 0.
 $$
 
-Then, for every \(A\Subset\Lambda\) and every one-density profile \(\mathbf p\ge\mathbf p^-\),
-
-$$
-\lim_{t\to\infty}
-\mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
-=
-\mathbb E_A\left[
-\prod_{P\in\mathcal P}C(P)\,
-\ind\left(\left|\mathcal P\right|<\infty\right)
-\right].
-$$
-
-Here \(\mathcal P\) is the full [patch](patch.md) family of the signed dual started from \(A\), and the integrand is defined to be zero when \(\left|\mathcal P\right|=\infty\). The right-hand side is independent of \(\mathbf p\). Consequently, the same limit holds for every mixture of Bernoulli product measures supported on profiles above \(\mathbf p^-\).
-
-Moreover, there is \(K_A<\infty\) such that
+For every \(A\Subset\Lambda\), there is \(K_A<\infty\) such that, uniformly over all one-density profiles \(\mathbf p\ge\mathbf p^-\),
 
 $$
 \left|
@@ -75,15 +48,39 @@ $$
 K_A(1+t)^D e^{-\varepsilon t/2}.
 $$
 
-If
+Here \(\mathcal P\) is the full [patch](patch.md) family of the signed dual started from \(A\), and the integrand is defined to be zero when \(\left|\mathcal P\right|=\infty\). Thus \(\mu_{\mathbf p}(P_t(\chi_A))\) converges to the expectation in the display, independently of \(\mathbf p\). The estimate and limit also hold for every mixture of Bernoulli product measures supported on profiles above \(\mathbf p^-\).
+
+## Corollary
+
+Under the hypotheses of the theorem, if
 
 $$
 \mathbf p^\star\le\frac12\mathbf 1,
 $$
 
-then the spin system is uniformly exponentially [ergodic](ergodicity.md) on local functions.
+then the spin system has a unique invariant measure \(\pi\) and is uniformly exponentially [ergodic](ergodicity.md) on local functions: there is \(\gamma>0\) such that, for every local function \(f\), some \(K_f<\infty\) satisfies
 
-## Proof
+$$
+\sup_{\xi\in\{0,1\}^{\Lambda}}
+\left|P_tf(\xi)-\pi(f)\right|
+\le
+K_f e^{-\gamma t}.
+$$
+
+## Proof of the theorem
+
+Define \(\cL^\varepsilon\) by reducing every \(1\)-to-\(0\) flip rate by \(\varepsilon\). The lower bound on \(c_i^1\) makes this another spin-system generator, and
+
+$$
+\cL
+=
+\cL^\varepsilon+\varepsilon\mathcal N^0,
+\qquad
+\mathcal N^0f(\xi)
+=
+\sum_{i\in\Lambda}
+\xi(i)\left(f(\xi^{i,0})-f(\xi)\right).
+$$
 
 By the [duality noise lemma](duality-noise-lemma.md), \(\cL\) and \(\cL^\varepsilon\) have the same signed dual process and the same full [successful-interaction](successful-interaction.md) set \(\mathcal I\). Write \(P_t^\varepsilon\) and \(C^\varepsilon\) for the semigroup and patch contributions associated with \(\cL^\varepsilon\).
 
@@ -413,7 +410,9 @@ $$
 
 Increasing \(K_A'\) handles bounded \(t\), proving the stated estimate and the limit. The estimates are uniform in \(\mathbf p\ge\mathbf p^-\), so averaging over a mixing law gives the same result for mixtures.
 
-Finally, if \(\mathbf p^\star\le\frac12\mathbf 1\), then \(\mathbf p^-=\mathbf 0\). Every deterministic law is a product measure because
+## Proof of the corollary
+
+The assumption \(\mathbf p^\star\le\frac12\mathbf 1\) gives \(\mathbf p^-=\mathbf 0\). Every deterministic law is a product measure because
 
 $$
 \delta_\xi=\mu_{\mathbf \xi}.
