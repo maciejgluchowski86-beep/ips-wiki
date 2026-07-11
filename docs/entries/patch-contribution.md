@@ -125,7 +125,7 @@ C(P)
 \lim_{T\to\infty}C^p(P^{(T)}).
 $$
 
-This definition applies almost surely to the infinite patches occurring under the uniform pure-death assumption used in [monomial convergence under uniform pure deaths](monomial-convergence-under-uniform-pure-deaths.md). Indeed,
+This definition applies almost surely to the infinite patches occurring under the uniform pure-death assumption used in [the common invariant-limit theorem](common-invariant-limit-under-uniform-pure-deaths.md). Indeed,
 
 $$
 c_i^1(\xi)\ge\varepsilon>0

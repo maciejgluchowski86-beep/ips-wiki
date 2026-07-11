@@ -34,7 +34,7 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 8. `docs/entries/high-density-measure.md`: mixtures of Bernoulli product measures with profiles above the patch critical density.
 9. `docs/entries/patch-representation-of-spin-systems.md`: representation theorem expressing \(P_t\chi_A\) as an expectation over products of patch contributions.
 10. `docs/entries/monomial-monotonicity-for-high-density-measures.md`: comparison of evolved monomials under ordered high-density mixing profiles and reflected domination below the patch critical density.
-11. `docs/entries/monomial-convergence-under-uniform-pure-deaths.md`: common long-time monomial limit with exponential convergence under patch positivity and a uniform pure-death component.
+11. `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`: common invariant limit and exponential local-function convergence under patch positivity and a uniform pure-death component.
 12. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
 
 ## Current signed additive set process entries

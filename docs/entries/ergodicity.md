@@ -90,7 +90,7 @@ for all \(t\ge0\) and all functions \(f\) in a specified class, with a specified
 
 Uniform exponential ergodicity implies ergodicity. It is not implied by uniqueness of the invariant measure, and it should not be inferred from qualitative ergodicity unless a quantitative estimate is proved.
 
-One sufficient condition for uniform exponential ergodicity of a patch-positive spin system is given by [monomial convergence under uniform pure deaths](monomial-convergence-under-uniform-pure-deaths.md).
+One sufficient condition for uniform exponential ergodicity of a patch-positive spin system is given by [the common invariant-limit theorem](common-invariant-limit-under-uniform-pure-deaths.md).
 
 ## Hierarchy
 

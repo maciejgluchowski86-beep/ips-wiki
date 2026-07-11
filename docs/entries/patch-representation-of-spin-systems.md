@@ -10,7 +10,7 @@ tags:
 
 # Patch representation of spin systems
 
-This is the patchwise form of [monomial duality for spin systems](monomial-duality-for-spin-systems.md), after applying [patch factorization](patch-factorization.md). Its integration against product initial laws gives [monomial monotonicity for high-density measures](monomial-monotonicity-for-high-density-measures.md), while its infinite-horizon form gives [monomial convergence under uniform pure deaths](monomial-convergence-under-uniform-pure-deaths.md).
+This is the patchwise form of [monomial duality for spin systems](monomial-duality-for-spin-systems.md), after applying [patch factorization](patch-factorization.md). Its integration against product initial laws gives [monomial monotonicity for high-density measures](monomial-monotonicity-for-high-density-measures.md), while its infinite-horizon form gives [a common invariant limit under uniform pure deaths](common-invariant-limit-under-uniform-pure-deaths.md).
 
 Let \((P_t)_{t\ge0}\) be the spin-system semigroup. Let the signed additive dual start from \((A,+)\). Let \(\mathcal B_t\) and \(\mathcal E_t\) be the bulk and end patch sets, and let \(C(P)\) and \(C(\xi,P)\) be the [patch contribution](patch-contribution.md) functions.
 

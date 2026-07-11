@@ -1,16 +1,17 @@
 ---
-title: Monomial convergence under uniform pure deaths
+title: Common invariant limit under uniform pure deaths
 status: proved here
 tags:
   - patch positivity
   - pure deaths
-  - monomials
+  - local functions
   - convergence
+  - invariant measures
 ---
 
-# Monomial convergence under uniform pure deaths
+# Common invariant limit under uniform pure deaths
 
-For a patch-positive spin system with a uniform pure-death component, evolved [monomials](monomials.md) have a common limit for a class of Bernoulli product initial laws extending below the patch critical density. On a polynomial-growth lattice the convergence is exponential, up to a polynomial prefactor. The limit is the contribution of the finite complete patch families.
+For a patch-positive spin system with a uniform pure-death component, mixtures of Bernoulli product measures above a threshold extending below the patch critical density converge to a common invariant measure. On a polynomial-growth lattice the convergence is exponential on local functions, up to a polynomial prefactor. The monomial moments of the limit are the contributions of the finite complete patch families.
 
 **References.** None yet.
 
@@ -33,22 +34,31 @@ $$
 \left(2\mathbf p^\star-\mathbf 1\right)\vee\mathbf 0.
 $$
 
-For every \(A\Subset\Lambda\), there is \(K_A<\infty\) such that, uniformly over all one-density profiles \(\mathbf p\ge\mathbf p^-\),
+Then there is an [invariant probability measure](invariant-measure.md) \(\pi\) such that, for every local function \(f\), there is \(K_f<\infty\) for which
 
 $$
 \left|
-\mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
--
+\nu(P_tf)-\pi(f)
+\right|
+\le
+K_f(1+t)^D e^{-\varepsilon t/2}.
+$$
+
+The estimate is uniform over all mixtures \(\nu\) of Bernoulli product measures whose mixing laws are supported on one-density profiles satisfying \(\mathbf p\ge\mathbf p^-\). Consequently \(\nu P_t\) converges weakly to \(\pi\) for every such mixture. In particular, every [high-density measure](high-density-measure.md) converges to \(\pi\).
+
+The limiting measure is characterized on the monomial basis by
+
+$$
+\pi(\chi_A)
+=
 \mathbb E_A\left[
 \prod_{P\in\mathcal P}C(P)\,
 \ind\left(\left|\mathcal P\right|<\infty\right)
-\right]
-\right|
-\le
-K_A(1+t)^D e^{-\varepsilon t/2}.
+\right],
+\qquad A\Subset\Lambda.
 $$
 
-Here \(\mathcal P\) is the full [patch](patch.md) family of the signed dual started from \(A\), and the integrand is defined to be zero when \(\left|\mathcal P\right|=\infty\). Thus \(\mu_{\mathbf p}(P_t(\chi_A))\) converges to the expectation in the display, independently of \(\mathbf p\). The estimate and limit also hold for every mixture of Bernoulli product measures supported on profiles above \(\mathbf p^-\).
+Here \(\mathcal P\) is the full [patch](patch.md) family of the signed dual started from \(A\), and the integrand is defined to be zero when \(\left|\mathcal P\right|=\infty\).
 
 ## Corollary
 
@@ -408,7 +418,31 @@ $$
 K_A'(1+t)^D e^{-\varepsilon t/2}.
 $$
 
-Increasing \(K_A'\) handles bounded \(t\), proving the stated estimate and the limit. The estimates are uniform in \(\mathbf p\ge\mathbf p^-\), so averaging over a mixing law gives the same result for mixtures.
+Increasing \(K_A'\) handles bounded \(t\), proving the estimate for each monomial. The estimates are uniform in \(\mathbf p\ge\mathbf p^-\), so averaging over a mixing law gives the same result for mixtures.
+
+Every local function depending on a finite set \(S\) has a finite [monomial](monomials.md) expansion
+
+$$
+f
+=
+\sum_{A\subseteq S}\widehat f(A)\chi_A.
+$$
+
+Summing the monomial estimates proves the asserted local-function bound once the limiting moments are identified with a probability measure. Take \(\nu=\mu_{\mathbf 1}\). Compactness of \(\{0,1\}^{\Lambda}\) gives a subsequential weak limit of \(\mu_{\mathbf 1}P_t\), while convergence of every monomial moment shows that all subsequential limits agree. Denote the resulting probability measure by \(\pi\). Local functions determine weak convergence, so the same argument and the uniform estimate give \(\nu P_t\Rightarrow\pi\) for every mixture in the theorem.
+
+Finally, the finite-range spin-system semigroup is Feller. Hence, for every \(s\ge0\),
+
+$$
+\pi P_s
+=
+\lim_{t\to\infty}(\mu_{\mathbf 1}P_t)P_s
+=
+\lim_{t\to\infty}\mu_{\mathbf 1}P_{t+s}
+=
+\pi.
+$$
+
+Thus \(\pi\) is invariant. Since \(\mathbf p^-\le\mathbf p^\star\), the class covered by the theorem contains all high-density measures.
 
 ## Proof of the corollary
 
@@ -418,4 +452,13 @@ $$
 \delta_\xi=\mu_{\mathbf \xi}.
 $$
 
-Thus \(P_t(\chi_A)(\xi)\) has the same limit for every initial configuration \(\xi\), with a bound uniform in \(\xi\). Finite monomial expansions extend this to all local functions. Compactness gives a limiting probability measure, the semigroup property makes it invariant, and convergence from every initial law makes it unique. Absorbing the polynomial factor into a slightly smaller exponential rate proves uniform exponential ergodicity on local functions.
+Thus the theorem's estimate holds uniformly over all deterministic initial configurations and hence over all initial laws. If \(\rho\) is invariant, then for every local function \(f\),
+
+$$
+\left|\rho(f)-\pi(f)\right|
+=
+\left|\rho(P_tf)-\pi(f)\right|
+\longrightarrow0,
+$$
+
+so \(\rho=\pi\). Absorbing the polynomial factor into a slightly smaller exponential rate proves uniform exponential ergodicity on local functions.
