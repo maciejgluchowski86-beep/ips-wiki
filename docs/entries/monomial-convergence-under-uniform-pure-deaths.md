@@ -165,6 +165,16 @@ L_T
 \right\}.
 $$
 
+For \(t>T\), let
+
+$$
+L_{T,t}
+=
+\left\{
+\text{no successful interactions occur between times }T\text{ and }t
+\right\}.
+$$
+
 We first prove
 
 $$
@@ -188,7 +198,7 @@ $$
 \tag{5}
 $$
 
-First consider the part of \(L_T^c\) on which a successful interaction occurs between times \(T\) and \(t\). Choose the first such interaction and let \(u\le t\) be its time. Equations (1) and (5) contribute a factor at most
+First consider \(L_T^c\cap L_{T,t}^c\). Choose the first successful interaction after time \(T\), and let \(u\le t\) be its time. Equations (1) and (5) contribute a factor at most
 
 $$
 e^{-\varepsilon u}
@@ -198,15 +208,7 @@ $$
 
 Equations (1) and (2) dominate all remaining factors by \(\widehat W_t\), so this part of the expectation is at most \(e^{-\varepsilon T}\).
 
-It remains to consider
-
-$$
-L_T^c
-\cap
-\left\{
-\text{no successful interactions occur between times }T\text{ and }t
-\right\}.
-$$
+It remains to consider \(L_T^c\cap L_{T,t}\).
 
 Although a successful interaction occurs after \(t\), there need not be an \(\mathsf{XO}\)-trail reaching time \(T\) within the horizon-\(t\) patch family. Instead, at least one end-patch site must remain active throughout the interval from \(T\) to \(t\). Indeed, without a successful interaction during that interval, a site that becomes inactive cannot be reactivated, and extinction of all end-patch sites would make every later successful interaction impossible.
 
@@ -215,17 +217,13 @@ For this estimate, temporarily undo the patch-internal averaging in \(W_t^{\math
 $$
 \begin{aligned}
 &\ind\left(
-L_T^c
-\cap
-\left\{
-\text{no successful interactions occur between }T\text{ and }t
-\right\}
+L_T^c\cap L_{T,t}
 \right)
 \\
 &\qquad\le
 \sum_{P\in\mathcal E_t}
 \ind\left(
-L_T^c
+L_T^c\cap L_{T,t}
 \cap
 \left\{
 X_u^P=1
@@ -242,7 +240,7 @@ $$
 e^{-\varepsilon(t-T)}\widehat W_t.
 $$
 
-On the event that there are no successful interactions between \(T\) and \(t\), the end-patch sites at time \(t\) are the end-patch sites at time \(T\). Finite spread of information on a polynomial-growth lattice gives the marked comparison estimate
+On \(L_{T,t}\), the end-patch sites at time \(t\) are the end-patch sites at time \(T\). Finite spread of information on a polynomial-growth lattice gives the marked comparison estimate
 
 $$
 \mathbb E_A\left[
