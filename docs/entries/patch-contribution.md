@@ -144,7 +144,15 @@ $$
 p\,e^{-(c_i^0(\vn)+c_i^1(\vn))\Delta},
 $$
 
-so it disappears as \(\Delta\to\infty\). The same conclusion holds for the normalized contribution whenever the infinite patch has positive skeleton weight; zero-weight exceptional patches do not affect the representation. The remaining limit is the same for every \(p\in[0,1]\). Under patch positivity it is nonnegative.
+so it disappears as \(\Delta\to\infty\). The same conclusion holds for the normalized contribution whenever the infinite patch has positive skeleton weight; zero-weight exceptional patches do not affect the representation. With uniformly bounded rates, the end-patch formulas give
+
+$$
+\left|C^p(P^{(T)})-C(P)\right|
+\le
+K e^{-\varepsilon(T-s)}
+$$
+
+for \(P=\{i\}\times[s,\infty)\), uniformly in \(p\in[0,1]\). Under patch positivity the limiting contribution is nonnegative.
 
 ## Spin-system rate form
 
