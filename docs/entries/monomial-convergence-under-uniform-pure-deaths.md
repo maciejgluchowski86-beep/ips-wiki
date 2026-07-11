@@ -128,6 +128,24 @@ W_t^{\mathbf p}
 \prod_{P\in\mathcal E_t}C^{\mathbf p}(P).
 $$
 
+The positive comparison weight is
+
+$$
+\widehat W_t
+=
+\prod_{P\in\mathcal B_t}C^\varepsilon(P)
+\prod_{P\in\mathcal E_t}C^{\varepsilon,\mathbf 1}(P).
+$$
+
+Its total mass satisfies
+
+$$
+\mathbb E_A\left[\widehat W_t\right]
+=
+\mu_{\mathbf 1}\bigl(P_t^\varepsilon(\chi_A)\bigr)
+\le1.
+$$
+
 The Bernoulli-averaged [patch representation](patch-representation-of-spin-systems.md) reads
 
 $$
@@ -156,7 +174,9 @@ W_t^{\mathbf p}\ind(L_T^c)
 \right]
 \right|
 \le
-e^{-\varepsilon T},
+e^{-\varepsilon T}
++
+K_A(1+T)^D e^{-\varepsilon(t-T)},
 \qquad t>T.
 \tag{4}
 $$
@@ -168,7 +188,7 @@ $$
 \tag{5}
 $$
 
-On \(L_T^c\), choose the first successful interaction after time \(T\), and let \(u\) be its time. If \(u\le t\), equations (1) and (5) contribute a factor at most
+First consider the part of \(L_T^c\) on which a successful interaction occurs between times \(T\) and \(t\). Choose the first such interaction and let \(u\le t\) be its time. Equations (1) and (5) contribute a factor at most
 
 $$
 e^{-\varepsilon u}
@@ -176,25 +196,64 @@ e^{-\varepsilon u}
 e^{-\varepsilon T}.
 $$
 
-If \(u>t\), the trail crosses the time horizon. Up to time \(t\) it consists of \(\mathsf{XO}\) patches followed by one active end patch, and its total length is \(t>T\). Applying the noise comparison before integrating the final active patch again gives a factor at most \(e^{-\varepsilon T}\). Thus in both cases the trail supplies the required exponential factor. Equations (1) and (2) dominate all remaining factors by the nonnegative all-one patch weight of \(\cL^\varepsilon\). Therefore
+Equations (1) and (2) dominate all remaining factors by \(\widehat W_t\), so this part of the expectation is at most \(e^{-\varepsilon T}\).
+
+It remains to consider
+
+$$
+L_T^c
+\cap
+\left\{
+\text{no successful interactions occur between times }T\text{ and }t
+\right\}.
+$$
+
+Although a successful interaction occurs after \(t\), there need not be an \(\mathsf{XO}\)-trail reaching time \(T\) within the horizon-\(t\) patch family. Instead, at least one end-patch site must remain active throughout the interval from \(T\) to \(t\). Indeed, without a successful interaction during that interval, a site that becomes inactive cannot be reactivated, and extinction of all end-patch sites would make every later successful interaction impossible.
+
+For this estimate, temporarily undo the patch-internal averaging in \(W_t^{\mathbf p}\) and use the pre-averaged factors from the patch representation. Then
 
 $$
 \begin{aligned}
-\left|
-\mathbb E_A\left[
-W_t^{\mathbf p}\ind(L_T^c)
-\right]
-\right|
-&\le
-e^{-\varepsilon T}
-\,\mu_{\mathbf 1}\bigl(P_t^\varepsilon(\chi_A)\bigr)
+&\ind\left(
+L_T^c
+\cap
+\left\{
+\text{no successful interactions occur between }T\text{ and }t
+\right\}
+\right)
 \\
-&\le
-e^{-\varepsilon T},
+&\qquad\le
+\sum_{P\in\mathcal E_t}
+\ind\left(
+L_T^c
+\cap
+\left\{
+X_u^P=1
+\text{ for every }u\in[T,t]
+\right\}
+\right).
 \end{aligned}
+\tag{6}
 $$
 
-which proves (4).
+Condition on \(\cG_t\). This fixes the end patches and leaves their internal data independent. On the event in the summand of (6), the pure-death noise acts for at least \(t-T\) units of active time. Removing this noise and replacing the terminal density by \(\mathbf 1\) bounds that summand by
+
+$$
+e^{-\varepsilon(t-T)}\widehat W_t.
+$$
+
+On the event that there are no successful interactions between \(T\) and \(t\), the end-patch sites at time \(t\) are the end-patch sites at time \(T\). Finite spread of information on a polynomial-growth lattice gives the marked comparison estimate
+
+$$
+\mathbb E_A\left[
+\left|\mathcal E_T\right|\widehat W_t
+\right]
+\le
+K_A(1+T)^D.
+\tag{7}
+$$
+
+Summing (6), taking the conditional expectation, and then removing the conditioning gives the second term in (4). This proves the late-term estimate.
 
 Define
 
@@ -216,12 +275,39 @@ L_\infty
 \left\{
 \left|\mathcal P\right|<\infty
 \right\}.
-\tag{6}
+\tag{8}
 $$
 
 Fix \(T<\infty\). On \(L_T\), the set \(\mathcal B_t\) is independent of \(t\) once \(t>T\). The sites carrying end patches are also independent of \(t\), because starting or ending a patch requires a successful interaction. Denote the corresponding infinite patches by \(\mathcal E_\infty\).
 
-Every \(P\in\mathcal E_t\) has length at least \(t-T\). The explicit end-patch formulas and the pure-death comparison give
+For \(P\in\mathcal E_\infty\), let \(P^{(t)}\in\mathcal E_t\) be its truncation and set
+
+$$
+\widehat C_t(P)
+=
+C^{\varepsilon,\mathbf 1}(P^{(t)}),
+\qquad
+\Delta_t(P)
+=
+\left|
+C^{\mathbf p}(P^{(t)})-C(P)
+\right|.
+$$
+
+The comparison cannot in general be made relative to \(C(P)\), because the limiting contribution may vanish. Instead, the patch formulas give a uniform \(\kappa<\infty\) such that
+
+$$
+0\le C(P)\le\widehat C_t(P),
+\qquad
+\Delta_t(P)
+\le
+\kappa e^{-\varepsilon(t-T)}\widehat C_t(P).
+\tag{9}
+$$
+
+To see the second inequality, compare the finite and infinite versions of the same end patch before integrating its internal randomness. They differ only on the part of the local patch law on which the site remains active until time \(t\). Since the patch starts no later than \(T\), pure-death noise contributes at most \(e^{-\varepsilon(t-T)}\) on this part. Removing that noise and replacing the terminal density by \(\mathbf 1\) gives \(\widehat C_t(P)\). In the unnormalized patch factor one may take \(\kappa=1\); the uniform constant above also covers the fixed consistency normalizations in the displayed patch formulas.
+
+Expanding each finite contribution as its limit plus an error and applying (9) gives
 
 $$
 \left|
@@ -230,19 +316,40 @@ $$
 \prod_{P\in\mathcal E_\infty}C(P)
 \right|
 \le
-K\left|\mathcal E_T\right|
-e^{-\varepsilon(t-T)}
+\prod_{P\in\mathcal E_\infty}\widehat C_t(P)
+\left[
+\left(
+1+\kappa e^{-\varepsilon(t-T)}
+\right)^{|\mathcal E_\infty|}
+-1
+\right].
+\tag{10}
 $$
 
-after the remaining factors have been dominated by the all-one contributions of \(\cL^\varepsilon\). The sites carrying end patches are precisely the initially active sites together with the sites touched by successful interactions before time \(T\). Finite spread of information and polynomial volume growth therefore give
+We now use finite spread in the stronger factorial-moment form required by (10). Put \(N_T=|\mathcal E_T|\). For every \(k\ge1\), graphical path counting gives
 
 $$
-\mathbb E_A\left[\left|\mathcal E_T\right|\right]
+\mathbb E_A\left[
+\widehat W_t
+\binom{N_T}{k}
+\ind(L_T)
+\right]
 \le
-K_A(1+T)^D.
+\frac{\left(K_A(1+T)^D\right)^k}{k!}.
+\tag{11}
 $$
 
-Consequently,
+Indeed, every end-patch site is either in \(A\) or is reached by a graphical path of successful interactions before time \(T\). For \(k\) distinct sites, sum over the corresponding \(k\)-tuples of graphical paths. Uniformly bounded finite-range interaction rates give the usual finite-speed path bound, and polynomial volume growth leaves at most order \((1+T)^{Dk}\) choices. Division by \(k!\) removes the ordering of the selected sites. The positive all-one comparison weight has total mass at most one, so the same counting applies with the factor \(\widehat W_t\).
+
+Let
+
+$$
+a_{t,T}
+=
+\kappa e^{-\varepsilon(t-T)}.
+$$
+
+Multiplying (10) by the bulk factors, using their comparison with \(C^\varepsilon\), expanding the power, and applying (11) yields
 
 $$
 \left|
@@ -256,11 +363,13 @@ W_t^{\mathbf p}\ind(L_T)
 \right]
 \right|
 \le
-K_A(1+T)^D e^{-\varepsilon(t-T)}.
-\tag{7}
+\exp\left(
+K_A(1+T)^D a_{t,T}
+\right)-1.
+\tag{12}
 $$
 
-All full-patch contributions are nonnegative. On \(L_\infty\setminus L_T\), the finite complete patch family contains a successful interaction after time \(T\), hence an \(\mathsf{XO}\)-trail of total length greater than \(T\). The same comparison used in (4) gives
+All full-patch contributions are nonnegative. On \(L_\infty\setminus L_T\), the finite complete patch family contains a successful interaction after time \(T\), hence an \(\mathsf{XO}\)-trail of total length greater than \(T\). The same comparison used for the first part of (4) gives
 
 $$
 \mathbb E_A\left[
@@ -269,14 +378,14 @@ $$
 \right]
 \le
 e^{-\varepsilon T}.
-\tag{8}
+\tag{13}
 $$
 
-Combining (3), (4), (7), and (8) gives
+Combining (3), (4), (12), and (13) gives
 
 $$
 \begin{aligned}
-\left|
+&\left|
 \mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
 -
 \mathbb E_A\left[
@@ -284,16 +393,27 @@ $$
 \ind\left(\left|\mathcal P\right|<\infty\right)
 \right]
 \right|
-\le{}&
-2e^{-\varepsilon T}
 \\
-&+
-K_A(1+T)^D e^{-\varepsilon(t-T)}.
+&\qquad\le
+2e^{-\varepsilon T}
++
+K_A(1+T)^D e^{-\varepsilon(t-T)}
+\\
+&\qquad\quad+
+\exp\left(
+K_A(1+T)^D\kappa e^{-\varepsilon(t-T)}
+\right)-1.
 \end{aligned}
-\tag{9}
+\tag{14}
 $$
 
-Taking \(T=t/2\) proves the stated estimate and the limit. The estimates are uniform in \(\mathbf p\ge\mathbf p^-\), so averaging over a mixing law gives the same result for mixtures.
+Take \(T=t/2\). For all sufficiently large \(t\), the exponent in the last line is at most one, so \(e^x-1\le2x\) shows that the right-hand side is bounded by
+
+$$
+K_A'(1+t)^D e^{-\varepsilon t/2}.
+$$
+
+Increasing \(K_A'\) handles bounded \(t\), proving the stated estimate and the limit. The estimates are uniform in \(\mathbf p\ge\mathbf p^-\), so averaging over a mixing law gives the same result for mixtures.
 
 Finally, if \(\mathbf p^\star\le\frac12\mathbf 1\), then \(\mathbf p^-=\mathbf 0\). Every deterministic law is a product measure because
 
