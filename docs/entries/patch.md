@@ -10,28 +10,39 @@ tags:
 
 # Patch
 
-Fix a [signed additive set process](signed-additive-set-process.md), its [graphical construction](graphical-construction-of-signed-additive-set-process.md), and a horizon \(T<\infty\). Let \(\mathcal I_T^S\) be the type-\(S\) [successful interaction](successful-interaction.md) set.
+Fix a [signed additive set process](signed-additive-set-process.md), its [graphical construction](graphical-construction-of-signed-additive-set-process.md), and the full successful-interaction set \(\mathcal I\). A successful interaction \((i,t,S)\) touches its source \(i\) as an outgoing touch and each target \(j\in S\) as an incoming touch.
 
-A type-\(S\) successful interaction \((i,t,S)\) touches its source \(i\) as an outgoing touch and each target \(j\in S\) as an incoming touch. For \(i\in\Lambda\), define the incoming and outgoing successful-touch times by
+For \(i\in\Lambda\), define
 
 $$
 \begin{aligned}
-\mathcal T_T^{\mathsf I}(i)
+\mathcal T^{\mathsf I}(i)
 &=
-\{t\le T:\exists j\in\Lambda,\ \exists S\ne\vn
-\text{ with }(j,t,S)\in\mathcal I_T^S\text{ and }i\in S\},
+\left\{
+t\ge0:
+\text{some }(j,t,S)\in\mathcal I
+\text{ satisfies }i\in S
+\right\},
 \\
-\mathcal T_T^{\mathsf O}(i)
+\mathcal T^{\mathsf O}(i)
 &=
-\{t\le T:\exists S\ne\vn
-\text{ with }(i,t,S)\in\mathcal I_T^S\}.
+\left\{
+t\ge0:
+\text{some }(i,t,S)\in\mathcal I
+\right\}.
 \end{aligned}
 $$
 
-The initial activity contribution to possible starting times is
+The possible starting times at \(i\) are
 
 $$
-\mathcal S_T^0(i)
+\mathcal S(i)
+=
+\mathcal S^0(i)
+\cup\mathcal T^{\mathsf I}(i)
+\cup\mathcal T^{\mathsf O}(i),
+\qquad
+\mathcal S^0(i)
 =
 \begin{cases}
 \{0\}, & i\in A_0,\\
@@ -39,34 +50,63 @@ $$
 \end{cases}
 $$
 
-The possible initial and terminal boundary times are
+For \(s\in\mathcal S(i)\), let
 
 $$
-\begin{aligned}
-\mathcal S_T(i)
-&=
-\mathcal S_T^0(i)
-\cup\mathcal T_T^{\mathsf I}(i)
-\cup\mathcal T_T^{\mathsf O}(i),
-\\
-\mathcal R_T(i)
-&=
-\{T\}\cup\mathcal T_T^{\mathsf I}(i)\cup\mathcal T_T^{\mathsf O}(i).
-\end{aligned}
+r_i(s)
+=
+\inf\left\{
+u>s:
+u\in\mathcal T^{\mathsf I}(i)\cup\mathcal T^{\mathsf O}(i)
+\right\},
 $$
 
-A patch at \(i\) is a spacetime interval
+with \(\inf\vn=\infty\). The patch beginning at \((i,s)\) is
 
 $$
-P=\{i\}\times [s,t)
+P=\{i\}\times[s,r_i(s)).
 $$
 
-where \(s\in\mathcal S_T(i)\), \(t\in\mathcal R_T(i)\), \(s<t\), and there is no element of \(\mathcal S_T(i)\cup\mathcal R_T(i)\) strictly between \(s\) and \(t\). The set of all patches before horizon \(T\) is denoted by \(\mathcal P_T\).
+The set of all patches is denoted by \(\mathcal P\). A patch is finite when \(r_i(s)<\infty\), and infinite when \(r_i(s)=\infty\).
 
-For \(P=\{i\}\times[s,t)\), the initial and terminal types are
+Every initially active site begins a patch at time \(0\). Every successful interaction cuts spacetime at its source and target sites, ending the preceding patches and beginning new ones at those sites. Every active spacetime point belongs to a patch.
+
+Under the local-finiteness assumption, starting from \(A_0\Subset\Lambda\),
 
 $$
-\operatorname{type}_-(P)
+\left|\mathcal P\right|<\infty
+\quad\Longleftrightarrow\quad
+\left|\mathcal I\right|<\infty.
+$$
+
+Indeed, every successful interaction creates patch boundaries. Conversely, finitely many successful interactions touch only finitely many sites and create only finitely many patches, including the final infinite patches.
+
+## Finite time horizon
+
+For \(T<\infty\) and \(P=\{i\}\times[s,r)\in\mathcal P\) with \(s<T\), define its truncation at \(T\) by
+
+$$
+P^{(T)}
+=
+\{i\}\times[s,\min\{r,T\}).
+$$
+
+The family of all such truncations is denoted by \(\mathcal P_T\). Its incoming and outgoing touch-time sets are
+
+$$
+\mathcal T_T^{\mathsf I}(i)
+=
+\mathcal T^{\mathsf I}(i)\cap[0,T],
+\qquad
+\mathcal T_T^{\mathsf O}(i)
+=
+\mathcal T^{\mathsf O}(i)\cap[0,T].
+$$
+
+For \(P^{(T)}=\{i\}\times[s,t)\), the initial and terminal types are
+
+$$
+\operatorname{type}_-(P^{(T)})
 =
 \begin{cases}
 \mathsf S, & s=0,\\
@@ -74,7 +114,7 @@ $$
 \mathsf O, & s\in\mathcal T_T^{\mathsf O}(i),
 \end{cases}
 \qquad
-\operatorname{type}_+(P)
+\operatorname{type}_+(P^{(T)})
 =
 \begin{cases}
 \mathsf E, & t=T,\\
@@ -86,9 +126,10 @@ $$
 The patch type is
 
 $$
-\operatorname{type}(P)
+\operatorname{type}(P^{(T)})
 =
-\operatorname{type}_-(P)\operatorname{type}_+(P).
+\operatorname{type}_-(P^{(T)})
+\operatorname{type}_+(P^{(T)}).
 $$
 
 The possible types are
@@ -99,22 +140,21 @@ $$
 \mathsf{OI},\ \mathsf{OO},\ \mathsf{OE}.
 $$
 
-The end patches and bulk patches are
+The end and bulk patch sets at horizon \(T\) are
 
 $$
 \mathcal E_T
 =
-\{P\in\mathcal P_T:\operatorname{type}_+(P)=\mathsf E\},
+\left\{
+P\in\mathcal P_T:
+\operatorname{type}_+(P)=\mathsf E
+\right\},
 \qquad
 \mathcal B_T
 =
 \mathcal P_T\setminus\mathcal E_T.
 $$
 
-Equivalently, \(\mathcal B_T\) consists of patches whose terminal boundary is a successful incoming or outgoing touch, while \(\mathcal E_T\) consists of patches reaching the time horizon. The distinction is used in [patch contributions](patch-contribution.md): bulk patches have contribution \(C(P)\), while end patches have contribution \(C(\xi,P)\).
+Thus bulk patches end at successful touches, while end patches are truncations of full patches at the time horizon. Their local factors are defined in [patch contribution](patch-contribution.md).
 
-Every initially active site begins a patch at time \(0\). Every successful interaction cuts spacetime at both its source and target sites, so it is a terminal boundary for the patch immediately before the interaction, if such a patch is present, and an initial boundary for the patch immediately after the interaction at each touched site.
-
-Every active spacetime point is contained in a patch. Interactions outside patches have inactive source, except for interactions on successful boundary times already recorded by \(\mathcal I_T^S\).
-
-On the null event of simultaneous successful touches at the same site, use the deterministic ordering of interactions fixed in the graphical construction.
+On the null event of simultaneous successful touches at the same site, use the deterministic ordering fixed in the graphical construction.

@@ -34,6 +34,9 @@ This page records common notation for the public wiki.
 | \(\chi_A^\theta\) | theta monomial assigning value \(1\) to state \(1\) | algebra/duality |
 | \(\bar\chi_A^\theta\) | theta monomial assigning value \(1\) to state \(0\) | algebra/duality |
 | \((A_t,\sigma_t)\) | finite-set dual process with \(\sigma_t\in\{+,-\}\) | duality |
+| \(\mathcal I_T,\mathcal I\) | successful interactions up to \(T\), and over all time | signed additive set processes |
+| \(\mathcal P_T,\mathcal P\) | horizon-\(T\) patches, and full patches | signed additive set processes |
+| \(\ind(X)\) | indicator of the event or statement \(X\) | probability |
 | \(\nu\) | invariant measure, when unique or distinguished | ergodicity |
 | \(\mu P_t\) | law at time \(t\) started from law \(\mu\) | ergodicity |
 

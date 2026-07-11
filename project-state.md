@@ -34,14 +34,15 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 8. `docs/entries/high-density-measure.md`: mixtures of Bernoulli product measures with profiles above the patch critical density.
 9. `docs/entries/patch-representation-of-spin-systems.md`: representation theorem expressing \(P_t\chi_A\) as an expectation over products of patch contributions.
 10. `docs/entries/monomial-monotonicity-for-high-density-measures.md`: comparison of evolved monomials under ordered high-density mixing profiles and reflected domination below the patch critical density.
-11. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
+11. `docs/entries/monomial-convergence-under-uniform-pure-deaths.md`: common long-time monomial limit under patch positivity and a uniform pure-death component.
+12. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
 
 ## Current signed additive set process entries
 
 1. `docs/entries/signed-additive-set-process.md`: finite-subset process with sign coordinate, deaths, splits, and births.
 2. `docs/entries/graphical-construction-of-signed-additive-set-process.md`: Poisson interaction construction of the signed additive set process.
-3. `docs/entries/successful-interaction.md`: nonempty-target successful-interaction skeletons and the sigma algebra revealing them.
-4. `docs/entries/patch.md`: one-site spacetime intervals cut by successful touches, classified by boundary type, with bulk patches \(\mathcal B_T\) and end patches \(\mathcal E_T\).
+3. `docs/entries/successful-interaction.md`: finite-horizon and full nonempty-target successful-interaction skeletons.
+4. `docs/entries/patch.md`: full one-site spacetime intervals cut by successful touches and their finite-horizon truncations into bulk patches \(\mathcal B_T\) and end patches \(\mathcal E_T\).
 5. `docs/entries/patch-consistency-event.md`: local patch measure, consistency event, and conditioned patch measure.
 
 ## Current KCSM entries

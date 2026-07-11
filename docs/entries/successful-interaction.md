@@ -37,7 +37,15 @@ $$
 \{(i,t,S):(i,t,S)\in\mathcal I_T^S\}.
 $$
 
-Thus \(I\) is the full interaction set, \(\mathcal I_T^S\) is the set of type-\(S\) successful-interaction skeletons before time \(T\), and \(\mathcal I_T\) is the set of all successful-interaction skeletons before time \(T\). Deaths have target set \(\vn\), so they are not successful interactions.
+The set of all successful interactions is
+
+$$
+\mathcal I
+=
+\bigcup_{T<\infty}\mathcal I_T.
+$$
+
+Thus \(I\) is the full Poisson interaction set, \(\mathcal I_T^S\) is the set of type-\(S\) successful interactions before time \(T\), \(\mathcal I_T\) is the set of all successful interactions before time \(T\), and \(\mathcal I\) is their full infinite-time collection. Deaths have target set \(\vn\), so they are not successful interactions.
 
 The successful-interaction sigma algebra is
 

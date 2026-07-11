@@ -41,6 +41,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - High-density measure: `docs/entries/high-density-measure.md`
 - Patch representation of spin systems: `docs/entries/patch-representation-of-spin-systems.md`
 - Monomial monotonicity for high-density measures: `docs/entries/monomial-monotonicity-for-high-density-measures.md`
+- Monomial convergence under uniform pure deaths: `docs/entries/monomial-convergence-under-uniform-pure-deaths.md`
 - Duality noise lemma: `docs/entries/duality-noise-lemma.md`
 
 ## Current signed additive set process entries

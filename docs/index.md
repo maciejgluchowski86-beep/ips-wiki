@@ -32,7 +32,8 @@ A minimal dependency order is:
 8. [High-density measure](entries/high-density-measure.md)
 9. [Patch representation of spin systems](entries/patch-representation-of-spin-systems.md)
 10. [Monomial monotonicity for high-density measures](entries/monomial-monotonicity-for-high-density-measures.md)
-11. [Duality noise lemma](entries/duality-noise-lemma.md)
+11. [Monomial convergence under uniform pure deaths](entries/monomial-convergence-under-uniform-pure-deaths.md)
+12. [Duality noise lemma](entries/duality-noise-lemma.md)
 
 ## Signed additive set processes
 

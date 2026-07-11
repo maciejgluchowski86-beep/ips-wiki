@@ -10,7 +10,7 @@ tags:
 
 # Monomial monotonicity for high-density measures
 
-For a spin system with the [patch positivity property](patch-positivity-property.md), evolved [monomials](monomials.md) are monotone under coordinatewise ordering of the mixing profiles of [high-density measures](high-density-measure.md). A reflected comparison also applies to profiles below the patch critical density.
+For a spin system with the [patch positivity property](patch-positivity-property.md), evolved [monomials](monomials.md) are monotone under coordinatewise ordering of the mixing profiles of [high-density measures](high-density-measure.md). A reflected comparison also applies to profiles below the patch critical density and is used in [monomial convergence under uniform pure deaths](monomial-convergence-under-uniform-pure-deaths.md).
 
 **References.** None yet.
 

@@ -16,6 +16,7 @@ This page records durable style choices for the public IPS wiki.
 - Separate definitions, conventions, standard facts, and proof-dependent claims.
 - Do not present heuristic or project-specific claims as standard literature.
 - Keep notation close to the research repo conventions when possible.
+- Write indicators in function form as \(\ind(X)\), not with the event in a subscript.
 - Use `\varepsilon`, not `\epsilon`.
 - Use TeX delimiters `\(...\)` for inline math and `$$...$$` for displayed math.
 - Do not put private strategy, raw scratch work, credentials, personal data, or unpublished claims without proof status into this public repository.

@@ -56,6 +56,8 @@ $$
 \mathcal N^0\chi_A=-\left(\sum_{i\in A}d_i\right)\chi_A.
 $$
 
+The uniform version of this perturbation is used in [monomial convergence under uniform pure deaths](monomial-convergence-under-uniform-pure-deaths.md).
+
 For the conjugate monomial, the \(\theta=0\) barred [theta monomial](theta-monomials.md)
 
 $$

@@ -10,7 +10,7 @@ tags:
 
 # Patch contribution
 
-This entry gives the local factors \(C(P)\) and \(C(\xi,P)\) used in the [patch representation of spin systems](patch-representation-of-spin-systems.md). The [patch positivity property](patch-positivity-property.md) gives a coefficient criterion under which all bulk factors are nonnegative, while the [patch critical density](patch-critical-density.md) determines when the affine end factors are nonnegative.
+This entry gives the local factors \(C(P)\) and \(C(\xi,P)\) used in the [patch representation of spin systems](patch-representation-of-spin-systems.md). A finite full patch has a contribution \(C(P)\), while a patch truncated at a time horizon has a terminal contribution depending on the configuration or its one-density profile. The [patch positivity property](patch-positivity-property.md) gives a coefficient criterion under which all finite-patch factors are nonnegative, while the [patch critical density](patch-critical-density.md) determines when the affine terminal factors are nonnegative.
 
 Let
 
@@ -112,6 +112,39 @@ C^{\mathbf p}(P)=C^{p_i}(P)
 $$
 
 when \(P\) is based at \(i\). The [patch critical density](patch-critical-density.md) is the smallest profile for which these affine end contributions are nonnegative.
+
+## Contributions of full patches
+
+Let \(\mathcal P\) be the full patch family from the [patch](patch.md) entry. If \(P\in\mathcal P\) is finite, its contribution \(C(P)\) is the corresponding bulk contribution in the dual-rate display above.
+
+Suppose that \(P=\{i\}\times[s,\infty)\) is infinite. When the terminal contributions of its truncations have a common finite limit independent of the terminal density, define
+
+$$
+C(P)
+=
+\lim_{T\to\infty}C^p(P^{(T)}).
+$$
+
+This definition applies almost surely to the infinite patches occurring under the uniform pure-death assumption used in [monomial convergence under uniform pure deaths](monomial-convergence-under-uniform-pure-deaths.md). Indeed,
+
+$$
+c_i^1(\xi)\ge\varepsilon>0
+\qquad\text{for every }\xi
+$$
+
+implies
+
+$$
+c_i^0(\vn)+c_i^1(\vn)\ge\varepsilon.
+$$
+
+In the end-patch formulas before the consistency normalization is cancelled against the skeleton weight, all dependence on \(p\) is carried by
+
+$$
+p\,e^{-(c_i^0(\vn)+c_i^1(\vn))\Delta},
+$$
+
+so it disappears as \(\Delta\to\infty\). The same conclusion holds for the normalized contribution whenever the infinite patch has positive skeleton weight; zero-weight exceptional patches do not affect the representation. The remaining limit is the same for every \(p\in[0,1]\). Under patch positivity it is nonnegative.
 
 ## Spin-system rate form
 
