@@ -89,7 +89,7 @@ $$
 \mathcal N^0f(\xi)
 =
 \sum_{i\in\Lambda}
-\xi(i)\left(f(\xi^{i,0})-f(\xi)\right).
+\left(f(\xi^{i,0})-f(\xi)\right).
 $$
 
 By the [duality noise lemma](duality-noise-lemma.md), \(\cL\) and \(\cL^\varepsilon\) have the same signed dual process and the same full [successful-interaction](successful-interaction.md) set \(\mathcal I\). Write \(P_t^\varepsilon\) and \(C^\varepsilon\) for the semigroup and patch contributions associated with \(\cL^\varepsilon\).
@@ -138,7 +138,7 @@ $$
 The positive comparison weight is
 
 $$
-\widehat W_t
+W_t^\varepsilon
 =
 \prod_{P\in\mathcal B_t}C^\varepsilon(P)
 \prod_{P\in\mathcal E_t}C^{\varepsilon,\mathbf 1}(P).
@@ -147,7 +147,7 @@ $$
 Its total mass satisfies
 
 $$
-\mathbb E_A\left[\widehat W_t\right]
+\mathbb E_A\left[W_t^\varepsilon\right]
 =
 \mu_{\mathbf 1}\bigl(P_t^\varepsilon(\chi_A)\bigr)
 \le1.
@@ -198,7 +198,7 @@ K_A(1+T)^D e^{-\varepsilon(t-T)},
 \tag{4}
 $$
 
-Every successful interaction \((i,u,S)\) has a trail of patches leading to its source. To construct it, trace the active source at time \(u\) backwards. It either descends from an initially active site or was activated as the target of an earlier successful interaction. Iterating backwards and then reversing the sequence gives a trail from time \(0\) to time \(u\). Every patch in the trail ends at an outgoing touch, hence is of type \(\mathsf{XO}\), and
+Every successful interaction \((i,u,S)\) has a trail of \(\mathsf{XO})-type patches leading to its source. This is because every successful interaction ends a patch with an outgoing interaction and every patch begins with a successful interaction. Hence one can trace backward in time a sequence of \(\mathsf{OO}\) and \(\mathsf{IO}\) patches, ending with an \(\mathsf{SO}\) patch. The trail spans time up to \(u\), so
 
 $$
 \sum_{P\text{ in the trail}}\Delta(P)\ge u.
@@ -213,7 +213,7 @@ e^{-\varepsilon u}
 e^{-\varepsilon T}.
 $$
 
-Equations (1) and (2) dominate all remaining factors by \(\widehat W_t\), so this part of the expectation is at most \(e^{-\varepsilon T}\).
+Equations (1) and (2) dominate all remaining factors by \(W_t^\varepsilon\), so this part of the expectation is at most \(e^{-\varepsilon T}\).
 
 It remains to consider \(L_T^c\cap L_{T,t}\).
 
@@ -244,14 +244,14 @@ $$
 Condition on \(\cG_t\). This fixes the end patches and leaves their internal data independent. On the event in the summand of (6), the pure-death noise acts for at least \(t-T\) units of active time. Removing this noise and replacing the terminal density by \(\mathbf 1\) bounds that summand by
 
 $$
-e^{-\varepsilon(t-T)}\widehat W_t.
+e^{-\varepsilon(t-T)}W_t^\varepsilon.
 $$
 
 On \(L_{T,t}\), the end-patch sites at time \(t\) are the end-patch sites at time \(T\). Finite spread of information on a polynomial-growth lattice gives the marked comparison estimate
 
 $$
 \mathbb E_A\left[
-\left|\mathcal E_T\right|\widehat W_t
+\left|\mathcal E_T\right|W_t^\varepsilon
 \right]
 \le
 K_A(1+T)^D.
@@ -335,7 +335,7 @@ We now use finite spread in the stronger factorial-moment form required by (10).
 
 $$
 \mathbb E_A\left[
-\widehat W_t
+W_t^\varepsilon
 \binom{N_T}{k}
 \ind(L_T)
 \right]
@@ -344,7 +344,7 @@ $$
 \tag{11}
 $$
 
-Indeed, every end-patch site is either in \(A\) or is reached by a graphical path of successful interactions before time \(T\). For \(k\) distinct sites, sum over the corresponding \(k\)-tuples of graphical paths. Uniformly bounded finite-range interaction rates give the usual finite-speed path bound, and polynomial volume growth leaves at most order \((1+T)^{Dk}\) choices. Division by \(k!\) removes the ordering of the selected sites. The positive all-one comparison weight has total mass at most one, so the same counting applies with the factor \(\widehat W_t\).
+Indeed, every end-patch site is either in \(A\) or is reached by a graphical path of successful interactions before time \(T\). For \(k\) distinct sites, sum over the corresponding \(k\)-tuples of graphical paths. Uniformly bounded finite-range interaction rates give the usual finite-speed path bound, and polynomial volume growth leaves at most order \((1+T)^{Dk}\) choices. Division by \(k!\) removes the ordering of the selected sites. The positive all-one comparison weight has total mass at most one, so the same counting applies with the factor \(W_t^\varepsilon\).
 
 Let
 
