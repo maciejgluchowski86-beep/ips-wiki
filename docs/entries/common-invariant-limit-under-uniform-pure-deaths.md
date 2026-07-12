@@ -26,6 +26,14 @@ c_i^1(\xi)\ge\varepsilon
 \text{ and }\xi\in\{0,1\}^{\Lambda}.
 $$
 
+Assume also that the positive numbers \(\alpha_i\) from the [patch-contribution formulas](patch-contribution.md) are uniformly bounded away from zero:
+
+$$
+\inf_{i:\alpha_i>0}\alpha_i>0,
+$$
+
+with the infimum of the empty set understood as \(+\infty\).
+
 Set
 
 $$
@@ -34,14 +42,14 @@ $$
 \left(2\mathbf p^\star-\mathbf 1\right)\vee\mathbf 0.
 $$
 
-Then there is an [invariant probability measure](invariant-measure.md) \(\pi\) such that, for every local function \(f\), there is \(K_f<\infty\) for which
+Then there are an [invariant probability measure](invariant-measure.md) \(\pi\) and \(\gamma>0\) such that, for every local function \(f\), there is \(K_f<\infty\) for which
 
 $$
 \left|
 \nu(P_tf)-\pi(f)
 \right|
 \le
-K_f(1+t)^D e^{-\varepsilon t/2}.
+K_f(1+t)^D e^{-\gamma t}.
 $$
 
 The estimate is uniform over all mixtures \(\nu\) of Bernoulli product measures whose mixing laws are supported on one-density profiles satisfying \(\mathbf p\ge\mathbf p^-\). Consequently \(\nu P_t\) converges weakly to \(\pi\) for every such mixture. In particular, every [high-density measure](high-density-measure.md) converges to \(\pi\).
@@ -425,38 +433,62 @@ r_i=c_i^0(\vn)+c_i^1(\vn),
 d_i=\delta_i(\vn).
 $$
 
-Thus \(r_i\ge\varepsilon\). Write \(\varphi_i^\infty\) and \(\psi_i^\infty\) for the limits of \(\varphi_i(\ell)\) and \(\psi_i(\ell,p)\) as \(\ell\to\infty\). The latter is independent of \(p\). From the explicit formulas,
+Thus \(r_i\ge\varepsilon\). Set
+
+$$
+\gamma_0
+=
+\min\left\{
+\varepsilon,
+\inf_{i:\alpha_i>0}\alpha_i
+\right\}>0.
+$$
+
+Write \(\varphi_i^\infty\) and \(\psi_i^\infty\) for the limits of \(\varphi_i(\ell)\) and \(\psi_i(\ell,p)\) as \(\ell\to\infty\). The latter is independent of \(p\). The explicit formulas give
 
 $$
 \begin{aligned}
+\left|
 \psi_i(\ell,p)-\psi_i^\infty
+\right|
 &=
-\left(
+\left|
 p-\frac{d_i}{r_i}
-\right)e^{-r_i\ell},
+\right|e^{-r_i\ell}
+\le
+e^{-\gamma_0\ell},
 \\
+\left|
 \varphi_i(\ell)-\varphi_i^\infty
+\right|
 &=
-\left(
+\left|
 1-\frac{d_i}{\alpha_i}
-\right)e^{-\alpha_i\ell}
+\right|e^{-\alpha_i\ell}
+\le
+e^{-\gamma_0\ell}
 \qquad
-\text{when }\alpha_i>0.
+\text{if }\alpha_i>0.
 \end{aligned}
 $$
 
-When \(\alpha_i=0\), one has \(d_i=0\) and \(\varphi_i(\ell)=1\), so the second difference vanishes. Write \(\psi_i^\varepsilon\) for the function \(\psi_i\) associated with \(\cL^\varepsilon\). After decreasing \(\varepsilon\) if necessary, the exponential remainders in these formulas are bounded by \(e^{-\varepsilon\ell}\). On the positive-weight skeletons under consideration, the limiting denominators below are positive. Since \(\ell\ge t-T\), the two common end-patch types satisfy
+If \(\alpha_i=0\), then \(d_i=0\) and \(\varphi_i(\ell)=1\), so the second difference is zero. Write \(\psi_i^\varepsilon\) for the function \(\psi_i\) associated with \(\cL^\varepsilon\).
+
+Consider first an \(\mathsf{SE}\) or \(\mathsf{IE}\) patch. If \(d_i>0\), then
+
+$$
+C_t^\varepsilon(P)
+=
+\frac{\psi_i^\varepsilon(\ell,1)}{\varphi_i(\ell)}
+\longrightarrow
+\frac{\alpha_i}{r_i-\varepsilon}>0.
+$$
+
+Using the preceding two remainder bounds in the quotient identity gives
 
 $$
 \begin{aligned}
 \Delta_t(P)
-&=
-\left|
-\frac{\psi_i(\ell,p_i)}{\varphi_i(\ell)}
--
-\frac{\psi_i^\infty}{\varphi_i^\infty}
-\right|
-\\
 &=
 \frac{
 \left|
@@ -474,17 +506,33 @@ $$
 }
 \\
 &\le
-\kappa e^{-\varepsilon(t-T)}
-\frac{\psi_i^\varepsilon(\ell,1)}{\varphi_i(\ell)}
-\\
-&=
-\kappa e^{-\varepsilon(t-T)}C_t^\varepsilon(P),
-\qquad
-\operatorname{type}(P^{(t)})\in\{\mathsf{SE},\mathsf{IE}\}.
+\kappa e^{-\gamma_0\ell}C_t^\varepsilon(P).
 \end{aligned}
 $$
 
-For an \(\mathsf{OE}\) patch with initial target \(S\), put
+If \(d_i=0\), the formulas reduce to
+
+$$
+C^{\mathbf p}(P^{(t)})
+=
+p_i e^{-(r_i-\alpha_i)\ell},
+\qquad
+C_t^\varepsilon(P)
+=
+e^{-(r_i-\varepsilon-\alpha_i)\ell}.
+$$
+
+On every positive-weight infinite patch for which the full-patch limit is used, \(C(P)=0\), and therefore
+
+$$
+\Delta_t(P)
+=
+p_i e^{-\varepsilon\ell}C_t^\varepsilon(P)
+\le
+e^{-\gamma_0\ell}C_t^\varepsilon(P).
+$$
+
+Now consider an \(\mathsf{OE}\) patch with initial target \(S\). Put
 
 $$
 \begin{aligned}
@@ -500,18 +548,13 @@ D_i(\ell)
 \end{aligned}
 $$
 
-and denote their limits by \(N_i^\infty\) and \(D_i^\infty\). Let \(N_i^{\varepsilon,1}(\ell)\) be the same numerator with \(\psi_i(\ell,p)\) replaced by \(\psi_i^\varepsilon(\ell,1)\). The third end-patch formula gives
+and denote their limits by \(N_i^\infty\) and \(D_i^\infty\). Let \(N_i^{\varepsilon,1}(\ell)\) be the same numerator with \(\psi_i(\ell,p)\) replaced by \(\psi_i^\varepsilon(\ell,1)\).
+
+Suppose first that \(D_i^\infty>0\), equivalently \(d_i>0\) or \(\delta_i(S)>0\). If the residual numerator vanishes identically, then \(\Delta_t(P)=0\). Otherwise patch positivity makes its limit positive, and the quotient calculation gives
 
 $$
 \begin{aligned}
 \Delta_t(P)
-&=
-\left|
-\frac{N_i^{p_i}(\ell)}{D_i(\ell)}
--
-\frac{N_i^\infty}{D_i^\infty}
-\right|
-\\
 &=
 \frac{
 \left|
@@ -529,26 +572,56 @@ D_i(\ell)D_i^\infty
 }
 \\
 &\le
-\kappa e^{-\varepsilon(t-T)}
-\frac{
-N_i^{\varepsilon,1}(\ell)
-}{
-D_i(\ell)
-}
+\kappa e^{-\gamma_0\ell}
+\frac{N_i^{\varepsilon,1}(\ell)}{D_i(\ell)}
 \\
 &=
-\kappa e^{-\varepsilon(t-T)}C_t^\varepsilon(P).
+\kappa e^{-\gamma_0\ell}C_t^\varepsilon(P).
 \end{aligned}
 $$
 
-The same \(\kappa<\infty\) may be used in the three cases. Together with the positive comparison for the limiting factor, this gives
+It remains to consider \(D_i^\infty=0\). Then
+
+$$
+d_i=0,
+\qquad
+\delta_i(S)=0.
+$$
+
+Patch positivity gives
+
+$$
+\beta_i(S)\sigma_i^\beta(S)\ge0,
+$$
+
+so the common nonzero factors in numerator and denominator cancel and the two contributions reduce to
+
+$$
+C^{\mathbf p}(P^{(t)})
+=
+p_i e^{-(r_i-\alpha_i)\ell},
+\qquad
+C_t^\varepsilon(P)
+=
+e^{-(r_i-\varepsilon-\alpha_i)\ell}.
+$$
+
+Thus either the contribution vanishes identically, or
+
+$$
+\Delta_t(P)
+\le
+e^{-\gamma_0\ell}C_t^\varepsilon(P).
+$$
+
+Since \(\ell\ge t-T\), the same \(\kappa<\infty\) may be used in the three end-patch rows. Together with the positive comparison for the limiting factor, this gives
 
 $$
 0\le C(P)\le C_t^\varepsilon(P),
 \qquad
 \Delta_t(P)
 \le
-\kappa e^{-\varepsilon(t-T)}C_t^\varepsilon(P).
+\kappa e^{-\gamma_0(t-T)}C_t^\varepsilon(P).
 \tag{9}
 $$
 
@@ -564,7 +637,7 @@ $$
 \prod_{P\in\mathcal E_\infty}C_t^\varepsilon(P)
 \left[
 \left(
-1+\kappa e^{-\varepsilon(t-T)}
+1+\kappa e^{-\gamma_0(t-T)}
 \right)^{|\mathcal E_\infty|}
 -1
 \right].
@@ -604,7 +677,7 @@ W_t^{\mathbf p}\ind(L_T)
 &\quad\le
 \sum_{k\ge1}
 \left(
-\kappa e^{-\varepsilon(t-T)}
+\kappa e^{-\gamma_0(t-T)}
 \right)^k
 \mathbb E_A\left[
 W_t^\varepsilon
@@ -616,13 +689,13 @@ W_t^\varepsilon
 \sum_{k\ge1}
 \frac{
 \left(
-K_A(1+T)^D\kappa e^{-\varepsilon(t-T)}
+K_A(1+T)^D\kappa e^{-\gamma_0(t-T)}
 \right)^k
 }{k!}
 \\
 &\quad=
 \exp\left(
-K_A(1+T)^D\kappa e^{-\varepsilon(t-T)}
+K_A(1+T)^D\kappa e^{-\gamma_0(t-T)}
 \right)-1.
 \end{aligned}
 \tag{12}
@@ -660,7 +733,7 @@ K_A(1+T)^D e^{-\varepsilon(t-T)}
 \\
 &\qquad\quad+
 \exp\left(
-K_A(1+T)^D\kappa e^{-\varepsilon(t-T)}
+K_A(1+T)^D\kappa e^{-\gamma_0(t-T)}
 \right)-1.
 \end{aligned}
 \tag{14}
@@ -669,10 +742,10 @@ $$
 Take \(T=t/2\). For all sufficiently large \(t\), the exponent in the last line is at most one, so \(e^x-1\le2x\) shows that the right-hand side is bounded by
 
 $$
-K_A'(1+t)^D e^{-\varepsilon t/2}.
+K_A'(1+t)^D e^{-\gamma_0 t/2}.
 $$
 
-Increasing \(K_A'\) handles bounded \(t\), proving the estimate for each monomial. The estimates are uniform in \(\mathbf p\ge\mathbf p^-\), so averaging over a mixing law gives the same result for mixtures.
+Increasing \(K_A'\) handles bounded \(t\), proving the estimate for each monomial with \(\gamma=\gamma_0/2\). The estimates are uniform in \(\mathbf p\ge\mathbf p^-\), so averaging over a mixing law gives the same result for mixtures.
 
 Every local function depending on a finite set \(S\) has a finite [monomial](monomials.md) expansion
 
@@ -706,13 +779,13 @@ $$
 \delta_\xi=\mu_{\mathbf \xi}.
 $$
 
-Thus the theorem's estimate holds uniformly over all deterministic initial configurations and hence over all initial laws. If \(\rho\) is invariant, then for every local function \(f\),
+Thus the theorem's estimate holds uniformly over all deterministic initial configurations and hence over all initial laws. If \(\widetilde\pi\) is invariant, then for every local function \(f\),
 
 $$
-\left|\rho(f)-\pi(f)\right|
+\left|\widetilde\pi(f)-\pi(f)\right|
 =
-\left|\rho(P_tf)-\pi(f)\right|
+\left|\widetilde\pi(P_tf)-\pi(f)\right|
 \longrightarrow0,
 $$
 
-so \(\rho=\pi\). Absorbing the polynomial factor into a slightly smaller exponential rate proves uniform exponential ergodicity on local functions.
+so \(\widetilde\pi=\pi\). Absorbing the polynomial factor into a slightly smaller exponential rate proves uniform exponential ergodicity on local functions.

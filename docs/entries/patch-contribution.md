@@ -146,16 +146,33 @@ $$
 
 so it disappears as \(\Delta\to\infty\). The same conclusion holds for the normalized contribution whenever the infinite patch has positive skeleton weight; zero-weight exceptional patches do not affect the representation.
 
-The limiting contribution may be zero, so a relative estimate with \(C(P)\) on the right need not hold. Let \(C^{\varepsilon,1}\) denote the all-one contribution for the generator with the uniform pure-death noise removed. With uniformly bounded rates, the end-patch formulas instead give
+Let \(C^{\varepsilon,1}\) denote the all-one contribution for the generator with the uniform pure-death noise removed. If
+
+$$
+\inf_{i:\alpha_i>0}\alpha_i>0,
+$$
+
+set
+
+$$
+\gamma_0
+=
+\min\left\{
+\varepsilon,
+\inf_{i:\alpha_i>0}\alpha_i
+\right\}.
+$$
+
+The three end-patch formulas give
 
 $$
 \left|C^p(P^{(T)})-C(P)\right|
 \le
-\kappa e^{-\varepsilon(T-s)}
+\kappa e^{-\gamma_0(T-s)}
 C^{\varepsilon,1}(P^{(T)})
 $$
 
-for \(P=\{i\}\times[s,\infty)\), uniformly in \(p\in[0,1]\). Before the consistency normalization is applied one may take \(\kappa=1\); the constant allows for the fixed normalization in the displayed contribution formulas. Under patch positivity the limiting contribution is nonnegative.
+for \(P=\{i\}\times[s,\infty)\), uniformly in \(p\in[0,1]\). In the nondegenerate rows, \(C^{\varepsilon,1}(P^{(T)})\) has a positive limit and the bound follows from the \(e^{-r_i(T-s)}\) and \(e^{-\alpha_i(T-s)}\) remainders in \(\psi_i\) and \(\varphi_i\). In the degenerate rows where the comparison contribution tends to zero, cancellation in the explicit formula gives the stronger exact relative factor \(e^{-\varepsilon(T-s)}\). The calculation is written out in the [common invariant-limit theorem](common-invariant-limit-under-uniform-pure-deaths.md). Under patch positivity the limiting contribution is nonnegative.
 
 ## Spin-system rate form
 
