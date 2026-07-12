@@ -198,7 +198,7 @@ K_A(1+T)^D e^{-\varepsilon(t-T)},
 \tag{4}
 $$
 
-Every successful interaction \((i,u,S)\) has a trail of \(\mathsf{XO})-type patches leading to its source. This is because every successful interaction ends a patch with an outgoing interaction and every patch begins with a successful interaction. Hence one can trace backward in time a sequence of \(\mathsf{OO}\) and \(\mathsf{IO}\) patches, ending with an \(\mathsf{SO}\) patch. The trail spans time up to \(u\), so
+Every successful interaction \((i,u,S)\) has a trail of \(\mathsf{XO}\)-type patches leading to its source. This is because every successful interaction ends a patch with an outgoing interaction and every patch begins with a successful interaction. Hence one can trace backward in time a sequence of \(\mathsf{OO}\) and \(\mathsf{IO}\) patches, ending with an \(\mathsf{SO}\) patch. The trail spans time up to \(u\), so
 
 $$
 \sum_{P\text{ in the trail}}\Delta(P)\ge u.
