@@ -417,102 +417,138 @@ C^{\mathbf p}(P^{(t)})-C(P)
 \right|.
 $$
 
-We derive the single-patch error before taking the patch-internal expectation. Let \(f_{P,t}^{\mathbf p}\), \(f_{P,\infty}\), and \(f_{P,t}^{\varepsilon,\mathbf 1}\) be the pre-averaged local factors defining \(C^{\mathbf p}(P^{(t)})\), \(C(P)\), and \(C_t^\varepsilon(P)\), coupled through the same patch-internal data. The finite and infinite factors agree if the site becomes inactive before time \(t\). On the remaining event the site is active throughout \([T,t]\). The absolute value of each original factor is bounded by the all-one factor with the noise removed, while the noise identity supplies the active-time exponential. Hence
+Let \(P\) be based at \(i\), put \(\ell=t-s_-(P)\), and write
+
+$$
+r_i=c_i^0(\vn)+c_i^1(\vn),
+\qquad
+d_i=\delta_i(\vn).
+$$
+
+Thus \(r_i\ge\varepsilon\). Write \(\varphi_i^\infty\) and \(\psi_i^\infty\) for the limits of \(\varphi_i(\ell)\) and \(\psi_i(\ell,p)\) as \(\ell\to\infty\). The latter is independent of \(p\). From the explicit formulas,
 
 $$
 \begin{aligned}
-&\left|
-f_{P,t}^{\mathbf p}-f_{P,\infty}
-\right|
-\ind\left(
-X_u^P=1
-\text{ for every }u\in[T,t]
-\right)
-\\
-&\qquad\le
+\psi_i(\ell,p)-\psi_i^\infty
+&=
 \left(
-\left|f_{P,t}^{\mathbf p}\right|
-+
-\left|f_{P,\infty}\right|
-\right)
-\ind\left(
-X_u^P=1
-\text{ for every }u\in[T,t]
-\right)
+p-\frac{d_i}{r_i}
+\right)e^{-r_i\ell},
 \\
-&\qquad\le
-2
-\exp\left(
--\varepsilon\int_T^tX_u^P\,du
-\right)
-f_{P,t}^{\varepsilon,\mathbf 1}
-\ind\left(
-X_u^P=1
-\text{ for every }u\in[T,t]
-\right)
-\\
-&\qquad\le
-2e^{-\varepsilon(t-T)}
-f_{P,t}^{\varepsilon,\mathbf 1}.
+\varphi_i(\ell)-\varphi_i^\infty
+&=
+\left(
+1-\frac{d_i}{\alpha_i}
+\right)e^{-\alpha_i\ell}
+\qquad
+\text{when }\alpha_i>0.
 \end{aligned}
 $$
 
-Taking the patch-internal expectation now gives the required bound explicitly:
+When \(\alpha_i=0\), one has \(d_i=0\) and \(\varphi_i(\ell)=1\), so the second difference vanishes. Write \(\psi_i^\varepsilon\) for the function \(\psi_i\) associated with \(\cL^\varepsilon\). After decreasing \(\varepsilon\) if necessary, the exponential remainders in these formulas are bounded by \(e^{-\varepsilon\ell}\). On the positive-weight skeletons under consideration, the limiting denominators below are positive. Since \(\ell\ge t-T\), the two common end-patch types satisfy
 
 $$
 \begin{aligned}
 \Delta_t(P)
 &=
 \left|
-\mathbb E_P^{\operatorname{cons}}\left[
-f_{P,t}^{\mathbf p}-f_{P,\infty}
-\right]
+\frac{\psi_i(\ell,p_i)}{\varphi_i(\ell)}
+-
+\frac{\psi_i^\infty}{\varphi_i^\infty}
 \right|
 \\
 &=
+\frac{
 \left|
-\mathbb E_P^{\operatorname{cons}}\left[
 \left(
-f_{P,t}^{\mathbf p}-f_{P,\infty}
+\psi_i(\ell,p_i)-\psi_i^\infty
+\right)\varphi_i^\infty
++
+\psi_i^\infty
+\left(
+\varphi_i^\infty-\varphi_i(\ell)
 \right)
-\ind\left(
-X_u^P=1
-\text{ for every }u\in[T,t]
-\right)
-\right]
 \right|
+}{
+\varphi_i(\ell)\varphi_i^\infty
+}
 \\
 &\le
-\mathbb E_P^{\operatorname{cons}}\left[
-\left|
-f_{P,t}^{\mathbf p}-f_{P,\infty}
-\right|
-\ind\left(
-X_u^P=1
-\text{ for every }u\in[T,t]
-\right)
-\right]
-\\
-&\le
-2e^{-\varepsilon(t-T)}
-\mathbb E_P^{\operatorname{cons}}\left[
-f_{P,t}^{\varepsilon,\mathbf 1}
-\right]
+\kappa e^{-\varepsilon(t-T)}
+\frac{\psi_i^\varepsilon(\ell,1)}{\varphi_i(\ell)}
 \\
 &=
-2e^{-\varepsilon(t-T)}
-C_t^\varepsilon(P).
+\kappa e^{-\varepsilon(t-T)}C_t^\varepsilon(P),
+\qquad
+\operatorname{type}(P^{(t)})\in\{\mathsf{SE},\mathsf{IE}\}.
 \end{aligned}
 $$
 
-Together with the positive comparison for the limiting factor, this gives
+For an \(\mathsf{OE}\) patch with initial target \(S\), put
+
+$$
+\begin{aligned}
+N_i^p(\ell)
+&=
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\ell,p),
+\\
+D_i(\ell)
+&=
+\delta_i(S)+\beta_i(S)\varphi_i(\ell),
+\end{aligned}
+$$
+
+and denote their limits by \(N_i^\infty\) and \(D_i^\infty\). Let \(N_i^{\varepsilon,1}(\ell)\) be the same numerator with \(\psi_i(\ell,p)\) replaced by \(\psi_i^\varepsilon(\ell,1)\). The third end-patch formula gives
+
+$$
+\begin{aligned}
+\Delta_t(P)
+&=
+\left|
+\frac{N_i^{p_i}(\ell)}{D_i(\ell)}
+-
+\frac{N_i^\infty}{D_i^\infty}
+\right|
+\\
+&=
+\frac{
+\left|
+\left(
+N_i^{p_i}(\ell)-N_i^\infty
+\right)D_i^\infty
++
+N_i^\infty
+\left(
+D_i^\infty-D_i(\ell)
+\right)
+\right|
+}{
+D_i(\ell)D_i^\infty
+}
+\\
+&\le
+\kappa e^{-\varepsilon(t-T)}
+\frac{
+N_i^{\varepsilon,1}(\ell)
+}{
+D_i(\ell)
+}
+\\
+&=
+\kappa e^{-\varepsilon(t-T)}C_t^\varepsilon(P).
+\end{aligned}
+$$
+
+The same \(\kappa<\infty\) may be used in the three cases. Together with the positive comparison for the limiting factor, this gives
 
 $$
 0\le C(P)\le C_t^\varepsilon(P),
 \qquad
 \Delta_t(P)
 \le
-2e^{-\varepsilon(t-T)}C_t^\varepsilon(P).
+\kappa e^{-\varepsilon(t-T)}C_t^\varepsilon(P).
 \tag{9}
 $$
 
@@ -528,7 +564,7 @@ $$
 \prod_{P\in\mathcal E_\infty}C_t^\varepsilon(P)
 \left[
 \left(
-1+2e^{-\varepsilon(t-T)}
+1+\kappa e^{-\varepsilon(t-T)}
 \right)^{|\mathcal E_\infty|}
 -1
 \right].
@@ -568,7 +604,7 @@ W_t^{\mathbf p}\ind(L_T)
 &\quad\le
 \sum_{k\ge1}
 \left(
-2e^{-\varepsilon(t-T)}
+\kappa e^{-\varepsilon(t-T)}
 \right)^k
 \mathbb E_A\left[
 W_t^\varepsilon
@@ -580,13 +616,13 @@ W_t^\varepsilon
 \sum_{k\ge1}
 \frac{
 \left(
-2K_A(1+T)^D e^{-\varepsilon(t-T)}
+K_A(1+T)^D\kappa e^{-\varepsilon(t-T)}
 \right)^k
 }{k!}
 \\
 &\quad=
 \exp\left(
-2K_A(1+T)^D e^{-\varepsilon(t-T)}
+K_A(1+T)^D\kappa e^{-\varepsilon(t-T)}
 \right)-1.
 \end{aligned}
 \tag{12}
@@ -624,7 +660,7 @@ K_A(1+T)^D e^{-\varepsilon(t-T)}
 \\
 &\qquad\quad+
 \exp\left(
-2K_A(1+T)^D e^{-\varepsilon(t-T)}
+K_A(1+T)^D\kappa e^{-\varepsilon(t-T)}
 \right)-1.
 \end{aligned}
 \tag{14}
