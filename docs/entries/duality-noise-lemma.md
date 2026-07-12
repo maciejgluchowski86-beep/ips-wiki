@@ -46,7 +46,7 @@ pure deaths are noise. If
 $$
 \mathcal N^0 f(\eta)
 =
-\sum_{i\in\Lambda}d_i\eta(i)\left(f(\eta^{i,0})-f(\eta)\right),
+\sum_{i\in\Lambda}d_i\left(f(\eta^{i,0})-f(\eta)\right),
 \qquad d_i\ge0,
 $$
 
@@ -69,7 +69,7 @@ pure births are noise. If
 $$
 \mathcal N^1 f(\eta)
 =
-\sum_{i\in\Lambda}b_i(1-\eta(i))\left(f(\eta^{i,1})-f(\eta)\right),
+\sum_{i\in\Lambda}b_i\left(f(\eta^{i,1})-f(\eta)\right),
 \qquad b_i\ge0,
 $$
 
