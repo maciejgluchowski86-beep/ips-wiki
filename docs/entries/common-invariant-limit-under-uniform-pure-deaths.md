@@ -205,15 +205,60 @@ $$
 \tag{5}
 $$
 
-First consider \(L_T^c\cap L_{T,t}^c\). Choose the first successful interaction after time \(T\), and let \(u\le t\) be its time. Equations (1) and (5) contribute a factor at most
+First consider \(L_T^c\cap L_{T,t}^c\). Choose the first successful interaction after time \(T\), let \(u\le t\) be its time, and denote its trail by \(\Gamma_u\). Every patch in \(\Gamma_u\) is a bulk patch, so (1) and (5) give
 
 $$
+\begin{aligned}
+\prod_{P\in\Gamma_u}C(P)
+&=
+\exp\left(
+-\varepsilon
+\sum_{P\in\Gamma_u}\Delta(P)
+\right)
+\prod_{P\in\Gamma_u}C^\varepsilon(P)
+\\
+&\le
 e^{-\varepsilon u}
-\le
-e^{-\varepsilon T}.
+\prod_{P\in\Gamma_u}C^\varepsilon(P)
+\\
+&\le
+e^{-\varepsilon T}
+\prod_{P\in\Gamma_u}C^\varepsilon(P).
+\end{aligned}
 $$
 
-Equations (1) and (2) dominate all remaining factors by \(W_t^\varepsilon\), so this part of the expectation is at most \(e^{-\varepsilon T}\).
+Apply \(C(P)\le C^\varepsilon(P)\) to the other bulk patches and (2) to the end patches. Pointwise on \(L_T^c\cap L_{T,t}^c\),
+
+$$
+\left|W_t^{\mathbf p}\right|
+\le
+e^{-\varepsilon T}W_t^\varepsilon.
+$$
+
+Therefore
+
+$$
+\begin{aligned}
+\left|
+\mathbb E_A\left[
+W_t^{\mathbf p}
+\ind\left(L_T^c\cap L_{T,t}^c\right)
+\right]
+\right|
+&\le
+\mathbb E_A\left[
+\left|W_t^{\mathbf p}\right|
+\ind\left(L_T^c\cap L_{T,t}^c\right)
+\right]
+\\
+&\le
+e^{-\varepsilon T}
+\mathbb E_A\left[W_t^\varepsilon\right]
+\\
+&\le
+e^{-\varepsilon T}.
+\end{aligned}
+$$
 
 It remains to consider \(L_T^c\cap L_{T,t}\).
 
@@ -241,10 +286,44 @@ X_u^P=1
 \tag{6}
 $$
 
-Condition on \(\cG_t\). This fixes the end patches and leaves their internal data independent. On the event in the summand of (6), the pure-death noise acts for at least \(t-T\) units of active time. Removing this noise and replacing the terminal density by \(\mathbf 1\) bounds that summand by
+Condition on \(\cG_t\). This fixes the end patches and leaves their internal data independent. If the marked end patch \(P\) is active throughout \([T,t]\), then the noise identity gives
 
 $$
-e^{-\varepsilon(t-T)}W_t^\varepsilon.
+\exp\left(
+-\varepsilon\int_{s_-(P)}^tX_u^P\,du
+\right)
+\le
+e^{-\varepsilon(t-T)}.
+$$
+
+Removing this noise, replacing the terminal density by \(\mathbf 1\), and then applying the bulk and end-patch comparisons gives
+
+$$
+\begin{aligned}
+&\left|
+\mathbb E_A\left[
+W_t^{\mathbf p}
+\ind\left(L_T^c\cap L_{T,t}\right)
+\right]
+\right|
+\\
+&\quad\le
+\mathbb E_A\left[
+\ind(L_{T,t})
+\sum_{P\in\mathcal E_t}
+e^{-\varepsilon(t-T)}
+\prod_{Q\in\mathcal B_t}C^\varepsilon(Q)
+\prod_{Q\in\mathcal E_t}C^{\varepsilon,\mathbf 1}(Q)
+\right]
+\\
+&\quad=
+e^{-\varepsilon(t-T)}
+\mathbb E_A\left[
+\left|\mathcal E_t\right|
+W_t^\varepsilon
+\ind(L_{T,t})
+\right].
+\end{aligned}
 $$
 
 On \(L_{T,t}\), the end-patch sites at time \(t\) are the end-patch sites at time \(T\). Finite spread of information on a polynomial-growth lattice gives the marked comparison estimate
@@ -258,7 +337,46 @@ K_A(1+T)^D.
 \tag{7}
 $$
 
-Summing (6), taking the conditional expectation, and then removing the conditioning gives the second term in (4). This proves the late-term estimate.
+Consequently,
+
+$$
+\begin{aligned}
+&\left|
+\mathbb E_A\left[
+W_t^{\mathbf p}
+\ind\left(L_T^c\cap L_{T,t}\right)
+\right]
+\right|
+\\
+&\quad\le
+e^{-\varepsilon(t-T)}
+\mathbb E_A\left[
+\left|\mathcal E_T\right|
+W_t^\varepsilon
+\right]
+\\
+&\quad\le
+K_A(1+T)^D e^{-\varepsilon(t-T)}.
+\end{aligned}
+$$
+
+Together with the preceding estimate for \(L_T^c\cap L_{T,t}^c\), this proves (4).
+
+We now prove that, for each fixed \(T<\infty\),
+
+$$
+\lim_{t\to\infty}
+\mathbb E_A\left[
+W_t^{\mathbf p}\ind(L_T)
+\right]
+=
+\mathbb E_A\left[
+\prod_{P\in\mathcal P}C(P)\,
+\ind(L_T)
+\right].
+$$
+
+Showing only that a possible limit does not depend on the terminal configuration \(\xi\) is easier. The following estimate gives the additional control needed to prove that the limit exists and to identify it with the full-patch formula.
 
 Define
 
@@ -288,7 +406,7 @@ Fix \(T<\infty\). On \(L_T\), the set \(\mathcal B_t\) is independent of \(t\) o
 For \(P\in\mathcal E_\infty\), let \(P^{(t)}\in\mathcal E_t\) be its truncation and set
 
 $$
-\widehat C_t(P)
+C_t^\varepsilon(P)
 =
 C^{\varepsilon,\mathbf 1}(P^{(t)}),
 \qquad
@@ -299,18 +417,104 @@ C^{\mathbf p}(P^{(t)})-C(P)
 \right|.
 $$
 
-The comparison cannot in general be made relative to \(C(P)\), because the limiting contribution may vanish. Instead, the patch formulas give a uniform \(\kappa<\infty\) such that
+We derive the single-patch error before taking the patch-internal expectation. Let \(f_{P,t}^{\mathbf p}\), \(f_{P,\infty}\), and \(f_{P,t}^{\varepsilon,\mathbf 1}\) be the pre-averaged local factors defining \(C^{\mathbf p}(P^{(t)})\), \(C(P)\), and \(C_t^\varepsilon(P)\), coupled through the same patch-internal data. The finite and infinite factors agree if the site becomes inactive before time \(t\). On the remaining event the site is active throughout \([T,t]\). The absolute value of each original factor is bounded by the all-one factor with the noise removed, while the noise identity supplies the active-time exponential. Hence
 
 $$
-0\le C(P)\le\widehat C_t(P),
+\begin{aligned}
+&\left|
+f_{P,t}^{\mathbf p}-f_{P,\infty}
+\right|
+\ind\left(
+X_u^P=1
+\text{ for every }u\in[T,t]
+\right)
+\\
+&\qquad\le
+\left(
+\left|f_{P,t}^{\mathbf p}\right|
++
+\left|f_{P,\infty}\right|
+\right)
+\ind\left(
+X_u^P=1
+\text{ for every }u\in[T,t]
+\right)
+\\
+&\qquad\le
+2
+\exp\left(
+-\varepsilon\int_T^tX_u^P\,du
+\right)
+f_{P,t}^{\varepsilon,\mathbf 1}
+\ind\left(
+X_u^P=1
+\text{ for every }u\in[T,t]
+\right)
+\\
+&\qquad\le
+2e^{-\varepsilon(t-T)}
+f_{P,t}^{\varepsilon,\mathbf 1}.
+\end{aligned}
+$$
+
+Taking the patch-internal expectation now gives the required bound explicitly:
+
+$$
+\begin{aligned}
+\Delta_t(P)
+&=
+\left|
+\mathbb E_P^{\operatorname{cons}}\left[
+f_{P,t}^{\mathbf p}-f_{P,\infty}
+\right]
+\right|
+\\
+&=
+\left|
+\mathbb E_P^{\operatorname{cons}}\left[
+\left(
+f_{P,t}^{\mathbf p}-f_{P,\infty}
+\right)
+\ind\left(
+X_u^P=1
+\text{ for every }u\in[T,t]
+\right)
+\right]
+\right|
+\\
+&\le
+\mathbb E_P^{\operatorname{cons}}\left[
+\left|
+f_{P,t}^{\mathbf p}-f_{P,\infty}
+\right|
+\ind\left(
+X_u^P=1
+\text{ for every }u\in[T,t]
+\right)
+\right]
+\\
+&\le
+2e^{-\varepsilon(t-T)}
+\mathbb E_P^{\operatorname{cons}}\left[
+f_{P,t}^{\varepsilon,\mathbf 1}
+\right]
+\\
+&=
+2e^{-\varepsilon(t-T)}
+C_t^\varepsilon(P).
+\end{aligned}
+$$
+
+Together with the positive comparison for the limiting factor, this gives
+
+$$
+0\le C(P)\le C_t^\varepsilon(P),
 \qquad
 \Delta_t(P)
 \le
-\kappa e^{-\varepsilon(t-T)}\widehat C_t(P).
+2e^{-\varepsilon(t-T)}C_t^\varepsilon(P).
 \tag{9}
 $$
-
-To see the second inequality, compare the finite and infinite versions of the same end patch before integrating its internal randomness. They differ only on the part of the local patch law on which the site remains active until time \(t\). Since the patch starts no later than \(T\), pure-death noise contributes at most \(e^{-\varepsilon(t-T)}\) on this part. Removing that noise and replacing the terminal density by \(\mathbf 1\) gives \(\widehat C_t(P)\). In the unnormalized patch factor one may take \(\kappa=1\); the uniform constant above also covers the fixed consistency normalizations in the displayed patch formulas.
 
 Expanding each finite contribution as its limit plus an error and applying (9) gives
 
@@ -321,10 +525,10 @@ $$
 \prod_{P\in\mathcal E_\infty}C(P)
 \right|
 \le
-\prod_{P\in\mathcal E_\infty}\widehat C_t(P)
+\prod_{P\in\mathcal E_\infty}C_t^\varepsilon(P)
 \left[
 \left(
-1+\kappa e^{-\varepsilon(t-T)}
+1+2e^{-\varepsilon(t-T)}
 \right)^{|\mathcal E_\infty|}
 -1
 \right].
@@ -346,18 +550,11 @@ $$
 
 Indeed, every end-patch site is either in \(A\) or is reached by a graphical path of successful interactions before time \(T\). For \(k\) distinct sites, sum over the corresponding \(k\)-tuples of graphical paths. Uniformly bounded finite-range interaction rates give the usual finite-speed path bound, and polynomial volume growth leaves at most order \((1+T)^{Dk}\) choices. Division by \(k!\) removes the ordering of the selected sites. The positive all-one comparison weight has total mass at most one, so the same counting applies with the factor \(W_t^\varepsilon\).
 
-Let
+Multiplying (10) by the bulk factors, using their comparison with \(C^\varepsilon\), expanding the power, and applying (11) gives the explicit sequence
 
 $$
-a_{t,T}
-=
-\kappa e^{-\varepsilon(t-T)}.
-$$
-
-Multiplying (10) by the bulk factors, using their comparison with \(C^\varepsilon\), expanding the power, and applying (11) yields
-
-$$
-\left|
+\begin{aligned}
+&\left|
 \mathbb E_A\left[
 W_t^{\mathbf p}\ind(L_T)
 \right]
@@ -367,10 +564,31 @@ W_t^{\mathbf p}\ind(L_T)
 \ind(L_T)
 \right]
 \right|
-\le
+\\
+&\quad\le
+\sum_{k\ge1}
+\left(
+2e^{-\varepsilon(t-T)}
+\right)^k
+\mathbb E_A\left[
+W_t^\varepsilon
+\binom{N_T}{k}
+\ind(L_T)
+\right]
+\\
+&\quad\le
+\sum_{k\ge1}
+\frac{
+\left(
+2K_A(1+T)^D e^{-\varepsilon(t-T)}
+\right)^k
+}{k!}
+\\
+&\quad=
 \exp\left(
-K_A(1+T)^D a_{t,T}
+2K_A(1+T)^D e^{-\varepsilon(t-T)}
 \right)-1.
+\end{aligned}
 \tag{12}
 $$
 
@@ -406,7 +624,7 @@ K_A(1+T)^D e^{-\varepsilon(t-T)}
 \\
 &\qquad\quad+
 \exp\left(
-K_A(1+T)^D\kappa e^{-\varepsilon(t-T)}
+2K_A(1+T)^D e^{-\varepsilon(t-T)}
 \right)-1.
 \end{aligned}
 \tag{14}
