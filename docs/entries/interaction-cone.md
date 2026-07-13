@@ -35,7 +35,7 @@ $$
 \bigcup_{T<\infty}\mathbf{Cone}_T.
 $$
 
-At every fixed finite horizon \(T>0\), almost surely, sending an end [patch](patch.md) to its site is a bijection from \(\mathcal E_T\) to \(\mathbf{Cone}_T\). In particular,
+At every fixed finite horizon \(T\ge0\), almost surely, sending an end [patch](patch.md) to its site is a bijection from \(\mathcal E_T\) to \(\mathbf{Cone}_T\). At time zero, \(\mathcal E_0\) consists of the zero-length \(\mathsf{IE}\) patches based at the sites of \(A_0\). In particular,
 
 $$
 |\mathcal E_T|=|\mathbf{Cone}_T|.
