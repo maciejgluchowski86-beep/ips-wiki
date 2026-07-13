@@ -72,13 +72,13 @@ $$
 \end{cases}
 $$
 
-Identify the signs \(+\) and \(-\) with the numbers \(+1\) and \(-1\). For every
+For every
 
 $$
 P\in\mathcal B_t\cup\mathcal X_t^T,
 $$
 
-define
+let \(\alpha_P\in\{\delta,\beta\}\) be the kind of its initial interaction when \(\mathsf X(P)=\mathsf O\), and define
 
 $$
 \sigma_P
@@ -87,7 +87,7 @@ $$
 1,
 & \mathsf X(P)=\mathsf I,
 \\
-\sigma_{s(P)-}\sigma_{s(P)},
+\sigma_{i(P)}^{\alpha_P}(S(P)),
 & \mathsf X(P)=\mathsf O,
 \end{cases}
 \tag{3}
@@ -114,30 +114,7 @@ $$
 
 When \(t=s(P)\), this is the state created by the initial interaction of \(P\); when \(t>s(P)\), it agrees almost surely with \(X_{t-}^P\).
 
-If \(P\) is outgoing-initial and its initial interaction is
-
-$$
-(i(P),s(P),\alpha_P,S(P)),
-$$
-
-then
-
-$$
-\sigma_{s(P)}
-=
-\sigma_{s(P)-}\sigma_{i(P)}^{\alpha_P}(S(P)),
-$$
-
-and therefore
-
-$$
-\sigma_P
-=
-\sigma_{i(P)}^{\alpha_P}(S(P)).
-\tag{5}
-$$
-
-Thus (3) agrees with the local sign variable in the [patch contribution](patch-contribution.md) entry. On \(\operatorname{Con}(P)\), the process in (4) agrees with the local active indicator defined from \(\Sigma_P\).
+Thus (3) is the local sign variable from the [patch contribution](patch-contribution.md) entry. On \(\operatorname{Con}(P)\), the process in (4) agrees with the local active indicator defined from \(\Sigma_P\).
 
 Every nonempty-target successful interaction before time \(t\) contributes its sign to exactly one outgoing-initial patch. The only active-source interactions not represented by such patch boundaries are pure deaths, and their signed coefficient satisfies
 
@@ -157,7 +134,7 @@ $$
 =
 \prod_{P\in\mathcal B_t}\sigma_P
 \prod_{P\in\mathcal X_t^T}\sigma_P.
-\tag{6}
+\tag{5}
 $$
 
 Since
@@ -196,7 +173,7 @@ V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
 V_{i(P)}\int_{s(P)}^tX_u^P\,du
 \right).
 \end{aligned}
-\tag{7}
+\tag{6}
 $$
 
 The patches in \(\mathcal X_t^T\) are in one-to-one correspondence with the sites present in the patch family at time \(t\), and
@@ -211,10 +188,10 @@ $$
 \prod_{P\in\mathcal X_t^T}
 \xi(i(P))^{X_t^P}.
 \end{aligned}
-\tag{8}
+\tag{7}
 $$
 
-Multiplying (6)--(8) gives the exact patchwise decomposition
+Multiplying (5)--(7) gives the exact patchwise decomposition
 
 $$
 \begin{aligned}
@@ -243,7 +220,7 @@ V_{i(P)}\int_{s(P)}^tX_u^P\,du
 \xi(i(P))^{X_t^P}
 \right].
 \end{aligned}
-\tag{9}
+\tag{8}
 $$
 
 The variables in distinct brackets are functions of the corresponding patch interaction data. Hence [patch factorization](patch-factorization.md) applied conditionally on \(\cG_T\) gives
@@ -291,10 +268,10 @@ V_{i(P)}\int_{s(P)}^tX_u^P\,du
 & T=\infty.
 \end{cases}
 \end{aligned}
-\tag{10}
+\tag{9}
 $$
 
-Taking expectation in (10) and using (2) yields, when \(T=t\),
+Taking expectation in (9) and using (2) yields, when \(T=t\),
 
 $$
 P_t(\chi_A)(\xi)
@@ -303,7 +280,7 @@ P_t(\chi_A)(\xi)
 \prod_{P\in\mathcal B_t}C(P)
 \prod_{P\in\mathcal E_t}C(\xi,P)
 \right],
-\tag{11}
+\tag{10}
 $$
 
 and, when \(T=\infty\),
@@ -315,9 +292,9 @@ P_t(\chi_A)(\xi)
 \prod_{P\in\mathcal B_t}C(P)
 \prod_{P\in\mathcal C_t}C_t(\xi,P)
 \right].
-\tag{12}
+\tag{11}
 $$
 
-Equations (11) and (12) are the two equalities in (1).
+Equations (10) and (11) are the two equalities in (1).
 
 The deterministic ordering convention for simultaneous successful touches handles the null exceptional events without changing the formulas.
