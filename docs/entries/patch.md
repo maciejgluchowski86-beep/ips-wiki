@@ -10,13 +10,13 @@ tags:
 
 # Patch
 
-Fix a [signed additive set process](signed-additive-set-process.md), its [graphical construction](graphical-construction-of-signed-additive-set-process.md), and the full successful-interaction set \(\mathcal I\). Adjoin a formal source \(\infty\notin\Lambda\) and the deterministic initial interaction skeleton
+Fix a [signed additive set process](signed-additive-set-process.md), its [graphical construction](graphical-construction-of-signed-additive-set-process.md), and the full [successful-interaction](successful-interaction.md) set \(\mathcal I\). The graphical construction includes the deterministic initial interaction skeleton
 
 $$
 (\infty,0,A_0).
 $$
 
-Throughout this entry, \(\mathcal I\) denotes the successful-interaction set enlarged by this initial skeleton. A successful interaction \((i,t,S)\) touches its source \(i\) as an outgoing touch when \(i\in\Lambda\), and every target \(j\in S\) as an incoming touch. The initial interaction has no outgoing touch in \(\Lambda\); it gives an incoming touch at time zero to every site in \(A_0\).
+A successful interaction \((i,t,S)\) touches its source \(i\) as an outgoing touch when \(i\in\Lambda\), and every target \(j\in S\) as an incoming touch. The initial interaction has no outgoing touch in \(\Lambda\); it gives an incoming touch at time zero to every site in \(A_0\).
 
 For \(i\in\Lambda\), define
 
