@@ -42,6 +42,19 @@ $$
 
 Here \(\sigma_i^{\alpha_P}(S)=\sigma_i^\delta(S)\) when \(\alpha_P=\delta\), and \(\sigma_i^{\alpha_P}(S)=\sigma_i^\beta(S)\) when \(\alpha_P=\beta\).
 
+When a patch is evaluated at a time \(v\) with \(s\le v\le e\), use the endpoint convention
+
+$$
+X_v^P
+=
+\begin{cases}
+X_s^P, & v=s,\\
+X_{v-}^P, & v>s.
+\end{cases}
+$$
+
+Thus a zero-length patch is evaluated in the state created by its initial interaction.
+
 Let \(V_i\) be the one-site Feynman--Kac potential and let \(a_i^\beta(\vn)\) be the empty birth coefficient from [monomial duality for spin systems](monomial-duality-for-spin-systems.md). Set
 
 $$
@@ -135,7 +148,7 @@ C(z,P)
 \exp\left(
 V_i\int_s^t X_u^P\,du
 \right)
-z^{X_{t-}^P}
+z^{X_t^P}
 \right],
 $$
 
@@ -175,7 +188,7 @@ Thus the end contribution is affine in \(z\). The [patch critical density](patch
 Let \(P\in\mathcal C_t\), so that
 
 $$
-s<t<e.
+s\le t<e.
 $$
 
 For \(z\in[0,1]\), define the contribution conditioned on the full patch by
@@ -188,7 +201,7 @@ C_t(z,P)
 \exp\left(
 V_i\int_s^t X_u^P\,du
 \right)
-z^{X_{t-}^P}
+z^{X_t^P}
 \right].
 $$
 
@@ -280,7 +293,7 @@ $$
 \exp\left(
 V_i\int_s^eX_u^P\,du
 \right)
-z^{X_{e-}^P}
+z^{X_e^P}
 \right]
 \\
 &\qquad=
@@ -310,7 +323,7 @@ $$
 \exp\left(
 V_i\int_s^tX_u^P\,du
 \right)
-z^{X_{t-}^P}
+z^{X_t^P}
 \right]
 \\
 &\qquad=
@@ -358,7 +371,7 @@ $$
 \exp\left(
 V_i\int_s^eX_u^P\,du
 \right)
-z^{X_{e-}^P}
+z^{X_e^P}
 \right]
 \\
 &\qquad=
@@ -383,7 +396,7 @@ $$
 \exp\left(
 V_i\int_s^tX_u^P\,du
 \right)
-z^{X_{t-}^P}
+z^{X_t^P}
 \right]
 \\
 &\qquad=
@@ -417,7 +430,7 @@ $$
 \\
 \mathbb E_P^{\mathrm{con}}\left[
 \exp\left(V_i\int_s^tX_u^P\,du\right)
-z^{X_{t-}^P}
+z^{X_t^P}
 \right]
 &=z e^{V_i\ell},
 \\
