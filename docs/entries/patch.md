@@ -156,10 +156,10 @@ For \(t\ge0\) and \(P\in\mathcal P\), define
 
 $$
 P^{(t)}=\vn
-\qquad\text{when }t\le s(P).
+\qquad\text{when }t<s(P).
 $$
 
-When \(t>s(P)\), define
+When \(t\ge s(P)\), define
 
 $$
 e^{(t)}(P)=\min\{e(P),t\}
@@ -172,7 +172,7 @@ $$
 =
 \begin{cases}
 \mathsf Y(P), & e(P)\le t,\\
-\mathsf E, & s(P)<t<e(P).
+\mathsf E, & s(P)\le t<e(P).
 \end{cases}
 $$
 
@@ -186,7 +186,7 @@ P^{(t)}
 \left\{\bigl(\mathsf X(P)\mathsf Y^{(t)}(P),S(P)\bigr)\right\}.
 $$
 
-Thus truncation preserves the site, start time, initial label, and initial target set. If the time horizon cuts the patch, its terminal label is replaced by \(\mathsf E\). If the patch has already ended, then \(P^{(t)}=P\), including its original terminal label.
+Thus truncation preserves the site, start time, initial label, and initial target set. If the time horizon cuts the patch, its terminal label is replaced by \(\mathsf E\). When \(t=s(P)<e(P)\), the truncation is a zero-length end patch. If the patch has already ended, then \(P^{(t)}=P\), including its original terminal label.
 
 The bulk patches completed by time \(t\) are
 
@@ -242,7 +242,7 @@ Every end patch has terminal label \(\mathsf E\). The label does not separately 
 
 Set \(P^{(\infty)}=P\) and \(\mathcal P_\infty=\mathcal P\).
 
-For every fixed \(t>0\), almost surely, sending an end patch to its site is a bijection from \(\mathcal E_t\) to the [interaction cone](interaction-cone.md) \(\mathbf{Cone}_t\). Consequently,
+For every fixed \(t\ge0\), almost surely, sending an end patch to its site is a bijection from \(\mathcal E_t\) to the [interaction cone](interaction-cone.md) \(\mathbf{Cone}_t\). At time zero these are the zero-length \(\mathsf{IE}\) patches based at the sites of \(A_0\). Consequently,
 
 $$
 |\mathcal C_t|
