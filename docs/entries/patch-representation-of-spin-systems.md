@@ -12,7 +12,7 @@ tags:
 
 This is the patchwise form of [monomial duality for spin systems](monomial-duality-for-spin-systems.md), after applying [patch factorization](patch-factorization.md). Conditioning on \(\cG_t\) gives a representation in terms of completed and finite-horizon end patches. Conditioning on \(\cG_\infty\) gives a representation in terms of completed and full cut patches.
 
-Let \((P_t)_{t\ge0}\) be the spin-system semigroup, and let the signed additive dual start from \((A,+)\). Let \(\mathcal B_t\), \(\mathcal C_t\), and \(\mathcal E_t\) be the bulk, cut, and end patch families from the [patch](patch.md) entry. Let \(C(P)\), \(C(\xi,P)\), and \(F_t(\xi,P)\) be the [patch contributions](patch-contribution.md).
+Let \((P_t)_{t\ge0}\) be the spin-system semigroup, and let the signed additive dual start from \((A,+)\). Let \(\mathcal B_t\), \(\mathcal C_t\), and \(\mathcal E_t\) be the bulk, cut, and end patch families from the [patch](patch.md) entry. Let \(C(P)\), \(C(\xi,P)\), and \(C_t(\xi,P)\) be the [patch contributions](patch-contribution.md).
 
 Write \(\mathbb E_A\) for expectation with respect to the successful-interaction skeleton of the dual started from \((A,+)\). In the first representation below the integrand is \(\cG_t\)-measurable, while in the second it is \(\cG_\infty\)-measurable.
 
@@ -32,7 +32,7 @@ P_t(\chi_A)(\xi)
 &=
 \mathbb E_A\left[
 \prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal C_t}F_t(\xi,P)
+\prod_{P\in\mathcal C_t}C_t(\xi,P)
 \right].
 \end{aligned}
 \tag{1}
@@ -283,7 +283,7 @@ V_{i(P)}\int_{s(P)}^tX_u^P\,du
 \\[1.2em]
 \displaystyle
 \prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal C_t}F_t(\xi,P),
+\prod_{P\in\mathcal C_t}C_t(\xi,P),
 & T=\infty.
 \end{cases}
 \end{aligned}
@@ -309,7 +309,7 @@ P_t(\chi_A)(\xi)
 =
 \mathbb E_A\left[
 \prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal C_t}F_t(\xi,P)
+\prod_{P\in\mathcal C_t}C_t(\xi,P)
 \right].
 \tag{12}
 $$
