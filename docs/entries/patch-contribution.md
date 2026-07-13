@@ -10,7 +10,7 @@ tags:
 
 # Patch contribution
 
-This entry defines and computes the local factors used in the [patch representation of spin systems](patch-representation-of-spin-systems.md). Completed patches have contributions \(C(P)\), finite-horizon end patches have contributions \(C(\xi,P)\), and full patches cut by the evaluation time have contributions \(F_t(\xi,P)\). The distinction between the last two reflects whether one conditions on \(\cG_t\) or on \(\cG_\infty\).
+This entry defines and computes the local factors used in the [patch representation of spin systems](patch-representation-of-spin-systems.md). Completed patches have contributions \(C(P)\), finite-horizon end patches have contributions \(C(\xi,P)\), and full patches cut by the evaluation time have contributions \(C_t(\xi,P)\). The distinction between the last two reflects whether one conditions on \(\cG_t\) or on \(\cG_\infty\).
 
 Fix a labeled [patch](patch.md) \(P\) and write
 
@@ -181,7 +181,7 @@ $$
 For \(z\in[0,1]\), define the contribution conditioned on the full patch by
 
 $$
-F_t(z,P)
+C_t(z,P)
 =
 \mathbb E_P^{\mathrm{con}}\left[
 \sigma_P
@@ -195,9 +195,9 @@ $$
 For a configuration \(\xi\) and a one-density profile \(\mathbf p\), write
 
 $$
-F_t(\xi,P)=F_t(\xi(i),P),
+C_t(\xi,P)=C_t(\xi(i),P),
 \qquad
-F_t(\mathbf p,P)=F_t(p_i,P).
+C_t(\mathbf p,P)=C_t(p_i,P).
 $$
 
 Put
@@ -213,7 +213,7 @@ $$
 Then
 
 $$
-F_t(z,P)
+C_t(z,P)
 =
 \begin{cases}
 \dfrac{
@@ -254,7 +254,7 @@ z e^{a_i^\beta(\vn)\ell}\varphi_i(r)
 \tag{3}
 $$
 
-When \(e=\infty\), the occurrences of \(\varphi_i(r)\) and \(\varphi_i(\Delta)\) in (3) mean their limits at infinity. Notice that \(F_t(z,P)\) uses the full consistent law \(\mathbb P_P^{\mathrm{con}}\), whereas \(C(z,P^{(t)})\) uses \(\mathbb P_{P^{(t)}}^{\mathrm{con}}\). They need not be equal: the former also conditions on the actual terminal time and terminal label of the full patch.
+When \(e=\infty\), the occurrences of \(\varphi_i(r)\) and \(\varphi_i(\Delta)\) in (3) mean their limits at infinity. Notice that \(C_t(z,P)\) uses the full consistent law \(\mathbb P_P^{\mathrm{con}}\), whereas \(C(z,P^{(t)})\) uses \(\mathbb P_{P^{(t)}}^{\mathrm{con}}\). They need not be equal: the former also conditions on the actual terminal time and terminal label of the full patch.
 
 ## Calculation
 
@@ -435,12 +435,12 @@ This proves (1)--(3).
 
 ## Contributions of full patches
 
-Suppose that \(P\) is an infinite full patch. Whenever \(F_t(z,P)\) has a common finite limit independent of \(z\in[0,1]\), define
+Suppose that \(P\) is an infinite full patch. Whenever \(C_t(z,P)\) has a common finite limit independent of \(z\in[0,1]\), define
 
 $$
 C(P)
 =
-\lim_{t\to\infty}F_t(z,P).
+\lim_{t\to\infty}C_t(z,P).
 $$
 
 Under the uniform pure-death assumption used in [the common invariant-limit theorem](common-invariant-limit-under-uniform-pure-deaths.md),
