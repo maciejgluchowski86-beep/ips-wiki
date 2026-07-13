@@ -15,13 +15,17 @@ Fix a [signed additive set process](signed-additive-set-process.md) started from
 $$
 \mathbf{Cone}_T
 =
-A_0
-\cup
 \bigcup_{(i,t,S)\in\mathcal I_T}
-\bigl(\{i\}\cup S\bigr),
+\left(
+(\{i\}\cap\Lambda)\cup S
+\right),
 $$
 
-where \(\mathcal I_T\) is the [successful-interaction](successful-interaction.md) set and \(\mathcal I_\infty=\mathcal I\). Thus \(\mathbf{Cone}_T\) is the set of sites reached from the initial set by time \(T\).
+where \(\mathcal I_T\) is the [successful-interaction](successful-interaction.md) set and \(\mathcal I_\infty=\mathcal I\). The initial skeleton \((\infty,0,A_0)\) contributes its target \(A_0\) but not its formal source. Thus \(\mathbf{Cone}_T\subseteq\Lambda\) is the set of lattice sites reached by time \(T\), and
+
+$$
+\mathbf{Cone}_0=A_0.
+$$
 
 The cones are increasing in time, and
 
@@ -31,10 +35,10 @@ $$
 \bigcup_{T<\infty}\mathbf{Cone}_T.
 $$
 
-At every fixed finite horizon \(T\), almost surely, sending an end [patch](patch.md) to its site is a bijection from \(\mathcal E_T\) to \(\mathbf{Cone}_T\). In particular,
+At every fixed finite horizon \(T>0\), almost surely, sending an end [patch](patch.md) to its site is a bijection from \(\mathcal E_T\) to \(\mathbf{Cone}_T\). In particular,
 
 $$
 |\mathcal E_T|=|\mathbf{Cone}_T|.
 $$
 
-If no successful interaction occurs after time \(T\), then \(\mathbf{Cone}_t=\mathbf{Cone}_T\) for every \(t\ge T\). Each site in this common cone then carries one infinite patch, whose truncation at time \(t\) is the corresponding element of \(\mathcal E_t\).
+If no ordinary successful interaction occurs after time \(T\), then \(\mathbf{Cone}_t=\mathbf{Cone}_T\) for every \(t\ge T\). Each site in this common cone then carries one infinite patch, whose truncation at time \(t\) is the corresponding element of \(\mathcal E_t\).
