@@ -36,14 +36,14 @@ $$
 \end{cases}
 $$
 
-When a patch is evaluated at \(v\in[s,e]\), use the endpoint convention
+When a patch is evaluated at \(q\in[s,e]\), use the endpoint convention
 
 $$
-X_v^P
+X_q^P
 =
 \begin{cases}
-X_s^P, & v=s,\\
-X_{v-}^P, & v>s.
+X_s^P, & q=s,\\
+X_{q-}^P, & q>s.
 \end{cases}
 $$
 
@@ -118,40 +118,40 @@ $$
 \\
 V_i&=\alpha_i+a_i^\beta(\vn),
 \\
-\varphi_i(v)
+\varphi_i(\Delta)
 &=
-e^{-\alpha_i v}
+e^{-\alpha_i\Delta}
 +
-\delta_i(\vn)\int_0^v e^{-\alpha_i w}\,dw,
+\delta_i(\vn)\int_0^\Delta e^{-\alpha_i w}\,dw,
 \\
-\psi_i(u,v,z)
+\psi_i(\Delta_-,\Delta_+,z)
 &=
-\delta_i(\vn)\int_0^u e^{a_i^\beta(\vn)w}\,dw
+\delta_i(\vn)\int_0^{\Delta_-} e^{a_i^\beta(\vn)w}\,dw
 +
-z e^{a_i^\beta(\vn)u}\varphi_i(v).
+z e^{a_i^\beta(\vn)\Delta_-}\varphi_i(\Delta_+).
 \end{aligned}
 $$
 
 In particular,
 
 $$
-\psi_i(u,z)
+\psi_i(\Delta,z)
 =
-\psi_i(u,0,z)
+\psi_i(\Delta,0,z)
 =
-\delta_i(\vn)\int_0^u e^{a_i^\beta(\vn)w}\,dw
+\delta_i(\vn)\int_0^\Delta e^{a_i^\beta(\vn)w}\,dw
 +
-z e^{a_i^\beta(\vn)u}.
+z e^{a_i^\beta(\vn)\Delta}.
 $$
 
 For \(s\le t\le e\), put
 
 $$
-\ell=t-s,
+\Delta_-=t-s,
 \qquad
-r=e-t,
+\Delta_+=e-t,
 \qquad
-\Delta=e-s=\ell+r.
+\Delta=e-s=\Delta_-+\Delta_+.
 $$
 
 Then
@@ -160,18 +160,18 @@ $$
 C_t(z,P)
 =
 \begin{cases}
-\dfrac{\psi_i(\ell,r,z)}{\varphi_i(\Delta)},
+\dfrac{\psi_i(\Delta_-,\Delta_+,z)}{\varphi_i(\Delta)},
 & \mathsf X(P)=\mathsf I,
 \quad
 \mathsf Y(P)\in\{\mathsf I,\mathsf E\},
 \\[1.2em]
-z e^{V_i\ell},
+z e^{V_i\Delta_-},
 & (\mathsf X(P),\mathsf Y(P))=(\mathsf I,\mathsf O),
 \\[1.2em]
 \dfrac{
 \delta_i(S)\sigma_i^\delta(S)
 +
-\beta_i(S)\sigma_i^\beta(S)\psi_i(\ell,r,z)
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta_-,\Delta_+,z)
 }{
 \delta_i(S)+\beta_i(S)\varphi_i(\Delta)
 },
@@ -179,13 +179,13 @@ z e^{V_i\ell},
 \quad
 \mathsf Y(P)\in\{\mathsf I,\mathsf E\},
 \\[1.5em]
-\sigma_i^\beta(S)z e^{V_i\ell},
+\sigma_i^\beta(S)z e^{V_i\Delta_-},
 & (\mathsf X(P),\mathsf Y(P))=(\mathsf O,\mathsf O).
 \end{cases}
 \tag{1}
 $$
 
-For a finite full patch, \(C(P)=C_e(1,P)\). For an end patch \(P\in\mathcal E_t\), \(C(z,P)=C_t(z,P)\) and \(r=0\). Thus (1) contains all completed, end, and full-cut patch contributions. When \(e=\infty\), the terms \(\varphi_i(r)\) and \(\varphi_i(\Delta)\) mean their limits at infinity.
+For a finite full patch, \(C(P)=C_e(1,P)\). For an end patch \(P\in\mathcal E_t\), \(C(z,P)=C_t(z,P)\) and \(\Delta_+=0\). Thus (1) contains all completed, end, and full-cut patch contributions. When \(e=\infty\), the terms \(\varphi_i(\Delta_+)\) and \(\varphi_i(\Delta)\) mean their limits at infinity.
 
 ## Spin-system rate form
 
@@ -203,40 +203,40 @@ V_i
 &=
 \alpha_i-c_i^0(\vn)-c_i^1(\vn),
 \\
-\varphi_i(v)
+\varphi_i(\Delta)
 &=
-e^{-\alpha_i v}
+e^{-\alpha_i\Delta}
 +
-|c_i^0(\vn)|\int_0^v e^{-\alpha_i w}\,dw,
+|c_i^0(\vn)|\int_0^\Delta e^{-\alpha_i w}\,dw,
 \\
-\psi_i(u,v,z)
+\psi_i(\Delta_-,\Delta_+,z)
 &=
 |c_i^0(\vn)|
-\int_0^u e^{-(c_i^0(\vn)+c_i^1(\vn))w}\,dw
+\int_0^{\Delta_-} e^{-(c_i^0(\vn)+c_i^1(\vn))w}\,dw
 \\
 &\qquad+
-z e^{-(c_i^0(\vn)+c_i^1(\vn))u}\varphi_i(v).
+z e^{-(c_i^0(\vn)+c_i^1(\vn))\Delta_-}\varphi_i(\Delta_+).
 \end{aligned}
 $$
 
-With \(\ell,r,\Delta\) as above,
+With \(\Delta_-,\Delta_+,\Delta\) as above,
 
 $$
 C_t(z,P)
 =
 \begin{cases}
-\dfrac{\psi_i(\ell,r,z)}{\varphi_i(\Delta)},
+\dfrac{\psi_i(\Delta_-,\Delta_+,z)}{\varphi_i(\Delta)},
 & \mathsf X(P)=\mathsf I,
 \quad
 \mathsf Y(P)\in\{\mathsf I,\mathsf E\},
 \\[1.2em]
-z e^{V_i\ell},
+z e^{V_i\Delta_-},
 & (\mathsf X(P),\mathsf Y(P))=(\mathsf I,\mathsf O),
 \\[1.2em]
 \dfrac{
 c_i^0(S)
 -
-(c_i^0(S)+c_i^1(S))\psi_i(\ell,r,z)
+(c_i^0(S)+c_i^1(S))\psi_i(\Delta_-,\Delta_+,z)
 }{
 |c_i^0(S)|
 +
@@ -247,7 +247,7 @@ c_i^0(S)
 \mathsf Y(P)\in\{\mathsf I,\mathsf E\},
 \\[1.5em]
 \operatorname{sgn}_\pm\bigl(-c_i^0(S)-c_i^1(S)\bigr)
-z e^{V_i\ell},
+z e^{V_i\Delta_-},
 & (\mathsf X(P),\mathsf Y(P))=(\mathsf O,\mathsf O).
 \end{cases}
 \tag{2}
@@ -264,7 +264,7 @@ $$
 =
 e^{-\alpha_i\Delta}
 +
-\delta_i(\vn)\int_0^\Delta e^{-\alpha_i u}\,du
+\delta_i(\vn)\int_0^\Delta e^{-\alpha_i w}\,dw
 =
 \varphi_i(\Delta).
 \tag{3}
@@ -284,24 +284,24 @@ z^{X_t^P}
 \\
 &\qquad=
 \delta_i(\vn)
-\int_0^\ell e^{(V_i-\alpha_i)u}\,du
+\int_0^{\Delta_-} e^{(V_i-\alpha_i)w}\,dw
 \\
 &\qquad\quad+
-z e^{(V_i-\alpha_i)\ell}
+z e^{(V_i-\alpha_i)\Delta_-}
 \left[
-e^{-\alpha_i r}
+e^{-\alpha_i\Delta_+}
 +
-\delta_i(\vn)\int_0^r e^{-\alpha_i u}\,du
+\delta_i(\vn)\int_0^{\Delta_+} e^{-\alpha_i w}\,dw
 \right]
 \\
 &\qquad=
 \delta_i(\vn)
-\int_0^\ell e^{a_i^\beta(\vn)u}\,du
+\int_0^{\Delta_-} e^{a_i^\beta(\vn)w}\,dw
 +
-z e^{a_i^\beta(\vn)\ell}\varphi_i(r)
+z e^{a_i^\beta(\vn)\Delta_-}\varphi_i(\Delta_+)
 \\
 &\qquad=
-\psi_i(\ell,r,z).
+\psi_i(\Delta_-,\Delta_+,z).
 \end{aligned}
 \tag{4}
 $$
@@ -331,7 +331,7 @@ $$
 \frac{
 \delta_i(S)\sigma_i^\delta(S)
 +
-\beta_i(S)\sigma_i^\beta(S)\psi_i(\ell,r,z)
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta_-,\Delta_+,z)
 }{
 \delta_i(S)+\beta_i(S)
 }.
@@ -346,10 +346,10 @@ $$
 C_t(z,P)
 =
 \begin{cases}
-z e^{V_i\ell},
+z e^{V_i\Delta_-},
 & \mathsf X(P)=\mathsf I,
 \\
-\sigma_i^\beta(S)z e^{V_i\ell},
+\sigma_i^\beta(S)z e^{V_i\Delta_-},
 & \mathsf X(P)=\mathsf O,
 \end{cases}
 $$
