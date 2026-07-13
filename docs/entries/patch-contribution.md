@@ -10,7 +10,7 @@ tags:
 
 # Patch contribution
 
-This entry defines and computes the local factors used in the [patch representation of spin systems](patch-representation-of-spin-systems.md). Completed patches have contributions \(C(P)\), finite-horizon end patches have contributions \(C(\xi,P)\), and full patches cut by the evaluation time have contributions \(C_t(\xi,P)\). The distinction between the last two reflects whether one conditions on \(\cG_t\) or on \(\cG_\infty\).
+This entry defines and computes the local factors used in the [patch representation of spin systems](patch-representation-of-spin-systems.md). The unaveraged factors are \(F(P)\) and \(F_t(\xi,P)\). Completed patches have contributions \(C(P)\), finite-horizon end patches have contributions \(C(\xi,P)\), and full patches cut by the evaluation time have contributions \(C_t(\xi,P)\).
 
 Fix a labeled [patch](patch.md) \(P\) and write
 
@@ -92,6 +92,39 @@ $$
 
 will be used below. All conditional expectations are understood for patches with \(\mathbb P_P(\operatorname{Con}(P))>0\).
 
+## Unaveraged patch factors
+
+For a finite full patch, define
+
+$$
+F(P)
+=
+\sigma_P
+\exp\left(
+V_i\int_s^e X_u^P\,du
+\right).
+$$
+
+When \(s\le t\le e\), define, for \(z\in[0,1]\),
+
+$$
+F_t(z,P)
+=
+\sigma_P
+\exp\left(
+V_i\int_s^t X_u^P\,du
+\right)
+z^{X_t^P}.
+$$
+
+For a configuration \(\xi\) and a one-density profile \(\mathbf p=(p_j)_{j\in\Lambda}\), write
+
+$$
+F_t(\xi,P)=F_t(\xi(i),P),
+\qquad
+F_t(\mathbf p,P)=F_t(p_i,P).
+$$
+
 ## Dual-rate form
 
 ### Completed patches
@@ -101,12 +134,7 @@ Let \(P\) be a finite full patch, equivalently a patch with \(\mathsf Y(P)\in\{\
 $$
 C(P)
 =
-\mathbb E_P^{\mathrm{con}}\left[
-\sigma_P
-\exp\left(
-V_i\int_s^e X_u^P\,du
-\right)
-\right].
+\mathbb E_P^{\mathrm{con}}[F(P)].
 $$
 
 It is given explicitly by
@@ -143,13 +171,7 @@ Let \(P\in\mathcal E_t\). Then \(e(P)=t\) and \(\mathsf Y(P)=\mathsf E\). For \(
 $$
 C(z,P)
 =
-\mathbb E_P^{\mathrm{con}}\left[
-\sigma_P
-\exp\left(
-V_i\int_s^t X_u^P\,du
-\right)
-z^{X_t^P}
-\right],
+\mathbb E_P^{\mathrm{con}}[F_t(z,P)].
 $$
 
 with the convention \(z^0=1\). For a configuration \(\xi\) and a one-density profile \(\mathbf p=(p_j)_{j\in\Lambda}\), write
@@ -196,13 +218,7 @@ For \(z\in[0,1]\), define the contribution conditioned on the full patch by
 $$
 C_t(z,P)
 =
-\mathbb E_P^{\mathrm{con}}\left[
-\sigma_P
-\exp\left(
-V_i\int_s^t X_u^P\,du
-\right)
-z^{X_t^P}
-\right].
+\mathbb E_P^{\mathrm{con}}[F_t(z,P)].
 $$
 
 For a configuration \(\xi\) and a one-density profile \(\mathbf p\), write
