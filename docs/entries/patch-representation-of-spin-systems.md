@@ -204,8 +204,6 @@ $$
 &\quad=
 \prod_{P\in\mathcal B_t}
 \mathbb E_P^{\mathrm{con}}[F(P)]
-\\
-&\qquad\times
 \prod_{P\in\mathcal X_t^T}
 \mathbb E_P^{\mathrm{con}}[F_t(\xi,P)]
 \\
