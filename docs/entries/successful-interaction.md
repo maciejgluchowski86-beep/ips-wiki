@@ -12,7 +12,7 @@ tags:
 Fix a [signed additive set process](signed-additive-set-process.md) with full interaction set \(I\), constructed as in the [graphical construction](graphical-construction-of-signed-additive-set-process.md). Its deterministic initial interaction
 
 $$
-(\infty,0,\mathsf{init},A_0)
+(\infty,0,\mathsf{init},A_0;\sigma_0)
 $$
 
 is declared successful, with successful-interaction skeleton
@@ -30,7 +30,7 @@ $$
 i\in A_{t-}.
 $$
 
-An ordinary successful-interaction skeleton records the interaction source and target, but not whether the interaction is a split or a birth. The initial skeleton has the special kind \(\mathsf{init}\), so there is no hidden split-or-birth choice at time zero.
+An ordinary successful-interaction skeleton records the interaction source and target, but not whether the interaction is a split or a birth. The marked initial interaction also carries the prescribed sign \(\sigma_0\). Its source-time-target skeleton is \((\infty,0,A_0)\), and there is no hidden split-or-birth choice at time zero.
 
 For a time horizon \(T<\infty\) and nonempty \(S\), let
 
