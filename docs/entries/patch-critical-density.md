@@ -16,14 +16,14 @@ For a spin system with the [patch positivity property](patch-positivity-property
 
 ## Definition
 
-Use the [affine extension of an end-patch contribution](patch-contribution.md#affine-extension-for-end-patches). The patch critical density at site \(i\) is
+Use the [end-patch contribution](patch-contribution.md) \(C(p,P)\), which is affine in the terminal one-density \(p\). The patch critical density at site \(i\) is
 
 $$
 p_i^\star
 =
 \inf\left\{
 p\in[0,1]:
-C^p(P)\ge0
+C(p,P)\ge0
 \text{ for every possible end patch }P\text{ based at }i
 \right\}.
 $$
@@ -58,7 +58,7 @@ Under patch positivity, every ratio contributing to the supremum is at most \(1\
 
 ## Proof
 
-The \(\mathsf{SE}\) and \(\mathsf{IE}\) end contributions are nonnegative for every \(p\in[0,1]\). For an \(\mathsf{OE}\) end patch with initial interaction target \(S\), the denominator is positive and the numerator is
+The \(\mathsf{IE}\) end contribution is nonnegative for every \(p\in[0,1]\). For an \(\mathsf{OE}\) end patch with initial interaction target \(S\), the denominator is positive and the numerator is
 
 $$
 c_i^0(S)

@@ -64,7 +64,7 @@ $$
 =
 \mathbb E_A\left[
 \prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal E_t}C^{\mathbf p}(P)
+\prod_{P\in\mathcal E_t}C(\mathbf p,P)
 \right].
 $$
 
@@ -73,9 +73,9 @@ Indeed, distinct end patches are based at distinct sites, so independence replac
 $$
 0
 \le
-C^{\mathbf p}(P)
+C(\mathbf p,P)
 \le
-C^{\mathbf q}(P)
+C(\mathbf q,P)
 $$
 
 for every end patch. The patch products are therefore ordered for every successful-interaction skeleton, and taking \(\mathbb E_A\) yields
@@ -125,24 +125,24 @@ $$
 Fix profiles satisfying the two displayed inequalities. For every end patch, the affine contribution is nondecreasing, so
 
 $$
-C^{\mathbf q}(P)\le C^{\mathbf p}(P).
+C(\mathbf q,P)\le C(\mathbf p,P).
 $$
 
 Moreover, affinity gives
 
 $$
-C^{\mathbf q}(P)+C^{\mathbf p}(P)
+C(\mathbf q,P)+C(\mathbf p,P)
 =
-2C^{(\mathbf q+\mathbf p)/2}(P)
+2C((\mathbf q+\mathbf p)/2,P)
 \ge0,
 $$
 
 because \((\mathbf q+\mathbf p)/2\ge\mathbf p^\star\). Therefore
 
 $$
-\left|C^{\mathbf q}(P)\right|
+\left|C(\mathbf q,P)\right|
 \le
-C^{\mathbf p}(P).
+C(\mathbf p,P).
 $$
 
 Using the Bernoulli-averaged patch representation and the nonnegativity of the bulk contributions,
@@ -153,13 +153,13 @@ $$
 &\le
 \mathbb E_A\left[
 \prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal E_t}\left|C^{\mathbf q}(P)\right|
+\prod_{P\in\mathcal E_t}\left|C(\mathbf q,P)\right|
 \right]
 \\
 &\le
 \mathbb E_A\left[
 \prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal E_t}C^{\mathbf p}(P)
+\prod_{P\in\mathcal E_t}C(\mathbf p,P)
 \right]
 \\
 &=

@@ -33,21 +33,21 @@ The second line is the degenerate case: since \(c_i^0(\vn)\) and \(c_i^1(\vn)\) 
 
 ## Proof
 
-The bulk patch formula has four rows. For \(\operatorname{type}(P)\in\{\mathsf{SI},\mathsf{II}\}\),
+The bulk patch formula has four rows. For an \(\mathsf{II}\)-patch,
 
 $$
 C(P)=\frac{\psi_i(\Delta,1)}{\varphi_i(\Delta)}.
 $$
 
-Here \(\varphi_i(\Delta)>0\), and \(\psi_i(\Delta,1)\ge0\) because \(c_i^0(\vn)\) and \(c_i^1(\vn)\) are nonnegative rates. Hence these rows are nonnegative without any extra condition.
+Here \(\varphi_i(\Delta)>0\), and \(\psi_i(\Delta,1)\ge0\) because \(c_i^0(\vn)\) and \(c_i^1(\vn)\) are nonnegative rates. Hence this row is nonnegative without any extra condition.
 
-For \(\operatorname{type}(P)\in\{\mathsf{SO},\mathsf{IO}\}\),
+For an \(\mathsf{IO}\)-patch,
 
 $$
 C(P)=e^{V_i\Delta}>0.
 $$
 
-For \(\operatorname{type}(P)=\mathsf{OO}\), the initial interaction target is a nonempty set \(S\subseteq N(i)\), and the contribution is
+For an \(\mathsf{OO}\)-patch, the initial interaction target is a nonempty set \(S\subseteq N(i)\), and the contribution is
 
 $$
 C(P)=\sigma_i^\beta(S)e^{V_i\Delta}.
@@ -65,7 +65,7 @@ $$
 c_i^0(S)+c_i^1(S)\le0.
 $$
 
-It remains to check \(\operatorname{type}(P)=\mathsf{OI}\). Its denominator is positive on patches where the displayed formula applies, and its numerator is
+It remains to check an \(\mathsf{OI}\)-patch. Its denominator is positive on patches where the displayed formula applies, and its numerator is
 
 $$
 c_i^0(S)-\left(c_i^0(S)+c_i^1(S)\right)\psi_i(\Delta,1).

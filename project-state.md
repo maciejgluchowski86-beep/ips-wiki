@@ -41,13 +41,13 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 2. `docs/entries/interaction-cone.md`: sites reached from the initial dual set by successful interactions.
 3. `docs/entries/patch-consistency-event.md`: local patch measure, consistency event, and conditioned patch measure.
 4. `docs/entries/patch-factorization.md`: finite-dimensional product decomposition of patch laws conditional on \(\cG_T\), for \(T\le\infty\).
-5. `docs/entries/patch-contribution.md`: explicit bulk and end patch contribution formulas in dual-rate form and spin-rate form.
+5. `docs/entries/patch-contribution.md`: explicit full, full-cut, and end patch contribution formulas in dual-rate form and spin-rate form.
 6. `docs/entries/patch-positivity-property.md`: coefficient criterion guaranteeing nonnegative bulk patch contributions.
 7. `docs/entries/patch-critical-density.md`: minimal one-density profile making every affine end-patch contribution nonnegative.
 8. `docs/entries/high-density-measure.md`: mixtures of Bernoulli product measures with profiles above the patch critical density.
 9. `docs/entries/patch-representation-of-spin-systems.md`: representation theorem expressing \(P_t\chi_A\) as an expectation over products of patch contributions.
 10. `docs/entries/monomial-monotonicity-for-high-density-measures.md`: comparison under ordered mixing profiles and reflected domination below the patch critical density.
-11. `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`: common invariant limit under patch positivity and a uniform pure-death component.
+11. `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`: common invariant limit from the full-skeleton patch representation under patch positivity and a uniform pure-death component.
 
 ## Current KCSM entries
 
@@ -59,7 +59,7 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 6. `docs/entries/fa-1f-model.md`: FA-1f on an arbitrary lattice.
 7. `docs/entries/east-model.md`: East model as FA-1f on an oriented lattice using \(N(i)\).
 8. `docs/entries/monomial-duality-for-fa-1f.md`: systematic dual rates, signs, and Feynman--Kac weights for hard/soft FA-1f with optional pure-death perturbation.
-9. `docs/entries/patch-contributions-for-fa-1f.md`: hard FA-1f patch contributions with explicit bulk and end formulas.
+9. `docs/entries/patch-contributions-for-fa-1f.md`: hard FA-1f patch contributions with explicit full-cut, bulk, and end formulas.
 10. `docs/entries/patch-positivity-for-fa-1f.md`: verification that FA-1f has patch positivity and characterization of pure-noise perturbations preserving it.
 11. `docs/entries/patch-critical-density-for-fa-1f.md`: identification of the FA-1f patch critical density with its equilibrium one-density.
 12. `docs/entries/kcsm-relaxation-and-mixing.md`: relaxation time, mixing time, and precutoff terminology.
