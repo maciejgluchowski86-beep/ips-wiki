@@ -27,23 +27,27 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 1. `docs/entries/duality.md`: concise operator and Feynman--Kac duality definition.
 2. `docs/entries/theta-monomials.md`: \(\chi_A^\theta\), barred theta monomials, basis property, and algebraic identities.
 3. `docs/entries/monomial-duality-for-spin-systems.md`: monomial duality for spin systems via a signed additive set process and Feynman--Kac potential.
-4. `docs/entries/patch-factorization.md`: product decomposition of patch laws conditional on successful interactions.
-5. `docs/entries/patch-contribution.md`: explicit bulk and end patch contribution formulas in dual-rate form and spin-rate form.
-6. `docs/entries/patch-positivity-property.md`: coefficient criterion guaranteeing nonnegative bulk patch contributions.
-7. `docs/entries/patch-critical-density.md`: minimal one-density profile making every affine end-patch contribution nonnegative, with an explicit coefficient formula.
-8. `docs/entries/high-density-measure.md`: mixtures of Bernoulli product measures with profiles above the patch critical density.
-9. `docs/entries/patch-representation-of-spin-systems.md`: representation theorem expressing \(P_t\chi_A\) as an expectation over products of patch contributions.
-10. `docs/entries/monomial-monotonicity-for-high-density-measures.md`: comparison of evolved monomials under ordered high-density mixing profiles and reflected domination below the patch critical density.
-11. `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`: common invariant limit and exponential local-function convergence under patch positivity and a uniform pure-death component.
-12. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
+4. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
 
 ## Current signed additive set process entries
 
 1. `docs/entries/signed-additive-set-process.md`: finite-subset process with sign coordinate, deaths, splits, and births.
 2. `docs/entries/graphical-construction-of-signed-additive-set-process.md`: Poisson interaction construction of the signed additive set process.
 3. `docs/entries/successful-interaction.md`: finite-horizon and full nonempty-target successful-interaction skeletons.
-4. `docs/entries/patch.md`: full one-site spacetime intervals cut by successful touches and their finite-horizon truncations into bulk patches \(\mathcal B_T\) and end patches \(\mathcal E_T\).
-5. `docs/entries/patch-consistency-event.md`: local patch measure, consistency event, and conditioned patch measure.
+
+## Current patch entries
+
+1. `docs/entries/patch.md`: full one-site spacetime intervals cut by successful touches and their finite-horizon truncations.
+2. `docs/entries/interaction-cone.md`: sites reached from the initial dual set by successful interactions.
+3. `docs/entries/patch-consistency-event.md`: local patch measure, consistency event, and conditioned patch measure.
+4. `docs/entries/patch-factorization.md`: finite-dimensional product decomposition of patch laws conditional on \(\cG_T\), for \(T\le\infty\).
+5. `docs/entries/patch-contribution.md`: explicit bulk and end patch contribution formulas in dual-rate form and spin-rate form.
+6. `docs/entries/patch-positivity-property.md`: coefficient criterion guaranteeing nonnegative bulk patch contributions.
+7. `docs/entries/patch-critical-density.md`: minimal one-density profile making every affine end-patch contribution nonnegative.
+8. `docs/entries/high-density-measure.md`: mixtures of Bernoulli product measures with profiles above the patch critical density.
+9. `docs/entries/patch-representation-of-spin-systems.md`: representation theorem expressing \(P_t\chi_A\) as an expectation over products of patch contributions.
+10. `docs/entries/monomial-monotonicity-for-high-density-measures.md`: comparison under ordered mixing profiles and reflected domination below the patch critical density.
+11. `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`: common invariant limit under patch positivity and a uniform pure-death component.
 
 ## Current KCSM entries
 

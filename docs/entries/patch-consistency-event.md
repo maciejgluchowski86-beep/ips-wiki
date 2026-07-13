@@ -10,7 +10,7 @@ tags:
 
 # Patch consistency event
 
-Fix a [patch](patch.md) \(P=\{i\}\times[s,t)\) before horizon \(T\). Let \(I\) be the interaction set of the underlying [signed additive set process](signed-additive-set-process.md). The patch interaction data are
+Fix \(T\le\infty\) and a [patch](patch.md) \(P=\{i\}\times[s,t)\in\mathcal P_T\), where \(\mathcal P_\infty=\mathcal P\). Let \(I\) be the interaction set of the underlying [signed additive set process](signed-additive-set-process.md). The patch interaction data are
 
 $$
 \begin{aligned}
@@ -74,8 +74,8 @@ $$
 C_+(P)
 =
 \begin{cases}
-\{X^P_{t-}=1\}, & \operatorname{type}_+(P)=\mathsf O,\\
-\Omega_P, & \operatorname{type}_+(P)\ne\mathsf O.
+\{X^P_{t-}=1\}, & t<\infty\text{ and \(P\) ends at an outgoing touch},\\
+\Omega_P, & \text{otherwise}.
 \end{cases}
 $$
 

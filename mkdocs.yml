@@ -35,6 +35,15 @@ nav:
       - Duality: entries/duality.md
       - Theta monomials: entries/theta-monomials.md
       - Monomial duality for spin systems: entries/monomial-duality-for-spin-systems.md
+      - Duality noise lemma: entries/duality-noise-lemma.md
+  - Signed additive set processes:
+      - Signed additive set process: entries/signed-additive-set-process.md
+      - Graphical construction of signed additive set process: entries/graphical-construction-of-signed-additive-set-process.md
+      - Successful interaction: entries/successful-interaction.md
+  - Patches:
+      - Patch: entries/patch.md
+      - Interaction cone: entries/interaction-cone.md
+      - Patch consistency event: entries/patch-consistency-event.md
       - Patch factorization: entries/patch-factorization.md
       - Patch contribution: entries/patch-contribution.md
       - Patch positivity property: entries/patch-positivity-property.md
@@ -43,13 +52,6 @@ nav:
       - Patch representation of spin systems: entries/patch-representation-of-spin-systems.md
       - Monomial monotonicity for high-density measures: entries/monomial-monotonicity-for-high-density-measures.md
       - Common invariant limit under uniform pure deaths: entries/common-invariant-limit-under-uniform-pure-deaths.md
-      - Duality noise lemma: entries/duality-noise-lemma.md
-  - Signed additive set processes:
-      - Signed additive set process: entries/signed-additive-set-process.md
-      - Graphical construction of signed additive set process: entries/graphical-construction-of-signed-additive-set-process.md
-      - Successful interaction: entries/successful-interaction.md
-      - Patch: entries/patch.md
-      - Patch consistency event: entries/patch-consistency-event.md
   - KCSM:
       - Bernoulli refresh operator: entries/bernoulli-refresh-operator.md
       - Update family: entries/update-family.md

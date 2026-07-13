@@ -334,7 +334,19 @@ W_t^\varepsilon
 \end{aligned}
 $$
 
-On \(L_{T,t}\), the end-patch sites at time \(t\) are the end-patch sites at time \(T\). Finite spread of information on a polynomial-growth lattice gives the marked comparison estimate
+By the [interaction-cone](interaction-cone.md) identity,
+
+$$
+|\mathcal E_t|
+=
+|\mathbf{Cone}_t|
+=
+|\mathbf{Cone}_T|
+=
+|\mathcal E_T|
+$$
+
+on \(L_{T,t}\). Finite spread of information on a polynomial-growth lattice therefore gives the marked comparison estimate
 
 $$
 \mathbb E_A\left[
@@ -644,7 +656,13 @@ $$
 \tag{10}
 $$
 
-We now use finite spread in the stronger factorial-moment form required by (10). Put \(N_T=|\mathcal E_T|\). For every \(k\ge1\), graphical path counting gives
+We now use finite spread in the stronger factorial-moment form required by (10). Put
+
+$$
+N_T=|\mathcal E_T|=|\mathbf{Cone}_T|.
+$$
+
+For every \(k\ge1\), graphical path counting gives
 
 $$
 \mathbb E_A\left[

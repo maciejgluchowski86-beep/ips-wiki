@@ -67,7 +67,7 @@ $$
 P=\{i\}\times[s,r_i(s)).
 $$
 
-The set of all patches is denoted by \(\mathcal P\). A patch is finite when \(r_i(s)<\infty\), and infinite when \(r_i(s)=\infty\).
+The set of all patches is denoted by \(\mathcal P\), and \(\mathcal P_\infty=\mathcal P\). A patch is finite when \(r_i(s)<\infty\), and infinite when \(r_i(s)=\infty\). Its initial type is \(\mathsf S\), \(\mathsf I\), or \(\mathsf O\) according as it starts at time \(0\), an incoming touch, or an outgoing touch. A finite patch has terminal type \(\mathsf I\) or \(\mathsf O\) according to its terminal touch; an infinite patch has no terminal boundary.
 
 Every initially active site begins a patch at time \(0\). Every successful interaction cuts spacetime at its source and target sites, ending the preceding patches and beginning new ones at those sites. Every active spacetime point belongs to a patch.
 
@@ -156,5 +156,7 @@ P\in\mathcal P_T:
 $$
 
 Thus bulk patches end at successful touches, while end patches are truncations of full patches at the time horizon. Their local factors are defined in [patch contribution](patch-contribution.md).
+
+Almost surely, sending an end patch to its site is a bijection between \(\mathcal E_T\) and the [interaction cone](interaction-cone.md) \(\mathbf{Cone}_T\).
 
 On the null event of simultaneous successful touches at the same site, use the deterministic ordering fixed in the graphical construction.

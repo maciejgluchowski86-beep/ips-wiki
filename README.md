@@ -34,6 +34,19 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Duality: `docs/entries/duality.md`
 - Theta monomials: `docs/entries/theta-monomials.md`
 - Monomial duality for spin systems: `docs/entries/monomial-duality-for-spin-systems.md`
+- Duality noise lemma: `docs/entries/duality-noise-lemma.md`
+
+## Current signed additive set process entries
+
+- Signed additive set process: `docs/entries/signed-additive-set-process.md`
+- Graphical construction of signed additive set process: `docs/entries/graphical-construction-of-signed-additive-set-process.md`
+- Successful interaction: `docs/entries/successful-interaction.md`
+
+## Current patch entries
+
+- Patch: `docs/entries/patch.md`
+- Interaction cone: `docs/entries/interaction-cone.md`
+- Patch consistency event: `docs/entries/patch-consistency-event.md`
 - Patch factorization: `docs/entries/patch-factorization.md`
 - Patch contribution: `docs/entries/patch-contribution.md`
 - Patch positivity property: `docs/entries/patch-positivity-property.md`
@@ -42,15 +55,6 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Patch representation of spin systems: `docs/entries/patch-representation-of-spin-systems.md`
 - Monomial monotonicity for high-density measures: `docs/entries/monomial-monotonicity-for-high-density-measures.md`
 - Common invariant limit under uniform pure deaths: `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`
-- Duality noise lemma: `docs/entries/duality-noise-lemma.md`
-
-## Current signed additive set process entries
-
-- Signed additive set process: `docs/entries/signed-additive-set-process.md`
-- Graphical construction of signed additive set process: `docs/entries/graphical-construction-of-signed-additive-set-process.md`
-- Successful interaction: `docs/entries/successful-interaction.md`
-- Patch: `docs/entries/patch.md`
-- Patch consistency event: `docs/entries/patch-consistency-event.md`
 
 ## Current KCSM entries
 

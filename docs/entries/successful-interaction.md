@@ -45,9 +45,11 @@ $$
 \bigcup_{T<\infty}\mathcal I_T.
 $$
 
+Set \(\mathcal I_\infty=\mathcal I\).
+
 Thus \(I\) is the full Poisson interaction set, \(\mathcal I_T^S\) is the set of type-\(S\) successful interactions before time \(T\), \(\mathcal I_T\) is the set of all successful interactions before time \(T\), and \(\mathcal I\) is their full infinite-time collection. Deaths have target set \(\vn\), so they are not successful interactions.
 
-The successful-interaction sigma algebra is
+For \(T\le\infty\), the successful-interaction sigma algebra is
 
 $$
 \cG_T
@@ -55,4 +57,4 @@ $$
 \sigma\left(Y_0,\mathcal I_T\right).
 $$
 
-It reveals all successful interactions with nonempty target set up to time \(T\), but it does not reveal whether an outgoing successful interaction is a split or a birth. The resulting boundary data are used to define [patches](patch.md).
+It reveals all successful interactions with nonempty target set up to time \(T\), but it does not reveal whether an outgoing successful interaction is a split or a birth. The resulting boundary data define [patches](patch.md), and the sites they touch form the [interaction cone](interaction-cone.md).
