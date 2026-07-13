@@ -28,10 +28,6 @@ The interaction data assigned to \(P\) are
 
 $$
 \begin{aligned}
-\Sigma_P
-&=
-\Sigma_P^-\cup\Sigma_P^\circ,
-\\
 \Sigma_P^\circ
 &=
 \{(i,u,\alpha,S)\in I:s<u<e\},
@@ -47,8 +43,12 @@ $$
 & \mathsf X(P)=\mathsf I,
 \\
 \{(i,s,\alpha,S)\in I:S\ne\vn\},
-& \mathsf X(P)=\mathsf O.
+& \mathsf X(P)=\mathsf O,
 \end{cases}
+\\
+\Sigma_P
+&=
+\Sigma_P^-\cup\Sigma_P^\circ.
 \end{aligned}
 $$
 
