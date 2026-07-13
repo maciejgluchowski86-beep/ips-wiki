@@ -10,7 +10,7 @@ tags:
 
 # Patch
 
-Fix a [signed additive set process](signed-additive-set-process.md), its [graphical construction](graphical-construction-of-signed-additive-set-process.md), and the full successful-interaction set \(\mathcal I\). A successful interaction \((i,t,S)\) touches its source \(i\) as an outgoing touch and each target \(j\in S\) as an incoming touch.
+Fix a [signed additive set process](signed-additive-set-process.md), its [graphical construction](graphical-construction-of-signed-additive-set-process.md), and the full successful-interaction set \(\mathcal I\). A successful interaction \((i,t,S)\) touches its source \(i\) as an outgoing touch and every target \(j\in S\) as an incoming touch.
 
 For \(i\in\Lambda\), define
 
@@ -53,7 +53,7 @@ $$
 For \(s\in\mathcal S(i)\), let
 
 $$
-r_i(s)
+e_i(s)
 =
 \inf\left\{
 u>s:
@@ -61,102 +61,189 @@ u\in\mathcal T^{\mathsf I}(i)\cup\mathcal T^{\mathsf O}(i)
 \right\},
 $$
 
-with \(\inf\vn=\infty\). The patch beginning at \((i,s)\) is
+with \(\inf\vn=\infty\).
+
+## Full patches
+
+The patch beginning at \((i,s)\) is the labeled object
 
 $$
-P=\{i\}\times[s,r_i(s)).
+P
+=
+\{i(P)\}\times[s(P),e(P))
+\times
+\left\{\bigl(\mathsf X(P)\mathsf Y(P)\bigr)\right\},
 $$
 
-The set of all patches is denoted by \(\mathcal P\), and \(\mathcal P_\infty=\mathcal P\). A patch is finite when \(r_i(s)<\infty\), and infinite when \(r_i(s)=\infty\). Its initial type is \(\mathsf S\), \(\mathsf I\), or \(\mathsf O\) according as it starts at time \(0\), an incoming touch, or an outgoing touch. A finite patch has terminal type \(\mathsf I\) or \(\mathsf O\) according to its terminal touch; an infinite patch has no terminal boundary.
+where
 
-Every initially active site begins a patch at time \(0\). Every successful interaction cuts spacetime at its source and target sites, ending the preceding patches and beginning new ones at those sites. Every active spacetime point belongs to a patch.
+$$
+i(P)=i,
+\qquad
+s(P)=s,
+\qquad
+e(P)=e_i(s).
+$$
+
+In particular,
+
+$$
+i(P)\in\Lambda,
+\qquad
+0\le s(P)\le e(P)\le\infty.
+$$
+
+The initial label is
+
+$$
+\mathsf X(P)
+=
+\begin{cases}
+\mathsf S, & s(P)=0,\\
+\mathsf I, & s(P)\in\mathcal T^{\mathsf I}(i(P)),\\
+\mathsf O, & s(P)\in\mathcal T^{\mathsf O}(i(P)).
+\end{cases}
+$$
+
+The terminal label is
+
+$$
+\mathsf Y(P)
+=
+\begin{cases}
+\mathsf I, & e(P)<\infty
+\text{ and }e(P)\in\mathcal T^{\mathsf I}(i(P)),\\
+\mathsf O, & e(P)<\infty
+\text{ and }e(P)\in\mathcal T^{\mathsf O}(i(P)),\\
+\mathsf E, & e(P)=\infty.
+\end{cases}
+$$
+
+Thus
+
+$$
+\mathsf X(P)\in\{\mathsf S,\mathsf I,\mathsf O\},
+\qquad
+\mathsf Y(P)\in\{\mathsf I,\mathsf O,\mathsf E\}.
+$$
+
+The label \(\mathsf E\) records that the patch has no successful-touch terminal boundary. For a full patch this occurs precisely when the patch is infinite. The same label will be used below when a patch is cut at a finite time horizon.
+
+The family of all full patches is denoted by \(\mathcal P\). A patch is finite when \(e(P)<\infty\) and infinite when \(e(P)=\infty\). Every initially active site begins a patch at time zero. Every successful interaction cuts spacetime at its source and target sites, ending the preceding patches and beginning new ones at those sites. Every active spacetime point lies in the spacetime projection of a patch.
 
 Under the local-finiteness assumption, starting from \(A_0\Subset\Lambda\),
 
 $$
-\left|\mathcal P\right|<\infty
+|\mathcal P|<\infty
 \quad\Longleftrightarrow\quad
-\left|\mathcal I\right|<\infty.
+|\mathcal I|<\infty.
 $$
 
 Indeed, every successful interaction creates patch boundaries. Conversely, finitely many successful interactions touch only finitely many sites and create only finitely many patches, including the final infinite patches.
 
-## Finite time horizon
+On the null event of simultaneous successful touches at the same site, use the deterministic ordering fixed in the graphical construction to determine the successive boundary labels.
 
-For \(T<\infty\) and \(P=\{i\}\times[s,r)\in\mathcal P\) with \(s<T\), define its truncation at \(T\) by
+## Truncation at a time horizon
 
-$$
-P^{(T)}
-=
-\{i\}\times[s,\min\{r,T\}).
-$$
-
-The family of all such truncations is denoted by \(\mathcal P_T\). Its incoming and outgoing touch-time sets are
+For \(t\ge0\) and \(P\in\mathcal P\), define
 
 $$
-\mathcal T_T^{\mathsf I}(i)
-=
-\mathcal T^{\mathsf I}(i)\cap[0,T],
-\qquad
-\mathcal T_T^{\mathsf O}(i)
-=
-\mathcal T^{\mathsf O}(i)\cap[0,T].
+P^{(t)}=\vn
+\qquad\text{when }t\le s(P).
 $$
 
-For \(P^{(T)}=\{i\}\times[s,t)\), the initial and terminal types are
+When \(t>s(P)\), define
 
 $$
-\operatorname{type}_-(P^{(T)})
+e^{(t)}(P)=\min\{e(P),t\}
+$$
+
+and
+
+$$
+\mathsf Y^{(t)}(P)
 =
 \begin{cases}
-\mathsf S, & s=0,\\
-\mathsf I, & s\in\mathcal T_T^{\mathsf I}(i),\\
-\mathsf O, & s\in\mathcal T_T^{\mathsf O}(i),
-\end{cases}
-\qquad
-\operatorname{type}_+(P^{(T)})
-=
-\begin{cases}
-\mathsf E, & t=T,\\
-\mathsf I, & t\in\mathcal T_T^{\mathsf I}(i),\\
-\mathsf O, & t\in\mathcal T_T^{\mathsf O}(i).
+\mathsf Y(P), & e(P)\le t,\\
+\mathsf E, & s(P)<t<e(P).
 \end{cases}
 $$
 
-The patch type is
+The truncation of \(P\) at time \(t\) is
 
 $$
-\operatorname{type}(P^{(T)})
+P^{(t)}
 =
-\operatorname{type}_-(P^{(T)})
-\operatorname{type}_+(P^{(T)}).
+\{i(P)\}\times[s(P),e^{(t)}(P))
+\times
+\left\{\bigl(\mathsf X(P)\mathsf Y^{(t)}(P)\bigr)\right\}.
 $$
 
-The possible types are
+Thus truncation preserves the site, start time, and initial label. If the time horizon cuts the patch, its terminal label is replaced by \(\mathsf E\). If the patch has already ended, then \(P^{(t)}=P\), including its original terminal label.
+
+The bulk patches completed by time \(t\) are
 
 $$
-\mathsf{SI},\ \mathsf{SO},\ \mathsf{SE},\quad
-\mathsf{II},\ \mathsf{IO},\ \mathsf{IE},\quad
+\mathcal B_t
+=
+\{P\in\mathcal P:P^{(t)}=P\}.
+$$
+
+The full patches cut by time \(t\) are
+
+$$
+\mathcal C_t
+=
+\left\{
+P\in\mathcal P:
+\vn\ne P^{(t)}\ne P
+\right\}.
+$$
+
+Their truncations are the end patches
+
+$$
+\mathcal E_t
+=
+\{P^{(t)}:P\in\mathcal C_t\}.
+$$
+
+The finite-horizon patch family is
+
+$$
+\mathcal P_t
+=
+\mathcal B_t\cup\mathcal E_t.
+$$
+
+Sending a cut patch to its truncation is a bijection
+
+$$
+\mathcal C_t\longrightarrow\mathcal E_t,
+\qquad
+P\longmapsto P^{(t)}.
+$$
+
+The possible labels in \(\mathcal P_t\) are
+
+$$
+\mathsf{SI},\ \mathsf{SO},\ \mathsf{SE},\qquad
+\mathsf{II},\ \mathsf{IO},\ \mathsf{IE},\qquad
 \mathsf{OI},\ \mathsf{OO},\ \mathsf{OE}.
 $$
 
-The end and bulk patch sets at horizon \(T\) are
+Every end patch has terminal label \(\mathsf E\). The label does not separately record whether the patch is a finite truncation or a full infinite patch; that distinction is carried by the patch family and its end time.
+
+Set \(P^{(\infty)}=P\) and \(\mathcal P_\infty=\mathcal P\).
+
+For every fixed \(t>0\), almost surely, sending an end patch to its site is a bijection from \(\mathcal E_t\) to the [interaction cone](interaction-cone.md) \(\mathbf{Cone}_t\). Consequently,
 
 $$
-\mathcal E_T
+|\mathcal C_t|
 =
-\left\{
-P\in\mathcal P_T:
-\operatorname{type}_+(P)=\mathsf E
-\right\},
-\qquad
-\mathcal B_T
+|\mathcal E_t|
 =
-\mathcal P_T\setminus\mathcal E_T.
+|\mathbf{Cone}_t|.
 $$
 
-Thus bulk patches end at successful touches, while end patches are truncations of full patches at the time horizon. Their local factors are defined in [patch contribution](patch-contribution.md).
-
-Almost surely, sending an end patch to its site is a bijection between \(\mathcal E_T\) and the [interaction cone](interaction-cone.md) \(\mathbf{Cone}_T\).
-
-On the null event of simultaneous successful touches at the same site, use the deterministic ordering fixed in the graphical construction.
+The local laws and factors associated with these labeled objects are defined in [patch consistency event](patch-consistency-event.md) and [patch contribution](patch-contribution.md).
