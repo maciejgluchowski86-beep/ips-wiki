@@ -10,7 +10,13 @@ tags:
 
 # Patch
 
-Fix a [signed additive set process](signed-additive-set-process.md), its [graphical construction](graphical-construction-of-signed-additive-set-process.md), and the full successful-interaction set \(\mathcal I\). A successful interaction \((i,t,S)\) touches its source \(i\) as an outgoing touch and every target \(j\in S\) as an incoming touch.
+Fix a [signed additive set process](signed-additive-set-process.md), its [graphical construction](graphical-construction-of-signed-additive-set-process.md), and the full successful-interaction set \(\mathcal I\). Adjoin a formal source \(\infty\notin\Lambda\) and the deterministic initial interaction skeleton
+
+$$
+(\infty,0,A_0).
+$$
+
+Throughout this entry, \(\mathcal I\) denotes the successful-interaction set enlarged by this initial skeleton. A successful interaction \((i,t,S)\) touches its source \(i\) as an outgoing touch when \(i\in\Lambda\), and every target \(j\in S\) as an incoming touch. The initial interaction has no outgoing touch in \(\Lambda\); it gives an incoming touch at time zero to every site in \(A_0\).
 
 For \(i\in\Lambda\), define
 
@@ -38,16 +44,8 @@ The possible starting times at \(i\) are
 $$
 \mathcal S(i)
 =
-\mathcal S^0(i)
-\cup\mathcal T^{\mathsf I}(i)
-\cup\mathcal T^{\mathsf O}(i),
-\qquad
-\mathcal S^0(i)
-=
-\begin{cases}
-\{0\}, & i\in A_0,\\
-\vn, & i\notin A_0.
-\end{cases}
+\mathcal T^{\mathsf I}(i)
+\cup\mathcal T^{\mathsf O}(i).
 $$
 
 For \(s\in\mathcal S(i)\), let
@@ -93,19 +91,13 @@ i(P)\in\Lambda,
 0\le s(P)\le e(P)\le\infty.
 $$
 
-The initial target set is defined as follows. If \(s(P)=0\), set
-
-$$
-S(P)=A_0.
-$$
-
-If \(s(P)>0\), then \(P\) begins at a successful-interaction skeleton \((j,s(P),S)\) that touches \(i(P)\), either at its source or in its target. Set
+The patch begins at a successful-interaction skeleton \((j,s(P),S)\) that touches \(i(P)\), either at its source or in its target. Define its initial target set by
 
 $$
 S(P)=S.
 $$
 
-Thus \(S(P)\Subset\Lambda\) is part of the patch data.
+Thus \(S(P)\Subset\Lambda\) is part of the patch data. In particular, patches starting at time zero have \(S(P)=A_0\).
 
 The initial label is
 
@@ -113,13 +105,12 @@ $$
 \mathsf X(P)
 =
 \begin{cases}
-\mathsf S, & s(P)=0,\\
-\mathsf I, & s(P)>0\text{ and }i(P)\in S(P),\\
-\mathsf O, & s(P)>0\text{ and }i(P)\notin S(P).
+\mathsf I, & i(P)\in S(P),\\
+\mathsf O, & i(P)\notin S(P).
 \end{cases}
 $$
 
-Indeed, an incoming patch begins at a target of its initial interaction, while an outgoing patch begins at its source. Since interaction targets lie in \(N(i(P))\), they do not contain their source.
+Indeed, an incoming patch begins at a target of its initial interaction, while an outgoing patch begins at its source. Since the targets of genuine interactions lie in \(N(i(P))\), they do not contain their source. The initial interaction makes every patch starting at time zero an incoming patch.
 
 The terminal label is
 
@@ -138,14 +129,14 @@ $$
 Thus
 
 $$
-\mathsf X(P)\in\{\mathsf S,\mathsf I,\mathsf O\},
+\mathsf X(P)\in\{\mathsf I,\mathsf O\},
 \qquad
 \mathsf Y(P)\in\{\mathsf I,\mathsf O,\mathsf E\}.
 $$
 
 The label \(\mathsf E\) records that the patch has no successful-touch terminal boundary. For a full patch this occurs precisely when the patch is infinite. The same label will be used below when a patch is cut at a finite time horizon.
 
-The family of all full patches is denoted by \(\mathcal P\). A patch is finite when \(e(P)<\infty\) and infinite when \(e(P)=\infty\). Every initially active site begins a patch at time zero. Every successful interaction cuts spacetime at its source and target sites, ending the preceding patches and beginning new ones at those sites. Every active spacetime point lies in the spacetime projection of a patch.
+The family of all full patches is denoted by \(\mathcal P\). A patch is finite when \(e(P)<\infty\) and infinite when \(e(P)=\infty\). Every initially active site begins an incoming patch at time zero. Every genuine successful interaction cuts spacetime at its source and target sites, ending the preceding patches and beginning new ones at those sites. Every active spacetime point lies in the spacetime projection of a patch.
 
 Under the local-finiteness assumption, starting from \(A_0\Subset\Lambda\),
 
@@ -243,7 +234,6 @@ $$
 The possible labels in \(\mathcal P_t\) are
 
 $$
-\mathsf{SI},\ \mathsf{SO},\ \mathsf{SE},\qquad
 \mathsf{II},\ \mathsf{IO},\ \mathsf{IE},\qquad
 \mathsf{OI},\ \mathsf{OO},\ \mathsf{OE}.
 $$
