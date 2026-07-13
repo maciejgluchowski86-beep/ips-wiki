@@ -72,7 +72,7 @@ P
 =
 \{i(P)\}\times[s(P),e(P))
 \times
-\left\{\bigl(\mathsf X(P)\mathsf Y(P)\bigr)\right\},
+\left\{\bigl(\mathsf X(P)\mathsf Y(P),S(P)\bigr)\right\},
 $$
 
 where
@@ -93,6 +93,20 @@ i(P)\in\Lambda,
 0\le s(P)\le e(P)\le\infty.
 $$
 
+The initial target set is defined as follows. If \(s(P)=0\), set
+
+$$
+S(P)=A_0.
+$$
+
+If \(s(P)>0\), then \(P\) begins at a successful-interaction skeleton \((j,s(P),S)\) that touches \(i(P)\), either at its source or in its target. Set
+
+$$
+S(P)=S.
+$$
+
+Thus \(S(P)\Subset\Lambda\) is part of the patch data.
+
 The initial label is
 
 $$
@@ -100,10 +114,12 @@ $$
 =
 \begin{cases}
 \mathsf S, & s(P)=0,\\
-\mathsf I, & s(P)\in\mathcal T^{\mathsf I}(i(P)),\\
-\mathsf O, & s(P)\in\mathcal T^{\mathsf O}(i(P)).
+\mathsf I, & s(P)>0\text{ and }i(P)\in S(P),\\
+\mathsf O, & s(P)>0\text{ and }i(P)\notin S(P).
 \end{cases}
 $$
+
+Indeed, an incoming patch begins at a target of its initial interaction, while an outgoing patch begins at its source. Since interaction targets lie in \(N(i(P))\), they do not contain their source.
 
 The terminal label is
 
@@ -176,10 +192,10 @@ P^{(t)}
 =
 \{i(P)\}\times[s(P),e^{(t)}(P))
 \times
-\left\{\bigl(\mathsf X(P)\mathsf Y^{(t)}(P)\bigr)\right\}.
+\left\{\bigl(\mathsf X(P)\mathsf Y^{(t)}(P),S(P)\bigr)\right\}.
 $$
 
-Thus truncation preserves the site, start time, and initial label. If the time horizon cuts the patch, its terminal label is replaced by \(\mathsf E\). If the patch has already ended, then \(P^{(t)}=P\), including its original terminal label.
+Thus truncation preserves the site, start time, initial label, and initial target set. If the time horizon cuts the patch, its terminal label is replaced by \(\mathsf E\). If the patch has already ended, then \(P^{(t)}=P\), including its original terminal label.
 
 The bulk patches completed by time \(t\) are
 
