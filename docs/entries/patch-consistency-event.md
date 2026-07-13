@@ -22,7 +22,7 @@ e=e(P),
 S_-=S(P).
 $$
 
-Let \(I\) be the interaction set in the [graphical construction](graphical-construction-of-signed-additive-set-process.md). The interaction data of \(P\) are all interactions outgoing from its site during its lifetime:
+Let \(I\) be the marked interaction set in the [graphical construction](graphical-construction-of-signed-additive-set-process.md). The deterministic initial skeleton from source \(\infty\) is not an outgoing marked interaction from any site in \(\Lambda\), so it does not enter the local interaction data. The interaction data of \(P\) are all interactions outgoing from its site during its lifetime:
 
 $$
 \Sigma_P
@@ -33,7 +33,7 @@ s\le u<e
 \right\}.
 $$
 
-The initial target set \(S_-\) is part of the patch data. When \(\mathsf X(P)=\mathsf O\), the initial interaction in \(\Sigma_P\) has target \(S_-\). When \(\mathsf X(P)=\mathsf I\), the interaction that begins the patch is incoming from another site and therefore is not contained in \(\Sigma_P\). For a start patch, \(S_-=A_0\).
+The initial target set \(S_-\) is part of the patch data. When \(\mathsf X(P)=\mathsf O\), the initial interaction in \(\Sigma_P\) has target \(S_-\). When \(\mathsf X(P)=\mathsf I\), the interaction that begins the patch is incoming from another source and therefore is not contained in \(\Sigma_P\). This includes patches beginning at time zero, whose incoming source is \(\infty\) and whose initial target is \(A_0\).
 
 ## Reference patch measure
 
@@ -75,19 +75,13 @@ $$
 
 are independent Poisson point processes of rates \(\delta_i(R)\) and \(\beta_i(R)\), respectively.
 
-If
-
-$$
-\mathsf X(P)\in\{\mathsf S,\mathsf I\},
-$$
-
-define
+If \(\mathsf X(P)=\mathsf I\), define
 
 $$
 \mathbb P_P=\Pi_{i,[s,e)}.
 $$
 
-Thus a start patch or incoming patch has the original law of all interactions outgoing from its site during \([s,e)\).
+Thus an incoming patch, including one beginning at time zero, has the original law of all interactions outgoing from its site during \([s,e)\).
 
 Suppose instead that \(\mathsf X(P)=\mathsf O\). Since \(P\) begins at an outgoing successful-interaction skeleton, its initial target satisfies \(\vn\ne S_-\subseteq N(i)\) and
 
@@ -146,7 +140,7 @@ X_s^P
 =
 \begin{cases}
 1,
-& \mathsf X(P)\in\{\mathsf S,\mathsf I\},
+& \mathsf X(P)=\mathsf I,
 \\
 \mathbf 1_{\{K_P=\beta\}},
 & \mathsf X(P)=\mathsf O.
