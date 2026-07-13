@@ -18,7 +18,7 @@ Write \(\mathbb E_A\) for expectation with respect to the successful-interaction
 
 ## Statement
 
-For every \(A\Subset\Lambda\), every \(\xi\in\{0,1\}^\Lambda\), and every \(t>0\),
+For every \(A\Subset\Lambda\), every \(\xi\in\{0,1\}^\Lambda\), and every \(t\ge0\),
 
 $$
 \begin{aligned}
@@ -36,12 +36,6 @@ P_t(\chi_A)(\xi)
 \right].
 \end{aligned}
 \tag{1}
-$$
-
-At \(t=0\), the corresponding identity is simply
-
-$$
-P_0(\chi_A)(\xi)=\chi_A(\xi).
 $$
 
 ## Proof
@@ -109,6 +103,16 @@ X_u^P
 s(P)\le u<e(P).
 \tag{4}
 $$
+
+For \(P\in\mathcal X_t^T\), also set
+
+$$
+X_t^P
+=
+\ind\{i(P)\in A_t\}.
+$$
+
+When \(t=s(P)\), this is the state created by the initial interaction of \(P\); when \(t>s(P)\), it agrees almost surely with \(X_{t-}^P\).
 
 If \(P\) is outgoing-initial and its initial interaction is
 
@@ -195,7 +199,7 @@ V_{i(P)}\int_{s(P)}^tX_u^P\,du
 \tag{7}
 $$
 
-At a deterministic time \(t>0\), almost surely no Poisson interaction occurs exactly at \(t\). The patches in \(\mathcal X_t^T\) are therefore in one-to-one correspondence with the sites present in the patch family at time \(t\), and
+The patches in \(\mathcal X_t^T\) are in one-to-one correspondence with the sites present in the patch family at time \(t\), and
 
 $$
 \begin{aligned}
@@ -205,7 +209,7 @@ $$
 \\
 &=
 \prod_{P\in\mathcal X_t^T}
-\xi(i(P))^{X_{t-}^P}.
+\xi(i(P))^{X_t^P}.
 \end{aligned}
 \tag{8}
 $$
@@ -236,7 +240,7 @@ V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
 \exp\left(
 V_{i(P)}\int_{s(P)}^tX_u^P\,du
 \right)
-\xi(i(P))^{X_{t-}^P}
+\xi(i(P))^{X_t^P}
 \right].
 \end{aligned}
 \tag{9}
@@ -271,7 +275,7 @@ V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
 \exp\left(
 V_{i(P)}\int_{s(P)}^tX_u^P\,du
 \right)
-\xi(i(P))^{X_{t-}^P}
+\xi(i(P))^{X_t^P}
 \right]
 \\
 &\quad=
