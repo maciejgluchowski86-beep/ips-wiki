@@ -10,14 +10,14 @@ tags:
 
 # Graphical construction of signed additive set process
 
-The graphical construction realizes a [signed additive set process](signed-additive-set-process.md) from independent Poisson interactions in spacetime. The interactions, together with the initial state, determine the full path \((A_t,\sigma_t)\).
+The graphical construction realizes a [signed additive set process](signed-additive-set-process.md) from an initial interaction and independent Poisson interactions in spacetime. Together, these interactions determine the full path \((A_t,\sigma_t)\).
 
 ## Poisson interaction sets
 
 For every \(i\in\Lambda\) and \(S\subseteq N(i)\), let
 
 $$
-I_{i,S}^\delta\subseteq [0,\infty)
+I_{i,S}^\delta\subseteq(0,\infty)
 $$
 
 be a Poisson point process of rate \(\delta_i(S)\). Its times are deaths when \(S=\vn\), and splits when \(S\ne\vn\).
@@ -25,7 +25,7 @@ be a Poisson point process of rate \(\delta_i(S)\). Its times are deaths when \(
 For every \(i\in\Lambda\) and nonempty \(S\subseteq N(i)\), let
 
 $$
-I_{i,S}^\beta\subseteq [0,\infty)
+I_{i,S}^\beta\subseteq(0,\infty)
 $$
 
 be a Poisson point process of rate \(\beta_i(S)\). Its times are births.
@@ -38,29 +38,61 @@ $$
 \{I_{i,S}^\beta\}_{i,S\ne\vn}
 $$
 
-are independent. Define the full interaction set
+are independent. Their marked interaction set is
 
 $$
-I
+I^{\mathrm{P}}
 =
 \{(i,t,\delta,S):t\in I_{i,S}^\delta\}
 \cup
 \{(i,t,\beta,S):t\in I_{i,S}^\beta\}.
 $$
 
-For an interaction \((i,t,\alpha,S)\in I\), the site \(i\) is the interaction source and the set \(S\) is the interaction target. Deaths have empty interaction target. Splits and births have nonempty interaction target.
+For \((i,t,\alpha,S)\in I^{\mathrm P}\), the site \(i\) is the interaction source and \(S\) is the interaction target. Deaths have empty target. Splits and births have nonempty target.
 
-Assume the usual local-finiteness condition: starting from any finite active set, only finitely many relevant interactions are encountered on every bounded time interval. This holds, for example, in the finite-range bounded-rate setting.
+## Initial interaction
 
-## Pathwise construction
+Adjoin a formal source
 
-Fix an initial state
+$$
+\infty\notin\Lambda
+$$
+
+and a special interaction kind \(\mathsf{init}\notin\{\delta,\beta\}\). For the prescribed initial state \(Y_0=(A_0,\sigma_0)\), define the deterministic initial interaction
+
+$$
+\iota_0
+=
+(\infty,0,\mathsf{init},A_0).
+$$
+
+Its source is \(\infty\), its target is \(A_0\), and it has no rate. The full interaction set is
+
+$$
+I
+=
+\{\iota_0\}\cup I^{\mathrm P}.
+$$
+
+The initial interaction creates the initial active set without changing its sign. Formally, start from
+
+$$
+Y_{0-}=(\vn,\sigma_0)
+$$
+
+and apply \(\iota_0\) by setting
 
 $$
 Y_0=(A_0,\sigma_0).
 $$
 
-Read the interactions of \(I\) in increasing time order. If several interactions occur at the same time, use any fixed deterministic ordering; this convention is irrelevant almost surely.
+The formal source is not a lattice site and never becomes active. The initial interaction therefore creates no source-side update or sign; it only records the creation of its target.
+
+Assume the usual local-finiteness condition: starting from any finite active set, only finitely many relevant Poisson interactions are encountered on every bounded time interval. This holds, for example, in the finite-range bounded-rate setting.
+
+## Pathwise construction
+
+After the initial interaction, read the interactions of \(I^{\mathrm P}\) in increasing time order. If several interactions occur at the same time, use any fixed deterministic ordering; this convention is irrelevant almost surely.
 
 At an interaction \((i,t,\delta,S)\), set
 
@@ -88,15 +120,15 @@ $$
 Y_t=(A_t,\sigma_t).
 $$
 
-Thus inactive-source interactions are ignored, while active-source interactions apply the corresponding update operator.
+Thus inactive-source Poisson interactions are ignored, while active-source Poisson interactions apply the corresponding update operator.
 
 ## Lemma
 
-The process \((Y_t)_{t\ge0}\) constructed from the interaction set \(I\) is the signed additive set process with generator \(\cD\).
+For every prescribed initial state \(Y_0=(A_0,\sigma_0)\), the process \((Y_t)_{t\ge0}\) constructed from \(I\) is the signed additive set process with generator \(\cD\).
 
 ## Proof
 
-Fix a state \(Y=(A,\sigma)\). Conditional on \(Y_t=Y\), only interactions whose source lies in \(A\) can change the state. For \(h\downarrow0\), the probability that exactly one relevant death or split \((i,\cdot,\delta,S)\) occurs in \((t,t+h]\) is
+The deterministic interaction \(\iota_0\) only installs the prescribed initial state. After time zero, fix a state \(Y=(A,\sigma)\). Conditional on \(Y_t=Y\), only Poisson interactions whose source lies in \(A\) can change the state. For \(h\downarrow0\), the probability that exactly one relevant death or split \((i,\cdot,\delta,S)\) occurs in \((t,t+h]\) is
 
 $$
 \delta_i(S)h+o(h),
@@ -108,7 +140,7 @@ $$
 \beta_i(S)h+o(h),
 $$
 
-and the resulting state is \(B_{i,S}Y\). The probability of two or more relevant interactions in \((t,t+h]\) is \(o(h)\).
+and the resulting state is \(B_{i,S}Y\). The probability of two or more relevant Poisson interactions in \((t,t+h]\) is \(o(h)\).
 
 Therefore, for any bounded test function \(f\),
 
