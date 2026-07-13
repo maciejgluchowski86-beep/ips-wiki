@@ -58,15 +58,15 @@ $$
 \infty\notin\Lambda
 $$
 
-and a special interaction kind \(\mathsf{init}\notin\{\delta,\beta\}\). For the prescribed initial state \(Y_0=(A_0,\sigma_0)\), define the deterministic initial interaction
+and a special interaction kind \(\mathsf{init}\notin\{\delta,\beta\}\). For the prescribed initial state \(Y_0=(A_0,\sigma_0)\), define the deterministic signed initial interaction
 
 $$
 \iota_0
 =
-(\infty,0,\mathsf{init},A_0).
+(\infty,0,\mathsf{init},A_0;\sigma_0).
 $$
 
-Its source is \(\infty\), its target is \(A_0\), and it has no rate. The full interaction set is
+Its source is \(\infty\), its target is \(A_0\), its sign is \(\sigma_0\), and it has no rate. The full interaction set is
 
 $$
 I
@@ -74,10 +74,10 @@ I
 \{\iota_0\}\cup I^{\mathrm P}.
 $$
 
-The initial interaction creates the initial active set without changing its sign. Formally, start from
+The initial interaction creates the initial active set and assigns its sign. Formally, start from
 
 $$
-Y_{0-}=(\vn,\sigma_0)
+Y_{0-}=(\vn,+)
 $$
 
 and apply \(\iota_0\) by setting
@@ -86,7 +86,7 @@ $$
 Y_0=(A_0,\sigma_0).
 $$
 
-The formal source is not a lattice site and never becomes active. The initial interaction therefore creates no source-side update or sign; it only records the creation of its target.
+The formal source is not a lattice site and never becomes active. The initial interaction creates no source-side patch; it records the creation of its target together with the sign \(\sigma_0\).
 
 Assume the usual local-finiteness condition: starting from any finite active set, only finitely many relevant Poisson interactions are encountered on every bounded time interval. This holds, for example, in the finite-range bounded-rate setting.
 
