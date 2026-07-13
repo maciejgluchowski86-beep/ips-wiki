@@ -22,7 +22,7 @@ e=e(P),
 S_-=S(P).
 $$
 
-Let \(I\) be the marked interaction set in the [graphical construction](graphical-construction-of-signed-additive-set-process.md). The deterministic initial skeleton from source \(\infty\) is not an outgoing marked interaction from any site in \(\Lambda\), so it does not enter the local interaction data. The interaction data of \(P\) are all interactions outgoing from its site during its lifetime:
+Let \(I\) be the full marked interaction set in the [graphical construction](graphical-construction-of-signed-additive-set-process.md). Its deterministic initial interaction has source \(\infty\), so it is not outgoing from any site in \(\Lambda\) and does not enter the local interaction data. The interaction data of \(P\) are all interactions outgoing from its site during its lifetime:
 
 $$
 \Sigma_P
