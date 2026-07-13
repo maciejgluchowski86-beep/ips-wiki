@@ -116,114 +116,79 @@ When \(t=s(P)\), this is the state created by the initial interaction of \(P\); 
 
 Thus (3) is the local sign variable from the [patch contribution](patch-contribution.md) entry. On \(\operatorname{Con}(P)\), the process in (4) agrees with the local active indicator defined from \(\Sigma_P\).
 
-Every nonempty-target successful interaction before time \(t\) contributes its sign to exactly one outgoing-initial patch. The only active-source interactions not represented by such patch boundaries are pure deaths, and their signed coefficient satisfies
+Define
 
 $$
-a_i^\delta(\vn)
+F(P)
 =
-c_i^0(\vn)
+\sigma_P
+\exp\left(
+V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
+\right),
+\qquad P\in\mathcal B_t,
+$$
+
+and
+
+$$
+F_t(\xi,P)
 =
-c_i(\mathbf 0)
-\ge0.
+\sigma_P
+\exp\left(
+V_{i(P)}\int_{s(P)}^tX_u^P\,du
+\right)
+\xi(i(P))^{X_t^P},
+\qquad P\in\mathcal X_t^T.
 $$
 
-Hence \(\sigma_i^\delta(\vn)=+\), so pure deaths do not change the sign. Since the dual starts with sign \(+\),
+These are the unaveraged factors from the [patch contribution](patch-contribution.md) entry.
+
+Every nonempty-target successful interaction contributes its sign to exactly one outgoing-initial patch. Pure deaths contribute no sign because
 
 $$
-\sigma_t
-=
-\prod_{P\in\mathcal B_t}\sigma_P
-\prod_{P\in\mathcal X_t^T}\sigma_P.
-\tag{5}
+a_i^\delta(\vn)=c_i(\mathbf 0)\ge0.
 $$
 
-Since
-
-$$
-V(A_u)
-=
-\sum_{i\in A_u}V_i,
-$$
-
-and the patches partition the relevant site-time regions up to time \(t\),
+Moreover, \(V(A_u)=\sum_{i\in A_u}V_i\), the patches partition the relevant site-time regions up to time \(t\), and the patches in \(\mathcal X_t^T\) record the state at time \(t\). Therefore
 
 $$
 \begin{aligned}
-\exp\left(
-\int_0^tV(A_u)\,du
-\right)
+\sigma_t
 &=
-\exp\left(
+\prod_{P\in\mathcal B_t}\sigma_P
+\prod_{P\in\mathcal X_t^T}\sigma_P,
+\\
+\int_0^tV(A_u)\,du
+&=
 \sum_{P\in\mathcal B_t}
 V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
 +
 \sum_{P\in\mathcal X_t^T}
-V_{i(P)}\int_{s(P)}^tX_u^P\,du
-\right)
+V_{i(P)}\int_{s(P)}^tX_u^P\,du,
 \\
-&=
-\prod_{P\in\mathcal B_t}
-\exp\left(
-V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
-\right)
-\\
-&\qquad\times
-\prod_{P\in\mathcal X_t^T}
-\exp\left(
-V_{i(P)}\int_{s(P)}^tX_u^P\,du
-\right).
-\end{aligned}
-\tag{6}
-$$
-
-The patches in \(\mathcal X_t^T\) are in one-to-one correspondence with the sites present in the patch family at time \(t\), and
-
-$$
-\begin{aligned}
 \chi_{A_t}(\xi)
-&=
-\prod_{i\in A_t}\xi(i)
-\\
 &=
 \prod_{P\in\mathcal X_t^T}
 \xi(i(P))^{X_t^P}.
 \end{aligned}
-\tag{7}
+\tag{5}
 $$
 
-Multiplying (5)--(7) gives the exact patchwise decomposition
+By the definitions of \(F(P)\) and \(F_t(\xi,P)\), these three equalities give the exact patchwise decomposition
 
 $$
-\begin{aligned}
-&\sigma_t
+\sigma_t
 \exp\left(
 \int_0^tV(A_u)\,du
 \right)
 \chi_{A_t}(\xi)
-\\
-&\quad=
-\prod_{P\in\mathcal B_t}
-\left[
-\sigma_P
-\exp\left(
-V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
-\right)
-\right]
-\\
-&\qquad\times
-\prod_{P\in\mathcal X_t^T}
-\left[
-\sigma_P
-\exp\left(
-V_{i(P)}\int_{s(P)}^tX_u^P\,du
-\right)
-\xi(i(P))^{X_t^P}
-\right].
-\end{aligned}
-\tag{8}
+=
+\prod_{P\in\mathcal B_t}F(P)
+\prod_{P\in\mathcal X_t^T}F_t(\xi,P).
+\tag{6}
 $$
 
-The variables in distinct brackets are functions of the corresponding patch interaction data. Hence [patch factorization](patch-factorization.md) applied conditionally on \(\cG_T\) gives
+The factors in (6) are functions of the corresponding patch interaction data. Hence [patch factorization](patch-factorization.md) applied conditionally on \(\cG_T\) gives
 
 $$
 \begin{aligned}
@@ -238,22 +203,11 @@ $$
 \\
 &\quad=
 \prod_{P\in\mathcal B_t}
-\mathbb E_P^{\mathrm{con}}\left[
-\sigma_P
-\exp\left(
-V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
-\right)
-\right]
+\mathbb E_P^{\mathrm{con}}[F(P)]
 \\
 &\qquad\times
 \prod_{P\in\mathcal X_t^T}
-\mathbb E_P^{\mathrm{con}}\left[
-\sigma_P
-\exp\left(
-V_{i(P)}\int_{s(P)}^tX_u^P\,du
-\right)
-\xi(i(P))^{X_t^P}
-\right]
+\mathbb E_P^{\mathrm{con}}[F_t(\xi,P)]
 \\
 &\quad=
 \begin{cases}
@@ -268,33 +222,9 @@ V_{i(P)}\int_{s(P)}^tX_u^P\,du
 & T=\infty.
 \end{cases}
 \end{aligned}
-\tag{9}
+\tag{7}
 $$
 
-Taking expectation in (9) and using (2) yields, when \(T=t\),
-
-$$
-P_t(\chi_A)(\xi)
-=
-\mathbb E_A\left[
-\prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal E_t}C(\xi,P)
-\right],
-\tag{10}
-$$
-
-and, when \(T=\infty\),
-
-$$
-P_t(\chi_A)(\xi)
-=
-\mathbb E_A\left[
-\prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal C_t}C_t(\xi,P)
-\right].
-\tag{11}
-$$
-
-Equations (10) and (11) are the two equalities in (1).
+Taking expectation in (7), first with \(T=t\) and then with \(T=\infty\), and using (2), gives the two equalities in (1).
 
 The deterministic ordering convention for simultaneous successful touches handles the null exceptional events without changing the formulas.
