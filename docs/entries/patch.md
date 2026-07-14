@@ -70,7 +70,7 @@ P
 =
 \{i(P)\}\times[s(P),e(P))
 \times
-\left\{\bigl(\mathsf X(P)\mathsf Y(P),S(P)\bigr)\right\},
+\left\{\mathsf X(P)\mathsf Y(P)\right\}\times \left\{S(P)\right\},
 $$
 
 where
