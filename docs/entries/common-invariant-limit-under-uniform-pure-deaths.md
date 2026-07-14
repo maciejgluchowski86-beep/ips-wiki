@@ -11,7 +11,7 @@ tags:
 
 # Common invariant limit under uniform pure deaths
 
-For a patch-positive spin system with a uniform pure-death component, mixtures of Bernoulli product measures above a threshold extending below the patch critical density converge to a common invariant measure. On a polynomial-growth lattice the convergence is exponential on local functions, up to a polynomial prefactor. The limiting factors are the contributions of the complete full patches.
+For a patch-positive spin system with a uniform pure-death component, mixtures of Bernoulli product measures above a threshold extending below the patch critical density converge to a common invariant measure. On a polynomial-growth lattice the convergence is exponential on local functions, up to a polynomial prefactor. The monomial moments of the limit are the contributions of the finite complete patch families.
 
 **References.** None yet.
 
@@ -25,6 +25,14 @@ c_i^1(\xi)\ge\varepsilon
 \text{for every }i\in\Lambda
 \text{ and }\xi\in\{0,1\}^{\Lambda}.
 $$
+
+Assume also that the positive numbers \(\alpha_i\) from the [patch-contribution formulas](patch-contribution.md) are uniformly bounded away from zero:
+
+$$
+\inf_{i:\alpha_i>0}\alpha_i>0,
+$$
+
+with the infimum of the empty set understood as \(+\infty\).
 
 Set
 
@@ -46,20 +54,19 @@ $$
 
 The estimate is uniform over all mixtures \(\nu\) of Bernoulli product measures whose mixing laws are supported on one-density profiles satisfying \(\mathbf p\ge\mathbf p^-\). Consequently \(\nu P_t\) converges weakly to \(\pi\) for every such mixture. In particular, every [high-density measure](high-density-measure.md) converges to \(\pi\).
 
-Under the extension of the full-patch contribution defined below, the limiting measure is characterized on the monomial basis by
+The limiting measure is characterized on the monomial basis by
 
 $$
 \pi(\chi_A)
 =
 \mathbb E_A\left[
 \prod_{P\in\mathcal P}C(P)\,
-\ind\left(|\mathcal P|<\infty\right)
+\ind\left(\left|\mathcal P\right|<\infty\right)
 \right],
 \qquad A\Subset\Lambda.
-\tag{1}
 $$
 
-Here \(\mathcal P\) is the full [patch](patch.md) family of the signed dual started from \(A\), and the integrand is defined to be zero when \(|\mathcal P|=\infty\).
+Here \(\mathcal P\) is the full [patch](patch.md) family of the signed dual started from \(A\), and the integrand is defined to be zero when \(\left|\mathcal P\right|=\infty\).
 
 ## Corollary
 
@@ -78,123 +85,90 @@ $$
 K_f e^{-\gamma t}.
 $$
 
-## Infinite full-patch contribution
+## Proof of the theorem
 
-Put
+Define \(\cL^\varepsilon\) by reducing every \(1\)-to-\(0\) flip rate by \(\varepsilon\). The lower bound on \(c_i^1\) makes this another spin-system generator, and
 
 $$
-r_i=c_i^0(\vn)+c_i^1(\vn),
+\cL
+=
+\cL^\varepsilon+\varepsilon\mathcal N^0,
 \qquad
-d_i=c_i^0(\vn).
-$$
-
-These are nonnegative spin-system rates, and the pure-death assumption gives
-
-$$
-r_i\ge c_i^1(\vn)\ge\varepsilon.
-\tag{2}
-$$
-
-Write
-
-$$
-\varphi_i^\infty
+\mathcal N^0f(\xi)
 =
-\lim_{\Delta\to\infty}\varphi_i(\Delta)
-=
-\begin{cases}
-\dfrac{d_i}{\alpha_i}, & \alpha_i>0,\\[0.8em]
-1, & \alpha_i=0,
-\end{cases}
-\qquad
-\psi_i^\infty
-=
-\frac{d_i}{r_i}.
+\sum_{i\in\Lambda}
+\left(f(\xi^{i,0})-f(\xi)\right).
 $$
 
-Let \(P\) be an infinite full patch based at \(i\). For \(t\ge s(P)\), put \(\Delta=t-s(P)\). Since \(e(P)=\infty\), the two-duration function in the full-cut contribution satisfies
+By the [duality noise lemma](duality-noise-lemma.md), \(\cL\) and \(\cL^\varepsilon\) have the same signed dual process and the same full [successful-interaction](successful-interaction.md) set \(\mathcal I\). Write \(P_t^\varepsilon\) and \(C^\varepsilon\) for the semigroup and patch contributions associated with \(\cL^\varepsilon\).
+
+The patch formulas give
 
 $$
-\begin{aligned}
-\psi_i(\Delta,\infty,z)
-&=
-d_i\int_0^\Delta e^{-r_i w}\,dw
-+
-z e^{-r_i\Delta}\varphi_i^\infty
-\\
-&=
-\psi_i^\infty
-+
-\left(z\varphi_i^\infty-\psi_i^\infty\right)e^{-r_i\Delta}.
-\end{aligned}
-\tag{3}
+0\le C(P)\le C^\varepsilon(P)
 $$
 
-Thus the limit of \(C_t(z,P)\) exists and is independent of \(z\). Extend the notation \(C(P)\) to infinite full patches by
+for every finite patch. If \(P\) has terminal type \(\mathsf O\), so that its type is \(\mathsf{XO}\) with \(\mathsf X\in\{\mathsf S,\mathsf I,\mathsf O\}\), then the patch is active throughout and the comparison is exact:
 
 $$
 C(P)
 =
-\lim_{t\to\infty}C_t(z,P)
-=
-\begin{cases}
-\dfrac{\psi_i^\infty}{\varphi_i^\infty},
-& \mathsf X(P)=\mathsf I,
-\\[1.2em]
-\dfrac{
-c_i^0(S(P))
--
-\left(c_i^0(S(P))+c_i^1(S(P))\right)\psi_i^\infty
-}{
-|c_i^0(S(P))|
-+
-|c_i^0(S(P))+c_i^1(S(P))|\varphi_i^\infty
-},
-& \mathsf X(P)=\mathsf O.
-\end{cases}
-\tag{4}
+e^{-\varepsilon\Delta(P)}C^\varepsilon(P).
+\tag{1}
 $$
 
-As usual, only labels with positive consistency probability occur; their denominators in (4) are positive. Patch positivity makes both rows nonnegative. For the outgoing row this follows explicitly from
+The patch critical density is unchanged because the pure-death perturbation changes only the empty coefficient \(c_i^1(\vn)\). Since
 
 $$
-\begin{aligned}
-c_i^0(S)
--
-\left(c_i^0(S)+c_i^1(S)\right)\psi_i^\infty
-&=
-\frac{
-c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)
-}{r_i}
-\ge0.
-\end{aligned}
-\tag{5}
+\mathbf p+\mathbf 1\ge2\mathbf p^\star,
 $$
 
-Equation (3) also gives a uniform exponential approach to (4), with rate controlled by \(r_i\ge\varepsilon\).
-
-## Proof of the theorem
-
-Fix a deterministic one-density profile \(\mathbf p\ge\mathbf p^-\). Conditioning the duality formula on \(\cG_\infty\) and then using the full-skeleton form of the [patch representation](patch-representation-of-spin-systems.md) gives
+the reflected comparison from [monomial monotonicity for high-density measures](monomial-monotonicity-for-high-density-measures.md#domination-below-the-critical-density) gives, for every end patch,
 
 $$
-\mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
-=
-\mathbb E_A\left[W_t^{\mathbf p}\right],
-\tag{6}
+\left|C^{\mathbf p}(P)\right|
+\le
+C^{\mathbf 1}(P)
+\le
+C^{\varepsilon,\mathbf 1}(P).
+\tag{2}
 $$
 
-where
+Set
 
 $$
 W_t^{\mathbf p}
 =
 \prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal C_t}C_t(\mathbf p,P).
-\tag{7}
+\prod_{P\in\mathcal E_t}C^{\mathbf p}(P).
 $$
 
-The first product contains the full patches completed by time \(t\); the second contains the full patches cut by time \(t\).
+The positive comparison weight is
+
+$$
+W_t^\varepsilon
+=
+\prod_{P\in\mathcal B_t}C^\varepsilon(P)
+\prod_{P\in\mathcal E_t}C^{\varepsilon,\mathbf 1}(P).
+$$
+
+Its total mass satisfies
+
+$$
+\mathbb E_A\left[W_t^\varepsilon\right]
+=
+\mu_{\mathbf 1}\bigl(P_t^\varepsilon(\chi_A)\bigr)
+\le1.
+$$
+
+The Bernoulli-averaged [patch representation](patch-representation-of-spin-systems.md) reads
+
+$$
+\mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
+=
+\mathbb E_A\left[W_t^{\mathbf p}\right].
+\tag{3}
+$$
 
 For \(T<\infty\), let
 
@@ -202,146 +176,21 @@ $$
 L_T
 =
 \left\{
-\text{no successful interaction occurs after time }T
-\right\},
+\text{no successful interactions occur after time }T
+\right\}.
 $$
 
-and set
+For \(t>T\), let
 
 $$
-L_\infty
+L_{T,t}
 =
-\bigcup_{T<\infty}L_T.
+\left\{
+\text{no successful interactions occur between times }T\text{ and }t
+\right\}.
 $$
 
-Local finiteness and the patch construction give
-
-$$
-L_\infty
-=
-\{|\mathcal I|<\infty\}
-=
-\{|\mathcal P|<\infty\}.
-\tag{8}
-$$
-
-We use a positive comparison that retains a uniform pure-death component. Set
-
-$$
-\lambda=\frac\varepsilon2,
-\qquad
-\cL^\circ=\cL-\lambda\mathcal N^0,
-$$
-
-where
-
-$$
-\mathcal N^0f(\xi)
-=
-\sum_{i\in\Lambda}
-\left(f(\xi^{i,0})-f(\xi)\right).
-$$
-
-The lower bound on \(c_i^1\) makes \(\cL^\circ\) a spin-system generator, still with pure-death rate at least \(\lambda\). By the [duality noise lemma](duality-noise-lemma.md), \(\cL\) and \(\cL^\circ\) have the same signed dual and the same full successful-interaction skeleton. Their local Feynman--Kac factors satisfy
-
-$$
-F_t(z,P)
-=
-\exp\left(
--\lambda\int_{s(P)}^tX_u^P\,du
-\right)
-F_t^\circ(z,P).
-\tag{9}
-$$
-
-In particular, if \(P\) has terminal label \(\mathsf O\), consistency forces \(X_u^P=1\) throughout the relevant part of the patch. Hence
-
-$$
-C(P)
-=
-e^{-\lambda(e(P)-s(P))}C^\circ(P)
-\tag{10}
-$$
-
-for a completed \(\mathsf{IO}\)- or \(\mathsf{OO}\)-patch, and
-
-$$
-C_t(z,P)
-=
-e^{-\lambda(t-s(P))}C_t^\circ(z,P)
-\tag{11}
-$$
-
-when such a full patch is cut at time \(t\).
-
-Removing \(\lambda\mathcal N^0\) leaves all nonempty-target coefficients unchanged and increases the positive parts of the patch formulas. Together with the reflected comparison at \(\mathbf p^-\), this gives
-
-$$
-0\le C(P)\le C^\circ(P),
-\qquad
-|C(\mathbf p,P)|
-\le
-C(\mathbf1,P)
-\le
-C^\circ(\mathbf1,P).
-$$
-
-The first comparison applies to completed finite patches and, using (4) for both generators, to infinite full patches. The second applies to finite-horizon end patches.
-
-For the finite-horizon comparison family, put
-
-$$
-H_t
-=
-\prod_{P\in\mathcal B_t}C^\circ(P)
-\prod_{P\in\mathcal E_t}C^\circ(\mathbf 1,P).
-\tag{12}
-$$
-
-The patch formulas, patch positivity, and the reflected end-patch comparison imply that every factor in (12) is nonnegative and that it dominates the corresponding absolute factor for \(\cL\) with terminal profile \(\mathbf p\). Moreover,
-
-$$
-\mathbb E_A[H_t]
-=
-\mu_{\mathbf1}\bigl(P_t^\circ(\chi_A)\bigr)
-\le1.
-\tag{13}
-$$
-
-The end-patch sites are the sites in the interaction cone. Finite-speed graphical path counting on a polynomial-growth lattice therefore gives the marked bound
-
-$$
-\mathbb E_A\left[
-\left(1+|\mathcal E_t|\right)H_t
-\right]
-\le
-K_A(1+t)^D.
-\tag{14}
-$$
-
-The same argument, stopped at \(T\), gives
-
-$$
-\mathbb E_A\left[
-\left(1+|\mathcal E_T|\right)H_t
-\ind(L_T)
-\right]
-\le
-K_A(1+T)^D,
-\qquad t>T.
-\tag{15}
-$$
-
-We next establish two estimates. First, suppose \(L_T^c\) occurs and let \(u>T\) be the first successful-interaction time after \(T\). Trace its source backward through the full patch family. Before time zero is reached, this gives a trail of \(\mathsf{OO}\)-patches ending in an \(\mathsf{IO}\)-patch that starts at the initial interaction. If \(u\le t\), the trail consists of bulk patches up to time \(u\). If \(u>t\), it consists of bulk patches followed by one full cut patch with terminal label \(\mathsf O\). In either case, the portion visible by time \(t\) has total duration at least \(\min\{u,t\}>T\). Equations (10)--(11) therefore extract the factor
-
-$$
-e^{-\lambda\min\{u,t\}}
-\le
-e^{-\lambda T}.
-\tag{16}
-$$
-
-Average the remaining full-skeleton information back to \(\cG_t\). The bulk and terminal factors are then bounded by (12); marking the possible trail costs at most \(1+|\mathcal E_t|\). From (14),
+We first prove
 
 $$
 \left|
@@ -350,127 +199,571 @@ W_t^{\mathbf p}\ind(L_T^c)
 \right]
 \right|
 \le
-e^{-\lambda T}
-\mathbb E_A\left[
-\left(1+|\mathcal E_t|\right)H_t
-\right]
+e^{-\varepsilon T}
++
+K_A(1+T)^D e^{-\varepsilon(t-T)},
+\qquad t>T.
+\tag{4}
+$$
+
+Every successful interaction \((i,u,S)\) has a trail of \(\mathsf{XO}\)-type patches leading to its source. This is because every successful interaction ends a patch with an outgoing interaction and every patch begins with a successful interaction. Hence one can trace backward in time a sequence of \(\mathsf{OO}\) and \(\mathsf{IO}\) patches, ending with an \(\mathsf{SO}\) patch. The trail spans time up to \(u\), so
+
+$$
+\sum_{P\text{ in the trail}}\Delta(P)\ge u.
+\tag{5}
+$$
+
+First consider \(L_T^c\cap L_{T,t}^c\). Choose the first successful interaction after time \(T\), let \(u\le t\) be its time, and denote its trail by \(\Gamma_u\). Every patch in \(\Gamma_u\) is a bulk patch, so (1) and (5) give
+
+$$
+\begin{aligned}
+\prod_{P\in\Gamma_u}C(P)
+&=
+\exp\left(
+-\varepsilon
+\sum_{P\in\Gamma_u}\Delta(P)
+\right)
+\prod_{P\in\Gamma_u}C^\varepsilon(P)
+\\
+&\le
+e^{-\varepsilon u}
+\prod_{P\in\Gamma_u}C^\varepsilon(P)
+\\
+&\le
+e^{-\varepsilon T}
+\prod_{P\in\Gamma_u}C^\varepsilon(P).
+\end{aligned}
+$$
+
+Apply \(C(P)\le C^\varepsilon(P)\) to the other bulk patches and (2) to the end patches. Pointwise on \(L_T^c\cap L_{T,t}^c\),
+
+$$
+\left|W_t^{\mathbf p}\right|
 \le
-K_A(1+t)^D e^{-\lambda T}.
-\tag{17}
+e^{-\varepsilon T}W_t^\varepsilon.
 $$
 
-Second, on \(L_T\) every finite full patch is completed by time \(T\), and the remaining full patches are infinite and start no later than \(T\). Thus for \(t>T\),
+Therefore
 
 $$
+\begin{aligned}
+\left|
+\mathbb E_A\left[
 W_t^{\mathbf p}
-=
-\prod_{\substack{P\in\mathcal P\\e(P)<\infty}}C(P)
-\prod_{\substack{P\in\mathcal P\\e(P)=\infty}}C_t(\mathbf p,P).
-\tag{18}
+\ind\left(L_T^c\cap L_{T,t}^c\right)
+\right]
+\right|
+&\le
+\mathbb E_A\left[
+\left|W_t^{\mathbf p}\right|
+\ind\left(L_T^c\cap L_{T,t}^c\right)
+\right]
+\\
+&\le
+e^{-\varepsilon T}
+\mathbb E_A\left[W_t^\varepsilon\right]
+\\
+&\le
+e^{-\varepsilon T}.
+\end{aligned}
 $$
 
-Define
+It remains to consider \(L_T^c\cap L_{T,t}\).
+
+Although a successful interaction occurs after \(t\), there need not be an \(\mathsf{XO}\)-trail reaching time \(T\) within the horizon-\(t\) patch family. Instead, at least one end-patch site must remain active throughout the interval from \(T\) to \(t\). Indeed, without a successful interaction during that interval, a site that becomes inactive cannot be reactivated, and extinction of all end-patch sites would make every later successful interaction impossible.
+
+For this estimate, temporarily undo the patch-internal averaging in \(W_t^{\mathbf p}\) and use the pre-averaged factors from the patch representation. Then
 
 $$
-W_\infty
-=
-\prod_{P\in\mathcal P}C(P)
-\ind(L_\infty).
-\tag{19}
+\begin{aligned}
+&\ind\left(
+L_T^c\cap L_{T,t}
+\right)
+\\
+&\qquad\le
+\sum_{P\in\mathcal E_t}
+\ind\left(
+L_T^c\cap L_{T,t}
+\cap
+\left\{
+X_u^P=1
+\text{ for every }u\in[T,t]
+\right\}
+\right).
+\end{aligned}
+\tag{6}
 $$
 
-By (3), every moving factor in (18) differs from its limit in (4) by a multiple of
+Condition on \(\cG_t\). This fixes the end patches and leaves their internal data independent. If the marked end patch \(P\) is active throughout \([T,t]\), then the noise identity gives
 
 $$
-e^{-r_i(t-s(P))}
+\exp\left(
+-\varepsilon\int_{s_-(P)}^tX_u^P\,du
+\right)
 \le
 e^{-\varepsilon(t-T)}.
 $$
 
-Apply the finite-product telescoping identity to the infinite-patch product in (18), and use (12) as the positive comparison after averaging the local patch data. Since the infinite full patches on \(L_T\) are in bijection with \(\mathcal E_T\), (15) gives
+Removing this noise, replacing the terminal density by \(\mathbf 1\), and then applying the bulk and end-patch comparisons gives
 
 $$
-\left|
+\begin{aligned}
+&\left|
 \mathbb E_A\left[
-W_t^{\mathbf p}\ind(L_T)
-\right]
--
-\mathbb E_A\left[
-W_\infty\ind(L_T)
+W_t^{\mathbf p}
+\ind\left(L_T^c\cap L_{T,t}\right)
 \right]
 \right|
-\le
-K_A(1+T)^D e^{-\varepsilon(t-T)}.
-\tag{20}
+\\
+&\quad\le
+\mathbb E_A\left[
+\ind(L_{T,t})
+\sum_{P\in\mathcal E_t}
+e^{-\varepsilon(t-T)}
+\prod_{Q\in\mathcal B_t}C^\varepsilon(Q)
+\prod_{Q\in\mathcal E_t}C^{\varepsilon,\mathbf 1}(Q)
+\right]
+\\
+&\quad=
+e^{-\varepsilon(t-T)}
+\mathbb E_A\left[
+\left|\mathcal E_t\right|
+W_t^\varepsilon
+\ind(L_{T,t})
+\right].
+\end{aligned}
 $$
 
-It remains to control the tail of the limiting product. All factors in (19) are nonnegative. Let \(W_\infty^\circ\) be its analogue for \(\cL^\circ\). On each \(L_T\), the nonnegative finite-horizon weights (12) converge to \(W_\infty^\circ\). Hence Fatou's lemma and (13) give
+By the [interaction-cone](interaction-cone.md) identity,
+
+$$
+|\mathcal E_t|
+=
+|\mathbf{Cone}_t|
+=
+|\mathbf{Cone}_T|
+=
+|\mathcal E_T|
+$$
+
+on \(L_{T,t}\). Finite spread of information on a polynomial-growth lattice therefore gives the marked comparison estimate
 
 $$
 \mathbb E_A\left[
-W_\infty^\circ\ind(L_\infty)
+\left|\mathcal E_T\right|W_t^\varepsilon
 \right]
-\le1.
-\tag{21}
-$$
-
-On \(L_\infty\setminus L_T\), the first successful interaction after \(T\) has a complete \(\mathsf{OO}\)-to-\(\mathsf{IO}\) trail of total duration greater than \(T\). Using (10) on that trail and the positive comparison on every other full patch gives
-
-$$
-0
 \le
-W_\infty
-\ind(L_\infty\setminus L_T)
-\le
-e^{-\lambda T}
-W_\infty^\circ
-\ind(L_\infty\setminus L_T).
+K_A(1+T)^D.
+\tag{7}
 $$
 
 Consequently,
 
 $$
+\begin{aligned}
+&\left|
 \mathbb E_A\left[
-W_\infty\ind(L_\infty\setminus L_T)
+W_t^{\mathbf p}
+\ind\left(L_T^c\cap L_{T,t}\right)
 \right]
-\le
-e^{-\lambda T}.
-\tag{22}
+\right|
+\\
+&\quad\le
+e^{-\varepsilon(t-T)}
+\mathbb E_A\left[
+\left|\mathcal E_T\right|
+W_t^\varepsilon
+\right]
+\\
+&\quad\le
+K_A(1+T)^D e^{-\varepsilon(t-T)}.
+\end{aligned}
 $$
 
-Combining (6), (17), (20), and (22), for \(t>T\), gives
+Together with the preceding estimate for \(L_T^c\cap L_{T,t}^c\), this proves (4).
+
+We now prove that, for each fixed \(T<\infty\),
+
+$$
+\lim_{t\to\infty}
+\mathbb E_A\left[
+W_t^{\mathbf p}\ind(L_T)
+\right]
+=
+\mathbb E_A\left[
+\prod_{P\in\mathcal P}C(P)\,
+\ind(L_T)
+\right].
+$$
+
+Showing only that a possible limit does not depend on the terminal configuration \(\xi\) is easier. The following estimate gives the additional control needed to prove that the limit exists and to identify it with the full-patch formula.
+
+Define
+
+$$
+L_\infty
+=
+\bigcup_{T<\infty}L_T.
+$$
+
+Local finiteness gives
+
+$$
+L_\infty
+=
+\left\{
+\left|\mathcal I\right|<\infty
+\right\}
+=
+\left\{
+\left|\mathcal P\right|<\infty
+\right\}.
+\tag{8}
+$$
+
+Fix \(T<\infty\). On \(L_T\), the set \(\mathcal B_t\) is independent of \(t\) once \(t>T\). The sites carrying end patches are also independent of \(t\), because starting or ending a patch requires a successful interaction. Denote the corresponding infinite patches by \(\mathcal E_\infty\).
+
+For \(P\in\mathcal E_\infty\), let \(P^{(t)}\in\mathcal E_t\) be its truncation and set
+
+$$
+C_t^\varepsilon(P)
+=
+C^{\varepsilon,\mathbf 1}(P^{(t)}),
+\qquad
+\Delta_t(P)
+=
+\left|
+C^{\mathbf p}(P^{(t)})-C(P)
+\right|.
+$$
+
+Let \(P\) be based at \(i\), put \(\ell=t-s_-(P)\), and write
+
+$$
+r_i=c_i^0(\vn)+c_i^1(\vn),
+\qquad
+d_i=\delta_i(\vn).
+$$
+
+Thus \(r_i\ge\varepsilon\). Set
+
+$$
+\gamma_0
+=
+\min\left\{
+\varepsilon,
+\inf_{i:\alpha_i>0}\alpha_i
+\right\}>0.
+$$
+
+Write \(\varphi_i^\infty\) and \(\psi_i^\infty\) for the limits of \(\varphi_i(\ell)\) and \(\psi_i(\ell,p)\) as \(\ell\to\infty\). The latter is independent of \(p\). The explicit formulas give
 
 $$
 \begin{aligned}
 \left|
-\mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
--
-\mathbb E_A[W_\infty]
+\psi_i(\ell,p)-\psi_i^\infty
 \right|
-&\le
-K_A(1+t)^D e^{-\lambda T}
-+
-K_A(1+T)^D e^{-\varepsilon(t-T)}
-+
-e^{-\lambda T}.
+&=
+\left|
+p-\frac{d_i}{r_i}
+\right|e^{-r_i\ell}
+\le
+e^{-\gamma_0\ell},
+\\
+\left|
+\varphi_i(\ell)-\varphi_i^\infty
+\right|
+&=
+\left|
+1-\frac{d_i}{\alpha_i}
+\right|e^{-\alpha_i\ell}
+\le
+e^{-\gamma_0\ell}
+\qquad
+\text{if }\alpha_i>0.
 \end{aligned}
-\tag{23}
 $$
 
-Take \(T=t/2\). Since \(\lambda=\varepsilon/2\), increasing \(K_A\) to cover bounded \(t\) yields
+If \(\alpha_i=0\), then \(d_i=0\) and \(\varphi_i(\ell)=1\), so the second difference is zero. Write \(\psi_i^\varepsilon\) for the function \(\psi_i\) associated with \(\cL^\varepsilon\).
+
+Consider first an \(\mathsf{SE}\) or \(\mathsf{IE}\) patch. If \(d_i>0\), then
+
+$$
+C_t^\varepsilon(P)
+=
+\frac{\psi_i^\varepsilon(\ell,1)}{\varphi_i(\ell)}
+\longrightarrow
+\frac{\alpha_i}{r_i-\varepsilon}>0.
+$$
+
+Using the preceding two remainder bounds in the quotient identity gives
+
+$$
+\begin{aligned}
+\Delta_t(P)
+&=
+\frac{
+\left|
+\left(
+\psi_i(\ell,p_i)-\psi_i^\infty
+\right)\varphi_i^\infty
++
+\psi_i^\infty
+\left(
+\varphi_i^\infty-\varphi_i(\ell)
+\right)
+\right|
+}{
+\varphi_i(\ell)\varphi_i^\infty
+}
+\\
+&\le
+\kappa e^{-\gamma_0\ell}C_t^\varepsilon(P).
+\end{aligned}
+$$
+
+If \(d_i=0\), the formulas reduce to
+
+$$
+C^{\mathbf p}(P^{(t)})
+=
+p_i e^{-(r_i-\alpha_i)\ell},
+\qquad
+C_t^\varepsilon(P)
+=
+e^{-(r_i-\varepsilon-\alpha_i)\ell}.
+$$
+
+On every positive-weight infinite patch for which the full-patch limit is used, \(C(P)=0\), and therefore
+
+$$
+\Delta_t(P)
+=
+p_i e^{-\varepsilon\ell}C_t^\varepsilon(P)
+\le
+e^{-\gamma_0\ell}C_t^\varepsilon(P).
+$$
+
+Now consider an \(\mathsf{OE}\) patch with initial target \(S\). Put
+
+$$
+\begin{aligned}
+N_i^p(\ell)
+&=
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\ell,p),
+\\
+D_i(\ell)
+&=
+\delta_i(S)+\beta_i(S)\varphi_i(\ell),
+\end{aligned}
+$$
+
+and denote their limits by \(N_i^\infty\) and \(D_i^\infty\). Let \(N_i^{\varepsilon,1}(\ell)\) be the same numerator with \(\psi_i(\ell,p)\) replaced by \(\psi_i^\varepsilon(\ell,1)\).
+
+Suppose first that \(D_i^\infty>0\), equivalently \(d_i>0\) or \(\delta_i(S)>0\). If the residual numerator vanishes identically, then \(\Delta_t(P)=0\). Otherwise patch positivity makes its limit positive, and the quotient calculation gives
+
+$$
+\begin{aligned}
+\Delta_t(P)
+&=
+\frac{
+\left|
+\left(
+N_i^{p_i}(\ell)-N_i^\infty
+\right)D_i^\infty
++
+N_i^\infty
+\left(
+D_i^\infty-D_i(\ell)
+\right)
+\right|
+}{
+D_i(\ell)D_i^\infty
+}
+\\
+&\le
+\kappa e^{-\gamma_0\ell}
+\frac{N_i^{\varepsilon,1}(\ell)}{D_i(\ell)}
+\\
+&=
+\kappa e^{-\gamma_0\ell}C_t^\varepsilon(P).
+\end{aligned}
+$$
+
+It remains to consider \(D_i^\infty=0\). Then
+
+$$
+d_i=0,
+\qquad
+\delta_i(S)=0.
+$$
+
+Patch positivity gives
+
+$$
+\beta_i(S)\sigma_i^\beta(S)\ge0,
+$$
+
+so the common nonzero factors in numerator and denominator cancel and the two contributions reduce to
+
+$$
+C^{\mathbf p}(P^{(t)})
+=
+p_i e^{-(r_i-\alpha_i)\ell},
+\qquad
+C_t^\varepsilon(P)
+=
+e^{-(r_i-\varepsilon-\alpha_i)\ell}.
+$$
+
+Thus either the contribution vanishes identically, or
+
+$$
+\Delta_t(P)
+\le
+e^{-\gamma_0\ell}C_t^\varepsilon(P).
+$$
+
+Since \(\ell\ge t-T\), the same \(\kappa<\infty\) may be used in the three end-patch rows. Together with the positive comparison for the limiting factor, this gives
+
+$$
+0\le C(P)\le C_t^\varepsilon(P),
+\qquad
+\Delta_t(P)
+\le
+\kappa e^{-\gamma_0(t-T)}C_t^\varepsilon(P).
+\tag{9}
+$$
+
+Expanding each finite contribution as its limit plus an error and applying (9) gives
 
 $$
 \left|
-\mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
+\prod_{P\in\mathcal E_t}C^{\mathbf p}(P)
 -
-\mathbb E_A[W_\infty]
+\prod_{P\in\mathcal E_\infty}C(P)
 \right|
 \le
-K_A(1+t)^D e^{-\varepsilon t/4}.
-\tag{24}
+\prod_{P\in\mathcal E_\infty}C_t^\varepsilon(P)
+\left[
+\left(
+1+\kappa e^{-\gamma_0(t-T)}
+\right)^{|\mathcal E_\infty|}
+-1
+\right].
+\tag{10}
 $$
 
-The estimate is uniform in \(\mathbf p\ge\mathbf p^-\), so it remains valid after averaging over any mixing law supported on such profiles.
+We now use finite spread in the stronger factorial-moment form required by (10). Put
+
+$$
+N_T=|\mathcal E_T|=|\mathbf{Cone}_T|.
+$$
+
+For every \(k\ge1\), graphical path counting gives
+
+$$
+\mathbb E_A\left[
+W_t^\varepsilon
+\binom{N_T}{k}
+\ind(L_T)
+\right]
+\le
+\frac{\left(K_A(1+T)^D\right)^k}{k!}.
+\tag{11}
+$$
+
+Indeed, every end-patch site is either in \(A\) or is reached by a graphical path of successful interactions before time \(T\). For \(k\) distinct sites, sum over the corresponding \(k\)-tuples of graphical paths. Uniformly bounded finite-range interaction rates give the usual finite-speed path bound, and polynomial volume growth leaves at most order \((1+T)^{Dk}\) choices. Division by \(k!\) removes the ordering of the selected sites. The positive all-one comparison weight has total mass at most one, so the same counting applies with the factor \(W_t^\varepsilon\).
+
+Multiplying (10) by the bulk factors, using their comparison with \(C^\varepsilon\), expanding the power, and applying (11) gives the explicit sequence
+
+$$
+\begin{aligned}
+&\left|
+\mathbb E_A\left[
+W_t^{\mathbf p}\ind(L_T)
+\right]
+-
+\mathbb E_A\left[
+\prod_{P\in\mathcal P}C(P)\,
+\ind(L_T)
+\right]
+\right|
+\\
+&\quad\le
+\sum_{k\ge1}
+\left(
+\kappa e^{-\gamma_0(t-T)}
+\right)^k
+\mathbb E_A\left[
+W_t^\varepsilon
+\binom{N_T}{k}
+\ind(L_T)
+\right]
+\\
+&\quad\le
+\sum_{k\ge1}
+\frac{
+\left(
+K_A(1+T)^D\kappa e^{-\gamma_0(t-T)}
+\right)^k
+}{k!}
+\\
+&\quad=
+\exp\left(
+K_A(1+T)^D\kappa e^{-\gamma_0(t-T)}
+\right)-1.
+\end{aligned}
+\tag{12}
+$$
+
+All full-patch contributions are nonnegative. On \(L_\infty\setminus L_T\), the finite complete patch family contains a successful interaction after time \(T\), hence an \(\mathsf{XO}\)-trail of total length greater than \(T\). The same comparison used for the first part of (4) gives
+
+$$
+\mathbb E_A\left[
+\prod_{P\in\mathcal P}C(P)\,
+\ind(L_\infty\setminus L_T)
+\right]
+\le
+e^{-\varepsilon T}.
+\tag{13}
+$$
+
+Combining (3), (4), (12), and (13) gives
+
+$$
+\begin{aligned}
+&\left|
+\mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
+-
+\mathbb E_A\left[
+\prod_{P\in\mathcal P}C(P)\,
+\ind\left(\left|\mathcal P\right|<\infty\right)
+\right]
+\right|
+\\
+&\qquad\le
+2e^{-\varepsilon T}
++
+K_A(1+T)^D e^{-\varepsilon(t-T)}
+\\
+&\qquad\quad+
+\exp\left(
+K_A(1+T)^D\kappa e^{-\gamma_0(t-T)}
+\right)-1.
+\end{aligned}
+\tag{14}
+$$
+
+Take \(T=t/2\). For all sufficiently large \(t\), the exponent in the last line is at most one, so \(e^x-1\le2x\) shows that the right-hand side is bounded by
+
+$$
+K_A'(1+t)^D e^{-\gamma_0 t/2}.
+$$
+
+Increasing \(K_A'\) handles bounded \(t\), proving the estimate for each monomial with \(\gamma=\gamma_0/2\). The estimates are uniform in \(\mathbf p\ge\mathbf p^-\), so averaging over a mixing law gives the same result for mixtures.
 
 Every local function depending on a finite set \(S\) has a finite [monomial](monomials.md) expansion
 
@@ -480,16 +773,16 @@ f
 \sum_{A\subseteq S}\widehat f(A)\chi_A.
 $$
 
-Summing (24) proves the asserted local-function estimate once the limiting moments are identified with a probability measure. Take the initial law \(\mu_{\mathbf1}\). Compactness of \(\{0,1\}^{\Lambda}\) gives a subsequential weak limit of \(\mu_{\mathbf1}P_t\), while convergence of every monomial moment shows that all subsequential limits agree. Denote the resulting probability measure by \(\pi\). Equations (19) and (24) give (1), and local functions determine weak convergence.
+Summing the monomial estimates proves the asserted local-function bound once the limiting moments are identified with a probability measure. Take \(\nu=\mu_{\mathbf 1}\). Compactness of \(\{0,1\}^{\Lambda}\) gives a subsequential weak limit of \(\mu_{\mathbf 1}P_t\), while convergence of every monomial moment shows that all subsequential limits agree. Denote the resulting probability measure by \(\pi\). Local functions determine weak convergence, so the same argument and the uniform estimate give \(\nu P_t\Rightarrow\pi\) for every mixture in the theorem.
 
 Finally, the finite-range spin-system semigroup is Feller. Hence, for every \(s\ge0\),
 
 $$
 \pi P_s
 =
-\lim_{t\to\infty}(\mu_{\mathbf1}P_t)P_s
+\lim_{t\to\infty}(\mu_{\mathbf 1}P_t)P_s
 =
-\lim_{t\to\infty}\mu_{\mathbf1}P_{t+s}
+\lim_{t\to\infty}\mu_{\mathbf 1}P_{t+s}
 =
 \pi.
 $$
@@ -498,10 +791,10 @@ Thus \(\pi\) is invariant. Since \(\mathbf p^-\le\mathbf p^\star\), the class co
 
 ## Proof of the corollary
 
-The assumption \(\mathbf p^\star\le\frac12\mathbf1\) gives \(\mathbf p^-=\mathbf0\). Every deterministic law is a product measure because
+The assumption \(\mathbf p^\star\le\frac12\mathbf 1\) gives \(\mathbf p^-=\mathbf 0\). Every deterministic law is a product measure because
 
 $$
-\delta_\xi=\mu_{\mathbf\xi}.
+\delta_\xi=\mu_{\mathbf \xi}.
 $$
 
 Thus the theorem's estimate holds uniformly over all deterministic initial configurations and hence over all initial laws. If \(\widetilde\pi\) is invariant, then for every local function \(f\),
