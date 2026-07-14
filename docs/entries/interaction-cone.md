@@ -16,9 +16,7 @@ $$
 \mathbf{Cone}_T
 =
 \bigcup_{(i,t,S)\in\mathcal I_T}
-\left(
-(\{i\}\cap\Lambda)\cup S
-\right),
+\{i\}\cup S \setminus \{\infty\},
 $$
 
 where \(\mathcal I_T\) is the [successful-interaction](successful-interaction.md) set and \(\mathcal I_\infty=\mathcal I\). The initial skeleton \((\infty,0,A_0)\) contributes its target \(A_0\) but not its formal source. Thus \(\mathbf{Cone}_T\subseteq\Lambda\) is the set of lattice sites reached by time \(T\), and
