@@ -10,7 +10,7 @@ tags:
 
 # Patch representation of spin systems
 
-This is the patchwise form of [monomial duality for spin systems](monomial-duality-for-spin-systems.md), after applying [patch factorization](patch-factorization.md). Conditioning on \(\cG_t\) gives a representation in terms of completed and finite-horizon end patches. Conditioning on \(\cG_\infty\) gives a representation in terms of completed and full cut patches.
+This is the patchwise form of [monomial duality for spin systems](monomial-duality-for-spin-systems.md), after applying [patch factorization](patch-factorization.md). Conditioning on \(\cG_t\) gives a representation in terms of bulk and end patches. Conditioning on \(\cG_\infty\) gives a representation in terms of bulk and cut patches.
 
 Let \((P_t)_{t\ge0}\) be the spin-system semigroup, and let the signed additive dual start from \((A,+)\). Let \(\mathcal B_t\), \(\mathcal C_t\), and \(\mathcal E_t\) be the bulk, cut, and end patch families from the [patch](patch.md) entry. Let \(C(P)\), \(C(\xi,P)\), and \(C_t(\xi,P)\) be the [patch contributions](patch-contribution.md).
 

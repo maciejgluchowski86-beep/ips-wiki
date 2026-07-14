@@ -47,7 +47,7 @@ X_{q-}^P, & q>s.
 \end{cases}
 $$
 
-For a finite full patch, define
+For a finite patch \(P\in\mathcal P\), define
 
 $$
 F(P)
@@ -185,7 +185,7 @@ z e^{V_i\Delta_-},
 \tag{1}
 $$
 
-For a finite full patch, \(C(P)=C_e(1,P)\). For an end patch \(P\in\mathcal E_t\), \(C(z,P)=C_t(z,P)\) and \(\Delta_+=0\). Thus (1) contains all completed, end, and full-cut patch contributions. When \(e=\infty\), the terms \(\varphi_i(\Delta_+)\) and \(\varphi_i(\Delta)\) mean their limits at infinity.
+For a finite patch \(P\in\mathcal P\), \(C(P)=C_e(1,P)\); at every horizon \(t\ge e(P)\), this is its bulk contribution. For an end patch \(Q\in\mathcal E_t\), \(C(z,Q)=C_t(z,Q)\) and \(\Delta_+=0\). For a cut patch \(P\in\mathcal C_t\), its contribution is \(C_t(z,P)\), with \(\Delta_+=e(P)-t>0\), possibly infinite. Thus (1) contains the bulk, end, and cut patch contributions. When \(e=\infty\), the terms \(\varphi_i(\Delta_+)\) and \(\varphi_i(\Delta)\) mean their limits at infinity.
 
 ## Spin-system rate form
 
@@ -253,7 +253,7 @@ z e^{V_i\Delta_-},
 \tag{2}
 $$
 
-Again, \(C(P)=C_e(1,P)\) for a finite full patch and \(C(z,P)=C_t(z,P)\) for \(P\in\mathcal E_t\).
+The same bulk, end, and cut patch conventions stated after (1) apply to (2).
 
 ## Calculation
 

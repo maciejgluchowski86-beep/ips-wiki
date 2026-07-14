@@ -61,7 +61,7 @@ $$
 
 with \(\inf\vn=\infty\).
 
-## Full patches
+## Patches
 
 The patch beginning at \((i,s)\) is the labeled object
 
@@ -134,9 +134,9 @@ $$
 \mathsf Y(P)\in\{\mathsf I,\mathsf O,\mathsf E\}.
 $$
 
-The label \(\mathsf E\) records that the patch has no successful-touch terminal boundary. For a full patch this occurs precisely when the patch is infinite. The same label will be used below when a patch is cut at a finite time horizon.
+The family of all patches constructed from the all-time successful-interaction set is denoted by \(\mathcal P\). A patch is finite when \(e(P)<\infty\) and infinite when \(e(P)=\infty\). The label \(\mathsf E\) records that the patch has no successful-touch terminal boundary. For \(P\in\mathcal P\), this occurs precisely when \(P\) is infinite. The same label is assigned below to an end patch, whose terminal boundary is the time horizon rather than a successful interaction.
 
-The family of all full patches is denoted by \(\mathcal P\). A patch is finite when \(e(P)<\infty\) and infinite when \(e(P)=\infty\). Every initially active site begins an incoming patch at time zero. Every genuine successful interaction cuts spacetime at its source and target sites, ending the preceding patches and beginning new ones at those sites. Every active spacetime point lies in the spacetime projection of a patch.
+Every initially active site begins an incoming patch at time zero. Every genuine successful interaction cuts spacetime at its source and target sites, ending the preceding patches and beginning new ones at those sites. Every active spacetime point lies in the spacetime projection of a patch.
 
 Under the local-finiteness assumption, starting from \(A_0\Subset\Lambda\),
 
@@ -188,26 +188,36 @@ $$
 
 Thus truncation preserves the site, start time, initial label, and initial target set. If the time horizon cuts the patch, its terminal label is replaced by \(\mathsf E\). When \(t=s(P)<e(P)\), the truncation is a zero-length end patch. If the patch has already ended, then \(P^{(t)}=P\), including its original terminal label.
 
-The bulk patches completed by time \(t\) are
+The bulk patch family at time \(t\) is
 
 $$
 \mathcal B_t
 =
-\{P\in\mathcal P:P^{(t)}=P\}.
-$$
-
-The full patches cut by time \(t\) are
-
-$$
-\mathcal C_t
+\{P\in\mathcal P:P^{(t)}=P\}
 =
+\{P\in\mathcal P:e(P)\le t\}.
+$$
+
+The cut patch family at time \(t\) is
+
+$$
+\begin{aligned}
+\mathcal C_t
+&=
 \left\{
 P\in\mathcal P:
 \vn\ne P^{(t)}\ne P
+\right\}
+\\
+&=
+\left\{
+P\in\mathcal P:
+s(P)\le t<e(P)
 \right\}.
+\end{aligned}
 $$
 
-Their truncations are the end patches
+Their truncations form the end patch family
 
 $$
 \mathcal E_t
@@ -231,6 +241,8 @@ $$
 P\longmapsto P^{(t)}.
 $$
 
+Thus a cut patch is the original object \(P\in\mathcal C_t\), while its end patch is the truncated object \(P^{(t)}\in\mathcal E_t\). The former retains its actual end time and terminal label; the latter ends at time \(t\) and has terminal label \(\mathsf E\).
+
 The possible labels in \(\mathcal P_t\) are
 
 $$
@@ -238,7 +250,7 @@ $$
 \mathsf{OI},\ \mathsf{OO},\ \mathsf{OE}.
 $$
 
-Every end patch has terminal label \(\mathsf E\). The label does not separately record whether the patch is a finite truncation or a full infinite patch; that distinction is carried by the patch family and its end time.
+Every end patch has terminal label \(\mathsf E\), but that label alone does not make a patch an end patch: every infinite patch in \(\mathcal P\) also has terminal label \(\mathsf E\). Membership in \(\mathcal E_t\), rather than the terminal label alone, distinguishes an end patch from its original cut patch in \(\mathcal C_t\).
 
 Set \(P^{(\infty)}=P\) and \(\mathcal P_\infty=\mathcal P\).
 

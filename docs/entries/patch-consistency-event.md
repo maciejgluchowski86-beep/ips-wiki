@@ -190,10 +190,10 @@ $$
 \mathbb E_P[f\mid\operatorname{Con}(P)].
 $$
 
-## Full patches and truncations
+## Cut and end patches
 
-The same definitions apply to finite-horizon and full patches because the conditioning horizon is encoded by the labeled patch itself. If \(Q=P^{(t)}\in\mathcal E_t\), then \(e(Q)=t\) and \(\mathsf Y(Q)=\mathsf E\), so \(\mathbb P_Q^{\mathrm{con}}\) uses only the interior interactions before \(t\) and imposes consistency only through time \(t\).
+Let \(P\in\mathcal C_t\) be a cut patch and let \(Q=P^{(t)}\in\mathcal E_t\) be its end patch. Since \(e(Q)=t\) and \(\mathsf Y(Q)=\mathsf E\), the law \(\mathbb P_Q^{\mathrm{con}}\) uses only the interior interactions before \(t\) and imposes consistency only through time \(t\).
 
-If \(P\in\mathcal C_t\) is the corresponding full patch, then \(\mathbb P_P^{\mathrm{con}}\) uses the interior interactions before \(e(P)\), imposes consistency through the actual end time \(e(P)\), and uses the full terminal label \(\mathsf Y(P)\). No additional horizon index is needed.
+By contrast, \(\mathbb P_P^{\mathrm{con}}\) uses the interior interactions before the actual end time \(e(P)\) and the actual terminal label \(\mathsf Y(P)\). Thus the labeled objects \(P\) and \(Q\) determine the two consistency laws without an additional horizon index.
 
 The consistent patch laws are the local input to [patch factorization](patch-factorization.md).

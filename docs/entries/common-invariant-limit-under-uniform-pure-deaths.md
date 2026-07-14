@@ -11,7 +11,7 @@ tags:
 
 # Common invariant limit under uniform pure deaths
 
-For a patch-positive spin system with a uniform pure-death component, mixtures of Bernoulli product measures above a threshold extending below the patch critical density converge to a common invariant measure. On a polynomial-growth lattice the convergence is exponential on local functions, up to a polynomial prefactor. The limiting factors are the contributions of the complete full patches.
+For a patch-positive spin system with a uniform pure-death component, mixtures of Bernoulli product measures above a threshold extending below the patch critical density converge to a common invariant measure. On a polynomial-growth lattice the convergence is exponential on local functions, up to a polynomial prefactor. The limiting factors are the contributions \(C(P)\) of the patches \(P\in\mathcal P\).
 
 **References.** None yet.
 
@@ -46,7 +46,7 @@ $$
 
 The estimate is uniform over all mixtures \(\nu\) of Bernoulli product measures whose mixing laws are supported on one-density profiles satisfying \(\mathbf p\ge\mathbf p^-\). Consequently \(\nu P_t\) converges weakly to \(\pi\) for every such mixture. In particular, every [high-density measure](high-density-measure.md) converges to \(\pi\).
 
-Under the extension of the full-patch contribution defined below, the limiting measure is characterized on the monomial basis by
+Under the extension of \(C(P)\) to infinite patches defined below, the limiting measure is characterized on the monomial basis by
 
 $$
 \pi(\chi_A)
@@ -59,7 +59,7 @@ $$
 \tag{1}
 $$
 
-Here \(\mathcal P\) is the full [patch](patch.md) family of the signed dual started from \(A\), and the integrand is defined to be zero when \(|\mathcal P|=\infty\).
+Here \(\mathcal P\) is the [patch](patch.md) family of the signed dual started from \(A\), and the integrand is defined to be zero when \(|\mathcal P|=\infty\).
 
 ## Corollary
 
@@ -78,7 +78,7 @@ $$
 K_f e^{-\gamma t}.
 $$
 
-## Infinite full-patch contribution
+## Infinite-patch contribution
 
 Put
 
@@ -112,7 +112,7 @@ $$
 \frac{d_i}{r_i}.
 $$
 
-Let \(P\) be an infinite full patch based at \(i\). For \(t\ge s(P)\), put \(\Delta=t-s(P)\). Since \(e(P)=\infty\), the two-duration function in the full-cut contribution satisfies
+Let \(P\) be an infinite patch based at \(i\). For \(t\ge s(P)\), put \(\Delta=t-s(P)\). Since \(e(P)=\infty\), the two-duration function in its cut-patch contribution satisfies
 
 $$
 \begin{aligned}
@@ -130,7 +130,7 @@ z e^{-r_i\Delta}\varphi_i^\infty
 \tag{3}
 $$
 
-Thus the limit of \(C_t(z,P)\) exists and is independent of \(z\). Extend the notation \(C(P)\) to infinite full patches by
+Thus the limit of \(C_t(z,P)\) exists and is independent of \(z\). Extend the notation \(C(P)\) to infinite patches by
 
 $$
 C(P)
@@ -175,7 +175,7 @@ Equation (3) also gives a uniform exponential approach to (4), with rate control
 
 ## Proof of the theorem
 
-Fix a deterministic one-density profile \(\mathbf p\ge\mathbf p^-\). Conditioning the duality formula on \(\cG_\infty\) and then using the full-skeleton form of the [patch representation](patch-representation-of-spin-systems.md) gives
+Fix a deterministic one-density profile \(\mathbf p\ge\mathbf p^-\). Conditioning the duality formula on \(\cG_\infty\) and then using the \(\cG_\infty\)-form of the [patch representation](patch-representation-of-spin-systems.md) gives
 
 $$
 \mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
@@ -194,7 +194,7 @@ W_t^{\mathbf p}
 \tag{7}
 $$
 
-The first product contains the full patches completed by time \(t\); the second contains the full patches cut by time \(t\).
+The first product contains the bulk patches in \(\mathcal B_t\); the second contains the cut patches in \(\mathcal C_t\).
 
 For \(T<\infty\), let
 
@@ -242,7 +242,7 @@ $$
 \left(f(\xi^{i,0})-f(\xi)\right).
 $$
 
-The lower bound on \(c_i^1\) makes \(\cL^\circ\) a spin-system generator, still with pure-death rate at least \(\lambda\). By the [duality noise lemma](duality-noise-lemma.md), \(\cL\) and \(\cL^\circ\) have the same signed dual and the same full successful-interaction skeleton. Their local Feynman--Kac factors satisfy
+The lower bound on \(c_i^1\) makes \(\cL^\circ\) a spin-system generator, still with pure-death rate at least \(\lambda\). By the [duality noise lemma](duality-noise-lemma.md), \(\cL\) and \(\cL^\circ\) have the same signed dual and the same successful-interaction skeleton over all time. Their local Feynman--Kac factors satisfy
 
 $$
 F_t(z,P)
@@ -263,7 +263,7 @@ e^{-\lambda(e(P)-s(P))}C^\circ(P)
 \tag{10}
 $$
 
-for a completed \(\mathsf{IO}\)- or \(\mathsf{OO}\)-patch, and
+for a bulk \(\mathsf{IO}\)- or \(\mathsf{OO}\)-patch \(P\in\mathcal B_t\), and
 
 $$
 C_t(z,P)
@@ -272,7 +272,7 @@ e^{-\lambda(t-s(P))}C_t^\circ(z,P)
 \tag{11}
 $$
 
-when such a full patch is cut at time \(t\).
+for a cut \(\mathsf{IO}\)- or \(\mathsf{OO}\)-patch \(P\in\mathcal C_t\).
 
 Removing \(\lambda\mathcal N^0\) leaves all nonempty-target coefficients unchanged and increases the positive parts of the patch formulas. Together with the reflected comparison at \(\mathbf p^-\), this gives
 
@@ -286,7 +286,7 @@ C(\mathbf1,P)
 C^\circ(\mathbf1,P).
 $$
 
-The first comparison applies to completed finite patches and, using (4) for both generators, to infinite full patches. The second applies to finite-horizon end patches.
+The first comparison applies to finite patches in \(\mathcal P\), and, using (4) for both generators, to infinite patches. The second applies to end patches in \(\mathcal E_t\).
 
 For the finite-horizon comparison family, put
 
@@ -332,7 +332,7 @@ K_A(1+T)^D,
 \tag{15}
 $$
 
-We next establish two estimates. First, suppose \(L_T^c\) occurs and let \(u>T\) be the first successful-interaction time after \(T\). Trace its source backward through the full patch family. Before time zero is reached, this gives a trail of \(\mathsf{OO}\)-patches ending in an \(\mathsf{IO}\)-patch that starts at the initial interaction. If \(u\le t\), the trail consists of bulk patches up to time \(u\). If \(u>t\), it consists of bulk patches followed by one full cut patch with terminal label \(\mathsf O\). In either case, the portion visible by time \(t\) has total duration at least \(\min\{u,t\}>T\). Equations (10)--(11) therefore extract the factor
+We next establish two estimates. First, suppose \(L_T^c\) occurs and let \(u>T\) be the first successful-interaction time after \(T\). Trace its source backward through the patch family \(\mathcal P\). Before time zero is reached, this gives a trail of \(\mathsf{OO}\)-patches ending in an \(\mathsf{IO}\)-patch that starts at the initial interaction. If \(u\le t\), the trail consists of bulk patches up to time \(u\). If \(u>t\), it consists of bulk patches followed by one cut patch with terminal label \(\mathsf O\). In either case, the portion visible by time \(t\) has total duration at least \(\min\{u,t\}>T\). Equations (10)--(11) therefore extract the factor
 
 $$
 e^{-\lambda\min\{u,t\}}
@@ -341,7 +341,7 @@ e^{-\lambda T}.
 \tag{16}
 $$
 
-Average the remaining full-skeleton information back to \(\cG_t\). The bulk and terminal factors are then bounded by (12); marking the possible trail costs at most \(1+|\mathcal E_t|\). From (14),
+Average the remaining \(\cG_\infty\)-information back to \(\cG_t\). The bulk and end-patch factors are then bounded by (12); marking the possible trail costs at most \(1+|\mathcal E_t|\). From (14),
 
 $$
 \left|
@@ -359,7 +359,7 @@ K_A(1+t)^D e^{-\lambda T}.
 \tag{17}
 $$
 
-Second, on \(L_T\) every finite full patch is completed by time \(T\), and the remaining full patches are infinite and start no later than \(T\). Thus for \(t>T\),
+Second, on \(L_T\) every finite patch belongs to \(\mathcal B_T\), while every remaining patch is infinite and starts no later than \(T\). Thus for \(t>T\),
 
 $$
 W_t^{\mathbf p}
@@ -387,7 +387,7 @@ e^{-r_i(t-s(P))}
 e^{-\varepsilon(t-T)}.
 $$
 
-Apply the finite-product telescoping identity to the infinite-patch product in (18), and use (12) as the positive comparison after averaging the local patch data. Since the infinite full patches on \(L_T\) are in bijection with \(\mathcal E_T\), (15) gives
+Apply the finite-product telescoping identity to the infinite-patch product in (18), and use (12) as the positive comparison after averaging the local patch data. On \(L_T\), the infinite patches are precisely the cut patches in \(\mathcal C_T\), and hence are in bijection with \(\mathcal E_T\). Therefore (15) gives
 
 $$
 \left|
@@ -414,7 +414,7 @@ W_\infty^\circ\ind(L_\infty)
 \tag{21}
 $$
 
-On \(L_\infty\setminus L_T\), the first successful interaction after \(T\) has a complete \(\mathsf{OO}\)-to-\(\mathsf{IO}\) trail of total duration greater than \(T\). Using (10) on that trail and the positive comparison on every other full patch gives
+On \(L_\infty\setminus L_T\), the first successful interaction after \(T\) has a complete \(\mathsf{OO}\)-to-\(\mathsf{IO}\) trail of total duration greater than \(T\). Using (10) on that trail and the positive comparison on every other patch gives
 
 $$
 0
