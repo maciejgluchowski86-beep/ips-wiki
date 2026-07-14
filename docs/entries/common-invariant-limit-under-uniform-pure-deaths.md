@@ -256,22 +256,15 @@ $$
 and every \(Q\in\mathcal E_T\) has a unique extension \(Q_t\in\mathcal E_t\) with no intervening successful interaction. This extension is determined by \(Q\) and \(t\). Therefore, conditionally on \(\cG_T\),
 
 $$
-\begin{aligned}
-&
 \mathbb E_A\left[
 W_t^{\mathbf p}\ind(L_{T,t})
 \middle|\cG_T
 \right]
-\\
-&\qquad=
+=
 \prod_{P\in\mathcal B_T}C(P)
 \prod_{Q\in\mathcal E_T}C(\mathbf p,Q_t)
 \,
-\mathbb E_A\left[
-\ind(L_{T,t})
-\middle|\cG_T
-\right].
-\end{aligned}
+\mathbb P_A(L_{T,t}\mid\cG_T).
 $$
 
 It remains to calculate the last conditional probability. Conditional on \(\cG_T\), the post-\(T\) interaction data of the distinct end patches are independent, and \(L_{T,t}\) occurs exactly when every \(Q\in\mathcal E_T\) extends to time \(t\) without a successful interaction.
@@ -305,10 +298,7 @@ $$
 Consequently,
 
 $$
-\mathbb E_A\left[
-\ind(L_{T,t})
-\middle|\cG_T
-\right]
+\mathbb P_A(L_{T,t}\mid\cG_T)
 =
 \prod_{Q\in\mathcal E_T}
 \begin{cases}
@@ -494,16 +484,13 @@ $$
 By (12) and (14),
 
 $$
-\begin{aligned}
 \psi_i^\varepsilon(\Delta,1)-p_{i,S}^\star
-&=
+=
 q_i^\varepsilon-p_{i,S}^\star
 +
 \left(1-q_i^\varepsilon\right)e^{-r_i^\varepsilon\Delta}
-\\
-&\ge
+\ge
 \left(1-p_{i,S}^\star\right)e^{-r_i^\varepsilon\Delta}.
-\end{aligned}
 \tag{16}
 $$
 
@@ -697,16 +684,13 @@ $$
 The full less noisy product has total mass at most one. Indeed, on \(L_\infty\) the nonnegative finite-horizon weights \(W_u^\varepsilon\) converge to that product, and Fatou's lemma and (7) give
 
 $$
-\begin{aligned}
 \mathbb E_A\left[
 \prod_{P\in\mathcal P}C^\varepsilon(P)\ind(L_\infty)
 \right]
-&\le
+\le
 \liminf_{u\to\infty}
 \mathbb E_A\left[W_u^\varepsilon\right]
-\\
-&\le1.
-\end{aligned}
+\le1.
 $$
 
 Consequently,
