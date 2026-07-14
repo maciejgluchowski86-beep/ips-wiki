@@ -347,9 +347,11 @@ W_t^{\mathbf p}\ind(L_{T,t})
 \tag{9}
 $$
 
-The normalizer at time \(t\), whose convergence may be slow, has canceled before the killed factor is estimated.
+The cancellation of the normalizer at time \(t\) is the reason to work with \(K_{T,t}^{\mathbf p}(Q)\) rather than with the end contribution alone.
 
-### Relaxation of the killed factors
+### Comparing the finite- and infinite-time factors
+
+Equation (9) expresses the no-late-interaction term as a product over \(\mathcal E_T\). To compare it with the full-patch expression on \(L_T\), we replace each \(K_{T,t}^{\mathbf p}(Q)\) by its limit as \(t\to\infty\). Two estimates are needed: the difference must be exponentially small, and both factors must be dominated by the same nonnegative comparison factor so that the products can be telescoped.
 
 For a patch based at \(i\), put
 
@@ -361,7 +363,7 @@ d_i=c_i^0(\vn),
 q_i=\frac{d_i}{r_i}.
 $$
 
-Since \(r_i\ge\varepsilon\), the patch-contribution formula reads
+Since \(r_i\ge\varepsilon\),
 
 $$
 \psi_i(\Delta,p)
@@ -370,7 +372,7 @@ q_i+(p-q_i)e^{-r_i\Delta}.
 \tag{10}
 $$
 
-Define \(K_{T,\infty}(Q)\) by replacing \(\psi_i(\Delta_t,p_i)\) in the displayed formula for \(K_{T,t}^{\mathbf p}(Q)\) by \(q_i\). Equivalently, it is the limit of the joint factor “no successful interaction through \(t\)” times “end contribution at \(t\).” Thus this definition also covers the case in which the limiting consistency probability vanishes. Conditional factorization gives
+Define \(K_{T,\infty}(Q)\) by replacing \(\psi_i(\Delta_t,p_i)\) in \(K_{T,t}^{\mathbf p}(Q)\) by \(q_i\). This is the limit of the contribution from \(Q\), including the probability that it produces no successful interaction after \(T\). The definition remains valid when the limiting consistency probability is zero. On \(L_T\), the patches in \(\mathcal E_T\) extend to the infinite patches of the full family, so
 
 $$
 \mathbb E_A\left[
@@ -383,7 +385,33 @@ $$
 \tag{11}
 $$
 
-Let \(K_{T,t}^{\varepsilon,\mathbf 1}(Q)\) be the same killed factor for the less noisy model with terminal density \(\mathbf 1\). The successful-interaction rates and all consistency normalizers are unchanged by the perturbation. Put \(r_i^\varepsilon=r_i-\varepsilon\). When \(r_i^\varepsilon>0\), set \(q_i^\varepsilon=d_i/r_i^\varepsilon\); then
+Let \(K_{T,t}^{\varepsilon,\mathbf 1}(Q)\) be defined by the same formula as \(K_{T,t}^{\mathbf p}(Q)\), but for the less noisy model and terminal density \(\mathbf 1\). We will prove
+
+$$
+\left|K_{T,t}^{\mathbf p}(Q)\right|,
+\quad
+K_{T,\infty}(Q)
+\le
+K_{T,t}^{\varepsilon,\mathbf 1}(Q),
+\qquad
+\left|
+K_{T,t}^{\mathbf p}(Q)-K_{T,\infty}(Q)
+\right|
+\le
+2e^{-\varepsilon(t-T)}
+K_{T,t}^{\varepsilon,\mathbf 1}(Q).
+\tag{12}
+$$
+
+The first comparison supplies the common positive majorant used when telescoping the products; the second supplies the convergence rate.
+
+The perturbation does not change the successful-interaction rates or the consistency normalizers. It only replaces \(r_i\) by
+
+$$
+r_i^\varepsilon=r_i-\varepsilon.
+$$
+
+If \(r_i^\varepsilon>0\), put \(q_i^\varepsilon=d_i/r_i^\varepsilon\). Then
 
 $$
 \psi_i^\varepsilon(\Delta,1)
@@ -392,84 +420,90 @@ q_i^\varepsilon+
 \left(1-q_i^\varepsilon\right)e^{-r_i^\varepsilon\Delta}
 \ge
 e^{-r_i^\varepsilon\Delta}.
-\tag{12}
 $$
 
-If \(r_i^\varepsilon=0\), then \(d_i=0\) and \(\psi_i^\varepsilon(\Delta,1)=1\), so the estimates below follow directly.
+If \(r_i^\varepsilon=0\), then \(d_i=0\) and \(\psi_i^\varepsilon(\Delta,1)=1\); the estimates in (12) follow directly from this degenerate formula. Hence assume \(r_i^\varepsilon>0\) below.
 
-For an \(\mathsf{IE}\)-patch, (10), (12), and \(\Delta_t\ge t-T\) give
+Suppose first that \(Q\) has type \(\mathsf{IE}\). Its finite- and infinite-time factors are
+
+$$
+K_{T,t}^{\mathbf p}(Q)
+=
+\frac{q_i+(p_i-q_i)e^{-r_i\Delta_t}}{\varphi_i(\Delta_T)},
+\qquad
+K_{T,\infty}(Q)
+=
+\frac{q_i}{\varphi_i(\Delta_T)}.
+$$
+
+Since \(\Delta_t\ge t-T\) and \(|p_i-q_i|\le1\),
 
 $$
 \begin{aligned}
 \left|
 K_{T,t}^{\mathbf p}(Q)-K_{T,\infty}(Q)
 \right|
-&=
-\frac{
-\left|p_i-q_i\right|e^{-r_i\Delta_t}
-}{
-\varphi_i(\Delta_T)
-}
-\\
 &\le
 e^{-\varepsilon\Delta_t}
-\frac{
-e^{-r_i^\varepsilon\Delta_t}
-}{
-\varphi_i(\Delta_T)
-}
+\frac{e^{-r_i^\varepsilon\Delta_t}}{\varphi_i(\Delta_T)}
 \\
 &\le
 e^{-\varepsilon(t-T)}
 K_{T,t}^{\varepsilon,\mathbf 1}(Q).
 \end{aligned}
-\tag{13}
 $$
 
-Now let \(Q\) have type \(\mathsf{OE}\). If \(\beta_i(S)=0\), its killed factor is independent of \(t\), and there is nothing to prove. Otherwise patch positivity gives
+Moreover,
+
+$$
+0\le
+\psi_i(\Delta_t,p_i)
+\le
+\psi_i(\Delta_t,1)
+\le
+\psi_i^\varepsilon(\Delta_t,1),
+\qquad
+0\le q_i\le q_i^\varepsilon\le\psi_i^\varepsilon(\Delta_t,1).
+$$
+
+Dividing by \(\varphi_i(\Delta_T)\) proves both domination inequalities in (12) for an \(\mathsf{IE}\)-patch.
+
+Now suppose that \(Q\) has type \(\mathsf{OE}\), with \(S=S(Q)\). If \(\beta_i(S)=0\), its expression does not depend on \(t\), so the difference in (12) is zero and the domination follows from patch positivity. Assume \(\beta_i(S)>0\). Patch positivity gives
 
 $$
 \beta_i(S)\sigma_i^\beta(S)
 =
 -c_i^0(S)-c_i^1(S)
 =
-\beta_i(S)>0.
+\beta_i(S).
 $$
 
-Writing
+Set
 
 $$
 p_{i,S}^\star
 =
-\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)},
+\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}.
 $$
 
-the numerator of the killed factor is
+The numerator in the formula for \(K_{T,t}^{\mathbf p}(Q)\) is then
 
 $$
 \beta_i(S)
 \left(
-\psi_i(\Delta,p)-p_{i,S}^\star
+\psi_i(\Delta_t,p_i)-p_{i,S}^\star
 \right).
 $$
 
-Patch positivity gives
-
-$$
-p_{i,S}^\star\le q_i\le q_i^\varepsilon.
-\tag{14}
-$$
-
-Moreover,
+Patch positivity is exactly the inequality \(p_{i,S}^\star\le q_i\), and reducing the death rate gives \(q_i\le q_i^\varepsilon\). We also have
 
 $$
 \left|p_i-q_i\right|
 \le
 2\left(1-p_{i,S}^\star\right).
-\tag{15}
 $$
 
-Indeed, if \(p_i\ge q_i\), the left-hand side is at most \(1-q_i\le1-p_{i,S}^\star\). If \(p_i<q_i\) and \(p_i^\star<1/2\), it is at most \(1\le2(1-p_{i,S}^\star)\). If \(p_i<q_i\) and \(p_i^\star\ge1/2\), then
+To see this, if \(p_i\ge q_i\), the left-hand side is at most \(1-q_i\le1-p_{i,S}^\star\). If \(p_i<q_i\) and \(p_i^\star<1/2\), it is at most \(1\le2(1-p_{i,S}^\star)\). If \(p_i<q_i\) and \(p_i^\star\ge1/2\), then
 
 $$
 q_i-p_i
@@ -481,20 +515,24 @@ q_i-p_i
 2(1-p_{i,S}^\star).
 $$
 
-By (12) and (14),
+The less noisy numerator satisfies
 
 $$
+\begin{aligned}
 \psi_i^\varepsilon(\Delta,1)-p_{i,S}^\star
-=
+&=
 q_i^\varepsilon-p_{i,S}^\star
 +
 \left(1-q_i^\varepsilon\right)e^{-r_i^\varepsilon\Delta}
-\ge
+\\
+&\ge
 \left(1-p_{i,S}^\star\right)e^{-r_i^\varepsilon\Delta}.
-\tag{16}
+\end{aligned}
 $$
 
-The denominators of the original and less noisy killed factors are the same. Equations (10), (15), and (16) therefore yield
+The inequality uses \(q_i^\varepsilon\ge p_{i,S}^\star\) and \(e^{-r_i^\varepsilon\Delta}\le1\).
+
+The original and less noisy expressions have the same denominator. Hence
 
 $$
 \begin{aligned}
@@ -512,34 +550,9 @@ K_{T,t}^{\mathbf p}(Q)-K_{T,\infty}(Q)
 2e^{-\varepsilon(t-T)}
 K_{T,t}^{\varepsilon,\mathbf 1}(Q).
 \end{aligned}
-\tag{17}
 $$
 
-The same comparison factors dominate the killed factors themselves:
-
-$$
-\left|K_{T,t}^{\mathbf p}(Q)\right|,
-\quad
-K_{T,\infty}(Q)
-\le
-K_{T,t}^{\varepsilon,\mathbf 1}(Q).
-\tag{18}
-$$
-
-For an \(\mathsf{IE}\)-patch,
-
-$$
-0\le
-\psi_i(\Delta,p_i)
-\le
-\psi_i(\Delta,1)
-\le
-\psi_i^\varepsilon(\Delta,1),
-\qquad
-0\le q_i\le q_i^\varepsilon\le\psi_i^\varepsilon(\Delta,1).
-$$
-
-Dividing by the common positive denominator \(\varphi_i(\Delta_T)\) proves (18). For an \(\mathsf{OE}\)-patch, the killed factor is affine and nondecreasing in \(p_i\), and
+It remains to check the domination in (12). The expression is affine and nondecreasing in \(p_i\), while
 
 $$
 K_{T,t}^{\mathbf p}(Q)
@@ -550,7 +563,7 @@ K_{T,t}^{\mathbf 1}(Q)
 \ge0
 $$
 
-because \((p_i+1)/2\ge p_i^\star\). Hence
+because \((p_i+1)/2\ge p_i^\star\). Therefore
 
 $$
 \left|K_{T,t}^{\mathbf p}(Q)\right|
@@ -560,7 +573,9 @@ K_{T,t}^{\mathbf 1}(Q)
 K_{T,t}^{\varepsilon,\mathbf 1}(Q).
 $$
 
-Also \(K_{T,\infty}(Q)\ge0\) by patch positivity, and (12), (14) show that it is no larger than the less noisy factor.
+The last inequality is the pure-death comparison: the consistency probability factor is unchanged, while removing the \(\varepsilon\)-noise increases the all-one contribution.
+
+Finally, \(K_{T,\infty}(Q)\ge0\) because \(p_{i,S}^\star\le q_i\), and it is bounded by \(K_{T,t}^{\varepsilon,\mathbf 1}(Q)\) because \(q_i\le q_i^\varepsilon\le\psi_i^\varepsilon(\Delta_t,1)\). This proves (12) for both patch types.
 
 Let \(N_T=|\mathcal E_T|\), and fix a deterministic ordering of \(\mathcal E_T\). The elementary telescoping inequality
 
@@ -575,7 +590,7 @@ $$
 \prod_{R>Q}|b_R|
 $$
 
-together with (4), (13), (17), and (18) gives
+and the estimates in (12), together with the bulk comparison (4), give
 
 $$
 \begin{aligned}
@@ -598,7 +613,7 @@ W_t^{\mathbf p}\ind(L_{T,t})
 \prod_{Q\in\mathcal E_T}
 K_{T,t}^{\varepsilon,\mathbf 1}(Q).
 \end{aligned}
-\tag{19}
+\tag{13}
 $$
 
 The product on the right is
@@ -628,12 +643,12 @@ $$
 > \right]
 > \le
 > K_A(1+t)^D.
-> \tag{20}
+> \tag{14}
 > $$
 >
 > The finite-speed error is absorbed by increasing \(K_A\). This finite-volume restriction is needed only for this bound, so no finite-volume notation is carried through the rest of the argument.
 
-Integrating (19) and using (20) yields
+Integrating (13) and using (14) yields
 
 $$
 \begin{aligned}
@@ -651,7 +666,7 @@ W_t^{\mathbf p}\ind(L_{T,t})
 &\qquad\le
 2K_A(1+t)^D e^{-\varepsilon(t-T)}.
 \end{aligned}
-\tag{21}
+\tag{15}
 $$
 
 This estimate treats the relaxation of the end-patch factors and the replacement of \(L_{T,t}\) by \(L_T\) simultaneously. Estimating the indicators separately would reintroduce the slow consistency rate that canceled above.
@@ -714,10 +729,10 @@ e^{-\varepsilon T}
 &\le
 e^{-\varepsilon T}.
 \end{aligned}
-\tag{22}
+\tag{16}
 $$
 
-Combining (7), (8), (21), and (22), we obtain
+Combining (7), (8), (15), and (16), we obtain
 
 $$
 \begin{aligned}
@@ -736,7 +751,7 @@ $$
 +
 2K_A(1+t)^D e^{-\varepsilon(t-T)}.
 \end{aligned}
-\tag{23}
+\tag{17}
 $$
 
 Taking \(T=t/2\) gives
@@ -749,12 +764,12 @@ $$
 \right|
 \le
 K_A'(1+t)^D e^{-\varepsilon t/2},
-\tag{24}
+\tag{18}
 $$
 
 uniformly over \(\mathbf p\ge\mathbf p^-\). Averaging over a mixing law gives the same estimate for mixtures.
 
-Every local function has a finite expansion in [monomials](monomials.md), so (24) proves (1). Taking \(\nu=\mu_{\mathbf 1}\), compactness gives a subsequential weak limit, and convergence of all monomial moments shows that every subsequential limit is the same measure \(\pi\) characterized by (2). The finite-range spin-system semigroup is Feller, hence
+Every local function has a finite expansion in [monomials](monomials.md), so (18) proves (1). Taking \(\nu=\mu_{\mathbf 1}\), compactness gives a subsequential weak limit, and convergence of all monomial moments shows that every subsequential limit is the same measure \(\pi\) characterized by (2). The finite-range spin-system semigroup is Feller, hence
 
 $$
 \pi P_s
