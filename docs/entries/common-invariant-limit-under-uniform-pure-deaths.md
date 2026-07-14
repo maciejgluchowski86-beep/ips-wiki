@@ -159,11 +159,10 @@ As usual, only labels with positive consistency probability occur; their denomin
 
 $$
 \begin{aligned}
-&c_i^0(S)
+c_i^0(S)
 -
 \left(c_i^0(S)+c_i^1(S)\right)\psi_i^\infty
-\\
-&\qquad=
+&=
 \frac{
 c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)
 }{r_i}
@@ -443,13 +442,12 @@ Combining (6), (17), (20), and (22), for \(t>T\), gives
 
 $$
 \begin{aligned}
-&\left|
+\left|
 \mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
 -
 \mathbb E_A[W_\infty]
 \right|
-\\
-&\qquad\le
+&\le
 K_A(1+t)^D e^{-\lambda T}
 +
 K_A(1+T)^D e^{-\varepsilon(t-T)}

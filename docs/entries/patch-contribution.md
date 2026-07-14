@@ -274,19 +274,18 @@ Splitting according to whether the pure death occurs before or after time \(t\) 
 
 $$
 \begin{aligned}
-&\mathbb E_P\left[
+\mathbb E_P\left[
 \ind(\operatorname{Con}(P))
 \exp\left(
 V_i\int_s^tX_u^P\,du
 \right)
 z^{X_t^P}
 \right]
-\\
-&\qquad=
+&=
 \delta_i(\vn)
 \int_0^{\Delta_-} e^{(V_i-\alpha_i)w}\,dw
 \\
-&\qquad\quad+
+&\quad+
 z e^{(V_i-\alpha_i)\Delta_-}
 \left[
 e^{-\alpha_i\Delta_+}
@@ -294,13 +293,13 @@ e^{-\alpha_i\Delta_+}
 \delta_i(\vn)\int_0^{\Delta_+} e^{-\alpha_i w}\,dw
 \right]
 \\
-&\qquad=
+&=
 \delta_i(\vn)
 \int_0^{\Delta_-} e^{a_i^\beta(\vn)w}\,dw
 +
 z e^{a_i^\beta(\vn)\Delta_-}\varphi_i(\Delta_+)
 \\
-&\qquad=
+&=
 \psi_i(\Delta_-,\Delta_+,z).
 \end{aligned}
 \tag{4}

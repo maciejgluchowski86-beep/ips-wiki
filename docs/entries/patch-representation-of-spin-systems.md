@@ -192,7 +192,7 @@ The factors in (6) are functions of the corresponding patch interaction data. He
 
 $$
 \begin{aligned}
-&\mathbb E_{(A,+)}\left[
+\mathbb E_{(A,+)}\left[
 \sigma_t
 \exp\left(
 \int_0^tV(A_u)\,du
@@ -200,14 +200,13 @@ $$
 \chi_{A_t}(\xi)
 \middle|\cG_T
 \right]
-\\
-&\quad=
+&=
 \prod_{P\in\mathcal B_t}
 \mathbb E_P^{\mathrm{con}}[F(P)]
 \prod_{P\in\mathcal X_t^T}
 \mathbb E_P^{\mathrm{con}}[F_t(\xi,P)]
 \\
-&\quad=
+&=
 \begin{cases}
 \displaystyle
 \prod_{P\in\mathcal B_t}C(P)
