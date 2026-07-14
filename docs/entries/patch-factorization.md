@@ -81,7 +81,7 @@ $$
 \mathcal F_{\mathcal R}^c
 $$
 
-independent in the skeleton-fixed Poisson--Palm reference construction.
+independent before the consistency conditions are imposed.
 
 The consistency condition imposed by \(g\) on the selected coordinates is
 
@@ -143,7 +143,7 @@ A=A_{\mathcal R}(g),
 \mathcal H=\sigma(B_{\mathcal R}(g)).
 $$
 
-The outside consistency information can therefore be removed from the conditional law of the selected coordinates. In the regular conditional Poisson--Palm disintegration over \(g\), this gives
+The outside consistency information can therefore be removed from the conditional law of the selected coordinates. In the regular conditional disintegration over \(g\), this gives
 
 $$
 \begin{aligned}
