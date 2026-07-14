@@ -237,7 +237,15 @@ e^{-\varepsilon T}.
 \tag{8}
 $$
 
-### Conditioning at time \(T\)
+### The no-late-interaction term
+
+We now consider
+
+$$
+\mathbb E_A\left[
+W_t^{\mathbf p}\ind(L_{T,t})
+\right].
+$$
 
 On \(L_{T,t}\), no patch begins or ends between \(T\) and \(t\). Hence, up to the null event of an interaction exactly at \(T\),
 
@@ -245,67 +253,98 @@ $$
 \mathcal B_t=\mathcal B_T,
 $$
 
-and every \(Q\in\mathcal E_T\) has a unique extension \(Q_u\in\mathcal E_u\) for \(T\le u\le t\). Fix such a \(Q\), write
+and every \(Q\in\mathcal E_T\) has a unique extension \(Q_t\in\mathcal E_t\) with no intervening successful interaction. This extension is determined by \(Q\) and \(t\). Therefore, conditionally on \(\cG_T\),
+
+$$
+\begin{aligned}
+&
+\mathbb E_A\left[
+W_t^{\mathbf p}\ind(L_{T,t})
+\middle|\cG_T
+\right]
+\\
+&\qquad=
+\prod_{P\in\mathcal B_T}C(P)
+\prod_{Q\in\mathcal E_T}C(\mathbf p,Q_t)
+\,
+\mathbb E_A\left[
+\ind(L_{T,t})
+\middle|\cG_T
+\right].
+\end{aligned}
+$$
+
+It remains to calculate the last conditional probability. Conditional on \(\cG_T\), the post-\(T\) interaction data of the distinct end patches are independent, and \(L_{T,t}\) occurs exactly when every \(Q\in\mathcal E_T\) extends to time \(t\) without a successful interaction.
+
+Fix \(Q\in\mathcal E_T\), and write
 
 $$
 i=i(Q),
 \qquad
 s=s(Q),
 \qquad
-\ell_u=u-s,
+\Delta_u=u-s.
 $$
 
-and write \(S=S(Q)\) when \(\mathsf X(Q)=\mathsf O\).
-
-Suppose first that \(Q\) has type \(\mathsf{IE}\). Given that it is consistent through time \(T\), its probability of extending without a successful interaction through time \(u\) is
+If \(Q\) has type \(\mathsf{IE}\), the probability that it extends without a successful interaction through time \(u\), conditional on consistency through \(T\), is
 
 $$
-\frac{\varphi_i(\ell_u)}{\varphi_i(\ell_T)}.
+\frac{\varphi_i(\Delta_u)}{\varphi_i(\Delta_T)}.
 $$
 
-Multiplying this probability by its end contribution gives
+If \(Q\) has type \(\mathsf{OE}\), with \(S=S(Q)\), the corresponding probability is
 
 $$
-\frac{\varphi_i(\ell_u)}{\varphi_i(\ell_T)}
-\frac{\psi_i(\ell_u,p_i)}{\varphi_i(\ell_u)}
-=
-\frac{\psi_i(\ell_u,p_i)}{\varphi_i(\ell_T)}.
-$$
-
-For an \(\mathsf{OE}\)-patch, the same calculation is
-
-$$
-\begin{aligned}
-&
 \frac{
-\delta_i(S)+\beta_i(S)\varphi_i(\ell_u)
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta_u)
 }{
-\delta_i(S)+\beta_i(S)\varphi_i(\ell_T)
-}
-\\
-&\qquad\quad\times
-\frac{
-\delta_i(S)\sigma_i^\delta(S)
-+
-\beta_i(S)\sigma_i^\beta(S)\psi_i(\ell_u,p_i)
-}{
-\delta_i(S)+\beta_i(S)\varphi_i(\ell_u)
-}
-\\
-&\qquad=
-\frac{
-\delta_i(S)\sigma_i^\delta(S)
-+
-\beta_i(S)\sigma_i^\beta(S)\psi_i(\ell_u,p_i)
-}{
-\delta_i(S)+\beta_i(S)\varphi_i(\ell_T)
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta_T)
 }.
-\end{aligned}
 $$
 
-Denote the last expression in the appropriate one of these two displays by \(K_{T,u}^{\mathbf p}(Q)\). The normalizer at time \(u\), whose convergence may be slow, has canceled.
+Consequently,
 
-Conditional on \(\cG_T\), the post-\(T\) interaction data of the distinct end patches are independent. Multiplying their extension probabilities and their end contributions therefore gives
+$$
+\mathbb E_A\left[
+\ind(L_{T,t})
+\middle|\cG_T
+\right]
+=
+\prod_{Q\in\mathcal E_T}
+\begin{cases}
+\dfrac{\varphi_i(\Delta_t)}{\varphi_i(\Delta_T)},
+&\mathsf X(Q)=\mathsf I,
+\\[1.2em]
+\dfrac{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta_t)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta_T)
+},
+&\mathsf X(Q)=\mathsf O.
+\end{cases}
+$$
+
+For each \(Q\in\mathcal E_T\), define \(K_{T,t}^{\mathbf p}(Q)\) to be \(C(\mathbf p,Q_t)\) times the corresponding factor in this product. The patch-contribution formulas give
+
+$$
+K_{T,t}^{\mathbf p}(Q)
+=
+\begin{cases}
+\dfrac{\psi_i(\Delta_t,p_i)}{\varphi_i(\Delta_T)},
+&\mathsf X(Q)=\mathsf I,
+\\[1.2em]
+\dfrac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta_t,p_i)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta_T)
+},
+&\mathsf X(Q)=\mathsf O.
+\end{cases}
+$$
+
+Thus
 
 $$
 \mathbb E_A\left[
@@ -317,6 +356,8 @@ W_t^{\mathbf p}\ind(L_{T,t})
 \prod_{Q\in\mathcal E_T}K_{T,t}^{\mathbf p}(Q).
 \tag{9}
 $$
+
+The normalizer at time \(t\), whose convergence may be slow, has canceled before the killed factor is estimated.
 
 ### Relaxation of the killed factors
 
@@ -333,13 +374,13 @@ $$
 Since \(r_i\ge\varepsilon\), the patch-contribution formula reads
 
 $$
-\psi_i(\ell,p)
+\psi_i(\Delta,p)
 =
-q_i+(p-q_i)e^{-r_i\ell}.
+q_i+(p-q_i)e^{-r_i\Delta}.
 \tag{10}
 $$
 
-Define \(K_{T,\infty}(Q)\) by replacing \(\psi_i(\ell_u,p_i)\) in the displayed formula for \(K_{T,u}^{\mathbf p}(Q)\) by \(q_i\). Equivalently, it is the limit of the joint factor “no successful interaction through \(u\)” times “end contribution at \(u\).” Thus this definition also covers the case in which the limiting consistency probability vanishes. Conditional factorization gives
+Define \(K_{T,\infty}(Q)\) by replacing \(\psi_i(\Delta_t,p_i)\) in the displayed formula for \(K_{T,t}^{\mathbf p}(Q)\) by \(q_i\). Equivalently, it is the limit of the joint factor “no successful interaction through \(t\)” times “end contribution at \(t\).” Thus this definition also covers the case in which the limiting consistency probability vanishes. Conditional factorization gives
 
 $$
 \mathbb E_A\left[
@@ -355,18 +396,18 @@ $$
 Let \(K_{T,t}^{\varepsilon,\mathbf 1}(Q)\) be the same killed factor for the less noisy model with terminal density \(\mathbf 1\). The successful-interaction rates and all consistency normalizers are unchanged by the perturbation. Put \(r_i^\varepsilon=r_i-\varepsilon\). When \(r_i^\varepsilon>0\), set \(q_i^\varepsilon=d_i/r_i^\varepsilon\); then
 
 $$
-\psi_i^\varepsilon(\ell,1)
+\psi_i^\varepsilon(\Delta,1)
 =
 q_i^\varepsilon+
-\left(1-q_i^\varepsilon\right)e^{-r_i^\varepsilon\ell}
+\left(1-q_i^\varepsilon\right)e^{-r_i^\varepsilon\Delta}
 \ge
-e^{-r_i^\varepsilon\ell}.
+e^{-r_i^\varepsilon\Delta}.
 \tag{12}
 $$
 
-If \(r_i^\varepsilon=0\), then \(d_i=0\) and \(\psi_i^\varepsilon(\ell,1)=1\), so the estimates below follow directly.
+If \(r_i^\varepsilon=0\), then \(d_i=0\) and \(\psi_i^\varepsilon(\Delta,1)=1\), so the estimates below follow directly.
 
-For an \(\mathsf{IE}\)-patch, (10), (12), and \(\ell_t\ge t-T\) give
+For an \(\mathsf{IE}\)-patch, (10), (12), and \(\Delta_t\ge t-T\) give
 
 $$
 \begin{aligned}
@@ -375,17 +416,17 @@ K_{T,t}^{\mathbf p}(Q)-K_{T,\infty}(Q)
 \right|
 &=
 \frac{
-\left|p_i-q_i\right|e^{-r_i\ell_t}
+\left|p_i-q_i\right|e^{-r_i\Delta_t}
 }{
-\varphi_i(\ell_T)
+\varphi_i(\Delta_T)
 }
 \\
 &\le
-e^{-\varepsilon\ell_t}
+e^{-\varepsilon\Delta_t}
 \frac{
-e^{-r_i^\varepsilon\ell_t}
+e^{-r_i^\varepsilon\Delta_t}
 }{
-\varphi_i(\ell_T)
+\varphi_i(\Delta_T)
 }
 \\
 &\le
@@ -418,7 +459,7 @@ the numerator of the killed factor is
 $$
 \beta_i(S)
 \left(
-\psi_i(\ell,p)-p_{i,S}^\star
+\psi_i(\Delta,p)-p_{i,S}^\star
 \right).
 $$
 
@@ -454,14 +495,14 @@ By (12) and (14),
 
 $$
 \begin{aligned}
-\psi_i^\varepsilon(\ell,1)-p_{i,S}^\star
+\psi_i^\varepsilon(\Delta,1)-p_{i,S}^\star
 &=
 q_i^\varepsilon-p_{i,S}^\star
 +
-\left(1-q_i^\varepsilon\right)e^{-r_i^\varepsilon\ell}
+\left(1-q_i^\varepsilon\right)e^{-r_i^\varepsilon\Delta}
 \\
 &\ge
-\left(1-p_{i,S}^\star\right)e^{-r_i^\varepsilon\ell}.
+\left(1-p_{i,S}^\star\right)e^{-r_i^\varepsilon\Delta}.
 \end{aligned}
 \tag{16}
 $$
@@ -475,9 +516,9 @@ K_{T,t}^{\mathbf p}(Q)-K_{T,\infty}(Q)
 \right|
 &=
 \frac{
-\beta_i(S)\left|p_i-q_i\right|e^{-r_i\ell_t}
+\beta_i(S)\left|p_i-q_i\right|e^{-r_i\Delta_t}
 }{
-\delta_i(S)+\beta_i(S)\varphi_i(\ell_T)
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta_T)
 }
 \\
 &\le
@@ -502,16 +543,16 @@ For an \(\mathsf{IE}\)-patch,
 
 $$
 0\le
-\psi_i(\ell,p_i)
+\psi_i(\Delta,p_i)
 \le
-\psi_i(\ell,1)
+\psi_i(\Delta,1)
 \le
-\psi_i^\varepsilon(\ell,1),
+\psi_i^\varepsilon(\Delta,1),
 \qquad
-0\le q_i\le q_i^\varepsilon\le\psi_i^\varepsilon(\ell,1).
+0\le q_i\le q_i^\varepsilon\le\psi_i^\varepsilon(\Delta,1).
 $$
 
-Dividing by the common positive denominator \(\varphi_i(\ell_T)\) proves (18). For an \(\mathsf{OE}\)-patch, the killed factor is affine and nondecreasing in \(p_i\), and
+Dividing by the common positive denominator \(\varphi_i(\Delta_T)\) proves (18). For an \(\mathsf{OE}\)-patch, the killed factor is affine and nondecreasing in \(p_i\), and
 
 $$
 K_{T,t}^{\mathbf p}(Q)
