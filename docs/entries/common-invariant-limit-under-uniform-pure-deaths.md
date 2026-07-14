@@ -176,7 +176,7 @@ L_{T,t}
 L_T=L_{T,\infty}.
 $$
 
-On \(L_{T,t}^c\), let \(u\in[T,t)\) be the first successful-interaction time after \(T\), and let \(\Gamma_u\) be the trail of \(\mathsf{XO}\)-patches leading to its source. Every patch in \(\Gamma_u\) belongs to \(\mathcal B_t\), and
+On \(L_{T,t}^c\), let \(u\in[T,t)\) be the first successful-interaction time after \(T\), and let \(\Gamma_u\) be the trail of \(\mathsf{XO}\)-patches leading to its source. Here \(\mathsf{XO}\) means a patch whose terminal label is \(\mathsf O\): it ends at a successful interaction outgoing from its site. Start with the source patch ending at time \(u\). If that patch began at an outgoing interaction, continue with the patch immediately preceding it at the same source; if it began at an incoming interaction, continue with the source patch of that interaction. Repeating this step terminates with a patch beginning at time zero. The successive patch lifetimes form a backward spacetime path from time \(u\) to time zero. Thus every patch in \(\Gamma_u\) belongs to \(\mathcal B_t\), and
 
 $$
 \sum_{P\in\Gamma_u}\Delta(P)\ge u\ge T.
