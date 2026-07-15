@@ -34,7 +34,6 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Duality: `docs/entries/duality.md`
 - Theta monomials: `docs/entries/theta-monomials.md`
 - Monomial duality for spin systems: `docs/entries/monomial-duality-for-spin-systems.md`
-- Undoing duality under confined late interactions: `docs/entries/undoing-duality-under-confined-late-interactions.md`
 - Duality noise lemma: `docs/entries/duality-noise-lemma.md`
 
 ## Current signed additive set process entries
@@ -54,6 +53,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Patch critical density: `docs/entries/patch-critical-density.md`
 - High-density measure: `docs/entries/high-density-measure.md`
 - Patch representation of spin systems: `docs/entries/patch-representation-of-spin-systems.md`
+- Undoing duality under confined late interactions: `docs/entries/undoing-duality-under-confined-late-interactions.md`
 - Monomial monotonicity for high-density measures: `docs/entries/monomial-monotonicity-for-high-density-measures.md`
 - Common invariant limit under uniform pure deaths: `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`
 
