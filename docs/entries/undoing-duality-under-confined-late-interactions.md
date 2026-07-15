@@ -68,56 +68,22 @@ Deaths have empty target and are not successful interactions, so they are unrest
 
 ## Modified spin system
 
-Using the monomial coefficients \(c_i^x(S)\) of the original rates, define
-
-$$
-c_{i,R}^x(S)
-=
-\ind\left(
-S=\vn
-\text{ or }
-\left(i\in R\text{ and }S\subseteq R\right)
-\right)c_i^x(S),
-\qquad
-x\in\{0,1\},
-\tag{3}
-$$
-
-and
-
-$$
-c_{i,R}^x(\xi)
-=
-\sum_{S\subseteq N(i)}c_{i,R}^x(S)\chi_S(\xi).
-\tag{4}
-$$
-
-These are nonnegative rate functions. Indeed, if \(\xi^{R,0}\) is obtained from \(\xi\) by setting every spin outside \(R\) equal to zero, then
-
-$$
-c_{i,R}^x(\xi)
-=
-\begin{cases}
-c_i^x(\xi^{R,0}),
-&i\in R,
-\\
-c_i^x(\mathbf 0),
-&i\notin R.
-\end{cases}
-\tag{5}
-$$
-
-Define
+For \(Q\subseteq\Lambda\), let \(\xi^{Q,0}\) be the configuration that agrees with \(\xi\) on \(Q\) and is zero on \(Q^c\). Define
 
 $$
 c_{i,R}(\xi)
 =
-(1-\xi(i))c_{i,R}^0(\xi)
-+
-\xi(i)c_{i,R}^1(\xi),
+\begin{cases}
+c_i(\xi^{R,0}),
+&i\in R,
+\\
+c_i(\xi^{\{i\},0}),
+&i\notin R.
+\end{cases}
+\tag{3}
 $$
 
-and let
+The modified spin-system generator is
 
 $$
 \cL_Rf(\xi)
@@ -127,10 +93,10 @@ c_{i,R}(\xi)
 \left(
 f(\xi^i)-f(\xi)
 \right).
-\tag{6}
+\tag{4}
 $$
 
-Write \((P_s^R)_{s\ge0}\) for the corresponding semigroup. Inside \(R\), the rates are those of the original spin system with zero exterior configuration. Outside \(R\), the sites evolve independently with constant rates \(c_i^0(\mathbf0)\) and \(c_i^1(\mathbf0)\).
+Write \((P_s^R)_{s\ge0}\) for its semigroup. Inside \(R\), the rates are those of the original spin system with zero exterior configuration. Outside \(R\), the sites evolve independently with constant rates \(c_i^0(\mathbf0)\) and \(c_i^1(\mathbf0)\).
 
 ## Proposition
 
@@ -153,12 +119,12 @@ Z_t^\xi\ind(L_{T,t}^R)
 P_{t-T}^R P_T(\chi_A)
 \right)(\xi).
 \end{aligned}
-\tag{7}
+\tag{5}
 $$
 
 Here \(\mathbb E_A\) denotes expectation over the successful-interaction skeleton, as in the patch representation, while \(\mathbb E_{(A,+)}\) denotes expectation over the full marked dual process.
 
-The operator order in (7) is essential. The identity describes a left evolution of observables: first apply \(P_T\), then apply \(P_{t-T}^R\). A spin path run chronologically with generator \(\cL\) until time \(T\) and generator \(\cL_R\) afterward would instead have transition operator \(P_TP_{t-T}^R\), which need not agree with (7).
+The operator order in (5) is essential. The identity describes a left evolution of observables: first apply \(P_T\), then apply \(P_{t-T}^R\). A spin path run chronologically with generator \(\cL\) until time \(T\) and generator \(\cL_R\) afterward would instead have transition operator \(P_TP_{t-T}^R\), which need not agree with (5).
 
 ## Proof
 
@@ -192,10 +158,10 @@ Z_t^\xi
 Z_t^\xi\ind(L_{T,t}^R)
 \right].
 \end{aligned}
-\tag{8}
+\tag{6}
 $$
 
-This proves the first equality in (7). It remains to return the restricted dual expectation to the spin side.
+This proves the first equality in (5). It remains to return the restricted dual expectation to the spin side.
 
 ### The late killed dual
 
@@ -217,7 +183,7 @@ $$
 \beta_{i,R}(S)
 =
 \ind\left(i\in R\text{ and }S\subseteq R\right)\beta_i(S).
-\tag{9}
+\tag{7}
 $$
 
 Let \(\cD_R\) be the generator formed from these retained interactions. If the active set is \(B\), the total rate of forbidden successful interactions is
@@ -231,7 +197,7 @@ i\notin R\text{ or }S\nsubseteq R}}
 \left(
 \delta_i(S)+\beta_i(S)
 \right).
-\tag{10}
+\tag{8}
 $$
 
 During \([T,t)\), the indicator \(\ind(L_{T,t}^R)\) becomes zero at the first forbidden successful interaction. Hence the dual process relevant to the restricted expectation has generator
@@ -244,41 +210,16 @@ where the second term is killing. After including the original Feynman--Kac pote
 
 $$
 \cD_R+V-\kappa_R.
-\tag{11}
+\tag{9}
 $$
 
-We now identify (11) with the ordinary dual operator of \(\cL_R\). By (3), the signed coefficients of the modified rates satisfy
-
-$$
-a_{i,R}^\delta(S)
-=
-\ind\left(
-S=\vn
-\text{ or }
-\left(i\in R\text{ and }S\subseteq R\right)
-\right)a_i^\delta(S),
-$$
-
-and
-
-$$
-a_{i,R}^\beta(S)
-=
-\ind\left(
-S=\vn
-\text{ or }
-\left(i\in R\text{ and }S\subseteq R\right)
-\right)a_i^\beta(S).
-\tag{12}
-$$
-
-The empty birth coefficient is part of the Feynman--Kac potential rather than the dual jump generator. Thus the signed dual generator of \(\cL_R\) is exactly \(\cD_R\). Its potential is obtained from the original potential by deleting the forbidden nonempty-target rates. Since the empty-target coefficients are unchanged,
+By the coefficient formulas in the monomial duality, the rates in (3) leave every empty-target coefficient unchanged and delete precisely the nonempty-target coefficients whose source or target is not contained in \(R\). Thus the signed dual generator of \(\cL_R\) is \(\cD_R\), and its potential is
 
 $$
 V_R(B)
 =
 V(B)-\kappa_R(B).
-\tag{13}
+\tag{10}
 $$
 
 Therefore
@@ -291,14 +232,14 @@ $$
 V_R(B)H(Y,\xi),
 \qquad
 Y=(B,\sigma).
-\tag{14}
+\tag{11}
 $$
 
-Equations (11)--(14) show why the confinement event produces a genuine modified spin system: killing the forbidden dual jumps subtracts exactly the rates removed from the modified Feynman--Kac potential.
+Equations (9)--(11) identify the late killed dual with the ordinary Feynman--Kac dual of \(\cL_R\).
 
 ### Splitting at time \(T\)
 
-Set \(s=t-T\). Conditional on \(Y_T=(A_T,\sigma_T)\), the post-\(T\) killed evolution identified above and the Feynman--Kac duality for \(\cL_R\) give
+Set \(s=t-T\). Conditional on \(Y_T=(A_T,\sigma_T)\), the post-\(T\) killed evolution and the Feynman--Kac duality for \(\cL_R\) give
 
 $$
 \begin{aligned}
@@ -320,7 +261,7 @@ Y_T
 P_s^R(\chi_{A_T})
 \right)(\xi).
 \end{aligned}
-\tag{15}
+\tag{12}
 $$
 
 Multiplying by the weight accumulated before \(T\) and taking expectation yields
@@ -343,7 +284,7 @@ P_s^R(\chi_{A_T})
 \right)(\xi)
 \right].
 \end{aligned}
-\tag{16}
+\tag{13}
 $$
 
 The original duality at time \(T\) is the equality of functions
@@ -359,10 +300,10 @@ P_T(\chi_A)
 \right)
 \chi_{A_T}
 \right].
-\tag{17}
+\tag{14}
 $$
 
-Apply the linear operator \(P_s^R\) to (17) and evaluate at \(\xi\). The right-hand side becomes the expectation in (16), so
+Apply the linear operator \(P_s^R\) to (14) and evaluate at \(\xi\). The right-hand side becomes the expectation in (13), so
 
 $$
 \mathbb E_{(A,+)}
@@ -375,4 +316,4 @@ P_s^RP_T(\chi_A)
 \right)(\xi).
 $$
 
-Since \(s=t-T\), this proves the second equality in (7).
+Since \(s=t-T\), this proves the second equality in (5).
