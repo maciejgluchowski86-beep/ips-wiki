@@ -54,6 +54,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - High-density measure: `docs/entries/high-density-measure.md`
 - Patch representation of spin systems: `docs/entries/patch-representation-of-spin-systems.md`
 - Undoing duality under confined late interactions: `docs/entries/undoing-duality-under-confined-late-interactions.md`
+- Exponential relaxation under confined late interactions: `docs/entries/exponential-relaxation-under-confined-late-interactions.md`
 - Monomial monotonicity for high-density measures: `docs/entries/monomial-monotonicity-for-high-density-measures.md`
 - Common invariant limit under uniform pure deaths: `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`
 
