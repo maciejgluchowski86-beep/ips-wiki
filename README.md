@@ -34,6 +34,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Duality: `docs/entries/duality.md`
 - Theta monomials: `docs/entries/theta-monomials.md`
 - Monomial duality for spin systems: `docs/entries/monomial-duality-for-spin-systems.md`
+- Undoing duality under confined late interactions: `docs/entries/undoing-duality-under-confined-late-interactions.md`
 - Duality noise lemma: `docs/entries/duality-noise-lemma.md`
 
 ## Current signed additive set process entries
