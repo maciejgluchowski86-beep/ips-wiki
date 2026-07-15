@@ -45,8 +45,9 @@ A minimal dependency order is:
 8. [High-density measure](entries/high-density-measure.md)
 9. [Patch representation of spin systems](entries/patch-representation-of-spin-systems.md)
 10. [Undoing duality under confined late interactions](entries/undoing-duality-under-confined-late-interactions.md)
-11. [Monomial monotonicity for high-density measures](entries/monomial-monotonicity-for-high-density-measures.md)
-12. [Common invariant limit under uniform pure deaths](entries/common-invariant-limit-under-uniform-pure-deaths.md)
+11. [Exponential relaxation under confined late interactions](entries/exponential-relaxation-under-confined-late-interactions.md)
+12. [Monomial monotonicity for high-density measures](entries/monomial-monotonicity-for-high-density-measures.md)
+13. [Common invariant limit under uniform pure deaths](entries/common-invariant-limit-under-uniform-pure-deaths.md)
 
 ## KCSM entries
 
