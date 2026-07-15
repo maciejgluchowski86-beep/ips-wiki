@@ -27,14 +27,21 @@ $$
 
 for every bounded \(f\colon\{0,1\}^R\to\mathbb R\).
 
+For \(i\notin R\), the exterior spin is a two-state chain with jump rates \(c_i^0(\mathbf0)\) from \(0\) to \(1\) and \(c_i^1(\mathbf0)\) from \(1\) to \(0\). Its exponential ergodicity rate is
+
+$$
+c_i^0(\mathbf0)+c_i^1(\mathbf0).
+$$
+
 Set
 
 $$
 \gamma_2
 =
 \inf_{i\in\Lambda}
-\inf_{x\in\{0,1\}}
-c_i^x(\mathbf0),
+\left(
+c_i^0(\mathbf0)+c_i^1(\mathbf0)
+\right),
 \qquad
 \gamma
 =
