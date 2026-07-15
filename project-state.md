@@ -47,8 +47,9 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 8. `docs/entries/high-density-measure.md`: mixtures of Bernoulli product measures with profiles above the patch critical density.
 9. `docs/entries/patch-representation-of-spin-systems.md`: representation theorem expressing \(P_t\chi_A\) as an expectation over products of patch contributions.
 10. `docs/entries/undoing-duality-under-confined-late-interactions.md`: confined late successful interactions represented by a modified spin-system semigroup.
-11. `docs/entries/monomial-monotonicity-for-high-density-measures.md`: comparison under ordered mixing profiles and reflected domination below the patch critical density.
-12. `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`: common invariant limit from the full-skeleton patch representation under patch positivity and a uniform pure-death component.
+11. `docs/entries/exponential-relaxation-under-confined-late-interactions.md`: exponential convergence of the confined term under uniform zero-boundary mixing.
+12. `docs/entries/monomial-monotonicity-for-high-density-measures.md`: comparison under ordered mixing profiles and reflected domination below the patch critical density.
+13. `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`: common invariant limit from the full-skeleton patch representation under patch positivity and a uniform pure-death component.
 
 ## Current KCSM entries
 
