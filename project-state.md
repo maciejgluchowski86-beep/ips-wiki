@@ -27,7 +27,8 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 1. `docs/entries/duality.md`: concise operator and Feynman--Kac duality definition.
 2. `docs/entries/theta-monomials.md`: \(\chi_A^\theta\), barred theta monomials, basis property, and algebraic identities.
 3. `docs/entries/monomial-duality-for-spin-systems.md`: monomial duality for spin systems via a signed additive set process and Feynman--Kac potential.
-4. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
+4. `docs/entries/undoing-duality-under-confined-late-interactions.md`: confined late successful interactions represented by a modified spin-system semigroup.
+5. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
 
 ## Current signed additive set process entries
 
@@ -71,7 +72,7 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 
 - Public pages should not contain private strategy, raw scratch work, personal information, credentials, copyrighted source text, or unpublished claims without proof status.
 - Entries should be mathematical articles, not commentary about the wiki.
-- Cross-links should usually be Wikipedia-style inline links through relevant words or phrases.
+- Cross-links should usually be Wikipedia-style inline links through relevant words and phrases.
 - Do not use top-level "Related pages" lists on ordinary entries.
 - Use `\(...\)` for inline math and `$$...$$` for display math.
 - Subset notation is a style convention, not a build constraint: prefer distinct notation for non-strict, strict, and finite subsets in polished entries.
