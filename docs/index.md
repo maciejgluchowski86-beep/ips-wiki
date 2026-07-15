@@ -25,7 +25,8 @@ A minimal dependency order is:
 1. [Duality](entries/duality.md)
 2. [Theta monomials](entries/theta-monomials.md)
 3. [Monomial duality for spin systems](entries/monomial-duality-for-spin-systems.md)
-4. [Duality noise lemma](entries/duality-noise-lemma.md)
+4. [Undoing duality under confined late interactions](entries/undoing-duality-under-confined-late-interactions.md)
+5. [Duality noise lemma](entries/duality-noise-lemma.md)
 
 ## Signed additive set processes
 
