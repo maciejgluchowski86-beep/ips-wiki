@@ -2,9 +2,9 @@
 title: Undoing duality under confined late interactions
 status: proved here
 tags:
+  - patch
   - duality
   - spin systems
-  - signed additive set process
   - Feynman-Kac
 ---
 
@@ -68,36 +68,27 @@ Deaths have empty target and are not successful interactions, so they are unrest
 
 ## Modified spin system
 
-For \(i\in\Lambda\) and \(S\subseteq N(i)\), set
-
-$$
-m_R(i,S)
-=
-\begin{cases}
-1,
-&S=\vn,
-\\
-1,
-&i\in R\text{ and }S\subseteq R,
-\\
-0,
-&\text{otherwise}.
-\end{cases}
-\tag{3}
-$$
-
 Using the monomial coefficients \(c_i^x(S)\) of the original rates, define
 
 $$
 c_{i,R}^x(S)
 =
-m_R(i,S)c_i^x(S),
+\ind\left(
+S=\vn
+\text{ or }
+\left(i\in R\text{ and }S\subseteq R\right)
+\right)c_i^x(S),
 \qquad
+x\in\{0,1\},
+\tag{3}
+$$
+
+and
+
+$$
 c_{i,R}^x(\xi)
 =
-\sum_{S\subseteq N(i)}c_{i,R}^x(S)\chi_S(\xi),
-\qquad
-x\in\{0,1\}.
+\sum_{S\subseteq N(i)}c_{i,R}^x(S)\chi_S(\xi).
 \tag{4}
 $$
 
@@ -213,11 +204,19 @@ Retain every death interaction. Among the nonempty-target interactions, retain o
 $$
 \delta_{i,R}(S)
 =
-m_R(i,S)\delta_i(S),
-\qquad
+\ind\left(
+S=\vn
+\text{ or }
+\left(i\in R\text{ and }S\subseteq R\right)
+\right)\delta_i(S),
+$$
+
+and
+
+$$
 \beta_{i,R}(S)
 =
-m_R(i,S)\beta_i(S).
+\ind\left(i\in R\text{ and }S\subseteq R\right)\beta_i(S).
 \tag{9}
 $$
 
@@ -248,20 +247,32 @@ $$
 \tag{11}
 $$
 
-We now identify (11) with the ordinary dual operator of \(\cL_R\). By (4), the signed coefficients of the modified rates satisfy
+We now identify (11) with the ordinary dual operator of \(\cL_R\). By (3), the signed coefficients of the modified rates satisfy
 
 $$
 a_{i,R}^\delta(S)
 =
-m_R(i,S)a_i^\delta(S),
-\qquad
+\ind\left(
+S=\vn
+\text{ or }
+\left(i\in R\text{ and }S\subseteq R\right)
+\right)a_i^\delta(S),
+$$
+
+and
+
+$$
 a_{i,R}^\beta(S)
 =
-m_R(i,S)a_i^\beta(S).
+\ind\left(
+S=\vn
+\text{ or }
+\left(i\in R\text{ and }S\subseteq R\right)
+\right)a_i^\beta(S).
 \tag{12}
 $$
 
-Thus the signed dual generator of \(\cL_R\) is exactly \(\cD_R\). Its potential is obtained from the original potential by deleting the forbidden nonempty-target rates. Since the empty-target coefficients are unchanged,
+The empty birth coefficient is part of the Feynman--Kac potential rather than the dual jump generator. Thus the signed dual generator of \(\cL_R\) is exactly \(\cD_R\). Its potential is obtained from the original potential by deleting the forbidden nonempty-target rates. Since the empty-target coefficients are unchanged,
 
 $$
 V_R(B)
