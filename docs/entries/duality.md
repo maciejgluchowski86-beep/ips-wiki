@@ -41,4 +41,4 @@ $$
 \right].
 $$
 
-The ordinary duality relation is the special case \(V=0\). The [monomial duality for spin systems](monomial-duality-for-spin-systems.md) is a concrete finite-set example, its patchwise form is recorded in the [patch representation of spin systems](patch-representation-of-spin-systems.md), and the [duality noise lemma](duality-noise-lemma.md) records a basic perturbation rule for comparison arguments.
+The ordinary duality relation is the special case \(V=0\). The [monomial duality for spin systems](monomial-duality-for-spin-systems.md) is a concrete finite-set example, its patchwise form is recorded in the [patch representation of spin systems](patch-representation-of-spin-systems.md), and [undoing duality under confined late interactions](undoing-duality-under-confined-late-interactions.md) identifies a skeleton-restricted dual expectation with a modified spin-system semigroup. The [duality noise lemma](duality-noise-lemma.md) records a basic perturbation rule for comparison arguments.
