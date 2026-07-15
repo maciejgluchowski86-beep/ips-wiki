@@ -35,7 +35,6 @@ nav:
       - Duality: entries/duality.md
       - Theta monomials: entries/theta-monomials.md
       - Monomial duality for spin systems: entries/monomial-duality-for-spin-systems.md
-      - Undoing duality under confined late interactions: entries/undoing-duality-under-confined-late-interactions.md
       - Duality noise lemma: entries/duality-noise-lemma.md
   - Signed additive set processes:
       - Signed additive set process: entries/signed-additive-set-process.md
@@ -51,6 +50,7 @@ nav:
       - Patch critical density: entries/patch-critical-density.md
       - High-density measure: entries/high-density-measure.md
       - Patch representation of spin systems: entries/patch-representation-of-spin-systems.md
+      - Undoing duality under confined late interactions: entries/undoing-duality-under-confined-late-interactions.md
       - Monomial monotonicity for high-density measures: entries/monomial-monotonicity-for-high-density-measures.md
       - Common invariant limit under uniform pure deaths: entries/common-invariant-limit-under-uniform-pure-deaths.md
   - KCSM:
