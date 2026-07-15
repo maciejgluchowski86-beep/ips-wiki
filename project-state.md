@@ -27,8 +27,7 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 1. `docs/entries/duality.md`: concise operator and Feynman--Kac duality definition.
 2. `docs/entries/theta-monomials.md`: \(\chi_A^\theta\), barred theta monomials, basis property, and algebraic identities.
 3. `docs/entries/monomial-duality-for-spin-systems.md`: monomial duality for spin systems via a signed additive set process and Feynman--Kac potential.
-4. `docs/entries/undoing-duality-under-confined-late-interactions.md`: confined late successful interactions represented by a modified spin-system semigroup.
-5. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
+4. `docs/entries/duality-noise-lemma.md`: perturbation lemma for Markov noise acting diagonally with non-positive eigenvalue on the duality function.
 
 ## Current signed additive set process entries
 
@@ -47,8 +46,9 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 7. `docs/entries/patch-critical-density.md`: minimal one-density profile making every affine end-patch contribution nonnegative.
 8. `docs/entries/high-density-measure.md`: mixtures of Bernoulli product measures with profiles above the patch critical density.
 9. `docs/entries/patch-representation-of-spin-systems.md`: representation theorem expressing \(P_t\chi_A\) as an expectation over products of patch contributions.
-10. `docs/entries/monomial-monotonicity-for-high-density-measures.md`: comparison under ordered mixing profiles and reflected domination below the patch critical density.
-11. `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`: common invariant limit from the full-skeleton patch representation under patch positivity and a uniform pure-death component.
+10. `docs/entries/undoing-duality-under-confined-late-interactions.md`: confined late successful interactions represented by a modified spin-system semigroup.
+11. `docs/entries/monomial-monotonicity-for-high-density-measures.md`: comparison under ordered mixing profiles and reflected domination below the patch critical density.
+12. `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`: common invariant limit from the full-skeleton patch representation under patch positivity and a uniform pure-death component.
 
 ## Current KCSM entries
 
