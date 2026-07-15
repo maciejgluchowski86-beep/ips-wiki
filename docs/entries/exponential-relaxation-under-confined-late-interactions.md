@@ -14,32 +14,28 @@ The representation obtained by [undoing duality under confined late interactions
 
 ## Assumptions
 
-For \(R\Subset\Lambda\), let \(\cL_R^0\) be the zero-boundary restriction of the original spin system to \(R\):
+For \(R\Subset\Lambda\), let \(\bar\eta\) denote the zero extension of \(\eta\in\{0,1\}^R\), and let
 
 $$
 \cL_R^0 f(\eta)
 =
 \sum_{i\in R}
-c_i(\eta 0_{R^c})
+c_i(\bar\eta)
 \left(
 f(\eta^i)-f(\eta)
-ight),
-\qquad
-\eta\in\{0,1\}^R.
+\right).
 $$
 
-Assume that there are \(C_1<\infty\) and \(\gamma_1>0\), independent of \(R\), such that \(\cL_R^0\) has a unique invariant measure \(
-u_R\) and
+Assume that there are \(C_1<\infty\) and \(\gamma_1>0\), independent of \(R\), such that \(\cL_R^0\) has a unique invariant measure \(\nu_R\) and
 
 $$
 \sup_{\eta\in\{0,1\}^R}
 \left\|
-\delta_\eta P_s^{R,0}-
-u_R
-ight\|_{\mathrm{TV}}
+\delta_\eta P_s^{R,0}-\nu_R
+\right\|_{\mathrm{TV}}
 \le
 C_1e^{-\gamma_1s}.
-	ag{1}
+\tag{1}
 $$
 
 Set
@@ -56,13 +52,12 @@ c_i^x(\mathbf0),
 \min(\gamma_1,\gamma_2),
 $$
 
-and assume \(\gamma_2>0\). For \(i
-otin R\), put
+and assume \(\gamma_2>0\). For \(i\notin R\), put
 
 $$
 q_i
 =
-rac{c_i^0(\mathbf0)}
+\frac{c_i^0(\mathbf0)}
 {c_i^0(\mathbf0)+c_i^1(\mathbf0)}.
 $$
 
@@ -71,12 +66,10 @@ The modified generator \(\cL_R\) has the unique invariant measure
 $$
 \mu_R
 =
-
-u_R
+\nu_R
 \otimes
-igotimes_{i
-otin R}\operatorname{Ber}(q_i).
-	ag{2}
+\bigotimes_{i\notin R}\operatorname{Ber}(q_i).
+\tag{2}
 $$
 
 ## Lemma
@@ -89,13 +82,13 @@ $$
 \mathbb E_A
 \left[
 W_t^\xi\ind(L_{T,t}^R)
-ight]
+\right]
 -
-\mu_R\left(P_T(\chi_A)ight)
-ight|
+\mu_R\left(P_T(\chi_A)\right)
+\right|
 \le
 C_{A,T}e^{-\gamma(t-T)}.
-	ag{3}
+\tag{3}
 $$
 
 In particular, the limit is the same for every initial configuration \(\xi\).
@@ -108,32 +101,33 @@ $$
 \mathbb E_A
 \left[
 W_t^\xi\ind(L_{T,t}^R)
-ight]
+\right]
 =
 P_s^R g(\xi).
-	ag{4}
+\tag{4}
 $$
 
-The generator \(\cL_R\) is the product of the zero-boundary process on \(R\) and independent two-state chains on \(R^c\). By (1), the process on \(R\) can be coupled to equilibrium so that the two copies disagree somewhere in \(R\) with probability at most \(C_1e^{-\gamma_1s}\). For \(i
-otin R\), the two-state chain at \(i\) has relaxation rate
+The generator \(\cL_R\) is the product of the zero-boundary process on \(R\) and independent two-state chains on \(R^c\). By (1), the process on \(R\) can be coupled to equilibrium so that the two copies disagree somewhere in \(R\) with probability at most \(C_1e^{-\gamma_1s}\). For \(i\notin R\), the chain at \(i\) has relaxation rate
 
 $$
-c_i^0(\mathbf0)+c_i^1(\mathbf0)\ge\gamma_2,
+c_i^0(\mathbf0)+c_i^1(\mathbf0)
+\ge
+\gamma_2,
 $$
 
 so its two coupled copies disagree at time \(s\) with probability at most \(e^{-\gamma_2s}\).
 
-Run the original graphical construction for time \(T\) from the two configurations obtained at time \(s\). The value of \(\chi_A\) at the end depends only on the spins in the finite backward influence set of \(A\) over this interval. Its expected size is finite under the standing finite-range bounded-rate assumptions. A union bound over this influence set therefore gives
+Run the original graphical construction for time \(T\) from the two configurations obtained at time \(s\). The value of \(\chi_A\) at the end depends only on the finite backward influence set of \(A\) over this interval, whose expected size is finite under the standing finite-range bounded-rate assumptions. A union bound over this set gives
 
 $$
 \sup_\xi
 \left|
 P_s^R g(\xi)-\mu_R(g)
-ight|
+\right|
 \le
 \left(
 C_1+C_{A,T}'
-ight)e^{-\gamma s}
+\right)e^{-\gamma s}
 $$
 
 for some \(C_{A,T}'<\infty\). Together with (4), this proves (3).
