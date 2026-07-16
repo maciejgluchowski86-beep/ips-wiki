@@ -10,7 +10,7 @@ tags:
 
 # Patch positivity property
 
-The patch positivity property is a coefficient criterion ensuring that every bulk patch contribution in the [patch representation of spin systems](patch-representation-of-spin-systems.md) is nonnegative. Together with the [patch critical density](patch-critical-density.md), it separates bulk positivity from the density threshold needed for nonnegative end contributions and yields [monomial monotonicity for high-density measures](monomial-monotonicity-for-high-density-measures.md). It is expressed in the spin-rate notation of [monomial duality for spin systems](monomial-duality-for-spin-systems.md), and uses the bulk rows of the [patch contribution](patch-contribution.md) formula.
+The patch positivity property is a coefficient criterion ensuring that every bulk patch contribution in the [patch representation of spin systems](patch-representation-of-spin-systems.md) is nonnegative. Together with the [patch critical density](patch-critical-density.md), it separates bulk positivity from the density threshold needed for nonnegative end contributions, yields [monomial monotonicity for high-density measures](monomial-monotonicity-for-high-density-measures.md), and gives a [comparison under removal of pure deaths](pure-death-comparison-under-patch-positivity.md). It is expressed in the spin-rate notation of [monomial duality for spin systems](monomial-duality-for-spin-systems.md), and uses the bulk rows of the [patch contribution](patch-contribution.md) formula.
 
 ## Criterion
 

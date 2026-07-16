@@ -47,7 +47,8 @@ A minimal dependency order is:
 10. [Undoing duality under confined late interactions](entries/undoing-duality-under-confined-late-interactions.md)
 11. [Exponential relaxation under confined late interactions](entries/exponential-relaxation-under-confined-late-interactions.md)
 12. [Monomial monotonicity for high-density measures](entries/monomial-monotonicity-for-high-density-measures.md)
-13. [Common invariant limit under uniform pure deaths](entries/common-invariant-limit-under-uniform-pure-deaths.md)
+13. [Pure-death comparison under patch positivity](entries/pure-death-comparison-under-patch-positivity.md)
+14. [Common invariant limit under uniform pure deaths](entries/common-invariant-limit-under-uniform-pure-deaths.md)
 
 ## KCSM entries
 

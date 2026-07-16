@@ -49,7 +49,8 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 10. `docs/entries/undoing-duality-under-confined-late-interactions.md`: confined late successful interactions represented by a modified spin-system semigroup.
 11. `docs/entries/exponential-relaxation-under-confined-late-interactions.md`: exponential convergence of the confined term under uniform zero-boundary mixing.
 12. `docs/entries/monomial-monotonicity-for-high-density-measures.md`: comparison under ordered mixing profiles and reflected domination below the patch critical density.
-13. `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`: common invariant limit from the full-skeleton patch representation under patch positivity and a uniform pure-death component.
+13. `docs/entries/pure-death-comparison-under-patch-positivity.md`: monomial comparison after removing an environment-independent pure-death component, with a corollary for unique invariant measures.
+14. `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`: common invariant limit from the full-skeleton patch representation under patch positivity and a uniform pure-death component.
 
 ## Current KCSM entries
 

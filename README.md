@@ -56,6 +56,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Undoing duality under confined late interactions: `docs/entries/undoing-duality-under-confined-late-interactions.md`
 - Exponential relaxation under confined late interactions: `docs/entries/exponential-relaxation-under-confined-late-interactions.md`
 - Monomial monotonicity for high-density measures: `docs/entries/monomial-monotonicity-for-high-density-measures.md`
+- Pure-death comparison under patch positivity: `docs/entries/pure-death-comparison-under-patch-positivity.md`
 - Common invariant limit under uniform pure deaths: `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`
 
 ## Current KCSM entries
