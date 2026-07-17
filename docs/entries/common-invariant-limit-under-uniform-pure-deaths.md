@@ -69,35 +69,89 @@ Here \(\mathcal P\) is the full [patch](patch.md) family of the signed dual star
 
 ### Finite perturbations
 
-Fix \(F\Subset\Lambda\). Estimate (1), with the same limit \(\pi\) and rate, also holds for every mixture
+**Remark.** Fix \(F\Subset\Lambda\). The conclusion of the theorem remains valid for every mixture
 
 $$
 \nu=\int\mu_{\mathbf p}\,\Pi(d\mathbf p)
 $$
 
-whose profiles satisfy \(p_i\ge p_i^-\) for every \(i\notin F\), with no restriction on \(p_i\) for \(i\in F\). The constant may depend on \(F\). In particular, the conclusion holds for \(\delta_\xi\) whenever \(\xi\) has only finitely many zeroes.
+whose mixing law is supported on profiles satisfying
 
-Indeed, \(p_i^-<1\), and for \(p\in[0,1]\),
+$$
+p_i\ge p_i^-
+\qquad
+\text{for every }i\notin F,
+$$
+
+with no restriction on \(p_i\) for \(i\in F\). The limiting measure and exponential rate are unchanged: for every local function \(f\), there is \(K_{f,F}<\infty\) such that
+
+$$
+\left|\nu(P_tf)-\pi(f)\right|
+\le
+K_{f,F}(1+t)^D e^{-\varepsilon t/2}.
+$$
+
+In particular, this holds for \(\nu=\delta_\xi\) whenever \(\xi\) has only finitely many zeroes.
+
+**Proof.** Patch positivity and the uniform pure-death assumption imply
+
+$$
+p_i^\star
+\le
+\frac{c_i^0(\vn)}
+{c_i^0(\vn)+c_i^1(\vn)}
+<1,
+$$
+
+so \(p_i^-<1\). For \(i\in F\) and \(p\in[0,1]\), set
+
+$$
+a_i(p)=\frac{1-p}{1-p_i^-},
+\qquad
+b_i(p)=\frac{p-p_i^-}{1-p_i^-}.
+$$
+
+Then, as an identity of signed measures,
 
 $$
 \operatorname{Ber}(p)
 =
-\frac{1-p}{1-p_i^-}\operatorname{Ber}(p_i^-)
+a_i(p)\operatorname{Ber}(p_i^-)
 +
-\frac{p-p_i^-}{1-p_i^-}\operatorname{Ber}(1)
+b_i(p)\operatorname{Ber}(1),
+\qquad
+a_i(p)+b_i(p)=1,
 $$
 
-as an identity of signed measures. The absolute sum of the two coefficients is at most
+and
 
 $$
+|a_i(p)|+|b_i(p)|
+\le
+\kappa_i
+:=
 \frac{1+p_i^-}{1-p_i^-}.
 $$
 
-Tensoring over \(F\) writes \(\mu_{\mathbf p}\) as a finite signed combination of product measures with profiles everywhere above \(\mathbf p^-\), whose coefficients sum to one. Applying (1) termwise and averaging over \(\Pi\) proves the claim; one may multiply \(K_f\) by
+Tensoring these identities over \(F\) expresses every \(\mu_{\mathbf p}\) under consideration as a finite signed combination of product measures whose profiles are everywhere at least \(\mathbf p^-\). The coefficients sum to one and have total absolute mass at most
 
 $$
-\prod_{i\in F}\frac{1+p_i^-}{1-p_i^-}.
+\kappa_F
+:=
+\prod_{i\in F}\kappa_i.
 $$
+
+Applying the theorem to each measure in this combination gives
+
+$$
+\left|
+\mu_{\mathbf p}(P_tf)-\pi(f)
+\right|
+\le
+\kappa_F K_f(1+t)^D e^{-\varepsilon t/2}.
+$$
+
+Averaging over \(\Pi\) proves the claim, with \(K_{f,F}=\kappa_FK_f\).
 
 ## Corollary
 
