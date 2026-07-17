@@ -66,6 +66,32 @@ $$
 
 Here \(\mathcal P\) is the full [patch](patch.md) family of the signed dual started from \(A\), and the integrand is defined to be zero when \(\left|\mathcal P\right|=\infty\).
 
+
+### Finite perturbations
+
+Fix \(F\Subset\Lambda\). Estimate (1), with the same limit \(\pi\) and rate, also holds for every mixture
+\[
+\nu=\int\mu_{\mathbf p}\,\Pi(d\mathbf p)
+\]
+whose profiles satisfy \(p_i\ge p_i^-\) for every \(i\notin F\), with no restriction on \(p_i\) for \(i\in F\). The constant may depend on \(F\). In particular, the conclusion holds for \(\delta_\xi\) whenever \(\xi\) has only finitely many zeroes.
+
+Indeed, \(p_i^-<1\), and for \(p\in[0,1]\),
+\[
+\operatorname{Ber}(p)
+=
+\frac{1-p}{1-p_i^-}\operatorname{Ber}(p_i^-)
++
+\frac{p-p_i^-}{1-p_i^-}\operatorname{Ber}(1)
+\]
+as an identity of signed measures. The absolute sum of the two coefficients is at most
+\[
+\frac{1+p_i^-}{1-p_i^-}.
+\]
+Tensoring over \(F\) writes \(\mu_{\mathbf p}\) as a finite signed combination of product measures with profiles everywhere above \(\mathbf p^-\), whose coefficients sum to one. Applying (1) termwise and averaging over \(\Pi\) proves the claim; one may multiply \(K_f\) by
+\[
+\prod_{i\in F}\frac{1+p_i^-}{1-p_i^-}.
+\]
+
 ## Corollary
 
 Under the hypotheses of the theorem, if
