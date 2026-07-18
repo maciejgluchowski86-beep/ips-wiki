@@ -10,7 +10,7 @@ tags:
 
 # Monomial monotonicity for high-density measures
 
-For a spin system with the [patch positivity property](patch-positivity-property.md), the semigroup preserves the order induced by moments centered at the [patch critical density](patch-critical-density.md). Ordinary [monomial](monomials.md) monotonicity and preservation of the [high-density class](high-density-measure.md) follow from this stronger statement.
+For a uniformly bounded finite-range spin system with the [patch positivity property](patch-positivity-property.md), the semigroup preserves the order induced by moments centered at the [patch critical density](patch-critical-density.md). Ordinary [monomial](monomials.md) monotonicity and preservation of the [high-density class](high-density-measure.md) follow from this stronger statement.
 
 **References.** None yet.
 
@@ -105,21 +105,18 @@ If \(r_i>0\), patch positivity gives \(p_i^\star\le c_i^0(\vn)/r_i\), and hence 
 A direct generator calculation gives
 
 $$
-\begin{aligned}
 \cL\chi_A^\star
 =
 \sum_{i\in A}
 \Bigg[
-&-r_i\chi_A^\star
+-r_i\chi_A^\star
 +
 \sum_{S\subseteq N(i)}
 d_i(S)\chi_S\chi_{A\setminus\{i\}}^\star
-\\
-&+
++
 \sum_{\vn\ne S\subseteq N(i)}
 b_i(S)\chi_S\chi_A^\star
 \Bigg].
-\end{aligned}
 \tag{6}
 $$
 

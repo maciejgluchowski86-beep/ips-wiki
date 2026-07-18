@@ -56,11 +56,9 @@ at every site with nonempty neighbour set and nontrivial FA-1f constraint. If \(
 The perturbation changes only the empty-neighbour coefficients, so
 
 $$
-\begin{aligned}
-c_i^0(\vn)&=p+\varepsilon r_i,
-&
- c_i^1(\vn)&=q+\varepsilon(1-r_i),
-\end{aligned}
+c_i^0(\vn)=p+\varepsilon r_i,
+\qquad
+c_i^1(\vn)=q+\varepsilon(1-r_i),
 $$
 
 while \(c_i^0(N(i))=-p\) and \(c_i^1(N(i))=-q\). The first patch-positivity inequality is unchanged, and the second becomes

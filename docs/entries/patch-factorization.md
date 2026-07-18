@@ -146,17 +146,15 @@ $$
 The outside consistency information can therefore be removed from the conditional law of the selected coordinates. In the regular conditional disintegration over \(g\), this gives
 
 $$
-\begin{aligned}
 \mathbb E\left[
 \prod_{P\in\mathcal Q}f_P(\Sigma_P)
 \middle|\cG_T
 \right](g)
-&=
+=
 \mathbb E_g^{\mathcal R}\left[
 \prod_{P\in\mathcal R}f_P(\Sigma_P)
 \middle|A_{\mathcal R}(g)
 \right].
-\end{aligned}
 \tag{3}
 $$
 

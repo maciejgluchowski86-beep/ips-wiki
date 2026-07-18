@@ -213,8 +213,7 @@ e^{-\alpha_i\Delta}
 &=
 |c_i^0(\vn)|
 \int_0^{\Delta_-} e^{-(c_i^0(\vn)+c_i^1(\vn))w}\,dw
-\\
-&\qquad+
++
 z e^{-(c_i^0(\vn)+c_i^1(\vn))\Delta_-}\varphi_i(\Delta_+).
 \end{aligned}
 $$

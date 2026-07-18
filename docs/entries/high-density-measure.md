@@ -9,7 +9,7 @@ tags:
 
 # High-density measure
 
-For a patch-positive spin system, high density is expressed by nonnegativity of all joint moments centered at the [patch critical density](patch-critical-density.md). This class contains, but is generally larger than, mixtures of Bernoulli product measures with profiles above the critical profile.
+For a [spin system](spin-system.md) with the [patch positivity property](patch-positivity-property.md), high density is expressed by nonnegativity of all joint moments centered at the [patch critical density](patch-critical-density.md). This class contains, but is generally larger than, mixtures of [Bernoulli product measures](bernoulli-product-measure.md) with profiles above the critical profile.
 
 **References.** None yet.
 
@@ -60,7 +60,7 @@ $$
 \mu:
 \mu\left(\chi_A^\star\right)
 \ge
--\chi_A^\star(\mathbf 1)
+-\chi_A^\star(\mathbf1)
 \text{ for every }A\Subset\Lambda
 \right\}.
 $$
@@ -70,11 +70,11 @@ Equivalently,
 $$
 \mu\in\mathcal M_-
 \quad\Longleftrightarrow\quad
-\frac{\mu+\mu_{\mathbf 1}}2\in\mathcal M_\star,
+\frac{\mu+\mu_{\mathbf1}}2\in\mathcal M_\star,
 \tag{1}
 $$
 
-where \(\mu_{\mathbf 1}\) is the point mass at the all-one configuration.
+where \(\mu_{\mathbf1}\) is the point mass at the all-one configuration.
 
 ## Basic properties
 
@@ -84,7 +84,7 @@ $$
 \mathcal M_\star\subseteq\mathcal M_-.
 $$
 
-Weak closedness follows because every \(\chi_A^\star\) is a bounded cylinder function. The [centered-moment monotonicity theorem](monomial-monotonicity-for-high-density-measures.md) also shows that the high-density class is preserved by the semigroup of every patch-positive spin system:
+Weak closedness follows because every \(\chi_A^\star\) is a bounded cylinder function. The [centered-moment monotonicity theorem](monomial-monotonicity-for-high-density-measures.md) also shows that the high-density class is preserved by the semigroup of every uniformly bounded finite-range patch-positive spin system:
 
 $$
 \mu\in\mathcal M_\star
@@ -93,6 +93,8 @@ $$
 \qquad(t\ge0).
 \tag{2}
 $$
+
+The class is nonempty because \(\mu_{\mathbf p^\star}\in\mathcal M_\star\). Under the usual Feller hypotheses, its convexity, weak closedness, and preservation imply that it contains an [invariant probability measure](invariant-measure.md).
 
 Expanding an ordinary [monomial](monomials.md) around \(\mathbf p^\star\) gives
 
@@ -158,7 +160,7 @@ Indeed, the singleton inequalities in the definition of \(\mathcal M_-\) give th
 By convexity, mixtures of product measures with profiles above \(\mathbf p^\star\), respectively \(\mathbf p^-\), belong to \(\mathcal M_\star\), respectively \(\mathcal M_-\). These sufficient mixture descriptions do not characterize either class. If
 
 $$
-\mathbf p^\star\le\frac12\mathbf 1,
+\mathbf p^\star\le\frac12\mathbf1,
 $$
 
-then every probability measure belongs to \(\mathcal M_-\), since the defining inequality holds pointwise after normalization by \(\chi_A^\star(\mathbf 1)\).
+then every probability measure belongs to \(\mathcal M_-\), since the defining inequality holds pointwise after normalization by \(\chi_A^\star(\mathbf1)\).

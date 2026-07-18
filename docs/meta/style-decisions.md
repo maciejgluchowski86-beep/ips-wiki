@@ -26,6 +26,7 @@ This page records durable style choices for the public IPS wiki.
 - Do not leave isolated bridge fragments such as "with", "Thus", or "and" between displayed formulas.
 - Prefer a full sentence that introduces one display containing the whole aligned calculation, or put the connective inside the display using an aligned environment.
 - Avoid splitting one definition across several displays when a single aligned display is clearer.
+- Keep a display on one mathematical line when it fits. Use aligned rows for separate identities, genuine derivation steps, or expressions that are too wide for the page; do not place a short summand on a row by itself.
 
 ## Linking convention
 

@@ -242,8 +242,7 @@ Equations (9)--(11) identify the late killed dual with the ordinary Feynman--Kac
 Set \(s=t-T\). Conditional on \(Y_T=(A_T,\sigma_T)\), the post-\(T\) killed evolution and the Feynman--Kac duality for \(\cL_R\) give
 
 $$
-\begin{aligned}
-&\mathbb E
+\mathbb E
 \left[
 \sigma_t
 \exp\left(
@@ -254,20 +253,17 @@ $$
 \middle|
 Y_T
 \right]
-\\
-&\hspace{5em}=
+=
 \sigma_T
 \left(
 P_s^R(\chi_{A_T})
 \right)(\xi).
-\end{aligned}
 \tag{12}
 $$
 
 Multiplying by the weight accumulated before \(T\) and taking expectation yields
 
 $$
-\begin{aligned}
 \mathbb E_{(A,+)}
 \left[
 Z_t^\xi\ind(L_{T,t}^R)
@@ -283,7 +279,6 @@ Z_t^\xi\ind(L_{T,t}^R)
 P_s^R(\chi_{A_T})
 \right)(\xi)
 \right].
-\end{aligned}
 \tag{13}
 $$
 

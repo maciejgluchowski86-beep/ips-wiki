@@ -11,7 +11,7 @@ tags:
 
 # Common invariant limit under uniform pure deaths
 
-A uniform pure-death component forces a patch-positive spin system started from any measure in the centered lower class \(\mathcal M_-\) to converge to the same invariant measure. On a polynomial-growth lattice, the convergence rate is explicit: up to the volume-growth prefactor, it is at least one half of the pure-death rate.
+A uniform pure-death component forces a patch-positive spin system started from any measure in the [centered lower class](high-density-measure.md) \(\mathcal M_-\) to converge to the same invariant measure. On a polynomial-growth lattice, the convergence rate is explicit: up to the volume-growth prefactor, it is at least one half of the pure-death rate.
 
 ## Theorem
 
@@ -57,7 +57,7 @@ $$
 
 Here \(\mathcal P\) is the full [patch](patch.md) family of the signed dual started from \(A\), and the integrand is defined to be zero when \(\left|\mathcal P\right|=\infty\).
 
-The profile condition used for product initial laws is contained in this formulation. Indeed, the [high-density entry](high-density-measure.md#bernoulli-product-measures) shows that
+The profile condition used for product initial laws is contained in this formulation. Indeed, the [product-measure characterization](high-density-measure.md#bernoulli-product-measures) of \(\mathcal M_-\) gives
 
 $$
 \mu_{\mathbf p}\in\mathcal M_-
@@ -214,19 +214,16 @@ $$
 Define \(W_t^{\varepsilon,\nu}\) by replacing every contribution by its less noisy counterpart. Distinct end patches are based at distinct sites, so expansion around \(\mathbf p^\star\) gives
 
 $$
-\begin{aligned}
-&\nu\left[
+\nu\left[
 \prod_{P\in\mathcal E_t}C(\eta(i(P)),P)
 \right]
-\\
-&\quad=
+=
 \sum_{\mathcal Q\subseteq\mathcal E_t}
 \nu\left(
 \chi_{\{i(P):P\in\mathcal Q\}}^\star
 \right)
 \prod_{P\in\mathcal Q}b(P)
 \prod_{P\in\mathcal E_t\setminus\mathcal Q}a(P).
-\end{aligned}
 \tag{8}
 $$
 
@@ -324,19 +321,16 @@ $$
 where \(S=S(Q)\). The consistency normalizer at time \(t\) cancels in (11). Conditional on \(\cG_T\), independence of the post-\(T\) patch data and averaging over \(\nu\) yield
 
 $$
-\begin{aligned}
-&\mathbb E_A\left[
+\mathbb E_A\left[
 W_t^\nu\ind(L_{T,t})
 \middle|\cG_T
 \right]
-\\
-&\quad=
+=
 \prod_{P\in\mathcal B_T}C(P)\,
 \nu\left[
 \prod_{Q\in\mathcal E_T}
 K_{T,t}(\eta(i(Q)),Q)
 \right].
-\end{aligned}
 \tag{12}
 $$
 
@@ -362,16 +356,13 @@ $$
 Define \(K_{T,\infty}(Q)\) by replacing \(\psi_i(\Delta_t,z)\) in (11) by \(q_i\). The result is independent of \(z\). On \(L_T\), the end patches extend to the infinite patches of the full family, and
 
 $$
-\begin{aligned}
-&\mathbb E_A\left[
+\mathbb E_A\left[
 \prod_{P\in\mathcal P}C(P)\ind(L_T)
 \middle|\cG_T
 \right]
-\\
-&\quad=
+=
 \prod_{P\in\mathcal B_T}C(P)
 \prod_{Q\in\mathcal E_T}K_{T,\infty}(Q).
-\end{aligned}
 \tag{14}
 $$
 
@@ -537,19 +528,15 @@ These two inequalities give the last line of (15), and the slope ratio is again 
 Expanding the \(\nu\)-average in (12) around \(\mathbf p^\star\), the sum of all terms containing at least one slope is
 
 $$
-\begin{aligned}
 R_{T,t}^\nu
 =
 \sum_{\vn\ne\mathcal Q\subseteq\mathcal E_T}
-&\nu\left(
+\nu\left(
 \chi_{\{i(Q):Q\in\mathcal Q\}}^\star
 \right)
-\\
-&\times
 \prod_{Q\in\mathcal Q}b_{T,t}(Q)
 \prod_{Q\in\mathcal E_T\setminus\mathcal Q}
 a_{T,t}(Q).
-\end{aligned}
 $$
 
 By (15), every term is nonnegative and contains at least one factor supplying \(e^{-\varepsilon(t-T)}\). Hence
@@ -634,8 +621,6 @@ The first expression in braces is the conditional no-late-interaction weight for
 Integrating (19) gives
 
 $$
-\begin{aligned}
-&
 \left|
 \mathbb E_A\left[
 W_t^\nu\ind(L_{T,t})
@@ -645,10 +630,8 @@ W_t^\nu\ind(L_{T,t})
 \prod_{P\in\mathcal P}C(P)\ind(L_T)
 \right]
 \right|
-\\
-&\quad\le
+\le
 K_A(1+t)^D e^{-\varepsilon(t-T)}.
-\end{aligned}
 \tag{20}
 $$
 
@@ -667,9 +650,8 @@ $$
 On the event that the patch family is finite but there is an interaction after \(T\), the first such interaction again has an \(\mathsf{XO}\)-trail of total lifetime at least \(T\). The exact noise comparison along this trail gives
 
 $$
-\begin{aligned}
 0
-&\le
+\le
 \mathbb E_A\left[
 \prod_{P\in\mathcal P}C(P)
 \ind\left(
@@ -677,10 +659,8 @@ $$
 \right)
 \ind(L_T^c)
 \right]
-\\
-&\le
+\le
 e^{-\varepsilon T}.
-\end{aligned}
 \tag{21}
 $$
 
@@ -689,8 +669,6 @@ For the last inequality, dominate by the full less noisy product. Its total mass
 Combining (10), (20), and (21) yields
 
 $$
-\begin{aligned}
-&
 \left|
 \nu(P_t\chi_A)
 -
@@ -699,12 +677,10 @@ $$
 \ind\left(\left|\mathcal P\right|<\infty\right)
 \right]
 \right|
-\\
-&\quad\le
+\le
 2e^{-\varepsilon T}
 +
 K_A(1+t)^D e^{-\varepsilon(t-T)}.
-\end{aligned}
 \tag{22}
 $$
 

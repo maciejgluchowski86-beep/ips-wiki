@@ -109,12 +109,10 @@ $$
 Distinct end patches are based at distinct sites. Consequently, for every end-patch family \(\mathcal E\),
 
 $$
-\begin{aligned}
-&\nu\left[
+\nu\left[
 \prod_{P\in\mathcal E}C(\eta(i(P)),P)
 \right]
-\\
-&\quad=
+=
 \sum_{\mathcal Q\subseteq\mathcal E}
 \nu\left(
 \chi_{\{i(P):P\in\mathcal Q\}}^\star
@@ -122,7 +120,6 @@ $$
 \prod_{P\in\mathcal Q}b(P)
 \prod_{P\in\mathcal E\setminus\mathcal Q}
 C(p_{i(P)}^\star,P).
-\end{aligned}
 \tag{3}
 $$
 
