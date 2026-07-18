@@ -44,13 +44,13 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 5. `docs/entries/patch-contribution.md`: explicit full, full-cut, and end patch contribution formulas in dual-rate form and spin-rate form.
 6. `docs/entries/patch-positivity-property.md`: coefficient criterion guaranteeing nonnegative bulk patch contributions.
 7. `docs/entries/patch-critical-density.md`: minimal one-density profile making every affine end-patch contribution nonnegative.
-8. `docs/entries/high-density-measure.md`: mixtures of Bernoulli product measures with profiles above the patch critical density.
+8. `docs/entries/high-density-measure.md`: centered-moment definitions of the high-density class \(\mathcal M_\star\) and lower class \(\mathcal M_-\), with product-profile characterizations.
 9. `docs/entries/patch-representation-of-spin-systems.md`: representation theorem expressing \(P_t\chi_A\) as an expectation over products of patch contributions.
 10. `docs/entries/undoing-duality-under-confined-late-interactions.md`: confined late successful interactions represented by a modified spin-system semigroup.
 11. `docs/entries/exponential-relaxation-under-confined-late-interactions.md`: exponential convergence of the confined term under uniform zero-boundary mixing.
-12. `docs/entries/monomial-monotonicity-for-high-density-measures.md`: comparison under ordered mixing profiles and reflected domination below the patch critical density.
-13. `docs/entries/pure-death-comparison-under-patch-positivity.md`: monomial comparison after removing an environment-independent pure-death component, with a corollary for unique invariant measures.
-14. `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`: common invariant limit from the full-skeleton patch representation under patch positivity and a uniform pure-death component.
+12. `docs/entries/monomial-monotonicity-for-high-density-measures.md`: centered-moment semigroup order, preservation of \(\mathcal M_\star\), and product-profile corollaries.
+13. `docs/entries/pure-death-comparison-under-patch-positivity.md`: monomial comparison on all of \(\mathcal M_\star\) after removing an environment-independent pure-death component, with a corollary for unique invariant measures.
+14. `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`: common invariant limit, uniformly over \(\mathcal M_-\), from the full-skeleton patch representation under patch positivity and a uniform pure-death component.
 
 ## Current KCSM entries
 

@@ -11,7 +11,7 @@ tags:
 
 # Common invariant limit under uniform pure deaths
 
-A uniform pure-death component forces patch-positive spin systems started from a common high-density class to converge to the same invariant measure. The convergence rate on a polynomial-growth lattice is explicit: up to the volume-growth prefactor, it is at least one half of the pure-death rate.
+A uniform pure-death component forces a patch-positive spin system started from any measure in the centered lower class \(\mathcal M_-\) to converge to the same invariant measure. On a polynomial-growth lattice, the convergence rate is explicit: up to the volume-growth prefactor, it is at least one half of the pure-death rate.
 
 ## Theorem
 
@@ -24,17 +24,10 @@ c_i^1(\xi)\ge\varepsilon
 \text{ and }\xi\in\{0,1\}^{\Lambda}.
 $$
 
-Set
+Then there is an [invariant probability measure](invariant-measure.md) \(\pi\) such that, for every local function \(f\), there is \(K_f<\infty\) for which
 
 $$
-\mathbf p^-
-=
-\left(2\mathbf p^\star-\mathbf 1\right)\vee\mathbf 0,
-$$
-
-where \(\mathbf p^\star\) is the [patch critical density](patch-critical-density.md). Then there is an [invariant probability measure](invariant-measure.md) \(\pi\) such that, for every local function \(f\), there is \(K_f<\infty\) for which
-
-$$
+\sup_{\nu\in\mathcal M_-}
 \left|
 \nu(P_tf)-\pi(f)
 \right|
@@ -43,15 +36,13 @@ K_f(1+t)^D e^{-\varepsilon t/2}.
 \tag{1}
 $$
 
-The estimate is uniform over all mixtures
+Consequently \(\nu P_t\) converges weakly to \(\pi\) for every \(\nu\in\mathcal M_-\). In particular, the conclusion holds for every [high-density measure](high-density-measure.md), since
 
 $$
-\nu=\int\mu_{\mathbf p}\,\Pi(d\mathbf p)
+\mathcal M_\star\subseteq\mathcal M_-.
 $$
 
-whose mixing laws are supported on one-density profiles satisfying \(\mathbf p\ge\mathbf p^-\). Consequently \(\nu P_t\) converges weakly to \(\pi\) for every such mixture. In particular, every [high-density measure](high-density-measure.md) converges to \(\pi\).
-
-The limiting measure is characterized on the monomial basis by
+The limiting measure is characterized on the [monomial](monomials.md) basis by
 
 $$
 \pi(\chi_A)
@@ -66,109 +57,87 @@ $$
 
 Here \(\mathcal P\) is the full [patch](patch.md) family of the signed dual started from \(A\), and the integrand is defined to be zero when \(\left|\mathcal P\right|=\infty\).
 
-
-### Finite perturbations
-
-**Remark.** Fix \(F\Subset\Lambda\). The conclusion of the theorem remains valid for every mixture
+The profile condition used for product initial laws is contained in this formulation. Indeed, the [high-density entry](high-density-measure.md#bernoulli-product-measures) shows that
 
 $$
-\nu=\int\mu_{\mathbf p}\,\Pi(d\mathbf p)
+\mu_{\mathbf p}\in\mathcal M_-
+\quad\Longleftrightarrow\quad
+p_i\ge\left(2p_i^\star-1\right)\vee0
+\quad\text{for every }i\in\Lambda.
 $$
 
-whose mixing law is supported on profiles satisfying
+Convexity then gives the theorem for every mixture supported on such profiles, while \(\mathcal M_-\) also contains non-product and non-mixture initial laws.
+
+## Finite centered perturbations
+
+**Remark.** The same limit and rate hold under the more general assumption that, for some \(0\le K<\infty\),
 
 $$
-p_i\ge p_i^-
+\nu\left(\chi_A^\star\right)
+\ge
+-K\chi_A^\star(\mathbf1)
 \qquad
-\text{for every }i\notin F,
+\text{for every }A\Subset\Lambda.
+\tag{3}
 $$
 
-with no restriction on \(p_i\) for \(i\in F\). The limiting measure and exponential rate are unchanged: for every local function \(f\), there is \(K_{f,F}<\infty\) such that
+Indeed,
 
 $$
-\left|\nu(P_tf)-\pi(f)\right|
-\le
-K_{f,F}(1+t)^D e^{-\varepsilon t/2}.
+\frac{\nu+K\mu_{\mathbf1}}{1+K}\in\mathcal M_\star,
 $$
 
-In particular, this holds for \(\nu=\delta_\xi\) whenever \(\xi\) has only finitely many zeroes.
+and the identity
 
-**Proof.** Patch positivity and the uniform pure-death assumption imply
+$$
+\nu
+=
+(1+K)\frac{\nu+K\mu_{\mathbf1}}{1+K}
+-K\mu_{\mathbf1}
+$$
+
+increases the constant in (1) by at most a factor \(1+2K\). The class \(\mathcal M_-\) is the case \(K=1\).
+
+In particular, suppose that a configuration \(\xi\) has zeroes only in \(F\Subset\Lambda\). The uniform pure-death assumption gives
 
 $$
 p_i^\star
 \le
 \frac{c_i^0(\vn)}
 {c_i^0(\vn)+c_i^1(\vn)}
-<1,
+<1.
 $$
 
-so \(p_i^-<1\). For \(i\in F\) and \(p\in[0,1]\), set
+Hence (3) holds for \(\nu=\delta_\xi\) with
 
 $$
-a_i(p)=\frac{1-p}{1-p_i^-},
-\qquad
-b_i(p)=\frac{p-p_i^-}{1-p_i^-}.
-$$
-
-Then, as an identity of signed measures,
-
-$$
-\operatorname{Ber}(p)
+K
 =
-a_i(p)\operatorname{Ber}(p_i^-)
-+
-b_i(p)\operatorname{Ber}(1),
-\qquad
-a_i(p)+b_i(p)=1,
+\prod_{i\in F}
+\max\left\{
+1,
+\frac{p_i^\star}{1-p_i^\star}
+\right\}.
 $$
 
-and
-
-$$
-|a_i(p)|+|b_i(p)|
-\le
-\kappa_i
-:=
-\frac{1+p_i^-}{1-p_i^-}.
-$$
-
-Tensoring these identities over \(F\) expresses every \(\mu_{\mathbf p}\) under consideration as a finite signed combination of product measures whose profiles are everywhere at least \(\mathbf p^-\). The coefficients sum to one and have total absolute mass at most
-
-$$
-\kappa_F
-:=
-\prod_{i\in F}\kappa_i.
-$$
-
-Applying the theorem to each measure in this combination gives
-
-$$
-\left|
-\mu_{\mathbf p}(P_tf)-\pi(f)
-\right|
-\le
-\kappa_F K_f(1+t)^D e^{-\varepsilon t/2}.
-$$
-
-Averaging over \(\Pi\) proves the claim, with \(K_{f,F}=\kappa_FK_f\).
+Thus every configuration with only finitely many zeroes converges to the same measure \(\pi\) at the rate in (1), with a constant depending on the finite zero set.
 
 ## Corollary
 
 Under the hypotheses of the theorem, if
 
 $$
-\mathbf p^\star\le\frac12\mathbf 1,
+\mathbf p^\star\le\frac12\mathbf1,
 $$
 
-then the spin system has a unique invariant measure \(\pi\), and for every local function \(f\) there is \(K_f<\infty\) such that
+then every probability measure belongs to \(\mathcal M_-\). Consequently the spin system has a unique invariant measure \(\pi\), and for every local function \(f\) there is \(K_f<\infty\) such that
 
 $$
 \sup_{\xi\in\{0,1\}^{\Lambda}}
 \left|P_tf(\xi)-\pi(f)\right|
 \le
 K_f(1+t)^D e^{-\varepsilon t/2}.
-\tag{3}
+\tag{4}
 $$
 
 In particular, the system is uniformly exponentially [ergodic](ergodicity.md).
@@ -188,13 +157,13 @@ $$
 \left(f(\xi^{i,0})-f(\xi)\right).
 $$
 
-By the [duality noise lemma](duality-noise-lemma.md), \(\cL\) and \(\cL^\varepsilon\) have the same signed dual and the same full [successful-interaction](successful-interaction.md) set. Write \(P_t^\varepsilon\) and \(C^\varepsilon\) for the semigroup and patch contributions associated with \(\cL^\varepsilon\).
+By the [duality noise lemma](duality-noise-lemma.md), \(\cL\) and \(\cL^\varepsilon\) have the same signed dual and the same full [successful-interaction](successful-interaction.md) set. Write \(P_t^\varepsilon\) and \(C^\varepsilon\) for the semigroup and patch contributions associated with \(\cL^\varepsilon\). The [pure-death comparison](pure-death-comparison-under-patch-positivity.md) shows that \(\cL^\varepsilon\) has patch positivity and the same critical profile \(\mathbf p^\star\).
 
 For every finite patch,
 
 $$
 0\le C(P)\le C^\varepsilon(P).
-\tag{4}
+\tag{5}
 $$
 
 If \(P\) has terminal type \(\mathsf O\), then it is active throughout its lifetime and the noise comparison is exact:
@@ -203,50 +172,82 @@ $$
 C(P)
 =
 e^{-\varepsilon\Delta(P)}C^\varepsilon(P).
-\tag{5}
-$$
-
-Moreover, \(\mathbf p+\mathbf 1\ge2\mathbf p^\star\) for every \(\mathbf p\ge\mathbf p^-\). The reflected comparison from [monomial monotonicity for high-density measures](monomial-monotonicity-for-high-density-measures.md#domination-below-the-critical-density) therefore gives, for every end patch,
-
-$$
-\left|C(\mathbf p,P)\right|
-\le
-C(\mathbf 1,P)
-\le
-C^\varepsilon(\mathbf 1,P).
 \tag{6}
 $$
 
-Put
+For an end patch \(P\) based at \(i=i(P)\), write
 
 $$
-W_t^{\mathbf p}
-=
-\prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal E_t}C(\mathbf p,P)
+\begin{aligned}
+C(z,P)
+&=
+a(P)+b(P)(z-p_i^\star),
+\\
+C^\varepsilon(z,P)
+&=
+a^\varepsilon(P)+b^\varepsilon(P)(z-p_i^\star).
+\end{aligned}
 $$
 
-and
+The centered end-patch comparison gives
 
 $$
-W_t^\varepsilon
-=
-\prod_{P\in\mathcal B_t}C^\varepsilon(P)
-\prod_{P\in\mathcal E_t}C^\varepsilon(\mathbf 1,P).
-$$
-
-The Bernoulli-averaged [patch representation](patch-representation-of-spin-systems.md) gives
-
-$$
-\mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
-=
-\mathbb E_A\left[W_t^{\mathbf p}\right],
+0\le a(P)\le a^\varepsilon(P),
 \qquad
-\mathbb E_A\left[W_t^\varepsilon\right]
-=
-\mu_{\mathbf 1}\bigl(P_t^\varepsilon(\chi_A)\bigr)
-\le1.
+0\le b(P)\le b^\varepsilon(P).
 \tag{7}
+$$
+
+### Positive skeleton weights
+
+Fix \(\nu\in\mathcal M_\star\), and put
+
+$$
+W_t^\nu
+=
+\prod_{P\in\mathcal B_t}C(P)\,
+\nu\left[
+\prod_{P\in\mathcal E_t}C(\eta(i(P)),P)
+\right].
+$$
+
+Define \(W_t^{\varepsilon,\nu}\) by replacing every contribution by its less noisy counterpart. Distinct end patches are based at distinct sites, so expansion around \(\mathbf p^\star\) gives
+
+$$
+\begin{aligned}
+&\nu\left[
+\prod_{P\in\mathcal E_t}C(\eta(i(P)),P)
+\right]
+\\
+&\quad=
+\sum_{\mathcal Q\subseteq\mathcal E_t}
+\nu\left(
+\chi_{\{i(P):P\in\mathcal Q\}}^\star
+\right)
+\prod_{P\in\mathcal Q}b(P)
+\prod_{P\in\mathcal E_t\setminus\mathcal Q}a(P).
+\end{aligned}
+\tag{8}
+$$
+
+Every term is nonnegative, and (5) and (7) compare it coefficientwise with the less noisy term. Therefore
+
+$$
+0\le W_t^\nu\le W_t^{\varepsilon,\nu}.
+$$
+
+The averaged [patch representation](patch-representation-of-spin-systems.md) gives
+
+$$
+\mathbb E_A[W_t^\nu]
+=
+\nu(P_t\chi_A),
+\qquad
+\mathbb E_A[W_t^{\varepsilon,\nu}]
+=
+\nu(P_t^\varepsilon\chi_A)
+\le1.
+\tag{9}
 $$
 
 ### The late-interaction term
@@ -263,100 +264,33 @@ L_{T,t}
 L_T=L_{T,\infty}.
 $$
 
-On \(L_{T,t}^c\), let \(u\in[T,t)\) be the first successful-interaction time after \(T\), and let \(\Gamma_u\) be the trail of \(\mathsf{XO}\)-patches leading to its source. Here \(\mathsf{XO}\) means a patch whose terminal label is \(\mathsf O\): it ends at a successful interaction outgoing from its site. Start with the source patch ending at time \(u\). If that patch began at an outgoing interaction, continue with the patch immediately preceding it at the same source; if it began at an incoming interaction, continue with the source patch of that interaction. Repeating this step terminates with a patch beginning at time zero. The successive patch lifetimes form a backward spacetime path from time \(u\) to time zero. Thus every patch in \(\Gamma_u\) belongs to \(\mathcal B_t\), and
+On \(L_{T,t}^c\), take the first successful-interaction time \(u\in[T,t)\). The backward trail of \(\mathsf{XO}\)-patches leading from its source to time zero consists of bulk patches and has total lifetime at least \(u\ge T\). Applying the exact comparison (6) along this trail, (5) to the remaining bulk patches, and (7) term by term in (8), gives
 
 $$
-\sum_{P\in\Gamma_u}\Delta(P)\ge u\ge T.
-$$
-
-Using the exact comparison (5) along this trail gives
-
-$$
-\begin{aligned}
-\prod_{P\in\Gamma_u}C(P)
-&=
-\exp\left(
--\varepsilon\sum_{P\in\Gamma_u}\Delta(P)
-\right)
-\prod_{P\in\Gamma_u}C^\varepsilon(P)
-\\
-&\le
-e^{-\varepsilon T}
-\prod_{P\in\Gamma_u}C^\varepsilon(P).
-\end{aligned}
-$$
-
-Apply (4) to the other bulk patches and (6) to the end patches. Pointwise on \(L_{T,t}^c\),
-
-$$
-\left|W_t^{\mathbf p}\right|
+0
 \le
-e^{-\varepsilon T}W_t^\varepsilon.
+W_t^\nu\ind(L_{T,t}^c)
+\le
+e^{-\varepsilon T}
+W_t^{\varepsilon,\nu}\ind(L_{T,t}^c).
 $$
 
-Therefore
+Using (9),
 
 $$
-\begin{aligned}
-\left|
+0
+\le
 \mathbb E_A\left[
-W_t^{\mathbf p}\ind(L_{T,t}^c)
+W_t^\nu\ind(L_{T,t}^c)
 \right]
-\right|
-&\le
-\mathbb E_A\left[
-\left|W_t^{\mathbf p}\right|\ind(L_{T,t}^c)
-\right]
-\\
-&\le
-e^{-\varepsilon T}
-\mathbb E_A\left[
-W_t^\varepsilon\ind(L_{T,t}^c)
-\right]
-\\
-&\le
-e^{-\varepsilon T}
-\mathbb E_A\left[W_t^\varepsilon\right]
-\\
-&\le
+\le
 e^{-\varepsilon T}.
-\end{aligned}
-\tag{8}
+\tag{10}
 $$
 
 ### The no-late-interaction term
 
-We now consider
-
-$$
-\mathbb E_A\left[
-W_t^{\mathbf p}\ind(L_{T,t})
-\right].
-$$
-
-On \(L_{T,t}\), no patch begins or ends between \(T\) and \(t\). Hence, up to the null event of an interaction exactly at \(T\),
-
-$$
-\mathcal B_t=\mathcal B_T,
-$$
-
-and every \(Q\in\mathcal E_T\) has a unique extension \(Q_t\in\mathcal E_t\) with no intervening successful interaction. This extension is determined by \(Q\) and \(t\). Therefore, conditionally on \(\cG_T\),
-
-$$
-\mathbb E_A\left[
-W_t^{\mathbf p}\ind(L_{T,t})
-\middle|\cG_T
-\right]
-=
-\prod_{P\in\mathcal B_T}C(P)
-\prod_{Q\in\mathcal E_T}C(\mathbf p,Q_t)
-\,
-\mathbb P_A(L_{T,t}\mid\cG_T).
-$$
-
-It remains to calculate the last conditional probability. Conditional on \(\cG_T\), the post-\(T\) interaction data of the distinct end patches are independent, and \(L_{T,t}\) occurs exactly when every \(Q\in\mathcal E_T\) extends to time \(t\) without a successful interaction.
-
-Fix \(Q\in\mathcal E_T\), and write
+On \(L_{T,t}\), every \(Q\in\mathcal E_T\) has a unique extension \(Q_t\in\mathcal E_t\) with no intervening successful interaction. Let
 
 $$
 i=i(Q),
@@ -366,79 +300,45 @@ s=s(Q),
 \Delta_u=u-s.
 $$
 
-If \(Q\) has type \(\mathsf{IE}\), the probability that it extends without a successful interaction through time \(u\), conditional on consistency through \(T\), is
+Multiplying the end contribution of \(Q_t\) by its conditional probability of extending from \(T\) to \(t\) without a successful interaction gives the affine factor
 
 $$
-\frac{\varphi_i(\Delta_u)}{\varphi_i(\Delta_T)}.
-$$
-
-If \(Q\) has type \(\mathsf{OE}\), with \(S=S(Q)\), the corresponding probability is
-
-$$
-\frac{
-\delta_i(S)+\beta_i(S)\varphi_i(\Delta_u)
-}{
-\delta_i(S)+\beta_i(S)\varphi_i(\Delta_T)
-}.
-$$
-
-Consequently,
-
-$$
-\mathbb P_A(L_{T,t}\mid\cG_T)
-=
-\prod_{Q\in\mathcal E_T}
-\begin{cases}
-\dfrac{\varphi_i(\Delta_t)}{\varphi_i(\Delta_T)},
-&\mathsf X(Q)=\mathsf I,
-\\[1.2em]
-\dfrac{
-\delta_i(S)+\beta_i(S)\varphi_i(\Delta_t)
-}{
-\delta_i(S)+\beta_i(S)\varphi_i(\Delta_T)
-},
-&\mathsf X(Q)=\mathsf O.
-\end{cases}
-$$
-
-For each \(Q\in\mathcal E_T\), define \(K_{T,t}^{\mathbf p}(Q)\) to be \(C(\mathbf p,Q_t)\) times the corresponding factor in this product. The patch-contribution formulas give
-
-$$
-K_{T,t}^{\mathbf p}(Q)
+K_{T,t}(z,Q)
 =
 \begin{cases}
-\dfrac{\psi_i(\Delta_t,p_i)}{\varphi_i(\Delta_T)},
+\dfrac{\psi_i(\Delta_t,z)}{\varphi_i(\Delta_T)},
 &\mathsf X(Q)=\mathsf I,
 \\[1.2em]
 \dfrac{
 \delta_i(S)\sigma_i^\delta(S)
 +
-\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta_t,p_i)
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta_t,z)
 }{
 \delta_i(S)+\beta_i(S)\varphi_i(\Delta_T)
 },
-&\mathsf X(Q)=\mathsf O.
+&\mathsf X(Q)=\mathsf O,
 \end{cases}
+\tag{11}
 $$
 
-Thus
+where \(S=S(Q)\). The consistency normalizer at time \(t\) cancels in (11). Conditional on \(\cG_T\), independence of the post-\(T\) patch data and averaging over \(\nu\) yield
 
 $$
-\mathbb E_A\left[
-W_t^{\mathbf p}\ind(L_{T,t})
+\begin{aligned}
+&\mathbb E_A\left[
+W_t^\nu\ind(L_{T,t})
 \middle|\cG_T
 \right]
-=
-\prod_{P\in\mathcal B_T}C(P)
-\prod_{Q\in\mathcal E_T}K_{T,t}^{\mathbf p}(Q).
-\tag{9}
+\\
+&\quad=
+\prod_{P\in\mathcal B_T}C(P)\,
+\nu\left[
+\prod_{Q\in\mathcal E_T}
+K_{T,t}(\eta(i(Q)),Q)
+\right].
+\end{aligned}
+\tag{12}
 $$
-
-The cancellation of the normalizer at time \(t\) is the reason to work with \(K_{T,t}^{\mathbf p}(Q)\) rather than with the end contribution alone.
-
-### Comparing the finite- and infinite-time factors
-
-Equation (9) expresses the no-late-interaction term as a product over \(\mathcal E_T\). To compare it with the full-patch expression on \(L_T\), we replace each \(K_{T,t}^{\mathbf p}(Q)\) by its limit as \(t\to\infty\). Two estimates are needed: the difference must be exponentially small, and both factors must be dominated by the same nonnegative comparison factor so that the products can be telescoped.
 
 For a patch based at \(i\), put
 
@@ -450,122 +350,139 @@ d_i=c_i^0(\vn),
 q_i=\frac{d_i}{r_i}.
 $$
 
-Since \(r_i\ge\varepsilon\),
+The uniform death bound gives \(r_i\ge\varepsilon\), and
 
 $$
-\psi_i(\Delta,p)
+\psi_i(\Delta,z)
 =
-q_i+(p-q_i)e^{-r_i\Delta}.
-\tag{10}
+q_i+(z-q_i)e^{-r_i\Delta}.
+\tag{13}
 $$
 
-Define \(K_{T,\infty}(Q)\) by replacing \(\psi_i(\Delta_t,p_i)\) in \(K_{T,t}^{\mathbf p}(Q)\) by \(q_i\). This is the limit of the contribution from \(Q\), including the probability that it produces no successful interaction after \(T\). The definition remains valid when the limiting consistency probability is zero. On \(L_T\), the patches in \(\mathcal E_T\) extend to the infinite patches of the full family, so
+Define \(K_{T,\infty}(Q)\) by replacing \(\psi_i(\Delta_t,z)\) in (11) by \(q_i\). The result is independent of \(z\). On \(L_T\), the end patches extend to the infinite patches of the full family, and
 
 $$
-\mathbb E_A\left[
+\begin{aligned}
+&\mathbb E_A\left[
 \prod_{P\in\mathcal P}C(P)\ind(L_T)
 \middle|\cG_T
 \right]
-=
+\\
+&\quad=
 \prod_{P\in\mathcal B_T}C(P)
 \prod_{Q\in\mathcal E_T}K_{T,\infty}(Q).
-\tag{11}
+\end{aligned}
+\tag{14}
 $$
 
-Let \(K_{T,t}^{\varepsilon,\mathbf 1}(Q)\) be defined by the same formula as \(K_{T,t}^{\mathbf p}(Q)\), but for the less noisy model and terminal density \(\mathbf 1\). We will prove
+### One-patch estimates
+
+Write
 
 $$
-\left|K_{T,t}^{\mathbf p}(Q)\right|,
-\quad
+\begin{aligned}
+K_{T,t}(z,Q)
+&=
+a_{T,t}(Q)+b_{T,t}(Q)(z-p_i^\star),
+\\
+K_{T,t}^\varepsilon(z,Q)
+&=
+a_{T,t}^\varepsilon(Q)
++b_{T,t}^\varepsilon(Q)(z-p_i^\star),
+\end{aligned}
+$$
+
+and set
+
+$$
+M_{T,t}^\varepsilon(Q)
+=
+K_{T,t}^\varepsilon(1,Q).
+$$
+
+The following estimates hold:
+
+$$
+\begin{aligned}
+0
+&\le
+a_{T,t}(Q)
+\le
+a_{T,t}^\varepsilon(Q)
+\le
+M_{T,t}^\varepsilon(Q),
+\\
+0
+&\le
 K_{T,\infty}(Q)
 \le
-K_{T,t}^{\varepsilon,\mathbf 1}(Q),
-\qquad
-\left|
-K_{T,t}^{\mathbf p}(Q)-K_{T,\infty}(Q)
-\right|
+M_{T,t}^\varepsilon(Q),
+\\
+0
+&\le
+b_{T,t}(Q)
 \le
-2e^{-\varepsilon(t-T)}
-K_{T,t}^{\varepsilon,\mathbf 1}(Q).
-\tag{12}
+e^{-\varepsilon(t-T)}
+b_{T,t}^\varepsilon(Q),
+\\
+\left|
+a_{T,t}(Q)-K_{T,\infty}(Q)
+\right|
+&\le
+e^{-\varepsilon(t-T)}
+M_{T,t}^\varepsilon(Q).
+\end{aligned}
+\tag{15}
 $$
 
-The first comparison supplies the common positive majorant used when telescoping the products; the second supplies the convergence rate.
-
-The perturbation does not change the successful-interaction rates or the consistency normalizers. It only replaces \(r_i\) by
+To verify them, reducing the death rate by \(\varepsilon\) replaces \(r_i\) by
 
 $$
-r_i^\varepsilon=r_i-\varepsilon.
+r_i^\varepsilon=r_i-\varepsilon
 $$
 
-If \(r_i^\varepsilon>0\), put \(q_i^\varepsilon=d_i/r_i^\varepsilon\). Then
+and leaves the successful-interaction rates and consistency normalizers unchanged. If \(r_i^\varepsilon>0\), set \(q_i^\varepsilon=d_i/r_i^\varepsilon\). Then
 
 $$
 \psi_i^\varepsilon(\Delta,1)
 =
-q_i^\varepsilon+
+q_i^\varepsilon
++
 \left(1-q_i^\varepsilon\right)e^{-r_i^\varepsilon\Delta}
 \ge
 e^{-r_i^\varepsilon\Delta}.
+\tag{16}
 $$
 
-If \(r_i^\varepsilon=0\), then \(d_i=0\) and \(\psi_i^\varepsilon(\Delta,1)=1\); the estimates in (12) follow directly from this degenerate formula. Hence assume \(r_i^\varepsilon>0\) below.
+If \(r_i^\varepsilon=0\), then \(d_i=0\) and \(\psi_i^\varepsilon(\Delta,1)=1\), so the same estimates follow directly.
 
-Suppose first that \(Q\) has type \(\mathsf{IE}\). Its finite- and infinite-time factors are
+For an \(\mathsf{IE}\)-patch, the slope ratio is exactly
 
 $$
-K_{T,t}^{\mathbf p}(Q)
+\frac{b_{T,t}(Q)}{b_{T,t}^\varepsilon(Q)}
 =
-\frac{q_i+(p_i-q_i)e^{-r_i\Delta_t}}{\varphi_i(\Delta_T)},
-\qquad
-K_{T,\infty}(Q)
-=
-\frac{q_i}{\varphi_i(\Delta_T)}.
-$$
-
-Since \(\Delta_t\ge t-T\) and \(|p_i-q_i|\le1\),
-
-$$
-\begin{aligned}
-\left|
-K_{T,t}^{\mathbf p}(Q)-K_{T,\infty}(Q)
-\right|
-&\le
 e^{-\varepsilon\Delta_t}
-\frac{e^{-r_i^\varepsilon\Delta_t}}{\varphi_i(\Delta_T)}
-\\
-&\le
-e^{-\varepsilon(t-T)}
-K_{T,t}^{\varepsilon,\mathbf 1}(Q).
-\end{aligned}
+\le
+e^{-\varepsilon(t-T)}.
 $$
 
 Moreover,
 
 $$
-0\le
-\psi_i(\Delta_t,p_i)
-\le
-\psi_i(\Delta_t,1)
-\le
-\psi_i^\varepsilon(\Delta_t,1),
-\qquad
-0\le q_i\le q_i^\varepsilon\le\psi_i^\varepsilon(\Delta_t,1).
-$$
-
-Dividing by \(\varphi_i(\Delta_T)\) proves both domination inequalities in (12) for an \(\mathsf{IE}\)-patch.
-
-Now suppose that \(Q\) has type \(\mathsf{OE}\), with \(S=S(Q)\). If \(\beta_i(S)=0\), its expression does not depend on \(t\), so the difference in (12) is zero and the domination follows from patch positivity. Assume \(\beta_i(S)>0\). Patch positivity gives
-
-$$
-\beta_i(S)\sigma_i^\beta(S)
+\left|
+a_{T,t}(Q)-K_{T,\infty}(Q)
+\right|
 =
--c_i^0(S)-c_i^1(S)
-=
-\beta_i(S).
+\frac{
+\left|p_i^\star-q_i\right|e^{-r_i\Delta_t}
+}{
+\varphi_i(\Delta_T)
+},
 $$
 
-Set
+which is bounded as in (15) by (16). The remaining inequalities follow from \(0\le q_i\le q_i^\varepsilon\), terminal monotonicity, and pure-death comparison.
+
+For an \(\mathsf{OE}\)-patch with \(\beta_i(S)>0\), put
 
 $$
 p_{i,S}^\star
@@ -573,118 +490,105 @@ p_{i,S}^\star
 \frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}.
 $$
 
-The numerator in the formula for \(K_{T,t}^{\mathbf p}(Q)\) is then
+Patch positivity gives
+
+$$
+p_{i,S}^\star
+\le
+p_i^\star,
+\qquad
+p_{i,S}^\star
+\le
+q_i
+\le
+q_i^\varepsilon.
+$$
+
+The numerator in (11) is
 
 $$
 \beta_i(S)
 \left(
-\psi_i(\Delta_t,p_i)-p_{i,S}^\star
+\psi_i(\Delta_t,z)-p_{i,S}^\star
 \right).
 $$
 
-Patch positivity is exactly the inequality \(p_{i,S}^\star\le q_i\), and reducing the death rate gives \(q_i\le q_i^\varepsilon\). We also have
+Since \(p_i^\star,q_i\in[p_{i,S}^\star,1]\),
 
 $$
-\left|p_i-q_i\right|
+\left|p_i^\star-q_i\right|
 \le
-2\left(1-p_{i,S}^\star\right).
+1-p_{i,S}^\star.
 $$
 
-To see this, if \(p_i\ge q_i\), the left-hand side is at most \(1-q_i\le1-p_{i,S}^\star\). If \(p_i<q_i\) and \(p_i^\star<1/2\), it is at most \(1\le2(1-p_{i,S}^\star)\). If \(p_i<q_i\) and \(p_i^\star\ge1/2\), then
+On the other hand,
 
 $$
-q_i-p_i
-\le
-1-p_i
-\le
-2(1-p_i^\star)
-\le
-2(1-p_{i,S}^\star).
-$$
-
-The less noisy numerator satisfies
-
-$$
-\begin{aligned}
 \psi_i^\varepsilon(\Delta,1)-p_{i,S}^\star
-&=
-q_i^\varepsilon-p_{i,S}^\star
-+
-\left(1-q_i^\varepsilon\right)e^{-r_i^\varepsilon\Delta}
-\\
-&\ge
-\left(1-p_{i,S}^\star\right)e^{-r_i^\varepsilon\Delta}.
-\end{aligned}
+\ge
+\left(1-p_{i,S}^\star\right)
+e^{-r_i^\varepsilon\Delta}.
 $$
 
-The inequality uses \(q_i^\varepsilon\ge p_{i,S}^\star\) and \(e^{-r_i^\varepsilon\Delta}\le1\).
+These two inequalities give the last line of (15), and the slope ratio is again \(e^{-\varepsilon\Delta_t}\). The other comparisons follow from monotonicity in \(z\), pure-death comparison, and \(q_i\le q_i^\varepsilon\). If \(\beta_i(S)=0\), the factor is independent of \(t\) and the assertions are immediate. This proves (15).
 
-The original and less noisy expressions have the same denominator. Hence
+### Centered product comparison
+
+Expanding the \(\nu\)-average in (12) around \(\mathbf p^\star\), the sum of all terms containing at least one slope is
 
 $$
 \begin{aligned}
-\left|
-K_{T,t}^{\mathbf p}(Q)-K_{T,\infty}(Q)
-\right|
-&=
-\frac{
-\beta_i(S)\left|p_i-q_i\right|e^{-r_i\Delta_t}
-}{
-\delta_i(S)+\beta_i(S)\varphi_i(\Delta_T)
-}
+R_{T,t}^\nu
+=
+\sum_{\vn\ne\mathcal Q\subseteq\mathcal E_T}
+&\nu\left(
+\chi_{\{i(Q):Q\in\mathcal Q\}}^\star
+\right)
 \\
-&\le
-2e^{-\varepsilon(t-T)}
-K_{T,t}^{\varepsilon,\mathbf 1}(Q).
+&\times
+\prod_{Q\in\mathcal Q}b_{T,t}(Q)
+\prod_{Q\in\mathcal E_T\setminus\mathcal Q}
+a_{T,t}(Q).
 \end{aligned}
 $$
 
-It remains to check the domination in (12). The expression is affine and nondecreasing in \(p_i\), while
+By (15), every term is nonnegative and contains at least one factor supplying \(e^{-\varepsilon(t-T)}\). Hence
 
 $$
-K_{T,t}^{\mathbf p}(Q)
-+
-K_{T,t}^{\mathbf 1}(Q)
-=
-2K_{T,t}^{(\mathbf p+\mathbf 1)/2}(Q)
-\ge0
-$$
-
-because \((p_i+1)/2\ge p_i^\star\). Therefore
-
-$$
-\left|K_{T,t}^{\mathbf p}(Q)\right|
+0
 \le
-K_{T,t}^{\mathbf 1}(Q)
+R_{T,t}^\nu
 \le
-K_{T,t}^{\varepsilon,\mathbf 1}(Q).
+e^{-\varepsilon(t-T)}
+\nu\left[
+\prod_{Q\in\mathcal E_T}
+K_{T,t}^\varepsilon(\eta(i(Q)),Q)
+\right].
+\tag{17}
 $$
 
-The last inequality is the pure-death comparison: the consistency probability factor is unchanged, while removing the \(\varepsilon\)-noise increases the all-one contribution.
-
-Finally, \(K_{T,\infty}(Q)\ge0\) because \(p_{i,S}^\star\le q_i\), and it is bounded by \(K_{T,t}^{\varepsilon,\mathbf 1}(Q)\) because \(q_i\le q_i^\varepsilon\le\psi_i^\varepsilon(\Delta_t,1)\). This proves (12) for both patch types.
-
-Let \(N_T=|\mathcal E_T|\), and fix a deterministic ordering of \(\mathcal E_T\). The elementary telescoping inequality
+For the constant terms, the telescoping product inequality and (15) give, with \(N_T=|\mathcal E_T|\),
 
 $$
 \left|
-\prod_Q a_Q-\prod_Q b_Q
+\prod_{Q\in\mathcal E_T}a_{T,t}(Q)
+-
+\prod_{Q\in\mathcal E_T}K_{T,\infty}(Q)
 \right|
 \le
-\sum_Q
-\left|a_Q-b_Q\right|
-\prod_{R<Q}|a_R|
-\prod_{R>Q}|b_R|
+N_Te^{-\varepsilon(t-T)}
+\prod_{Q\in\mathcal E_T}M_{T,t}^\varepsilon(Q).
+\tag{18}
 $$
 
-and the estimates in (12), together with the bulk comparison (4), give
+Combining (17) and (18), multiplying by the bulk contributions, and using (5), we obtain
 
 $$
 \begin{aligned}
 &
 \left|
 \mathbb E_A\left[
-W_t^{\mathbf p}\ind(L_{T,t})
+W_t^\nu\ind(L_{T,t})
 \middle|\cG_T
 \right]
 -
@@ -694,55 +598,47 @@ W_t^{\mathbf p}\ind(L_{T,t})
 \right]
 \right|
 \\
-&\qquad\le
-2N_Te^{-\varepsilon(t-T)}
+&\quad\le
+e^{-\varepsilon(t-T)}
 \prod_{P\in\mathcal B_T}C^\varepsilon(P)
+\Bigg\{
+\nu\left[
 \prod_{Q\in\mathcal E_T}
-K_{T,t}^{\varepsilon,\mathbf 1}(Q).
+K_{T,t}^\varepsilon(\eta(i(Q)),Q)
+\right]
+\\
+&\hspace{15em}
++
+N_T
+\prod_{Q\in\mathcal E_T}
+M_{T,t}^\varepsilon(Q)
+\Bigg\}.
 \end{aligned}
-\tag{13}
+\tag{19}
 $$
 
-The product on the right is
+The first expression in braces is the conditional no-late-interaction weight for the less noisy process started from \(\nu\); the second is the corresponding all-one weight with one marked end patch.
 
-$$
-\mathbb E_A\left[
-W_t^\varepsilon\ind(L_{T,t})
-\middle|\cG_T
-\right].
-$$
-
-> **Finite-speed note.** The resulting marked expectation is most cleanly bounded by temporarily restricting the graphical construction to a finite ball. Choose \(v\) so large that, up to time \(t\), replacing the infinite lattice by the ball of radius \(vt\) around \(A\) changes the semigroup—and the same graphical expansion with one marked terminal site—by at most \(C_Ae^{-\varepsilon t}\). Such a choice is possible from the Poisson path bound for a uniformly bounded finite-range system. Perform the duality and patch factorization inside this ball. On \(L_{T,t}\), \(N_T=N_t\), and deterministically
+> **Finite-speed note.** Temporarily restrict the graphical construction to a ball of radius \(vt\) around \(A\), with \(v\) large enough that the truncation error is \(O(e^{-\varepsilon t})\). Finite range, bounded rates, and polynomial volume growth then give, on \(L_{T,t}\),
 >
 > $$
-> N_t=|\mathcal E_t|
+> N_T=N_t
 > \le
-> \left|B(A,vt)\right|
+> |B(A,vt)|
 > \le
 > C_A(1+t)^D.
 > $$
 >
-> Since the positive comparison weight has total mass at most one,
->
-> $$
-> \mathbb E_A\left[
-> N_TW_t^\varepsilon\ind(L_{T,t})
-> \right]
-> \le
-> K_A(1+t)^D.
-> \tag{14}
-> $$
->
-> The finite-speed error is absorbed by increasing \(K_A\). This finite-volume restriction is needed only for this bound, so no finite-volume notation is carried through the rest of the argument.
+> Both positive comparison weights have total mass at most one by (9), once with initial law \(\nu\) and once with \(\mu_{\mathbf1}\). Therefore the expectation of the right-hand side of (19), without its exponential factor, is at most \(K_A(1+t)^D\). The finite-speed error is absorbed by increasing \(K_A\).
 
-Integrating (13) and using (14) yields
+Integrating (19) gives
 
 $$
 \begin{aligned}
 &
 \left|
 \mathbb E_A\left[
-W_t^{\mathbf p}\ind(L_{T,t})
+W_t^\nu\ind(L_{T,t})
 \right]
 -
 \mathbb E_A\left[
@@ -750,21 +646,17 @@ W_t^{\mathbf p}\ind(L_{T,t})
 \right]
 \right|
 \\
-&\qquad\le
-2K_A(1+t)^D e^{-\varepsilon(t-T)}.
+&\quad\le
+K_A(1+t)^D e^{-\varepsilon(t-T)}.
 \end{aligned}
-\tag{15}
+\tag{20}
 $$
 
-This estimate treats the relaxation of the end-patch factors and the replacement of \(L_{T,t}\) by \(L_T\) simultaneously. Estimating the indicators separately would reintroduce the slow consistency rate that canceled above.
-
-### Completion of the proof
+### Completion for \(\mathcal M_\star\)
 
 Local finiteness gives
 
 $$
-L_\infty
-:=
 \bigcup_{T<\infty}L_T
 =
 \left\{
@@ -772,30 +664,7 @@ L_\infty
 \right\}.
 $$
 
-On \(L_\infty\setminus L_T\), choose the first successful interaction after \(T\) and its \(\mathsf{XO}\)-trail. The same calculation as in the proof of (8) gives the pointwise bound
-
-$$
-\prod_{P\in\mathcal P}C(P)
-\ind(L_\infty\setminus L_T)
-\le
-e^{-\varepsilon T}
-\prod_{P\in\mathcal P}C^\varepsilon(P)
-\ind(L_\infty\setminus L_T).
-$$
-
-The full less noisy product has total mass at most one. Indeed, on \(L_\infty\) the nonnegative finite-horizon weights \(W_u^\varepsilon\) converge to that product, and Fatou's lemma and (7) give
-
-$$
-\mathbb E_A\left[
-\prod_{P\in\mathcal P}C^\varepsilon(P)\ind(L_\infty)
-\right]
-\le
-\liminf_{u\to\infty}
-\mathbb E_A\left[W_u^\varepsilon\right]
-\le1.
-$$
-
-Consequently,
+On the event that the patch family is finite but there is an interaction after \(T\), the first such interaction again has an \(\mathsf{XO}\)-trail of total lifetime at least \(T\). The exact noise comparison along this trail gives
 
 $$
 \begin{aligned}
@@ -803,29 +672,27 @@ $$
 &\le
 \mathbb E_A\left[
 \prod_{P\in\mathcal P}C(P)
-\ind(L_\infty\setminus L_T)
-\right]
-\\
-&\le
-e^{-\varepsilon T}
-\mathbb E_A\left[
-\prod_{P\in\mathcal P}C^\varepsilon(P)
-\ind(L_\infty\setminus L_T)
+\ind\left(
+\left|\mathcal P\right|<\infty
+\right)
+\ind(L_T^c)
 \right]
 \\
 &\le
 e^{-\varepsilon T}.
 \end{aligned}
-\tag{16}
+\tag{21}
 $$
 
-Combining (7), (8), (15), and (16), we obtain
+For the last inequality, dominate by the full less noisy product. Its total mass is at most one: on the event of finitely many interactions, the nonnegative finite-horizon all-one weights converge to that product, so Fatou's lemma and (9) apply.
+
+Combining (10), (20), and (21) yields
 
 $$
 \begin{aligned}
 &
 \left|
-\mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
+\nu(P_t\chi_A)
 -
 \mathbb E_A\left[
 \prod_{P\in\mathcal P}C(P)
@@ -833,44 +700,90 @@ $$
 \right]
 \right|
 \\
-&\qquad\le
+&\quad\le
 2e^{-\varepsilon T}
 +
-2K_A(1+t)^D e^{-\varepsilon(t-T)}.
+K_A(1+t)^D e^{-\varepsilon(t-T)}.
 \end{aligned}
-\tag{17}
+\tag{22}
 $$
 
-Taking \(T=t/2\) gives
+Taking \(T=t/2\) proves
 
 $$
 \left|
-\mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
--
-\pi(\chi_A)
+\nu(P_t\chi_A)-\pi(\chi_A)
 \right|
 \le
 K_A'(1+t)^D e^{-\varepsilon t/2},
-\tag{18}
+\tag{23}
 $$
 
-uniformly over \(\mathbf p\ge\mathbf p^-\). Averaging over a mixing law gives the same estimate for mixtures.
+uniformly over \(\nu\in\mathcal M_\star\).
 
-Every local function has a finite expansion in [monomials](monomials.md), so (18) proves (1). Taking \(\nu=\mu_{\mathbf 1}\), compactness gives a subsequential weak limit, and convergence of all monomial moments shows that every subsequential limit is the same measure \(\pi\) characterized by (2). The finite-range spin-system semigroup is Feller, hence
+Every local function has a finite expansion in monomials, so (23) gives the same estimate for local \(f\). Taking \(\nu=\mu_{\mathbf1}\), compactness gives a subsequential weak limit, and convergence of all monomial moments shows that every subsequential limit is the same measure \(\pi\) characterized by (2). The finite-range spin-system semigroup is Feller, hence
 
 $$
 \pi P_s
 =
-\lim_{t\to\infty}\mu_{\mathbf 1}P_{t+s}
+\lim_{t\to\infty}\mu_{\mathbf1}P_{t+s}
 =
 \pi,
 $$
 
 so \(\pi\) is invariant.
 
+### Extension to \(\mathcal M_-\)
+
+Let \(\nu\in\mathcal M_-\). By definition,
+
+$$
+\overline\nu
+=
+\frac{\nu+\mu_{\mathbf1}}2
+\in
+\mathcal M_\star.
+$$
+
+Since
+
+$$
+\nu=2\overline\nu-\mu_{\mathbf1},
+$$
+
+the triangle inequality and the uniform \(\mathcal M_\star\) estimate give
+
+$$
+\left|
+\nu(P_tf)-\pi(f)
+\right|
+\le
+2\left|
+\overline\nu(P_tf)-\pi(f)
+\right|
++
+\left|
+\mu_{\mathbf1}(P_tf)-\pi(f)
+\right|.
+$$
+
+Absorbing the factor three into \(K_f\) proves (1).
+
 ## Proof of the corollary
 
-If \(\mathbf p^\star\le\frac12\mathbf 1\), then \(\mathbf p^-=\mathbf 0\). Every point mass \(\delta_\xi\) is the Bernoulli product measure with profile \(\mathbf p=\xi\), so the uniform estimate (1) gives (3). If \(\rho\) is invariant, then for every local function \(f\),
+If \(\mathbf p^\star\le\frac12\mathbf1\), then, pointwise for every configuration \(\xi\),
+
+$$
+\frac{\chi_A^\star(\xi)}
+{\chi_A^\star(\mathbf1)}
+=
+\prod_{i\in A}
+\frac{\xi(i)-p_i^\star}{1-p_i^\star}
+\ge
+-1.
+$$
+
+Thus every probability measure belongs to \(\mathcal M_-\), and (1) gives (4). If \(\rho\) is invariant, then for every local function \(f\),
 
 $$
 \left|\rho(f)-\pi(f)\right|
@@ -881,4 +794,4 @@ $$
 \underset{t\to\infty}{\longrightarrow}0.
 $$
 
-Thus \(\rho=\pi\), proving uniqueness and uniform exponential ergodicity.
+Therefore \(\rho=\pi\), proving uniqueness and uniform exponential ergodicity.
