@@ -24,9 +24,7 @@ This page records common notation for the public wiki.
 | \(\mathbf p=(p_i)_{i\in\Lambda}\) | one-density profile | Bernoulli product measures |
 | \(\mu_{\mathbf p}\) | Bernoulli product measure with one-density profile \(\mathbf p\) | spin systems |
 | \(\mathbf p^\star=(p_i^\star)_{i\in\Lambda}\) | patch critical density profile | patch positivity |
-| \(\chi_A^\star\) | centered monomial \(\prod_{i\in A}(\eta(i)-p_i^\star)\) | patch positivity |
-| \(\mathcal M_\star\) | measures with nonnegative \(\chi_A^\star\)-moments | patch positivity |
-| \(\mathcal M_-\) | measures satisfying \(\mu(\chi_A^\star)\ge-\chi_A^\star(\mathbf1)\) | patch positivity |
+| \(\mathcal M_\star\) | family of high-density measures | patch positivity |
 | \(q\) | density of the KCSM facilitating state \(0\) | KCSM |
 | \(p\) | \(1-q\), density of state \(1\) | KCSM |
 | \(\mu_q\) | Bernoulli product measure with zero density \(q\) | KCSM |

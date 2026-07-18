@@ -4,215 +4,167 @@ status: proved here
 tags:
   - patch positivity
   - high-density measure
-  - centered moments
+  - monomials
   - monotonicity
 ---
 
 # Monomial monotonicity for high-density measures
 
-For a uniformly bounded finite-range spin system with the [patch positivity property](patch-positivity-property.md), the semigroup preserves the order induced by moments centered at the [patch critical density](patch-critical-density.md). Ordinary [monomial](monomials.md) monotonicity and preservation of the [high-density class](high-density-measure.md) follow from this stronger statement.
+For a spin system with the [patch positivity property](patch-positivity-property.md), evolved [monomials](monomials.md) are monotone under coordinatewise ordering of the mixing profiles of [high-density measures](high-density-measure.md). A reflected comparison also applies to profiles below the patch critical density and is used in [the common invariant-limit theorem](common-invariant-limit-under-uniform-pure-deaths.md).
 
 **References.** None yet.
 
 ## Theorem
 
-Let \(\nu_0\) and \(\nu_1\) be probability measures such that
+For \(k\in\{0,1\}\), let
 
 $$
-\nu_0\left(\chi_B^\star\right)
-\le
-\nu_1\left(\chi_B^\star\right)
-\qquad
-\text{for every }B\Subset\Lambda.
+\nu_k
+=
+\int\mu_{\mathbf p}\,\Pi_k(d\mathbf p),
+$$
+
+where \(\Pi_k\) is supported on one-density profiles satisfying \(\mathbf p\ge\mathbf p^\star\). Suppose that \(\Pi_0\) and \(\Pi_1\) admit a coupling \((\mathbf p_0,\mathbf p_1)\) such that
+
+$$
+\mathbf p_0\le\mathbf p_1
+\qquad\text{almost surely}.
 $$
 
 Then, for every \(A\Subset\Lambda\) and \(t\ge0\),
 
 $$
-\nu_0\left(P_t\chi_A^\star\right)
+\nu_0\bigl(P_t(\chi_A)\bigr)
 \le
-\nu_1\left(P_t\chi_A^\star\right),
-\tag{1}
+\nu_1\bigl(P_t(\chi_A)\bigr).
 $$
 
-and
+In particular, every \(\nu\in\mathcal M_\star\) satisfies
 
 $$
-\nu_0\left(P_t\chi_A\right)
+\mu_{\mathbf p^\star}\bigl(P_t(\chi_A)\bigr)
 \le
-\nu_1\left(P_t\chi_A\right).
-\tag{2}
-$$
-
-In particular,
-
-$$
-\mu\in\mathcal M_\star
-\quad\Longrightarrow\quad
-\mu P_t\in\mathcal M_\star,
-\tag{3}
-$$
-
-and every \(\mu\in\mathcal M_\star\) satisfies
-
-$$
-\mu_{\mathbf p^\star}\left(P_t\chi_A\right)
+\nu\bigl(P_t(\chi_A)\bigr)
 \le
-\mu\left(P_t\chi_A\right).
-\tag{4}
+\mu_{\mathbf 1}\bigl(P_t(\chi_A)\bigr).
 $$
-
-There is no corresponding all-one upper bound for an arbitrary measure in \(\mathcal M_\star\) without an additional upper bound on its centered moments.
 
 ## Proof
 
-Use the coefficient notation from [monomial duality for spin systems](monomial-duality-for-spin-systems.md). For \(S\subseteq N(i)\), put
+First fix deterministic profiles
 
 $$
-d_i(S)
+\mathbf p^\star\le\mathbf p\le\mathbf q.
+$$
+
+Integrating the [patch representation](patch-representation-of-spin-systems.md) against the Bernoulli product measure \(\mu_{\mathbf p}\) gives
+
+$$
+\mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
 =
-c_i^0(S)
--p_i^\star\left(c_i^0(S)+c_i^1(S)\right),
+\mathbb E_A\left[
+\prod_{P\in\mathcal B_t}C(P)
+\prod_{P\in\mathcal E_t}C(\mathbf p,P)
+\right].
 $$
 
-and, for \(S\ne\vn\), put
+Indeed, distinct end patches are based at distinct sites, so independence replaces each terminal spin by its one-site density. Patch positivity gives \(C(P)\ge0\) for every bulk patch. The definition of the [patch critical density](patch-critical-density.md) and monotonicity of the affine end contributions give
 
 $$
-b_i(S)
-=
--c_i^0(S)-c_i^1(S).
-$$
-
-Patch positivity and the definition of \(p_i^\star\) give
-
-$$
-d_i(S)\ge0
-\quad(S\subseteq N(i)),
-\qquad
-b_i(S)\ge0
-\quad(\vn\ne S\subseteq N(i)).
-\tag{5}
-$$
-
-For nonempty \(S\), these are precisely the sign condition and threshold inequality in the patch-positivity and critical-density criteria. For \(S=\vn\), write
-
-$$
-r_i=c_i^0(\vn)+c_i^1(\vn).
-$$
-
-If \(r_i>0\), patch positivity gives \(p_i^\star\le c_i^0(\vn)/r_i\), and hence \(d_i(\vn)\ge0\). If \(r_i=0\), then \(d_i(\vn)=0\).
-
-A direct generator calculation gives
-
-$$
-\cL\chi_A^\star
-=
-\sum_{i\in A}
-\Bigg[
--r_i\chi_A^\star
-+
-\sum_{S\subseteq N(i)}
-d_i(S)\chi_S\chi_{A\setminus\{i\}}^\star
-+
-\sum_{\vn\ne S\subseteq N(i)}
-b_i(S)\chi_S\chi_A^\star
-\Bigg].
-\tag{6}
-$$
-
-No new dual process is needed to read the signs in this formula. For finite \(B\) and \(S\),
-
-$$
-\chi_S\chi_B^\star
-=
-\left(
-\prod_{j\in S\cap B}(1-p_j^\star)
-\right)
-\sum_{R\subseteq S}
-\left(
-\prod_{j\in S\setminus R}p_j^\star
-\right)
-\chi_{R\cup(B\setminus S)}^\star.
-\tag{7}
-$$
-
-All coefficients in (7) are nonnegative. Thus, after expanding the products in (6), the generator matrix in the centered-monomial basis has nonnegative off-diagonal entries. Its only a priori negative term is the diagonal term \(-\sum_{i\in A}r_i\).
-
-In finite volume, the exponential of this Metzler matrix has nonnegative entries. The usual finite-volume approximation, using finite range and uniformly bounded rates, gives the same conclusion in infinite volume. Therefore every finite signed measure \(\lambda\) satisfying
-
-$$
-\lambda\left(\chi_B^\star\right)\ge0
-\qquad(B\Subset\Lambda)
-$$
-
-also satisfies
-
-$$
-\lambda\left(P_t\chi_A^\star\right)\ge0.
-\tag{8}
-$$
-
-Apply (8) to \(\lambda=\nu_1-\nu_0\) to obtain (1). Since
-
-$$
-\chi_A
-=
-\sum_{B\subseteq A}
-\left(\prod_{i\in A\setminus B}p_i^\star\right)
-\chi_B^\star,
-$$
-
-the same order implies (2). Taking \(\lambda=\mu\) proves (3). Finally, the nonempty centered moments of \(\mu_{\mathbf p^\star}\) vanish, so (4) follows from (2).
-
-## Product-profile corollaries
-
-If
-
-$$
-\mathbf p^\star\le\mathbf p\le\mathbf q,
-$$
-
-then
-
-$$
-\mu_{\mathbf p}\left(P_t\chi_A\right)
+0
 \le
-\mu_{\mathbf q}\left(P_t\chi_A\right).
+C(\mathbf p,P)
+\le
+C(\mathbf q,P)
 $$
 
-More generally, suppose that two mixing laws admit a coupling \((\mathbf p,\mathbf q)\) with this coordinatewise order almost surely. Averaging the product-profile inequality gives the same comparison for the corresponding mixtures.
+for every end patch. The patch products are therefore ordered for every successful-interaction skeleton, and taking \(\mathbb E_A\) yields
 
-The reflected comparison below the critical profile is also a consequence. If
+$$
+\mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr)
+\le
+\mu_{\mathbf q}\bigl(P_t(\chi_A)\bigr).
+$$
+
+Apply this inequality to the coupled profiles \(\mathbf p_0\le\mathbf p_1\) and average over their coupling.
+
+
+## Domination below the critical density
+
+Let
+
+$$
+\nu_-
+=
+\int\mu_{\mathbf q}\,\Pi_-(d\mathbf q),
+\qquad
+\nu_+
+=
+\int\mu_{\mathbf p}\,\Pi_+(d\mathbf p).
+$$
+
+Suppose that \(\Pi_-\) and \(\Pi_+\) admit a coupling \((\mathbf q,\mathbf p)\) such that
 
 $$
 \mathbf q\le\mathbf p,
 \qquad
-\mathbf q+\mathbf p\ge2\mathbf p^\star,
+\mathbf q+\mathbf p\ge2\mathbf p^\star
+\qquad\text{almost surely}.
 $$
 
-then
+Then, for every \(A\Subset\Lambda\) and \(t\ge0\),
 
 $$
-\left|q_i-p_i^\star\right|
+\nu_-\bigl(P_t(\chi_A)\bigr)
 \le
-p_i-p_i^\star
-\qquad(i\in\Lambda).
+\nu_+\bigl(P_t(\chi_A)\bigr).
 $$
 
-Hence
+### Proof
+
+Fix profiles satisfying the two displayed inequalities. For every end patch, the affine contribution is nondecreasing, so
 
 $$
-\mu_{\mathbf q}\left(\chi_B^\star\right)
+C(\mathbf q,P)\le C(\mathbf p,P).
+$$
+
+Moreover, affinity gives
+
+$$
+C(\mathbf q,P)+C(\mathbf p,P)
+=
+2C((\mathbf q+\mathbf p)/2,P)
+\ge0,
+$$
+
+because \((\mathbf q+\mathbf p)/2\ge\mathbf p^\star\). Therefore
+
+$$
+\left|C(\mathbf q,P)\right|
 \le
-\mu_{\mathbf p}\left(\chi_B^\star\right)
+C(\mathbf p,P).
 $$
 
-for every finite \(B\), and therefore
+Using the Bernoulli-averaged patch representation and the nonnegativity of the bulk contributions,
 
 $$
-\mu_{\mathbf q}\left(P_t\chi_A\right)
-\le
-\mu_{\mathbf p}\left(P_t\chi_A\right).
+\begin{aligned}
+\mu_{\mathbf q}\bigl(P_t(\chi_A)\bigr)
+&\le
+\mathbb E_A\left[
+\prod_{P\in\mathcal B_t}C(P)
+\prod_{P\in\mathcal E_t}\left|C(\mathbf q,P)\right|
+\right]
+\\
+&\le
+\mathbb E_A\left[
+\prod_{P\in\mathcal B_t}C(P)
+\prod_{P\in\mathcal E_t}C(\mathbf p,P)
+\right]
+\\
+&=
+\mu_{\mathbf p}\bigl(P_t(\chi_A)\bigr).
+\end{aligned}
 $$
 
-This comparison may again be averaged under any coupling satisfying the two displayed profile inequalities almost surely.
+Average this inequality over the coupled profiles.

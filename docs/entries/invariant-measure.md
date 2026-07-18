@@ -65,13 +65,15 @@ $$
 For fixed \(t\ge0\) and every bounded continuous function \(f\), the semigroup property gives
 
 $$
+\begin{aligned}
 \int_\Omega f\,d(\mu_TP_t)-\int_\Omega f\,d\mu_T
-=
+&=
 \frac1T\left(
 \int_T^{T+t}\int_\Omega f\,d(\mu P_s)\,ds
 -
 \int_0^t\int_\Omega f\,d(\mu P_s)\,ds
 \right).
+\end{aligned}
 $$
 
 Therefore
@@ -103,8 +105,6 @@ $$
 is compact and metrizable in the product topology. Taking \(\mathcal M=\mathcal P(\Omega)\) shows that every Feller IPS on \(\Omega\) has at least one invariant probability measure.
 
 More restrictive choices of \(\mathcal M\) produce invariant measures with additional properties. For example, if a translation-invariant IPS preserves the nonempty weakly closed convex class of translation-invariant probability measures, then that class contains an invariant measure.
-
-For a uniformly bounded finite-range spin system with the [patch positivity property](patch-positivity-property.md), the [high-density class](high-density-measure.md) is another example: it is nonempty, convex, weakly closed, and preserved by the semigroup.
 
 ## Relation to ergodicity
 
