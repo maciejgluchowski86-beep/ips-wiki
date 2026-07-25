@@ -52,7 +52,8 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - Patch critical density: `docs/entries/patch-critical-density.md`
 - High-density measure: `docs/entries/high-density-measure.md`
 - Patch representation of spin systems: `docs/entries/patch-representation-of-spin-systems.md`
-- Undoing duality under confined late interactions: `docs/entries/undoing-duality-under-confined-late-interactions.md`
+- Undoing duality under confined interactions: `docs/entries/undoing-duality-under-confined-interactions.md`
+- Finite propagation for zero-boundary restrictions: `docs/entries/finite-propagation-for-zero-boundary-restrictions.md`
 - Exponential relaxation under confined late interactions: `docs/entries/exponential-relaxation-under-confined-late-interactions.md`
 - Monomial monotonicity for high-density measures: `docs/entries/monomial-monotonicity-for-high-density-measures.md`
 - Pure-death comparison under patch positivity: `docs/entries/pure-death-comparison-under-patch-positivity.md`

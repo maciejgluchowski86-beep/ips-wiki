@@ -25,6 +25,12 @@ $$
 B(i,r)=\{j\in\Lambda:d(i,j)\le r\}.
 $$
 
+For \(A\Subset\Lambda\), write
+
+$$
+B(A,r)=\bigcup_{i\in A}B(i,r).
+$$
+
 ## Polynomial growth
 
 The lattice has \((k,D)\)-polynomial growth if there are constants \(k<\infty\) and \(D>0\) such that
@@ -33,6 +39,14 @@ $$
 \sup_{i\in\Lambda}|B(i,r)|\le k r^D
 \qquad\text{for all }r\ge1.
 $$
+
+Consequently,
+
+$$
+|B(A,r)|\le k|A|(1\vee r)^D
+$$
+
+for every \(A\Subset\Lambda\) and \(r\ge0\).
 
 When only the existence of some such constants matters, one says that \(\Lambda\) has polynomial growth.
 

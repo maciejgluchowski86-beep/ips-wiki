@@ -43,11 +43,12 @@ A minimal dependency order is:
 7. [Patch critical density](entries/patch-critical-density.md)
 8. [High-density measure](entries/high-density-measure.md)
 9. [Patch representation of spin systems](entries/patch-representation-of-spin-systems.md)
-10. [Undoing duality under confined late interactions](entries/undoing-duality-under-confined-late-interactions.md)
-11. [Exponential relaxation under confined late interactions](entries/exponential-relaxation-under-confined-late-interactions.md)
-12. [Monomial monotonicity for high-density measures](entries/monomial-monotonicity-for-high-density-measures.md)
-13. [Pure-death comparison under patch positivity](entries/pure-death-comparison-under-patch-positivity.md)
-14. [Common invariant limit under uniform pure deaths](entries/common-invariant-limit-under-uniform-pure-deaths.md)
+10. [Undoing duality under confined interactions](entries/undoing-duality-under-confined-interactions.md)
+11. [Finite propagation for zero-boundary restrictions](entries/finite-propagation-for-zero-boundary-restrictions.md)
+12. [Exponential relaxation under confined late interactions](entries/exponential-relaxation-under-confined-late-interactions.md)
+13. [Monomial monotonicity for high-density measures](entries/monomial-monotonicity-for-high-density-measures.md)
+14. [Pure-death comparison under patch positivity](entries/pure-death-comparison-under-patch-positivity.md)
+15. [Common invariant limit under uniform pure deaths](entries/common-invariant-limit-under-uniform-pure-deaths.md)
 
 ## KCSM entries
 

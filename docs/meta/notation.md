@@ -40,6 +40,8 @@ This page records common notation for the public wiki.
 | \(\mathcal P_T,\mathcal P\) | horizon-\(T\) patch family, and patch family over all time | signed additive set processes |
 | \(\mathcal B_t,\mathcal C_t,\mathcal E_t\) | bulk, cut, and end patch families | patches |
 | \(\mathbf{Cone}_T\) | sites reached by successful interactions by time \(T\) | patches |
+| \(E_{s,u}^R\) | successful interactions in \((s,u]\) are confined to \(R\) | patches |
+| \(P_t^{R,0}\) | zero-boundary spin-system semigroup on \(R\) | spin systems |
 | \(\ind(X)\) | indicator of the event or statement \(X\) | probability |
 | \(\nu\) | invariant measure, when unique or distinguished | ergodicity |
 | \(\mu P_t\) | law at time \(t\) started from law \(\mu\) | ergodicity |

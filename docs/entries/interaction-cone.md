@@ -33,6 +33,8 @@ $$
 \bigcup_{T<\infty}\mathbf{Cone}_T.
 $$
 
+If \(A_0\subseteq R\), then \(\{\mathbf{Cone}_T\subseteq R\}\) is the event \(E_T^R\) that the successful interactions up to time \(T\) are [confined to \(R\)](undoing-duality-under-confined-interactions.md#confined-interactions).
+
 At every fixed finite horizon \(T\ge0\), almost surely, sending an end [patch](patch.md) to its site is a bijection from \(\mathcal E_T\) to \(\mathbf{Cone}_T\). At time zero, \(\mathcal E_0\) consists of the zero-length \(\mathsf{IE}\) patches based at the sites of \(A_0\). In particular,
 
 $$
