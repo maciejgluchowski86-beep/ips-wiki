@@ -40,7 +40,7 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 2. `docs/entries/interaction-cone.md`: sites reached from the initial dual set by successful interactions.
 3. `docs/entries/patch-consistency-event.md`: local patch measure, consistency event, and conditioned patch measure.
 4. `docs/entries/patch-factorization.md`: finite-dimensional product decomposition of patch laws conditional on \(\cG_T\), for \(T\le\infty\).
-5. `docs/entries/patch-contribution.md`: explicit full, full-cut, and end patch contribution formulas in dual-rate form and spin-rate form.
+5. `docs/entries/patch-contribution.md`: one full-patch contribution definition covering finite and infinite lifetimes, together with explicit cut and end formulas in dual-rate form and spin-rate form.
 6. `docs/entries/patch-positivity-property.md`: coefficient criterion guaranteeing nonnegative bulk patch contributions.
 7. `docs/entries/patch-critical-density.md`: minimal one-density profile making every affine end-patch contribution nonnegative.
 8. `docs/entries/high-density-measure.md`: centered-moment definitions of the high-density class \(\mathcal M_\star\) and lower convergence class \(\mathcal M_-\), with product-profile characterizations.
@@ -61,7 +61,7 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 6. `docs/entries/fa-1f-model.md`: FA-1f on an arbitrary lattice.
 7. `docs/entries/east-model.md`: East model as FA-1f on an oriented lattice using \(N(i)\).
 8. `docs/entries/monomial-duality-for-fa-1f.md`: systematic dual rates, signs, and Feynman--Kac weights for hard/soft FA-1f with optional pure-death perturbation.
-9. `docs/entries/patch-contributions-for-fa-1f.md`: hard FA-1f patch contributions with explicit full-cut, bulk, and end formulas.
+9. `docs/entries/patch-contributions-for-fa-1f.md`: hard FA-1f patch contributions with unified full-patch, cut, and end formulas.
 10. `docs/entries/patch-positivity-for-fa-1f.md`: verification that FA-1f has patch positivity and characterization of pure-noise perturbations preserving it.
 11. `docs/entries/patch-critical-density-for-fa-1f.md`: identification of the FA-1f patch critical density with its equilibrium one-density.
 12. `docs/entries/kcsm-relaxation-and-mixing.md`: relaxation time, mixing time, and precutoff terminology.

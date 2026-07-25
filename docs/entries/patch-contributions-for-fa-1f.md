@@ -79,26 +79,32 @@ $$
 
 When \(e(P)=\infty\), the occurrences of \(\varphi(\Delta_+)\) and \(\varphi(\Delta)\) in (1) mean their limits at infinity.
 
-For a bulk patch \(P\in\mathcal B_t\), set \(t=e(P)\) and \(z=1\). Thus
+For a full patch \(P\in\mathcal P\), taking \(t\uparrow e(P)\) in (1) gives
 
 $$
 C(P)
 =
 \begin{cases}
 \dfrac{\psi(\Delta,1)}{\varphi(\Delta)},
-& (\mathsf X(P),\mathsf Y(P))=(\mathsf I,\mathsf I),
+& \mathsf X(P)=\mathsf I,
+\quad
+\mathsf Y(P)\in\{\mathsf I,\mathsf E\},
 \\[1.2em]
 e^{2p\Delta},
 & (\mathsf X(P),\mathsf Y(P))=(\mathsf I,\mathsf O),
 \\[1.2em]
 \dfrac{q e^{-\Delta}}{p+\varphi(\Delta)},
-& (\mathsf X(P),\mathsf Y(P))=(\mathsf O,\mathsf I),
+& \mathsf X(P)=\mathsf O,
+\quad
+\mathsf Y(P)\in\{\mathsf I,\mathsf E\},
 \\[1.2em]
 e^{2p\Delta},
 & (\mathsf X(P),\mathsf Y(P))=(\mathsf O,\mathsf O).
 \end{cases}
 \tag{2}
 $$
+
+The functions in (2) are evaluated at \(\Delta=\infty\) by taking limits. The terminal-\(\mathsf O\) rows occur only for finite \(\Delta\).
 
 For an end patch \(P\in\mathcal E_t\), one has \(e(P)=t\) and \(\Delta_+=0\), so
 
@@ -115,7 +121,7 @@ C(z,P)
 \tag{3}
 $$
 
-The last rows of (2) and (3) use
+The simplifications in (2) and (3) use
 
 $$
 \psi(\Delta,1)-p=qe^{-\Delta},

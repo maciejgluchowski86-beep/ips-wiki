@@ -47,22 +47,31 @@ X_{q-}^P, & q>s.
 \end{cases}
 $$
 
-For a finite patch \(P\in\mathcal P\), define
+For a full patch \(P\in\mathcal P\), define
 
 $$
+\begin{aligned}
 F(P)
-=
+&=
 \sigma_P
 \exp\left(
 V_i\int_s^eX_u^P\,du
+\right)
+\\
+&:=
+\lim_{q\uparrow e}
+\sigma_P
+\exp\left(
+V_i\int_s^qX_u^P\,du
 \right),
-\qquad
+\\
 C(P)
-=
+&=
 \mathbb E_P^{\mathrm{con}}[F(P)].
+\end{aligned}
 $$
 
-For \(s\le t\le e\) and \(z\in[0,1]\), define
+The endpoint limit is also the convention when \(e=\infty\). For \(s\le t\le e\), \(t<\infty\), and \(z\in[0,1]\), define
 
 $$
 F_t(z,P)
@@ -185,7 +194,15 @@ z e^{V_i\Delta_-},
 \tag{1}
 $$
 
-For a finite patch \(P\in\mathcal P\), \(C(P)=C_e(1,P)\); at every horizon \(t\ge e(P)\), this is its bulk contribution. For an end patch \(Q\in\mathcal E_t\), \(C(z,Q)=C_t(z,Q)\) and \(\Delta_+=0\). For a cut patch \(P\in\mathcal C_t\), its contribution is \(C_t(z,P)\), with \(\Delta_+=e(P)-t>0\), possibly infinite. Thus (1) contains the bulk, end, and cut patch contributions. When \(e=\infty\), the terms \(\varphi_i(\Delta_+)\) and \(\varphi_i(\Delta)\) mean their limits at infinity.
+For every full patch \(P\in\mathcal P\),
+
+$$
+C(P)
+=
+\lim_{t\uparrow e(P)}C_t(1,P).
+$$
+
+Thus (1) gives the full contribution by the same endpoint limit for every \(P\), with \(e(P)\) held fixed. All functions at infinite arguments are interpreted by their limits. Since an infinite patch has terminal label \(\mathsf E\), the \(\mathsf{IO}\) and \(\mathsf{OO}\) rows never occur with \(e(P)=\infty\). Every bulk factor is the full contribution of a patch in \(\mathcal B_t\). For an end patch \(Q\in\mathcal E_t\), \(C(z,Q)=C_t(z,Q)\) and \(\Delta_+=0\). For a cut patch \(P\in\mathcal C_t\), its contribution is \(C_t(z,P)\), with \(\Delta_+=e(P)-t>0\), possibly infinite. Thus (1) contains the full, bulk, end, and cut patch contributions.
 
 ## Spin-system rate form
 
@@ -253,7 +270,7 @@ z e^{V_i\Delta_-},
 \tag{2}
 $$
 
-The same bulk, end, and cut patch conventions stated after (1) apply to (2).
+The same full, bulk, end, and cut patch conventions stated after (1) apply to (2).
 
 ## Calculation
 
@@ -370,3 +387,5 @@ $$
 $$
 
 transform (1) into (2).
+
+Taking \(t\uparrow e(P)\) in the same calculation proves the displayed identity for \(C(P)\), including \(e(P)=\infty\).

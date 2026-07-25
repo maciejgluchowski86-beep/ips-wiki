@@ -55,7 +55,7 @@ $$
 \tag{2}
 $$
 
-Here \(\mathcal P\) is the full [patch](patch.md) family of the signed dual started from \(A\), and the integrand is defined to be zero when \(\left|\mathcal P\right|=\infty\).
+Here \(\mathcal P\) is the full [patch](patch.md) family of the signed dual started from \(A\), and the [full-patch contribution](patch-contribution.md) \(C(P)\) is defined uniformly for every \(P\in\mathcal P\). The integrand is defined to be zero when \(\left|\mathcal P\right|=\infty\).
 
 The profile condition used for product initial laws is contained in this formulation. Indeed, the [product-measure characterization](high-density-measure.md#bernoulli-product-measures) of \(\mathcal M_-\) gives
 
@@ -159,14 +159,14 @@ $$
 
 By the [duality noise lemma](duality-noise-lemma.md), \(\cL\) and \(\cL^\varepsilon\) have the same signed dual and the same full [successful-interaction](successful-interaction.md) set. Write \(P_t^\varepsilon\) and \(C^\varepsilon\) for the semigroup and patch contributions associated with \(\cL^\varepsilon\). The [pure-death comparison](pure-death-comparison-under-patch-positivity.md) shows that \(\cL^\varepsilon\) has patch positivity and the same critical profile \(\mathbf p^\star\).
 
-For every finite patch,
+The same coefficientwise comparison in the unified full-patch formula gives, for every \(P\in\mathcal P\),
 
 $$
 0\le C(P)\le C^\varepsilon(P).
 \tag{5}
 $$
 
-If \(P\) has terminal type \(\mathsf O\), then it is active throughout its lifetime and the noise comparison is exact:
+Every patch with terminal type \(\mathsf O\) is finite. It is active throughout its lifetime, and the noise comparison is exact:
 
 $$
 C(P)
@@ -353,7 +353,7 @@ q_i+(z-q_i)e^{-r_i\Delta}.
 \tag{13}
 $$
 
-Define \(K_{T,\infty}(Q)\) by replacing \(\psi_i(\Delta_t,z)\) in (11) by \(q_i\). The result is independent of \(z\). On \(L_T\), the end patches extend to the infinite patches of the full family, and
+Letting \(t\to\infty\) in (11) replaces \(\psi_i(\Delta_t,z)\) by \(q_i\). Denote the resulting factor by \(K_{T,\infty}(Q)\); it is independent of \(z\). On \(L_T\), each end patch \(Q\in\mathcal E_T\) extends to an infinite full patch, and \(K_{T,\infty}(Q)\) is its full contribution together with the conditional probability of that extension. Hence
 
 $$
 \mathbb E_A\left[

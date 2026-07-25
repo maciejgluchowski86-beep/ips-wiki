@@ -134,7 +134,7 @@ $$
 \mathsf Y(P)\in\{\mathsf I,\mathsf O,\mathsf E\}.
 $$
 
-The family of all patches constructed from the all-time successful-interaction set is denoted by \(\mathcal P\). A patch is finite when \(e(P)<\infty\) and infinite when \(e(P)=\infty\). The label \(\mathsf E\) records that the patch has no successful-touch terminal boundary. For \(P\in\mathcal P\), this occurs precisely when \(P\) is infinite. The same label is assigned below to an end patch, whose terminal boundary is the time horizon rather than a successful interaction.
+The family of all patches constructed from the all-time successful-interaction set is denoted by \(\mathcal P\). A patch is finite when \(e(P)<\infty\) and infinite when \(e(P)=\infty\). The label \(\mathsf E\) records that the patch has no successful-touch terminal boundary. For \(P\in\mathcal P\), this occurs precisely when \(P\) is infinite. Thus every infinite patch has type \(\mathsf{IE}\) or \(\mathsf{OE}\), and every \(\mathsf{XO}\)-patch is finite. The same label \(\mathsf E\) is assigned below to an end patch, whose terminal boundary is the time horizon rather than a successful interaction.
 
 Every initially active site begins an incoming patch at time zero. Every genuine successful interaction cuts spacetime at its source and target sites, ending the preceding patches and beginning new ones at those sites. Every active spacetime point lies in the spacetime projection of a patch.
 
