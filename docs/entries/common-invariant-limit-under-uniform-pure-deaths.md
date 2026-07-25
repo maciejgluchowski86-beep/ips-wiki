@@ -316,10 +316,10 @@ The full less noisy product has mass at most one: on \(\{|\mathcal P|<\infty\}\)
 
 ### No-late-interaction terms
 
-Set \(\tau=t-T\). On \(L_{T,t}\), every \(Q\in\mathcal E_T\) has a unique extension through time \(t\) with no intervening successful interaction. The [empty-neighbour relaxation identity](patch-contribution.md#empty-neighbour-relaxation) shows that its end contribution, multiplied by the conditional probability of this extension, is \(C(\psi_{i(Q)}(\tau,z),Q)\). Therefore
+On \(L_{T,t}\), every \(Q\in\mathcal E_T\) has the [no-interaction continuation](patch-contribution.md#no-interaction-continuation) \(Q^{\uparrow t}\). Its contribution includes the conditional probability of the continuation, so
 
 $$
-\mathbb E_A\left[W_t^\nu\ind(L_{T,t})\mid\cG_T\right]=\prod_{P\in\mathcal B_T}C(P)\,\nu\left[\prod_{Q\in\mathcal E_T}C\left(\psi_{i(Q)}(\tau,\eta(i(Q))),Q\right)\right].
+\mathbb E_A\left[W_t^\nu\ind(L_{T,t})\mid\cG_T\right]=\prod_{P\in\mathcal B_T}C(P)\,\nu\left[\prod_{Q\in\mathcal E_T}C(\eta(i(Q)),Q^{\uparrow t})\right].
 \tag{14}
 $$
 
@@ -331,20 +331,20 @@ r_i=c_i^0(\vn)+c_i^1(\vn),
 q_i=\frac{c_i^0(\vn)}{r_i}.
 $$
 
-The uniform death bound gives \(r_i\ge\varepsilon\), and \(\psi_i(\tau,z)\to q_i\) as \(\tau\to\infty\). On \(L_T\), every \(Q\in\mathcal E_T\) extends to an infinite full patch. Hence
+The uniform death bound gives \(r_i\ge\varepsilon\). On \(L_T\), every \(Q\in\mathcal E_T\) has the infinite continuation \(Q^{\uparrow\infty}\). Hence
 
 $$
-\mathbb E_A\left[G_A\ind(L_T)\mid\cG_T\right]=\prod_{P\in\mathcal B_T}C(P)\prod_{Q\in\mathcal E_T}C(q_{i(Q)},Q).
+\mathbb E_A\left[G_A\ind(L_T)\mid\cG_T\right]=\prod_{P\in\mathcal B_T}C(P)\prod_{Q\in\mathcal E_T}C(Q^{\uparrow\infty}).
 \tag{15}
 $$
 
-Let \(\psi_i^\varepsilon\) be the empty-neighbour relaxation for the less noisy process. The [empty-neighbour bound](patch-critical-density.md#empty-neighbour-bound) gives \(p_i^\star\le q_i\). The monotone coupling of the two empty-neighbour chains gives \(\psi_i(\tau,z)\le\psi_i^\varepsilon(\tau,z)\), while removal of the pure deaths changes \(r_i\) to \(r_i-\varepsilon\). For \(Q\in\mathcal E_T\) based at \(i=i(Q)\), equation (7) and the affine dependence on \(z\) now give
+Let \(C^\varepsilon(z,Q^{\uparrow t})\) denote the analogous continuation contribution for the less noisy process. The [empty-neighbour bound](patch-critical-density.md#empty-neighbour-bound) gives \(p_i^\star\le q_i\). Removing the pure deaths increases the continued end value by monotone coupling and changes \(r_i\) to \(r_i-\varepsilon\). For \(Q\in\mathcal E_T\) based at \(i=i(Q)\), equation (7) and the affine dependence on \(z\) give
 
 $$
 \begin{aligned}
-0&\le C\left(\psi_i(\tau,p_i^\star),Q\right)\le C^\varepsilon\left(\psi_i^\varepsilon(\tau,p_i^\star),Q\right),\\
-0&\le\partial_z\!\left[C\left(\psi_i(\tau,z),Q\right)\right]\le e^{-\varepsilon\tau}\partial_z\!\left[C^\varepsilon\left(\psi_i^\varepsilon(\tau,z),Q\right)\right],\\
-0&\le C(q_i,Q)-C\left(\psi_i(\tau,p_i^\star),Q\right)\le e^{-\varepsilon\tau}C(q_i,Q).
+0&\le C(p_i^\star,Q^{\uparrow t})\le C^\varepsilon(p_i^\star,Q^{\uparrow t}),\\
+0&\le\partial_zC(z,Q^{\uparrow t})\le e^{-\varepsilon(t-T)}\partial_zC^\varepsilon(z,Q^{\uparrow t}),\\
+0&\le C(Q^{\uparrow\infty})-C(p_i^\star,Q^{\uparrow t})\le e^{-\varepsilon(t-T)}C(Q^{\uparrow\infty}).
 \end{aligned}
 \tag{16}
 $$
@@ -352,26 +352,26 @@ $$
 Indeed, the last line follows directly from
 
 $$
-C(q_i,Q)-C\left(\psi_i(\tau,p_i^\star),Q\right)=b(Q)(q_i-p_i^\star)e^{-r_i\tau}.
+C(Q^{\uparrow\infty})-C(p_i^\star,Q^{\uparrow t})=b(Q)(q_i-p_i^\star)e^{-r_i(t-T)}.
 $$
 
-Here \(r_i\ge\varepsilon\) and \(b(Q)(q_i-p_i^\star)\le C(q_i,Q)\).
+Here \(r_i\ge\varepsilon\) and \(b(Q)(q_i-p_i^\star)\le C(Q^{\uparrow\infty})\).
 
 Expanding the \(\nu\)-average in (14) around \(\mathbf p^\star\), every nonconstant term contains at least one slope. The first two lines of (16) therefore give
 
 $$
-0\le\nu\left[\prod_{Q\in\mathcal E_T}C\left(\psi_{i(Q)}(\tau,\eta(i(Q))),Q\right)\right]-\prod_{Q\in\mathcal E_T}C\left(\psi_{i(Q)}(\tau,p_{i(Q)}^\star),Q\right)\le e^{-\varepsilon\tau}\nu\left[\prod_{Q\in\mathcal E_T}C^\varepsilon\left(\psi_{i(Q)}^\varepsilon(\tau,\eta(i(Q))),Q\right)\right].
+0\le\nu\left[\prod_{Q\in\mathcal E_T}C(\eta(i(Q)),Q^{\uparrow t})\right]-\prod_{Q\in\mathcal E_T}C(p_{i(Q)}^\star,Q^{\uparrow t})\le e^{-\varepsilon(t-T)}\nu\left[\prod_{Q\in\mathcal E_T}C^\varepsilon(\eta(i(Q)),Q^{\uparrow t})\right].
 \tag{17}
 $$
 
 The last line of (16) and the telescoping product inequality give
 
 $$
-0\le\prod_{Q\in\mathcal E_T}C(q_{i(Q)},Q)-\prod_{Q\in\mathcal E_T}C\left(\psi_{i(Q)}(\tau,p_{i(Q)}^\star),Q\right)\le|\mathcal E_T|e^{-\varepsilon\tau}\prod_{Q\in\mathcal E_T}C(q_{i(Q)},Q).
+0\le\prod_{Q\in\mathcal E_T}C(Q^{\uparrow\infty})-\prod_{Q\in\mathcal E_T}C(p_{i(Q)}^\star,Q^{\uparrow t})\le|\mathcal E_T|e^{-\varepsilon(t-T)}\prod_{Q\in\mathcal E_T}C(Q^{\uparrow\infty}).
 \tag{18}
 $$
 
-On \(E_T^R\), the [interaction-cone identity](interaction-cone.md) gives \(|\mathcal E_T|=|\mathbf{Cone}_T|\le|R|\). After multiplication by the bulk contributions, the right-hand side of (17) is \(e^{-\varepsilon\tau}\) times the conditional no-late-interaction weight for the less noisy process, whose expectation is at most one by (9). The right-hand side of (18) is at most \(|R|e^{-\varepsilon\tau}\) times the conditional limiting no-late-interaction weight, which is dominated by the full less noisy product controlled after (13). Multiplying by \(\ind(E_T^R)\) and integrating gives
+On \(E_T^R\), the [interaction-cone identity](interaction-cone.md) gives \(|\mathcal E_T|=|\mathbf{Cone}_T|\le|R|\). After multiplication by the bulk contributions, the right-hand side of (17) is \(e^{-\varepsilon(t-T)}\) times the conditional no-late-interaction weight for the less noisy process, whose expectation is at most one by (9). The right-hand side of (18) is at most \(|R|e^{-\varepsilon(t-T)}\) times the conditional limiting no-late-interaction weight, which is dominated by the full less noisy product controlled after (13). Multiplying by \(\ind(E_T^R)\) and integrating gives
 
 $$
 \left|\mathbb E_A\left[W_t^\nu\ind(E_T^R\cap L_{T,t})\right]-\mathbb E_A\left[G_A\ind(E_T^R\cap L_T)\right]\right|\le(1+|R|)e^{-\varepsilon(t-T)}.

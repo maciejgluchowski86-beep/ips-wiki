@@ -41,4 +41,4 @@ $$
 |\mathcal E_T|=|\mathbf{Cone}_T|.
 $$
 
-If no ordinary successful interaction occurs after time \(T\), then \(\mathbf{Cone}_t=\mathbf{Cone}_T\) for every \(t\ge T\). Each site in this common cone then carries one infinite patch, whose truncation at time \(t\) is the corresponding element of \(\mathcal E_t\).
+If no ordinary successful interaction occurs after time \(T\), then \(\mathbf{Cone}_t=\mathbf{Cone}_T\) for every \(t\ge T\). Each site in this common cone then carries one infinite patch \(P\), whose truncation \(P^{\downarrow t}\) is the corresponding element of \(\mathcal E_t\).

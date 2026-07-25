@@ -155,20 +155,20 @@ On the null event of simultaneous successful touches at the same site, use the d
 For \(t\ge0\) and \(P\in\mathcal P\), define
 
 $$
-P^{(t)}=\vn
+P^{\downarrow t}=\vn
 \qquad\text{when }t<s(P).
 $$
 
 When \(t\ge s(P)\), define
 
 $$
-e^{(t)}(P)=\min\{e(P),t\}
+e^{\downarrow t}(P)=\min\{e(P),t\}
 $$
 
 and
 
 $$
-\mathsf Y^{(t)}(P)
+\mathsf Y^{\downarrow t}(P)
 =
 \begin{cases}
 \mathsf Y(P), & e(P)\le t,\\
@@ -179,21 +179,21 @@ $$
 The truncation of \(P\) at time \(t\) is
 
 $$
-P^{(t)}
+P^{\downarrow t}
 =
-\{i(P)\}\times[s(P),e^{(t)}(P))
+\{i(P)\}\times[s(P),e^{\downarrow t}(P))
 \times
-\left\{\bigl(\mathsf X(P)\mathsf Y^{(t)}(P),S(P)\bigr)\right\}.
+\left\{\bigl(\mathsf X(P)\mathsf Y^{\downarrow t}(P),S(P)\bigr)\right\}.
 $$
 
-Thus truncation preserves the site, start time, initial label, and initial target set. If the time horizon cuts the patch, its terminal label is replaced by \(\mathsf E\). When \(t=s(P)<e(P)\), the truncation is a zero-length end patch. If the patch has already ended, then \(P^{(t)}=P\), including its original terminal label.
+Thus truncation preserves the site, start time, initial label, and initial target set. If the time horizon cuts the patch, its terminal label is replaced by \(\mathsf E\). When \(t=s(P)<e(P)\), the truncation is a zero-length end patch. If the patch has already ended, then \(P^{\downarrow t}=P\), including its original terminal label.
 
 The bulk patch family at time \(t\) is
 
 $$
 \mathcal B_t
 =
-\{P\in\mathcal P:P^{(t)}=P\}
+\{P\in\mathcal P:P^{\downarrow t}=P\}
 =
 \{P\in\mathcal P:e(P)\le t\}.
 $$
@@ -206,7 +206,7 @@ $$
 &=
 \left\{
 P\in\mathcal P:
-\vn\ne P^{(t)}\ne P
+\vn\ne P^{\downarrow t}\ne P
 \right\}
 \\
 &=
@@ -222,7 +222,7 @@ Their truncations form the end patch family
 $$
 \mathcal E_t
 =
-\{P^{(t)}:P\in\mathcal C_t\}.
+\{P^{\downarrow t}:P\in\mathcal C_t\}.
 $$
 
 The finite-horizon patch family is
@@ -238,10 +238,10 @@ Sending a cut patch to its truncation is a bijection
 $$
 \mathcal C_t\longrightarrow\mathcal E_t,
 \qquad
-P\longmapsto P^{(t)}.
+P\longmapsto P^{\downarrow t}.
 $$
 
-Thus a cut patch is the original object \(P\in\mathcal C_t\), while its end patch is the truncated object \(P^{(t)}\in\mathcal E_t\). The former retains its actual end time and terminal label; the latter ends at time \(t\) and has terminal label \(\mathsf E\).
+Thus a cut patch is the original object \(P\in\mathcal C_t\), while its end patch is the truncated object \(P^{\downarrow t}\in\mathcal E_t\). The former retains its actual end time and terminal label; the latter ends at time \(t\) and has terminal label \(\mathsf E\).
 
 The possible labels in \(\mathcal P_t\) are
 
@@ -252,7 +252,7 @@ $$
 
 Every end patch has terminal label \(\mathsf E\), but that label alone does not make a patch an end patch: every infinite patch in \(\mathcal P\) also has terminal label \(\mathsf E\). Membership in \(\mathcal E_t\), rather than the terminal label alone, distinguishes an end patch from its original cut patch in \(\mathcal C_t\).
 
-Set \(P^{(\infty)}=P\) and \(\mathcal P_\infty=\mathcal P\).
+Set \(P^{\downarrow\infty}=P\) and \(\mathcal P_\infty=\mathcal P\).
 
 For every fixed \(t\ge0\), almost surely, sending an end patch to its site is a bijection from \(\mathcal E_t\) to the [interaction cone](interaction-cone.md) \(\mathbf{Cone}_t\). At time zero these are the zero-length \(\mathsf{IE}\) patches based at the sites of \(A_0\). Consequently,
 

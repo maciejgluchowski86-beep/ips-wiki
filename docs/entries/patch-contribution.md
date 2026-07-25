@@ -260,11 +260,37 @@ $$
 
 If \(r_i=0\), then \(\psi_i(u,z)=z\), and the semigroup identity remains valid.
 
-Consequently, if an end patch \(Q\) based at \(i\) is extended for time \(v\) without a successful interaction, then its end contribution multiplied by the conditional probability of the extension is
+### No-interaction continuation
+
+Let \(Q\) be an end patch based at \(i\), and let \(u\ge e(Q)\). Write \(Q^{\uparrow u}\) for the continuation of \(Q\) through time \(u\) without an intervening successful interaction. This notation retains \(Q\) as the root of the continuation; it is not merely the longer geometric end patch. Define its contribution, including the conditional probability of the continuation, by
 
 $$
-C\left(\psi_i(v,z),Q\right).
+C(z,Q^{\uparrow u})
+:=
+C\left(\psi_i(u-e(Q),z),Q\right).
 $$
+
+Thus \(C(z,Q^{\uparrow e(Q)})=C(z,Q)\). Equivalently, \(C(z,Q^{\uparrow u})\) is the ordinary contribution of the geometrically extended end patch, multiplied by the conditional probability that no successful interaction occurs during the extension.
+
+Writing \(b(Q)=\partial_zC(z,Q)\), the affine relaxation gives
+
+$$
+\partial_zC(z,Q^{\uparrow u})
+=
+e^{-r_i(u-e(Q))}b(Q).
+$$
+
+If \(r_i>0\), the infinite no-interaction continuation has the contribution
+
+$$
+C(Q^{\uparrow\infty})
+:=
+\lim_{u\to\infty}C(z,Q^{\uparrow u})
+=
+C(q_i,Q),
+$$
+
+which is independent of \(z\).
 
 With \(\Delta_-,\Delta_+,\Delta\) as above,
 

@@ -192,7 +192,7 @@ $$
 
 ## Cut and end patches
 
-Let \(P\in\mathcal C_t\) be a cut patch and let \(Q=P^{(t)}\in\mathcal E_t\) be its end patch. Since \(e(Q)=t\) and \(\mathsf Y(Q)=\mathsf E\), the law \(\mathbb P_Q^{\mathrm{con}}\) uses only the interior interactions before \(t\) and imposes consistency only through time \(t\).
+Let \(P\in\mathcal C_t\) be a cut patch and let \(Q=P^{\downarrow t}\in\mathcal E_t\) be its end patch. Since \(e(Q)=t\) and \(\mathsf Y(Q)=\mathsf E\), the law \(\mathbb P_Q^{\mathrm{con}}\) uses only the interior interactions before \(t\) and imposes consistency only through time \(t\).
 
 By contrast, \(\mathbb P_P^{\mathrm{con}}\) uses the interior interactions before the actual end time \(e(P)\) and the actual terminal label \(\mathsf Y(P)\). Thus the labeled objects \(P\) and \(Q\) determine the two consistency laws without an additional horizon index.
 
