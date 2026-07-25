@@ -236,6 +236,36 @@ z e^{-(c_i^0(\vn)+c_i^1(\vn))\Delta_-}\varphi_i(\Delta_+).
 \end{aligned}
 $$
 
+### Empty-neighbour relaxation
+
+Put
+
+$$
+r_i=c_i^0(\vn)+c_i^1(\vn).
+$$
+
+If \(r_i>0\), let
+
+$$
+q_i=\frac{c_i^0(\vn)}{r_i}.
+$$
+
+Then, for \(u,v\ge0\), the one-variable end relaxation satisfies
+
+$$
+\psi_i(u,z)=q_i+(z-q_i)e^{-r_i u},
+\qquad
+\psi_i(u+v,z)=\psi_i\left(u,\psi_i(v,z)\right).
+$$
+
+If \(r_i=0\), then \(\psi_i(u,z)=z\), and the semigroup identity remains valid.
+
+Consequently, if an end patch \(Q\) based at \(i\) is extended for time \(v\) without a successful interaction, then its end contribution multiplied by the conditional probability of the extension is
+
+$$
+C\left(\psi_i(v,z),Q\right).
+$$
+
 With \(\Delta_-,\Delta_+,\Delta\) as above,
 
 $$

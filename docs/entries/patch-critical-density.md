@@ -56,7 +56,7 @@ $$
 
 Under patch positivity, every ratio contributing to the supremum is at most \(1\), so \(p_i^\star\in[0,1]\). The inner supremum is defined to be \(0\) when its index set is empty.
 
-## Proof
+### Proof
 
 The \(\mathsf{IE}\) end contribution is nonnegative for every \(p\in[0,1]\). For an \(\mathsf{OE}\) end patch with initial interaction target \(S\), the denominator is positive and the numerator is
 
@@ -106,3 +106,29 @@ p
 $$
 
 If \(c_i^0(S)+c_i^1(S)=0\), patch positivity gives \(c_i^0(S)\ge0\), so this target imposes no restriction. When \(c_i^0(\vn)+c_i^1(\vn)=0\), the same conclusion follows directly from \(\psi_i(\Delta,p)=p\). Taking the supremum over nonempty targets proves the formula.
+
+## Empty-neighbour bound
+
+Suppose that
+
+$$
+r_i=c_i^0(\vn)+c_i^1(\vn)>0,
+\qquad
+q_i=\frac{c_i^0(\vn)}{r_i}.
+$$
+
+Then
+
+$$
+p_i^\star\le q_i.
+$$
+
+Indeed, for every nonempty \(S\subseteq N(i)\) with \(c_i^0(S)+c_i^1(S)<0\), the determinant condition in patch positivity is equivalent to
+
+$$
+\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
+\le
+\frac{c_i^0(\vn)}{c_i^0(\vn)+c_i^1(\vn)}.
+$$
+
+Since \(q_i\ge0\), taking the supremum and then the maximum with \(0\) in the coefficient formula proves the claim.

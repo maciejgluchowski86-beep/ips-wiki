@@ -98,7 +98,7 @@ $$
 
 increases the constant in (1) by at most a factor \(1+2K\). The class \(\mathcal M_-\) is the case \(K=1\).
 
-In particular, suppose that a configuration \(\xi\) has zeroes only in \(F\Subset\Lambda\). The uniform pure-death assumption gives
+In particular, suppose that a configuration \(\xi\) has zeroes only in \(F\Subset\Lambda\). The [empty-neighbour bound](patch-critical-density.md#empty-neighbour-bound) and the uniform pure-death assumption give
 
 $$
 p_i^\star
@@ -178,15 +178,16 @@ $$
 For an end patch \(P\) based at \(i=i(P)\), write
 
 $$
-C(z,P)=a(P)+b(P)(z-p_i^\star),
-\qquad
-C^\varepsilon(z,P)=a^\varepsilon(P)+b^\varepsilon(P)(z-p_i^\star).
+\begin{aligned}
+C(z,P)&=C(p_i^\star,P)+b(P)(z-p_i^\star),\\
+C^\varepsilon(z,P)&=C^\varepsilon(p_i^\star,P)+b^\varepsilon(P)(z-p_i^\star).
+\end{aligned}
 $$
 
 The centered end-patch comparison gives
 
 $$
-0\le a(P)\le a^\varepsilon(P),
+0\le C(p_i^\star,P)\le C^\varepsilon(p_i^\star,P),
 \qquad
 0\le b(P)\le b^\varepsilon(P).
 \tag{7}
@@ -217,7 +218,7 @@ $$
 \chi_{\{i(P):P\in\mathcal Q\}}^\star
 \right)
 \prod_{P\in\mathcal Q}b(P)
-\prod_{P\in\mathcal E_t\setminus\mathcal Q}a(P).
+\prod_{P\in\mathcal E_t\setminus\mathcal Q}C(p_{i(P)}^\star,P).
 \tag{8}
 $$
 
@@ -315,220 +316,77 @@ The full less noisy product has mass at most one: on \(\{|\mathcal P|<\infty\}\)
 
 ### No-late-interaction terms
 
-On \(L_{T,t}\), every \(Q\in\mathcal E_T\) has a unique extension \(Q_t\in\mathcal E_t\) with no intervening successful interaction. Let
+Set \(\tau=t-T\). On \(L_{T,t}\), every \(Q\in\mathcal E_T\) has a unique extension through time \(t\) with no intervening successful interaction. The [empty-neighbour relaxation identity](patch-contribution.md#empty-neighbour-relaxation) shows that its end contribution, multiplied by the conditional probability of this extension, is \(C(\psi_{i(Q)}(\tau,z),Q)\). Therefore
 
 $$
-i=i(Q),
-\qquad
-s=s(Q),
-\qquad
-\Delta_u=u-s.
-$$
-
-Multiplying the end contribution of \(Q_t\) by its conditional probability of extending from \(T\) to \(t\) without a successful interaction gives the affine factor
-
-$$
-K_{T,t}(z,Q)
-=
-\begin{cases}
-\dfrac{\psi_i(\Delta_t,z)}{\varphi_i(\Delta_T)}, & \mathsf X(Q)=\mathsf I,\\[1.2em]
-\dfrac{\delta_i(S)\sigma_i^\delta(S)+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta_t,z)}
-{\delta_i(S)+\beta_i(S)\varphi_i(\Delta_T)}, & \mathsf X(Q)=\mathsf O,
-\end{cases}
+\mathbb E_A\left[W_t^\nu\ind(L_{T,t})\mid\cG_T\right]=\prod_{P\in\mathcal B_T}C(P)\,\nu\left[\prod_{Q\in\mathcal E_T}C\left(\psi_{i(Q)}(\tau,\eta(i(Q))),Q\right)\right].
 \tag{14}
 $$
 
-where \(S=S(Q)\). The consistency normalizer at time \(t\) cancels in (14). Conditional on \(\cG_T\), independence of the post-\(T\) patch data and averaging over \(\nu\) yield
-
-$$
-\mathbb E_A\left[W_t^\nu\ind(L_{T,t})\mid\cG_T\right]
-=
-\prod_{P\in\mathcal B_T}C(P)\,
-\nu\left[\prod_{Q\in\mathcal E_T}K_{T,t}(\eta(i(Q)),Q)\right].
-\tag{15}
-$$
-
-For a patch based at \(i\), put
+Put
 
 $$
 r_i=c_i^0(\vn)+c_i^1(\vn),
 \qquad
-d_i=c_i^0(\vn),
-\qquad
-q_i=\frac{d_i}{r_i}.
+q_i=\frac{c_i^0(\vn)}{r_i}.
 $$
 
-The uniform death bound gives \(r_i\ge\varepsilon\), and
+The uniform death bound gives \(r_i\ge\varepsilon\), and \(\psi_i(\tau,z)\to q_i\) as \(\tau\to\infty\). On \(L_T\), every \(Q\in\mathcal E_T\) extends to an infinite full patch. Hence
 
 $$
-\psi_i(\Delta,z)=q_i+(z-q_i)e^{-r_i\Delta}.
-\tag{16}
+\mathbb E_A\left[G_A\ind(L_T)\mid\cG_T\right]=\prod_{P\in\mathcal B_T}C(P)\prod_{Q\in\mathcal E_T}C(q_{i(Q)},Q).
+\tag{15}
 $$
 
-Letting \(t\to\infty\) in (14) replaces \(\psi_i(\Delta_t,z)\) by \(q_i\). Denote the resulting factor by \(K_{T,\infty}(Q)\); it is independent of \(z\). On \(L_T\), each end patch \(Q\in\mathcal E_T\) extends to an infinite full patch, and \(K_{T,\infty}(Q)\) is its full contribution together with the conditional probability of that extension. Hence
-
-$$
-\mathbb E_A\left[G_A\ind(L_T)\mid\cG_T\right]
-=
-\prod_{P\in\mathcal B_T}C(P)
-\prod_{Q\in\mathcal E_T}K_{T,\infty}(Q).
-\tag{17}
-$$
-
-### One-patch estimates
-
-Write
-
-$$
-K_{T,t}(z,Q)=a_{T,t}(Q)+b_{T,t}(Q)(z-p_i^\star),
-\qquad
-K_{T,t}^\varepsilon(z,Q)=a_{T,t}^\varepsilon(Q)+b_{T,t}^\varepsilon(Q)(z-p_i^\star),
-$$
-
-and set
-
-$$
-M_{T,t}^\varepsilon(Q)=K_{T,t}^\varepsilon(1,Q).
-$$
-
-The following estimates hold:
+Let \(\psi_i^\varepsilon\) be the empty-neighbour relaxation for the less noisy process. The [empty-neighbour bound](patch-critical-density.md#empty-neighbour-bound) gives \(p_i^\star\le q_i\). The monotone coupling of the two empty-neighbour chains gives \(\psi_i(\tau,z)\le\psi_i^\varepsilon(\tau,z)\), while removal of the pure deaths changes \(r_i\) to \(r_i-\varepsilon\). For \(Q\in\mathcal E_T\) based at \(i=i(Q)\), equation (7) and the affine dependence on \(z\) now give
 
 $$
 \begin{aligned}
-0&\le a_{T,t}(Q)\le a_{T,t}^\varepsilon(Q)\le M_{T,t}^\varepsilon(Q),\\
-0&\le K_{T,\infty}(Q)\le M_{T,t}^\varepsilon(Q),\\
-0&\le b_{T,t}(Q)\le e^{-\varepsilon(t-T)}b_{T,t}^\varepsilon(Q),\\
-\left|a_{T,t}(Q)-K_{T,\infty}(Q)\right|&\le e^{-\varepsilon(t-T)}M_{T,t}^\varepsilon(Q).
+0&\le C\left(\psi_i(\tau,p_i^\star),Q\right)\le C^\varepsilon\left(\psi_i^\varepsilon(\tau,p_i^\star),Q\right),\\
+0&\le\partial_z\!\left[C\left(\psi_i(\tau,z),Q\right)\right]\le e^{-\varepsilon\tau}\partial_z\!\left[C^\varepsilon\left(\psi_i^\varepsilon(\tau,z),Q\right)\right],\\
+0&\le C(q_i,Q)-C\left(\psi_i(\tau,p_i^\star),Q\right)\le e^{-\varepsilon\tau}C(q_i,Q).
 \end{aligned}
+\tag{16}
+$$
+
+Indeed, the last line follows directly from
+
+$$
+C(q_i,Q)-C\left(\psi_i(\tau,p_i^\star),Q\right)=b(Q)(q_i-p_i^\star)e^{-r_i\tau}.
+$$
+
+Here \(r_i\ge\varepsilon\) and \(b(Q)(q_i-p_i^\star)\le C(q_i,Q)\).
+
+Expanding the \(\nu\)-average in (14) around \(\mathbf p^\star\), every nonconstant term contains at least one slope. The first two lines of (16) therefore give
+
+$$
+0\le\nu\left[\prod_{Q\in\mathcal E_T}C\left(\psi_{i(Q)}(\tau,\eta(i(Q))),Q\right)\right]-\prod_{Q\in\mathcal E_T}C\left(\psi_{i(Q)}(\tau,p_{i(Q)}^\star),Q\right)\le e^{-\varepsilon\tau}\nu\left[\prod_{Q\in\mathcal E_T}C^\varepsilon\left(\psi_{i(Q)}^\varepsilon(\tau,\eta(i(Q))),Q\right)\right].
+\tag{17}
+$$
+
+The last line of (16) and the telescoping product inequality give
+
+$$
+0\le\prod_{Q\in\mathcal E_T}C(q_{i(Q)},Q)-\prod_{Q\in\mathcal E_T}C\left(\psi_{i(Q)}(\tau,p_{i(Q)}^\star),Q\right)\le|\mathcal E_T|e^{-\varepsilon\tau}\prod_{Q\in\mathcal E_T}C(q_{i(Q)},Q).
 \tag{18}
 $$
 
-To verify them, reducing the death rate by \(\varepsilon\) replaces \(r_i\) by \(r_i^\varepsilon=r_i-\varepsilon\) and leaves the successful-interaction rates and consistency normalizers unchanged. If \(r_i^\varepsilon>0\), set \(q_i^\varepsilon=d_i/r_i^\varepsilon\). Then
+On \(E_T^R\), the [interaction-cone identity](interaction-cone.md) gives \(|\mathcal E_T|=|\mathbf{Cone}_T|\le|R|\). After multiplication by the bulk contributions, the right-hand side of (17) is \(e^{-\varepsilon\tau}\) times the conditional no-late-interaction weight for the less noisy process, whose expectation is at most one by (9). The right-hand side of (18) is at most \(|R|e^{-\varepsilon\tau}\) times the conditional limiting no-late-interaction weight, which is dominated by the full less noisy product controlled after (13). Multiplying by \(\ind(E_T^R)\) and integrating gives
 
 $$
-\psi_i^\varepsilon(\Delta,1)
-=
-q_i^\varepsilon+\left(1-q_i^\varepsilon\right)e^{-r_i^\varepsilon\Delta}
-\ge
-e^{-r_i^\varepsilon\Delta}.
+\left|\mathbb E_A\left[W_t^\nu\ind(E_T^R\cap L_{T,t})\right]-\mathbb E_A\left[G_A\ind(E_T^R\cap L_T)\right]\right|\le(1+|R|)e^{-\varepsilon(t-T)}.
 \tag{19}
-$$
-
-If \(r_i^\varepsilon=0\), then \(d_i=0\) and \(\psi_i^\varepsilon(\Delta,1)=1\), so the same estimates follow directly.
-
-For an \(\mathsf{IE}\)-patch, the slope ratio is exactly
-
-$$
-\frac{b_{T,t}(Q)}{b_{T,t}^\varepsilon(Q)}
-=
-e^{-\varepsilon\Delta_t}
-\le
-e^{-\varepsilon(t-T)}.
-$$
-
-Moreover,
-
-$$
-\left|a_{T,t}(Q)-K_{T,\infty}(Q)\right|
-=
-\frac{\left|p_i^\star-q_i\right|e^{-r_i\Delta_t}}{\varphi_i(\Delta_T)},
-$$
-
-which is bounded as in (18) by (19). The remaining inequalities follow from \(0\le q_i\le q_i^\varepsilon\), terminal monotonicity, and pure-death comparison.
-
-For an \(\mathsf{OE}\)-patch with \(\beta_i(S)>0\), put
-
-$$
-p_{i,S}^\star=\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}.
-$$
-
-Patch positivity gives
-
-$$
-p_{i,S}^\star\le p_i^\star,
-\qquad
-p_{i,S}^\star\le q_i\le q_i^\varepsilon.
-$$
-
-The numerator in (14) is
-
-$$
-\beta_i(S)\left(\psi_i(\Delta_t,z)-p_{i,S}^\star\right).
-$$
-
-Since \(p_i^\star,q_i\in[p_{i,S}^\star,1]\),
-
-$$
-\left|p_i^\star-q_i\right|\le1-p_{i,S}^\star.
-$$
-
-On the other hand,
-
-$$
-\psi_i^\varepsilon(\Delta,1)-p_{i,S}^\star
-\ge
-\left(1-p_{i,S}^\star\right)e^{-r_i^\varepsilon\Delta}.
-$$
-
-These two inequalities give the last line of (18), and the slope ratio is again \(e^{-\varepsilon\Delta_t}\). The other comparisons follow from monotonicity in \(z\), pure-death comparison, and \(q_i\le q_i^\varepsilon\). If \(\beta_i(S)=0\), the factor is independent of \(t\) and the assertions are immediate. This proves (18).
-
-### Centered product comparison
-
-Expanding the \(\nu\)-average in (15) around \(\mathbf p^\star\), the sum of all terms containing at least one slope is
-
-$$
-R_{T,t}^\nu
-=
-\sum_{\vn\ne\mathcal Q\subseteq\mathcal E_T}
-\nu\left(\chi_{\{i(Q):Q\in\mathcal Q\}}^\star\right)
-\prod_{Q\in\mathcal Q}b_{T,t}(Q)
-\prod_{Q\in\mathcal E_T\setminus\mathcal Q}a_{T,t}(Q).
-$$
-
-By (18), every term is nonnegative and contains at least one factor supplying \(e^{-\varepsilon(t-T)}\). Hence
-
-$$
-0\le R_{T,t}^\nu
-\le
-e^{-\varepsilon(t-T)}
-\nu\left[\prod_{Q\in\mathcal E_T}K_{T,t}^\varepsilon(\eta(i(Q)),Q)\right].
-\tag{20}
-$$
-
-For the constant terms, the telescoping product inequality and (18) give, with \(N_T=|\mathcal E_T|\),
-
-$$
-\left|\prod_{Q\in\mathcal E_T}a_{T,t}(Q)-\prod_{Q\in\mathcal E_T}K_{T,\infty}(Q)\right|
-\le
-N_Te^{-\varepsilon(t-T)}
-\prod_{Q\in\mathcal E_T}M_{T,t}^\varepsilon(Q).
-\tag{21}
-$$
-
-On \(E_T^R\), the [interaction-cone identity](interaction-cone.md) gives
-
-$$
-N_T=|\mathbf{Cone}_T|\le|R|.
-$$
-
-After multiplication by the bulk contributions, the right-hand side of (20) is bounded by \(e^{-\varepsilon(t-T)}\) times the conditional no-late-interaction weight for the less noisy process started from \(\nu\). The right-hand side of (21) is bounded on \(E_T^R\) by \(|R|e^{-\varepsilon(t-T)}\) times the corresponding conditional all-one weight. Both weights have expectation at most one by (9). Multiplying the conditional comparison by \(\ind(E_T^R)\) and integrating therefore gives
-
-$$
-\left|\mathbb E_A\left[W_t^\nu\ind(E_T^R\cap L_{T,t})\right]-\mathbb E_A\left[G_A\ind(E_T^R\cap L_T)\right]\right|
-\le
-(1+|R|)e^{-\varepsilon(t-T)}.
-\tag{22}
 $$
 
 ### Completion for \(\mathcal M_\star\)
 
-The events \((E_T^R)^c\), \(E_T^R\cap L_{T,t}^c\), and \(E_T^R\cap L_{T,t}\) partition the finite-horizon weight. The analogous decomposition of \(G_A\) uses \(L_T^c\) and \(L_T\). Combining (10)--(13) and (22) yields
+The events \((E_T^R)^c\), \(E_T^R\cap L_{T,t}^c\), and \(E_T^R\cap L_{T,t}\) partition the finite-horizon weight. The analogous decomposition of \(G_A\) uses \(L_T^c\) and \(L_T\). Combining (10)--(13) and (19) yields
 
 $$
 \left|\nu(P_t\chi_A)-\mathbb E_A[G_A]\right|
 \le
 2\rho_A(T,R)+2e^{-\varepsilon T}+(1+|R|)e^{-\varepsilon(t-T)}.
-\tag{23}
+\tag{20}
 $$
 
 Apply [finite propagation for zero-boundary restrictions](finite-propagation-for-zero-boundary-restrictions.md) with \(a=\varepsilon\). There is \(v<\infty\) such that, for
@@ -545,18 +403,18 @@ $$
 |R_T|\le C_A(1+T)^D.
 $$
 
-Taking \(T=t/2\) in (23), with \(R=R_T\), proves
+Taking \(T=t/2\) in (20), with \(R=R_T\), proves
 
 $$
 \left|\nu(P_t\chi_A)-\pi(\chi_A)\right|
 \le
 K_A(1+t)^D e^{-\varepsilon t/2},
-\tag{24}
+\tag{21}
 $$
 
 uniformly over \(\nu\in\mathcal M_\star\).
 
-Every local function has a finite expansion in monomials, so (24) gives the same estimate for local \(f\). Taking \(\nu=\mu_{\mathbf1}\), compactness gives a subsequential weak limit, and convergence of all monomial moments shows that every subsequential limit is the same measure \(\pi\) characterized by (2). The finite-range spin-system semigroup is Feller, hence
+Every local function has a finite expansion in monomials, so (21) gives the same estimate for local \(f\). Taking \(\nu=\mu_{\mathbf1}\), compactness gives a subsequential weak limit, and convergence of all monomial moments shows that every subsequential limit is the same measure \(\pi\) characterized by (2). The finite-range spin-system semigroup is Feller, hence
 
 $$
 \pi P_s
