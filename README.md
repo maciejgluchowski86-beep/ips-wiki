@@ -32,7 +32,6 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 ## Current duality entries
 
 - Duality: `docs/entries/duality.md`
-- Theta monomials: `docs/entries/theta-monomials.md`
 - Monomial duality for spin systems: `docs/entries/monomial-duality-for-spin-systems.md`
 - Duality noise lemma: `docs/entries/duality-noise-lemma.md`
 

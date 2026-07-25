@@ -9,7 +9,7 @@ tags:
 
 # Monomials
 
-Under a [Bernoulli product measure](bernoulli-product-measure.md), their expectations factor into products of one-site densities. Monomials are [local functions](local-functions.md) on \(\{0,1\}^\Lambda\). They are useful for algebraic manipulations of [spin-system](spin-system.md) generators and for [duality](duality.md) constructions such as [monomial duality for spin systems](monomial-duality-for-spin-systems.md). The deformed version is recorded separately as [theta monomials](theta-monomials.md).
+Under a [Bernoulli product measure](bernoulli-product-measure.md), their expectations factor into products of one-site densities. Monomials are [local functions](local-functions.md) on \(\{0,1\}^\Lambda\). They are useful for algebraic manipulations of [spin-system](spin-system.md) generators and for [duality](duality.md) constructions such as [monomial duality for spin systems](monomial-duality-for-spin-systems.md).
 
 ## Definition
 
@@ -91,7 +91,9 @@ These identities are often the starting point for duality computations and for c
 Since the [KCSM](kinetically-constrained-spin-model.md) convention uses \(0\) as the facilitating state, vacancy events are written using products of \(1-\eta(i)\). For \(A\Subset\Lambda\),
 
 $$
+\bar\chi_A(\eta)
+=
 \prod_{i\in A}(1-\eta(i))
 $$
 
-is the indicator that every site in \(A\) is vacant. This is \(\bar\chi_A^0\) in the notation of [theta monomials](theta-monomials.md).
+is the indicator that every site in \(A\) is vacant.

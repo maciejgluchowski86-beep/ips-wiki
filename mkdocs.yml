@@ -33,7 +33,6 @@ nav:
       - Ergodicity: entries/ergodicity.md
   - Duality:
       - Duality: entries/duality.md
-      - Theta monomials: entries/theta-monomials.md
       - Monomial duality for spin systems: entries/monomial-duality-for-spin-systems.md
       - Duality noise lemma: entries/duality-noise-lemma.md
   - Signed additive set processes:

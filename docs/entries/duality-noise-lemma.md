@@ -58,7 +58,7 @@ $$
 
 The uniform version of this perturbation is used in [the common invariant-limit theorem](common-invariant-limit-under-uniform-pure-deaths.md).
 
-For the conjugate monomial, the \(\theta=0\) barred [theta monomial](theta-monomials.md)
+For the conjugate monomial
 
 $$
 \bar\chi_A(\eta)=\prod_{i\in A}(1-\eta(i)),

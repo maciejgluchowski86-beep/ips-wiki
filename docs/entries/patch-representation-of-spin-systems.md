@@ -38,6 +38,58 @@ P_t(\chi_A)(\xi)
 \tag{1}
 $$
 
+## Averaging over a general initial law
+
+Let \(\mu\) be any probability measure on \(\{0,1\}^\Lambda\). Integrating the first representation in (1) gives
+
+$$
+\mu(P_t\chi_A)
+=
+\mathbb E_A\left[
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\left(
+\prod_{P\in\mathcal E_t}
+C(\eta(i(P)),P)
+\right)
+\right].
+$$
+
+Suppose now that the spin system has the [patch positivity property](patch-positivity-property.md), with critical profile \(\mathbf p^\star\) and centered monomials \(\chi_A^\star\) from the [high-density measure](high-density-measure.md) entry. Every end contribution is affine and can be written as
+
+$$
+C(z,P)
+=
+C(p_{i(P)}^\star,P)
++b(P)(z-p_{i(P)}^\star),
+\qquad
+C(p_{i(P)}^\star,P)\ge0,
+\quad
+b(P)\ge0.
+$$
+
+Distinct end patches are based at distinct sites. Hence
+
+$$
+\begin{aligned}
+\mu\left(
+\prod_{P\in\mathcal E_t}
+C(\eta(i(P)),P)
+\right)
+=
+\sum_{\mathcal Q\subseteq\mathcal E_t}
+&\mu\left(
+\chi_{\{i(P):P\in\mathcal Q\}}^\star
+\right)
+\prod_{P\in\mathcal Q}b(P)
+\\
+&{}\times
+\prod_{P\in\mathcal E_t\setminus\mathcal Q}
+C(p_{i(P)}^\star,P).
+\end{aligned}
+$$
+
+In particular, every skeleton weight is nonnegative when \(\mu\in\mathcal M_\star\). This uses only the ordinary monomial patch representation.
+
 ## Proof
 
 The Feynman--Kac monomial duality formula gives
