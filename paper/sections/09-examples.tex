@@ -1,49 +1,54 @@
 \section{Examples}
 \label{sec:examples}
 
+\begin{discussion}
+  \item Explain why these examples test different consequences of the
+  general framework rather than define its scope.
+  \item Keep model-specific literature separate from the general
+  literature discussion in \cref{sec:introduction}.
+\end{discussion}
+
 \subsection{FA-1f}
 
-Let \(q\in(0,1)\) be the vacancy density and \(p=1-q\) the one-density.
-For a site \(i\) with finite nonempty neighbour set \(N(i)\), the
-FA-1f constraint is
+\begin{definition}[FA-1f]
+\label{def:fa-1f}
+Let \(q\in(0,1)\) be the vacancy density and \(p=1-q\). For a site
+\(i\) with finite nonempty neighbour set \(N(i)\), set
 \[
   c_i(\eta)
   =
-  \ind\{\text{some }j\in N(i)\text{ has }\eta(j)=0\}
-  =
   1-\chi_{N(i)}(\eta).
 \]
-At a legal update, the spin is refreshed from the Bernoulli law with
-zero-density \(q\).  The only nonzero nonempty-neighbour flip-rate
-coefficients are
+At rate \(c_i(\eta)\), refresh \(\eta(i)\) from the Bernoulli law with
+zero-density \(q\).
+\end{definition}
+
+\begin{proposition}[Patch parameters for FA-1f]
+\label{prop:fa-patch-parameters}
+FA-1f has \patchpositivity\ and
 \[
-  c_i^0(N(i))=-p,
-  \qquad
-  c_i^1(N(i))=-q,
+  p_i^\star=p.
 \]
-while
+Its only nonzero coefficients are
 \[
   c_i^0(\vn)=p,
   \qquad
-  c_i^1(\vn)=q.
+  c_i^1(\vn)=q,
+  \qquad
+  c_i^0(N(i))=-p,
+  \qquad
+  c_i^1(N(i))=-q.
 \]
-Therefore
-\[
-  c_i^0(N(i))+c_i^1(N(i))=-1
-\]
-and the determinant in
-\eqref{eq:patch-positive-nondegenerate} is zero.  FA-1f has patch
-positivity, and
-\[
-  p_i^\star
-  =
-  \frac{-p}{-p-q}
-  =
-  p.
-\]
-The hard model does not satisfy \eqref{eq:uniform-death}, since the
-all-one configuration is blocked.
+\end{proposition}
 
+\begin{proof}
+The nonempty coefficient sum is \(-1\), while the determinant in
+\eqref{eq:patch-positive-nondegenerate} is zero. Apply
+\cref{thm:patch-positivity-criterion,prop:critical-density-formula}.
+\end{proof}
+
+\begin{definition}[Soft FA-1f]
+\label{def:soft-fa-1f}
 For \(s\in(0,1)\), the soft FA-1f generator is
 \begin{equation}
   \cL_{\mathrm{sFA}}f(\eta)
@@ -53,16 +58,14 @@ For \(s\in(0,1)\), the soft FA-1f generator is
   \bigl(E_i^qf(\eta)-f(\eta)\bigr),
   \label{eq:soft-fa-generator}
 \end{equation}
-where \(E_i^q\) refreshes the spin at \(i\) from the same Bernoulli
-law.  The nonempty coefficients are multiplied by \(1-s\), so patch
-positivity and \(p^\star=p\) remain unchanged.  The \(1\)-to-\(0\)
-rate is at least \(qs\), and the reversible product law \(\mu_q\) is
-invariant.
+where \(E_i^q\) refreshes the spin at \(i\) from the Bernoulli law
+with zero-density \(q\).
+\end{definition}
 
 \begin{corollary}[Soft FA-1f]
 \label{cor:soft-fa}
-Let \(\Lambda\) have polynomial growth exponent \(D\).  For every
-local \(f\),
+Let \(\Lambda\) have polynomial growth exponent \(D\). For every local
+\(f\),
 \[
   \sup_{\nu\in\Mminus}
   \abs{\nu(P_tf)-\mu_q(f)}
@@ -75,32 +78,38 @@ profile \(\mathbf p_0\) belongs to \(\Mminus\) precisely when
   p_{0,i}\ge(2p-1)\vee0
   \qquad(i\in\Lambda).
 \]
-If \(p\le1/2\), the estimate is uniform over all initial
-configurations.
+If \(p\le1/2\), the system has
+\uniformexponentialergodicity.
 \end{corollary}
 
 \begin{proof}
-Apply \cref{thm:common-limit} with uniform death rate \(qs\).  The
-limit must be \(\mu_q\), since it is already invariant and belongs to
-\(\Mminus\).
+The nonempty coefficients in \cref{prop:fa-patch-parameters} are
+multiplied by \(1-s\), so \patchpositivity\ and \(p^\star=p\) remain
+unchanged. The \(1\)-to-\(0\) rate is at least \(qs\), and
+\(\mu_q\) is an \invariantmeasure. Apply
+\cref{thm:common-limit,cor:uniform-ergodicity}.
 \end{proof}
 
 \subsection{The biased annihilating branching process}
 
-On a lattice with finite neighbour sets, the biased annihilating
-branching process, abbreviated BABP, refreshes site \(i\) at rate
+\begin{definition}[Biased annihilating branching process]
+\label{def:babp}
+On a lattice with finite neighbour sets, BABP refreshes site \(i\)
+from the Bernoulli law with zero-density \(q\) at rate
 \[
   c_i(\eta)
   =
   \sum_{j\in N(i)}(1-\eta(j)).
 \]
-It has the same legal configurations as FA-1f but counts vacant
-neighbours instead of applying an indicator.  In the complementary
-particle variables, this is the classical process of
-\citet{neuhauser-sudbury1993}.  The Bernoulli product law \(\mu_q\) is
-reversible, while the all-one configuration is absorbing.
+\end{definition}
 
-The only nonzero flip-rate coefficients are
+\begin{proposition}[Patch parameters for BABP]
+\label{prop:babp-patch-parameters}
+BABP has \patchpositivity\ and
+\[
+  p_i^\star=p=1-q.
+\]
+Its only nonzero coefficients are
 \begin{align*}
   c_i^0(\vn)&=p\abs{N(i)},
   &
@@ -111,28 +120,48 @@ The only nonzero flip-rate coefficients are
   c_i^1(\{j\})&=-q,
   \qquad j\in N(i).
 \end{align*}
-Every nonempty target is therefore a singleton.  The
-patch-positivity determinant again vanishes, and
-\[
-  p_i^\star=p.
-\]
-As for hard FA-1f, the common-limit theorem does not apply because the
-rates vanish at the absorbing all-one configuration.
+\end{proposition}
 
-For BABP on \(\Z^d\), exponential convergence from every nontrivial
-homogeneous Bernoulli law to \(\mu_q\) is known; see
-\citet{martinelli-shapira-toninelli2025}.  Centered-moment order extends
-this input as follows.
+\begin{proof}
+Each nonempty target is a singleton. For every \(j\in N(i)\), the
+coefficient sum is \(-1\), and the determinant in
+\eqref{eq:patch-positive-nondegenerate} is zero. Apply
+\cref{thm:patch-positivity-criterion,prop:critical-density-formula}.
+\end{proof}
+
+\begin{citedresult}[Homogeneous BABP convergence
+  {\cite[Application 2 and Section 5.1.1]{martinelli-shapira-toninelli2025}}]
+\label{cited:babp-homogeneous}
+Let BABP run on \(\Z^d\), and let \(\mu_{q_0}\) be the homogeneous
+Bernoulli product law with vacancy density \(q_0>0\). For every local
+function \(f\), there are \(c>0\) and \(C_f<\infty\) such that
+\[
+  \abs{\mu_{q_0}(P_tf)-\mu_q(f)}
+  \le C_fe^{-ct}.
+\]
+\end{citedresult}
+
+\begin{citedresult}[Inhomogeneous quasi-thinning range
+  {\cite[Remark 5.5]{martinelli-shapira-toninelli2025}}]
+\label{cited:babp-quasi-thinning}
+If the initial one-density profile satisfies
+\[
+  p_{0,i}\le\sqrt p
+  \qquad(i\in\Z^d),
+\]
+then \(\mu_{\mathbf p_0}P_t\) converges exponentially to \(\mu_q\) on
+local functions.
+\end{citedresult}
 
 \begin{proposition}[High-density BABP convergence]
 \label{prop:babp-high-density}
-Suppose that the initial one-density profile satisfies
+Suppose that
 \[
   p\le p_{0,i}\le p_+<1
   \qquad(i\in\Z^d).
 \]
 Then \(\mu_{\mathbf p_0}P_t\) converges exponentially to \(\mu_q\) on
-local functions.  More generally, the same conclusion holds for every
+local functions. More generally, the same conclusion holds for every
 \(\nu\in\Mstar\) such that
 \begin{equation}
   0
@@ -146,7 +175,7 @@ local functions.  More generally, the same conclusion holds for every
 \end{proposition}
 
 \begin{proof}
-Let \(q_-=1-p_+>0\).  For every nonempty finite \(B\),
+Let \(q_-=1-p_+>0\). For every nonempty finite \(B\),
 \[
   \mu_q(\chi_B^\star)=0,
   \qquad
@@ -158,7 +187,7 @@ Let \(q_-=1-p_+>0\).  For every nonempty finite \(B\),
   =
   (p_+-p)^{\abs B}.
 \]
-\Cref{thm:centered-order} therefore gives
+\Cref{thm:centered-order} gives
 \[
   p^{\abs A}
   =
@@ -168,15 +197,19 @@ Let \(q_-=1-p_+>0\).  For every nonempty finite \(B\),
   \le
   \mu_{q_-}(P_t\chi_A).
 \]
-The right-hand side converges exponentially to \(p^{\abs A}\) by the
-homogeneous BABP theorem.  The same squeeze applies under
-\eqref{eq:babp-centered-upper-bound}.  Expand a local function in the
+The last term converges exponentially to \(p^{\abs A}\) by
+\cref{cited:babp-homogeneous}. The same squeeze applies under
+\eqref{eq:babp-centered-upper-bound}. Expand a local function in the
 finite monomial basis.
 \end{proof}
 
-\begin{remark}
-For both FA-1f and BABP, adding Bernoulli noise with one-density
-profile \(\mathbf p^+\) preserves patch positivity precisely when
-\(p_i^+\ge p\) at every nontrivial site.  The determinant condition is
-\(\varepsilon(p_i^+-p)\ge0\).
-\end{remark}
+\begin{discussion}
+  \item Compare \cref{prop:babp-high-density} precisely with
+  \cref{cited:babp-quasi-thinning}; identify the parameter range that
+  is not covered by quasi-thinning.
+  \item Explain why \cref{thm:common-limit} does not apply to
+  unperturbed BABP: the all-one configuration is absorbing, so there
+  is no uniform pure-death component.
+  \item Do not claim full \ergodicity: both \(\mu_q\) and the point mass
+  at the all-one configuration are \invariantmeasures.
+\end{discussion}

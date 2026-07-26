@@ -1,15 +1,29 @@
-\section{Patch contributions and the representation theorem}
+\section{Patch contributions and representation}
 \label{sec:representation}
 
-\subsection{One-patch contributions}
+\begin{discussion}
+  \item Explain that the Feynman--Kac sign and potential factor exactly
+  over patches before any averaging.
+  \item Explain why conditional averaging replaces the signed dual
+  history by a product of one-site quantities.
+  \item Preview that the affine dependence of end factors on the
+  terminal spin connects the representation to the centered classes
+  in \cref{def:centered-classes}.
+\end{discussion}
 
-Let \(P\) be a labeled patch and \(X^P\) its local active indicator.
-If \(P\) begins at an outgoing interaction, let \(\alpha_P\) be its
-hidden split-or-birth kind and put
+\subsection{Patch contributions}
+
+\begin{definition}[Patch contributions]
+\label{def:patch-contribution}
+Let \(P\) be a labeled patch and \(X^P\) its local active indicator. If
+\(P\) begins at an outgoing interaction, let
+\(\alpha_P\in\{\delta,\beta\}\) be its hidden kind and set
 \[
   \sigma_P=\sigma_{i(P)}^{\alpha_P}(S(P));
 \]
-for an incoming patch, put \(\sigma_P=1\).  The full contribution is
+for an incoming patch, set \(\sigma_P=1\).
+
+For a full patch, define
 \begin{equation}
   C(P)
   =
@@ -22,11 +36,8 @@ for an incoming patch, put \(\sigma_P=1\).  The full contribution is
   \right],
   \label{eq:full-contribution}
 \end{equation}
-where the expression is interpreted by an endpoint limit when
-\(e(P)=\infty\).
-
-If \(P\) is an end patch at time \(t\), its terminal contribution at
-\(z\in[0,1]\) is
+using the endpoint limit when \(e(P)=\infty\). If \(P\) is an end
+patch at time \(t\), define, for \(z\in[0,1]\),
 \begin{equation}
   C(z,P)
   =
@@ -40,14 +51,28 @@ If \(P\) is an end patch at time \(t\), its terminal contribution at
   \right].
   \label{eq:end-contribution}
 \end{equation}
-These factors are computed explicitly in
-\cref{app:patch-calculations}.  In particular, every end contribution
-is affine in \(z\).
+\end{definition}
+
+\begin{proposition}[Affine end factors]
+\label{prop:affine-end-factors}
+Every end factor \(C(z,P)\) is affine in \(z\). The full formulas for
+all four patch types are given in
+\cref{prop:explicit-patch-factors}.
+\end{proposition}
+
+\begin{proof}
+This is immediate from \eqref{eq:end-contribution}, since
+\(X_t^P\in\{0,1\}\). The explicit coefficients follow from
+\cref{prop:explicit-patch-factors}.
+\end{proof}
 
 \subsection{Random-product representation}
 
+\begin{notation}
+\label{not:skeleton-expectation}
 Write \(\E_A\) for expectation over the successful-interaction
 skeleton of the signed dual started from \((A,+)\).
+\end{notation}
 
 \begin{theorem}[Patch representation]
 \label{thm:patch-representation}
@@ -68,14 +93,14 @@ For every \(A\Subset\Lambda\), \(t\ge0\), and
 The patches partition the active site-time set up to time \(t\).
 Every successful nonempty-target interaction contributes its sign to
 exactly one outgoing-initial patch, and every end patch records the
-dual state at its site at time \(t\).  Consequently the integrand in
-the Feynman--Kac formula \eqref{eq:fk-duality} decomposes exactly as
+dual state at its site at time \(t\). Hence the integrand in
+\eqref{eq:fk-duality} is
 \begin{align*}
   &\sigma_t
   \exp\left(\int_0^tV(A_u)\,\dd u\right)
   \chi_{A_t}(\xi)
   \\
-  &\qquad=
+  &\quad=
   \prod_{P\in\cB_t}
   \left[
     \sigma_P
@@ -84,8 +109,6 @@ the Feynman--Kac formula \eqref{eq:fk-duality} decomposes exactly as
       \int_{s(P)}^{e(P)}X_u^P\,\dd u
     \right)
   \right]
-  \\
-  &\qquad\quad\times
   \prod_{P\in\cE_t}
   \left[
     \sigma_P
@@ -96,14 +119,13 @@ the Feynman--Kac formula \eqref{eq:fk-duality} decomposes exactly as
     \xi(i(P))^{X_t^P}
   \right].
 \end{align*}
-Apply \cref{thm:patch-factorization} conditionally on \(\cG_t\) and
+Apply \cref{thm:patch-factorization} conditionally on \(\cG_t\), and
 then take expectation.
 \end{proof}
 
-\subsection{General initial laws}
-
-Integrating \eqref{eq:patch-representation} against a probability
-measure \(\mu\) gives
+\begin{proposition}[General initial law and centered expansion]
+\label{prop:general-law-representation}
+For every probability measure \(\mu\),
 \begin{equation}
   \mu(P_t\chi_A)
   =
@@ -115,9 +137,7 @@ measure \(\mu\) gives
   \right].
   \label{eq:general-law-representation}
 \end{equation}
-
-Suppose that a profile \(\pstar\) has been chosen so that every end
-factor admits the affine decomposition
+Suppose a profile \(\pstar\) satisfies
 \begin{equation}
   C(z,P)
   =
@@ -128,8 +148,7 @@ factor admits the affine decomposition
   C(p_{i(P)}^\star,P)\ge0,\quad b(P)\ge0.
   \label{eq:centered-end-factor}
 \end{equation}
-Since different end patches are based at different sites, expansion
-of the product yields
+Then
 \begin{align}
   &\mu\left(
     \prod_{P\in\cE_t}C(\eta(i(P)),P)
@@ -145,5 +164,12 @@ of the product yields
   C(p_{i(P)}^\star,P).
   \label{eq:end-factor-expansion}
 \end{align}
-This identity is the bridge between patch positivity and general
-initial laws.
+\end{proposition}
+
+\begin{proof}
+Integrating \eqref{eq:patch-representation} gives
+\eqref{eq:general-law-representation}. Distinct end patches are based
+at distinct sites by \cref{def:finite-patch-families}. Expanding the
+product in \eqref{eq:centered-end-factor} therefore gives
+\eqref{eq:end-factor-expansion}.
+\end{proof}

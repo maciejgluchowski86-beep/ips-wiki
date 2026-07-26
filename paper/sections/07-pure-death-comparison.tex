@@ -1,26 +1,38 @@
 \section{Comparison under removal of pure deaths}
 \label{sec:pure-death-comparison}
 
-For a nonnegative profile \(\mathbf a=(a_i)_{i\in\Lambda}\), let
+\begin{discussion}
+  \item Explain why removing an environment-independent
+  \(1\)-to-\(0\) component leaves the successful-interaction skeleton
+  unchanged.
+  \item Explain why the comparison is not available by ordinary
+  attractiveness and instead follows coefficientwise from the positive
+  patch product.
+  \item State clearly that the conclusion compares joint occupation
+  moments and does not imply stochastic domination.
+\end{discussion}
+
+\begin{definition}[Pure-death generator]
+\label{def:pure-death-generator}
+For a nonnegative profile \(\mathbf a=(a_i)_{i\in\Lambda}\), define
 \[
   \cD_{\mathbf a}f(\eta)
   =
   \sum_{i\in\Lambda}
   a_i\bigl(f(\eta^{i,0})-f(\eta)\bigr).
 \]
-This generator sets a spin to zero at an
-environment-independent rate.
+\end{definition}
 
 \begin{theorem}[Pure-death comparison]
 \label{thm:pure-death-comparison}
-Let \(\cL\) and \(\cL'\) be uniformly bounded finite-range generators
-such that
+Let \(\cL\) and \(\cL'\) satisfy
+\cref{ass:standing-locality} and
 \[
   \cL=\cL'+\cD_{\mathbf a}.
 \]
-Suppose that \(\cL\) has patch positivity.  Then \(\cL'\) also has
-patch positivity and the same critical profile \(\pstar\).  If \(P_t\)
-and \(P_t'\) are the corresponding semigroups, then
+Suppose that \(\cL\) has \patchpositivity. Then \(\cL'\) also has
+\patchpositivity\ and the same critical profile \pstar. If \(P_t\) and
+\(P_t'\) are the corresponding semigroups, then
 \begin{equation}
   \nu(P_t\chi_A)
   \le
@@ -32,14 +44,13 @@ and \(P_t'\) are the corresponding semigroups, then
 \end{theorem}
 
 \begin{proof}
-Removing the pure deaths changes only the empty-neighbour coefficient:
+Removing the pure deaths changes only
 \[
   c_i^{\prime\,1}(\vn)=c_i^1(\vn)-a_i.
 \]
-All nonempty-neighbour coefficients, and hence the successful-
-interaction skeleton, remain unchanged.  For nonempty
-\(S\subseteq N(i)\), the determinant in the patch-positivity
-criterion changes from
+All nonempty-neighbour coefficients and the successful-interaction
+skeleton are unchanged. For nonempty \(S\subseteq N(i)\), the
+determinant in \cref{thm:patch-positivity-criterion} changes from
 \[
   D_{i,S}
   =
@@ -49,43 +60,44 @@ to
 \[
   D_{i,S}'=D_{i,S}-a_ic_i^0(S).
 \]
-If \(c_i^0(S)\le0\), this can only increase the determinant.  If
-\(c_i^0(S)>0\), the first patch-positivity inequality gives
-\(c_i^1(S)<0\), and the reduced determinant is nonnegative directly.
-The degenerate case follows by the same two-sign check.  Thus
-\(\cL'\) remains patch-positive.  Formula
-\eqref{eq:critical-density-formula} uses only nonempty-neighbour
+If \(c_i^0(S)\le0\), then \(D_{i,S}'\ge D_{i,S}\ge0\). If
+\(c_i^0(S)>0\), patch positivity gives \(c_i^1(S)<0\), and the reduced
+determinant is nonnegative directly. If the reduced empty-neighbour
+sum vanishes, then \(c_i^0(\vn)=0\); the determinant condition for the
+original system and
+\(c_i^0(S)+c_i^1(S)\le0\) give the degenerate criterion for the
+reduced system. Thus \(\cL'\) remains patch-positive.
+\Cref{prop:critical-density-formula} depends only on nonempty-neighbour
 coefficients, so the critical profile is unchanged.
 
-Let \(C,C'\) denote the two families of patch factors.  The explicit
-formulas in \cref{app:patch-calculations} give
+Let \(C,C'\) denote the two families of patch factors. The formulas in
+\cref{prop:explicit-patch-factors} give
 \[
   0\le C(P)\le C'(P)
 \]
-for every bulk patch.  For an end patch based at \(i\), expand around
+for every bulk patch. For an end patch based at \(i\), expand around
 the common critical value:
 \[
   C(z,P)=C(p_i^\star,P)+b(P)(z-p_i^\star),
 \]
-and likewise for \(C'\).  The same formulas give
+and similarly for \(C'\). The same formulas give
 \begin{equation}
   0\le C(p_i^\star,P)\le C'(p_i^\star,P),
   \qquad
   0\le b(P)\le b'(P).
   \label{eq:centered-end-comparison}
 \end{equation}
-Every term in the centered expansion
-\eqref{eq:end-factor-expansion} is nonnegative for
-\(\nu\in\Mstar\), and \eqref{eq:centered-end-comparison} orders it by
-the corresponding primed term.  The patch representation then proves
-\eqref{eq:pure-death-comparison} for each skeleton before averaging.
+Every term in \eqref{eq:end-factor-expansion} is nonnegative for
+\(\nu\in\Mstar\), and \eqref{eq:centered-end-comparison} bounds it by
+the corresponding primed term. Apply
+\cref{thm:patch-representation} skeleton by skeleton.
 \end{proof}
 
 \begin{corollary}[Invariant-measure comparison]
 \label{cor:invariant-comparison}
-Under the assumptions of \cref{thm:pure-death-comparison}, suppose
-that the two spin systems have unique invariant measures \(\pi\) and
-\(\pi'\).  Then
+Under the assumptions of \cref{thm:pure-death-comparison}, suppose the
+two systems have unique \invariantmeasures\ \(\pi\) and \(\pi'\).
+Then
 \[
   \pi(\chi_A)\le\pi'(\chi_A)
   \qquad(A\Subset\Lambda).
@@ -95,11 +107,13 @@ that the two spin systems have unique invariant measures \(\pi\) and
 \begin{proof}
 Apply \eqref{eq:pure-death-comparison} to
 \(\mu_{\mathbf1}\in\Mstar\), average over \(t\in[0,T]\), and let
-\(T\to\infty\).  Every subsequential Cesàro limit is invariant, so
+\(T\to\infty\). Every subsequential Cesàro limit is invariant, so
 uniqueness identifies the limits with \(\pi\) and \(\pi'\).
 \end{proof}
 
 \begin{remark}
-The conclusion compares all joint occupation probabilities.  It does
-not by itself imply stochastic domination.
+\label{rem:moment-not-stochastic}
+\Cref{thm:pure-death-comparison,cor:invariant-comparison} compare all
+joint occupation probabilities; they do not assert stochastic
+domination.
 \end{remark}

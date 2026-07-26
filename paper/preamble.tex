@@ -26,15 +26,39 @@
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{notation}[theorem]{Notation}
 \newtheorem{example}[theorem]{Example}
+\newtheorem{citedresult}[theorem]{Cited result}
 
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
 \crefname{assumption}{assumption}{assumptions}
 \Crefname{assumption}{Assumption}{Assumptions}
+\crefname{construction}{construction}{constructions}
+\Crefname{construction}{Construction}{Constructions}
+\crefname{notation}{notation}{notations}
+\Crefname{notation}{Notation}{Notations}
+\crefname{citedresult}{cited result}{cited results}
+\Crefname{citedresult}{Cited result}{Cited results}
 
 \numberwithin{equation}{section}
+
+\definecolor{scaffoldgray}{RGB}{90,90,90}
+\newenvironment{discussion}
+  {%
+    \par\medskip
+    \begin{quote}
+    \color{scaffoldgray}\small
+    \textbf{Discussion to write.}
+    \begin{itemize}[leftmargin=1.4em,itemsep=0.15em,topsep=0.35em]
+  }
+  {%
+    \end{itemize}
+    \end{quote}
+    \medskip
+  }
 
 \newcommand{\R}{\mathbb R}
 \newcommand{\Z}{\mathbb Z}
@@ -57,11 +81,19 @@
 \newcommand{\cQ}{\mathcal Q}
 \newcommand{\cS}{\mathcal S}
 
-\newcommand{\Mstar}{\mathcal M_\star}
-\newcommand{\Mminus}{\mathcal M_-}
-\newcommand{\pstar}{\mathbf p^\star}
+\newcommand{\Mstar}{\hyperref[def:centered-classes]{\ensuremath{\mathcal M_\star}}}
+\newcommand{\Mminus}{\hyperref[def:centered-classes]{\ensuremath{\mathcal M_-}}}
+\newcommand{\pstar}{\hyperref[def:critical-profile]{\ensuremath{\mathbf p^\star}}}
 \newcommand{\mustar}{\mu_{\mathbf p^\star}}
 \newcommand{\Cone}{\mathbf{Cone}}
+
+\newcommand{\invariantmeasure}{\hyperref[def:invariant-measure]{invariant measure}}
+\newcommand{\invariantmeasures}{\hyperref[def:invariant-measure]{invariant measures}}
+\newcommand{\ergodicity}{\hyperref[def:ergodicity]{ergodicity}}
+\newcommand{\ergodic}{\hyperref[def:ergodicity]{ergodic}}
+\newcommand{\uniformexponentialergodicity}{%
+  \hyperref[def:uniform-exponential-ergodicity]{uniform exponential ergodicity}}
+\newcommand{\patchpositivity}{\hyperref[def:patch-positivity]{patch positivity}}
 
 \newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}

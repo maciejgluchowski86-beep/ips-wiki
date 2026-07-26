@@ -17,7 +17,13 @@ From the repository root, compile locally with:
 latexmk -pdf main.tex
 ```
 
-The current version is a paper scaffold: the theorem statements, logical
-dependencies, and proof architecture are present, while several local
-calculations are intentionally collected in the appendices for later
-expansion.
+The current version is a paper scaffold rather than a prose draft.
+Definitions, results, cited results, proofs, figures, and notation are
+written in formal environments. Every passage requiring authorial
+motivation, interpretation, literature positioning, or discussion is
+represented by a gray `discussion` blurb listing the information to
+convey there.
+
+Recurring concepts have labeled definitions and clickable internal
+links. In particular, every use of ergodicity terminology links to its
+definition in the setup section.

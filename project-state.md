@@ -13,7 +13,11 @@ The paper scaffold lives under `paper/`. The repository-level
 paper follows the current theorem hierarchy: signed monomial duality,
 finite-horizon patch factorization and representation, patch positivity
 and centered-moment order, pure-death comparison, the common invariant
-limit, and FA-1f/BABP examples.
+limit, and FA-1f/BABP examples. It is a formal scaffold rather than a
+prose draft: mathematical environments are filled, while gray discussion
+blurbs specify the motivation, interpretation, and literature content
+still to be written by the author. Core terms have labeled definitions
+and clickable in-paper links.
 
 ## Current core entries
 

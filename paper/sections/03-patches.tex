@@ -1,34 +1,50 @@
 \section{Successful interactions and patches}
 \label{sec:patches}
 
+\begin{discussion}
+  \item Explain which information is retained by the
+  successful-interaction skeleton and which clock marks remain hidden.
+  \item Use \cref{fig:patch-schematic} to explain why the retained
+  interactions cut active site-lines into one-site intervals.
+  \item Emphasize that the factorization theorem is finite-horizon and
+  uses only ordinary Poisson disintegration on disjoint source-time
+  intervals.
+\end{discussion}
+
 \subsection{The successful-interaction skeleton}
 
+\begin{definition}[Successful interaction]
+\label{def:successful-interaction}
 A nonempty-target interaction \((i,t,\alpha,S)\), with
-\(\alpha\in\{\delta,\beta\}\), is \emph{successful} when its source is
-active immediately before it occurs:
+\(\alpha\in\{\delta,\beta\}\), is successful if
 \[
   i\in A_{t-}.
 \]
-Its skeleton is the triple \((i,t,S)\); in particular, it does not
-reveal whether the interaction is a split or a birth.  The initial
-interaction is declared successful and has skeleton
+Its skeleton is \((i,t,S)\), which does not reveal whether
+\(\alpha=\delta\) or \(\alpha=\beta\). The initial interaction in
+\cref{con:dual-graphical} is declared successful and has skeleton
 \((\infty,0,A)\).
+\end{definition}
 
-For \(T<\infty\), let \(\cI_T\) be the initial skeleton together with
-all ordinary successful-interaction skeletons through time \(T\), and
-put
+\begin{definition}[Finite-horizon skeleton]
+\label{def:finite-skeleton}
+For \(T<\infty\), let \(\cI_T\) consist of the initial skeleton and all
+ordinary successful-interaction skeletons through time \(T\), and set
 \begin{equation}
   \cG_T=\sigma\bigl((A_0,\sigma_0),\cI_T\bigr).
   \label{eq:skeleton-sigma-field}
 \end{equation}
-Deaths have empty target and are not included in \(\cI_T\).
+Empty-target deaths do not belong to \(\cI_T\).
+\end{definition}
 
 \subsection{Patches}
 
+\begin{definition}[Patch]
+\label{def:patch}
 A successful interaction \((i,t,S)\) touches \(i\) as an outgoing
-touch and each \(j\in S\) as an incoming touch.  At each site, order
-all successful touches in time.  A patch is the site-time interval
-between two successive touches, together with four labels:
+touch and each \(j\in S\) as an incoming touch. At each site, order
+all successful touches in time. A patch is the labeled site-time
+interval between two successive touches:
 \[
   P
   =
@@ -36,40 +52,51 @@ between two successive touches, together with four labels:
   \times\{\mathsf X(P)\mathsf Y(P)\}
   \times\{S(P)\}.
 \]
-The initial label is \(\sI\) when \(i(P)\in S(P)\) and \(\sO\)
-otherwise.  The terminal label is \(\sI\) or \(\sO\) according to the
-next touch, and is \(\sE\) when no later touch has yet been revealed.
-At a finite horizon \(T\), patches ending before \(T\) are
-\emph{bulk patches}; those cut by \(T\) are \emph{end patches}.  Their
-families are denoted by \(\cB_T\) and \(\cE_T\), and
+Here \(S(P)\) is the target of the interaction at \(s(P)\);
+\(\mathsf X(P)=\sI\) if \(i(P)\in S(P)\) and
+\(\mathsf X(P)=\sO\) otherwise. If the next touch at \(e(P)<\infty\)
+is incoming, respectively outgoing, then
+\(\mathsf Y(P)=\sI\), respectively \(\mathsf Y(P)=\sO\). If there is
+no later touch, then \(e(P)=\infty\) and
+\(\mathsf Y(P)=\sE\). The family of all full patches is denoted by
+\(\cP\).
+\end{definition}
+
+\begin{definition}[Finite-horizon patch families]
+\label{def:finite-patch-families}
+For \(T<\infty\), truncate every full patch intersecting
+\([0,T]\) at time \(T\). The patches ending at or before \(T\) form
+the bulk family \(\cB_T\), while those truncated by \(T\) form the end
+family \(\cE_T\). Set
 \[
   \cP_T=\cB_T\cup\cE_T.
 \]
 Every end patch is based at a distinct site of the interaction cone
 \(\Cone_T\).
+\end{definition}
 
 \begin{figure}[htbp]
   \centering
   \input{paper/figures/patch-schematic}
-  \caption{A successful interaction cuts the source and every target
-  site-line.  The intervals between successive cuts are patches.  The
-  first label records whether a patch begins at an incoming or
-  outgoing touch; the second records its terminal touch or the finite
-  horizon.}
+  \caption{Patch boundaries created by a successful interaction. The
+  initial label records whether the patch begins at an incoming or
+  outgoing touch; the terminal label records its next touch or the
+  finite horizon.}
   \label{fig:patch-schematic}
 \end{figure}
 
 \subsection{Reference patch laws and consistency}
 
-Fix a labeled patch \(P\), abbreviate
+\begin{definition}[Reference and consistent patch laws]
+\label{def:consistent-patch-law}
+Fix a labeled patch \(P\), and abbreviate
 \[
-  i=i(P),\quad s=s(P),\quad e=e(P),\quad S=S(P),
+  i=i(P),\qquad s=s(P),\qquad e=e(P),\qquad S=S(P).
 \]
-and consider all interactions outgoing from \(i\) in the open
-interval \((s,e)\).  Under the reference law \(\pP_P\), these are the
-original independent Poisson clocks restricted to \((s,e)\).  If
-\(\mathsf X(P)=\sO\), the interaction at time \(s\) is also included;
-its hidden kind has law
+Under the reference law \(\pP_P\), the interactions outgoing from \(i\)
+in \((s,e)\) are the restrictions of the independent Poisson clocks
+in \cref{con:dual-graphical}. If \(\mathsf X(P)=\sO\), the hidden kind
+of the interaction at \(s\) satisfies
 \begin{equation}
   \pP_P(\alpha=\delta)
   =
@@ -81,35 +108,35 @@ its hidden kind has law
   \label{eq:boundary-kind-law}
 \end{equation}
 
-These data generate a one-site active indicator \(X^P\).  An incoming
-patch starts active.  An outgoing patch starts inactive after a split
-and active after a birth.  Thereafter an empty-target death makes the
-site inactive, a split makes it inactive, and a birth leaves it
-active, provided the source was active.
+These data generate a one-site active indicator \(X^P\). An incoming
+patch starts active. An outgoing patch starts inactive after a split
+and active after a birth. Subsequently, an empty-target death or a
+split makes the site inactive, while a birth leaves it active,
+provided its source is active.
 
-The event \(\operatorname{Con}(P)\) requires two things:
+The consistency event \(\operatorname{Con}(P)\) requires:
 \begin{enumerate}[(i)]
   \item every nonempty-target interaction strictly inside \(P\) has
-  inactive source, so it does not create an unrecorded successful
-  interaction;
-  \item if \(\mathsf Y(P)=\sO\), then the source is active immediately
+  inactive source;
+  \item if \(\mathsf Y(P)=\sO\), the source is active immediately
   before \(e(P)\).
 \end{enumerate}
-Incoming and end terminal labels impose no terminal activity
-condition.  For every realized finite-horizon patch,
-\(\pP_P(\operatorname{Con}(P))>0\) almost surely.  We write
+For every realized finite-horizon or full patch,
+\(\pP_P(\operatorname{Con}(P))>0\) almost surely; an infinite labeled
+patch with zero normalizer has zero probability of appearing in the
+successful skeleton. Define
 \[
   \pP_P^{\mathrm{con}}(\,\cdot\,)
   =
-  \pP_P(\,\cdot\mid\operatorname{Con}(P))
+  \pP_P(\,\cdot\mid\operatorname{Con}(P)).
 \]
-for the consistent patch law.
+\end{definition}
 
 \begin{theorem}[Finite-horizon patch factorization]
 \label{thm:patch-factorization}
-Fix \(T<\infty\).  Conditional on \(\cG_T\), the patch interaction
-data are independent, and the conditional law in patch
-\(P\in\cP_T\) is \(\pP_P^{\mathrm{con}}\).  Thus, for bounded
+Fix \(T<\infty\). Conditional on \(\cG_T\), the patch interaction data
+are independent, and the conditional law in
+\(P\in\cP_T\) is \(\pP_P^{\mathrm{con}}\). Thus, for bounded
 measurable \(f_P\),
 \begin{equation}
   \E\left[
@@ -124,36 +151,34 @@ measurable \(f_P\),
 \end{theorem}
 
 \begin{proof}
-Fix a realization \(g\) of the finite skeleton.  It determines a
+Fix a realization \(g\) of the finite skeleton. It determines a
 finite labeled family \(\cP_T(g)\) and finitely many boundary points.
-Disintegrate the joint law of the ordered Poisson points at these
-locations.  Independent increments on the disjoint source-time
-intervals give the product reference law
+Disintegrating the ordered Poisson points at these locations, the
+independent increments on the disjoint source-time intervals give
 \[
-  \bigotimes_{P\in\cP_T(g)}\pP_P;
+  \bigotimes_{P\in\cP_T(g)}\pP_P,
 \]
-at an outgoing boundary, the unrevealed mark has the proportional-rate
-law \eqref{eq:boundary-kind-law}.
+and the hidden mark at every outgoing boundary has law
+\eqref{eq:boundary-kind-law}.
 
 Relative to the fixed boundary points, the event that \(g\) is the
-complete successful skeleton is precisely
+complete successful skeleton is
 \[
   \bigcap_{P\in\cP_T(g)}\operatorname{Con}(P).
   \tag{*}
 \]
-The forward implication follows from the definition.  For the reverse
-implication, read the boundary interactions chronologically.  The
-local indicators agree with the global active state between boundary
-times; interior consistency rules out any missing successful
-interaction; terminal consistency activates every recorded outgoing
-boundary; and that boundary begins exactly the prescribed source and
-target patches.  Induction reconstructs the global active process and
-proves \((*)\).
+One implication follows from the definition. For the converse, read
+the boundary interactions chronologically. The local indicators agree
+with the global active state between boundary times; interior
+consistency rules out a missing successful interaction; terminal
+consistency activates every recorded outgoing boundary; and that
+boundary starts precisely the prescribed source and target patches.
+Induction reconstructs the global active process and proves \((*)\).
 
-Conditioning the product reference law on \((*)\) therefore gives
+Conditioning the product reference law on \((*)\) gives
 \[
   \frac{
-    \prod_{P}
+    \prod_P
     \ind(\operatorname{Con}(P))\,\pP_P(\dd\Sigma_P)
   }{
     \prod_P\pP_P(\operatorname{Con}(P))
@@ -161,14 +186,14 @@ Conditioning the product reference law on \((*)\) therefore gives
   =
   \bigotimes_P\pP_P^{\mathrm{con}}(\dd\Sigma_P),
 \]
-which proves \eqref{eq:patch-factorization}.  Only finitely many
-source-time strips are involved, so the infinite lattice introduces
-no additional conditioning issue.
+which is \eqref{eq:patch-factorization}. Only finitely many
+source-time strips are involved.
 \end{proof}
 
-\begin{remark}
-The theorem is deliberately finite-horizon.  Infinite patches and
-their limiting factors will be defined by endpoint limits; none of the
-main results requires factorization conditional on an all-time
-successful skeleton.
+\begin{remark}[Finite horizon]
+\label{rem:finite-horizon-factorization}
+\Cref{thm:patch-factorization} does not condition on an all-time
+skeleton. Infinite patch factors used in
+\cref{thm:common-limit} are defined by endpoint limits of
+finite-horizon factors.
 \end{remark}
