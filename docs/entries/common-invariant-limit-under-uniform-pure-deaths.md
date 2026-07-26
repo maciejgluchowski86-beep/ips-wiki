@@ -272,13 +272,13 @@ $$
 For later use, write
 
 $$
-G_A=\prod_{P\in\mathcal P}C(P)\ind\left(|\mathcal P|<\infty\right).
+W=\prod_{P\in\mathcal P}C(P)\ind\left(|\mathcal P|<\infty\right).
 $$
 
-The same bound with initial law \(\mu_{\mathbf1}\) holds for every finite-horizon weight \(W_u^{\mu_{\mathbf1}}\), \(u\ge T\). On \(\{|\mathcal P|<\infty\}\), these weights converge to \(\prod_{P\in\mathcal P}C(P)\), while \(G_A=0\) on the complementary event. Positivity and Fatou's lemma therefore give
+The same bound with initial law \(\mu_{\mathbf1}\) holds for every finite-horizon weight \(W_u^{\mu_{\mathbf1}}\), \(u\ge T\). On \(\{|\mathcal P|<\infty\}\), these weights converge to \(\prod_{P\in\mathcal P}C(P)\), while \(W=0\) on the complementary event. Positivity and Fatou's lemma therefore give
 
 $$
-0\le\mathbb E_A\left[G_A\ind((E_T^R)^c)\right]\le\rho_A(T,R).
+0\le\mathbb E_A\left[W\ind((E_T^R)^c)\right]\le\rho_A(T,R).
 \tag{11}
 $$
 
@@ -308,7 +308,7 @@ $$
 On \(\{|\mathcal P|<\infty\}\cap L_T^c\), the first interaction after \(T\) has the same kind of \(\mathsf{XO}\)-trail. Comparing along this trail and dominating by the full less noisy product gives
 
 $$
-0\le\mathbb E_A\left[G_A\ind(E_T^R\cap L_T^c)\right]\le e^{-\varepsilon T}.
+0\le\mathbb E_A\left[W\ind(E_T^R\cap L_T^c)\right]\le e^{-\varepsilon T}.
 \tag{13}
 $$
 
@@ -353,10 +353,10 @@ C(1,Q^{\uparrow u})
 C(Q^{\uparrow\infty}).
 $$
 
-On \(L_T\), the full patch family is finite and the finite-horizon all-one weight converges to \(G_A\). Thus letting \(u\to\infty\) in the finite-horizon identity gives
+On \(L_T\), the full patch family is finite and the finite-horizon all-one weight converges to \(W\). Thus letting \(u\to\infty\) in the finite-horizon identity gives
 
 $$
-\mathbb E_A\left[G_A\ind(L_T)\mid\cG_T\right]=\prod_{P\in\mathcal B_T}C(P)\prod_{Q\in\mathcal E_T}C(Q^{\uparrow\infty}).
+\mathbb E_A\left[W\ind(L_T)\mid\cG_T\right]=\prod_{P\in\mathcal B_T}C(P)\prod_{Q\in\mathcal E_T}C(Q^{\uparrow\infty}).
 \tag{15}
 $$
 
@@ -396,16 +396,16 @@ $$
 On \(E_T^R\), the [interaction-cone identity](interaction-cone.md) gives \(|\mathcal E_T|=|\mathbf{Cone}_T|\le|R|\). After multiplication by the bulk contributions, the right-hand side of (17) is \(e^{-\varepsilon(t-T)}\) times the conditional no-late-interaction weight for the less noisy process, whose expectation is at most one by (9). The right-hand side of (18) is at most \(|R|e^{-\varepsilon(t-T)}\) times the conditional limiting no-late-interaction weight, which is dominated by the full less noisy product controlled after (13). Multiplying by \(\ind(E_T^R)\) and integrating gives
 
 $$
-\left|\mathbb E_A\left[W_t^\nu\ind(E_T^R\cap L_{T,t})\right]-\mathbb E_A\left[G_A\ind(E_T^R\cap L_T)\right]\right|\le(1+|R|)e^{-\varepsilon(t-T)}.
+\left|\mathbb E_A\left[W_t^\nu\ind(E_T^R\cap L_{T,t})\right]-\mathbb E_A\left[W\ind(E_T^R\cap L_T)\right]\right|\le(1+|R|)e^{-\varepsilon(t-T)}.
 \tag{19}
 $$
 
 ### Completion for \(\mathcal M_\star\)
 
-The events \((E_T^R)^c\), \(E_T^R\cap L_{T,t}^c\), and \(E_T^R\cap L_{T,t}\) partition the finite-horizon weight. The analogous decomposition of \(G_A\) uses \(L_T^c\) and \(L_T\). Combining (10)--(13) and (19) yields
+The events \((E_T^R)^c\), \(E_T^R\cap L_{T,t}^c\), and \(E_T^R\cap L_{T,t}\) partition the finite-horizon weight. The analogous decomposition of \(W\) uses \(L_T^c\) and \(L_T\). Combining (10)--(13) and (19) yields
 
 $$
-\left|\nu(P_t\chi_A)-\mathbb E_A[G_A]\right|
+\left|\nu(P_t\chi_A)-\mathbb E_A[W]\right|
 \le
 2\rho_A(T,R)+2e^{-\varepsilon T}+(1+|R|)e^{-\varepsilon(t-T)}.
 \tag{20}
