@@ -10,7 +10,7 @@ tags:
 
 # Patch consistency event
 
-Fix \(T\le\infty\) and a labeled [patch](patch.md) \(P\in\mathcal P_T\). Write
+Fix a labeled [patch](patch.md) \(P\), either a full patch in \(\mathcal P\) or a finite-horizon patch in \(\mathcal P_T\) for \(T<\infty\). Write
 
 $$
 i=i(P),
@@ -174,7 +174,7 @@ $$
 
 The interior condition says that every nonempty-target interaction strictly inside the patch has inactive source. Otherwise it would be an additional successful interaction and would cut the patch. The terminal condition says that an outgoing terminal boundary can occur only if its source is active immediately before that boundary. Incoming and end terminal labels impose no terminal activity condition.
 
-When \(\mathbb P_P(\operatorname{Con}(P))>0\), define the consistent patch measure by
+For every realized patch, the consistency event has positive reference probability by the positive-normalizer property below. Define the consistent patch measure by
 
 $$
 \mathbb P_P^{\mathrm{con}}(\cdot)
@@ -189,6 +189,36 @@ $$
 =
 \mathbb E_P[f\mid\operatorname{Con}(P)].
 $$
+
+## Positive normalizers
+
+Every patch in a realized finite-horizon family \(\mathcal P_T\) has
+
+$$
+\mathbb P_P(\operatorname{Con}(P))>0
+$$
+
+almost surely. This also follows from the conditional product kernel in [patch factorization](patch-factorization.md).
+
+Every infinite full patch has terminal label \(\mathsf E\). With \(\alpha_i\) and \(\varphi_i\) as in the [patch contribution](patch-contribution.md) entry, its consistency probability is
+
+$$
+\mathbb P_P(\operatorname{Con}(P))
+=
+\begin{cases}
+\varphi_i(\infty),
+& \mathsf X(P)=\mathsf I,
+\\[0.8em]
+\dfrac{
+\delta_i(S)+\beta_i(S)\varphi_i(\infty)
+}{
+\delta_i(S)+\beta_i(S)
+},
+& \mathsf X(P)=\mathsf O.
+\end{cases}
+$$
+
+If one of these quantities vanishes, the corresponding labeled infinite patch occurs with probability zero. Consequently every infinite patch in the realized family \(\mathcal P\) has a positive consistency normalizer almost surely.
 
 ## Cut and end patches
 

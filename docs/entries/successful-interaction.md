@@ -70,7 +70,7 @@ and \(\mathcal I_\infty=\mathcal I\).
 
 Thus \(I\) contains the marked deterministic initial interaction and every marked Poisson interaction, while \(\mathcal I_T\) contains the initial skeleton and every ordinary successful-interaction skeleton through time \(T\). Deaths have empty target and are not successful interactions.
 
-For \(T\le\infty\), the successful-interaction sigma algebra is
+For \(T<\infty\), the successful-interaction sigma algebra is
 
 $$
 \cG_T

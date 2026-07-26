@@ -111,8 +111,6 @@ C(\mathbf p,P)&=C(p_i,P).
 \end{aligned}
 $$
 
-All conditional expectations below are understood for patches with \(\mathbb P_P(\operatorname{Con}(P))>0\).
-
 ## Dual-rate form
 
 Define

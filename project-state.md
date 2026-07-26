@@ -39,12 +39,12 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 1. `docs/entries/patch.md`: full one-site spacetime intervals cut by successful touches and their finite-horizon truncations.
 2. `docs/entries/interaction-cone.md`: sites reached from the initial dual set by successful interactions.
 3. `docs/entries/patch-consistency-event.md`: local patch measure, consistency event, and conditioned patch measure.
-4. `docs/entries/patch-factorization.md`: finite-dimensional product decomposition of patch laws conditional on \(\cG_T\), for \(T\le\infty\).
+4. `docs/entries/patch-factorization.md`: finite-horizon product decomposition of patch laws conditional on \(\cG_T\), proved by Poisson disintegration and chronological reconstruction of the successful skeleton.
 5. `docs/entries/patch-contribution.md`: one full-patch contribution definition covering finite and infinite lifetimes, together with explicit cut and end formulas in dual-rate form and spin-rate form.
 6. `docs/entries/patch-positivity-property.md`: coefficient criterion guaranteeing nonnegative bulk patch contributions.
 7. `docs/entries/patch-critical-density.md`: minimal one-density profile making every affine end-patch contribution nonnegative.
 8. `docs/entries/high-density-measure.md`: centered-moment definitions of the high-density class \(\mathcal M_\star\) and lower convergence class \(\mathcal M_-\), with product-profile characterizations.
-9. `docs/entries/patch-representation-of-spin-systems.md`: representation theorem expressing \(P_t\chi_A\) as an expectation over products of patch contributions, including the centered end-factor expansion for general initial laws.
+9. `docs/entries/patch-representation-of-spin-systems.md`: finite-horizon bulk-and-end representation of \(P_t\chi_A\), including the centered end-factor expansion for general initial laws.
 10. `docs/entries/undoing-duality-under-confined-interactions.md`: successful interactions confined on an arbitrary dual interval represented by a modified spin-system semigroup, with initial-interval and late-interval specializations.
 11. `docs/entries/finite-propagation-for-zero-boundary-restrictions.md`: exponentially accurate approximation of local observables by zero-boundary restrictions on linearly growing balls.
 12. `docs/entries/exponential-relaxation-under-confined-late-interactions.md`: exponential convergence of a late-confined term under uniform zero-boundary mixing.

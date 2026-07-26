@@ -10,37 +10,29 @@ tags:
 
 # Patch representation of spin systems
 
-This is the patchwise form of [monomial duality for spin systems](monomial-duality-for-spin-systems.md), after applying [patch factorization](patch-factorization.md). Conditioning on \(\cG_t\) gives a representation in terms of bulk and end patches. Conditioning on \(\cG_\infty\) gives a representation in terms of bulk and cut patches.
+This is the patchwise form of [monomial duality for spin systems](monomial-duality-for-spin-systems.md), after applying [patch factorization](patch-factorization.md) at the finite horizon \(t\). It expresses each evolved monomial as an average of products of bulk and end contributions.
 
-Let \((P_t)_{t\ge0}\) be the spin-system semigroup, and let the signed additive dual start from \((A,+)\). Let \(\mathcal B_t\), \(\mathcal C_t\), and \(\mathcal E_t\) be the bulk, cut, and end patch families from the [patch](patch.md) entry. Let \(C(P)\), \(C(\xi,P)\), and \(C_t(\xi,P)\) be the [patch contributions](patch-contribution.md).
+Let \((P_t)_{t\ge0}\) be the spin-system semigroup, and let the signed additive dual start from \((A,+)\). Let \(\mathcal B_t\) and \(\mathcal E_t\) be the bulk and end patch families from the [patch](patch.md) entry. Let \(C(P)\) and \(C(\xi,P)\) be the [patch contributions](patch-contribution.md).
 
-Write \(\mathbb E_A\) for expectation with respect to the successful-interaction skeleton of the dual started from \((A,+)\). In the first representation below the integrand is \(\cG_t\)-measurable, while in the second it is \(\cG_\infty\)-measurable.
+Write \(\mathbb E_A\) for expectation with respect to the successful-interaction skeleton of the dual started from \((A,+)\). The integrand below is \(\cG_t\)-measurable.
 
 ## Statement
 
 For every \(A\Subset\Lambda\), every \(\xi\in\{0,1\}^\Lambda\), and every \(t\ge0\),
 
 $$
-\begin{aligned}
 P_t(\chi_A)(\xi)
-&=
+=
 \mathbb E_A\left[
 \prod_{P\in\mathcal B_t}C(P)
 \prod_{P\in\mathcal E_t}C(\xi,P)
-\right]
-\\
-&=
-\mathbb E_A\left[
-\prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal C_t}C_t(\xi,P)
 \right].
-\end{aligned}
 \tag{1}
 $$
 
 ## Averaging over a general initial law
 
-Let \(\mu\) be any probability measure on \(\{0,1\}^\Lambda\). Integrating the first representation in (1) gives
+Let \(\mu\) be any probability measure on \(\{0,1\}^\Lambda\). Integrating (1) gives
 
 $$
 \mu(P_t\chi_A)
@@ -107,27 +99,10 @@ P_t(\chi_A)(\xi)
 \tag{2}
 $$
 
-Fix
-
-$$
-T\in\{t,\infty\}
-$$
-
-and condition on \(\cG_T\). To treat the two choices simultaneously, set
-
-$$
-\mathcal X_t^T
-=
-\begin{cases}
-\mathcal E_t, & T=t,\\
-\mathcal C_t, & T=\infty.
-\end{cases}
-$$
-
 For every
 
 $$
-P\in\mathcal B_t\cup\mathcal X_t^T,
+P\in\mathcal B_t\cup\mathcal E_t,
 $$
 
 let \(\alpha_P\in\{\delta,\beta\}\) be the kind of its initial interaction when \(\mathsf X(P)=\mathsf O\), and define
@@ -156,7 +131,7 @@ s(P)\le u<e(P).
 \tag{4}
 $$
 
-For \(P\in\mathcal X_t^T\), also set
+For \(P\in\mathcal E_t\), also set
 
 $$
 X_t^P
@@ -190,7 +165,7 @@ F_t(\xi,P)
 V_{i(P)}\int_{s(P)}^tX_u^P\,du
 \right)
 \xi(i(P))^{X_t^P},
-\qquad P\in\mathcal X_t^T.
+\qquad P\in\mathcal E_t.
 $$
 
 These are the unaveraged factors from the [patch contribution](patch-contribution.md) entry.
@@ -201,26 +176,26 @@ $$
 a_i^\delta(\vn)=c_i(\mathbf 0)\ge0.
 $$
 
-Moreover, \(V(A_u)=\sum_{i\in A_u}V_i\), the patches partition the relevant site-time regions up to time \(t\), and the patches in \(\mathcal X_t^T\) record the state at time \(t\). Therefore
+Moreover, \(V(A_u)=\sum_{i\in A_u}V_i\), the patches partition the relevant site-time regions up to time \(t\), and the end patches record the state at time \(t\). Therefore
 
 $$
 \begin{aligned}
 \sigma_t
 &=
 \prod_{P\in\mathcal B_t}\sigma_P
-\prod_{P\in\mathcal X_t^T}\sigma_P,
+\prod_{P\in\mathcal E_t}\sigma_P,
 \\
 \int_0^tV(A_u)\,du
 &=
 \sum_{P\in\mathcal B_t}
 V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
 +
-\sum_{P\in\mathcal X_t^T}
+\sum_{P\in\mathcal E_t}
 V_{i(P)}\int_{s(P)}^tX_u^P\,du,
 \\
 \chi_{A_t}(\xi)
 &=
-\prod_{P\in\mathcal X_t^T}
+\prod_{P\in\mathcal E_t}
 \xi(i(P))^{X_t^P}.
 \end{aligned}
 \tag{5}
@@ -236,11 +211,11 @@ $$
 \chi_{A_t}(\xi)
 =
 \prod_{P\in\mathcal B_t}F(P)
-\prod_{P\in\mathcal X_t^T}F_t(\xi,P).
+\prod_{P\in\mathcal E_t}F_t(\xi,P).
 \tag{6}
 $$
 
-The factors in (6) are functions of the corresponding patch interaction data. Hence [patch factorization](patch-factorization.md) applied conditionally on \(\cG_T\) gives
+The factors in (6) are functions of the corresponding patch interaction data. Hence [patch factorization](patch-factorization.md) applied conditionally on \(\cG_t\) gives
 
 $$
 \begin{aligned}
@@ -250,30 +225,21 @@ $$
 \int_0^tV(A_u)\,du
 \right)
 \chi_{A_t}(\xi)
-\middle|\cG_T
+\middle|\cG_t
 \right]
 &=
 \prod_{P\in\mathcal B_t}
 \mathbb E_P^{\mathrm{con}}[F(P)]
-\prod_{P\in\mathcal X_t^T}
+\prod_{P\in\mathcal E_t}
 \mathbb E_P^{\mathrm{con}}[F_t(\xi,P)]
 \\
 &=
-\begin{cases}
-\displaystyle
 \prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal E_t}C(\xi,P),
-& T=t,
-\\[1.2em]
-\displaystyle
-\prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal C_t}C_t(\xi,P),
-& T=\infty.
-\end{cases}
+\prod_{P\in\mathcal E_t}C(\xi,P).
 \end{aligned}
 \tag{7}
 $$
 
-Taking expectation in (7), first with \(T=t\) and then with \(T=\infty\), and using (2), gives the two equalities in (1).
+Taking expectation in (7) and using (2) proves (1).
 
 The deterministic ordering convention for simultaneous successful touches handles the null exceptional events without changing the formulas.

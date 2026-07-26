@@ -252,8 +252,6 @@ $$
 
 Every end patch has terminal label \(\mathsf E\), but that label alone does not make a patch an end patch: every infinite patch in \(\mathcal P\) also has terminal label \(\mathsf E\). Membership in \(\mathcal E_t\), rather than the terminal label alone, distinguishes an end patch from its original cut patch in \(\mathcal C_t\).
 
-Set \(P^{\downarrow\infty}=P\) and \(\mathcal P_\infty=\mathcal P\).
-
 For every fixed \(t\ge0\), almost surely, sending an end patch to its site is a bijection from \(\mathcal E_t\) to the [interaction cone](interaction-cone.md) \(\mathbf{Cone}_t\). At time zero these are the zero-length \(\mathsf{IE}\) patches based at the sites of \(A_0\). Consequently,
 
 $$

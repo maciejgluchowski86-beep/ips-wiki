@@ -331,7 +331,29 @@ r_i=c_i^0(\vn)+c_i^1(\vn),
 q_i=\frac{c_i^0(\vn)}{r_i}.
 $$
 
-The uniform death bound gives \(r_i\ge\varepsilon\). On \(L_T\), every \(Q\in\mathcal E_T\) has the infinite continuation \(Q^{\uparrow\infty}\). Hence
+The uniform death bound gives \(r_i\ge\varepsilon\). On \(L_T\), every \(Q\in\mathcal E_T\) has the infinite continuation \(Q^{\uparrow\infty}\).
+
+To identify its conditional weight without conditioning on the all-time skeleton, apply (14) at a finite horizon \(u>T\) with \(\nu=\mu_{\mathbf1}\):
+
+$$
+\mathbb E_A\left[
+W_u^{\mu_{\mathbf1}}\ind(L_{T,u})
+\middle|\cG_T
+\right]
+=
+\prod_{P\in\mathcal B_T}C(P)
+\prod_{Q\in\mathcal E_T}C(1,Q^{\uparrow u}).
+$$
+
+As \(u\to\infty\), the events \(L_{T,u}\) decrease to \(L_T\), and the explicit empty-neighbour relaxation gives
+
+$$
+C(1,Q^{\uparrow u})
+\longrightarrow
+C(Q^{\uparrow\infty}).
+$$
+
+On \(L_T\), the full patch family is finite and the finite-horizon all-one weight converges to \(G_A\). Thus letting \(u\to\infty\) in the finite-horizon identity gives
 
 $$
 \mathbb E_A\left[G_A\ind(L_T)\mid\cG_T\right]=\prod_{P\in\mathcal B_T}C(P)\prod_{Q\in\mathcal E_T}C(Q^{\uparrow\infty}).
