@@ -1,0 +1,149 @@
+\section{Patch contributions and the representation theorem}
+\label{sec:representation}
+
+\subsection{One-patch contributions}
+
+Let \(P\) be a labeled patch and \(X^P\) its local active indicator.
+If \(P\) begins at an outgoing interaction, let \(\alpha_P\) be its
+hidden split-or-birth kind and put
+\[
+  \sigma_P=\sigma_{i(P)}^{\alpha_P}(S(P));
+\]
+for an incoming patch, put \(\sigma_P=1\).  The full contribution is
+\begin{equation}
+  C(P)
+  =
+  \E_P^{\mathrm{con}}\left[
+    \sigma_P
+    \exp\left(
+      V_{i(P)}
+      \int_{s(P)}^{e(P)}X_u^P\,\dd u
+    \right)
+  \right],
+  \label{eq:full-contribution}
+\end{equation}
+where the expression is interpreted by an endpoint limit when
+\(e(P)=\infty\).
+
+If \(P\) is an end patch at time \(t\), its terminal contribution at
+\(z\in[0,1]\) is
+\begin{equation}
+  C(z,P)
+  =
+  \E_P^{\mathrm{con}}\left[
+    \sigma_P
+    \exp\left(
+      V_{i(P)}
+      \int_{s(P)}^tX_u^P\,\dd u
+    \right)
+    z^{X_t^P}
+  \right].
+  \label{eq:end-contribution}
+\end{equation}
+These factors are computed explicitly in
+\cref{app:patch-calculations}.  In particular, every end contribution
+is affine in \(z\).
+
+\subsection{Random-product representation}
+
+Write \(\E_A\) for expectation over the successful-interaction
+skeleton of the signed dual started from \((A,+)\).
+
+\begin{theorem}[Patch representation]
+\label{thm:patch-representation}
+For every \(A\Subset\Lambda\), \(t\ge0\), and
+\(\xi\in\{0,1\}^{\Lambda}\),
+\begin{equation}
+  P_t\chi_A(\xi)
+  =
+  \E_A\left[
+    \prod_{P\in\cB_t}C(P)
+    \prod_{P\in\cE_t}C(\xi(i(P)),P)
+  \right].
+  \label{eq:patch-representation}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The patches partition the active site-time set up to time \(t\).
+Every successful nonempty-target interaction contributes its sign to
+exactly one outgoing-initial patch, and every end patch records the
+dual state at its site at time \(t\).  Consequently the integrand in
+the Feynman--Kac formula \eqref{eq:fk-duality} decomposes exactly as
+\begin{align*}
+  &\sigma_t
+  \exp\left(\int_0^tV(A_u)\,\dd u\right)
+  \chi_{A_t}(\xi)
+  \\
+  &\qquad=
+  \prod_{P\in\cB_t}
+  \left[
+    \sigma_P
+    \exp\left(
+      V_{i(P)}
+      \int_{s(P)}^{e(P)}X_u^P\,\dd u
+    \right)
+  \right]
+  \\
+  &\qquad\quad\times
+  \prod_{P\in\cE_t}
+  \left[
+    \sigma_P
+    \exp\left(
+      V_{i(P)}
+      \int_{s(P)}^tX_u^P\,\dd u
+    \right)
+    \xi(i(P))^{X_t^P}
+  \right].
+\end{align*}
+Apply \cref{thm:patch-factorization} conditionally on \(\cG_t\) and
+then take expectation.
+\end{proof}
+
+\subsection{General initial laws}
+
+Integrating \eqref{eq:patch-representation} against a probability
+measure \(\mu\) gives
+\begin{equation}
+  \mu(P_t\chi_A)
+  =
+  \E_A\left[
+    \prod_{P\in\cB_t}C(P)\,
+    \mu\left(
+      \prod_{P\in\cE_t}C(\eta(i(P)),P)
+    \right)
+  \right].
+  \label{eq:general-law-representation}
+\end{equation}
+
+Suppose that a profile \(\pstar\) has been chosen so that every end
+factor admits the affine decomposition
+\begin{equation}
+  C(z,P)
+  =
+  C(p_{i(P)}^\star,P)
+  +
+  b(P)\bigl(z-p_{i(P)}^\star\bigr),
+  \qquad
+  C(p_{i(P)}^\star,P)\ge0,\quad b(P)\ge0.
+  \label{eq:centered-end-factor}
+\end{equation}
+Since different end patches are based at different sites, expansion
+of the product yields
+\begin{align}
+  &\mu\left(
+    \prod_{P\in\cE_t}C(\eta(i(P)),P)
+  \right)
+  \notag\\
+  &\quad=
+  \sum_{\cQ\subseteq\cE_t}
+  \mu\left(
+    \chi_{\{i(P):P\in\cQ\}}^\star
+  \right)
+  \prod_{P\in\cQ}b(P)
+  \prod_{P\in\cE_t\setminus\cQ}
+  C(p_{i(P)}^\star,P).
+  \label{eq:end-factor-expansion}
+\end{align}
+This identity is the bridge between patch positivity and general
+initial laws.

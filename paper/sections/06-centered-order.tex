@@ -1,0 +1,172 @@
+\section{Centered-moment order}
+\label{sec:centered-order}
+
+For finite signed measures \(\lambda_0,\lambda_1\), write
+\[
+  \lambda_0\preceq_\star\lambda_1
+  \quad\Longleftrightarrow\quad
+  \lambda_0(\chi_A^\star)
+  \le
+  \lambda_1(\chi_A^\star)
+  \quad\text{for every }A\Subset\Lambda.
+\]
+This order is tailored to the critical profile.  It is generally
+different from stochastic order.
+
+\begin{theorem}[Preservation of centered-moment order]
+\label{thm:centered-order}
+Let \((P_t)_{t\ge0}\) be a uniformly bounded finite-range
+patch-positive spin-system semigroup.  If
+\(\nu_0\preceq_\star\nu_1\), then, for every
+\(A\Subset\Lambda\) and \(t\ge0\),
+\begin{align}
+  \nu_0(P_t\chi_A^\star)
+  &\le
+  \nu_1(P_t\chi_A^\star),
+  \label{eq:centered-order}
+  \\
+  \nu_0(P_t\chi_A)
+  &\le
+  \nu_1(P_t\chi_A).
+  \label{eq:ordinary-moment-order}
+\end{align}
+In particular,
+\begin{equation}
+  \mu\in\Mstar
+  \quad\Longrightarrow\quad
+  \mu P_t\in\Mstar.
+  \label{eq:Mstar-preserved}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+For \(S\subseteq N(i)\), define
+\[
+  d_i(S)
+  =
+  c_i^0(S)
+  -
+  p_i^\star\bigl(c_i^0(S)+c_i^1(S)\bigr),
+\]
+and, for \(S\ne\vn\),
+\[
+  b_i(S)=-c_i^0(S)-c_i^1(S).
+\]
+Patch positivity and the definition of \(p_i^\star\) give
+\begin{equation}
+  d_i(S)\ge0,
+  \qquad
+  b_i(S)\ge0.
+  \label{eq:db-positive}
+\end{equation}
+Writing \(r_i=c_i^0(\vn)+c_i^1(\vn)\), a direct generator calculation
+gives
+\begin{align}
+  \cL\chi_A^\star
+  =
+  \sum_{i\in A}
+  \Bigg[
+  -r_i\chi_A^\star
+  &+
+  \sum_{S\subseteq N(i)}
+  d_i(S)\chi_S\chi_{A\setminus\{i\}}^\star
+  \notag\\
+  &+
+  \sum_{\vn\ne S\subseteq N(i)}
+  b_i(S)\chi_S\chi_A^\star
+  \Bigg].
+  \label{eq:centered-generator}
+\end{align}
+For finite \(B,S\),
+\begin{equation}
+  \chi_S\chi_B^\star
+  =
+  \left(
+    \prod_{j\in S\cap B}(1-p_j^\star)
+  \right)
+  \sum_{R\subseteq S}
+  \left(
+    \prod_{j\in S\setminus R}p_j^\star
+  \right)
+  \chi_{R\cup(B\setminus S)}^\star.
+  \label{eq:centered-product-expansion}
+\end{equation}
+Every coefficient in this expansion is nonnegative.  Hence, in finite
+volume, the matrix of \(\cL\) in the centered-monomial basis is
+Metzler: all off-diagonal entries are nonnegative.  Its exponential
+therefore has nonnegative entries.  Finite-range approximation passes
+this conclusion to infinite volume.
+
+Apply the resulting positivity-preserving operator to the signed
+measure \(\nu_1-\nu_0\) to obtain
+\eqref{eq:centered-order}.  Finally,
+\[
+  \chi_A
+  =
+  \sum_{B\subseteq A}
+  \left(
+    \prod_{i\in A\setminus B}p_i^\star
+  \right)
+  \chi_B^\star
+\]
+has nonnegative coefficients, which gives
+\eqref{eq:ordinary-moment-order}.  Taking the lower measure to be zero
+on the centered-moment vector proves \eqref{eq:Mstar-preserved}.
+\end{proof}
+
+\begin{corollary}[Product profiles]
+\label{cor:product-profile-order}
+If
+\[
+  \pstar\le\mathbf p\le\mathbf q,
+\]
+then
+\[
+  \mu_{\mathbf p}(P_t\chi_A)
+  \le
+  \mu_{\mathbf q}(P_t\chi_A).
+\]
+More generally, the same comparison holds for mixtures whose random
+profiles admit such a coordinatewise coupling.
+\end{corollary}
+
+\begin{proof}
+For every finite \(B\),
+\[
+  \mu_{\mathbf p}(\chi_B^\star)
+  =
+  \prod_{i\in B}(p_i-p_i^\star)
+  \le
+  \prod_{i\in B}(q_i-p_i^\star)
+  =
+  \mu_{\mathbf q}(\chi_B^\star).
+\]
+Apply \cref{thm:centered-order} and then average under the coupling.
+\end{proof}
+
+\begin{remark}
+There is also a reflected comparison below the critical profile.  If
+\(\mathbf q\le\mathbf p\) and
+\(\mathbf q+\mathbf p\ge2\pstar\), then
+\[
+  \mu_{\mathbf q}(P_t\chi_A)
+  \le
+  \mu_{\mathbf p}(P_t\chi_A).
+\]
+Indeed,
+\(\abs{q_i-p_i^\star}\le p_i-p_i^\star\), so all centered moments are
+ordered.
+\end{remark}
+
+\begin{corollary}
+\label{cor:invariant-in-Mstar}
+Under the usual Feller assumptions, \(\Mstar\) contains an invariant
+probability measure.
+\end{corollary}
+
+\begin{proof}
+The class is nonempty, convex, and weakly closed, and
+\cref{thm:centered-order} shows that it is preserved.  Cesàro averages
+of the trajectory of any measure in \(\Mstar\) have invariant
+subsequential limits, all of which remain in \(\Mstar\).
+\end{proof}

@@ -1,0 +1,256 @@
+\section{The one-patch calculation}
+\label{app:patch-calculations}
+
+This appendix records the local formulas used throughout the paper.
+Fix a patch \(P\), write
+\[
+  i=i(P),\qquad s=s(P),\qquad e=e(P),\qquad S=S(P),
+\]
+and let \(s\le t\le e\).  Put
+\[
+  \Delta_-=t-s,
+  \qquad
+  \Delta_+=e-t,
+  \qquad
+  \Delta=e-s.
+\]
+
+Define the total outgoing clock rate, the Feynman--Kac rate, and two
+one-site functions by
+\begin{align}
+  \alpha_i
+  &=
+  \sum_{R\subseteq N(i)}\delta_i(R)
+  +
+  \sum_{\vn\ne R\subseteq N(i)}\beta_i(R),
+  \label{eq:alpha-i}
+  \\
+  V_i
+  &=
+  \alpha_i+a_i^\beta(\vn),
+  \label{eq:Vi-alpha}
+  \\
+  \varphi_i(\Delta)
+  &=
+  e^{-\alpha_i\Delta}
+  +
+  \delta_i(\vn)
+  \int_0^\Delta e^{-\alpha_iw}\,\dd w,
+  \label{eq:varphi}
+  \\
+  \psi_i(\Delta_-,\Delta_+,z)
+  &=
+  \delta_i(\vn)
+  \int_0^{\Delta_-}e^{a_i^\beta(\vn)w}\,\dd w
+  +
+  z e^{a_i^\beta(\vn)\Delta_-}
+  \varphi_i(\Delta_+).
+  \label{eq:psi-two-time}
+\end{align}
+We abbreviate
+\[
+  \psi_i(\Delta,z)
+  =
+  \psi_i(\Delta,0,z).
+\]
+
+\begin{proposition}[Explicit patch factors]
+\label{prop:explicit-patch-factors}
+For \(s\le t\le e<\infty\), the patch contribution up to time \(t\)
+is
+\begin{equation}
+  C_t(z,P)
+  =
+  \begin{cases}
+  \dfrac{
+    \psi_i(\Delta_-,\Delta_+,z)
+  }{
+    \varphi_i(\Delta)
+  },
+  &
+  \mathsf X(P)=\sI,\quad
+  \mathsf Y(P)\in\{\sI,\sE\},
+  \\[1.2em]
+  z e^{V_i\Delta_-},
+  &
+  (\mathsf X(P),\mathsf Y(P))=(\sI,\sO),
+  \\[1.2em]
+  \dfrac{
+    \delta_i(S)\sigma_i^\delta(S)
+    +
+    \beta_i(S)\sigma_i^\beta(S)
+    \psi_i(\Delta_-,\Delta_+,z)
+  }{
+    \delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+  },
+  &
+  \mathsf X(P)=\sO,\quad
+  \mathsf Y(P)\in\{\sI,\sE\},
+  \\[1.5em]
+  \sigma_i^\beta(S)z e^{V_i\Delta_-},
+  &
+  (\mathsf X(P),\mathsf Y(P))=(\sO,\sO).
+  \end{cases}
+  \label{eq:explicit-patch-factors}
+\end{equation}
+For a full patch,
+\[
+  C(P)=\lim_{t\uparrow e(P)}C_t(1,P).
+\]
+The same endpoint definition applies when \(e(P)=\infty\); an infinite
+patch has terminal label \(\sE\), so the outgoing-terminal rows never
+occur at infinite lifetime.
+\end{proposition}
+
+\begin{proof}
+Suppose first that the patch starts active and has incoming or end
+terminal type.  Consistency occurs if no outgoing interaction happens
+before time \(e\), or if the first one is an empty-target death.
+Therefore
+\begin{equation}
+  \pP_P(\operatorname{Con}(P))
+  =
+  e^{-\alpha_i\Delta}
+  +
+  \delta_i(\vn)
+  \int_0^\Delta e^{-\alpha_iw}\,\dd w
+  =
+  \varphi_i(\Delta).
+  \label{eq:I-normalizer}
+\end{equation}
+Splitting according to whether that death occurs before or after
+\(t\), the unnormalized weighted expectation is
+\begin{align*}
+  &\delta_i(\vn)
+  \int_0^{\Delta_-}e^{(V_i-\alpha_i)w}\,\dd w
+  \\
+  &\qquad+
+  z e^{(V_i-\alpha_i)\Delta_-}
+  \left[
+    e^{-\alpha_i\Delta_+}
+    +
+    \delta_i(\vn)
+    \int_0^{\Delta_+}e^{-\alpha_iw}\,\dd w
+  \right]
+  =
+  \psi_i(\Delta_-,\Delta_+,z).
+\end{align*}
+Division by \eqref{eq:I-normalizer} gives the first row.
+
+If the patch begins at an outgoing interaction, its initial mark is a
+split or birth with probabilities proportional to
+\(\delta_i(S)\) and \(\beta_i(S)\).  A split makes the source inactive
+immediately, while a birth leaves it active.  Thus, for incoming or
+end terminal type,
+\[
+  \pP_P(\operatorname{Con}(P))
+  =
+  \frac{
+    \delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+  }{
+    \delta_i(S)+\beta_i(S)
+  }.
+\]
+The corresponding unnormalized signed weight is
+\[
+  \frac{
+    \delta_i(S)\sigma_i^\delta(S)
+    +
+    \beta_i(S)\sigma_i^\beta(S)
+    \psi_i(\Delta_-,\Delta_+,z)
+  }{
+    \delta_i(S)+\beta_i(S)
+  }.
+\]
+Their ratio is the third row.  Finally, outgoing terminal consistency
+forces the source to remain active throughout the patch; for an
+outgoing-initial patch it also forces the initial mark to be a birth.
+This gives the second and fourth rows.
+\end{proof}
+
+\subsection{Spin-rate form}
+
+The identities
+\begin{align*}
+  \delta_i(S)\sigma_i^\delta(S)&=c_i^0(S),
+  &
+  \delta_i(S)&=\abs{c_i^0(S)},
+  \\
+  \beta_i(S)\sigma_i^\beta(S)
+  &=-c_i^0(S)-c_i^1(S),
+  &
+  \beta_i(S)&=\abs{c_i^0(S)+c_i^1(S)}
+\end{align*}
+turn the outgoing-initial numerator in
+\eqref{eq:explicit-patch-factors} into
+\begin{equation}
+  c_i^0(S)
+  -
+  \bigl(c_i^0(S)+c_i^1(S)\bigr)
+  \psi_i(\Delta_-,\Delta_+,z).
+  \label{eq:OI-spin-numerator}
+\end{equation}
+The outgoing-terminal sign is nonnegative precisely when
+\[
+  c_i^0(S)+c_i^1(S)\le0.
+\]
+Once this holds, \eqref{eq:OI-spin-numerator} is the only remaining
+bulk positivity condition and the only source of an end-density
+threshold.  This proves the reductions used in
+\cref{thm:patch-positivity-criterion,prop:critical-density-formula}.
+
+\subsection{No-interaction continuation}
+\label{subsec:no-interaction-continuation}
+
+Put
+\[
+  r_i=c_i^0(\vn)+c_i^1(\vn).
+\]
+If \(r_i>0\), define
+\[
+  q_i=\frac{c_i^0(\vn)}{r_i}.
+\]
+Then
+\begin{equation}
+  \psi_i(u,z)
+  =
+  q_i+(z-q_i)e^{-r_iu},
+  \qquad
+  \psi_i(u+v,z)
+  =
+  \psi_i\bigl(u,\psi_i(v,z)\bigr).
+  \label{eq:empty-neighbour-relaxation}
+\end{equation}
+When \(r_i=0\), \(\psi_i(u,z)=z\), and the semigroup identity still
+holds.
+
+Let \(Q\) be an end patch based at \(i\), with \(e(Q)=T\).  For
+\(u\ge T\), write \(Q^{\uparrow u}\) for its continuation through
+time \(u\) without a successful interaction, and include the
+conditional continuation probability in the definition
+\begin{equation}
+  C(z,Q^{\uparrow u})
+  :=
+  C\bigl(\psi_i(u-T,z),Q\bigr).
+  \label{eq:continuation-contribution}
+\end{equation}
+If
+\[
+  C(z,Q)=a(Q)+b(Q)z,
+\]
+then
+\begin{equation}
+  \partial_zC(z,Q^{\uparrow u})
+  =
+  e^{-r_i(u-T)}b(Q).
+  \label{eq:continuation-slope}
+\end{equation}
+For \(r_i>0\), the infinite continuation is
+\[
+  C(Q^{\uparrow\infty})
+  =
+  \lim_{u\to\infty}C(z,Q^{\uparrow u})
+  =
+  C(q_i,Q),
+\]
+independent of \(z\).

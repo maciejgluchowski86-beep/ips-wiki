@@ -4,6 +4,13 @@ This repository is a public-facing wiki for interacting particle systems, spin s
 
 The wiki is article-first. Each entry is a separate Markdown page under `docs/entries/`, with TeX math rendered in the web view and ordinary Markdown links between entries. Cross-links should usually be inline links through relevant words and phrases, not top-level related-page lists.
 
+## Paper draft
+
+The LaTeX scaffold for the patch-representation paper lives under
+`paper/`. Its Overleaf main file is `paper/main.tex`. The source is
+split into numbered section files, with the one-patch calculation and
+confinement estimates collected in appendices.
+
 ## Reading target
 
 The intended reading target is the rendered MkDocs site.

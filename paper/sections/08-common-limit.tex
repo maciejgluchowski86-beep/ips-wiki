@@ -1,0 +1,345 @@
+\section{A common invariant limit under uniform pure deaths}
+\label{sec:common-limit}
+
+We now impose the only additional transition hypothesis in the paper.
+It provides exponential damping along any sufficiently long trail of
+outgoing-terminal patches and exponential relaxation of every end
+factor.
+
+\begin{theorem}[Common invariant limit]
+\label{thm:common-limit}
+Let \(\Lambda\) have polynomial volume growth of exponent \(D\), and
+let \(\cL\) be a uniformly bounded finite-range patch-positive spin
+system.  Suppose that there is \(\varepsilon>0\) such that
+\begin{equation}
+  c_i^1(\eta)\ge\varepsilon
+  \qquad
+  (i\in\Lambda,\ \eta\in\{0,1\}^{\Lambda}).
+  \label{eq:uniform-death}
+\end{equation}
+Then there is an invariant probability measure \(\pi\) such that, for
+every local function \(f\), there is \(K_f<\infty\) for which
+\begin{equation}
+  \sup_{\nu\in\Mminus}
+  \abs{\nu(P_tf)-\pi(f)}
+  \le
+  K_f(1+t)^D e^{-\varepsilon t/2}.
+  \label{eq:common-limit-bound}
+\end{equation}
+For every \(A\Subset\Lambda\), its monomial moments are
+\begin{equation}
+  \pi(\chi_A)
+  =
+  \E_A\left[
+    \prod_{P\in\cP}C(P)\,
+    \ind\bigl(\abs{\cP}<\infty\bigr)
+  \right],
+  \label{eq:limit-moment-formula}
+\end{equation}
+where \(\cP\) is the full patch family of the dual started from
+\((A,+)\).
+\end{theorem}
+
+\begin{corollary}[Uniform ergodicity]
+\label{cor:uniform-ergodicity}
+Under the hypotheses of \cref{thm:common-limit}, if
+\(\pstar\le\frac12\mathbf1\), then \(\pi\) is the unique invariant
+measure and
+\[
+  \sup_{\xi\in\{0,1\}^{\Lambda}}
+  \abs{P_tf(\xi)-\pi(f)}
+  \le
+  K_f(1+t)^D e^{-\varepsilon t/2}
+\]
+for every local \(f\).
+\end{corollary}
+
+\begin{remark}[Finite centered perturbations]
+\label{rem:finite-centered-perturbations}
+The same limit and rate hold whenever, for some finite \(K\),
+\begin{equation}
+  \nu(\chi_A^\star)
+  \ge
+  -K\chi_A^\star(\mathbf1)
+  \qquad(A\Subset\Lambda).
+  \label{eq:finite-centered-perturbation}
+\end{equation}
+Indeed,
+\[
+  \frac{\nu+K\mu_{\mathbf1}}{1+K}\in\Mstar,
+\]
+and linearity increases the constant by at most \(1+2K\).  In
+particular, every deterministic configuration with only finitely many
+zeroes satisfies \eqref{eq:finite-centered-perturbation}.
+\end{remark}
+
+\subsection{The less noisy comparison}
+
+Define a second generator \(\widehat{\cL}\) by removing a pure death of
+rate \(\varepsilon\) at every site:
+\begin{equation}
+  \cL
+  =
+  \widehat{\cL}
+  +
+  \varepsilon\sum_{i\in\Lambda}
+  \bigl(f(\eta^{i,0})-f(\eta)\bigr).
+  \label{eq:less-noisy-generator}
+\end{equation}
+The lower bound \eqref{eq:uniform-death} makes
+\(\widehat{\cL}\) a spin-system generator.  The two systems have the
+same signed dual and the same successful skeleton.  Let
+\(\widehat C\) denote the patch factors of the less noisy system.
+\Cref{thm:pure-death-comparison} and its coefficientwise proof give
+\begin{equation}
+  0\le C(P)\le\widehat C(P)
+  \label{eq:full-factor-comparison}
+\end{equation}
+for every full patch.  If \(P\) has outgoing terminal type, then it is
+active throughout its lifetime and
+\begin{equation}
+  C(P)
+  =
+  e^{-\varepsilon\Delta(P)}
+  \widehat C(P).
+  \label{eq:exact-XO-damping}
+\end{equation}
+The centered values and slopes of all end factors are likewise ordered.
+
+For \(\nu\in\Mstar\), define the skeleton weight
+\begin{equation}
+  W_t^\nu
+  =
+  \prod_{P\in\cB_t}C(P)\,
+  \nu\left[
+    \prod_{P\in\cE_t}
+    C(\eta(i(P)),P)
+  \right].
+  \label{eq:finite-weight}
+\end{equation}
+Let \(\widehat W_t^\nu\) be the analogous less noisy weight.  The
+centered expansion \eqref{eq:end-factor-expansion} implies
+\begin{equation}
+  0\le W_t^\nu\le\widehat W_t^\nu,
+  \qquad
+  \E_A[W_t^\nu]=\nu(P_t\chi_A),
+  \qquad
+  \E_A[\widehat W_t^\nu]\le1.
+  \label{eq:weight-domination}
+\end{equation}
+
+\subsection{Spatial confinement}
+
+Fix \(0\le T<t\) and a finite \(R\supseteq A\).  Let
+\[
+  E_T^R=\{\Cone_T\subseteq R\}
+\]
+be the event that all successful interactions through time \(T\) are
+confined to \(R\).  If \(P_T^{R,0}\) is the zero-boundary semigroup on
+\(R\), put
+\[
+  \rho_A(T,R)
+  =
+  \norm{(P_T-P_T^{R,0})\chi_A}_\infty.
+\]
+The confined-duality identity in
+\cref{prop:confined-duality} gives
+\[
+  \E_A\left[W_t^\nu\ind(E_T^R)\right]
+  =
+  \nu(P_{t-T}P_T^{R,0}\chi_A).
+\]
+Using positivity and contraction,
+\begin{equation}
+  0
+  \le
+  \E_A\left[
+    W_t^\nu\ind((E_T^R)^c)
+  \right]
+  \le
+  \rho_A(T,R).
+  \label{eq:finite-confinement-error}
+\end{equation}
+
+For the limiting object, use the notation requested by the product
+formula:
+\begin{equation}
+  W
+  =
+  \prod_{P\in\cP}C(P)\,
+  \ind\bigl(\abs{\cP}<\infty\bigr).
+  \label{eq:limiting-weight-W}
+\end{equation}
+Finite-horizon all-one weights converge to the product on
+\(\{\abs{\cP}<\infty\}\).  Positivity and Fatou's lemma therefore give
+\begin{equation}
+  0
+  \le
+  \E_A\left[
+    W\ind((E_T^R)^c)
+  \right]
+  \le
+  \rho_A(T,R).
+  \label{eq:limit-confinement-error}
+\end{equation}
+
+\subsection{Late interactions}
+
+Let
+\[
+  \begin{aligned}
+  L_{T,t}
+  &=
+  \{\text{no successful interaction occurs in }(T,t]\},
+  \\
+  L_T
+  &=
+  \{\text{no successful interaction occurs after }T\}.
+  \end{aligned}
+\]
+On \(L_{T,t}^c\), follow the first successful interaction after \(T\)
+backward through the outgoing-terminal patches leading to time zero.
+This trail consists of bulk patches and has total lifetime at least
+\(T\).  Apply \eqref{eq:exact-XO-damping} on the trail and
+\eqref{eq:full-factor-comparison} elsewhere.  The normalization in
+\eqref{eq:weight-domination} yields
+\begin{equation}
+  0
+  \le
+  \E_A\left[
+    W_t^\nu\ind(E_T^R\cap L_{T,t}^c)
+  \right]
+  \le
+  e^{-\varepsilon T}.
+  \label{eq:finite-late-bound}
+\end{equation}
+The identical trail argument for the full product gives
+\begin{equation}
+  0
+  \le
+  \E_A\left[
+    W\ind(E_T^R\cap L_T^c)
+  \right]
+  \le
+  e^{-\varepsilon T}.
+  \label{eq:limit-late-bound}
+\end{equation}
+
+\subsection{No late interactions}
+
+On \(L_{T,t}\), every end patch \(Q\in\cE_T\) continues through time
+\(t\) without a successful interaction.  Denote this continuation by
+\(Q^{\uparrow t}\), with the continuation probability included in its
+factor.  Conditional on \(\cG_T\),
+\begin{equation}
+  \E_A\left[
+    W_t^\nu\ind(L_{T,t})
+    \,\middle|\,\cG_T
+  \right]
+  =
+  \prod_{P\in\cB_T}C(P)\,
+  \nu\left[
+    \prod_{Q\in\cE_T}
+    C(\eta(i(Q)),Q^{\uparrow t})
+  \right].
+  \label{eq:no-late-finite-identity}
+\end{equation}
+The empty-neighbour relaxation in
+\cref{subsec:no-interaction-continuation} is exponential with rate
+\[
+  r_i=c_i^0(\vn)+c_i^1(\vn)\ge\varepsilon.
+\]
+Let \(Q^{\uparrow\infty}\) denote the limiting continuation.  Applying
+\eqref{eq:no-late-finite-identity} first at a finite horizon \(u\) and
+then sending \(u\to\infty\) gives
+\begin{equation}
+  \E_A\left[
+    W\ind(L_T)
+    \,\middle|\,\cG_T
+  \right]
+  =
+  \prod_{P\in\cB_T}C(P)
+  \prod_{Q\in\cE_T}C(Q^{\uparrow\infty}).
+  \label{eq:no-late-limit-identity}
+\end{equation}
+This derivation uses only finite-horizon factorization.
+
+The affine end factors have two sources of error: nonconstant centered
+terms from the initial law, and relaxation of their constant terms.
+The first contains at least one slope and is bounded by
+\(e^{-\varepsilon(t-T)}\) times the less noisy weight.  The second is
+bounded by a telescoping product, with one error per end patch.  Since
+\(\abs{\cE_T}=\abs{\Cone_T}\le\abs R\) on \(E_T^R\), integration gives
+\begin{equation}
+  \abs{
+    \E_A\left[
+      W_t^\nu\ind(E_T^R\cap L_{T,t})
+    \right]
+    -
+    \E_A\left[
+      W\ind(E_T^R\cap L_T)
+    \right]
+  }
+  \le
+  (1+\abs R)e^{-\varepsilon(t-T)}.
+  \label{eq:no-late-bound}
+\end{equation}
+
+\subsection{Completion of the proof}
+
+\begin{proof}[Proof of \cref{thm:common-limit}]
+The confinement complement, the late-interaction event, and the
+no-late-interaction event partition both weights.  Combining
+\eqref{eq:finite-confinement-error},
+\eqref{eq:limit-confinement-error},
+\eqref{eq:finite-late-bound},
+\eqref{eq:limit-late-bound}, and
+\eqref{eq:no-late-bound} gives, uniformly over \(\nu\in\Mstar\),
+\begin{equation}
+  \abs{\nu(P_t\chi_A)-\E_A[W]}
+  \le
+  2\rho_A(T,R)
+  +
+  2e^{-\varepsilon T}
+  +
+  (1+\abs R)e^{-\varepsilon(t-T)}.
+  \label{eq:master-common-limit-bound}
+\end{equation}
+
+By \cref{lem:finite-propagation}, there is \(v<\infty\) such that, for
+\(R_T=B(A,vT)\),
+\[
+  \rho_A(T,R_T)\le C_Ae^{-\varepsilon T},
+  \qquad
+  \abs{R_T}\le C_A(1+T)^D.
+\]
+Taking \(T=t/2\) in \eqref{eq:master-common-limit-bound} proves the
+claimed rate for monomials, uniformly over \(\Mstar\).  Every local
+function is a finite linear combination of monomials.
+
+Starting from \(\mu_{\mathbf1}\), compactness gives a subsequential
+weak limit.  Convergence of every monomial moment identifies all
+subsequential limits with a single measure \(\pi\) satisfying
+\eqref{eq:limit-moment-formula}.  The Feller property gives
+\(\pi P_s=\pi\).
+
+Finally, if \(\nu\in\Mminus\), then
+\(\bar\nu=(\nu+\mu_{\mathbf1})/2\in\Mstar\) and
+\(\nu=2\bar\nu-\mu_{\mathbf1}\).  Linearity extends the uniform
+estimate from \(\Mstar\) to \(\Mminus\), changing only the constant.
+\end{proof}
+
+\begin{proof}[Proof of \cref{cor:uniform-ergodicity}]
+\Cref{lem:all-measures-Mminus} makes
+\eqref{eq:common-limit-bound} uniform over all initial laws.  If
+\(\rho\) is invariant, then for every local \(f\),
+\[
+  \abs{\rho(f)-\pi(f)}
+  =
+  \abs{\rho(P_tf)-\pi(f)}
+  \le
+  \sup_\xi\abs{P_tf(\xi)-\pi(f)}
+  \longrightarrow0.
+\]
+Thus \(\rho=\pi\).
+\end{proof}

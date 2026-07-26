@@ -1,6 +1,18 @@
 # Local MkDocs build output
 site/
 
+# Local LaTeX build output
+paper/build/
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.pdf
+paper/*.toc
+
 # Python
 __pycache__/
 *.py[cod]

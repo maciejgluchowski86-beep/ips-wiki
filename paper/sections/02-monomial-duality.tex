@@ -1,0 +1,153 @@
+\section{Spin systems and signed monomial duality}
+\label{sec:monomial-duality}
+
+\subsection{Spin systems}
+
+Let \(\Lambda\) be a countable lattice.  A configuration is
+\(\eta\in\Omega=\{0,1\}^{\Lambda}\), and \(\eta^i\) denotes the
+configuration obtained by flipping the spin at \(i\).  We consider a
+time-homogeneous spin system with generator
+\begin{equation}
+  \cL f(\eta)
+  =
+  \sum_{i\in\Lambda}
+  c_i(\eta)\bigl(f(\eta^i)-f(\eta)\bigr).
+  \label{eq:spin-generator}
+\end{equation}
+The flip rate \(c_i\) depends on a finite set
+\(N_*(i)=N(i)\cup\{i\}\), where \(i\notin N(i)\).
+
+We assume throughout that the graphical construction is locally
+finite when started from a finite dual set.  Uniformly bounded
+finite-range rates are more than sufficient.  Polynomial growth of
+the lattice is imposed only in \cref{sec:common-limit}.
+
+For \(x\in\{0,1\}\), set
+\[
+  c_i^x(\eta)=c_i(\eta^{i,x}).
+\]
+The function \(c_i^x\) depends only on \(N(i)\), and hence has the
+unique multilinear expansion
+\begin{equation}
+  c_i^x(\eta)
+  =
+  \sum_{S\subseteq N(i)}c_i^x(S)\chi_S(\eta),
+  \qquad
+  \chi_S(\eta)=\prod_{j\in S}\eta(j).
+  \label{eq:rate-expansion}
+\end{equation}
+
+\subsection{Dual rates}
+
+Define signed coefficients
+\begin{equation}
+  a_i^\delta(S)=c_i^0(S),
+  \qquad
+  a_i^\beta(S)=-c_i^0(S)-c_i^1(S).
+  \label{eq:signed-coefficients}
+\end{equation}
+Their absolute values give nonnegative rates
+\[
+  \delta_i(S)=\abs{a_i^\delta(S)},
+  \qquad
+  \beta_i(S)=\abs{a_i^\beta(S)}
+  \quad(S\ne\vn),
+\]
+and their signs are denoted by
+\(\sigma_i^\delta(S),\sigma_i^\beta(S)\in\{+,-\}\).  We use the
+convention \(\beta_i(\vn)=0\): the source-keeping empty update is
+absorbed into the Feynman--Kac potential.
+
+The dual state is \(Y=(A,\sigma)\), where \(A\Subset\Lambda\) and
+\(\sigma\in\{+,-\}\).  If \(i\in A\), define
+\[
+  D_{i,S}(A,\sigma)
+  =
+  \bigl((A\setminus\{i\})\cup S,
+        \sigma\sigma_i^\delta(S)\bigr)
+\]
+and, for \(S\ne\vn\),
+\[
+  B_{i,S}(A,\sigma)
+  =
+  \bigl(A\cup S,\sigma\sigma_i^\beta(S)\bigr).
+\]
+The first update is a death when \(S=\vn\) and a split otherwise; the
+second is a birth.  The generator of the signed additive set process
+is
+\begin{align}
+  \cD g(A,\sigma)
+  ={}&
+  \sum_{i\in A}\sum_{S\subseteq N(i)}
+  \delta_i(S)
+  \bigl(g(D_{i,S}(A,\sigma))-g(A,\sigma)\bigr)
+  \notag\\
+  &+
+  \sum_{i\in A}\sum_{\vn\ne S\subseteq N(i)}
+  \beta_i(S)
+  \bigl(g(B_{i,S}(A,\sigma))-g(A,\sigma)\bigr).
+  \label{eq:dual-generator}
+\end{align}
+
+Put
+\begin{equation}
+  V(A)=\sum_{i\in A}V_i,
+  \qquad
+  V_i
+  =
+  \sum_{S\subseteq N(i)}\delta_i(S)
+  +
+  \sum_{\vn\ne S\subseteq N(i)}\beta_i(S)
+  +
+  a_i^\beta(\vn).
+  \label{eq:fk-potential}
+\end{equation}
+
+\begin{theorem}[Signed monomial duality]
+\label{thm:monomial-duality}
+Let \(H((A,\sigma),\eta)=\sigma\chi_A(\eta)\).  Then
+\[
+  \cL_\eta H=\cD H+V(A)H.
+\]
+Consequently, if the dual starts from \((A,+)\), then
+\begin{equation}
+  P_t\chi_A(\eta)
+  =
+  \E_{(A,+)}\left[
+    \sigma_t
+    \exp\left(\int_0^tV(A_s)\,\dd s\right)
+    \chi_{A_t}(\eta)
+  \right].
+  \label{eq:fk-duality}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Only flips at sites \(i\in A\) affect \(\chi_A\).  For such \(i\),
+\[
+  c_i(\eta)\bigl(\chi_A(\eta^i)-\chi_A(\eta)\bigr)
+  =
+  c_i^0(\eta)\chi_{A\setminus\{i\}}(\eta)
+  -
+  \bigl(c_i^0(\eta)+c_i^1(\eta)\bigr)\chi_A(\eta).
+\]
+Substituting \eqref{eq:rate-expansion} identifies the off-diagonal
+terms with the updates in \eqref{eq:dual-generator}.  The discrepancy
+between their total rates and the diagonal term is exactly
+\eqref{eq:fk-potential}.  The semigroup identity is the standard
+Feynman--Kac consequence of the generator identity.
+\end{proof}
+
+\subsection{Graphical construction}
+
+For every \(i\) and \(S\subseteq N(i)\), place independent Poisson
+clocks of rate \(\delta_i(S)\); for every nonempty \(S\subseteq N(i)\),
+also place independent clocks of rate \(\beta_i(S)\).  A clock
+interaction is applied precisely when its source \(i\) is active.
+We adjoin the deterministic initial interaction
+\[
+  (\infty,0,\sinit,A;\,+),
+\]
+whose target installs the initial active set and whose formal source
+is not a lattice site.  This construction will be conditioned in
+\cref{sec:patches}.

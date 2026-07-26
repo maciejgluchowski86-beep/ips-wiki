@@ -1,0 +1,146 @@
+\section{Confinement identities and finite propagation}
+\label{app:confinement}
+
+\subsection{Undoing duality under confined interactions}
+
+For \(0\le s\le u\le t\) and \(R\subseteq\Lambda\), let
+\[
+  E_{s,u}^R
+  =
+  \set{
+    \begin{array}{c}
+    \text{every successful interaction }(i,r,S)
+    \text{ with }s<r\le u\\
+    \text{satisfies }i\in R\text{ and }S\subseteq R
+    \end{array}
+  }.
+\]
+Deaths are unrestricted because they have empty target.  If
+\(A\subseteq R\), then \(E_{0,T}^R=\{\Cone_T\subseteq R\}\).
+
+For a configuration \(\xi\), let \(\xi^{R,0}\) agree with \(\xi\) on
+\(R\) and vanish outside \(R\).  Define modified flip rates by
+\[
+  c_{i,R}(\xi)
+  =
+  \begin{cases}
+  c_i(\xi^{R,0}),&i\in R,\\
+  c_i(\xi^{\{i\},0}),&i\notin R,
+  \end{cases}
+\]
+and let \(P_t^R\) be the corresponding semigroup.  Inside \(R\), this
+is the original system with zero boundary; outside \(R\), sites evolve
+independently according to the empty-neighbour rates.  If \(R\) is
+finite, write \(P_t^{R,0}\) for the zero-boundary semigroup restricted
+to \(R\).
+
+For later reference, set
+\[
+  W_t^\xi
+  =
+  \prod_{P\in\cB_t}C(P)
+  \prod_{P\in\cE_t}C(\xi(i(P)),P).
+\]
+
+\begin{proposition}[Confined duality]
+\label{prop:confined-duality}
+For \(A\Subset\Lambda\), \(\xi\in\{0,1\}^{\Lambda}\), and
+\(0\le s\le u\le t\),
+\begin{equation}
+  \E_A\left[
+    W_t^\xi\ind(E_{s,u}^R)
+  \right]
+  =
+  \bigl(P_{t-u}P_{u-s}^RP_s\chi_A\bigr)(\xi).
+  \label{eq:confined-duality}
+\end{equation}
+In particular, if \(A\subseteq R\), then
+\begin{equation}
+  \E_A\left[
+    W_t^\xi\ind(E_{0,T}^R)
+  \right]
+  =
+  \bigl(P_{t-T}P_T^{R,0}\chi_A\bigr)(\xi).
+  \label{eq:initial-confinement}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The event \(E_{s,u}^R\) is \(\cG_t\)-measurable, so the patch
+representation and the tower property identify its weighted patch
+expectation with the corresponding restricted Feynman--Kac dual
+expectation.
+
+On the interval \((s,u]\), retain every empty-target death.  Retain a
+nonempty-target split or birth only when its source and target are
+contained in \(R\).  The forbidden successful-interaction rate is the
+killing term introduced by the indicator of \(E_{s,u}^R\).  In the
+monomial coefficient expansion, this restriction keeps precisely the
+nonempty coefficients appearing in the rates \(c_{i,R}\); the killing
+term adjusts the Feynman--Kac potential by the same amount.  Thus the
+restricted dual is the ordinary monomial dual of the modified
+semigroup \(P^R\) during that interval.
+
+Apply the original duality on \([0,s]\), the modified duality on
+\([s,u]\), and the original duality on \([u,t]\).  Dual intervals act
+from right to left on observables, giving
+\eqref{eq:confined-duality}.  Taking \(s=0\), \(u=T\), and using zero
+boundary on \(R\) gives \eqref{eq:initial-confinement}.
+\end{proof}
+
+\subsection{Finite propagation}
+
+\begin{lemma}[Zero-boundary approximation]
+\label{lem:finite-propagation}
+Let \(f\) be supported on \(A\Subset\Lambda\).  For every \(a>0\),
+there are \(v<\infty\) and \(C_A<\infty\) such that
+\begin{equation}
+  \norm{(P_t-P_t^{R,0})f}_\infty
+  \le
+  C_Ae^{-at}\norm f_\infty
+  \label{eq:finite-propagation}
+\end{equation}
+for every \(t\ge0\) and every finite \(R\) containing \(B(A,vt)\).
+\end{lemma}
+
+\begin{proof}
+Choose \(\ell<\infty\) so that each \(c_i\) depends only on
+\(B(i,\ell)\), and put
+\[
+  \bar c=\sup_{i,\eta}c_i(\eta),
+  \qquad
+  m=\sup_i\abs{B(i,\ell)}.
+\]
+Construct the system with rate-\(\bar c\) candidate clocks and
+acceptance marks.  Explore the influence cluster backward from
+\(A\times\{t\}\), adding \(B(i,\ell)\) whenever a candidate clock at
+\(i\) is encountered.  If this cluster remains in \(R\), the
+infinite-volume and zero-boundary systems, coupled with the same
+clocks in \(R\), agree on \(A\) at time \(t\).
+
+To leave \(B(A,r)\), the cluster must contain a chronological
+dependency path of length at least
+\(n=\lceil r/\ell\rceil\).  There are at most
+\(\abs A m^k\) spatial paths of length \(k\), while the expected
+number of ordered \(k\)-tuples of rings along a fixed path is
+\((\bar c t)^k/k!\).  Hence, for every \(\theta>0\),
+\[
+  \pP\bigl(
+    \text{the influence cluster leaves }B(A,r)
+  \bigr)
+  \le
+  \abs A
+  \sum_{k\ge n}\frac{(m\bar c t)^k}{k!}
+  \le
+  \abs A
+  \exp\bigl(m\bar c\,t e^\theta-\theta n\bigr).
+\]
+Set \(r=vt\) and choose \(v\) so large that
+\[
+  \frac{\theta v}{\ell}-m\bar c e^\theta\ge a.
+\]
+The escape probability is then at most \(\abs A e^{-at}\).
+The graphical coupling bounds the semigroup difference by twice this
+probability times \(\norm f_\infty\), proving
+\eqref{eq:finite-propagation}.
+\end{proof}

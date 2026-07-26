@@ -1,0 +1,170 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Finite-set dualities turn local observables of an interacting particle
+system into observables of a process on finite subsets of the lattice.
+For two-state spin systems, the ordinary monomials
+\[
+  \chi_A(\eta)=\prod_{i\in A}\eta(i),
+  \qquad A\Subset\Lambda,
+\]
+give such a duality without requiring attractiveness or a special
+algebraic structure in the flip rates.  The price is that the dual
+process is signed and carries a Feynman--Kac weight.  Its individual
+transitions therefore do not yield the positive pathwise
+representations that make classical set-valued dualities useful.
+
+This paper recovers positivity after a different conditioning.  We
+reveal only those nonempty-target dual interactions whose source is
+active.  These successful interactions cut each site-line into
+spacetime intervals, which we call patches.  Once their locations and
+targets are fixed, the interaction histories inside distinct patches
+are independent after imposing an elementary local consistency event.
+The signed Feynman--Kac weight can then be averaged one patch at a
+time.  This produces an exact random product whose factors are
+one-site quantities.
+
+The construction applies to general finite-range spin systems.  No
+orientation of the lattice is assumed.  A uniform \(1\)-to-\(0\)
+component appears only in the convergence theorem of
+\cref{sec:common-limit}; it is not part of the representation or
+positivity theory.
+
+\subsection{Main results}
+
+\paragraph{Patch representation.}
+The monomial duality of \cref{sec:monomial-duality} is refined in
+\cref{sec:patches,sec:representation}.  Conditional on the
+finite-horizon successful-interaction sigma algebra, all patch
+histories factorize.  If \(\cB_t\) and \(\cE_t\) denote the bulk and end
+patches at time \(t\), then
+\begin{equation}
+  P_t\chi_A(\xi)
+  =
+  \E_A\left[
+    \prod_{P\in\cB_t}C(P)
+    \prod_{P\in\cE_t}C(\xi(i(P)),P)
+  \right].
+  \label{eq:intro-representation}
+\end{equation}
+The factor \(C(P)\) depends only on the label, duration, source site,
+and initial target of \(P\).  End factors are affine in the terminal
+spin.  The factorization theorem is finite-horizon; no conditioning on
+the all-time skeleton is needed.
+
+\paragraph{Patch positivity.}
+The explicit one-patch calculation leads to a local coefficient
+criterion, stated in \cref{thm:patch-positivity-criterion}, that is
+necessary and sufficient for all bulk factors in
+\eqref{eq:intro-representation} to be nonnegative.  The same
+calculation determines the smallest terminal one-density profile
+\(\pstar\) for which all end factors are nonnegative:
+\begin{equation}
+  p_i^\star
+  =
+  \max\left\{
+    0,
+    \sup_{\substack{\vn\ne S\subseteq N(i)\\
+                    c_i^0(S)+c_i^1(S)<0}}
+    \frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
+  \right\}.
+  \label{eq:intro-critical-density}
+\end{equation}
+This is a representation threshold, not a thermodynamic critical
+density.
+
+\paragraph{Centered-moment order.}
+The profile \(\pstar\) defines centered monomials
+\[
+  \chi_A^\star(\eta)
+  =
+  \prod_{i\in A}\bigl(\eta(i)-p_i^\star\bigr)
+\]
+and the high-density cone
+\[
+  \Mstar
+  =
+  \set{\mu:\mu(\chi_A^\star)\ge0
+  \text{ for every }A\Subset\Lambda}.
+\]
+In \cref{sec:centered-order} we show that a patch-positive semigroup
+preserves the order induced by all centered moments.  In particular,
+\(\Mstar\) is invariant under the dynamics.  This conclusion is an
+order of joint occupation moments and need not imply stochastic
+domination.
+
+\paragraph{Comparison under removal of pure deaths.}
+Suppose
+\[
+  \cL=\cL'+\sum_{i\in\Lambda}
+  a_i\bigl(f(\eta^{i,0})-f(\eta)\bigr),
+  \qquad a_i\ge0.
+\]
+If \(\cL\) is patch-positive, then so is \(\cL'\), with the same
+critical profile, and
+\[
+  \nu(P_t\chi_A)\le \nu(P_t'\chi_A),
+  \qquad \nu\in\Mstar.
+\]
+The proof in \cref{sec:pure-death-comparison} compares the positive
+random products skeleton by skeleton.
+
+\paragraph{A common invariant limit.}
+Assume in addition that the lattice has polynomial volume growth of
+exponent \(D\) and
+\[
+  c_i^1(\eta)\ge\varepsilon>0
+  \qquad(i\in\Lambda,\ \eta\in\{0,1\}^{\Lambda}).
+\]
+Then there is an invariant probability measure \(\pi\) such that, for
+every local \(f\),
+\begin{equation}
+  \sup_{\nu\in\Mminus}
+  \abs{\nu(P_tf)-\pi(f)}
+  \le K_f(1+t)^D e^{-\varepsilon t/2}.
+  \label{eq:intro-common-limit}
+\end{equation}
+Here
+\[
+  \Mminus
+  =
+  \set{\mu:
+    \mu(\chi_A^\star)\ge-\chi_A^\star(\mathbf1)
+    \text{ for every }A\Subset\Lambda}
+\]
+is larger than \(\Mstar\).  The limiting monomial moments have an
+explicit product formula over the full patch family.  If
+\(\pstar\le\frac12\mathbf1\), then every probability measure belongs
+to \(\Mminus\), and \eqref{eq:intro-common-limit} becomes uniform
+exponential ergodicity over all initial configurations.
+
+\subsection{Examples and scope}
+
+The FA-1f model and the biased annihilating branching process both
+satisfy patch positivity, and in both cases \(p^\star\) equals the
+equilibrium one-density.  Soft FA-1f illustrates the common-limit
+theorem.  For the unperturbed biased annihilating branching process,
+whose rates vanish at the all-one configuration, centered-moment order
+instead extends known homogeneous convergence to a class of
+inhomogeneous and non-product high-density initial laws.
+
+The signed monomial duality itself belongs to the general theory of
+Markov-process duality and additive or cancellative graphical
+constructions; see, for example,
+\citet{liggett1985,jansen-kurt2014,sudbury-lloyd1995}.  The contribution
+here is the successful-interaction conditioning, its one-site patch
+factorization, and the consequences obtained from positivity of the
+averaged patch factors.
+
+\subsection{Organization}
+
+\Cref{sec:monomial-duality} derives the signed monomial dual.
+\Cref{sec:patches} constructs patches and proves conditional
+factorization.  \Cref{sec:representation} gives the random-product
+representation.  \Cref{sec:patch-positivity} identifies the local
+positivity criterion, the critical profile, and the centered cones.
+\Cref{sec:centered-order,sec:pure-death-comparison} prove the order and
+comparison results.  \Cref{sec:common-limit} proves the common-limit
+theorem, and \cref{sec:examples} treats FA-1f and BABP.  The local patch
+calculation and the confinement lemmas are collected in the
+appendices.

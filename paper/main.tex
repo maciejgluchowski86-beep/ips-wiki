@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+
+\input{preamble}
+
+\title{Patch Representations for Spin Systems:\\
+Positivity, Comparison, and Convergence}
+\author{Maciej G{\l}uchowski}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We introduce a patch representation for finite-range spin systems on
+\(\{0,1\}^{\Lambda}\).  The ordinary monomial dual is a signed
+set-valued process with a Feynman--Kac weight.  After revealing only its
+successful nonempty-target interactions, the remaining one-site
+histories decompose into conditionally independent spacetime patches.
+Averaging over these histories gives an exact random-product
+representation for evolved monomials.
+
+A local coefficient condition, called patch positivity, makes every
+bulk factor nonnegative and determines a critical one-density profile
+\(\mathbf p^\star\) above which all end factors are nonnegative.  The
+same condition induces a centered-moment order, preserves the
+high-density cone \(\mathcal M_\star\), and yields comparison when an
+environment-independent \(1\)-to-\(0\) component is removed.
+
+On a polynomial-growth lattice, a patch-positive spin system with a
+uniform \(1\)-to-\(0\) component converges, uniformly over a larger
+centered-moment class \(\mathcal M_-\), to a common invariant measure.
+For every local observable \(f\), the error is bounded by
+\(K_f(1+t)^D e^{-\varepsilon t/2}\), where \(\varepsilon\) is the
+uniform death rate.  We illustrate the theory with the FA-1f model and
+the biased annihilating branching process.
+\end{abstract}
+
+\tableofcontents
+
+\input{sections/01-introduction}
+\input{sections/02-monomial-duality}
+\input{sections/03-patches}
+\input{sections/04-representation}
+\input{sections/05-patch-positivity}
+\input{sections/06-centered-order}
+\input{sections/07-pure-death-comparison}
+\input{sections/08-common-limit}
+\input{sections/09-examples}
+
+\appendix
+
+\input{sections/a-patch-calculations}
+\input{sections/b-confinement}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

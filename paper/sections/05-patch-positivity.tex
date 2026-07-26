@@ -1,0 +1,200 @@
+\section{Patch positivity and the critical profile}
+\label{sec:patch-positivity}
+
+The explicit patch factors separate two positivity questions.  Bulk
+positivity depends only on the flip-rate coefficients.  Once it holds,
+the remaining obstruction is an affine threshold in the terminal
+one-density.
+
+\subsection{Bulk positivity}
+
+\begin{definition}
+The spin system has the \emph{patch positivity property} when every
+bulk contribution \(C(P)\) is nonnegative.
+\end{definition}
+
+\begin{theorem}[Local criterion]
+\label{thm:patch-positivity-criterion}
+All bulk contributions based at \(i\) are nonnegative if and only if,
+for every nonempty \(S\subseteq N(i)\),
+\begin{equation}
+  \begin{cases}
+  c_i^0(S)+c_i^1(S)\le0,\\
+  c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)\ge0,
+  \end{cases}
+  \qquad
+  \text{if }c_i^0(\vn)+c_i^1(\vn)>0,
+  \label{eq:patch-positive-nondegenerate}
+\end{equation}
+whereas in the degenerate case
+\(c_i^0(\vn)+c_i^1(\vn)=0\) the criterion is
+\begin{equation}
+  c_i^0(S)+c_i^1(S)\le0,
+  \qquad
+  c_i^1(S)\le0.
+  \label{eq:patch-positive-degenerate}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The four bulk rows in \cref{prop:explicit-patch-factors} can be checked
+separately.  The \(\sI\sI\) and \(\sI\sO\) rows are automatically
+nonnegative.  The \(\sO\sO\) row is nonnegative exactly when
+\(c_i^0(S)+c_i^1(S)\le0\).  Under that condition, the numerator in the
+\(\sO\sI\) row is smallest at the limiting empty-neighbour density.
+When the empty-neighbour refresh rate is positive, its nonnegativity
+is exactly the determinant inequality in
+\eqref{eq:patch-positive-nondegenerate}.  When it vanishes, the same
+numerator reduces to \(-c_i^1(S)\).  The full calculation is given in
+\cref{app:patch-calculations}.
+\end{proof}
+
+\subsection{Critical density}
+
+\begin{definition}
+For a patch-positive system, the patch critical density at \(i\) is
+\[
+  p_i^\star
+  =
+  \inf\set{
+    p\in[0,1]:
+    C(p,P)\ge0
+    \text{ for every end patch based at }i
+  }.
+\]
+The resulting profile is \(\pstar=(p_i^\star)_{i\in\Lambda}\).
+\end{definition}
+
+\begin{proposition}[Coefficient formula]
+\label{prop:critical-density-formula}
+For every \(i\in\Lambda\),
+\begin{equation}
+  p_i^\star
+  =
+  \max\left\{
+    0,
+    \sup_{\substack{\vn\ne S\subseteq N(i)\\
+                    c_i^0(S)+c_i^1(S)<0}}
+    \frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
+  \right\}.
+  \label{eq:critical-density-formula}
+\end{equation}
+If
+\[
+  r_i=c_i^0(\vn)+c_i^1(\vn)>0,
+  \qquad
+  q_i=\frac{c_i^0(\vn)}{r_i},
+\]
+then \(p_i^\star\le q_i\).
+\end{proposition}
+
+\begin{proof}
+The \(\sI\sE\) end factor is nonnegative for every terminal value.
+For an \(\sO\sE\) patch with initial target \(S\), the numerator is
+\[
+  c_i^0(S)
+  -
+  \bigl(c_i^0(S)+c_i^1(S)\bigr)\psi_i(\Delta,p).
+\]
+Patch positivity makes this expression nondecreasing in \(p\).  As
+the patch length varies, its potentially smallest value is the
+zero-length value
+\[
+  c_i^0(S)
+  -
+  \bigl(c_i^0(S)+c_i^1(S)\bigr)p.
+\]
+Solving the resulting inequalities over all nonempty \(S\) gives
+\eqref{eq:critical-density-formula}.  The determinant inequality in
+\eqref{eq:patch-positive-nondegenerate} gives \(p_i^\star\le q_i\).
+\end{proof}
+
+\subsection{Centered classes}
+
+For \(A\Subset\Lambda\), define
+\begin{equation}
+  \chi_A^\star(\eta)
+  =
+  \prod_{i\in A}\bigl(\eta(i)-p_i^\star\bigr),
+  \qquad
+  \chi_\vn^\star=1.
+  \label{eq:centered-monomial}
+\end{equation}
+
+\begin{definition}
+The high-density class and its lower extension are
+\begin{align}
+  \Mstar
+  &=
+  \set{
+    \mu:
+    \mu(\chi_A^\star)\ge0
+    \text{ for every }A\Subset\Lambda
+  },
+  \label{eq:Mstar}
+  \\
+  \Mminus
+  &=
+  \set{
+    \mu:
+    \mu(\chi_A^\star)
+    \ge-\chi_A^\star(\mathbf1)
+    \text{ for every }A\Subset\Lambda
+  }.
+  \label{eq:Mminus}
+\end{align}
+\end{definition}
+
+Both classes are convex and weakly closed, and
+\(\Mstar\subseteq\Mminus\).  Moreover,
+\begin{equation}
+  \mu\in\Mminus
+  \quad\Longleftrightarrow\quad
+  \frac{\mu+\mu_{\mathbf1}}2\in\Mstar,
+  \label{eq:Mminus-affine}
+\end{equation}
+where \(\mu_{\mathbf1}\) is the point mass at the all-one
+configuration.
+
+For a Bernoulli product law with one-density profile \(\mathbf p\),
+\[
+  \mu_{\mathbf p}(\chi_A^\star)
+  =
+  \prod_{i\in A}(p_i-p_i^\star).
+\]
+Consequently
+\begin{align}
+  \mu_{\mathbf p}\in\Mstar
+  &\quad\Longleftrightarrow\quad
+  \mathbf p\ge\pstar,
+  \label{eq:product-Mstar}
+  \\
+  \mu_{\mathbf p}\in\Mminus
+  &\quad\Longleftrightarrow\quad
+  p_i\ge(2p_i^\star-1)\vee0
+  \quad\text{for every }i.
+  \label{eq:product-Mminus}
+\end{align}
+These product descriptions do not characterize the convex classes:
+both also contain non-product laws and laws that are not mixtures of
+the displayed product measures.
+
+\begin{lemma}
+\label{lem:all-measures-Mminus}
+If \(\pstar\le\frac12\mathbf1\), then every probability measure on
+\(\{0,1\}^{\Lambda}\) belongs to \(\Mminus\).
+\end{lemma}
+
+\begin{proof}
+For every configuration \(\eta\),
+\[
+  \frac{\chi_A^\star(\eta)}
+       {\chi_A^\star(\mathbf1)}
+  =
+  \prod_{i\in A}
+  \frac{\eta(i)-p_i^\star}{1-p_i^\star}
+  \ge-1.
+\]
+Integrating proves the defining inequality
+\eqref{eq:Mminus}.
+\end{proof}

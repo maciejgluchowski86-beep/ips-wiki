@@ -1,0 +1,182 @@
+\section{Examples}
+\label{sec:examples}
+
+\subsection{FA-1f}
+
+Let \(q\in(0,1)\) be the vacancy density and \(p=1-q\) the one-density.
+For a site \(i\) with finite nonempty neighbour set \(N(i)\), the
+FA-1f constraint is
+\[
+  c_i(\eta)
+  =
+  \ind\{\text{some }j\in N(i)\text{ has }\eta(j)=0\}
+  =
+  1-\chi_{N(i)}(\eta).
+\]
+At a legal update, the spin is refreshed from the Bernoulli law with
+zero-density \(q\).  The only nonzero nonempty-neighbour flip-rate
+coefficients are
+\[
+  c_i^0(N(i))=-p,
+  \qquad
+  c_i^1(N(i))=-q,
+\]
+while
+\[
+  c_i^0(\vn)=p,
+  \qquad
+  c_i^1(\vn)=q.
+\]
+Therefore
+\[
+  c_i^0(N(i))+c_i^1(N(i))=-1
+\]
+and the determinant in
+\eqref{eq:patch-positive-nondegenerate} is zero.  FA-1f has patch
+positivity, and
+\[
+  p_i^\star
+  =
+  \frac{-p}{-p-q}
+  =
+  p.
+\]
+The hard model does not satisfy \eqref{eq:uniform-death}, since the
+all-one configuration is blocked.
+
+For \(s\in(0,1)\), the soft FA-1f generator is
+\begin{equation}
+  \cL_{\mathrm{sFA}}f(\eta)
+  =
+  \sum_{i\in\Lambda}
+  \bigl[s+(1-s)(1-\chi_{N(i)}(\eta))\bigr]
+  \bigl(E_i^qf(\eta)-f(\eta)\bigr),
+  \label{eq:soft-fa-generator}
+\end{equation}
+where \(E_i^q\) refreshes the spin at \(i\) from the same Bernoulli
+law.  The nonempty coefficients are multiplied by \(1-s\), so patch
+positivity and \(p^\star=p\) remain unchanged.  The \(1\)-to-\(0\)
+rate is at least \(qs\), and the reversible product law \(\mu_q\) is
+invariant.
+
+\begin{corollary}[Soft FA-1f]
+\label{cor:soft-fa}
+Let \(\Lambda\) have polynomial growth exponent \(D\).  For every
+local \(f\),
+\[
+  \sup_{\nu\in\Mminus}
+  \abs{\nu(P_tf)-\mu_q(f)}
+  \le
+  K_f(1+t)^D e^{-qst/2}.
+\]
+Here \(\pstar=p\mathbf1\), so a product initial law with one-density
+profile \(\mathbf p_0\) belongs to \(\Mminus\) precisely when
+\[
+  p_{0,i}\ge(2p-1)\vee0
+  \qquad(i\in\Lambda).
+\]
+If \(p\le1/2\), the estimate is uniform over all initial
+configurations.
+\end{corollary}
+
+\begin{proof}
+Apply \cref{thm:common-limit} with uniform death rate \(qs\).  The
+limit must be \(\mu_q\), since it is already invariant and belongs to
+\(\Mminus\).
+\end{proof}
+
+\subsection{The biased annihilating branching process}
+
+On a lattice with finite neighbour sets, the biased annihilating
+branching process, abbreviated BABP, refreshes site \(i\) at rate
+\[
+  c_i(\eta)
+  =
+  \sum_{j\in N(i)}(1-\eta(j)).
+\]
+It has the same legal configurations as FA-1f but counts vacant
+neighbours instead of applying an indicator.  In the complementary
+particle variables, this is the classical process of
+\citet{neuhauser-sudbury1993}.  The Bernoulli product law \(\mu_q\) is
+reversible, while the all-one configuration is absorbing.
+
+The only nonzero flip-rate coefficients are
+\begin{align*}
+  c_i^0(\vn)&=p\abs{N(i)},
+  &
+  c_i^1(\vn)&=q\abs{N(i)},
+  \\
+  c_i^0(\{j\})&=-p,
+  &
+  c_i^1(\{j\})&=-q,
+  \qquad j\in N(i).
+\end{align*}
+Every nonempty target is therefore a singleton.  The
+patch-positivity determinant again vanishes, and
+\[
+  p_i^\star=p.
+\]
+As for hard FA-1f, the common-limit theorem does not apply because the
+rates vanish at the absorbing all-one configuration.
+
+For BABP on \(\Z^d\), exponential convergence from every nontrivial
+homogeneous Bernoulli law to \(\mu_q\) is known; see
+\citet{martinelli-shapira-toninelli2025}.  Centered-moment order extends
+this input as follows.
+
+\begin{proposition}[High-density BABP convergence]
+\label{prop:babp-high-density}
+Suppose that the initial one-density profile satisfies
+\[
+  p\le p_{0,i}\le p_+<1
+  \qquad(i\in\Z^d).
+\]
+Then \(\mu_{\mathbf p_0}P_t\) converges exponentially to \(\mu_q\) on
+local functions.  More generally, the same conclusion holds for every
+\(\nu\in\Mstar\) such that
+\begin{equation}
+  0
+  \le
+  \nu(\chi_B^\star)
+  \le
+  (p_+-p)^{\abs B}
+  \qquad(B\Subset\Z^d).
+  \label{eq:babp-centered-upper-bound}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Let \(q_-=1-p_+>0\).  For every nonempty finite \(B\),
+\[
+  \mu_q(\chi_B^\star)=0,
+  \qquad
+  \mu_{\mathbf p_0}(\chi_B^\star)
+  =
+  \prod_{i\in B}(p_{0,i}-p),
+  \qquad
+  \mu_{q_-}(\chi_B^\star)
+  =
+  (p_+-p)^{\abs B}.
+\]
+\Cref{thm:centered-order} therefore gives
+\[
+  p^{\abs A}
+  =
+  \mu_q(P_t\chi_A)
+  \le
+  \mu_{\mathbf p_0}(P_t\chi_A)
+  \le
+  \mu_{q_-}(P_t\chi_A).
+\]
+The right-hand side converges exponentially to \(p^{\abs A}\) by the
+homogeneous BABP theorem.  The same squeeze applies under
+\eqref{eq:babp-centered-upper-bound}.  Expand a local function in the
+finite monomial basis.
+\end{proof}
+
+\begin{remark}
+For both FA-1f and BABP, adding Bernoulli noise with one-density
+profile \(\mathbf p^+\) preserves patch positivity precisely when
+\(p_i^+\ge p\) at every nontrivial site.  The determinant condition is
+\(\varepsilon(p_i^+-p)\ge0\).
+\end{remark}
