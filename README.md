@@ -7,9 +7,10 @@ The wiki is article-first. Each entry is a separate Markdown page under `docs/en
 ## Paper draft
 
 The LaTeX scaffold for the patch-representation paper lives under
-`paper/`. Its Overleaf main file is `paper/main.tex`. The source is
-split into numbered section files, with the one-patch calculation and
-confinement estimates collected in appendices.
+`paper/`. The repository-level `main.tex` is the Overleaf main file and
+loads `paper/main.tex`. The source is split into numbered section files,
+with the one-patch calculation and confinement estimates collected in
+appendices.
 
 ## Reading target
 

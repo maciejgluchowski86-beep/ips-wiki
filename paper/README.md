@@ -1,6 +1,7 @@
 # Paper source
 
-The Overleaf main file is `paper/main.tex`.
+The Overleaf main file is the repository-level `main.tex`. It is a thin
+wrapper around `paper/main.tex`, where the paper source remains.
 
 The source is organized as follows:
 
@@ -13,7 +14,7 @@ The source is organized as follows:
 From the repository root, compile locally with:
 
 ```bash
-latexmk -cd -pdf paper/main.tex
+latexmk -pdf main.tex
 ```
 
 The current version is a paper scaffold: the theorem statements, logical

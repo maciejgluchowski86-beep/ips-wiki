@@ -8,12 +8,12 @@ The wiki is article-first and public-facing. Source pages live under `docs/`, an
 
 The build target is the `Build wiki site` GitHub Actions workflow. It builds the MkDocs site from `docs/` and deploys through GitHub Pages after every push to `main`.
 
-The paper scaffold lives under `paper/`, with `paper/main.tex` as the
-Overleaf main file. It follows the current theorem hierarchy: signed
-monomial duality, finite-horizon patch factorization and
-representation, patch positivity and centered-moment order,
-pure-death comparison, the common invariant limit, and FA-1f/BABP
-examples.
+The paper scaffold lives under `paper/`. The repository-level
+`main.tex` is the Overleaf main file and loads `paper/main.tex`. The
+paper follows the current theorem hierarchy: signed monomial duality,
+finite-horizon patch factorization and representation, patch positivity
+and centered-moment order, pure-death comparison, the common invariant
+limit, and FA-1f/BABP examples.
 
 ## Current core entries
 

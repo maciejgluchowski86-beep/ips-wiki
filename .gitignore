@@ -2,6 +2,15 @@
 site/
 
 # Local LaTeX build output
+/main.aux
+/main.bbl
+/main.blg
+/main.fdb_latexmk
+/main.fls
+/main.log
+/main.out
+/main.pdf
+/main.toc
 paper/build/
 paper/*.aux
 paper/*.bbl
