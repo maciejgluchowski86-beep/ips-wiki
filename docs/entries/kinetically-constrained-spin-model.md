@@ -65,6 +65,8 @@ $$
 
 Thus every KCSM is a spin system, but its flip rates are degenerate whenever the constraint is not satisfied. The [soft KCSM](soft-kcsm.md) variant replaces the zero illegal-update rate by a positive softened rate.
 
+The [biased annihilating branching process](babp-model.md) is a closely related rate-weighted model. It replaces the binary constraint by the number of satisfied singleton constraints, so it is not induced by one update family under the binary convention used here.
+
 ## Reversibility and convergence questions
 
 Because legal updates refresh from the one-site marginal of \(\mu_q\), and because \(c_i\) does not depend on \(\eta(i)\), the measure \(\mu_q\) is reversible for the KCSM dynamics. Reversibility does not by itself imply [ergodicity](ergodicity.md), since constraints may create blocked classes or several invariant measures. Quantitative finite-volume convergence is recorded under [KCSM relaxation and mixing](kcsm-relaxation-and-mixing.md), while infinite-volume non-stationary convergence is recorded under [KCSM out of equilibrium](kcsm-out-of-equilibrium.md).

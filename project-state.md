@@ -61,14 +61,20 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 5. `docs/entries/legal-update.md`: legal clock rings and legal paths.
 6. `docs/entries/fa-1f-model.md`: FA-1f on an arbitrary lattice.
 7. `docs/entries/east-model.md`: East model as FA-1f on an oriented lattice using \(N(i)\).
-8. `docs/entries/monomial-duality-for-fa-1f.md`: systematic dual rates, signs, and Feynman--Kac weights for hard/soft FA-1f with optional pure-death perturbation.
-9. `docs/entries/patch-contributions-for-fa-1f.md`: hard FA-1f patch contributions with unified full-patch, cut, and end formulas.
-10. `docs/entries/patch-positivity-for-fa-1f.md`: verification that FA-1f has patch positivity and characterization of pure-noise perturbations preserving it.
-11. `docs/entries/patch-critical-density-for-fa-1f.md`: identification of the FA-1f patch critical density with its equilibrium one-density.
-12. `docs/entries/kcsm-relaxation-and-mixing.md`: relaxation time, mixing time, and precutoff terminology.
-13. `docs/entries/kcsm-out-of-equilibrium.md`: general out-of-equilibrium setup.
-14. `docs/entries/fa-1f-out-of-equilibrium.md`: theorem records for known FA-1f out-of-equilibrium convergence results.
-15. `docs/entries/east-out-of-equilibrium.md`: theorem records for known East out-of-equilibrium convergence results.
+8. `docs/entries/babp-model.md`: BABP as the additive-rate analogue of FA-1f, including the classical particle convention.
+9. `docs/entries/monomial-duality-for-fa-1f.md`: systematic dual rates, signs, and Feynman--Kac weights for hard/soft FA-1f with optional pure-death perturbation.
+10. `docs/entries/patch-contributions-for-fa-1f.md`: hard FA-1f patch contributions with unified full-patch, cut, and end formulas.
+11. `docs/entries/patch-positivity-for-fa-1f.md`: verification that FA-1f has patch positivity and characterization of pure-noise perturbations preserving it.
+12. `docs/entries/patch-critical-density-for-fa-1f.md`: identification of the FA-1f patch critical density with its equilibrium one-density.
+13. `docs/entries/monomial-duality-for-babp.md`: singleton-target dual rates, signs, and Feynman--Kac weights for BABP.
+14. `docs/entries/patch-contributions-for-babp.md`: BABP full-patch, cut, and end contribution formulas.
+15. `docs/entries/patch-positivity-for-babp.md`: verification of BABP patch positivity and characterization of pure-noise perturbations preserving it.
+16. `docs/entries/patch-critical-density-for-babp.md`: identification of the BABP patch critical density with its equilibrium one-density.
+17. `docs/entries/kcsm-relaxation-and-mixing.md`: relaxation time, mixing time, and precutoff terminology.
+18. `docs/entries/kcsm-out-of-equilibrium.md`: general out-of-equilibrium setup.
+19. `docs/entries/fa-1f-out-of-equilibrium.md`: theorem records for known FA-1f out-of-equilibrium convergence results.
+20. `docs/entries/east-out-of-equilibrium.md`: theorem records for known East out-of-equilibrium convergence results.
+21. `docs/entries/babp-out-of-equilibrium.md`: known BABP long-time results and the high-density centered-moment comparison.
 
 ## Current conventions
 

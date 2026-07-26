@@ -26,6 +26,11 @@ This page is the human-readable reference list for the wiki. A structured BibTeX
 - Nicoletta Cancrini, Fabio Martinelli, Roberto H. Schonmann, and Cristina Toninelli, *Facilitated oriented spin models: some non equilibrium results*, 2008.
 - Laure Marêché, *Exponential convergence to equilibrium for the \(d\)-dimensional East model*, 2019.
 - Ivailo Hartarsky and Fabio Toninelli, *Kinetically constrained models out of equilibrium*, 2022.
+- Claudia Neuhauser and Aidan Sudbury, *The biased annihilating branching process*, Advances in Applied Probability, 1993.
+- Aidan Sudbury and Peter Lloyd, *Quantum operators in classical probability theory. II. The concept of duality in interacting particle systems*, Annals of Probability, 1995.
+- Aidan Sudbury and Peter Lloyd, *Quantum operators in classical probability theory. IV. Quasi-duality and thinnings of interacting particle systems*, Annals of Probability, 1997.
+- Aidan Sudbury, *Hunting submartingales in the jumping voter model and the biased annihilating branching process*, Advances in Applied Probability, 1999.
+- Fabio Martinelli, Assaf Shapira, and Cristina Toninelli, *Long time behaviour of one facilitated kinetically constrained models: results and open problems*, arXiv:2510.20461, 2025.
 
 ## Project-adjacent references to add later
 

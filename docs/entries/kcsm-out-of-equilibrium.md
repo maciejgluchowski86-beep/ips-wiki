@@ -55,4 +55,4 @@ The product initial law in the theorem is not essential. The proof also applies 
 
 ## Model-specific pages
 
-The [FA-1f out-of-equilibrium](fa-1f-out-of-equilibrium.md) and [East out-of-equilibrium](east-out-of-equilibrium.md) pages record model-specific results. These should be kept separate from the definitions of the [FA-1f model](fa-1f-model.md) and the [East model](east-model.md).
+The [FA-1f out-of-equilibrium](fa-1f-out-of-equilibrium.md), [East out-of-equilibrium](east-out-of-equilibrium.md), and [BABP out-of-equilibrium](babp-out-of-equilibrium.md) pages record model-specific results. These should be kept separate from the definitions of the [FA-1f model](fa-1f-model.md), [East model](east-model.md), and [biased annihilating branching process](babp-model.md).
