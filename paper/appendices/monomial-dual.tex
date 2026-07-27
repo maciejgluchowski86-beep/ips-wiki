@@ -72,21 +72,22 @@ a_i^\beta(S)
 \chi_{A\cup S}(\eta)
 \\
 &-
-\left(
-\sum_{i\in A}\sum_{S\subseteq N(i)}\delta_i(S)
-+
 \sum_{i\in A}
+\left(
+\sum_{S\subseteq N(i)}\delta_i(S)
++
 \sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}\beta_i(S)
 \right)H(Y,\eta).
 \end{aligned}
 \end{equation}
-By \eqref{eq:dual-potential}, the coefficient of \(H(Y,\eta)\) added by
-\(V(A)H(Y,\eta)\), after cancelling the two total jump rates in
-\eqref{eq:dual-generator-on-H}, is
+By \eqref{eq:dual-potential}, adding \(V(A)H(Y,\eta)\) cancels the total jump
+rates in the last line of \eqref{eq:dual-generator-on-H} and leaves the
+additional diagonal term
 \[
-\sum_{i\in A}a_i^\beta(\varnothing).
+\left(\sum_{i\in A}a_i^\beta(\varnothing)\right)H(Y,\eta).
 \]
-Consequently, \(\Dcal H+VH\) equals \(\sigma\) times the right-hand side of
-\eqref{eq:generator-action-monomials}. This proves the generator identity
+The resulting expression is \(\sigma\) times the right-hand side of
+\eqref{eq:generator-action-monomials}, hence equals
+\(\Lcal_\eta H(Y,\eta)\). This proves
 \eqref{eq:monomial-generator-duality}. The standard Feynman--Kac formula then
 gives \eqref{eq:monomial-feynman-kac-duality}.
