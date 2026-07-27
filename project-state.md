@@ -11,15 +11,15 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 The paper template lives under `paper/`. The repository-level
 `main.tex` is the Overleaf main file and loads `paper/main.tex`. The
 paper body contains the agreed section and subsection order.
-Introduction Sections 1.1--1.4 are now a prose draft covering the
-calm--facilitating architecture, the noisy loss-of-memory problem,
-strong interactions with weak persistence, and patches as a way to
-recover positivity from temporal cancellations. The motivating goal is
-stated before the unavailable coupling, reversibility, and small-weight
-duality approaches are discussed. The abstract, Sections 1.5 onward,
-and the appendices remain short drafting notes with links to source wiki
-entries. No title, formal statement, or proof has yet been fixed.
-Shared macros and theorem environments live in `paper/preamble.tex`.
+Introduction Sections 1.1--1.3 are now a prose draft. They present the
+calm--facilitating tendency and noisy loss-of-memory problem, distinguish
+interaction strength from persistence, and introduce patches as the mechanism
+which recovers a centered-moment order from the signed dual. The introduction
+does not use the KCSM \(0\)--\(1\) convention; that notation is postponed to
+the setup. The abstract, Section 1.4 onward, and the appendices remain short
+drafting notes with links to source wiki entries. No title, formal statement,
+or proof has yet been fixed. Shared macros and theorem environments live in
+`paper/preamble.tex`.
 
 ## Current core entries
 
@@ -95,7 +95,7 @@ Shared macros and theorem environments live in `paper/preamble.tex`.
 - Entries should be mathematical articles, not commentary about the wiki.
 - Cross-links should usually be Wikipedia-style inline links through relevant words and phrases.
 - Do not use top-level "Related pages" lists on ordinary entries.
-- Use `\(...\)` for inline math and `$$...$$` for display math.
+- Use \(...\) for inline math and $$...$$ for display math.
 - Subset notation is a style convention, not a build constraint: prefer distinct notation for non-strict, strict, and finite subsets in polished entries.
 - Use \(\Lambda\) for the lattice and \(\mathcal S\) for the single-site state space.
 - A graph is an alternative description of neighbourhoods on \(\Lambda\).
