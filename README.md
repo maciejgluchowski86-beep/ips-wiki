@@ -8,11 +8,12 @@ The wiki is article-first. Each entry is a separate Markdown page under `docs/en
 
 The LaTeX template for the paper lives under `paper/`. The
 repository-level `main.tex` is the Overleaf main file and loads
-`paper/main.tex`. The paper body currently contains a structural
-scaffold only: sections, subsections, short drafting notes, and links to
-the relevant wiki entries. It contains no settled theorem statements,
-proofs, or discussion prose. Shared macros and theorem environments
-live in `paper/preamble.tex`.
+`paper/main.tex`. The paper body contains the agreed structural
+scaffold. Introduction Sections 1.1--1.4 have been drafted in prose;
+the remaining sections contain short drafting notes and links to the
+relevant wiki entries. It contains no settled theorem statements or
+proofs. Shared macros and theorem environments live in
+`paper/preamble.tex`.
 
 ## Reading target
 

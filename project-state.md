@@ -10,11 +10,14 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 
 The paper template lives under `paper/`. The repository-level
 `main.tex` is the Overleaf main file and loads `paper/main.tex`. The
-paper body is currently a structural scaffold, not a prose draft. It
-contains the agreed section and subsection order, short drafting notes,
-and links to source wiki entries. No title, formal statement, proof, or
-discussion prose has yet been fixed. Shared macros and theorem
-environments live in `paper/preamble.tex`.
+paper body contains the agreed section and subsection order.
+Introduction Sections 1.1--1.4 are now a prose draft covering the
+calm--facilitating architecture, temporal cancellation, the limits of
+standard approaches, and the intuitive patch method. The abstract,
+Sections 1.5 onward, and the appendices remain short drafting notes with
+links to source wiki entries. No title, formal statement, or proof has
+yet been fixed. Shared macros and theorem environments live in
+`paper/preamble.tex`.
 
 ## Current core entries
 
