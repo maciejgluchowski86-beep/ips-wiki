@@ -6,11 +6,10 @@ The wiki is article-first. Each entry is a separate Markdown page under `docs/en
 
 ## Paper draft
 
-The LaTeX scaffold for the patch-representation paper lives under
-`paper/`. The repository-level `main.tex` is the Overleaf main file and
-loads `paper/main.tex`. The source is split into numbered section files,
-with the one-patch calculation and confinement estimates collected in
-appendices.
+The LaTeX template for the paper lives under `paper/`. The
+repository-level `main.tex` is the Overleaf main file and loads
+`paper/main.tex`. The paper body is currently empty; shared macros and
+theorem environments live in `paper/preamble.tex`.
 
 ## Reading target
 
