@@ -33,136 +33,158 @@
 \section{Introduction}
 \label{sec:introduction}
 
-\subsection{Calm and facilitating states}
-\label{subsec:intro-calm-active}
+\subsection{Calm and facilitating spin systems}
+\label{subsec:intro-calm-facilitating}
 
 Many interacting \wiki{spin-system}{spin systems} distinguish sharply
 between the roles of their two states.  Throughout the paper we encode
 the calm state by \(1\) and the facilitating state by \(0\).  Here
 ``calm'' describes the influence of a spin on the dynamics around it,
-not its own tendency to change.  A site in state \(1\) does not induce
-activity at other sites, whereas a site in state \(0\) can cause,
-permit, or accelerate an update nearby.
+not its own tendency to change.  A calm site does not generate activity
+at other sites, whereas a facilitating site can cause, permit, or
+accelerate an update nearby.
 
-This picture includes several familiar processes whose update rules
-look quite different.  In the contact process, written in the
-complementary convention in which \(0\) is active, an active site can
-give birth at a neighbouring calm site and can itself recover.  In
+This picture includes familiar processes with quite different update
+rules.  In the contact process, written in the complementary convention
+in which \(0\) is active, an active site can give birth at a
+neighbouring calm site and can itself recover.  In
 \wiki{fa-1f-model}{FA-1f}, a facilitating site does not determine the
-new state of its neighbour; its presence allows that neighbour to
+new state of its neighbour; its presence permits that neighbour to
 refresh.  In the
 \wiki{babp-model}{biased annihilating branching process} (BABP), every
-facilitating neighbour contributes to the rate at which a site flips:
-in particle language the same update is either a birth or an
-annihilation.  Thus facilitation can act through birth, permission to
-refresh, or a direct flip.
+facilitating neighbour contributes to the rate at which a site flips,
+so the same interaction is a birth or an annihilation according to the
+current state of the target.  Facilitation can thus act through birth,
+permission to refresh, or a direct flip.
 
-The common feature is not a particular choice of rates or update
-mechanism.  It is the asymmetry between a state which generates
-activity and a state which suppresses it.  Formally, the class studied
-below is described by inequalities between the multilinear
-coefficients of the flip rates.  These inequalities imply that adding
-calm spins decreases the relevant interaction rates.  The coefficient
-condition is stronger than coordinatewise monotonicity, but the
-calm--facilitating picture is its basic dynamical interpretation.
+The common feature is an asymmetry between a state which generates
+activity and one which suppresses it, rather than a particular update
+mechanism or choice of rates.  The formal condition used below is
+expressed through the multilinear coefficients of the flip rates.  Its
+negative interaction coefficients imply that adding calm spins
+decreases the relevant update rates.  This is stronger than
+coordinatewise decrease, but the calm--facilitating picture is its
+basic dynamical interpretation.
+
+The motivating question is what becomes of these systems when weak
+independent noise creates facilitating spins throughout the lattice.
+Does the continuing supply of fresh activity make the process forget
+its initial state?  More generally, when the dynamics is not
+attractive, does any useful comparison structure survive?  These are
+the two questions addressed in this paper.
+
+\subsection{Noise and loss of memory}
+\label{subsec:intro-loss-of-memory}
+
+If every site can become facilitating at a fixed positive rate, new
+sources of activity appear continually and independently of the past.
+One expects these sources to interrupt the paths along which the
+initial configuration can influence the future.  The spacetime picture
+resembles percolation with spontaneously appearing sources: even
+arbitrarily weak noise should eventually separate a local observation
+from sufficiently old information.  The desired conclusion is a
+quantitative form of \wiki{ergodicity}{loss of memory}: local
+observables should converge to the same limiting values, uniformly over
+an appropriate class of initial laws.
+
+For the contact process, attractiveness makes this intuition accessible
+through monotone coupling.  The wider calm--facilitating class need not
+be attractive.  A facilitating spin may enable both directions of a
+refresh, as in FA-1f, or cause alternating births and annihilations, as
+in BABP.  Ordered initial configurations can then lose their order, so
+the usual construction of upper and lower trajectories which trap all
+other evolutions is unavailable.
+
+We also do not assume reversibility.  Some motivating examples are
+reversible before they are perturbed, but a general facilitating spin
+system need not be, and noise with a different bias need not preserve
+the original reversible measure.  Methods built around a known
+reversible law and its functional inequalities therefore do not apply
+uniformly to the class considered here.
+
+The calm--facilitating picture nevertheless suggests more structure
+than these general obstructions reveal.  Fresh activity is created
+without reference to the past, and the interactions it triggers often
+replace earlier effects instead of accumulating them.  The problem is
+to retain this temporal cancellation without assuming a monotone
+coupling or a reversible measure.
 
 \subsection{Strong interactions with weak persistence}
 \label{subsec:intro-temporal-cancellation}
 
-A facilitating interaction need not be small.  Changing a single
-neighbour from \(1\) to \(0\) may turn an update rate from zero to a
-quantity of order one, so one spin can completely determine whether
-another is allowed to move.  In this usual local sense the interaction
-is strong.
+A facilitating interaction need not be small.  Changing one neighbour
+from \(1\) to \(0\) may turn an update rate from zero to a quantity of
+order one, so a single spin can completely determine whether another
+site is allowed to move.  In the usual sense of local sensitivity, this
+is a strong interaction.
 
-Its effect, however, need not persist.  Two consecutive births at the
-same site have the same effect as one if the first particle has not
-recovered.  Of two consecutive refreshes, the second overwrites the
-outcome of the first.  Two consecutive flips cancel.  These mechanisms
-are different, but in each case a later interaction can erase the
-information carried by an earlier one instead of adding a new layer of
-dependence.
+Its effect need not be equally persistent.  If no information is
+transmitted in between, a second birth at an already active site is
+redundant, a second refresh overwrites the outcome of the first, and a
+second flip reverses it.  In an interacting system the intermediate
+state may of course affect other sites, so these cancellations cannot
+simply be imposed event by event.  They become visible only after one
+records which interactions actually carry information elsewhere and
+then averages over the local history between them.
 
-There are therefore two distinct notions of interaction strength.  A
-single event may depend strongly on the surrounding spins, while a
-sequence of such events transmits little persistent information.
-Estimates which inspect interactions one at a time, or replace their
-contributions by absolute values, measure the first effect and lose
-the second.  The aim of the patch construction is to retain precisely
-these cancellations in time.
+Thus instantaneous interaction strength and persistence of influence
+are different quantities.  A sequence of events may depend strongly on
+the surrounding spins at every step while transmitting little
+information over a long time.  This distinction is hidden by estimates
+which treat each interaction separately.
 
-\subsection{Why the standard approaches are insufficient}
-\label{subsec:intro-obstructions}
+The natural \wiki{duality}{Feynman--Kac duality} illustrates the
+problem.  For a general spin system the dual is signed, and its
+Feynman--Kac weight measures the gross strength of the interactions.
+When the rates depend strongly on neighbouring spins, this weight can
+be large.  Taking absolute values then charges separately for events
+whose effects later overwrite or reverse one another.  Small-weight
+duality estimates therefore see the instantaneous strength but not the
+weak persistence.  To recover the latter, the dual history has to be
+regrouped before its signs and weights are estimated.
 
-Suppose that independent noise can create facilitating spins
-throughout the lattice.  One then expects the system to forget its
-initial condition: in a spacetime picture, new sources of activity
-appear continually, while the effect of older interactions is
-repeatedly overwritten.  This resembles a percolation process with
-spontaneously appearing sources and suggests
-\wiki{ergodicity}{ergodicity} under very weak noise.
+\subsection{Patches and recovered positivity}
+\label{subsec:intro-patches}
 
-For the contact process this intuition can be supported by
-attractiveness and monotone coupling.  The broader
-calm--facilitating structure does not imply attractiveness.  A
-facilitating spin may increase both directions of an update, as in a
-facilitated refresh, or cause alternating births and annihilations, as
-in BABP.  Ordered initial configurations can then lose their order,
-and the standard upper--lower coupling is unavailable.
+The patch construction is such a regrouping.  Imagine tracing backwards
+the possible routes by which a local observation can depend on the
+initial configuration.  Some graphical interactions extend the
+currently explored history from one site to another.  We record the
+times and endpoints of these information-carrying interactions, but
+temporarily hide the remaining local randomness.  The recorded data
+form what will later be called the
+\wiki{successful-interaction}{successful-interaction skeleton}.
 
-Nor do we assume reversibility.  Some of the motivating models are
-reversible in their unperturbed form, but the general spin systems
-considered here need not be, and adding noise with a different bias
-typically destroys the original reversible measure.  Arguments based
-on a Dirichlet form, a spectral gap, or entropy dissipation therefore
-do not address the intended generality.
+The skeleton divides the explored history into one-site time intervals
+bounded by consecutive interactions.  These intervals, together with
+the ways in which they are touched at their ends, are the
+\wiki{patch}{patches}.  Once the skeleton is fixed, the hidden histories
+inside different patches separate.  Their signs and Feynman--Kac
+weights can therefore be averaged one patch at a time.  The product of
+the resulting patch contributions, averaged over the skeleton, gives
+an exact representation of the original spin system.
 
-There is a natural \wiki{duality}{Feynman--Kac duality} for a general
-spin system, but it is signed.  Its weight records the gross strength
-of the possible interactions and can be exponentially large when
-those interactions are strong.  Taking absolute values in the
-duality formula then charges separately for interactions whose effects
-later overwrite or cancel.  A useful representation must reorganize
-the dual history before its signs and weights are estimated.
+The important point is that one patch contains the local history
+between two interaction boundaries.  Its contribution can retain the
+cancellation between an update and the next update that carries
+information, whereas a termwise estimate of the dual cannot.  A patch
+contribution may consequently be nonnegative even when the individual
+dual events have signs and the ungrouped Feynman--Kac weight is large.
+No approximation is made: the
+\wiki{patch-representation-of-spin-systems}{patch representation}
+reorganizes the original duality formula without changing it.
 
-\subsection{The patch method}
-\label{subsec:intro-method}
-
-The patch method does this by conditioning on a deliberately incomplete
-summary of the dual history.  Informally, a dual interaction is called
-\wiki{successful-interaction}{successful} when it occurs at a site
-which is currently active in the dual and reaches at least one
-neighbour.  We retain the time, source, and targets of every such
-interaction, but hide the remaining local marks.  This retained
-information forms the successful-interaction skeleton.
-
-The skeleton cuts each relevant site-time line at the moments when a
-successful interaction enters or leaves the site.  The interval
-between two consecutive cuts, together with the way it is touched at
-its two ends, is a \wiki{patch}{patch}.  The last patch on a site may
-continue forever.  Conditional on the skeleton, the unrevealed
-histories inside distinct patches separate into local pieces.  We can
-therefore average the sign and Feynman--Kac weight within each patch
-and assign a single contribution to the whole interval.
-
-This averaging places two successive interaction boundaries in the
-same local calculation.  It can see that a later birth is redundant,
-that a later refresh overwrites an earlier one, or that a later flip
-reverses it.  Consequently, a patch contribution may be nonnegative
-even though the individual dual interactions carry signs and the
-unaveraged Feynman--Kac weight is large.  The construction loses no
-information: the resulting
-\wiki{patch-representation-of-spin-systems}{patch representation} is
-an exact rewriting of the original duality formula.
-
-We say that a spin system has \emph{patch positivity} when all
-contributions of completed patches are nonnegative.  The main
-structural result of the paper characterizes this property by simple
-inequalities between the flip-rate coefficients.  These inequalities
-hold for a broad class of calm--facilitating systems.  Patch positivity
-then supplies the fragment of positive order which ordinary
-attractiveness would have provided, and from which the comparison and
-convergence results of the paper follow.
+We call the resulting property \emph{patch positivity}: all
+contributions of closed patches are nonnegative.  The main structural
+result characterizes patch positivity by simple inequalities between
+the flip-rate coefficients, and these inequalities express the
+calm--facilitating structure described above.  Patch positivity is not
+attractiveness and does not recover stochastic order.  It gives
+positivity for the grouped dual weights and, through them, monotonicity
+and comparison for a restricted family of moments.  This sliver of
+order is enough to obtain the convergence results under noise and the
+full-patch description of the limiting law developed later in the
+paper.
 
 \subsection{Main results}
 \label{subsec:intro-results}

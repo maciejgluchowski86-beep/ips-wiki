@@ -12,12 +12,14 @@ The paper template lives under `paper/`. The repository-level
 `main.tex` is the Overleaf main file and loads `paper/main.tex`. The
 paper body contains the agreed section and subsection order.
 Introduction Sections 1.1--1.4 are now a prose draft covering the
-calm--facilitating architecture, temporal cancellation, the limits of
-standard approaches, and the intuitive patch method. The abstract,
-Sections 1.5 onward, and the appendices remain short drafting notes with
-links to source wiki entries. No title, formal statement, or proof has
-yet been fixed. Shared macros and theorem environments live in
-`paper/preamble.tex`.
+calm--facilitating architecture, the noisy loss-of-memory problem,
+strong interactions with weak persistence, and patches as a way to
+recover positivity from temporal cancellations. The motivating goal is
+stated before the unavailable coupling, reversibility, and small-weight
+duality approaches are discussed. The abstract, Sections 1.5 onward,
+and the appendices remain short drafting notes with links to source wiki
+entries. No title, formal statement, or proof has yet been fixed.
+Shared macros and theorem environments live in `paper/preamble.tex`.
 
 ## Current core entries
 
