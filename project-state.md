@@ -11,14 +11,14 @@ The build target is the `Build wiki site` GitHub Actions workflow. It builds the
 The paper template lives under `paper/`. The repository-level
 `main.tex` is the Overleaf main file and loads `paper/main.tex`. The
 paper body contains the agreed section and subsection order.
-Introduction Sections 1.1--1.3 are now a prose draft. They present the
-calm--facilitating tendency and noisy loss-of-memory problem, distinguish
-interaction strength from persistence, and introduce patches as the mechanism
-which recovers a centered-moment order from the signed dual. The introduction
-does not use the KCSM \(0\)--\(1\) convention; that notation is postponed to
-the setup. The abstract, Section 1.4 onward, and the appendices remain short
-drafting notes with links to source wiki entries. No title, formal statement,
-or proof has yet been fixed. Shared macros and theorem environments live in
+Introduction Sections 1.1--1.3 are a prose draft. Section 2 is drafted in
+`paper/sections/spin-systems.tex`; it fixes the general countable directed
+setting, local functions and monomials, flip-rate and coefficient notation,
+the calm--facilitating rate interpretation, the contact process, FA-1f and
+BABP, independent Bernoulli noise, and the convergence terminology used later.
+The abstract, Introduction Sections 1.4--1.5, Section 3 onward, and the
+appendices remain drafting notes. No title, main-result summary, or proof has
+yet been fixed. Shared macros and theorem environments live in
 `paper/preamble.tex`.
 
 ## Current core entries
