@@ -1,0 +1,225 @@
+\section{The natural signed dual}
+\label{sec:signed-dual}
+
+For \(A\Subset\Lambda\), \(\Lcal\chi_A\) is a signed linear combination of
+monomials. Writing each coefficient as its sign times its magnitude produces a
+finite-set jump process; the remaining diagonal term is represented by a
+Feynman--Kac potential.
+
+\subsection{The signed additive set process}
+\label{subsec:signed-set-process}
+
+A signed active set is a pair
+\[
+Y=(A,\sigma)
+\in
+\{A:A\Subset\Lambda\}\times\{+,-\}.
+\]
+Signs are multiplied in the usual way and act on real numbers by
+\(+x=x\) and \(-x=-x\).
+
+Fix rates and sign labels
+\[
+\delta_i(S),\ \beta_i(S)\geq0,
+\qquad
+\sigma_i^\delta(S),\ \sigma_i^\beta(S)\in\{+,-\},
+\qquad
+ i\in\Lambda,\quad S\subseteq N(i).
+\]
+We use the convention \(\beta_i(\varnothing)=0\). For \(i\in A\), define
+\begin{align}
+D_{i,S}(A,\sigma)
+&=
+\bigl((A\setminus\{i\})\cup S,
+\sigma\sigma_i^\delta(S)\bigr),
+\label{eq:dual-death-split-map}
+\\
+B_{i,S}(A,\sigma)
+&=
+\bigl(A\cup S,
+\sigma\sigma_i^\beta(S)\bigr).
+\label{eq:dual-birth-map}
+\end{align}
+The update \(D_{i,\varnothing}\) is called a \emph{death};
+\(D_{i,S}\) with \(S\neq\varnothing\) is a \emph{split}; and
+\(B_{i,S}\) with \(S\neq\varnothing\) is a \emph{birth}.
+
+The signed additive set process has generator
+\begin{equation}
+\label{eq:signed-set-generator}
+\begin{aligned}
+\Dcal g(A,\sigma)
+={}&
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+\delta_i(S)
+\bigl(g(D_{i,S}(A,\sigma))-g(A,\sigma)\bigr)
+\\
+&+
+\sum_{i\in A}
+\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}
+\beta_i(S)
+\bigl(g(B_{i,S}(A,\sigma))-g(A,\sigma)\bigr).
+\end{aligned}
+\end{equation}
+
+\subsection{Dual data from the spin rates}
+\label{subsec:rates-to-dual}
+
+For \(r\in\R\), let \(\operatorname{sgn}_{\pm}(r)\) be \(+\) when
+\(r\geq0\) and \(-\) when \(r<0\). For the coefficients in
+\eqref{eq:rate-expansion}, set
+\begin{equation}
+\label{eq:signed-dual-coefficients}
+a_i^\delta(S)=c_i^0(S),
+\qquad
+a_i^\beta(S)=-c_i^0(S)-c_i^1(S).
+\end{equation}
+The death and split data are
+\begin{equation}
+\label{eq:death-split-data}
+\delta_i(S)=\abs{a_i^\delta(S)},
+\qquad
+\sigma_i^\delta(S)=\operatorname{sgn}_{\pm}(a_i^\delta(S)).
+\end{equation}
+For \(S\neq\varnothing\), the birth data are
+\begin{equation}
+\label{eq:birth-data}
+\beta_i(S)=\abs{a_i^\beta(S)},
+\qquad
+\sigma_i^\beta(S)=\operatorname{sgn}_{\pm}(a_i^\beta(S)),
+\end{equation}
+and we set \(\beta_i(\varnothing)=0\) and
+\(\sigma_i^\beta(\varnothing)=+\).
+
+The coefficient \(a_i^\beta(\varnothing)\) corresponds to an empty-target
+birth, which leaves the active set unchanged. It is therefore included in the
+potential rather than represented as a jump. Define
+\begin{equation}
+\label{eq:dual-potential}
+V(A)=\sum_{i\in A}V_i,
+\qquad
+V_i=
+\sum_{S\subseteq N(i)}\delta_i(S)
++
+\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}\beta_i(S)
++
+a_i^\beta(\varnothing).
+\end{equation}
+The bounds in Section~\ref{sec:spin-systems} imply uniform bounds on the total
+jump rate per active site, on \(\abs{V_i}\), and on the number of sites created
+by one update.
+
+\subsection{Monomial Feynman--Kac duality}
+\label{subsec:monomial-duality}
+
+For \(Y=(A,\sigma)\), define
+\begin{equation}
+\label{eq:monomial-duality-function}
+H(Y,\eta)=\sigma\chi_A(\eta).
+\end{equation}
+We write \(\pP_A\) and \(\E_A\) for the law and expectation of the signed
+set process started from \((A,+)\).
+
+\begin{theorem}[Monomial Feynman--Kac duality]
+\label{thm:monomial-duality}
+For every signed active set \(Y=(A,\sigma)\),
+\begin{equation}
+\label{eq:monomial-generator-duality}
+\Lcal_\eta H(Y,\eta)
+=
+\Dcal H(Y,\eta)+V(A)H(Y,\eta).
+\end{equation}
+Consequently, for every \(A\Subset\Lambda\), \(t\geq0\), and
+\(\eta\in\Omega\),
+\begin{equation}
+\label{eq:monomial-feynman-kac-duality}
+P_t\chi_A(\eta)
+=
+\E_A\left[
+\sigma_t
+\exp\left(\int_0^t V(A_s)\,ds\right)
+\chi_{A_t}(\eta)
+\right].
+\end{equation}
+\end{theorem}
+
+The coefficient calculation proving \eqref{eq:monomial-generator-duality} is
+given in Appendix~\ref{app:dual-calculation}. The semigroup identity is the
+standard Feynman--Kac consequence of the generator identity.
+
+Independent transitions \(1\to0\) act diagonally on monomials. Let
+\begin{equation}
+\label{eq:pure-death-noise}
+\Ncal^0 f(\eta)
+=
+\sum_{i\in\Lambda}d_i
+\bigl(f(\eta^{i,0})-f(\eta)\bigr),
+\qquad d_i\geq0.
+\end{equation}
+Then
+\begin{equation}
+\label{eq:pure-death-eigenfunction}
+\Ncal^0\chi_A
+=
+-\left(\sum_{i\in A}d_i\right)\chi_A.
+\end{equation}
+Thus adding \(\Ncal^0\) leaves the dual jumps unchanged and replaces the
+potential \(V(A)\) by
+\[
+V(A)-\sum_{i\in A}d_i.
+\]
+We therefore call the independent transitions \(1\to0\) in
+\eqref{eq:pure-death-noise} pure deaths.
+
+\subsection{Graphical construction}
+\label{subsec:dual-graphical-construction}
+
+For every \(i\in\Lambda\) and \(S\subseteq N(i)\), let
+\(I_{i,S}^\delta\subseteq(0,\infty)\) be a Poisson point process of rate
+\(\delta_i(S)\). For every nonempty \(S\subseteq N(i)\), let
+\(I_{i,S}^\beta\subseteq(0,\infty)\) be a Poisson point process of rate
+\(\beta_i(S)\). All these processes are independent. The marked Poisson
+interaction set is
+\begin{equation}
+\label{eq:poisson-interaction-set}
+\begin{aligned}
+I^{\mathrm P}
+={}&
+\{(i,t,\delta,S):i\in\Lambda,\ S\subseteq N(i),\ t\in I_{i,S}^\delta\}
+\\
+&\cup
+\{(i,t,\beta,S):i\in\Lambda,\ \varnothing\neq S\subseteq N(i),\ t\in I_{i,S}^\beta\}.
+\end{aligned}
+\end{equation}
+For \((i,t,\alpha,S)\in I^{\mathrm P}\), the site \(i\) is the
+\emph{source}, \(S\) is the \emph{target}, and
+\(\alpha\in\{\delta,\beta\}\) is the interaction kind. Deaths have empty
+target; splits and births have nonempty target.
+
+For an initial state \(Y_0=(A_0,\sigma_0)\), adjoin the deterministic initial
+interaction
+\begin{equation}
+\label{eq:initial-interaction}
+\iota_0
+=
+(\infty,0,\mathsf{init},A_0;\sigma_0),
+\end{equation}
+where \(\infty\notin\Lambda\) is a formal source. Its target is \(A_0\), its
+sign is \(\sigma_0\), and it has no rate. The full interaction set is
+\begin{equation}
+\label{eq:full-interaction-set}
+I=\{\iota_0\}\cup I^{\mathrm P}.
+\end{equation}
+
+Start from \(Y_{0-}=(\varnothing,+)\) and apply \(\iota_0\), giving
+\(Y_0=(A_0,\sigma_0)\). Thereafter read the interactions in
+\(I^{\mathrm P}\) in increasing time order. At a mark
+\((i,t,\delta,S)\), apply \(D_{i,S}\) when \(i\in A_{t-}\), and otherwise
+do nothing. At a mark \((i,t,\beta,S)\), apply \(B_{i,S}\) when
+\(i\in A_{t-}\), and otherwise do nothing. Between interactions the process
+is constant.
+
+The uniform bounds noted after \eqref{eq:dual-potential} imply local finiteness:
+from a finite initial active set, only finitely many relevant interactions occur
+on every bounded time interval. We use the interaction set \(I\) throughout the
+patch construction.
