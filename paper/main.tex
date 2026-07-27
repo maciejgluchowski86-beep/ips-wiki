@@ -8,9 +8,391 @@
 
 \input{paper/preamble}
 
+% Temporary helpers for the structural drafting stage.  Remove these
+% together with the outline notes as the paper is written.
+\newcommand{\draftnote}[1]{%
+  \begin{quote}
+    \small\noindent\textit{Planned content.} #1
+  \end{quote}
+}
+\newcommand{\wiki}[2]{%
+  \href{https://github.com/maciejgluchowski86-beep/ips-wiki/blob/main/docs/entries/#1.md}{#2}%
+}
+
 \begin{document}
 
-\thispagestyle{empty}
-\null
+\section*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
+
+\draftnote{State the problem of extracting positive information from a signed dual, the patch representation and patch-positivity criterion, the resulting moment order and convergence theorem, and the principal FA-1f and BABP consequences. Mention the full-patch formula for the limiting law without introducing technical notation that belongs later.}
+
+% Keep the table of contents while the presentation order is being settled.
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\section{Introduction}
+\label{sec:introduction}
+
+\subsection{Calm and facilitating states}
+\label{subsec:intro-calm-active}
+
+\draftnote{Introduce the broad architecture: state \(1\) is calm and state \(0\) facilitates activity elsewhere. Use the contact process, FA-1f, and BABP to illustrate birth, refresh, and flip mechanisms, respectively, without yet defining the models formally. Relevant background: \wiki{spin-system}{spin systems}, \wiki{fa-1f-model}{FA-1f}, and \wiki{babp-model}{BABP}.}
+
+\subsection{Strong interactions with weak persistence}
+\label{subsec:intro-temporal-cancellation}
+
+\draftnote{Explain that a facilitating site may have a strong instantaneous effect while consecutive updates fail to accumulate it: births become redundant, refreshes overwrite earlier refreshes, and repeated flips cancel. This is the temporal cancellation that a one-interaction estimate cannot see.}
+
+\subsection{Why the standard approaches are insufficient}
+\label{subsec:intro-obstructions}
+
+\draftnote{Give the noisy percolation-with-sources intuition for ergodicity, then explain the intended generality: attractiveness may fail, reversibility is not assumed, and the Feynman--Kac weight need not be small. The contact process is the attractive benchmark rather than the main application. Relevant notions: \wiki{duality}{Feynman--Kac duality} and \wiki{ergodicity}{ergodicity}.}
+
+\subsection{The patch method}
+\label{subsec:intro-method}
+
+\draftnote{Describe the main idea at a nontechnical level. Condition on the successful-interaction skeleton and average the local history between consecutive successful touches; the resulting patch contribution can be positive even though the underlying dual is signed. Relevant entries: \wiki{successful-interaction}{successful interactions}, \wiki{patch}{patches}, and \wiki{patch-representation-of-spin-systems}{patch representation}.}
+
+\subsection{Main results}
+\label{subsec:intro-results}
+
+\draftnote{List the results in their conceptual order: patch factorization and representation; a coefficient characterization of patch positivity; the recovered centered-moment order; comparison under removal of pure deaths; uniform convergence under noise; and the full-patch formula for the invariant law. Distinguish convergence over \(\mathcal M_-\) from uniform exponential ergodicity when \( \mathbf p^\star\le \frac12\mathbf 1\).}
+
+\subsection{Applications, literature, and organization}
+\label{subsec:intro-literature}
+
+\draftnote{State how the general method applies to FA-1f and BABP and identify precisely which known results are strengthened or which open regimes are addressed. Keep the KCSM review limited to what is needed for comparison, and close with a short guide to the paper. Relevant entries: \wiki{fa-1f-out-of-equilibrium}{FA-1f out of equilibrium} and \wiki{babp-out-of-equilibrium}{BABP out of equilibrium}.}
+
+\section{Spin systems and motivating examples}
+\label{sec:spin-systems}
+
+\subsection{Lattices and local observables}
+\label{subsec:lattices-observables}
+
+\draftnote{Fix the general countable lattice, neighbourhoods, local functions, and monomial basis. Assume bounded finite-range dynamics where needed, but postpone polynomial growth until the convergence theorem. Relevant entries: \wiki{lattice-and-graph}{lattices and graphs}, \wiki{local-functions}{local functions}, \wiki{monomials}{monomials}, and \wiki{polynomial-growth-lattice}{polynomial-growth lattices}.}
+
+\subsection{Spin-system rates and coefficient expansions}
+\label{subsec:rates-coefficients}
+
+\draftnote{Define the flip generator, the rates \(c_i^0\) and \(c_i^1\), and their multilinear coefficients \(c_i^x(S)\). Establish only the notation needed later for the dual and the patch-positivity criterion. Relevant entry: \wiki{spin-system}{spin system}.}
+
+\subsection{The calm--facilitating rate structure}
+\label{subsec:calm-facilitating-rates}
+
+\draftnote{Translate the informal picture into rate language without yet defining patch positivity. Explain that the relevant negative nonconstant coefficients force update rates to decrease as calm spins are added, while noting that the coefficient condition is stronger than coordinatewise decrease.}
+
+\subsection{Three update mechanisms}
+\label{subsec:motivating-models}
+
+\draftnote{Introduce the three examples side by side so the reader sees that the method concerns an interaction architecture rather than one special refresh model.}
+
+\subsubsection{Contact process}
+\label{subsubsec:contact-process}
+
+\draftnote{Recall the active-state birth and recovery rules, and use attractiveness to explain why this familiar model already has stronger classical tools. Retain it as the clean birth-process example of the calm/facilitating structure.}
+
+\subsubsection{FA-1f}
+\label{subsubsec:fa-1f-model}
+
+\draftnote{Define facilitated Bernoulli refreshes and the distinction between the facilitating zero and calm one. Defer all patch calculations and literature comparison to Section~\ref{sec:applications}. Relevant entry: \wiki{fa-1f-model}{FA-1f}.}
+
+\subsubsection{Biased annihilating branching process}
+\label{subsubsec:babp-model}
+
+\draftnote{Define the additive-rate refresh formulation and briefly translate it into the particle birth/annihilation convention. Emphasize that BABP is not attractive. Relevant entry: \wiki{babp-model}{BABP}.}
+
+\subsection{Noise, invariant measures, and convergence}
+\label{subsec:noise-ergodicity}
+
+\draftnote{Define pure-noise perturbations and fix the distinctions among invariant measure, ergodicity, and uniform exponential ergodicity. Introduce uniform pure deaths only as the hypothesis that will drive Section~\ref{sec:convergence}. Relevant entries: \wiki{pure-noise-spin-system}{pure noise}, \wiki{invariant-measure}{invariant measures}, and \wiki{ergodicity}{ergodicity}.}
+
+\section{The natural signed dual}
+\label{sec:signed-dual}
+
+\subsection{Monomial Feynman--Kac duality}
+\label{subsec:monomial-duality}
+
+\draftnote{State the monomial duality formula for a general spin system and explain why its dual is naturally signed. Keep the generator calculation out of the narrative and place it in Appendix~\ref{app:dual-calculation}. Relevant entry: \wiki{monomial-duality-for-spin-systems}{monomial duality for spin systems}.}
+
+\subsection{The signed additive set process}
+\label{subsec:signed-set-process}
+
+\draftnote{Define deaths, splits, births, and their sign labels abstractly, while making clear that this is the process produced by the spin-system calculation. Record additivity of the set coordinate only to the extent used by the graphical construction. Relevant entry: \wiki{signed-additive-set-process}{signed additive set process}.}
+
+\subsection{Graphical construction}
+\label{subsec:dual-graphical-construction}
+
+\draftnote{Recall the standard Poisson construction, including the formal initial interaction and the local-finiteness assumption. Cite standard existence facts rather than reproving general Harris theory. Relevant entry: \wiki{graphical-construction-of-signed-additive-set-process}{graphical construction}.}
+
+\subsection{From spin rates to dual data}
+\label{subsec:rates-to-dual}
+
+\draftnote{State the dictionary from \(c_i^x(S)\) to dual rates, signs, and the sitewise Feynman--Kac potential. Give only enough calculation to make the construction checkable; send routine coefficient matching to Appendix~\ref{app:dual-calculation}.}
+
+\section{Successful interactions and patches}
+\label{sec:patches}
+
+\subsection{A two-interaction cancellation}
+\label{subsec:two-interaction-example}
+
+\draftnote{Work through one minimal graphical example showing why consecutive interactions can overwrite or cancel even when either interaction alone is strong. Use it to motivate conditioning on interaction boundaries; include a figure if it materially clarifies the example.}
+
+\subsection{The successful-interaction skeleton}
+\label{subsec:successful-skeleton}
+
+\draftnote{Define successful nonempty-target interactions and the sigma algebra generated by their source--time--target skeleton. Explain why deaths remain inside patches and why the skeleton deliberately hides the split-versus-birth mark. Relevant entry: \wiki{successful-interaction}{successful interaction}.}
+
+\subsection{Patch geometry and labels}
+\label{subsec:patch-geometry}
+
+\draftnote{Define a patch as the full one-site spacetime interval between consecutive successful touches, possibly infinite, with its incoming/outgoing boundary labels. At an observation time, truncate the patches that are still open to obtain end contributions; do not present truncations as a different geometric object. Relevant entry: \wiki{patch}{patch}.}
+
+\subsection{Conditional patch laws}
+\label{subsec:patch-laws}
+
+\draftnote{Define the reference Poisson data, the consistency event, and the conditioned patch law. Explain briefly how the boundary labels encode exactly the information revealed by the successful skeleton. Relevant entry: \wiki{patch-consistency-event}{patch consistency event}.}
+
+\subsection{Patch contributions}
+\label{subsec:patch-contributions}
+
+\draftnote{Define bulk, end, and infinite full-patch contributions as conditional expectations of the local signed Feynman--Kac factor. State their qualitative properties here; put the four explicit formulas and their algebra in Appendix~\ref{app:contribution-formulas}. Relevant entry: \wiki{patch-contribution}{patch contribution}.}
+
+\section{Patch factorization and representation}
+\label{sec:representation}
+
+\subsection{Conditional factorization}
+\label{subsec:factorization}
+
+\draftnote{Before the theorem, explain why conditioning on the successful skeleton should separate the remaining local randomness. Then state the factorization theorem, give a short proof roadmap, and prove it by Poisson disintegration and chronological reconstruction. Relevant entry: \wiki{patch-factorization}{patch factorization}.}
+
+\subsection{The patch representation theorem}
+\label{subsec:representation-theorem}
+
+\draftnote{State the representation of \(P_t\chi_A\) as the skeleton average of bulk and end contributions. Follow the statement with a short explanation of how the original sign and Feynman--Kac weight are distributed among patches, then give the short proof from factorization. Relevant entry: \wiki{patch-representation-of-spin-systems}{patch representation of spin systems}.}
+
+\subsection{General initial laws and centered end expansions}
+\label{subsec:general-initial-laws}
+
+\draftnote{Average the representation over an arbitrary initial law and expand the affine end factors around \(\mathbf p^\star\). This is the bridge from the pathwise representation to centered-moment positivity in Section~\ref{sec:moment-order}.}
+
+\subsection{What the representation detects}
+\label{subsec:representation-interpretation}
+
+\draftnote{Return to the opening example and explain precisely what was gained by integrating between successful touches. Contrast large one-step Feynman--Kac weights with nonnegative effective patch weights, without introducing ``structural weakness'' as a formal term.}
+
+\section{Patch positivity}
+\label{sec:patch-positivity}
+
+\subsection{Conceptual definition}
+\label{subsec:positivity-definition}
+
+\draftnote{Define patch positivity as nonnegativity of every bulk patch contribution. Explain why this is the exact property needed to turn the signed representation into a source of order and bounds. Relevant entry: \wiki{patch-positivity-property}{patch positivity}.}
+
+\subsection{Coefficient characterization}
+\label{subsec:positivity-criterion}
+
+\draftnote{State the necessary and sufficient inequalities in the coefficients \(c_i^x(S)\), with the degenerate empty-neighbour case separated. Give a proof roadmap and reduce the proof to the four contribution types; keep the explicit formulas in Appendix~\ref{app:contribution-formulas}.}
+
+\subsection{The calm--facilitating interpretation}
+\label{subsec:positivity-interpretation}
+
+\draftnote{Explain that the nonpositive interaction coefficients force the flip intensity, and in particular the activation rate, to decrease as calm spins are added. Present this as the rigorous footprint of the calm/facilitating architecture, while stating clearly that coordinatewise decrease alone is weaker than the full criterion.}
+
+\subsection{End contributions and the critical density}
+\label{subsec:critical-density}
+
+\draftnote{Define the critical profile \(\mathbf p^\star\) as the smallest terminal one-density making every end contribution nonnegative, derive its coefficient formula, and explain why bulk positivity and the terminal density restriction are logically separate. Relevant entry: \wiki{patch-critical-density}{patch critical density}.}
+
+\section{Recovered moment order}
+\label{sec:moment-order}
+
+\subsection{Centered moments and the class \texorpdfstring{\(\mathcal M_\star\)}{M-star}}
+\label{subsec:m-star}
+
+\draftnote{Introduce centered monomials and \(\mathcal M_\star\) only now, after the end expansion has shown why they are natural. Record convexity, weak closedness, and the product-profile characterization without treating the class as the paper's main object. Relevant entry: \wiki{high-density-measure}{high-density measures}.}
+
+\subsection{Semigroup order and preservation}
+\label{subsec:moment-monotonicity}
+
+\draftnote{State centered-moment order preservation, ordinary monomial comparison, and preservation of \(\mathcal M_\star\). Use the preferred theorem format: motivation, statement, proof idea, required lemma or coefficient calculation, and short proof. Relevant entry: \wiki{monomial-monotonicity-for-high-density-measures}{monomial monotonicity}.}
+
+\subsection{Product profiles and reflected comparisons}
+\label{subsec:profile-comparisons}
+
+\draftnote{Extract the useful comparisons for homogeneous, inhomogeneous, and mixed Bernoulli laws. Explain the reflected comparison below \(\mathbf p^\star\), and avoid suggesting that the centered-moment order is stochastic domination.}
+
+\subsection{Comparison after removing pure deaths}
+\label{subsec:pure-death-comparison}
+
+\draftnote{State the comparison theorem and its invariant-measure corollary as a concise consequence of recovered positivity. Treat it as useful machinery for later arguments rather than a principal result. Relevant entry: \wiki{pure-death-comparison-under-patch-positivity}{pure-death comparison}.}
+
+\section{Uniform convergence under noise}
+\label{sec:convergence}
+
+\subsection{The convergence theorem and limiting formula}
+\label{subsec:convergence-statement}
+
+\draftnote{Introduce the lower centered-moment class \(\mathcal M_-\), then state uniform exponential convergence under a uniform pure-death component on a polynomial-growth lattice. State the full-patch formula for the limiting law in the same theorem. Relevant entries: \wiki{high-density-measure}{\(\mathcal M_-\)} and \wiki{common-invariant-limit-under-uniform-pure-deaths}{common invariant limit}.}
+
+\subsection{Proof strategy}
+\label{subsec:convergence-roadmap}
+
+\draftnote{Explain the three-way decomposition before any technical estimates: escape from a finite interaction cone, a successful interaction after the cut time, and no successful interaction after the cut time. Explain how each term is controlled and why the cut time is eventually chosen near \(t/2\).}
+
+\subsection{Positive skeleton weights}
+\label{subsec:positive-skeleton-weights}
+
+\draftnote{Use the centered end expansion and comparison with the process obtained by removing pure deaths to obtain nonnegative, uniformly bounded skeleton weights. State only the comparison properties needed later. Relevant entry: \wiki{pure-death-comparison-under-patch-positivity}{pure-death comparison}.}
+
+\subsection{Spatial confinement}
+\label{subsec:spatial-confinement}
+
+\draftnote{State the interaction-cone identity, undo duality on the confined event, and invoke the ordinary zero-boundary finite-propagation estimate. Keep standard propagation proof details in Appendix~\ref{app:technical-background}. Relevant entries: \wiki{interaction-cone}{interaction cone}, \wiki{undoing-duality-under-confined-interactions}{undoing confined duality}, and \wiki{finite-propagation-for-zero-boundary-restrictions}{finite propagation}.}
+
+\subsection{Late successful interactions}
+\label{subsec:late-interactions}
+
+\draftnote{Control histories with a successful interaction after the cut time by tracing the required chain of outgoing-terminal patches back to time zero. Explain where the exponential pure-death factor is accumulated along that trail.}
+
+\subsection{Relaxation when there are no late interactions}
+\label{subsec:no-late-relaxation}
+
+\draftnote{Condition at the cut time, factor over the open patches, and use the explicit empty-neighbour relaxation of their continued end contributions. State the confined relaxation lemma before using it. Relevant entries: \wiki{patch-contribution}{patch relaxation} and \wiki{exponential-relaxation-under-confined-late-interactions}{confined late-interaction relaxation}.}
+
+\subsection{Completion, invariance, and the full-patch limit}
+\label{subsec:convergence-completion}
+
+\draftnote{Assemble the three estimates, choose the spatial ball and cut time, extend from monomials to local functions, and prove that the common limit is invariant. Identify its monomial moments with the all-time full-patch expectation.}
+
+\subsection{Uniform ergodicity and extensions}
+\label{subsec:ergodicity-corollaries}
+
+\draftnote{Deduce uniform exponential ergodicity when \(\mathbf p^\star\le\frac12\mathbf1\). Record the finite-centered-perturbation extension separately, and explain that the remaining density restriction comes from controlling signs of end contributions rather than from an expected dynamical obstruction. Relevant entry: \wiki{ergodicity}{ergodicity}.}
+
+\section{Applications to facilitating models}
+\label{sec:applications}
+
+\subsection{A verification template}
+\label{subsec:application-template}
+
+\draftnote{Give the reusable sequence for a model: expand the flip rates, identify the signed dual, verify patch positivity, compute \(\mathbf p^\star\), add admissible noise, and then invoke the order or convergence theorems.}
+
+\subsection{The contact process as an attractive benchmark}
+\label{subsec:contact-benchmark}
+
+\draftnote{Verify briefly that the contact process fits the coefficient picture and explain its repeated-birth cancellation. Use it to compare patch positivity with classical attractiveness; do not present already known contact-process conclusions as new applications.}
+
+\subsection{FA-1f}
+\label{subsec:fa-1f-applications}
+
+\subsubsection{Model and known out-of-equilibrium results}
+\label{subsubsec:fa-1f-literature}
+
+\draftnote{Recall only the definitions and literature results needed to locate the new statements. Avoid a general KCSM survey. Relevant entries: \wiki{fa-1f-model}{FA-1f} and \wiki{fa-1f-out-of-equilibrium}{FA-1f out of equilibrium}.}
+
+\subsubsection{Patch positivity and critical density}
+\label{subsubsec:fa-1f-patches}
+
+\draftnote{Verify the coefficient criterion and compute \(p^\star=p\). Characterize which pure-noise perturbations preserve patch positivity. Relevant entries: \wiki{patch-positivity-for-fa-1f}{FA-1f patch positivity} and \wiki{patch-critical-density-for-fa-1f}{FA-1f critical density}.}
+
+\subsubsection{Monotonicity and noisy convergence}
+\label{subsubsec:fa-1f-results}
+
+\draftnote{State the model-specific moment comparisons, the noisy convergence theorem, the uniform-ergodicity regime, and the limiting full-patch formula. Compare each conclusion directly with the best relevant result from the literature.}
+
+\subsection{Biased annihilating branching process}
+\label{subsec:babp-applications}
+
+\subsubsection{Model and known long-time behavior}
+\label{subsubsec:babp-literature}
+
+\draftnote{Recall the reversible product law, absorbing state, self-duality or quasi-duality results, and the unresolved finite-seed regime only insofar as they frame the patch consequences. Relevant entries: \wiki{babp-model}{BABP} and \wiki{babp-out-of-equilibrium}{BABP out of equilibrium}.}
+
+\subsubsection{Patch positivity and critical density}
+\label{subsubsec:babp-patches}
+
+\draftnote{Verify the coefficient criterion, compute \(p^\star=p\), and characterize admissible pure-noise perturbations. Relevant entries: \wiki{patch-positivity-for-babp}{BABP patch positivity} and \wiki{patch-critical-density-for-babp}{BABP critical density}.}
+
+\subsubsection{High-density comparison and noisy convergence}
+\label{subsubsec:babp-results}
+
+\draftnote{Present the high-density range reached by centered-moment comparison and the consequences for noisy BABP. Separate improvements over quasi-thinning results from questions, such as finite-seed convergence, that the present method does not settle.}
+
+\subsection{Further examples}
+\label{subsec:further-models}
+
+\draftnote{Reserve space for any additional model found to satisfy the coefficient criterion and yield a genuinely new consequence. Omit this subsection if the literature search produces only examples already covered more strongly by classical methods.}
+
+\section{Discussion and open problems}
+\label{sec:discussion}
+
+\subsection{What patch positivity measures}
+\label{subsec:meaning-of-patch-positivity}
+
+\draftnote{Summarize the distinction between instantaneous interaction strength and persistence through time. Explain what the method captures beyond ordinary one-step duality estimates and where it remains weaker than attractiveness.}
+
+\subsection{The end-patch density threshold}
+\label{subsec:density-threshold}
+
+\draftnote{Discuss the lower bound on admissible initial one-density as a technical limitation caused by signs of end contributions. Contrast it carefully with KCSM results in which high density of the constraining state is often the difficult regime.}
+
+\subsection{Removing uniform noise}
+\label{subsec:removing-noise}
+
+\draftnote{Identify which parts of the convergence proof use the uniform pure-death component and formulate possible replacements, such as model-specific relaxation or survival estimates.}
+
+\subsection{Arbitrary initial laws and further models}
+\label{subsec:future-directions}
+
+\draftnote{List the main open directions: convergence from arbitrary initial laws when \(\mathbf p^\star>\frac12\mathbf1\), sharper interpretation of the full-patch law, stronger orders than monomial moments, and systematic identification of further patch-positive non-attractive systems.}
+
+\appendix
+
+\section{Derivation of the monomial dual}
+\label{app:dual-calculation}
+
+\subsection{Generator action on monomials}
+\label{app:generator-action}
+
+\draftnote{Carry out the multilinear expansion of \(\mathcal L\chi_A\) and separate death, split, birth, and diagonal terms. Relevant entry: \wiki{monomial-duality-for-spin-systems}{monomial duality}.}
+
+\subsection{Dual rates, signs, and potential}
+\label{app:dual-data}
+
+\draftnote{Match the generator coefficients with the signed additive process and the sitewise Feynman--Kac potential, including the empty-target convention and degenerate cases.}
+
+\section{Patch-contribution formulas}
+\label{app:contribution-formulas}
+
+\subsection{The four finite bulk types}
+\label{app:bulk-formulas}
+
+\draftnote{Record and derive the \(\mathsf{II}\), \(\mathsf{IO}\), \(\mathsf{OI}\), and \(\mathsf{OO}\) contribution formulas in dual-rate and spin-rate notation. Relevant entry: \wiki{patch-contribution}{patch contribution}.}
+
+\subsection{End and infinite contributions}
+\label{app:end-formulas}
+
+\draftnote{Record the affine terminal-state formulas for open end contributions, the no-interaction continuation identities, and the limiting infinite-patch contributions.}
+
+\subsection{Positivity and relaxation algebra}
+\label{app:positivity-algebra}
+
+\draftnote{Collect the routine inequalities used by the coefficient criterion, the critical-density formula, pure-death comparison, and exponential relaxation. Keep only the conceptual statements in the main text.}
+
+\section{Technical graphical and propagation details}
+\label{app:technical-background}
+
+\subsection{Local finiteness and conditional laws}
+\label{app:local-finiteness}
+
+\draftnote{Record any standard measurability, local-finiteness, and regular-conditional-distribution details omitted from Sections~\ref{sec:signed-dual}--\ref{sec:representation}. Cite standard graphical-construction results whenever possible.}
+
+\subsection{Finite-volume and finite-propagation approximations}
+\label{app:finite-propagation}
+
+\draftnote{Supply the routine finite-volume approximation, Feller, and zero-boundary propagation arguments invoked by the moment-order and convergence theorems. Relevant entry: \wiki{finite-propagation-for-zero-boundary-restrictions}{finite propagation}.}
+
+% A bibliography will be added after the model-specific literature
+% comparison and citation set have been fixed.
 
 \end{document}
