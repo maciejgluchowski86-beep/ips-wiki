@@ -1,29 +1,18 @@
 \section{Spin systems and motivating examples}
 \label{sec:spin-systems}
 
-\subsection{Lattices and local observables}
+\subsection{State space and local observables}
 \label{subsec:lattices-observables}
 
 Let \(\Lambda\) be a countable set. For each \(i\in\Lambda\), fix a finite
-neighbourhood
-\[
-N(i)\subseteq\Lambda\setminus\{i\}.
-\]
-The neighbourhoods may be directed: we do not assume that \(j\in N(i)\)
-implies \(i\in N(j)\). Throughout the paper,
+neighbourhood \(N(i)\subseteq\Lambda\setminus\{i\}\), and assume
 \[
 \sup_{i\in\Lambda}|N(i)|<\infty.
 \]
-We write \(A\Subset\Lambda\) when \(A\) is finite.
-
-The configuration space is
-\[
-\Omega=\{0,1\}^{\Lambda}.
-\]
-Following the convention for kinetically constrained spin models, the state
-\(0\) is facilitating and the state \(1\) is calm. We use this terminology in
-the general discussion and record the conventional names used for each model
-below.
+The neighbourhoods may be directed: \(j\in N(i)\) need not imply
+\(i\in N(j)\). We write \(A\Subset\Lambda\) when \(A\) is finite, and set
+\(\Omega=\{0,1\}^{\Lambda}\). Following the KCSM convention, state \(0\) is
+facilitating and state \(1\) is calm.
 
 \begin{definition}[Local functions]
 \label{def:local-function}
@@ -40,13 +29,13 @@ For \(A\Subset\Lambda\), define
 \qquad
 \chi_\varnothing=1.
 \]
-If a local function depends on \(A\), it has a unique expansion as a linear
-combination of \(\{\chi_B:B\subseteq A\}\). Thus the monomials form a basis of
-the local functions.
+If a local function depends on \(A\), it has a unique expansion in the basis
+\(\{\chi_B:B\subseteq A\}\).
 \end{definition}
 
 \subsection{Spin-system rates and coefficient expansions}
 \label{subsec:rates-coefficients}
+\label{subsec:calm-facilitating-rates}
 
 For \(i\in\Lambda\) and \(a\in\{0,1\}\), let \(\eta^{i,a}\) be obtained from
 \(\eta\) by setting the spin at \(i\) equal to \(a\). We write \(\eta^i\) for
@@ -70,11 +59,8 @@ depends only on \(\eta|_{N(i)\cup\{i\}}\) and that
 \]
 \end{definition}
 
-For \(x\in\{0,1\}\), define
-\[
-c_i^x(\eta)=c_i(\eta^{i,x}).
-\]
-Then \(c_i^x\) depends only on \(\eta|_{N(i)}\), and
+For \(x\in\{0,1\}\), set \(c_i^x(\eta)=c_i(\eta^{i,x})\). Then \(c_i^x\)
+depends only on \(\eta|_{N(i)}\), and
 \begin{equation}
 \label{eq:statewise-rates}
 c_i(\eta)
@@ -84,84 +70,65 @@ c_i(\eta)
 Thus \(c_i^0\) is the rate of the flip \(0\to1\), while \(c_i^1\) is the
 rate of the flip \(1\to0\).
 
-The finite-neighbourhood function \(c_i^x\) has the unique multilinear
-expansion
+Each \(c_i^x\) has the unique multilinear expansion
 \begin{equation}
 \label{eq:rate-expansion}
 c_i^x(\eta)
 =
 \sum_{S\subseteq N(i)}c_i^x(S)\chi_S(\eta).
 \end{equation}
-We use the same symbol for the rate and its coefficients; the argument
-\(\eta\) or \(S\) distinguishes them. The coefficients are given by the usual
-Möbius inversion formula on the subsets of \(N(i)\).
+The same symbol denotes the function and its coefficients; the argument
+\(\eta\) or \(S\) distinguishes them. The coefficients are given by M\"obius
+inversion on the subsets of \(N(i)\).
 
-Under the assumptions above, the standard Harris construction gives a Feller
-process; we take this construction for granted. See, for example, Liggett,
+Under these assumptions, the standard Harris construction gives a Feller
+process; we use this without further comment. See Liggett,
 \emph{Interacting Particle Systems}, Chapter~I. Its semigroup is denoted by
-\((P_t)_{t\geq0}\):
-\[
-P_tf(\eta)=\E_\eta[f(\eta_t)].
-\]
-For a probability measure \(\mu\) on \(\Omega\), write
-\(\mu P_t(f)=\mu(P_tf)\).
+\((P_t)_{t\geq0}\), with \(P_tf(\eta)=\E_\eta[f(\eta_t)]\). For a probability
+measure \(\mu\), we write \((\mu P_t)(f)=\mu(P_tf)\).
 
-\subsection{The calm--facilitating rate structure}
-\label{subsec:calm-facilitating-rates}
-
-The calm--facilitating terminology is an interpretation, not a definition of
-a class of spin systems. One elementary coefficient condition already
-reflects this interpretation. If
+Nonpositive interaction coefficients give one simple form of the
+calm--facilitating tendency. For fixed \(i\) and \(x\), if
 \[
 c_i^x(S)\leq0
-\qquad
-\text{for every nonempty }S\subseteq N(i),
+\qquad\text{for every nonempty }S\subseteq N(i),
 \]
-then \(c_i^x\) is coordinatewise nonincreasing on \(\{0,1\}^{N(i)}\). In
-other words, replacing facilitating spins by calm spins can only decrease the
-flip rate. This coefficient condition is stronger than coordinatewise
-monotonicity: a coordinatewise decreasing function on the Boolean cube need
-not have all its nonconstant multilinear coefficients nonpositive.
+then \(c_i^x\) is coordinatewise nonincreasing on \(\{0,1\}^{N(i)}\):
+replacing facilitating spins by calm spins can only decrease the flip rate.
+The converse is false. Patch positivity, introduced in
+Section~\ref{sec:patch-positivity}, instead relates the coefficients of
+\(c_i^0\) and \(c_i^1\).
 
-The examples below have this sign pattern. The formal condition used in the
-paper is patch positivity, introduced in Section~\ref{sec:patch-positivity};
-it is a condition on the relation between the coefficients of \(c_i^0\) and
-\(c_i^1\), rather than a definition based on this informal terminology.
-
-\subsection{Three update mechanisms}
+\subsection{Bernoulli refreshes and motivating examples}
 \label{subsec:motivating-models}
 
-\begin{definition}[Bernoulli refresh]
-\label{def:bernoulli-refresh}
-For \(p\in[0,1]\), write \(q=1-p\) and set
+\phantomsection\label{def:bernoulli-refresh}
+For \(p\in[0,1]\), write \(q=1-p\). The Bernoulli refresh operator at site
+\(i\) is
 \begin{equation}
 \label{eq:bernoulli-refresh}
 E_{i,p}f(\eta)
 =
-pf(\eta^{i,1})+qf(\eta^{i,0}).
-\end{equation}
-Here \(p\) is the density of calm spins and \(q\) is the density of
-facilitating spins. In flip form,
-\begin{equation}
-\label{eq:refresh-flip-form}
+pf(\eta^{i,1})+qf(\eta^{i,0}),
+\qquad
 (E_{i,p}-I)f(\eta)
 =
 \bigl(p(1-\eta(i))+q\eta(i)\bigr)
 \bigl(f(\eta^i)-f(\eta)\bigr).
 \end{equation}
-\end{definition}
-In the KCSM and BABP literature, the prefactor multiplying
+Here \(p\) is the density of calm spins and \(q\) the density of facilitating
+spins. In the KCSM and BABP literature, the prefactor multiplying
 \(E_{i,p}-I\) is often denoted by \(c_i\) and called the constraint or refresh
-rate. Throughout this paper, \(c_i\) always denotes the resulting flip rate;
-the refresh prefactors in the examples are written explicitly.
+rate. In this paper, \(c_i\) always denotes the resulting flip rate; refresh
+rates are written explicitly.
 
 \subsubsection{Contact process}
 \label{subsubsec:contact-process}
 
-The contact process is usually written with state \(1\) occupied or infected
-and state \(0\) healthy. We reverse these labels, so that \(0\) is active and
-\(1\) healthy, hence calm in our terminology. With recovery rate one and
-infection parameter \(\lambda\geq0\), its generator is
+The contact process is usually written with state \(1\) infected and state
+\(0\) healthy. We reverse these labels, so that \(0\) is active and \(1\) is
+healthy, hence calm. With recovery rate one and infection parameter
+\(\lambda\geq0\), its generator is
 \[
 \Lcal_{\mathrm{CP}}f(\eta)
 =
@@ -177,20 +144,19 @@ Thus
 \[
 c_i^0(\eta)=1,
 \qquad
-c_i^1(\eta)=\lambda\sum_{j\in N(i)}(1-\eta(j)).
+c_i^1(\eta)=\lambda\sum_{j\in N(i)}(1-\eta(j)),
 \]
-The only nonzero nonconstant coefficients are
-\(c_i^1(\{j\})=-\lambda\), \(j\in N(i)\). The contact process is
-attractive, so it already admits stochastic comparisons stronger than the
-moment order developed below. We retain it as the basic birth-process
-benchmark.
+and the only nonzero nonconstant coefficients are
+\(c_i^1(\{j\})=-\lambda\), \(j\in N(i)\). Since the contact process is
+attractive, classical coupling gives stronger comparisons than those developed
+here.
 
 \subsubsection{FA-1f}
 \label{subsubsec:fa-1f-model}
 
 In FA-1f, state \(0\) is called vacant and state \(1\) occupied. A site may
-refresh when at least one of its neighbours is vacant. On the present directed
-neighbourhood system, the generator is
+refresh when at least one neighbour is vacant. On the present neighbourhood
+system,
 \[
 \Lcal_{\mathrm{FA}}f(\eta)
 =
@@ -198,7 +164,7 @@ neighbourhood system, the generator is
 \bigl(1-\chi_{N(i)}(\eta)\bigr)
 (E_{i,p}-I)f(\eta).
 \]
-The corresponding flip rates are
+The flip rates are
 \[
 c_i^0(\eta)=p\bigl(1-\chi_{N(i)}(\eta)\bigr),
 \qquad
@@ -213,14 +179,14 @@ c_i^1(\varnothing)&=q,
 &c_i^1(N(i))&=-q.
 \end{aligned}
 \]
-The usual FA-1f model is defined on an undirected graph. The East model is the
-oriented special case with a single prescribed facilitating neighbour.
+The standard FA-1f model uses an undirected graph. The East model is the
+oriented case with one prescribed facilitating neighbour.
 
 \subsubsection{Biased annihilating branching process}
 \label{subsubsec:babp-model}
 
-BABP uses the same refresh law, but each vacant neighbour contributes one unit
-to the refresh rate:
+BABP uses the same refresh law, with refresh rate equal to the number of vacant
+neighbours:
 \[
 \Lcal_{\mathrm{BABP}}f(\eta)
 =
@@ -236,9 +202,9 @@ p\sum_{j\in N(i)}(1-\eta(j)),
 \qquad
 c_i^1(\eta)
 =
-q\sum_{j\in N(i)}(1-\eta(j)).
+q\sum_{j\in N(i)}(1-\eta(j)),
 \]
-Its nonzero coefficients are
+with nonzero coefficients
 \[
 \begin{aligned}
 c_i^0(\varnothing)&=p|N(i)|,
@@ -248,47 +214,46 @@ c_i^1(\varnothing)&=q|N(i)|,
 \end{aligned}
 \qquad j\in N(i).
 \]
-The name of the process uses the complementary particle variables
-\(\xi(i)=1-\eta(i)\). If \(p>0\), rescaling time by \(p^{-1}\) and writing
-\(\lambda=q/p\) gives a process in which an empty site becomes occupied at
-rate \(\lambda\) for each neighbouring particle, while an occupied site loses
-its particle at rate one for each neighbouring particle. BABP is not
-attractive in the usual product order.
+In the complementary particle variables \(\xi(i)=1-\eta(i)\), and after
+rescaling time by \(p^{-1}\), a particle is born at an empty site at rate
+\(\lambda=q/p\) for each neighbouring particle, while each neighbouring
+particle removes the particle at the target at rate one. BABP is not attractive
+in the usual product order.
 
-\subsection{Noise, invariant measures, and convergence}
+\subsection{Independent noise}
 \label{subsec:noise-ergodicity}
-
-\begin{definition}[Independent Bernoulli noise]
 \label{def:bernoulli-noise}
-Let \(\mathbf p=(p_i)_{i\in\Lambda}\in[0,1]^\Lambda\). The independent
-Bernoulli noise with profile \(\mathbf p\) has generator
+
+Let \(\mathbf p=(p_i)_{i\in\Lambda}\in[0,1]^\Lambda\). Independent Bernoulli
+noise with profile \(\mathbf p\) has generator
 \[
 \Ncal^{\mathbf p}f
 =
 \sum_{i\in\Lambda}(E_{i,p_i}-I)f.
 \]
-A noise perturbation of \(\Lcal\) at level \(\varepsilon\geq0\) is the spin
-system with generator
+Adding this noise at level \(\varepsilon\geq0\) gives
 \[
 \Lcal^\varepsilon
 =
 \Lcal+\varepsilon\Ncal^{\mathbf p}.
 \]
-\end{definition}
-
-The noise adds the environment-independent rates \(\varepsilon p_i\) to the
-flip \(0\to1\) and \(\varepsilon(1-p_i)\) to the flip \(1\to0\). We say that
-a spin system has a \emph{uniform pure-death component} of level
+The perturbation adds the environment-independent rates \(\varepsilon p_i\)
+to \(0\to1\) and \(\varepsilon(1-p_i)\) to \(1\to0\). We say that the spin
+system has a \emph{uniform independent \(1\to0\) component} of level
 \(\delta>0\) if
 \[
 c_i^1(\eta)\geq\delta
 \qquad
 \text{for every }i\in\Lambda\text{ and }\eta\in\Omega.
 \]
-Equivalently, a rate-\(\delta\) independent transition \(1\to0\) can be
-removed while leaving nonnegative flip rates. In particular, the perturbation
-above has a uniform pure-death component of level
-\(\varepsilon\inf_i(1-p_i)\) whenever this quantity is positive.
+Equivalently, an independent transition \(1\to0\) at rate \(\delta\) can be
+removed while leaving nonnegative flip rates. The perturbation above has such
+a component of level \(\varepsilon\inf_i(1-p_i)\) whenever this quantity is
+positive. After introducing the monomial dual in Section~\ref{sec:signed-dual},
+we call this a uniform pure-death component.
+
+\subsection{Invariant measures and convergence}
+\label{subsec:invariant-ergodicity}
 
 \begin{definition}[Invariant measure and ergodicity]
 \label{def:invariant-measure}
@@ -311,8 +276,7 @@ then the unique invariant measure.
 \end{definition}
 
 Since \(\Omega\) is compact in the product topology, weak convergence is
-determined by local functions. We use the following local-observable form of
-the quantitative property.
+determined by local functions.
 
 \begin{definition}[Uniform exponential ergodicity]
 \label{def:uniform-exponential-ergodicity}
@@ -329,7 +293,6 @@ C_f e^{-\gamma t}
 \]
 \end{definition}
 
-We will also prove convergence uniformly over specified classes of initial
-laws. Such a restricted statement is not called ergodicity unless the estimate
-holds for every point mass, in which case it also holds for every initial law
-by integration.
+Some results below are uniform only over specified classes of initial laws.
+Such a restricted estimate is not called ergodicity unless it holds for every
+point mass, and hence, by integration, for every initial law.
