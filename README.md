@@ -7,14 +7,14 @@ The wiki is article-first. Each entry is a separate Markdown page under `docs/en
 ## Paper draft
 
 The LaTeX paper lives under `paper/`. The repository-level `main.tex` is the
-Overleaf main file and loads `paper/main.tex`. Introduction Sections 1.1--1.3
-are drafted in prose. Section 2 is drafted in
-`paper/sections/spin-systems.tex`; it sets the general directed-neighbourhood
-framework, flip-rate and coefficient notation, the three motivating models,
-independent Bernoulli noise, and the convergence terminology used later. The
-abstract, Introduction Sections 1.4--1.5, Section 3 onward, and the appendices
-remain structural notes with links to the relevant wiki entries. Shared macros
-and theorem environments live in `paper/preamble.tex`.
+Overleaf main file and loads `paper/main.tex`. Introduction Sections 1.1--1.3,
+Section 2, and Section 3 are drafted in prose. Section 2 is in
+`paper/sections/spin-systems.tex`. Section 3 is in
+`paper/sections/signed-dual.tex`, and its coefficient derivation is in
+`paper/appendices/monomial-dual.tex`. The abstract, Introduction Sections
+1.4--1.5, Section 4 onward, and Appendices B onward remain structural notes
+with links to the relevant wiki entries. Shared macros and theorem environments
+live in `paper/preamble.tex`.
 
 ## Reading target
 
