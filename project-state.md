@@ -16,10 +16,14 @@ Introduction Sections 1.1--1.3 are a prose draft. Section 2 is drafted in
 setting, local functions and monomials, flip-rate and coefficient notation,
 the calm--facilitating rate interpretation, the contact process, FA-1f and
 BABP, independent Bernoulli noise, and the convergence terminology used later.
-The abstract, Introduction Sections 1.4--1.5, Section 3 onward, and the
-appendices remain drafting notes. No title, main-result summary, or proof has
-yet been fixed. Shared macros and theorem environments live in
-`paper/preamble.tex`.
+Section 3 is drafted in `paper/sections/signed-dual.tex`; it defines the signed
+additive set process, the dictionary from spin rates to dual data, monomial
+Feynman--Kac duality, pure-death noise, and the marked graphical construction.
+Appendix A is drafted in `paper/appendices/monomial-dual.tex` and contains the
+coefficient derivation of the duality formula. The abstract, Introduction
+Sections 1.4--1.5, Section 4 onward, and Appendices B onward remain drafting
+notes. No title or main-result summary has yet been fixed. Shared macros and
+theorem environments live in `paper/preamble.tex`.
 
 ## Current core entries
 
