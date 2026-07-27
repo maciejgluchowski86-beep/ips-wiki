@@ -45,7 +45,7 @@ cause, permit, or accelerate such an update.
 
 This distinction appears under different update rules. In the contact
 process, an active site gives birth at neighbouring sites and may recover. In
-\wiki{fa-1f-model}{FA-1f}, a vacancy permits a neighbour to refresh but does
+\wiki{fa-1f-model}{FA-1f}, a vacancy permits a neighbour to refresh it's state according to an independent Bernoulli flip but does
 not determine the outcome of the refresh. In the
 \wiki{babp-model}{biased annihilating branching process} (BABP), a particle
 causes a neighbouring site to flip, resulting in branching or annihilation.
@@ -83,11 +83,7 @@ limiting law in advance.
 The difficulty is not that facilitating interactions are weak. A single
 neighbour can change an update rate from zero to a quantity of order one, and
 therefore decide whether a site is allowed to move. Its effect may still be
-short-lived. A later birth can add nothing, a refresh can overwrite the
-previous outcome, and a flip can reverse the previous flip. These
-cancellations cease to be local once the intermediate state has affected
-another site. What matters over long times is therefore not only the size of
-an interaction, but whether its effect is transmitted before being
+short-lived. Two consecutive births or refreshes have the same effect as just one, and two consecutive flips have no effect at all. These cancellations cease to be local once the intermediate state has affected another site. What matters over long times is whether the effect of an interactions is transmitted before being
 overwritten.
 
 The natural \wiki{duality}{Feynman--Kac duality} records these transmissions
@@ -115,8 +111,7 @@ factorize. Their signed Feynman--Kac factors can therefore be averaged one
 patch at a time. Multiplying the resulting patch contributions and then
 averaging over the skeleton gives an exact
 \wiki{patch-representation-of-spin-systems}{representation} of the original
-spin system. No interaction is removed or weakened; the local randomness is
-only integrated in a different order.
+spin system, one in which the local randomness is integrated over pairs of consecutive interactions.
 
 Averaging over a patch retains cancellations among the events occurring
 between two successive interactions. The central structural condition of the
