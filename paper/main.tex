@@ -1,51 +1,16 @@
 \documentclass[11pt]{article}
 
-\input{paper/preamble}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
 
-\title{Patch Representations for Spin Systems:\\
-Positivity, Comparison, and Convergence}
-\author{Maciej G{\l}uchowski}
-\date{}
+\input{paper/preamble}
 
 \begin{document}
 
-\maketitle
-
-\begin{abstract}
-\begin{discussion}
-  \item State the sign problem for the ordinary monomial dual in one
-  sentence.
-  \item Describe the successful-interaction conditioning and the
-  resulting patch product in one sentence; cite
-  \cref{thm:patch-factorization,thm:patch-representation}.
-  \item State the two structural consequences of \patchpositivity:
-  preservation of \Mstar\ and comparison under removal of pure deaths;
-  cite \cref{thm:centered-order,thm:pure-death-comparison}.
-  \item State the common-limit theorem, including the class \Mminus\
-  and rate; cite \cref{thm:common-limit}.
-  \item Name FA-1f and BABP as applications, without describing their
-  literature here.
-\end{discussion}
-\end{abstract}
-
-\tableofcontents
-
-\input{paper/sections/01-introduction}
-\input{paper/sections/02-monomial-duality}
-\input{paper/sections/03-patches}
-\input{paper/sections/04-representation}
-\input{paper/sections/05-patch-positivity}
-\input{paper/sections/06-centered-order}
-\input{paper/sections/07-pure-death-comparison}
-\input{paper/sections/08-common-limit}
-\input{paper/sections/09-examples}
-
-\appendix
-
-\input{paper/sections/a-patch-calculations}
-\input{paper/sections/b-confinement}
-
-\bibliographystyle{plainnat}
-\bibliography{paper/references}
+\thispagestyle{empty}
+\null
 
 \end{document}
