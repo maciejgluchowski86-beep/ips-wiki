@@ -7,14 +7,15 @@ The wiki is article-first. Each entry is a separate Markdown page under `docs/en
 ## Paper draft
 
 The LaTeX paper lives under `paper/`. The repository-level `main.tex` is the
-Overleaf main file and loads `paper/main.tex`. Introduction Sections 1.1--1.3,
-Section 2, and Section 3 are drafted in prose. Section 2 is in
-`paper/sections/spin-systems.tex`. Section 3 is in
-`paper/sections/signed-dual.tex`, and its coefficient derivation is in
-`paper/appendices/monomial-dual.tex`. The abstract, Introduction Sections
-1.4--1.5, Section 4 onward, and Appendices B onward remain structural notes
-with links to the relevant wiki entries. Shared macros and theorem environments
-live in `paper/preamble.tex`.
+Overleaf main file and loads `paper/main.tex`. Introduction Sections 1.1--1.3
+and Sections 2--5 are drafted in prose. The section sources are under
+`paper/sections/`: `spin-systems.tex`, `signed-dual.tex`, `patches.tex`, and
+`representation.tex`. Appendix A derives the monomial dual in
+`paper/appendices/monomial-dual.tex`, and Appendix B gives the explicit patch
+contribution formulas in `paper/appendices/patch-contributions.tex`. The
+abstract, Introduction Sections 1.4--1.5, Section 6 onward, and Appendix C
+onward remain structural notes. Shared macros and theorem environments live in
+`paper/preamble.tex`.
 
 ## Reading target
 
@@ -25,7 +26,7 @@ The intended reading target is the rendered MkDocs site.
 - Meta/style pages: `docs/meta/`
 - Site configuration: `mkdocs.yml`
 
-GitHub Actions contains a `Build wiki site` workflow. It builds the site from `docs/` and deploys it through GitHub Pages after every push to `main` when Pages is enabled for the repository.
+GitHub Actions contains a `Build wiki site` workflow. It builds the site from `docs/` and deploys through GitHub Pages after every push to `main` when Pages is enabled for the repository.
 
 ## Current core entries
 
