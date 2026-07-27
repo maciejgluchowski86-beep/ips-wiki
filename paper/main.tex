@@ -36,155 +36,110 @@
 \subsection{Calm and facilitating spin systems}
 \label{subsec:intro-calm-facilitating}
 
-Many interacting \wiki{spin-system}{spin systems} distinguish sharply
-between the roles of their two states.  Throughout the paper we encode
-the calm state by \(1\) and the facilitating state by \(0\).  Here
-``calm'' describes the influence of a spin on the dynamics around it,
-not its own tendency to change.  A calm site does not generate activity
-at other sites, whereas a facilitating site can cause, permit, or
-accelerate an update nearby.
+Many interacting \wiki{spin-system}{spin systems} assign different roles to
+their two states. Following the KCSM convention, we write \(0\) for the
+facilitating state and \(1\) for the calm state. Here ``calm'' refers to a
+spin's effect on the dynamics around it, not to its own tendency to change.
+A calm spin does not generate activity at other sites, while a facilitating
+spin can cause or permit an update nearby.
 
-This picture includes familiar processes with quite different update
-rules.  In the contact process, written in the complementary convention
-in which \(0\) is active, an active site can give birth at a
-neighbouring calm site and can itself recover.  In
-\wiki{fa-1f-model}{FA-1f}, a facilitating site does not determine the
-new state of its neighbour; its presence permits that neighbour to
-refresh.  In the
-\wiki{babp-model}{biased annihilating branching process} (BABP), every
-facilitating neighbour contributes to the rate at which a site flips,
-so the same interaction is a birth or an annihilation according to the
-current state of the target.  Facilitation can thus act through birth,
-permission to refresh, or a direct flip.
+The same distinction appears under different update mechanisms. With the
+usual particle labels reversed, the contact process has a facilitating zero
+which creates zeros at neighbouring sites and can recover to one. In
+\wiki{fa-1f-model}{FA-1f}, a facilitating spin permits a neighbour to refresh
+but does not determine its new state. In the
+\wiki{babp-model}{biased annihilating branching process} (BABP), each
+facilitating neighbour contributes to the flip rate of a site, so a flip
+creates or annihilates a facilitating spin according to the current state of
+the target. The class considered below is defined by a condition on the
+multilinear coefficients of the flip rates rather than by one of these update
+rules.
 
-The common feature is an asymmetry between a state which generates
-activity and one which suppresses it, rather than a particular update
-mechanism or choice of rates.  The formal condition used below is
-expressed through the multilinear coefficients of the flip rates.  Its
-negative interaction coefficients imply that adding calm spins
-decreases the relevant update rates.  This is stronger than
-coordinatewise decrease, but the calm--facilitating picture is its
-basic dynamical interpretation.
-
-The motivating question is what becomes of these systems when weak
-independent noise creates facilitating spins throughout the lattice.
-Does the continuing supply of fresh activity make the process forget
-its initial state?  More generally, when the dynamics is not
-attractive, does any useful comparison structure survive?  These are
-the two questions addressed in this paper.
+A region containing only calm spins has no internal source of activity and
+tends to remain calm until activity enters or noise acts. A facilitating spin
+instead triggers updates, some of which leave facilitating spins behind. This
+does not make the dynamics monotone: updates can move in either direction,
+and ordered initial configurations need not remain ordered. It does suggest
+that a one-sided order may survive for selected observables. We ask whether
+independent creation of facilitating spins makes the process forget its
+initial state, and whether this residual order can be made precise without
+attractiveness.
 
 \subsection{Noise and loss of memory}
 \label{subsec:intro-loss-of-memory}
 
-If every site can become facilitating at a fixed positive rate, new
-sources of activity appear continually and independently of the past.
-One expects these sources to interrupt the paths along which the
-initial configuration can influence the future.  The spacetime picture
-resembles percolation with spontaneously appearing sources: even
-arbitrarily weak noise should eventually separate a local observation
-from sufficiently old information.  The desired conclusion is a
-quantitative form of \wiki{ergodicity}{loss of memory}: local
-observables should converge to the same limiting values, uniformly over
-an appropriate class of initial laws.
+Suppose every site can become facilitating at a fixed positive rate,
+independently of the current configuration. These events are unrelated to the
+initial state and repeatedly interrupt the graphical routes through which it
+can affect a later local observation. We seek a quantitative form of
+\wiki{ergodicity}{loss of memory}: local observables started from a suitable
+class of initial laws should approach the same limiting values.
 
-For the contact process, attractiveness makes this intuition accessible
-through monotone coupling.  The wider calm--facilitating class need not
-be attractive.  A facilitating spin may enable both directions of a
-refresh, as in FA-1f, or cause alternating births and annihilations, as
-in BABP.  Ordered initial configurations can then lose their order, so
-the usual construction of upper and lower trajectories which trap all
-other evolutions is unavailable.
+For the contact process, attractiveness gives a monotone coupling. The wider
+calm--facilitating class need not be attractive. A facilitating spin can enable
+both outcomes of a refresh, as in FA-1f, or produce alternating births and
+annihilations, as in BABP. Ordered configurations can therefore lose their
+order, so there are no upper and lower trajectories trapping all other
+evolutions.
 
-We also do not assume reversibility.  Some motivating examples are
-reversible before they are perturbed, but a general facilitating spin
-system need not be, and noise with a different bias need not preserve
-the original reversible measure.  Methods built around a known
-reversible law and its functional inequalities therefore do not apply
-uniformly to the class considered here.
-
-The calm--facilitating picture nevertheless suggests more structure
-than these general obstructions reveal.  Fresh activity is created
-without reference to the past, and the interactions it triggers often
-replace earlier effects instead of accumulating them.  The problem is
-to retain this temporal cancellation without assuming a monotone
-coupling or a reversible measure.
+We also do not assume reversibility. Even when the unperturbed model is
+reversible, noise with a different bias need not preserve its reversible
+measure. Methods based on a known invariant law and its functional
+inequalities do not apply to the full class. The argument must instead use
+the graphical history without ordering trajectories or identifying the
+limiting measure in advance.
 
 \subsection{Strong interactions with weak persistence}
 \label{subsec:intro-temporal-cancellation}
 
-A facilitating interaction need not be small.  Changing one neighbour
-from \(1\) to \(0\) may turn an update rate from zero to a quantity of
-order one, so a single spin can completely determine whether another
-site is allowed to move.  In the usual sense of local sensitivity, this
-is a strong interaction.
+A facilitating interaction can change an update rate from zero to a quantity
+of order one. A single spin may therefore determine whether a neighbouring
+site is allowed to move. Its influence, however, need not persist. If no
+information leaves the site between two local events, a later birth at an
+already facilitating site adds nothing, a refresh overwrites the previous
+outcome, and a flip reverses the previous flip. The intermediate state may
+affect other sites, so these cancellations cannot be imposed event by event.
+They become visible after one records which interactions transmit information
+and averages over the local history between them.
 
-Its effect need not be equally persistent.  If no information is
-transmitted in between, a second birth at an already active site is
-redundant, a second refresh overwrites the outcome of the first, and a
-second flip reverses it.  In an interacting system the intermediate
-state may of course affect other sites, so these cancellations cannot
-simply be imposed event by event.  They become visible only after one
-records which interactions actually carry information elsewhere and
-then averages over the local history between them.
-
-Thus instantaneous interaction strength and persistence of influence
-are different quantities.  A sequence of events may depend strongly on
-the surrounding spins at every step while transmitting little
-information over a long time.  This distinction is hidden by estimates
-which treat each interaction separately.
-
-The natural \wiki{duality}{Feynman--Kac duality} illustrates the
-problem.  For a general spin system the dual is signed, and its
-Feynman--Kac weight measures the gross strength of the interactions.
-When the rates depend strongly on neighbouring spins, this weight can
-be large.  Taking absolute values then charges separately for events
-whose effects later overwrite or reverse one another.  Small-weight
-duality estimates therefore see the instantaneous strength but not the
-weak persistence.  To recover the latter, the dual history has to be
-regrouped before its signs and weights are estimated.
+The natural \wiki{duality}{Feynman--Kac duality} shows the same difficulty. For
+a general spin system the dual is signed. Taking absolute values before the
+signed terms have been grouped removes cancellations between successive local
+events and produces bounds governed by the full interaction rates. Such bounds
+can be poor even when the effect of an interaction is quickly overwritten. The
+dual history must therefore be grouped before its signed contributions are
+estimated.
 
 \subsection{Patches and recovered positivity}
 \label{subsec:intro-patches}
 
-The patch construction is such a regrouping.  Imagine tracing backwards
-the possible routes by which a local observation can depend on the
-initial configuration.  Some graphical interactions extend the
-currently explored history from one site to another.  We record the
-times and endpoints of these information-carrying interactions, but
-temporarily hide the remaining local randomness.  The recorded data
-form what will later be called the
+Trace backwards the dependence of a local observation on the initial
+configuration. Some graphical interactions carry this dependence from one
+site to another. We record their times and endpoints and leave the remaining
+local Poisson marks hidden. The recorded data form the
 \wiki{successful-interaction}{successful-interaction skeleton}.
 
-The skeleton divides the explored history into one-site time intervals
-bounded by consecutive interactions.  These intervals, together with
-the ways in which they are touched at their ends, are the
-\wiki{patch}{patches}.  Once the skeleton is fixed, the hidden histories
-inside different patches separate.  Their signs and Feynman--Kac
-weights can therefore be averaged one patch at a time.  The product of
-the resulting patch contributions, averaged over the skeleton, gives
-an exact representation of the original spin system.
+The skeleton divides the explored history into one-site time intervals between
+successive touches. These intervals, with their boundary labels, are the
+\wiki{patch}{patches}. Conditional on the skeleton, the hidden histories in
+distinct patches factorize. Their signed Feynman--Kac factors can therefore be
+averaged patch by patch. Multiplying the resulting patch contributions and
+then averaging over the skeleton gives an exact
+\wiki{patch-representation-of-spin-systems}{representation} of the original
+spin system.
 
-The important point is that one patch contains the local history
-between two interaction boundaries.  Its contribution can retain the
-cancellation between an update and the next update that carries
-information, whereas a termwise estimate of the dual cannot.  A patch
-contribution may consequently be nonnegative even when the individual
-dual events have signs and the ungrouped Feynman--Kac weight is large.
-No approximation is made: the
-\wiki{patch-representation-of-spin-systems}{patch representation}
-reorganizes the original duality formula without changing it.
+Local events inside a patch are averaged together, so overwriting and reversal
+are retained before any estimate is made. A patch contribution can consequently
+be nonnegative even when the underlying dual transitions have signs. We call
+the resulting property \emph{patch positivity}: every bulk patch contribution
+is nonnegative. It is characterized below by inequalities between the flip-rate
+coefficients.
 
-We call the resulting property \emph{patch positivity}: all
-contributions of closed patches are nonnegative.  The main structural
-result characterizes patch positivity by simple inequalities between
-the flip-rate coefficients, and these inequalities express the
-calm--facilitating structure described above.  Patch positivity is not
-attractiveness and does not recover stochastic order.  It gives
-positivity for the grouped dual weights and, through them, monotonicity
-and comparison for a restricted family of moments.  This sliver of
-order is enough to obtain the convergence results under noise and the
-full-patch description of the limiting law developed later in the
-paper.
+Patch positivity does not imply attractiveness or stochastic order. It gives
+nonnegative terms in the patch representation and, through them, monotonicity
+and comparison for the centered moments used in this paper. Under independent
+noise, the same positivity supports the convergence argument and the full-patch
+description of the limiting law.
 
 \subsection{Main results}
 \label{subsec:intro-results}
