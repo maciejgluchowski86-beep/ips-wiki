@@ -1,0 +1,306 @@
+\section{Patch laws and representation}
+\label{sec:representation}
+
+\subsection{Reference and consistent patch laws}
+\label{subsec:patch-laws}
+
+Fix a labeled patch \(P\), either a full patch in \(\mathcal P\) or a patch in
+\(\mathcal P_T\) for some finite \(T\). For brevity, write
+\[
+i=i(P),
+\qquad
+s=s(P),
+\qquad
+e=e(P),
+\qquad
+S=S(P).
+\]
+The interior interaction data of \(P\) are the marked interactions outgoing
+from \(i\) strictly between its endpoints:
+\[
+\Sigma_P^\circ
+=
+\{(i,u,\gamma,R)\in I:s<u<e\}.
+\]
+Under the reference law, the type-\((\delta,R)\) and type-\((\beta,R)\)
+points in this interval are independent Poisson processes with the rates from
+Section~\ref{subsec:signed-set-process}.
+
+If \(\mathsf X(P)=\mathsf I\), the initial interaction of \(P\) is incoming
+from another source, and we set \(\Sigma_P=\Sigma_P^\circ\). Let
+\(\mathbb P_P\) be the corresponding product Poisson law. If
+\(\mathsf X(P)=\mathsf O\), the initial interaction is outgoing from \(i\),
+with target \(S\), but its kind is not revealed by the skeleton. Let
+\(\alpha(P)\in\{\delta,\beta\}\) be this hidden kind, independent of
+\(\Sigma_P^\circ\), with
+\begin{equation}
+\label{eq:patch-initial-kind-law}
+\mathbb P_P(\alpha(P)=\delta)
+=
+\frac{\delta_i(S)}{\delta_i(S)+\beta_i(S)},
+\qquad
+\mathbb P_P(\alpha(P)=\beta)
+=
+\frac{\beta_i(S)}{\delta_i(S)+\beta_i(S)}.
+\end{equation}
+In this case
+\[
+\Sigma_P
+=
+\Sigma_P^\circ\cup\{(i,s,\alpha(P),S)\},
+\]
+and \(\mathbb P_P\) is the product of the law in
+\eqref{eq:patch-initial-kind-law} and the interior Poisson law. Write
+\(\mathbb E_P\) for expectation under \(\mathbb P_P\).
+
+The local active indicator \(X^P\) is determined from \(\Sigma_P\). Its
+initial value is
+\[
+X_s^P
+=
+\begin{cases}
+1,&\mathsf X(P)=\mathsf I,\\
+\ind\{\alpha(P)=\beta\},&\mathsf X(P)=\mathsf O.
+\end{cases}
+\]
+Reading \(\Sigma_P^\circ\) chronologically, a \(\delta\)-mark sends an active
+source to \(0\), a \(\beta\)-mark leaves an active source at \(1\), and every
+mark at an inactive source is ignored. Between marks, \(X^P\) is constant.
+For a finite patch with terminal label \(\mathsf E\), we also set
+\(X_e^P=X_{e-}^P\).
+
+The consistency event has two parts. No interior nonempty-target interaction
+may have an active source, since it would be an additional successful
+interaction. If the terminal boundary is outgoing, its source must be active
+immediately before the boundary. Formally,
+\begin{equation}
+\label{eq:patch-consistency-event}
+\begin{aligned}
+\operatorname{Con}(P)
+={}&
+\left\{
+X_{u-}^P=0
+\text{ for every }(i,u,\gamma,R)\in\Sigma_P^\circ
+\text{ with }R\neq\varnothing
+\right\}
+\\
+&\cap
+\begin{cases}
+\{X_{e-}^P=1\},&\mathsf Y(P)=\mathsf O,\\
+\Omega_P,&\mathsf Y(P)\in\{\mathsf I,\mathsf E\},
+\end{cases}
+\end{aligned}
+\end{equation}
+where \(\Omega_P\) is the reference sample space. The consistent patch law is
+\[
+\mathbb P_P^{\mathrm{con}}(\cdot)
+=
+\mathbb P_P(\cdot\mid\operatorname{Con}(P)),
+\]
+and \(\mathbb E_P^{\mathrm{con}}\) denotes its expectation.
+
+\subsection{Conditional factorization}
+\label{subsec:factorization}
+
+The successful skeleton fixes the patch boundaries but leaves the local data
+between them hidden. The next theorem states that the hidden data remain
+independent after conditioning on the skeleton, with one consistency
+conditioning for each patch.
+
+\begin{theorem}[Patch factorization]
+\label{thm:patch-factorization}
+Fix \(T<\infty\). Conditional on \(\mathcal G_T\), the interaction data
+\((\Sigma_P)_{P\in\mathcal P_T}\) are independent, and the conditional law of
+\(\Sigma_P\) is \(\mathbb P_P^{\mathrm{con}}\). Equivalently, for bounded
+measurable functions \(f_P\),
+\begin{equation}
+\label{eq:patch-factorization}
+\mathbb E\left[
+\prod_{P\in\mathcal P_T}f_P(\Sigma_P)
+\middle|\mathcal G_T
+\right]
+=
+\prod_{P\in\mathcal P_T}
+\mathbb E_P^{\mathrm{con}}[f_P(\Sigma_P)].
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Condition on a realization of \((Y_0,\mathcal I_T)\). It fixes a finite family
+\(\mathcal R\) of labeled patches and all their boundary locations. Before
+requiring that these boundaries form the complete successful skeleton, the
+raw data in distinct patches have law
+\[
+\bigotimes_{P\in\mathcal R}\mathbb P_P.
+\]
+Indeed, their source-time interiors are disjoint, and the hidden kind at an
+outgoing initial boundary has the rate-proportional law
+\eqref{eq:patch-initial-kind-law}.
+
+Relative to the fixed boundary data, the revealed skeleton is complete if and
+only if
+\[
+\bigcap_{P\in\mathcal R}\operatorname{Con}(P)
+\]
+occurs. The forward implication is immediate. For the reverse implication,
+read the boundary interactions chronologically. At time zero the incoming
+patches reproduce the prescribed active set. Between consecutive boundary
+times, the local indicators agree with the global active state. Interior
+consistency excludes every unrecorded successful interaction. At an outgoing
+boundary, terminal consistency makes the source active, so the boundary
+interaction is successful; its hidden kind gives the prescribed post-boundary
+source state, while its targets start the prescribed incoming patches.
+Induction reconstructs the active process and the skeleton through time
+\(T\).
+
+Both the reference law and the consistency event factor over \(\mathcal R\).
+Conditioning therefore gives
+\[
+\bigotimes_{P\in\mathcal R}
+\mathbb P_P^{\mathrm{con}},
+\]
+which proves \eqref{eq:patch-factorization}.
+\end{proof}
+
+\subsection{Patch contributions}
+\label{subsec:patch-contributions}
+
+The sign assigned to the initial boundary of a patch is
+\[
+\sigma(P)
+=
+\begin{cases}
++,&\mathsf X(P)=\mathsf I,\\
+\sigma_{i(P)}^{\alpha(P)}(S(P)),&\mathsf X(P)=\mathsf O.
+\end{cases}
+\]
+For a full patch \(P\in\mathcal P\), define
+\begin{equation}
+\label{eq:full-patch-factor}
+F(P)
+=
+\sigma(P)
+\exp\left(
+V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
+\right),
+\qquad
+C(P)=\mathbb E_P^{\mathrm{con}}[F(P)].
+\end{equation}
+When \(e(P)=\infty\), the exponential is interpreted by its limit over finite
+upper endpoints; the limit always exists.
+
+For an end patch \(Q\in\mathcal E_t\) and \(z\in[0,1]\), define
+\begin{equation}
+\label{eq:end-patch-factor}
+F(z,Q)
+=
+\sigma(Q)
+\exp\left(
+V_{i(Q)}\int_{s(Q)}^{e(Q)}X_u^Q\,du
+\right)
+z^{X_{e(Q)}^Q},
+\qquad
+C(z,Q)=\mathbb E_Q^{\mathrm{con}}[F(z,Q)].
+\end{equation}
+The function \(z\mapsto C(z,Q)\) is affine. The full and end contributions
+are elementary one-site quantities: Appendix~\ref{app:contribution-formulas}
+derives explicit formulas for every boundary type.
+
+\subsection{The patch representation theorem}
+\label{subsec:representation-theorem}
+
+\begin{theorem}[Patch representation]
+\label{thm:patch-representation}
+For every \(A\Subset\Lambda\), \(t\geq0\), and \(\eta\in\Omega\),
+\begin{equation}
+\label{eq:patch-representation}
+P_t\chi_A(\eta)
+=
+\E_A\left[
+\prod_{P\in\mathcal B_t}C(P)
+\prod_{Q\in\mathcal E_t}C(\eta(i(Q)),Q)
+\right].
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+On the global graphical space, let \(X^P\), \(\alpha(P)\), and \(\sigma(P)\)
+denote the local data induced on each patch. Every nonempty-target successful
+interaction contributes its sign to the unique patch which begins at its
+source. Pure deaths have positive sign because
+\(a_i^\delta(\varnothing)=c_i^0(\varnothing)\geq0\). Hence
+\[
+\sigma_t
+=
+\prod_{P\in\mathcal B_t}\sigma(P)
+\prod_{Q\in\mathcal E_t}\sigma(Q).
+\]
+Since \(V(A_u)=\sum_{i\in A_u}V_i\), the patch intervals also split the
+Feynman--Kac integral:
+\[
+\int_0^tV(A_u)\,du
+=
+\sum_{P\in\mathcal B_t}
+V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
++
+\sum_{Q\in\mathcal E_t}
+V_{i(Q)}\int_{s(Q)}^{e(Q)}X_u^Q\,du.
+\]
+Finally, the end patches record the state at time \(t\), so
+\[
+\chi_{A_t}(\eta)
+=
+\prod_{Q\in\mathcal E_t}
+\eta(i(Q))^{X_{e(Q)}^Q}.
+\]
+Combining these identities gives the pathwise factorization
+\begin{equation}
+\label{eq:pathwise-patch-factorization}
+\sigma_t
+\exp\left(\int_0^tV(A_u)\,du\right)
+\chi_{A_t}(\eta)
+=
+\prod_{P\in\mathcal B_t}F(P)
+\prod_{Q\in\mathcal E_t}F(\eta(i(Q)),Q).
+\end{equation}
+Conditioning \eqref{eq:pathwise-patch-factorization} on \(\mathcal G_t\) and
+applying Theorem~\ref{thm:patch-factorization} replaces each local factor by
+its consistent patch expectation. Taking expectation and using
+Theorem~\ref{thm:monomial-duality} proves
+\eqref{eq:patch-representation}.
+\end{proof}
+
+\subsection{General initial laws}
+\label{subsec:general-initial-laws}
+
+Let \(\mu\) be any probability measure on \(\Omega\). Integrating
+\eqref{eq:patch-representation} gives
+\begin{equation}
+\label{eq:patch-representation-general-law}
+\mu(P_t\chi_A)
+=
+\E_A\left[
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\left(
+\prod_{Q\in\mathcal E_t}C(\eta(i(Q)),Q)
+\right)
+\right].
+\end{equation}
+In particular, for the Bernoulli product measure \(\mu_{\mathbf p}\) with
+one-density profile \(\mathbf p=(p_i)_{i\in\Lambda}\), the end-patch sites are
+distinct and the end contributions are affine, so
+\begin{equation}
+\label{eq:patch-representation-product-law}
+\mu_{\mathbf p}(P_t\chi_A)
+=
+\E_A\left[
+\prod_{P\in\mathcal B_t}C(P)
+\prod_{Q\in\mathcal E_t}C(p_{i(Q)},Q)
+\right].
+\end{equation}
+
+The skeleton retains the interactions which transmit dependence between sites.
+Everything local between consecutive successful touches is integrated inside
+\(C(P)\) or \(C(z,Q)\) before its sign is estimated. Thus
+\eqref{eq:patch-representation} is exact, but groups the signed dual history in
+a way that preserves the cancellations hidden by termwise absolute values.
