@@ -19,11 +19,15 @@ BABP, independent Bernoulli noise, and the convergence terminology used later.
 Section 3 is drafted in `paper/sections/signed-dual.tex`; it defines the signed
 additive set process, the dictionary from spin rates to dual data, monomial
 Feynman--Kac duality, pure-death noise, and the marked graphical construction.
-Appendix A is drafted in `paper/appendices/monomial-dual.tex` and contains the
-coefficient derivation of the duality formula. The abstract, Introduction
-Sections 1.4--1.5, Section 4 onward, and Appendices B onward remain drafting
-notes. No title or main-result summary has yet been fixed. Shared macros and
-theorem environments live in `paper/preamble.tex`.
+Sections 4 and 5 are drafted in `paper/sections/patches.tex` and
+`paper/sections/representation.tex`; they define the successful-interaction
+skeleton, patch geometry, consistent patch laws, conditional factorization,
+patch contributions, and the finite-horizon representation theorem. Appendix A
+is drafted in `paper/appendices/monomial-dual.tex`, and Appendix B in
+`paper/appendices/patch-contributions.tex`. The abstract, Introduction Sections
+1.4--1.5, Section 6 onward, and Appendix C onward remain drafting notes. No
+title or main-result summary has yet been fixed. Shared macros and theorem
+environments live in `paper/preamble.tex`.
 
 ## Current core entries
 
