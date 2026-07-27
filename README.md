@@ -9,11 +9,13 @@ The wiki is article-first. Each entry is a separate Markdown page under `docs/en
 The LaTeX template for the paper lives under `paper/`. The
 repository-level `main.tex` is the Overleaf main file and loads
 `paper/main.tex`. The paper body contains the agreed structural
-scaffold. Introduction Sections 1.1--1.4 have been drafted in prose;
-the remaining sections contain short drafting notes and links to the
-relevant wiki entries. It contains no settled theorem statements or
-proofs. Shared macros and theorem environments live in
-`paper/preamble.tex`.
+scaffold. Introduction Sections 1.1--1.3 have been drafted in prose;
+they motivate the calm--facilitating tendency, distinguish interaction
+strength from persistence, and introduce patches as the source of a
+recovered moment order. The remaining sections contain short drafting
+notes and links to the relevant wiki entries. The draft contains no
+settled theorem statements or proofs. Shared macros and theorem
+environments live in `paper/preamble.tex`.
 
 ## Reading target
 
