@@ -37,7 +37,7 @@
 \label{subsec:intro-calm-facilitating}
 \label{subsec:intro-loss-of-memory}
 
-Some \wiki{spin-system}{spin systems} distinguish between calm states and
+Some \hyperref[def:spin-system]{spin systems} distinguish between calm states and
 states which generate facilitating activity. The distinction concerns the
 influence of a spin on nearby dynamics, not its own tendency to change. A calm
 spin does not by itself make another site update. Facilitating activity can
@@ -45,9 +45,9 @@ cause, permit, or accelerate such an update.
 
 This distinction appears under different update rules. In the contact
 process, an active site gives birth at neighbouring sites and may recover. In
-\wiki{fa-1f-model}{FA-1f}, a vacancy permits a neighbour to refresh but does
+\hyperref[subsubsec:fa-1f-model]{FA-1f}, a vacancy permits a neighbour to refresh but does
 not determine the outcome of the refresh. In the
-\wiki{babp-model}{biased annihilating branching process} (BABP), a particle
+\hyperref[subsubsec:babp-model]{biased annihilating branching process} (BABP), a particle
 causes a neighbouring site to flip, resulting in branching or annihilation.
 In each case, the state at one site determines which changes are possible at
 another.
@@ -142,48 +142,7 @@ for its moments.
 
 \draftnote{State how the general method applies to FA-1f and BABP and identify precisely which known results are strengthened or which open regimes are addressed. Keep the KCSM review limited to what is needed for comparison, and close with a short guide to the paper. Relevant entries: \wiki{fa-1f-out-of-equilibrium}{FA-1f out of equilibrium} and \wiki{babp-out-of-equilibrium}{BABP out of equilibrium}.}
 
-\section{Spin systems and motivating examples}
-\label{sec:spin-systems}
-
-\subsection{Lattices and local observables}
-\label{subsec:lattices-observables}
-
-\draftnote{Fix the general countable lattice, neighbourhoods, local functions, and monomial basis. Assume bounded finite-range dynamics where needed, but postpone polynomial growth until the convergence theorem. Relevant entries: \wiki{lattice-and-graph}{lattices and graphs}, \wiki{local-functions}{local functions}, \wiki{monomials}{monomials}, and \wiki{polynomial-growth-lattice}{polynomial-growth lattices}.}
-
-\subsection{Spin-system rates and coefficient expansions}
-\label{subsec:rates-coefficients}
-
-\draftnote{Define the flip generator, the rates \(c_i^0\) and \(c_i^1\), and their multilinear coefficients \(c_i^x(S)\). Establish only the notation needed later for the dual and the patch-positivity criterion. Relevant entry: \wiki{spin-system}{spin system}.}
-
-\subsection{The calm--facilitating rate structure}
-\label{subsec:calm-facilitating-rates}
-
-\draftnote{Translate the informal picture into rate language without yet defining patch positivity. Explain that the relevant negative nonconstant coefficients force update rates to decrease as calm spins are added, while noting that the coefficient condition is stronger than coordinatewise decrease.}
-
-\subsection{Three update mechanisms}
-\label{subsec:motivating-models}
-
-\draftnote{Introduce the three examples side by side so the reader sees that the method concerns an interaction architecture rather than one special refresh model.}
-
-\subsubsection{Contact process}
-\label{subsubsec:contact-process}
-
-\draftnote{Recall the active-state birth and recovery rules, and use attractiveness to explain why this familiar model already has stronger classical tools. Retain it as the clean birth-process example of the calm/facilitating structure.}
-
-\subsubsection{FA-1f}
-\label{subsubsec:fa-1f-model}
-
-\draftnote{Define facilitated Bernoulli refreshes and the distinction between the facilitating zero and calm one. Defer all patch calculations and literature comparison to Section~\ref{sec:applications}. Relevant entry: \wiki{fa-1f-model}{FA-1f}.}
-
-\subsubsection{Biased annihilating branching process}
-\label{subsubsec:babp-model}
-
-\draftnote{Define the additive-rate refresh formulation and briefly translate it into the particle birth/annihilation convention. Emphasize that BABP is not attractive. Relevant entry: \wiki{babp-model}{BABP}.}
-
-\subsection{Noise, invariant measures, and convergence}
-\label{subsec:noise-ergodicity}
-
-\draftnote{Define pure-noise perturbations and fix the distinctions among invariant measure, ergodicity, and uniform exponential ergodicity. Introduce uniform pure deaths only as the hypothesis that will drive Section~\ref{sec:convergence}. Relevant entries: \wiki{pure-noise-spin-system}{pure noise}, \wiki{invariant-measure}{invariant measures}, and \wiki{ergodicity}{ergodicity}.}
+\input{paper/sections/spin-systems}
 
 \section{The natural signed dual}
 \label{sec:signed-dual}
