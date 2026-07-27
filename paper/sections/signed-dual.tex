@@ -1,10 +1,11 @@
 \section{The natural signed dual}
 \label{sec:signed-dual}
 
-For \(A\Subset\Lambda\), \(\Lcal\chi_A\) is a signed linear combination of
-monomials. Writing each coefficient as its sign times its magnitude produces a
-finite-set jump process; the remaining diagonal term is represented by a
-Feynman--Kac potential.
+For \(A\Subset\Lambda\), the action of \(\Lcal\) on \(\chi_A\) is a signed
+linear combination of monomials. We write the signed coefficients as rates and
+sign labels of a process on finite subsets of \(\Lambda\). The difference
+between the resulting jump generator and \(\Lcal\chi_A\) is diagonal and is
+recorded by a Feynman--Kac potential.
 
 \subsection{The signed additive set process}
 \label{subsec:signed-set-process}
@@ -42,7 +43,9 @@ B_{i,S}(A,\sigma)
 \end{align}
 The update \(D_{i,\varnothing}\) is called a \emph{death};
 \(D_{i,S}\) with \(S\neq\varnothing\) is a \emph{split}; and
-\(B_{i,S}\) with \(S\neq\varnothing\) is a \emph{birth}.
+\(B_{i,S}\) with \(S\neq\varnothing\) is a \emph{birth}. Ignoring the sign
+coordinate, these updates preserve unions, which accounts for the term
+\emph{additive}.
 
 The signed additive set process has generator
 \begin{equation}
@@ -74,26 +77,31 @@ a_i^\delta(S)=c_i^0(S),
 \qquad
 a_i^\beta(S)=-c_i^0(S)-c_i^1(S).
 \end{equation}
-The death and split data are
+In the expansion of \(\Lcal\chi_A\), the coefficient \(a_i^\delta(S)\)
+multiplies the monomial indexed by \((A\setminus\{i\})\cup S\), while
+\(a_i^\beta(S)\) multiplies the monomial indexed by \(A\cup S\); see
+Appendix~\ref{app:generator-action}.
+
+For every \(S\subseteq N(i)\), define
 \begin{equation}
 \label{eq:death-split-data}
 \delta_i(S)=\abs{a_i^\delta(S)},
 \qquad
 \sigma_i^\delta(S)=\operatorname{sgn}_{\pm}(a_i^\delta(S)).
 \end{equation}
-For \(S\neq\varnothing\), the birth data are
+For \(S\neq\varnothing\), define
 \begin{equation}
 \label{eq:birth-data}
 \beta_i(S)=\abs{a_i^\beta(S)},
 \qquad
 \sigma_i^\beta(S)=\operatorname{sgn}_{\pm}(a_i^\beta(S)),
 \end{equation}
-and we set \(\beta_i(\varnothing)=0\) and
+and set \(\beta_i(\varnothing)=0\) and
 \(\sigma_i^\beta(\varnothing)=+\).
 
 The coefficient \(a_i^\beta(\varnothing)\) corresponds to an empty-target
-birth, which leaves the active set unchanged. It is therefore included in the
-potential rather than represented as a jump. Define
+birth, which leaves the active set unchanged. It is included in the potential
+rather than represented as a jump. Define
 \begin{equation}
 \label{eq:dual-potential}
 V(A)=\sum_{i\in A}V_i,
@@ -105,9 +113,9 @@ V_i=
 +
 a_i^\beta(\varnothing).
 \end{equation}
-The bounds in Section~\ref{sec:spin-systems} imply uniform bounds on the total
-jump rate per active site, on \(\abs{V_i}\), and on the number of sites created
-by one update.
+Since the neighbourhood sizes and flip rates are uniformly bounded, so are the
+total dual jump rate per active site and \(\abs{V_i}\). Each jump activates at
+most \(\sup_i\abs{N(i)}\) new sites.
 
 \subsection{Monomial Feynman--Kac duality}
 \label{subsec:monomial-duality}
@@ -147,29 +155,22 @@ The coefficient calculation proving \eqref{eq:monomial-generator-duality} is
 given in Appendix~\ref{app:dual-calculation}. The semigroup identity is the
 standard Feynman--Kac consequence of the generator identity.
 
-Independent transitions \(1\to0\) act diagonally on monomials. Let
+Independent transitions \(1\to0\) act diagonally on monomials. For a
+nonnegative profile \(\mathbf d=(d_i)_{i\in\Lambda}\), let
 \begin{equation}
 \label{eq:pure-death-noise}
-\Ncal^0 f(\eta)
+\Ncal^{0,\mathbf d}f(\eta)
 =
 \sum_{i\in\Lambda}d_i
 \bigl(f(\eta^{i,0})-f(\eta)\bigr),
-\qquad d_i\geq0.
-\end{equation}
-Then
-\begin{equation}
-\label{eq:pure-death-eigenfunction}
-\Ncal^0\chi_A
+\qquad
+\Ncal^{0,\mathbf d}\chi_A
 =
 -\left(\sum_{i\in A}d_i\right)\chi_A.
 \end{equation}
-Thus adding \(\Ncal^0\) leaves the dual jumps unchanged and replaces the
-potential \(V(A)\) by
-\[
-V(A)-\sum_{i\in A}d_i.
-\]
-We therefore call the independent transitions \(1\to0\) in
-\eqref{eq:pure-death-noise} pure deaths.
+Adding \(\Ncal^{0,\mathbf d}\) leaves the dual jumps unchanged and replaces
+\(V(A)\) by \(V(A)-\sum_{i\in A}d_i\). We therefore call these independent
+transitions \emph{pure deaths}.
 
 \subsection{Graphical construction}
 \label{subsec:dual-graphical-construction}
@@ -212,14 +213,16 @@ I=\{\iota_0\}\cup I^{\mathrm P}.
 \end{equation}
 
 Start from \(Y_{0-}=(\varnothing,+)\) and apply \(\iota_0\), giving
-\(Y_0=(A_0,\sigma_0)\). Thereafter read the interactions in
-\(I^{\mathrm P}\) in increasing time order. At a mark
-\((i,t,\delta,S)\), apply \(D_{i,S}\) when \(i\in A_{t-}\), and otherwise
-do nothing. At a mark \((i,t,\beta,S)\), apply \(B_{i,S}\) when
-\(i\in A_{t-}\), and otherwise do nothing. Between interactions the process
-is constant.
+\(Y_0=(A_0,\sigma_0)\). Suppose the process has been constructed up to time
+\(s\) and has active set \(A_s\). Among the Poisson clocks whose sources lie in
+\(A_s\), take the first ring after time \(s\). At a mark
+\((i,t,\delta,S)\), apply \(D_{i,S}\); at a mark \((i,t,\beta,S)\), apply
+\(B_{i,S}\). Repeat from the new state, and keep the process constant between
+these relevant interactions. Rings at inactive sources are ignored.
 
-The uniform bounds noted after \eqref{eq:dual-potential} imply local finiteness:
-from a finite initial active set, only finitely many relevant interactions occur
-on every bounded time interval. We use the interaction set \(I\) throughout the
+The total rate of relevant clocks is bounded by a constant times \(\abs{A_s}\),
+and one interaction creates at most \(\sup_i\abs{N(i)}\) new active sites.
+Thus \(\abs{A_t}\) is dominated by a nonexplosive continuous-time branching
+process. In particular, only finitely many relevant interactions occur on every
+bounded time interval. We use the full interaction set \(I\) throughout the
 patch construction.
