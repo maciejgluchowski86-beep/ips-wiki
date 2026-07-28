@@ -14,14 +14,14 @@ A signed active set is a pair
 \begin{equation*}
 Y=(A,\sigma)
 \in
-\{A:A\Subset\Lambda\}\times\{+,-\}.
+\cb{A:A\Subset\Lambda}\times\cb{+,-}.
 \end{equation*}
 Signs are multiplied in the usual way and act on real numbers by~$+x=x$ and
-~$-x=-x$. Fix rates and sign labels
+$-x=-x$. Fix rates and sign labels
 \begin{equation*}
 \delta_i(S),\ \beta_i(S)\geq0,
 \qquad
-\sigma_i^\delta(S),\ \sigma_i^\beta(S)\in\{+,-\},
+\sigma_i^\delta(S),\ \sigma_i^\beta(S)\in\cb{+,-},
 \qquad
 i\in\Lambda,\quad S\subseteq N(i).
 \end{equation*}
@@ -29,34 +29,33 @@ We use the convention~$\beta_i(\varnothing)=0$. For~$i\in A$, define
 \begin{align*}
 D_{i,S}(A,\sigma)
 &=
-\bigl((A\setminus\{i\})\cup S,
-\sigma\sigma_i^\delta(S)\bigr),
+\bb{\bb{A\setminus\cb{i}}\cup S,
+\sigma\sigma_i^\delta(S)},
 \\
 B_{i,S}(A,\sigma)
 &=
-\bigl(A\cup S,
-\sigma\sigma_i^\beta(S)\bigr).
+\bb{A\cup S,
+\sigma\sigma_i^\beta(S)}.
 \end{align*}
 The update~$D_{i,\varnothing}$ is called a \emph{death};~$D_{i,S}$ with
 $S\neq\varnothing$ is a \emph{split}; and~$B_{i,S}$ with
 $S\neq\varnothing$ is a \emph{birth}. Ignoring the sign coordinate, these
-updates preserve unions, which accounts for the term \emph{additive} {\color{red} cite Griffeath additive and cancellative processes for the unsigned process}. The
-signed additive set process has generator
-\begin{equation*}
-\begin{aligned}
+updates preserve unions, which is the standard notion of additivity for
+set-valued particle systems~\cite{Griffeath1979}. The signed additive set
+process has generator
+\begin{align*}
 \Dcal g(A,\sigma)
 ={}&
 \sum_{i\in A}\sum_{S\subseteq N(i)}
 \delta_i(S)
-\bigl(g(D_{i,S}(A,\sigma))-g(A,\sigma)\bigr)
+\bb{g\bb{D_{i,S}(A,\sigma)}-g(A,\sigma)}
 \\
 &+
 \sum_{i\in A}
 \sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}
 \beta_i(S)
-\bigl(g(B_{i,S}(A,\sigma))-g(A,\sigma)\bigr).
-\end{aligned}
-\end{equation*}
+\bb{g\bb{B_{i,S}(A,\sigma)}-g(A,\sigma)}.
+\end{align*}
 
 \subsection{Dual data from the spin rates}
 \label{subsec:rates-to-dual}
@@ -70,21 +69,21 @@ a_i^\delta(S)=c_i^0(S),
 a_i^\beta(S)=-c_i^0(S)-c_i^1(S).
 \end{equation}
 In the expansion of~$\Lcal\chi_A$, the coefficient~$a_i^\delta(S)$ multiplies
-the monomial indexed by~$(A\setminus\{i\})\cup S$, while~$a_i^\beta(S)$
+the monomial indexed by~$\bb{A\setminus\cb{i}}\cup S$, while~$a_i^\beta(S)$
 multiplies the monomial indexed by~$A\cup S$; see
 Appendix~\ref{app:generator-action}. For every~$S\subseteq N(i)$, define
 \begin{equation}
 \label{eq:death-split-data}
 \delta_i(S)=\abs{a_i^\delta(S)},
 \qquad
-\sigma_i^\delta(S)=\operatorname{sgn}_{\pm}(a_i^\delta(S)).
+\sigma_i^\delta(S)=\operatorname{sgn}_{\pm}\bb{a_i^\delta(S)}.
 \end{equation}
 For~$S\neq\varnothing$, define
 \begin{equation}
 \label{eq:birth-data}
 \beta_i(S)=\abs{a_i^\beta(S)},
 \qquad
-\sigma_i^\beta(S)=\operatorname{sgn}_{\pm}(a_i^\beta(S)),
+\sigma_i^\beta(S)=\operatorname{sgn}_{\pm}\bb{a_i^\beta(S)},
 \end{equation}
 and set~$\beta_i(\varnothing)=0$ and~$\sigma_i^\beta(\varnothing)=+$.
 
@@ -131,32 +130,32 @@ Consequently, for every~$A\Subset\Lambda$,~$t\geq0$, and~$\eta\in\Omega$,
 \label{eq:monomial-feynman-kac-duality}
 P_t\chi_A(\eta)
 =
-\E_A\left[
+\E_A\Cb{
 \sigma_t
-\exp\left(\int_0^t V(A_s)\,ds\right)
+\exp\bb{\int_0^t V(A_s)\,ds}
 \chi_{A_t}(\eta)
-\right].
+}.
 \end{equation}
 \end{theorem}
 
 The coefficient calculation proving~\eqref{eq:monomial-generator-duality} is
 given in Appendix~\ref{app:dual-calculation}. The semigroup identity is the
 standard Feynman--Kac consequence of the generator identity. Independent
-transitions~$1\to0$ act diagonally on monomials. For a nonnegative
-profile~$\mathbf d=(d_i)_{i\in\Lambda}$,
+transitions~$1\to0$ act diagonally on monomials. For a nonnegative rate
+profile~$\mb r=(r_i)_{i\in\Lambda}$,
 \begin{align*}
-\Ncal^{0,\mathbf d}f(\eta)
+\Ncal^{0,\mb r}f(\eta)
 &=
-\sum_{i\in\Lambda}d_i
-\bigl(f(\eta^{i,0})-f(\eta)\bigr),
+\sum_{i\in\Lambda}r_i
+\bb{f(\eta^{i,0})-f(\eta)},
 \\
-\Ncal^{0,\mathbf d}\chi_A
+\Ncal^{0,\mb r}\chi_A
 &=
--\left(\sum_{i\in A}d_i\right)\chi_A.
+-\bb{\sum_{i\in A}r_i}\chi_A.
 \end{align*}
-Adding~$\Ncal^{0,\mathbf d}$ leaves the dual jumps unchanged and
-replaces~$V(A)$ by~$V(A)-\sum_{i\in A}d_i$. We therefore call these independent
-transitions \emph{pure deaths}.
+Adding~$\Ncal^{0,\mb r}$ leaves the dual jumps unchanged and replaces~$V(A)$
+by~$V(A)-\sum_{i\in A}r_i$. We therefore call these independent transitions
+\emph{pure deaths}.
 
 \subsection{Graphical construction}
 \label{subsec:dual-graphical-construction}
@@ -165,18 +164,21 @@ For every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
 $I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson point process of
 rate~$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let
 $I_{i,S}^\beta\subseteq(0,\infty)$ be a Poisson point process of
-rate~$\beta_i(S)$. All these processes are independent. The marked Poisson
+rate~$\beta_i(S)$. All these processes are independent, and for notational
+convenience we set~$I_{i,\varnothing}^\beta=\varnothing$. The marked Poisson
 interaction set is
 \begin{equation*}
-I^{\mathrm P} = 
-\{(i,t,\alpha,S):i\in\Lambda,\ \alpha\in\cb{\delta,\beta},\ S\subseteq N(i),\ t\in I_{i,S}^\alpha\}.
+I^{\mathrm P}
+=
+\cb{(i,t,\alpha,S):i\in\Lambda,\ \alpha\in\cb{\delta,\beta},\
+S\subseteq N(i),\ t\in I_{i,S}^\alpha}.
 \end{equation*}
 For~$(i,t,\alpha,S)\in I^{\mathrm P}$, the site~$i$ is the \emph{source},
-~$S$ is the \emph{target}, and~$\alpha\in\{\delta,\beta\}$ is the interaction
-kind. Deaths have empty target; splits and births have nonempty target. 
+$S$ is the \emph{target}, and~$\alpha\in\cb{\delta,\beta}$ is the interaction
+kind. Deaths have empty target; splits and births have nonempty target.
 
-To make future constructions cleaner, for an initial state~$Y_0=(A_0,\sigma_0)$, adjoin the deterministic initial
-interaction
+To make the later patch construction uniform at time zero, adjoin to an initial
+state~$Y_0=(A_0,\sigma_0)$ the deterministic initial interaction
 \begin{equation}
 \label{eq:initial-interaction}
 \iota_0
@@ -186,7 +188,7 @@ interaction
 where~$\infty\notin\Lambda$ is a formal source. Its target is~$A_0$, its sign
 is~$\sigma_0$, and it has no rate. The full interaction set is
 \begin{equation*}
-I=\{\iota_0\}\cup I^{\mathrm P}.
+I=\cb{\iota_0}\cup I^{\mathrm P}.
 \end{equation*}
 Start from~$Y_{0-}=(\varnothing,+)$ and apply~$\iota_0$,
 giving~$Y_0=(A_0,\sigma_0)$. Suppose the process has been constructed up to
