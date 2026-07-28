@@ -120,74 +120,74 @@ functions~$f_P$,
 \begin{proof}
 Write~$G_T=(Y_0,\mathcal I_T)$, so~$\mathcal G_T=\sigma(G_T)$, and fix a
 realization~$G_T=g$ for which the conditional law is defined. The realization
-determines a finite labeled patch family~$\mathcal R=\mathcal P_T(g)$. For each
-$P\in\mathcal R$, let~$B_P$ be the event that the interaction prescribed by~$g$
+determines a finite labeled patch family~$\mathcal P_T(g)$. For each
+$P\in\mathcal{P}_T(g)$, let~$B_P$ be the event that the interaction prescribed by~$g$
 which begins~$P$ is present in~$I$. Here only its source, time, and target are
-prescribed; the split--birth kind remains hidden. For a patch beginning at the
+prescribed; the split-birth kind remains hidden. For a patch beginning at the
 deterministic initial interaction, set~$B_P=\Omega$. If several patches begin at
 the same interaction, their events~$B_P$ are identical. Set
 \begin{equation*}
-B=\bigcap_{P\in\mathcal R}B_P.
+B(g)=\bigcap_{P\in\mathcal{P}_T(g)}B_P.
 \end{equation*}
 
-Conditioning on~$G_T=g$ is the same as conditioning on~$B$ and on
+We have the identity
 \begin{equation*}
-\bigcap_{P\in\mathcal R}\operatorname{Con}(P).
+\cb{G_T = g} = B(g)\cap \bigcap_{P\in\mathcal{P}_T(g)}\operatorname{Con}(P).
 \end{equation*}
 Indeed, the events~$B_P$ place all interactions recorded by~$g$, while the
 consistency events make every prescribed outgoing interaction successful and
 exclude every additional successful interaction inside a patch.
 
-Conditional on~$B$, the variables~$(\Sigma_P)_{P\in\mathcal R}$ are
+Conditional on~$B(g)$, the variables~$(\Sigma_P)_{P\in\mathcal{P}_T(g)}$ are
 independent and~$\Sigma_P$ has law~$\pP_P$. This follows from independent
 increments of the underlying Poisson processes on the disjoint patch
 intervals. At an outgoing initial boundary, conditioning on the presence of the
 interaction leaves its hidden kind with the rate-proportional law
 \eqref{eq:patch-initial-kind-law}. Since~$\operatorname{Con}(P)$ is measurable
 with respect to~$\Sigma_P$, the consistency events are also conditionally
-independent given~$B$, and~$\Sigma_P$ is conditionally independent of
+independent given~$B(g)$, and~$\Sigma_P$ is conditionally independent of
 $\operatorname{Con}(Q)$ whenever~$P\neq Q$.
 
 Consequently, for bounded measurable~$f_P$,
 \begin{align*}
 \CE{
-\prod_{P\in\mathcal R}f_P\bb{\Sigma_P}
+\prod_{P\in\mathcal{P}_T(g)}f_P\bb{\Sigma_P}
 }{G_T=g}
 &=
 \CE{
-\prod_{P\in\mathcal R}f_P\bb{\Sigma_P}
-}{B,\ \bigcap_{P\in\mathcal R}\operatorname{Con}(P)}
+\prod_{P\in\mathcal{P}_T(g)}f_P\bb{\Sigma_P}
+}{B(g)\cap \bigcap_{P\in\mathcal{P}_T(g)}\operatorname{Con}(P)}
 \\
 &=
 \frac{
 \CE{
 \displaystyle
-\prod_{P\in\mathcal R}
+\prod_{P\in\mathcal{P}_T(g)}
  f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}
-}{B}
+}{B(g)}
 }{
 \pP\bb{
 \displaystyle
-\bigcap_{P\in\mathcal R}\operatorname{Con}(P)
-\,\middle|\,B
+\bigcap_{P\in\mathcal{P}_T(g)}\operatorname{Con}(P)
+\,\middle|\,B(g)
 }
 }
 \\
 &=
 \frac{
 \displaystyle
-\prod_{P\in\mathcal R}
+\prod_{P\in\mathcal{P}_T(g)}
 \E_P\Cb{
  f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}
 }
 }{
 \displaystyle
-\prod_{P\in\mathcal R}
+\prod_{P\in\mathcal{P}_T(g)}
 \pP_P\bb{\operatorname{Con}(P)}
 }
 \\
 &=
-\prod_{P\in\mathcal R}
+\prod_{P\in\mathcal{P}_T(g)}
 \E_P^{\mathrm{con}}\Cb{f_P\bb{\Sigma_P}}.
 \end{align*}
 The denominator is positive for almost every realized skeleton. This proves
@@ -197,7 +197,7 @@ The denominator is positive for almost every realized skeleton. This proves
 \subsection{Patch contributions}
 \label{subsec:patch-contributions}
 
-The Feynman--Kac random variable in
+The Feynman-Kac random variable in
 \eqref{eq:monomial-feynman-kac-duality} factors into one local factor for each
 patch. The sign assigned to the initial boundary of a patch is
 \begin{equation*}
@@ -273,7 +273,7 @@ Hence
 \prod_{P\in\mathcal E_t}\sigma(P).
 \end{equation*}
 Since~$V(A_u)=\sum_{i\in A_u}V_i$, the patch intervals also split the
-Feynman--Kac integral:
+Feynman-Kac integral:
 \begin{equation*}
 \int_0^tV(A_u)\,du
 =

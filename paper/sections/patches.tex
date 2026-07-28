@@ -26,9 +26,13 @@ i\in A_{t-}.
 Its successful-interaction record is the triple~$(i,t,S)$.
 \end{definition}
 
-For~$T<\infty$, the \emph{successful-interaction skeleton}~$\mathcal I_T$ is
+For~$T<\infty$, the \emph{successful-interaction skeleton} is
 the family consisting of the initial record and all ordinary
-successful-interaction records up to time~$T$. It records the source, time, and
+successful-interaction records up to time~$T$, formally given by
+\begin{equation*}
+    \mathcal I_T = \cb{(i,t,S) : \text{ for some }\alpha\in\cb{\beta,\delta} \text{ the interaction } (i,t,\alpha,S) \text{ is successful}}.
+\end{equation*}
+It records the source, time, and
 target of every nonempty-target interaction which acts on the process, but not
 whether the interaction is a split or a birth. It also omits all death clocks
 and all rings at inactive sources. These hidden local data are the randomness
