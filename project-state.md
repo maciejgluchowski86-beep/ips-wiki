@@ -22,10 +22,13 @@ Feynman--Kac duality, pure-death noise, and the marked graphical construction.
 Sections 4 and 5 are drafted in `paper/sections/patches.tex` and
 `paper/sections/representation.tex`; they define the successful-interaction
 skeleton, patch geometry, consistent patch laws, conditional factorization,
-patch contributions, and the finite-horizon representation theorem. Appendix A
-is drafted in `paper/appendices/monomial-dual.tex`, and Appendix B in
+patch contributions, and the finite-horizon representation theorem. Section 6
+is drafted in `paper/sections/patch-positivity.tex`; it defines patch
+positivity, proves the coefficient criterion, derives the calm--facilitating
+rate consequence, and computes the patch critical profile. Appendix A is
+drafted in `paper/appendices/monomial-dual.tex`, and Appendix B in
 `paper/appendices/patch-contributions.tex`. The abstract, Introduction Sections
-1.4--1.5, Section 6 onward, and Appendix C onward remain drafting notes. No
+1.4--1.5, Section 7 onward, and Appendix C onward remain drafting notes. No
 title or main-result summary has yet been fixed. Shared macros and theorem
 environments live in `paper/preamble.tex`.
 
