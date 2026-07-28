@@ -1,0 +1,631 @@
+\section{Common invariant limit under uniform deaths}
+\label{sec:convergence}
+
+\subsection{The lower class and the main theorem}
+\label{subsec:convergence-statement}
+
+The convergence theorem applies to a larger class than~$\mathcal M_*$. Define
+\begin{equation*}
+\mathcal M_-
+=
+\cb{
+ \mu:
+ \mu\bb{\chi_A^*}
+ \geq
+ -\chi_A^*\bb{\mb 1}
+ \text{ for every }A\Subset\Lambda
+}.
+\end{equation*}
+Since~$\chi_A^*(\mb 1)=\prod_{i\in A}(1-p_i^\star)$,
+\begin{equation}
+\label{eq:m-minus-affine-characterization}
+\mu\in\mathcal M_-
+\quad\Longleftrightarrow\quad
+\frac{\mu+\mu_{\mb 1}}2\in\mathcal M_*.
+\end{equation}
+In particular,~$\mathcal M_*\subseteq\mathcal M_-$. For a Bernoulli product
+measure, the condition is coordinatewise. If
+\begin{equation*}
+p_i^- = \bb{2p_i^\star-1}\vee0,
+\qquad
+\mb p^-=(p_i^-)_{i\in\Lambda},
+\end{equation*}
+then
+\begin{equation}
+\label{eq:m-minus-product-characterization}
+\mu_{\mb p}\in\mathcal M_-
+\quad\Longleftrightarrow\quad
+\mb p\geq\mb p^-.
+\end{equation}
+Indeed, the singleton conditions give the necessity. For sufficiency, when
+$p_i^\star<1$ set
+\begin{equation*}
+x_i=\frac{p_i-p_i^\star}{1-p_i^\star}.
+\end{equation*}
+The assumption gives~$x_i\in[-1,1]$, and hence
+$\prod_{i\in A}x_i\geq-1$. The case~$p_i^\star=1$ follows directly from the
+singleton condition.
+
+For this section, assume that~$\Lambda$ is equipped with a graph metric. We say
+that it has polynomial growth of exponent~$D$ if, for some~$K<\infty$,
+\begin{equation*}
+\abs{B(i,r)}\leq K(1+r)^D
+\qquad
+\text{for every }i\in\Lambda\text{ and }r\geq0.
+\end{equation*}
+We also assume that the spin system has finite range in this metric: there is
+$\ell<\infty$ such that~$N(i)\subseteq B(i,\ell)$ for every~$i$.
+
+\begin{theorem}[Common invariant limit]
+\label{thm:common-invariant-limit}
+Suppose that~$\Lambda$ has polynomial growth of exponent~$D$, the spin system
+has patch positivity, and it has~$\varepsilon$-uniform deaths for some
+$\varepsilon>0$. Then there is an invariant probability measure~$\pi$ such
+that, for every local function~$f$, there is~$K_f<\infty$ satisfying
+\begin{equation}
+\label{eq:uniform-m-minus-convergence}
+\sup_{\mu\in\mathcal M_-}
+\abs{\mu\bb{P_tf}-\pi(f)}
+\leq
+K_f(1+t)^D e^{-\varepsilon t/2}
+\qquad
+\text{for every }t\geq0.
+\end{equation}
+Consequently,~$\mu P_t\Rightarrow\pi$ for every~$\mu\in\mathcal M_-$. The
+monomial moments of~$\pi$ are
+\begin{equation}
+\label{eq:full-patch-limit-moments}
+\pi(\chi_A)
+=
+\E_A\Cb{
+ \prod_{P\in\mathcal P}C(P)
+ \ind\bb{\abs{\mathcal P}<\infty}
+}
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation}
+The integrand in~\eqref{eq:full-patch-limit-moments} is defined to be zero when
+$\abs{\mathcal P}=\infty$.
+\end{theorem}
+
+\begin{corollary}[Uniform exponential ergodicity]
+\label{cor:uniform-ergodicity}
+Under the hypotheses of Theorem~\ref{thm:common-invariant-limit}, suppose also
+that
+\begin{equation*}
+\mb p^\star\leq\frac12\mb 1.
+\end{equation*}
+Then every probability measure belongs to~$\mathcal M_-$, the invariant measure
+$\pi$ is unique, and
+\begin{equation}
+\label{eq:uniform-pointwise-convergence}
+\sup_{\eta\in\Omega}
+\abs{P_tf(\eta)-\pi(f)}
+\leq
+K_f(1+t)^D e^{-\varepsilon t/2}
+\end{equation}
+for every local~$f$. In particular, the system is uniformly exponentially
+ergodic, with every rate~$\gamma<\varepsilon/2$.
+\end{corollary}
+
+The proof compares the finite-horizon patch weight with the all-time full-patch
+weight. At a cut time~$T$, the difference is split according to three events:
+the interaction cone leaves a finite region before~$T$, a successful
+interaction occurs after~$T$, or no successful interaction occurs after~$T$.
+Finite propagation controls the first term. A chain of patches with outgoing
+terminal boundary accumulates the pure-death factor in the second. On the third
+event, the end patches present at time~$T$ continue independently, and their
+centered slopes decay at rate at least~$\varepsilon$.
+
+\subsection{Positive finite-horizon and limiting weights}
+\label{subsec:positive-skeleton-weights}
+
+Remove pure deaths at rate~$\varepsilon$ from every site and write
+\begin{equation}
+\label{eq:uniform-death-decomposition}
+\Lcal
+=
+\Lcal^\varepsilon
++
+\varepsilon\Ncal^{0,\mb 1}.
+\end{equation}
+Let~$P_t^\varepsilon$ and~$C^\varepsilon$ denote the semigroup and patch
+contributions of~$\Lcal^\varepsilon$. The two systems have the same signed dual,
+successful-interaction skeleton, and reference patch laws. By
+Theorem~\ref{thm:pure-death-comparison},~$\Lcal^\varepsilon$ has patch
+positivity and the same critical profile~$\mb p^\star$.
+
+Fix~$A\Subset\Lambda$. For~$\mu\in\mathcal M_*$, define the finite-horizon
+weight
+\begin{equation}
+\label{eq:finite-horizon-weight}
+W_t^\mu
+=
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+ \prod_{P\in\mathcal E_t}
+ C\bb{\eta\bb{i(P)},P}
+},
+\end{equation}
+and define~$W_t^{\varepsilon,\mu}$ by replacing each contribution by its
+$\Lcal^\varepsilon$ counterpart. Define also
+\begin{align*}
+W
+&=
+\prod_{P\in\mathcal P}C(P)
+\ind\bb{\abs{\mathcal P}<\infty},
+\\
+W^\varepsilon
+&=
+\prod_{P\in\mathcal P}C^\varepsilon(P)
+\ind\bb{\abs{\mathcal P}<\infty}.
+\end{align*}
+
+\begin{lemma}[Positive weights]
+\label{lem:positive-weights}
+For every~$\mu\in\mathcal M_*$ and~$t\geq0$,
+\begin{equation}
+\label{eq:positive-weight-comparison}
+0\leq W_t^\mu\leq W_t^{\varepsilon,\mu},
+\qquad
+\E_A\Cb{W_t^{\varepsilon,\mu}}
+=
+\mu\bb{P_t^\varepsilon\chi_A}
+\leq1.
+\end{equation}
+Moreover,
+\begin{equation}
+\label{eq:limiting-weight-mass}
+0\leq W\leq W^\varepsilon,
+\qquad
+\E_A\Cb{W^\varepsilon}\leq1.
+\end{equation}
+If a full patch~$P$ has outgoing terminal boundary, then
+\begin{equation}
+\label{eq:outgoing-terminal-exact-factor}
+C(P)
+=
+e^{-\varepsilon\bb{e(P)-s(P)}}C^\varepsilon(P).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The patchwise comparison established in the proof of
+Theorem~\ref{thm:pure-death-comparison} gives
+\begin{equation*}
+0\leq C(P)\leq C^\varepsilon(P)
+\end{equation*}
+for full patches, and orders both the constant term and the slope in the
+centered expansion of every end contribution. Expanding the end-factor average
+as in~\eqref{eq:centered-end-expansion} proves the first inequality in
+\eqref{eq:positive-weight-comparison}. The patch representation gives the
+identity for its expectation, and~$0\leq\chi_A\leq1$ gives the last inequality.
+
+On~$\cb{\abs{\mathcal P}<\infty}$, the all-one finite-horizon weights converge
+to the corresponding full-patch products. Both limiting weights are defined to
+be zero on the complementary event. Fatou's lemma and
+\eqref{eq:positive-weight-comparison}, applied with~$\mu=\mu_{\mb 1}$, give
+\eqref{eq:limiting-weight-mass}. Finally, a patch with outgoing terminal
+boundary is dual-active throughout its lifetime. The only difference between
+its two Feynman--Kac factors is therefore the potential
+$-\varepsilon$ accumulated over that lifetime, which gives
+\eqref{eq:outgoing-terminal-exact-factor}.
+\end{proof}
+
+\subsection{Spatial confinement and late interactions}
+\label{subsec:spatial-confinement}
+\label{subsec:late-interactions}
+
+For~$T<\infty$, let
+\begin{equation*}
+\mb{Cone}_T
+=
+\bigcup_{(i,u,S)\in\mathcal I_T}
+\bb{\cb{i}\cup S}\setminus\cb{\infty}
+\end{equation*}
+be the set of sites reached by the successful-interaction skeleton by time~$T$.
+For~$A\subseteq R\Subset\Lambda$, set
+\begin{equation*}
+E_T^R=\cb{\mb{Cone}_T\subseteq R},
+\end{equation*}
+and let~$P_t^{R,0}$ be the semigroup obtained by freezing~$R^c$ in state~$0$.
+Write
+\begin{equation*}
+\rho_A(T,R)
+=
+\norm{\bb{P_T-P_T^{R,0}}\chi_A}_\infty.
+\end{equation*}
+
+\begin{lemma}[Spatial confinement]
+\label{lem:spatial-confinement}
+For every~$\mu\in\mathcal M_*$,
+\begin{align}
+0
+&\leq
+\E_A\Cb{W_t^\mu\ind\bb{(E_T^R)^c}}
+\leq
+\rho_A(T,R),
+\label{eq:finite-horizon-confinement-bound}
+\\
+0
+&\leq
+\E_A\Cb{W\ind\bb{(E_T^R)^c}}
+\leq
+\rho_A(T,R).
+\label{eq:limiting-confinement-bound}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Restricting the successful interactions in~$[0,T]$ to~$R$ is equivalent, under
+monomial duality, to using the zero-boundary dynamics during the corresponding
+spin-system interval. After averaging the initial configuration under~$\mu$,
+this gives
+\begin{equation*}
+\E_A\Cb{W_t^\mu\ind\bb{E_T^R}}
+=
+\mu\bb{P_{t-T}P_T^{R,0}\chi_A}.
+\end{equation*}
+Subtracting this identity from the patch representation and using positivity of
+the weight yields
+\begin{equation*}
+0
+\leq
+\E_A\Cb{W_t^\mu\ind\bb{(E_T^R)^c}}
+=
+\mu\bb{P_{t-T}\bb{P_T-P_T^{R,0}}\chi_A}
+\leq
+\rho_A(T,R),
+\end{equation*}
+which proves~\eqref{eq:finite-horizon-confinement-bound}. The same bound holds
+for every all-one weight~$W_u^{\mu_{\mb 1}}$ with~$u\geq T$. Since~$W$ is
+bounded above by the lower limit of these nonnegative weights, Fatou's lemma
+gives~\eqref{eq:limiting-confinement-bound}.
+\end{proof}
+
+For~$0\leq T<t$, let~$L_{T,t}$ be the event that no successful interaction
+occurs in~$(T,t]$, and let~$L_T$ be the event that no successful interaction
+occurs after~$T$.
+
+\begin{lemma}[Late interactions]
+\label{lem:late-interactions}
+For every~$\mu\in\mathcal M_*$,
+\begin{align}
+0
+&\leq
+\E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}^c}}
+\leq
+e^{-\varepsilon T},
+\label{eq:finite-late-interaction-bound}
+\\
+0
+&\leq
+\E_A\Cb{W\ind\bb{E_T^R\cap L_T^c}}
+\leq
+e^{-\varepsilon T}.
+\label{eq:limiting-late-interaction-bound}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+On~$L_{T,t}^c$, let~$u\in(T,t]$ be the first successful-interaction time after
+$T$. Its source is dual-active at time~$u-$. Trace this activity backwards: the
+patch ending at~$u$ has outgoing terminal boundary, and whenever that patch
+starts with an incoming interaction, continue from the source of that earlier
+interaction. The resulting chain reaches time~$0$, consists of patches with
+outgoing terminal boundary, and has total lifetime at least~$u>T$.
+Equation~\eqref{eq:outgoing-terminal-exact-factor} along this chain, together
+with the remaining patchwise comparisons from Lemma~\ref{lem:positive-weights},
+gives the skeletonwise bound
+\begin{equation*}
+W_t^\mu\ind\bb{L_{T,t}^c}
+\leq
+e^{-\varepsilon T}W_t^{\varepsilon,\mu}.
+\end{equation*}
+Taking expectations and using~\eqref{eq:positive-weight-comparison} proves
+\eqref{eq:finite-late-interaction-bound}.
+
+On~$\cb{\abs{\mathcal P}<\infty}\cap L_T^c$, the first successful interaction
+after~$T$ produces the same backward chain. Hence
+\begin{equation*}
+W\ind\bb{L_T^c}
+\leq
+e^{-\varepsilon T}W^\varepsilon.
+\end{equation*}
+Equation~\eqref{eq:limiting-weight-mass} proves
+\eqref{eq:limiting-late-interaction-bound}.
+\end{proof}
+
+\subsection{Relaxation with no late interactions}
+\label{subsec:no-late-relaxation}
+
+On~$L_{T,t}$, each end patch present at time~$T$ continues to time~$t$ without
+another successful interaction. Denote this continuation by~$P^{\uparrow t}$;
+its contribution includes the conditional probability of the continuation.
+The same notation with~$t=\infty$ denotes the resulting full patch.
+
+\begin{lemma}[No-late-interaction relaxation]
+\label{lem:no-late-relaxation}
+For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
+\begin{equation}
+\label{eq:no-late-relaxation-bound}
+\abs{
+ \E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}}}
+ -
+ \E_A\Cb{W\ind\bb{E_T^R\cap L_T}}
+}
+\leq
+\bb{1+\abs R}e^{-\varepsilon\bb{t-T}}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Conditional on~$\mathcal G_T$, patch factorization and independent future
+Poisson increments give
+\begin{align}
+\CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
+&=
+\prod_{P\in\mathcal B_T}C(P)\,
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+},
+\label{eq:conditional-finite-no-late-weight}
+\\
+\CE{W\ind\bb{L_T}}{\mathcal G_T}
+&=
+\prod_{P\in\mathcal B_T}C(P)
+\prod_{P\in\mathcal E_T}C\bb{P^{\uparrow\infty}}.
+\label{eq:conditional-limiting-no-late-weight}
+\end{align}
+The second identity follows by applying the same factorization to the finitely
+many infinite continuations of the patches in~$\mathcal E_T$.
+
+Put
+\begin{equation*}
+r_i=c_i^0(\vn)+c_i^1(\vn),
+\qquad
+q_i=\frac{c_i^0(\vn)}{r_i}.
+\end{equation*}
+The uniform death assumption gives~$r_i\geq\varepsilon$, and
+Corollary~\ref{cor:critical-profile-empty-bound} gives~$p_i^\star\leq q_i$.
+For~$P\in\mathcal E_T$ based at~$i$, the continuation formula from
+Appendix~\ref{app:positivity-algebra} and the patchwise pure-death comparison
+give
+\begin{align}
+0
+&\leq
+C\bb{p_i^\star,P^{\uparrow t}}
+\leq
+C^\varepsilon\bb{p_i^\star,P^{\uparrow t}},
+\label{eq:continued-constant-comparison}
+\\
+0
+&\leq
+\partial_zC\bb{z,P^{\uparrow t}}
+\leq
+e^{-\varepsilon\bb{t-T}}
+\partial_zC^\varepsilon\bb{z,P^{\uparrow t}},
+\label{eq:continued-slope-comparison}
+\\
+0
+&\leq
+C\bb{P^{\uparrow\infty}}
+-
+C\bb{p_i^\star,P^{\uparrow t}}
+\leq
+e^{-\varepsilon\bb{t-T}}C\bb{P^{\uparrow\infty}}.
+\label{eq:continued-constant-relaxation}
+\end{align}
+For the last line, if~$\kappa(P)=\partial_zC(z,P)$, then
+\begin{equation*}
+C\bb{P^{\uparrow\infty}}
+-
+C\bb{p_i^\star,P^{\uparrow t}}
+=
+\kappa(P)\bb{q_i-p_i^\star}e^{-r_i\bb{t-T}}.
+\end{equation*}
+Moreover,
+$\kappa(P)(q_i-p_i^\star)\leq C(P^{\uparrow\infty})$ because
+$C(p_i^\star,P)\geq0$.
+
+Expand the~$\mu$-average in
+\eqref{eq:conditional-finite-no-late-weight} around~$\mb p^\star$. Its constant
+term is the product of the continued contributions evaluated at~$p_i^\star$,
+and every other term contains at least one slope. Equations
+\eqref{eq:continued-constant-comparison} and
+\eqref{eq:continued-slope-comparison} therefore imply
+\begin{align}
+0
+&\leq
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+-
+\prod_{P\in\mathcal E_T}
+C\bb{p_{i(P)}^\star,P^{\uparrow t}}
+\notag
+\\
+&\leq
+e^{-\varepsilon\bb{t-T}}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}.
+\label{eq:centered-continuation-bound}
+\end{align}
+The telescoping product inequality and
+\eqref{eq:continued-constant-relaxation} give
+\begin{align}
+0
+&\leq
+\prod_{P\in\mathcal E_T}C\bb{P^{\uparrow\infty}}
+-
+\prod_{P\in\mathcal E_T}
+C\bb{p_{i(P)}^\star,P^{\uparrow t}}
+\notag
+\\
+&\leq
+\abs{\mathcal E_T}e^{-\varepsilon\bb{t-T}}
+\prod_{P\in\mathcal E_T}C\bb{P^{\uparrow\infty}}.
+\label{eq:constant-continuation-bound}
+\end{align}
+Sending an end patch to its site is a bijection from~$\mathcal E_T$ to
+$\mb{Cone}_T$. Hence~$\abs{\mathcal E_T}\leq\abs R$ on~$E_T^R$.
+After multiplication by the bulk factors and expectation, the right-hand side
+of~\eqref{eq:centered-continuation-bound} is at most
+$e^{-\varepsilon(t-T)}$ by~\eqref{eq:positive-weight-comparison}. The right-hand
+side of~\eqref{eq:constant-continuation-bound} is at most
+$\abs R e^{-\varepsilon(t-T)}$ by~\eqref{eq:limiting-weight-mass} and
+\eqref{eq:conditional-limiting-no-late-weight}. Combining the two bounds proves
+\eqref{eq:no-late-relaxation-bound}.
+\end{proof}
+
+\subsection{Completion and discussion of the initial-law condition}
+\label{subsec:convergence-completion}
+\label{subsec:ergodicity-corollaries}
+
+\begin{proof}[Proof of Theorem~\ref{thm:common-invariant-limit}]
+For~$\mu\in\mathcal M_*$, decompose the finite-horizon weight according to
+\begin{equation*}
+(E_T^R)^c,
+\qquad
+E_T^R\cap L_{T,t}^c,
+\qquad
+E_T^R\cap L_{T,t},
+\end{equation*}
+and decompose~$W$ analogously using~$L_T^c$ and~$L_T$. Lemmas
+\ref{lem:spatial-confinement}--\ref{lem:no-late-relaxation} give
+\begin{equation}
+\label{eq:three-term-convergence-bound}
+\abs{
+ \mu\bb{P_t\chi_A}
+ -
+ \E_A\Cb{W}
+}
+\leq
+2\rho_A(T,R)
++
+2e^{-\varepsilon T}
++
+\bb{1+\abs R}e^{-\varepsilon\bb{t-T}}.
+\end{equation}
+The finite-propagation estimate in Appendix~\ref{app:finite-propagation}, applied
+with exponential rate~$\varepsilon$, gives~$v<\infty$ such that, for
+\begin{equation*}
+R_T=B(A,vT),
+\end{equation*}
+one has
+\begin{equation*}
+\rho_A(T,R_T)\leq C_Ae^{-\varepsilon T},
+\qquad
+\abs{R_T}\leq C_A(1+T)^D.
+\end{equation*}
+Taking~$T=t/2$ in~\eqref{eq:three-term-convergence-bound} proves
+\begin{equation}
+\label{eq:m-star-monomial-convergence}
+\sup_{\mu\in\mathcal M_*}
+\abs{
+ \mu\bb{P_t\chi_A}
+ -
+ \E_A\Cb{W}
+}
+\leq
+K_A(1+t)^D e^{-\varepsilon t/2}.
+\end{equation}
+
+Every local function is a finite linear combination of monomials, so the same
+estimate holds for local~$f$. Taking~$\mu=\mu_{\mb 1}$, compactness of~$\Omega$
+gives subsequential weak limits of~$\mu_{\mb 1}P_t$. Equation
+\eqref{eq:m-star-monomial-convergence} fixes all their monomial moments, so all
+subsequential limits coincide with a probability measure~$\pi$ satisfying
+\eqref{eq:full-patch-limit-moments}. The Feller property gives, for~$s\geq0$,
+\begin{equation*}
+\pi P_s
+=
+\lim_{t\to\infty}\mu_{\mb 1}P_{t+s}
+=
+\pi,
+\end{equation*}
+so~$\pi$ is invariant.
+
+Let now~$\mu\in\mathcal M_-$ and set
+\begin{equation*}
+\overline\mu
+=
+\frac{\mu+\mu_{\mb 1}}2\in\mathcal M_*.
+\end{equation*}
+Since~$\mu=2\overline\mu-\mu_{\mb 1}$, the triangle inequality and the uniform
+$\mathcal M_*$ estimate give
+\begin{equation*}
+\abs{\mu\bb{P_tf}-\pi(f)}
+\leq
+2\abs{\overline\mu\bb{P_tf}-\pi(f)}
++
+\abs{\mu_{\mb 1}\bb{P_tf}-\pi(f)}.
+\end{equation*}
+Absorbing the factor~$3$ into~$K_f$ proves
+\eqref{eq:uniform-m-minus-convergence}.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:uniform-ergodicity}]
+If~$p_i^\star\leq1/2$, then, for every~$A\Subset\Lambda$ and~$\eta\in\Omega$,
+\begin{equation*}
+\frac{\chi_A^*(\eta)}{\chi_A^*(\mb 1)}
+=
+\prod_{i\in A}
+\frac{\eta(i)-p_i^\star}{1-p_i^\star}
+\geq-1.
+\end{equation*}
+Thus every probability measure belongs to~$\mathcal M_-$, and
+\eqref{eq:uniform-pointwise-convergence} follows from
+Theorem~\ref{thm:common-invariant-limit} by taking point masses. If~$\rho$ is
+invariant, then
+\begin{equation*}
+\abs{\rho(f)-\pi(f)}
+=
+\abs{\rho\bb{P_tf}-\pi(f)}
+\leq
+\sup_{\eta\in\Omega}\abs{P_tf(\eta)-\pi(f)}
+\longrightarrow0,
+\end{equation*}
+so~$\rho=\pi$. Finally, for every~$\gamma<\varepsilon/2$, the polynomial factor
+in~\eqref{eq:uniform-pointwise-convergence} can be absorbed into
+$e^{(\varepsilon/2-\gamma)t}$.
+\end{proof}
+
+The coefficient~$1$ in the definition of~$\mathcal M_-$ is not essential. If a
+probability measure~$\mu$ satisfies, for some~$K<\infty$,
+\begin{equation}
+\label{eq:finite-centered-deficit}
+\mu\bb{\chi_A^*}
+\geq
+-K\chi_A^*\bb{\mb 1}
+\qquad
+\text{for every }A\Subset\Lambda,
+\end{equation}
+then
+\begin{equation*}
+\frac{\mu+K\mu_{\mb 1}}{1+K}
+\in
+\mathcal M_*.
+\end{equation*}
+The same affine argument proves convergence to~$\pi$ with the right-hand side
+of~\eqref{eq:uniform-m-minus-convergence} multiplied by at most~$1+2K$.
+
+In particular, let~$\xi$ have zeroes only on~$F\Subset\Lambda$. The uniform
+death assumption and Corollary~\ref{cor:critical-profile-empty-bound} imply
+$p_i^\star<1$ for every~$i$. Hence~$\delta_\xi$ satisfies
+\eqref{eq:finite-centered-deficit} with
+\begin{equation*}
+K
+=
+\prod_{i\in F}
+\max\cb{1,\frac{p_i^\star}{1-p_i^\star}}.
+\end{equation*}
+Every configuration with finitely many zeroes therefore converges to the same
+invariant measure, with a constant depending on the zero set. The restriction
+to~$\mathcal M_-$, or more generally to a finite centered deficit, enters only
+through the signs of the end-factor expansion. The argument does not identify a
+dynamical obstruction to convergence from lower-density initial laws.
