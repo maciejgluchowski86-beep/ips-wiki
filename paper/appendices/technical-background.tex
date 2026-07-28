@@ -1,0 +1,82 @@
+\section{Technical graphical and propagation details}
+\label{app:technical-background}
+
+\subsection{Local finiteness and conditional laws}
+\label{app:local-finiteness}
+
+\draftnote{Record any remaining regular-conditional-distribution details for the
+successful-interaction skeleton and the infinite patch continuations. Standard
+local-finiteness facts from the Harris construction should be cited rather than
+reproved.}
+
+\subsection{Finite-volume and finite-propagation approximations}
+\label{app:finite-propagation}
+
+Let~$d$ be the graph metric used in Section~\ref{sec:convergence}, and choose
+$\ell<\infty$ such that~$N(i)\subseteq B(i,\ell)$ for every~$i$. Put
+\begin{equation*}
+\overline c
+=
+\sup_{i\in\Lambda,\,\eta\in\Omega}c_i(\eta),
+\qquad
+m
+=
+\sup_{i\in\Lambda}\abs{B(i,\ell)}.
+\end{equation*}
+Both constants are finite.
+
+\begin{lemma}[Finite propagation]
+\label{lem:finite-propagation}
+Let~$f$ be supported on~$A\Subset\Lambda$. For every~$a>0$, there are
+$v<\infty$ and~$C_A<\infty$ such that
+\begin{equation}
+\label{eq:finite-propagation}
+\norm{\bb{P_t-P_t^{R,0}}f}_\infty
+\leq
+C_Ae^{-at}\norm f_\infty
+\end{equation}
+for every~$t\geq0$ and every finite~$R$ containing~$B(A,vt)$.
+\end{lemma}
+
+\begin{proof}
+Construct the process from rate-$\overline c$ candidate clocks and independent
+acceptance marks. Explore the clocks backwards from~$A$ at time~$t$. Whenever
+a candidate clock at~$i$ is encountered, add~$B(i,\ell)$ to the set of sites
+whose earlier histories must be known. If this backward influence cluster stays
+inside~$R$, then the infinite-volume process and the zero-boundary process,
+coupled with the same clocks and marks in~$R$, agree on~$A$ at time~$t$.
+
+To leave~$B(A,r)$, the cluster must contain a chronological dependency path of
+at least~$n=\lceil r/\ell\rceil$ candidate clocks. There are at most
+$\abs A m^k$ spatial paths of length~$k$, and the expected number of
+chronologically ordered~$k$-tuples of clocks along a fixed path is
+$(\overline c t)^k/k!$. Therefore, for every~$\theta>0$,
+\begin{align*}
+\pP\bb{\text{the influence cluster leaves }B(A,r)}
+&\leq
+\abs A\sum_{k\geq n}\frac{\bb{m\overline c t}^k}{k!}
+\\
+&\leq
+\abs A\exp\bb{m\overline c t e^\theta-\theta n}.
+\end{align*}
+Take~$r=vt$ and choose~$v$ so that
+\begin{equation*}
+\frac{\theta v}{\ell}-m\overline c e^\theta>a.
+\end{equation*}
+After increasing the constant to cover bounded~$t$, the exit probability is at
+most~$C_Ae^{-at}$. The graphical coupling gives
+\begin{equation*}
+\abs{P_tf(\eta)-P_t^{R,0}f(\eta)}
+\leq
+2\norm f_\infty
+\pP\bb{\text{the influence cluster leaves }R},
+\end{equation*}
+uniformly in~$\eta$, and proves~\eqref{eq:finite-propagation}.
+\end{proof}
+
+For fixed~$t$ and local~$f$, Lemma~\ref{lem:finite-propagation} implies uniform
+convergence of the zero-boundary finite-volume semigroups to~$P_t f$ along any
+exhaustion whose boundary recedes from the dependence set of~$f$. In
+particular, the nonnegative centered-monomial coefficients of the finite-volume
+semigroups used in Theorem~\ref{thm:centered-moment-order} pass to the
+infinite-volume limit.
