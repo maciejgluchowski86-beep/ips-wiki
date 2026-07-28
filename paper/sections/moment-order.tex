@@ -1,0 +1,280 @@
+\section{Centered-moment order}
+\label{sec:moment-order}
+
+\subsection{Centered monomials and end weights}
+\label{subsec:m-star}
+
+For~$A\Subset\Lambda$, define the monomial centered at the patch critical profile by
+\begin{equation*}
+\chi_A^*(\eta)
+=
+\prod_{i\in A}\bb{\eta(i)-p_i^\star},
+\qquad
+\chi_\vn^*=1,
+\end{equation*}
+and let~$\mathcal M_*$ be the class of probability measures defined by
+\begin{equation*}
+\mathcal M_*
+=
+\cb{
+ \mu:
+ \mu\bb{\chi_A^*}\geq0
+ \text{ for every }A\Subset\Lambda
+}.
+\end{equation*}
+Measures in~$\mathcal M_*$ have a high density of calm states in a centered-moment sense. The singleton conditions give~$\mu(\eta(i))\geq p_i^\star$, while
+\begin{equation*}
+\chi_A
+=
+\sum_{B\subseteq A}
+\bb{\prod_{i\in A\setminus B}p_i^\star}
+\chi_B^*
+\end{equation*}
+implies~$\mu(\chi_A)\geq\prod_{i\in A}p_i^\star$ for every finite~$A$. This is an order of joint occupation moments, not stochastic domination.
+
+The class~$\mathcal M_*$ is convex and weakly closed, since every~$\chi_A^*$ is a bounded local function. For a Bernoulli product measure~$\mu_{\mb p}$,
+\begin{equation*}
+\mu_{\mb p}\bb{\chi_A^*}
+=
+\prod_{i\in A}\bb{p_i-p_i^\star},
+\end{equation*}
+so
+\begin{equation*}
+\mu_{\mb p}\in\mathcal M_*
+\quad\Longleftrightarrow\quad
+\mb p\geq\mb p^\star.
+\end{equation*}
+For probability measures~$\mu$ and~$\nu$, write~$\mu\preceq_*\nu$ if
+\begin{equation*}
+\mu\bb{\chi_A^*}
+\leq
+\nu\bb{\chi_A^*}
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation*}
+
+Let~$P\in\mathcal E_t$ be an end patch. Since~$z\mapsto C(z,P)$ is affine and nondecreasing, define
+\begin{equation*}
+\kappa(P)=\partial_z C(z,P)\geq0.
+\end{equation*}
+Then
+\begin{equation*}
+C(z,P)
+=
+C\bb{p_{i(P)}^\star,P}
++
+\kappa(P)\bb{z-p_{i(P)}^\star},
+\qquad
+C\bb{p_{i(P)}^\star,P}\geq0.
+\end{equation*}
+Distinct end patches are based at distinct sites. Expanding their product gives, for every probability measure~$\mu$,
+\begin{equation}
+\label{eq:centered-end-expansion}
+\begin{aligned}
+&\mu\bb{
+ \prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+\\
+&\qquad=
+\sum_{\mathcal Q\subseteq\mathcal E_t}
+\mu\bb{
+ \chi_{\cb{i(P):P\in\mathcal Q}}^*
+}
+\prod_{P\in\mathcal Q}\kappa(P)
+\prod_{P\in\mathcal E_t\setminus\mathcal Q}
+C\bb{p_{i(P)}^\star,P}.
+\end{aligned}
+\end{equation}
+Thus the end-factor average is nonnegative for every~$\mu\in\mathcal M_*$. Together with patch positivity, this makes every successful-skeleton weight in the patch representation nonnegative.
+
+\subsection{Preservation by the semigroup}
+\label{subsec:moment-monotonicity}
+
+\begin{theorem}[Centered-moment order]
+\label{thm:centered-moment-order}
+Suppose that the spin system has patch positivity. If~$\mu\preceq_*\nu$, then, for every~$A\Subset\Lambda$ and~$t\geq0$,
+\begin{align*}
+\mu\bb{P_t\chi_A^*}
+&\leq
+\nu\bb{P_t\chi_A^*},
+\\
+\mu\bb{P_t\chi_A}
+&\leq
+\nu\bb{P_t\chi_A}.
+\end{align*}
+In particular,~$\mathcal M_*$ is preserved by the semigroup, and every~$\mu\in\mathcal M_*$ satisfies
+\begin{equation*}
+\mu_{\mb p^\star}\bb{P_t\chi_A}
+\leq
+\mu\bb{P_t\chi_A}.
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+For~$S\subseteq N(i)$, set
+\begin{equation*}
+d_i(S)
+=
+c_i^0(S)-p_i^\star\bb{c_i^0(S)+c_i^1(S)},
+\end{equation*}
+and, for nonempty~$S\subseteq N(i)$, set
+\begin{equation*}
+b_i(S)=-c_i^0(S)-c_i^1(S).
+\end{equation*}
+Patch positivity gives~$b_i(S)\geq0$. It also gives~$d_i(S)\geq0$: for nonempty~$S$ this follows from Proposition~\ref{prop:critical-profile-formula} and Theorem~\ref{thm:patch-positivity-criterion}, while for~$S=\vn$ it is the empty-neighbour bound in Corollary~\ref{cor:critical-profile-empty-bound}. At a site with~$r_i=0$, all these coefficients vanish.
+
+A direct generator calculation gives
+\begin{align*}
+\Lcal\chi_A^*
+=
+\sum_{i\in A}
+\Bigg[
+&-r_i\chi_A^*
++
+\sum_{S\subseteq N(i)}
+ d_i(S)\chi_S\chi_{A\setminus\cb{i}}^*
+\\
+&+
+\sum_{\substack{S\subseteq N(i)\\S\neq\vn}}
+ b_i(S)\chi_S\chi_A^*
+\Bigg].
+\end{align*}
+For finite~$B,S\subseteq\Lambda$,
+\begin{equation*}
+\chi_S\chi_B^*
+=
+\bb{\prod_{j\in S\cap B}\bb{1-p_j^\star}}
+\sum_{R\subseteq S}
+\bb{\prod_{j\in S\setminus R}p_j^\star}
+\chi_{R\cup(B\setminus S)}^*.
+\end{equation*}
+Every coefficient in this expansion is nonnegative. In finite volume, the matrix of~$\Lcal$ in the centered-monomial basis therefore has nonnegative off-diagonal entries, and its exponential has nonnegative entries. The standard finite-volume approximation for bounded finite-range spin systems, recorded in Appendix~\ref{app:finite-propagation}, gives the same conclusion on~$\Lambda$.
+
+Consequently, if a finite signed measure~$\lambda$ satisfies~$\lambda(\chi_B^*)\geq0$ for every finite~$B$, then
+\begin{equation*}
+\lambda\bb{P_t\chi_A^*}\geq0
+\end{equation*}
+for every finite~$A$ and~$t\geq0$. Applying this to~$\lambda=\nu-\mu$ proves the centered-moment comparison. The expansion of~$\chi_A$ above has nonnegative coefficients, so the ordinary monomial comparison follows. Applying the same positivity statement to~$\lambda=\mu$ proves preservation of~$\mathcal M_*$. Finally, the nonempty centered moments of~$\mu_{\mb p^\star}$ vanish, so~$\mu_{\mb p^\star}\preceq_*\mu$ for every~$\mu\in\mathcal M_*$.
+\end{proof}
+
+\subsection{Product-profile comparisons}
+\label{subsec:profile-comparisons}
+
+\begin{corollary}[Product profiles]
+\label{cor:product-profile-comparisons}
+Let~$A\Subset\Lambda$ and~$t\geq0$.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item If~$\mb p^\star\leq\mb p\leq\mb q$, then
+\begin{equation*}
+\mu_{\mb p}\bb{P_t\chi_A}
+\leq
+\mu_{\mb q}\bb{P_t\chi_A}.
+\end{equation*}
+\item If~$\mb q\leq\mb p$ and~$\mb q+\mb p\geq2\mb p^\star$, then
+\begin{equation*}
+\mu_{\mb q}\bb{P_t\chi_A}
+\leq
+\mu_{\mb p}\bb{P_t\chi_A}.
+\end{equation*}
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+In the first case,
+\begin{equation*}
+\prod_{i\in B}\bb{p_i-p_i^\star}
+\leq
+\prod_{i\in B}\bb{q_i-p_i^\star}
+\end{equation*}
+for every finite~$B$, so~$\mu_{\mb p}\preceq_*\mu_{\mb q}$. In the second case,
+\begin{equation*}
+\abs{q_i-p_i^\star}
+\leq
+p_i-p_i^\star
+\qquad
+\text{for every }i\in\Lambda.
+\end{equation*}
+Hence
+\begin{equation*}
+\prod_{i\in B}\bb{q_i-p_i^\star}
+\leq
+\prod_{i\in B}\bb{p_i-p_i^\star}
+\end{equation*}
+for every finite~$B$, and again~$\mu_{\mb q}\preceq_*\mu_{\mb p}$. Both claims follow from Theorem~\ref{thm:centered-moment-order}.
+\end{proof}
+
+The same comparisons hold for mixtures of product measures whenever their mixing profiles admit a coupling satisfying the corresponding coordinatewise inequalities almost surely.
+
+\subsection{Comparison after removing pure deaths}
+\label{subsec:pure-death-comparison}
+
+Let~$\Lcal$ and~$\Lcal'$ be spin-system generators with semigroups~$P_t$ and~$P_t'$, and suppose
+\begin{equation}
+\label{eq:pure-death-decomposition}
+\Lcal f(\eta)
+=
+\Lcal'f(\eta)
++
+\sum_{i\in\Lambda}a_i\bb{f\bb{\eta^{i,0}}-f(\eta)},
+\qquad
+a_i\geq0.
+\end{equation}
+Thus~$\Lcal'$ is obtained by removing an environment-independent part of the~$1\to0$ rates.
+
+\begin{theorem}[Pure-death comparison]
+\label{thm:pure-death-comparison}
+Suppose that~$\Lcal$ has patch positivity. Then~$\Lcal'$ has patch positivity and the same patch critical profile~$\mb p^\star$. Moreover, for every~$\mu\in\mathcal M_*$,~$A\Subset\Lambda$, and~$t\geq0$,
+\begin{equation*}
+\mu\bb{P_t\chi_A}
+\leq
+\mu\bb{P_t'\chi_A}.
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+Removing the pure-death component changes only the empty-neighbour coefficient~$c_i^1(\vn)$, replacing it by~$c_i^1(\vn)-a_i$. The first inequality in Theorem~\ref{thm:patch-positivity-criterion} is unchanged. If the new empty-neighbour sum is positive, the second expression in that theorem becomes
+\begin{equation*}
+\bb{c_i^1(\vn)-a_i}c_i^0(S)-c_i^0(\vn)c_i^1(S).
+\end{equation*}
+When~$c_i^0(S)\leq0$, this is at least the original nonnegative expression. When~$c_i^0(S)>0$, the first coefficient inequality gives~$c_i^1(S)<0$, so both terms in the displayed expression are nonnegative. If the new empty-neighbour sum vanishes, the residual rate~$c_i^{\prime\,1}$ is nonnegative, has zero constant coefficient, and has nonpositive nonconstant coefficients by Corollary~\ref{cor:calm-facilitating-coefficients}; hence~$c_i^{\prime\,1}\equiv0$. The first coefficient inequality then gives~$c_i^0(S)\leq0$ for every nonempty~$S$; since~$c_i^0(\vn)=0$ and~$c_i^0\geq0$, it follows that~$c_i^0\equiv0$. Thus~$\Lcal'$ has patch positivity. Proposition~\ref{prop:critical-profile-formula} shows that its critical profile is unchanged, since the nonempty coefficients are unchanged.
+
+The two systems have the same dual interaction rates, successful-interaction skeleton, and reference patch laws. Only the potential changes, with~$V_i'=V_i+a_i$. Equivalently, in the notation of Appendix~\ref{app:contribution-formulas},~$\varphi_i$ is unchanged and
+\begin{equation*}
+\psi_i'(\Delta,z)
+=
+c_i^0(\vn)\int_0^\Delta e^{-\bb{r_i-a_i}u}\,du
++
+z e^{-\bb{r_i-a_i}\Delta}
+\geq
+\psi_i(\Delta,z)
+\end{equation*}
+for~$z\in[0,1]$. Its slope in~$z$ also increases. The explicit patch formulas, together with patch positivity, therefore give
+\begin{equation*}
+0\leq C(P)\leq C'(P)
+\end{equation*}
+for every full patch, and, for every end patch~$P$ based at~$i$,
+\begin{equation*}
+0\leq C\bb{p_i^\star,P}\leq C'\bb{p_i^\star,P},
+\qquad
+0\leq\kappa(P)\leq\kappa'(P).
+\end{equation*}
+These inequalities also hold for infinite patches by taking limits.
+
+For~$\mu\in\mathcal M_*$, every term in the centered end expansion~\eqref{eq:centered-end-expansion} is nonnegative and is bounded by its primed counterpart. Combining this with the full-patch comparison in the patch representation proves the claim for each successful-interaction skeleton, and hence after expectation.
+\end{proof}
+
+\begin{corollary}[Invariant measures]
+\label{cor:pure-death-invariant-comparison}
+Under the hypotheses of Theorem~\ref{thm:pure-death-comparison}, suppose that the two systems have unique invariant measures~$\pi$ and~$\pi'$. Then
+\begin{equation*}
+\pi(\chi_A)\leq\pi'(\chi_A)
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation*}
+\end{corollary}
+
+\begin{proof}
+Apply Theorem~\ref{thm:pure-death-comparison} with~$\mu=\mu_{\mb1}\in\mathcal M_*$ and average over~$t\in[0,T]$. Every subsequential weak limit of either family of Ces\`aro averages is invariant. Uniqueness identifies the limits as~$\pi$ and~$\pi'$, and letting~$T\to\infty$ gives the claim.
+\end{proof}
+
+The comparison concerns joint occupation probabilities and does not by itself imply stochastic domination.
