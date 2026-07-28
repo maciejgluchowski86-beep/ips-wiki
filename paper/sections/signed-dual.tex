@@ -17,7 +17,7 @@ Y=(A,\sigma)
 \{A:A\Subset\Lambda\}\times\{+,-\}.
 \end{equation*}
 Signs are multiplied in the usual way and act on real numbers by~$+x=x$ and
-$-x=-x$. Fix rates and sign labels
+~$-x=-x$. Fix rates and sign labels
 \begin{equation*}
 \delta_i(S),\ \beta_i(S)\geq0,
 \qquad
@@ -37,7 +37,7 @@ B_{i,S}(A,\sigma)
 \bigl(A\cup S,
 \sigma\sigma_i^\beta(S)\bigr).
 \end{align*}
-The update~$D_{i,\varnothing}$ is called a \emph{death}; $D_{i,S}$ with
+The update~$D_{i,\varnothing}$ is called a \emph{death};~$D_{i,S}$ with
 $S\neq\varnothing$ is a \emph{split}; and~$B_{i,S}$ with
 $S\neq\varnothing$ is a \emph{birth}. Ignoring the sign coordinate, these
 updates preserve unions, which accounts for the term \emph{additive}. The
@@ -126,7 +126,7 @@ For every signed active set~$Y=(A,\sigma)$,
 =
 \Dcal H(Y,\eta)+V(A)H(Y,\eta).
 \end{equation}
-Consequently, for every~$A\Subset\Lambda$, $t\geq0$, and~$\eta\in\Omega$,
+Consequently, for every~$A\Subset\Lambda$,~$t\geq0$, and~$\eta\in\Omega$,
 \begin{equation}
 \label{eq:monomial-feynman-kac-duality}
 P_t\chi_A(\eta)
@@ -142,8 +142,8 @@ P_t\chi_A(\eta)
 The coefficient calculation proving~\eqref{eq:monomial-generator-duality} is
 given in Appendix~\ref{app:dual-calculation}. The semigroup identity is the
 standard Feynman--Kac consequence of the generator identity. Independent
-transitions~$1\to0$ act diagonally on monomials. For a nonnegative profile
-$\mathbf d=(d_i)_{i\in\Lambda}$,
+transitions~$1\to0$ act diagonally on monomials. For a nonnegative
+profile~$\mathbf d=(d_i)_{i\in\Lambda}$,
 \begin{align*}
 \Ncal^{0,\mathbf d}f(\eta)
 &=
@@ -162,10 +162,10 @@ transitions \emph{pure deaths}.
 \label{subsec:dual-graphical-construction}
 
 For every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
-$I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson point process of rate
-$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let
-$I_{i,S}^\beta\subseteq(0,\infty)$ be a Poisson point process of rate
-$\beta_i(S)$. All these processes are independent. The marked Poisson
+$I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson point process of
+rate~$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let
+$I_{i,S}^\beta\subseteq(0,\infty)$ be a Poisson point process of
+rate~$\beta_i(S)$. All these processes are independent. The marked Poisson
 interaction set is
 \begin{align*}
 I^{\mathrm P}
@@ -177,7 +177,7 @@ I^{\mathrm P}
  t\in I_{i,S}^\beta\}.
 \end{align*}
 For~$(i,t,\alpha,S)\in I^{\mathrm P}$, the site~$i$ is the \emph{source},
-$S$ is the \emph{target}, and~$\alpha\in\{\delta,\beta\}$ is the interaction
+~$S$ is the \emph{target}, and~$\alpha\in\{\delta,\beta\}$ is the interaction
 kind. Deaths have empty target; splits and births have nonempty target.
 
 For an initial state~$Y_0=(A_0,\sigma_0)$, adjoin the deterministic initial
@@ -193,17 +193,17 @@ is~$\sigma_0$, and it has no rate. The full interaction set is
 \begin{equation*}
 I=\{\iota_0\}\cup I^{\mathrm P}.
 \end{equation*}
-Start from~$Y_{0-}=(\varnothing,+)$ and apply~$\iota_0$, giving
-$Y_0=(A_0,\sigma_0)$. Suppose the process has been constructed up to time~$s$
-and has active set~$A_s$. Among the Poisson clocks whose sources lie in~$A_s$,
-take the first ring after time~$s$. At a mark~$(i,t,\delta,S)$, apply
-$D_{i,S}$; at a mark~$(i,t,\beta,S)$, apply~$B_{i,S}$. Repeat from the new
-state, and keep the process constant between these relevant interactions.
-Rings at inactive sources are ignored.
+Start from~$Y_{0-}=(\varnothing,+)$ and apply~$\iota_0$,
+giving~$Y_0=(A_0,\sigma_0)$. Suppose the process has been constructed up to
+time~$s$ and has active set~$A_s$. Among the Poisson clocks whose sources lie
+in~$A_s$, take the first ring after time~$s$. At a
+mark~$(i,t,\delta,S)$, apply~$D_{i,S}$; at a mark~$(i,t,\beta,S)$,
+apply~$B_{i,S}$. Repeat from the new state, and keep the process constant between
+these relevant interactions. Rings at inactive sources are ignored.
 
 The total rate of relevant clocks is bounded by a constant times~$\abs{A_s}$,
-and one interaction creates at most~$\sup_i\abs{N(i)}$ new active sites. Thus
-$\abs{A_t}$ is dominated by a nonexplosive continuous-time branching process.
-In particular, only finitely many relevant interactions occur on every bounded
-time interval. We use the full interaction set~$I$ throughout the patch
-construction.
+and one interaction creates at most~$\sup_i\abs{N(i)}$ new active sites.
+Thus~$\abs{A_t}$ is dominated by a nonexplosive continuous-time branching
+process. In particular, only finitely many relevant interactions occur on every
+bounded time interval. We use the full interaction set~$I$ throughout the
+patch construction.
