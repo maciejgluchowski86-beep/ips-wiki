@@ -38,40 +38,38 @@
 \label{subsec:intro-loss-of-memory}
 
 Some \hyperref[def:spin-system]{spin systems} distinguish between calm states and
-states which generate facilitating activity. The distinction concerns the
-influence of a spin on nearby dynamics, not its own tendency to change. A calm
+states which facilitate activity in their neighbors. A calm
 spin does not by itself make another site update. Facilitating activity can
 cause, permit, or accelerate such an update.
 
 This distinction appears under different update rules. In the contact
-process, an active site gives birth at neighbouring sites and may recover. In
-\hyperref[subsubsec:fa-1f-model]{FA-1f}, a vacancy permits a neighbour to
+process, an infected infects neighboring sites and may recover. In
+\hyperref[subsubsec:fa-1f-model]{FA-1f}, a vacancy permits a neighbor to
 refresh its state according to an independent Bernoulli draw, but does not
 determine the outcome of the refresh. In the
 \hyperref[subsubsec:babp-model]{biased annihilating branching process} (BABP), a
-particle causes a neighbouring site to flip, resulting in branching or
+particle causes a neighboring site to flip, resulting in branching or
 annihilation. In each case, the state at one site determines which changes are
 possible at another.
 
 A region containing only calm states has no internal source of activity and
-tends to remain calm until activity reaches it. Facilitating activity instead
-causes updates, some of which leave further facilitating activity behind. This
-does not make the dynamics monotone: a refresh can move in either direction,
-and a flip can create or remove activity, so ordered configurations need not
+tends to remain calm until activity reaches it. Facilitating states instead
+cause updates, some of which leave further facilitating states behind. This
+does not make the dynamics monotone: a refresh or flip can create or remove activity, so ordered configurations need not
 remain ordered. It nevertheless suggests that some part of the
-calm--facilitating order may survive for selected observables.
+calm-facilitating order may survive for selected observables.
 
 Suppose now that independent noise creates facilitating activity throughout
 the lattice. Since these events do not depend on the initial configuration,
 they may interrupt the routes through which old information reaches a later
-local observation. We ask whether the process loses memory of its initial
-state, and whether the calm--facilitating tendency yields a useful comparison
+local observation. We ask whether the process, after adding some noise to it, loses memory of its initial
+state, and whether the calm-facilitating tendency yields a useful comparison
 when attractiveness is absent.
 
 Neither monotone coupling nor reversibility answers these questions in the
 class considered here. The contact process is attractive, but FA-1f and BABP
 need not preserve the order of two coupled configurations. We also allow
-nonreversible dynamics, and noise with a different bias need not preserve a
+nonreversible dynamics, since noise need not preserve a
 reversible measure of the unperturbed system. The argument must use the
 graphical history without ordering trajectories or identifying the limiting
 law in advance.
@@ -80,15 +78,15 @@ law in advance.
 \label{subsec:intro-temporal-cancellation}
 
 A facilitating interaction can change a flip rate from zero to a quantity of
-order one, and may therefore decide whether a site is allowed to move. Its
+order one, and may therefore decide whether a site is allowed to flip. Its
 effect can nevertheless disappear before it is transmitted. If no information
-leaves a site between two local updates, a second birth can be redundant, a
+leaves a site between two local updates, a second birth is redundant, a
 later refresh overwrites the earlier refresh, and two flips cancel.
 
-The natural \wiki{duality}{Feynman--Kac duality} records the transmission of
+The natural \wiki{duality}{Feynman-Kac duality} records the transmission of
 influence through a signed set-valued process. Its signs retain cancellations
 among successive local events. Taking absolute values before those events are
-grouped discards the cancellations and gives bounds controlled by the full
+grouped discards the cancellations and gives only large bounds controlled by the full
 interaction rates, even when little influence persists. The dual history must
 therefore be decomposed according to the interactions which transmit
 information between sites.
@@ -104,22 +102,20 @@ local Poisson marks are left hidden. Between successive touches of the
 skeleton, the history splits into one-site time intervals which we call
 \wiki{patch}{patches}.
 
-Conditional on the skeleton, the hidden histories in distinct patches
-factorize. Their signed Feynman--Kac factors can be averaged patch by patch, and
+Conditional on the skeleton, the randomness hidden in distinct patches
+becomes independent. The signed Feynman-Kac factors can be averaged patch by patch, and
 the resulting contributions give an exact
 \wiki{patch-representation-of-spin-systems}{representation} of the original
-spin system. The averaging is performed before signs are estimated and hence
-retains cancellations between successive interactions.
+spin system. This averaging retains cancellations of sign between successive interactions.
 
 We say that a spin system has \emph{patch positivity} when every bulk patch
 contribution is nonnegative. This condition is characterized by explicit
 inequalities between the multilinear coefficients of the flip rates. It does
-not imply stochastic order, but it yields comparison for the centered moments
-selected by the terminal patch factors. The semigroup preserves the resulting
+not imply stochastic order, but it yields comparison for the centered moments. The semigroup preserves the resulting
 moment order. The same representation also compares a system with the system
 obtained by removing an independent pure-death component. When such deaths
 occur at a uniformly positive rate, local observables converge exponentially
-to a common invariant limit whose moments admit a full-patch formula.
+to a common invariant limit, which can be described by a patch formula.
 
 \subsection{Main results}
 \label{subsec:intro-results}
@@ -150,9 +146,9 @@ to a common invariant limit whose moments admit a full-patch formula.
 \subsection{Coefficient characterization}
 \label{subsec:positivity-criterion}
 
-\draftnote{State the necessary and sufficient inequalities in the coefficients \(c_i^x(S)\), with the degenerate empty-neighbour case separated. Give a proof roadmap and reduce the proof to the four contribution types; keep the explicit formulas in Appendix~\ref{app:contribution-formulas}.}
+\draftnote{State the necessary and sufficient inequalities in the coefficients \(c_i^x(S)\), with the degenerate empty-neighbor case separated. Give a proof roadmap and reduce the proof to the four contribution types; keep the explicit formulas in Appendix~\ref{app:contribution-formulas}.}
 
-\subsection{The calm--facilitating interpretation}
+\subsection{The calm-facilitating interpretation}
 \label{subsec:positivity-interpretation}
 
 \draftnote{Explain that the nonpositive interaction coefficients force the flip intensity, and in particular the activation rate, to decrease as calm spins are added. Present this as the rigorous footprint of the calm/facilitating architecture, while stating clearly that coordinatewise decrease alone is weaker than the full criterion.}
@@ -216,7 +212,7 @@ to a common invariant limit whose moments admit a full-patch formula.
 \subsection{Relaxation when there are no late interactions}
 \label{subsec:no-late-relaxation}
 
-\draftnote{Condition at the cut time, factor over the open patches, and use the explicit empty-neighbour relaxation of their continued end contributions. State the confined relaxation lemma before using it. Relevant entries: \wiki{patch-contribution}{patch relaxation} and \wiki{exponential-relaxation-under-confined-late-interactions}{confined late-interaction relaxation}.}
+\draftnote{Condition at the cut time, factor over the open patches, and use the explicit empty-neighbor relaxation of their continued end contributions. State the confined relaxation lemma before using it. Relevant entries: \wiki{patch-contribution}{patch relaxation} and \wiki{exponential-relaxation-under-confined-late-interactions}{confined late-interaction relaxation}.}
 
 \subsection{Completion, invariance, and the full-patch limit}
 \label{subsec:convergence-completion}
@@ -317,7 +313,7 @@ to a common invariant limit whose moments admit a full-patch formula.
 \subsection{Local finiteness and conditional laws}
 \label{app:local-finiteness}
 
-\draftnote{Record any standard measurability, local-finiteness, and regular-conditional-distribution details omitted from Sections~\ref{sec:signed-dual}--\ref{sec:representation}. Cite standard graphical-construction results whenever possible.}
+\draftnote{Record any standard measurability, local-finiteness, and regular-conditional-distribution details omitted from Sections~\ref{sec:signed-dual}-\ref{sec:representation}. Cite standard graphical-construction results whenever possible.}
 
 \subsection{Finite-volume and finite-propagation approximations}
 \label{app:finite-propagation}
