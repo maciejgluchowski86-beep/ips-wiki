@@ -30,20 +30,15 @@ Measures in~$\mathcal M_*$ have a high density of state~$1$, the calm state, in 
 \bb{\prod_{i\in A\setminus B}p_i^\star}
 \chi_B^*
 \end{equation*}
-implies~$\mu(\chi_A)\geq\prod_{i\in A}p_i^\star$ for every finite~$A$. This is an order of joint occupation moments, not stochastic domination.
-
-The class~$\mathcal M_*$ is convex and weakly closed, since every~$\chi_A^*$ is a bounded local function. For a Bernoulli product measure~$\mu_{\mb p}$,
+implies~$\mu(\chi_A)\geq\prod_{i\in A}p_i^\star$ for every finite~$A$. The class~$\mathcal M_*$ is convex and weakly closed, since every~$\chi_A^*$ is a bounded local function. For a Bernoulli product measure~$\mu_{\mb p}$,
 \begin{equation*}
 \mu_{\mb p}\bb{\chi_A^*}
 =
-\prod_{i\in A}\bb{p_i-p_i^\star},
-\end{equation*}
-so
-\begin{equation*}
-\mu_{\mb p}\in\mathcal M_*
+\prod_{i\in A}\bb{p_i-p_i^\star}, \quad \text{ so }\quad \mu_{\mb p}\in\mathcal M_*
 \quad\Longleftrightarrow\quad
 \mb p\geq\mb p^\star.
 \end{equation*}
+
 For probability measures~$\mu$ and~$\nu$, write~$\mu\preceq_*\nu$ if
 \begin{equation*}
 \mu\bb{\chi_A^*}
@@ -70,12 +65,9 @@ C\bb{p_{i(P)}^\star,P}\geq0.
 Distinct end patches are based at distinct sites. Expanding their product gives, for every probability measure~$\mu$,
 \begin{equation}
 \label{eq:centered-end-expansion}
-\begin{aligned}
-&\mu\bb{
+\mu\bb{
  \prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
-}
-\\
-&\qquad=
+} =
 \sum_{\mathcal Q\subseteq\mathcal E_t}
 \mu\bb{
  \chi_{\cb{i(P):P\in\mathcal Q}}^*
@@ -83,7 +75,6 @@ Distinct end patches are based at distinct sites. Expanding their product gives,
 \prod_{P\in\mathcal Q}\kappa(P)
 \prod_{P\in\mathcal E_t\setminus\mathcal Q}
 C\bb{p_{i(P)}^\star,P}.
-\end{aligned}
 \end{equation}
 Thus the end-factor average is nonnegative for every~$\mu\in\mathcal M_*$. Together with patch positivity, this makes the integrand associated with each successful-interaction skeleton nonnegative.
 
@@ -124,21 +115,20 @@ b_i(S)=-c_i^0(S)-c_i^1(S).
 Patch positivity gives~$b_i(S)\geq0$. It also gives~$d_i(S)\geq0$: for nonempty~$S$ this follows from Proposition~\ref{prop:critical-profile-formula} and Theorem~\ref{thm:patch-positivity-criterion}, while for~$S=\vn$ it is the empty-neighbour bound in Corollary~\ref{cor:critical-profile-empty-bound}. At a site with~$r_i=0$, all these coefficients vanish.
 
 A direct generator calculation gives
-\begin{align*}
+\begin{equation*}
 \Lcal\chi_A^*
 =
 \sum_{i\in A}
-\Bigg[
-&-r_i\chi_A^*
+\bb{
+-r_i\chi_A^*
 +
 \sum_{S\subseteq N(i)}
  d_i(S)\chi_S\chi_{A\setminus\cb{i}}^*
-\\
-&+
++
 \sum_{\substack{S\subseteq N(i)\\S\neq\vn}}
  b_i(S)\chi_S\chi_A^*
-\Bigg].
-\end{align*}
+}.
+\end{equation*}
 For finite~$B,S\subseteq\Lambda$,
 \begin{equation*}
 \chi_S\chi_B^*
@@ -217,7 +207,7 @@ Let~$\Lcal$ and~$\Lcal'$ be spin-system generators with semigroups~$P_t$ and~$P_
 =
 \Lcal'f(\eta)
 +
-\sum_{i\in\Lambda}a_i\bb{f\bb{\eta^{i,0}}-f(\eta)},
+\sum_{i\in\Lambda}d_i\bb{f\bb{\eta^{i,0}}-f(\eta)},
 \qquad
 a_i\geq0.
 \end{equation}
@@ -234,9 +224,9 @@ Suppose that~$\Lcal$ has patch positivity. Then~$\Lcal'$ has patch positivity an
 \end{theorem}
 
 \begin{proof}
-Removing the pure-death component changes only the empty-neighbour coefficient~$c_i^1(\vn)$, replacing it by~$c_i^1(\vn)-a_i$. The first inequality in Theorem~\ref{thm:patch-positivity-criterion} is unchanged. If the new empty-neighbour sum is positive, the second expression in that theorem becomes
+Removing the pure-death component changes only the empty-neighbour coefficient~$c_i^1(\vn)$, replacing it by~$c_i^1(\vn)-d_i$. The first inequality in Theorem~\ref{thm:patch-positivity-criterion} is unchanged. If the new empty-neighbour sum is positive, the second expression in that theorem becomes
 \begin{equation*}
-\bb{c_i^1(\vn)-a_i}c_i^0(S)-c_i^0(\vn)c_i^1(S).
+\bb{c_i^1(\vn)-d_i}c_i^0(S)-c_i^0(\vn)c_i^1(S).
 \end{equation*}
 When~$c_i^0(S)\leq0$, this is at least the original nonnegative expression. When~$c_i^0(S)>0$, the first coefficient inequality gives~$c_i^1(S)<0$, so both terms in the displayed expression are nonnegative. If the new empty-neighbour sum vanishes, the residual rate~$c_i^{\prime\,1}$ is nonnegative, has zero constant coefficient, and has nonpositive nonconstant coefficients by Corollary~\ref{cor:calm-facilitating-coefficients}; hence~$c_i^{\prime\,1}\equiv0$. The first coefficient inequality then gives~$c_i^0(S)\leq0$ for every nonempty~$S$; since~$c_i^0(\vn)=0$ and~$c_i^0\geq0$, it follows that~$c_i^0\equiv0$. Thus~$\Lcal'$ has patch positivity. Proposition~\ref{prop:critical-profile-formula} shows that its critical profile is unchanged, since the nonempty coefficients are unchanged.
 
@@ -265,7 +255,7 @@ These inequalities also hold for infinite patches by taking limits.
 For~$\mu\in\mathcal M_*$, every term in the centered end expansion~\eqref{eq:centered-end-expansion} is nonnegative and is bounded by its primed counterpart. Combining this with the full-patch comparison in the patch representation proves the claim for each successful-interaction skeleton, and hence after expectation.
 \end{proof}
 
-\begin{corollary}[Invariant measures]
+\begin{corollary}[Invariant measure comparison]
 \label{cor:pure-death-invariant-comparison}
 Under the hypotheses of Theorem~\ref{thm:pure-death-comparison}, suppose that the two systems have unique invariant measures~$\pi$ and~$\pi'$. Then
 \begin{equation*}
