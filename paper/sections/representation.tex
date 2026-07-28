@@ -120,26 +120,26 @@ functions~$f_P$,
 
 \begin{proof}
 Write~$G_T=(Y_0,\mathcal I_T)$, so~$\mathcal G_T=\sigma(G_T)$, and fix a
-realization~$G_T=g$ for which the conditional law is defined. Write
-$\mathcal P_g=\mathcal P_T(g)$ for its finite labeled patch family. For each
-$P\in\mathcal P_g$, let~$B_P$ be the event that the interaction prescribed
+realization~$G_T=g$ for which the conditional law is defined. Let
+$\mathcal P_T(g)$ be its finite labeled patch family. For each
+$P\in\mathcal P_T(g)$, let~$B_P$ be the event that the interaction prescribed
 by~$g$ which begins~$P$ is present in~$I$. Only its source, time, and target are
 prescribed; the split--birth kind remains hidden. For a patch beginning at the
 deterministic initial interaction, set~$B_P=\Omega$. If several patches begin at
 the same interaction, their events~$B_P$ are identical. Set
 \begin{equation*}
-B(g)=\bigcap_{P\in\mathcal P_g}B_P,
+B(g)=\bigcap_{P\in\mathcal P_T(g)}B_P,
 \qquad
 \operatorname{Con}(g)
 =
-\bigcap_{P\in\mathcal P_g}\operatorname{Con}(P).
+\bigcap_{P\in\mathcal P_T(g)}\operatorname{Con}(P).
 \end{equation*}
 Then~$\cb{G_T=g}=B(g)\cap\operatorname{Con}(g)$. Indeed, the events~$B_P$
 place all interactions recorded by~$g$, while the consistency events make every
 prescribed outgoing interaction successful and exclude every additional
 successful interaction inside a patch.
 
-Conditional on~$B(g)$, the variables~$(\Sigma_P)_{P\in\mathcal P_g}$ are
+Conditional on~$B(g)$, the variables~$(\Sigma_P)_{P\in\mathcal P_T(g)}$ are
 independent and~$\Sigma_P$ has law~$\pP_P$. This follows from independent
 increments of the underlying Poisson processes on the disjoint patch
 intervals. At an outgoing initial boundary, conditioning on the presence of the
@@ -152,26 +152,26 @@ $\operatorname{Con}(Q)$ whenever~$P\neq Q$.
 Consequently,
 \begin{align*}
 \CE{
-\prod_{P\in\mathcal P_g}f_P\bb{\Sigma_P}
+\prod_{P\in\mathcal P_T(g)}f_P\bb{\Sigma_P}
 }{G_T=g}
 &=
 \CE{
-\prod_{P\in\mathcal P_g}f_P\bb{\Sigma_P}
+\prod_{P\in\mathcal P_T(g)}f_P\bb{\Sigma_P}
 }{B(g)\cap\operatorname{Con}(g)}
 \\
 &=
 \frac{
 \CE{
 \displaystyle
-\prod_{P\in\mathcal P_g}
- f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}
+\prod_{P\in\mathcal P_T(g)}
+ f_P\bb{\Sigma_P}\ind\bb{\operatorname{Con}(P)}
 }{B(g)}
 }{
 \CP{\operatorname{Con}(g)}{B(g)}
 }
 \\
 &=
-\prod_{P\in\mathcal P_g}
+\prod_{P\in\mathcal P_T(g)}
 \frac{
 \E_P\Cb{f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}}
 }{
@@ -179,7 +179,7 @@ Consequently,
 }
 \\
 &=
-\prod_{P\in\mathcal P_g}
+\prod_{P\in\mathcal P_T(g)}
 \E_P^{\mathrm{con}}\Cb{f_P\bb{\Sigma_P}}.
 \end{align*}
 Every denominator is positive for a realized patch, which proves
