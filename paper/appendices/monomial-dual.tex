@@ -8,22 +8,22 @@ Fix~$A\Subset\Lambda$. If~$i\notin A$, then~$\chi_A(\eta^i)=\chi_A(\eta)$.
 If~$i\in A$, then
 \begin{align*}
 c_i(\eta)
-\bigl(\chi_A(\eta^i)-\chi_A(\eta)\bigr)
+\bb{\chi_A(\eta^i)-\chi_A(\eta)}
 ={}&
-c_i^0(\eta)\chi_{A\setminus\{i\}}(\eta)
+c_i^0(\eta)\chi_{A\setminus\cb{i}}(\eta)
 \\
 &-
-\bigl(c_i^0(\eta)+c_i^1(\eta)\bigr)\chi_A(\eta).
+\bb{c_i^0(\eta)+c_i^1(\eta)}\chi_A(\eta).
 \end{align*}
 Indeed, when~$\eta(i)=0$, the left-hand side
-is~$c_i^0(\eta)\chi_{A\setminus\{i\}}(\eta)$; when~$\eta(i)=1$, it
-is~$-c_i^1(\eta)\chi_{A\setminus\{i\}}(\eta)$. Insert the expansions
+is~$c_i^0(\eta)\chi_{A\setminus\cb{i}}(\eta)$; when~$\eta(i)=1$, it
+is~$-c_i^1(\eta)\chi_{A\setminus\cb{i}}(\eta)$. Insert the expansions
 \eqref{eq:rate-expansion} and the signed coefficients
 \eqref{eq:signed-dual-coefficients}. Since
 \begin{equation*}
-\chi_S\chi_{A\setminus\{i\}}
+\chi_S\chi_{A\setminus\cb{i}}
 =
-\chi_{(A\setminus\{i\})\cup S},
+\chi_{\bb{A\setminus\cb{i}}\cup S},
 \qquad
 \chi_S\chi_A=\chi_{A\cup S},
 \end{equation*}
@@ -33,7 +33,7 @@ we obtain
 \Lcal\chi_A
 =
 \sum_{i\in A}\sum_{S\subseteq N(i)}
-a_i^\delta(S)\chi_{(A\setminus\{i\})\cup S}
+a_i^\delta(S)\chi_{\bb{A\setminus\cb{i}}\cup S}
 +
 \sum_{i\in A}\sum_{S\subseteq N(i)}
 a_i^\beta(S)\chi_{A\cup S}.
@@ -58,7 +58,7 @@ sign recovers the corresponding signed coefficient. Therefore
 \sigma
 \sum_{i\in A}\sum_{S\subseteq N(i)}
 a_i^\delta(S)
-\chi_{(A\setminus\{i\})\cup S}(\eta)
+\chi_{\bb{A\setminus\cb{i}}\cup S}(\eta)
 \\
 &+
 \sigma
@@ -69,18 +69,18 @@ a_i^\beta(S)
 \\
 &-
 \sum_{i\in A}
-\left(
+\bb{
 \sum_{S\subseteq N(i)}\delta_i(S)
 +
 \sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}\beta_i(S)
-\right)H(Y,\eta).
+}H(Y,\eta).
 \end{aligned}
 \end{equation}
 By~\eqref{eq:dual-potential}, adding~$V(A)H(Y,\eta)$ cancels the total jump
 rates in the last line of~\eqref{eq:dual-generator-on-H} and leaves the
 additional diagonal term
 \begin{equation*}
-\left(\sum_{i\in A}a_i^\beta(\varnothing)\right)H(Y,\eta).
+\bb{\sum_{i\in A}a_i^\beta(\varnothing)}H(Y,\eta).
 \end{equation*}
 The resulting expression is~$\sigma$ times the right-hand side of
 \eqref{eq:generator-action-monomials}, hence
