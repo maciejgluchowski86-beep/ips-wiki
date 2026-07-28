@@ -4,8 +4,8 @@
 \subsection{Generator action on monomials}
 \label{app:generator-action}
 
-Fix~$A\Subset\Lambda$. If~$i\notin A$, then
-$\chi_A(\eta^i)=\chi_A(\eta)$. If~$i\in A$, then
+Fix~$A\Subset\Lambda$. If~$i\notin A$, then~$\chi_A(\eta^i)=\chi_A(\eta)$.
+If~$i\in A$, then
 \begin{align*}
 c_i(\eta)
 \bigl(\chi_A(\eta^i)-\chi_A(\eta)\bigr)
@@ -15,9 +15,9 @@ c_i^0(\eta)\chi_{A\setminus\{i\}}(\eta)
 &-
 \bigl(c_i^0(\eta)+c_i^1(\eta)\bigr)\chi_A(\eta).
 \end{align*}
-Indeed, when~$\eta(i)=0$, the left-hand side is
-$c_i^0(\eta)\chi_{A\setminus\{i\}}(\eta)$; when~$\eta(i)=1$, it is
-$-c_i^1(\eta)\chi_{A\setminus\{i\}}(\eta)$. Insert the expansions
+Indeed, when~$\eta(i)=0$, the left-hand side
+is~$c_i^0(\eta)\chi_{A\setminus\{i\}}(\eta)$; when~$\eta(i)=1$, it
+is~$-c_i^1(\eta)\chi_{A\setminus\{i\}}(\eta)$. Insert the expansions
 \eqref{eq:rate-expansion} and the signed coefficients
 \eqref{eq:signed-dual-coefficients}. Since
 \begin{equation*}
@@ -38,15 +38,16 @@ a_i^\delta(S)\chi_{(A\setminus\{i\})\cup S}
 \sum_{i\in A}\sum_{S\subseteq N(i)}
 a_i^\beta(S)\chi_{A\cup S}.
 \end{equation}
-The terms with~$S=\varnothing$ in the first sum are deaths; the terms with
-$S\neq\varnothing$ are splits. The nonempty-target terms in the second sum are
-births. Its empty-target term is diagonal because~$A\cup\varnothing=A$.
+The terms with~$S=\varnothing$ in the first sum are deaths; the terms
+with~$S\neq\varnothing$ are splits. The nonempty-target terms in the second sum
+are births. Its empty-target term is diagonal
+because~$A\cup\varnothing=A$.
 
 \subsection{Dual rates, signs, and potential}
 \label{app:dual-data}
 
-Let~$Y=(A,\sigma)$ and let~$H$ be given by
-\eqref{eq:monomial-duality-function}. By
+Let~$Y=(A,\sigma)$ and let~$H$ be given
+by~\eqref{eq:monomial-duality-function}. By
 \eqref{eq:death-split-data}--\eqref{eq:birth-data}, multiplying a rate by its
 sign recovers the corresponding signed coefficient. Therefore
 \begin{equation}
@@ -82,7 +83,7 @@ additional diagonal term
 \left(\sum_{i\in A}a_i^\beta(\varnothing)\right)H(Y,\eta).
 \end{equation*}
 The resulting expression is~$\sigma$ times the right-hand side of
-\eqref{eq:generator-action-monomials}, hence equals
-$\Lcal_\eta H(Y,\eta)$. This proves~\eqref{eq:monomial-generator-duality}. The
-standard Feynman--Kac formula then gives
-\eqref{eq:monomial-feynman-kac-duality}.
+\eqref{eq:generator-action-monomials}, hence
+equals~$\Lcal_\eta H(Y,\eta)$. This proves
+\eqref{eq:monomial-generator-duality}. The standard Feynman--Kac formula then
+gives~\eqref{eq:monomial-feynman-kac-duality}.
