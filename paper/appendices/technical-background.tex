@@ -4,7 +4,23 @@
 \subsection{Local finiteness and backward predecessors}
 \label{app:local-finiteness}
 
-Let
+Put
+\begin{equation*}
+\overline c
+=
+\sup_{i\in\Lambda,\,\eta\in\Omega}c_i(\eta),
+\qquad
+m_0=\sup_{i\in\Lambda}\abs{N(i)}.
+\end{equation*}
+M\"obius inversion in~\eqref{eq:rate-expansion} gives
+\begin{equation*}
+\abs{c_i^x(S)}
+\leq
+2^{\abs S}\overline c
+\leq
+2^{m_0}\overline c.
+\end{equation*}
+Hence
 \begin{equation*}
 \overline\alpha
 =
@@ -13,20 +29,19 @@ Let
  \sum_{S\subseteq N(i)}\delta_i(S)
  +
  \sum_{\substack{S\subseteq N(i)\\S\neq\vn}}\beta_i(S)
-},
-\qquad
-m_0=\sup_{i\in\Lambda}\abs{N(i)}.
+}
+<\infty,
 \end{equation*}
-Both constants are finite under the standing bounded-rate and bounded-degree
-assumptions.
+because~$\delta_i(S)=\abs{c_i^0(S)}$ and
+$\beta_i(S)=\abs{c_i^0(S)+c_i^1(S)}$.
 
 \begin{lemma}[Local finiteness]
 \label{lem:dual-local-finiteness}
 If the signed dual starts from~$A\Subset\Lambda$, then almost surely only
 finitely many relevant interactions occur on every bounded time interval.
 Consequently,~$\mathcal I_T$ and~$\mathcal P_T$ are finite for every~$T<\infty$,
-ordinary interaction times are distinct, and every backward predecessor chain of
-patches whose boundary times decrease strictly reaches time~$0$ after finitely
+ordinary interaction times are distinct, and every maximal backward predecessor
+chain of patches with outgoing terminal boundary reaches time~$0$ after finitely
 many steps.
 \end{lemma}
 
@@ -183,12 +198,26 @@ sites of~$\mathcal E_T$ are independent of these data and of one another. As
 long as no successful interaction occurs, no site outside~$\mb{Cone}_T$ can
 become dual-active. Hence~$L_{T,t}$ is the intersection, over
 $P\in\mathcal E_T$, of the local events that the continuation of~$P$ creates no
-successful interaction before~$t$. Patch factorization gives the bulk factors
-$C(P)$. For an end patch~$P$, the one-site expectation of its Feynman--Kac
-factor, terminal value~$\eta(i(P))$, and local no-success event is precisely
-$C(\eta(i(P)),P^{\uparrow t})$; this is the meaning of the continuation identity
-\eqref{eq:end-patch-continuation}. Multiplying these independent local
-expectations proves the pointwise version of
+successful interaction before~$t$. The conditional product disintegration is
+therefore
+\begin{align*}
+\CE{Z_t^\eta\ind\bb{L_{T,t}}}{\mathcal G_T}
+&=
+\prod_{P\in\mathcal B_T}
+\E_P^{\mathrm{con}}\Cb{F(P)}
+\prod_{P\in\mathcal E_T}
+C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+\\
+&=
+\prod_{P\in\mathcal B_T}C(P)
+\prod_{P\in\mathcal E_T}
+C\bb{\eta\bb{i(P)},P^{\uparrow t}}.
+\end{align*}
+For an end patch, the continuation factor in this display is exactly the
+one-site Feynman--Kac expectation together with the local no-success event; its
+identification with~$C(\eta(i(P)),P^{\uparrow t})$ is
+\eqref{eq:end-patch-continuation}. Combining the display with the tower identity
+above proves the pointwise version of
 \eqref{eq:appendix-finite-continuation-identity}. Integration over~$\eta$ with
 respect to~$\mu$ proves the stated formula. The proof for~$\Lcal^\varepsilon$
 is identical.
@@ -210,15 +239,11 @@ Appendix~\ref{app:positivity-algebra}. This proves
 Let~$d$ be the graph metric used in Section~\ref{sec:convergence}, and choose
 $1\leq\ell<\infty$ such that~$N(i)\subseteq B(i,\ell)$ for every~$i$. Put
 \begin{equation*}
-\overline c
-=
-\sup_{i\in\Lambda,\,\eta\in\Omega}c_i(\eta),
-\qquad
 m
 =
 \sup_{i\in\Lambda}\abs{B(i,\ell)}.
 \end{equation*}
-Both constants are finite.
+This is finite by polynomial growth.
 
 \begin{lemma}[Finite propagation]
 \label{lem:finite-propagation}
