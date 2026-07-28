@@ -8,7 +8,7 @@
 
 \input{paper/preamble}
 
-% Temporary helpers for the structural drafting stage.  Remove these
+% Temporary helpers for the structural drafting stage. Remove these
 % together with the outline notes as the paper is written.
 \newcommand{\draftnote}[1]{%
   \begin{quote}
@@ -33,46 +33,43 @@
 \section{Introduction}
 \label{sec:introduction}
 
-\subsection{Calm regions and facilitating activity}
+\subsection{Calm regions and facilitating states}
 \label{subsec:intro-calm-facilitating}
 \label{subsec:intro-loss-of-memory}
 
-Some \hyperref[def:spin-system]{spin systems} distinguish between calm states and
-states which facilitate activity in their neighbors. A calm
-spin does not by itself make another site update. Facilitating activity can
-cause, permit, or accelerate such an update.
-
-This distinction appears under different update rules. In the contact
-process, an infected infects neighboring sites and may recover. In
-\hyperref[subsubsec:fa-1f-model]{FA-1f}, a vacancy permits a neighbor to
-refresh its state according to an independent Bernoulli draw, but does not
-determine the outcome of the refresh. In the
-\hyperref[subsubsec:babp-model]{biased annihilating branching process} (BABP), a
-particle causes a neighboring site to flip, resulting in branching or
-annihilation. In each case, the state at one site determines which changes are
-possible at another.
+Some \hyperref[def:spin-system]{spin systems} distinguish calm states from
+states which facilitate updates at neighbouring sites. A calm state does not
+by itself make another site update, whereas a facilitating state can cause,
+permit, or accelerate an update. This distinction appears under different
+model-specific names. In the contact process, an infected site infects
+neighbouring sites and may recover. In
+\hyperref[subsubsec:fa-1f-model]{FA-1f}, a vacancy permits a neighbouring site
+to refresh according to an independent Bernoulli draw, but does not determine
+the outcome of the refresh. In the
+\hyperref[subsubsec:babp-model]{biased annihilating branching process} (BABP),
+a particle causes a neighbouring site to flip, resulting in branching or
+annihilation.
 
 A region containing only calm states has no internal source of activity and
-tends to remain calm until activity reaches it. Facilitating states instead
+tends to remain calm until a facilitating state reaches it. Facilitating states
 cause updates, some of which leave further facilitating states behind. This
-does not make the dynamics monotone: a refresh or flip can create or remove activity, so ordered configurations need not
-remain ordered. It nevertheless suggests that some part of the
-calm-facilitating order may survive for selected observables.
+does not make the dynamics monotone: a refresh or flip can create or remove a
+facilitating state, so ordered configurations need not remain ordered. It
+nevertheless suggests that some part of the calm--facilitating order may
+survive for selected observables.
 
-Suppose now that independent noise creates facilitating activity throughout
-the lattice. Since these events do not depend on the initial configuration,
-they may interrupt the routes through which old information reaches a later
-local observation. We ask whether the process, after adding some noise to it, loses memory of its initial
-state, and whether the calm-facilitating tendency yields a useful comparison
-when attractiveness is absent.
-
-Neither monotone coupling nor reversibility answers these questions in the
-class considered here. The contact process is attractive, but FA-1f and BABP
-need not preserve the order of two coupled configurations. We also allow
-nonreversible dynamics, since noise need not preserve a
-reversible measure of the unperturbed system. The argument must use the
-graphical history without ordering trajectories or identifying the limiting
-law in advance.
+Suppose now that independent noise creates facilitating states throughout the
+lattice. Since these events do not depend on the initial configuration, they
+may interrupt the routes through which old information reaches a later local
+observation. We ask whether the process, after adding such noise, loses memory
+of its initial state and whether the calm--facilitating tendency yields a
+useful comparison when attractiveness is absent. Neither monotone coupling nor
+reversibility answers these questions in the class considered here. The
+contact process is attractive, but FA-1f and BABP need not preserve the order
+of two coupled configurations. We also allow nonreversible dynamics, since the
+added noise need not preserve a reversible measure of the unperturbed system.
+The argument must use the graphical history without ordering trajectories or
+identifying the limiting law in advance.
 
 \subsection{Interaction strength and persistence}
 \label{subsec:intro-temporal-cancellation}
@@ -80,16 +77,18 @@ law in advance.
 A facilitating interaction can change a flip rate from zero to a quantity of
 order one, and may therefore decide whether a site is allowed to flip. Its
 effect can nevertheless disappear before it is transmitted. If no information
-leaves a site between two local updates, a second birth is redundant, a
-later refresh overwrites the earlier refresh, and two flips cancel.
+leaves a site between two local updates, a second birth is redundant, a later
+refresh overwrites the earlier refresh, and two flips cancel. The relevant
+quantity is therefore not the instantaneous size of an interaction, but
+whether its effect is transmitted before another local update removes it.
 
-The natural \wiki{duality}{Feynman-Kac duality} records the transmission of
+The natural \wiki{duality}{Feynman--Kac duality} records the transmission of
 influence through a signed set-valued process. Its signs retain cancellations
 among successive local events. Taking absolute values before those events are
-grouped discards the cancellations and gives only large bounds controlled by the full
-interaction rates, even when little influence persists. The dual history must
-therefore be decomposed according to the interactions which transmit
-information between sites.
+grouped discards the cancellations and gives only large bounds controlled by
+the full interaction rates, even when little influence persists. The dual
+history must therefore be decomposed according to the interactions which
+transmit information between sites.
 
 \subsection{Patches and recovered order}
 \label{subsec:intro-patches}
@@ -100,27 +99,27 @@ from one site to another. These interactions form the
 \wiki{successful-interaction}{successful-interaction skeleton}. The remaining
 local Poisson marks are left hidden. Between successive touches of the
 skeleton, the history splits into one-site time intervals which we call
-\wiki{patch}{patches}.
-
-Conditional on the skeleton, the randomness hidden in distinct patches
-becomes independent. The signed Feynman-Kac factors can be averaged patch by patch, and
-the resulting contributions give an exact
+\wiki{patch}{patches}. Conditional on the skeleton, the randomness hidden in
+distinct patches becomes independent. The signed Feynman--Kac factors can be
+averaged patch by patch, and the resulting contributions give an exact
 \wiki{patch-representation-of-spin-systems}{representation} of the original
-spin system. This averaging retains cancellations of sign between successive interactions.
+spin system. This averaging retains sign cancellations between successive
+interactions.
 
 We say that a spin system has \emph{patch positivity} when every bulk patch
 contribution is nonnegative. This condition is characterized by explicit
 inequalities between the multilinear coefficients of the flip rates. It does
-not imply stochastic order, but it yields comparison for the centered moments. The semigroup preserves the resulting
-moment order. The same representation also compares a system with the system
-obtained by removing an independent pure-death component. When such deaths
-occur at a uniformly positive rate, local observables converge exponentially
-to a common invariant limit, which can be described by a patch formula.
+not imply stochastic order, but it yields comparisons for centered moments,
+and the semigroup preserves the resulting moment order. The same
+representation compares a system with the system obtained by removing an
+independent pure-death component. When such deaths occur at a uniformly
+positive rate, local observables converge exponentially to a common invariant
+limit, which can be described by a patch formula.
 
 \subsection{Main results}
 \label{subsec:intro-results}
 
-\draftnote{List the results in their conceptual order: patch factorization and representation; a coefficient characterization of patch positivity; the recovered centered-moment order; comparison under removal of pure deaths; uniform convergence under noise; and the full-patch formula for the invariant law. Distinguish convergence over \(\mathcal M_-\) from uniform exponential ergodicity when \(\mathbf p^\star\le \frac12\mathbf 1\).}
+\draftnote{List the results in their conceptual order: patch factorization and representation; a coefficient characterization of patch positivity; the recovered centered-moment order; comparison under removal of pure deaths; uniform convergence under noise; and the full-patch formula for the invariant law. Distinguish convergence over~$\mathcal M_-$ from uniform exponential ergodicity when~$\mathbf p^\star\leq \frac12\mathbf 1$.}
 
 \subsection{Applications, literature, and organization}
 \label{subsec:intro-literature}
@@ -146,35 +145,35 @@ to a common invariant limit, which can be described by a patch formula.
 \subsection{Coefficient characterization}
 \label{subsec:positivity-criterion}
 
-\draftnote{State the necessary and sufficient inequalities in the coefficients \(c_i^x(S)\), with the degenerate empty-neighbor case separated. Give a proof roadmap and reduce the proof to the four contribution types; keep the explicit formulas in Appendix~\ref{app:contribution-formulas}.}
+\draftnote{State the necessary and sufficient inequalities in the coefficients~$c_i^x(S)$, with the degenerate empty-neighbour case separated. Give a proof roadmap and reduce the proof to the four contribution types; keep the explicit formulas in Appendix~\ref{app:contribution-formulas}.}
 
-\subsection{The calm-facilitating interpretation}
+\subsection{The calm--facilitating interpretation}
 \label{subsec:positivity-interpretation}
 
-\draftnote{Explain that the nonpositive interaction coefficients force the flip intensity, and in particular the activation rate, to decrease as calm spins are added. Present this as the rigorous footprint of the calm/facilitating architecture, while stating clearly that coordinatewise decrease alone is weaker than the full criterion.}
+\draftnote{Explain that the nonpositive interaction coefficients force the flip intensity, and in particular the activation rate, to decrease as calm states are added. Present this as the rigorous footprint of the calm--facilitating structure, while stating clearly that coordinatewise decrease alone is weaker than the full criterion.}
 
 \subsection{End contributions and the critical density}
 \label{subsec:critical-density}
 
-\draftnote{Define the critical profile \(\mathbf p^\star\) as the smallest terminal one-density making every end contribution nonnegative, derive its coefficient formula, and explain why bulk positivity and the terminal density restriction are logically separate. Relevant entry: \wiki{patch-critical-density}{patch critical density}.}
+\draftnote{Define the critical profile~$\mathbf p^\star$ as the smallest terminal one-density making every end contribution nonnegative, derive its coefficient formula, and explain why bulk positivity and the terminal density restriction are logically separate. Relevant entry: \wiki{patch-critical-density}{patch critical density}.}
 
 \section{Recovered moment order}
 \label{sec:moment-order}
 
-\subsection{Centered moments and the class \texorpdfstring{\(\mathcal M_\star\)}{M-star}}
+\subsection{Centered moments and the class \texorpdfstring{$\mathcal M_\star$}{M-star}}
 \label{subsec:m-star}
 
-\draftnote{Introduce centered monomials and \(\mathcal M_\star\) only now, after the end expansion has shown why they are natural. Record convexity, weak closedness, and the product-profile characterization without treating the class as the paper's main object. Relevant entry: \wiki{high-density-measure}{high-density measures}.}
+\draftnote{Introduce centered monomials and~$\mathcal M_\star$ only now, after the end expansion has shown why they are natural. Record convexity, weak closedness, and the product-profile characterization without treating the class as the paper's main object. Relevant entry: \wiki{high-density-measure}{high-density measures}.}
 
 \subsection{Semigroup order and preservation}
 \label{subsec:moment-monotonicity}
 
-\draftnote{State centered-moment order preservation, ordinary monomial comparison, and preservation of \(\mathcal M_\star\). Use the preferred theorem format: motivation, statement, proof idea, required lemma or coefficient calculation, and short proof. Relevant entry: \wiki{monomial-monotonicity-for-high-density-measures}{monomial monotonicity}.}
+\draftnote{State centered-moment order preservation, ordinary monomial comparison, and preservation of~$\mathcal M_\star$. Use the preferred theorem format: motivation, statement, proof idea, required lemma or coefficient calculation, and short proof. Relevant entry: \wiki{monomial-monotonicity-for-high-density-measures}{monomial monotonicity}.}
 
 \subsection{Product profiles and reflected comparisons}
 \label{subsec:profile-comparisons}
 
-\draftnote{Extract the useful comparisons for homogeneous, inhomogeneous, and mixed Bernoulli laws. Explain the reflected comparison below \(\mathbf p^\star\), and avoid suggesting that the centered-moment order is stochastic domination.}
+\draftnote{Extract the useful comparisons for homogeneous, inhomogeneous, and mixed Bernoulli laws. Explain the reflected comparison below~$\mathbf p^\star$, and avoid suggesting that the centered-moment order is stochastic domination.}
 
 \subsection{Comparison after removing pure deaths}
 \label{subsec:pure-death-comparison}
@@ -187,12 +186,12 @@ to a common invariant limit, which can be described by a patch formula.
 \subsection{The convergence theorem and limiting formula}
 \label{subsec:convergence-statement}
 
-\draftnote{Introduce the lower centered-moment class \(\mathcal M_-\), then state uniform exponential convergence under a uniform pure-death component on a polynomial-growth lattice. State the full-patch formula for the limiting law in the same theorem. Relevant entries: \wiki{high-density-measure}{\(\mathcal M_-\)} and \wiki{common-invariant-limit-under-uniform-pure-deaths}{common invariant limit}.}
+\draftnote{Introduce the lower centered-moment class~$\mathcal M_-$, then state uniform exponential convergence under a uniform pure-death component on a polynomial-growth lattice. State the full-patch formula for the limiting law in the same theorem. Relevant entries: \wiki{high-density-measure}{$\mathcal M_-$} and \wiki{common-invariant-limit-under-uniform-pure-deaths}{common invariant limit}.}
 
 \subsection{Proof strategy}
 \label{subsec:convergence-roadmap}
 
-\draftnote{Explain the three-way decomposition before any technical estimates: escape from a finite interaction cone, a successful interaction after the cut time, and no successful interaction after the cut time. Explain how each term is controlled and why the cut time is eventually chosen near \(t/2\).}
+\draftnote{Explain the three-way decomposition before any technical estimates: escape from a finite interaction cone, a successful interaction after the cut time, and no successful interaction after the cut time. Explain how each term is controlled and why the cut time is eventually chosen near~$t/2$.}
 
 \subsection{Positive skeleton weights}
 \label{subsec:positive-skeleton-weights}
@@ -212,7 +211,7 @@ to a common invariant limit, which can be described by a patch formula.
 \subsection{Relaxation when there are no late interactions}
 \label{subsec:no-late-relaxation}
 
-\draftnote{Condition at the cut time, factor over the open patches, and use the explicit empty-neighbor relaxation of their continued end contributions. State the confined relaxation lemma before using it. Relevant entries: \wiki{patch-contribution}{patch relaxation} and \wiki{exponential-relaxation-under-confined-late-interactions}{confined late-interaction relaxation}.}
+\draftnote{Condition at the cut time, factor over the open patches, and use the explicit empty-neighbour relaxation of their continued end contributions. State the confined relaxation lemma before using it. Relevant entries: \wiki{patch-contribution}{patch relaxation} and \wiki{exponential-relaxation-under-confined-late-interactions}{confined late-interaction relaxation}.}
 
 \subsection{Completion, invariance, and the full-patch limit}
 \label{subsec:convergence-completion}
@@ -222,7 +221,7 @@ to a common invariant limit, which can be described by a patch formula.
 \subsection{Uniform ergodicity and extensions}
 \label{subsec:ergodicity-corollaries}
 
-\draftnote{Deduce uniform exponential ergodicity when \(\mathbf p^\star\le\frac12\mathbf1\). Record the finite-centered-perturbation extension separately, and explain that the remaining density restriction comes from controlling signs of end contributions rather than from an expected dynamical obstruction. Relevant entry: \wiki{ergodicity}{ergodicity}.}
+\draftnote{Deduce uniform exponential ergodicity when~$\mathbf p^\star\leq\frac12\mathbf1$. Record the finite-centered-perturbation extension separately, and explain that the remaining density restriction comes from controlling signs of end contributions rather than from an expected dynamical obstruction. Relevant entry: \wiki{ergodicity}{ergodicity}.}
 
 \section{Applications to facilitating models}
 \label{sec:applications}
@@ -230,7 +229,7 @@ to a common invariant limit, which can be described by a patch formula.
 \subsection{A verification template}
 \label{subsec:application-template}
 
-\draftnote{Give the reusable sequence for a model: expand the flip rates, identify the signed dual, verify patch positivity, compute \(\mathbf p^\star\), add admissible noise, and then invoke the order or convergence theorems.}
+\draftnote{Give the reusable sequence for a model: expand the flip rates, identify the signed dual, verify patch positivity, compute~$\mathbf p^\star$, add admissible noise, and then invoke the order or convergence theorems.}
 
 \subsection{The contact process as an attractive benchmark}
 \label{subsec:contact-benchmark}
@@ -248,7 +247,7 @@ to a common invariant limit, which can be described by a patch formula.
 \subsubsection{Patch positivity and critical density}
 \label{subsubsec:fa-1f-patches}
 
-\draftnote{Verify the coefficient criterion and compute \(p^\star=p\). Characterize which pure-noise perturbations preserve patch positivity. Relevant entries: \wiki{patch-positivity-for-fa-1f}{FA-1f patch positivity} and \wiki{patch-critical-density-for-fa-1f}{FA-1f critical density}.}
+\draftnote{Verify the coefficient criterion and compute~$p^\star=p$. Characterize which pure-noise perturbations preserve patch positivity. Relevant entries: \wiki{patch-positivity-for-fa-1f}{FA-1f patch positivity} and \wiki{patch-critical-density-for-fa-1f}{FA-1f critical density}.}
 
 \subsubsection{Monotonicity and noisy convergence}
 \label{subsubsec:fa-1f-results}
@@ -266,7 +265,7 @@ to a common invariant limit, which can be described by a patch formula.
 \subsubsection{Patch positivity and critical density}
 \label{subsubsec:babp-patches}
 
-\draftnote{Verify the coefficient criterion, compute \(p^\star=p\), and characterize admissible pure-noise perturbations. Relevant entries: \wiki{patch-positivity-for-babp}{BABP patch positivity} and \wiki{patch-critical-density-for-babp}{BABP critical density}.}
+\draftnote{Verify the coefficient criterion, compute~$p^\star=p$, and characterize admissible pure-noise perturbations. Relevant entries: \wiki{patch-positivity-for-babp}{BABP patch positivity} and \wiki{patch-critical-density-for-babp}{BABP critical density}.}
 
 \subsubsection{High-density comparison and noisy convergence}
 \label{subsubsec:babp-results}
@@ -299,7 +298,7 @@ to a common invariant limit, which can be described by a patch formula.
 \subsection{Arbitrary initial laws and further models}
 \label{subsec:future-directions}
 
-\draftnote{List the main open directions: convergence from arbitrary initial laws when \(\mathbf p^\star>\frac12\mathbf1\), sharper interpretation of the full-patch law, stronger orders than monomial moments, and systematic identification of further patch-positive non-attractive systems.}
+\draftnote{List the main open directions: convergence from arbitrary initial laws when~$\mathbf p^\star>\frac12\mathbf1$, sharper interpretation of the full-patch law, stronger orders than monomial moments, and systematic identification of further patch-positive non-attractive systems.}
 
 \appendix
 
@@ -313,7 +312,7 @@ to a common invariant limit, which can be described by a patch formula.
 \subsection{Local finiteness and conditional laws}
 \label{app:local-finiteness}
 
-\draftnote{Record any standard measurability, local-finiteness, and regular-conditional-distribution details omitted from Sections~\ref{sec:signed-dual}-\ref{sec:representation}. Cite standard graphical-construction results whenever possible.}
+\draftnote{Record any standard measurability, local-finiteness, and regular-conditional-distribution details omitted from Sections~\ref{sec:signed-dual}--\ref{sec:representation}. Cite standard graphical-construction results whenever possible.}
 
 \subsection{Finite-volume and finite-propagation approximations}
 \label{app:finite-propagation}
