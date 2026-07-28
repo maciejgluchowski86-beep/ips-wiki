@@ -118,35 +118,35 @@ functions~$f_P$,
 \end{theorem}
 
 \begin{proof}
-Write~$G_T=(Y_0,\mathcal I_T)$, so~$\mathcal G_T=\sigma(G_T)$, and condition on
-a realization~$G_T=g$. The realization fixes the boundary interactions and a
-finite labeled patch family~$\mathcal R=\mathcal P_T(g)$. Before requiring that
-these boundary interactions form the complete successful skeleton, the raw
-data in distinct patches have the product reference law
+Write~$G_T=(Y_0,\mathcal I_T)$, so~$\mathcal G_T=\sigma(G_T)$, and fix a
+realization~$G_T=g$ for which the conditional law is defined. The realization
+determines a finite labeled patch family~$\mathcal R=\mathcal P_T(g)$. For each
+$P\in\mathcal R$, let~$B_P$ be the event that the interaction prescribed by~$g$
+which begins~$P$ is present in~$I$. Here only its source, time, and target are
+prescribed; the split--birth kind remains hidden. For a patch beginning at the
+deterministic initial interaction, set~$B_P=\Omega$. If several patches begin at
+the same interaction, their events~$B_P$ are identical. Set
 \begin{equation*}
-\pP_g^0
-=
-\bigotimes_{P\in\mathcal R}\pP_P.
+B=\bigcap_{P\in\mathcal R}B_P.
 \end{equation*}
-Indeed, the patch interiors are disjoint source-time regions, and the hidden
-kind at each outgoing initial boundary has the rate-proportional law
-\eqref{eq:patch-initial-kind-law}.
 
-Relative to these fixed boundary interactions, the successful skeleton through
-time~$T$ is~$g$ if and only if
+Conditioning on~$G_T=g$ is the same as conditioning on~$B$ and on
 \begin{equation*}
-\bigcap_{P\in\mathcal R}\operatorname{Con}(P)
+\bigcap_{P\in\mathcal R}\operatorname{Con}(P).
 \end{equation*}
-occurs. The forward implication follows from the definition of consistency. For
-the reverse implication, read the boundary interactions chronologically. At
-time zero, the incoming patches reproduce the prescribed active set. Between
-consecutive boundary times, the local indicators agree with the global active
-state, and consistency excludes every unrecorded successful interaction. At an
-outgoing boundary, terminal consistency makes the source active, so the
-boundary interaction is successful; its hidden kind gives the prescribed
-post-boundary source state, while its targets begin the prescribed incoming
-patches. Induction reconstructs the active process and the skeleton through
-time~$T$.
+Indeed, the events~$B_P$ place all interactions recorded by~$g$, while the
+consistency events make every prescribed outgoing interaction successful and
+exclude every additional successful interaction inside a patch.
+
+Conditional on~$B$, the variables~$(\Sigma_P)_{P\in\mathcal R}$ are
+independent and~$\Sigma_P$ has law~$\pP_P$. This follows from independent
+increments of the underlying Poisson processes on the disjoint patch
+intervals. At an outgoing initial boundary, conditioning on the presence of the
+interaction leaves its hidden kind with the rate-proportional law
+\eqref{eq:patch-initial-kind-law}. Since~$\operatorname{Con}(P)$ is measurable
+with respect to~$\Sigma_P$, the consistency events are also conditionally
+independent given~$B$, and~$\Sigma_P$ is conditionally independent of
+$\operatorname{Con}(Q)$ whenever~$P\neq Q$.
 
 Consequently, for bounded measurable~$f_P$,
 \begin{align*}
@@ -154,11 +154,31 @@ Consequently, for bounded measurable~$f_P$,
 \prod_{P\in\mathcal R}f_P\bb{\Sigma_P}
 }{G_T=g}
 &=
+\CE{
+\prod_{P\in\mathcal R}f_P\bb{\Sigma_P}
+}{B,\ \bigcap_{P\in\mathcal R}\operatorname{Con}(P)}
+\\
+&=
+\frac{
+\CE{
+\displaystyle
+\prod_{P\in\mathcal R}
+ f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}
+}{B}
+}{
+\pP\bb{
+\displaystyle
+\bigcap_{P\in\mathcal R}\operatorname{Con}(P)
+\,\middle|\,B
+}
+}
+\\
+&=
 \frac{
 \displaystyle
 \prod_{P\in\mathcal R}
 \E_P\Cb{
-f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}
+ f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}
 }
 }{
 \displaystyle
