@@ -22,7 +22,7 @@ and let~$\mathcal M_*$ be the class of probability measures defined by
  \text{ for every }A\Subset\Lambda
 }.
 \end{equation*}
-Measures in~$\mathcal M_*$ have a high density of calm states in a centered-moment sense. The singleton conditions give~$\mu(\eta(i))\geq p_i^\star$, while
+Measures in~$\mathcal M_*$ have a high density of state~$1$, the calm state, in a centered-moment sense. The singleton conditions give~$\mu(\eta(i))\geq p_i^\star$, while
 \begin{equation*}
 \chi_A
 =
@@ -85,7 +85,7 @@ Distinct end patches are based at distinct sites. Expanding their product gives,
 C\bb{p_{i(P)}^\star,P}.
 \end{aligned}
 \end{equation}
-Thus the end-factor average is nonnegative for every~$\mu\in\mathcal M_*$. Together with patch positivity, this makes every successful-skeleton weight in the patch representation nonnegative.
+Thus the end-factor average is nonnegative for every~$\mu\in\mathcal M_*$. Together with patch positivity, this makes the integrand associated with each successful-interaction skeleton nonnegative.
 
 \subsection{Preservation by the semigroup}
 \label{subsec:moment-monotonicity}
@@ -198,6 +198,8 @@ Hence
 \begin{equation*}
 \prod_{i\in B}\bb{q_i-p_i^\star}
 \leq
+\abs{\prod_{i\in B}\bb{q_i-p_i^\star}}
+\leq
 \prod_{i\in B}\bb{p_i-p_i^\star}
 \end{equation*}
 for every finite~$B$, and again~$\mu_{\mb q}\preceq_*\mu_{\mb p}$. Both claims follow from Theorem~\ref{thm:centered-moment-order}.
@@ -248,7 +250,7 @@ z e^{-\bb{r_i-a_i}\Delta}
 \geq
 \psi_i(\Delta,z)
 \end{equation*}
-for~$z\in[0,1]$. Its slope in~$z$ also increases. The explicit patch formulas, together with patch positivity, therefore give
+for~$z\in[0,1]$. Its slope in~$z$ also increases. In the patch formulas, the denominators are unchanged; every occurrence of~$\psi_i$ has a nonnegative coefficient, and the outgoing-terminal signs are nonnegative by patch positivity. Therefore
 \begin{equation*}
 0\leq C(P)\leq C'(P)
 \end{equation*}
@@ -274,7 +276,7 @@ Under the hypotheses of Theorem~\ref{thm:pure-death-comparison}, suppose that th
 \end{corollary}
 
 \begin{proof}
-Apply Theorem~\ref{thm:pure-death-comparison} with~$\mu=\mu_{\mb1}\in\mathcal M_*$ and average over~$t\in[0,T]$. Every subsequential weak limit of either family of Ces\`aro averages is invariant. Uniqueness identifies the limits as~$\pi$ and~$\pi'$, and letting~$T\to\infty$ gives the claim.
+Apply Theorem~\ref{thm:pure-death-comparison} with~$\mu=\mu_{\mb 1}\in\mathcal M_*$ and average over~$t\in[0,T]$. Every subsequential weak limit of either family of Ces\`aro averages is invariant. Uniqueness identifies the limits as~$\pi$ and~$\pi'$, and letting~$T\to\infty$ gives the claim.
 \end{proof}
 
 The comparison concerns joint occupation probabilities and does not by itself imply stochastic domination.
