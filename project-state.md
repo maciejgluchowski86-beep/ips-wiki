@@ -25,10 +25,14 @@ skeleton, patch geometry, consistent patch laws, conditional factorization,
 patch contributions, and the finite-horizon representation theorem. Section 6
 is drafted in `paper/sections/patch-positivity.tex`; it defines patch
 positivity, proves the coefficient criterion, derives the calm--facilitating
-rate consequence, and computes the patch critical profile. Appendix A is
-drafted in `paper/appendices/monomial-dual.tex`, and Appendix B in
+rate consequence, and computes the patch critical profile. Section 7 is
+drafted in `paper/sections/moment-order.tex`; it introduces the centered
+monomials and the class `\mathcal M_*`, proves preservation of centered-moment
+order, derives product-profile comparisons, and proves comparison after
+removing pure deaths. Appendix A is drafted in
+`paper/appendices/monomial-dual.tex`, and Appendix B in
 `paper/appendices/patch-contributions.tex`. The abstract, Introduction Sections
-1.4--1.5, Section 7 onward, and Appendix C onward remain drafting notes. No
+1.4--1.5, Section 8 onward, and Appendix C onward remain drafting notes. No
 title or main-result summary has yet been fixed. Shared macros and theorem
 environments live in `paper/preamble.tex`.
 
@@ -68,7 +72,7 @@ develop coherent points rather than being broken around individual displays.
 
 ## Current patch entries
 
-1. `docs/entries/patch.md`: full one-site spacetime intervals cut by successful touches and their finite-horizon truncations.
+1. `docs/entries/patch.md`: full one-site spacetime intervals cut by incoming and outgoing successful interactions and their finite-horizon truncations.
 2. `docs/entries/interaction-cone.md`: sites reached from the initial dual set by successful interactions.
 3. `docs/entries/patch-consistency-event.md`: local patch measure, consistency event, and conditioned patch measure.
 4. `docs/entries/patch-factorization.md`: finite-horizon product decomposition of patch laws conditional on \(\cG_T\), proved by Poisson disintegration and chronological reconstruction of the successful skeleton.
