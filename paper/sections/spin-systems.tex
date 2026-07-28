@@ -11,7 +11,7 @@ neighbourhood~$N(i)\subseteq\Lambda\setminus\{i\}$, and assume
 \end{equation*}
 The neighbourhoods may be directed:~$j\in N(i)$ need not imply~$i\in N(j)$.
 We write~$A\Subset\Lambda$ when~$A$ is finite. The configuration space
-is~$\Omega=\{0,1\}^{\Lambda}$. Following the KCSM convention, state~$0$ is
+is~$\Omega=\{0,1\}^{\Lambda}$. Following the KCSM {\color{red} tiny citation like [n] to a paper with KCSM and FA-1f in particular needed here since KCSM term was not introduced} convention, state~$0$ is
 facilitating and state~$1$ is calm.
 
 \begin{definition}[Local functions]
@@ -78,13 +78,14 @@ The same symbol denotes the function and its coefficients; the
 argument~$\eta$ or~$S$ distinguishes them. The coefficients are given by
 M\"obius inversion on the subsets of~$N(i)$. Under these assumptions, the
 standard Harris construction gives a Feller process; we use this without
-further comment. See Liggett, \emph{Interacting Particle Systems}, Chapter~I.
+further comment. {\color{red} Proper bibliography with citations of the format [n] or [LigN] must be added, this is ugly, use a bib file to store all citations that we might use.} See Liggett, \emph{Interacting Particle Systems}, Chapter~I.
 Its semigroup is denoted by~$(P_t)_{t\geq0}$,
 with~$P_tf(\eta)=\E_\eta[f(\eta_t)]$. For a probability measure~$\mu$, we
 write~$(\mu P_t)(f)=\mu(P_tf)$.
 
+{\color{red} This paragraph is weird, it says "this inequality kind of corresponds to calm-facilitating structure, shortly explains why, then says our criterion is different from this". Fix. Doesn't have to be in depth, just that the patch positivity criterion is such that adding more calm states decreases flip rate.}
 Nonpositive interaction coefficients give one simple form of the
-calm--facilitating tendency. For fixed~$i$ and~$x$, if~$c_i^x(S)\leq0$ for
+calm-facilitating. For fixed~$i$ and~$x$, if~$c_i^x(S)\leq0$ for
 every nonempty~$S\subseteq N(i)$, then~$c_i^x$ is coordinatewise
 nonincreasing on~$\{0,1\}^{N(i)}$: replacing facilitating states among the
 neighbours by calm states can only decrease the flip rate. The converse is
@@ -214,7 +215,7 @@ in the usual product order.
 \label{def:bernoulli-noise}
 
 Let~$\mathbf p=(p_i)_{i\in\Lambda}\in[0,1]^\Lambda$. Independent Bernoulli
-noise with profile~$\mathbf p$ has generator
+noise with {\color{red} use d here not p} profile~$\mathbf p$ has generator
 \begin{equation*}
 \Ncal^{\mathbf p}f
 =
@@ -227,14 +228,14 @@ Adding this noise at level~$\varepsilon\geq0$ gives
 \Lcal+\varepsilon\Ncal^{\mathbf p}.
 \end{equation*}
 The perturbation adds the environment-independent rates~$\varepsilon p_i$
-to~$0\to1$ and~$\varepsilon(1-p_i)$ to~$1\to0$. We say that the spin system
-has a \emph{uniform independent $1\to0$ component} of level~$\delta>0$ if
+to~$0\to1$ and~$\varepsilon(1-p_i)$ to~$1\to0$. {\color{red} just call it~$\varepsilon$-uniform deaths} We say that the spin system
+has a \emph{uniform independent $1\to0$ component} of level~$\varepsilon>0$ if
 \begin{equation*}
-c_i^1(\eta)\geq\delta
+c_i^1(\eta)\geq\varepsilon
 \qquad
 \text{for every }i\in\Lambda\text{ and }\eta\in\Omega.
 \end{equation*}
-Equivalently, an independent transition~$1\to0$ at rate~$\delta$ can be removed
+Equivalently, an independent transition~$1\to0$ at rate~$\varepsilon$ can be removed
 while leaving nonnegative flip rates. The perturbation above has such a
 component of level~$\varepsilon\inf_i(1-p_i)$ whenever this quantity is
 positive. After introducing the monomial dual in Section~\ref{sec:signed-dual},
@@ -252,6 +253,7 @@ A probability measure~$\nu$ on~$\Omega$ is \emph{invariant} if
 \qquad
 \text{for every }t\geq0.
 \end{equation*}
+{\color{red} Ergodicity should be its own definition}
 The spin system is \emph{ergodic} if there is a probability measure~$\nu$ such
 that
 \begin{equation*}

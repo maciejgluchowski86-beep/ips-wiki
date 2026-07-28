@@ -1,18 +1,23 @@
 \section{The natural signed dual}
 \label{sec:signed-dual}
 
-For~$A\Subset\Lambda$, the action of~$\Lcal$ on~$\chi_A$ is a signed linear combination of monomials. We represent the signed coefficients as rates and sign labels of a process on finite subsets of~$\Lambda$. The difference between the resulting jump generator and~$\Lcal\chi_A$ is diagonal and is recorded by a Feynman--Kac potential.
+For~$A\Subset\Lambda$, the action of~$\Lcal$ on~$\chi_A$ is a signed linear
+combination of monomials. We represent the signed coefficients as rates and
+sign labels of a process on finite subsets of~$\Lambda$. The difference between
+the resulting jump generator and~$\Lcal\chi_A$ is diagonal and is recorded by a
+Feynman--Kac potential.
 
 \subsection{The signed additive set process}
 \label{subsec:signed-set-process}
 
-A signed dual state is a pair
+A signed active set is a pair
 \begin{equation*}
 Y=(A,\sigma)
 \in
-\{A:A\Subset\Lambda\}\times\{+,-\},
+\{A:A\Subset\Lambda\}\times\{+,-\}.
 \end{equation*}
-where~$A$ is the dual-active set. Signs are multiplied in the usual way and act on real numbers by~$+x=x$ and~$-x=-x$. Fix rates and sign labels
+Signs are multiplied in the usual way and act on real numbers by~$+x=x$ and
+~$-x=-x$. Fix rates and sign labels
 \begin{equation*}
 \delta_i(S),\ \beta_i(S)\geq0,
 \qquad
@@ -32,8 +37,13 @@ B_{i,S}(A,\sigma)
 \bigl(A\cup S,
 \sigma\sigma_i^\beta(S)\bigr).
 \end{align*}
-The update~$D_{i,\varnothing}$ is called a \emph{death};~$D_{i,S}$ with~$S\neq\varnothing$ is a \emph{split}; and~$B_{i,S}$ with~$S\neq\varnothing$ is a \emph{birth}. Ignoring the sign coordinate, these updates preserve unions, which accounts for the term \emph{additive}. The signed additive set process has generator
-\begin{align*}
+The update~$D_{i,\varnothing}$ is called a \emph{death};~$D_{i,S}$ with
+$S\neq\varnothing$ is a \emph{split}; and~$B_{i,S}$ with
+$S\neq\varnothing$ is a \emph{birth}. Ignoring the sign coordinate, these
+updates preserve unions, which accounts for the term \emph{additive} {\color{red} cite Griffeath additive and cancellative processes for the unsigned process}. The
+signed additive set process has generator
+\begin{equation*}
+\begin{aligned}
 \Dcal g(A,\sigma)
 ={}&
 \sum_{i\in A}\sum_{S\subseteq N(i)}
@@ -45,19 +55,24 @@ The update~$D_{i,\varnothing}$ is called a \emph{death};~$D_{i,S}$ with~$S\neq\v
 \sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}
 \beta_i(S)
 \bigl(g(B_{i,S}(A,\sigma))-g(A,\sigma)\bigr).
-\end{align*}
+\end{aligned}
+\end{equation*}
 
 \subsection{Dual data from the spin rates}
 \label{subsec:rates-to-dual}
 
-For~$r\in\R$, let~$\operatorname{sgn}_{\pm}(r)$ be~$+$ when~$r\geq0$ and~$-$ when~$r<0$. For the coefficients in~\eqref{eq:rate-expansion}, set
+For~$r\in\R$, let~$\operatorname{sgn}_{\pm}(r)$ be~$+$ when~$r\geq0$ and~$-$
+when~$r<0$. For the coefficients in~\eqref{eq:rate-expansion}, set
 \begin{equation}
 \label{eq:signed-dual-coefficients}
 a_i^\delta(S)=c_i^0(S),
 \qquad
 a_i^\beta(S)=-c_i^0(S)-c_i^1(S).
 \end{equation}
-In the expansion of~$\Lcal\chi_A$, the coefficient~$a_i^\delta(S)$ multiplies the monomial indexed by~$(A\setminus\{i\})\cup S$, while~$a_i^\beta(S)$ multiplies the monomial indexed by~$A\cup S$; see Appendix~\ref{app:generator-action}. For every~$S\subseteq N(i)$, define
+In the expansion of~$\Lcal\chi_A$, the coefficient~$a_i^\delta(S)$ multiplies
+the monomial indexed by~$(A\setminus\{i\})\cup S$, while~$a_i^\beta(S)$
+multiplies the monomial indexed by~$A\cup S$; see
+Appendix~\ref{app:generator-action}. For every~$S\subseteq N(i)$, define
 \begin{equation}
 \label{eq:death-split-data}
 \delta_i(S)=\abs{a_i^\delta(S)},
@@ -73,7 +88,9 @@ For~$S\neq\varnothing$, define
 \end{equation}
 and set~$\beta_i(\varnothing)=0$ and~$\sigma_i^\beta(\varnothing)=+$.
 
-The coefficient~$a_i^\beta(\varnothing)$ corresponds to an empty-target birth, which leaves the dual-active set unchanged. It is included in the potential rather than represented as a jump. Define
+The coefficient~$a_i^\beta(\varnothing)$ corresponds to an empty-target birth,
+which leaves the active set unchanged. It is included in the potential rather
+than represented as a jump. Define
 \begin{equation}
 \label{eq:dual-potential}
 V(A)=\sum_{i\in A}V_i,
@@ -85,7 +102,9 @@ V_i=
 +
 a_i^\beta(\varnothing).
 \end{equation}
-Since the neighbourhood sizes and flip rates are uniformly bounded, so are the total dual jump rate per dual-active site and~$\abs{V_i}$. Each jump adds at most~$\sup_i\abs{N(i)}$ sites to the dual-active set.
+Since the neighbourhood sizes and flip rates are uniformly bounded, so are the
+total dual jump rate per active site and~$\abs{V_i}$. Each jump activates at
+most~$\sup_i\abs{N(i)}$ new sites.
 
 \subsection{Monomial Feynman--Kac duality}
 \label{subsec:monomial-duality}
@@ -95,11 +114,12 @@ For~$Y=(A,\sigma)$, define
 \label{eq:monomial-duality-function}
 H(Y,\eta)=\sigma\chi_A(\eta).
 \end{equation}
-We write~$\pP_A$ and~$\E_A$ for the law and expectation of the signed set process started from~$(A,+)$.
+We write~$\pP_A$ and~$\E_A$ for the law and expectation of the signed set
+process started from~$(A,+)$.
 
 \begin{theorem}[Monomial Feynman--Kac duality]
 \label{thm:monomial-duality}
-For every signed dual state~$Y=(A,\sigma)$,
+For every signed active set~$Y=(A,\sigma)$,
 \begin{equation}
 \label{eq:monomial-generator-duality}
 \Lcal_\eta H(Y,\eta)
@@ -119,7 +139,11 @@ P_t\chi_A(\eta)
 \end{equation}
 \end{theorem}
 
-The coefficient calculation proving~\eqref{eq:monomial-generator-duality} is given in Appendix~\ref{app:dual-calculation}; the semigroup identity is the standard Feynman--Kac consequence. Independent transitions~$1\to0$ act diagonally on monomials. For a nonnegative profile~$\mathbf d=(d_i)_{i\in\Lambda}$,
+The coefficient calculation proving~\eqref{eq:monomial-generator-duality} is
+given in Appendix~\ref{app:dual-calculation}. The semigroup identity is the
+standard Feynman--Kac consequence of the generator identity. Independent
+transitions~$1\to0$ act diagonally on monomials. For a nonnegative
+profile~$\mathbf d=(d_i)_{i\in\Lambda}$,
 \begin{align*}
 \Ncal^{0,\mathbf d}f(\eta)
 &=
@@ -130,29 +154,51 @@ The coefficient calculation proving~\eqref{eq:monomial-generator-duality} is giv
 &=
 -\left(\sum_{i\in A}d_i\right)\chi_A.
 \end{align*}
-Adding~$\Ncal^{0,\mathbf d}$ leaves the dual jumps unchanged and replaces~$V(A)$ by~$V(A)-\sum_{i\in A}d_i$. We therefore call these independent transitions \emph{pure deaths}.
+Adding~$\Ncal^{0,\mathbf d}$ leaves the dual jumps unchanged and
+replaces~$V(A)$ by~$V(A)-\sum_{i\in A}d_i$. We therefore call these independent
+transitions \emph{pure deaths}.
 
 \subsection{Graphical construction}
 \label{subsec:dual-graphical-construction}
 
-For every~$i\in\Lambda$ and~$S\subseteq N(i)$, let~$I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson point process of rate~$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let~$I_{i,S}^\beta\subseteq(0,\infty)$ be a Poisson point process of rate~$\beta_i(S)$. All these processes are independent. The marked Poisson interaction set is
-\begin{align*}
-I^{\mathrm P}
-={}&
-\{(i,t,\delta,S):i\in\Lambda,\ S\subseteq N(i),\ t\in I_{i,S}^\delta\}
-\\
-&\cup
-\{(i,t,\beta,S):i\in\Lambda,\ \varnothing\neq S\subseteq N(i),\ t\in I_{i,S}^\beta\}.
-\end{align*}
-For~$(i,t,\alpha,S)\in I^{\mathrm P}$, the site~$i$ is the \emph{source},~$S$ is the \emph{target}, and~$\alpha\in\{\delta,\beta\}$ is the interaction kind. Deaths have empty target; splits and births have nonempty target.
+For every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
+$I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson point process of
+rate~$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let
+$I_{i,S}^\beta\subseteq(0,\infty)$ be a Poisson point process of
+rate~$\beta_i(S)$. All these processes are independent. The marked Poisson
+interaction set is
+\begin{equation*}
+I^{\mathrm P} = 
+\{(i,t,\alpha,S):i\in\Lambda,\ \alpha\in\cb{\delta,\beta},\ S\subseteq N(i),\ t\in I_{i,S}^\alpha\}.
+\end{equation*}
+For~$(i,t,\alpha,S)\in I^{\mathrm P}$, the site~$i$ is the \emph{source},
+~$S$ is the \emph{target}, and~$\alpha\in\{\delta,\beta\}$ is the interaction
+kind. Deaths have empty target; splits and births have nonempty target. 
 
-For an initial state~$Y_0=(A_0,\sigma_0)$, adjoin the deterministic initial interaction
+To make future constructions cleaner, for an initial state~$Y_0=(A_0,\sigma_0)$, adjoin the deterministic initial
+interaction
 \begin{equation}
 \label{eq:initial-interaction}
 \iota_0
 =
 (\infty,0,\mathsf{init},A_0;\sigma_0),
 \end{equation}
-where~$\infty\notin\Lambda$ is a formal source. Its target is~$A_0$, its sign is~$\sigma_0$, and it has no rate. The full interaction set is~$I=\{\iota_0\}\cup I^{\mathrm P}$. Start from~$Y_{0-}=(\varnothing,+)$ and apply~$\iota_0$, giving~$Y_0=(A_0,\sigma_0)$. Suppose the process has been constructed up to time~$s$ and has dual-active set~$A_s$. Among the Poisson clocks whose sources lie in~$A_s$, take the first ring after time~$s$. At a mark~$(i,t,\delta,S)$, apply~$D_{i,S}$; at a mark~$(i,t,\beta,S)$, apply~$B_{i,S}$. Continue from the new state and keep the process constant between relevant interactions. Rings at sources outside the dual-active set are ignored.
+where~$\infty\notin\Lambda$ is a formal source. Its target is~$A_0$, its sign
+is~$\sigma_0$, and it has no rate. The full interaction set is
+\begin{equation*}
+I=\{\iota_0\}\cup I^{\mathrm P}.
+\end{equation*}
+Start from~$Y_{0-}=(\varnothing,+)$ and apply~$\iota_0$,
+giving~$Y_0=(A_0,\sigma_0)$. Suppose the process has been constructed up to
+time~$s$ and has active set~$A_s$. Among the Poisson clocks whose sources lie
+in~$A_s$, take the first ring after time~$s$. At a
+mark~$(i,t,\delta,S)$, apply~$D_{i,S}$; at a mark~$(i,t,\beta,S)$,
+apply~$B_{i,S}$. Repeat from the new state, and keep the process constant between
+these relevant interactions. Rings at inactive sources are ignored.
 
-The total rate of relevant clocks is bounded by a constant times~$\abs{A_s}$, and one interaction adds at most~$\sup_i\abs{N(i)}$ sites to the dual-active set. Thus~$\abs{A_t}$ is dominated by a nonexplosive continuous-time branching process. In particular, only finitely many relevant interactions occur on every bounded time interval. We use the full interaction set~$I$ throughout the patch construction.
+The total rate of relevant clocks is bounded by a constant times~$\abs{A_s}$,
+and one interaction creates at most~$\sup_i\abs{N(i)}$ new active sites.
+Thus~$\abs{A_t}$ is dominated by a nonexplosive continuous-time branching
+process. In particular, only finitely many relevant interactions occur on every
+bounded time interval. We use the full interaction set~$I$ throughout the
+patch construction.
