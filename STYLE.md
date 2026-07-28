@@ -5,11 +5,12 @@ This file records the writing and LaTeX conventions for the paper under `paper/`
 ## Mathematical typography
 
 - Write inline mathematics with `$...$`, not `\(...\)`.
-- When prose runs directly into inline mathematics, insert a nonbreaking space: `for~$t\geq0$`, `write~$A\Subset\Lambda$`, `the profile~$\mathbf p$`.
+- When prose runs directly into inline mathematics, insert a nonbreaking space: `for~$t\geq0$`, `write~$A\Subset\Lambda$`, `the profile~$\mb p$`.
 - Use `equation*`, `align*`, `gather*`, or another appropriate display environment for unnumbered mathematics. Do not use `\[...\]`.
 - Use numbered environments only for formulas that are referenced later. A displayed formula should not receive a label merely because it is important.
 - Use `align` only when the alignment is part of the presentation. Use `equation` for a single referenced formula.
 - Avoid isolated short displays when an expression reads naturally inline or can be combined with an adjacent display.
+- Use the shared delimiter macros `\bb`, `\Cb`, `\cb`, `\abs`, and `\norm` instead of manual `\left...\right` or `\bigl...\bigr` constructions. Use `\mb` and `\mbs` for bold mathematical symbols.
 
 ## Terminology
 
@@ -17,6 +18,8 @@ This file records the writing and LaTeX conventions for the paper under `paper/`
 - Use the established model-specific term when one exists: infected/healthy for the contact process, vacant/occupied for KCSM, and particle/empty site for particle systems.
 - `Activity` is not a technical state variable. It may be used in the introduction as an umbrella term for births, refreshes, flips, and similar updates, but not as a formal synonym for the facilitating state.
 - `Active set` and `active source` are formal terminology for the signed dual. Write `dual-active` when the distinction from the spin states matters.
+- A single successful interaction has a `record`; the family of records is the `successful-interaction skeleton`.
+- Describe patch boundaries through incoming and outgoing successful interactions. Do not use `touch` as a technical term.
 - Use `bulk patch`, never `closed patch`.
 - Describe the comparison results as centered-moment or monomial-moment comparisons, not stochastic domination.
 
