@@ -139,48 +139,7 @@ limit, which can be described by a patch formula.
 
 \input{paper/sections/moment-order}
 
-\section{Uniform convergence under noise}
-\label{sec:convergence}
-
-\subsection{The convergence theorem and limiting formula}
-\label{subsec:convergence-statement}
-
-\draftnote{Introduce the lower centered-moment class~$\mathcal M_-$, then state uniform exponential convergence under uniform pure deaths on a polynomial-growth lattice. State the full-patch formula for the limiting law in the same theorem. Relevant entries: \wiki{high-density-measure}{$\mathcal M_-$} and \wiki{common-invariant-limit-under-uniform-pure-deaths}{common invariant limit}.}
-
-\subsection{Proof strategy}
-\label{subsec:convergence-roadmap}
-
-\draftnote{Explain the three-way decomposition before any technical estimates: escape from a finite interaction cone, a successful interaction after the cut time, and no successful interaction after the cut time. Explain how each term is controlled and why the cut time is eventually chosen near~$t/2$.}
-
-\subsection{Positive skeleton weights}
-\label{subsec:positive-skeleton-weights}
-
-\draftnote{Use the centered end expansion and comparison with the process obtained by removing pure deaths to obtain nonnegative, uniformly bounded skeleton weights. State only the comparison properties needed later. Relevant entry: \wiki{pure-death-comparison-under-patch-positivity}{pure-death comparison}.}
-
-\subsection{Spatial confinement}
-\label{subsec:spatial-confinement}
-
-\draftnote{State the interaction-cone identity, undo duality on the confined event, and invoke the ordinary zero-boundary finite-propagation estimate. Keep standard propagation proof details in Appendix~\ref{app:technical-background}. Relevant entries: \wiki{interaction-cone}{interaction cone}, \wiki{undoing-duality-under-confined-interactions}{undoing confined duality}, and \wiki{finite-propagation-for-zero-boundary-restrictions}{finite propagation}.}
-
-\subsection{Late successful interactions}
-\label{subsec:late-interactions}
-
-\draftnote{Control histories with a successful interaction after the cut time by tracing the required chain of outgoing-terminal patches back to time zero. Explain where the exponential pure-death factor is accumulated along that trail.}
-
-\subsection{Relaxation when there are no late interactions}
-\label{subsec:no-late-relaxation}
-
-\draftnote{Condition at the cut time, factor over the open patches, and use the explicit empty-neighbour relaxation of their continued end contributions. State the confined relaxation lemma before using it. Relevant entries: \wiki{patch-contribution}{patch relaxation} and \wiki{exponential-relaxation-under-confined-late-interactions}{confined late-interaction relaxation}.}
-
-\subsection{Completion, invariance, and the full-patch limit}
-\label{subsec:convergence-completion}
-
-\draftnote{Assemble the three estimates, choose the spatial ball and cut time, extend from monomials to local functions, and prove that the common limit is invariant. Identify its monomial moments with the all-time full-patch expectation.}
-
-\subsection{Uniform ergodicity and extensions}
-\label{subsec:ergodicity-corollaries}
-
-\draftnote{Deduce uniform exponential ergodicity when~$\mb p^\star\leq\frac12\mb1$. Record the finite-centered-perturbation extension separately, and explain that the remaining density restriction comes from controlling signs of end contributions rather than from an expected dynamical obstruction. Relevant entry: \wiki{ergodicity}{ergodicity}.}
+\input{paper/sections/convergence}
 
 \section{Applications to facilitating models}
 \label{sec:applications}
@@ -265,18 +224,7 @@ limit, which can be described by a patch formula.
 
 \input{paper/appendices/patch-contributions}
 
-\section{Technical graphical and propagation details}
-\label{app:technical-background}
-
-\subsection{Local finiteness and conditional laws}
-\label{app:local-finiteness}
-
-\draftnote{Record any standard measurability, local-finiteness, and regular-conditional-distribution details omitted from Sections~\ref{sec:signed-dual}--\ref{sec:representation}. Cite standard graphical-construction results whenever possible.}
-
-\subsection{Finite-volume and finite-propagation approximations}
-\label{app:finite-propagation}
-
-\draftnote{Supply the routine finite-volume approximation, Feller, and zero-boundary propagation arguments invoked by the moment-order and convergence theorems. Relevant entry: \wiki{finite-propagation-for-zero-boundary-restrictions}{finite propagation}.}
+\input{paper/appendices/technical-background}
 
 \bibliographystyle{alpha}
 \bibliography{paper/references}
