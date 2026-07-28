@@ -7,19 +7,11 @@
 \begin{definition}[Patch positivity]
 \label{def:patch-positivity}
 A spin system has \emph{patch positivity} if, for every~$A\Subset\Lambda$,
-\begin{equation*}
-C(P)\geq0
-\qquad
-\text{for every }P\in\mathcal P,
-\quad \pP_A\text{-almost surely}.
-\end{equation*}
+$C(P)\geq0$ for every~$P\in\mathcal P$,~$\pP_A$-almost surely.
 \end{definition}
 
-The end contributions depend additionally on the terminal configuration and
-require a one-density threshold. Write
-\begin{equation*}
-r_i=c_i^0(\vn)+c_i^1(\vn).
-\end{equation*}
+The end contributions also depend on the terminal configuration and require a
+one-density threshold. Set~$r_i=c_i^0(\vn)+c_i^1(\vn)$.
 
 \begin{theorem}[Coefficient criterion]
 \label{thm:patch-positivity-criterion}
@@ -29,113 +21,113 @@ site~$i$:
 \item if~$r_i=0$, then~$c_i\equiv0$;
 \item if~$r_i>0$, then, for every nonempty~$S\subseteq N(i)$,
 \begin{equation*}
-c_i^0(S)+c_i^1(S)\leq0 \quad \text{ and }\quad c_i^1(\vn)c_i^0(S)\geq c_i^0(\vn)c_i^1(S).
+c_i^0(S)+c_i^1(S)\leq0,
+\qquad
+c_i^1(\vn)c_i^0(S)\geq c_i^0(\vn)c_i^1(S).
 \end{equation*}
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-Fix a site~$i$ and use the full-patch formulas from
-Appendix~\ref{app:bulk-formulas}. For patches of type~$\mathsf{II}$ or
-$\mathsf{IE}$,
+Fix~$i$ and use the full-patch formulas from
+Appendix~\ref{app:bulk-formulas}. The contributions of patches beginning with
+an incoming interaction are
 \begin{equation*}
-C(P)=\frac{\psi_i(\Delta,1)}{\varphi_i(\Delta)}\geq0.
+C(P)
+=
+\begin{cases}
+\psi_i(\Delta,1)/\varphi_i(\Delta),
+&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{II},\mathsf{IE}},
+\\[0.4em]
+e^{V_i\Delta},
+&\mathsf X(P)\mathsf Y(P)=\mathsf{IO},
+\end{cases}
 \end{equation*}
-Patches of type~$\mathsf{IO}$ have contribution~$e^{V_i\Delta}>0$. These types
-impose no condition on the nonconstant rate coefficients.
+and are nonnegative whenever the corresponding patch can occur.
 
-Let~$P$ start with an outgoing interaction of nonempty target~$S$. For a patch
+Let~$P$ begin with an outgoing interaction of nonempty target~$S$. For a patch
 of type~$\mathsf{OO}$,
 \begin{equation*}
-C(P)=\sigma_i^\beta(S)e^{V_i\Delta}.
+C(P)=\sigma_i^\beta(S)e^{V_i\Delta},
+\qquad
+\beta_i(S)\sigma_i^\beta(S)=-c_i^0(S)-c_i^1(S).
 \end{equation*}
-Since
+These contributions are nonnegative exactly when
+$c_i^0(S)+c_i^1(S)\leq0$. For types~$\mathsf{OI}$ and~$\mathsf{OE}$, the
+denominator is positive on every realized patch, and the numerator is
 \begin{equation*}
-\beta_i(S)\sigma_i^\beta(S)
-=-c_i^0(S)-c_i^1(S),
+c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,1).
 \end{equation*}
-these contributions are nonnegative exactly when
-$c_i^0(S)+c_i^1(S)\leq0$.
 
-It remains to consider types~$\mathsf{OI}$ and~$\mathsf{OE}$. Their denominator
-is positive on every realized patch, and their numerator is
-\begin{equation*}
-c_i^0(S)
--\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,1).
-\end{equation*}
-Suppose first that~$r_i=0$. Then~$\psi_i(\Delta,1)=1$, so nonnegativity of this
-numerator gives~$c_i^1(S)\leq0$. Since~$c_i^1(\vn)=0$, the multilinear
-expansion of the nonnegative rate~$c_i^1$ has only nonpositive coefficients;
-hence~$c_i^1\equiv0$. The condition from the~$\mathsf{OO}$ patches then gives
-$c_i^0(S)\leq0$ for every nonempty~$S$. Together with~$c_i^0(\vn)=0$ and
-$c_i^0\geq0$, this implies~$c_i^0\equiv0$. Conversely, if~$c_i\equiv0$, there
-are no outgoing interactions from~$i$, while all incoming patch contributions
-are nonnegative.
+Suppose first that~$r_i=0$. Then~$\psi_i(\Delta,1)=1$, so nonnegativity of the
+last expression gives~$c_i^1(S)\leq0$ for every nonempty~$S$. Hence~$c_i^1$ is
+coordinatewise nonincreasing, while~$c_i^1(\vn)=0$ and~$c_i^1\geq0$; therefore
+$c_i^1\equiv0$. The condition from the~$\mathsf{OO}$ patches now gives
+$c_i^0(S)\leq0$ for every nonempty~$S$, and the same argument yields
+$c_i^0\equiv0$. Conversely, if~$c_i\equiv0$, there are no outgoing
+interactions from~$i$, and every incoming patch contribution is nonnegative.
 
-Now suppose that~$r_i>0$ and assume the condition obtained from the
-$\mathsf{OO}$ patches. The empty coefficients~$c_i^0(\vn)$ and
-$c_i^1(\vn)$ are nonnegative, and
-\begin{equation*}
+Suppose now that~$r_i>0$ and that the condition from the~$\mathsf{OO}$ patches
+holds. Since~$c_i^0(\vn),c_i^1(\vn)\geq0$,
+\begin{align*}
 \psi_i(\Delta,1)
-=
+&=
 \frac{c_i^0(\vn)}{r_i}
 +
-\frac{c_i^1(\vn)}{r_i}e^{-r_i\Delta}
-\end{equation*}
-decreases with~$\Delta$. Since
-$-c_i^0(S)-c_i^1(S)\geq0$, the numerator above is minimized in the long-patch
-limit, where it equals
-\begin{equation*}
-\frac{
- c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)
-}{r_i}.
-\end{equation*}
-It is nonnegative for every patch length exactly when the second inequality in
-the statement holds. This checks every patch type and proves the criterion.
+\frac{c_i^1(\vn)}{r_i}e^{-r_i\Delta},
+\\
+\lim_{\Delta\to\infty}
+\Cb{
+ c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,1)
+}
+&=
+\frac{c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)}{r_i}.
+\end{align*}
+$\psi_i(\Delta,1)$ decreases with~$\Delta$, and
+$-c_i^0(S)-c_i^1(S)\geq0$. The numerator is therefore minimized in the
+long-patch limit, so it is nonnegative for every patch length exactly when the
+second inequality in the statement holds.
 \end{proof}
 
 \subsection{The calm--facilitating consequence}
 \label{subsec:positivity-interpretation}
 
-\begin{corollary}
+\begin{corollary}[Calm--facilitating rates]
 \label{cor:calm-facilitating-coefficients}
-If a spin system has patch positivity, then the facilitator-creation rate~$c_i^1$ and the local refresh
-intensity~$c_i^0+c_i^1$ are coordinatewise nonincreasing as calm states are
-added to the neighbourhood of~$i$.
+If a spin system has patch positivity, then~$c_i^1$ and~$c_i^0+c_i^1$ are
+coordinatewise nonincreasing as calm states are added to the neighbourhood
+of~$i$.
 \end{corollary}
 
 \begin{proof}
-The claim is immediate at sites with~$r_i=0$, where
-Theorem~\ref{thm:patch-positivity-criterion} gives~$c_i\equiv0$. Suppose that
-$r_i>0$ and~$c_i^1(S)>0$. The first inequality in the coefficient criterion then
-gives~$c_i^0(S)<0$, and hence
+The claim is immediate when~$r_i=0$. Suppose that~$r_i>0$ and~$c_i^1(S)>0$.
+The first inequality in Theorem~\ref{thm:patch-positivity-criterion} gives
+$c_i^0(S)<0$, and hence
 \begin{equation*}
 c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)<0,
 \end{equation*}
 because~$c_i^0(\vn),c_i^1(\vn)\geq0$ and at least one is positive. This
-contradicts the second inequality in the criterion. The coordinatewise
-statement follows from the multilinear expansions: every nonconstant
-coefficient of~$c_i^1$ and of~$c_i^0+c_i^1$ is nonpositive.
+contradicts the second inequality. The coordinatewise statement follows from
+the multilinear expansions, since every nonconstant coefficient of~$c_i^1$
+and of~$c_i^0+c_i^1$ is nonpositive.
 \end{proof}
 
-For a fixed neighbourhood configuration, the two directional rates define a
-Bernoulli refresh with intensity~$c_i^0+c_i^1$ and calm-state probability
-$c_i^0/(c_i^0+c_i^1)$ whenever the denominator is positive. The corollary
-therefore says that replacing facilitating neighbours by calm ones cannot
-increase either the local update intensity or the rate at which a calm site
-becomes facilitating. This is the calm--facilitating tendency used in the
-introduction. It does not imply that the flip rate is monotone for both values
-of the spin at~$i$: the rate~$c_i^0$ may increase as calm neighbours are added.
-Coordinatewise monotonicity alone is also weaker than patch positivity and does
-not imply the coefficient inequalities in
+For a fixed neighbourhood configuration, the two directional rates are those
+of a Bernoulli refresh with intensity~$c_i^0+c_i^1$ and calm-state probability
+$c_i^0/(c_i^0+c_i^1)$ whenever the denominator is positive. Thus replacing
+facilitating neighbours by calm ones cannot increase either the local update
+intensity or the rate at which a calm site becomes facilitating. This does not
+make the full flip rate monotone:~$c_i^0$ may increase as calm neighbours are
+added. Coordinatewise monotonicity is also weaker than patch positivity and
+does not imply the coefficient inequalities in
 Theorem~\ref{thm:patch-positivity-criterion}.
 
 \subsection{End contributions and the critical profile}
 \label{subsec:critical-density}
 
-Patch positivity does not by itself determine the sign of an end contribution,
-because~$C(p,P)$ also contains the terminal one-density~$p$. For a patch-positive
-spin system, define the \emph{patch critical density} at~$i$ by
+Patch positivity does not determine the sign of an end contribution, because
+$C(p,P)$ also depends on the terminal one-density~$p$. For a patch-positive spin
+system, define the \emph{patch critical density} at~$i$ by
 \begin{equation*}
 p_i^\star
 =
@@ -146,8 +138,7 @@ p_i^\star
 }.
 \end{equation*}
 The patch critical profile is~$\mb p^\star=(p_i^\star)_{i\in\Lambda}$. For a
-translation-invariant system it is constant, and its common value is denoted
-by~$p^\star$.
+translation-invariant system it is constant, with common value~$p^\star$.
 
 \begin{proposition}[Critical-profile formula]
 \label{prop:critical-profile-formula}
@@ -174,47 +165,45 @@ $c_i\equiv0$. There are no outgoing end patches based at~$i$, so~$p_i^\star=0$,
 and the formula holds.
 
 Suppose that~$r_i>0$, and consider an outgoing end patch based at~$i$ with
-initial target~$S\neq\vn$. Its denominator is positive, and its numerator is
+initial target~$S\neq\vn$. Its denominator is positive, and write its numerator
+as
 \begin{equation*}
 N_{i,S}(\Delta,p)
 =
-c_i^0(S)
--\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,p).
+c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,p).
 \end{equation*}
-Patch positivity gives~$c_i^0(S)+c_i^1(S)\leq0$, so this numerator is
-nondecreasing in~$p$. Since
-\begin{equation*}
+Patch positivity gives~$c_i^0(S)+c_i^1(S)\leq0$, so~$N_{i,S}(\Delta,p)$ is
+nondecreasing in~$p$. Moreover,
+\begin{align*}
 \psi_i(\Delta,p)
-=
+&=
 \frac{c_i^0(\vn)}{r_i}
 +
 \bb{p-\frac{c_i^0(\vn)}{r_i}}e^{-r_i\Delta},
-\end{equation*}
-$N_{i,S}(\Delta,p)$ interpolates between its short-patch limit
-\begin{equation*}
-c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}p
-\end{equation*}
-and its long-patch limit
-\begin{equation*}
-\frac{
- c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)
-}{r_i}.
-\end{equation*}
-The latter is nonnegative by
-Theorem~\ref{thm:patch-positivity-criterion}. Therefore the contribution is
-nonnegative for every patch length exactly when the short-patch limit is
-nonnegative.
+\\
+N_{i,S}(0,p)
+&=
+c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}p,
+\\
+\lim_{\Delta\to\infty}N_{i,S}(\Delta,p)
+&=
+\frac{c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)}{r_i}.
+\end{align*}
+The last quantity is nonnegative by
+Theorem~\ref{thm:patch-positivity-criterion}. Since~$N_{i,S}(\Delta,p)$ is
+affine in~$e^{-r_i\Delta}$, it is nonnegative for every patch length exactly
+when~$N_{i,S}(0,p)\geq0$.
 
-When~$c_i^0(S)+c_i^1(S)=0$, the second coefficient inequality gives
-$c_i^0(S)\geq0$, so the target~$S$ imposes no restriction. When the sum is
-negative, the short-patch condition is equivalent to
+If~$c_i^0(S)+c_i^1(S)=0$, the second coefficient inequality gives
+$c_i^0(S)\geq0$, so~$S$ imposes no restriction. If the sum is negative, the
+short-patch condition is equivalent to
 \begin{equation*}
 p\geq
 \frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}.
 \end{equation*}
 Taking the supremum over nonempty targets and imposing~$p\geq0$ proves the
-formula. Patch positivity also ensures that every ratio entering the supremum
-is at most~$1$.
+formula. Patch positivity also ensures that every ratio in the supremum is at
+most~$1$.
 \end{proof}
 
 \begin{corollary}[Empty-neighbour bound]
