@@ -37,6 +37,8 @@
 \label{subsec:intro-calm-facilitating}
 \label{subsec:intro-loss-of-memory}
 
+{\color{red} Across the paper you dont use my macros, especially for brackets. Use my commands like~$\bb{1+\frac{1}{n}}^n \to e$ to keep the brackets nice without writing left right everywhere}
+
 Some \hyperref[def:spin-system]{spin systems} distinguish calm states from
 states which facilitate updates at neighbouring sites. A calm state does not
 by itself make another site update, whereas a facilitating state can cause,
@@ -48,7 +50,7 @@ to refresh according to an independent Bernoulli draw, but does not determine
 the outcome of the refresh. In the
 \hyperref[subsubsec:babp-model]{biased annihilating branching process} (BABP),
 a particle causes a neighbouring site to flip, resulting in branching or
-annihilation.
+annihilation. {\color{red} Short citations for these models maybe, see later notes for bibliography issues}
 
 A region containing only calm states has no internal source of activity and
 tends to remain calm until a facilitating state reaches it. Facilitating states
@@ -93,11 +95,10 @@ transmit information between sites.
 \subsection{Patches and recovered order}
 \label{subsec:intro-patches}
 
-Starting from a local observation and tracing its graphical history backwards,
-we reveal the times and endpoints of the interactions which carry dependence
+{\color{red} Its unclear here that this paragraph is for the dual process, not the original spin system. One sentence fix, like our start point is the FK duality or something} Starting from a local observation and tracing its graphical history backwards,
+we reveal the times and target sites of the interactions which carry dependence
 from one site to another. These interactions form the
-\wiki{successful-interaction}{successful-interaction skeleton}. The remaining
-local Poisson marks are left hidden. Between successive touches of the
+\wiki{successful-interaction}{successful-interaction skeleton}. The effect of the interaction on source site and single-site updates remain hidden. {\color{red} You write of "touches" as it was a defined mathematical term. This is confusing. I'd rather just talk about interactions/updates, even if that forces some repetitions in the prose. Fix needed across the paper.}Between successive touches of the
 skeleton, the history splits into one-site time intervals which we call
 \wiki{patch}{patches}. Conditional on the skeleton, the randomness hidden in
 distinct patches becomes independent. The signed Feynman--Kac factors can be

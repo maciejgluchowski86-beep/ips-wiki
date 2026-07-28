@@ -25,7 +25,7 @@ i\in A_{t-}.
 \end{equation*}
 Its successful-interaction skeleton is the triple~$(i,t,S)$.
 \end{definition}
-
+{\color{red} You seem to be using skeleton both for a single successful interaction and for the set of all of them}
 The skeleton records the source, time, and target of every nonempty-target
 interaction which acts on the process, but not whether the interaction is a
 split or a birth. It also omits all death clocks and all rings at inactive
@@ -43,9 +43,9 @@ finite almost surely.
 
 \subsection{Patch geometry and labels}
 \label{subsec:patch-geometry}
-
+{\color{red} Id rather use incoming/outgoing interaction rather than "touch"}
 A skeleton~$(j,t,S)\in\mathcal I$ gives an incoming touch at each site in~$S$.
-If~$j\in\Lambda$, it also gives an outgoing touch at its source~$j$. Thus the
+If~$j\neq \infty$, it also gives an outgoing touch at its source~$j$. Thus the
 initial skeleton gives only incoming touches, whereas every ordinary successful
 interaction gives one outgoing touch and one incoming touch at each target
 site. For~$i\in\Lambda$, write
@@ -112,8 +112,8 @@ The labels have the following formal and graphical meanings.
 \hline
 boundary & label & meaning \\
 \hline
-initial & $\mathsf I$ & $i(P)\in S(P)$; the patch begins at a target of its initial interaction \\
-initial & $\mathsf O$ & $i(P)\notin S(P)$; the patch begins at the source of its initial interaction \\
+initial & $\mathsf I$ & $i(P)\in S(P)$; the patch begins with an incoming interaction \\
+initial & $\mathsf O$ & $i(P)\notin S(P)$; the patch begins with an outgoing interaction \\
 terminal & $\mathsf I$ & the next successful touch at~$i(P)$ is incoming \\
 terminal & $\mathsf O$ & the next successful touch at~$i(P)$ is outgoing \\
 terminal & $\mathsf E$ & there is no later successful touch at~$i(P)$ \\

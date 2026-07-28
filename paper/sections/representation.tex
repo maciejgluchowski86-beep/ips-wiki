@@ -51,7 +51,7 @@ In this case,
 and~$\mathbb P_P$ is the product of the law in
 \eqref{eq:patch-initial-kind-law} and the interior Poisson law.
 Write~$\mathbb E_P$ for expectation under~$\mathbb P_P$.
-
+{\color{red} Needs be mentioned what this X represents, or rather is supposed to represent $X_t^P = \ind(i(P) \in A_t)$ because it currently comes out of nowhere. Its dynamics are then explained better and can the consistency event can be interpreted.}
 The local active indicator~$X^P$ is determined from~$\Sigma_P$. Its initial
 value is
 \begin{equation*}
@@ -66,11 +66,12 @@ Reading~$\Sigma_P^\circ$ chronologically, a~$\delta$-mark sends an active
 source to~$0$, a~$\beta$-mark leaves an active source at~$1$, and every mark at
 an inactive source is ignored. Between marks,~$X^P$ is constant. For a finite
 patch with terminal label~$\mathsf E$, we also set~$X_e^P=X_{e-}^P$.
-
+{\color{red} Consistency with what? This comes out of nowhere to the reader.}
 The consistency event has two parts. No interior nonempty-target interaction
 may have an active source, since it would be an additional successful
 interaction. If the terminal boundary is outgoing, its source must be active
 immediately before the boundary. Formally,
+{\color{red} This could use a text in set representation, "no successful interaction inside patch and if patch ends with outgoing interaction then site must be active}
 \begin{equation*}
 \begin{aligned}
 \operatorname{Con}(P)
@@ -124,6 +125,7 @@ measurable functions~$f_P$,
 \end{theorem}
 
 \begin{proof}
+{\color{red} The proof is too compacted, worse than the wiki. The argument should be that conditioning on $\mathcal{G}_T$ is the same as conditioning on the random family $\mathcal{P}_T$ and the intersection of Cons(P). Then argument is that data inside each patch region was independent before conditioning, each consistency event is independent from the rest and each $\Sigma_P$ is independent from $Con(Q)$ for $Q\neq P$. The correct chain of equalities must be explicitly stated, maybe even in abstract form.}
 Condition on a realization of~$(Y_0,\mathcal I_T)$. It fixes a finite
 family~$\mathcal R$ of labeled patches and all their boundary locations. Before
 requiring that these boundaries form the complete successful skeleton, the raw
@@ -160,7 +162,7 @@ which proves~\eqref{eq:patch-factorization}.
 
 \subsection{Patch contributions}
 \label{subsec:patch-contributions}
-
+{\color{red} Needs a sentence that this is for factorisation of the FK duality random variable to remind the reader since that was introduced way back.}
 The sign assigned to the initial boundary of a patch is
 \begin{equation*}
 \sigma(P)
@@ -221,13 +223,14 @@ On the global graphical space, let~$X^P$,~$\alpha(P)$, and~$\sigma(P)$ denote
 the local data induced on each patch. Every nonempty-target successful
 interaction contributes its sign to the unique patch which begins at its
 source. Pure deaths have positive sign
-because~$a_i^\delta(\varnothing)=c_i^0(\varnothing)\geq0$. Hence
+because~$a_i^\delta(\varnothing)=c_i^0(\varnothing) = c_i(\mb{1}^{i})\geq0$. Hence
 \begin{equation*}
 \sigma_t
 =
 \prod_{P\in\mathcal B_t}\sigma(P)
 \prod_{Q\in\mathcal E_t}\sigma(Q).
 \end{equation*}
+{\color{red} There is no need to call bulk patches with P and end patches with Q, just call all of them P}
 Since~$V(A_u)=\sum_{i\in A_u}V_i$, the patch intervals also split the
 Feynman--Kac integral:
 \begin{equation*}
@@ -237,7 +240,7 @@ Feynman--Kac integral:
 V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
 +
 \sum_{Q\in\mathcal E_t}
-V_{i(Q)}\int_{s(Q)}^{e(Q)}X_u^Q\,du.
+V_{i(Q)}\int_{s(Q)}^{t}X_u^Q\,du.
 \end{equation*}
 The end patches record the state at time~$t$, so
 \begin{equation*}

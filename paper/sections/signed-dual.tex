@@ -40,7 +40,7 @@ B_{i,S}(A,\sigma)
 The update~$D_{i,\varnothing}$ is called a \emph{death};~$D_{i,S}$ with
 $S\neq\varnothing$ is a \emph{split}; and~$B_{i,S}$ with
 $S\neq\varnothing$ is a \emph{birth}. Ignoring the sign coordinate, these
-updates preserve unions, which accounts for the term \emph{additive}. The
+updates preserve unions, which accounts for the term \emph{additive} {\color{red} cite Griffeath additive and cancellative processes for the unsigned process}. The
 signed additive set process has generator
 \begin{equation*}
 \begin{aligned}
@@ -167,20 +167,15 @@ rate~$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let
 $I_{i,S}^\beta\subseteq(0,\infty)$ be a Poisson point process of
 rate~$\beta_i(S)$. All these processes are independent. The marked Poisson
 interaction set is
-\begin{align*}
-I^{\mathrm P}
-={}&
-\{(i,t,\delta,S):i\in\Lambda,\ S\subseteq N(i),\ t\in I_{i,S}^\delta\}
-\\
-&\cup
-\{(i,t,\beta,S):i\in\Lambda,\ \varnothing\neq S\subseteq N(i),\
- t\in I_{i,S}^\beta\}.
-\end{align*}
+\begin{equation*}
+I^{\mathrm P} = 
+\{(i,t,\alpha,S):i\in\Lambda,\ \alpha\in\cb{\delta,\beta},\ S\subseteq N(i),\ t\in I_{i,S}^\alpha\}.
+\end{equation*}
 For~$(i,t,\alpha,S)\in I^{\mathrm P}$, the site~$i$ is the \emph{source},
 ~$S$ is the \emph{target}, and~$\alpha\in\{\delta,\beta\}$ is the interaction
-kind. Deaths have empty target; splits and births have nonempty target.
+kind. Deaths have empty target; splits and births have nonempty target. 
 
-For an initial state~$Y_0=(A_0,\sigma_0)$, adjoin the deterministic initial
+To make future constructions cleaner, for an initial state~$Y_0=(A_0,\sigma_0)$, adjoin the deterministic initial
 interaction
 \begin{equation}
 \label{eq:initial-interaction}
