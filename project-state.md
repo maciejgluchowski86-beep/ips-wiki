@@ -29,6 +29,14 @@ is drafted in `paper/appendices/monomial-dual.tex`, and Appendix B in
 title or main-result summary has yet been fixed. Shared macros and theorem
 environments live in `paper/preamble.tex`.
 
+The paper writing conventions are recorded in `STYLE.md`. In particular,
+inline mathematics uses `$...$` with a preceding nonbreaking space when it
+follows prose, unnumbered displays use starred mathematical environments, and
+equation numbers are reserved for formulas referenced later. General states
+are called calm or facilitating; model-specific terminology is used where
+available, and `activity` is not a formal state variable. Paragraphs should
+develop coherent points rather than being broken around individual displays.
+
 ## Current core entries
 
 1. `docs/entries/lattice-and-graph.md`: lattice notation \(\Lambda\), neighbourhoods \(N(i)\), enlarged neighbourhoods \(N_*(i)\), reachability, orientation, and graph descriptions.
@@ -103,7 +111,7 @@ environments live in `paper/preamble.tex`.
 - Entries should be mathematical articles, not commentary about the wiki.
 - Cross-links should usually be Wikipedia-style inline links through relevant words and phrases.
 - Do not use top-level "Related pages" lists on ordinary entries.
-- Use \(...\) for inline math and $$...$$ for display math.
+- Use \(...\) for inline math and $$...$$ for display math in Markdown wiki entries. The paper uses the separate conventions in `STYLE.md`.
 - Subset notation is a style convention, not a build constraint: prefer distinct notation for non-strict, strict, and finite subsets in polished entries.
 - Use \(\Lambda\) for the lattice and \(\mathcal S\) for the single-site state space.
 - A graph is an alternative description of neighbourhoods on \(\Lambda\).
