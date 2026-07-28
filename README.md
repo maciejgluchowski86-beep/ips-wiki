@@ -8,15 +8,16 @@ The wiki is article-first. Each entry is a separate Markdown page under `docs/en
 
 The LaTeX paper lives under `paper/`. The repository-level `main.tex` is the
 Overleaf main file and loads `paper/main.tex`. Introduction Sections 1.1--1.3
-and Sections 2--5 are drafted in prose. The section sources are under
-`paper/sections/`: `spin-systems.tex`, `signed-dual.tex`, `patches.tex`, and
-`representation.tex`. Appendix A derives the monomial dual in
-`paper/appendices/monomial-dual.tex`, and Appendix B gives the explicit patch
-contribution formulas in `paper/appendices/patch-contributions.tex`. The
-abstract, Introduction Sections 1.4--1.5, Section 6 onward, and Appendix C
-onward remain structural notes. Shared macros and theorem environments live in
-`paper/preamble.tex`. The paper-specific typography, terminology, and paragraph
-conventions are recorded in `STYLE.md`.
+and Sections 2--6 are drafted in prose. The section sources are under
+`paper/sections/`: `spin-systems.tex`, `signed-dual.tex`, `patches.tex`,
+`representation.tex`, and `patch-positivity.tex`. Appendix A derives the
+monomial dual in `paper/appendices/monomial-dual.tex`, and Appendix B gives the
+explicit patch contribution formulas in
+`paper/appendices/patch-contributions.tex`. The abstract, Introduction Sections
+1.4--1.5, Section 7 onward, and Appendix C onward remain structural notes.
+Shared macros and theorem environments live in `paper/preamble.tex`. The
+paper-specific typography, terminology, and paragraph conventions are recorded
+in `STYLE.md`.
 
 ## Reading target
 
@@ -118,7 +119,3 @@ Each entry should label its status in front matter as one of:
 - `proved here`
 - `conditional`
 - `heuristic`
-- `open`
-- `obsolete`
-
-Mathematical claims that are not definitions or standard facts should include a proof, citation, or explicit gap marker.
