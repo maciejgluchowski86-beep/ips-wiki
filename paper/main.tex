@@ -37,20 +37,18 @@
 \label{subsec:intro-calm-facilitating}
 \label{subsec:intro-loss-of-memory}
 
-{\color{red} Across the paper you dont use my macros, especially for brackets. Use my commands like~$\bb{1+\frac{1}{n}}^n \to e$ to keep the brackets nice without writing left right everywhere}
-
 Some \hyperref[def:spin-system]{spin systems} distinguish calm states from
 states which facilitate updates at neighbouring sites. A calm state does not
 by itself make another site update, whereas a facilitating state can cause,
 permit, or accelerate an update. This distinction appears under different
-model-specific names. In the contact process, an infected site infects
-neighbouring sites and may recover. In
-\hyperref[subsubsec:fa-1f-model]{FA-1f}, a vacancy permits a neighbouring site
-to refresh according to an independent Bernoulli draw, but does not determine
-the outcome of the refresh. In the
-\hyperref[subsubsec:babp-model]{biased annihilating branching process} (BABP),
-a particle causes a neighbouring site to flip, resulting in branching or
-annihilation. {\color{red} Short citations for these models maybe, see later notes for bibliography issues}
+model-specific names. In the contact process~\cite{Harris1974}, an infected site
+infects neighbouring sites and may recover. In
+\hyperref[subsubsec:fa-1f-model]{FA-1f}~\cite{BlondelEtAl2013}, a vacancy
+permits a neighbouring site to refresh according to an independent Bernoulli
+draw, but does not determine the outcome of the refresh. In the
+\hyperref[subsubsec:babp-model]{biased annihilating branching process}
+(BABP)~\cite{NeuhauserSudbury1993}, a particle causes a neighbouring site to
+flip, resulting in branching or annihilation.
 
 A region containing only calm states has no internal source of activity and
 tends to remain calm until a facilitating state reaches it. Facilitating states
@@ -95,14 +93,16 @@ transmit information between sites.
 \subsection{Patches and recovered order}
 \label{subsec:intro-patches}
 
-{\color{red} Its unclear here that this paragraph is for the dual process, not the original spin system. One sentence fix, like our start point is the FK duality or something} Starting from a local observation and tracing its graphical history backwards,
-we reveal the times and target sites of the interactions which carry dependence
-from one site to another. These interactions form the
-\wiki{successful-interaction}{successful-interaction skeleton}. The effect of the interaction on source site and single-site updates remain hidden. {\color{red} You write of "touches" as it was a defined mathematical term. This is confusing. I'd rather just talk about interactions/updates, even if that forces some repetitions in the prose. Fix needed across the paper.}Between successive touches of the
-skeleton, the history splits into one-site time intervals which we call
-\wiki{patch}{patches}. Conditional on the skeleton, the randomness hidden in
-distinct patches becomes independent. The signed Feynman--Kac factors can be
-averaged patch by patch, and the resulting contributions give an exact
+Starting from the Feynman--Kac dual of a local observation, we reveal only the
+times, sources, and target sets of those dual interactions which transmit
+dependence between sites. Their records form the
+\wiki{successful-interaction}{successful-interaction skeleton}. The split or
+birth kind at a successful interaction, all deaths, and all rings at inactive
+sources remain hidden. The one-site intervals between consecutive incoming or
+outgoing successful interactions are the \wiki{patch}{patches}. Conditional on
+the skeleton, the randomness hidden in distinct patches becomes independent.
+The signed Feynman--Kac factors can therefore be averaged patch by patch, and
+the resulting contributions give an exact
 \wiki{patch-representation-of-spin-systems}{representation} of the original
 spin system. This averaging retains sign cancellations between successive
 interactions.
@@ -120,7 +120,7 @@ limit, which can be described by a patch formula.
 \subsection{Main results}
 \label{subsec:intro-results}
 
-\draftnote{List the results in their conceptual order: patch factorization and representation; a coefficient characterization of patch positivity; the recovered centered-moment order; comparison under removal of pure deaths; uniform convergence under noise; and the full-patch formula for the invariant law. Distinguish convergence over~$\mathcal M_-$ from uniform exponential ergodicity when~$\mathbf p^\star\leq \frac12\mathbf 1$.}
+\draftnote{List the results in their conceptual order: patch factorization and representation; a coefficient characterization of patch positivity; the recovered centered-moment order; comparison under removal of pure deaths; uniform convergence under noise; and the full-patch formula for the invariant law. Distinguish convergence over~$\mathcal M_-$ from uniform exponential ergodicity when~$\mb p^\star\leq \frac12\mb 1$.}
 
 \subsection{Applications, literature, and organization}
 \label{subsec:intro-literature}
@@ -156,7 +156,7 @@ limit, which can be described by a patch formula.
 \subsection{End contributions and the critical density}
 \label{subsec:critical-density}
 
-\draftnote{Define the critical profile~$\mathbf p^\star$ as the smallest terminal one-density making every end contribution nonnegative, derive its coefficient formula, and explain why bulk positivity and the terminal density restriction are logically separate. Relevant entry: \wiki{patch-critical-density}{patch critical density}.}
+\draftnote{Define the critical profile~$\mb p^\star$ as the smallest terminal one-density making every end contribution nonnegative, derive its coefficient formula, and explain why bulk positivity and the terminal density restriction are logically separate. Relevant entry: \wiki{patch-critical-density}{patch critical density}.}
 
 \section{Recovered moment order}
 \label{sec:moment-order}
@@ -174,7 +174,7 @@ limit, which can be described by a patch formula.
 \subsection{Product profiles and reflected comparisons}
 \label{subsec:profile-comparisons}
 
-\draftnote{Extract the useful comparisons for homogeneous, inhomogeneous, and mixed Bernoulli laws. Explain the reflected comparison below~$\mathbf p^\star$, and avoid suggesting that the centered-moment order is stochastic domination.}
+\draftnote{Extract the useful comparisons for homogeneous, inhomogeneous, and mixed Bernoulli laws. Explain the reflected comparison below~$\mb p^\star$, and avoid suggesting that the centered-moment order is stochastic domination.}
 
 \subsection{Comparison after removing pure deaths}
 \label{subsec:pure-death-comparison}
@@ -187,7 +187,7 @@ limit, which can be described by a patch formula.
 \subsection{The convergence theorem and limiting formula}
 \label{subsec:convergence-statement}
 
-\draftnote{Introduce the lower centered-moment class~$\mathcal M_-$, then state uniform exponential convergence under a uniform pure-death component on a polynomial-growth lattice. State the full-patch formula for the limiting law in the same theorem. Relevant entries: \wiki{high-density-measure}{$\mathcal M_-$} and \wiki{common-invariant-limit-under-uniform-pure-deaths}{common invariant limit}.}
+\draftnote{Introduce the lower centered-moment class~$\mathcal M_-$, then state uniform exponential convergence under uniform pure deaths on a polynomial-growth lattice. State the full-patch formula for the limiting law in the same theorem. Relevant entries: \wiki{high-density-measure}{$\mathcal M_-$} and \wiki{common-invariant-limit-under-uniform-pure-deaths}{common invariant limit}.}
 
 \subsection{Proof strategy}
 \label{subsec:convergence-roadmap}
@@ -222,7 +222,7 @@ limit, which can be described by a patch formula.
 \subsection{Uniform ergodicity and extensions}
 \label{subsec:ergodicity-corollaries}
 
-\draftnote{Deduce uniform exponential ergodicity when~$\mathbf p^\star\leq\frac12\mathbf1$. Record the finite-centered-perturbation extension separately, and explain that the remaining density restriction comes from controlling signs of end contributions rather than from an expected dynamical obstruction. Relevant entry: \wiki{ergodicity}{ergodicity}.}
+\draftnote{Deduce uniform exponential ergodicity when~$\mb p^\star\leq\frac12\mb1$. Record the finite-centered-perturbation extension separately, and explain that the remaining density restriction comes from controlling signs of end contributions rather than from an expected dynamical obstruction. Relevant entry: \wiki{ergodicity}{ergodicity}.}
 
 \section{Applications to facilitating models}
 \label{sec:applications}
@@ -230,7 +230,7 @@ limit, which can be described by a patch formula.
 \subsection{A verification template}
 \label{subsec:application-template}
 
-\draftnote{Give the reusable sequence for a model: expand the flip rates, identify the signed dual, verify patch positivity, compute~$\mathbf p^\star$, add admissible noise, and then invoke the order or convergence theorems.}
+\draftnote{Give the reusable sequence for a model: expand the flip rates, identify the signed dual, verify patch positivity, compute~$\mb p^\star$, add admissible noise, and then invoke the order or convergence theorems.}
 
 \subsection{The contact process as an attractive benchmark}
 \label{subsec:contact-benchmark}
@@ -294,12 +294,12 @@ limit, which can be described by a patch formula.
 \subsection{Removing uniform noise}
 \label{subsec:removing-noise}
 
-\draftnote{Identify which parts of the convergence proof use the uniform pure-death component and formulate possible replacements, such as model-specific relaxation or survival estimates.}
+\draftnote{Identify which parts of the convergence proof use uniform deaths and formulate possible replacements, such as model-specific relaxation or survival estimates.}
 
 \subsection{Arbitrary initial laws and further models}
 \label{subsec:future-directions}
 
-\draftnote{List the main open directions: convergence from arbitrary initial laws when~$\mathbf p^\star>\frac12\mathbf1$, sharper interpretation of the full-patch law, stronger orders than monomial moments, and systematic identification of further patch-positive non-attractive systems.}
+\draftnote{List the main open directions: convergence from arbitrary initial laws when~$\mb p^\star>\frac12\mb1$, sharper interpretation of the full-patch law, stronger orders than monomial moments, and systematic identification of further patch-positive non-attractive systems.}
 
 \appendix
 
@@ -320,7 +320,7 @@ limit, which can be described by a patch formula.
 
 \draftnote{Supply the routine finite-volume approximation, Feller, and zero-boundary propagation arguments invoked by the moment-order and convergence theorems. Relevant entry: \wiki{finite-propagation-for-zero-boundary-restrictions}{finite propagation}.}
 
-% A bibliography will be added after the model-specific literature
-% comparison and citation set have been fixed.
+\bibliographystyle{alpha}
+\bibliography{paper/references}
 
 \end{document}
