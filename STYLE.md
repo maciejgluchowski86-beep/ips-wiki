@@ -6,16 +6,17 @@ This file records the writing and LaTeX conventions for the paper under `paper/`
 
 - Write inline mathematics with `$...$`, not `\(...\)`.
 - When prose runs directly into inline mathematics, insert a nonbreaking space: `for~$t\geq0$`, `write~$A\Subset\Lambda$`, `the profile~$\mathbf p$`.
-- Use `equation*`, `align*`, or another appropriate display environment for unnumbered mathematics. Do not use `\[...\]`.
+- Use `equation*`, `align*`, `gather*`, or another appropriate display environment for unnumbered mathematics. Do not use `\[...\]`.
 - Use numbered environments only for formulas that are referenced later. A displayed formula should not receive a label merely because it is important.
 - Use `align` only when the alignment is part of the presentation. Use `equation` for a single referenced formula.
+- Avoid isolated short displays when an expression reads naturally inline or can be combined with an adjacent display.
 
 ## Terminology
 
 - In the general discussion, a state is `calm` or `facilitating`.
-- Use the established model-specific term when one exists: infected/healthy for the contact process, vacancy/occupied for KCSM, and particle/empty site for particle systems.
+- Use the established model-specific term when one exists: infected/healthy for the contact process, vacant/occupied for KCSM, and particle/empty site for particle systems.
 - `Activity` is not a technical state variable. It may be used in the introduction as an umbrella term for births, refreshes, flips, and similar updates, but not as a formal synonym for the facilitating state.
-- `Active set`, `active source`, and `local active indicator` remain the formal terminology for the signed dual.
+- `Active set` and `active source` are formal terminology for the signed dual. Write `dual-active` when the distinction from the spin states matters.
 - Use `bulk patch`, never `closed patch`.
 - Describe the comparison results as centered-moment or monomial-moment comparisons, not stochastic domination.
 
