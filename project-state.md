@@ -29,12 +29,17 @@ rate consequence, and computes the patch critical profile. Section 7 is
 drafted in `paper/sections/moment-order.tex`; it introduces the centered
 monomials and the class `\mathcal M_*`, proves preservation of centered-moment
 order, derives product-profile comparisons, and proves comparison after
-removing pure deaths. Appendix A is drafted in
-`paper/appendices/monomial-dual.tex`, and Appendix B in
-`paper/appendices/patch-contributions.tex`. The abstract, Introduction Sections
-1.4--1.5, Section 8 onward, and Appendix C onward remain drafting notes. No
-title or main-result summary has yet been fixed. Shared macros and theorem
-environments live in `paper/preamble.tex`.
+removing pure deaths. Section 8 is drafted in
+`paper/sections/convergence.tex`; it defines `\mathcal M_-`, proves the common
+invariant limit under uniform deaths, gives the full-patch moment formula,
+derives the uniform-ergodicity corollary, and discusses finite centered
+deficits. Appendix A is drafted in `paper/appendices/monomial-dual.tex`,
+Appendix B in `paper/appendices/patch-contributions.tex`, and the
+finite-propagation part of Appendix C in
+`paper/appendices/technical-background.tex`. The abstract, Introduction
+Sections 1.4--1.5, Section 9 onward, and the remaining local-finiteness part of
+Appendix C remain drafting notes. No title or main-result summary has yet been
+fixed. Shared macros and theorem environments live in `paper/preamble.tex`.
 
 The paper writing conventions are recorded in `STYLE.md`. In particular,
 inline mathematics uses `$...$` with a preceding nonbreaking space when it
