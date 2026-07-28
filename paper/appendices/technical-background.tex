@@ -1,19 +1,214 @@
 \section{Technical graphical and propagation details}
 \label{app:technical-background}
 
-\subsection{Local finiteness and conditional laws}
+\subsection{Local finiteness and backward predecessors}
 \label{app:local-finiteness}
 
-\draftnote{Record any remaining regular-conditional-distribution details for the
-successful-interaction skeleton and the infinite patch continuations. Standard
-local-finiteness facts from the Harris construction should be cited rather than
-reproved.}
+Let
+\begin{equation*}
+\overline\alpha
+=
+\sup_{i\in\Lambda}
+\bb{
+ \sum_{S\subseteq N(i)}\delta_i(S)
+ +
+ \sum_{\substack{S\subseteq N(i)\\S\neq\vn}}\beta_i(S)
+},
+\qquad
+m_0=\sup_{i\in\Lambda}\abs{N(i)}.
+\end{equation*}
+Both constants are finite under the standing bounded-rate and bounded-degree
+assumptions.
+
+\begin{lemma}[Local finiteness]
+\label{lem:dual-local-finiteness}
+If the signed dual starts from~$A\Subset\Lambda$, then almost surely only
+finitely many relevant interactions occur on every bounded time interval.
+Consequently,~$\mathcal I_T$ and~$\mathcal P_T$ are finite for every~$T<\infty$,
+ordinary interaction times are distinct, and every backward predecessor chain of
+patches whose boundary times decrease strictly reaches time~$0$ after finitely
+many steps.
+\end{lemma}
+
+\begin{proof}
+When the active set is~$B$, the total rate of relevant clocks is at most
+$\overline\alpha\abs B$. One interaction adds at most~$m_0$ sites. Hence the
+number of active sites and the number of relevant rings are dominated by a
+continuous-time branching process in which each particle rings at rate
+$\overline\alpha$ and creates at most~$m_0$ new particles. This branching
+process is nonexplosive. Independent Poisson processes have no simultaneous
+points almost surely, and a countable union over pairs of clocks preserves this
+property. The remaining conclusions follow from the definitions of the
+successful skeleton and the patch family.
+\end{proof}
+
+In particular,
+\begin{equation}
+\label{eq:finite-patch-family-last-interaction}
+\cb{\abs{\mathcal P}<\infty}
+=
+\bigcup_{n\in\N}L_n.
+\end{equation}
+Indeed, a finite patch family contains only finitely many successful
+interactions and therefore has a last one. Conversely, on~$L_T$ there are only
+finitely many interactions before~$T$ and none after it.
+
+\subsection{Confined-interaction identity}
+\label{app:confined-interactions}
+
+For~$R\subseteq\Lambda$, let~$\eta^{R,0}$ agree with~$\eta$ on~$R$ and vanish on
+$R^c$. Define the modified flip rates
+\begin{equation*}
+c_{i,R}(\eta)
+=
+\pw{c_i\bb{\eta^{R,0}}}{i\in R}
+{c_i\bb{\eta^{\cb{i},0}}}{i\notin R},
+\end{equation*}
+and let~$P_t^R$ be the corresponding semigroup. The process inside~$R$ is the
+original spin system with zero boundary, while the sites outside~$R$ evolve
+independently. Hence, if~$f$ depends only on the spins in~$R$,
+\begin{equation}
+\label{eq:modified-zero-boundary-agreement}
+P_t^Rf=P_t^{R,0}f.
+\end{equation}
+
+\begin{proposition}[Confined-interaction identity]
+\label{prop:confined-interaction-identity}
+Let~$A\subseteq R\Subset\Lambda$,~$0\leq T\leq t$, and let~$\mu$ be any
+probability measure. Then
+\begin{equation}
+\label{eq:confined-interaction-identity}
+\E_A\Cb{W_t^\mu\ind\bb{E_T^R}}
+=
+\mu\bb{P_{t-T}P_T^{R,0}\chi_A}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For a fixed configuration~$\eta$, write
+\begin{equation*}
+Z_t^\eta
+=
+\sigma_t
+\exp\bb{\int_0^tV(A_s)\,ds}
+\chi_{A_t}(\eta).
+\end{equation*}
+The pathwise patch factorization and Theorem~\ref{thm:patch-factorization} give
+$W_t^{\delta_\eta}=\CE{Z_t^\eta}{\mathcal G_t}$. Since~$E_T^R\in\mathcal G_t$,
+\begin{equation}
+\label{eq:confined-weight-to-dual}
+\E_A\Cb{W_t^{\delta_\eta}\ind\bb{E_T^R}}
+=
+\E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}.
+\end{equation}
+
+During the dual interval~$[0,T]$, retain every empty-target death interaction
+and retain a nonempty-target split or birth only when its source lies in~$R$ and
+its target is contained in~$R$. Let~$\Dcal_R$ be the resulting signed-dual
+generator. If the active set is~$B$, the total rate of discarded interactions
+is
+\begin{equation*}
+\kappa_R(B)
+=
+\sum_{i\in B}
+\sum_{\substack{\vn\neq S\subseteq N(i)\\i\notin R\text{ or }S\nsubseteq R}}
+\bb{\delta_i(S)+\beta_i(S)}.
+\end{equation*}
+The indicator of~$E_T^R$ kills the dual at the first discarded successful
+interaction, so the Feynman--Kac operator on~$[0,T]$ is
+\begin{equation*}
+\Dcal_R+V-\kappa_R.
+\end{equation*}
+
+This is exactly the monomial-dual operator of the modified rates~$c_{i,R}$. For
+$i\in R$, the multilinear expansion of~$c_{i,R}^x$ retains precisely the
+coefficients~$c_i^x(S)$ with~$S\subseteq R$. For~$i\notin R$, only the
+empty-neighbour coefficient remains. Thus the nonempty-target dual transitions
+are exactly those retained in~$\Dcal_R$, every empty-target death remains, and
+the discarded total rate subtracts~$\kappa_R$ from the potential.
+
+Apply the modified duality on~$[0,T]$ and the original duality on~$[T,t]$.
+Dual intervals act from right to left on observables, so
+\begin{equation*}
+\E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}
+=
+\bb{P_{t-T}P_T^R\chi_A}(\eta).
+\end{equation*}
+Since~$A\subseteq R$,~$\chi_A$ depends only on~$R$, and
+\eqref{eq:modified-zero-boundary-agreement} replaces~$P_T^R$ by
+$P_T^{R,0}$. Integrating the resulting pointwise identity over~$\mu$ proves
+\eqref{eq:confined-interaction-identity}.
+\end{proof}
+
+\subsection{Continuation without successful interactions}
+\label{app:no-late-continuation}
+
+\begin{proposition}[No-late continuation]
+\label{prop:no-late-continuation-identity}
+Fix~$0\leq T<t$. For every probability measure~$\mu$,
+\begin{align}
+\CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
+&=
+\prod_{P\in\mathcal B_T}C(P)\,
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+},
+\label{eq:appendix-finite-continuation-identity}
+\\
+\CE{W\ind\bb{L_T}}{\mathcal G_T}
+&=
+\prod_{P\in\mathcal B_T}C(P)
+\prod_{P\in\mathcal E_T}C\bb{P^{\uparrow\infty}}.
+\label{eq:appendix-infinite-continuation-identity}
+\end{align}
+The same finite-horizon identity holds with every contribution replaced by its
+$\Lcal^\varepsilon$ counterpart.
+\end{proposition}
+
+\begin{proof}
+For~$\eta\in\Omega$, use the random variable~$Z_t^\eta$ from the proof of
+Proposition~\ref{prop:confined-interaction-identity}. The patch representation
+gives~$W_t^{\delta_\eta}=\CE{Z_t^\eta}{\mathcal G_t}$, and
+$L_{T,t}\in\mathcal G_t$. The tower property therefore gives
+\begin{equation*}
+\CE{W_t^{\delta_\eta}\ind\bb{L_{T,t}}}{\mathcal G_T}
+=
+\CE{Z_t^\eta\ind\bb{L_{T,t}}}{\mathcal G_T}.
+\end{equation*}
+
+Conditional on~$\mathcal G_T$, the hidden data of the bulk patches have their
+consistent patch laws. The future Poisson increments based at the distinct
+sites of~$\mathcal E_T$ are independent of these data and of one another. As
+long as no successful interaction occurs, no site outside~$\mb{Cone}_T$ can
+become dual-active. Hence~$L_{T,t}$ is the intersection, over
+$P\in\mathcal E_T$, of the local events that the continuation of~$P$ creates no
+successful interaction before~$t$. Patch factorization gives the bulk factors
+$C(P)$. For an end patch~$P$, the one-site expectation of its Feynman--Kac
+factor, terminal value~$\eta(i(P))$, and local no-success event is precisely
+$C(\eta(i(P)),P^{\uparrow t})$; this is the meaning of the continuation identity
+\eqref{eq:end-patch-continuation}. Multiplying these independent local
+expectations proves the pointwise version of
+\eqref{eq:appendix-finite-continuation-identity}. Integration over~$\eta$ with
+respect to~$\mu$ proves the stated formula. The proof for~$\Lcal^\varepsilon$
+is identical.
+
+On~$L_T$, the full patch family consists of~$\mathcal B_T$ and one infinite
+continuation of each patch in~$\mathcal E_T$. The latter family is finite by
+Lemma~\ref{lem:dual-local-finiteness}. The same conditional product
+disintegration over the independent future increments gives one local factor
+$C(P^{\uparrow\infty})$ per end patch. The existence and value of each factor
+are the~$u\to\infty$ limits in
+\eqref{eq:end-patch-continuation}, computed explicitly in
+Appendix~\ref{app:positivity-algebra}. This proves
+\eqref{eq:appendix-infinite-continuation-identity}.
+\end{proof}
 
 \subsection{Finite-volume and finite-propagation approximations}
 \label{app:finite-propagation}
 
 Let~$d$ be the graph metric used in Section~\ref{sec:convergence}, and choose
-$\ell<\infty$ such that~$N(i)\subseteq B(i,\ell)$ for every~$i$. Put
+$1\leq\ell<\infty$ such that~$N(i)\subseteq B(i,\ell)$ for every~$i$. Put
 \begin{equation*}
 \overline c
 =
@@ -47,7 +242,7 @@ inside~$R$, then the infinite-volume process and the zero-boundary process,
 coupled with the same clocks and marks in~$R$, agree on~$A$ at time~$t$.
 
 To leave~$B(A,r)$, the cluster must contain a chronological dependency path of
-at least~$n=\lceil r/\ell\rceil$ candidate clocks. There are at most
+at least~$n=\lfloor r/\ell\rfloor+1$ candidate clocks. There are at most
 $\abs A m^k$ spatial paths of length~$k$, and the expected number of
 chronologically ordered~$k$-tuples of clocks along a fixed path is
 $(\overline c t)^k/k!$. Therefore, for every~$\theta>0$,
