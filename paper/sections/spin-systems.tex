@@ -5,14 +5,14 @@
 \label{subsec:lattices-observables}
 
 Let~$\Lambda$ be a countable set. For each~$i\in\Lambda$, fix a finite
-neighbourhood~$N(i)\subseteq\Lambda\setminus\{i\}$, and assume
+neighbourhood~$N(i)\subseteq\Lambda\setminus\cb{i}$, and assume
 \begin{equation*}
-\sup_{i\in\Lambda}|N(i)|<\infty.
+\sup_{i\in\Lambda}\abs{N(i)}<\infty.
 \end{equation*}
 The neighbourhoods may be directed:~$j\in N(i)$ need not imply~$i\in N(j)$.
 We write~$A\Subset\Lambda$ when~$A$ is finite. The configuration space
-is~$\Omega=\{0,1\}^{\Lambda}$. Following the KCSM {\color{red} tiny citation like [n] to a paper with KCSM and FA-1f in particular needed here since KCSM term was not introduced} convention, state~$0$ is
-facilitating and state~$1$ is calm.
+is~$\Omega=\cb{0,1}^{\Lambda}$. Following the standard KCSM convention
+\cite{HartarskyToninelli2025}, state~$0$ is facilitating and state~$1$ is calm.
 
 \begin{definition}[Local functions]
 \label{def:local-function}
@@ -30,14 +30,14 @@ For~$A\Subset\Lambda$, define
 \chi_\varnothing=1.
 \end{equation*}
 If a local function depends on~$A$, it has a unique expansion in the
-basis~$\{\chi_B:B\subseteq A\}$.
+basis~$\cb{\chi_B:B\subseteq A}$.
 \end{definition}
 
 \subsection{Spin-system rates and coefficient expansions}
 \label{subsec:rates-coefficients}
 \label{subsec:calm-facilitating-rates}
 
-For~$i\in\Lambda$ and~$a\in\{0,1\}$, let~$\eta^{i,a}$ be obtained from~$\eta$
+For~$i\in\Lambda$ and~$a\in\cb{0,1}$, let~$\eta^{i,a}$ be obtained from~$\eta$
 by setting the spin at~$i$ equal to~$a$. We write~$\eta^i$ for the
 configuration obtained by flipping that spin.
 
@@ -50,21 +50,21 @@ acts on local functions by
 \Lcal f(\eta)
 =
 \sum_{i\in\Lambda}c_i(\eta)
-\bigl(f(\eta^i)-f(\eta)\bigr),
+\bb{f(\eta^i)-f(\eta)},
 \end{equation}
 where~$c_i(\eta)\geq0$ is the flip rate at~$i$. We assume that~$c_i$ depends
-only on~$\eta|_{N(i)\cup\{i\}}$ and that
+only on~$\eta|_{N(i)\cup\cb{i}}$ and that
 \begin{equation*}
 \sup_{i\in\Lambda,\,\eta\in\Omega}c_i(\eta)<\infty.
 \end{equation*}
 \end{definition}
 
-For~$x\in\{0,1\}$, set~$c_i^x(\eta)=c_i(\eta^{i,x})$. Then~$c_i^x$ depends
+For~$x\in\cb{0,1}$, set~$c_i^x(\eta)=c_i(\eta^{i,x})$. Then~$c_i^x$ depends
 only on~$\eta|_{N(i)}$, and
 \begin{equation*}
 c_i(\eta)
 =
-(1-\eta(i))c_i^0(\eta)+\eta(i)c_i^1(\eta).
+\bb{1-\eta(i)}c_i^0(\eta)+\eta(i)c_i^1(\eta).
 \end{equation*}
 Thus~$c_i^0$ is the rate of the flip~$0\to1$, while~$c_i^1$ is the rate of the
 flip~$1\to0$. Each~$c_i^x$ has the unique multilinear expansion
@@ -78,97 +78,91 @@ The same symbol denotes the function and its coefficients; the
 argument~$\eta$ or~$S$ distinguishes them. The coefficients are given by
 M\"obius inversion on the subsets of~$N(i)$. Under these assumptions, the
 standard Harris construction gives a Feller process; we use this without
-further comment. {\color{red} Proper bibliography with citations of the format [n] or [LigN] must be added, this is ugly, use a bib file to store all citations that we might use.} See Liggett, \emph{Interacting Particle Systems}, Chapter~I.
-Its semigroup is denoted by~$(P_t)_{t\geq0}$,
-with~$P_tf(\eta)=\E_\eta[f(\eta_t)]$. For a probability measure~$\mu$, we
-write~$(\mu P_t)(f)=\mu(P_tf)$.
+further comment and refer to~\cite[Chapter~I]{Liggett1985}. Its semigroup is
+denoted by~$(P_t)_{t\geq0}$, with~$P_tf(\eta)=\E_\eta\Cb{f(\eta_t)}$. For a
+probability measure~$\mu$, we write~$(\mu P_t)(f)=\mu(P_tf)$.
 
-{\color{red} This paragraph is weird, it says "this inequality kind of corresponds to calm-facilitating structure, shortly explains why, then says our criterion is different from this". Fix. Doesn't have to be in depth, just that the patch positivity criterion is such that adding more calm states decreases flip rate.}
-Nonpositive interaction coefficients give one simple form of the
-calm-facilitating. For fixed~$i$ and~$x$, if~$c_i^x(S)\leq0$ for
-every nonempty~$S\subseteq N(i)$, then~$c_i^x$ is coordinatewise
-nonincreasing on~$\{0,1\}^{N(i)}$: replacing facilitating states among the
-neighbours by calm states can only decrease the flip rate. The converse is
-false. Patch positivity, introduced in Section~\ref{sec:patch-positivity},
-instead relates the coefficients of~$c_i^0$ and~$c_i^1$.
+The coefficient criterion for patch positivity, stated in
+Section~\ref{sec:patch-positivity}, ensures that adding calm states to the
+neighbourhood of a site cannot increase its~$1\to0$ rate or the sum
+$c_i^0+c_i^1$. This is the precise calm--facilitating property used below.
 
 \subsection{Bernoulli refreshes and motivating examples}
 \label{subsec:motivating-models}
 
 \phantomsection\label{def:bernoulli-refresh}
 For~$p\in[0,1]$, write~$q=1-p$. The Bernoulli refresh operator at site~$i$ is
-\begin{equation*}
-\begin{aligned}
+\begin{align*}
 E_{i,p}f(\eta)
 &=
 pf(\eta^{i,1})+qf(\eta^{i,0}),
 \\
-(E_{i,p}-I)f(\eta)
+\bb{E_{i,p}-I}f(\eta)
 &=
-\bigl(p(1-\eta(i))+q\eta(i)\bigr)
-\bigl(f(\eta^i)-f(\eta)\bigr).
-\end{aligned}
-\end{equation*}
+\bb{p\bb{1-\eta(i)}+q\eta(i)}
+\bb{f(\eta^i)-f(\eta)}.
+\end{align*}
 Here~$p$ is the density of calm states and~$q$ the density of facilitating
-states. In the KCSM and BABP literature, the prefactor
-multiplying~$E_{i,p}-I$ is often denoted by~$c_i$ and called the constraint or
-refresh rate. In this paper,~$c_i$ always denotes the resulting flip rate;
-refresh rates are written explicitly.
+states. In the KCSM and BABP literature, the prefactor multiplying
+$E_{i,p}-I$ is often denoted by~$c_i$ and called the constraint or refresh
+rate. In this paper,~$c_i$ always denotes the resulting flip rate; refresh
+rates are written explicitly.
 
 \subsubsection{Contact process}
 \label{subsubsec:contact-process}
 
-The contact process is usually written with state~$1$ infected and state~$0$
-healthy. We reverse these labels, taking state~$0$ to be infected and
-facilitating, and state~$1$ to be healthy and calm. With recovery rate one and
-infection parameter~$\lambda\geq0$, its generator is
+The contact process~\cite{Harris1974} is usually written with state~$1$
+infected and state~$0$ healthy. We reverse these labels, taking state~$0$ to be
+infected and facilitating, and state~$1$ to be healthy and calm. With recovery
+rate one and infection parameter~$\lambda\geq0$, its generator is
 \begin{equation*}
 \Lcal_{\mathrm{CP}}f(\eta)
 =
 \sum_{i\in\Lambda}
-\left(
+\bb{
 1-\eta(i)
 +
-\lambda\eta(i)\sum_{j\in N(i)}(1-\eta(j))
-\right)
-\bigl(f(\eta^i)-f(\eta)\bigr).
+\lambda\eta(i)\sum_{j\in N(i)}\bb{1-\eta(j)}
+}
+\bb{f(\eta^i)-f(\eta)}.
 \end{equation*}
 Thus
 \begin{equation*}
 c_i^0(\eta)=1,
 \qquad
-c_i^1(\eta)=\lambda\sum_{j\in N(i)}(1-\eta(j)),
+c_i^1(\eta)=\lambda\sum_{j\in N(i)}\bb{1-\eta(j)},
 \end{equation*}
 and the only nonzero nonconstant coefficients
-are~$c_i^1(\{j\})=-\lambda$ for~$j\in N(i)$. Since the contact process is
+are~$c_i^1\bb{\cb{j}}=-\lambda$ for~$j\in N(i)$. Since the contact process is
 attractive, classical coupling gives stronger comparisons than those developed
 here.
 
 \subsubsection{FA-1f}
 \label{subsubsec:fa-1f-model}
 
-In FA-1f, state~$0$ is called vacant and state~$1$ occupied. A site may refresh
-when at least one neighbour is vacant. On the present neighbourhood system,
+In FA-1f~\cite{BlondelEtAl2013,HartarskyToninelli2025}, state~$0$ is called
+vacant and state~$1$ occupied. A site may refresh when at least one neighbour is
+vacant. On the present neighbourhood system,
 \begin{equation*}
 \Lcal_{\mathrm{FA}}f(\eta)
 =
 \sum_{i\in\Lambda}
-\bigl(1-\chi_{N(i)}(\eta)\bigr)
-(E_{i,p}-I)f(\eta).
+\bb{1-\chi_{N(i)}(\eta)}
+\bb{E_{i,p}-I}f(\eta).
 \end{equation*}
 The flip rates are
 \begin{equation*}
-c_i^0(\eta)=p\bigl(1-\chi_{N(i)}(\eta)\bigr),
+c_i^0(\eta)=p\bb{1-\chi_{N(i)}(\eta)},
 \qquad
-c_i^1(\eta)=q\bigl(1-\chi_{N(i)}(\eta)\bigr).
+c_i^1(\eta)=q\bb{1-\chi_{N(i)}(\eta)}.
 \end{equation*}
 When~$N(i)\neq\varnothing$, their only nonzero coefficients are
 \begin{align*}
 c_i^0(\varnothing)&=p,
-&c_i^0(N(i))&=-p,
+&c_i^0\bb{N(i)}&=-p,
 \\
 c_i^1(\varnothing)&=q,
-&c_i^1(N(i))&=-q.
+&c_i^1\bb{N(i)}&=-q.
 \end{align*}
 The standard FA-1f model uses an undirected graph. The East model is the
 oriented case with one prescribed facilitating neighbour.
@@ -176,32 +170,32 @@ oriented case with one prescribed facilitating neighbour.
 \subsubsection{Biased annihilating branching process}
 \label{subsubsec:babp-model}
 
-BABP uses the same refresh law, with refresh rate equal to the number of vacant
-neighbours:
+BABP~\cite{NeuhauserSudbury1993} uses the same refresh law, with refresh rate
+equal to the number of vacant neighbours:
 \begin{equation*}
 \Lcal_{\mathrm{BABP}}f(\eta)
 =
 \sum_{i\in\Lambda}
-\left(\sum_{j\in N(i)}(1-\eta(j))\right)
-(E_{i,p}-I)f(\eta).
+\bb{\sum_{j\in N(i)}\bb{1-\eta(j)}}
+\bb{E_{i,p}-I}f(\eta).
 \end{equation*}
 Hence
 \begin{equation*}
 c_i^0(\eta)
 =
-p\sum_{j\in N(i)}(1-\eta(j)),
+p\sum_{j\in N(i)}\bb{1-\eta(j)},
 \qquad
 c_i^1(\eta)
 =
-q\sum_{j\in N(i)}(1-\eta(j)),
+q\sum_{j\in N(i)}\bb{1-\eta(j)},
 \end{equation*}
 with nonzero coefficients
 \begin{align*}
-c_i^0(\varnothing)&=p|N(i)|,
-&c_i^0(\{j\})&=-p,
+c_i^0(\varnothing)&=p\abs{N(i)},
+&c_i^0\bb{\cb{j}}&=-p,
 \\
-c_i^1(\varnothing)&=q|N(i)|,
-&c_i^1(\{j\})&=-q,
+c_i^1(\varnothing)&=q\abs{N(i)},
+&c_i^1\bb{\cb{j}}&=-q,
 \qquad j\in N(i).
 \end{align*}
 In the complementary particle variables~$\xi(i)=1-\eta(i)$, if~$p>0$ and time
@@ -214,46 +208,48 @@ in the usual product order.
 \label{subsec:noise-ergodicity}
 \label{def:bernoulli-noise}
 
-Let~$\mathbf p=(p_i)_{i\in\Lambda}\in[0,1]^\Lambda$. Independent Bernoulli
-noise with {\color{red} use d here not p} profile~$\mathbf p$ has generator
+Let~$\mb d=(d_i)_{i\in\Lambda}\in[0,1]^\Lambda$. Independent Bernoulli noise
+with profile~$\mb d$ has generator
 \begin{equation*}
-\Ncal^{\mathbf p}f
+\Ncal^{\mb d}f
 =
-\sum_{i\in\Lambda}(E_{i,p_i}-I)f.
+\sum_{i\in\Lambda}\bb{E_{i,d_i}-I}f.
 \end{equation*}
-Adding this noise at level~$\varepsilon\geq0$ gives
+Adding this noise at level~$\rho\geq0$ gives
 \begin{equation*}
-\Lcal^\varepsilon
+\Lcal^\rho
 =
-\Lcal+\varepsilon\Ncal^{\mathbf p}.
+\Lcal+\rho\Ncal^{\mb d}.
 \end{equation*}
-The perturbation adds the environment-independent rates~$\varepsilon p_i$
-to~$0\to1$ and~$\varepsilon(1-p_i)$ to~$1\to0$. {\color{red} just call it~$\varepsilon$-uniform deaths} We say that the spin system
-has a \emph{uniform independent $1\to0$ component} of level~$\varepsilon>0$ if
+The perturbation adds the environment-independent rates~$\rho d_i$ to~$0\to1$
+and~$\rho\bb{1-d_i}$ to~$1\to0$. We say that the spin system has
+\emph{$\varepsilon$-uniform deaths}, for~$\varepsilon>0$, if
 \begin{equation*}
 c_i^1(\eta)\geq\varepsilon
 \qquad
 \text{for every }i\in\Lambda\text{ and }\eta\in\Omega.
 \end{equation*}
-Equivalently, an independent transition~$1\to0$ at rate~$\varepsilon$ can be removed
-while leaving nonnegative flip rates. The perturbation above has such a
-component of level~$\varepsilon\inf_i(1-p_i)$ whenever this quantity is
-positive. After introducing the monomial dual in Section~\ref{sec:signed-dual},
-we call this a uniform pure-death component.
+Equivalently, independent transitions~$1\to0$ at rate~$\varepsilon$ can be
+removed while leaving nonnegative flip rates. The perturbation above has
+$\rho\inf_i\bb{1-d_i}$-uniform deaths whenever this quantity is positive. In
+the monomial dual, these independent transitions are pure deaths; see
+Section~\ref{sec:signed-dual}.
 
 \subsection{Invariant measures and convergence}
 \label{subsec:invariant-ergodicity}
 
-\begin{definition}[Invariant measure and ergodicity]
+\begin{definition}[Invariant measure]
 \label{def:invariant-measure}
-\label{def:ergodicity}
 A probability measure~$\nu$ on~$\Omega$ is \emph{invariant} if
 \begin{equation*}
 \nu P_t=\nu
 \qquad
 \text{for every }t\geq0.
 \end{equation*}
-{\color{red} Ergodicity should be its own definition}
+\end{definition}
+
+\begin{definition}[Ergodicity]
+\label{def:ergodicity}
 The spin system is \emph{ergodic} if there is a probability measure~$\nu$ such
 that
 \begin{equation*}
@@ -275,7 +271,7 @@ invariant measure~$\nu$, and there is~$\gamma>0$ such that for every local
 function~$f$ there is~$C_f<\infty$ satisfying
 \begin{equation*}
 \sup_{\eta\in\Omega}
-\left|P_tf(\eta)-\nu(f)\right|
+\abs{P_tf(\eta)-\nu(f)}
 \leq
 C_f e^{-\gamma t}
 \qquad
