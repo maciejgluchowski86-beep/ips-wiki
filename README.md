@@ -15,7 +15,8 @@ and Sections 2--5 are drafted in prose. The section sources are under
 contribution formulas in `paper/appendices/patch-contributions.tex`. The
 abstract, Introduction Sections 1.4--1.5, Section 6 onward, and Appendix C
 onward remain structural notes. Shared macros and theorem environments live in
-`paper/preamble.tex`.
+`paper/preamble.tex`. The paper-specific typography, terminology, and paragraph
+conventions are recorded in `STYLE.md`.
 
 ## Reading target
 
