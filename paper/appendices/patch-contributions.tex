@@ -9,24 +9,22 @@ Fix a patch based at site~$i$, and write
 +
 \sum_{\substack{R\subseteq N(i)\\R\neq\varnothing}}\beta_i(R).
 \end{equation*}
-Thus~$\alpha_i$ is the total rate of outgoing marked interactions at~$i$,
-and~$V_i=\alpha_i+a_i^\beta(\varnothing)$. For~$\Delta\in[0,\infty]$
-and~$z\in[0,1]$, set
+Thus~$\alpha_i$ is the total rate of outgoing marked interactions at~$i$, and~$V_i=\alpha_i+a_i^\beta(\varnothing)$. For~$\Delta\in[0,\infty]$ and~$z\in[0,1]$, set
 \begin{align}
 \varphi_i(\Delta)
 &=
-e^{-\alpha_i\Delta}
-+
-\delta_i(\varnothing)
-\int_0^\Delta e^{-\alpha_i u}\,du,
+ e^{-\alpha_i\Delta}
+ +
+ \delta_i(\varnothing)
+ \int_0^\Delta e^{-\alpha_i u}\,du,
 \label{eq:patch-phi}
 \\
 \psi_i(\Delta,z)
 &=
-\delta_i(\varnothing)
-\int_0^\Delta e^{a_i^\beta(\varnothing)u}\,du
-+
-z e^{a_i^\beta(\varnothing)\Delta}.
+ \delta_i(\varnothing)
+ \int_0^\Delta e^{a_i^\beta(\varnothing)u}\,du
+ +
+ z e^{a_i^\beta(\varnothing)\Delta}.
 \label{eq:patch-psi}
 \end{align}
 At~$\Delta=\infty$, these expressions are interpreted by their limits.
@@ -76,7 +74,7 @@ S=S(P),
 \qquad
 \Delta=e(P)-s(P).
 \end{equation*}
-For the four finite boundary types, and for the two possible infinite types,
+For the four finite boundary types and the two possible infinite types,
 \begin{equation}
 \label{eq:full-contribution-formulas}
 C(P)
@@ -86,7 +84,7 @@ C(P)
 \frac{\psi_i(\Delta,1)}{\varphi_i(\Delta)},
 &\mathsf X(P)\mathsf Y(P)\in\{\mathsf{II},\mathsf{IE}\},
 \\[1.4em]
-e^{V_i\Delta},
+ e^{V_i\Delta},
 &\mathsf X(P)\mathsf Y(P)=\mathsf{IO},
 \\[0.8em]
 \displaystyle
@@ -99,18 +97,13 @@ e^{V_i\Delta},
 },
 &\mathsf X(P)\mathsf Y(P)\in\{\mathsf{OI},\mathsf{OE}\},
 \\[1.4em]
-\sigma_i^\beta(S)e^{V_i\Delta},
+ \sigma_i^\beta(S)e^{V_i\Delta},
 &\mathsf X(P)\mathsf Y(P)=\mathsf{OO}.
 \end{cases}
 \end{equation}
-An infinite full patch has type~$\mathsf{IE}$ or~$\mathsf{OE}$, and the
-corresponding row is read at~$\Delta=\infty$. If a denominator in
-\eqref{eq:end-contribution-formulas} or
-\eqref{eq:full-contribution-formulas} vanishes, that labeled patch has zero
-probability of occurring; every realized patch has a positive normalizer.
+An infinite full patch has type~$\mathsf{IE}$ or~$\mathsf{OE}$, and the corresponding row is read at~$\Delta=\infty$. If a denominator in~\eqref{eq:end-contribution-formulas} or~\eqref{eq:full-contribution-formulas} vanishes, the corresponding labeled patch has zero probability of occurring; every realized patch has a positive normalizer.
 
-The same formulas can be written directly in the spin-rate coefficients. The
-required substitutions are
+The same formulas can be written directly in the spin-rate coefficients. The required substitutions are
 \begin{equation}
 \label{eq:dual-to-spin-contribution-data}
 \begin{aligned}
@@ -135,41 +128,37 @@ Since~$c_i^0(\varnothing)\geq0$, this also gives
 \begin{align}
 \varphi_i(\Delta)
 &=
-e^{-\alpha_i\Delta}
-+
-c_i^0(\varnothing)
-\int_0^\Delta e^{-\alpha_i u}\,du,
+ e^{-\alpha_i\Delta}
+ +
+ c_i^0(\varnothing)
+ \int_0^\Delta e^{-\alpha_i u}\,du,
 \label{eq:patch-phi-spin}
 \\
 \psi_i(\Delta,z)
 &=
-c_i^0(\varnothing)
-\int_0^\Delta
-e^{-(c_i^0(\varnothing)+c_i^1(\varnothing))u}\,du
-+
-z e^{-(c_i^0(\varnothing)+c_i^1(\varnothing))\Delta}.
+ c_i^0(\varnothing)
+ \int_0^\Delta
+ e^{-(c_i^0(\varnothing)+c_i^1(\varnothing))u}\,du
+ +
+ z e^{-(c_i^0(\varnothing)+c_i^1(\varnothing))\Delta}.
 \label{eq:patch-psi-spin}
 \end{align}
 
 \subsection{Derivation}
 \label{app:contribution-derivation}
 
-Suppose first that a patch starts incoming, so~$X_s^P=1$, and its terminal
-label is~$\mathsf I$ or~$\mathsf E$. Consistency occurs either when there is no
-outgoing mark before the endpoint, or when the first outgoing mark is an
-empty-target death. Therefore
+Suppose first that a patch starts incoming, so~$X_s^P=1$, and has terminal label~$\mathsf I$ or~$\mathsf E$. Consistency occurs either when there is no outgoing mark before the endpoint, or when the first outgoing mark is an empty-target death. Therefore
 \begin{equation*}
 \mathbb P_P(\operatorname{Con}(P))
 =
-e^{-\alpha_i\Delta}
-+
-\delta_i(\varnothing)
-\int_0^\Delta e^{-\alpha_i u}\,du
+ e^{-\alpha_i\Delta}
+ +
+ \delta_i(\varnothing)
+ \int_0^\Delta e^{-\alpha_i u}\,du
 =
 \varphi_i(\Delta).
 \end{equation*}
-The corresponding unnormalized weighted expectation with terminal
-variable~$z$ is
+The corresponding unnormalized weighted expectation with terminal variable~$z$ is
 \begin{equation*}
 \delta_i(\varnothing)
 \int_0^\Delta e^{(V_i-\alpha_i)u}\,du
@@ -178,25 +167,16 @@ z e^{(V_i-\alpha_i)\Delta}
 =
 \psi_i(\Delta,z).
 \end{equation*}
-Dividing gives the first row of~\eqref{eq:end-contribution-formulas}, and
-setting~$z=1$ gives the~$\mathsf{II}$ and~$\mathsf{IE}$ row of
-\eqref{eq:full-contribution-formulas}.
+Dividing gives the first row of~\eqref{eq:end-contribution-formulas}; setting~$z=1$ gives the~$\mathsf{II}$ and~$\mathsf{IE}$ row of~\eqref{eq:full-contribution-formulas}.
 
-Suppose next that the patch starts outgoing and has terminal label~$\mathsf I$
-or~$\mathsf E$. If~$\alpha(P)=\delta$, the source is inactive immediately
-after the initial interaction, so consistency is automatic and the local factor
-is~$\sigma_i^\delta(S)$. If~$\alpha(P)=\beta$, the source starts active and the
-preceding calculation applies. Using the probabilities
-in~\eqref{eq:patch-initial-kind-law}, the consistency normalizer is
+Suppose next that the patch starts outgoing and has terminal label~$\mathsf I$ or~$\mathsf E$. If~$\alpha(P)=\delta$, the source leaves the dual-active set at the initial interaction, so consistency is automatic and the local factor is~$\sigma_i^\delta(S)$. If~$\alpha(P)=\beta$, the source remains dual-active and the preceding calculation applies. By~\eqref{eq:patch-initial-kind-law}, the consistency normalizer and the unnormalized weighted expectation are, respectively,
 \begin{equation*}
 \frac{
 \delta_i(S)+\beta_i(S)\varphi_i(\Delta)
 }{
 \delta_i(S)+\beta_i(S)
-},
-\end{equation*}
-while the unnormalized weighted expectation is
-\begin{equation*}
+}
+\qquad\text{and}\qquad
 \frac{
 \delta_i(S)\sigma_i^\delta(S)
 +
@@ -205,22 +185,12 @@ while the unnormalized weighted expectation is
 \delta_i(S)+\beta_i(S)
 }.
 \end{equation*}
-Their ratio gives the second row of~\eqref{eq:end-contribution-formulas} and
-the~$\mathsf{OI}$,~$\mathsf{OE}$ row of
-\eqref{eq:full-contribution-formulas}.
-
-Finally, an outgoing terminal boundary requires the source to remain active
-throughout the patch. An incoming-initial patch then
-contributes~$e^{V_i\Delta}$. For an outgoing-initial patch, consistency also
-forces~$\alpha(P)=\beta$, leaving~$\sigma_i^\beta(S)e^{V_i\Delta}$. These are
-the remaining two rows of~\eqref{eq:full-contribution-formulas}. The same
-calculations pass to~$\Delta=\infty$ by taking limits.
+Their ratio gives the second row of~\eqref{eq:end-contribution-formulas} and the~$\mathsf{OI}$,~$\mathsf{OE}$ row of~\eqref{eq:full-contribution-formulas}. An outgoing terminal boundary requires the source to remain dual-active throughout the patch. An incoming-initial patch then contributes~$e^{V_i\Delta}$. For an outgoing-initial patch, consistency also forces~$\alpha(P)=\beta$, leaving~$\sigma_i^\beta(S)e^{V_i\Delta}$. These are the remaining two rows of~\eqref{eq:full-contribution-formulas}. The same calculations pass to~$\Delta=\infty$ by taking limits.
 
 \subsection{Empty-neighbour relaxation}
 \label{app:positivity-algebra}
 
-Put~$r_i=c_i^0(\varnothing)+c_i^1(\varnothing)$. If~$r_i>0$,
-set~$q_i=c_i^0(\varnothing)/r_i$. Then
+Put~$r_i=c_i^0(\varnothing)+c_i^1(\varnothing)$. If~$r_i>0$, set~$q_i=c_i^0(\varnothing)/r_i$. Then
 \begin{equation}
 \label{eq:empty-neighbour-relaxation}
 \psi_i(u,z)
@@ -231,11 +201,7 @@ q_i+(z-q_i)e^{-r_i u},
 =
 \psi_i\bigl(u,\psi_i(v,z)\bigr).
 \end{equation}
-If~$r_i=0$, then~$\psi_i(u,z)=z$, and the second identity remains valid. For
-later use, let~$Q$ be an end patch based at~$i$, and let~$u\geq e(Q)$.
-Write~$Q^{\uparrow u}$ for its continuation through time~$u$ with no
-intervening successful interaction, rooted at the original end patch~$Q$. Its
-contribution, including the conditional probability of this continuation, is
+If~$r_i=0$, then~$\psi_i(u,z)=z$, and the second identity remains valid. For later use, let~$Q$ be an end patch based at~$i$, and let~$u\geq e(Q)$. Write~$Q^{\uparrow u}$ for its continuation through time~$u$ with no intervening successful interaction, rooted at the original end patch~$Q$. Its contribution, including the conditional probability of this continuation, is
 \begin{equation}
 \label{eq:end-patch-continuation}
 C(z,Q^{\uparrow u})
@@ -247,5 +213,5 @@ Since~$C(z,Q)$ is affine,
 \label{eq:end-patch-slope-relaxation}
 \partial_z C(z,Q^{\uparrow u})
 =
-e^{-r_i(u-e(Q))}\partial_z C(z,Q).
+ e^{-r_i(u-e(Q))}\partial_z C(z,Q).
 \end{equation}
