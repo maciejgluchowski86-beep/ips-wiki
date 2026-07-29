@@ -130,15 +130,8 @@ distinct patches is independent. Averaging it patch by patch gives an exact
 representation split between bulk patches completed before time~$t$ and end
 patches reaching time~$t$. This split parallels the Feynman-Kac formula: the
 bulk product accumulates contributions from the history, while the end product
-also depends on the terminal patches and the configuration~$\eta$. Both
-products contain the signed Feynman-Kac exponential accumulated on their patch
-intervals. The signs are therefore not estimated one interaction at a time:
-cancellations among successive local events are performed before each
-contribution is bounded.
-
-Patch positivity requires the bulk-patch contributions to be nonnegative. Thus
-averaging over the randomness in a bulk patch cancels the dual signs before its
-contribution is bounded. The condition has a local coefficient
+also depends on the terminal patches and the configuration~$\eta$. The signs are therefore not estimated one interaction at a time:
+cancellations among successive local events are captured by patch contributions. Patch positivity requires the bulk-patch contributions to be nonnegative which corresponds to the sign cancellations being captured entirely. The condition has a local coefficient
 characterization. With the notation of Section~\ref{sec:spin-systems},
 set~$r_i=c_i^0(\vn)+c_i^1(\vn)$. If~$r_i>0$,
 Theorem~\ref{thm:patch-positivity-criterion} says that patch positivity is
