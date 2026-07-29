@@ -1,0 +1,143 @@
+\section{Main results}
+\label{sec:main-results}
+
+\subsection{Patch representation and patch positivity}
+
+For~$A\Subset\Lambda$, write~$\chi_A(\eta)=\prod_{i\in A}\eta(i)$.
+Theorems~\ref{thm:patch-factorization} and~\ref{thm:patch-representation}
+reorganize the signed Feynman--Kac representation of~$P_t\chi_A$. Conditional
+on the successful-interaction skeleton, the randomness in distinct patches is
+independent. Averaging it patch by patch gives an exact representation split
+between bulk patches completed before time~$t$ and end patches reaching
+time~$t$. The bulk product records the history, while the end product also
+depends on the terminal configuration. Cancellations are therefore taken
+before any absolute-value estimate is made.
+
+Patch positivity means that every bulk-patch contribution obtained from this
+averaging is nonnegative. It has a local coefficient characterization. With
+the notation of Section~\ref{sec:setup}, set
+$r_i=c_i^0(\vn)+c_i^1(\vn)$. If~$r_i>0$,
+Theorem~\ref{thm:patch-positivity-criterion} says that patch positivity is
+equivalent to
+\begin{equation*}
+c_i^0(S)+c_i^1(S)\leq0,
+\qquad
+c_i^1(\vn)c_i^0(S)\geq c_i^0(\vn)c_i^1(S)
+\qquad
+\text{for every }\vn\neq S\subseteq N(i);
+\end{equation*}
+if~$r_i=0$, it is equivalent to~$c_i\equiv0$. Thus patch positivity can be
+checked directly from the multilinear coefficients of the two directional
+flip rates.
+
+End patches retain the terminal state and require a one-density threshold.
+Proposition~\ref{prop:critical-profile-formula} identifies the minimal
+profile~$\mb p^\star$ for which all end-patch contributions are nonnegative:
+\begin{equation*}
+p_i^\star
+=
+\max\cb{
+0,
+\sup_{\substack{
+\vn\neq S\subseteq N(i)\\
+c_i^0(S)+c_i^1(S)<0
+}}
+\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
+}.
+\end{equation*}
+
+\subsection{Centered-moment order}
+
+The profile~$\mb p^\star$ determines the centered moments on which the
+calm--facilitating order survives. Set
+$\chi_A^*(\eta)=\prod_{i\in A}(\eta(i)-p_i^\star)$ and
+write~$\mu\preceq_*\nu$ when~$\mu(\chi_A^*)\leq\nu(\chi_A^*)$ for every
+$A\Subset\Lambda$. Theorem~\ref{thm:centered-moment-order} gives
+\begin{equation*}
+\mu\preceq_*\nu
+\quad\Longrightarrow\quad
+\mu P_t\preceq_*\nu P_t
+\qquad
+\text{for every }t\geq0,
+\end{equation*}
+without requiring either measure to have nonnegative centered moments. In
+particular, the class
+\begin{equation*}
+\mathcal M_*
+=
+\cb{
+\mu:\mu\bb{\chi_A^*}\geq0
+\text{ for every }A\Subset\Lambda
+}
+\end{equation*}
+is preserved. The dynamics need not preserve an order of configurations, but
+it preserves the order of all products of deviations from the critical
+calm-state profile.
+
+The patch representation also compares the system with one obtained by
+removing environment-independent~$1\to0$ transitions. If~$P_t'$ denotes the
+semigroup after removing such pure deaths, then
+Theorem~\ref{thm:pure-death-comparison} gives
+\begin{equation*}
+(\mu P_t)(\chi_A)
+\leq
+(\mu P_t')(\chi_A)
+\qquad
+\text{for every }\mu\in\mathcal M_*.
+\end{equation*}
+
+\subsection{Common invariant limit}
+
+Assume that~$\Lambda$ has polynomial growth of exponent~$D$ and that the spin
+system has~$\delta$-uniform deaths. For~$K\geq0$, let
+\begin{equation*}
+\mathcal M_{-,K}
+=
+\cb{
+\mu:
+\frac{\mu+K\mu_{\mb 1}}{1+K}\in\mathcal M_*
+},
+\qquad
+\mathcal M_-=\bigcup_{K\geq0}\mathcal M_{-,K}.
+\end{equation*}
+This class contains Bernoulli product measures with sufficiently high
+calm-state density and point masses on configurations with finitely many
+facilitating states. Theorem~\ref{thm:common-invariant-limit} gives an invariant
+measure~$\pi$ such that, for every local function~$f$,
+\begin{equation*}
+\sup_{\mu\in\mathcal M_{-,K}}
+\abs{(\mu P_t)(f)-\pi(f)}
+\leq
+(1+2K)K_f(1+t)^D e^{-\delta t/2}
+\end{equation*}
+for every~$K\geq0$ and~$t\geq0$. The limit is obtained without identifying an
+invariant measure in advance. In the notation of
+Section~\ref{sec:representation}, its monomial moments are
+\begin{equation*}
+\pi(\chi_A)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal P}C(P)
+\ind\bb{\abs{\mathcal P}<\infty}
+}.
+\end{equation*}
+If~$\mb p^\star\leq\frac12\mb 1$, then every initial configuration is covered
+with a common constant,~$\pi$ is the unique invariant measure, and
+Corollary~\ref{cor:uniform-ergodicity} gives
+\begin{equation*}
+\sup_{\eta\in\Omega}
+\abs{P_tf(\eta)-\pi(f)}
+\leq
+K_f(1+t)^D e^{-\delta t/2}.
+\end{equation*}
+
+\subsection{Applications and organization}
+
+Section~\ref{sec:applications} introduces the contact process, FA-1f, and BABP
+and states the consequences of these results for the latter two models. The
+signed dual and graphical construction are developed in
+Section~\ref{sec:signed-dual}; Sections~\ref{sec:patches} and
+\ref{sec:representation} establish patch factorization and the representation
+formula. Sections~\ref{sec:patch-positivity}, \ref{sec:moment-order}, and
+\ref{sec:convergence} prove the coefficient criterion, the centered-moment
+comparisons, and the common invariant-limit theorem.
