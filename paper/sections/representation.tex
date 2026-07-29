@@ -4,8 +4,8 @@
 \subsection{Reference and consistent patch laws}
 \label{subsec:patch-laws}
 
-Fix a labeled patch~$P$, either a full patch in~$\mathcal P$ or a patch
-in~$\mathcal P_T$ for some finite~$T$. For brevity, write
+Fix a labeled patch~$P$, either a patch in~$\mathcal P$ or a patch in
+$\mathcal P_T$ for some finite~$T$. For brevity, write
 \begin{equation*}
 i=i(P),
 \qquad
@@ -198,7 +198,7 @@ patch. The sign assigned to the initial boundary of a patch is
 \pw{+}{\mathsf X(P)=\mathsf I}
 {\sigma_{i(P)}^{\alpha(P)}\bb{S(P)}}{\mathsf X(P)=\mathsf O}.
 \end{equation*}
-For a full patch~$P\in\mathcal P$, define
+For a patch~$P\in\mathcal P$, define
 \begin{equation*}
 F(P)
 =
@@ -223,7 +223,7 @@ z^{X_t^P},
 \qquad
 C(z,P)=\E_P^{\mathrm{con}}\Cb{F(z,P)}.
 \end{equation*}
-The function~$z\mapsto C(z,P)$ is affine. The full and end contributions are
+The function~$z\mapsto C(z,P)$ is affine. The patch and end contributions are
 elementary one-site quantities; Appendix~\ref{app:contribution-formulas}
 derives explicit formulas for every boundary type.
 
@@ -303,7 +303,7 @@ Let~$\mu$ be any probability measure on~$\Omega$. Integrating
 \eqref{eq:patch-representation} gives
 \begin{equation}
 \label{eq:patch-representation-general-law}
-\mu(P_t\chi_A)
+(\mu P_t)(\chi_A)
 =
 \E_A\Cb{
 \prod_{P\in\mathcal B_t}C(P)\,
@@ -317,7 +317,7 @@ profile~$\mb p=(p_i)_{i\in\Lambda}$, the end-patch sites are distinct and the
 end contributions are affine, so
 \begin{equation}
 \label{eq:patch-representation-product-law}
-\mu_{\mb p}(P_t\chi_A)
+(\mu_{\mb p}P_t)(\chi_A)
 =
 \E_A\Cb{
 \prod_{P\in\mathcal B_t}C(P)
