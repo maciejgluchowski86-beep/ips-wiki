@@ -83,6 +83,7 @@ Thus the end-factor average is nonnegative for every~$\mu\in\mathcal M_*$. Toget
 
 \begin{theorem}[Centered-moment order]
 \label{thm:centered-moment-order}
+{\color{red} It could be cleaner stated that semigroup of patch positive spin system preserves the $\preceq_*$ order (is this fully true though? Even for measures outside $\mathcal{M}_*$?) Can it be proven through already proven patches rather than this new representation of $\mathcal{L} \chi_A^*$?. Also this order preservation is a more meaningful property than just preserving  $\mathcal{M}_* = \cb{\mu : \mu_{p^*}\preceq \mu}$.}
 Suppose that the spin system has patch positivity. If~$\mu\preceq_*\nu$, then, for every~$A\Subset\Lambda$ and~$t\geq0$,
 \begin{align*}
 \mu\bb{P_t\chi_A^*}
@@ -250,7 +251,6 @@ for every full patch, and, for every end patch~$P$ based at~$i$,
 \qquad
 0\leq\kappa(P)\leq\kappa'(P).
 \end{equation*}
-These inequalities also hold for infinite patches by taking limits.
 
 For~$\mu\in\mathcal M_*$, every term in the centered end expansion~\eqref{eq:centered-end-expansion} is nonnegative and is bounded by its primed counterpart. Combining this with the full-patch comparison in the patch representation proves the claim for each successful-interaction skeleton, and hence after expectation.
 \end{proof}
@@ -268,5 +268,3 @@ Under the hypotheses of Theorem~\ref{thm:pure-death-comparison}, suppose that th
 \begin{proof}
 Apply Theorem~\ref{thm:pure-death-comparison} with~$\mu=\mu_{\mb 1}\in\mathcal M_*$ and average over~$t\in[0,T]$. Every subsequential weak limit of either family of Ces\`aro averages is invariant. Uniqueness identifies the limits as~$\pi$ and~$\pi'$, and letting~$T\to\infty$ gives the claim.
 \end{proof}
-
-The comparison concerns joint occupation probabilities and does not by itself imply stochastic domination.

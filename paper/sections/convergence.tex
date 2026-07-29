@@ -3,7 +3,7 @@
 
 \subsection{The lower class and the main theorem}
 \label{subsec:convergence-statement}
-
+{\color{red} This section is visually not good. Can be shortened, proof for Bernoulii condition needs not be stated as it is trivial.}
 The convergence theorem applies to a larger class than~$\mathcal M_*$. Define
 \begin{equation*}
 \mathcal M_-
@@ -55,7 +55,7 @@ Then
 \end{equation*}
 If~$p_i^\star=1$, the singleton condition forces~$p_i=1$, and that coordinate
 contributes zero to both sides of the defining inequality.
-
+{\color{red} Polynomial growth property should probably be defined much earlier, along with the lattice notation. The finite range assumption is not needed. Also for a directed graph talking about a metric is misleading since distance from $i\to j$ can be different than from $j\to i$. Here~$B(i,r) = N_*^{r}(i)$, with the notation $N_*(A) = \bigcup_{i\in A}N_*(i)$ and~$N_*(i) = N(i)\cup \cb{i}$. No metric is needed. }
 For this section, assume that~$\Lambda$ is equipped with a graph metric~$d$.
 Write
 \begin{equation*}
@@ -101,14 +101,13 @@ monomial moments of~$\pi$ are
 \qquad
 \text{for every }A\Subset\Lambda.
 \end{equation}
-The integrand in~\eqref{eq:full-patch-limit-moments} is defined to be zero when
-$\abs{\mathcal P}=\infty$.
 \end{theorem}
 
 \begin{corollary}[Uniform exponential ergodicity]
 \label{cor:uniform-ergodicity}
 Under the hypotheses of Theorem~\ref{thm:common-invariant-limit}, suppose also
 that
+{\color{red} the 1/2 times bolded 1 looks weird, can we just have a bolded 1/2?}
 \begin{equation*}
 \mb p^\star\leq\frac12\mb 1.
 \end{equation*}
@@ -130,7 +129,7 @@ $C_{f,\gamma}<\infty$ such that
 C_{f,\gamma}e^{-\gamma t}.
 \end{equation*}
 \end{corollary}
-
+{\color{red} Terrible explanation of the actual proof strategy. The main ingredient is comparison of patch contributions between less and more noisy spin system, since thats gives the decay because more contributions from noisier system have more cancellations and are smaller. This gives us decay on the event that there are successful interactions far into the future. The complement event term converges to a limit that does not depend on initial measure, which can be proven by undoing duality.  The rest, like exact shape of the limit is technicalities.}
 The proof compares the finite-horizon patch weight with the all-time full-patch
 weight. At a cut time~$T$, the difference is split according to three events:
 the interaction cone leaves a finite region before~$T$, a successful
@@ -224,9 +223,8 @@ The centered end expansion gives the exact identity
 \label{eq:finite-weight-centered-expansion}
 W_t^\mu
 =
-\sum_{\mathcal Q\subseteq\mathcal E_t}
+\prod_{P\in\mathcal B_t}C(P)\sum_{\mathcal Q\subseteq\mathcal E_t}
 \mu\bb{\chi_{I(\mathcal Q)}^*}
-\prod_{P\in\mathcal B_t}C(P)
 \prod_{P\in\mathcal Q}\kappa(P)
 \prod_{P\in\mathcal E_t\setminus\mathcal Q}
 C\bb{p_{i(P)}^\star,P}.
@@ -249,7 +247,7 @@ The patchwise comparison from Theorem~\ref{thm:pure-death-comparison} gives
 Thus every summand in~\eqref{eq:finite-weight-centered-expansion} is
 nonnegative and is bounded by the corresponding~$\varepsilon$ summand. This
 proves~$0\leq W_t^\mu\leq W_t^{\varepsilon,\mu}$. The patch representation for
-$\Lcal^\varepsilon$ gives
+$\Lcal^\varepsilon$ gives {\color{red} I think in general in the paper it would be more meaningful to write $\mu P_t (\chi_A)$ rather than~$\mu\bb{P_t \chi_A)}$, since we are making statements on how the spin system evolves a measure. These are of course equivalent, but it matters for presentation.}
 \begin{equation*}
 \E_A\Cb{W_t^{\varepsilon,\mu}}
 =
@@ -294,7 +292,7 @@ under the common consistent patch law, and taking expectation proves
 \subsection{Spatial confinement and late interactions}
 \label{subsec:spatial-confinement}
 \label{subsec:late-interactions}
-
+{\color{red} This comes out of nowhere, victim of proof strategy not being explained.}
 For~$T<\infty$, let
 \begin{equation*}
 \mb{Cone}_T
@@ -372,9 +370,9 @@ occurs after~$T$.
 
 \begin{lemma}[Backward outgoing trail]
 \label{lem:backward-outgoing-trail}
-Let~$(i,u,S)$ be an ordinary successful-interaction record. There is a finite
-sequence of distinct full patches~$P_1,\ldots,P_n$ such that every~$P_k$ has
-outgoing terminal boundary,
+Let~$(i,u,S)$ be an {\color{red} fuck does that even mean ordinary? Stop injecting random adjectives in the prose!!} ordinary successful-interaction record. There is a finite
+sequence of distinct {\color{red} Just call them patches, its confusing when you keep saying "full", when not also talking about truncated patches. There are patches and sometimes truncated patches and thats it.} full patches~$P_1,\ldots,P_n$ such that every~$P_k$ has
+outgoing terminal boundary, {\color{red} it would help the reader if the condition $i(P_{k+1}) \in N_*(i(P_k))$ was written}
 \begin{equation*}
 e(P_1)=u,
 \qquad
@@ -405,6 +403,8 @@ therefore forces the recursion to reach the deterministic interaction at time
 zero after finitely many steps. The intervals concatenate, which proves
 \eqref{eq:outgoing-trail-total-length}.
 \end{proof}
+
+{\color{red} I think it might be useful to state the main lemmas first without proofs but with explainers of their roles in the proof and morally why they are true, technical proofs can follow later once the birds eye view of the proof is clear to the reader.}
 
 \begin{lemma}[Late interactions]
 \label{lem:late-interactions}
@@ -491,6 +491,7 @@ For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
 \end{lemma}
 
 \begin{proof}
+{\color{red} I think this proof is completely overcomplicated. The structure is simple: on $E_T^R \cap L_{T,t}$ the end patches in~$\mathcal{E}_T$ are truncations of the end patches in~$\mathcal{E}_\infty$ and there is at most~$\abs{R}$ of them. As $t\to\infty$ we have $C(z, P^{\uparrow t}) \to C\bb{P^{\uparrow \infty}}$ exponentially fast with $t-T$. So we have a bounded number of factors, each converging exponentially. Telescoping identity should solve that in one line, no?}
 Proposition~\ref{prop:no-late-continuation-identity} gives
 \begin{align}
 \CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
@@ -813,6 +814,7 @@ Absorbing the factor~$3$ into~$K_f$ proves
 \end{proof}
 
 \begin{proof}[Proof of Corollary~\ref{cor:uniform-ergodicity}]
+{\color{red} This should be one sentence: every point mass is in~$\mathcal{M}_-$, trivially.}
 If~$p_i^\star\leq1/2$, then, for every~$A\Subset\Lambda$ and~$\eta\in\Omega$,
 \begin{equation*}
 \frac{\chi_A^*(\eta)}{\chi_A^*(\mb 1)}
@@ -842,7 +844,7 @@ K_f\sup_{t\geq0}(1+t)^D e^{-\bb{\varepsilon/2-\gamma}t}
 \end{equation*}
 gives the stated exponential estimate.
 \end{proof}
-
+{\color{red} Then definition of~$\mathcal{M}_-$ should be extended to ones with arbitrary constant K like this. Mention that configs with finite nubmer of zeores are in~$\mathcal{M}_-$. Then this corollary is unnecessary.}
 The coefficient~$1$ in the definition of~$\mathcal M_-$ is not essential. If a
 probability measure~$\mu$ satisfies, for some~$K<\infty$,
 \begin{equation}
