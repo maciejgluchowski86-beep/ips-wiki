@@ -1,0 +1,107 @@
+name: Polish FA-1f application
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/polish-fa1f-application.yml
+
+permissions:
+  contents: write
+
+jobs:
+  polish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Polish subsection
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("paper/main.tex")
+          text = path.read_text()
+
+          old = r'''For~$\varepsilon\geq0$ and a refresh-density profile
+$\mb r=(r_i)_{i\in\Lambda}\in[0,1]^\Lambda$, define'''
+          new = r'''For~$\varepsilon\geq0$ and a refresh profile
+$\mb r=(r_i)_{i\in\Lambda}\in[0,1]^\Lambda$, define'''
+          assert old in text
+          text = text.replace(old, new, 1)
+
+          old = r'''FA-1f has patch positivity, and its patch critical profile is
+$\mb p^{\star}=p\mb 1$. If~$\varepsilon>0$, then
+$\Lcal_{\mathrm{FA}}^{\varepsilon,\mb r}$ has patch positivity if and only if
+\begin{equation*}
+\mb r\geq p\mb 1.
+\end{equation*}
+Whenever this holds, its patch critical profile is again~$p\mb 1$.'''
+          new = r'''FA-1f has patch positivity, and its patch critical profile is
+$\mb p^\star=p\mb 1$. If~$\varepsilon>0$, then
+$\Lcal_{\mathrm{FA}}^{\varepsilon,\mb r}$ has patch positivity if and only
+if~$\mb r\geq p\mb 1$. Whenever this holds, its patch critical profile is
+again~$p\mb 1$.'''
+          assert old in text
+          text = text.replace(old, new, 1)
+
+          old = r'''\begin{align*}
+c_i^0\bb{N(i)}+c_i^1\bb{N(i)}
+&=
+-1
+\leq
+0,
+\\
+c_i^1(\vn)c_i^0\bb{N(i)}
+-c_i^0(\vn)c_i^1\bb{N(i)}
+&=
+q(-p)-p(-q)
+=
+0.
+\end{align*}'''
+          new = r'''\begin{align*}
+c_i^0\bb{N(i)}+c_i^1\bb{N(i)}
+&=-1\leq0,
+\\
+c_i^1(\vn)c_i^0\bb{N(i)}
+-c_i^0(\vn)c_i^1\bb{N(i)}
+&=q(-p)-p(-q)=0.
+\end{align*}'''
+          assert old in text
+          text = text.replace(old, new, 1)
+
+          old = r'''\begin{equation*}
+c_i^0(\vn)=p+\varepsilon r_i,
+\quad
+c_i^1(\vn)=q+\varepsilon\bb{1-r_i}.
+\end{equation*}'''
+          new = r'''\begin{align*}
+c_i^0(\vn)&=p+\varepsilon r_i,
+&
+c_i^1(\vn)&=q+\varepsilon\bb{1-r_i}.
+\end{align*}'''
+          assert old in text
+          text = text.replace(old, new, 1)
+
+          old = r'''The equality case~$\mb r=p\mb 1$ is the usual soft FA-1f perturbation. It adds
+unconstrained refreshes with the reversible Bernoulli law of FA-1f and therefore has
+a positive spectral gap. We do not use these standard facts below.'''
+          new = r'''The equality case~$\mb r=p\mb 1$ is the usual soft FA-1f perturbation. It is
+reversible and has spectral gap at least~$\varepsilon$ because of the unconstrained
+refresh component. The applications below concern the larger class
+$\mb r\geq p\mb 1$, which need not preserve the FA-1f equilibrium law.'''
+          assert old in text
+          text = text.replace(old, new, 1)
+
+          path.write_text(text)
+          PY
+      - name: Commit polish
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper/main.tex
+          git rm .github/workflows/polish-fa1f-application.yml
+          git commit -m "Polish FA-1f application presentation"
+          git push origin HEAD:main
