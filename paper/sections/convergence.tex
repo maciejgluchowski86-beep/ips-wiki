@@ -77,9 +77,9 @@ removing deaths at rate~$\varepsilon$. Patch positivity makes both patch weights
 nonnegative, and the additional deaths make the original weights smaller. A
 successful interaction after a cut time~$T$ has a backward chain of
 outgoing-terminal patches whose total lifetime exceeds~$T$, producing a factor
-$e^{-\varepsilon T}$. If there is no successful interaction after~$T$, the end
-patches present at~$T$ converge to infinite-patch contributions independent of
-the initial configuration, with their terminal-spin dependence decaying as
+$e^{-\varepsilon T}$. If there is no successful interaction after~$T$, the
+probability-weighted end factors present at~$T$ relax to limits independent of
+the terminal configuration, with their centered slopes decaying as
 $e^{-\varepsilon(t-T)}$. Restricting the pre-$T$ skeleton to a directed ball
 bounds the number of end patches. Undoing duality identifies the excluded
 histories with a zero-boundary finite-volume error, which is controlled by
@@ -485,6 +485,7 @@ Proposition~\ref{prop:no-late-continuation-identity} gives
 \CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
 &=
 \prod_{P\in\mathcal B_T}C(P)\,
+\CP{L_{T,t}}{\mathcal G_T}
 \mu\bb{
  \prod_{P\in\mathcal E_T}
  C\bb{\eta\bb{i(P)},P^{\uparrow t}}
@@ -493,13 +494,14 @@ Proposition~\ref{prop:no-late-continuation-identity} gives
 \CE{W\ind\bb{L_T}}{\mathcal G_T}
 &=
 \prod_{P\in\mathcal B_T}C(P)
-\prod_{P\in\mathcal E_T}C\bb{P^{\uparrow\infty}}.
+\prod_{P\in\mathcal E_T}C\bb{q_{i(P)},P}.
 \end{align*}
 Write~$B_T=\prod_{P\in\mathcal B_T}C(P)$. By
 Lemma~\ref{lem:end-factor-relaxation}, the conditional absolute difference is
 at most
 \begin{align*}
 &e^{-\varepsilon\bb{t-T}}B_T
+\CP{L_{T,t}}{\mathcal G_T}
 \mu\bb{
  \prod_{P\in\mathcal E_T}
  C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
@@ -507,7 +509,7 @@ at most
 \\
 &\qquad+
 e^{-\varepsilon\bb{t-T}}B_T\abs{\mathcal E_T}
-\prod_{P\in\mathcal E_T}C\bb{P^{\uparrow\infty}}.
+\prod_{P\in\mathcal E_T}C\bb{q_{i(P)},P}.
 \end{align*}
 On~$E_T^R$, the map~$P\mapsto i(P)$ sends~$\mathcal E_T$ bijectively onto
 $\mb{Cone}_T$, so~$\abs{\mathcal E_T}\leq\abs R$. Since
@@ -516,6 +518,7 @@ conditional continuation identity for~$\Lcal^\varepsilon$ gives
 \begin{align*}
 &\E_A\Cb{
  \ind\bb{E_T^R}B_T
+ \CP{L_{T,t}}{\mathcal G_T}
  \mu\bb{
   \prod_{P\in\mathcal E_T}
   C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
@@ -525,6 +528,7 @@ conditional continuation identity for~$\Lcal^\varepsilon$ gives
 &\qquad\leq
 \E_A\Cb{
  \ind\bb{E_T^R}B_T^\varepsilon
+ \CP{L_{T,t}}{\mathcal G_T}
  \mu\bb{
   \prod_{P\in\mathcal E_T}
   C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
@@ -539,14 +543,14 @@ Likewise,
 \begin{align*}
 &\E_A\Cb{
  \ind\bb{E_T^R}B_T\abs{\mathcal E_T}
- \prod_{P\in\mathcal E_T}C\bb{P^{\uparrow\infty}}
+ \prod_{P\in\mathcal E_T}C\bb{q_{i(P)},P}
 }
 \\
 &\qquad\leq
 \abs R\,
 \E_A\Cb{
  \ind\bb{E_T^R}B_T
- \prod_{P\in\mathcal E_T}C\bb{P^{\uparrow\infty}}
+ \prod_{P\in\mathcal E_T}C\bb{q_{i(P)},P}
 }
 \\
 &\qquad=
