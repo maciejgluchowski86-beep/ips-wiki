@@ -226,32 +226,43 @@ in the usual product order.
 \subsection{Independent noise}
 \label{subsec:noise-ergodicity}
 \label{def:bernoulli-noise}
+\label{def:independent-noise}
 
-Let~$\mb d=(d_i)_{i\in\Lambda}\in[0,1]^\Lambda$. Independent Bernoulli noise
-with profile~$\mb d$ has generator
+For~$\varepsilon\geq0$ and a bounded death-rate profile
+$\mb d=(d_i)_{i\in\Lambda}\in[0,\infty)^\Lambda$, define the independent-noise
+generator
+\begin{align*}
+\Ncal^{\varepsilon,\mb d}f(\eta)
+={}&
+\sum_{i\in\Lambda}
+\varepsilon\bb{f\bb{\eta^{i,1}}-f(\eta)}
++
+\sum_{i\in\Lambda}
+d_i\bb{f\bb{\eta^{i,0}}-f(\eta)}
+\\
+={}&
+\sum_{i\in\Lambda}
+\bb{\varepsilon\bb{1-\eta(i)}+d_i\eta(i)}
+\bb{f(\eta^i)-f(\eta)}.
+\end{align*}
+Thus~$\varepsilon$ is the environment-independent~$0\to1$ rate and~$d_i$ is
+the environment-independent~$1\to0$ death rate at~$i$. Adding this noise gives
 \begin{equation*}
-\Ncal^{\mb d}f
+\Lcal^{\varepsilon,\mb d}
 =
-\sum_{i\in\Lambda}\bb{E_{i,d_i}-I}f.
+\Lcal+\Ncal^{\varepsilon,\mb d}.
 \end{equation*}
-Adding this noise at level~$\rho\geq0$ gives
+
+We say that a spin system has \emph{$\delta$-uniform deaths}, for~$\delta>0$, if
 \begin{equation*}
-\Lcal^\rho
-=
-\Lcal+\rho\Ncal^{\mb d}.
-\end{equation*}
-The perturbation adds the environment-independent rates~$\rho d_i$ to~$0\to1$
-and~$\rho\bb{1-d_i}$ to~$1\to0$. We say that the spin system has
-\emph{$\varepsilon$-uniform deaths}, for~$\varepsilon>0$, if
-\begin{equation*}
-c_i^1(\eta)\geq\varepsilon
+c_i^1(\eta)\geq\delta
 \qquad
 \text{for every }i\in\Lambda\text{ and }\eta\in\Omega.
 \end{equation*}
-Equivalently, independent transitions~$1\to0$ at rate~$\varepsilon$ can be
-removed while leaving nonnegative flip rates. The perturbation above has
-$\rho\inf_i\bb{1-d_i}$-uniform deaths whenever this quantity is positive. In
-the monomial dual, these independent transitions are pure deaths; see
+The perturbation~$\Lcal^{\varepsilon,\mb d}$ has
+$\inf_i d_i$-uniform deaths whenever this quantity is positive. When
+$\varepsilon=0$, the generator~$\Ncal^{0,\mb d}$ consists only of pure deaths.
+These transitions act diagonally on monomials; see
 Section~\ref{sec:signed-dual}.
 
 \subsection{Invariant measures and convergence}
