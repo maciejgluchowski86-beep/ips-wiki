@@ -7,26 +7,29 @@ The wiki is article-first. Each entry is a separate Markdown page under `docs/en
 ## Paper draft
 
 The LaTeX paper lives under `paper/`. The repository-level `main.tex` is the
-Overleaf main file and loads `paper/main.tex`. Introduction Sections 1.1--1.3
-and Sections 2--8 are drafted in prose. The section sources are under
-`paper/sections/`: `spin-systems.tex`, `signed-dual.tex`, `patches.tex`,
-`representation.tex`, `patch-positivity.tex`, `moment-order.tex`,
-`convergence.tex`, and `applications.tex`. Section 2 defines directed
-neighbourhood balls and polynomial growth. Section 7 states preservation of the
-centered-moment order, and Section 8 treats the finite-centered-deficit classes
-`\mathcal M_{-,K}` and their union `\mathcal M_-`. Section 9 contains the FA-1f
-and BABP coefficient checks and their shared centered-moment and noisy-convergence
-consequences; its literature, benchmark, and further-example subsections remain
-structural notes.
+Overleaf main file and loads `paper/main.tex`. The front of the paper is now
+organized as Introduction, Setup, Main results, and Applications. Setup is in
+`paper/sections/spin-systems.tex`; it defines the lattice, local observables,
+spin systems, coefficient expansions, refresh noise, and convergence
+terminology. `paper/sections/main-results.tex` states the patch representation,
+patch-positivity criterion, centered-moment comparisons, and common
+invariant-limit theorem. `paper/sections/applications.tex` introduces the
+contact process, FA-1f, and BABP once, and places each model's coefficient
+check and consequences immediately after its definition.
+
+The proof sections are `signed-dual.tex`, `patches.tex`, `representation.tex`,
+`patch-positivity.tex`, `moment-order.tex`, and `convergence.tex`. The general
+convergence-by-comparison corollary is in
+`moment-order-convergence.tex` and is loaded directly after the centered-moment
+section. The abstract and Discussion remain structural notes.
 
 Appendix A derives the monomial dual in
 `paper/appendices/monomial-dual.tex`, Appendix B gives the explicit patch
 contribution formulas in `paper/appendices/patch-contributions.tex`, and
 Appendix C in `paper/appendices/technical-background.tex` supplies local
 finiteness, confined and no-late graphical identities, end-factor relaxation,
-and directed finite propagation. The abstract, Introduction Sections 1.4--1.5,
-and Section 10 remain structural notes. Shared macros and theorem environments
-live in `paper/preamble.tex`. The paper-specific typography, terminology, and
+and directed finite propagation. Shared macros and theorem environments live
+in `paper/preamble.tex`. The paper-specific typography, terminology, and
 paragraph conventions are recorded in `STYLE.md`.
 
 ## Reading target
