@@ -18,14 +18,11 @@ For~$K\geq0$, define
 =
 \bigcup_{K\geq0}\mathcal M_{-,K}.
 \end{equation}
-Equivalently,~$\mu\in\mathcal M_{-,K}$ when
-$\mu(\chi_A^*)\geq-K\chi_A^*(\mb 1)$ for every~$A\Subset\Lambda$. Thus
-$\mathcal M_{-,0}=\mathcal M_*$. Put~$p_i^-=(2p_i^\star-1)\vee0$ and
-$\mb p^-=(p_i^-)_{i\in\Lambda}$. A Bernoulli product measure~$\mu_{\mb p}$
-belongs to~$\mathcal M_{-,1}$ exactly when~$\mb p\geq\mb p^-$. Under
-uniform deaths, Corollary~\ref{cor:critical-profile-empty-bound} gives
-$p_i^\star<1$ at every site, and every point mass whose configuration has
-finitely many zeroes belongs to~$\mathcal M_-$.
+Thus
+$\mathcal M_* = \mathcal M_{-,0}$. Define~$p_i^-=\max\cb{2p_i^\star-1, 0}$ and
+$\mb p^-=(p_i^-)_{i\in\Lambda}$. Every point mass whose configuration has
+finitely many zeroes belongs to~$\mathcal M_-$ and a Bernoulli product measure~$\mu_{\mb p}$
+belongs to~$\mathcal M_{-}$, specifically to~$\mathcal{M}_{-,1}$, when~$\mb p\geq\mb p^-$. 
 
 \begin{theorem}[Common invariant limit]
 \label{thm:common-invariant-limit}
@@ -251,6 +248,7 @@ For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
 \bb{1+\abs R}e^{-\varepsilon\bb{t-T}}.
 \end{equation}
 \end{lemma}
+\bigskip
 
 \begin{proof}[Proof of Theorem~\ref{thm:common-invariant-limit}]
 For~$\mu\in\mathcal M_*$, the patch representation and the definition of~$W$
@@ -339,10 +337,9 @@ This proves~\eqref{eq:uniform-m-minus-convergence}.
 \end{proof}
 
 \begin{proof}[Proof of Corollary~\ref{cor:uniform-ergodicity}]
-If~$\mb p^\star\leq\mbs{\tfrac12}$, every point mass belongs to
-$\mathcal M_{-,1}$, and hence so does every probability measure. Theorem
-\ref{thm:common-invariant-limit} gives~\eqref{eq:uniform-pointwise-convergence}
-after changing~$K_f$, and any invariant measure must therefore equal~$\pi$.
+If~$\mb p^\star\leq\mbs{\tfrac12}$ then~$\mb p^- = \mb 0$ and every probability measure belongs to
+$\mathcal M_{-,1}$. Theorem
+\ref{thm:common-invariant-limit} gives the result immediately.
 \end{proof}
 
 \subsection{Proofs of the estimates}
@@ -560,4 +557,4 @@ bounds proves~\eqref{eq:no-late-relaxation-bound}.
 
 The class~$\mathcal M_-$ enters only through the centered signs of the end
 factors. The argument does not identify a dynamical obstruction to convergence
-from initial laws outside this class.
+from initial laws outside this class. To the contrary, the negative signs should provide extra cancellations, though these are not detectable by the patch method.
