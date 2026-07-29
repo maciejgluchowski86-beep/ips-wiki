@@ -1,5 +1,6 @@
 name: Apply BABP patch positivity subsection
 
+# Trigger after workflow registration.
 on:
   push:
     branches:
