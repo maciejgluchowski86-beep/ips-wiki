@@ -312,12 +312,9 @@ $\mb r=(r_i)_{i\in\Lambda}\in[0,1]^\Lambda$, define
 \begin{proposition}[Patch positivity for FA-1f]
 \label{prop:fa-1f-patch-positivity}
 FA-1f has patch positivity, and its patch critical profile is
-$\mb p^{\star}=p\mb 1$. If~$\varepsilon>0$, then
-$\Lcal_{\mathrm{FA}}^{\varepsilon,\mb r}$ has patch positivity if and only if
-\begin{equation*}
-\mb r\geq p\mb 1.
-\end{equation*}
-Whenever this holds, its patch critical profile is again~$p\mb 1$.
+$\mb p^{\star}=\mb p$. If~$\varepsilon>0$, then
+$\Lcal_{\mathrm{FA}}^{\varepsilon,\mb r}$ has patch positivity if and only if~$\mb r\geq \mb p.$
+Whenever this holds, its patch critical profile is again~$\mb p$.
 \end{proposition}
 
 \begin{proof}
@@ -378,19 +375,9 @@ site. The nonempty-neighbour coefficients are unchanged, so the critical-profile
 formula still gives~$p_i^\star=p$.
 \end{proof}
 
-The equality case~$\mb r=p\mb 1$ is the usual soft FA-1f perturbation. It adds
+The equality case~$\mb r=\mb p$ is the usual Soft FA-1f perturbation. It adds
 unconstrained refreshes with the reversible Bernoulli law of FA-1f and therefore has
 a positive spectral gap. We do not use these standard facts below.
-
-\begin{remark}[Adding pure deaths]
-\label{rem:fa-1f-adding-pure-deaths}
-Adding independent pure deaths at rates~$\mb d=(d_i)_{i\in\Lambda}$ gives
-$\Lcal_{\mathrm{FA}}+\Ncal^{0,\mb d}$. If~$p>0$, the patch-positivity criterion
-forces~$d_i=0$ at every site. This does not conflict with
-Theorem~\ref{thm:pure-death-comparison}, which removes a pure-death component
-from a system already known to have patch positivity; it does not assert that
-adding pure deaths to FA-1f preserves patch positivity.
-\end{remark}
 
 
 \subsubsection{Monotonicity and noisy convergence}
