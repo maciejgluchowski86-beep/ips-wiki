@@ -10,8 +10,27 @@ neighbourhood~$N(i)\subseteq\Lambda\setminus\cb{i}$, and assume
 \sup_{i\in\Lambda}\abs{N(i)}<\infty.
 \end{equation*}
 The neighbourhoods may be directed:~$j\in N(i)$ need not imply~$i\in N(j)$.
-We write~$A\Subset\Lambda$ when~$A$ is finite. The configuration space
-is~$\Omega=\cb{0,1}^{\Lambda}$. Following the standard KCSM convention
+Write~$N_*(i)=N(i)\cup\cb{i}$ and, for~$A\subseteq\Lambda$,
+\begin{equation*}
+N_*(A)=\bigcup_{i\in A}N_*(i),
+\qquad
+B(A,0)=A,
+\qquad
+B(A,n+1)=N_*\bb{B(A,n)}.
+\end{equation*}
+Thus~$B(A,n)=N_*^n(A)$ is the directed neighbourhood ball reached from~$A$ in
+at most~$n$ steps, and~$B(i,n)=B(\cb{i},n)$. We say that~$\Lambda$ has
+\emph{polynomial growth of exponent~$D$} if there is~$K<\infty$ such that
+\begin{equation}
+\label{eq:polynomial-growth}
+\abs{B(i,n)}\leq K(1+n)^D
+\qquad
+\text{for every }i\in\Lambda\text{ and }n\in\N.
+\end{equation}
+No symmetry of the neighbourhood relation is required.
+
+We write~$A\Subset\Lambda$ when~$A$ is finite. The configuration space is
+$\Omega=\cb{0,1}^{\Lambda}$. Following the standard KCSM convention
 \cite{HartarskyToninelli2025}, state~$0$ is facilitating and state~$1$ is calm.
 
 \begin{definition}[Local functions]
