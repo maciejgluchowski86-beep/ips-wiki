@@ -1,3 +1,5 @@
+\input{paper/sections/moment-order-convergence}
+
 \section{Applications to facilitating models}
 \label{sec:applications}
 
@@ -17,7 +19,14 @@
 \subsubsection{Model and known out-of-equilibrium results}
 \label{subsubsec:fa-1f-literature}
 
-\draftnote{Recall only the definitions and literature results needed to locate the new statements. Avoid a general KCSM survey. Relevant entries: \wiki{fa-1f-model}{FA-1f} and \wiki{fa-1f-out-of-equilibrium}{FA-1f out of equilibrium}.}
+The Bernoulli product measure~$\mu_p$ is reversible for FA-1f, while the
+all-occupied configuration is absorbing. Blondel et al.~\cite[Theorem~2.1 and
+Remarks~2.3--2.4]{BlondelEtAl2013} proved convergence to~$\mu_p$, for
+sufficiently large vacancy density~$q$, from initial laws having a uniform
+exponential moment for the distance to the nearest vacancy. The convergence is
+exponential on one-dimensional polynomial-growth graphs and stretched
+exponential in higher growth dimension. In particular, the theorem applies to
+every nondegenerate homogeneous product initial law.
 
 \subsubsection{Patch positivity and critical density}
 \label{subsubsec:fa-1f-patches}
@@ -108,13 +117,31 @@ The equality case~$\mb s=\mb p$ is the usual soft FA-1f perturbation. It adds
 unconstrained refreshes with the reversible Bernoulli law of FA-1f and therefore has
 a positive spectral gap. We do not use these standard facts below.
 
+The centered-moment comparison gives a short transfer principle for the known
+out-of-equilibrium theorem. If~$\mu_u\preceq_*\nu\preceq_*\mu_v$ with~$v<1$,
+then convergence of the two product endpoints implies convergence of~$\nu$ at
+the same rate, by Corollary~\ref{cor:centered-moment-convergence}. This does not
+enlarge the qualitative class treated in~\cite{BlondelEtAl2013}: ordinary
+monomial comparison gives~$\nu(\chi_A)\leq v^{\abs A}$, and hence the distance
+to the nearest vacancy has a uniform exponential moment. It does transfer any
+sharper endpoint estimate available from model-specific arguments.
+
 \subsection{Biased annihilating branching process}
 \label{subsec:babp-applications}
 
 \subsubsection{Model and known long-time behavior}
 \label{subsubsec:babp-literature}
 
-\draftnote{Recall the reversible product law, absorbing state, self-duality or quasi-duality results, and the unresolved finite-seed regime only insofar as they frame the patch consequences. Relevant entries: \wiki{babp-model}{BABP} and \wiki{babp-out-of-equilibrium}{BABP out of equilibrium}.}
+In the particle convention, zeroes are particles and~$q$ is their equilibrium
+density. The product law~$\mu_p$ and the particle-free state are invariant; in
+one dimension they generate all stationary laws, and the analogous statement
+holds among translation-invariant laws in higher dimensions
+\cite{NeuhauserSudbury1993,MartinelliShapiraToninelli2025}. On~$\Z^d$, every
+homogeneous product law~$\mu_u$ with~$u<1$ converges exponentially to~$\mu_p$
+\cite[Application~2]{MartinelliShapiraToninelli2025}. The quasi-thinning argument
+also covers inhomogeneous product profiles satisfying~$p_{0,i}\leq\sqrt p$ for
+every~$i$~\cite[Remark~5.5]{MartinelliShapiraToninelli2025}. Convergence from a
+finite nonempty particle set remains open for part of the parameter range.
 
 \subsubsection{Patch positivity and critical density}
 \label{subsubsec:babp-patches}
@@ -202,7 +229,37 @@ site. The nonempty-neighbour coefficients are unchanged, so the critical-profile
 formula still gives~$p_i^\star=p$.
 \end{proof}
 
-\subsection{Consequences}
+\begin{corollary}[Centered-moment comparison for BABP]
+\label{cor:babp-centered-convergence}
+Consider nearest-neighbour BABP on~$\Z^d$. Let~$0\leq u\leq v<1$ satisfy
+$v\geq p$ and~$\abs{u-p}\leq v-p$. If a probability measure~$\nu$ satisfies
+\begin{equation*}
+(u-p)^{\abs A}
+\leq
+\nu\bb{\prod_{i\in A}\bb{\eta(i)-p}}
+\leq
+(v-p)^{\abs A}
+\qquad
+\text{for every }A\Subset\Z^d,
+\end{equation*}
+then~$\nu P_t$ converges exponentially to~$\mu_p$ on local functions.
+\end{corollary}
+
+\begin{proof}
+The displayed inequalities are exactly
+$\mu_u\preceq_*\nu\preceq_*\mu_v$. Both product endpoints converge
+exponentially to~$\mu_p$ by~\cite[Application~2]{MartinelliShapiraToninelli2025},
+so the claim follows from Corollary~\ref{cor:centered-moment-convergence}.
+\end{proof}
+
+The corollary includes dependent and non-translation-invariant laws, and the
+lower comparison law may lie outside~$\mathcal M_*$. In particular, every
+inhomogeneous product profile satisfying~$p\leq p_i\leq v<1$ converges
+exponentially; this allows coordinates above the quasi-thinning threshold
+$\sqrt p$. The comparison does not order finite-particle configurations between
+nondegenerate product laws and does not resolve finite-seed convergence.
+
+\subsection{Consequences for independent refresh noise}
 \label{subsec:fa-babp-consequences}
 
 Let~$\Lcal$ denote either~$\Lcal_{\mathrm{FA}}$ or~$\Lcal_{\mathrm{BABP}}$.
@@ -251,11 +308,6 @@ In particular,~$\mathcal M_*$ is preserved and, if~$p\leq u\leq v\leq1$, then
 \qquad
 \text{for every }A\Subset\Lambda\text{ and }t\geq0.
 \end{equation*}
-Moreover, if
-$\underline\mu\preceq_*\mu\preceq_*\overline\mu$ and both
-$\underline\mu P_t^{\varepsilon,\mb s}$ and
-$\overline\mu P_t^{\varepsilon,\mb s}$ converge weakly to the same probability
-measure~$\pi$, then~$\mu P_t^{\varepsilon,\mb s}\Rightarrow\pi$.
 
 \item Suppose that~$\varepsilon>0$, that~$\Lambda$ has polynomial growth of
 exponent~$D$, and that
@@ -301,16 +353,14 @@ Propositions~\ref{prop:fa-1f-patch-positivity} and
 \ref{prop:babp-patch-positivity} give patch positivity and critical profile
 $\mb p^\star=\mb p$ in every case covered by the statement. Part~\textup{(i)}
 then follows from Theorem~\ref{thm:centered-moment-order} and
-Corollary~\ref{cor:product-profile-comparisons}. For the final assertion in that
-part, order preservation squeezes every centered monomial between its values
-under the two extremal evolutions. Centered monomials span the local functions,
-so the weak convergence follows.
+Corollary~\ref{cor:product-profile-comparisons}.
 
 For part~\textup{(ii)}, the added refresh supplies an environment-independent
-$1\to0$ rate~$\varepsilon\bb{1-s_i}\geq\delta$ at every site. Theorem~\ref{thm:common-invariant-limit} and Corollary~\ref{cor:uniform-ergodicity}
-therefore give the stated conclusions. The formula for~$p^-$ and the listed
-initial laws follow from the description of~$\mathcal M_-$ in
-Section~\ref{subsec:convergence-statement}.
+$1\to0$ rate~$\varepsilon\bb{1-s_i}\geq\delta$ at every site.
+Theorem~\ref{thm:common-invariant-limit} and
+Corollary~\ref{cor:uniform-ergodicity} therefore give the stated conclusions.
+The formula for~$p^-$ and the listed initial laws follow from the description
+of~$\mathcal M_-$ in Section~\ref{subsec:convergence-statement}.
 \end{proof}
 
 The same conclusions hold for the two different facilitating mechanisms:
