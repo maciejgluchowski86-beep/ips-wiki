@@ -122,7 +122,134 @@ limit, which can be described by a patch formula.
 \subsection{Main results}
 \label{subsec:intro-results}
 
-\draftnote{List the results in their conceptual order: patch factorization and representation; a coefficient characterization of patch positivity; the recovered centered-moment order; comparison under removal of pure deaths; uniform convergence under noise; and the full-patch formula for the invariant law. Distinguish convergence over~$\mathcal M_-$ from uniform exponential ergodicity when~$\mb p^\star\leq \frac12\mb 1$.}
+For~$A\Subset\Lambda$, write~$\chi_A(\eta)=\prod_{i\in A}\eta(i)$.
+Theorems~\ref{thm:patch-factorization} and~\ref{thm:patch-representation}
+reorganize the signed Feynman--Kac representation of~$P_t\chi_A$.
+Conditional on the successful-interaction skeleton, the hidden data in
+distinct patches are independent. Averaging them patch by patch gives an exact
+representation in which patches completed before time~$t$ and patches reaching
+time~$t$ play different roles. The product of the bulk-patch contributions is
+the patchwise average of the signed Feynman--Kac exponential, while the
+end-patch factors carry the evaluation of the duality function at time~$t$.
+The signs are therefore not estimated one interaction at a time: cancellations
+among successive local events are performed before each contribution is
+bounded.
+
+Patch positivity requires the bulk-patch contributions to be nonnegative. In
+the dual representation, this means that cancellation of the dual signs leaves
+a nonnegative Feynman--Kac weight after the local histories have been averaged.
+The condition has a local coefficient characterization. With the notation of
+Section~\ref{sec:spin-systems}, set~$r_i=c_i^0(\vn)+c_i^1(\vn)$. If~$r_i>0$,
+Theorem~\ref{thm:patch-positivity-criterion} says that patch positivity is
+equivalent to
+\begin{equation*}
+ c_i^0(S)+c_i^1(S)\leq0,
+ \qquad
+ c_i^1(\vn)c_i^0(S)\geq c_i^0(\vn)c_i^1(S)
+ \qquad
+ \text{for every }\vn\neq S\subseteq N(i);
+\end{equation*}
+if~$r_i=0$, it is equivalent to~$c_i\equiv0$. Thus the property can be checked
+from the multilinear coefficients of the two directional flip rates. End
+patches retain the terminal state and require a one-density threshold.
+Proposition~\ref{prop:critical-profile-formula} identifies the minimal
+profile~$\mb p^\star$ for which all end-patch contributions are nonnegative:
+\begin{equation*}
+ p_i^\star
+ =
+ \max\cb{
+  0,
+  \sup_{\substack{
+   \vn\neq S\subseteq N(i)\\
+   c_i^0(S)+c_i^1(S)<0
+  }}
+  \frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
+ }.
+\end{equation*}
+
+The profile~$\mb p^\star$ determines the centered moments on which the
+calm--facilitating order survives. Set
+$\chi_A^*(\eta)=\prod_{i\in A}(\eta(i)-p_i^\star)$ and
+write~$\mu\preceq_*\nu$ when~$\mu(\chi_A^*)\leq\nu(\chi_A^*)$ for every
+$A\Subset\Lambda$. Theorem~\ref{thm:centered-moment-order} gives
+\begin{equation*}
+ \mu\preceq_*\nu
+ \quad\Longrightarrow\quad
+ \mu P_t\preceq_*\nu P_t
+ \qquad
+ \text{for every }t\geq0,
+\end{equation*}
+without requiring either measure to have nonnegative centered moments. In
+particular, the class
+\begin{equation*}
+ \mathcal M_*
+ =
+ \cb{
+  \mu:\mu\bb{\chi_A^*}\geq0
+  \text{ for every }A\Subset\Lambda
+ }
+\end{equation*}
+is preserved. This is the recovered monotonicity: the dynamics need not
+preserve an order of configurations, but it preserves the order of all
+products of deviations from the critical calm-state profile. The patch
+representation also compares the system with one obtained by removing
+environment-independent~$1\to0$ transitions. If~$P_t'$ denotes the semigroup
+after removing such pure deaths, then
+Theorem~\ref{thm:pure-death-comparison} gives
+\begin{equation*}
+ (\mu P_t)(\chi_A)
+ \leq
+ (\mu P_t')(\chi_A)
+ \qquad
+ \text{for every }\mu\in\mathcal M_*.
+\end{equation*}
+
+Assume now that~$\Lambda$ has polynomial growth of exponent~$D$ and that an
+environment-independent~$1\to0$ transition occurs at every site at rate at
+least~$\varepsilon>0$. For~$K\geq0$, let
+\begin{equation*}
+ \mathcal M_{-,K}
+ =
+ \cb{
+  \mu:
+  \frac{\mu+K\mu_{\mb 1}}{1+K}\in\mathcal M_*
+ },
+ \qquad
+ \mathcal M_-=\bigcup_{K\geq0}\mathcal M_{-,K},
+\end{equation*}
+where~$\mu_{\mb 1}$ is the all-calm measure. This class contains Bernoulli
+measures with sufficiently high calm-state density and point masses on
+configurations with finitely many facilitating states.
+Theorem~\ref{thm:common-invariant-limit} gives an invariant measure~$\pi$ such
+that, for every local function~$f$,
+\begin{equation*}
+ \sup_{\mu\in\mathcal M_{-,K}}
+ \abs{(\mu P_t)(f)-\pi(f)}
+ \leq
+ (1+2K)K_f(1+t)^D e^{-\varepsilon t/2}
+\end{equation*}
+for every~$K\geq0$ and~$t\geq0$. The limit is obtained without identifying an
+invariant measure in advance. In the notation of Section~\ref{sec:representation},
+its monomial moments are
+\begin{equation*}
+ \pi(\chi_A)
+ =
+ \E_A\Cb{
+  \prod_{P\in\mathcal P}C(P)
+  \ind\bb{\abs{\mathcal P}<\infty}
+ }.
+\end{equation*}
+The especially clean regime is~$\mb p^\star\leq\frac12\mb 1$. Then every
+initial configuration is covered with a common constant,~$\pi$ is the unique
+invariant measure, and Corollary~\ref{cor:uniform-ergodicity} gives
+\begin{equation*}
+ \sup_{\eta\in\Omega}
+ \abs{P_tf(\eta)-\pi(f)}
+ \leq
+ K_f(1+t)^D e^{-\varepsilon t/2}.
+\end{equation*}
+Section~\ref{sec:applications} verifies the coefficient criterion for FA-1f and
+BABP and applies these conclusions to their noisy dynamics.
 
 \subsection{Applications, literature, and organization}
 \label{subsec:intro-literature}
