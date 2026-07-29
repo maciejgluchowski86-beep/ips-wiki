@@ -21,13 +21,14 @@ the dictionary from spin rates to dual data, monomial Feynman--Kac duality,
 pure-death noise, and the marked graphical construction. Sections 4 and 5 are
 drafted in `paper/sections/patches.tex` and
 `paper/sections/representation.tex`; they define the successful-interaction
-skeleton, patch geometry, consistent patch laws, conditional factorization,
-patch contributions, and the finite-horizon representation theorem. Section 6
-is drafted in `paper/sections/patch-positivity.tex`; it defines patch
-positivity, proves the coefficient criterion, derives the calm--facilitating
-rate consequence, and computes the patch critical profile. Section 7 is
-drafted in `paper/sections/moment-order.tex`; it introduces centered monomials
-and `\mathcal M_*`, proves preservation of the full centered-moment order,
+skeleton, patch geometry, geometric truncation and extension, consistent patch
+laws, conditional factorization, ordinary patch contributions, and the
+finite-horizon representation theorem. Section 6 is drafted in
+`paper/sections/patch-positivity.tex`; it defines patch positivity, proves the
+coefficient criterion, derives the calm--facilitating rate consequence, and
+computes the patch critical profile. Section 7 is drafted in
+`paper/sections/moment-order.tex`; it introduces centered monomials and
+`\mathcal M_*`, proves preservation of the full centered-moment order,
 derives product-profile comparisons, and proves comparison after removing pure
 deaths. Section 8 is drafted in `paper/sections/convergence.tex`; it defines
 the finite-centered-deficit classes `\mathcal M_{-,K}` and their union
@@ -37,12 +38,13 @@ configurations with finitely many zeroes.
 
 Appendix A is drafted in `paper/appendices/monomial-dual.tex`, Appendix B in
 `paper/appendices/patch-contributions.tex`, and Appendix C in
-`paper/appendices/technical-background.tex`. Appendix C now contains local
-finiteness, the confined-interaction and no-late continuation identities, the
-end-factor relaxation calculation, and directed finite propagation. The
-abstract, Introduction Sections 1.4--1.5, and Section 9 onward remain drafting
-notes. No title or main-result summary has yet been fixed. Shared macros and
-theorem environments live in `paper/preamble.tex`.
+`paper/appendices/technical-background.tex`. Appendix B applies the ordinary
+patch formulas to geometric extensions. Appendix C contains local finiteness,
+the confined-interaction identity, explicit local no-success events and their
+conditional probabilities, the end-factor relaxation calculation, and directed
+finite propagation. The abstract, Introduction Sections 1.4--1.5, and Section 9
+onward remain drafting notes. No title or main-result summary has yet been
+fixed. Shared macros and theorem environments live in `paper/preamble.tex`.
 
 The paper writing conventions are recorded in `STYLE.md`. In particular,
 inline mathematics uses `$...$` with a preceding nonbreaking space when it
@@ -51,7 +53,9 @@ equation numbers are reserved for formulas referenced later, and evolution of
 an initial measure is written as `(\mu P_t)(f)`. General states are called calm
 or facilitating; model-specific terminology is used where available, and
 `activity` is not a formal state variable. Paragraphs should develop coherent
-points rather than being broken around individual displays.
+points rather than being broken around individual displays. The operations
+`P^{\downarrow t}` and `P^{\uparrow t}` always change patch geometry only;
+probabilities of uninterrupted continuation are written separately.
 
 ## Current core entries
 
