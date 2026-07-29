@@ -40,9 +40,9 @@ $\beta_i(S)=\abs{c_i^0(S)+c_i^1(S)}$.
 If the signed dual starts from~$A\Subset\Lambda$, then almost surely only
 finitely many relevant interactions occur on every bounded time interval.
 Consequently,~$\mathcal I_T$ and~$\mathcal P_T$ are finite for every~$T<\infty$,
-ordinary interaction times are distinct, and every maximal backward predecessor
-chain of patches with outgoing terminal boundary reaches time~$0$ after finitely
-many steps.
+interaction times are distinct, and every maximal backward predecessor chain
+of patches with outgoing terminal boundary reaches time~$0$ after finitely many
+steps.
 \end{lemma}
 
 \begin{proof}
@@ -72,16 +72,16 @@ finitely many interactions before~$T$ and none after it.
 \label{app:confined-interactions}
 
 For~$R\subseteq\Lambda$, let~$\eta^{R,0}$ agree with~$\eta$ on~$R$ and vanish on
-$R^c$. Define the modified flip rates
+$R^c$. Define
 \begin{equation*}
 c_{i,R}(\eta)
 =
 \pw{c_i\bb{\eta^{R,0}}}{i\in R}
 {c_i\bb{\eta^{\cb{i},0}}}{i\notin R},
 \end{equation*}
-and let~$P_t^R$ be the corresponding semigroup. The process inside~$R$ is the
-original spin system with zero boundary, while the sites outside~$R$ evolve
-independently. Hence, if~$f$ depends only on the spins in~$R$,
+and let~$P_t^R$ be the corresponding semigroup. Inside~$R$, this is the
+original spin system with zero boundary; sites outside~$R$ evolve independently.
+Hence, if~$f$ depends only on spins in~$R$,
 \begin{equation}
 \label{eq:modified-zero-boundary-agreement}
 P_t^Rf=P_t^{R,0}f.
@@ -95,7 +95,7 @@ probability measure. Then
 \label{eq:confined-interaction-identity}
 \E_A\Cb{W_t^\mu\ind\bb{E_T^R}}
 =
-\mu\bb{P_{t-T}P_T^{R,0}\chi_A}.
+(\mu P_{t-T}P_T^{R,0})(\chi_A).
 \end{equation}
 \end{proposition}
 
@@ -118,10 +118,9 @@ $W_t^{\delta_\eta}=\CE{Z_t^\eta}{\mathcal G_t}$. Since~$E_T^R\in\mathcal G_t$,
 \end{equation}
 
 During the dual interval~$[0,T]$, retain every empty-target death interaction
-and retain a nonempty-target split or birth only when its source lies in~$R$ and
-its target is contained in~$R$. Let~$\Dcal_R$ be the resulting signed-dual
-generator. If the active set is~$B$, the total rate of discarded interactions
-is
+and retain a nonempty-target split or birth only when its source and all its
+targets lie in~$R$. Let~$\Dcal_R$ be the resulting signed-dual generator. If
+the active set is~$B$, the total rate of discarded interactions is
 \begin{equation*}
 \kappa_R(B)
 =
@@ -131,19 +130,17 @@ is
 \end{equation*}
 The indicator of~$E_T^R$ kills the dual at the first discarded successful
 interaction, so the Feynman--Kac operator on~$[0,T]$ is
-\begin{equation*}
-\Dcal_R+V-\kappa_R.
-\end{equation*}
+$\Dcal_R+V-\kappa_R$.
 
-This is exactly the monomial-dual operator of the modified rates~$c_{i,R}$. For
+This is the monomial-dual operator of the modified rates~$c_{i,R}$. For
 $i\in R$, the multilinear expansion of~$c_{i,R}^x$ retains precisely the
-coefficients~$c_i^x(S)$ with~$S\subseteq R$. For~$i\notin R$, only the
-empty-neighbour coefficient remains. Thus the nonempty-target dual transitions
-are exactly those retained in~$\Dcal_R$, every empty-target death remains, and
-the discarded total rate subtracts~$\kappa_R$ from the potential.
+coefficients~$c_i^x(S)$ with~$S\subseteq R$; for~$i\notin R$, only the
+empty-neighbour coefficient remains. Thus the nonempty-target transitions are
+those retained in~$\Dcal_R$, every empty-target death remains, and the discarded
+rate subtracts~$\kappa_R$ from the potential.
 
-Apply the modified duality on~$[0,T]$ and the original duality on~$[T,t]$.
-Dual intervals act from right to left on observables, so
+Apply modified duality on~$[0,T]$ and original duality on~$[T,t]$. Dual
+intervals act from right to left on observables, giving
 \begin{equation*}
 \E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}
 =
@@ -151,7 +148,7 @@ Dual intervals act from right to left on observables, so
 \end{equation*}
 Since~$A\subseteq R$,~$\chi_A$ depends only on~$R$, and
 \eqref{eq:modified-zero-boundary-agreement} replaces~$P_T^R$ by
-$P_T^{R,0}$. Integrating the resulting pointwise identity over~$\mu$ proves
+$P_T^{R,0}$. Integrating over~$\mu$ proves
 \eqref{eq:confined-interaction-identity}.
 \end{proof}
 
@@ -182,10 +179,10 @@ $\Lcal^\varepsilon$ counterpart.
 \end{proposition}
 
 \begin{proof}
-For~$\eta\in\Omega$, use the random variable~$Z_t^\eta$ from the proof of
+For~$\eta\in\Omega$, use~$Z_t^\eta$ from the proof of
 Proposition~\ref{prop:confined-interaction-identity}. The patch representation
 gives~$W_t^{\delta_\eta}=\CE{Z_t^\eta}{\mathcal G_t}$, and
-$L_{T,t}\in\mathcal G_t$. The tower property therefore gives
+$L_{T,t}\in\mathcal G_t$. The tower property gives
 \begin{equation*}
 \CE{W_t^{\delta_\eta}\ind\bb{L_{T,t}}}{\mathcal G_T}
 =
@@ -193,13 +190,12 @@ $L_{T,t}\in\mathcal G_t$. The tower property therefore gives
 \end{equation*}
 
 Conditional on~$\mathcal G_T$, the hidden data of the bulk patches have their
-consistent patch laws. The future Poisson increments based at the distinct
-sites of~$\mathcal E_T$ are independent of these data and of one another. As
-long as no successful interaction occurs, no site outside~$\mb{Cone}_T$ can
-become dual-active. Hence~$L_{T,t}$ is the intersection, over
-$P\in\mathcal E_T$, of the local events that the continuation of~$P$ creates no
-successful interaction before~$t$. The conditional product disintegration is
-therefore
+consistent patch laws. Future Poisson increments based at the distinct sites
+of~$\mathcal E_T$ are independent of these data and of one another. While no
+successful interaction occurs, no site outside~$\mb{Cone}_T$ becomes
+dual-active. Hence~$L_{T,t}$ is the intersection of the local events that the
+continuations of the patches in~$\mathcal E_T$ create no successful interaction
+before~$t$. The conditional product disintegration is
 \begin{align*}
 \CE{Z_t^\eta\ind\bb{L_{T,t}}}{\mathcal G_T}
 &=
@@ -213,37 +209,162 @@ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
 \prod_{P\in\mathcal E_T}
 C\bb{\eta\bb{i(P)},P^{\uparrow t}}.
 \end{align*}
-For an end patch, the continuation factor in this display is exactly the
-one-site Feynman--Kac expectation together with the local no-success event; its
-identification with~$C(\eta(i(P)),P^{\uparrow t})$ is
-\eqref{eq:end-patch-continuation}. Combining the display with the tower identity
-above proves the pointwise version of
-\eqref{eq:appendix-finite-continuation-identity}. Integration over~$\eta$ with
-respect to~$\mu$ proves the stated formula. The proof for~$\Lcal^\varepsilon$
-is identical.
+The continuation factor includes the local no-success event by
+\eqref{eq:end-patch-continuation}. Integrating over~$\eta$ proves the first
+identity. The proof for~$\Lcal^\varepsilon$ is identical.
 
-On~$L_T$, the full patch family consists of~$\mathcal B_T$ and one infinite
-continuation of each patch in~$\mathcal E_T$. The latter family is finite by
-Lemma~\ref{lem:dual-local-finiteness}. The same conditional product
-disintegration over the independent future increments gives one local factor
-$C(P^{\uparrow\infty})$ per end patch. The existence and value of each factor
-are the~$u\to\infty$ limits in
-\eqref{eq:end-patch-continuation}, computed explicitly in
-Appendix~\ref{app:positivity-algebra}. This proves
-\eqref{eq:appendix-infinite-continuation-identity}.
+On~$L_T$, the patch family consists of~$\mathcal B_T$ and one infinite
+continuation of each patch in~$\mathcal E_T$. The same disintegration over the
+independent future increments gives one factor~$C(P^{\uparrow\infty})$ per end
+patch. These factors are the limits in~\eqref{eq:end-patch-continuation}, which
+proves the second identity.
+\end{proof}
+
+The next lemma contains the only algebra needed for the no-late estimate. A
+direct telescoping argument applied before averaging is not available in
+general: an end contribution may be negative at~$z=0$, and~$\mathcal M_*$
+controls signs only after the centered expansion.
+
+\begin{lemma}[End-factor relaxation]
+\label{lem:end-factor-relaxation}
+Fix a realization of~$\mathcal G_T$ and let~$0\leq T<t$. For every
+$\mu\in\mathcal M_*$,
+\begin{align*}
+&\abs{
+ \mu\bb{
+  \prod_{P\in\mathcal E_T}
+  C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+ }
+ -
+ \prod_{P\in\mathcal E_T}C\bb{P^{\uparrow\infty}}
+}
+\\
+&\qquad\leq
+e^{-\varepsilon\bb{t-T}}
+\bb{
+ \mu\bb{
+  \prod_{P\in\mathcal E_T}
+  C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+ }
+ +
+ \abs{\mathcal E_T}
+ \prod_{P\in\mathcal E_T}C\bb{P^{\uparrow\infty}}
+}.
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+Put~$h=t-T$. For~$P\in\mathcal E_T$ based at~$i$, write
+\begin{align*}
+a_t(P)&=C\bb{p_i^\star,P^{\uparrow t}},
+&k_t(P)&=\partial_zC\bb{z,P^{\uparrow t}},
+\\
+a_t^\varepsilon(P)&=C^\varepsilon\bb{p_i^\star,P^{\uparrow t}},
+&k_t^\varepsilon(P)&=\partial_zC^\varepsilon\bb{z,P^{\uparrow t}},
+\\
+b(P)&=C\bb{P^{\uparrow\infty}}.
+\end{align*}
+Let~$r_i=c_i^0(\vn)+c_i^1(\vn)$ and
+$q_i=c_i^0(\vn)/r_i$. Uniform deaths give~$r_i\geq\varepsilon$, while
+Corollary~\ref{cor:critical-profile-empty-bound} gives~$p_i^\star\leq q_i$.
+The continuation formula and pure-death comparison imply
+\begin{equation}
+\label{eq:appendix-continued-factor-comparisons}
+0\leq a_t(P)\leq a_t^\varepsilon(P),
+\qquad
+0\leq k_t(P)\leq e^{-\varepsilon h}k_t^\varepsilon(P),
+\qquad
+0\leq b(P)-a_t(P)\leq e^{-\varepsilon h}b(P).
+\end{equation}
+Indeed,
+\begin{equation*}
+k_t(P)
+=
+e^{-r_i h}\kappa(P)
+\leq
+e^{-\varepsilon h}e^{-\bb{r_i-\varepsilon}h}\kappa^\varepsilon(P)
+=
+e^{-\varepsilon h}k_t^\varepsilon(P),
+\end{equation*}
+and
+\begin{equation*}
+b(P)-a_t(P)
+=
+\kappa(P)\bb{q_i-p_i^\star}e^{-r_i h}
+\leq
+e^{-\varepsilon h}b(P),
+\end{equation*}
+because~$b(P)=C(p_i^\star,P)+\kappa(P)(q_i-p_i^\star)$.
+
+For~$\mathcal Q\subseteq\mathcal E_T$, put
+$I(\mathcal Q)=\cb{i(P):P\in\mathcal Q}$. The centered expansion gives
+\begin{equation*}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+=
+\sum_{\mathcal Q\subseteq\mathcal E_T}
+\mu\bb{\chi_{I(\mathcal Q)}^*}
+\prod_{P\in\mathcal Q}k_t(P)
+\prod_{P\in\mathcal E_T\setminus\mathcal Q}a_t(P).
+\end{equation*}
+All terms are nonnegative. For~$\mathcal Q\neq\vn$, the first two inequalities
+in~\eqref{eq:appendix-continued-factor-comparisons} bound the corresponding
+term by~$e^{-\varepsilon h}$ times its~$\varepsilon$ counterpart. Therefore
+\begin{align*}
+0
+&\leq
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+-
+\prod_{P\in\mathcal E_T}a_t(P)
+\\
+&\leq
+e^{-\varepsilon h}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}.
+\end{align*}
+
+Enumerate~$\mathcal E_T=\cb{P_1,\ldots,P_n}$ and write
+$a_j=a_t(P_j)$ and~$b_j=b(P_j)$. The telescoping identity
+\begin{equation*}
+\prod_{j=1}^n b_j-
+\prod_{j=1}^n a_j
+=
+\sum_{j=1}^n
+\bb{b_j-a_j}
+\prod_{k<j}a_k
+\prod_{k>j}b_k
+\end{equation*}
+and the last inequality in
+\eqref{eq:appendix-continued-factor-comparisons} give
+\begin{equation*}
+0
+\leq
+\prod_{P\in\mathcal E_T}b(P)
+-
+\prod_{P\in\mathcal E_T}a_t(P)
+\leq
+\abs{\mathcal E_T}e^{-\varepsilon h}
+\prod_{P\in\mathcal E_T}b(P).
+\end{equation*}
+Both target quantities lie above the common product
+$\prod_Pa_t(P)$, so the sum of the two preceding errors bounds their absolute
+difference.
 \end{proof}
 
 \subsection{Finite-volume and finite-propagation approximations}
 \label{app:finite-propagation}
 
-Let~$d$ be the graph metric used in Section~\ref{sec:convergence}, and choose
-$1\leq\ell<\infty$ such that~$N(i)\subseteq B(i,\ell)$ for every~$i$. Put
+Put
 \begin{equation*}
-m
-=
-\sup_{i\in\Lambda}\abs{B(i,\ell)}.
+m=\sup_{i\in\Lambda}\abs{N(i)\cup\cb{i}}<\infty.
 \end{equation*}
-This is finite by polynomial growth.
 
 \begin{lemma}[Finite propagation]
 \label{lem:finite-propagation}
@@ -255,36 +376,33 @@ $v<\infty$ and~$C_A<\infty$ such that
 \leq
 C_Ae^{-at}\norm f_\infty
 \end{equation}
-for every~$t\geq0$ and every finite~$R$ containing~$B(A,vt)$.
+for every~$t\geq0$ and every finite~$R$ containing
+$B\bb{A,\lceil vt\rceil}$.
 \end{lemma}
 
 \begin{proof}
 Construct the process from rate-$\overline c$ candidate clocks and independent
 acceptance marks. Explore the clocks backwards from~$A$ at time~$t$. Whenever
-a candidate clock at~$i$ is encountered, add~$B(i,\ell)$ to the set of sites
-whose earlier histories must be known. If this backward influence cluster stays
-inside~$R$, then the infinite-volume process and the zero-boundary process,
-coupled with the same clocks and marks in~$R$, agree on~$A$ at time~$t$.
+a candidate clock at~$i$ is encountered, add~$N(i)\cup\cb{i}$ to the sites whose
+earlier histories must be known. If this backward influence cluster stays
+inside~$R$, the infinite-volume and zero-boundary processes, coupled with the
+same clocks and marks in~$R$, agree on~$A$ at time~$t$.
 
-To leave~$B(A,r)$, the cluster must contain a chronological dependency path of
-at least~$n=\lfloor r/\ell\rfloor+1$ candidate clocks. There are at most
-$\abs A m^k$ spatial paths of length~$k$, and the expected number of
-chronologically ordered~$k$-tuples of clocks along a fixed path is
-$(\overline c t)^k/k!$. Therefore, for every~$\theta>0$,
-\begin{align*}
-\pP\bb{\text{the influence cluster leaves }B(A,r)}
-&\leq
-\abs A\sum_{k\geq n}\frac{\bb{m\overline c t}^k}{k!}
-\\
-&\leq
-\abs A\exp\bb{m\overline c t e^\theta-\theta n}.
-\end{align*}
-Take~$r=vt$ and choose~$v$ so that
+To leave~$B(A,n)$, the cluster must contain a chronological dependency path of
+at least~$n$ candidate clocks. There are at most~$\abs A m^k$ spatial paths of
+length~$k$, and the expected number of chronologically ordered~$k$-tuples along
+a fixed path is~$(\overline c t)^k/k!$. Therefore, for every~$\theta>0$,
 \begin{equation*}
-\frac{\theta v}{\ell}-m\overline c e^\theta>a.
+\pP\bb{\text{the influence cluster leaves }B(A,n)}
+\leq
+\abs A\sum_{k\geq n}\frac{\bb{m\overline c t}^k}{k!}
+\leq
+\abs A\exp\bb{m\overline c t e^\theta-\theta n}.
 \end{equation*}
-After increasing the constant to cover bounded~$t$, the exit probability is at
-most~$C_Ae^{-at}$. The graphical coupling gives
+Take~$n=\lceil vt\rceil$ and choose~$v$ so that
+$\theta v-m\overline c e^\theta>a$. After increasing the constant to cover
+bounded~$t$, the exit probability is at most~$C_Ae^{-at}$. The graphical
+coupling gives
 \begin{equation*}
 \abs{P_tf(\eta)-P_t^{R,0}f(\eta)}
 \leq
@@ -295,7 +413,7 @@ uniformly in~$\eta$, and proves~\eqref{eq:finite-propagation}.
 \end{proof}
 
 For fixed~$t$ and local~$f$, Lemma~\ref{lem:finite-propagation} implies uniform
-convergence of the zero-boundary finite-volume semigroups to~$P_t f$ along any
+convergence of zero-boundary finite-volume semigroups to~$P_tf$ along any
 exhaustion whose boundary recedes from the dependence set of~$f$. In
 particular, the nonnegative centered-monomial coefficients of the finite-volume
 semigroups used in Theorem~\ref{thm:centered-moment-order} pass to the
