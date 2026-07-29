@@ -20,9 +20,10 @@ For~$K\geq0$, define
 \end{equation}
 Thus
 $\mathcal M_* = \mathcal M_{-,0}$. Define~$p_i^-=\max\cb{2p_i^\star-1, 0}$ and
-$\mb p^-=(p_i^-)_{i\in\Lambda}$. Every point mass whose configuration has
-finitely many zeroes belongs to~$\mathcal M_-$ and a Bernoulli product measure~$\mu_{\mb p}$
-belongs to~$\mathcal M_{-}$, specifically to~$\mathcal{M}_{-,1}$, when~$\mb p\geq\mb p^-$. 
+$\mb p^-=(p_i^-)_{i\in\Lambda}$. Under the uniform-death assumption used
+below, every point mass whose configuration has finitely many zeroes belongs
+to~$\mathcal M_-$. A Bernoulli product measure~$\mu_{\mb p}$ belongs to
+$\mathcal M_{-,1}$ exactly when~$\mb p\geq\mb p^-$.
 
 \begin{theorem}[Common invariant limit]
 \label{thm:common-invariant-limit}
@@ -193,6 +194,13 @@ For every~$\mu\in\mathcal M_*$,
 
 For~$0\leq T<t$, let~$L_{T,t}$ be the event that no successful interaction
 occurs in~$(T,t]$, and let~$L_T$ be the event that none occurs after~$T$.
+Recall
+\begin{equation*}
+r_i=c_i^0(\vn)+c_i^1(\vn),
+\qquad
+q_i=\frac{c_i^0(\vn)}{r_i};
+\end{equation*}
+uniform deaths ensure~$r_i\geq\varepsilon$.
 
 \begin{lemma}[Backward outgoing trail]
 \label{lem:backward-outgoing-trail}
@@ -337,8 +345,8 @@ This proves~\eqref{eq:uniform-m-minus-convergence}.
 \end{proof}
 
 \begin{proof}[Proof of Corollary~\ref{cor:uniform-ergodicity}]
-If~$\mb p^\star\leq\mbs{\tfrac12}$ then~$\mb p^- = \mb 0$ and every probability measure belongs to
-$\mathcal M_{-,1}$. Theorem
+If~$\mb p^\star\leq\mbs{\tfrac12}$, then~$\mb p^-=\mb 0$ and every
+probability measure belongs to~$\mathcal M_{-,1}$. Theorem
 \ref{thm:common-invariant-limit} gives the result immediately.
 \end{proof}
 
@@ -561,4 +569,6 @@ bounds proves~\eqref{eq:no-late-relaxation-bound}.
 
 The class~$\mathcal M_-$ enters only through the centered signs of the end
 factors. The argument does not identify a dynamical obstruction to convergence
-from initial laws outside this class. To the contrary, the negative signs should provide extra cancellations, though these are not detectable by the patch method.
+from initial laws outside this class. To the contrary, the negative signs
+should provide extra cancellations, though these are not detected by the patch
+method.
