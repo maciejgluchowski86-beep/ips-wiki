@@ -55,7 +55,7 @@ basis~$\cb{\chi_B:B\subseteq A}$.
 
 For a profile~$\mb a=(a_i)_{i\in\Lambda}\in[0,1]^\Lambda$, let~$\mu_{\mb a}$
 be the Bernoulli product measure with one-density~$a_i$ at site~$i$. For a
-constant profile, we write~$\mu_a$.
+constant~$a$, write~$\mb a=(a)_{i\in\Lambda}$ and~$\mu_a=\mu_{\mb a}$.
 
 \subsection{Spin systems and coefficient expansions}
 \label{subsec:rates-coefficients}
@@ -124,7 +124,9 @@ pf(\eta^{i,1})+qf(\eta^{i,0}),
 \bb{f(\eta^i)-f(\eta)}.
 \end{align*}
 Here~$p$ is the density of calm states and~$q$ the density of facilitating
-states.
+states. In the KCSM and BABP literature, the prefactor multiplying
+$E_{i,p}-I$ is often called the constraint or refresh rate and denoted by~$c_i$.
+In this paper,~$c_i$ always denotes the resulting flip rate.
 
 For~$\varepsilon\geq0$ and a bounded death-rate profile
 $\mb d=(d_i)_{i\in\Lambda}\in[0,\infty)^\Lambda$, define
@@ -143,13 +145,18 @@ d_i\bb{f\bb{\eta^{i,0}}-f(\eta)}
 \bb{f(\eta^i)-f(\eta)}.
 \end{align*}
 Thus~$\varepsilon$ is the environment-independent~$0\to1$ rate and~$d_i$ the
-environment-independent~$1\to0$ rate. We say that a spin system has
-\emph{$\delta$-uniform deaths}, for~$\delta>0$, if
+environment-independent~$1\to0$ rate. Adding this noise gives
+\begin{equation*}
+\Lcal^{\varepsilon,\mb d}=\Lcal+\Ncal^{\varepsilon,\mb d}.
+\end{equation*}
+We say that a spin system has \emph{$\delta$-uniform deaths}, for~$\delta>0$, if
 \begin{equation*}
 c_i^1(\eta)\geq\delta
 \qquad
 \text{for every }i\in\Lambda\text{ and }\eta\in\Omega.
 \end{equation*}
+The perturbation~$\Lcal^{\varepsilon,\mb d}$ has
+$\inf_i d_i$-uniform deaths whenever this quantity is positive.
 
 \subsection{Invariant measures and convergence}
 \label{subsec:invariant-ergodicity}
