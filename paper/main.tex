@@ -124,23 +124,23 @@ limit, which can be described by a patch formula.
 
 For~$A\Subset\Lambda$, write~$\chi_A(\eta)=\prod_{i\in A}\eta(i)$.
 Theorems~\ref{thm:patch-factorization} and~\ref{thm:patch-representation}
-{\mg{I prefer randomness rather than "hidden data", also its not true that bulk patches are the averaged fk exponential and end patches something else. Both come at least partially from the fk exponential. I was remarking on analogy in the FK duality formula and the patch representation. You have a term that accumulates weight multiplicatively over time and a term that depends on end of the trajectory and the configuration eta. These are similar, not exactly the same. Its not a main point though, just an observation.}}
 reorganize the signed Feynman-Kac representation of~$P_t\chi_A$.
-Conditional on the successful-interaction skeleton, the randomness from
-distinct patches is independent. Averaging patch by patch gives an exact
-representation in which patches completed before time~$t$ and patches reaching
-time~$t$ play different roles. The product of the bulk-patch contributions is
-the patchwise average of the signed Feynman-Kac exponential, while the
-end-patch factors carry the evaluation of the duality function at time~$t$.
-The signs are therefore not estimated one interaction at a time: cancellations
-among successive local events are performed before each contribution is
-bounded.
+Conditional on the successful-interaction skeleton, the randomness in
+distinct patches is independent. Averaging it patch by patch gives an exact
+representation split between bulk patches completed before time~$t$ and end
+patches reaching time~$t$. This split parallels the Feynman-Kac formula: the
+bulk product accumulates contributions from the history, while the end product
+also depends on the terminal patches and the configuration~$\eta$. Both
+products contain the signed Feynman-Kac exponential accumulated on their patch
+intervals. The signs are therefore not estimated one interaction at a time:
+cancellations among successive local events are performed before each
+contribution is bounded.
 
-Patch positivity requires the bulk-patch contributions to be nonnegative. In
-the dual representation, this means that cancellation of the dual signs leaves
-a nonnegative Feynman-Kac weight after the local histories have been averaged.
-The condition has a local coefficient characterization. With the notation of
-Section~\ref{sec:spin-systems}, set~$r_i=c_i^0(\vn)+c_i^1(\vn)$. If~$r_i>0$,
+Patch positivity requires the bulk-patch contributions to be nonnegative. Thus
+averaging over the randomness in a bulk patch cancels the dual signs before its
+contribution is bounded. The condition has a local coefficient
+characterization. With the notation of Section~\ref{sec:spin-systems},
+set~$r_i=c_i^0(\vn)+c_i^1(\vn)$. If~$r_i>0$,
 Theorem~\ref{thm:patch-positivity-criterion} says that patch positivity is
 equivalent to
 \begin{equation*}
@@ -219,7 +219,7 @@ least~$\varepsilon>0$. For~$K\geq0$, let
  \mathcal M_-=\bigcup_{K\geq0}\mathcal M_{-,K},
 \end{equation*}
 where~$\mu_{\mb 1}$ is the all-calm measure. This class contains Bernoulli
-measures with sufficiently high calm-state density and point masses on
+product measures with sufficiently high calm-state density and point masses on
 configurations with finitely many facilitating states.
 Theorem~\ref{thm:common-invariant-limit} gives an invariant measure~$\pi$ such
 that, for every local function~$f$,
