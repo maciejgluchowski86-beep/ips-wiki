@@ -194,6 +194,25 @@ $P_T^{R,0}$. Integrating over~$\mu$ proves
 \subsection{Continuation without successful interactions}
 \label{app:no-late-continuation}
 
+For~$P\in\mathcal E_T$ and~$t>T$, let~$L_{T,t}^P$ be the event that the local
+continuation of~$P$ sources no successful interaction in~$(T,t]$. The event is
+measurable with respect to the future outgoing marks at~$i(P)$. Conditional on
+$\mathcal G_T$, the events~$(L_{T,t}^P)_{P\in\mathcal E_T}$ are independent,
+and the first successful interaction after~$T$, if one occurs, is sourced by
+one of these continuations. Hence
+\begin{equation}
+\label{eq:local-no-late-factorization}
+L_{T,t}
+=
+\bigcap_{P\in\mathcal E_T}L_{T,t}^P,
+\qquad
+\CP{L_{T,t}}{\mathcal G_T}
+=
+\prod_{P\in\mathcal E_T}\CP{L_{T,t}^P}{\mathcal G_T}.
+\end{equation}
+Let~$L_T^P$ denote the corresponding event with no successful interaction at
+any time after~$T$.
+
 \begin{proposition}[No-late continuation]
 \label{prop:no-late-continuation-identity}
 Fix~$0\leq T<t$. On~$L_{T,t}$,
@@ -202,51 +221,119 @@ Fix~$0\leq T<t$. On~$L_{T,t}$,
 \qquad
 \mathcal E_t
 =
-\cb{P^{\uparrow t}:P\in\mathcal E_T}.
+\cb{P^{\uparrow t}:P\in\mathcal E_T},
 \end{equation*}
-On~$L_T$, the full patch family consists of~$\mathcal B_T$ and the infinite
-continuations~$P^{\uparrow\infty}$,~$P\in\mathcal E_T$. Consequently, for every
-probability measure~$\mu$,
+where the extensions are geometric. For every probability measure~$\mu$,
 \begin{align}
 \CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
 &=
 \prod_{P\in\mathcal B_T}C(P)\,
+\CP{L_{T,t}}{\mathcal G_T}
 \mu\bb{
  \prod_{P\in\mathcal E_T}
  C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+\notag
+\\
+&=
+\prod_{P\in\mathcal B_T}C(P)\,
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\psi_{i(P)}\bb{t-T,\eta\bb{i(P)}},P}
 },
 \label{eq:appendix-finite-continuation-identity}
 \\
 \CE{W\ind\bb{L_T}}{\mathcal G_T}
 &=
 \prod_{P\in\mathcal B_T}C(P)
-\prod_{P\in\mathcal E_T}C\bb{P^{\uparrow\infty}}.
+\prod_{P\in\mathcal E_T}C\bb{q_{i(P)},P}.
 \label{eq:appendix-infinite-continuation-identity}
 \end{align}
-The same finite-horizon identity holds with every contribution replaced by its
-$\Lcal^\varepsilon$ counterpart.
+The first equality in~\eqref{eq:appendix-finite-continuation-identity} also
+holds with every contribution replaced by its~$\Lcal^\varepsilon$
+counterpart. The conditional probability is unchanged because the two systems
+have the same signed dual and reference patch laws.
 \end{proposition}
 
 \begin{proof}
-The patch-family identities are immediate: without a successful interaction in
-$(T,t]$, no patch begins or ends there. Conditional on~$\mathcal G_T$, the
-future increments based at the distinct sites of~$\mathcal E_T$ are independent.
-For~$P\in\mathcal E_T$, let~$H_{P,t}$ be the local event that its continuation
-creates no successful interaction before~$t$. By the convention in
-\eqref{eq:end-patch-continuation},~$C(z,P^{\uparrow t})$ is the expectation of
-the continued local factor multiplied by~$\ind(H_{P,t})$, under the consistent
-law of~$P$ and the independent future increments. It is therefore
-unnormalized: the local continuation probability is already included. Since
-$L_{T,t}=\bigcap_{P\in\mathcal E_T}H_{P,t}$ and the local continuations are
-independent, their product already contains~$\CP{L_{T,t}}{\mathcal G_T}$; no
-additional conditional-probability factor is missing. Multiplying by the bulk
-contributions and integrating the terminal configuration against~$\mu$ proves
-\eqref{eq:appendix-finite-continuation-identity}. The proof for
-$\Lcal^\varepsilon$ is identical.
+The patch-family identities follow directly from the geometric definition of
+$P^{\uparrow t}$. On~$L_{T,t}$, no patch begins or ends after~$T$.
 
-On~$L_T$, the same pointwise patch-family identity holds with infinite
-continuations. Taking the limits in~\eqref{eq:end-patch-continuation} gives one
-factor~$C(P^{\uparrow\infty})$ for each~$P\in\mathcal E_T$, proving
+Fix~$P\in\mathcal E_T$, write~$i=i(P)$,~$S=S(P)$,
+$\Delta=T-s(P)$, and~$h=t-T$. The consistency normalizers in
+Appendix~\ref{app:end-formulas} give
+\begin{equation}
+\label{eq:local-continuation-probability}
+\CP{L_{T,t}^P}{\mathcal G_T}
+=
+\pw{
+\displaystyle
+\frac{\varphi_i(\Delta+h)}{\varphi_i(\Delta)}
+}{\mathsf X(P)=\mathsf I}
+{
+\displaystyle
+\frac{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta+h)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}
+}{\mathsf X(P)=\mathsf O}.
+\end{equation}
+Multiplying the ordinary contribution of the geometric extension by this
+probability and using~\eqref{eq:empty-neighbour-relaxation} gives
+\begin{equation}
+\label{eq:local-probability-weighted-continuation}
+\CP{L_{T,t}^P}{\mathcal G_T}
+C\bb{z,P^{\uparrow t}}
+=
+C\bb{\psi_i(h,z),P}.
+\end{equation}
+For an incoming patch, the calculation is
+\begin{equation*}
+\frac{\varphi_i(\Delta+h)}{\varphi_i(\Delta)}
+\frac{\psi_i(\Delta+h,z)}{\varphi_i(\Delta+h)}
+=
+\frac{\psi_i\bb{\Delta,\psi_i(h,z)}}{\varphi_i(\Delta)}.
+\end{equation*}
+For an outgoing patch, it is
+\begin{align*}
+&\frac{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta+h)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta+h,z)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta+h)
+}
+\\
+&\qquad=
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)
+\psi_i\bb{\Delta,\psi_i(h,z)}
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}.
+\end{align*}
+These are precisely the two rows of~$C(\psi_i(h,z),P)$.
+
+On~$L_{T,t}$, the finite-horizon weight is constant once~$\mathcal G_T$ and
+the event are fixed, so the first equality in
+\eqref{eq:appendix-finite-continuation-identity} follows. Conditional
+independence,~\eqref{eq:local-no-late-factorization}, and
+\eqref{eq:local-probability-weighted-continuation} give the second equality.
+The same argument applies to~$\Lcal^\varepsilon$.
+
+Uniform deaths give~$r_i\geq\varepsilon$ and hence
+$\psi_i(h,z)\to q_i$ as~$h\to\infty$. Applying the same local calculation on
+$L_T^P$ gives the probability-weighted infinite continuation
+$C(q_i,P)$. The future increments at the finitely many end-patch sites are
+independent, so multiplying these local limits proves
 \eqref{eq:appendix-infinite-continuation-identity}.
 \end{proof}
 
@@ -259,24 +346,26 @@ Fix a realization of~$\mathcal G_T$ and let~$0\leq T<t$. For every
 $\mu\in\mathcal M_*$,
 \begin{align*}
 &\abs{
+ \CP{L_{T,t}}{\mathcal G_T}
  \mu\bb{
   \prod_{P\in\mathcal E_T}
   C\bb{\eta\bb{i(P)},P^{\uparrow t}}
  }
  -
- \prod_{P\in\mathcal E_T}C\bb{P^{\uparrow\infty}}
+ \prod_{P\in\mathcal E_T}C\bb{q_{i(P)},P}
 }
 \\
 &\qquad\leq
 e^{-\varepsilon\bb{t-T}}
 \bb{
+ \CP{L_{T,t}}{\mathcal G_T}
  \mu\bb{
   \prod_{P\in\mathcal E_T}
   C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
  }
  +
  \abs{\mathcal E_T}
- \prod_{P\in\mathcal E_T}C\bb{P^{\uparrow\infty}}
+ \prod_{P\in\mathcal E_T}C\bb{q_{i(P)},P}
 }.
 \end{align*}
 \end{lemma}
@@ -284,18 +373,45 @@ e^{-\varepsilon\bb{t-T}}
 \begin{proof}
 Put~$h=t-T$. For~$P\in\mathcal E_T$ based at~$i$, write
 \begin{align*}
-a_t(P)&=C\bb{p_i^\star,P^{\uparrow t}},
-&k_t(P)&=\partial_zC\bb{z,P^{\uparrow t}},
+a_t(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+C\bb{p_i^\star,P^{\uparrow t}},
+&
+k_t(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+\partial_zC\bb{z,P^{\uparrow t}},
 \\
-a_t^\varepsilon(P)&=C^\varepsilon\bb{p_i^\star,P^{\uparrow t}},
-&k_t^\varepsilon(P)&=\partial_zC^\varepsilon\bb{z,P^{\uparrow t}},
+a_t^\varepsilon(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+C^\varepsilon\bb{p_i^\star,P^{\uparrow t}},
+&
+k_t^\varepsilon(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+\partial_zC^\varepsilon\bb{z,P^{\uparrow t}},
 \\
-b(P)&=C\bb{P^{\uparrow\infty}}.
+b(P)&=C\bb{q_i,P}.
 \end{align*}
-Let~$r_i=c_i^0(\vn)+c_i^1(\vn)$ and
-$q_i=c_i^0(\vn)/r_i$. Uniform deaths give~$r_i\geq\varepsilon$, while
-Corollary~\ref{cor:critical-profile-empty-bound} gives~$p_i^\star\leq q_i$.
-The continuation formula and pure-death comparison imply
+Equation~\eqref{eq:local-probability-weighted-continuation} and the affine
+end-factor formula give
+\begin{equation*}
+a_t(P)=C\bb{\psi_i(h,p_i^\star),P},
+\qquad
+k_t(P)=e^{-r_i h}\kappa(P),
+\qquad
+b(P)=C\bb{q_i,P}.
+\end{equation*}
+The less noisy system has empty-neighbour rate~$r_i-\varepsilon$, so
+\begin{equation*}
+k_t^\varepsilon(P)
+=
+e^{-\bb{r_i-\varepsilon}h}\kappa^\varepsilon(P).
+\end{equation*}
+The patchwise pure-death comparison and the common continuation probability
+therefore imply
 \begin{equation}
 \label{eq:appendix-continued-factor-comparisons}
 0\leq a_t(P)\leq a_t^\varepsilon(P),
@@ -304,17 +420,7 @@ The continuation formula and pure-death comparison imply
 \qquad
 0\leq b(P)-a_t(P)\leq e^{-\varepsilon h}b(P).
 \end{equation}
-Indeed,
-\begin{equation*}
-k_t(P)
-=
-e^{-r_i h}\kappa(P)
-\leq
-e^{-\varepsilon h}e^{-\bb{r_i-\varepsilon}h}\kappa^\varepsilon(P)
-=
-e^{-\varepsilon h}k_t^\varepsilon(P),
-\end{equation*}
-and
+For the last inequality, use~$p_i^\star\leq q_i$ and compute
 \begin{equation*}
 b(P)-a_t(P)
 =
@@ -322,27 +428,32 @@ b(P)-a_t(P)
 \leq
 e^{-\varepsilon h}b(P),
 \end{equation*}
-because~$b(P)=C\bb{p_i^\star,P}+\kappa(P)(q_i-p_i^\star)$.
+because~$b(P)=C(p_i^\star,P)+\kappa(P)(q_i-p_i^\star)$.
 
 For~$\mathcal Q\subseteq\mathcal E_T$, put
-$I(\mathcal Q)=\cb{i(P):P\in\mathcal Q}$. The centered expansion gives
-\begin{equation*}
+$I(\mathcal Q)=\cb{i(P):P\in\mathcal Q}$. Distributing the product in
+\eqref{eq:local-no-late-factorization} among the end factors and expanding
+around~$\mb p^\star$ gives
+\begin{align*}
+&\CP{L_{T,t}}{\mathcal G_T}
 \mu\bb{
  \prod_{P\in\mathcal E_T}
  C\bb{\eta\bb{i(P)},P^{\uparrow t}}
 }
-=
+\\
+&\qquad=
 \sum_{\mathcal Q\subseteq\mathcal E_T}
 \mu\bb{\chi_{I(\mathcal Q)}^*}
 \prod_{P\in\mathcal Q}k_t(P)
 \prod_{P\in\mathcal E_T\setminus\mathcal Q}a_t(P).
-\end{equation*}
+\end{align*}
 All terms are nonnegative. For~$\mathcal Q\neq\vn$, the first two inequalities
 in~\eqref{eq:appendix-continued-factor-comparisons} bound the corresponding
 term by~$e^{-\varepsilon h}$ times its~$\varepsilon$ counterpart. Therefore
 \begin{align*}
 0
 &\leq
+\CP{L_{T,t}}{\mathcal G_T}
 \mu\bb{
  \prod_{P\in\mathcal E_T}
  C\bb{\eta\bb{i(P)},P^{\uparrow t}}
@@ -352,6 +463,7 @@ term by~$e^{-\varepsilon h}$ times its~$\varepsilon$ counterpart. Therefore
 \\
 &\leq
 e^{-\varepsilon h}
+\CP{L_{T,t}}{\mathcal G_T}
 \mu\bb{
  \prod_{P\in\mathcal E_T}
  C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
@@ -437,7 +549,7 @@ coupling gives
 \begin{equation*}
 \abs{P_tf(\eta)-P_t^{R,0}f(\eta)}
 \leq
-2\norm f_\infty
+2\norm f\infty
 \pP\bb{\text{the influence cluster leaves }R},
 \end{equation*}
 uniformly in~$\eta$, and proves~\eqref{eq:finite-propagation}.
