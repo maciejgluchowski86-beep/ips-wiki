@@ -194,12 +194,14 @@ $P_T^{R,0}$. Integrating over~$\mu$ proves
 \subsection{Continuation without successful interactions}
 \label{app:no-late-continuation}
 
-For~$P\in\mathcal E_T$ and~$t>T$, let~$L_{T,t}^P$ be the event that the local
-continuation of~$P$ sources no successful interaction in~$(T,t]$. The event is
-measurable with respect to the future outgoing marks at~$i(P)$. Conditional on
-$\mathcal G_T$, the events~$(L_{T,t}^P)_{P\in\mathcal E_T}$ are independent,
-and the first successful interaction after~$T$, if one occurs, is sourced by
-one of these continuations. Hence
+For~$P\in\mathcal E_T$ and~$t>T$, continue its candidate local active
+process after~$T$ using only the future outgoing marks at~$i(P)$ and no incoming
+boundary. Let~$L_{T,t}^P$ be the event that no nonempty-target mark acts while
+this continuation is active in~$(T,t]$. Conditional on~$\mathcal G_T$, the
+events~$(L_{T,t}^P)_{P\in\mathcal E_T}$ are independent. If a first successful
+interaction occurs after~$T$, its source belongs to one of the end patches, and
+up to that time its actual local history agrees with this isolated
+continuation. Hence
 \begin{equation}
 \label{eq:local-no-late-factorization}
 L_{T,t}
@@ -330,10 +332,20 @@ independence,~\eqref{eq:local-no-late-factorization}, and
 The same argument applies to~$\Lcal^\varepsilon$.
 
 Uniform deaths give~$r_i\geq\varepsilon$ and hence
-$\psi_i(h,z)\to q_i$ as~$h\to\infty$. Applying the same local calculation on
-$L_T^P$ gives the probability-weighted infinite continuation
-$C(q_i,P)$. The future increments at the finitely many end-patch sites are
-independent, so multiplying these local limits proves
+$\psi_i(h,z)\to q_i$ as~$h\to\infty$. For each~$P\in\mathcal E_T$,
+\eqref{eq:local-probability-weighted-continuation} with~$z=1$ therefore gives
+\begin{equation*}
+\lim_{u\to\infty}
+\CP{L_{T,u}^P}{\mathcal G_T}
+C\bb{1,P^{\uparrow u}}
+=
+C\bb{q_i,P}.
+\end{equation*}
+The product on the left is the conditional expectation of the local full
+factor on~$L_{T,u}^P$; the explicit formula supplies its limit even when the
+consistency normalizer of the infinite geometric extension vanishes. The
+future increments at the finitely many end-patch sites are independent, so
+multiplying these local limits proves
 \eqref{eq:appendix-infinite-continuation-identity}.
 \end{proof}
 
