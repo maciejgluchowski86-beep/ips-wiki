@@ -131,7 +131,7 @@ the active set is~$B$, the total rate of discarded interactions is
 The indicator of~$E_T^R$ kills the dual at the first discarded successful
 interaction, so the Feynman--Kac operator on~$[0,T]$ is
 $\Dcal_R+V-\kappa_R$.
-
+{\color{red} Again problem with you describing steps instead of just showing them. Just show the duality between generator of the dual process without interactions reaching out of R and the spin system with 0 conditions outside R.}
 This is the monomial-dual operator of the modified rates~$c_{i,R}$. For
 $i\in R$, the multilinear expansion of~$c_{i,R}^x$ retains precisely the
 coefficients~$c_i^x(S)$ with~$S\subseteq R$; for~$i\notin R$, only the
@@ -157,6 +157,7 @@ $P_T^{R,0}$. Integrating over~$\mu$ proves
 
 \begin{proposition}[No-late continuation]
 \label{prop:no-late-continuation-identity}
+{\color{red} Total overcomplication. On the event $L_{T,t}$ there are no interactions after T and before t, so no patch can start or end there. Thus~$\mathcal{E}_t = \cb{P^{\uparrow t}: P \in \mathcal{E}_T}$ and~$\mathcal{B}_t = \mathcal{B}_T$. Thats it. For the infinite case~$t=\infty$ one sentence needs to be added, that on~$L_T$ the~$\mathcal{E}_{\infty}$ exists and is given by the same formula~$\mathcal{E}_\infty = \cb{P^{\uparrow \infty}: P\in\mathcal{E}_T}$. The equalities are just true pointwise. Also arent the formulas missing something like~$\CP{L_{t,T}}{\mathcal{G}_T}$? Investigate this.}
 Fix~$0\leq T<t$. For every probability measure~$\mu$,
 \begin{align}
 \CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
@@ -220,10 +221,7 @@ patch. These factors are the limits in~\eqref{eq:end-patch-continuation}, which
 proves the second identity.
 \end{proof}
 
-The next lemma contains the only algebra needed for the no-late estimate. A
-direct telescoping argument applied before averaging is not available in
-general: an end contribution may be negative at~$z=0$, and~$\mathcal M_*$
-controls signs only after the centered expansion.
+The next lemma contains the only algebra needed for the no-late estimate, comparing difference of products via a telescoping identity.
 
 \begin{lemma}[End-factor relaxation]
 \label{lem:end-factor-relaxation}
@@ -368,6 +366,7 @@ m=\sup_{i\in\Lambda}\abs{N(i)\cup\cb{i}}<\infty.
 
 \begin{lemma}[Finite propagation]
 \label{lem:finite-propagation}
+{\color{red} This is standard, give appropriate citation and say that the proof is given to make paper self contained.}
 Let~$f$ be supported on~$A\Subset\Lambda$. For every~$a>0$, there are
 $v<\infty$ and~$C_A<\infty$ such that
 \begin{equation}

@@ -3,7 +3,7 @@
 
 \subsection{Initial-law classes and the main theorem}
 \label{subsec:convergence-statement}
-
+{\color{red} Just define $\mathcal{M}_{-,K}$ through the condition~$\frac{\mu + K\mu_1}{1+K}\in\mathcal{M}_*$. State shortly that point masses with finite number of zeores are in~$\mathcal{M}_-$ and that bernoulli product measures with profiles above~$p^-$ are in~$\mathcal{M}_-$ in prose. This subsection looks visualyl bad with tiny text separated with display math everywhere.}
 For~$K\geq0$, define
 \begin{equation*}
 \mathcal M_{-,K}
@@ -84,9 +84,6 @@ Then~$\pi$ is the unique invariant measure and, for every local~$f$,
 \leq
 K_f(1+t)^D e^{-\varepsilon t/2}.
 \end{equation}
-In particular, for every~$\gamma<\varepsilon/2$ there is
-$C_{f,\gamma}<\infty$ such that the left-hand side is at most
-$C_{f,\gamma}e^{-\gamma t}$.
 \end{corollary}
 
 The main estimate comes from comparing the system with the less noisy system
@@ -241,7 +238,7 @@ for~$1\leq k<n$. Consequently,
 \end{lemma}
 
 The exact factor~\eqref{eq:outgoing-terminal-exact-factor} along this trail is
-the source of exponential decay on histories with late interactions.
+the source of exponential decay on events with late interactions.
 
 \begin{lemma}[Late interactions]
 \label{lem:late-interactions}
@@ -448,6 +445,7 @@ e^{-\varepsilon\bb{t-T}}
  \prod_{P\in\mathcal E_T}C\bb{P^{\uparrow\infty}}
 }.
 \end{equation*}
+{\color{red} These steps need to be shown, not just described.}
 On~$E_T^R$, the map~$P\mapsto i(P)$ is a bijection from~$\mathcal E_T$ to
 $\mb{Cone}_T$, so~$\abs{\mathcal E_T}\leq\abs R$. Multiply by the bulk
 contributions and~$\ind(E_T^R)$. For the first term, replace the bulk
@@ -462,6 +460,8 @@ second term is bounded by~$\abs R$ after expectation by
 \subsection{Completion and the initial-law condition}
 \label{subsec:convergence-completion}
 \label{subsec:ergodicity-corollaries}
+
+{\color{red} This doesnt need to be a separate section and should be given after the lemmas are stated, so that theorem->list of lemmas->how the lemmas are used is a clean progression for the reader.}
 
 \begin{proof}[Proof of Theorem~\ref{thm:common-invariant-limit}]
 For~$\mu\in\mathcal M_*$, the patch representation and the definition of~$W$
@@ -532,7 +532,7 @@ For local~$g$ and~$s\geq0$, the Feller property gives
 \end{equation*}
 so~$\pi$ is invariant.
 
-Let~$\mu\in\mathcal M_{-,K}$ and set
+It remains to extend the result to measures in~$\mathcal{M}_{-,K}$. Let~$\mu$ be such and set
 \begin{equation*}
 \overline\mu
 =
@@ -560,7 +560,7 @@ after changing~$K_f$. Any invariant measure must therefore equal~$\pi$. Finally,
 $(1+t)^D e^{-\varepsilon t/2}\leq C_\gamma e^{-\gamma t}$ for every
 $\gamma<\varepsilon/2$.
 \end{proof}
-
+{\color{red} The fact that configs with finitely many zeores are in M- should be under its definition along with the bernoulli examples, this remark is completely lost here at the end of proof}
 Under uniform deaths, Corollary~\ref{cor:critical-profile-empty-bound} gives
 $p_i^\star<1$ at every site. If~$\xi$ has zero set~$F\Subset\Lambda$, then
 \begin{equation*}
