@@ -1,4 +1,5 @@
-\section{Spin systems and motivating examples}
+\section{Setup}
+\label{sec:setup}
 \label{sec:spin-systems}
 
 \subsection{State space and local observables}
@@ -52,7 +53,11 @@ If a local function depends on~$A$, it has a unique expansion in the
 basis~$\cb{\chi_B:B\subseteq A}$.
 \end{definition}
 
-\subsection{Spin-system rates and coefficient expansions}
+For a profile~$\mb a=(a_i)_{i\in\Lambda}\in[0,1]^\Lambda$, let~$\mu_{\mb a}$
+be the Bernoulli product measure with one-density~$a_i$ at site~$i$. For a
+constant profile, we write~$\mu_a$.
+
+\subsection{Spin systems and coefficient expansions}
 \label{subsec:rates-coefficients}
 \label{subsec:calm-facilitating-rates}
 
@@ -71,8 +76,7 @@ acts on local functions by
 \sum_{i\in\Lambda}c_i(\eta)
 \bb{f(\eta^i)-f(\eta)},
 \end{equation}
-where~$c_i(\eta)\geq0$ is the flip rate at~$i$. We assume that~$c_i$ depends
-only on~$\eta|_{N(i)\cup\cb{i}}$ and that
+where~$c_i(\eta)\geq0$ depends only on~$\eta|_{N(i)\cup\cb{i}}$ and
 \begin{equation*}
 \sup_{i\in\Lambda,\,\eta\in\Omega}c_i(\eta)<\infty.
 \end{equation*}
@@ -93,23 +97,21 @@ c_i^x(\eta)
 =
 \sum_{S\subseteq N(i)}c_i^x(S)\chi_S(\eta).
 \end{equation}
-The same symbol denotes the function and its coefficients; the
-argument~$\eta$ or~$S$ distinguishes them. The coefficients are given by
-M\"obius inversion on the subsets of~$N(i)$. Under these assumptions, the
-standard Harris construction gives a Feller process; we use this without
-further comment and refer to~\cite[Chapter~I]{Liggett1985}. Its semigroup is
-denoted by~$(P_t)_{t\geq0}$, with~$P_tf(\eta)=\E_\eta\Cb{f(\eta_t)}$. For a
-probability measure~$\mu$, we write~$(\mu P_t)(f)=\mu(P_tf)$.
+The same symbol denotes the function and its coefficients; the argument~$\eta$
+or~$S$ distinguishes them. The coefficients are given by M\"obius inversion.
 
-The coefficient criterion for patch positivity, stated in
-Section~\ref{sec:patch-positivity}, ensures that adding calm states to the
-neighbourhood of a site cannot increase its~$1\to0$ rate or the sum
-$c_i^0+c_i^1$. This is the precise calm--facilitating property used below.
+Under these assumptions, the standard Harris construction gives a Feller
+process; we use this without further comment and refer to
+\cite[Chapter~I]{Liggett1985}. Its semigroup is denoted by~$(P_t)_{t\geq0}$,
+with~$P_tf(\eta)=\E_\eta\Cb{f(\eta_t)}$. For a probability measure~$\mu$, we
+write~$(\mu P_t)(f)=\mu(P_tf)$.
 
-\subsection{Bernoulli refreshes and motivating examples}
-\label{subsec:motivating-models}
+\subsection{Refreshes and independent noise}
+\label{subsec:noise-ergodicity}
+\label{def:bernoulli-refresh}
+\label{def:bernoulli-noise}
+\label{def:independent-noise}
 
-\phantomsection\label{def:bernoulli-refresh}
 For~$p\in[0,1]$, write~$q=1-p$. The Bernoulli refresh operator at site~$i$ is
 \begin{align*}
 E_{i,p}f(\eta)
@@ -122,115 +124,10 @@ pf(\eta^{i,1})+qf(\eta^{i,0}),
 \bb{f(\eta^i)-f(\eta)}.
 \end{align*}
 Here~$p$ is the density of calm states and~$q$ the density of facilitating
-states. In the KCSM and BABP literature, the prefactor multiplying
-$E_{i,p}-I$ is often denoted by~$c_i$ and called the constraint or refresh
-rate. In this paper,~$c_i$ always denotes the resulting flip rate; refresh
-rates are written explicitly.
-
-\subsubsection{Contact process}
-\label{subsubsec:contact-process}
-
-The contact process~\cite{Harris1974} is usually written with state~$1$
-infected and state~$0$ healthy. We reverse these labels, taking state~$0$ to be
-infected and facilitating, and state~$1$ to be healthy and calm. With recovery
-rate one and infection parameter~$\lambda\geq0$, its generator is
-\begin{equation*}
-\Lcal_{\mathrm{CP}}f(\eta)
-=
-\sum_{i\in\Lambda}
-\bb{
-1-\eta(i)
-+
-\lambda\eta(i)\sum_{j\in N(i)}\bb{1-\eta(j)}
-}
-\bb{f(\eta^i)-f(\eta)}.
-\end{equation*}
-Thus
-\begin{equation*}
-c_i^0(\eta)=1,
-\qquad
-c_i^1(\eta)=\lambda\sum_{j\in N(i)}\bb{1-\eta(j)},
-\end{equation*}
-and the only nonzero nonconstant coefficients
-are~$c_i^1\bb{\cb{j}}=-\lambda$ for~$j\in N(i)$. Since the contact process is
-attractive, classical coupling gives stronger comparisons than those developed
-here.
-
-\subsubsection{FA-1f}
-\label{subsubsec:fa-1f-model}
-
-In FA-1f~\cite{BlondelEtAl2013,HartarskyToninelli2025}, state~$0$ is called
-vacant and state~$1$ occupied. A site may refresh when at least one neighbour is
-vacant. On the present neighbourhood system,
-\begin{equation*}
-\Lcal_{\mathrm{FA}}f(\eta)
-=
-\sum_{i\in\Lambda}
-\bb{1-\chi_{N(i)}(\eta)}
-\bb{E_{i,p}-I}f(\eta).
-\end{equation*}
-The flip rates are
-\begin{equation*}
-c_i^0(\eta)=p\bb{1-\chi_{N(i)}(\eta)},
-\qquad
-c_i^1(\eta)=q\bb{1-\chi_{N(i)}(\eta)}.
-\end{equation*}
-When~$N(i)\neq\varnothing$, their only nonzero coefficients are
-\begin{align*}
-c_i^0(\varnothing)&=p,
-&c_i^0\bb{N(i)}&=-p,
-\\
-c_i^1(\varnothing)&=q,
-&c_i^1\bb{N(i)}&=-q.
-\end{align*}
-The standard FA-1f model uses an undirected graph. The East model is the
-oriented case with one prescribed facilitating neighbour.
-
-\subsubsection{Biased annihilating branching process}
-\label{subsubsec:babp-model}
-
-BABP~\cite{NeuhauserSudbury1993} uses the same refresh law, with refresh rate
-equal to the number of vacant neighbours:
-\begin{equation*}
-\Lcal_{\mathrm{BABP}}f(\eta)
-=
-\sum_{i\in\Lambda}
-\bb{\sum_{j\in N(i)}\bb{1-\eta(j)}}
-\bb{E_{i,p}-I}f(\eta).
-\end{equation*}
-Hence
-\begin{equation*}
-c_i^0(\eta)
-=
-p\sum_{j\in N(i)}\bb{1-\eta(j)},
-\qquad
-c_i^1(\eta)
-=
-q\sum_{j\in N(i)}\bb{1-\eta(j)},
-\end{equation*}
-with nonzero coefficients
-\begin{align*}
-c_i^0(\varnothing)&=p\abs{N(i)},
-&c_i^0\bb{\cb{j}}&=-p,
-\\
-c_i^1(\varnothing)&=q\abs{N(i)},
-&c_i^1\bb{\cb{j}}&=-q,
-\qquad j\in N(i).
-\end{align*}
-In the complementary particle variables~$\xi(i)=1-\eta(i)$, if~$p>0$ and time
-is rescaled by~$p^{-1}$, a particle is born at an empty site at
-rate~$\lambda=q/p$ for each neighbouring particle, while each neighbouring
-particle removes the particle at the target at rate one. BABP is not attractive
-in the usual product order.
-
-\subsection{Independent noise}
-\label{subsec:noise-ergodicity}
-\label{def:bernoulli-noise}
-\label{def:independent-noise}
+states.
 
 For~$\varepsilon\geq0$ and a bounded death-rate profile
-$\mb d=(d_i)_{i\in\Lambda}\in[0,\infty)^\Lambda$, define the independent-noise
-generator
+$\mb d=(d_i)_{i\in\Lambda}\in[0,\infty)^\Lambda$, define
 \begin{align*}
 \Ncal^{\varepsilon,\mb d}f(\eta)
 ={}&
@@ -245,25 +142,14 @@ d_i\bb{f\bb{\eta^{i,0}}-f(\eta)}
 \bb{\varepsilon\bb{1-\eta(i)}+d_i\eta(i)}
 \bb{f(\eta^i)-f(\eta)}.
 \end{align*}
-Thus~$\varepsilon$ is the environment-independent~$0\to1$ rate and~$d_i$ is
-the environment-independent~$1\to0$ death rate at~$i$. Adding this noise gives
-\begin{equation*}
-\Lcal^{\varepsilon,\mb d}
-=
-\Lcal+\Ncal^{\varepsilon,\mb d}.
-\end{equation*}
-
-We say that a spin system has \emph{$\delta$-uniform deaths}, for~$\delta>0$, if
+Thus~$\varepsilon$ is the environment-independent~$0\to1$ rate and~$d_i$ the
+environment-independent~$1\to0$ rate. We say that a spin system has
+\emph{$\delta$-uniform deaths}, for~$\delta>0$, if
 \begin{equation*}
 c_i^1(\eta)\geq\delta
 \qquad
 \text{for every }i\in\Lambda\text{ and }\eta\in\Omega.
 \end{equation*}
-The perturbation~$\Lcal^{\varepsilon,\mb d}$ has
-$\inf_i d_i$-uniform deaths whenever this quantity is positive. When
-$\varepsilon=0$, the generator~$\Ncal^{0,\mb d}$ consists only of pure deaths.
-These transitions act diagonally on monomials; see
-Section~\ref{sec:signed-dual}.
 
 \subsection{Invariant measures and convergence}
 \label{subsec:invariant-ergodicity}
