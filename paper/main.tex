@@ -285,6 +285,8 @@ BABP and applies these conclusions to their noisy dynamics.
 
 \draftnote{Recall only the definitions and literature results needed to locate the new statements. Avoid a general KCSM survey. Relevant entries: \wiki{fa-1f-model}{FA-1f} and \wiki{fa-1f-out-of-equilibrium}{FA-1f out of equilibrium}.}
 
+\mg{This is very ugly. FA-1f perturbation should be phrased as adding extra refresh with some density above $p^*$, not as adding pure deaths with some ugly condition. Rework this.}
+
 \subsubsection{Patch positivity and critical density}
 \label{subsubsec:fa-1f-patches}
 
@@ -308,7 +310,7 @@ For~$\varepsilon\geq0$ and a bounded death-rate profile~$\mb d$, write
 \label{prop:fa-1f-patch-positivity}
 \begin{enumerate}[label=\textup{(\roman*)}]
 \item FA-1f has patch positivity, and its patch critical profile is
-$\mb p^\star=p\mb 1$.
+$\mb p^\star=\mb p$.
 \item The perturbed generator~$\Lcal_{\mathrm{FA}}^{\varepsilon,\mb d}$ has
 patch positivity if and only if
 \begin{equation*}
@@ -376,7 +378,7 @@ unchanged, so the critical-profile formula still gives~$p_i^\star=p$.
 
 When~$p,q>0$, equality~$pd_i=q\varepsilon$ means that the added noise uses the
 same Bernoulli refresh law as FA-1f. The homogeneous equality case is the usual
-soft FA-1f perturbation. It is reversible and has a positive spectral gap because of
+Soft FA-1f. It is reversible and has a positive spectral gap because of
 its unconstrained refresh component; these stronger standard properties will not be
 used below.
 
