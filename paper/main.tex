@@ -57,14 +57,14 @@ tends to remain calm until a facilitating state reaches it. Facilitating states
 cause updates, some of which leave further facilitating states behind. This
 does not make the dynamics monotone: a refresh or flip can create or remove a
 facilitating state, so ordered configurations need not remain ordered. It
-nevertheless suggests that some part of the calm--facilitating order may
+nevertheless suggests that some part of the calm-facilitating order may
 survive for selected observables.
 
 Suppose now that independent noise creates facilitating states throughout the
 lattice. Since these events do not depend on the initial configuration, they
 may interrupt the routes through which old information reaches a later local
 observation. We ask whether the process, after adding such noise, loses memory
-of its initial state and whether the calm--facilitating tendency yields a
+of its initial state and whether the calm-facilitating tendency yields a
 useful comparison when attractiveness is absent. Neither monotone coupling nor
 reversibility answers these questions in the class considered here. The
 contact process is attractive, but FA-1f and BABP need not preserve the order
@@ -84,7 +84,7 @@ refresh overwrites the earlier refresh, and two flips cancel. The relevant
 quantity is therefore not the instantaneous size of an interaction, but
 whether its effect is transmitted before another local update removes it.
 
-The natural \wiki{duality}{Feynman--Kac duality} records the transmission of
+The natural \wiki{duality}{Feynman-Kac duality} records the transmission of
 influence through a signed set-valued process. Its signs retain cancellations
 among successive local events. Taking absolute values before those events are
 grouped discards the cancellations and gives only large bounds controlled by
@@ -95,7 +95,7 @@ transmit information between sites.
 \subsection{Patches and recovered order}
 \label{subsec:intro-patches}
 
-Starting from the Feynman--Kac dual of a local observation, we reveal only the
+Starting from the Feynman-Kac dual of a local observation, we reveal only the
 times, sources, and target sets of those dual interactions which transmit
 dependence between sites. Their records form the
 \wiki{successful-interaction}{successful-interaction skeleton}. The split or
@@ -103,7 +103,7 @@ birth kind at a successful interaction, all deaths, and all rings at inactive
 sources remain hidden. The one-site intervals between consecutive incoming or
 outgoing successful interactions are the \wiki{patch}{patches}. Conditional on
 the skeleton, the randomness hidden in distinct patches becomes independent.
-The signed Feynman--Kac factors can therefore be averaged patch by patch, and
+The signed Feynman-Kac factors can therefore be averaged patch by patch, and
 the resulting contributions give an exact
 \wiki{patch-representation-of-spin-systems}{representation} of the original
 spin system. This averaging retains sign cancellations between successive
@@ -124,12 +124,13 @@ limit, which can be described by a patch formula.
 
 For~$A\Subset\Lambda$, write~$\chi_A(\eta)=\prod_{i\in A}\eta(i)$.
 Theorems~\ref{thm:patch-factorization} and~\ref{thm:patch-representation}
-reorganize the signed Feynman--Kac representation of~$P_t\chi_A$.
-Conditional on the successful-interaction skeleton, the hidden data in
-distinct patches are independent. Averaging them patch by patch gives an exact
+{\mg{I prefer randomness rather than "hidden data", also its not true that bulk patches are the averaged fk exponential and end patches something else. Both come at least partially from the fk exponential. I was remarking on analogy in the FK duality formula and the patch representation. You have a term that accumulates weight multiplicatively over time and a term that depends on end of the trajectory and the configuration eta. These are similar, not exactly the same. Its not a main point though, just an observation.}}
+reorganize the signed Feynman-Kac representation of~$P_t\chi_A$.
+Conditional on the successful-interaction skeleton, the randomness from
+distinct patches is independent. Averaging patch by patch gives an exact
 representation in which patches completed before time~$t$ and patches reaching
 time~$t$ play different roles. The product of the bulk-patch contributions is
-the patchwise average of the signed Feynman--Kac exponential, while the
+the patchwise average of the signed Feynman-Kac exponential, while the
 end-patch factors carry the evaluation of the duality function at time~$t$.
 The signs are therefore not estimated one interaction at a time: cancellations
 among successive local events are performed before each contribution is
@@ -137,7 +138,7 @@ bounded.
 
 Patch positivity requires the bulk-patch contributions to be nonnegative. In
 the dual representation, this means that cancellation of the dual signs leaves
-a nonnegative Feynman--Kac weight after the local histories have been averaged.
+a nonnegative Feynman-Kac weight after the local histories have been averaged.
 The condition has a local coefficient characterization. With the notation of
 Section~\ref{sec:spin-systems}, set~$r_i=c_i^0(\vn)+c_i^1(\vn)$. If~$r_i>0$,
 Theorem~\ref{thm:patch-positivity-criterion} says that patch positivity is
@@ -168,7 +169,7 @@ profile~$\mb p^\star$ for which all end-patch contributions are nonnegative:
 \end{equation*}
 
 The profile~$\mb p^\star$ determines the centered moments on which the
-calm--facilitating order survives. Set
+calm-facilitating order survives. Set
 $\chi_A^*(\eta)=\prod_{i\in A}(\eta(i)-p_i^\star)$ and
 write~$\mu\preceq_*\nu$ when~$\mu(\chi_A^*)\leq\nu(\chi_A^*)$ for every
 $A\Subset\Lambda$. Theorem~\ref{thm:centered-moment-order} gives
