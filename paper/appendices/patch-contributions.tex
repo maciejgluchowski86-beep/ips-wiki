@@ -229,21 +229,36 @@ q_i+\bb{z-q_i}e^{-r_i u},
 =
 \psi_i\bb{u,\psi_i(v,z)}.
 \end{equation}
-If~$r_i=0$, then~$\psi_i(u,z)=z$, and the second identity remains valid. For
-later use, let~$P$ be an end patch based at~$i$, and let~$u\geq e(P)$. Write
-$P^{\uparrow u}$ for its continuation through time~$u$ with no intervening
-successful interaction, rooted at the original end patch~$P$. Its contribution,
-including the conditional probability of this continuation, is
+If~$r_i=0$, then~$\psi_i(u,z)=z$, and the second identity remains valid.
+
+Let~$P$ be an end patch, let~$u\geq e(P)$ be finite, and put
+$h=u-e(P)$. The extension~$P^{\uparrow u}$ is the geometric patch from
+\eqref{eq:geometric-patch-extension}. Its ordinary contribution is obtained
+from~\eqref{eq:end-contribution-formulas} by replacing the length
+$e(P)-s(P)$ with~$u-s(P)$. In particular,
 \begin{equation}
 \label{eq:end-patch-continuation}
 C\bb{z,P^{\uparrow u}}
 =
-C\bb{\psi_i\bb{u-e(P),z},P}.
+\pw{
+\displaystyle
+\frac{\psi_i\bb{u-s(P),z}}{\varphi_i\bb{u-s(P)}}
+}{\mathsf X(P)=\mathsf I}
+{
+\displaystyle
+\frac{
+\delta_i(S(P))\sigma_i^\delta\bb{S(P)}
++
+\beta_i(S(P))\sigma_i^\beta\bb{S(P)}
+\psi_i\bb{u-s(P),z}
+}{
+\delta_i(S(P))+\beta_i(S(P))\varphi_i\bb{u-s(P)}
+}
+}{\mathsf X(P)=\mathsf O}.
 \end{equation}
-Since~$C(z,P)$ is affine,
-\begin{equation}
-\label{eq:end-patch-slope-relaxation}
-\partial_z C\bb{z,P^{\uparrow u}}
-=
-e^{-r_i\bb{u-e(P)}}\partial_z C(z,P).
-\end{equation}
+The contribution in~\eqref{eq:end-patch-continuation} is normalized by the
+consistency probability of the extended patch. It does not contain the
+probability that the realized skeleton has no successful interaction during
+the added interval~$[e(P),u)$. The probability-weighted continuation identities
+used in the convergence proof are derived in
+Proposition~\ref{prop:no-late-continuation-identity}.
