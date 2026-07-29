@@ -8,37 +8,29 @@ The wiki is article-first and public-facing. Source pages live under `docs/`, an
 
 The build target is the `Build wiki site` GitHub Actions workflow. It builds the MkDocs site from `docs/` and deploys through GitHub Pages after every push to `main`.
 
-The paper template lives under `paper/`. The repository-level
-`main.tex` is the Overleaf main file and loads `paper/main.tex`. The
-paper body contains the agreed section and subsection order.
-Introduction Sections 1.1--1.3 are a prose draft. Section 2 is drafted in
-`paper/sections/spin-systems.tex`; it fixes the countable directed
-neighbourhood setting, defines directed balls and polynomial growth, introduces
-local functions and monomials, and fixes the flip-rate notation, examples,
-noise, and convergence terminology. Section 3 is drafted in
-`paper/sections/signed-dual.tex`; it defines the signed additive set process,
-the dictionary from spin rates to dual data, monomial Feynman--Kac duality,
-pure-death noise, and the marked graphical construction. Sections 4 and 5 are
-drafted in `paper/sections/patches.tex` and
-`paper/sections/representation.tex`; they define the successful-interaction
-skeleton, patch geometry, geometric truncation and extension, consistent patch
-laws, conditional factorization, ordinary patch contributions, and the
-finite-horizon representation theorem. Section 6 is drafted in
-`paper/sections/patch-positivity.tex`; it defines patch positivity, proves the
-coefficient criterion, derives the calm--facilitating rate consequence, and
-computes the patch critical profile. Section 7 is drafted in
-`paper/sections/moment-order.tex`; it introduces centered monomials and
-`\mathcal M_*`, proves preservation of the full centered-moment order,
-derives product-profile comparisons, and proves comparison after removing pure
-deaths. Section 8 is drafted in `paper/sections/convergence.tex`; it defines
-the finite-centered-deficit classes `\mathcal M_{-,K}` and their union
-`\mathcal M_-`, proves the common invariant limit under uniform deaths, gives
-the full-patch moment formula, derives uniform ergodicity, and includes initial
-configurations with finitely many zeroes. Section 9 is in
-`paper/sections/applications.tex`; the FA-1f and BABP coefficient calculations
-and their shared centered-moment and noisy-convergence consequences are drafted,
-while the verification template, contact-process benchmark, literature framing,
-and further-example subsection remain drafting notes.
+The paper template lives under `paper/`. The repository-level `main.tex` is the
+Overleaf main file and loads `paper/main.tex`. The front of the paper is
+organized as Introduction, Setup, Main results, and Applications. Introduction
+Sections 1.1--1.3 are a prose draft. Section 2 is drafted in
+`paper/sections/spin-systems.tex`; it fixes the directed-neighbourhood setting,
+local functions, monomials, product measures, spin-system coefficients,
+refresh noise, and convergence terminology. Section 3 is drafted in
+`paper/sections/main-results.tex`; it states the patch representation and
+coefficient criterion, centered-moment order, pure-death comparison, and common
+invariant-limit theorem. Section 4 is drafted in
+`paper/sections/applications.tex`; it introduces the contact process, FA-1f,
+and BABP, and places each coefficient calculation and model-specific
+consequence immediately after the model definition. The general
+convergence-by-comparison corollary is in
+`paper/sections/moment-order-convergence.tex` and is loaded directly after the
+centered-moment section.
+
+The proof sections are `paper/sections/signed-dual.tex`, `patches.tex`,
+`representation.tex`, `patch-positivity.tex`, `moment-order.tex`, and
+`convergence.tex`. They define the signed additive set process, patch geometry
+and factorization, the patch representation, the coefficient criterion and
+critical profile, centered-moment comparisons, and convergence under uniform
+deaths. Discussion and open problems remains a structural scaffold.
 
 Appendix A is drafted in `paper/appendices/monomial-dual.tex`, Appendix B in
 `paper/appendices/patch-contributions.tex`, and Appendix C in
@@ -46,15 +38,15 @@ Appendix A is drafted in `paper/appendices/monomial-dual.tex`, Appendix B in
 patch formulas to geometric extensions. Appendix C contains local finiteness,
 the confined-interaction identity, explicit local no-success events and their
 conditional probabilities, the end-factor relaxation calculation, and directed
-finite propagation. The abstract, Introduction Sections 1.4--1.5, and Section
-10 remain drafting notes. No title or main-result summary has yet been fixed.
-Shared macros and theorem environments live in `paper/preamble.tex`.
+finite propagation. The abstract and Discussion remain drafting notes. No title
+has yet been fixed. Shared macros and theorem environments live in
+`paper/preamble.tex`.
 
 The paper writing conventions are recorded in `STYLE.md`. In particular,
 inline mathematics uses `$...$` with a preceding nonbreaking space when it
 follows prose, unnumbered displays use starred mathematical environments,
 equation numbers are reserved for formulas referenced later, and evolution of
-an initial measure is written as `(\mu P_t)(f)`. General states are called calm
+an initial measure is written as `(μ P_t)(f)`. General states are called calm
 or facilitating; model-specific terminology is used where available, and
 `activity` is not a formal state variable. Paragraphs should develop coherent
 points rather than being broken around individual displays. The operations
