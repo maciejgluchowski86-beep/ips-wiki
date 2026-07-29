@@ -1,7 +1,3 @@
 % Overleaf compiles from the repository root.  The paper source itself
 % remains under paper/.
-% Overleaf's current LaTeX/microtype combination emits a known spurious
-% \showhyphens compatibility warning.  Filter only that warning.
-\RequirePackage{silence}
-\WarningFilter{latex}{Command \showhyphens has changed}
 \input{paper/main}
