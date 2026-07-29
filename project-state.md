@@ -34,7 +34,11 @@ deaths. Section 8 is drafted in `paper/sections/convergence.tex`; it defines
 the finite-centered-deficit classes `\mathcal M_{-,K}` and their union
 `\mathcal M_-`, proves the common invariant limit under uniform deaths, gives
 the full-patch moment formula, derives uniform ergodicity, and includes initial
-configurations with finitely many zeroes.
+configurations with finitely many zeroes. Section 9 is in
+`paper/sections/applications.tex`; the FA-1f and BABP coefficient calculations
+and their shared centered-moment and noisy-convergence consequences are drafted,
+while the verification template, contact-process benchmark, literature framing,
+and further-example subsection remain drafting notes.
 
 Appendix A is drafted in `paper/appendices/monomial-dual.tex`, Appendix B in
 `paper/appendices/patch-contributions.tex`, and Appendix C in
@@ -42,9 +46,9 @@ Appendix A is drafted in `paper/appendices/monomial-dual.tex`, Appendix B in
 patch formulas to geometric extensions. Appendix C contains local finiteness,
 the confined-interaction identity, explicit local no-success events and their
 conditional probabilities, the end-factor relaxation calculation, and directed
-finite propagation. The abstract, Introduction Sections 1.4--1.5, and Section 9
-onward remain drafting notes. No title or main-result summary has yet been
-fixed. Shared macros and theorem environments live in `paper/preamble.tex`.
+finite propagation. The abstract, Introduction Sections 1.4--1.5, and Section
+10 remain drafting notes. No title or main-result summary has yet been fixed.
+Shared macros and theorem environments live in `paper/preamble.tex`.
 
 The paper writing conventions are recorded in `STYLE.md`. In particular,
 inline mathematics uses `$...$` with a preceding nonbreaking space when it
