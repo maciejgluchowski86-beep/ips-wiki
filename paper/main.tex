@@ -285,8 +285,6 @@ BABP and applies these conclusions to their noisy dynamics.
 
 \draftnote{Recall only the definitions and literature results needed to locate the new statements. Avoid a general KCSM survey. Relevant entries: \wiki{fa-1f-model}{FA-1f} and \wiki{fa-1f-out-of-equilibrium}{FA-1f out of equilibrium}.}
 
-\mg{This is very ugly. FA-1f perturbation should be phrased as adding extra refresh with some density above $p^*$, not as adding pure deaths with some ugly condition. Rework this.}
-
 \subsubsection{Patch positivity and critical density}
 \label{subsubsec:fa-1f-patches}
 
@@ -299,57 +297,58 @@ FA-1f has generator
 \bb{1-\chi_{N(i)}(\eta)}
 \bb{E_{i,p}-I}f(\eta).
 \end{equation*}
-For~$\varepsilon\geq0$ and a bounded death-rate profile~$\mb d$, write
+For~$\varepsilon\geq0$ and a refresh-density profile
+$\mb r=(r_i)_{i\in\Lambda}\in[0,1]^Lambda$, define
 \begin{equation*}
-\Lcal_{\mathrm{FA}}^{\varepsilon,\mb d}
+\Lcal_{\mathrm{FA}}^{\varepsilon,\mb r}f
 =
-\Lcal_{\mathrm{FA}}+\Ncal^{\varepsilon,\mb d}.
+\Lcal_{\mathrm{FA}}f
++
+\varepsilon
+\sum_{i\in\Lambda}
+\bb{E_{i,r_i}-I}f.
 \end{equation*}
-\mg{ This theorem looks visually bad}
+
 \begin{proposition}[Patch positivity for FA-1f]
 \label{prop:fa-1f-patch-positivity}
-\begin{enumerate}[label=\textup{(\roman*)}]
-\item FA-1f has patch positivity, and its patch critical profile is
-$\mb p^\star=\mb p$.
-\item The perturbed generator~$\Lcal_{\mathrm{FA}}^{\varepsilon,\mb d}$ has
-patch positivity if and only if
+FA-1f has patch positivity, and its patch critical profile is
+$\mb p^{\star}=p\mb 1$. If~$\varepsilon>0$, then
+$\Lcal_{\mathrm{FA}}^{\varepsilon,\mb r}$ has patch positivity if and only if
 \begin{equation*}
-p d_i\leq q\varepsilon
-\qquad
-\text{for every }i\in\Lambda.
+\mb r\geq p\mb 1.
 \end{equation*}
-Whenever this condition holds, its patch critical profile is again
-$\mb p^\star=p\mb 1$.
-\end{enumerate}
+Whenever this holds, its patch critical profile is again~p$\mb 1$.
 \end{proposition}
 
 \begin{proof}
 The only nonzero coefficients of the FA-1f rates are
 \begin{align*}
-c_i^0(\vn)&=p,
+c_i^0(\vn)!=p,
 &c_i^0\bb{N(i)}&=-p,
 \\
-c_i^1(\vn)&=q,
+c_i^1(\vn)!=q,
 &c_i^1\bb{N(i)}&=-q.
 \end{align*}
 For the only nonempty set with a nonzero coefficient, the two inequalities in
 Theorem~\ref{thm:patch-positivity-criterion} reduce to
-\begin{equation*}
-c_i^0\bb{N(i)}+c_i^1\bb{N(i)}=-1\leq0
-\end{equation*}
-and
-\begin{equation*}
+\begin{align*}
+c_i^0\bb{N(i)}+c_i^1\bb{N(i)}
+&=
+-1
+\leq
+0,
+\\
 c_i^1(\vn)c_i^0\bb{N(i)}
 -c_i^0(\vn)c_i^1\bb{N(i)}
-=
+&=
 q(-p)-p(-q)
 =
 0.
-\end{equation*}
+\end{align*}
 All other nonempty-neighbour coefficients vanish, proving patch positivity.
 Proposition~\ref{prop:critical-profile-formula} gives
 \begin{equation*}
-p_i^\star
+p_i^{\star}
 =
 \frac{c_i^0\bb{N(i)}}
 {c_i^0\bb{N(i)}+c_i^1\bb{N(i)}}
@@ -359,37 +358,40 @@ p_i^\star
 p.
 \end{equation*}
 
-The perturbation changes only the empty-neighbour coefficients, replacing them
-by
+The additional refresh changes only the empty-neighbour coefficients, replacing
+them by
 \begin{equation*}
-c_i^0(\vn)=p+\varepsilon,
-\qquad
-c_i^1(\vn)=q+d_i.
+c_i^0(\vn)!=p+\varepsilon r_i,
+\quad
+c_i^1(\vn)=q+\varepsilon\bb{1-r_i}.
 \end{equation*}
 The first coefficient inequality is unchanged, while the second becomes
 \begin{equation*}
-\bb{q+d_i}(-p)-\bb{p+\varepsilon}(-q)
+\bb{q+\varepsilon\bb{1-r_i}}(-p)
+-
+\bb{p+\varepsilon r_i}(-q)
 =
-q\varepsilon-pd_i.
+\varepsilon\bb{r_i-p}.
 \end{equation*}
-This proves the stated equivalence. The nonempty-neighbour coefficients are
-unchanged, so the critical-profile formula still gives~$p_i^\star=p$.
+Since~$\varepsilon>0$, the criterion holds exactly when~$r_i\geq p$ for every
+site. The nonempty-neighbour coefficients are unchanged, so the critical-profile
+formula still gives~$p_i^\star=p$.
 \end{proof}
 
-When~$p,q>0$, equality~$pd_i=q\varepsilon$ means that the added noise uses the
-same Bernoulli refresh law as FA-1f. The homogeneous equality case is the usual
-Soft FA-1f. It is reversible and has a positive spectral gap because of
-its unconstrained refresh component; these stronger standard properties will not be
-used below.
+The equality case~$\mb r=p\mb 1$ is the usual soft FA-1f perturbation. It adds
+unconstrained refreshes with the reversible Bernoulli law of FA-1f and therefore has
+a positive spectral gap. We do not use these standard facts below.
 
 \begin{remark}[Adding pure deaths]
 \label{rem:fa-1f-adding-pure-deaths}
-Pure deaths correspond to~$\varepsilon=0$. If~$p>0$, the condition in
-Proposition~\ref{prop:fa-1f-patch-positivity} then forces~$d_i=0$ at every site.
-This does not conflict with Theorem~\ref{thm:pure-death-comparison}, which removes
-a pure-death component from a system already known to have patch positivity. It
-does not assert that adding pure deaths to FA-1f preserves patch positivity.
+Adding independent pure deaths at rates~$\mb d=(d_i)_{i\in\Lambda}$ gives
+$\Lcal_{\mathrm{FA}}+\Ncal^{0,\mb d}$. If~$p>0$, the patch-positivity criterion
+forces~$d_i=0$ at every site. This does not conflict with
+Theorem~\ref{thm:pure-death-comparison}, which removes a pure-death component
+from a system already known to have patch positivity; it does not assert that
+adding pure deaths to FA-1f preserves patch positivity.
 \end{remark}
+
 
 \subsubsection{Monotonicity and noisy convergence}
 \label{subsubsec:fa-1f-results}
