@@ -1,0 +1,131 @@
+name: Apply BABP patch positivity subsection
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-babp-subsection.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Write BABP subsection
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("paper/main.tex")
+          text = path.read_text()
+
+          old = r'''\draftnote{Verify the coefficient criterion, compute~$p^\star=p$, and characterize admissible pure-noise perturbations. Relevant entries: \wiki{patch-positivity-for-babp}{BABP patch positivity} and \wiki{patch-critical-density-for-babp}{BABP critical density}.}'''
+
+          new = r'''Write~$p=1-q$ and assume that~$N(i)\neq\vn$ for every~$i\in\Lambda$. Recall that
+BABP has generator
+\begin{equation*}
+\Lcal_{\mathrm{BABP}}f(\eta)
+=
+\sum_{i\in\Lambda}
+\bb{\sum_{j\in N(i)}\bb{1-\eta(j)}}
+\bb{E_{i,p}-I}f(\eta).
+\end{equation*}
+For~$\varepsilon\geq0$ and a refresh-density profile
+$\mb r=(r_i)_{i\in\Lambda}\in[0,1]^\Lambda$, define
+\begin{equation*}
+\Lcal_{\mathrm{BABP}}^{\varepsilon,\mb r}f
+=
+\Lcal_{\mathrm{BABP}}f
++
+\varepsilon
+\sum_{i\in\Lambda}
+\bb{E_{i,r_i}-I}f.
+\end{equation*}
+
+\begin{proposition}[Patch positivity for BABP]
+\label{prop:babp-patch-positivity}
+BABP has patch positivity, and its patch critical profile is
+$\mb p^\star=\mb p$. If~$\varepsilon>0$, then
+$\Lcal_{\mathrm{BABP}}^{\varepsilon,\mb r}$ has patch positivity if and only
+if~$\mb r\geq\mb p$. Whenever this holds, its patch critical profile is
+again~$\mb p$.
+\end{proposition}
+
+\begin{proof}
+The only nonzero coefficients of the BABP rates are
+\begin{align*}
+c_i^0(\vn)&=p\abs{N(i)},
+&c_i^0\bb{\cb{j}}&=-p,
+\\
+c_i^1(\vn)&=q\abs{N(i)},
+&c_i^1\bb{\cb{j}}&=-q,
+\qquad j\in N(i).
+\end{align*}
+For every~$j\in N(i)$, the two inequalities in
+Theorem~\ref{thm:patch-positivity-criterion} reduce to
+\begin{align*}
+c_i^0\bb{\cb{j}}+c_i^1\bb{\cb{j}}
+&=-1\leq0,
+\\
+c_i^1(\vn)c_i^0\bb{\cb{j}}
+-c_i^0(\vn)c_i^1\bb{\cb{j}}
+&=q\abs{N(i)}(-p)-p\abs{N(i)}(-q)=0.
+\end{align*}
+All other nonempty-neighbour coefficients vanish, proving patch positivity.
+Proposition~\ref{prop:critical-profile-formula} gives
+\begin{equation*}
+p_i^\star
+=
+\frac{c_i^0\bb{\cb{j}}}
+{c_i^0\bb{\cb{j}}+c_i^1\bb{\cb{j}}}
+=
+\frac{-p}{-p-q}
+=
+p.
+\end{equation*}
+
+The additional refresh changes only the empty-neighbour coefficients, replacing
+them by
+\begin{align*}
+c_i^0(\vn)&=p\abs{N(i)}+\varepsilon r_i,
+&
+c_i^1(\vn)&=q\abs{N(i)}+\varepsilon\bb{1-r_i}.
+\end{align*}
+The first coefficient inequality is unchanged, while the second becomes
+\begin{equation*}
+\bb{q\abs{N(i)}+\varepsilon\bb{1-r_i}}(-p)
+-
+\bb{p\abs{N(i)}+\varepsilon r_i}(-q)
+=
+\varepsilon\bb{r_i-p}.
+\end{equation*}
+Since~$\varepsilon>0$, the criterion holds exactly when~$r_i\geq p$ for every
+site. The nonempty-neighbour coefficients are unchanged, so the critical-profile
+formula still gives~$p_i^\star=p$.
+\end{proof}
+
+Thus the admissible refresh profiles are the same as for FA-1f, although the
+BABP interaction rate counts vacant neighbours rather than only recording their
+presence.'''
+
+          if text.count(old) != 1:
+              raise RuntimeError(f"expected one BABP placeholder, found {text.count(old)}")
+          text = text.replace(old, new, 1)
+          if text.count(r"\label{prop:babp-patch-positivity}") != 1:
+              raise RuntimeError("BABP proposition label check failed")
+          path.write_text(text)
+          PY
+      - name: Commit subsection
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper/main.tex
+          git rm .github/workflows/apply-babp-subsection.yml
+          git commit -m "Write BABP patch positivity application"
+          git push origin HEAD:main
