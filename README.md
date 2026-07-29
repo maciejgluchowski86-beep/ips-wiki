@@ -10,11 +10,14 @@ The LaTeX paper lives under `paper/`. The repository-level `main.tex` is the
 Overleaf main file and loads `paper/main.tex`. Introduction Sections 1.1--1.3
 and Sections 2--8 are drafted in prose. The section sources are under
 `paper/sections/`: `spin-systems.tex`, `signed-dual.tex`, `patches.tex`,
-`representation.tex`, `patch-positivity.tex`, `moment-order.tex`, and
-`convergence.tex`. Section 2 now defines directed neighbourhood balls and
-polynomial growth. Section 7 states preservation of the centered-moment order,
-and Section 8 treats the finite-centered-deficit classes `\mathcal M_{-,K}` and
-their union `\mathcal M_-`.
+`representation.tex`, `patch-positivity.tex`, `moment-order.tex`,
+`convergence.tex`, and `applications.tex`. Section 2 defines directed
+neighbourhood balls and polynomial growth. Section 7 states preservation of the
+centered-moment order, and Section 8 treats the finite-centered-deficit classes
+`\mathcal M_{-,K}` and their union `\mathcal M_-`. Section 9 contains the FA-1f
+and BABP coefficient checks and their shared centered-moment and noisy-convergence
+consequences; its literature, benchmark, and further-example subsections remain
+structural notes.
 
 Appendix A derives the monomial dual in
 `paper/appendices/monomial-dual.tex`, Appendix B gives the explicit patch
@@ -22,9 +25,9 @@ contribution formulas in `paper/appendices/patch-contributions.tex`, and
 Appendix C in `paper/appendices/technical-background.tex` supplies local
 finiteness, confined and no-late graphical identities, end-factor relaxation,
 and directed finite propagation. The abstract, Introduction Sections 1.4--1.5,
-and Section 9 onward remain structural notes. Shared macros and theorem
-environments live in `paper/preamble.tex`. The paper-specific typography,
-terminology, and paragraph conventions are recorded in `STYLE.md`.
+and Section 10 remain structural notes. Shared macros and theorem environments
+live in `paper/preamble.tex`. The paper-specific typography, terminology, and
+paragraph conventions are recorded in `STYLE.md`.
 
 ## Reading target
 
