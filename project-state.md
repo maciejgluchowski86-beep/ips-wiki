@@ -12,42 +12,46 @@ The paper template lives under `paper/`. The repository-level
 `main.tex` is the Overleaf main file and loads `paper/main.tex`. The
 paper body contains the agreed section and subsection order.
 Introduction Sections 1.1--1.3 are a prose draft. Section 2 is drafted in
-`paper/sections/spin-systems.tex`; it fixes the general countable directed
-setting, local functions and monomials, flip-rate and coefficient notation,
-the calm--facilitating rate interpretation, the contact process, FA-1f and
-BABP, independent Bernoulli noise, and the convergence terminology used later.
-Section 3 is drafted in `paper/sections/signed-dual.tex`; it defines the signed
-additive set process, the dictionary from spin rates to dual data, monomial
-Feynman--Kac duality, pure-death noise, and the marked graphical construction.
-Sections 4 and 5 are drafted in `paper/sections/patches.tex` and
+`paper/sections/spin-systems.tex`; it fixes the countable directed
+neighbourhood setting, defines directed balls and polynomial growth, introduces
+local functions and monomials, and fixes the flip-rate notation, examples,
+noise, and convergence terminology. Section 3 is drafted in
+`paper/sections/signed-dual.tex`; it defines the signed additive set process,
+the dictionary from spin rates to dual data, monomial Feynman--Kac duality,
+pure-death noise, and the marked graphical construction. Sections 4 and 5 are
+drafted in `paper/sections/patches.tex` and
 `paper/sections/representation.tex`; they define the successful-interaction
 skeleton, patch geometry, consistent patch laws, conditional factorization,
 patch contributions, and the finite-horizon representation theorem. Section 6
 is drafted in `paper/sections/patch-positivity.tex`; it defines patch
 positivity, proves the coefficient criterion, derives the calm--facilitating
 rate consequence, and computes the patch critical profile. Section 7 is
-drafted in `paper/sections/moment-order.tex`; it introduces the centered
-monomials and the class `\mathcal M_*`, proves preservation of centered-moment
-order, derives product-profile comparisons, and proves comparison after
-removing pure deaths. Section 8 is drafted in
-`paper/sections/convergence.tex`; it defines `\mathcal M_-`, proves the common
-invariant limit under uniform deaths, gives the full-patch moment formula,
-derives the uniform-ergodicity corollary, and discusses finite centered
-deficits. Appendix A is drafted in `paper/appendices/monomial-dual.tex`,
-Appendix B in `paper/appendices/patch-contributions.tex`, and the
-finite-propagation part of Appendix C in
-`paper/appendices/technical-background.tex`. The abstract, Introduction
-Sections 1.4--1.5, Section 9 onward, and the remaining local-finiteness part of
-Appendix C remain drafting notes. No title or main-result summary has yet been
-fixed. Shared macros and theorem environments live in `paper/preamble.tex`.
+drafted in `paper/sections/moment-order.tex`; it introduces centered monomials
+and `\mathcal M_*`, proves preservation of the full centered-moment order,
+derives product-profile comparisons, and proves comparison after removing pure
+deaths. Section 8 is drafted in `paper/sections/convergence.tex`; it defines
+the finite-centered-deficit classes `\mathcal M_{-,K}` and their union
+`\mathcal M_-`, proves the common invariant limit under uniform deaths, gives
+the full-patch moment formula, derives uniform ergodicity, and includes initial
+configurations with finitely many zeroes.
+
+Appendix A is drafted in `paper/appendices/monomial-dual.tex`, Appendix B in
+`paper/appendices/patch-contributions.tex`, and Appendix C in
+`paper/appendices/technical-background.tex`. Appendix C now contains local
+finiteness, the confined-interaction and no-late continuation identities, the
+end-factor relaxation calculation, and directed finite propagation. The
+abstract, Introduction Sections 1.4--1.5, and Section 9 onward remain drafting
+notes. No title or main-result summary has yet been fixed. Shared macros and
+theorem environments live in `paper/preamble.tex`.
 
 The paper writing conventions are recorded in `STYLE.md`. In particular,
 inline mathematics uses `$...$` with a preceding nonbreaking space when it
-follows prose, unnumbered displays use starred mathematical environments, and
-equation numbers are reserved for formulas referenced later. General states
-are called calm or facilitating; model-specific terminology is used where
-available, and `activity` is not a formal state variable. Paragraphs should
-develop coherent points rather than being broken around individual displays.
+follows prose, unnumbered displays use starred mathematical environments,
+equation numbers are reserved for formulas referenced later, and evolution of
+an initial measure is written as `(\mu P_t)(f)`. General states are called calm
+or facilitating; model-specific terminology is used where available, and
+`activity` is not a formal state variable. Paragraphs should develop coherent
+points rather than being broken around individual displays.
 
 ## Current core entries
 
