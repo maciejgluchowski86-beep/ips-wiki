@@ -11,15 +11,20 @@ Overleaf main file and loads `paper/main.tex`. Introduction Sections 1.1--1.3
 and Sections 2--8 are drafted in prose. The section sources are under
 `paper/sections/`: `spin-systems.tex`, `signed-dual.tex`, `patches.tex`,
 `representation.tex`, `patch-positivity.tex`, `moment-order.tex`, and
-`convergence.tex`. Appendix A derives the monomial dual in
+`convergence.tex`. Section 2 now defines directed neighbourhood balls and
+polynomial growth. Section 7 states preservation of the centered-moment order,
+and Section 8 treats the finite-centered-deficit classes `\mathcal M_{-,K}` and
+their union `\mathcal M_-`.
+
+Appendix A derives the monomial dual in
 `paper/appendices/monomial-dual.tex`, Appendix B gives the explicit patch
-contribution formulas in `paper/appendices/patch-contributions.tex`, and the
-finite-propagation part of Appendix C is in
-`paper/appendices/technical-background.tex`. The abstract, Introduction
-Sections 1.4--1.5, Section 9 onward, and the remaining local-finiteness part of
-Appendix C remain structural notes. Shared macros and theorem environments live
-in `paper/preamble.tex`. The paper-specific typography, terminology, and
-paragraph conventions are recorded in `STYLE.md`.
+contribution formulas in `paper/appendices/patch-contributions.tex`, and
+Appendix C in `paper/appendices/technical-background.tex` supplies local
+finiteness, confined and no-late graphical identities, end-factor relaxation,
+and directed finite propagation. The abstract, Introduction Sections 1.4--1.5,
+and Section 9 onward remain structural notes. Shared macros and theorem
+environments live in `paper/preamble.tex`. The paper-specific typography,
+terminology, and paragraph conventions are recorded in `STYLE.md`.
 
 ## Reading target
 
