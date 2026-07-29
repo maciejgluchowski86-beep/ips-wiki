@@ -79,9 +79,9 @@ c_{i,R}(\eta)
 \pw{c_i\bb{\eta^{R,0}}}{i\in R}
 {c_i\bb{\eta^{\cb{i},0}}}{i\notin R},
 \end{equation*}
-and let~$P_t^R$ be the corresponding semigroup. Inside~$R$, this is the
-original spin system with zero boundary; sites outside~$R$ evolve independently.
-Hence, if~$f$ depends only on spins in~$R$,
+and let~$\Lcal^R$ and~$P_t^R$ be the corresponding generator and semigroup.
+Inside~$R$, this is the original spin system with zero boundary; sites outside
+$R$ evolve independently. Hence, if~$f$ depends only on spins in~$R$,
 \begin{equation}
 \label{eq:modified-zero-boundary-agreement}
 P_t^Rf=P_t^{R,0}f.
@@ -129,18 +129,57 @@ the active set is~$B$, the total rate of discarded interactions is
 \bb{\delta_i(S)+\beta_i(S)}.
 \end{equation*}
 The indicator of~$E_T^R$ kills the dual at the first discarded successful
-interaction, so the Feynman--Kac operator on~$[0,T]$ is
+interaction, so its Feynman--Kac operator on~$[0,T]$ is
 $\Dcal_R+V-\kappa_R$.
-{\color{red} Again problem with you describing steps instead of just showing them. Just show the duality between generator of the dual process without interactions reaching out of R and the spin system with 0 conditions outside R.}
-This is the monomial-dual operator of the modified rates~$c_{i,R}$. For
-$i\in R$, the multilinear expansion of~$c_{i,R}^x$ retains precisely the
-coefficients~$c_i^x(S)$ with~$S\subseteq R$; for~$i\notin R$, only the
-empty-neighbour coefficient remains. Thus the nonempty-target transitions are
-those retained in~$\Dcal_R$, every empty-target death remains, and the discarded
-rate subtracts~$\kappa_R$ from the potential.
 
-Apply modified duality on~$[0,T]$ and original duality on~$[T,t]$. Dual
-intervals act from right to left on observables, giving
+We now verify its duality with~$\Lcal^R$. Let~$Y=(B,\sigma)$ with~$B\subseteq R$.
+The coefficient expansion of the zero-boundary rates gives
+\begin{align}
+\Lcal_\eta^R H(Y,\eta)
+={}&
+\sigma
+\sum_{i\in B}
+\sum_{S\subseteq N(i)\cap R}
+ a_i^\delta(S)
+ \chi_{\bb{B\setminus\cb{i}}\cup S}(\eta)
+\notag
+\\
+&+
+\sigma
+\sum_{i\in B}
+\sum_{S\subseteq N(i)\cap R}
+ a_i^\beta(S)
+ \chi_{B\cup S}(\eta).
+\label{eq:confined-spin-generator-on-H}
+\end{align}
+On the other hand,~$\Dcal_R H(Y,\eta)$ contains the same signed monomial terms
+with~$S\subseteq R$ and subtracts the total retained jump rate. Since
+\begin{equation*}
+V(B)-\kappa_R(B)
+=
+\sum_{i\in B}
+\bb{
+ \sum_{S\subseteq N(i)\cap R}\delta_i(S)
+ +
+ \sum_{\substack{\vn\neq S\subseteq N(i)\cap R}}\beta_i(S)
+ +
+ a_i^\beta(\vn)
+},
+\end{equation*}
+adding the potential cancels this subtracted rate and restores the diagonal
+$S=\vn$ birth coefficient. Therefore
+\begin{equation}
+\label{eq:confined-generator-duality}
+\Lcal_\eta^R H(Y,\eta)
+=
+\Dcal_RH(Y,\eta)
++
+\bb{V(B)-\kappa_R(B)}H(Y,\eta),
+\end{equation}
+with both sides equal to~\eqref{eq:confined-spin-generator-on-H}.
+
+Apply~\eqref{eq:confined-generator-duality} on~$[0,T]$ and the original duality
+on~$[T,t]$. Dual intervals act from right to left on observables, giving
 \begin{equation*}
 \E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}
 =
@@ -157,8 +196,17 @@ $P_T^{R,0}$. Integrating over~$\mu$ proves
 
 \begin{proposition}[No-late continuation]
 \label{prop:no-late-continuation-identity}
-{\color{red} Total overcomplication. On the event $L_{T,t}$ there are no interactions after T and before t, so no patch can start or end there. Thus~$\mathcal{E}_t = \cb{P^{\uparrow t}: P \in \mathcal{E}_T}$ and~$\mathcal{B}_t = \mathcal{B}_T$. Thats it. For the infinite case~$t=\infty$ one sentence needs to be added, that on~$L_T$ the~$\mathcal{E}_{\infty}$ exists and is given by the same formula~$\mathcal{E}_\infty = \cb{P^{\uparrow \infty}: P\in\mathcal{E}_T}$. The equalities are just true pointwise. Also arent the formulas missing something like~$\CP{L_{t,T}}{\mathcal{G}_T}$? Investigate this.}
-Fix~$0\leq T<t$. For every probability measure~$\mu$,
+Fix~$0\leq T<t$. On~$L_{T,t}$,
+\begin{equation*}
+\mathcal B_t=\mathcal B_T,
+\qquad
+\mathcal E_t
+=
+\cb{P^{\uparrow t}:P\in\mathcal E_T}.
+\end{equation*}
+On~$L_T$, the full patch family consists of~$\mathcal B_T$ and the infinite
+continuations~$P^{\uparrow\infty}$,~$P\in\mathcal E_T$. Consequently, for every
+probability measure~$\mu$,
 \begin{align}
 \CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
 &=
@@ -180,48 +228,30 @@ $\Lcal^\varepsilon$ counterpart.
 \end{proposition}
 
 \begin{proof}
-For~$\eta\in\Omega$, use~$Z_t^\eta$ from the proof of
-Proposition~\ref{prop:confined-interaction-identity}. The patch representation
-gives~$W_t^{\delta_\eta}=\CE{Z_t^\eta}{\mathcal G_t}$, and
-$L_{T,t}\in\mathcal G_t$. The tower property gives
-\begin{equation*}
-\CE{W_t^{\delta_\eta}\ind\bb{L_{T,t}}}{\mathcal G_T}
-=
-\CE{Z_t^\eta\ind\bb{L_{T,t}}}{\mathcal G_T}.
-\end{equation*}
+The patch-family identities are immediate: without a successful interaction in
+$(T,t]$, no patch begins or ends there. Conditional on~$\mathcal G_T$, the
+future increments based at the distinct sites of~$\mathcal E_T$ are independent.
+For~$P\in\mathcal E_T$, let~$H_{P,t}$ be the local event that its continuation
+creates no successful interaction before~$t$. By the convention in
+\eqref{eq:end-patch-continuation},~$C(z,P^{\uparrow t})$ is the expectation of
+the continued local factor multiplied by~$\ind(H_{P,t})$, under the consistent
+law of~$P$ and the independent future increments. It is therefore
+unnormalized: the local continuation probability is already included. Since
+$L_{T,t}=\bigcap_{P\in\mathcal E_T}H_{P,t}$ and the local continuations are
+independent, their product already contains~$\CP{L_{T,t}}{\mathcal G_T}$; no
+additional conditional-probability factor is missing. Multiplying by the bulk
+contributions and integrating the terminal configuration against~$\mu$ proves
+\eqref{eq:appendix-finite-continuation-identity}. The proof for
+$\Lcal^\varepsilon$ is identical.
 
-Conditional on~$\mathcal G_T$, the hidden data of the bulk patches have their
-consistent patch laws. Future Poisson increments based at the distinct sites
-of~$\mathcal E_T$ are independent of these data and of one another. While no
-successful interaction occurs, no site outside~$\mb{Cone}_T$ becomes
-dual-active. Hence~$L_{T,t}$ is the intersection of the local events that the
-continuations of the patches in~$\mathcal E_T$ create no successful interaction
-before~$t$. The conditional product disintegration is
-\begin{align*}
-\CE{Z_t^\eta\ind\bb{L_{T,t}}}{\mathcal G_T}
-&=
-\prod_{P\in\mathcal B_T}
-\E_P^{\mathrm{con}}\Cb{F(P)}
-\prod_{P\in\mathcal E_T}
-C\bb{\eta\bb{i(P)},P^{\uparrow t}}
-\\
-&=
-\prod_{P\in\mathcal B_T}C(P)
-\prod_{P\in\mathcal E_T}
-C\bb{\eta\bb{i(P)},P^{\uparrow t}}.
-\end{align*}
-The continuation factor includes the local no-success event by
-\eqref{eq:end-patch-continuation}. Integrating over~$\eta$ proves the first
-identity. The proof for~$\Lcal^\varepsilon$ is identical.
-
-On~$L_T$, the patch family consists of~$\mathcal B_T$ and one infinite
-continuation of each patch in~$\mathcal E_T$. The same disintegration over the
-independent future increments gives one factor~$C(P^{\uparrow\infty})$ per end
-patch. These factors are the limits in~\eqref{eq:end-patch-continuation}, which
-proves the second identity.
+On~$L_T$, the same pointwise patch-family identity holds with infinite
+continuations. Taking the limits in~\eqref{eq:end-patch-continuation} gives one
+factor~$C(P^{\uparrow\infty})$ for each~$P\in\mathcal E_T$, proving
+\eqref{eq:appendix-infinite-continuation-identity}.
 \end{proof}
 
-The next lemma contains the only algebra needed for the no-late estimate, comparing difference of products via a telescoping identity.
+The next lemma compares the centered terms and then uses a telescoping identity
+for the constant terms.
 
 \begin{lemma}[End-factor relaxation]
 \label{lem:end-factor-relaxation}
@@ -292,7 +322,7 @@ b(P)-a_t(P)
 \leq
 e^{-\varepsilon h}b(P),
 \end{equation*}
-because~$b(P)=C(p_i^\star,P)+\kappa(P)(q_i-p_i^\star)$.
+because~$b(P)=C\bb{p_i^\star,P}+\kappa(P)(q_i-p_i^\star)$.
 
 For~$\mathcal Q\subseteq\mathcal E_T$, put
 $I(\mathcal Q)=\cb{i(P):P\in\mathcal Q}$. The centered expansion gives
@@ -363,10 +393,12 @@ Put
 \begin{equation*}
 m=\sup_{i\in\Lambda}\abs{N(i)\cup\cb{i}}<\infty.
 \end{equation*}
+The following finite-speed estimate is standard for Harris graphical
+constructions; see, for example,~\cite[Chapter~I]{Liggett1985}. We include the
+proof to keep the approximation used above self-contained.
 
 \begin{lemma}[Finite propagation]
 \label{lem:finite-propagation}
-{\color{red} This is standard, give appropriate citation and say that the proof is given to make paper self contained.}
 Let~$f$ be supported on~$A\Subset\Lambda$. For every~$a>0$, there are
 $v<\infty$ and~$C_A<\infty$ such that
 \begin{equation}
