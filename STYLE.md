@@ -11,6 +11,7 @@ This file records the writing and LaTeX conventions for the paper under `paper/`
 - Use `align` only when the alignment is part of the presentation. Use `equation` for a single referenced formula.
 - Avoid isolated short displays when an expression reads naturally inline or can be combined with an adjacent display.
 - Use the shared delimiter macros `\bb`, `\Cb`, `\cb`, `\abs`, and `\norm` instead of manual `\left...\right` or `\bigl...\bigr` constructions. Use `\mb` and `\mbs` for bold mathematical symbols.
+- When describing evolution of an initial measure, write `$(\mu P_t)(f)$`, not `$\mu(P_tf)$`. Use the latter only inside an operator calculation where the action on the observable is the point.
 
 ## Terminology
 
