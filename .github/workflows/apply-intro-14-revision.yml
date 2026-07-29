@@ -1,0 +1,48 @@
+name: Apply introduction revision
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-intro-14-revision.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply audited revision
+        env:
+          OLD_BLOCK_B64: 'Rm9yfiRBXFN1YnNldFxMYW1iZGEkLCB3cml0ZX4kXGNoaV9BKFxldGEpPVxwcm9kX3tpXGluIEF9XGV0YShpKSQuClRoZW9yZW1zflxyZWZ7dGhtOnBhdGNoLWZhY3Rvcml6YXRpb259IGFuZH5ccmVme3RobTpwYXRjaC1yZXByZXNlbnRhdGlvbn0Ke1xtZ3tJIHByZWZlciByYW5kb21uZXNzIHJhdGhlciB0aGFuICJoaWRkZW4gZGF0YSIsIGFsc28gaXRzIG5vdCB0cnVlIHRoYXQgYnVsayBwYXRjaGVzIGFyZSB0aGUgYXZlcmFnZWQgZmsgZXhwb25lbnRpYWwgYW5kIGVuZCBwYXRjaGVzIHNvbWV0aGluZyBlbHNlLiBCb3RoIGNvbWUgYXQgbGVhc3QgcGFydGlhbGx5IGZyb20gdGhlIGZrIGV4cG9uZW50aWFsLiBJIHdhcyByZW1hcmtpbmcgb24gYW5hbG9neSBpbiB0aGUgRksgZHVhbGl0eSBmb3JtdWxhIGFuZCB0aGUgcGF0Y2ggcmVwcmVzZW50YXRpb24uIFlvdSBoYXZlIGEgdGVybSB0aGF0IGFjY3VtdWxhdGVzIHdlaWdodCBtdWx0aXBsaWNhdGl2ZWx5IG92ZXIgdGltZSBhbmQgYSB0ZXJtIHRoYXQgZGVwZW5kcyBvbiBlbmQgb2YgdGhlIHRyYWplY3RvcnkgYW5kIHRoZSBjb25maWd1cmF0aW9uIGV0YS4gVGhlc2UgYXJlIHNpbWlsYXIsIG5vdCBleGFjdGx5IHRoZSBzYW1lLiBJdHMgbm90IGEgbWFpbiBwb2ludCB0aG91Z2gsIGp1c3QgYW4gb2JzZXJ2YXRpb24ufX0KcmVvcmdhbml6ZSB0aGUgc2lnbmVkIEZleW5tYW4tS2FjIHJlcHJlc2VudGF0aW9uIG9mfiRQX3RcY2hpX0EkLgpDb25kaXRpb25hbCBvbiB0aGUgc3VjY2Vzc2Z1bC1pbnRlcmFjdGlvbiBza2VsZXRvbiwgdGhlIHJhbmRvbW5lc3MgZnJvbQpkaXN0aW5jdCBwYXRjaGVzIGlzIGluZGVwZW5kZW50LiBBdmVyYWdpbmcgcGF0Y2ggYnkgcGF0Y2ggZ2l2ZXMgYW4gZXhhY3QKcmVwcmVzZW50YXRpb24gaW4gd2hpY2ggcGF0Y2hlcyBjb21wbGV0ZWQgYmVmb3JlIHRpbWV+JHQkIGFuZCBwYXRjaGVzIHJlYWNoaW5nCnRpbWV+JHQkIHBsYXkgZGlmZmVyZW50IHJvbGVzLiBUaGUgcHJvZHVjdCBvZiB0aGUgYnVsay1wYXRjaCBjb250cmlidXRpb25zIGlzCnRoZSBwYXRjaHdpc2UgYXZlcmFnZSBvZiB0aGUgc2lnbmVkIEZleW5tYW4tS2FjIGV4cG9uZW50aWFsLCB3aGlsZSB0aGUKZW5kLXBhdGNoIGZhY3RvcnMgY2FycnkgdGhlIGV2YWx1YXRpb24gb2YgdGhlIGR1YWxpdHkgZnVuY3Rpb24gYXQgdGltZX4kdCQuClRoZSBzaWducyBhcmUgdGhlcmVmb3JlIG5vdCBlc3RpbWF0ZWQgb25lIGludGVyYWN0aW9uIGF0IGEgdGltZTogY2FuY2VsbGF0aW9ucwphbW9uZyBzdWNjZXNzaXZlIGxvY2FsIGV2ZW50cyBhcmUgcGVyZm9ybWVkIGJlZm9yZSBlYWNoIGNvbnRyaWJ1dGlvbiBpcwpib3VuZGVkLgoKUGF0Y2ggcG9zaXRpdml0eSByZXF1aXJlcyB0aGUgYnVsay1wYXRjaCBjb250cmlidXRpb25zIHRvIGJlIG5vbm5lZ2F0aXZlLiBJbgp0aGUgZHVhbCByZXByZXNlbnRhdGlvbiwgdGhpcyBtZWFucyB0aGF0IGNhbmNlbGxhdGlvbiBvZiB0aGUgZHVhbCBzaWducyBsZWF2ZXMKYSBub25uZWdhdGl2ZSBGZXlubWFuLUthYyB3ZWlnaHQgYWZ0ZXIgdGhlIGxvY2FsIGhpc3RvcmllcyBoYXZlIGJlZW4gYXZlcmFnZWQuClRoZSBjb25kaXRpb24gaGFzIGEgbG9jYWwgY29lZmZpY2llbnQgY2hhcmFjdGVyaXphdGlvbi4gV2l0aCB0aGUgbm90YXRpb24gb2YKU2VjdGlvbn5ccmVme3NlYzpzcGluLXN5c3RlbXN9LCBzZXR+JHJfaT1jX2leMChcdm4pK2NfaV4xKFx2bikkLiBJZn4kcl9pPjAkLApUaGVvcmVtflxyZWZ7dGhtOnBhdGNoLXBvc2l0aXZpdHktY3JpdGVyaW9ufSBzYXlzIHRoYXQgcGF0Y2ggcG9zaXRpdml0eSBpcwplcXVpdmFsZW50IHRv'
+          NEW_BLOCK_B64: 'Rm9yfiRBXFN1YnNldFxMYW1iZGEkLCB3cml0ZX4kXGNoaV9BKFxldGEpPVxwcm9kX3tpXGluIEF9XGV0YShpKSQuClRoZW9yZW1zflxyZWZ7dGhtOnBhdGNoLWZhY3Rvcml6YXRpb259IGFuZH5ccmVme3RobTpwYXRjaC1yZXByZXNlbnRhdGlvbn0KcmVvcmdhbml6ZSB0aGUgc2lnbmVkIEZleW5tYW4tS2FjIHJlcHJlc2VudGF0aW9uIG9mfiRQX3RcY2hpX0EkLgpDb25kaXRpb25hbCBvbiB0aGUgc3VjY2Vzc2Z1bC1pbnRlcmFjdGlvbiBza2VsZXRvbiwgdGhlIHJhbmRvbW5lc3MgaW4KZGlzdGluY3QgcGF0Y2hlcyBpcyBpbmRlcGVuZGVudC4gQXZlcmFnaW5nIGl0IHBhdGNoIGJ5IHBhdGNoIGdpdmVzIGFuIGV4YWN0CnJlcHJlc2VudGF0aW9uIHNwbGl0IGJldHdlZW4gYnVsayBwYXRjaGVzIGNvbXBsZXRlZCBiZWZvcmUgdGltZX4kdCQgYW5kIGVuZApwYXRjaGVzIHJlYWNoaW5nIHRpbWV+JHQkLiBUaGlzIHNwbGl0IHBhcmFsbGVscyB0aGUgRmV5bm1hbi1LYWMgZm9ybXVsYTogdGhlCmJ1bGsgcHJvZHVjdCBhY2N1bXVsYXRlcyBjb250cmlidXRpb25zIGZyb20gdGhlIGhpc3RvcnksIHdoaWxlIHRoZSBlbmQgcHJvZHVjdAphbHNvIGRlcGVuZHMgb24gdGhlIHRlcm1pbmFsIHBhdGNoZXMgYW5kIHRoZSBjb25maWd1cmF0aW9ufiRcZXRhJC4gQm90aApwcm9kdWN0cyBjb250YWluIHRoZSBzaWduZWQgRmV5bm1hbi1LYWMgZXhwb25lbnRpYWwgYWNjdW11bGF0ZWQgb24gdGhlaXIgcGF0Y2gKaW50ZXJ2YWxzLiBUaGUgc2lnbnMgYXJlIHRoZXJlZm9yZSBub3QgZXN0aW1hdGVkIG9uZSBpbnRlcmFjdGlvbiBhdCBhIHRpbWU6CmNhbmNlbGxhdGlvbnMgYW1vbmcgc3VjY2Vzc2l2ZSBsb2NhbCBldmVudHMgYXJlIHBlcmZvcm1lZCBiZWZvcmUgZWFjaApjb250cmlidXRpb24gaXMgYm91bmRlZC4KClBhdGNoIHBvc2l0aXZpdHkgcmVxdWlyZXMgdGhlIGJ1bGstcGF0Y2ggY29udHJpYnV0aW9ucyB0byBiZSBub25uZWdhdGl2ZS4gVGh1cwphdmVyYWdpbmcgb3ZlciB0aGUgcmFuZG9tbmVzcyBpbiBhIGJ1bGsgcGF0Y2ggY2FuY2VscyB0aGUgZHVhbCBzaWducyBiZWZvcmUgaXRzCmNvbnRyaWJ1dGlvbiBpcyBib3VuZGVkLiBUaGUgY29uZGl0aW9uIGhhcyBhIGxvY2FsIGNvZWZmaWNpZW50CmNoYXJhY3Rlcml6YXRpb24uIFdpdGggdGhlIG5vdGF0aW9uIG9mIFNlY3Rpb25+XHJlZntzZWM6c3Bpbi1zeXN0ZW1zfSwKc2V0fiRyX2k9Y19pXjAoXHZuKStjX2leMShcdm4pJC4gSWZ+JHJfaT4wJCwKVGhlb3JlbX5ccmVme3RobTpwYXRjaC1wb3NpdGl2aXR5LWNyaXRlcmlvbn0gc2F5cyB0aGF0IHBhdGNoIHBvc2l0aXZpdHkgaXMKZXF1aXZhbGVudCB0bw=='
+        run: |
+          python - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+
+          path = Path('paper/main.tex')
+          text = path.read_text()
+          old = base64.b64decode(os.environ['OLD_BLOCK_B64']).decode()
+          new = base64.b64decode(os.environ['NEW_BLOCK_B64']).decode()
+          if text.count(old) != 1:
+              raise SystemExit('Expected revision block not found exactly once')
+          text = text.replace(old, new)
+          old_phrase = 'This class contains Bernoulli\nmeasures with sufficiently high calm-state density'
+          new_phrase = 'This class contains Bernoulli\nproduct measures with sufficiently high calm-state density'
+          if text.count(old_phrase) != 1:
+              raise SystemExit('Expected Bernoulli phrase not found exactly once')
+          path.write_text(text.replace(old_phrase, new_phrase))
+          PY
+          rm .github/workflows/apply-intro-14-revision.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add paper/main.tex .github/workflows/apply-intro-14-revision.yml
+          git commit -m 'Revise introduction main results'
+          git push
