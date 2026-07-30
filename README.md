@@ -21,7 +21,7 @@ The proof sections are `signed-dual.tex`, `patches.tex`, `representation.tex`,
 `patch-positivity.tex`, `moment-order.tex`, and `convergence.tex`. The general
 convergence-by-comparison corollary is in
 `moment-order-convergence.tex` and is loaded directly after the centered-moment
-section. The abstract and Discussion remain structural notes.
+section. The abstract and Discussion are drafted in `paper/main.tex`.
 
 Appendix A derives the monomial dual in
 `paper/appendices/monomial-dual.tex`, Appendix B gives the explicit patch
