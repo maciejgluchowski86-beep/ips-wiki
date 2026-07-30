@@ -8,50 +8,13 @@ The wiki is article-first and public-facing. Source pages live under `docs/`, an
 
 The build target is the `Build wiki site` GitHub Actions workflow. It builds the MkDocs site from `docs/` and deploys through GitHub Pages after every push to `main`.
 
-The paper template lives under `paper/`. The repository-level `main.tex` is the
-Overleaf main file and loads `paper/main.tex`. The front of the paper is
-organized as Introduction, Setup, Main results, and Applications. Introduction
-Sections 1.1--1.3 are a prose draft. Section 2 is drafted in
-`paper/sections/spin-systems.tex`; it fixes the directed-neighbourhood setting,
-local functions, monomials, product measures, spin-system coefficients,
-refresh noise, and convergence terminology. Section 3 is drafted in
-`paper/sections/main-results.tex`; it states the patch representation and
-coefficient criterion, centered-moment order, pure-death comparison, and common
-invariant-limit theorem. Section 4 is drafted in
-`paper/sections/applications.tex`; it introduces the contact process, FA-1f,
-and BABP, and places each coefficient calculation and model-specific
-consequence immediately after the model definition. The general
-convergence-by-comparison corollary is in
-`paper/sections/moment-order-convergence.tex` and is loaded directly after the
-centered-moment section.
+The paper template lives under `paper/`. The repository-level `main.tex` is the Overleaf main file and loads `paper/main.tex`. The front of the paper is organized as Introduction, Setup, Main results, and Applications. Introduction Sections 1.1--1.3 are a prose draft. Section 2 is drafted in `paper/sections/spin-systems.tex`; it fixes the directed-neighbourhood setting, local functions, monomials, product measures, spin-system coefficients, independent refresh noise, and convergence terminology. The unit-rate refresh generator is `\Ncal^{\mb s}`, and perturbations are written `\Lcal+\varepsilon\Ncal^{\mb s}`; the constant profile `\mb 0` gives pure deaths. Section 3 is drafted in `paper/sections/main-results.tex`; it states the patch representation and coefficient criterion, centered-moment order, pure-death comparison, and common invariant-limit theorem. Section 4 is drafted in `paper/sections/applications.tex`; it introduces the contact process, FA-1f, and BABP, and places each coefficient calculation and model-specific consequence immediately after the model definition. The general convergence-by-comparison corollary is in `paper/sections/moment-order-convergence.tex` and is loaded directly after the centered-moment section.
 
-The proof sections are `paper/sections/signed-dual.tex`, `patches.tex`,
-`representation.tex`, `patch-positivity.tex`, `moment-order.tex`, and
-`convergence.tex`. They define the signed additive set process, patch geometry
-and factorization, the patch representation, the coefficient criterion and
-critical profile, centered-moment comparisons, and convergence under uniform
-deaths. Discussion and open problems remains a structural scaffold.
+The proof sections are `paper/sections/signed-dual.tex`, `patches.tex`, `representation.tex`, `patch-positivity.tex`, `moment-order.tex`, and `convergence.tex`. They define the signed additive set process, patch geometry and factorization, the patch representation, the coefficient criterion and critical profile, centered-moment comparisons, and convergence under pure-death noise. The convergence section now includes short guide paragraphs explaining the purpose and intuition of the comparison, confinement, backward-trail, late-interaction, and no-late-relaxation estimates. Discussion remains a structural scaffold.
 
-Appendix A is drafted in `paper/appendices/monomial-dual.tex`, Appendix B in
-`paper/appendices/patch-contributions.tex`, and Appendix C in
-`paper/appendices/technical-background.tex`. Appendix B applies the ordinary
-patch formulas to geometric extensions. Appendix C contains local finiteness,
-the confined-interaction identity, explicit local no-success events and their
-conditional probabilities, the end-factor relaxation calculation, and directed
-finite propagation. The abstract and Discussion remain drafting notes. No title
-has yet been fixed. Shared macros and theorem environments live in
-`paper/preamble.tex`.
+Appendix A is drafted in `paper/appendices/monomial-dual.tex`, Appendix B in `paper/appendices/patch-contributions.tex`, and Appendix C in `paper/appendices/technical-background.tex`. Appendix B applies the ordinary patch formulas to geometric extensions. Appendix C contains local finiteness, the confined-interaction identity, explicit local no-success events and their conditional probabilities, the end-factor relaxation calculation, and directed finite propagation. The abstract and Discussion remain drafting notes. No title has yet been fixed. Shared macros and theorem environments live in `paper/preamble.tex`.
 
-The paper writing conventions are recorded in `STYLE.md`. In particular,
-inline mathematics uses `$...$` with a preceding nonbreaking space when it
-follows prose, unnumbered displays use starred mathematical environments,
-equation numbers are reserved for formulas referenced later, and evolution of
-an initial measure is written as `(μ P_t)(f)`. General states are called calm
-or facilitating; model-specific terminology is used where available, and
-`activity` is not a formal state variable. Paragraphs should develop coherent
-points rather than being broken around individual displays. The operations
-`P^{\downarrow t}` and `P^{\uparrow t}` always change patch geometry only;
-probabilities of uninterrupted continuation are written separately.
+The paper writing conventions are recorded in `STYLE.md`. In particular, inline mathematics uses `$...$` with a preceding nonbreaking space when it follows prose, unnumbered displays use starred mathematical environments, equation numbers are reserved for formulas referenced later, and evolution of an initial measure is written as `(μ P_t)(f)`. General states are called calm or facilitating; model-specific terminology is used where available, and `activity` is not a formal state variable. Section and subsection titles name their main focus rather than listing all included topics. Paragraphs should develop coherent points rather than being broken around individual displays. The operations `P^{\downarrow t}` and `P^{\uparrow t}` always change patch geometry only; probabilities of uninterrupted continuation are written separately.
 
 ## Current core entries
 
@@ -109,7 +72,7 @@ probabilities of uninterrupted continuation are written separately.
 8. `docs/entries/babp-model.md`: BABP as the additive-rate analogue of FA-1f, including the classical particle convention.
 9. `docs/entries/monomial-duality-for-fa-1f.md`: systematic dual rates, signs, and Feynman--Kac weights for hard/soft FA-1f with optional pure-death perturbation.
 10. `docs/entries/patch-contributions-for-fa-1f.md`: hard FA-1f patch contributions with unified full-patch, cut, and end formulas.
-11. `docs/entries/patch-positivity-for-fa-1f.md`: verification that FA-1f has patch positivity and characterization of pure-noise perturbations preserving it.
+11. `docs/entries/patch-positivity-for-fa-1f.md`: verification of FA-1f patch positivity and characterization of pure-noise perturbations preserving it.
 12. `docs/entries/patch-critical-density-for-fa-1f.md`: identification of the FA-1f patch critical density with its equilibrium one-density.
 13. `docs/entries/monomial-duality-for-babp.md`: singleton-target dual rates, signs, and Feynman--Kac weights for BABP.
 14. `docs/entries/patch-contributions-for-babp.md`: BABP full-patch, cut, and end contribution formulas.
