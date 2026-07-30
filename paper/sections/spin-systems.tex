@@ -127,7 +127,7 @@ Here~$p$ is the density of calm states and~$q$ the density of facilitating
 states. In the KCSM and BABP literature, the prefactor multiplying
 $E_{i,p}-I$ is often called the constraint or refresh rate and denoted by~$c_i$.
 In this paper,~$c_i$ always denotes the resulting flip rate.
-
+\mg{Unnatural construction, we only ever use adding $\varepsilon$ pure deaths noise or adding $\varepsilon$ refresh with some densities noise, never this. $\varepsilon$ is always the amount of noise added i.e. we add $\mathcal{L} + \varepsilon\mathcal{N}$. $\varepsilon$ is never a parameter of the pure noise process}
 For~$\varepsilon\geq0$ and a bounded death-rate profile
 $\mb d=(d_i)_{i\in\Lambda}\in[0,\infty)^\Lambda$, define
 \begin{align*}
@@ -149,9 +149,9 @@ environment-independent~$1\to0$ rate. Adding this noise gives
 \begin{equation*}
 \Lcal^{\varepsilon,\mb d}=\Lcal+\Ncal^{\varepsilon,\mb d}.
 \end{equation*}
-We say that a spin system has \emph{$\delta$-uniform deaths}, for~$\delta>0$, if
+We say that a spin system has \emph{$\varepsilon$-uniform deaths}, for~$\varepsilon>0$, if
 \begin{equation*}
-c_i^1(\eta)\geq\delta
+c_i^1(\eta)\geq\varepsilon
 \qquad
 \text{for every }i\in\Lambda\text{ and }\eta\in\Omega.
 \end{equation*}

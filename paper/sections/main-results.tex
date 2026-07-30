@@ -2,7 +2,7 @@
 \label{sec:main-results}
 
 \subsection{Patch representation and patch positivity}
-
+\mg{Repeated information/notation/definitions from section 2 that was just above}
 For~$A\Subset\Lambda$, write~$\chi_A(\eta)=\prod_{i\in A}\eta(i)$.
 Theorems~\ref{thm:patch-factorization} and~\ref{thm:patch-representation}
 reorganize the signed Feynman--Kac representation of~$P_t\chi_A$. Conditional
@@ -89,7 +89,7 @@ Theorem~\ref{thm:pure-death-comparison} gives
 \subsection{Common invariant limit}
 
 Assume that~$\Lambda$ has polynomial growth of exponent~$D$ and that the spin
-system has~$\delta$-uniform deaths. For~$K\geq0$, let
+system has~$\varepsilon$-uniform deaths. For~$K\geq0$, let
 \begin{equation*}
 \mathcal M_{-,K}
 =
@@ -108,7 +108,7 @@ measure~$\pi$ such that, for every local function~$f$,
 \sup_{\mu\in\mathcal M_{-,K}}
 \abs{(\mu P_t)(f)-\pi(f)}
 \leq
-(1+2K)K_f(1+t)^D e^{-\delta t/2}
+(1+2K)K_f(1+t)^D e^{-\varepsilon t/2}
 \end{equation*}
 for every~$K\geq0$ and~$t\geq0$. The limit is obtained without identifying an
 invariant measure in advance. In the notation of
@@ -121,14 +121,13 @@ Section~\ref{sec:representation}, its monomial moments are
 \ind\bb{\abs{\mathcal P}<\infty}
 }.
 \end{equation*}
-If~$\mb p^\star\leq\frac12\mb 1$, then every initial configuration is covered
-with a common constant,~$\pi$ is the unique invariant measure, and
+If~$\mb p^\star\leq \mbs{\frac{1}{2}}$, then every~$\mathcal{M}_{-,1}$ contains all probability measures,~$\pi$ is the unique invariant measure, and
 Corollary~\ref{cor:uniform-ergodicity} gives
 \begin{equation*}
 \sup_{\eta\in\Omega}
 \abs{P_tf(\eta)-\pi(f)}
 \leq
-K_f(1+t)^D e^{-\delta t/2}.
+K_f(1+t)^D e^{-\varepsilon t/2}.
 \end{equation*}
 
 Section~\ref{sec:applications} introduces the contact process, FA-1f, and BABP
