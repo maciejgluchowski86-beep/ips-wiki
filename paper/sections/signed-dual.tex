@@ -57,7 +57,7 @@ process has generator
 \bb{g\bb{B_{i,S}(A,\sigma)}-g(A,\sigma)}.
 \end{align*}
 
-\subsection{Dual data from the spin rates}
+\subsection{Dual data}
 \label{subsec:rates-to-dual}
 
 For~$r\in\R$, let~$\operatorname{sgn}_{\pm}(r)$ be~$+$ when~$r\geq0$ and~$-$
@@ -140,22 +140,14 @@ P_t\chi_A(\eta)
 
 The coefficient calculation proving~\eqref{eq:monomial-generator-duality} is
 given in Appendix~\ref{app:dual-calculation}. The semigroup identity is the
-standard Feynman--Kac consequence of the generator identity. Independent
-transitions~$1\to0$ act diagonally on monomials. For a nonnegative rate
-profile~$\mb r=(r_i)_{i\in\Lambda}$,
-\begin{align*}
-\Ncal^{0,\mb r}f(\eta)
-&=
-\sum_{i\in\Lambda}r_i
-\bb{f(\eta^{i,0})-f(\eta)},
-\\
-\Ncal^{0,\mb r}\chi_A
-&=
--\bb{\sum_{i\in A}r_i}\chi_A.
-\end{align*}
-Adding~$\Ncal^{0,\mb r}$ leaves the dual jumps unchanged and replaces~$V(A)$
-by~$V(A)-\sum_{i\in A}r_i$. We therefore call these independent transitions
-\emph{pure deaths}.
+standard Feynman--Kac consequence of the generator identity. The pure-death
+noise generator acts diagonally on monomials:
+\begin{equation*}
+\Ncal^{\mb 0}\chi_A=-\abs A\chi_A.
+\end{equation*}
+Adding~$\varepsilon\Ncal^{\mb 0}$ leaves the dual jumps unchanged and replaces
+$V(A)$ by~$V(A)-\varepsilon\abs A$. We therefore call the independent
+transitions~$1\to0$ \emph{pure deaths}.
 
 \subsection{Graphical construction}
 \label{subsec:dual-graphical-construction}
