@@ -145,22 +145,99 @@ limit, which can be described by a patch formula.
 \subsection{Interpretation}
 \label{subsec:meaning-of-patch-positivity}
 
-\draftnote{Summarize the distinction between instantaneous interaction strength and persistence through time. Explain what the method captures beyond ordinary one-step duality estimates and where it remains weaker than attractiveness.}
+Patch positivity is a condition on the accumulated effect of a one-site period
+of influence, rather than on the sign or size of an instantaneous interaction.
+The raw Feynman--Kac dual may attach alternating signs to successive local
+events. Averaging all hidden events between two successful interactions first
+produces the patch contribution~$C(P)$, and patch positivity asks that this
+effective contribution be nonnegative. Although its definition refers to a
+spacetime decomposition, Theorem~\ref{thm:patch-positivity-criterion} reduces it
+to local inequalities between the multilinear coefficients of the flip rates.
+
+Patch positivity is neither attractiveness nor positivity of all coefficients
+in the signed dual. When~$\mb p^\star=\mb 0$, the centered monomials are the
+ordinary monomials and~$\preceq_*$ becomes the upper-orthant, or
+monomial-moment, order. Stochastic order implies this order, but the converse
+fails in general. Thus, for the contact process, attractiveness gives the
+stronger comparison for all increasing observables, while
+Theorem~\ref{thm:centered-moment-order} extends its monomial consequences to
+pairs of initial laws which need not be stochastically ordered. The main use of
+patch positivity is for systems such as FA-1f and BABP, where the configuration
+order is not preserved.
 
 \subsection{Density threshold}
 \label{subsec:density-threshold}
 
-\draftnote{Discuss the lower bound on admissible initial one-density as a technical limitation caused by signs of end contributions. Contrast it carefully with KCSM results in which high density of the constraining state is often the difficult regime.}
+The patch critical profile~$\mb p^\star$ is the smallest terminal calm-state
+profile for which every end-patch contribution is nonnegative. It is determined
+by the signs of the end factors and is not an ergodicity threshold or a phase
+transition parameter. The lower profile
+$\mb p^-=(\max\cb{2p_i^\star-1,0})_{i\in\Lambda}$ enters only when the positive
+estimate on~$\mathcal M_*$ is extended by the affine decomposition defining
+$\mathcal M_-$. In particular, these profiles describe where the present sign
+argument applies, not where the underlying dynamics is expected to change
+qualitatively.
 
-\subsection{Uniform noise}
+The restriction to~$\mathcal M_-$ comes entirely from the centered expansion of
+the end factors. Outside this class some centered terms are negative, so the
+proof can no longer compare each successful-interaction skeleton with a
+positive envelope. This is not a dynamical obstruction to convergence. The
+terms discarded by the positivity argument carry additional cancellations and
+may provide further decay. Proving convergence from arbitrary laws requires a
+way to retain those cancellations instead of taking termwise absolute values.
+When~$\mb p^\star\leq\mbs{\tfrac12}$, every probability measure belongs
+to~$\mathcal M_{-,1}$ and this issue disappears. For FA-1f and BABP,
+$p^\star=p$, so the all-initial-law result applies when the facilitating-state
+density~$q=1-p$ is at least~$1/2$.
+
+\subsection{Uniform deaths}
 \label{subsec:removing-noise}
 
-\draftnote{Identify which parts of the convergence proof use uniform deaths and formulate possible replacements, such as model-specific relaxation or survival estimates.}
+The uniform pure-death component is used in two separate estimates. Along a
+backward outgoing trail it contributes a survival factor which suppresses
+histories with a successful interaction after the cut time. On the
+complementary event it contracts the centered slopes of the surviving end
+patches, erasing their dependence on the terminal configuration. The rest of
+the proof uses positivity, spatial confinement, and finite propagation. Thus
+the same argument would apply whenever model-specific estimates replace
+Lemmas~\ref{lem:late-interactions} and~\ref{lem:no-late-relaxation} by errors
+which vanish as the cut time and continuation time increase. Removing the
+uniform component is the main step needed to apply the method directly to the
+hard models.
 
-\subsection{Further directions}
+The full-patch formula can sometimes identify the invariant law exactly.
+Suppose that every infinite patch of type~$\mathsf{OE}$ has zero contribution.
+On~$\cb{\abs{\mathcal P}<\infty}$, any ordinary successful interaction has a
+last occurrence, and the source patch beginning at that interaction is an
+infinite~$\mathsf{OE}$ patch. Hence every history containing an ordinary
+successful interaction has zero weight. The remaining no-interaction term is
+the dual representation of the independent spin system with directional rates
+$c_i^0(\vn)$ and~$c_i^1(\vn)$. The invariant law is therefore the Bernoulli
+product measure with one-density
+egin{equation*}
+\frac{c_i^0(\vn)}{c_i^0(\vn)+c_i^1(\vn)}
+\end{equation*}
+at site~$i$. This recovers~$\mu_p$ for the equilibrium-refresh perturbations of
+FA-1f and BABP. Without this vanishing condition, the formula still carries
+patchwise comparisons to the monomial moments of the invariant laws, as in
+Corollary~\ref{cor:pure-death-invariant-comparison}.
+
+\subsection{Open problems}
 \label{subsec:future-directions}
 
-\draftnote{List the main open directions: convergence from arbitrary initial laws when~$\mb p^\star>\mbs{\frac{1}{2}}$, sharper interpretation of the full-patch law, stronger orders than monomial moments, and systematic identification of further patch-positive non-attractive systems.}
+The first problem is convergence from arbitrary initial laws when
+$\mb p^\star\nleq\mbs{\tfrac12}$. The proof fails only because the signs of the
+end-patch expansion are no longer controlled. A satisfactory extension should
+estimate the resulting cancellations uniformly over the
+successful-interaction skeleton rather than replace them by absolute values.
+
+The second problem is convergence from finitely many facilitating states in
+the hard models. This includes FA-1f started from finitely many vacancies and
+BABP started from a finite nonempty particle set. Such point masses are not
+placed between useful product laws by the centered-moment order, and the hard
+dynamics has no uniform pure-death component. These problems therefore require
+model-specific control of both late dual interactions and the terminal
+end-patch dependence.
 
 \appendix
 
