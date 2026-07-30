@@ -2,7 +2,7 @@
 \label{sec:setup}
 \label{sec:spin-systems}
 
-\subsection{State space and local observables}
+\subsection{State space}
 \label{subsec:lattices-observables}
 
 Let~$\Lambda$ be a countable set. For each~$i\in\Lambda$, fix a finite
@@ -57,7 +57,7 @@ For a profile~$\mb a=(a_i)_{i\in\Lambda}\in[0,1]^\Lambda$, let~$\mu_{\mb a}$
 be the Bernoulli product measure with one-density~$a_i$ at site~$i$. For a
 constant~$a$, write~$\mb a=(a)_{i\in\Lambda}$ and~$\mu_a=\mu_{\mb a}$.
 
-\subsection{Spin systems and coefficient expansions}
+\subsection{Spin systems}
 \label{subsec:rates-coefficients}
 \label{subsec:calm-facilitating-rates}
 
@@ -106,7 +106,7 @@ process; we use this without further comment and refer to
 with~$P_tf(\eta)=\E_\eta\Cb{f(\eta_t)}$. For a probability measure~$\mu$, we
 write~$(\mu P_t)(f)=\mu(P_tf)$.
 
-\subsection{Refreshes and independent noise}
+\subsection{Independent noise}
 \label{subsec:noise-ergodicity}
 \label{def:bernoulli-refresh}
 \label{def:bernoulli-noise}
@@ -127,38 +127,40 @@ Here~$p$ is the density of calm states and~$q$ the density of facilitating
 states. In the KCSM and BABP literature, the prefactor multiplying
 $E_{i,p}-I$ is often called the constraint or refresh rate and denoted by~$c_i$.
 In this paper,~$c_i$ always denotes the resulting flip rate.
-\mg{Unnatural construction, we only ever use adding $\varepsilon$ pure deaths noise or adding $\varepsilon$ refresh with some densities noise, never this. $\varepsilon$ is always the amount of noise added i.e. we add $\mathcal{L} + \varepsilon\mathcal{N}$. $\varepsilon$ is never a parameter of the pure noise process}
-For~$\varepsilon\geq0$ and a bounded death-rate profile
-$\mb d=(d_i)_{i\in\Lambda}\in[0,\infty)^\Lambda$, define
-\begin{align*}
-\Ncal^{\varepsilon,\mb d}f(\eta)
-={}&
-\sum_{i\in\Lambda}
-\varepsilon\bb{f\bb{\eta^{i,1}}-f(\eta)}
-+
-\sum_{i\in\Lambda}
-d_i\bb{f\bb{\eta^{i,0}}-f(\eta)}
-\\
-={}&
-\sum_{i\in\Lambda}
-\bb{\varepsilon\bb{1-\eta(i)}+d_i\eta(i)}
-\bb{f(\eta^i)-f(\eta)}.
-\end{align*}
-Thus~$\varepsilon$ is the environment-independent~$0\to1$ rate and~$d_i$ the
-environment-independent~$1\to0$ rate. Adding this noise gives
-\begin{equation*}
-\Lcal^{\varepsilon,\mb d}=\Lcal+\Ncal^{\varepsilon,\mb d}.
-\end{equation*}
-We say that a spin system has \emph{$\varepsilon$-uniform deaths}, for~$\varepsilon>0$, if
-\begin{equation*}
-c_i^1(\eta)\geq\varepsilon
-\qquad
-\text{for every }i\in\Lambda\text{ and }\eta\in\Omega.
-\end{equation*}
-The perturbation~$\Lcal^{\varepsilon,\mb d}$ has
-$\inf_i d_i$-uniform deaths whenever this quantity is positive.
 
-\subsection{Invariant measures and convergence}
+For a profile~$\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$, define the unit-rate
+independent refresh generator
+\begin{equation*}
+\Ncal^{\mb s}f
+=
+\sum_{i\in\Lambda}\bb{E_{i,s_i}-I}f.
+\end{equation*}
+For~$\varepsilon\geq0$, the corresponding perturbation of~$\Lcal$ is
+\begin{equation*}
+\Lcal^{\varepsilon,\mb s}
+=
+\Lcal+\varepsilon\Ncal^{\mb s}.
+\end{equation*}
+Thus~$\mb s$ specifies the refresh law and~$\varepsilon$ is the amount of
+independent noise added. The constant profile~$\mb 0$ gives pure deaths:
+\begin{equation*}
+\Ncal^{\mb 0}f(\eta)
+=
+\sum_{i\in\Lambda}\bb{f\bb{\eta^{i,0}}-f(\eta)}.
+\end{equation*}
+We say that~$\Lcal$ contains pure-death noise at rate~$\varepsilon>0$ if
+\begin{equation*}
+\Lcal=\Lcal^\varepsilon+\varepsilon\Ncal^{\mb 0}
+\end{equation*}
+for another spin-system generator~$\Lcal^\varepsilon$. Equivalently,
+$c_i^1(\eta)\geq\varepsilon$ for every~$i$ and~$\eta$. The perturbation
+$\Lcal^{\varepsilon,\mb s}$ contains pure-death noise at rate
+\begin{equation*}
+\delta=\varepsilon\inf_{i\in\Lambda}\bb{1-s_i}
+\end{equation*}
+whenever~$\delta>0$.
+
+\subsection{Convergence}
 \label{subsec:invariant-ergodicity}
 
 \begin{definition}[Invariant measure]
