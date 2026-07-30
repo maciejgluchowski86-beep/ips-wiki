@@ -1,0 +1,207 @@
+% Final flushed patch-interior figures: IO, OO, II, OI.
+\begingroup
+\definecolor{patchred}{RGB}{180,34,40}
+\definecolor{activefront}{gray}{0.84}
+\definecolor{activeback}{gray}{0.89}
+\definecolor{activetop}{gray}{0.80}
+\definecolor{secondary}{gray}{0.68}
+\definecolor{outline}{gray}{0.17}
+\tikzset{
+  patch outline/.style={draw=outline,line width=0.62pt,line join=round},
+  slice outline/.style={draw=outline,line width=0.43pt},
+  active front/.style={fill=activefront,draw=none},
+  active back/.style={fill=activeback,draw=none},
+  active top/.style={fill=activetop,draw=none},
+  inactive face/.style={fill=white,draw=none},
+  inactive side/.style={fill=white,draw=none},
+  patch stripe/.style={fill=patchred,draw=none},
+  patch stripe back/.style={fill=patchred,fill opacity=0.66,draw=none},
+  boundary interaction/.style={draw=black,line width=0.86pt,-{Stealth[length=1.8mm,width=1.25mm]}},
+  external secondary/.style={draw=secondary,line width=0.52pt,-{Stealth[length=1.35mm,width=0.95mm]}},
+  used death/.style={font=\large,text=black,inner sep=0pt},
+  patch type label/.style={font=\large,inner sep=0pt},
+  patch case label/.style={font=\scriptsize,text=outline,align=center,inner sep=0pt},
+  patch decomposition arrow/.style={draw=black,line width=0.95pt,-{Stealth[length=2.4mm,width=1.55mm]}},
+}
+
+\newcommand{\PatchCoordinates}{%
+  \coordinate (W) at (-1.18,0);
+  \coordinate (N) at (0,0.42);
+  \coordinate (E) at (1.18,0);
+  \coordinate (S) at (0,-0.42);
+  \coordinate (Wt) at (-1.18,3.2);
+  \coordinate (Nt) at (0,3.62);
+  \coordinate (Et) at (1.18,3.2);
+  \coordinate (St) at (0,2.78);
+}
+
+\newcommand{\PatchOutline}{%
+  \draw[patch outline] (W)--(N)--(E)--(S)--cycle;
+  \draw[patch outline] (Wt)--(Nt)--(Et)--(St)--cycle;
+  \draw[patch outline] (W)--(Wt) (N)--(Nt) (E)--(Et) (S)--(St);
+}
+
+\newcommand{\PatchStripeFamily}[3]{%
+  \begin{scope}
+    \coordinate (root) at (#1);
+    \coordinate (inner) at ($(#1)!0.16!(#2)$);
+    \clip (root)--(inner)--($(inner)+(0,3.2)$)--($(root)+(0,3.2)$)--cycle;
+    \foreach \zz in {-0.4,-0.235,...,3.56}{%
+      \pgfmathsetmacro{\zza}{\zz+0.075}
+      \pgfmathsetmacro{\zzb}{\zz+0.2003}
+      \pgfmathsetmacro{\zzc}{\zz+0.2753}
+      \path[#3] ($(root)+(0,\zz)$)--($(root)+(0,\zza)$)--($(inner)+(0,\zzc)$)--($(inner)+(0,\zzb)$)--cycle;
+    }
+  \end{scope}
+  \begin{scope}
+    \coordinate (root) at (#2);
+    \coordinate (inner) at ($(#2)!0.16!(#1)$);
+    \clip (root)--(inner)--($(inner)+(0,3.2)$)--($(root)+(0,3.2)$)--cycle;
+    \foreach \zz in {-0.4,-0.235,...,3.56}{%
+      \pgfmathsetmacro{\zza}{\zz+0.075}
+      \pgfmathsetmacro{\zzb}{\zz+0.2003}
+      \pgfmathsetmacro{\zzc}{\zz+0.2753}
+      \path[#3] ($(root)+(0,\zz)$)--($(root)+(0,\zza)$)--($(inner)+(0,\zzc)$)--($(inner)+(0,\zzb)$)--cycle;
+    }
+  \end{scope}
+}
+
+\newcommand{\RearPatchBarriers}{%
+  \PatchStripeFamily{W}{N}{patch stripe back}%
+  \PatchStripeFamily{N}{E}{patch stripe back}%
+}
+\newcommand{\FrontPatchBarriers}{%
+  \PatchStripeFamily{E}{S}{patch stripe}%
+  \PatchStripeFamily{S}{W}{patch stripe}%
+}
+
+\newcommand{\SourceDot}[2]{%
+  \fill[white] (#1,#2) circle[radius=2.15pt];
+  \fill[black] (#1,#2) circle[radius=1.55pt];
+}
+\newcommand{\OutgoingAt}[1]{%
+  \draw[boundary interaction] (0,#1)--(1.18,{#1+0.42});
+  \draw[boundary interaction] (0,#1)--(-1.18,{#1-0.42});
+  \draw[boundary interaction] (0,#1)--(1.18,{#1-0.42});
+  \draw[boundary interaction] (0,#1)--(-1.18,{#1+0.42});
+  \SourceDot{0}{#1}%
+}
+\newcommand{\IncomingInitial}{%
+  \draw[boundary interaction] (-1.18,-0.42)--(0,0);
+  \draw[external secondary] (-1.18,-0.42)--(-2.36,-0.84);
+  \draw[external secondary] (-1.18,-0.42)--(0,-0.84);
+  \draw[external secondary] (-1.18,-0.42)--(-2.36,0);
+  \SourceDot{-1.18}{-0.42}%
+}
+\newcommand{\IncomingTerminal}{%
+  \draw[boundary interaction] (-1.18,3.62)--(0,3.2);
+  \draw[external secondary] (-1.18,3.62)--(-2.36,4.04);
+  \draw[external secondary] (-1.18,3.62)--(0,4.04);
+  \draw[external secondary] (-1.18,3.62)--(-2.36,3.2);
+  \SourceDot{-1.18}{3.62}%
+}
+
+\newcommand{\PatchBlock}[2]{%
+  \PatchCoordinates
+  \RearPatchBarriers
+  \PatchOutline
+  #1#2
+  \FrontPatchBarriers
+  \draw[patch outline] (W)--(N)--(E)--(S)--cycle;
+  \draw[patch outline] (Wt)--(Nt)--(Et)--(St)--cycle;
+  \draw[patch outline] (E)--(Et) (S)--(St) (W)--(Wt);
+}
+
+\newcommand{\PrismBase}[2]{%
+  \PatchCoordinates
+  \path[#1] (W)--(N)--(E)--(S)--cycle;
+  \path[inactive side] (W)--(N)--(Nt)--(Wt)--cycle;
+  \path[inactive side] (N)--(E)--(Et)--(Nt)--cycle;
+  \path[inactive side] (E)--(S)--(St)--(Et)--cycle;
+  \path[inactive side] (S)--(W)--(Wt)--(St)--cycle;
+  #2
+}
+\newcommand{\FullPrism}{%
+  \PrismBase{active top}{%
+    \path[active back] (W)--(N)--(Nt)--(Wt)--cycle;
+    \path[active back] (N)--(E)--(Et)--(Nt)--cycle;
+    \path[active front] (E)--(S)--(St)--(Et)--cycle;
+    \path[active front] (S)--(W)--(Wt)--(St)--cycle;
+    \path[active top] (Wt)--(Nt)--(Et)--(St)--cycle;
+  }%
+  \PatchOutline
+}
+\newcommand{\EmptyPrism}{%
+  \PrismBase{inactive face}{}%
+  \path[inactive face] (Wt)--(Nt)--(Et)--(St)--cycle;
+  \PatchOutline
+}
+\newcommand{\DeathPrism}{%
+  \PatchCoordinates
+  \path[active top] (W)--(N)--(E)--(S)--cycle;
+  \path[inactive side] (W)--(N)--(Nt)--(Wt)--cycle;
+  \path[inactive side] (N)--(E)--(Et)--(Nt)--cycle;
+  \path[inactive side] (E)--(S)--(St)--(Et)--cycle;
+  \path[inactive side] (S)--(W)--(Wt)--(St)--cycle;
+  \coordinate (Wd) at (-1.18,1.55);
+  \coordinate (Nd) at (0,1.97);
+  \coordinate (Ed) at (1.18,1.55);
+  \coordinate (Sd) at (0,1.13);
+  \path[active back] (W)--(N)--(Nd)--(Wd)--cycle;
+  \path[active back] (N)--(E)--(Ed)--(Nd)--cycle;
+  \path[active front] (E)--(S)--(Sd)--(Ed)--cycle;
+  \path[active front] (S)--(W)--(Wd)--(Sd)--cycle;
+  \path[active top] (Wd)--(Nd)--(Ed)--(Sd)--cycle;
+  \draw[slice outline] (Wd)--(Nd)--(Ed)--(Sd)--cycle;
+  \path[inactive face] (Wt)--(Nt)--(Et)--(St)--cycle;
+  \PatchOutline
+  \node[used death] at (0,1.55) {$\times$};
+}
+
+\newcommand{\PatchRowIO}{%
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-3.25,-1.50) rectangle (8.6,4.18);
+\node[patch type label,anchor=east] at (-2.58,1.42) {$\mathsf{IO}$};
+\begin{scope}[scale=0.88]\PatchBlock{\IncomingInitial}{\OutgoingAt{3.2}}\end{scope}
+\draw[patch decomposition arrow] (1.80,1.42)--(4.43,1.42);
+\begin{scope}[shift={(6.15,0)},scale=0.88]\FullPrism\IncomingInitial\OutgoingAt{3.2}\node[patch case label] at (0,-1.20) {no death};\end{scope}
+\end{tikzpicture}}
+
+\newcommand{\PatchRowOO}{%
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-3.25,-1.50) rectangle (8.6,4.18);
+\node[patch type label,anchor=east] at (-2.58,1.42) {$\mathsf{OO}$};
+\begin{scope}[scale=0.88]\PatchBlock{\OutgoingAt{0}}{\OutgoingAt{3.2}}\end{scope}
+\draw[patch decomposition arrow] (1.80,1.42)--(4.43,1.42);
+\begin{scope}[shift={(6.15,0)},scale=0.88]\FullPrism\OutgoingAt{0}\OutgoingAt{3.2}\node[patch case label] at (0,-1.20) {birth, no death};\end{scope}
+\end{tikzpicture}}
+
+\newcommand{\PatchRowII}{%
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-3.25,-1.50) rectangle (12.95,4.18);
+\node[patch type label,anchor=east] at (-2.58,1.42) {$\mathsf{II}$};
+\begin{scope}[scale=0.88]\PatchBlock{\IncomingInitial}{\IncomingTerminal}\end{scope}
+\draw[patch decomposition arrow] (1.80,1.42)--(4.43,1.42);
+\begin{scope}[shift={(6.15,0)},scale=0.88]\FullPrism\IncomingInitial\IncomingTerminal\node[patch case label] at (0,-1.20) {no death};\end{scope}
+\begin{scope}[shift={(10.5,0)},scale=0.88]\DeathPrism\IncomingInitial\IncomingTerminal\node[patch case label] at (0,-1.20) {death};\end{scope}
+\end{tikzpicture}}
+
+\newcommand{\PatchRowOI}{%
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-3.25,-1.50) rectangle (17.3,4.18);
+\node[patch type label,anchor=east] at (-2.58,1.42) {$\mathsf{OI}$};
+\begin{scope}[scale=0.88]\PatchBlock{\OutgoingAt{0}}{\IncomingTerminal}\end{scope}
+\draw[patch decomposition arrow] (1.80,1.42)--(4.43,1.42);
+\begin{scope}[shift={(6.15,0)},scale=0.88]\EmptyPrism\OutgoingAt{0}\IncomingTerminal\node[patch case label] at (0,-1.20) {split};\end{scope}
+\begin{scope}[shift={(10.5,0)},scale=0.88]\FullPrism\OutgoingAt{0}\IncomingTerminal\node[patch case label] at (0,-1.20) {birth, no death};\end{scope}
+\begin{scope}[shift={(14.85,0)},scale=0.88]\DeathPrism\OutgoingAt{0}\IncomingTerminal\node[patch case label] at (0,-1.20) {birth, then death};\end{scope}
+\end{tikzpicture}}
+
+\noindent\makebox[\textwidth][l]{\scalebox{0.72}{\PatchRowIO}}
+\par\vspace{-0.35em}
+\noindent\makebox[\textwidth][l]{\scalebox{0.72}{\PatchRowOO}}
+\par\vspace{-0.35em}
+\noindent\makebox[\textwidth][l]{\scalebox{0.72}{\PatchRowII}}
+\par\vspace{-0.35em}
+\noindent\makebox[\textwidth][l]{\scalebox{0.72}{\PatchRowOI}}
+\endgroup
