@@ -1,0 +1,213 @@
+\begingroup
+\definecolor{patchfigred}{RGB}{175,32,38}
+\definecolor{patchfigactive}{gray}{0.86}
+\definecolor{patchfigused}{gray}{0.32}
+\definecolor{patchfigunused}{gray}{0.50}
+\definecolor{patchfigoutline}{gray}{0.15}
+\begin{tikzpicture}[x=0.92cm,y=0.78cm]
+\tikzset{
+  patchfig site/.style={draw=patchfigoutline,line width=0.48pt},
+  patchfig active/.style={fill=patchfigactive,draw=none},
+  patchfig success/.style={draw=black,line width=0.86pt,-{Stealth[length=2.0mm,width=1.35mm]}},
+  patchfig unused/.style={draw=patchfigunused,line width=0.68pt,-{Stealth[length=1.75mm,width=1.18mm]}},
+  patchfig horizon/.style={draw=patchfigoutline,line width=0.72pt},
+  patchfig boundary/.style={draw=patchfigoutline,line width=0.40pt},
+  patchfig label/.style={font=\scriptsize,text=black,inner sep=0pt},
+  patchfig separator/.style={draw=patchfigred,line width=2.70pt,line cap=butt,line join=miter},
+  patchfig small/.style={font=\scriptsize,text=patchfigoutline},
+  patchfig used death/.style={font=\normalsize,text=patchfigused,inner sep=0pt},
+  patchfig unused death/.style={font=\normalsize,text=patchfigunused,inner sep=0pt}
+}
+\newcommand{\PatchFigGrid}{%
+  \foreach \x in {0,...,7}{\draw[patchfig site](\x,0)--(\x,8.4);}
+  \draw[patchfig horizon](0,0)--(7,0);
+  \draw[patchfig horizon](0,8.4)--(7,8.4);}
+\newcommand{\PatchFigBarrier}[3]{%
+  \begin{scope}
+    \clip (#1,#2) rectangle ({#1+1},#3);
+    \foreach \k in {-1,...,53}{%
+      \pgfmathsetmacro{\yy}{-0.045+0.165*\k}
+      \fill[patchfigred] (#1,\yy)--(#1,{\yy+0.075})--({#1+0.105},{\yy+0.155})--({#1+0.105},{\yy+0.080})--cycle;
+      \fill[patchfigred] ({#1+1},\yy)--({#1+1},{\yy+0.075})--({#1+0.895},{\yy+0.155})--({#1+0.895},{\yy+0.080})--cycle;}
+  \end{scope}}
+\newcommand{\PatchFigInitial}{%
+  \node[font=\small,inner sep=0pt](patchfiginf) at (3.5,-0.92){$\infty$};
+  \draw[patchfig success]([xshift=-1.4mm]patchfiginf.north west)..controls(2.95,-0.40)and(2.05,-0.31)..(1.5,0);
+  \draw[patchfig success](patchfiginf.north)--(3.5,0);
+  \draw[patchfig success]([xshift=1.4mm]patchfiginf.north east)..controls(4.05,-0.40)and(4.95,-0.31)..(5.5,0);}
+\begin{scope}
+  \path[patchfig active] (0,1.1) rectangle (1,1.65);
+  \path[patchfig active] (0,3.1) rectangle (1,8.4);
+  \path[patchfig active] (1,0) rectangle (2,8.4);
+  \path[patchfig active] (2,1.1) rectangle (3,5.7);
+  \path[patchfig active] (2,7.85) rectangle (3,8.4);
+  \path[patchfig active] (3,0) rectangle (4,2.1);
+  \path[patchfig active] (3,4.1) rectangle (4,8.4);
+  \path[patchfig active] (4,2.1) rectangle (5,6.1);
+  \path[patchfig active] (4,7.1) rectangle (5,8.4);
+  \path[patchfig active] (5,0) rectangle (6,8.4);
+  \path[patchfig active] (6,7.1) rectangle (7,7.55);
+  \PatchFigGrid
+  \draw[patchfig success] (1.5,1.1)--(0.5,1.1);
+  \draw[patchfig success] (1.5,1.1)--(2.5,1.1);
+  \fill[black] (1.5,1.1) circle[radius=1.25pt];
+  \draw[patchfig success] (3.5,2.1)--(2.5,2.1);
+  \draw[patchfig success] (3.5,2.1)--(4.5,2.1);
+  \fill[black] (3.5,2.1) circle[radius=1.25pt];
+  \draw[patchfig success] (1.5,3.1)--(0.5,3.1);
+  \draw[patchfig success] (1.5,3.1)--(2.5,3.1);
+  \fill[black] (1.5,3.1) circle[radius=1.25pt];
+  \draw[patchfig success] (2.5,4.1)--(1.5,4.1);
+  \draw[patchfig success] (2.5,4.1)--(3.5,4.1);
+  \fill[black] (2.5,4.1) circle[radius=1.25pt];
+  \draw[patchfig success] (3.5,5.1)--(2.5,5.1);
+  \draw[patchfig success] (3.5,5.1)--(4.5,5.1);
+  \fill[black] (3.5,5.1) circle[radius=1.25pt];
+  \draw[patchfig success] (4.5,6.1)--(3.5,6.1);
+  \draw[patchfig success] (4.5,6.1)--(5.5,6.1);
+  \fill[black] (4.5,6.1) circle[radius=1.25pt];
+  \draw[patchfig success] (5.5,7.1)--(4.5,7.1);
+  \draw[patchfig success] (5.5,7.1)--(6.5,7.1);
+  \fill[black] (5.5,7.1) circle[radius=1.25pt];
+  \draw[patchfig success] (1.5,7.85)--(0.5,7.85);
+  \draw[patchfig success] (1.5,7.85)--(2.5,7.85);
+  \fill[black] (1.5,7.85) circle[radius=1.25pt];
+  \draw[patchfig unused] (4.5,0.55)--(3.5,0.55);
+  \draw[patchfig unused] (4.5,0.55)--(5.5,0.55);
+  \node[patchfig used death] at (0.5,1.65) {$\times$};
+  \node[patchfig used death] at (2.5,5.7) {$\times$};
+  \node[patchfig used death] at (6.5,7.55) {$\times$};
+  \node[patchfig unused death] at (6.5,2.65) {$\times$};
+  \PatchFigInitial
+  \node[patchfig small,anchor=west] at (7.08,8.4){$t$};
+  \node[patchfig small,anchor=west] at (7.08,0){$0$};
+\end{scope}
+\begin{scope}[shift={(8.10,0)}]
+  \path[patchfig active] (1,0) rectangle (2,1.1);
+  \path[patchfig active] (1,1.1) rectangle (2,3.1);
+  \path[patchfig active] (1,4.1) rectangle (2,7.85);
+  \path[patchfig active] (2,3.1) rectangle (3,4.1);
+  \path[patchfig active] (3,0) rectangle (4,2.1);
+  \path[patchfig active] (3,4.1) rectangle (4,5.1);
+  \path[patchfig active] (4,5.1) rectangle (5,6.1);
+  \path[patchfig active] (5,6.1) rectangle (6,7.1);
+  \PatchFigBarrier{0}{1.1}{3.1}
+  \PatchFigBarrier{0}{3.1}{7.85}
+  \PatchFigBarrier{0}{7.85}{8.4}
+  \PatchFigBarrier{1}{0}{1.1}
+  \PatchFigBarrier{1}{1.1}{3.1}
+  \PatchFigBarrier{1}{3.1}{4.1}
+  \PatchFigBarrier{1}{4.1}{7.85}
+  \PatchFigBarrier{1}{7.85}{8.4}
+  \PatchFigBarrier{2}{1.1}{2.1}
+  \PatchFigBarrier{2}{2.1}{3.1}
+  \PatchFigBarrier{2}{3.1}{4.1}
+  \PatchFigBarrier{2}{4.1}{5.1}
+  \PatchFigBarrier{2}{5.1}{7.85}
+  \PatchFigBarrier{2}{7.85}{8.4}
+  \PatchFigBarrier{3}{0}{2.1}
+  \PatchFigBarrier{3}{2.1}{4.1}
+  \PatchFigBarrier{3}{4.1}{5.1}
+  \PatchFigBarrier{3}{5.1}{6.1}
+  \PatchFigBarrier{3}{6.1}{8.4}
+  \PatchFigBarrier{4}{2.1}{5.1}
+  \PatchFigBarrier{4}{5.1}{6.1}
+  \PatchFigBarrier{4}{6.1}{7.1}
+  \PatchFigBarrier{4}{7.1}{8.4}
+  \PatchFigBarrier{5}{0}{6.1}
+  \PatchFigBarrier{5}{6.1}{7.1}
+  \PatchFigBarrier{5}{7.1}{8.4}
+  \PatchFigBarrier{6}{7.1}{8.4}
+  \PatchFigGrid
+  \draw[patchfig boundary] (0,1.1)--(1,1.1);
+  \draw[patchfig boundary] (0,3.1)--(1,3.1);
+  \draw[patchfig boundary] (0,7.85)--(1,7.85);
+  \draw[patchfig boundary] (0,8.4)--(1,8.4);
+  \draw[patchfig boundary] (1,0)--(2,0);
+  \draw[patchfig boundary] (1,1.1)--(2,1.1);
+  \draw[patchfig boundary] (1,3.1)--(2,3.1);
+  \draw[patchfig boundary] (1,4.1)--(2,4.1);
+  \draw[patchfig boundary] (1,7.85)--(2,7.85);
+  \draw[patchfig boundary] (1,8.4)--(2,8.4);
+  \draw[patchfig boundary] (2,1.1)--(3,1.1);
+  \draw[patchfig boundary] (2,2.1)--(3,2.1);
+  \draw[patchfig boundary] (2,3.1)--(3,3.1);
+  \draw[patchfig boundary] (2,4.1)--(3,4.1);
+  \draw[patchfig boundary] (2,5.1)--(3,5.1);
+  \draw[patchfig boundary] (2,7.85)--(3,7.85);
+  \draw[patchfig boundary] (2,8.4)--(3,8.4);
+  \draw[patchfig boundary] (3,0)--(4,0);
+  \draw[patchfig boundary] (3,2.1)--(4,2.1);
+  \draw[patchfig boundary] (3,4.1)--(4,4.1);
+  \draw[patchfig boundary] (3,5.1)--(4,5.1);
+  \draw[patchfig boundary] (3,6.1)--(4,6.1);
+  \draw[patchfig boundary] (3,8.4)--(4,8.4);
+  \draw[patchfig boundary] (4,2.1)--(5,2.1);
+  \draw[patchfig boundary] (4,5.1)--(5,5.1);
+  \draw[patchfig boundary] (4,6.1)--(5,6.1);
+  \draw[patchfig boundary] (4,7.1)--(5,7.1);
+  \draw[patchfig boundary] (4,8.4)--(5,8.4);
+  \draw[patchfig boundary] (5,0)--(6,0);
+  \draw[patchfig boundary] (5,6.1)--(6,6.1);
+  \draw[patchfig boundary] (5,7.1)--(6,7.1);
+  \draw[patchfig boundary] (5,8.4)--(6,8.4);
+  \draw[patchfig boundary] (6,7.1)--(7,7.1);
+  \draw[patchfig boundary] (6,8.4)--(7,8.4);
+  \node[patchfig label] at (0.5,2.1) {$\mathsf{II}$};
+  \node[patchfig label] at (0.5,5.475) {$\mathsf{II}$};
+  \node[patchfig label] at (0.5,8.125) {$\mathsf{IE}$};
+  \node[patchfig label] at (1.5,0.55) {$\mathsf{IO}$};
+  \node[patchfig label] at (1.5,2.1) {$\mathsf{OO}$};
+  \node[patchfig label] at (1.5,3.6) {$\mathsf{OI}$};
+  \node[patchfig label] at (1.5,5.975) {$\mathsf{IO}$};
+  \node[patchfig label] at (1.5,8.125) {$\mathsf{OE}$};
+  \node[patchfig label] at (2.5,1.6) {$\mathsf{II}$};
+  \node[patchfig label] at (2.5,2.6) {$\mathsf{II}$};
+  \node[patchfig label] at (2.5,3.6) {$\mathsf{IO}$};
+  \node[patchfig label] at (2.5,4.6) {$\mathsf{OI}$};
+  \node[patchfig label] at (2.5,6.475) {$\mathsf{II}$};
+  \node[patchfig label] at (2.5,8.125) {$\mathsf{IE}$};
+  \node[patchfig label] at (3.5,1.05) {$\mathsf{IO}$};
+  \node[patchfig label] at (3.5,3.1) {$\mathsf{OI}$};
+  \node[patchfig label] at (3.5,4.6) {$\mathsf{IO}$};
+  \node[patchfig label] at (3.5,5.6) {$\mathsf{OI}$};
+  \node[patchfig label] at (3.5,7.25) {$\mathsf{IE}$};
+  \node[patchfig label] at (4.5,3.6) {$\mathsf{II}$};
+  \node[patchfig label] at (4.5,5.6) {$\mathsf{IO}$};
+  \node[patchfig label] at (4.5,6.6) {$\mathsf{OI}$};
+  \node[patchfig label] at (4.5,7.75) {$\mathsf{IE}$};
+  \node[patchfig label] at (5.5,3.05) {$\mathsf{II}$};
+  \node[patchfig label] at (5.5,6.6) {$\mathsf{IO}$};
+  \node[patchfig label] at (5.5,7.75) {$\mathsf{OE}$};
+  \node[patchfig label] at (6.5,7.75) {$\mathsf{IE}$};
+  \draw[patchfig separator] (0,7.85) -- (1,7.85) -- (2,7.85) -- (3,7.85) -- (3,6.1) -- (4,6.1) -- (4,7.1) -- (5,7.1) -- (6,7.1) -- (7,7.1);
+  \draw[patchfig success] (1.5,1.1)--(0.5,1.1);
+  \draw[patchfig success] (1.5,1.1)--(2.5,1.1);
+  \fill[black] (1.5,1.1) circle[radius=1.25pt];
+  \draw[patchfig success] (3.5,2.1)--(2.5,2.1);
+  \draw[patchfig success] (3.5,2.1)--(4.5,2.1);
+  \fill[black] (3.5,2.1) circle[radius=1.25pt];
+  \draw[patchfig success] (1.5,3.1)--(0.5,3.1);
+  \draw[patchfig success] (1.5,3.1)--(2.5,3.1);
+  \fill[black] (1.5,3.1) circle[radius=1.25pt];
+  \draw[patchfig success] (2.5,4.1)--(1.5,4.1);
+  \draw[patchfig success] (2.5,4.1)--(3.5,4.1);
+  \fill[black] (2.5,4.1) circle[radius=1.25pt];
+  \draw[patchfig success] (3.5,5.1)--(2.5,5.1);
+  \draw[patchfig success] (3.5,5.1)--(4.5,5.1);
+  \fill[black] (3.5,5.1) circle[radius=1.25pt];
+  \draw[patchfig success] (4.5,6.1)--(3.5,6.1);
+  \draw[patchfig success] (4.5,6.1)--(5.5,6.1);
+  \fill[black] (4.5,6.1) circle[radius=1.25pt];
+  \draw[patchfig success] (5.5,7.1)--(4.5,7.1);
+  \draw[patchfig success] (5.5,7.1)--(6.5,7.1);
+  \fill[black] (5.5,7.1) circle[radius=1.25pt];
+  \draw[patchfig success] (1.5,7.85)--(0.5,7.85);
+  \draw[patchfig success] (1.5,7.85)--(2.5,7.85);
+  \fill[black] (1.5,7.85) circle[radius=1.25pt];
+  \PatchFigInitial
+  \node[patchfig small,anchor=west] at (7.08,8.4){$t$};
+  \node[patchfig small,anchor=west] at (7.08,0){$0$};
+\end{scope}
+\end{tikzpicture}
+\endgroup
