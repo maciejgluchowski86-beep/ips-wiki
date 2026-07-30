@@ -26,6 +26,7 @@ This file records the writing and LaTeX conventions for the paper under `paper/`
 
 ## Prose and paragraphs
 
+- Section and subsection titles should name their main focus. Avoid catalogue titles of the form `X and Y` unless the pairing is itself a standard concept.
 - A paragraph should develop one coherent mathematical point and normally contain several sentences. Avoid a sequence of one- or two-sentence paragraphs separated only because a display intervenes.
 - A display does not by itself end a paragraph. Continue the same paragraph after the display when the mathematical sentence continues.
 - Begin a new paragraph for a genuine change of subject, a theorem statement, or a distinct proof step, not for visual spacing.
