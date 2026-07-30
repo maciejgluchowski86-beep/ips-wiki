@@ -1,7 +1,7 @@
-\section{Common invariant limit under uniform deaths}
+\section{Common invariant limit}
 \label{sec:convergence}
 
-\subsection{Initial-law classes and the main theorem}
+\subsection{Main theorem}
 \label{subsec:convergence-statement}
 
 For~$K\geq0$, define
@@ -18,17 +18,17 @@ For~$K\geq0$, define
 =
 \bigcup_{K\geq0}\mathcal M_{-,K}.
 \end{equation}
-Thus
-$\mathcal M_* = \mathcal M_{-,0}$. Define~$p_i^-=\max\cb{2p_i^\star-1, 0}$ and
-$\mb p^-=(p_i^-)_{i\in\Lambda}$. Under the uniform-death assumption used
-below, every point mass whose configuration has finitely many zeroes belongs
+Thus~$\mathcal M_* = \mathcal M_{-,0}$. Define
+$p_i^-=\max\cb{2p_i^\star-1,0}$ and
+$\mb p^-=(p_i^-)_{i\in\Lambda}$. Under the pure-death assumption used below,
+every point mass whose configuration has finitely many zeroes belongs
 to~$\mathcal M_-$. A Bernoulli product measure~$\mu_{\mb p}$ belongs to
 $\mathcal M_{-,1}$ exactly when~$\mb p\geq\mb p^-$.
 
 \begin{theorem}[Common invariant limit]
 \label{thm:common-invariant-limit}
 Suppose that~$\Lambda$ has polynomial growth of exponent~$D$, the spin system
-has patch positivity, and it has~$\varepsilon$-uniform deaths for some
+has patch positivity, and it contains pure-death noise at rate
 $\varepsilon>0$. Then there is an invariant probability measure~$\pi$ such
 that, for every local function~$f$, there is~$K_f<\infty$ satisfying
 \begin{equation}
@@ -83,7 +83,7 @@ bounds the number of end patches. Undoing duality identifies the excluded
 histories with a zero-boundary finite-volume error, which is controlled by
 finite propagation.
 
-\subsection{Comparison weights and the three estimates}
+\subsection{Comparison weights}
 \label{subsec:positive-skeleton-weights}
 
 Remove deaths at rate~$\varepsilon$ from every site and write
@@ -93,7 +93,7 @@ Remove deaths at rate~$\varepsilon$ from every site and write
 =
 \Lcal^\varepsilon
 +
-\varepsilon\Ncal^{0,\mb 1}.
+\varepsilon\Ncal^{\mb 0}.
 \end{equation}
 Let~$P_t^\varepsilon$ and~$C^\varepsilon$ denote the semigroup and patch
 contributions of~$\Lcal^\varepsilon$. The two systems have the same signed dual,
@@ -125,7 +125,13 @@ W^\varepsilon
 \prod_{P\in\mathcal P}C^\varepsilon(P)
 \ind\bb{\abs{\mathcal P}<\infty}.
 \end{align*}
-\mg{These lemmas are just stated, but for the reader to be able to follow the proof sketch they must be told morally what these lemmas mean, what they are for and at least short intuition why they are true. This shouldnt be long: its partially explained below corollary on uniform exp ergodicity. But in between these lemmas there should be blurbs that guide the reader}
+The first lemma supplies a positive integrable envelope for all later
+estimates. Removing pure deaths increases every patch factor. On a patch which
+remains dual-active until an outgoing terminal interaction, the comparison is
+exact: the removed deaths contribute the survival factor over the lifetime of
+the patch. This exact factor is what later turns a backward trail into an
+exponential bound.
+
 \begin{lemma}[Positive weights]
 \label{lem:positive-weights}
 For every~$\mu\in\mathcal M_*$ and~$t\geq0$,
@@ -170,7 +176,12 @@ E_T^R=\cb{\mb{Cone}_T\subseteq R},
 =
 \norm{\bb{P_T-P_T^{R,0}}\chi_A}_\infty,
 \end{equation*}
-where~$P_t^{R,0}$ is the zero-boundary semigroup on~$R$.
+where~$P_t^{R,0}$ is the zero-boundary semigroup on~$R$. The next estimate
+allows the argument to be carried out on a finite set. Histories whose
+pre-$T$ skeleton leaves~$R$ have total weight bounded by the error made when
+the original dynamics is replaced by zero-boundary dynamics on~$R$. Finite
+propagation will make this error exponentially small when~$R$ grows linearly
+with~$T$.
 
 \begin{lemma}[Spatial confinement]
 \label{lem:spatial-confinement}
@@ -200,7 +211,12 @@ r_i=c_i^0(\vn)+c_i^1(\vn),
 \qquad
 q_i=\frac{c_i^0(\vn)}{r_i};
 \end{equation*}
-uniform deaths ensure~$r_i\geq\varepsilon$.
+the pure-death component ensures~$r_i\geq\varepsilon$.
+
+To control the event~$L_{T,t}^c$, begin with its first successful interaction
+after~$T$ and trace its dependence backward. The resulting patches have
+outgoing terminal boundaries and form a continuous trail from time zero to the
+interaction time. Their lifetimes therefore add rather than overlap.
 
 \begin{lemma}[Backward outgoing trail]
 \label{lem:backward-outgoing-trail}
@@ -222,6 +238,10 @@ for~$1\leq k<n$. Consequently,
 \end{equation}
 \end{lemma}
 
+The exact factor in Lemma~\ref{lem:positive-weights} multiplies along this
+trail to~$e^{-\varepsilon u}$. Since~$u>T$, the entire contribution of histories
+with a late successful interaction is at most~$e^{-\varepsilon T}$.
+
 \begin{lemma}[Late interactions]
 \label{lem:late-interactions}
 For every~$\mu\in\mathcal M_*$,
@@ -241,6 +261,13 @@ e^{-\varepsilon T}.
 \label{eq:limiting-late-interaction-bound}
 \end{align}
 \end{lemma}
+
+It remains to compare the finite and infinite weights on the complementary
+event, where the skeleton stops by time~$T$. The bulk factors are then fixed.
+Only the end patches continue, and their dependence on the terminal
+configuration relaxes through the empty-neighbour dynamics. Each centered
+slope decays at rate at least~$\varepsilon$, while confinement bounds the number
+of end patches by~$\abs R$.
 
 \begin{lemma}[No-late-interaction relaxation]
 \label{lem:no-late-relaxation}
@@ -350,7 +377,7 @@ probability measure belongs to~$\mathcal M_{-,1}$. Theorem
 \ref{thm:common-invariant-limit} gives the result immediately.
 \end{proof}
 
-\subsection{Proofs of the estimates}
+\subsection{Proofs}
 \label{subsec:convergence-estimate-proofs}
 
 \begin{proof}[Proof of Lemma~\ref{lem:positive-weights}]
