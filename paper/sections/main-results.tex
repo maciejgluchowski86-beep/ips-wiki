@@ -1,21 +1,20 @@
 \section{Main results}
 \label{sec:main-results}
 
-\subsection{Patch representation and patch positivity}
-\mg{Repeated information/notation/definitions from section 2 that was just above}
-For~$A\Subset\Lambda$, write~$\chi_A(\eta)=\prod_{i\in A}\eta(i)$.
-Theorems~\ref{thm:patch-factorization} and~\ref{thm:patch-representation}
-reorganize the signed Feynman--Kac representation of~$P_t\chi_A$. Conditional
-on the successful-interaction skeleton, the randomness in distinct patches is
-independent. Averaging it patch by patch gives an exact representation split
-between bulk patches completed before time~$t$ and end patches reaching
-time~$t$. The bulk product records the history, while the end product also
-depends on the terminal configuration. Cancellations are therefore taken
-before any absolute-value estimate is made.
+\subsection{Patch representation}
+
+For~$A\Subset\Lambda$, Theorems~\ref{thm:patch-factorization} and
+\ref{thm:patch-representation} reorganize the signed Feynman--Kac
+representation of~$P_t\chi_A$. Conditional on the successful-interaction
+skeleton, the randomness in distinct patches is independent. Averaging it
+patch by patch gives an exact representation split between bulk patches
+completed before time~$t$ and end patches reaching time~$t$. The bulk product
+records the history, while the end product also depends on the terminal
+configuration. Cancellations are therefore taken before any absolute-value
+estimate is made.
 
 Patch positivity means that every bulk-patch contribution obtained from this
-averaging is nonnegative. It has a local coefficient characterization. With
-the notation of Section~\ref{sec:setup}, set
+averaging is nonnegative. It has a local coefficient characterization. Set
 $r_i=c_i^0(\vn)+c_i^1(\vn)$. If~$r_i>0$,
 Theorem~\ref{thm:patch-positivity-criterion} says that patch positivity is
 equivalent to
@@ -89,7 +88,7 @@ Theorem~\ref{thm:pure-death-comparison} gives
 \subsection{Common invariant limit}
 
 Assume that~$\Lambda$ has polynomial growth of exponent~$D$ and that the spin
-system has~$\varepsilon$-uniform deaths. For~$K\geq0$, let
+system contains pure-death noise at rate~$\varepsilon>0$. For~$K\geq0$, let
 \begin{equation*}
 \mathcal M_{-,K}
 =
@@ -121,7 +120,8 @@ Section~\ref{sec:representation}, its monomial moments are
 \ind\bb{\abs{\mathcal P}<\infty}
 }.
 \end{equation*}
-If~$\mb p^\star\leq \mbs{\frac{1}{2}}$, then every~$\mathcal{M}_{-,1}$ contains all probability measures,~$\pi$ is the unique invariant measure, and
+If~$\mb p^\star\leq\mbs{\tfrac12}$, then every probability measure belongs
+to~$\mathcal M_{-,1}$,~$\pi$ is the unique invariant measure, and
 Corollary~\ref{cor:uniform-ergodicity} gives
 \begin{equation*}
 \sup_{\eta\in\Omega}
