@@ -1,0 +1,200 @@
+\section{Patches}
+\label{sec:patches}
+
+The graphical construction contains more information than is needed to record
+how dependence moves between sites. We retain the nonempty-target interactions
+which act on the dual process and divide the remaining one-site histories at
+their endpoints.
+
+\subsection{Successful interactions}
+\label{subsec:successful-skeleton}
+
+\begin{definition}[Successful interaction and its record]
+\label{def:successful-interaction}
+The deterministic initial interaction~$\iota_0$ from
+\eqref{eq:initial-interaction} is declared successful and has record
+\begin{equation*}
+(\infty,0,A_0).
+\end{equation*}
+An ordinary interaction~$(i,t,\alpha,S)\in I^{\mathrm P}$ is
+\emph{successful} when
+\begin{equation*}
+S\neq\varnothing
+\qquad\text{and}\qquad
+i\in A_{t-}.
+\end{equation*}
+Its successful-interaction record is the triple~$(i,t,S)$.
+\end{definition}
+
+For~$T<\infty$, the \emph{successful-interaction skeleton} is
+the family consisting of the initial record and all ordinary
+successful-interaction records up to time~$T$, formally given by
+\begin{equation*}
+\mathcal I_T = \cb{(i,t,S) : \text{ for some }\alpha\in\cb{\beta,\delta} \text{ the interaction } (i,t,\alpha,S) \text{ is successful}}.
+\end{equation*}
+It records the source, time, and
+target of every nonempty-target interaction which acts on the process, but not
+whether the interaction is a split or a birth. It also omits all death clocks
+and all rings at inactive sources. These hidden local data are the randomness
+averaged inside patches. Set
+\begin{equation*}
+\mathcal I=\bigcup_{T<\infty}\mathcal I_T,
+\qquad
+\mathcal G_T=\sigma\bb{Y_0,\mathcal I_T}.
+\end{equation*}
+The local-finiteness statement in
+Section~\ref{subsec:dual-graphical-construction} implies that~$\mathcal I_T$ is
+finite almost surely.
+
+\subsection{Patch geometry}
+\label{subsec:patch-geometry}
+
+A record~$(j,t,S)\in\mathcal I$ gives an incoming successful interaction at
+each site in~$S$. If~$j\neq\infty$, it also gives an outgoing successful
+interaction at its source~$j$. Thus the initial record gives only incoming
+interactions, whereas every ordinary record gives one outgoing interaction and
+one incoming interaction at each target site. For~$i\in\Lambda$, write
+\begin{align*}
+\mathcal T^{\mathsf I}(i)
+&=
+\cb{t\geq0:(j,t,S)\in\mathcal I
+  \text{ for some }j,S\text{ with }i\in S},
+\\
+\mathcal T^{\mathsf O}(i)
+&=
+\cb{t>0:(i,t,S)\in\mathcal I\text{ for some }S},
+\end{align*}
+and let~$\mathcal T(i)=\mathcal T^{\mathsf I}(i)\cup
+\mathcal T^{\mathsf O}(i)$. For~$s\in\mathcal T(i)$, define the time of the
+next successful interaction involving~$i$ by
+\begin{equation*}
+e_i(s)=\inf\cb{u>s:u\in\mathcal T(i)},
+\qquad
+\inf\varnothing=\infty.
+\end{equation*}
+
+\begin{definition}[Patch]
+\label{def:patch}
+Let~$(j,s,S)\in\mathcal I$ be a record involving~$i$, meaning that~$i\in S$ or
+$i=j$. The patch beginning at~$(i,s)$ is the labeled tuple
+\begin{equation*}
+P=
+\bb{i(P),[s(P),e(P)),\mathsf X(P)\mathsf Y(P),S(P)},
+\end{equation*}
+where
+\begin{equation*}
+i(P)=i,
+\qquad
+s(P)=s,
+\qquad
+e(P)=e_i(s),
+\qquad
+S(P)=S.
+\end{equation*}
+Its initial and terminal labels are
+\begin{equation*}
+\mathsf X(P)=
+\pw{\mathsf I}{i(P)\in S(P)}{\mathsf O}{i(P)\notin S(P)},
+\end{equation*}
+and
+\begin{equation*}
+\mathsf Y(P)=
+\pwthree
+{\mathsf I}{e(P)<\infty\text{ and }e(P)\in\mathcal T^{\mathsf I}\bb{i(P)}}
+{\mathsf O}{e(P)<\infty\text{ and }e(P)\in\mathcal T^{\mathsf O}\bb{i(P)}}
+{\mathsf E}{e(P)=\infty}.
+\end{equation*}
+\end{definition}
+
+The labels have the following formal and graphical meanings.
+\begin{center}
+\small
+\begin{tabular}{c c p{0.57\textwidth}}
+\hline
+boundary & label & meaning \\
+\hline
+initial & $\mathsf I$ & $i(P)\in S(P)$; the patch begins with an incoming interaction \\
+initial & $\mathsf O$ & $i(P)\notin S(P)$; the patch begins with an outgoing interaction \\
+terminal & $\mathsf I$ & the next successful interaction involving~$i(P)$ is incoming \\
+terminal & $\mathsf O$ & the next successful interaction involving~$i(P)$ is outgoing \\
+terminal & $\mathsf E$ & there is no later successful interaction involving~$i(P)$ \\
+\hline
+\end{tabular}
+\end{center}
+For an ordinary interaction,~$S(P)\subseteq N\bb{i(P)}$ on the outgoing side,
+so the initial label is determined by~$i(P)$ and~$S(P)$. We retain the label
+because the four finite boundary types enter the contribution formulas
+symmetrically. Let~$\mathcal P$ denote the family of all patches. Every patch
+with terminal label~$\mathsf E$ is infinite, and every other patch is finite.
+
+\subsection{Finite-horizon truncation}
+\label{subsec:patch-truncation}
+
+Fix~$t\geq0$. For a patch~$P\in\mathcal P$ with~$s(P)\leq t$, let
+$P^{\downarrow t}$ be the patch obtained by replacing its endpoint
+by~$\min\cb{e(P),t}$ and, when~$t<e(P)$, replacing its terminal label
+by~$\mathsf E$. Thus
+\begin{equation*}
+P^{\downarrow t}
+=
+\bb{
+ i(P),
+ [s(P),\min\cb{e(P),t}),
+ \mathsf X(P)\mathsf Y^{\downarrow t}(P),
+ S(P)
+},
+\end{equation*}
+where
+\begin{equation*}
+\mathsf Y^{\downarrow t}(P)
+=
+\pw{\mathsf Y(P)}{e(P)\leq t}{\mathsf E}{t<e(P)}.
+\end{equation*}
+The bulk and end patch families at time~$t$ are
+\begin{equation*}
+\mathcal B_t=\cb{P\in\mathcal P:e(P)\leq t},
+\qquad
+\mathcal E_t=
+\cb{P^{\downarrow t}:P\in\mathcal P,\ s(P)\leq t<e(P)}.
+\end{equation*}
+The finite-horizon patch family is
+\begin{equation*}
+\mathcal P_t=\mathcal B_t\cup\mathcal E_t.
+\end{equation*}
+It is finite almost surely. Distinct end patches have distinct sites, since the
+successful-interaction times partition each site line into consecutive
+intervals. Only the completed full patches and the truncated end patches enter
+the finite-horizon representation below, so we do not introduce a separate
+name for the untruncated full patches which cross the observation time.
+Figure~\ref{fig:patch-geometry} shows a realization and the induced
+finite-horizon patch decomposition.
+
+\begin{figure}[htbp]
+\centering
+\input{paper/figures/patch-geometry}
+\caption{Left: a realization of the graphical construction of the signed dual
+on a one-dimensional nearest-neighbour set. Light gray blocks mark the times
+at which a site is dual-active. Black arrows are successful interactions, with
+a black dot at their source; gray arrows are rings at inactive sources, and
+crosses are deaths. The interaction at time~$0$ activates the sites in~$A_0$.
+Right: the successful-interaction skeleton and the patches it induces. Local
+events not recorded by the skeleton are hidden; only the active state forced
+on patches with outgoing terminal boundary is shaded. Red striped bands mark
+the lateral barriers of each patch, and the label gives its initial and
+terminal boundary types. The thick red staircase is the lower boundary of the
+end patches: patches below it belong to~$\mathcal B_t$, while patches above it
+belong to~$\mathcal E_t$.}
+\label{fig:patch-geometry}
+\end{figure}
+
+If~$P$ is an end patch and~$t\geq e(P)$ is finite, its \emph{extension} through
+time~$t$ is the geometric patch
+\begin{equation}
+\label{eq:geometric-patch-extension}
+P^{\uparrow t}
+=
+\bb{i(P),[s(P),t),\mathsf X(P)\mathsf E,S(P)}.
+\end{equation}
+Thus~$P^{\uparrow e(P)}=P$. The notation changes only the patch shape; it does
+not assert that the extension occurs in the realized skeleton and does not
+include the probability that no successful interaction interrupts it.
