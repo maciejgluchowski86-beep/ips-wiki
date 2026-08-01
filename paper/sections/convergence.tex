@@ -180,6 +180,20 @@ for~$1\leq k<n$. Consequently,
 \end{equation}
 \end{lemma}
 
+\begin{figure}[htbp]
+\centering
+\input{paper/figures/convergence-backward-xo-trail}
+\caption{A backward chain from
+Lemma~\ref{lem:backward-outgoing-chain}. Dark-gray rectangles are
+$\mathsf{IO}$ and~$\mathsf{OO}$ patches with outgoing terminal boundary, and
+black arrows show their terminal successful interactions. The chain continues
+at an arrow target or at the source, respectively, and its lifetimes
+partition~$[0,u)$ up to the chosen interaction at time~$u$. The light-gray
+region is the interaction cone.}
+\label{fig:backward-outgoing-chain}
+\end{figure}
+\FloatBarrier
+
 The exact factor in Lemma~\ref{lem:positive-weights} multiplies along this
 chain to~$e^{-\varepsilon u}$. Since~$u>T$, the weight of realizations with a
 late successful interaction is at most~$e^{-\varepsilon T}$.
