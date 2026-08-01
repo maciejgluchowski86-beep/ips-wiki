@@ -22,6 +22,10 @@ paper/*.out
 paper/*.pdf
 paper/*.toc
 
+# Local document artifacts and visual QA output
+/output/
+/tmp/
+
 # Python
 __pycache__/
 *.py[cod]

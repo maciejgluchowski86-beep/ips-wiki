@@ -1,85 +1,17 @@
-\section{Common invariant limit}
+\section{Proof of the common invariant-limit theorem}
 \label{sec:convergence}
 
-\subsection{Main theorem}
-\label{subsec:convergence-statement}
-
-For~$K\geq0$, define
-\begin{equation}
-\label{eq:m-minus-affine-characterization}
-\mathcal M_{-,K}
-=
-\cb{
- \mu:
- \frac{\mu+K\mu_{\mb 1}}{1+K}\in\mathcal M_*
-},
-\qquad
-\mathcal M_-
-=
-\bigcup_{K\geq0}\mathcal M_{-,K}.
-\end{equation}
-Thus~$\mathcal M_* = \mathcal M_{-,0}$. Define
-$p_i^-=\max\cb{2p_i^\star-1,0}$ and
-$\mb p^-=(p_i^-)_{i\in\Lambda}$. Every point mass whose configuration has finitely many zeroes belongs
-to~$\mathcal M_-$. A Bernoulli product measure~$\mu_{\mb p}$ belongs to
-$\mathcal M_{-,1}$ exactly when~$\mb p\geq\mb p^-$.
-
-\begin{theorem}[Common invariant limit]
-\label{thm:common-invariant-limit}
-Suppose that~$\Lambda$ has polynomial growth of exponent~$D$, the spin system
-has patch positivity, and it contains pure-death noise at rate
-$\varepsilon>0$. Then there is an invariant probability measure~$\pi$ such
-that, for every local function~$f$, there is~$K_f<\infty$ satisfying
-\begin{equation}
-\label{eq:uniform-m-minus-convergence}
-\sup_{\mu\in\mathcal M_{-,K}}
-\abs{(\mu P_t)(f)-\pi(f)}
-\leq
-(1+2K)K_f(1+t)^D e^{-\varepsilon t/2}
-\end{equation}
-for every~$K\geq0$ and~$t\geq0$. Consequently,
-$\mu P_t\Rightarrow\pi$ for every~$\mu\in\mathcal M_-$. Moreover,
-\begin{equation}
-\label{eq:full-patch-limit-moments}
-\pi(\chi_A)
-=
-\E_A\Cb{
- \prod_{P\in\mathcal P}C(P)
- \ind\bb{\abs{\mathcal P}<\infty}
-}
-\qquad
-\text{for every }A\Subset\Lambda.
-\end{equation}
-\end{theorem}
-
-\begin{corollary}[Uniform exponential ergodicity]
-\label{cor:uniform-ergodicity}
-Under the hypotheses of Theorem~\ref{thm:common-invariant-limit}, suppose also
-that
-\begin{equation*}
-\mb p^\star\leq\mbs{\tfrac12}.
-\end{equation*}
-Then~$\pi$ is the unique invariant measure and, for every local~$f$,
-\begin{equation}
-\label{eq:uniform-pointwise-convergence}
-\sup_{\eta\in\Omega}
-\abs{P_tf(\eta)-\pi(f)}
-\leq
-K_f(1+t)^D e^{-\varepsilon t/2}.
-\end{equation}
-\end{corollary}
-
-The main estimate compares the system with the less noisy system obtained by
-removing deaths at rate~$\varepsilon$. Patch positivity makes both patch weights
-nonnegative, and the additional deaths make the original weights smaller. A
+The main estimate compares the system with the one obtained by removing pure
+deaths at rate~$\varepsilon$. Patch positivity makes both patch weights
+nonnegative, and the removed deaths increase the weights. A
 successful interaction after a cut time~$T$ has a backward chain of
 outgoing-terminal patches whose total lifetime exceeds~$T$, producing a factor
 $e^{-\varepsilon T}$. If there is no successful interaction after~$T$, the
 probability-weighted end factors present at~$T$ relax to limits independent of
-the initial measure~$\mu$ exponentially as~$e^{-\varepsilon(t-T)}$. Restricting the pre-$T$ skeleton to a directed ball
-bounds the number of end patches. Undoing duality identifies the excluded
-trajectories with a zero-boundary finite-volume error, which is controlled by
-finite propagation.
+the initial measure~$\mu$ at rate~$e^{-\varepsilon(t-T)}$. Restricting the
+pre-$T$ skeleton to a directed ball bounds the number of end patches. Undoing
+duality bounds the weight outside this ball by a zero-boundary finite-volume
+error, which is controlled by finite propagation.
 
 \subsection{Comparison weights}
 \label{subsec:positive-skeleton-weights}
@@ -96,8 +28,8 @@ Remove deaths at rate~$\varepsilon$ from every site and write
 Let~$P_t^\varepsilon$ and~$C^\varepsilon$ denote the semigroup and patch
 contributions of~$\Lcal^\varepsilon$. The two systems have the same signed dual,
 successful-interaction skeleton, and reference patch laws. By
-Theorem~\ref{thm:pure-death-comparison},~$\Lcal^\varepsilon$ has patch
-positivity and the same critical profile~$\mb p^\star$.
+Theorem~\ref{thm:patch-positivity-order},~$\Lcal^\varepsilon$ has patch
+positivity and the same threshold profile~$\mb p^\star$.
 
 Fix~$A\Subset\Lambda$. For~$\mu\in\mathcal M_*$, define
 \begin{equation}
@@ -123,14 +55,13 @@ W^\varepsilon
 \prod_{P\in\mathcal P}C^\varepsilon(P)
 \ind\bb{\abs{\mathcal P}<\infty}.
 \end{align*}
-The first lemma supplies a positive integrable envelope for all later
-estimates. Removing pure deaths increases every patch factor. On a patch which
-remains dual-active until an outgoing terminal interaction, the comparison is
-exact: the removed deaths contribute the survival factor over the lifetime of
-the patch. This exact factor is what later turns a backward trail into an
-exponential bound.
+The weights for~$\Lcal^\varepsilon$ give a nonnegative integrable upper bound
+for the weights of~$\Lcal$. On a patch which remains dual-active until an
+outgoing terminal interaction, the ratio of the two contributions is the
+survival factor over the lifetime of the patch. Multiplying these factors along
+a backward chain gives the exponential estimate used below.
 
-\begin{lemma}[Positive weights]
+\begin{lemma}[Nonnegative weights]
 \label{lem:positive-weights}
 For every~$\mu\in\mathcal M_*$ and~$t\geq0$,
 \begin{equation}
@@ -174,12 +105,11 @@ E_T^R=\cb{\mb{Cone}_T\subseteq R},
 =
 \norm{\bb{P_T-P_T^{R,0}}\chi_A}_\infty,
 \end{equation*}
-where~$P_t^{R,0}$ is the zero-boundary semigroup on~$R$. The next estimate
-allows the argument to be carried out on a finite set. Trajectories whose
-pre-$T$ skeleton leaves~$R$ have total weight bounded by the error made when
-the original spin system dynamics is replaced by zero-boundary dynamics on~$R$. Finite
-propagation will make this error exponentially small when~$R$ grows linearly
-with~$T$.
+where~$P_t^{R,0}$ is the zero-boundary semigroup on~$R$. The total weight on
+which the pre-$T$ skeleton leaves~$R$ is bounded by the error made when the
+spin system is replaced by its zero-boundary restriction to~$R$. Finite
+propagation makes this error exponentially small when~$R$ grows linearly with
+$T$.
 
 \begin{lemma}[Spatial confinement]
 \label{lem:spatial-confinement}
@@ -207,17 +137,18 @@ Recall
 \begin{equation*}
 r_i=c_i^0(\vn)+c_i^1(\vn),
 \qquad
-q_i=\frac{c_i^0(\vn)}{r_i};
+p_i^\circ=\frac{c_i^0(\vn)}{r_i};
 \end{equation*}
-the pure-death component ensures~$r_i\geq\varepsilon$.
+thus~$p_i^\circ$ is the empty-neighbour equilibrium one-density. The
+pure-death component ensures~$r_i\geq\varepsilon$.
 
 To control the event~$L_{T,t}^c$, begin with its first successful interaction
 after~$T$ and trace its dependence backward. The resulting patches have
-outgoing terminal boundaries and form a continuous trail from time zero to the
+outgoing terminal boundaries and form a chain from time zero to the
 interaction time. Their lifetimes therefore add rather than overlap.
 
-\begin{lemma}[Backward outgoing trail]
-\label{lem:backward-outgoing-trail}
+\begin{lemma}[Backward chain of outgoing patches]
+\label{lem:backward-outgoing-chain}
 Let~$(i,u,S)$ be a successful-interaction record with~$u>0$. There are distinct
 patches~$P_1,\ldots,P_n$, each with outgoing terminal boundary, such that
 \begin{equation*}
@@ -231,14 +162,14 @@ i(P_{k+1})\in N_*\bb{i(P_k)}
 \end{equation*}
 for~$1\leq k<n$. Consequently,
 \begin{equation}
-\label{eq:outgoing-trail-total-length}
+\label{eq:outgoing-chain-total-length}
 \sum_{k=1}^n\bb{e(P_k)-s(P_k)}=u.
 \end{equation}
 \end{lemma}
 
 The exact factor in Lemma~\ref{lem:positive-weights} multiplies along this
-trail to~$e^{-\varepsilon u}$. Since~$u>T$, the entire contribution of histories
-with a late successful interaction is at most~$e^{-\varepsilon T}$.
+chain to~$e^{-\varepsilon u}$. Since~$u>T$, the weight of realizations with a
+late successful interaction is at most~$e^{-\varepsilon T}$.
 
 \begin{lemma}[Late interactions]
 \label{lem:late-interactions}
@@ -281,7 +212,7 @@ For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
 \bb{1+\abs R}e^{-\varepsilon\bb{t-T}}.
 \end{equation}
 \end{lemma}
-\bigskip
+\subsection{Completion of the proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:common-invariant-limit}]
 For~$\mu\in\mathcal M_*$, the patch representation and the definition of~$W$
@@ -372,10 +303,10 @@ This proves~\eqref{eq:uniform-m-minus-convergence}.
 \begin{proof}[Proof of Corollary~\ref{cor:uniform-ergodicity}]
 If~$\mb p^\star\leq\mbs{\tfrac12}$, then~$\mb p^-=\mb 0$ and every
 probability measure belongs to~$\mathcal M_{-,1}$. Theorem
-\ref{thm:common-invariant-limit} gives the result immediately.
+\ref{thm:common-invariant-limit} gives the result.
 \end{proof}
 
-\subsection{Proofs}
+\subsection{Proofs of the auxiliary estimates}
 \label{subsec:convergence-estimate-proofs}
 
 \begin{proof}[Proof of Lemma~\ref{lem:positive-weights}]
@@ -460,7 +391,7 @@ $W_u^{\mu_{\mb 1}}\to W$ when~$\abs{\mathcal P}<\infty$ and~$W=0$ otherwise,
 Fatou's lemma gives~\eqref{eq:limiting-confinement-bound}.
 \end{proof}
 
-\begin{proof}[Proof of Lemma~\ref{lem:backward-outgoing-trail}]
+\begin{proof}[Proof of Lemma~\ref{lem:backward-outgoing-chain}]
 Start with the patch at the source~$i$ ending at~$u$. Its terminal boundary is
 outgoing because~$i$ is dual-active immediately before the successful
 interaction. Trace predecessors backwards. If the current patch begins with an
@@ -473,13 +404,13 @@ time zero after finitely many steps. Reverse the resulting sequence. Consecutive
 intervals then meet at their endpoints, and the later site is either the same
 site or a target of the earlier interaction; hence
 $i(P_{k+1})\in N_*\bb{i(P_k)}$. The intervals partition~$[0,u)$, which
-proves~\eqref{eq:outgoing-trail-total-length}.
+proves~\eqref{eq:outgoing-chain-total-length}.
 \end{proof}
 
 \begin{proof}[Proof of Lemma~\ref{lem:late-interactions}]
 On~$L_{T,t}^c$, let~$u\in(T,t]$ be the first successful-interaction time after
-$T$, and let~$P_1,\ldots,P_n$ be its backward trail. Every trail patch belongs
-to~$\mathcal B_t$, and
+$T$, and let~$P_1,\ldots,P_n$ be its backward chain. Every patch in the chain
+belongs to~$\mathcal B_t$, and
 \begin{equation*}
 \prod_{k=1}^n C(P_k)
 =
@@ -499,7 +430,7 @@ W_t^\mu\ind\bb{L_{T,t}^c}
 e^{-\varepsilon T}W_t^{\varepsilon,\mu}.
 \end{equation*}
 Taking expectations proves~\eqref{eq:finite-late-interaction-bound}. The same
-trail comparison on~$\cb{\abs{\mathcal P}<\infty}\cap L_T^c$ gives
+chain comparison on~$\cb{\abs{\mathcal P}<\infty}\cap L_T^c$ gives
 \begin{equation*}
 W\ind\bb{L_T^c}
 \leq
@@ -524,7 +455,7 @@ Proposition~\ref{prop:no-late-continuation-identity} gives
 \CE{W\ind\bb{L_T}}{\mathcal G_T}
 &=
 \prod_{P\in\mathcal B_T}C(P)
-\prod_{P\in\mathcal E_T}C\bb{q_{i(P)},P}.
+\prod_{P\in\mathcal E_T}C\bb{p_{i(P)}^\circ,P}.
 \end{align*}
 Write~$B_T=\prod_{P\in\mathcal B_T}C(P)$. By
 Lemma~\ref{lem:end-factor-relaxation}, the conditional absolute difference is
@@ -573,14 +504,14 @@ Likewise,
 \begin{align*}
 &\E_A\Cb{
  \ind\bb{E_T^R}B_T\abs{\mathcal E_T}
- \prod_{P\in\mathcal E_T}C\bb{q_{i(P)},P}
+ \prod_{P\in\mathcal E_T}C\bb{p_{i(P)}^\circ,P}
 }
 \\
 &\qquad\leq
 \abs R\,
 \E_A\Cb{
  \ind\bb{E_T^R}B_T
- \prod_{P\in\mathcal E_T}C\bb{q_{i(P)},P}
+ \prod_{P\in\mathcal E_T}C\bb{p_{i(P)}^\circ,P}
 }
 \\
 &\qquad=
@@ -588,12 +519,11 @@ Likewise,
 \E_A\Cb{W\ind\bb{E_T^R\cap L_T}}
 \leq\abs R.
 \end{align*}
-Taking expectations of the conditional difference and combining these two
-bounds proves~\eqref{eq:no-late-relaxation-bound}.
+Taking expectations and combining the two bounds proves
+\eqref{eq:no-late-relaxation-bound}.
 \end{proof}
 
-The class~$\mathcal M_-$ enters only through the centered signs of the end
-factors. The argument does not identify a dynamical obstruction to convergence
-from initial laws outside this class. To the contrary, the negative signs
-should provide extra cancellations, though these are not detected by the patch
-method.
+The class~$\mathcal M_-$ enters only through the signs in the centered
+expansion of the end factors. Outside this class the proof discards
+cancellations between terms of different signs. It gives no obstruction to
+convergence from other initial laws.

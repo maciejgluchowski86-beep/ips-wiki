@@ -6,31 +6,20 @@ The wiki is article-first. Each entry is a separate Markdown page under `docs/en
 
 ## Paper draft
 
-The LaTeX paper lives under `paper/`. The repository-level `main.tex` is the
-Overleaf main file and loads `paper/main.tex`. The front of the paper is now
-organized as Introduction, Setup, Main results, and Applications. Setup is in
-`paper/sections/spin-systems.tex`; it defines the lattice, local observables,
-spin systems, coefficient expansions, refresh noise, and convergence
-terminology. `paper/sections/main-results.tex` states the patch representation,
-patch-positivity criterion, centered-moment comparisons, and common
-invariant-limit theorem. `paper/sections/applications.tex` introduces the
-contact process, FA-1f, and BABP once, and places each model's coefficient
-check and consequences immediately after its definition.
+The canonical LaTeX manuscript lives under `paper/`. The repository-level
+`main.tex` is the Overleaf main file and loads `paper/main.tex`; the EJP/ECP
+class is supplied by the repository-level `ejpecp.cls`.
 
-The proof sections are `signed-dual.tex`, `patches.tex`, `representation.tex`,
-`patch-positivity.tex`, `moment-order.tex`, and `convergence.tex`. The general
-convergence-by-comparison corollary is in
-`moment-order-convergence.tex` and is loaded directly after the centered-moment
-section. The abstract and Discussion are drafted in `paper/main.tex`.
+The manuscript is theorem-first. The introduction and setup are followed by
+Theorems A--C: the patch representation, the coefficient criterion and
+centered-moment comparisons, and the common invariant-limit theorem. The proof
+of the representation and the proof of the convergence theorem are explicit
+destinations in the section structure. FA-1f and BABP appear later as examples,
+followed by the discussion and technical appendices.
 
-Appendix A derives the monomial dual in
-`paper/appendices/monomial-dual.tex`, Appendix B gives the explicit patch
-contribution formulas in `paper/appendices/patch-contributions.tex`, and
-Appendix C in `paper/appendices/technical-background.tex` supplies local
-finiteness, confined and no-late graphical identities, end-factor relaxation,
-and directed finite propagation. Shared macros and theorem environments live
-in `paper/preamble.tex`. The paper-specific typography, terminology, and
-paragraph conventions are recorded in `STYLE.md`.
+Shared macros and theorem environments live in `paper/preamble.tex`, and the
+bibliography is in `paper/references.bib`. The paper-specific typography,
+terminology, and paragraph conventions are recorded in `STYLE.md`.
 
 ## Reading target
 

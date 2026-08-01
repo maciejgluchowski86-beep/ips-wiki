@@ -1,152 +1,47 @@
-\documentclass[11pt]{article}
-
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage[margin=1in]{geometry}
-\usepackage{silence}
-\WarningFilter{latex}{Command \showhyphens has changed}
-\usepackage{microtype}
-\usepackage[hidelinks]{hyperref}
+\RequirePackage{lmodern}
+\RequirePackage[T1]{fontenc}
+\documentclass[EJP,preprint,NODS,nobera]{ejpecp}
 
 \input{paper/preamble}
 
-% Temporary helpers for the structural drafting stage. Remove these
-% together with the outline notes as the paper is written.
-\newcommand{\draftnote}[1]{%
-  \begin{quote}
-    \small\noindent\textit{Planned content.} #1
-  \end{quote}
-}
-\newcommand{\wiki}[2]{%
-  \href{https://github.com/maciejgluchowski86-beep/ips-wiki/blob/main/docs/entries/#1.md}{#2}%
+\SHORTTITLE{Patch representations and convergence}
+\TITLE{Patch representations and convergence for facilitated spin systems}
+\AUTHORS{Maciej~G{\l}uchowski}
+\KEYWORDS{spin systems ; graphical representation ; Feynman--Kac duality ;
+  correlation inequalities ; kinetically constrained models}
+\AMSSUBJ{60K35}
+\AMSSUBJSECONDARY{60J27 ; 82C22}
+
+\ABSTRACT{%
+We introduce a patch representation for spin systems which averages
+consecutive local updates before their signed contributions are compared.
+Starting from the signed monomial Feynman--Kac dual, we retain only interactions
+with nonempty target that act on the dual process. Conditional on this skeleton,
+the marked interactions in the resulting one-site spacetime patches are
+independent and give an exact representation of the semigroup. We characterize
+nonnegative patch contributions by inequalities for the multilinear
+coefficients of the~$0\to1$ and~$1\to0$ rates. This patch
+positivity implies preservation of an order on moments centered at a
+one-density profile and a comparison with the dynamics obtained by removing
+independent~$1\to0$ updates. On interaction graphs of polynomial growth, a
+uniform independent~$1\to0$ component yields convergence, at rate
+$O((1+t)^D e^{-\varepsilon t/2})$, from a class~$\mathcal M_-$ defined by
+centered moments to a common invariant law. When the profile is at most~$1/2$,
+convergence is uniform over all initial configurations. FA-1f and the biased
+annihilating branching process illustrate the criterion.}
+
+\hypersetup{
+  pdftitle={Patch representations and convergence for facilitated spin systems},
+  pdfauthor={Maciej Gluchowski}
 }
 
 \begin{document}
 
-\section*{Abstract}
-\addcontentsline{toc}{section}{Abstract}
-
-Facilitated spin systems have a calm state and a state that can cause, permit,
-or accelerate neighbouring updates. Such effects need not persist: later local
-events may overwrite or cancel them before they are transmitted. We capture
-this failure to accumulate through the natural signed monomial Feynman--Kac
-dual. Interactions that transmit dependence partition spacetime into one-site
-intervals, called patches; conditional on their boundaries, the hidden events
-and signs can be averaged independently inside each patch. This yields an exact
-representation in which consecutive interactions are integrated out before any
-comparison is made. We characterize patch positivity, the nonnegativity of these
-averaged contributions, by local inequalities between the multilinear
-coefficients of the directional flip rates. The same coefficients determine a
-critical calm-state density profile, and patch positivity implies that the
-semigroup preserves an order defined by monomials centered at this profile. On
-polynomial-growth lattices, an environment-independent~$1\to0$ component of
-rate~$\varepsilon>0$ yields convergence, at rate
-$(1+t)^D e^{-\varepsilon t/2}$, from an explicit class containing sufficiently
-high-density product laws and configurations with finitely many facilitating
-states to a common invariant law. Its moments admit a clean patch
-representation. If the critical profile is at most~$1/2$, convergence is uniform
-over all initial configurations. For FA-1f and the biased annihilating branching
-process, the critical profile equals the equilibrium one-density, and we
-characterize the independent refresh perturbations preserving patch positivity.
-For the latter, centered-moment comparison extends known product-law convergence
-to dependent and non-translation-invariant initial laws.
-
-% Keep the table of contents while the presentation order is being settled.
-\setcounter{tocdepth}{2}
-\tableofcontents
-
-\section{Introduction}
-\label{sec:introduction}
-
-\subsection{Facilitation}
-\label{subsec:intro-calm-facilitating}
-\label{subsec:intro-loss-of-memory}
-
-Some \hyperref[def:spin-system]{spin systems} distinguish calm states from
-states which facilitate updates at neighbouring sites. A calm state does not
-by itself make another site update, whereas a facilitating state can cause,
-permit, or accelerate an update. This distinction appears under different
-model-specific names. In the contact process~\cite{Harris1974}, an infected site
-infects neighbouring sites and may recover. In
-\hyperref[subsubsec:fa-1f-model]{FA-1f}~\cite{BlondelEtAl2013}, a vacancy
-permits a neighbouring site to refresh according to an independent Bernoulli
-draw, but does not determine the outcome of the refresh. In the
-\hyperref[subsubsec:babp-model]{biased annihilating branching process}
-(BABP)~\cite{NeuhauserSudbury1993}, a particle causes a neighbouring site to
-flip, resulting in branching or annihilation.
-
-A region containing only calm states has no internal source of activity and
-tends to remain calm until a facilitating state reaches it. Facilitating states
-cause updates, some of which leave further facilitating states behind. This
-does not make the dynamics monotone: a refresh or flip can create or remove a
-facilitating state, so ordered configurations need not remain ordered. It
-nevertheless suggests that some part of the calm--facilitating order may
-survive for selected observables.
-
-Suppose now that independent noise creates facilitating states throughout the
-lattice. Since these events do not depend on the initial configuration, they
-may interrupt the routes through which old information reaches a later local
-observation. We ask whether the process, after adding such noise, loses memory
-of its initial state and whether the calm--facilitating tendency yields a
-useful comparison when attractiveness is absent. Neither monotone coupling nor
-reversibility answers these questions in the class considered here. The
-contact process is attractive, but FA-1f and BABP need not preserve the order
-of two coupled configurations. We also allow nonreversible dynamics, since the
-added noise need not preserve a reversible measure of the unperturbed system.
-The argument must use the graphical history without ordering trajectories or
-identifying the limiting law in advance.
-
-\subsection{Persistence}
-\label{subsec:intro-temporal-cancellation}
-
-A facilitating interaction can change a flip rate from zero to a quantity of
-order one, and may therefore decide whether a site is allowed to flip. Its
-effect can nevertheless disappear before it is transmitted. If no information
-leaves a site between two local updates, a second birth is redundant, a later
-refresh overwrites the earlier refresh, and two flips cancel. The relevant
-quantity is therefore not the instantaneous size of an interaction, but
-whether its effect is transmitted before another local update removes it.
-
-The natural \wiki{duality}{Feynman--Kac duality} records the transmission of
-influence through a signed set-valued process. Its signs retain cancellations
-among successive local events. Taking absolute values before those events are
-grouped discards the cancellations and gives only large bounds controlled by
-the full interaction rates, even when little influence persists. The dual
-history must therefore be decomposed according to the interactions which
-transmit information between sites.
-
-\subsection{Patches}
-\label{subsec:intro-patches}
-
-Starting from the Feynman--Kac dual of a local observation, we reveal only the
-times, sources, and target sets of those dual interactions which transmit
-dependence between sites. Their records form the
-\wiki{successful-interaction}{successful-interaction skeleton}. The split or
-birth kind at a successful interaction, all deaths, and all rings at inactive
-sources remain hidden. The one-site intervals between consecutive incoming or
-outgoing successful interactions are the \wiki{patch}{patches}. Conditional on
-the skeleton, the randomness hidden in distinct patches becomes independent.
-The signed Feynman--Kac factors can therefore be averaged patch by patch, and
-the resulting contributions give an exact
-\wiki{patch-representation-of-spin-systems}{representation} of the original
-spin system. This averaging retains sign cancellations between successive
-interactions.
-
-We say that a spin system has \emph{patch positivity} when every bulk patch
-contribution is nonnegative. This condition is characterized by explicit
-inequalities between the multilinear coefficients of the flip rates. It does
-not imply stochastic order, but it yields comparisons for centered moments,
-and the semigroup preserves the resulting moment order. The same
-representation compares a system with the system obtained by removing an
-independent pure-death component. When such deaths occur at a uniformly
-positive rate, local observables converge exponentially to a common invariant
-limit, which can be described by a patch formula.
+\input{paper/sections/introduction}
 
 \input{paper/sections/spin-systems}
 
 \input{paper/sections/main-results}
-
-\input{paper/sections/applications}
 
 \input{paper/sections/signed-dual}
 
@@ -164,104 +59,9 @@ limit, which can be described by a patch formula.
 
 \input{paper/sections/convergence}
 
-\section{Discussion}
-\label{sec:discussion}
+\input{paper/sections/applications}
 
-\subsection{Interpretation}
-\label{subsec:meaning-of-patch-positivity}
-
-Patch positivity is a condition on the accumulated effect of a one-site period
-of influence, rather than on the sign or size of an instantaneous interaction.
-The raw Feynman--Kac dual may attach alternating signs to successive local
-events. Averaging all hidden events between two successful interactions first
-produces the patch contribution~$C(P)$, and patch positivity asks that this
-effective contribution be nonnegative. Although its definition refers to a
-spacetime decomposition, Theorem~\ref{thm:patch-positivity-criterion} reduces it
-to local inequalities between the multilinear coefficients of the flip rates.
-
-Patch positivity is neither attractiveness nor positivity of all coefficients
-in the signed dual. When~$\mb p^\star=\mb 0$, the centered monomials are the
-ordinary monomials and~$\preceq_*$ becomes the upper-orthant, or
-monomial-moment, order. Stochastic order implies this order, but the converse
-fails in general. Thus, for the contact process, attractiveness gives the
-stronger comparison for all increasing observables, while
-Theorem~\ref{thm:centered-moment-order} extends its monomial consequences to
-pairs of initial laws which need not be stochastically ordered. The main use of
-patch positivity is for systems such as FA-1f and BABP, where the configuration
-order is not preserved.
-
-\subsection{Density threshold}
-\label{subsec:density-threshold}
-
-The patch critical profile~$\mb p^\star$ is the smallest terminal calm-state
-profile for which every end-patch contribution is nonnegative. It is determined
-by the signs of the end factors and is not an ergodicity threshold or a phase
-transition parameter. The lower profile
-$\mb p^-=(\max\cb{2p_i^\star-1,0})_{i\in\Lambda}$ enters only when the positive
-estimate on~$\mathcal M_*$ is extended by the affine decomposition defining
-$\mathcal M_-$. In particular, these profiles describe where the present sign
-argument applies, not where the underlying dynamics is expected to change
-qualitatively.
-
-The restriction to~$\mathcal M_-$ comes entirely from the centered expansion of
-the end factors. Outside this class some centered terms are negative, so the
-proof can no longer compare each successful-interaction skeleton with a
-positive envelope. This is not a dynamical obstruction to convergence. The
-terms discarded by the positivity argument carry additional cancellations and
-may provide further decay. Proving convergence from arbitrary laws requires a
-way to retain those cancellations instead of taking termwise absolute values.
-When~$\mb p^\star\leq\mbs{\tfrac12}$, every probability measure belongs
-to~$\mathcal M_{-,1}$ and this issue disappears. For the refresh perturbations
-of FA-1f and BABP,~$p^\star=p$, so once a uniform pure-death component is
-present, the theorem covers all initial laws when the facilitating-state
-density~$q=1-p$ is at least~$1/2$.
-
-\subsection{Uniform deaths}
-\label{subsec:removing-noise}
-
-The uniform pure-death component is used in two separate estimates. Along a
-backward outgoing trail it contributes a survival factor which suppresses
-histories with a successful interaction after the cut time. On the
-complementary event it contracts the centered slopes of the surviving end
-patches, erasing their dependence on the terminal configuration. The rest of
-the proof uses positivity, spatial confinement, and finite propagation. Thus
-the same argument would apply whenever model-specific estimates replace
-Lemmas~\ref{lem:late-interactions} and~\ref{lem:no-late-relaxation} by errors
-which vanish as the cut time and continuation time increase. Removing the
-uniform component is the main step needed to apply the method directly to the
-hard models.
-
-The full-patch formula can sometimes identify the invariant law exactly.
-Suppose that every infinite patch of type~$\mathsf{OE}$ has zero contribution.
-On~$\cb{\abs{\mathcal P}<\infty}$, any ordinary successful interaction has a
-last occurrence, and the source patch beginning at that interaction is an
-infinite~$\mathsf{OE}$ patch. Hence every history containing an ordinary
-successful interaction has zero weight. The remaining no-interaction term is
-the dual representation of the independent spin system with directional rates
-$c_i^0(\vn)$ and~$c_i^1(\vn)$. The invariant law is therefore the Bernoulli
-product measure with one-density
-$c_i^0(\vn)/(c_i^0(\vn)+c_i^1(\vn))$ at site~$i$. This recovers~$\mu_p$ for the
-equilibrium-refresh perturbations of FA-1f and BABP. Without this vanishing
-condition, the formula still carries patchwise comparisons to the monomial
-moments of the invariant laws, as in
-Corollary~\ref{cor:pure-death-invariant-comparison}.
-
-\subsection{Open problems}
-\label{subsec:future-directions}
-
-The first problem is convergence from arbitrary initial laws when
-$\mb p^\star\nleq\mbs{\tfrac12}$. The proof fails only because the signs of the
-end-patch expansion are no longer controlled. A satisfactory extension should
-estimate the resulting cancellations uniformly over the
-successful-interaction skeleton rather than replace them by absolute values.
-
-The second problem is convergence from finitely many facilitating states in
-the models without uniform deaths. This includes FA-1f started from finitely many vacancies and
-BABP started from a finite nonempty particle set. Such point masses are not
-placed between useful product laws by the centered-moment order, and the hard
-dynamics has no uniform pure-death component. These problems therefore require
-model-specific control of both late dual interactions and the terminal
-end-patch dependence.
+\input{paper/sections/discussion}
 
 \appendix
 
@@ -271,7 +71,7 @@ end-patch dependence.
 
 \input{paper/appendices/technical-background}
 
-\bibliographystyle{alpha}
+\bibliographystyle{amsplain}
 \bibliography{paper/references}
 
 \end{document}

@@ -1,15 +1,37 @@
 # Paper source
 
-The Overleaf main file is the repository-level `main.tex`. It is a thin
-wrapper around `paper/main.tex`, where the paper source remains.
+This directory contains the canonical paper manuscript. The repository-level
+`main.tex` is the Overleaf main file and loads `paper/main.tex`. The
+repository-level `ejpecp.cls` is the EJP/ECP class used by the manuscript.
 
-`paper/main.tex` is currently an empty document shell. The shared
-packages, theorem environments, and notation are in
-`paper/preamble.tex`. No title, framing, section order, or paper content
-has yet been chosen.
+The paper is organized around three principal results. After the introduction
+and setup, Theorems A--C state the patch representation, the coefficient
+criterion and centered-moment comparisons, and the common invariant-limit
+theorem. Their proofs follow in that order. The model examples and discussion
+come after the proof of the convergence theorem, followed by three appendices.
+
+Shared packages, theorem environments, and notation are in
+`paper/preamble.tex`; references are in `paper/references.bib`.
 
 From the repository root, compile locally with:
 
 ```bash
 latexmk -pdf main.tex
 ```
+
+## Language conventions
+
+- Use standard IPS and KCSM terminology, and prefer the wording of the
+  author's earlier papers when several terms are available.
+- A spin system already has two states and single-site flips; do not call it a
+  binary spin system.
+- Refer to realizations or trajectories of the graphical or dual process. Use
+  remaining Poisson marks or omitted marks, rather than introducing new terms
+  for unrevealed randomness.
+- Use the states `0` and `1`, or the established model-specific terms
+  (infected/healthy, vacant/occupied, particle/empty site). Do not introduce an
+  informal state name for the general theory.
+- Reserve new terms for objects defined in the paper, such as patches and the
+  successful-interaction skeleton. Avoid unnecessary adjectives and adverbs.
+- State model-specific mechanisms as such; do not attribute them to all
+  non-attractive spin systems.

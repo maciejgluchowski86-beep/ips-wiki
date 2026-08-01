@@ -1,4 +1,4 @@
-\section{The natural signed dual}
+\section{Proof of the patch representation}
 \label{sec:signed-dual}
 
 For~$A\Subset\Lambda$, the action of~$\Lcal$ on~$\chi_A$ is a signed linear
@@ -7,7 +7,7 @@ sign labels of a process on finite subsets of~$\Lambda$. The difference between
 the resulting jump generator and~$\Lcal\chi_A$ is diagonal and is recorded by a
 Feynman--Kac potential.
 
-\subsection{The signed additive set process}
+\subsection{Signed monomial dual}
 \label{subsec:signed-set-process}
 
 A signed active set is a pair
@@ -41,7 +41,7 @@ The update~$D_{i,\varnothing}$ is called a \emph{death};~$D_{i,S}$ with
 $S\neq\varnothing$ is a \emph{split}; and~$B_{i,S}$ with
 $S\neq\varnothing$ is a \emph{birth}. Ignoring the sign coordinate, these
 updates preserve unions, which is the standard notion of additivity for
-set-valued particle systems~\cite{Griffeath1979}. The signed additive set
+set-valued particle systems~\cite{Harris1978,Griffeath1979,Gray1986}. The signed additive set
 process has generator
 \begin{align*}
 \Dcal g(A,\sigma)
@@ -57,7 +57,7 @@ process has generator
 \bb{g\bb{B_{i,S}(A,\sigma)}-g(A,\sigma)}.
 \end{align*}
 
-\subsection{Parameters of dual process}
+\subsubsection{Dual rates and signs}
 \label{subsec:rates-to-dual}
 
 For~$r\in\R$, let~$\operatorname{sgn}_{\pm}(r)$ be~$+$ when~$r\geq0$ and~$-$
@@ -105,7 +105,7 @@ Since the neighbourhood sizes and flip rates are uniformly bounded, so are the
 total dual jump rate per active site and~$\abs{V_i}$. Each jump activates at
 most~$\sup_i\abs{N(i)}$ new sites.
 
-\subsection{Monomial Feynman--Kac duality}
+\subsubsection{Feynman--Kac duality}
 \label{subsec:monomial-duality}
 
 For~$Y=(A,\sigma)$, define
@@ -140,7 +140,9 @@ P_t\chi_A(\eta)
 
 The coefficient calculation proving~\eqref{eq:monomial-generator-duality} is
 given in Appendix~\ref{app:dual-calculation}. The semigroup identity is the
-standard Feynman--Kac consequence of the generator identity. The pure-death
+standard Feynman--Kac consequence of the generator identity; the uniform
+neighbourhood and rate bounds give the usual finite-speed infinite-volume
+passage~\cite{HolleyStroock1979,Liggett1985,JansenKurt2014}. The pure-death
 noise generator acts diagonally on monomials:
 \begin{equation*}
 \Ncal^{\mb 0}\chi_A=-\abs A\chi_A.
@@ -149,7 +151,7 @@ Adding~$\varepsilon\Ncal^{\mb 0}$ leaves the dual jumps unchanged and replaces
 $V(A)$ by~$V(A)-\varepsilon\abs A$. We therefore call the independent
 transitions~$1\to0$ \emph{pure deaths}.
 
-\subsection{Graphical construction}
+\subsubsection{Graphical construction}
 \label{subsec:dual-graphical-construction}
 
 For every~$i\in\Lambda$ and~$S\subseteq N(i)$, let

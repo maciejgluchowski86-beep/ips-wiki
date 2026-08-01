@@ -1,15 +1,13 @@
-\section{Applications}
+\section{Examples and consequences}
 \label{sec:applications}
-\label{subsec:motivating-models}
 
-\subsection{Contact process}
+\begin{remark}[Contact process]
 \label{subsec:contact-benchmark}
-\label{subsubsec:contact-process}
 
 The contact process~\cite{Harris1974} is usually written with state~$1$
 infected and state~$0$ healthy. To follow the KCSM convention, we reverse these
-labels: state~$0$ is infected and facilitating, while state~$1$ is healthy and
-calm. With recovery rate one and infection parameter~$\lambda\geq0$, its
+labels: state~$0$ is infected and facilitating, while state~$1$ is healthy.
+With recovery rate one and infection parameter~$\lambda\geq0$, its
 generator is
 \begin{equation*}
 \Lcal_{\mathrm{CP}}f(\eta)
@@ -24,19 +22,18 @@ generator is
 \end{equation*}
 Thus~$c_i^0(\vn)=1$, $c_i^1(\vn)=\lambda\abs{N(i)}$, and the only nonzero
 nonconstant coefficients are~$c_i^1(\cb{j})=-\lambda$ for~$j\in N(i)$. The
-coefficient criterion gives patch positivity and patch critical profile
+coefficient criterion gives patch positivity and end-patch threshold profile
 $\mb p^\star=\mb 0$. Since the contact process is attractive, classical
 coupling gives stronger comparisons than the centered-moment order considered
 here.
+\end{remark}
 
 \subsection{FA-1f}
 \label{subsec:fa-1f-applications}
-\label{subsubsec:fa-1f-model}
-\label{subsubsec:fa-1f-literature}
-\label{subsubsec:fa-1f-patches}
 
 Fix~$p\in(0,1)$, write~$q=1-p$, and assume that~$N(i)\neq\vn$ for every
-$i\in\Lambda$. In FA-1f~\cite{BlondelEtAl2013,HartarskyToninelli2025}, state~$0$
+$i\in\Lambda$. In FA-1f~\cite{FredricksonAndersen1984,CancriniEtAl2008,
+HartarskyToninelli2025}, state~$0$
 is vacant and state~$1$ occupied. A site refreshes when at least one neighbour
 is vacant:
 \begin{equation*}
@@ -60,7 +57,9 @@ Blondel et al.~\cite[Theorem~2.1 and Remarks~2.3--2.4]{BlondelEtAl2013}
 proved convergence to~$\mu_p$ from initial laws having a uniform exponential
 moment for the distance to the nearest vacancy. The rate is exponential on
 one-dimensional polynomial-growth graphs and stretched exponential in higher
-growth dimension.
+growth dimension. Related out-of-equilibrium results include
+\cite{CancriniEtAl2010,MountfordValle2019,Mareche2019,
+HartarskyToninelli2024}.
 
 For~$\varepsilon\geq0$ and
 $\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$, define
@@ -72,10 +71,10 @@ $\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$, define
 
 \begin{proposition}[Patch positivity for FA-1f]
 \label{prop:fa-1f-patch-positivity}
-FA-1f has patch positivity and patch critical profile~$\mb p^\star=\mb p$.
+FA-1f has patch positivity and end-patch threshold profile~$\mb p^\star=\mb p$.
 If~$\varepsilon>0$, then
 $\Lcal_{\mathrm{FA}}^{\varepsilon,\mb s}$ has patch positivity if and only
-if~$\mb s\geq\mb p$. In that case its patch critical profile is again~$\mb p$.
+if~$\mb s\geq\mb p$. In that case its end-patch threshold profile is again~$\mb p$.
 \end{proposition}
 
 \begin{proof}
@@ -86,8 +85,7 @@ c_i^0\bb{N(i)}+c_i^1\bb{N(i)}=-1,
 c_i^1(\vn)c_i^0\bb{N(i)}
 -c_i^0(\vn)c_i^1\bb{N(i)}=0.
 \end{equation*}
-Theorem~\ref{thm:patch-positivity-criterion} and
-Proposition~\ref{prop:critical-profile-formula} therefore give patch positivity
+Theorem~\ref{thm:patch-positivity-order} therefore gives patch positivity
 and~$p_i^\star=p$. The added refresh changes the empty-neighbour coefficients
 to
 \begin{equation*}
@@ -96,7 +94,7 @@ c_i^0(\vn)=p+\varepsilon s_i,
 c_i^1(\vn)=q+\varepsilon\bb{1-s_i},
 \end{equation*}
 so the second coefficient expression becomes~$\varepsilon(s_i-p)$. The
-nonempty coefficients, and hence the critical profile, are unchanged.
+nonempty coefficients, and hence the threshold profile, are unchanged.
 \end{proof}
 
 The equality case~$\mb s=\mb p$ is the usual soft FA-1f perturbation, up to a
@@ -112,9 +110,6 @@ endpoint estimate available from model-specific arguments.
 
 \subsection{Biased annihilating branching process}
 \label{subsec:babp-applications}
-\label{subsubsec:babp-model}
-\label{subsubsec:babp-literature}
-\label{subsubsec:babp-patches}
 
 Fix~$p\in(0,1)$, write~$q=1-p$, and assume that~$N(i)\neq\vn$ for every
 $i\in\Lambda$. BABP~\cite{NeuhauserSudbury1993} uses the same refresh law as
@@ -135,15 +130,20 @@ c_i^1(\vn)&=q\abs{N(i)},
 &c_i^1\bb{\cb{j}}&=-q,
 \qquad j\in N(i).
 \end{align*}
-In the complementary particle variables~$\xi(i)=1-\eta(i)$, zeroes are
-particles and~$q$ is their equilibrium density. The product law~$\mu_p$ and
-the particle-free state are invariant; in one dimension they generate all
-stationary laws, and the analogous statement holds among translation-invariant
-laws in higher dimensions
-\cite{NeuhauserSudbury1993,MartinelliShapiraToninelli2025}. On~$\Z^d$, every
-homogeneous product law~$\mu_u$ with~$u<1$ converges exponentially to~$\mu_p$
-\cite[Application~2]{MartinelliShapiraToninelli2025}. The quasi-thinning
-argument also covers inhomogeneous product profiles satisfying
+In the complementary particle variables~$\xi(i)=1-\eta(i)$, vacancies of
+$\eta$ correspond to particles of~$\xi$, and~$q$ is their equilibrium density.
+The product law~$\mu_p$ and
+the particle-free state are invariant. In one dimension they generate all
+stationary laws~\cite{NeuhauserSudbury1993,MartinelliShapiraToninelli2025}, and
+the analogous statement holds among translation-invariant laws in higher
+dimensions~\cite{MartinelliShapiraToninelli2025}. Sudbury proved qualitative
+convergence from translation-invariant initial laws~\cite{Sudbury1997}.
+On~$\Z^d$, every homogeneous product law~$\mu_u$ with~$u<1$ converges
+exponentially to~$\mu_p$
+\cite[Application~2 and Section~5.1.1]{MartinelliShapiraToninelli2025}. The
+quasi-duality and thinning relations were introduced by Lloyd and
+Sudbury~\cite{LloydSudbury1997}; the recent argument also covers inhomogeneous
+product laws whose one-densities satisfy
 $p_{0,i}\leq\sqrt p$ for every~$i$
 \cite[Remark~5.5]{MartinelliShapiraToninelli2025}. Convergence from a finite
 nonempty particle set remains open for part of the parameter range.
@@ -158,10 +158,10 @@ $\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$, define
 
 \begin{proposition}[Patch positivity for BABP]
 \label{prop:babp-patch-positivity}
-BABP has patch positivity and patch critical profile~$\mb p^\star=\mb p$.
+BABP has patch positivity and end-patch threshold profile~$\mb p^\star=\mb p$.
 If~$\varepsilon>0$, then
 $\Lcal_{\mathrm{BABP}}^{\varepsilon,\mb s}$ has patch positivity if and only
-if~$\mb s\geq\mb p$. In that case its patch critical profile is again~$\mb p$.
+if~$\mb s\geq\mb p$. In that case its end-patch threshold profile is again~$\mb p$.
 \end{proposition}
 
 \begin{proof}
@@ -172,8 +172,7 @@ c_i^0\bb{\cb{j}}+c_i^1\bb{\cb{j}}=-1,
 c_i^1(\vn)c_i^0\bb{\cb{j}}
 -c_i^0(\vn)c_i^1\bb{\cb{j}}=0.
 \end{equation*}
-Theorem~\ref{thm:patch-positivity-criterion} and
-Proposition~\ref{prop:critical-profile-formula} therefore give patch positivity
+Theorem~\ref{thm:patch-positivity-order} therefore gives patch positivity
 and~$p_i^\star=p$. The added refresh changes the empty-neighbour coefficients
 to
 \begin{equation*}
@@ -182,7 +181,7 @@ c_i^0(\vn)=p\abs{N(i)}+\varepsilon s_i,
 c_i^1(\vn)=q\abs{N(i)}+\varepsilon\bb{1-s_i},
 \end{equation*}
 so the second coefficient expression becomes~$\varepsilon(s_i-p)$. The
-nonempty coefficients, and hence the critical profile, are unchanged.
+nonempty coefficients, and hence the threshold profile, are unchanged.
 \end{proof}
 
 \begin{corollary}[Centered-moment comparison for BABP]
@@ -205,7 +204,8 @@ then~$\nu P_t$ converges exponentially to~$\mu_p$ on local functions.
 The displayed inequalities are exactly
 $\mu_u\preceq_*\nu\preceq_*\mu_v$. Both product endpoints converge
 exponentially to~$\mu_p$ by
-\cite[Application~2]{MartinelliShapiraToninelli2025}, so the claim follows
+\cite[Application~2 and Section~5.1.1]{MartinelliShapiraToninelli2025}, so the
+claim follows
 from Corollary~\ref{cor:centered-moment-convergence}.
 \end{proof}
 
@@ -272,7 +272,7 @@ Its monomial moments are given by~\eqref{eq:full-patch-limit-moments}.
 
 \begin{proof}
 The two patch-positivity propositions and
-Theorem~\ref{thm:centered-moment-order} give part~\textup{(i)}. For
+Theorem~\ref{thm:patch-positivity-order} give part~\textup{(i)}. For
 part~\textup{(ii)}, the added refresh contains pure-death noise at rate~$\delta$.
 Apply Theorem~\ref{thm:common-invariant-limit} and
 Corollary~\ref{cor:uniform-ergodicity}.

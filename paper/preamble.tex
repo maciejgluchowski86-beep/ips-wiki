@@ -1,227 +1,50 @@
-% =====================================================================
-%  preamble.tex  --  shared macros & environments for the paper
-% =====================================================================
-%
-%  SINGLE SOURCE OF TRUTH for packages, notation macros, and theorem
-%  environments.  paper/main.tex should \input{paper/preamble.tex} and
-%  never redefine these.
-%
-%  Overleaf compiles the repository-level main.tex, so paper paths are
-%  root-relative.
-%
-%  ---------------------------------------------------------------------
-%  AUDIT LOG  (reconciliation of the user's working preamble against the
-%  arXiv sources 2312.06935, 2508.08459, 2505.06209 -- 2026-05-29)
-%  ---------------------------------------------------------------------
-%  HARD RULE FOLLOWED: every public command NAME, arity, and rendered
-%  output below is preserved exactly as in the user's working preamble.
-%  Only implementations / organisation / package hygiene were changed.
-%
-%  * Indicators de-duplicated.  \ind (no arg, = \mathds{1}) is now the
-%    single primitive; \1[1] (legacy "indicator immediately applied to
-%    its sub/superscript") is re-expressed as \ind#1.  Same rendering,
-%    no duplicated \mathds{1} literal.  Both names kept.
-%  * \oxi / \oP kept as \bar{.} (matches the working preamble and
-%    arXiv:2508; arXiv:2312 used \overline{.} -- visually equivalent for
-%    a single token, working-preamble interface wins).
-%  * \desum kept in the \substack form already used in the working
-%    preamble -- cleaner than, and visually identical to, the raw
-%    array form in the arXiv sources.
-%  * Missing-but-required packages added explicitly: dsfont (\mathds),
-%    graphicx (\scalebox in \bigchi), xparse (\NewDocumentCommand + the
-%    g-type arg of \der), amsmath/amssymb/amsfonts/amsthm, mathtools.
-%  * Theorem environments unified onto ONE shared "theorem" counter for
-%    consistent cross-referencing (the arXiv sources gave Proposition a
-%    separate counter -- an inconsistency we drop).  Both the full names
-%    used by the old main.tex (theorem, lemma, ...) AND the author's
-%    arXiv short names (theo, lem, defi, ...) are provided as aliases so
-%    nothing -- old or new -- breaks.
-%  * \Cov added as a proper \DeclareMathOperator (used in arXiv:2312);
-%    the manual \cov[2] macro is retained unchanged for existing usage.
-%  * Editorial colour-note macros (\mg etc.) added from arXiv:2505 for
-%    convenience; harmless, optional.
-%
-%  Anything you add later: put it HERE, give it a comment, keep names
-%  stable, and update STYLE.md.
-% =====================================================================
+% Packages, theorem environments, and notation specific to the revised paper.
 
-
-% ---------------------------------------------------------------------
-%  Packages required by the macros / environments below
-%  (document-presentation packages -- geometry, hyperref, fontenc,
-%   inputenc -- stay in main.tex so this file is driver-agnostic.)
-% ---------------------------------------------------------------------
-\usepackage{amsmath,amssymb,amsfonts}   % core math, \mathbb, \varnothing, \operatorname
-\usepackage{amsthm}                       % theorem environments + proof
-\usepackage{mathtools}                    % amsmath extensions (loads amsmath)
-\usepackage{dsfont}                       % \mathds  -> indicator 1
-\usepackage{mathrsfs}                     % \mathscr
-\usepackage{graphicx}                     % \scalebox (\bigchi), figures
-\usepackage{xparse}                       % \NewDocumentCommand, g-type arg (\der)
-\usepackage{enumitem}                     % list customisation
-\usepackage{xcolor}                       % editorial colour notes (\mg, \gm, ...)
-\usepackage{tikz}                         % vector figures
+\usepackage{enumitem}
+\usepackage{tikz}
 \usetikzlibrary{arrows.meta,calc}
 
+% The three principal results are lettered independently of section theorems.
+\theoremstyle{ejpecpbodyit}
+\newtheorem{maintheorem}{Theorem}
+\renewcommand{\themaintheorem}{\Alph{maintheorem}}
+\providecommand{\theHmaintheorem}{\Alph{maintheorem}}
+\theoremstyle{ejpecpbodyrm}
 
-% =====================================================================
-%  THEOREM-LIKE ENVIRONMENTS
-%  All share a single counter (`theorem`), numbered within sections.
-%  Full names = what main.tex historically used; short names = the
-%  author's arXiv convention (theo/lem/defi/...).  Use either.
-% =====================================================================
-\theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{conjecture}[theorem]{Conjecture}
-\newtheorem{problem}[theorem]{Problem}
-% -- author's arXiv short aliases (same shared counter) --
-\newtheorem{theo}[theorem]{Theorem}
-\newtheorem{lem}[theorem]{Lemma}
-\newtheorem{prop}[theorem]{Proposition}
-\newtheorem{coro}[theorem]{Corollary}
-\newtheorem{conj}[theorem]{Conjecture}
-\newtheorem{prob}[theorem]{Problem}
-
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{construction}[theorem]{Construction}
-% -- author's arXiv short aliases --
-\newtheorem{defi}[theorem]{Definition}
-\newtheorem{ex}[theorem]{Example}
-\newtheorem{rem}[theorem]{Remark}
-\newtheorem{con}[theorem]{Construction}
-
-% Unnumbered environment for free-standing notation blocks
-\newtheorem*{nota}{Notation}
-
-
-% =====================================================================
-%  NUMBER SETS / BLACKBOARD-BOLD
-% =====================================================================
+% Number sets.
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\C}{\mathbb{C}}
 
+% Probability.
+\newcommand{\pP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\CE}[2]{\E\Cb{#1\,\middle|\,#2}}
+\newcommand{\CP}[2]{\pP\bb{#1\,\middle|\,#2}}
 
-% =====================================================================
-%  PROBABILITY  (\pP, \E and decorated variants)
-% =====================================================================
-\newcommand{\pP}{\mathbb{P}}                       % probability symbol
-\newcommand{\bP}[1]{\mathbb{P}\left(#1\right)}     % P( . )
-\newcommand{\sP}[2]{\mathbb{P}_{#1}\bb{#2}}        % P_{#1}( #2 )
-\newcommand{\E}{\mathbb{E}}                         % expectation symbol
-\newcommand{\bE}[1]{\mathbb{E}\left[#1\right]}     % E[ . ]
-\newcommand{\sE}[2]{\E_{#1}\Cb{#2}}                % E_{#1}[ #2 ]
-\newcommand{\CE}[2]{\E\Cb{#1\,\middle|\,#2}}      % conditional E[ . | . ]
-\newcommand{\CP}[2]{\pP\bb{#1\,\middle|\,#2}}    % conditional P[ . | . ]
-\DeclareMathOperator{\Cov}{Cov}                     % Cov  (operator form)
-\newcommand{\cov}[2]{\mathrm{Cov}\left(#1,\,#2\right)} % Cov( . , . )
-\newcommand{\Var}[1]{\operatorname{Var}\left(#1\right)} % Var( . )
-\newcommand{\brprocess}[1]{\left\langle #1\right\rangle} % <.> bracket process
+% Delimiters.
+\newcommand{\bb}[1]{\left(#1\right)}
+\newcommand{\Cb}[1]{\left[#1\right]}
+\newcommand{\cb}[1]{\left\{#1\right\}}
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left|#1\right|}
 
+% Recurrent symbols.
+\newcommand{\ind}{\mathbf{1}}
+\newcommand{\vn}{\varnothing}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\mbs}[1]{\boldsymbol{#1}}
+\newcommand{\Lcal}{\mathcal{L}}
+\newcommand{\Dcal}{\mathcal{D}}
+\newcommand{\Ncal}{\mathcal{N}}
 
-% =====================================================================
-%  INDICATORS
-%  \ind  : the symbol  1  (no argument)        -- primitive
-%  \1{x} : indicator immediately carrying #1   -- legacy, == \ind#1
-% =====================================================================
-\newcommand{\ind}{\mathds{1}}
-\newcommand{\1}[1]{\ind#1}
-
-
-% =====================================================================
-%  DELIMITERS / BRACKETS
-%  Prefer these over manual \left...\right throughout the project.
-% =====================================================================
-\newcommand{\bb}[1]{\left(#1\right)}      % ( . )
-\newcommand{\Cb}[1]{\left[#1\right]}      % [ . ]
-\newcommand{\cb}[1]{\left\{#1\right\}}    % { . }
-\newcommand{\norm}[1]{\left\Vert#1\right\Vert}  % || . ||
-\newcommand{\abs}[1]{\left|#1\right|}            % | . |
-
-
-% =====================================================================
-%  OPERATORS / NAMED FUNCTIONS
-% =====================================================================
-\newcommand{\dom}[1]{\mathrm{Dom}\left(#1\right)}  % domain
-\newcommand{\sgn}[1]{\operatorname{sgn}\left(#1\right)} % sign
-\DeclareMathOperator{\supp}{supp}                   % support
-% Partial-derivative helper:  \der{x}  -> d/dx ;  \der{x}{k} -> d^k/dx^k
-% PORTABILITY: the previous body called the expl3 conditional
-% \tl_if_blank:nTF OUTSIDE an \ExplSyntaxOn..\ExplSyntaxOff group, where
-% ':' and '_' are not letters, so on a modern TeX Live it tokenises as the
-% undefined \tl followed by stray text (-> "Undefined control sequence" /
-% "Missing $"). TL2019's older standalone xparse happened to tolerate it
-% because the branch was never expanded.  Re-expressed without expl3 so the
-% preamble parses identically on every TeX Live.  Public behaviour for the
-% real call patterns \der{x} and \der{x}{k} is unchanged.
-\NewDocumentCommand{\der}{m g}{%
-  \IfNoValueTF{#2}
-    {\frac{\partial}{\partial #1}}
-    {\frac{\partial^{#2}}{\partial #1^{#2}}}%
-}
-\newcommand{\deint}[3]{\int_{#1} #2 \;#3}  % integral: \deint{domain}{integrand}{dmeasure}
-
-
-% =====================================================================
-%  DECORATED SYMBOLS / MISC NOTATION
-% =====================================================================
-\newcommand{\oxi}{\bar{X}}                 % time-averaged / barred X
-\newcommand{\oP}{\bar{P}}                  % barred transition matrix P
-\newcommand{\vn}{\varnothing}              % empty set
-\newcommand{\ubar}[1]{\underset{\bar{}}{#1}} % under-bar
-\newcommand*{\bigchi}{\mbox{\scalebox{1.2}{$\chi$}}} % enlarged chi
-\newcommand{\mb}[1]{\mathbf{#1}}           % math bold
-\newcommand{\mbs}[1]{\boldsymbol{#1}}      % bold symbol (Greek etc.)
-\newcommand{\elo}[1]{\mb{ELO}(#1)}         % ELO( . )
-\newcommand{\Lcal}{\mathcal{L}}            % IPS generator
-\newcommand{\Dcal}{\mathcal{D}}            % dual part of the generator (noise-duality)
-\newcommand{\Ncal}{\mathcal{N}}            % pure-noise generator (noise-duality)
-\newcommand{\Scal}{\mathcal{S}}            % slowed signed-dual generator (slowed-dual representation)
-\newcommand{\Omegacf}{\Omega}              % configuration space
-
-
-% =====================================================================
-%  SUMS / CASES / MATRICES
-% =====================================================================
-% Double-line subscript sum:  \desum{condition 1}{condition 2}
-\newcommand{\desum}[2]{\sum_{\substack{#1 \\ #2}}}
-% Two-branch piecewise:  \pw{val1}{cond1}{val2}{cond2}
+% Two- and three-branch cases.
 \newcommand{\pw}[4]{\left\{\begin{array}{cl}
-         #1 &\text{ if } #2 \\
-         #3 &\text{ if } #4
-    \end{array}\right.}
-% Three-branch piecewise
+  #1 &\text{ if } #2 \\
+  #3 &\text{ if } #4
+\end{array}\right.}
 \newcommand{\pwthree}[6]{\left\{\begin{array}{cl}
-         #1 &\text{ if } #2 \\
-         #3 &\text{ if } #4 \\
-         #5 &\text{ if } #6
-    \end{array}\right.}
-\newcommand{\vectwo}[2]{\begin{bmatrix}#1 \\ #2\end{bmatrix}}
-\newcommand{\vecthree}[3]{\begin{bmatrix}#1 \\ #2 \\ #3\end{bmatrix}}
-
-
-% =====================================================================
-%  RELATIONS / SHORTHANDS
-% =====================================================================
-\newcommand{\eqdef}{=\mathrel{\mathop:}}   %  =:
-\newcommand{\defeq}{\mathrel{\mathop:}=}   %  :=
-
-
-% =====================================================================
-%  EDITORIAL NOTES (draft only -- colour-coded margin comments)
-%  Remove / comment out before any public release.
-% =====================================================================
-\newcommand{\mg}[1]{\textcolor{red}{Maciej: #1}}
-\newcommand{\gm}[1]{\textcolor{olive}{Georg: #1}}
-
-% =====================================================================
-%  end of preamble.tex
-% =====================================================================
+  #1 &\text{ if } #2 \\
+  #3 &\text{ if } #4 \\
+  #5 &\text{ if } #6
+\end{array}\right.}

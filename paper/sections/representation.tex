@@ -1,7 +1,7 @@
-\section{Patch representation}
+\subsection{Conditional factorization and representation}
 \label{sec:representation}
 
-\subsection{Patch laws}
+\subsubsection{Patch laws}
 \label{subsec:patch-laws}
 
 Fix a labeled patch~$P$, either a patch in~$\mathcal P$ or a patch in
@@ -15,7 +15,7 @@ e=e(P),
 \qquad
 S=S(P).
 \end{equation*}
-The interior interaction data of~$P$ are the marked interactions outgoing
+The interior marks of~$P$ are the interactions outgoing
 from~$i$ strictly between its endpoints:
 \begin{equation*}
 \Sigma_P^\circ
@@ -29,8 +29,8 @@ Section~\ref{subsec:signed-set-process}.
 If~$\mathsf X(P)=\mathsf I$, the initial interaction of~$P$ is incoming from
 another source, and we set~$\Sigma_P=\Sigma_P^\circ$. Let~$\pP_P$ be the
 corresponding product Poisson law. If~$\mathsf X(P)=\mathsf O$, the initial
-interaction is outgoing from~$i$, with target~$S$, but its kind is not revealed
-by the skeleton. Let~$\alpha(P)\in\cb{\delta,\beta}$ be this hidden kind,
+interaction is outgoing from~$i$, with target~$S$, but the skeleton does not
+record its kind. Let~$\alpha(P)\in\cb{\delta,\beta}$ denote this kind,
 independent of~$\Sigma_P^\circ$, with
 \begin{equation}
 \label{eq:patch-initial-kind-law}
@@ -52,7 +52,7 @@ and~$\pP_P$ is the product of the law in
 \eqref{eq:patch-initial-kind-law} and the interior Poisson law.
 Write~$\E_P$ for expectation under~$\pP_P$.
 
-On a realized global history, the local active indicator is
+For a realization of the graphical construction, the local active indicator is
 $X_u^P=\ind\cb{i(P)\in A_u}$ for~$s(P)\leq u<e(P)$. Under the reference patch
 law, we reconstruct the candidate process~$X^P$ from~$\Sigma_P$ by the same
 local update rules. Its initial value is
@@ -67,7 +67,7 @@ source to~$0$, a~$\beta$-mark leaves an active source at~$1$, and every mark at
 an inactive source is ignored. Between marks,~$X^P$ is constant. For a finite
 patch with terminal label~$\mathsf E$, we also set~$X_e^P=X_{e-}^P$.
 
-The candidate local history is \emph{consistent} with the prescribed skeleton
+The candidate process is \emph{consistent} with the prescribed skeleton
 when it produces no additional successful interaction in the patch and, if the
 patch ends with an outgoing interaction, makes that interaction successful.
 Thus
@@ -94,19 +94,19 @@ $\pP_P\bb{\operatorname{Con}(P)}>0$. The consistent patch law is
 \end{equation*}
 and~$\E_P^{\mathrm{con}}$ denotes its expectation.
 
-\subsection{Conditional factorization}
+\subsubsection{Conditional factorization}
 \label{subsec:factorization}
 
-The successful skeleton fixes the patch boundaries but leaves the local data
-between them hidden. Conditioning on the complete skeleton imposes one local
-consistency event on each disjoint source-time strip.
+The successful skeleton fixes the patch boundaries but not the marked
+interactions within them. Conditioning on the skeleton imposes one consistency
+event on each disjoint source--time strip.
 
 \begin{theorem}[Patch factorization]
 \label{thm:patch-factorization}
-Fix~$T<\infty$. Conditional on~$\mathcal G_T$, the interaction
-data~$(\Sigma_P)_{P\in\mathcal P_T}$ are independent, and the conditional law
-of~$\Sigma_P$ is~$\pP_P^{\mathrm{con}}$. Equivalently, for bounded measurable
-functions~$f_P$,
+Fix~$T<\infty$. Conditional on~$\mathcal G_T$, the families~$\Sigma_P$ are
+independent, and the conditional law of~$\Sigma_P$ is
+$\pP_P^{\mathrm{con}}$ for each~$P\in\mathcal P_T$. Equivalently, for bounded
+measurable functions~$f_P$,
 \begin{equation}
 \label{eq:patch-factorization}
 \CE{
@@ -119,74 +119,26 @@ functions~$f_P$,
 \end{theorem}
 
 \begin{proof}
-Write~$G_T=(Y_0,\mathcal I_T)$, so~$\mathcal G_T=\sigma(G_T)$, and fix a
-realization~$G_T=g$ for which the conditional law is defined. Let
-$\mathcal P_T(g)$ be its finite labeled patch family. For each
-$P\in\mathcal P_T(g)$, let~$B_P$ be the event that the interaction prescribed
-by~$g$ which begins~$P$ is present in~$I$. Only its source, time, and target are
-prescribed; the split--birth kind remains hidden. For a patch beginning at the
-deterministic initial interaction, set~$B_P=\Omega$. If several patches begin at
-the same interaction, their events~$B_P$ are identical. Set
-\begin{equation*}
-B(g)=\bigcap_{P\in\mathcal P_T(g)}B_P,
-\qquad
-\operatorname{Con}(g)
-=
-\bigcap_{P\in\mathcal P_T(g)}\operatorname{Con}(P).
-\end{equation*}
-Then~$\cb{G_T=g}=B(g)\cap\operatorname{Con}(g)$. Indeed, the events~$B_P$
-place all interactions recorded by~$g$, while the consistency events make every
-prescribed outgoing interaction successful and exclude every additional
-successful interaction inside a patch.
+Fix a skeleton realization~$g$ and use the standard Poisson disintegration
+convention~\cite{LastPenrose2017}: prescribed atoms are inserted and the
+remaining process is Poisson. Conditional on the source, time, and target, a
+split or birth has probability proportional to its rate; this conditional law
+is well defined even though a fixed list of continuous times has probability
+zero.
 
-Conditional on~$B(g)$, the variables~$(\Sigma_P)_{P\in\mathcal P_T(g)}$ are
-independent and~$\Sigma_P$ has law~$\pP_P$. This follows from independent
-increments of the underlying Poisson processes on the disjoint patch
-intervals. At an outgoing initial boundary, conditioning on the presence of the
-interaction leaves its hidden kind with the rate-proportional law
-\eqref{eq:patch-initial-kind-law}. Since~$\operatorname{Con}(P)$ is measurable
-with respect to~$\Sigma_P$, the consistency events are conditionally independent
-given~$B(g)$, and~$\Sigma_P$ is conditionally independent of
-$\operatorname{Con}(Q)$ whenever~$P\neq Q$.
-
-Consequently,
-\begin{align*}
-\CE{
-\prod_{P\in\mathcal P_T(g)}f_P\bb{\Sigma_P}
-}{G_T=g}
-&=
-\CE{
-\prod_{P\in\mathcal P_T(g)}f_P\bb{\Sigma_P}
-}{B(g)\cap\operatorname{Con}(g)}
-\\
-&=
-\frac{
-\CE{
-\displaystyle
-\prod_{P\in\mathcal P_T(g)}
- f_P\bb{\Sigma_P}\ind\bb{\operatorname{Con}(P)}
-}{B(g)}
-}{
-\CP{\operatorname{Con}(g)}{B(g)}
-}
-\\
-&=
-\prod_{P\in\mathcal P_T(g)}
-\frac{
-\E_P\Cb{f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}}
-}{
-\pP_P\bb{\operatorname{Con}(P)}
-}
-\\
-&=
-\prod_{P\in\mathcal P_T(g)}
-\E_P^{\mathrm{con}}\Cb{f_P\bb{\Sigma_P}}.
-\end{align*}
-Every denominator is positive for a realized patch, which proves
-\eqref{eq:patch-factorization}.
+The patch interiors are disjoint source--time strips. The split--birth kind of
+a boundary interaction belongs only to the patch beginning at its source; the
+patches beginning at its targets do not use that mark. Hence, before imposing
+consistency, the variables~$(\Sigma_P)_{P\in\mathcal P_T(g)}$ are independent
+with laws~$(\pP_P)_P$. The skeleton equals~$g$ when
+$\operatorname{Con}(P)$ occurs for every patch. Conditioning this product law
+on the product event~$\bigcap_P\operatorname{Con}(P)$ gives
+\eqref{eq:patch-factorization}. Each normalizer is positive for an occurring
+patch: if it vanished, the patch would have zero conditional probability even
+after its initial boundary interaction was inserted.
 \end{proof}
 
-\subsection{Patch contributions}
+\subsubsection{Patch contributions}
 \label{subsec:patch-contributions}
 
 The Feynman--Kac random variable in
@@ -223,30 +175,17 @@ z^{X_t^P},
 \qquad
 C(z,P)=\E_P^{\mathrm{con}}\Cb{F(z,P)}.
 \end{equation*}
-The function~$z\mapsto C(z,P)$ is affine. The patch and end contributions are
-elementary one-site quantities; Appendix~\ref{app:contribution-formulas}
-derives explicit formulas for every boundary type.
+The function~$z\mapsto C(z,P)$ is affine. The patch and end contributions
+depend only on the one-site process~$X^P$;
+Appendix~\ref{app:contribution-formulas} gives their formulas for every
+boundary type.
 
-\subsection{Representation theorem}
+\subsubsection{Proof of Theorem~\ref{thm:patch-representation}}
 \label{subsec:representation-theorem}
 
-\begin{theorem}[Patch representation]
-\label{thm:patch-representation}
-For every~$A\Subset\Lambda$,~$t\geq0$, and~$\eta\in\Omega$,
-\begin{equation}
-\label{eq:patch-representation}
-P_t\chi_A(\eta)
-=
-\E_A\Cb{
-\prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
-}.
-\end{equation}
-\end{theorem}
-
-\begin{proof}
-On the global graphical space, let~$X^P$,~$\alpha(P)$, and~$\sigma(P)$ denote
-the local data induced on each patch. Every nonempty-target successful
+\begin{proof}[Proof of Theorem~\ref{thm:patch-representation}]
+On the graphical probability space, let~$X^P$,~$\alpha(P)$, and~$\sigma(P)$
+denote the variables induced on each patch. Every nonempty-target successful
 interaction contributes its sign to the unique patch which begins at its
 source. Pure deaths have positive sign because
 \begin{equation*}
@@ -296,23 +235,12 @@ its consistent patch expectation. Taking expectation and using
 Theorem~\ref{thm:monomial-duality} proves~\eqref{eq:patch-representation}.
 \end{proof}
 
-\subsection{General initial laws}
+\subsubsection{Product initial laws}
 \label{subsec:general-initial-laws}
 
-Let~$\mu$ be any probability measure on~$\Omega$. Integrating
-\eqref{eq:patch-representation} gives
-\begin{equation}
-\label{eq:patch-representation-general-law}
-(\mu P_t)(\chi_A)
-=
-\E_A\Cb{
-\prod_{P\in\mathcal B_t}C(P)\,
-\mu\bb{
-\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
-}
-}.
-\end{equation}
-In particular, for the Bernoulli product measure~$\mu_{\mb p}$ with one-density
+Integrating~\eqref{eq:patch-representation} gives the second assertion of
+Theorem~\ref{thm:patch-representation}. For the Bernoulli product
+measure~$\mu_{\mb p}$ with one-density
 profile~$\mb p=(p_i)_{i\in\Lambda}$, the end-patch sites are distinct and the
 end contributions are affine, so
 \begin{equation}
@@ -324,9 +252,9 @@ end contributions are affine, so
 \prod_{P\in\mathcal E_t}C\bb{p_{i(P)},P}
 }.
 \end{equation}
-The skeleton retains the interactions which transmit dependence between sites.
-Everything local between consecutive incoming or outgoing successful
-interactions is integrated inside~$C(P)$ or~$C(z,P)$ before its sign is
-estimated. Thus~\eqref{eq:patch-representation} is exact, but groups the signed
-dual history in a way that preserves the cancellations hidden by termwise
-absolute values.
+The skeleton retains the nonempty-target interactions that act on the dual
+process. The other marked interactions between consecutive incoming or
+outgoing successful interactions are integrated inside~$C(P)$ or~$C(z,P)$
+before absolute values are taken. Thus~\eqref{eq:patch-representation} groups
+the signed dual trajectory without discarding cancellations between successive
+updates at a site.

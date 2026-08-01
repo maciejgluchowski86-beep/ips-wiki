@@ -200,8 +200,8 @@ boundary. Let~$L_{T,t}^P$ be the event that no nonempty-target mark acts while
 this continuation is active in~$(T,t]$. Conditional on~$\mathcal G_T$, the
 events~$(L_{T,t}^P)_{P\in\mathcal E_T}$ are independent. If a first successful
 interaction occurs after~$T$, its source belongs to one of the end patches, and
-up to that time its actual local history agrees with this isolated
-continuation. Hence
+up to that time its active indicator agrees with this one-site continuation.
+Hence
 \begin{equation}
 \label{eq:local-no-late-factorization}
 L_{T,t}
@@ -322,7 +322,7 @@ For an outgoing patch, it is
 \delta_i(S)+\beta_i(S)\varphi_i(\Delta)
 }.
 \end{align*}
-These are precisely the two rows of~$C(\psi_i(h,z),P)$.
+These are the two rows of~$C(\psi_i(h,z),P)$.
 
 On~$L_{T,t}$, the finite-horizon weight is constant once~$\mathcal G_T$ and
 the event are fixed, so the first equality in
@@ -332,25 +332,25 @@ independence,~\eqref{eq:local-no-late-factorization}, and
 The same argument applies to~$\Lcal^\varepsilon$.
 
 Uniform deaths give~$r_i\geq\varepsilon$ and hence
-$\psi_i(h,z)\to q_i$ as~$h\to\infty$. For each~$P\in\mathcal E_T$,
+$\psi_i(h,z)\to p_i^\circ$ as~$h\to\infty$. For each~$P\in\mathcal E_T$,
 \eqref{eq:local-probability-weighted-continuation} with~$z=1$ therefore gives
 \begin{equation*}
 \lim_{u\to\infty}
 \CP{L_{T,u}^P}{\mathcal G_T}
 C\bb{1,P^{\uparrow u}}
 =
-C\bb{q_i,P}.
+C\bb{p_i^\circ,P}.
 \end{equation*}
-The product on the left is the conditional expectation of the local full
-factor on~$L_{T,u}^P$; the explicit formula supplies its limit even when the
-consistency normalizer of the infinite geometric extension vanishes. The
+The product on the left is the conditional expectation of the patch factor
+on~$L_{T,u}^P$; the formula supplies its limit even when the
+limiting infinite extension has zero consistency probability. The
 future increments at the finitely many end-patch sites are independent, so
 multiplying these local limits proves
 \eqref{eq:appendix-infinite-continuation-identity}.
 \end{proof}
 
-The next lemma compares the centered terms and then uses a telescoping identity
-for the constant terms.
+The centered terms are compared directly; the constant terms are handled by a
+telescoping identity.
 
 \begin{lemma}[End-factor relaxation]
 \label{lem:end-factor-relaxation}
@@ -405,7 +405,7 @@ k_t^\varepsilon(P)
 \CP{L_{T,t}^P}{\mathcal G_T}
 \partial_zC^\varepsilon\bb{z,P^{\uparrow t}},
 \\
-b(P)&=C\bb{q_i,P}.
+b(P)&=C\bb{p_i^\circ,P}.
 \end{align*}
 Equation~\eqref{eq:local-probability-weighted-continuation} and the affine
 end-factor formula give
@@ -414,9 +414,10 @@ a_t(P)=C\bb{\psi_i(h,p_i^\star),P},
 \qquad
 k_t(P)=e^{-r_i h}\kappa(P),
 \qquad
-b(P)=C\bb{q_i,P}.
+b(P)=C\bb{p_i^\circ,P}.
 \end{equation*}
-The less noisy system has empty-neighbour rate~$r_i-\varepsilon$, so
+The system with the pure-death component removed has empty-neighbour
+rate~$r_i-\varepsilon$, so
 \begin{equation*}
 k_t^\varepsilon(P)
 =
@@ -432,15 +433,15 @@ therefore imply
 \qquad
 0\leq b(P)-a_t(P)\leq e^{-\varepsilon h}b(P).
 \end{equation}
-For the last inequality, use~$p_i^\star\leq q_i$ and compute
+For the last inequality, use~$p_i^\star\leq p_i^\circ$ and compute
 \begin{equation*}
 b(P)-a_t(P)
 =
-\kappa(P)\bb{q_i-p_i^\star}e^{-r_i h}
+\kappa(P)\bb{p_i^\circ-p_i^\star}e^{-r_i h}
 \leq
 e^{-\varepsilon h}b(P),
 \end{equation*}
-because~$b(P)=C(p_i^\star,P)+\kappa(P)(q_i-p_i^\star)$.
+because~$b(P)=C(p_i^\star,P)+\kappa(P)(p_i^\circ-p_i^\star)$.
 
 For~$\mathcal Q\subseteq\mathcal E_T$, put
 $I(\mathcal Q)=\cb{i(P):P\in\mathcal Q}$. Distributing the product in
@@ -539,9 +540,9 @@ $B\bb{A,\lceil vt\rceil}$.
 Construct the process from rate-$\overline c$ candidate clocks and independent
 acceptance marks. Explore the clocks backwards from~$A$ at time~$t$. Whenever
 a candidate clock at~$i$ is encountered, add~$N(i)\cup\cb{i}$ to the sites whose
-earlier histories must be known. If this backward influence cluster stays
-inside~$R$, the infinite-volume and zero-boundary processes, coupled with the
-same clocks and marks in~$R$, agree on~$A$ at time~$t$.
+states at earlier times must be determined. If this backward influence cluster
+stays inside~$R$, the infinite-volume and zero-boundary processes, coupled with
+the same clocks and marks in~$R$, agree on~$A$ at time~$t$.
 
 To leave~$B(A,n)$, the cluster must contain a chronological dependency path of
 at least~$n$ candidate clocks. There are at most~$\abs A m^k$ spatial paths of
@@ -571,5 +572,5 @@ For fixed~$t$ and local~$f$, Lemma~\ref{lem:finite-propagation} implies uniform
 convergence of zero-boundary finite-volume semigroups to~$P_tf$ along any
 exhaustion whose boundary recedes from the dependence set of~$f$. In
 particular, the nonnegative centered-monomial coefficients of the finite-volume
-semigroups used in Theorem~\ref{thm:centered-moment-order} pass to the
+semigroups used in Theorem~\ref{thm:patch-positivity-order} pass to the
 infinite-volume limit.

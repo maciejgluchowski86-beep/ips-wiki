@@ -1,34 +1,13 @@
-\section{Patch positivity}
+\section{Proof of the positivity and order theorem}
 \label{sec:patch-positivity}
 
 \subsection{Coefficient criterion}
 \label{subsec:positivity-criterion}
 
-\begin{definition}[Patch positivity]
-\label{def:patch-positivity}
-A spin system has \emph{patch positivity} if, for every~$A\Subset\Lambda$,
-$C(P)\geq0$ for every~$P\in\mathcal P$,~$\pP_A$-almost surely.
-\end{definition}
+Put~$r_i=c_i^0(\vn)+c_i^1(\vn)$.
 
-The end contributions also depend on the terminal configuration and require a
-one-density threshold. Set~$r_i= c_i(\mb 0)+c_i(\mb{0}^{i}) = c_i^0(\vn)+c_i^1(\vn)$.
-
-\begin{theorem}[Coefficient criterion]
-\label{thm:patch-positivity-criterion}
-A spin system has patch positivity if and only if the following hold for every
-site~$i$:
-\begin{enumerate}[label=\textup{(\roman*)}]
-\item if~$r_i=0$, then~$c_i\equiv0$;
-\item if~$r_i>0$, then, for every nonempty~$S\subseteq N(i)$,
-\begin{equation*}
-c_i^0(S)+c_i^1(S)\leq0,
-\qquad
-c_i^1(\vn)c_i^0(S)\geq c_i^0(\vn)c_i^1(S).
-\end{equation*}
-\end{enumerate}
-\end{theorem}
-
-\begin{proof}
+\begin{proof}[Proof of the coefficient criterion in
+Theorem~\ref{thm:patch-positivity-order}]
 Fix~$i$ and use the full-patch formulas from
 Appendix~\ref{app:bulk-formulas}. The contributions of patches beginning with
 an incoming interaction are
@@ -67,8 +46,8 @@ $c_i^0(S)\leq0$ for every nonempty~$S$, and the same argument yields
 $c_i^0\equiv0$. Conversely, if~$c_i\equiv0$, there are no outgoing
 interactions from~$i$, and every incoming patch contribution is nonnegative.
 
-Suppose now that~$r_i>0$ and that the condition from the~$\mathsf{OO}$ patches
-holds. Since~$c_i^0(\vn),c_i^1(\vn)\geq0$,
+Suppose now that~$r_i>0$. Assume that the condition from the~$\mathsf{OO}$
+patches holds. Since~$c_i^0(\vn),c_i^1(\vn)\geq0$,
 \begin{align*}
 \psi_i(\Delta,1)
 &=
@@ -89,19 +68,18 @@ long-patch limit, so it is nonnegative for every patch length exactly when the
 second inequality in the statement holds.
 \end{proof}
 
-\subsection{Calm--facilitating rates}
+\subsection{Interpretation of the coefficient inequalities}
 \label{subsec:positivity-interpretation}
 
-\begin{corollary}[Calm--facilitating rates]
-\label{cor:calm-facilitating-coefficients}
+\begin{corollary}[Monotonicity of local rates]
+\label{cor:local-rate-monotonicity}
 If a spin system has patch positivity, then~$c_i^1$ and~$c_i^0+c_i^1$ are
-coordinatewise nonincreasing as calm states are added to the neighbourhood
-of~$i$.
+coordinatewise nonincreasing as~$1$'s are added to the neighbourhood of~$i$.
 \end{corollary}
 
 \begin{proof}
-The claim is immediate when~$r_i=0$. Suppose that~$r_i>0$ and~$c_i^1(S)>0$.
-The first inequality in Theorem~\ref{thm:patch-positivity-criterion} gives
+If~$r_i=0$, there is nothing to prove. Suppose that~$r_i>0$ and~$c_i^1(S)>0$.
+The first inequality in Theorem~\ref{thm:patch-positivity-order} gives
 $c_i^0(S)<0$, and hence
 \begin{equation*}
 c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)<0,
@@ -112,55 +90,33 @@ the multilinear expansions, since every nonconstant coefficient of~$c_i^1$
 and of~$c_i^0+c_i^1$ is nonpositive.
 \end{proof}
 
-For a fixed neighbourhood configuration, the two directional rates are those
-of a Bernoulli refresh with intensity~$c_i^0+c_i^1$ and calm-state probability
-$c_i^0/(c_i^0+c_i^1)$ whenever the denominator is positive. Thus replacing
-facilitating neighbours by calm ones cannot increase either the local update
-intensity or the rate at which a calm site becomes facilitating. This does not
-make the full flip rate monotone:~$c_i^0$ may increase as calm neighbours are
-added. Coordinatewise monotonicity is also weaker than patch positivity and
-does not imply the coefficient inequalities in
-Theorem~\ref{thm:patch-positivity-criterion}.
+For a fixed neighbourhood configuration, the two flip rates are those
+of a Bernoulli refresh with intensity~$c_i^0+c_i^1$ and probability
+$c_i^0/(c_i^0+c_i^1)$ of state~$1$, whenever the denominator is positive.
+Thus replacing~$0$-neighbours by~$1$-neighbours cannot increase either the
+local update intensity or the rate of a~$1\to0$ transition. This does not make
+the full flip rate monotone:~$c_i^0$ may increase as~$1$-neighbours are added.
+Coordinatewise monotonicity is also weaker than patch positivity and does not
+imply the coefficient inequalities in
+Theorem~\ref{thm:patch-positivity-order}.
 
-\subsection{Critical profile}
+\subsection{End-patch threshold}
 \label{subsec:critical-density}
 
 Patch positivity does not determine the sign of an end contribution, because
 $C(p,P)$ also depends on the terminal one-density~$p$. For a patch-positive spin
-system, define the \emph{patch critical density} at~$i$ by
-\begin{equation*}
-p_i^\star
-=
-\inf\cb{
- p\in[0,1]:
- C(p,P)\geq0
- \text{ for every end patch }P\text{ based at }i
-}.
-\end{equation*}
-The patch critical profile is~$\mb p^\star=(p_i^\star)_{i\in\Lambda}$. For a
-translation-invariant system it is constant, with common value~$p^\star$.
+system, the end-patch threshold was defined before
+Theorem~\ref{thm:patch-positivity-order}.
 
-\begin{proposition}[Critical-profile formula]
-\label{prop:critical-profile-formula}
-For every~$i\in\Lambda$,
-\begin{equation*}
-p_i^\star
-=
-\max\cb{
-0,
-\sup_{\substack{
- \vn\neq S\subseteq N(i)\\
- c_i^0(S)+c_i^1(S)<0
-}}
-\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
-}.
-\end{equation*}
-\end{proposition}
-
-\begin{proof}
+\begin{proof}[Proof of the end-patch threshold formula]
 An incoming end patch has contribution
-$\psi_i(\Delta,p)/\varphi_i(\Delta)$ and is nonnegative for every
-$p\in[0,1]$. If~$r_i=0$, Theorem~\ref{thm:patch-positivity-criterion} gives
+
+\begin{equation*}
+\frac{\psi_i(\Delta,p)}{\varphi_i(\Delta)},
+\end{equation*}
+
+which is nonnegative for every~$p\in[0,1]$. If~$r_i=0$,
+Theorem~\ref{thm:patch-positivity-order} gives
 $c_i\equiv0$. There are no outgoing end patches based at~$i$, so~$p_i^\star=0$,
 and the formula holds.
 
@@ -190,7 +146,7 @@ c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}p,
 \frac{c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)}{r_i}.
 \end{align*}
 The last quantity is nonnegative by
-Theorem~\ref{thm:patch-positivity-criterion}. Since~$N_{i,S}(\Delta,p)$ is
+Theorem~\ref{thm:patch-positivity-order}. Since~$N_{i,S}(\Delta,p)$ is
 affine in~$e^{-r_i\Delta}$, it is nonnegative for every patch length exactly
 when~$N_{i,S}(0,p)\geq0$.
 
@@ -219,13 +175,13 @@ p_i^\star
 \begin{proof}
 For every nonempty~$S\subseteq N(i)$ with
 $c_i^0(S)+c_i^1(S)<0$, the second inequality in
-Theorem~\ref{thm:patch-positivity-criterion} is equivalent to
+Theorem~\ref{thm:patch-positivity-order} is equivalent to
 \begin{equation*}
 \frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
 \leq
 \frac{c_i^0(\vn)}{c_i^0(\vn)+c_i^1(\vn)}.
 \end{equation*}
-The claim follows from Proposition~\ref{prop:critical-profile-formula}.
+The claim follows from Theorem~\ref{thm:patch-positivity-order}.
 \end{proof}
 
 For every end patch~$P$ based at~$i$, the function~$p\mapsto C(p,P)$ is affine

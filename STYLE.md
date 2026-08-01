@@ -15,7 +15,7 @@ This file records the writing and LaTeX conventions for the paper under `paper/`
 
 ## Terminology
 
-- In the general discussion, a state is `calm` or `facilitating`.
+- In the general discussion, use the states `0` and `1`. When relevant, say that `0` is the facilitating state; do not introduce an informal name for the other state.
 - Use the established model-specific term when one exists: infected/healthy for the contact process, vacant/occupied for KCSM, and particle/empty site for particle systems.
 - `Activity` is not a technical state variable. It may be used in the introduction as an umbrella term for births, refreshes, flips, and similar updates, but not as a formal synonym for the facilitating state.
 - `Active set` and `active source` are formal terminology for the signed dual. Write `dual-active` when the distinction from the spin states matters.

@@ -1,0 +1,144 @@
+\section{Introduction}
+\label{sec:introduction}
+
+\subsection{Averaging consecutive updates}
+
+The patch construction detects cancellations among consecutive dual updates at
+one site before the next dual interaction between sites. Such cancellations can
+occur in the facilitating systems considered here and are lost if absolute
+values are taken after each dual update. We condition on the nonempty-target
+interactions that act on the dual process and average the other marked
+interactions on the intervening site--time intervals.
+
+We use the two states~$0$ and~$1$, with~$0$ as the facilitating state, following
+the convention for kinetically constrained spin models (KCSM)
+\cite{CancriniEtAl2008,HartarskyToninelli2025}. The interpretation depends on
+the model. A~$0$ may infect a neighbour, permit a constrained refresh, or cause
+a neighbouring spin to flip. In the unperturbed facilitating models, a region
+containing only~$1$'s has no internal source of constrained updates, while an
+update enabled by a~$0$ may create further~$0$'s. Independent noise may also
+create~$0$'s. This gives a direction to the comparison considered below, but
+not monotonicity of the dynamics: a refresh or flip may create or remove a~$0$,
+and ordered configurations need not remain ordered.
+
+The question considered here is whether part of this comparison survives for
+selected observables and whether independent updates which create facilitating
+states erase the initial condition. Attractiveness and monotone coupling do not
+apply to the main examples. Reversibility need not survive an independent
+perturbation. The argument uses the graphical construction and does not assume
+that the limiting measure is known.
+
+For a monomial~$\chi_A(\eta)=\prod_{i\in A}\eta(i)$, the standard signed
+Feynman--Kac dual is a finite-set process which follows the dependence of
+$P_t\chi_A$ backward through the graphical construction. Its signs come from
+the multilinear coefficients of the flip rates. Taking absolute values after
+each dual update discards cancellations between consecutive updates at the same
+site. The representation below first groups the marked interactions by the
+site--time intervals between successive interactions involving another site.
+
+\subsection{The representation and its consequences}
+
+We record only the times, sources, and target sets of dual interactions which
+occur at active sources and have nonempty target. These records form the
+successful-interaction skeleton. The skeleton does not record whether such an
+interaction is a split or a birth, any death, or any ring at an inactive
+source. The successful-interaction times partition each site line into patches.
+Conditional on the skeleton, the marked interactions in distinct patches are
+independent. Averaging the signed Feynman--Kac factor over each patch gives the
+formula in Theorem~\ref{thm:patch-representation}. Unlike a termwise estimate of
+the dual, this formula averages consecutive local updates before their signs
+are discarded or their contributions are compared.
+
+Patch positivity means that every completed patch has nonnegative averaged
+contribution. The condition is stated in spacetime terms but is checked from
+the generator: Theorem~\ref{thm:patch-positivity-order} gives necessary and
+sufficient inequalities for the multilinear coefficients of the two
+rates~$0\to1$ and~$1\to0$. The same coefficients determine the smallest terminal
+one-density profile~$\mb p^\star$ for which all end-patch contributions are
+nonnegative. This profile is a threshold for the sign argument, not a phase
+transition or an ergodicity threshold.
+
+Centering monomials at~$\mb p^\star$ defines an order~$\preceq_*$ on measures.
+Patch positivity implies that the semigroup preserves this order even when it
+does not preserve the pointwise order of configurations. It also yields a
+comparison with the dynamics obtained by removing an
+environment-independent~$1\to0$ component. These statements form
+Theorem~\ref{thm:patch-positivity-order}. The centered-basis proof of order
+preservation is algebraic: in finite volume, the generator has nonnegative
+off-diagonal entries in that basis.
+
+Theorem~\ref{thm:common-invariant-limit} gives the convergence result. Suppose
+the interaction graph has polynomial growth of exponent~$D$ and every~$1$-spin
+has an environment-independent transition to~$0$ at rate~$\varepsilon>0$.
+For an affine extension~$\mathcal M_-$ of the
+nonnegative centered-moment cone, all initial laws in~$\mathcal M_-$ converge
+to the same invariant measure, and local observables converge at rate
+
+\begin{equation*}
+O\bb{(1+t)^D e^{-\varepsilon t/2}}.
+\end{equation*}
+
+If~$\mb p^\star\leq\mbs{\tfrac12}$, the class contains every initial law, so
+the invariant measure is unique and convergence is uniform over initial
+configurations. The proof separates three events: the pre-cut skeleton leaves
+a linearly growing directed ball; a successful interaction occurs after the
+cut; or no such interaction occurs and the end patches relax. Finite
+propagation controls the first event. The other two estimates use the uniform
+$1\to0$ component in different ways.
+
+\subsection{Relation to previous work}
+
+Set-valued graphical constructions and additive dual processes go back to
+Harris~\cite{Harris1974,Harris1978}; see also
+Griffeath~\cite{Griffeath1979}, Holley--Stroock~\cite{HolleyStroock1979}, and
+Gray~\cite{Gray1986}. We use the standard monomial Feynman--Kac duality under
+the usual finite-speed assumptions for spin systems; Jansen and
+Kurt~\cite{JansenKurt2014} give a general account of Markov-process duality.
+The new step is to condition on the successful skeleton and average the
+remaining Poisson marks on disjoint site--time intervals. Information
+percolation also retains only updates which carry information
+\cite{LubetzkySly2016}, but its clusters and oblivious updates serve a different
+purpose. Here the conditional one-site factorization gives a semigroup
+representation and retains cancellations inside each patch. It also differs
+from the time-scaling observation in~\cite{GluchowskiMenz2025}, where each
+local update transition matrix is mixed with the identity. The construction
+was motivated by the wall-type one-sided spin systems studied in
+\cite{GluchowskiMenz2026}; many of their rate functions satisfy the coefficient
+criterion below. We do not treat these systems as a separate application here.
+
+Classical correlation inequalities for spin systems are tied to attractiveness
+and association~\cite{Harris1977,Liggett2006}; duality can also yield moment
+inequalities in specific models~\cite{GiardinaRedigVafayi2010}. The order here
+uses products centered at~$\mb p^\star$ and applies to non-attractive systems.
+To our knowledge, preservation of this centered-moment order has not previously
+been proved under a local coefficient condition of the present form. The
+uniform-noise convergence theorem is likewise distinct from classical
+positive-rates results such as Gray~\cite{Gray1982}: its hypotheses are patch
+positivity and a specified independent component, and its conclusion is first
+obtained on the class~$\mathcal M_-$.
+
+The examples belong to two established lines of work. FA-1f originates in
+\cite{FredricksonAndersen1984} and is placed in the modern KCSM framework in
+\cite{CancriniEtAl2008,HartarskyToninelli2025}. Its out-of-equilibrium theory,
+and that of related KCSMs such as East, is developed in
+\cite{CancriniEtAl2010,BlondelEtAl2013,MountfordValle2019,Mareche2019,
+HartarskyToninelli2024}. BABP was introduced
+by Neuhauser and Sudbury~\cite{NeuhauserSudbury1993}; its qualitative
+convergence and quasi-duality theory are due in part to Sudbury and
+Lloyd--Sudbury~\cite{Sudbury1997,LloydSudbury1997}. The recent product-law
+estimates in~\cite{MartinelliShapiraToninelli2025} provide the endpoints for
+the centered-moment corollary proved here. The examples are included to show
+how the same coefficient criterion treats two different facilitation rules.
+
+\subsection{Organization}
+
+Section~\ref{sec:setup} fixes the notation and
+Section~\ref{sec:main-results} states the three principal theorems.
+Section~\ref{sec:signed-dual} constructs the successful skeleton and proves the
+patch representation, Theorem~\ref{thm:patch-representation}.
+Section~\ref{sec:patch-positivity} proves the coefficient criterion and the
+centered-moment comparisons in Theorem~\ref{thm:patch-positivity-order}.
+Section~\ref{sec:convergence} proves the common invariant-limit theorem.
+The FA-1f and BABP calculations are collected in
+Section~\ref{sec:applications}. Generator calculations, one-site
+formulas, and propagation estimates are deferred to the appendices.
