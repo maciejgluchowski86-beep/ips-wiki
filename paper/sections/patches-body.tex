@@ -111,10 +111,27 @@ and
 \end{equation*}
 \end{definition}
 
+\begin{figure}[htbp]
+\centering
+\resizebox{\linewidth}{!}{\input{paper/figures/patch-geometry}}
+\caption{A realization of the signed dual (left) and its patch decomposition
+(right). Light gray regions mark the times at which a site is dual-active.
+Black arrows are successful interactions, with a black dot at the source; gray
+arrows are rings at inactive sources, and crosses are deaths. The initial
+interaction at time~$0$ activates the sites in~$A_0$. On the right, marks
+omitted from the successful-interaction skeleton are not shown, and only the
+active state forced by an outgoing terminal boundary is shaded. Red striped
+bands mark patch boundaries, and the labels give the initial and terminal
+boundary types. The thick red staircase separates bulk patches below from end
+patches above.}
+\label{fig:patch-geometry}
+\end{figure}
+\FloatBarrier
+
 The labels have the following formal and graphical meanings.
 \begin{center}
 \small
-\begin{tabular}{c c p{0.57\textwidth}}
+\begin{tabularx}{\textwidth}{@{}c c >{\raggedright\arraybackslash}X@{}}
 \hline
 boundary & label & meaning \\
 \hline
@@ -124,7 +141,7 @@ terminal & $\mathsf I$ & the next successful interaction involving~$i(P)$ is inc
 terminal & $\mathsf O$ & the next successful interaction involving~$i(P)$ is outgoing \\
 terminal & $\mathsf E$ & there is no later successful interaction involving~$i(P)$ \\
 \hline
-\end{tabular}
+\end{tabularx}
 \end{center}
 For an interaction,~$S(P)\subseteq N\bb{i(P)}$ on the outgoing side,
 so the initial label is determined by~$i(P)$ and~$S(P)$. We retain the label
@@ -171,22 +188,6 @@ successful-interaction times partition each site line into consecutive
 intervals. 
 Figure~\ref{fig:patch-geometry} shows a realization and the induced
 finite-horizon patch decomposition.
-
-\begin{figure}[htbp]
-\centering
-\resizebox{\linewidth}{!}{\input{paper/figures/patch-geometry}}
-\caption{A realization of the signed dual (left) and its patch decomposition
-(right). Light gray regions mark the times at which a site is dual-active.
-Black arrows are successful interactions, with a black dot at the source; gray
-arrows are rings at inactive sources, and crosses are deaths. The initial
-interaction at time~$0$ activates the sites in~$A_0$. On the right, marks
-omitted from the successful-interaction skeleton are not shown, and only the
-active state forced by an outgoing terminal boundary is shaded. Red striped
-bands mark patch boundaries, and the labels give the initial and terminal
-boundary types. The thick red staircase separates bulk patches below from end
-patches above.}
-\label{fig:patch-geometry}
-\end{figure}
 
 If~$P$ is an end patch and~$t\geq e(P)$ is finite, its \emph{extension} through
 time~$t$ is the geometric patch

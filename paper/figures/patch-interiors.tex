@@ -20,7 +20,7 @@
   external secondary/.style={draw=secondary,line width=0.52pt,-{Stealth[length=1.35mm,width=0.95mm]}},
   used death/.style={font=\large,text=black,inner sep=0pt},
   patch type label/.style={font=\large,inner sep=0pt},
-  patch case label/.style={font=\scriptsize,text=outline,align=center,inner sep=0pt},
+  patch case label/.style={font=\fontsize{11}{12}\selectfont,text=outline,align=center,inner sep=0pt},
   patch decomposition arrow/.style={draw=black,line width=0.95pt,-{Stealth[length=2.4mm,width=1.55mm]}},
 }
 
@@ -182,8 +182,8 @@
 \node[patch type label,anchor=east] at (-2.58,1.42) {$\mathsf{II}$};
 \begin{scope}[scale=0.88]\PatchBlock{\IncomingInitial}{\IncomingTerminal}\end{scope}
 \draw[patch decomposition arrow] (1.80,1.42)--(4.43,1.42);
-\begin{scope}[shift={(6.15,0)},scale=0.88]\FullPrism\IncomingInitial\IncomingTerminal\node[patch case label] at (0,-1.20) {no death};\end{scope}
-\begin{scope}[shift={(10.5,0)},scale=0.88]\DeathPrism\IncomingInitial\IncomingTerminal\node[patch case label] at (0,-1.20) {death};\end{scope}
+\begin{scope}[shift={(5.95,0)},scale=0.88]\FullPrism\IncomingInitial\IncomingTerminal\node[patch case label] at (0,-1.20) {no death};\end{scope}
+\begin{scope}[shift={(10.70,0)},scale=0.88]\DeathPrism\IncomingInitial\IncomingTerminal\node[patch case label] at (0,-1.20) {death};\end{scope}
 \end{tikzpicture}}
 
 \newcommand{\PatchRowOI}{%
@@ -192,16 +192,16 @@
 \node[patch type label,anchor=east] at (-2.58,1.42) {$\mathsf{OI}$};
 \begin{scope}[scale=0.88]\PatchBlock{\OutgoingAt{0}}{\IncomingTerminal}\end{scope}
 \draw[patch decomposition arrow] (1.80,1.42)--(4.43,1.42);
-\begin{scope}[shift={(6.15,0)},scale=0.88]\FullPrism\OutgoingAt{0}\IncomingTerminal\node[patch case label] at (0,-1.20) {birth, no death};\end{scope}
+\begin{scope}[shift={(5.85,0)},scale=0.88]\FullPrism\OutgoingAt{0}\IncomingTerminal\node[patch case label] at (0,-1.20) {birth, no death};\end{scope}
 \begin{scope}[shift={(10.5,0)},scale=0.88]\DeathPrism\OutgoingAt{0}\IncomingTerminal\node[patch case label] at (0,-1.20) {birth, then death};\end{scope}
-\begin{scope}[shift={(14.85,0)},scale=0.88]\EmptyPrism\OutgoingAt{0}\IncomingTerminal\node[patch case label] at (0,-1.20) {split};\end{scope}
+\begin{scope}[shift={(15.15,0)},scale=0.88]\EmptyPrism\OutgoingAt{0}\IncomingTerminal\node[patch case label] at (0,-1.20) {split};\end{scope}
 \end{tikzpicture}}
 
 \noindent\makebox[\textwidth][l]{\scalebox{0.72}{\PatchRowIO}}
-\par\vspace{-0.35em}
+\par\vspace{-0.65em}
 \noindent\makebox[\textwidth][l]{\scalebox{0.72}{\PatchRowOO}}
-\par\vspace{-0.35em}
+\par\vspace{-0.65em}
 \noindent\makebox[\textwidth][l]{\scalebox{0.72}{\PatchRowII}}
-\par\vspace{-0.35em}
+\par\vspace{-0.65em}
 \noindent\makebox[\textwidth][l]{\scalebox{0.72}{\PatchRowOI}}
 \endgroup
