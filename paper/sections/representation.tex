@@ -119,23 +119,73 @@ measurable functions~$f_P$,
 \end{theorem}
 
 \begin{proof}
-Fix a skeleton realization~$g$ and use the standard Poisson disintegration
-convention~\cite{LastPenrose2017}: prescribed atoms are inserted and the
-remaining process is Poisson. Conditional on the source, time, and target, a
-split or birth has probability proportional to its rate; this conditional law
-is well defined even though a fixed list of continuous times has probability
-zero.
+Write~$G_T=(Y_0,\mathcal I_T)$, so~$\mathcal G_T=\sigma(G_T)$, and fix a
+realization~$G_T=g$ for which the conditional law is defined. We use the
+standard Poisson disintegration convention~\cite{LastPenrose2017}: the atoms
+prescribed by~$g$ are inserted, and the remaining process is Poisson. Let
+$\mathcal P_T(g)$ be the resulting finite labeled patch family. For each
+$P\in\mathcal P_T(g)$, let~$B_P$ be the event that the interaction prescribed
+by~$g$ which begins~$P$ is present in~$I$. Only its source, time, and target are
+prescribed; the split--birth kind is not recorded. For a patch beginning at the
+deterministic initial interaction, set~$B_P=\Omega$. If several patches begin at
+the same interaction, their events~$B_P$ are identical. Set
+\begin{equation*}
+B(g)=\bigcap_{P\in\mathcal P_T(g)}B_P,
+\qquad
+\operatorname{Con}(g)
+=
+\bigcap_{P\in\mathcal P_T(g)}\operatorname{Con}(P).
+\end{equation*}
+Then~$\cb{G_T=g}=B(g)\cap\operatorname{Con}(g)$. Indeed, the events~$B_P$
+place all interactions recorded by~$g$, while the consistency events make every
+prescribed outgoing interaction successful and exclude every additional
+successful interaction inside a patch.
 
-The patch interiors are disjoint source--time strips. The split--birth kind of
-a boundary interaction belongs only to the patch beginning at its source; the
-patches beginning at its targets do not use that mark. Hence, before imposing
-consistency, the variables~$(\Sigma_P)_{P\in\mathcal P_T(g)}$ are independent
-with laws~$(\pP_P)_P$. The skeleton equals~$g$ when
-$\operatorname{Con}(P)$ occurs for every patch. Conditioning this product law
-on the product event~$\bigcap_P\operatorname{Con}(P)$ gives
-\eqref{eq:patch-factorization}. Each normalizer is positive for an occurring
-patch: if it vanished, the patch would have zero conditional probability even
-after its initial boundary interaction was inserted.
+Conditional on~$B(g)$, the variables~$(\Sigma_P)_{P\in\mathcal P_T(g)}$ are
+independent and~$\Sigma_P$ has law~$\pP_P$. This follows from independent
+increments of the underlying Poisson processes on the disjoint patch
+intervals. At an outgoing initial boundary, conditioning on the presence of the
+interaction leaves its unrecorded kind with the rate-proportional law
+\eqref{eq:patch-initial-kind-law}. Since~$\operatorname{Con}(P)$ is measurable
+with respect to~$\Sigma_P$, the consistency events are conditionally independent
+given~$B(g)$, and~$\Sigma_P$ is conditionally independent of
+$\operatorname{Con}(Q)$ whenever~$P\neq Q$.
+
+Consequently,
+\begin{align*}
+\CE{
+\prod_{P\in\mathcal P_T(g)}f_P\bb{\Sigma_P}
+}{G_T=g}
+&=
+\CE{
+\prod_{P\in\mathcal P_T(g)}f_P\bb{\Sigma_P}
+}{B(g)\cap\operatorname{Con}(g)}
+\\
+&=
+\frac{
+\CE{
+\displaystyle
+\prod_{P\in\mathcal P_T(g)}
+ f_P\bb{\Sigma_P}\ind\bb{\operatorname{Con}(P)}
+}{B(g)}
+}{
+\CP{\operatorname{Con}(g)}{B(g)}
+}
+\\
+&=
+\prod_{P\in\mathcal P_T(g)}
+\frac{
+\E_P\Cb{f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}}
+}{
+\pP_P\bb{\operatorname{Con}(P)}
+}
+\\
+&=
+\prod_{P\in\mathcal P_T(g)}
+\E_P^{\mathrm{con}}\Cb{f_P\bb{\Sigma_P}}.
+\end{align*}
+Every denominator is positive for a realized patch, which proves
+\eqref{eq:patch-factorization}.
 \end{proof}
 
 \subsubsection{Patch contributions}
