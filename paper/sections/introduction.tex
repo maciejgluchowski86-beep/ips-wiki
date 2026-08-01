@@ -4,11 +4,13 @@
 \subsection{Averaging consecutive updates}
 
 The patch construction detects cancellations among consecutive dual updates at
-one site before the next dual interaction between sites. Such cancellations can
-occur in the facilitating systems considered here and are lost if absolute
-values are taken after each dual update. We condition on the nonempty-target
-interactions that act on the dual process and average the other marked
-interactions on the intervening site--time intervals.
+one site before the next dual interaction between sites. If no information
+leaves a site between two local updates, a second birth is redundant, a later
+refresh overwrites the earlier refresh, and two flips cancel. Such
+cancellations occur in the facilitating systems considered here and are lost
+if absolute values are taken after each dual update. We condition on the
+nonempty-target interactions that act on the dual process and average the other
+marked interactions on the intervening site--time intervals.
 
 We use the two states~$0$ and~$1$, with~$0$ as the facilitating state, following
 the convention for kinetically constrained spin models (KCSM)
@@ -49,8 +51,8 @@ formula in Theorem~\ref{thm:patch-representation}. Unlike a termwise estimate of
 the dual, this formula averages consecutive local updates before their signs
 are discarded or their contributions are compared.
 
-Patch positivity means that every completed patch has nonnegative averaged
-contribution. The condition is stated in spacetime terms but is checked from
+Patch positivity is the condition~$C(P)\geq0$ for every patch shape. It is
+stated in spacetime terms but is checked from
 the generator: Theorem~\ref{thm:patch-positivity-order} gives necessary and
 sufficient inequalities for the multilinear coefficients of the two
 rates~$0\to1$ and~$1\to0$. The same coefficients determine the smallest terminal
@@ -60,12 +62,12 @@ transition or an ergodicity threshold.
 
 Centering monomials at~$\mb p^\star$ defines an order~$\preceq_*$ on measures.
 Patch positivity implies that the semigroup preserves this order even when it
-does not preserve the pointwise order of configurations. It also yields a
-comparison with the dynamics obtained by removing an
-environment-independent~$1\to0$ component. These statements form
-Theorem~\ref{thm:patch-positivity-order}. The centered-basis proof of order
-preservation is algebraic: in finite volume, the generator has nonnegative
-off-diagonal entries in that basis.
+does not preserve the pointwise order of configurations. This is the second
+part of Theorem~\ref{thm:patch-positivity-order}; the centered-basis proof is
+algebraic, since in finite volume the generator has nonnegative off-diagonal
+entries in that basis. Corollary~\ref{cor:pure-death-comparison} compares the
+system with the dynamics obtained by removing an
+environment-independent~$1\to0$ component.
 
 Theorem~\ref{thm:common-invariant-limit} gives the convergence result. Suppose
 the interaction graph has polynomial growth of exponent~$D$ and every~$1$-spin
@@ -137,7 +139,8 @@ Section~\ref{sec:main-results} states the three principal theorems.
 Section~\ref{sec:signed-dual} constructs the successful skeleton and proves the
 patch representation, Theorem~\ref{thm:patch-representation}.
 Section~\ref{sec:patch-positivity} proves the coefficient criterion and the
-centered-moment comparisons in Theorem~\ref{thm:patch-positivity-order}.
+centered-moment comparisons in Theorem~\ref{thm:patch-positivity-order}, as
+well as Corollary~\ref{cor:pure-death-comparison}.
 Section~\ref{sec:convergence} proves the common invariant-limit theorem.
 The FA-1f and BABP calculations are collected in
 Section~\ref{sec:applications}. Generator calculations, one-site

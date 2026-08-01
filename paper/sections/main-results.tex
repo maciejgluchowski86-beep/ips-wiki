@@ -37,10 +37,10 @@ For any initial law~$\mu$,
 \end{equation}
 \end{maintheorem}
 
-We call the spin system \emph{patch positive} when~$C(P)\geq0$ for every
-completed patch which can occur. End contributions also depend on the terminal
-spin. For a patch-positive system, define the \emph{end-patch threshold
-profile}~$\mb p^\star=(p_i^\star)_{i\in\Lambda}$ by
+Patch positivity is the condition~$C(P)\geq0$ for every patch shape. End
+contributions also depend on the terminal spin. For a patch-positive system,
+define the \emph{patch threshold profile}
+$\mb p^\star=(p_i^\star)_{i\in\Lambda}$ by
 
 \begin{equation*}
 p_i^\star
@@ -92,26 +92,20 @@ $\mb p\geq\mb p^\star$.
 
 \begin{maintheorem}[Patch positivity and centered-moment order]
 \label{thm:patch-positivity-order}
-\label{thm:patch-positivity-criterion}
-\label{prop:critical-profile-formula}
-\label{thm:centered-moment-order}
-\label{thm:pure-death-comparison}
-Put~$r_i=c_i^0(\vn)+c_i^1(\vn)$. The spin system is patch positive if and only
-if, for every site~$i$,
-
 \begin{enumerate}[label=\textup{(\roman*)}]
-\item if~$r_i=0$, then~$c_i\equiv0$;
-\item if~$r_i>0$, then, for every nonempty~$S\subseteq N(i)$,
+\item Put~$r_i=c_i^0(\vn)+c_i^1(\vn)$. The spin system is patch positive if and
+only if, at every site~$i$ with~$r_i=0$, one has~$c_i\equiv0$, while at every
+site with~$r_i>0$, the inequalities
 
 \begin{equation}
 \label{eq:principal-coefficient-criterion}
 c_i^0(S)+c_i^1(S)\leq0,
 \qquad
-c_i^1(\vn)c_i^0(S)\geq c_i^0(\vn)c_i^1(S).
+c_i^1(\vn)c_i^0(S)\geq c_i^0(\vn)c_i^1(S)
 \end{equation}
-\end{enumerate}
 
-When these conditions hold, the end-patch threshold profile is
+hold for every nonempty~$S\subseteq N(i)$. When these conditions hold, the patch
+threshold profile is
 
 \begin{equation}
 \label{eq:principal-threshold-profile}
@@ -127,7 +121,7 @@ c_i^0(S)+c_i^1(S)<0
 }.
 \end{equation}
 
-The semigroup preserves the centered-moment order:
+\item The semigroup preserves the centered-moment order:
 
 \begin{equation}
 \label{eq:principal-centered-order}
@@ -138,13 +132,28 @@ The semigroup preserves the centered-moment order:
 \text{for every }t\geq0.
 \end{equation}
 
-It also preserves~$\mathcal M_*$, and
+No assumption that~$\mu$ or~$\nu$ belongs to~$\mathcal M_*$ is required in
+\eqref{eq:principal-centered-order}. The semigroup also preserves
+$\mathcal M_*$, and
 
 \begin{equation*}
 (\mu P_t)(\chi_A)\leq(\nu P_t)(\chi_A)
 \end{equation*}
 
-whenever~$\mu\preceq_*\nu$. Finally, suppose
+whenever~$\mu\preceq_*\nu$. In particular, for every~$\mu\in\mathcal M_*$,
+
+\begin{equation*}
+(\mu_{\mb p^\star}P_t)(\chi_A)
+\leq
+(\mu P_t)(\chi_A).
+\end{equation*}
+\end{enumerate}
+\end{maintheorem}
+
+\begin{corollary}[Pure-death comparison]
+\label{cor:pure-death-comparison}
+Let~$\Lcal$ and~$\Lcal'$ be spin-system generators. Suppose that~$\Lcal$ is
+patch positive and that
 
 \begin{equation}
 \label{eq:pure-death-decomposition}
@@ -168,7 +177,7 @@ semigroup~$P_t'$ satisfies
 \qquad
 \text{for every }\mu\in\mathcal M_*.
 \end{equation}
-\end{maintheorem}
+\end{corollary}
 
 The class used in the convergence theorem is the following affine extension of
 $\mathcal M_*$. For~$K\geq0$, set
@@ -231,10 +240,10 @@ to~$\mathcal M_-$. Indeed,
 p_i^\star
 \leq
 \frac{c_i^0(\vn)}{c_i^0(\vn)+c_i^1(\vn)}
-<1,
+<1.
 \end{equation*}
 
-For the finite zero set~$F$, it is enough in
+For a configuration with finite zero set~$F$, it is enough in
 \eqref{eq:m-minus-affine-characterization} to take~$K$ satisfying
 
 \begin{equation*}

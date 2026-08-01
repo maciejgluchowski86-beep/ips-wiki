@@ -6,7 +6,7 @@ the interactions between sites. We retain the nonempty-target interactions
 which act on the dual process. Their endpoints partition each site line into
 patches.
 
-\subsubsection{Successful interactions}
+\paragraph{Successful interactions.}
 \label{subsec:successful-skeleton}
 
 \begin{definition}[Successful interaction and its record]
@@ -51,7 +51,7 @@ The local-finiteness statement in
 Section~\ref{subsec:dual-graphical-construction} implies that~$\mathcal I_T$ is
 finite almost surely.
 
-\subsubsection{Patch geometry}
+\paragraph{Patch geometry.}
 \label{subsec:patch-geometry}
 
 A record~$(j,t,S)\in\mathcal I$ gives an incoming successful interaction at
@@ -132,7 +132,7 @@ because the four finite boundary types enter the contribution formulas
 symmetrically. Let~$\mathcal P$ denote the family of all patches. Every patch
 with terminal label~$\mathsf E$ is infinite, and every other patch is finite.
 
-\subsubsection{Finite-horizon truncation}
+\paragraph{Finite-horizon truncation.}
 \label{subsec:patch-truncation}
 
 Fix~$t\geq0$. For a patch~$P\in\mathcal P$ with~$s(P)\leq t$, let
@@ -175,10 +175,16 @@ finite-horizon patch decomposition.
 \begin{figure}[htbp]
 \centering
 \resizebox{\linewidth}{!}{\input{paper/figures/patch-geometry}}
-\caption{A signed-dual trajectory (left) and its patch decomposition (right).
-Black arrows are successful interactions; gray arrows and crosses are rings and
-deaths omitted from the skeleton. The thick red staircase separates bulk
-patches below from end patches above.}
+\caption{A realization of the signed dual (left) and its patch decomposition
+(right). Light gray regions mark the times at which a site is dual-active.
+Black arrows are successful interactions, with a black dot at the source; gray
+arrows are rings at inactive sources, and crosses are deaths. The initial
+interaction at time~$0$ activates the sites in~$A_0$. On the right, marks
+omitted from the successful-interaction skeleton are not shown, and only the
+active state forced by an outgoing terminal boundary is shaded. Red striped
+bands mark patch boundaries, and the labels give the initial and terminal
+boundary types. The thick red staircase separates bulk patches below from end
+patches above.}
 \label{fig:patch-geometry}
 \end{figure}
 

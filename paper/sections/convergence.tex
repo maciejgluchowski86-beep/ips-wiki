@@ -139,8 +139,10 @@ r_i=c_i^0(\vn)+c_i^1(\vn),
 \qquad
 p_i^\circ=\frac{c_i^0(\vn)}{r_i};
 \end{equation*}
-thus~$p_i^\circ$ is the empty-neighbour equilibrium one-density. The
-pure-death component ensures~$r_i\geq\varepsilon$.
+on an interval with no nonempty-target interaction, the one-site process has
+rates~$c_i^0(\vn)$ from~$0$ to~$1$ and~$c_i^1(\vn)$ from~$1$ to~$0$.
+Thus~$p_i^\circ$ is its equilibrium one-density. The pure-death component
+ensures~$r_i\geq\varepsilon$.
 
 To control the event~$L_{T,t}^c$, begin with its first successful interaction
 after~$T$ and trace its dependence backward. The resulting patches have
@@ -470,7 +472,7 @@ at most
 \\
 &\qquad+
 e^{-\varepsilon\bb{t-T}}B_T\abs{\mathcal E_T}
-\prod_{P\in\mathcal E_T}C\bb{q_{i(P)},P}.
+\prod_{P\in\mathcal E_T}C\bb{p_{i(P)}^\circ,P}.
 \end{align*}
 On~$E_T^R$, the map~$P\mapsto i(P)$ sends~$\mathcal E_T$ bijectively onto
 $\mb{Cone}_T$, so~$\abs{\mathcal E_T}\leq\abs R$. Since

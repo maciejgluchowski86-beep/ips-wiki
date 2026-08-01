@@ -1,7 +1,7 @@
 \subsection{Centered-moment order}
 \label{sec:moment-order}
 
-\subsubsection{Centered end factors}
+\paragraph{Centered end factors.}
 \label{subsec:m-star}
 
 Recall~$\chi_A^*$,~$\preceq_*$, and~$\mathcal M_*$ from
@@ -63,7 +63,7 @@ Thus the end-factor average is nonnegative for every~$\mu\in\mathcal M_*$. Toget
 with patch positivity, this makes the weight associated with each
 successful-interaction skeleton nonnegative.
 
-\subsubsection{Preservation by the semigroup}
+\paragraph{Preservation by the semigroup.}
 \label{subsec:moment-monotonicity}
 
 \begin{proof}[Proof of the order assertions in
@@ -133,7 +133,7 @@ positivity statement directly to~$\lambda=\mu$ shows that
 $\mu P_t\in\mathcal M_*$ whenever~$\mu\in\mathcal M_*$.
 \end{proof}
 
-\subsubsection{Product-profile comparisons}
+\paragraph{Product-profile comparisons.}
 \label{subsec:profile-comparisons}
 
 \begin{corollary}[Product profiles]
@@ -179,16 +179,16 @@ The same comparisons hold for mixtures of product measures whenever their
 mixing profiles admit a coupling satisfying the corresponding coordinatewise
 inequalities almost surely.
 
-\subsubsection{Pure-death comparison}
+\subsection{Pure-death comparison}
 \label{subsec:pure-death-comparison}
 
 Let~$\Lcal$ and~$\Lcal'$ be spin-system generators with semigroups~$P_t$ and
 $P_t'$ and suppose~\eqref{eq:pure-death-decomposition} holds. Thus~$\Lcal'$ is
 obtained by removing an environment-independent part of the~$1\to0$ rates.
 
-\begin{proof}[Proof of the pure-death comparison]
-Removing the pure-death component changes only the empty-neighbour
-coefficient~$c_i^1(\vn)$, replacing it by~$c_i^1(\vn)-d_i$. The first
+\begin{proof}
+Only the empty-neighbour coefficient changes:
+$c_i^1(\vn)$ is replaced by~$c_i^1(\vn)-d_i$. The first
 inequality in Theorem~\ref{thm:patch-positivity-order} is unchanged. If the
 new empty-neighbour sum is positive, the second expression in that theorem
 becomes
@@ -239,7 +239,7 @@ expectation.
 
 \begin{corollary}[Invariant measure comparison]
 \label{cor:pure-death-invariant-comparison}
-Under the hypotheses of Theorem~\ref{thm:patch-positivity-order}, suppose that
+Under the hypotheses of Corollary~\ref{cor:pure-death-comparison}, suppose that
 the two systems have unique invariant measures~$\pi$ and~$\pi'$. Then
 \begin{equation*}
 \pi(\chi_A)\leq\pi'(\chi_A)
@@ -249,7 +249,7 @@ the two systems have unique invariant measures~$\pi$ and~$\pi'$. Then
 \end{corollary}
 
 \begin{proof}
-Apply Theorem~\ref{thm:patch-positivity-order} with
+Apply Corollary~\ref{cor:pure-death-comparison} with
 $\mu=\mu_{\mb 1}\in\mathcal M_*$ and average over~$t\in[0,T]$. Every
 subsequential weak limit of either family of Ces\`aro averages is invariant.
 Uniqueness identifies the limits as~$\pi$ and~$\pi'$, and letting~$T\to\infty$

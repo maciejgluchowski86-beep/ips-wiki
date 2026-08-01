@@ -3,8 +3,9 @@
 
 \subsection{Scope of patch positivity}
 
-Patch positivity concerns the combined contribution of the dual updates within. Consecutive updates in the
-Feynman-Kac dual may have different signs. Averaging the remaining marks in a
+Patch positivity concerns the combined contribution of the dual updates within
+one patch, not the sign of each update. Consecutive updates in the unaveraged
+Feynman--Kac dual may have different signs. Averaging the remaining marks in a
 patch gives~$C(P)$, and the coefficient criterion determines when these patch
 contributions are nonnegative.
 
@@ -42,7 +43,10 @@ model if model-specific estimates replaced these two bounds.
 
 The full-patch formula can sometimes identify the invariant measure. If every
 infinite outgoing-to-end patch has zero contribution, every realization with an
-ordinary successful interaction has zero limiting weight. The remaining term
+ordinary successful interaction has zero limiting weight. Indeed, on
+$\cb{\abs{\mathcal P}<\infty}$, such a realization has a last
+successful interaction, and the source patch beginning there is an infinite
+outgoing-to-end patch. The remaining term
 is the independent spin system with~$0\to1$ and~$1\to0$ rates
 $c_i^0(\vn)$ and~$c_i^1(\vn)$, whose invariant one-density is
 
@@ -58,6 +62,7 @@ Corollary~\ref{cor:pure-death-invariant-comparison}.
 Two problems remain. The first is convergence from arbitrary initial laws when
 $\mb p^\star\nleq\mbs{\tfrac12}$. The second is convergence from finitely many
 facilitating states without uniform deaths, including FA-1f from finitely many
-vacancies and BABP from a finite nonempty particle set. The latter may require
-model-specific control of and terminal end-patch
-dependence.
+vacancies and BABP from a finite nonempty particle set. The latter requires
+model-specific control because these point masses are not bracketed by useful
+nondegenerate product laws under~$\preceq_*$ and the hard dynamics has no
+uniform pure-death component.

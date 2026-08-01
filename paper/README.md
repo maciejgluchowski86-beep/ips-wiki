@@ -5,10 +5,11 @@ This directory contains the canonical paper manuscript. The repository-level
 repository-level `ejpecp.cls` is the EJP/ECP class used by the manuscript.
 
 The paper is organized around three principal results. After the introduction
-and setup, Theorems A--C state the patch representation, the coefficient
-criterion and centered-moment comparisons, and the common invariant-limit
-theorem. Their proofs follow in that order. The model examples and discussion
-come after the proof of the convergence theorem, followed by three appendices.
+and setup, Theorems A--C state, respectively, the patch representation; the
+coefficient criterion, patch threshold formula, and centered-moment
+comparisons; and the common invariant-limit theorem. Their proofs follow in
+that order. The model examples and discussion come after the proof of the
+convergence theorem, followed by three appendices.
 
 Shared packages, theorem environments, and notation are in
 `paper/preamble.tex`; references are in `paper/references.bib`.
