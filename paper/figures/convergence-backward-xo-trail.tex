@@ -1,0 +1,76 @@
+% Schematic for the backward chain in Lemma 6.3.
+% The highlighted vertical intervals are XO patches; the double-headed links
+% are precisely the successful interactions used by the chain.
+\begingroup
+\definecolor{convtrailred}{RGB}{175,32,38}
+\definecolor{convtrailoutline}{gray}{0.18}
+\definecolor{convtrailcone}{gray}{0.88}
+\definecolor{convtrailconeborder}{gray}{0.25}
+\definecolor{convtrailsecondary}{gray}{0.43}
+\begin{tikzpicture}[x=0.56cm,y=0.56cm]
+\path[use as bounding box] (0.20,-0.12) rectangle (7.22,7.48);
+\tikzset{
+  convtrail cone/.style={fill=convtrailcone,draw=convtrailconeborder,
+    line width=0.62pt,line join=round},
+  convtrail patch/.style={draw=convtrailred,line width=2.65pt,
+    line cap=round},
+  convtrail interaction/.style={draw=convtrailoutline,line width=0.78pt,
+    shorten <=1.2pt,shorten >=1.2pt,
+    {Stealth[length=1.35mm,width=0.96mm]}-{Stealth[length=1.35mm,width=0.96mm]}},
+  convtrail axis/.style={draw=convtrailoutline,line width=0.62pt,
+    -{Stealth[length=1.8mm,width=1.2mm]}},
+  convtrail tick/.style={draw=convtrailoutline,line width=0.52pt},
+  convtrail baseline/.style={draw=convtrailoutline,line width=0.52pt},
+  convtrail guide/.style={draw=convtrailsecondary,line width=0.48pt,
+    dash pattern=on 2.2pt off 2.0pt},
+  convtrail label/.style={font=\scriptsize,text=convtrailoutline,inner sep=1pt},
+  convtrail secondary label/.style={font=\scriptsize,
+    text=convtrailsecondary,inner sep=1pt}
+}
+
+% A deliberately irregular spacetime outline of the interaction cone.
+\path[convtrail cone]
+  (3.26,0)
+  .. controls (3.07,0.55) and (2.95,1.08) .. (2.98,1.56)
+  .. controls (2.99,1.91) and (2.45,2.17) .. (2.28,2.63)
+  .. controls (2.10,3.11) and (2.48,3.48) .. (2.25,3.87)
+  .. controls (2.00,4.31) and (1.45,4.50) .. (1.30,5.03)
+  .. controls (1.15,5.55) and (0.82,6.01) .. (0.66,6.50)
+  -- (5.56,6.50)
+  .. controls (5.44,6.04) and (5.06,5.68) .. (5.25,5.18)
+  .. controls (5.43,4.70) and (5.06,4.43) .. (4.87,4.08)
+  .. controls (4.64,3.65) and (5.07,3.31) .. (4.92,2.87)
+  .. controls (4.77,2.40) and (4.34,2.04) .. (4.47,1.58)
+  .. controls (4.60,1.11) and (4.12,0.54) .. (3.95,0)
+  -- cycle;
+
+\node[convtrail secondary label,anchor=west] at (1.38,5.62)
+  {$\mb{Cone}$};
+
+% The backward chain.  Its patch lifetimes partition [0,u).
+\draw[convtrail baseline] (0.40,0)--(5.78,0);
+\draw[convtrail patch] (3.35,0)--(3.35,1.34);
+\draw[convtrail interaction] (3.35,1.34)--(4.45,1.34);
+\draw[convtrail patch] (4.45,1.34)--(4.45,2.66);
+\draw[convtrail interaction] (2.75,2.66)--(4.45,2.66);
+\draw[convtrail patch] (2.75,2.66)--(2.75,3.98);
+\draw[convtrail interaction] (2.75,3.98)--(4.55,3.98);
+\draw[convtrail patch] (4.55,3.98)--(4.55,5.18);
+\draw[convtrail interaction] (3.25,5.18)--(4.55,5.18);
+\draw[convtrail patch] (3.25,5.18)--(3.25,6.50);
+
+% The prescribed successful interaction at time u.
+\draw[convtrail interaction] (3.25,6.50)--(5.12,6.50);
+\node[convtrail label,anchor=south] at (4.18,6.66) {$(i,u,S)$};
+
+% Time axis and the guide locating the final interaction time.
+\draw[convtrail guide] (5.12,6.50)--(6.38,6.50);
+\draw[convtrail axis] (6.38,0)--(6.38,7.28);
+\draw[convtrail tick] (6.28,0)--(6.48,0);
+\draw[convtrail tick] (6.28,6.50)--(6.48,6.50);
+\node[convtrail label,anchor=west] at (6.54,0) {$0$};
+\node[convtrail label,anchor=west] at (6.54,6.50) {$u$};
+\node[convtrail secondary label,anchor=south] at (6.38,7.29)
+  {time};
+\end{tikzpicture}
+\endgroup
