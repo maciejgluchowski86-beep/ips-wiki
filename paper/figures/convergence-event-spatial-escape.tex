@@ -1,0 +1,92 @@
+% Schematic of the spatial-escape event (E_T^R)^c.
+% The panel is sized to sit beside two further convergence-event panels.
+\begingroup
+\definecolor{conveventred}{RGB}{175,32,38}
+\definecolor{conveventoutline}{gray}{0.18}
+\definecolor{conveventcone}{gray}{0.82}
+\definecolor{conveventfuture}{gray}{0.93}
+\definecolor{conveventregion}{gray}{0.975}
+\definecolor{conveventsecondary}{gray}{0.48}
+\begin{tikzpicture}[x=0.54cm,y=0.54cm]
+\path[use as bounding box] (0.18,-1.02) rectangle (7.12,7.34);
+\tikzset{
+  convevent boundary/.style={draw=conveventoutline,line width=0.72pt,line join=round},
+  convevent guide/.style={draw=conveventsecondary,line width=0.52pt,dash pattern=on 2.3pt off 2.1pt},
+  convevent baseline/.style={draw=conveventoutline,line width=0.52pt},
+  convevent axis/.style={draw=conveventoutline,line width=0.62pt,-{Stealth[length=1.8mm,width=1.2mm]}},
+  convevent tick/.style={draw=conveventoutline,line width=0.52pt},
+  convevent label/.style={font=\scriptsize,text=conveventoutline,inner sep=1pt},
+  convevent secondary label/.style={font=\scriptsize,text=conveventsecondary,inner sep=1pt}
+}
+
+% The spacetime cylinder R x [0,T].
+\path[fill=conveventregion] (1.90,0) rectangle (4.90,4.60);
+
+% The part of the cone after T is shown lightly because its shape is
+% irrelevant to the event (E_T^R)^c.
+\path[fill=conveventfuture]
+  (0.98,4.60)
+  .. controls (0.83,5.30) and (0.68,6.24) .. (0.54,7.00)
+  -- (5.54,7.00)
+  .. controls (5.18,6.22) and (4.76,5.28) .. (4.46,4.60)
+  -- cycle;
+
+% Before T the cone grows normally on the right.  On the left it has a
+% short, atypically rapid expansion and leaves R.
+\path[fill=conveventcone]
+  (3.18,0)
+  .. controls (3.10,0.94) and (3.02,1.86) .. (2.92,2.70)
+  .. controls (2.86,3.20) and (2.78,3.57) .. (2.58,3.82)
+  .. controls (2.39,4.06) and (1.34,4.14) .. (0.98,4.60)
+  -- (4.46,4.60)
+  .. controls (4.36,4.03) and (4.26,3.50) .. (4.17,2.92)
+  .. controls (4.04,2.04) and (3.91,0.93) .. (3.80,0)
+  -- cycle;
+
+% Highlight exactly the pre-T part of the cone outside R.  Clipping to the
+% cone keeps the red and black boundaries identical.
+\begin{scope}
+  \clip
+    (3.18,0)
+    .. controls (3.10,0.94) and (3.02,1.86) .. (2.92,2.70)
+    .. controls (2.86,3.20) and (2.78,3.57) .. (2.58,3.82)
+    .. controls (2.39,4.06) and (1.34,4.14) .. (0.98,4.60)
+    -- (4.46,4.60)
+    .. controls (4.36,4.03) and (4.26,3.50) .. (4.17,2.92)
+    .. controls (4.04,2.04) and (3.91,0.93) .. (3.80,0)
+    -- cycle;
+  \path[fill=conveventred,fill opacity=0.42]
+    (0.20,0) rectangle (1.90,4.60);
+\end{scope}
+
+% Continuous outer boundary of the cone.
+\draw[convevent boundary]
+  (3.18,0)
+  .. controls (3.10,0.94) and (3.02,1.86) .. (2.92,2.70)
+  .. controls (2.86,3.20) and (2.78,3.57) .. (2.58,3.82)
+  .. controls (2.39,4.06) and (1.34,4.14) .. (0.98,4.60)
+  .. controls (0.83,5.30) and (0.68,6.24) .. (0.54,7.00)
+  -- (5.54,7.00)
+  .. controls (5.18,6.22) and (4.76,5.28) .. (4.46,4.60)
+  .. controls (4.36,4.03) and (4.26,3.50) .. (4.17,2.92)
+  .. controls (4.04,2.04) and (3.91,0.93) .. (3.80,0)
+  -- cycle;
+
+% Guides for R and the cut time T.
+\draw[convevent baseline] (0.30,0)--(5.82,0);
+\draw[convevent guide] (1.90,0)--(1.90,4.60);
+\draw[convevent guide] (4.90,0)--(4.90,4.60);
+\draw[convevent guide] (0.30,4.60)--(6.34,4.60);
+\node[convevent secondary label,anchor=south west] at (2.02,0.12) {$R$};
+
+% Time axis and panel label.
+\draw[convevent axis] (6.34,0)--(6.34,7.24);
+\draw[convevent tick] (6.24,0)--(6.44,0);
+\draw[convevent tick] (6.24,4.60)--(6.44,4.60);
+\draw[convevent tick] (6.24,7.00)--(6.44,7.00);
+\node[convevent label,anchor=west] at (6.50,0) {$0$};
+\node[convevent label,anchor=west] at (6.50,4.60) {$T$};
+\node[convevent label,anchor=west] at (6.50,7.00) {$t$};
+\node[convevent label,anchor=north] at (3.36,-0.24) {$(E_T^R)^c$};
+\end{tikzpicture}
+\endgroup
