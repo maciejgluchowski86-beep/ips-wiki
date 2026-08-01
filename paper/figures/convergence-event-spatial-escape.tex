@@ -8,7 +8,7 @@
 \definecolor{conveventregion}{gray}{0.975}
 \definecolor{conveventsecondary}{gray}{0.48}
 \begin{tikzpicture}[x=0.54cm,y=0.54cm]
-\path[use as bounding box] (0.18,-1.02) rectangle (7.12,7.34);
+\path[use as bounding box] (0.18,-0.12) rectangle (7.12,7.34);
 \tikzset{
   convevent boundary/.style={draw=conveventoutline,line width=0.72pt,line join=round},
   convevent guide/.style={draw=conveventsecondary,line width=0.52pt,dash pattern=on 2.3pt off 2.1pt},
@@ -79,7 +79,7 @@
 \draw[convevent guide] (0.30,4.60)--(6.34,4.60);
 \node[convevent secondary label,anchor=south west] at (2.02,0.12) {$R$};
 
-% Time axis and panel label.
+% Time axis.
 \draw[convevent axis] (6.34,0)--(6.34,7.24);
 \draw[convevent tick] (6.24,0)--(6.44,0);
 \draw[convevent tick] (6.24,4.60)--(6.44,4.60);
@@ -87,6 +87,5 @@
 \node[convevent label,anchor=west] at (6.50,0) {$0$};
 \node[convevent label,anchor=west] at (6.50,4.60) {$T$};
 \node[convevent label,anchor=west] at (6.50,7.00) {$t$};
-\node[convevent label,anchor=north] at (3.36,-0.24) {$(E_T^R)^c$};
 \end{tikzpicture}
 \endgroup
