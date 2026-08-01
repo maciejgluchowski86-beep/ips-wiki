@@ -6,8 +6,8 @@
 
 The contact process~\cite{Harris1974} is usually written with state~$1$
 infected and state~$0$ healthy. To follow the KCSM convention, we reverse these
-labels: state~$0$ is infected and facilitating, while state~$1$ is healthy.
-With recovery rate one and infection parameter~$\lambda\geq0$, its
+labels: state~$0$ is infected and facilitating, while state~$1$ is healthy and
+calm. With recovery rate one and infection parameter~$\lambda\geq0$, its
 generator is
 \begin{equation*}
 \Lcal_{\mathrm{CP}}f(\eta)
@@ -34,8 +34,8 @@ here.
 Fix~$p\in(0,1)$, write~$q=1-p$, and assume that~$N(i)\neq\vn$ for every
 $i\in\Lambda$. In FA-1f~\cite{FredricksonAndersen1984,CancriniEtAl2008,
 HartarskyToninelli2025}, state~$0$
-is vacant and state~$1$ occupied. A site refreshes when at least one neighbour
-is vacant:
+is vacant and facilitating, while state~$1$ is occupied and calm. A site
+refreshes when at least one neighbour is vacant:
 \begin{equation*}
 \Lcal_{\mathrm{FA}}f(\eta)
 =
@@ -121,6 +121,7 @@ FA-1f, with refresh rate equal to the number of vacant neighbours:
 \bb{\sum_{j\in N(i)}\bb{1-\eta(j)}}
 \bb{E_{i,p}-I}f(\eta).
 \end{equation*}
+In these variables, vacancies are facilitating and occupied sites are calm.
 Its nonzero coefficients are
 \begin{align*}
 c_i^0(\vn)&=p\abs{N(i)},
@@ -143,7 +144,7 @@ exponentially to~$\mu_p$
 \cite[Application~2 and Section~5.1.1]{MartinelliShapiraToninelli2025}. The
 quasi-duality and thinning relations were introduced by Lloyd and
 Sudbury~\cite{LloydSudbury1997}; the recent argument also covers inhomogeneous
-product laws whose one-densities satisfy
+product laws whose empty-site densities satisfy
 $p_{0,i}\leq\sqrt p$ for every~$i$
 \cite[Remark~5.5]{MartinelliShapiraToninelli2025}. Convergence from a finite
 nonempty particle set remains open for part of the parameter range.
@@ -258,7 +259,8 @@ local function~$f$,
 \end{equation*}
 This holds for every~$K\geq0$ and~$t\geq0$. Here
 $p^-=\max\cb{2p-1,0}$, so the covered initial laws include every~$\mu_u$ with
-$u\geq p^-$ and every point mass on a configuration with finitely many zeroes.
+$u\geq p^-$ and every point mass on a configuration with finitely many
+facilitating sites.
 If~$p\leq\frac12$, then~$\pi$ is the unique invariant measure and
 \begin{equation*}
 \sup_{\eta\in\Omega}
@@ -273,7 +275,8 @@ Its monomial moments are given by~\eqref{eq:full-patch-limit-moments}.
 \begin{proof}
 The two patch-positivity propositions and
 Theorem~\ref{thm:patch-positivity-order} give part~\textup{(i)}. For
-part~\textup{(ii)}, the added refresh contains pure-death noise at rate~$\delta$.
-Apply Theorem~\ref{thm:common-invariant-limit} and
+part~\textup{(ii)}, the added refresh independently creates facilitating states
+at rate~$\delta$, giving a pure-death component in the dual. Apply
+Theorem~\ref{thm:common-invariant-limit} and
 Corollary~\ref{cor:uniform-ergodicity}.
 \end{proof}

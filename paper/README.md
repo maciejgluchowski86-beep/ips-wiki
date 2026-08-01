@@ -29,9 +29,14 @@ latexmk -pdf main.tex
 - Refer to realizations or trajectories of the graphical or dual process. Use
   remaining Poisson marks or omitted marks, rather than introducing new terms
   for unrevealed randomness.
-- Use the states `0` and `1`, or the established model-specific terms
-  (infected/healthy, vacant/occupied, particle/empty site). Do not introduce an
-  informal state name for the general theory.
+- Use `facilitating` and `calm` for interpretation in the abstract,
+  introduction, and conceptual discussion. `Facilitating` is standard KCSM
+  terminology; `calm` is descriptive rather than a literature term or a new
+  technical notion. In the formal setup and calculations, use the convention
+  that the facilitating state is `0` and the calm state is `1`.
+- Use established model-specific terms (infected/healthy, vacant/occupied,
+  particle/empty site) in the examples. Do not derive new formal terminology
+  from the word `calm`.
 - Reserve new terms for objects defined in the paper, such as patches and the
   successful-interaction skeleton. Avoid unnecessary adjectives and adverbs.
 - State model-specific mechanisms as such; do not attribute them to all

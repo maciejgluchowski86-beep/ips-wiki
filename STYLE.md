@@ -15,8 +15,10 @@ This file records the writing and LaTeX conventions for the paper under `paper/`
 
 ## Terminology
 
-- In the general discussion, use the states `0` and `1`. When relevant, say that `0` is the facilitating state; do not introduce an informal name for the other state.
+- In the abstract, introduction, and conceptual discussion, call the two states `facilitating` and `calm`. `Facilitating` is standard KCSM terminology; `calm` is a descriptive name used in this paper, not a literature term or a new technical notion.
+- In the formal setup, state the KCSM convention that the facilitating state is `0` and the calm state is `1`. Use `0` and `1` in formulas and technical calculations.
 - Use the established model-specific term when one exists: infected/healthy for the contact process, vacant/occupied for KCSM, and particle/empty site for particle systems.
+- Do not build further terminology from `calm`: avoid phrases such as `calm order`, `calm measure`, `calm dynamics`, or `calm phase`. The formal notions remain centered-moment order, patch threshold profile, and `\mathcal M_*`.
 - `Activity` is not a technical state variable. It may be used in the introduction as an umbrella term for births, refreshes, flips, and similar updates, but not as a formal synonym for the facilitating state.
 - `Active set` and `active source` are formal terminology for the signed dual. Write `dual-active` when the distinction from the spin states matters.
 - A single successful interaction has a `record`; the family of records is the `successful-interaction skeleton`.

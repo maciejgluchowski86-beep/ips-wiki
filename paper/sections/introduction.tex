@@ -4,33 +4,36 @@
 \subsection{Facilitation and persistence}
 
 We consider spin systems in which one state facilitates updates at neighbouring
-sites. We label this state~$0$ and the other state~$1$, following the convention
-for kinetically constrained spin models (KCSM)
-\cite{CancriniEtAl2008,HartarskyToninelli2025}. The interpretation depends on
-the model: a~$0$ may infect a neighbour, permit a constrained refresh, or cause
-a neighbouring spin to flip. In the facilitating part of the dynamics, a
-region containing only~$1$'s has no internal source of constrained updates,
-whereas an update enabled by a~$0$ may create further~$0$'s. The two states
-therefore play different roles. This does not imply monotonicity of the
-dynamics. A refresh or flip may create or remove a~$0$, and ordered
-configurations need not remain ordered.
+sites. Following the terminology for kinetically constrained spin models
+(KCSM)~\cite{CancriniEtAl2008,HartarskyToninelli2025}, we call it the
+\emph{facilitating} state. We use \emph{calm} descriptively for the other
+state. Depending on the model, a facilitating state may infect a neighbour,
+permit a constrained refresh, or cause a neighbouring spin to flip. In the
+facilitating part of the dynamics, a region containing only calm states has no
+internal source of constrained updates and therefore tends to remain calm,
+whereas an update enabled by a facilitating state may create further
+facilitating states. This suggests a comparison based on the different roles
+of the two states. It does not imply monotonicity: a refresh or flip may create
+or remove a facilitating state, and ordered configurations need not remain
+ordered.
 
 We ask whether this asymmetry yields a comparison of monomial moments and
-whether independent~$1\to0$ updates erase their dependence on the initial law.
-The main examples do not preserve the product order on configurations, and an
-independent perturbation need not preserve a reversible measure. We therefore
-seek an argument based on the graphical construction which neither orders
-trajectories nor requires the limiting measure to be known.
+whether independent creation of facilitating states erases their dependence on
+the initial law. The main examples do not preserve the product order on
+configurations, and an independent perturbation need not preserve a reversible
+measure. We therefore seek an argument based on the graphical construction
+which neither orders trajectories nor requires the limiting measure to be
+known.
 
 The effect of a facilitating update need not persist until it is transmitted to
 another site. If no information leaves a site between two local updates, a
 second birth is redundant, a later refresh overwrites the earlier refresh, and
-two flips cancel. For a monomial
-$\chi_A(\eta)=\prod_{i\in A}\eta(i)$, the signed Feynman--Kac dual follows the
-dependence of~$P_t\chi_A$ backward through the graphical construction. Its signs
-record cancellations among local updates. Taking absolute values after each
-dual update loses these cancellations. The local updates should instead be
-averaged until the next interaction which transmits dependence between sites.
+two flips cancel. For the monomial observables studied here, the signed
+Feynman--Kac dual follows their dependence backward through the graphical
+construction. Its signs record cancellations among local updates. Taking
+absolute values after each dual update loses these cancellations. The local
+updates should instead be averaged until the next interaction which transmits
+dependence between sites.
 
 \subsection{Patches and main results}
 
@@ -47,24 +50,26 @@ local updates are averaged before their contributions are compared.
 The averaged contribution of a completed patch~$P$ is denoted by~$C(P)$. Patch
 positivity is the condition~$C(P)\geq0$ for every patch shape.
 Theorem~\ref{thm:patch-positivity-order} characterizes this condition by
-inequalities for the multilinear coefficients of the rates~$0\to1$ and
-$1\to0$. The same coefficients determine the smallest terminal one-density
+inequalities for the multilinear coefficients of the two flip rates. The same
+coefficients determine the smallest terminal calm-state density
 profile~$\mb p^\star$ for which every end-patch contribution is nonnegative.
 This is a threshold for the sign argument, not a phase transition or an
 ergodicity threshold.
 
-Products centered at~$\mb p^\star$ define an order~$\preceq_*$ on probability
-measures. Theorem~\ref{thm:patch-positivity-order} shows that the semigroup of a
-patch-positive system preserves this order, even though it need not preserve
-the pointwise order of configurations. The proof is algebraic: in finite volume
-the generator has nonnegative off-diagonal entries in the centered-monomial
-basis.
+Products of calm-state indicators centered at~$\mb p^\star$ define an
+order~$\preceq_*$ on probability measures. This centered-moment order is the
+form in which the qualitative comparison suggested above survives: it compares
+laws rather than configurations. Theorem~\ref{thm:patch-positivity-order} shows
+that the semigroup of a patch-positive system preserves this order. The proof
+is algebraic: in finite volume the generator has nonnegative off-diagonal
+entries in the centered-monomial basis.
 Corollary~\ref{cor:pure-death-comparison} compares the system with the dynamics
-obtained by removing an environment-independent~$1\to0$ component.
+obtained by removing an environment-independent mechanism creating
+facilitating states.
 
 Suppose now that the interaction graph has polynomial growth of exponent~$D$
-and that the dynamics contains independent~$1\to0$ updates at rate
-$\varepsilon>0$. Theorem~\ref{thm:common-invariant-limit} shows that every
+and that the dynamics independently creates facilitating states at
+rate~$\varepsilon>0$. Theorem~\ref{thm:common-invariant-limit} shows that every
 initial law in the class~$\mathcal M_-$ converges to the same invariant measure,
 with local convergence rate
 
@@ -78,8 +83,9 @@ every probability measure, so the invariant measure is unique and convergence
 is uniform over initial configurations. The proof cuts the dual construction
 at an intermediate time. Finite propagation controls the event that the
 earlier skeleton leaves a linearly growing directed ball; the independent
-$1\to0$ component controls both successful interactions after the cut and the
-remaining dependence of the end patches on the terminal configuration.
+creation of facilitating states controls both successful interactions after the
+cut and the remaining dependence of the end patches on the terminal
+configuration.
 
 \subsection{Relation to previous work}
 
