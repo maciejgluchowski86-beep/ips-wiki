@@ -29,7 +29,7 @@ The effect of a facilitating update need not persist until it is transmitted to
 another site. If no information leaves a site between two local updates, a
 second birth is redundant, a later refresh overwrites the earlier refresh, and
 two flips cancel. For the monomial observables studied here, the signed
-monomial dual follows their dependence backward through the graphical
+Feynman--Kac dual follows their dependence backward through the graphical
 construction. Its signs record cancellations among local updates. Taking
 absolute values after each dual update loses these cancellations. The local
 updates should instead be averaged until the next interaction which transmits
@@ -42,11 +42,10 @@ interactions which occur at active sources and have nonempty target. Their
 records form the successful-interaction skeleton. The skeleton partitions each
 site line into intervals, called patches, between successive incoming or
 outgoing successful interactions. Conditional on the skeleton, the remaining
-marked interactions in distinct patches are independent. Under the integrable
-Feynman--Kac identity assumed in Theorem~\ref{thm:patch-representation},
-averaging the signed factor on each patch gives the exact semigroup
-representation. In this representation, consecutive local updates are averaged
-before their contributions are compared.
+marked interactions in distinct patches are independent. Averaging the signed
+Feynman--Kac factor on each patch gives the exact semigroup representation in
+Theorem~\ref{thm:patch-representation}. In this representation, consecutive
+local updates are averaged before their contributions are compared.
 
 The contribution of a completed~$P$ is denoted by~$C(P)$. Patch
 positivity is the condition~$C(P)\geq0$ for every patch shape.
@@ -91,11 +90,9 @@ configuration.
 Set-valued graphical constructions and additive dual processes go back to
 Harris~\cite{Harris1974,Harris1978}; see also
 Griffeath~\cite{Griffeath1979}, Holley--Stroock~\cite{HolleyStroock1979}, and
-Gray~\cite{Gray1986}. We use the standard signed monomial generator identity;
-Theorem~\ref{thm:patch-representation} assumes the corresponding integrable
-Feynman--Kac semigroup identity. The comparison and convergence results use
-finite-volume localization and do not require this assumption. Jansen and
-Kurt~\cite{JansenKurt2014} give a general account of Markov-process duality.
+Gray~\cite{Gray1986}. We use the signed monomial Feynman--Kac duality; Jansen
+and Kurt~\cite{JansenKurt2014} give a general account of Markov-process
+duality.
 Conditioning on the successful skeleton gives the one-site factorization over
 patches which is not present in the standard duality. Information percolation
 also retains updates which carry information~\cite{LubetzkySly2016}, but its

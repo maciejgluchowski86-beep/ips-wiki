@@ -105,7 +105,7 @@ Since the neighbourhood sizes and flip rates are uniformly bounded, so are the
 total dual jump rate per active site and~$\abs{V_i}$. Each jump activates at
 most~$\sup_i\abs{N(i)}$ new sites.
 
-\paragraph{Generator identity and Feynman--Kac duality.}
+\paragraph{Feynman--Kac duality.}
 \label{subsec:monomial-duality}
 
 For~$Y=(A,\sigma)$, define
@@ -116,8 +116,8 @@ H(Y,\eta)=\sigma\chi_A(\eta).
 We write~$\pP_A$ and~$\E_A$ for the law and expectation of the signed set
 process started from~$(A,+)$.
 
-\begin{theorem}[Monomial generator identity]
-\label{thm:monomial-generator-identity}
+\begin{theorem}[Monomial Feynman--Kac duality]
+\label{thm:monomial-duality}
 For every signed active set~$Y=(A,\sigma)$,
 \begin{equation}
 \label{eq:monomial-generator-duality}
@@ -125,14 +125,7 @@ For every signed active set~$Y=(A,\sigma)$,
 =
 \Dcal H(Y,\eta)+V(A)H(Y,\eta).
 \end{equation}
-\end{theorem}
-
-The coefficient calculation proving~\eqref{eq:monomial-generator-duality} is
-given in Appendix~\ref{app:dual-calculation}. The generator identity alone does
-not imply its semigroup counterpart in infinite volume. We say that the signed
-dual satisfies the \emph{monomial Feynman--Kac identity} if, for every
-$A\Subset\Lambda$,~$t\geq0$, and~$\eta\in\Omega$, the random variable on the
-right below is absolutely integrable and
+Consequently, for every~$A\Subset\Lambda$,~$t\geq0$, and~$\eta\in\Omega$,
 \begin{equation}
 \label{eq:monomial-feynman-kac-duality}
 P_t\chi_A(\eta)
@@ -143,9 +136,13 @@ P_t\chi_A(\eta)
 \chi_{A_t}(\eta)
 }.
 \end{equation}
-This is the additional hypothesis in
-Theorem~\ref{thm:patch-representation}. The pure-death noise generator acts
-diagonally on monomials:
+\end{theorem}
+
+The coefficient calculation proving~\eqref{eq:monomial-generator-duality} and
+the finite-volume passage to~\eqref{eq:monomial-feynman-kac-duality} are given
+in Appendix~\ref{app:dual-calculation}. Condition~\eqref{eq:fk-integrability}
+supplies the domination in the infinite-volume passage. The pure-death noise
+generator acts diagonally on monomials:
 \begin{equation*}
 \Ncal^{\mb 0}\chi_A=-\abs A\chi_A.
 \end{equation*}

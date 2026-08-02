@@ -84,9 +84,24 @@ additional diagonal term
 The resulting expression is~$\sigma$ times the right-hand side of
 \eqref{eq:generator-action-monomials}, hence
 equals~$\Lcal_\eta H(Y,\eta)$. This proves
-\eqref{eq:monomial-generator-duality}. In every finite-volume restriction, the
-standard finite-state Feynman--Kac formula also gives the corresponding
-semigroup identity. In infinite volume,
-\eqref{eq:monomial-feynman-kac-duality} requires the additional absolute
-integrability hypothesis in
-Theorem~\ref{thm:patch-representation}.
+\eqref{eq:monomial-generator-duality}.
+
+Fix~$R\Subset\Lambda$ containing~$A$. The finite-state Feynman--Kac formula,
+applied to the dual killed at the first successful interaction leaving~$R$,
+gives
+\begin{equation*}
+P_t^{R,0}\chi_A(\eta)
+=
+\E_A\Cb{
+\sigma_t
+\exp\bb{\int_0^tV(A_s)\,ds}
+\chi_{A_t}(\eta)
+\ind\bb{E_t^R}
+}.
+\end{equation*}
+Along a finite exhaustion~$R\uparrow\Lambda$, local finiteness gives
+$E_t^R\uparrow\Omega$. Condition~\eqref{eq:fk-integrability} supplies the
+integrable dominating random variable, while
+Lemma~\ref{lem:finite-propagation} gives
+$P_t^{R,0}\chi_A\to P_t\chi_A$ uniformly. Dominated convergence proves
+\eqref{eq:monomial-feynman-kac-duality}.
