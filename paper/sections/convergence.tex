@@ -337,8 +337,23 @@ This proves~\eqref{eq:uniform-m-minus-convergence}.
 \end{proof}
 
 \begin{proof}[Proof of Corollary~\ref{cor:uniform-ergodicity}]
-If~$\mb p^\star\leq\mbs{\tfrac12}$, then~$\mb p^-=\mb 0$ and every
-probability measure belongs to~$\mathcal M_{-,1}$. Theorem
+If~$\mb p^\star\leq\mbs{\tfrac12}$, then~$\mb p^-=\mb 0$. For every
+configuration~$\eta$ and~$A\Subset\Lambda$,
+\begin{equation*}
+\chi_A^*(\eta)
+=
+\prod_{i\in A}\bb{\eta(i)-p_i^\star}
+\geq
+-\prod_{i\in A}\bb{1-p_i^\star}
+=
+-\mu_{\mb 1}\bb{\chi_A^*},
+\end{equation*}
+because~$p_i^\star\leq1-p_i^\star$. Hence, for every probability
+measure~$\mu$,
+\begin{equation*}
+\frac{\mu+\mu_{\mb 1}}2\bb{\chi_A^*}\geq0.
+\end{equation*}
+Thus~$\mu\in\mathcal M_{-,1}$, and Theorem
 \ref{thm:common-invariant-limit} gives the result.
 \end{proof}
 
