@@ -122,7 +122,7 @@ product on the left below is integrable,
 \begin{proof}
 Write~$G_T=(Y_0,\mathcal I_T)$, so~$\mathcal G_T=\sigma(G_T)$. Under~$\pP_A$
 the initial state is fixed. By Lemma~\ref{lem:dual-local-finiteness}, outside a
-null set the records in~$G_T$ form a finite chronological list
+null set the positive-time records in~$G_T$ form a finite chronological list
 \begin{equation*}
 g=\bb{(i_k,t_k,S_k)}_{k=1}^n,
 \qquad
@@ -132,24 +132,63 @@ where~$\varnothing\neq S_k\subseteq N(i_k)$ and
 \begin{equation*}
 i_k\in A\cup\bigcup_{\ell<k}S_\ell.
 \end{equation*}
-Outside a null set we also have
-$\delta_{i_k}(S_k)+\beta_{i_k}(S_k)>0$ for all records in~$g$, as otherwise the corresponding successful interaction cannot occur almost surely. The space of such lists is a countable
-disjoint union of Borel subsets of finite-dimensional Euclidean spaces, hence
-is a standard Borel space. Fixing an enumeration of~$\Lambda$, order the
-patches by their initial times and sites. Finite marked point configuration
-spaces are standard Borel. The maps which construct~$\mathcal P_T(g)$,
-reconstruct the local processes, and test consistency are Borel: they use
-finitely many comparisons of record times and a finite chronological
-recursion. In particular,
+Outside a further null set,
+$\delta_{i_k}(S_k)+\beta_{i_k}(S_k)>0$ for every record in~$g$, since a
+zero-rate interaction never occurs. A candidate list~$g$ fixes the patch
+boundaries and hence the finite labeled family~$\mathcal P_T(g)$. Before
+requiring these boundary records to be the complete successful skeleton, fill
+the patches independently according to the product reference law
 \begin{equation*}
 Q_g
 =
 \bigotimes_{P\in\mathcal P_T(g)}\pP_P
+.
 \end{equation*}
-is a measurable probability kernel in~$g$, and regular conditional
-distributions given~$G_T$ exist.
+Thus~$Q_g$ fills each patch interior with its Poisson marks and chooses the
+unrecorded kind of every outgoing boundary interaction according to
+\eqref{eq:patch-initial-kind-law}. This is the unrestricted patch experiment
+associated with the boundary records in~$g$; the consistency events below
+restrict it to data for which~$g$ is the complete skeleton.
 
-On the component with fixed discrete records~$((i_k,S_k))_{k=1}^n$, define
+Under~$Q_g$, the boundary records form the complete successful skeleton if and
+only if every patch is consistent:
+\begin{equation}
+\label{eq:skeleton-consistency-equivalence}
+\cb{
+\begin{aligned}
+&\text{the boundary records of~$g$ are exactly the successful}\\[-0.2em]
+&\text{interactions through time~$T$}
+\end{aligned}
+}
+\quad\Longleftrightarrow\quad
+\bigcap_{P\in\mathcal P_T(g)}\operatorname{Con}(P).
+\end{equation}
+Indeed, read the records in chronological order. At time zero, the incoming
+patches reproduce the initial active set. Between successive record times,
+empty-target deaths act in both the local and global processes, while
+consistency forces each nonempty-target interior mark to have inactive source,
+so it produces no additional successful record. At an outgoing boundary,
+consistency of the preceding source patch makes the prescribed interaction
+successful. Its unrecorded kind determines the source state after the
+interaction, and its targets begin the prescribed incoming patches. Induction
+over the records reconstructs the active process and its skeleton. Conversely,
+if the boundary records form the complete successful skeleton, the local
+processes are the restrictions of the global active process and satisfy every
+consistency condition.
+
+The space of candidate lists is a countable disjoint union of Borel subsets of
+finite-dimensional Euclidean spaces, hence is standard Borel; finite marked
+point configuration spaces are standard Borel as well. After fixing an
+enumeration of~$\Lambda$, the patches may be ordered by their initial times and
+sites. The maps which construct~$\mathcal P_T(g)$, reconstruct the local
+processes, and test consistency are Borel, since they use finite sorting and a
+finite chronological recursion. It follows that~$Q_g$ is a measurable
+probability kernel and that regular conditional distributions given~$G_T$
+exist.
+
+To avoid conditioning on the null event~$\cb{G_T=g}$, we write the argument as
+a joint-density calculation. On the component with fixed discrete records
+$((i_k,S_k))_{k=1}^n$, define
 \begin{equation*}
 m_T(dg)
 =
@@ -157,50 +196,38 @@ m_T(dg)
 \bb{\delta_{i_k}(S_k)+\beta_{i_k}(S_k)}
 \,dt_1\cdots dt_n,
 \end{equation*}
-and sum this measure over the discrete records and~$n\geq0$. The multivariate
-Mecke formula~\cite[Theorem~4.4]{LastPenrose2017} gives, for every nonnegative
-measurable function~$\Phi$,
+and sum over the discrete records and~$n\geq0$. This measure accounts only for
+the candidate boundary records; the consistency restriction below produces
+the law of~$G_T$. The multivariate Mecke
+formula~\cite[Theorem~4.4]{LastPenrose2017} inserts these records and leaves an
+independent Poisson process for all remaining marks. For the~$k$th record,
+summing the intensities
+$\delta_{i_k}(S_k)\,dt_k$ and~$\beta_{i_k}(S_k)\,dt_k$ gives the corresponding
+factor in~$m_T$ and the rate-proportional kind law
+\eqref{eq:patch-initial-kind-law}. Independent increments on the disjoint patch
+strips then give~$Q_g$. Together with
+\eqref{eq:skeleton-consistency-equivalence}, the Mecke formula gives, for
+nonnegative measurable~$h$ and nonnegative measurable patch functions~$f_P$,
 \begin{align}
-\label{eq:patch-joint-disintegration}
+\label{eq:patch-joint-density}
 &\E_A\Cb{
-\Phi\bb{G_T,(\Sigma_P)_{P\in\mathcal P_T}}
+h(G_T)
+\prod_{P\in\mathcal P_T}f_P\bb{\Sigma_P}
 }
 \notag\\
 &\quad=
-\int m_T(dg)
-\int
-\Phi\bb{g,(\xi_P)_{P\in\mathcal P_T(g)}}
+\int h(g)
 \prod_{P\in\mathcal P_T(g)}
-\ind\cb{\xi_P\in\operatorname{Con}(P)}
-\,Q_g\bb{d(\xi_P)_{P\in\mathcal P_T(g)}}.
+\E_P\Cb{
+f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}
+}
+\,m_T(dg).
 \end{align}
-Indeed, for fixed~$n$ and fixed discrete records, the formula integrates the
-$k$th selected interaction against either
-$\delta_{i_k}(S_k)\,dt_k$ or~$\beta_{i_k}(S_k)\,dt_k$. Summing over its
-unrecorded kind gives
-$\bb{\delta_{i_k}(S_k)+\beta_{i_k}(S_k)}dt_k$ and the rate-proportional law
-\eqref{eq:patch-initial-kind-law}. The first factor contributes to~$m_T$ and
-the second to the outgoing patch law. After the selected interactions are
-removed, independent Poisson increments on the disjoint patch strips give the
-kernel~$Q_g$ for the remaining marks.
+Here~$m_T$ supplies the boundary records, the patch laws supply every
+unrecorded mark, and the consistency indicators require the supplied records
+to be the complete successful skeleton.
 
-The selected interactions give exactly the successful skeleton~$g$ if and
-only if every patch is consistent. To check this, read the records in
-chronological order. At time zero, the incoming patches reproduce the initial
-active set. Between successive record times, empty-target deaths act in both
-the local and global processes, while consistency forces each nonempty-target
-interior mark to have inactive source, so it produces no additional successful
-record. At an outgoing boundary, consistency of the preceding source patch
-makes the selected interaction successful. Its unrecorded kind determines the
-source state after the interaction, and its targets begin the prescribed
-incoming patches. Induction over the records therefore reconstructs the active
-process and its skeleton. Conversely, if the selected interactions form the
-complete successful skeleton, the local processes are the restrictions of the
-global active process and satisfy every consistency condition. This proves
-\eqref{eq:patch-joint-disintegration}.
-
-Taking~$\Phi$ in~\eqref{eq:patch-joint-disintegration} to depend only on~$g$
-shows that
+Taking~$f_P=1$ in~\eqref{eq:patch-joint-density} shows that
 \begin{equation*}
 \pP_A\bb{G_T\in dg}
 =
@@ -208,28 +235,30 @@ shows that
 \pP_P\bb{\operatorname{Con}(P)}
 \,m_T(dg).
 \end{equation*}
-Hence, for~$\pP_A\circ G_T^{-1}$-almost every~$g$, a regular conditional
-distribution of the patch data given~$G_T=g$ is
+The factors on the right are therefore positive for
+$\pP_A\circ G_T^{-1}$-almost every~$g$. Comparing this marginal with
+\eqref{eq:patch-joint-density} gives
 \begin{align*}
-K_T\bb{g,d(\xi_P)_P}
-&=
-\frac{
-\displaystyle
-\prod_{P\in\mathcal P_T(g)}
-\ind\cb{\xi_P\in\operatorname{Con}(P)}
-\,Q_g\bb{d(\xi_P)_P}
-}{
-\displaystyle
-\prod_{P\in\mathcal P_T(g)}
-\pP_P\bb{\operatorname{Con}(P)}
+&\E_A\Cb{
+h(G_T)
+\prod_{P\in\mathcal P_T}f_P\bb{\Sigma_P}
 }
 \\
-&=
-\bigotimes_{P\in\mathcal P_T(g)}
-\pP_P^{\mathrm{con}}\bb{d\xi_P}.
+&\quad=
+\int h(g)
+\prod_{P\in\mathcal P_T(g)}
+\frac{
+\E_P\Cb{f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}}
+}{
+\pP_P\bb{\operatorname{Con}(P)}
+}
+\,\pP_A\bb{G_T\in dg}.
 \end{align*}
-The kernel may be extended arbitrarily to the remaining null set. Integrating
-the product functions against~$K_T$ proves~\eqref{eq:patch-factorization}.
+Each ratio is~$\E_P^{\mathrm{con}}[f_P(\Sigma_P)]$. Since the identity holds
+for every nonnegative~$h$, it proves~\eqref{eq:patch-factorization} for
+nonnegative factors and identifies the conditional law as the product of the
+consistent patch laws. The integrable signed case follows from this
+conditional law.
 \end{proof}
 
 \paragraph{Patch contributions.}
