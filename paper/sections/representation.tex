@@ -186,7 +186,7 @@ finite chronological recursion. It follows that~$Q_g$ is a measurable
 probability kernel and that regular conditional distributions given~$G_T$
 exist.
 
-To avoid conditioning on the null event~$\cb{G_T=g}$, we write the argument as
+The rest of the argument is
 a joint-density calculation. On the component with fixed discrete records
 $((i_k,S_k))_{k=1}^n$, define
 \begin{equation*}
@@ -208,21 +208,20 @@ factor in~$m_T$ and the rate-proportional kind law
 strips then give~$Q_g$. Together with
 \eqref{eq:skeleton-consistency-equivalence}, the Mecke formula gives, for
 nonnegative measurable~$h$ and nonnegative measurable patch functions~$f_P$,
-\begin{align}
+\begin{equation}
 \label{eq:patch-joint-density}
-&\E_A\Cb{
+\E_A\Cb{
 h(G_T)
 \prod_{P\in\mathcal P_T}f_P\bb{\Sigma_P}
 }
-\notag\\
-&\quad=
+=
 \int h(g)
 \prod_{P\in\mathcal P_T(g)}
 \E_P\Cb{
 f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}
 }
 \,m_T(dg).
-\end{align}
+\end{equation}
 Here~$m_T$ supplies the boundary records, the patch laws supply every
 unrecorded mark, and the consistency indicators require the supplied records
 to be the complete successful skeleton.
