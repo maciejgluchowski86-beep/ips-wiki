@@ -89,8 +89,8 @@ P_t^Rf=P_t^{R,0}f.
 
 \begin{proposition}[Confined-interaction identity]
 \label{prop:confined-interaction-identity}
-Let~$A\subseteq R\Subset\Lambda$,~$0\leq T\leq t$, and let~$\mu$ be any
-probability measure. Then
+Let~$A\subseteq R\Subset\Lambda$,~$0\leq T\leq t$, and let
+$\mu\in\mathcal M_*$. Then
 \begin{equation}
 \label{eq:confined-interaction-identity}
 \E_A\Cb{W_t^\mu\ind\bb{E_T^R}}
@@ -100,23 +100,6 @@ probability measure. Then
 \end{proposition}
 
 \begin{proof}
-For a fixed configuration~$\eta$, write
-\begin{equation*}
-Z_t^\eta
-=
-\sigma_t
-\exp\bb{\int_0^tV(A_s)\,ds}
-\chi_{A_t}(\eta).
-\end{equation*}
-The pathwise patch factorization and Theorem~\ref{thm:patch-factorization} give
-$W_t^{\delta_\eta}=\CE{Z_t^\eta}{\mathcal G_t}$. Since~$E_T^R\in\mathcal G_t$,
-\begin{equation}
-\label{eq:confined-weight-to-dual}
-\E_A\Cb{W_t^{\delta_\eta}\ind\bb{E_T^R}}
-=
-\E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}.
-\end{equation}
-
 During the dual interval~$[0,T]$, retain every empty-target death interaction
 and retain a nonempty-target split or birth only when its source and all its
 targets lie in~$R$. Let~$\Dcal_R$ be the resulting signed-dual generator. If
@@ -178,16 +161,30 @@ $S=\vn$ birth coefficient. Therefore
 \end{equation}
 with both sides equal to~\eqref{eq:confined-spin-generator-on-H}.
 
-Apply~\eqref{eq:confined-generator-duality} on~$[0,T]$ and the original duality
-on~$[T,t]$. Dual intervals act from right to left on observables, giving
+Fix~$Q\Subset\Lambda$ containing~$R$ and kill the dual when it first leaves
+$Q$ during~$[T,t]$. On~$E_t^Q$, the active set remains in~$Q$, so the
+Feynman--Kac random variable is bounded. The standard finite-state formula,
+\eqref{eq:confined-generator-duality} on~$[0,T]$, and the same calculation with
+$Q$ on~$[T,t]$ therefore apply without an infinite-volume integrability
+assumption. The pathwise patch factorization and
+Theorem~\ref{thm:patch-factorization} give
 \begin{equation*}
-\E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}
+\E_A\Cb{
+W_t^\mu
+\ind\bb{E_T^R\cap E_t^Q}
+}
 =
-\bb{P_{t-T}P_T^R\chi_A}(\eta).
+(\mu P_{t-T}^{Q,0}P_T^{R,0})(\chi_A).
 \end{equation*}
-Since~$A\subseteq R$,~$\chi_A$ depends only on~$R$, and
-\eqref{eq:modified-zero-boundary-agreement} replaces~$P_T^R$ by
-$P_T^{R,0}$. Integrating over~$\mu$ proves
+Here dual intervals act from right to left, and
+\eqref{eq:modified-zero-boundary-agreement} was used for both finite sets.
+
+Let~$Q\uparrow\Lambda$ along a finite exhaustion. Patch positivity and the
+centered end expansion~\eqref{eq:centered-end-expansion} make~$W_t^\mu$
+nonnegative, while local finiteness gives~$E_t^Q\uparrow\Omega$. Monotone
+convergence therefore applies on the left. The function
+$P_T^{R,0}\chi_A$ depends only on~$R$, so finite propagation sends the right
+side to~$(\mu P_{t-T}P_T^{R,0})(\chi_A)$. This proves
 \eqref{eq:confined-interaction-identity}.
 \end{proof}
 
@@ -225,7 +222,7 @@ Fix~$0\leq T<t$. On~$L_{T,t}$,
 =
 \cb{P^{\uparrow t}:P\in\mathcal E_T},
 \end{equation*}
-where the extensions are geometric. For every probability measure~$\mu$,
+where the extensions are geometric. For every~$\mu\in\mathcal M_*$,
 \begin{align}
 \CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
 &=

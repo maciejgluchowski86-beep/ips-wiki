@@ -61,18 +61,29 @@ outgoing terminal interaction, the ratio of the two contributions is the
 survival factor over the lifetime of the patch. Multiplying these factors along
 a backward chain gives the exponential estimate used below.
 
+The semigroup identities in the next lemma do not require the Feynman--Kac
+hypothesis of Theorem~\ref{thm:patch-representation}. They follow by
+finite-volume localization, as shown in the proof.
+
 \begin{lemma}[Nonnegative weights]
 \label{lem:positive-weights}
 For every~$\mu\in\mathcal M_*$ and~$t\geq0$,
-\begin{equation}
+\begin{align}
+0
+&\leq W_t^\mu\leq W_t^{\varepsilon,\mu},
 \label{eq:positive-weight-comparison}
-0\leq W_t^\mu\leq W_t^{\varepsilon,\mu},
-\qquad
+\\
+\E_A\Cb{W_t^\mu}
+&=
+(\mu P_t)(\chi_A),
+\notag
+\\
 \E_A\Cb{W_t^{\varepsilon,\mu}}
-=
+&=
 (\mu P_t^\varepsilon)(\chi_A)
 \leq1.
-\end{equation}
+\notag
+\end{align}
 Moreover,
 \begin{equation}
 \label{eq:limiting-weight-mass}
@@ -251,8 +262,8 @@ For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
 \subsection{Completion of the proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:common-invariant-limit}]
-For~$\mu\in\mathcal M_*$, the patch representation and the definition of~$W$
-give
+For~$\mu\in\mathcal M_*$, Lemma~\ref{lem:positive-weights} and the definition
+of~$W$ give
 \begin{align*}
 (\mu P_t)(\chi_A)-\E_A\Cb{W}
 ={}&
@@ -374,14 +385,24 @@ nonnegative. The patchwise pure-death comparison gives
 \end{align*}
 Thus every summand is nonnegative and bounded by the corresponding
 $\varepsilon$ summand, proving the first inequality in
-\eqref{eq:positive-weight-comparison}. The patch representation for
-$\Lcal^\varepsilon$ gives
-\begin{equation*}
-\E_A\Cb{W_t^{\varepsilon,\mu}}
-=
-(\mu P_t^\varepsilon)(\chi_A)
-\leq1.
-\end{equation*}
+\eqref{eq:positive-weight-comparison}. For~$A\subseteq R\Subset\Lambda$, the
+case~$T=t$ of Proposition~\ref{prop:confined-interaction-identity} gives
+\begin{align*}
+\E_A\Cb{W_t^\mu\ind\bb{E_t^R}}
+&=
+(\mu P_t^{R,0})(\chi_A),
+\\
+\E_A\Cb{W_t^{\varepsilon,\mu}\ind\bb{E_t^R}}
+&=
+(\mu P_t^{\varepsilon,R,0})(\chi_A).
+\end{align*}
+Along a finite exhaustion~$R\uparrow\Lambda$, local finiteness gives
+$E_t^R\uparrow\Omega$. Monotone convergence applies to the nonnegative
+weights, while finite propagation sends the two right-hand sides to
+$(\mu P_t)(\chi_A)$ and~$(\mu P_t^\varepsilon)(\chi_A)$, respectively. This
+proves the two semigroup identities in the lemma; the last quantity is at
+most~$1$ because~$0\leq\chi_A\leq1$.
+
 Pointwise comparison gives~$0\leq W\leq W^\varepsilon$. On
 $\cb{\abs{\mathcal P}<\infty}$, the all-one finite-horizon weights converge to
 $W^\varepsilon$, while~$W^\varepsilon=0$ on the complementary event. Hence
@@ -412,8 +433,8 @@ Proposition~\ref{prop:confined-interaction-identity} gives
 =
 (\mu P_{t-T}P_T^{R,0})(\chi_A).
 \end{equation*}
-Subtracting this identity from
-$\E_A[W_t^\mu]=(\mu P_{t-T}P_T)(\chi_A)$ yields
+Subtracting this identity from the finite-horizon identity in
+Lemma~\ref{lem:positive-weights} and using the semigroup property yields
 \begin{equation*}
 \E_A\Cb{W_t^\mu\ind\bb{(E_T^R)^c}}
 =
