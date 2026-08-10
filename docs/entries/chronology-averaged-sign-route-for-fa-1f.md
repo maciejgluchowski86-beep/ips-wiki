@@ -230,6 +230,113 @@ $$
 
 Every nontrivial mixture therefore has strictly positive adjacent covariance.
 
+### A two-site invariant cone and the endogenous-boundary gap
+
+The adjacent-repulsion criterion has a useful two-site comparison behind it.
+This comparison is exact, but its hypothesis is not automatically available
+for the FA-1f marginal.
+
+Let \((X,Y)\in\{0,1\}^2\) be vacancy variables. Suppose that \(X\) refreshes
+to Bernoulli-\(q\) at rate
+
+$$
+\alpha+(1-\alpha)Y,
+$$
+
+and \(Y\) refreshes at rate \(\beta+(1-\beta)X\), where
+\(\alpha,\beta\in[0,1]\) are exogenous parameters. Thus a vacancy at the
+other central site gives rate one, while an exterior signal supplies the
+remaining refreshes. Put
+
+$$
+u=\mathbb P(X=1),
+\qquad
+v=\mathbb P(Y=1),
+\qquad
+\Delta
+=
+\mathbb P(00)\mathbb P(11)-\mathbb P(01)\mathbb P(10).
+\tag{12a}
+$$
+
+For a binary pair, \(\Delta=\operatorname{Cov}(X,Y)\). The region
+
+$$
+u\geq q,
+\qquad
+v\geq q,
+\qquad
+\Delta\leq0
+\tag{12b}
+$$
+
+is forward invariant, also for time-dependent exogenous parameters. Indeed,
+on the face \(u=q\),
+
+$$
+u'
+=(1-\alpha)\bigl(qv-\mathbb E[XY]\bigr)
+\geq0
+$$
+
+under \(\Delta\leq0\), and the analogous assertion holds on \(v=q\). On the
+face \(\Delta=0\), the pair law is the product law with marginals \(u,v\),
+and direct differentiation gives
+
+$$
+\Delta'
+=
+(1-\alpha)v(1-v)(q-u)
++
+(1-\beta)u(1-u)(q-v)
+\leq0.
+\tag{12c}
+$$
+
+This proves the claimed invariance by the first-exit argument.
+
+For the actual FA-1f pair \((z_0,z_1)\), the exterior signals are endogenous.
+For example, when \(z_1=0\), define
+
+$$
+\alpha_x
+=
+\mathbb P(z_{-1}=1\mid z_0=x,z_1=0),
+\qquad x\in\{0,1\}.
+$$
+
+The transitions out of pair states \(00\) and \(10\) then involve
+\(\alpha_0\) and \(\alpha_1\), respectively, rather than one common
+exogenous rate. At \(\Delta=0\), the left-boundary contribution to
+\(\Delta'\) is exactly
+
+$$
+v(1-v)
+\left[
+q(1-\alpha_0)(1-u)
+-p(1-\alpha_1)u
+\right].
+\tag{12d}
+$$
+
+Since \(u\geq q\), this term is nonpositive if
+
+$$
+\mathbb P(z_{-1}=1\mid z_0=0,z_1=0)
+\geq
+\mathbb P(z_{-1}=1\mid z_0=1,z_1=0).
+\tag{12e}
+$$
+
+The reflected inequality controls the right-boundary contribution. Hence
+(12e) and its reflection, needed only at a first boundary point
+\(\Delta=0\), would close the adjacent-repulsion proof. Inequality (12e) is a
+conditional adjacent-vacancy repulsion statement with the next site fixed
+occupied. It holds with equality at time zero, but its preservation has not
+been proved. This identifies the precise endogenous-boundary gap; replacing
+the outer paths by independent or deterministic enabling signals would erase
+the main difficulty.
+
 ## An isolated-insertion formulation
 
 In a finite cycle, identify a configuration with its vacancy set \(A\), and
