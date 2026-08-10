@@ -328,6 +328,29 @@ $$
 \tag{12e}
 $$
 
+Writing three-bit words in the order \((-1,0,1)\), cancellation of the
+conditional denominators makes (12e) equivalent to the cross-product
+inequality
+
+$$
+\mathbb P(100)\mathbb P(010)
+\geq
+\mathbb P(000)\mathbb P(110).
+\tag{12f}
+$$
+
+This gives a particularly small chronology-switching target. Take two
+independent graphical histories ending in the two right-hand patterns in
+(12f). Swapping the left terminal coordinate between the replicas changes
+their endpoints to the two left-hand patterns. Product initial data and the
+two independent Poisson constructions are invariant under swapping replica
+labels in a revealed spacetime region. A proof of (12f) would therefore follow
+from a measure-preserving rule that traces this swap interface backward and,
+when it meets a two-sided update, permutes the two replicas' update marks so
+that both reconstructed histories remain legal. No such global switching rule
+has yet been established; an ordinary fixed vertical swap fails precisely at
+updates whose constraint reads information from both sides of the interface.
+
 The reflected inequality controls the right-boundary contribution. Hence
 (12e) and its reflection, needed only at a first boundary point
 \(\Delta=0\), would close the adjacent-repulsion proof. Inequality (12e) is a
