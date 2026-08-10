@@ -75,6 +75,7 @@ The KCSM block uses the standard convention that `0` is the facilitating state. 
 19. [FA-1f out of equilibrium](entries/fa-1f-out-of-equilibrium.md)
 20. [East out of equilibrium](entries/east-out-of-equilibrium.md)
 21. [BABP out of equilibrium](entries/babp-out-of-equilibrium.md)
+22. [Chronology-averaged sign route for one-dimensional FA-1f](entries/chronology-averaged-sign-route-for-fa-1f.md)
 
 ## Meta pages
 

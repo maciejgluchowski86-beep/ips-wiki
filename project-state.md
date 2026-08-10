@@ -83,6 +83,7 @@ The paper writing conventions are recorded in `STYLE.md`. In particular, inline 
 19. `docs/entries/fa-1f-out-of-equilibrium.md`: theorem records for known FA-1f out-of-equilibrium convergence results.
 20. `docs/entries/east-out-of-equilibrium.md`: theorem records for known East out-of-equilibrium convergence results.
 21. `docs/entries/babp-out-of-equilibrium.md`: known BABP long-time results and the high-density centered-moment comparison.
+22. `docs/entries/chronology-averaged-sign-route-for-fa-1f.md`: conditional one-dimensional route reducing the remaining Bernoulli quench problem to a rooted two-sided punctured positivity lemma, with the exact last-ring Duhamel formula and ruled-out strengthenings.
 
 ## Current conventions
 

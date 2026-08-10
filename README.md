@@ -99,6 +99,7 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - FA-1f out of equilibrium: `docs/entries/fa-1f-out-of-equilibrium.md`
 - East out of equilibrium: `docs/entries/east-out-of-equilibrium.md`
 - BABP out of equilibrium: `docs/entries/babp-out-of-equilibrium.md`
+- Chronology-averaged sign route for one-dimensional FA-1f: `docs/entries/chronology-averaged-sign-route-for-fa-1f.md`
 
 ## Entry workflow
 

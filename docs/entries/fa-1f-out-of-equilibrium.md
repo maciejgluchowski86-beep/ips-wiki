@@ -50,3 +50,8 @@ $$
 ## Product initial laws
 
 If \(\nu=\mu_{q_0}\) is a Bernoulli product initial law with vacancy density \(q_0>0\), then the exponential-moment hypothesis on \(R_i\) holds for a suitable \(\theta_0>1\). Thus the theorem applies to every non-degenerate product initial law \(\mu_{q_0}\) with \(q_0>0\). The analogous model-specific oriented result is recorded under [East out of equilibrium](east-out-of-equilibrium.md).
+
+The known theorem above assumes \(q>1/2\). A clearly labeled conditional
+reduction of the remaining one-dimensional Bernoulli problem is recorded under
+[chronology-averaged sign route for one-dimensional
+FA-1f](chronology-averaged-sign-route-for-fa-1f.md).
