@@ -1,6 +1,6 @@
 ---
 title: Vacancy-lens factorization for one-dimensional FA-1f
-status: proved here
+status: conditional
 tags:
   - FA-1f
   - out of equilibrium
@@ -11,46 +11,45 @@ tags:
 
 # Vacancy-lens factorization for one-dimensional FA-1f
 
-This entry combines two [tagged-vacancy bridge factorizations](tagged-vacancy-bridge-factorization-for-fa-1f.md) into a two-sided spacetime lens. The boundary paths are always carried by vacancies. Conditional on their coarse paths and auxiliary bridge times, the complete update chronology inside the lens is left unrevealed and appears only through a positive regional transfer operator.
+This entry combines two [tagged-vacancy bridge factorizations](tagged-vacancy-bridge-factorization-for-fa-1f.md) into a two-sided spacetime lens. The fixed-segment identities are exact. The iteration over an arbitrary moving path is a Duhamel/Poisson-disintegration construction; a fully global scaffold theorem is recorded separately rather than claimed here.
 
-The statement is local in spacetime. It does not assert that a useful family of lenses occurs with sufficient density to prove convergence.
+The boundary paths are always carried by vacancies. Conditional on their coarse paths and auxiliary bridge times, the complete update chronology inside a fixed lens segment is left unrevealed and appears only through a positive regional transfer operator.
 
-## Inward-priority tagged boundaries
+## A globally compatible tie rule
 
-Use vacancy indicators. Let a left tagged vacancy be at \(\ell\), and call \(L\) and \(R\) the vacancy indicators immediately outside and inside the prospective lens, respectively. When the tagged vacancy is filled, choose the new tag by the rule
+A tagged vacancy that is filled must transfer its tag to a vacant neighbor. If exactly one neighbor is vacant, transfer there. If both neighbors are vacant, use an independent fair coin. This rule is global: the same tagged path can serve as the right boundary of one region and the left boundary of another.
 
-* if the inside neighbor is vacant, transfer the tag inward;
-* otherwise transfer it outward, which is then necessarily vacant.
-
-The two jump rates are therefore
+Write
 
 $$
-r_{\mathrm{in}}=pR,
+L=\mathbf 1\{x-1\text{ is vacant}\},
 \qquad
-r_{\mathrm{out}}=pL(1-R),
+R=\mathbf 1\{x+1\text{ is vacant}\}.
+$$
+
+The left- and right-jump intensities of a tag at \(x\) are
+
+$$
+r_-=pL\left(1-\frac12R\right),
+\qquad
+r_+=pR\left(1-\frac12L\right),
 \tag{1}
 $$
 
 and
 
 $$
-r_{\mathrm{in}}+r_{\mathrm{out}}=p(L\vee R).
-$$
-
-Both rates factor into a nonnegative exterior factor and a nonnegative interior factor. For a right tagged boundary the reflected rule gives
-
-$$
-r_{\mathrm{in}}=pL,
-\qquad
-r_{\mathrm{out}}=pR(1-L).
+r_-+r_+=p(L\vee R).
 \tag{2}
 $$
 
-The priority rule is auxiliary and does not alter the FA configuration.
+Each jump intensity is a product of a nonnegative left factor and a nonnegative right factor. This is the property needed for regional factorization.
+
+For one isolated lens one may instead use an inward-priority rule. That local choice was used in an earlier draft of this entry, but it is not compatible with a global tessellation because a shared tagged vacancy is simultaneously the left boundary of one lens and the right boundary of another.
 
 ## A fixed holding interval
 
-Suppose that during \([a,b)\) the two tagged vacancies stay at fixed sites \(\ell<r\). Write
+Suppose that during \([a,b)\) two tagged vacancies stay at fixed sites \(\ell<r\). Write
 
 $$
 I_s^- = \mathbf 1\{\ell+1\text{ is vacant at }s\},
@@ -100,7 +99,7 @@ $$
 \tag{4}
 $$
 
-The common times \(u_j\) are the left bridge times. Conditional on them, every factor in (3)--(4) splits into an exterior term depending on \(O^-\) and an interior term depending on \(I^-\). The same construction gives an independent list of right bridge times and splits the right-boundary survival factor into an interior and a right-exterior term.
+The common times \(u_j\) are the left bridge times. Conditional on them, every factor in (3)--(4) splits into an exterior term depending on \(O^-\) and an interior term depending on \(I^-\). The same construction gives a right bridge-time list and splits the right-boundary survival factor into an interior and a right-exterior term.
 
 Consequently, conditional on the two bridge-time lists, the weight of the fixed holding interval is a product
 
@@ -113,31 +112,25 @@ where \(W_{\mathrm{lens}}\) is a nonnegative functional of the complete FA histo
 
 ## Boundary jumps
 
-At time \(b\), suppose one tagged boundary jumps. Formula (1) or (2) supplies the terminal factor. For example, for the left boundary,
-
-* an inward jump contributes \(pI_b^-\), an interior factor;
-* an outward jump contributes \(pO_b^-(1-I_b^-)\), the product of an exterior and an interior factor.
-
-Thus a prescribed terminal jump direction preserves the product structure (5). After the jump, the lens endpoint moves by one lattice site and the same construction restarts.
-
-Iterating over the union of the two boundary jump times gives the following factorization.
-
-## Lens factorization
-
-Fix two noncrossing nearest-neighbor tagged-vacancy paths up to their first meeting time. Augment every vertical path segment by its bridge-time list, and record every boundary jump direction. Then the joint weight of the graphical histories compatible with these data factorizes over the three complementary spacetime regions. In particular, the central factor is a positive transfer operator obtained by integrating the full FA chronology in the moving lens.
-
-Equivalently, for nonnegative functionals \(F_{\mathrm L}\), \(F_{\mathrm{lens}}\), and \(F_{\mathrm R}\), the contribution of a fixed pair of boundary paths can be written as an integral over bridge times of
+At time \(b\), suppose the left tagged boundary jumps. Formula (1) gives
 
 $$
-\mathbb E_{\mathrm L}[F_{\mathrm L}W_{\mathrm L}]
-\,
-\mathbb E_{\mathrm{lens}}[F_{\mathrm{lens}}W_{\mathrm{lens}}]
-\,
-\mathbb E_{\mathrm R}[F_{\mathrm R}W_{\mathrm R}],
+\begin{aligned}
+\text{left jump:}&\qquad p\,O_b^-\left(1-\frac12 I_b^-\right),\\
+\text{right jump:}&\qquad p\,I_b^-\left(1-\frac12 O_b^-\right).
+\end{aligned}
 \tag{6}
 $$
 
-with nonnegative weights. Formula (6) is the two-sided analogue of a barrier factorization: the boundary-selection event has been converted into regional factors without conditioning on the order of the interior updates.
+Both are products of one exterior and one interior factor. The analogous statement holds for the right tagged boundary. Thus prescribing a terminal jump direction preserves the product form (5).
+
+After the jump, the lens endpoint moves by one lattice site and the same fixed-segment construction restarts. If the two tagged paths meet, the lens terminates.
+
+## What is already exact
+
+For a prescribed pair of noncrossing tagged paths with finitely many jumps, multiply the fixed-segment survival factors and terminal jump factors and expand every overlap factor as in (4). By Tonelli's theorem, each term in the resulting positive series is a product of three regional functionals. This gives the desired left/lens/right factorization for that prescribed finite path skeleton.
+
+What still requires a separate theorem is the construction of a useful random global path/scaffold and the corresponding regular conditional law. In particular, one must not infer independence merely from the fact that the geometric paths are disjoint: the event selecting those paths contains survival information, and the bridge expansion is precisely what removes that coupling.
 
 ## Relation with a barrier--scaffold decomposition
 
@@ -152,12 +145,12 @@ Thus the bridge times are not a heuristic coarse graining. They are the algebrai
 
 ## Regional transfer operator
 
-For a lens path \(\Gamma\) and bridge data \(B\), denote the resulting interior operator by
+For a prescribed lens path \(\Gamma\) and bridge data \(B\), denote the resulting interior operator by
 
 $$
 K_{\Gamma,B}.
 $$
 
-It is a positive finite-volume FA transfer operator with moving vacant boundaries, additional nonnegative boundary killing factors, vacancy insertions at bridge times, and local boundary factors at jump times. It integrates every internal update chronology.
+It is a positive finite-volume FA transfer operator with moving vacant boundaries, additional nonnegative boundary killing factors, bridge-time vacancy insertions, and local boundary factors at jump times. It integrates every internal update chronology.
 
-The next quantitative problem is to find a coarse class of path/bridge data for which the normalized operators \(K_{\Gamma,B}\) contract the dependence on the bottom configuration. The [regional sweep contraction](regional-sweep-contraction-for-fa-1f.md) handles static zero-boundary pieces; the remaining work is to concatenate those estimates through the local boundary jumps and bridge insertions.
+The next quantitative problem is to identify path/bridge data for which the normalized operators \(K_{\Gamma,B}\) lose dependence on the bottom configuration. The ordinary finite-volume FA semigroup has a uniform spectral gap at fixed \(q\), but the boundary killing and bridge insertions must be handled explicitly rather than discarded.
