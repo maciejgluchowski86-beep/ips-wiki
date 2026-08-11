@@ -11,7 +11,7 @@ tags:
 
 # Vacancy-gap route for one-dimensional FA-1f
 
-This entry records a geometric reformulation of the remaining Bernoulli-quench problem. It is complementary to the [coarse chronology contraction route](coarse-chronology-contraction-route-for-fa-1f.md). No new convergence theorem is claimed.
+This entry records a geometric reformulation of the remaining Bernoulli-quench problem. It is complementary to the [chronology-averaged sign route](chronology-averaged-sign-route-for-fa-1f.md). No new convergence theorem is claimed.
 
 ## A weaker target than finite-time sign positivity
 
@@ -27,11 +27,20 @@ $$
 \lim_{L\to\infty}\limsup_{t\to\infty}
 \mathbb P_{\mu_{q_0}}
 \bigl(\eta_t(x)=1\text{ for every }x\in[-L,L]\bigr)=0.
+\tag{1}
 $$
 
-Indeed, under \(\lambda\mu_q+(1-\lambda)\delta_{\mathbf 1}\), the probability that \([-L,L]\) is completely occupied tends to \(1-\lambda\) as \(L\to\infty\). Thus the displayed tightness statement rules out any trap component.
+Indeed, under \(\lambda\mu_q+(1-\lambda)\delta_{\mathbf 1}\), the probability that \([-L,L]\) is completely occupied tends to \(1-\lambda\) as \(L\to\infty\). Thus (1) rules out any trap component.
 
 This target does not ask for a sign at any finite time. It asks only that activity cannot coarsen into vacancy-free regions whose typical size diverges.
+
+## What front propagation already gives
+
+The classical front law of large numbers of Blondel, Deshayes and Toninelli and the cutoff/front results of Ertul require the equilibrium vacancy density to be above a threshold. In that regime the proofs also establish a stronger ``zeros lemma'', controlling the production of vacancies behind the moving front.
+
+More recently, Martinelli, Shapira and Toninelli proved that for every \(q>0\), starting from finitely many vacancies, the leftmost and rightmost vacancies have linearly growing span. This all-density result removes the need to prove vacancy mobility from scratch. See [front growth and vacancy density for FA-1f](front-growth-and-vacancy-density-for-fa-1f.md).
+
+The span theorem does not imply (1): two extreme vacancies can be separated by order \(t\) while the interval between them is almost completely occupied. Indeed, the same paper still formulates convergence to equilibrium from a single vacancy as an open conjecture. The missing geometric input is therefore not propagation of the front but **densification behind it**, or equivalently an all-density analogue of the high-density zeros lemma.
 
 ## Exact gap geometry
 
@@ -60,38 +69,30 @@ The equilibrium value is \(r=q\). The unresolved Bernoulli quench therefore beco
 
 An isolated vacancy corresponds locally to positive gaps on both sides. It cannot disappear. A neighboring occupied site first refreshes to a vacancy, creating a zero gap. Subsequent updates can then return to the separated-vacancy set with the vacancy displaced, can coalesce two vacancies, or can leave two separated vacancies. In particular, the effective motion only appears after an entire adjacent-vacancy excursion is averaged.
 
-This explains the recurring high-\(q\) obstruction in one-step Lyapunov estimates: they charge the creation of a zero gap immediately but stop before the same zero gap has been resolved. The natural embedded chain should instead be observed at return times to a coarse class such as configurations with no adjacent vacancies in the region under consideration.
+This explains the recurring high-\(q\) obstruction in one-step Lyapunov estimates: they charge the creation of a zero gap immediately but stop before the same zero gap has been resolved. The natural embedded chain should instead be observed after complete local branch/coalescence excursions.
 
-## Relation with CBSEP
+## Exact chronology-averaged local resampling
 
-The effective excursion moves are the same geometric moves that make the coalescing and branching simple symmetric exclusion process useful: branching and coalescing are literal FA-1f moves, while a nearest-neighbor vacancy displacement is realized in FA-1f by a branching step followed by coalescence. This suggests using CBSEP as an auxiliary coarse process, but only after chronology has been averaged over the full local excursion.
+The [moving-edge CBSEP resampling](moving-edge-cbsep-resampling-for-fa-1f.md) implements precisely such an excursion. Starting from a nonempty edge, a stopped sequence of actual FA updates produces the CBSEP heat-bath distribution on that edge. In the moving version, an exterior vacancy that would delete the tagged vacancy causes the tag to move to that exterior vacancy, and the desired local branch still occurs after an exponential time of rate \(q\). The displacement before branching has an exponential tail.
 
-A useful finite target would be a minorization or contraction statement for the FA return kernel on a mesoscopic interval. Starting from a separated-vacancy state, let \(\tau\) be the first return after a nontrivial local excursion to the separated-vacancy class. One would like to identify a coarse kernel \(K\) such that either
+This supplies a local mechanism for the missing all-density zeros lemma: a vacancy is not merely propagated; complete local chronologies repeatedly create branch/coalescence opportunities whose output has already averaged the competing update orders.
 
-$$
-P_{\mathrm{FA}}(\eta_\tau\in\cdot\mid\eta_0)
-\ge \varepsilon K(\eta_0,\cdot)
-$$
+The remaining problem is global. These local regenerations must be concatenated into a spacetime construction which leaves enough regenerated vacancies behind the fronts while preserving the unused Poisson randomness. An adaptive choice of the next edge can reveal information about neighboring clocks, so a valid construction should be formulated using stopping lines or predetermined spacetime blocks.
 
-on suitable block states, or the corresponding transfer operator contracts the non-equilibrium component in a norm adapted to gap tails. A CBSEP-type \(K\) would be particularly useful because its mobile-vacancy geometry is much better behaved than the microscopic FA chronology.
+## Relation with the 2013 convergence proof
 
-## Proposed proof architecture
+Blondel, Cancrini, Martinelli, Roberto and Toninelli reduce their high-density convergence theorem to control of the nearest-vacancy distance. Their Theorem 2.1 assumes \(q>1/2\), and Remark 2.2 explicitly states that extending the result to \(q\le1/2\) requires more precise control of that distance.
 
-The global problem should be split into two genuinely geometric statements.
+Their finite-volume part does not intrinsically require the one-step Lyapunov argument used to obtain this control. Thus an all-density replacement for the persistence-of-zeros estimate can be inserted into the same general architecture: finite speed reduces a local observable to a large finite interval, vacancy-gap control keeps the process in the favorable nonempty components of mesoscopic blocks, and the finite-volume spectral-gap estimates give relaxation inside those components.
 
-1. **Gap tightness.** Show that, starting from an i.i.d. geometric gap field with any parameter \(q_0>0\), the occupied gap containing a fixed site is tight uniformly for large times. A block construction based on the excursion kernel is the natural target.
-2. **Regional mixing.** Once a mesoscopic region is crossed by a mobile vacancy and experiences enough rings, show that its dependence on the incoming state contracts. This is the role of the coarse chronology/projection argument.
+For qualitative convergence from Bernoulli data, the stationary-limit classification makes the target even weaker: (1) alone excludes the absorbing component. A quantitative zeros lemma would additionally recover an all-density version of the 2013 relaxation argument.
 
-The first statement excludes the absorbing component. The second should be useful for quantitative convergence, but the qualitative Bernoulli convergence problem may already follow from the first together with the stationary-limit classification.
+## Current target
 
-## Immediate finite computations
+The established and missing parts can therefore be separated as follows.
 
-The next simulations should be done in gap variables rather than in the signed dual alone. On intervals containing one or two isolated vacancies:
+1. **Established all-density mobility.** Finite vacancy sets develop linearly growing span.
+2. **Established local chronology averaging.** A complete FA edge excursion gives an exact CBSEP resampling, with exponentially localized moving-edge corrections.
+3. **Missing all-density densification.** Prove that these local excursions can be concatenated so that vacancy-free gaps do not diverge behind the moving extremes.
 
-* enumerate the return kernel to the no-adjacent-vacancy class;
-* record probabilities of displacement, coalescence and genuine branching after the excursion;
-* test whether the return kernel is monotone or contractive in any natural gap order;
-* compare it numerically with a CBSEP edge kernel after optimizing a time rescaling;
-* test whether repeated return-kernel steps preserve a uniform exponential tail of gap lengths.
-
-These tests directly probe the mechanism required to rule out escape to the all-occupied state. Failure of coefficientwise sign positivity would not invalidate this route.
+The third statement is the genuinely new step. It should be proved directly at the level of complete update chronologies rather than by coefficientwise sign estimates or deterministic update words.
