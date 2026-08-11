@@ -100,10 +100,51 @@ In particular, the internal branching time is an exact exponential clock of rate
 
 At \(\tau_{\mathrm{br}}\), the stopped output on the final edge has the CBSEP heat-bath law (2), independent of the singleton orientation with which the final attempt began. If the stopping coin requests coalescence, the additional waiting time is exponential of rate \(2p\), and the surviving endpoint is uniform.
 
+## Spatial buffer bound
+
+Let \(N\) be the number of shifts of the moving singleton edge before \(\tau_{\mathrm{br}}\). Every shift is caused by an occupation proposal at the tagged vacancy. Such a proposal has rate \(p\), and it produces a shift only when the exterior neighbor is vacant. The competing branch clock has rate \(q\). Hence, at every stage before the branch, conditional on the past, the probability that the next effective event is a shift rather than the branch is at most
+
+$$
+\frac{p}{p+q}=p.
+$$
+
+By induction,
+
+$$
+\mathbb P(N\ge m)\le p^m,
+\qquad m\ge0.
+\tag{4}
+$$
+
+Thus a complete chronology-averaged local regeneration is spatially local with an exponential tail, uniformly over the exterior FA history.
+
+There is an equally elementary time bound. Let \(\tau_{\mathrm{reg}}\) be the final stopping time of the CBSEP resampling. For any \(s,u\ge0\),
+
+$$
+\mathbb P(\tau_{\mathrm{reg}}>s+u)
+\le e^{-qs}+e^{-2pu}.
+\tag{5}
+$$
+
+The second term is needed only when the stopping coin requests a coalescence. Combining (4) and (5), a regeneration can be confined with arbitrarily high probability to a fixed spacetime box whose dimensions depend only on \(q\) and the desired error probability.
+
+## Phase chain
+
+If the independent stopping coin is omitted and one simply alternates between the singleton and double-vacancy phases, the phase itself is an exact two-state continuous-time chain. A singleton moving edge reaches the double-vacancy phase at rate \(q\) by (3). A double-vacancy edge loses one endpoint at total rate \(2p\). Therefore
+
+$$
+1\xrightarrow{\ q\ }2,
+\qquad
+2\xrightarrow{\ 2p\ }1.
+\tag{6}
+$$
+
+Its stationary double-vacancy probability is \(q/(2-q)\), agreeing with (2). Formula (6) does not make the spatial edge position autonomous: the singleton edge can shift before its branch. It isolates, however, the part of the dynamics that is already independent of the exterior environment after chronology averaging.
+
 ## Interpretation
 
 The lemma gives a local chronology-averaging mechanism specific to one-dimensional FA-1f. A tagged vacancy provides a guaranteed facilitator. If activity on the opposite side removes that vacancy before the desired local branch, the tag is not killed: the coarse edge moves to the vacancy that enabled the removal. The next local attempt starts in the same singleton state. Eventually an internal branch occurs at the fixed hazard \(q\), and the complete branch/coalescence excursion produces an exact CBSEP edge resampling.
 
 This is consistent with the standard observation that CBSEP branching and coalescing moves are FA-1f moves and that a CBSEP exclusion move can be composed from one branch and one coalescence. The statement here is stronger at the local level: the CBSEP heat-bath projection itself is realized as a stopped average over the actual FA chronology.
 
-The remaining global problem is to concatenate moving-edge resamplings into a sparse spacetime process of tagged vacancies without conditioning away the unrevealed FA clocks in the regions between tags. That concatenation is not claimed here.
+The remaining global problem is to concatenate moving-edge resamplings into a sparse spacetime process of tagged vacancies without conditioning away the unrevealed FA clocks in the regions between tags. The exponential buffer bound (4) shows that this problem can be posed as a finite-range block construction up to an arbitrarily small error; such a construction is not claimed here.
