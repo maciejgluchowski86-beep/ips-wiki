@@ -2,6 +2,8 @@
 
 This repository is a public-facing wiki for interacting particle systems, spin systems, ergodicity, duality, and related literature.
 
+The rendered wiki is published at <https://maciejgluchowski86-beep.github.io/ips-wiki/>.
+
 The wiki is article-first. Each entry is a separate Markdown page under `docs/entries/`, with TeX math rendered in the web view and ordinary Markdown links between entries. Cross-links should usually be inline links through relevant words and phrases, not top-level related-page lists.
 
 ## Paper draft
@@ -23,7 +25,8 @@ terminology, and paragraph conventions are recorded in `STYLE.md`.
 
 ## Reading target
 
-The intended reading target is the rendered MkDocs site.
+The intended reading target is the rendered MkDocs site at
+<https://maciejgluchowski86-beep.github.io/ips-wiki/>.
 
 - Source pages: `docs/`
 - Entry pages: `docs/entries/`
