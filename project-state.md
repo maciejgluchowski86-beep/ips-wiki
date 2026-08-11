@@ -84,10 +84,20 @@ The paper writing conventions are recorded in `STYLE.md`. In particular, inline 
 20. `docs/entries/east-out-of-equilibrium.md`: theorem records for known East out-of-equilibrium convergence results.
 21. `docs/entries/babp-out-of-equilibrium.md`: known BABP long-time results and the high-density centered-moment comparison.
 22. `docs/entries/chronology-averaged-sign-route-for-fa-1f.md`: conditional one-dimensional route reducing the remaining Bernoulli quench problem to a rooted two-sided punctured positivity lemma, with the exact last-ring Duhamel formula and ruled-out strengthenings.
+23. `docs/entries/gap-process-route-for-fa-1f.md`: geometric reduction of the Bernoulli quench to vacancy-gap tightness; the current analytic target is an all-density densification or zeros lemma behind moving fronts.
+24. `docs/entries/moving-edge-cbsep-resampling-for-fa-1f.md`: exact stopped FA branch/coalescence chronology giving the one-edge CBSEP heat-bath law, with a moving-edge embedding and exponential spatial tail.
+25. `docs/entries/fa-1f-babp-xor-decomposition.md`: exact decomposition \(L_{\rm FA}=\frac12L_{\rm BABP}+L_{\rm xor}\), where the residual reversible layer only transports domain walls.
+26. `docs/entries/front-growth-and-vacancy-density-for-fa-1f.md`: high-density front theorems, the all-density finite-seed linear-span theorem, and the distinction between front mobility and vacancy-gap control behind the front.
+
+## Current FA-1f Bernoulli-quench target
+
+The unresolved one-dimensional all-density problem has been reduced to excluding the absorbing component from stationary subsequential limits. It is enough to prove tightness of the distance to the nearest vacancy under \(\mu_{q_0}P_t\), or equivalently that the probability of a fixed-centered occupied interval tends uniformly to zero as its length grows.
+
+All-density linear mobility of finitely many vacancies is already available from the literature. The missing input is an all-density analogue of the high-density ``zeros lemma'': propagation must leave vacancies with tight gaps behind the moving extremes. The main current route uses complete branch/coalescence excursions, not deterministic update words. The moving-edge CBSEP entry supplies the exact local chronology average; the open step is to concatenate these local regenerations by a stopping-line or predetermined-block construction without revealing the unused Poisson clocks. A second exact structural input is the BABP plus domain-wall-stirring generator decomposition.
 
 ## Current conventions
 
-- Public pages should not contain private strategy, raw scratch work, personal information, credentials, copyrighted source text, or unpublished claims without proof status.
+- Public pages should not contain private strategy, raw scratch work, personal information, credentials, or unpublished claims without proof status.
 - Entries should be mathematical articles, not commentary about the wiki.
 - Cross-links should usually be Wikipedia-style inline links through relevant words and phrases.
 - Do not use top-level "Related pages" lists on ordinary entries.
