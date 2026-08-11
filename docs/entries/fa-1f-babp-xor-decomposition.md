@@ -86,6 +86,12 @@ On a finite cycle the total number of domain walls is consequently conserved by 
 
 The BABP part of (2) is therefore the reaction layer, while \(L_{\rm xor}\) is an interface-stirring layer. This differs from the less useful identity obtained by subtracting the double-facilitation overlap from BABP: after slowing BABP by one half, the remainder has nonnegative rates.
 
+## Relation to the exact FA--AA similarity transform
+
+Jack, Mayer and Sollich give an exact tensor-product similarity transform between an FA model and the reversible reaction--diffusion process \(A+A\leftrightarrow0\). Their FA convention is the additive-rate model: a site with two facilitating neighbours refreshes at twice the rate of a site with one facilitating neighbour. In the present notation this is precisely BABP, not the OR-rate FA-1f generator in (1).
+
+They explicitly distinguish the alternative convention in which the refresh rate is independent of whether one or two facilitating neighbours are present and state that their exact mapping applies only to the additive-rate convention. Consequently the FA--AA similarity transform proves statements about the BABP term in (2), but cannot be applied directly to \(L_{\rm FA}\). The residual interface-stirring layer is a genuine additional generator, and its transform under the BABP change of basis is not positivity preserving.
+
 ## Limitation
 
 The decomposition does not imply that FA-1f inherits BABP's quasi-duality or its all-density convergence theorem. A change of basis that turns BABP into its positive quasi-dual need not preserve positivity of an additional Markov generator. Thus (2) should presently be used at the graphical or semigroup level: BABP intervals perform branching/coalescing reactions, and the residual intervals transport interfaces without changing their number.
