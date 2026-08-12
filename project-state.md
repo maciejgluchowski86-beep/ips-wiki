@@ -48,9 +48,18 @@ Relevant files:
 
 Work on this route until the factorization is proved or a structural counterexample shows it cannot have the required terminal geometry.
 
-## Secondary route: primal regeneration to vacancy-gap tightness
+## Secondary route: all-density analogue of the front wake
 
-The local chronology-averaging mechanism is established:
+The literature gives a clear benchmark. For one-dimensional East at every `q>0`, the process seen from the front has a unique invariant law whose tail is exponentially close in total variation to the Bernoulli equilibrium. The proof uses a distinguished zero: conditional on its entire monotone path, the swept region behind it is exactly at equilibrium. This exact conditional property is orientation-specific.
+
+For high-vacancy FA-1f, Blondel--Deshayes--Toninelli prove the analogous front invariant-law theorem by replacing the distinguished-zero argument with two separate inputs: a threshold-contact-process comparison that generates many vacancies behind the front, and a non-equilibrium relaxation estimate once vacancy spacing is controlled. See `docs/entries/front-growth-and-vacancy-density-for-fa-1f.md`.
+
+The all-density program should preserve this separation:
+
+1. **vacancy production:** prove an all-density zeros lemma/gap-tightness statement behind a mobile vacancy/front;
+2. **regional relaxation:** given a suitable nonempty moving-boundary region, prove loss of dependence on its incoming configuration.
+
+The local chronology-averaging mechanism for step 1 is established:
 
 - `docs/entries/moving-edge-cbsep-resampling-for-fa-1f.md`
 - `docs/entries/iterated-moving-edge-splitting-for-fa-1f.md`
@@ -58,17 +67,22 @@ The local chronology-averaging mechanism is established:
 
 These give random-time local reproduction with exponential time and spatial tails, uniformly over exterior FA history. The unresolved issue is deterministic-time global bookkeeping: distinct descendants can collide, and random-time daughters do not yet give a standard oriented-percolation block kernel.
 
-All-density finite-seed linear span is known from the literature, but it does not imply vacancy-gap tightness and cannot be inserted by deleting exterior vacancies because FA-1f is not attractive. See:
+For step 2, modern one-dimensional general-KCM bisection gives useful finite-volume input. On an arbitrary irreducible component,
 
-- `docs/entries/front-growth-and-vacancy-density-for-fa-1f.md`
-- `docs/entries/gap-process-route-for-fa-1f.md`
+$$
+T_{\rm rel}\le (2/q)^{C\log\min\{|\Lambda|,2/q\}},
+$$
 
-Do not assume a size-uniform spectral gap for the occupied-boundary nonempty finite-volume component. Available finite-volume relaxation estimates have nontrivial length dependence.
+so at fixed `q` the relaxation-time bound is uniform in interval length once the interval is large. The obstacle is therefore not a volume-diverging spectral gap. It is obtaining a conditional moving/nonempty region whose internal graphical randomness has not been biased by the path used to select its vacancy boundary.
+
+The tagged-vacancy bridge and vacancy-lens factorizations are possible replacements for East orientation: conditional on a path plus auxiliary bridge variables, they retain the interior chronology as a positive regional transfer operator. A useful stronger target is an approximate distinguished-boundary estimate showing that the normalized moving-boundary transfer operator loses dependence on initial data a distance `L` behind the boundary.
+
+All-density finite-seed linear span is already known from Martinelli--Shapira--Toninelli, but it does not imply vacancy-gap tightness and cannot be inserted by deleting exterior vacancies because FA-1f is not attractive.
 
 ## Supporting identities, not standalone proof routes
 
 - `docs/entries/fa-1f-babp-xor-decomposition.md`: exact `L_FA = 1/2 L_BABP + L_xor`; the residual layer transports domain walls, but BABP quasi-duality does not remain positive after adding it.
-- `docs/entries/vacancy-lens-factorization-for-fa-1f.md`: exact prescribed-lens factorization; useful locally, but no proved contraction of the moving lens operator.
+- `docs/entries/vacancy-lens-factorization-for-fa-1f.md`: exact prescribed-lens factorization; useful for replacing East's orientation-specific conditional independence, but no proved contraction of the moving lens operator.
 - `docs/entries/chronology-averaged-sign-route-for-fa-1f.md`: exact centered-dual formulas and diagnostics; the rooted punctured-positivity conjecture is no longer the main proof target.
 
 ## Retired directions
@@ -82,7 +96,7 @@ Do not restart these without genuinely new input:
 - microscopic contact-process domination at all `q`;
 - the exact FA--reaction-diffusion similarity transform, which applies to the additive-rate/BABP convention rather than OR-rate FA-1f;
 - inferring vacancy-gap tightness from front speed alone;
-- assuming uniform finite-volume mixing on the nonempty occupied-boundary component.
+- a direct transplantation of the East distinguished-zero identity to FA-1f: conditioning on an FA vacancy path reads clocks on both sides and does not leave an exact product-equilibrium wake.
 
 ## General conventions
 
