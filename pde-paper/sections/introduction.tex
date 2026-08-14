@@ -23,7 +23,7 @@ The results below support the following principle.
 For branching representations with singular derivative weights, cancellation before absolute values is a structural part of integrability, not a variance-reduction refinement added after the representation has been constructed.
 \end{quote}
 
-The paper reaches this conclusion in three stages. The first stage concerns existing branching representations and shows that $L^1$ can depend on the architecture even when the PDE and terminal datum are fixed. The second stage constructs an integrable representation for a quadratic Hessian equation by averaging complete patch interiors before absolute values. The third stage proves that, for one fixed smooth datum, this averaging cannot be replaced by a proposal change which keeps the canonical raw signed marked contribution as its conditional barycenter.
+The paper reaches this conclusion in three stages. The first concerns existing branching representations and shows that $L^1$ can depend on the architecture even when the PDE and terminal datum are fixed. The second constructs an integrable representation for a quadratic Hessian equation by averaging complete patch interiors before absolute values. The third identifies the boundary of this mechanism: pure proposal changes cannot repair the canonical raw marked integrand, but complete interior averaging is not necessary. A nonconstant time-spine coarsening remains integrable on a stronger small-data regime.
 
 \subsection{Formal exactness and the coding-tree obstruction}
 
@@ -43,11 +43,11 @@ we isolate this repeated Hessian genealogy. If $g^*$ is an allowed composite cod
   \int_B
   \abs{\partial_{z_j}^{2m}g(J_n\phi(y))}\,dy,
 \end{equation*}
-then the contribution of the length-$m$ restricted genealogy has the lower-bound scale
+then the contribution of the length-$m$ restricted genealogy has lower-bound scale
 \begin{equation*}
   c^m\frac{D_m(B;g,j)}{m!}.
 \end{equation*}
-The lifetime density, the mechanism-selection probability, and the survival probabilities cancel their reciprocal compensators. The only combinatorial loss is the ordered-time simplex. This gives the repeated-Hessian obstruction, stated as~\cref{thm:repeated-hessian}. In particular, if $D_m/m!$ has superexponential growth, the raw code-rooted functional is not in $L^1$ at any positive remaining horizon.
+The lifetime density, mechanism-selection probability, and survival probabilities cancel their reciprocal compensators. The only combinatorial loss is the ordered-time simplex. This gives the repeated-Hessian obstruction~\cref{thm:repeated-hessian}. In particular, if $D_m/m!$ has superexponential growth, the raw code-rooted functional is not in $L^1$ at any positive remaining horizon.
 
 The same argument has a converse interpretation. If the relevant code-rooted functionals are integrable, then the even terminal derivatives satisfy a factorial bound. Applying the estimate to both $f^*$ and $(\partial_{z_j}f)^*$ gives
 \begin{equation*}
@@ -55,17 +55,17 @@ The same argument has a converse interpretation. If the relevant code-rooted fun
   \leq
   C_yA_y^r\Gamma\pa{\frac r2+1}
 \end{equation*}
-for almost every $y$. Thus the formal directional Taylor series is entire with at most Gaussian growth. This Gevrey-$1/2$ necessity is stated in~\cref{thm:gevrey-necessity}. It shows how restrictive absolute integrability can be for a representation which repeatedly differentiates the nonlinearity along the tree.
+for almost every $y$. Thus the formal directional Taylor series is entire with at most Gaussian growth. This Gevrey-$1/2$ necessity is~\cref{thm:gevrey-necessity}.
 
-These results do not say that the underlying PDE lacks a probabilistic representation. They say that one particular exact architecture can have an infinite absolute moment. The distinction can be seen on a single benchmark. For
+These results do not say that the underlying PDE lacks a probabilistic representation. They say that one exact architecture can have an infinite absolute moment. The distinction is visible on the benchmark
 \begin{equation}
   \partial_tu+\frac12u_{xx}
   +\eta\pa{e^{(u_x)^4}-1}=0,
   \qquad
-  u(T,x)=a\cos x,
+  u(T,x)=a\cos x.
   \label{eq:intro-benchmark}
 \end{equation}
-the Nguwi--Penent--Privault functional is non-$L^1$ at every positive horizon, while the marked branching representation of Henry-Labord\`ere, Oudjane, Tan, Touzi, and Warin~\cite{HenryLabordereEtAl2019} has a finite second moment on an explicit positive interval. The precise statement is~\cref{thm:representation-dichotomy}. We use this example only to establish the first step of the paper's logic: formal exactness does not imply $L^1$, and the moment question cannot be read off from the PDE alone.
+The Nguwi--Penent--Privault functional is non-$L^1$ at every positive horizon, while the marked branching representation of Henry-Labord\`ere, Oudjane, Tan, Touzi, and Warin~\cite{HenryLabordereEtAl2019} has a finite second moment on an explicit positive interval. This is~\cref{thm:representation-dichotomy}. We use the example only to establish the first step of the paper's logic: formal exactness does not imply $L^1$, and the moment question cannot be read off from the PDE alone.
 
 \subsection{The quadratic Hessian equation and patch regrouping}
 
@@ -77,7 +77,7 @@ The main part of the paper studies
   \qquad\text{on }\Torus=\R/(2\pi\mathbb Z).
   \label{eq:intro-hessian-pde}
 \end{equation}
-Writing $z=v_{xx}$ gives the mild equation
+Writing $z=v_{xx}$ gives
 \begin{equation}
   z(t)
   =
@@ -86,11 +86,11 @@ Writing $z=v_{xx}$ gives the mild equation
   \partial_x^2P_{t-s}\br{z(s)^2}\,ds.
   \label{eq:intro-hessian-mild}
 \end{equation}
-Repeated substitution produces planar binary Duhamel trees. Each internal vertex carries a Hessian transfer. We group maximal chains obtained by repeatedly following the left child into \emph{patches}. The finite-depth statement is elementary but important: replacing every such chain by its complete iterated Duhamel integral is an exact reindexing of the finite Picard expansion. No estimate and no infinite sum enter the argument. This is~\cref{thm:finite-patch-regrouping}.
+Repeated substitution produces planar binary Duhamel trees. Each internal vertex carries a Hessian transfer. We group maximal chains obtained by repeatedly following the left child into \emph{patches}. Replacing each such chain by its complete iterated Duhamel integral is an exact reindexing of every finite Picard expansion. No estimate and no infinite sum enter this statement; see~\cref{thm:finite-patch-regrouping}.
 
-The regrouping changes where one is allowed to take absolute values. Along a patch, several centered Hessian transfers can be composed first. In a bare Gaussian chain, conditioning on the total displacement replaces the product of second Hermite scores by one higher Hermite score. With spatial multipliers between the derivative transfers, the same cancellation is expressed by commutator expansions. The finite patch theorem itself is only a signed identity; the point is to make these cancellations available before absolute moments are estimated.
+The regrouping changes where one is allowed to take absolute values. Along a patch, several centered Hessian transfers can be composed first. In a bare Gaussian chain, conditioning on the total displacement replaces the product of second Hermite scores by one higher Hermite score. With spatial multipliers between derivative transfers, the same cancellation is expressed by commutator expansions. The finite patch theorem itself is only a signed identity; its role is to make those cancellations available before absolute moments are estimated.
 
-A deterministic semi-implicit iteration gives a small uniformly parabolic solution of~\eqref{eq:intro-hessian-pde}. We include it because it identifies the deterministic solution represented later and gives a direct self-consistent diffusion formula. It is not the main result. Under a uniform Schauder smallness condition, the iteration
+A deterministic semi-implicit iteration gives a small uniformly parabolic solution of~\eqref{eq:intro-hessian-pde}. We include it because it supplies an overlapping deterministic solution theory and an implicit self-consistent diffusion formula. It is not a principal representation result. Under a uniform Schauder smallness condition, the iteration
 \begin{equation*}
   \partial_tv_{n+1}
   =
@@ -98,9 +98,9 @@ A deterministic semi-implicit iteration gives a small uniformly parabolic soluti
   \qquad
   z_{n+1}=v_{n+1,xx},
 \end{equation*}
-remains in a fixed ellipticity window and contracts in $H^{-1}$. The resulting theorem is stated in~\cref{thm:deterministic-iteration}. Its role is auxiliary: it supplies a deterministic solution theory on a regime which overlaps the probabilistic theorem below.
+remains in a fixed ellipticity window and contracts in $H^{-1}$; see~\cref{thm:deterministic-iteration}.
 
-\subsection{Averaging before absolute values}
+\subsection{Complete interior averaging}
 
 Let
 \begin{equation*}
@@ -108,13 +108,13 @@ Let
   \qquad
   (\cD f)(t)=\int_0^t\partial_x^2P_{t-s}f(s)\,ds.
 \end{equation*}
-The Hessian Duhamel operator is bounded on this parabolic H\"older scale in the form
+The Hessian Duhamel operator satisfies
 \begin{equation*}
   \norm{\cD(fg)}_X
   \leq
   C_{\cD}(\alpha,T)\norm f_X\norm g_X.
 \end{equation*}
-For a finite rooted planar binary tree $\tau$, define its \emph{interior-averaged profile} recursively by
+For a finite planar binary tree $\tau$, define its interior-averaged profile recursively by
 \begin{equation*}
   F_\bullet=P_\cdot\phi'',
   \qquad
@@ -122,36 +122,36 @@ For a finite rooted planar binary tree $\tau$, define its \emph{interior-average
   =
   \lambda\cD(F_{\tau_1}F_{\tau_2}).
 \end{equation*}
-All continuous branch times, Brownian increments, and Hermite marks inside the decorated skeleton have been integrated out in $F_\tau$. If
+All branch times, Brownian increments, and Hermite marks inside the decorated skeleton have been integrated out in $F_\tau$. If
 \begin{equation}
   4\abs\lambda C_{\cD}(\alpha,T)
   \norm{P_\cdot\phi''}_{X_{\alpha,T}}<1,
   \label{eq:intro-cprime-smallness}
 \end{equation}
-then the Catalan count of binary trees and the bilinear bound above give
+then the Catalan count of binary trees gives
 \begin{equation*}
-  \sum_{\tau}\norm{F_\tau}_X<\infty.
+  \sum_\tau\norm{F_\tau}_X<\infty.
 \end{equation*}
-Consequently the skeleton series is absolutely convergent, solves~\eqref{eq:intro-hessian-mild}, and may itself be randomized. If $S$ is sampled from any full-support probability mass function $\pi$ on the finite decorated skeletons, then
+Consequently the skeleton series solves~\eqref{eq:intro-hessian-mild} absolutely, and sampling one skeleton $S$ from any full-support law $\pi$ gives
 \begin{equation*}
-  \widehat z(t,x)=\frac{F_S(t,x)}{\pi(S)}
+  \widehat z(t,x)=\frac{F_S(t,x)}{\pi(S)}\in L^1.
 \end{equation*}
-belongs to $L^1$ and has expectation $z(t,x)$. This is Theorem C-prime, stated as~\cref{thm:cprime}.
+This is Theorem C-prime,~\cref{thm:cprime}.
 
-The construction is intentionally ordered as follows: first average every continuous variable inside the skeleton, then take absolute values, then randomize the countable skeleton. One cannot instead begin from an unresolved infinite raw functional $H$ and write $\E[H\mid S]$, because ordinary conditional expectation already requires $H\in L^1$. The deterministic Duhamel recursion defines $F_S$ without this circularity.
+The construction is intentionally ordered as follows: first average every continuous variable inside the skeleton, then take absolute values, then randomize the countable skeleton. One cannot instead begin from an unresolved infinite raw functional $H$ and write $\E[H\mid S]$, because ordinary conditional expectation already requires $H\in L^1$.
 
 \subsection{Raw-faithfulness is impossible for one fixed smooth datum}
 
-The next result asks whether the same integrability can be obtained while retaining the canonical raw signed marked integrand. The class must be stated carefully. For a fixed finite raw marked genealogy, let $\mu$ denote its intrinsic finite signed measure after the positive proposal factors and their reciprocal compensators have been cancelled. Let $Q$ be any positive proposal dominating $\mu$. An estimator $Y$ is \emph{raw-faithful} if, after the canonical raw marks are exposed,
+For a fixed finite raw genealogy, let $\mu$ denote its intrinsic signed measure after the positive proposal factors and their reciprocal compensators have been cancelled. Let $Q$ be any positive proposal dominating $\mu$. An estimator $Y$ is \emph{raw-faithful} if, after the canonical raw marks are exposed,
 \begin{equation}
   \E_Q[Y\mid\text{raw marks}]
   =
   \frac{d\mu}{dQ}.
   \label{eq:intro-raw-faithful}
 \end{equation}
-The proposal may change the lifetime law, the genealogy distribution, the Gaussian law, or dependencies among these variables. Additional auxiliary randomness is also allowed. Condition~\eqref{eq:intro-raw-faithful} requires only that these changes do not move signed mass between distinct canonical raw marked states.
+The proposal may change the lifetime law, genealogy distribution, Gaussian law, and dependencies among these variables, and additional auxiliary randomness is allowed. Condition~\eqref{eq:intro-raw-faithful} says that these changes may not move signed mass between distinct canonical raw states.
 
-For one fixed smooth datum, this class has no $L^1$ estimator. The datum is built directly into the terminal Hessian profile,
+For one fixed smooth datum, this entire class has no $L^1$ estimator. Choose
 \begin{equation}
   g_\varepsilon(x)
   =
@@ -168,18 +168,18 @@ with $K\geq3$. For each fixed derivative order $k$,
 \begin{equation*}
   \sum_m\frac{N_m^k}{\sqrt{m!}}<\infty,
 \end{equation*}
-so~\eqref{eq:intro-lacunary-datum} is $C^\infty$. It is the second derivative of a smooth periodic terminal datum $\phi_\varepsilon$.
+so~\eqref{eq:intro-lacunary-datum} is $C^\infty$. It is the second derivative of a smooth periodic datum $\phi_\varepsilon$.
 
-The lower bound comes from a disjoint family of length-$m$ comb genealogies. Side leaves are projected onto frequency $1$ and the terminal distinguished leaf onto frequency $N_m$. Restrict every Hessian duration to
+The lower bound uses disjoint right-comb genealogies. Side leaves are projected onto frequency $1$ and the final distinguished leaf onto frequency $N_m$. Restrict every Hessian duration to
 \begin{equation*}
   N_m^{-2}\leq r_j\leq\frac{h}{4m}.
 \end{equation*}
-This rectangle lies inside the chronological simplex. After absolute values, each retained centered Hessian mark contributes a factor of order
+This rectangle lies inside the chronological simplex. Each retained centered Hessian mark then contributes one logarithm,
 \begin{equation*}
   \int_{N_m^{-2}}^{h/(4m)}\frac{dr}{r}
-  \asymp m.
+  \asymp m,
 \end{equation*}
-The intrinsic total variation $\norm{\mu_m}_{\TV}$ of the length-$m$ comb therefore satisfies
+and the intrinsic total variation satisfies
 \begin{equation}
   \norm{\mu_m}_{\TV}
   \gtrsim
@@ -187,16 +187,14 @@ The intrinsic total variation $\norm{\mu_m}_{\TV}$ of the length-$m$ comb theref
   \frac{m^m}{\sqrt{m!}}.
   \label{eq:intro-raw-tv}
 \end{equation}
-The right-hand side is not summable. Since the comb cylinders are disjoint, conditional Jensen applied to~\eqref{eq:intro-raw-faithful} gives
+The right side is not summable. Disjointness and conditional Jensen applied to~\eqref{eq:intro-raw-faithful} imply
 \begin{equation*}
   \E_Q\abs Y
   \geq
   \sum_m\norm{\mu_m}_{\TV}
   =\infty.
 \end{equation*}
-This is~\cref{thm:raw-faithful-obstruction}. It is proposal invariant because the first moment of the Radon--Nikodym derivative is the total variation of the same intrinsic signed measure.
-
-The amplitude $\varepsilon$ may be chosen arbitrarily small. In particular, the same fixed datum may be placed inside the C-prime regime~\eqref{eq:intro-cprime-smallness}. This gives the clean contrast of the paper:
+This is~\cref{thm:raw-faithful-obstruction}. The amplitude $\varepsilon$ may be arbitrarily small, so the same datum may lie inside~\eqref{eq:intro-cprime-smallness}. Hence
 \begin{equation*}
   \boxed{
   \begin{minipage}{0.82\textwidth}
@@ -204,11 +202,11 @@ The amplitude $\varepsilon$ may be chosen arbitrarily small. In particular, the 
   \end{minipage}}
 \end{equation*}
 
-\subsection{What the negative theorem does not say}
+\subsection{Randomness itself is not obstructed}
 
-The raw-faithful theorem is not an impossibility theorem for randomness. This point belongs in the main statement of the programme because otherwise the scope is easy to misread.
+The raw-faithful theorem is not an impossibility theorem for randomness. This point belongs in the main theorem narrative because otherwise the scope is easy to misread.
 
-There is first a vacuous counterexample. Start from the C-prime estimator and sample, in addition, an independent family of Gaussian variables labelled by the interior edges of the sampled skeleton. If the returned scalar is still $F_S/\pi(S)$, the simulation contains continuous random marks but their presence has no mathematical effect. Thus a condition which merely requires random variables to be present cannot distinguish raw retention from decorative randomness.
+There is first a vacuous counterexample. Start from the C-prime estimator and sample an independent family of Gaussian variables labelled by the interior edges of the sampled skeleton. If the returned scalar is still $F_S/\pi(S)$, the simulation contains continuous random marks but their presence is decorative.
 
 There are also nontrivial escape mechanisms. At one Hessian edge, the antithetic estimator
 \begin{equation}
@@ -218,50 +216,67 @@ There are also nontrivial escape mechanisms. At one Hessian edge, the antithetic
   \br{F(x+\sqrt rZ)+F(x-\sqrt rZ)-2F(x)}
   \label{eq:intro-antithetic}
 \end{equation}
-still uses the sampled Gaussian mark and has expectation $\partial_x^2P_rF$, but conditional on $Z$ it is not the canonical one-sided raw integrand~\eqref{eq:intro-centered-hessian}. It therefore falls outside raw-faithfulness. Antithetic and ghost constructions of this kind are standard variance-reduction devices in branching methods; see, for example,~\cite{Warin2017}.
+still uses the sampled Gaussian mark and has expectation $\partial_x^2P_rF$, but conditional on $Z$ it is not the canonical one-sided raw integrand~\eqref{eq:intro-centered-hessian}. It therefore falls outside raw-faithfulness. Antithetic and ghost constructions of this kind are standard in branching methods; see~\cite{Warin2017}.
 
-The surviving problem is therefore not whether random marks may appear. It is whether one can redistribute signed mass between raw marked states, while retaining nontrivial continuous randomness, enough to make the total variation summable.
+The relevant question is therefore whether enough signed mass can be redistributed between raw states before absolute values are taken while nontrivial continuous randomness remains.
 
-\subsection{Coarsening signed patch measures}
+\subsection{A proved coarsening hierarchy}
 
-The preceding distinction has a useful measure-theoretic formulation. For a finite decorated skeleton $\tau$, let $\mu_\tau$ be its intrinsic signed measure on the canonical raw interior-mark space $\cM_\tau$. Its total mass is the deterministic skeleton contribution $F_\tau(t,x)$. Let
-\begin{equation*}
-  \cC_\tau:\cM_\tau\longrightarrow\overline{\cM}_\tau
-\end{equation*}
-be a measurable coarsening and define
+For a finite decorated skeleton $\tau$, let $\mu_\tau$ be its intrinsic signed measure on the raw interior-mark space $\cM_\tau$, and let
 \begin{equation}
   \overline\mu_\tau
   =
-  (\cC_\tau)_{\#}\mu_\tau.
+  (\cC_\tau)_{\#}\mu_\tau
   \label{eq:intro-coarsening}
 \end{equation}
-A canonical importance sampler for the coarsened state has absolute first moment
+for a measurable coarsening $\cC_\tau$. A canonical importance sampler for the coarsened state has first moment
 \begin{equation*}
   \sum_\tau\norm{\overline\mu_\tau}_{\TV}.
 \end{equation*}
-Thus the open problem becomes the construction of a nonconstant family of coarsenings for which this sum is finite.
-
-Three points locate the problem. If $\cC_\tau$ is the identity,~\cref{thm:raw-faithful-obstruction} gives divergence for the datum~\eqref{eq:intro-lacunary-datum}. If $\cC_\tau$ is constant, then
-\begin{equation*}
-  \norm{(\cC_\tau)_{\#}\mu_\tau}_{\TV}
-  =
-  \abs{F_\tau(t,x)},
-\end{equation*}
-and Theorem C-prime proves summability under~\eqref{eq:intro-cprime-smallness}. More generally,
+The constant coarsening gives Theorem C-prime and minimizes total variation skeleton by skeleton, since
 \begin{equation}
-  \norm{(\cC_\tau)_{\#}\mu_\tau}_{\TV}
-  \geq
-  \abs{\mu_\tau(\cM_\tau)},
+  \abs{F_\tau(t,x)}
+  \leq
+  \norm{(\cC_\tau)_{\#}\mu_\tau}_{\TV}.
   \label{eq:intro-tv-optimality}
 \end{equation}
-so the constant map is total-variation optimal within the coarsening class. This optimality does not imply that it is the only finite choice.
+The identity coarsening is impossible for the datum~\eqref{eq:intro-lacunary-datum}.
 
-A natural intermediate map keeps the total Gaussian displacement along a Hessian chain and integrates out only the Gaussian bridge coordinates. For a bare chain, this replaces a product of $m$ second Hermite scores by one $2m$-th Hermite score and changes factorial retained-mark growth into geometric growth after the time simplex is integrated. Whether an analogous nonconstant coarsening yields
+The first natural intermediate candidate, patchwise Gaussian-bridge coarsening, fails globally for an exact reason. The obstruction uses right combs, while patches are maximal left-child chains. Every internal vertex of a right comb is therefore its own one-edge patch. A one-edge bridge map has no bridge coordinate to integrate out, so on the obstruction family the coarsening is the identity up to an invertible coordinate change. The lower bound~\eqref{eq:intro-raw-tv} survives unchanged; see~\cref{cor:bridge-coarsening-fails}.
+
+A different nonconstant coarsening succeeds. For each finite tree, retain the ordered branch times on its root maximal-left spine and average every Gaussian/Brownian mark together with all continuous variables in the side subtrees. Let
 \begin{equation*}
-  \sum_\tau\norm{\overline\mu_\tau}_{\TV}<\infty
+  M=\norm{P_\cdot\phi''}_X,
+  \qquad
+  a=\abs\lambda C_{\cD}M,
+  \qquad
+  b=\abs\lambda K_{\mathrm{time}}M,
 \end{equation*}
-for the full spatially varying patch expansion is left open.
+where $K_{\mathrm{time}}(\alpha,T)<\infty$ is the optimal geometric constant for the absolute time-integral of one deterministic maximal-left patch. If
+\begin{equation}
+  4a<1,
+  \qquad
+  b\frac{1-\sqrt{1-4a}}{2a}<1,
+  \label{eq:intro-time-spine-smallness}
+\end{equation}
+with the usual value $1$ for the fraction at $a=0$, then~\cref{thm:time-spine} gives
+\begin{equation*}
+  \sum_\tau
+  \norm{(\cC_\tau^{\mathrm{time}})_{\#}\mu_\tau}_{\TV}
+  <\infty.
+\end{equation*}
+The retained time vector affects the estimator nontrivially, so this is not decorative randomness.
+
+The resulting hierarchy has three proved levels:
+\begin{equation*}
+  \text{raw-faithful: non-}L^1
+  \quad\longrightarrow\quad
+  \text{time-spine: }L^1
+  \quad\longrightarrow\quad
+  \text{C-prime: }L^1.
+\end{equation*}
+The arrows represent increasing coarsening, not implications between smallness regimes. The fixed-datum obstruction shows that some departure from the raw conditional barycenter is necessary. The time-spine theorem shows that complete interior averaging is not necessary.
 
 \subsection{Organization}
 
-\Cref{sec:preliminaries} fixes the semigroup, signed-measure, tree, and coarsening notation. \Cref{sec:coding-tree} states the repeated-Hessian obstruction and Gevrey-$1/2$ necessity. \Cref{sec:dichotomy} gives the Nguwi--Penent--Privault versus HLOTW benchmark. \Cref{sec:patches} introduces the finite patch regrouping and records the auxiliary deterministic iteration. \Cref{sec:cprime} states the skeleton-averaged $L^1$ theorem. \Cref{sec:raw-faithful} states the fixed-datum raw-faithful obstruction and isolates the role of decorative and antithetic randomness. \Cref{sec:coarsening} formulates the remaining problem through pushforwards of the intrinsic signed patch measures.
+\Cref{sec:preliminaries} fixes the semigroup, signed-measure, tree, and coarsening notation. \Cref{sec:coding-tree} proves the repeated-Hessian obstruction and Gevrey-$1/2$ necessity. \Cref{sec:dichotomy} gives the Nguwi--Penent--Privault versus HLOTW benchmark. \Cref{sec:patches} proves the finite patch regrouping and records the auxiliary deterministic iteration. \Cref{sec:cprime} proves the skeleton-averaged $L^1$ theorem. \Cref{sec:raw-faithful} proves the fixed-datum raw-faithful obstruction and isolates decorative and antithetic randomness. \Cref{sec:coarsening} proves the failure of naive patchwise Gaussian-bridge coarsening and the intermediate $L^1$ representation with retained branch-time randomness.
