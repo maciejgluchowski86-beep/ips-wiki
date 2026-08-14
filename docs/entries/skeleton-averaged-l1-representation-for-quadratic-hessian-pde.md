@@ -1,0 +1,421 @@
+---
+title: Skeleton-averaged L1 representation for the quadratic Hessian PDE
+status: proved here
+tags:
+  - PDE
+  - branching process
+  - patch
+  - Holder space
+  - integrability
+  - Monte Carlo
+---
+
+# Skeleton-averaged L1 representation for the quadratic Hessian PDE
+
+For the quadratic Hessian equation, the continuous randomness inside a finite patch does not need to remain in the final estimator. If all branch times and Gaussian/Hermite marks inside each finite decorated skeleton are integrated out first, the remaining deterministic skeleton profiles form an absolutely convergent binary-tree series for sufficiently small data. Sampling only the discrete skeleton then gives an unbiased \(L^1\) estimator.
+
+This result sits strictly between the deterministic and fully random constructions developed here. On their common small-data regime it strengthens the [self-consistent deterministic theorem](self-consistent-patch-iteration-for-quadratic-hessian-pde.md) by adding an integrable skeleton-only probabilistic representation. It is strictly weaker than the [full random-patch conjecture](l1-random-patch-conjecture-for-quadratic-hessian-pde.md), because it averages away the continuous patch fluctuations before sampling the skeleton.
+
+A terminology point is important. The unresolved fully random patch functional is not known to belong to \(L^1\), so its measure-theoretic conditional expectation \(\mathbb E[H\mid S]\) cannot be used as a starting definition. The *interior-averaged skeleton profile* below is defined directly by the deterministic Duhamel integrals. Equivalently, it is the limit of conditional expectations of integrable finite cutoffs. This avoids using the desired \(L^1\) conclusion in the construction itself.
+
+**References.** The finite signed regrouping and finite conditional factorization are proved in [Finite-depth Duhamel patch regrouping](finite-depth-duhamel-patch-regrouping.md) and [Conditional factorization for finite PDE patches](conditional-factorization-for-finite-pde-patches.md). The analytic input is [Parabolic Holder bound for the Hessian Duhamel operator](parabolic-holder-bound-for-hessian-duhamel-operator.md). The theorem below is proved here.
+
+## Equation and function space
+
+Fix \(0<\alpha<1\), \(T>0\), and \(\phi\in C^{2+\alpha}(\mathbb T)\). Write
+
+$$
+\partial_tv
+=
+\frac12\partial_x^2v
++\lambda(\partial_x^2v)^2,
+\qquad
+v(0)=\phi,
+\tag{1}
+$$
+
+and set
+
+$$
+z=v_{xx}.
+$$
+
+Then the Hessian mild equation is
+
+$$
+z
+=
+L
++\lambda\mathcal D(z^2),
+\qquad
+L(t)=P_t\phi'',
+\tag{2}
+$$
+
+where
+
+$$
+(\mathcal Df)(t)
+=
+\int_0^t
+\partial_x^2P_{t-s}f(s)\,ds.
+\tag{3}
+$$
+
+Let
+
+$$
+X_{\alpha,T}
+=
+C^{\alpha/2,\alpha}([0,T]\times\mathbb T)
+$$
+
+with the equivalent norm
+
+$$
+\lVert f\rVert_X
+=
+\lVert f\rVert_\infty
++[f]_{x;\alpha}
++[f]_{t;\alpha/2}.
+\tag{4}
+$$
+
+By the Hessian Duhamel estimate,
+
+$$
+\lVert\mathcal D(fg)\rVert_X
+\leq
+C_{\mathcal D}(\alpha,T)
+\lVert f\rVert_X
+\lVert g\rVert_X.
+\tag{5}
+$$
+
+Put
+
+$$
+M
+=
+\lVert L\rVert_X,
+\qquad
+a
+=
+|\lambda|C_{\mathcal D}(\alpha,T)M.
+\tag{6}
+$$
+
+The heat-lift estimate gives the data-only bound
+
+$$
+M
+\leq
+(1+m_\alpha)
+\lVert\phi''\rVert_{C^\alpha},
+\qquad
+m_\alpha=\mathbb E|Z|^\alpha.
+\tag{7}
+$$
+
+## Decorated skeletons
+
+Let \(\mathfrak T\) be the set of finite rooted planar full binary trees. An internal vertex represents one quadratic Hessian Duhamel insertion and a leaf represents the heat lift \(L\).
+
+Equivalently, decompose every tree into maximal left-child chains as in the finite patch theorem. The resulting patch skeleton together with the integer length of every patch is a *decorated patch skeleton*. This is in bijection with the original binary tree. Continuous branch times, Brownian increments, and Hermite marks are **not** part of the decorated skeleton in this entry; they are the variables that are integrated out first.
+
+Let \(\mathfrak T_n\) be the trees with \(n\) internal vertices. Then
+
+$$
+|\mathfrak T_n|
+=
+C_n
+=
+\frac{1}{n+1}\binom{2n}{n},
+\tag{8}
+$$
+
+where \(C_n\) is the \(n\)-th Catalan number.
+
+## Interior-averaged skeleton profile
+
+Define \(F_\tau\in X_{\alpha,T}\) recursively. For the one-leaf tree \(\bullet\), set
+
+$$
+F_\bullet=L.
+\tag{9}
+$$
+
+If \(\tau=[\tau_1,\tau_2]\) has left and right subtrees \(\tau_1,\tau_2\), set
+
+$$
+F_\tau
+=
+\lambda\mathcal D
+\left(
+F_{\tau_1}F_{\tau_2}
+\right).
+\tag{10}
+$$
+
+For a fixed finite tree, equations (9)--(10) are exactly its deterministic Duhamel contribution. By finite patch regrouping, the same function is obtained if the vertices are first grouped into maximal left-spine patches and all continuous variables inside those patches are integrated before the outer skeleton is considered.
+
+The profile \(F_\tau\) should therefore be understood as the signed interior average attached to the decorated skeleton \(\tau\). No pathwise Holder norm of the raw Gaussian/Hermite estimator appears in its definition.
+
+## Proposition: Catalan majorant
+
+For every \(\tau\in\mathfrak T_n\),
+
+$$
+\lVert F_\tau\rVert_X
+\leq
+M a^n.
+\tag{11}
+$$
+
+Consequently, if
+
+$$
+4a<1,
+\tag{12}
+$$
+
+then
+
+$$
+\sum_{\tau\in\mathfrak T}
+\lVert F_\tau\rVert_X
+<\infty.
+\tag{13}
+$$
+
+More explicitly,
+
+$$
+\sum_{\tau\in\mathfrak T}
+\lVert F_\tau\rVert_X
+\leq
+M
+\sum_{n=0}^\infty C_n a^n
+=
+M\frac{1-\sqrt{1-4a}}{2a},
+\tag{14}
+$$
+
+with the value \(M\) at \(a=0\).
+
+A sufficient condition expressed only in the data is
+
+$$
+4|\lambda|
+C_{\mathcal D}(\alpha,T)
+(1+m_\alpha)
+\lVert\phi''\rVert_{C^\alpha}
+<1.
+\tag{15}
+$$
+
+### Proof
+
+The bound (11) is by induction on the number of internal vertices. It is immediate for the leaf. If \(\tau=[\tau_1,\tau_2]\) and \(\tau_i\) has \(n_i\) internal vertices, then \(n=n_1+n_2+1\), and (5) gives
+
+$$
+\begin{aligned}
+\lVert F_\tau\rVert_X
+&\leq
+|\lambda|C_{\mathcal D}
+\lVert F_{\tau_1}\rVert_X
+\lVert F_{\tau_2}\rVert_X\\
+&\leq
+|\lambda|C_{\mathcal D}
+M^2a^{n_1+n_2}
+=
+Ma^n.
+\end{aligned}
+$$
+
+Summing over the \(C_n\) trees of size \(n\) gives (14). The Catalan generating series has radius \(1/4\), proving (13) under (12). Equation (15) follows from (7).
+
+## Theorem: absolutely convergent skeleton expansion
+
+Assume (12). Then
+
+$$
+z_*
+=
+\sum_{\tau\in\mathfrak T}F_\tau
+\tag{16}
+$$
+
+converges absolutely in \(X_{\alpha,T}\). The sum satisfies the Hessian mild equation
+
+$$
+z_*
+=
+L+\lambda\mathcal D(z_*^2).
+\tag{17}
+$$
+
+Moreover, if
+
+$$
+R(a)
+=
+M\frac{1-\sqrt{1-4a}}{2a},
+\tag{18}
+$$
+
+then \(z_*\) is the unique solution of (17) in the closed \(X_{\alpha,T}\)-ball of radius \(R(a)\).
+
+### Proof
+
+Absolute convergence gives a well-defined element \(z_*\in X_{\alpha,T}\). The non-leaf trees are in bijection with ordered pairs \((\tau_1,\tau_2)\) of finite trees by removing the root. Since
+
+$$
+\sum_\tau\lVert F_\tau\rVert_X<\infty
+$$
+
+and the bilinear map in (5) is continuous, the corresponding double series is absolutely convergent. Therefore its order may be changed, and
+
+$$
+\begin{aligned}
+z_*-L
+&=
+\sum_{\tau_1,\tau_2}
+\lambda\mathcal D
+\left(F_{\tau_1}F_{\tau_2}\right)\\
+&=
+\lambda\mathcal D\left[
+\left(\sum_{\tau_1}F_{\tau_1}\right)
+\left(\sum_{\tau_2}F_{\tau_2}\right)
+\right]
+=
+\lambda\mathcal D(z_*^2).
+\end{aligned}
+\tag{19}
+$$
+
+This is the point at which absolute convergence is load-bearing: without it, the Cauchy product and exchange of the skeleton sums would not be justified.
+
+For uniqueness, let
+
+$$
+\Phi(z)=L+\lambda\mathcal D(z^2).
+$$
+
+If \(\lVert z\rVert_X,\lVert w\rVert_X\leq R(a)\), then
+
+$$
+\lVert\Phi(z)-\Phi(w)\rVert_X
+\leq
+2|\lambda|C_{\mathcal D}R(a)
+\lVert z-w\rVert_X.
+\tag{20}
+$$
+
+By (6) and (18),
+
+$$
+2|\lambda|C_{\mathcal D}R(a)
+=
+1-\sqrt{1-4a}
+<1.
+\tag{21}
+$$
+
+Hence \(\Phi\) is a contraction on that ball and the solution there is unique.
+
+## Reconstruction of \(v\)
+
+Define
+
+$$
+v_*(t)
+=
+P_t\phi
++
+\lambda\int_0^t
+P_{t-s}[z_*(s)^2]\,ds.
+\tag{22}
+$$
+
+Differentiating twice in space and using (17) gives
+
+$$
+v_{*,xx}=z_*.
+\tag{23}
+$$
+
+Therefore \(v_*\) satisfies (1). For smooth \(\phi\), standard parabolic regularity upgrades the mild solution on positive times, and on every regime where the hypotheses of the [self-consistent deterministic theorem](self-consistent-patch-iteration-for-quadratic-hessian-pde.md) also hold, uniqueness identifies \(v_*\) with the solution constructed there.
+
+Thus C-prime strengthens Theorem B at the level of conclusions on their common small-data regime: the same deterministic solution now has an absolutely integrable skeleton-only representation. It does not claim a larger data regime than Theorem B.
+
+## Skeleton-only \(L^1\) estimator
+
+Let \(\pi\) be any probability mass function on the countable set \(\mathfrak T\) such that
+
+$$
+\pi(\tau)>0
+\qquad
+\text{for every }\tau\in\mathfrak T.
+$$
+
+Sample one decorated skeleton \(S\sim\pi\) and define
+
+$$
+\widehat z(t,x)
+=
+\frac{F_S(t,x)}{\pi(S)}.
+\tag{24}
+$$
+
+This estimator randomizes only the discrete skeleton. All continuous branch-time and spatial/Hermite variables inside the skeleton have already been averaged in \(F_S\).
+
+Then, for every \((t,x)\),
+
+$$
+\begin{aligned}
+\mathbb E|\widehat z(t,x)|
+&=
+\sum_{\tau\in\mathfrak T}
+|F_\tau(t,x)|\\
+&\leq
+\sum_{\tau\in\mathfrak T}
+\lVert F_\tau\rVert_X
+<\infty.
+\end{aligned}
+\tag{25}
+$$
+
+Hence \(\widehat z(t,x)\in L^1\). Moreover the expectation is absolutely convergent, so
+
+$$
+\mathbb E[\widehat z(t,x)]
+=
+\sum_{\tau\in\mathfrak T}
+F_\tau(t,x)
+=
+z_*(t,x).
+\tag{26}
+$$
+
+Thus the estimator is unbiased. The same absolute convergence that proves (25) justifies the interchange in (26); unbiasedness is not inferred merely from a formal compensator cancellation.
+
+The choice of \(\pi\) does not affect \(L^1\) integrability in (25), although it does affect higher moments and Monte Carlo efficiency.
+
+## Why conditioning on a skeleton is not circular
+
+The theorem does not generate \(S\) by first running the unresolved fully random branching estimator and then condition on the event that its skeleton equals \(S\). Instead, the countable decorated skeleton is sampled *first* from the external proposal \(\pi\), and its deterministic interior-averaged profile is evaluated afterward.
+
+At finite cutoff, one may equivalently introduce continuous proposal variables inside a fixed skeleton and use their reciprocal compensators. The finite patch factorization then gives the deterministic Duhamel contribution after those variables are averaged. Letting the cutoff vanish recovers \(F_S\) through the bounded deterministic operator \(\mathcal D\). No assumption that the raw uncut patch functional belongs to \(L^1\) is used.
+
+This skeleton-first formulation is therefore probabilistically legitimate and avoids the circular expression \(\mathbb E[H\mid S]\) when \(H\in L^1\) has not been established.
+
+## What this theorem does not prove
+
+The theorem does **not** show that the original random patch-first functional, with Gaussian/Hermite marks retained inside each patch, belongs to \(L^1\). It does not control the centered raw fluctuation
+
+$$
+H-\text{(interior average at fixed skeleton)},
+$$
+
+and it gives no general variance bound for a raw or skeleton-only estimator. Those are exactly the distinctions separating C-prime from the full random-patch conjecture.
