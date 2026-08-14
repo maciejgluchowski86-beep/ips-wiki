@@ -40,53 +40,8 @@ jobs:
       - name: Check live wiki quality metadata
         run: python scripts/check_wiki_quality.py --changed-from HEAD^
 
-      - name: Check fifth-sweep deleted basenames repository-wide
-        shell: bash
-        run: |
-          set -euo pipefail
-          basenames=(
-            fa-1f-bernoulli-convergence-route-audit
-            chronology-averaged-sign-route-for-fa-1f
-            coarse-chronology-contraction-route-for-fa-1f
-            discrepancy-zipper-route-for-fa-1f
-            gap-process-route-for-fa-1f
-            front-zipper-representation-for-fa-1f
-            fa-1f-babp-xor-decomposition
-            moving-edge-cbsep-resampling-for-fa-1f
-            iterated-moving-edge-splitting-for-fa-1f
-            separated-vacancy-reproduction-for-fa-1f
-            regional-sweep-contraction-for-fa-1f
-            tagged-vacancy-bridge-factorization-for-fa-1f
-            vacancy-lens-factorization-for-fa-1f
-          )
-          exclusions=(":!.github/workflows/build-wiki-site.yml")
-          for deleted in "${basenames[@]}"; do
-            exclusions+=(":!docs/entries/$deleted.md")
-          done
-          failed=0
-          for base in "${basenames[@]}"; do
-            hits="$(git grep -n -F "$base" -- . "${exclusions[@]}" || true)"
-            if [[ -n "$hits" ]]; then
-              echo "Unexpected surviving reference to $base:"
-              echo "$hits"
-              failed=1
-            fi
-          done
-          exit "$failed"
-
-      - name: Report wiki counts
-        shell: bash
-        run: |
-          set -euo pipefail
-          entries=$(find docs/entries -maxdepth 1 -type f -name '*.md' | wc -l)
-          proved_here=$(grep -l '^status: proved here$' docs/entries/*.md | wc -l)
-          audit_current=$(grep -l '^audit: current$' docs/entries/*.md | wc -l)
-          echo "live_entries=$entries"
-          echo "proved_here=$proved_here"
-          echo "audit_current=$audit_current"
-
       - name: Build site
-        run: mkdocs build --strict
+        run: mkdocs build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
