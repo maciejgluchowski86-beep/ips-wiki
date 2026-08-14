@@ -107,7 +107,7 @@ The subtraction does not change the signed expectation. It is essential in absol
   \E\br{\abs{\He_2(Z)}\abs Z^\alpha}.
   \label{eq:centered-hessian-holder}
 \end{equation}
-The short-edge singularity in~\eqref{eq:centered-hessian-holder} is integrable in $r$. By contrast, if one propagates the pathwise $C^\alpha$ seminorm of the random field $x\mapsto\widehat K_rF(x,Z)$, the direct estimate has scale $r^{-1}$ and no H\"older gain. This is the starting point of the later Banach-scale obstruction, although that intermediate result is not reproved in the present manuscript draft.
+The short-edge singularity in~\eqref{eq:centered-hessian-holder} is integrable in $r$. By contrast, if one propagates the pathwise $C^\alpha$ seminorm of the random field $x\mapsto\widehat K_rF(x,Z)$, the direct estimate has scale $r^{-1}$ and no H\"older gain. This observation motivates the later decision to average several signed marks before taking the first absolute value.
 
 For a chain of independent Gaussian increments $Z_1,\ldots,Z_m$ with durations $r_1,\ldots,r_m$, put
 \begin{equation*}
@@ -130,11 +130,9 @@ For a bare derivative chain,~\eqref{eq:bridge-score} is the basic example of can
 
 \subsection{Signed measures and positive proposals}
 
-The measure-theoretic formulation makes proposal invariance transparent. Let $(M,\mathcal A)$ be a measurable mark space and let $\mu$ be a finite signed measure on $M$. A positive proposal is a finite positive measure $Q$ such that
-\begin{equation*}
-  \mu\ll Q.
-\end{equation*}
-The canonical importance-sampling weight is
+The measure-theoretic formulation makes proposal invariance transparent. Let $(M,\mathcal A)$ be a measurable mark space and let $\mu$ be a finite signed measure on $M$. Its total-variation norm is denoted by $\norm\mu_{\TV}$.
+
+If $Q$ is a probability measure such that $\mu\ll Q$, the canonical importance-sampling weight is
 \begin{equation*}
   W=\frac{d\mu}{dQ}.
 \end{equation*}
@@ -149,11 +147,9 @@ Then
   \norm\mu_{\TV}.
   \label{eq:proposal-tv}
 \end{equation}
-Thus a proposal changes the density of the estimator but cannot change the $L^1$ cost of sampling a fixed signed measure exactly. This is the abstract form of the familiar cancellation between a sampled lifetime density and its reciprocal compensator, or between a sampled offspring probability and its reciprocal probability weight.
+Thus a proposal changes the density of the estimator but cannot change the $L^1$ cost of sampling a fixed signed measure exactly. The same conclusion holds if the proposal variables are dependent: $Q$ is simply their joint law.
 
-The same conclusion holds if the proposal variables are dependent. One simply takes $Q$ to be their joint law. Product structure is not required in~\eqref{eq:proposal-tv}.
-
-Auxiliary unbiased randomness cannot reduce the first moment if the canonical signed density remains its conditional barycenter. More precisely, let $R$ denote the exposed canonical mark coordinate and let $Y\in L^1$ be any scalar estimator such that
+Auxiliary unbiased randomness cannot reduce the first moment if the canonical signed density remains its conditional barycenter. More precisely, let $R$ denote the exposed canonical mark coordinate and let $Y\in L^1$ satisfy
 \begin{equation}
   \E_Q[Y\mid\sigma(R)]
   =
@@ -171,9 +167,22 @@ Conditional Jensen gives
 \end{equation}
 We always use~\eqref{eq:conditional-barycenter-general} under the assumption that $Y\in L^1$, typically in a proof by contradiction. We never define an unresolved nonintegrable object by an ordinary conditional expectation.
 
+The capstone theorem also uses conditional expectation with respect to a finite positive measure $\nu$ which need not be normalized. For $G\in L^1(\nu)$ and a sub-sigma-field $\mathcal G$, we write
+\begin{equation*}
+  \E_\nu[G\mid\mathcal G]
+\end{equation*}
+for the $\mathcal G$-measurable function characterized by
+\begin{equation*}
+  \int_A\E_\nu[G\mid\mathcal G]\,d\nu
+  =
+  \int_A G\,d\nu,
+  \qquad A\in\mathcal G.
+\end{equation*}
+When $\nu(M)>0$, this is the usual conditional expectation after normalizing $\nu$ to a probability measure; the normalization cancels from the defining identity.
+
 \begin{definition}[Raw-faithfulness]
 \label{def:raw-faithful}
-Let $\mu$ be the intrinsic signed measure on a canonical raw marked state space, and let $Q$ be a positive proposal dominating it. An $L^1(Q)$ estimator is \emph{raw-faithful} if its conditional barycenter after the canonical raw state is exposed is $d\mu/dQ$, as in~\eqref{eq:conditional-barycenter-general}.
+Let $\mu$ be the intrinsic signed measure on a canonical raw marked state space, and let $Q$ be a probability proposal dominating it. An $L^1(Q)$ estimator is \emph{raw-faithful} if its conditional barycenter after the canonical raw state is exposed is $d\mu/dQ$, as in~\eqref{eq:conditional-barycenter-general}.
 \end{definition}
 
 The definition permits arbitrary changes of positive proposal and arbitrary auxiliary conditionally unbiased randomization. It excludes transformations which move signed mass between different canonical raw states before the conditional barycenter is taken.
@@ -246,40 +255,29 @@ This signed-measure point of view allows us to discuss averaging and proposal ch
 
 \subsection{Coarsening the raw mark space}
 
-Let $\cC_\tau:\cM_\tau\to\overline{\cM}_\tau$ be measurable. The coarsened signed measure is the pushforward
+Let $\cC_\tau:\cM_\tau\to\overline{\cM}_\tau$ be measurable. The coarsened signed measure is
 \begin{equation}
   \overline\mu_\tau
   =
   (\cC_\tau)_{\#}\mu_\tau.
   \label{eq:pushforward-def}
 \end{equation}
-The total mass is preserved,
-\begin{equation*}
-  \overline\mu_\tau(\overline{\cM}_\tau)
-  =
-  F_\tau(t,x),
-\end{equation*}
-while total variation cannot increase,
+Its total mass is preserved, while total variation satisfies
 \begin{equation}
+  \abs{F_\tau(t,x)}
+  \leq
   \norm{\overline\mu_\tau}_{\TV}
   \leq
   \norm{\mu_\tau}_{\TV}.
-  \label{eq:tv-contraction-pushforward}
+  \label{eq:tv-coarsening-sandwich}
 \end{equation}
-It is also bounded below by the absolute total mass,
-\begin{equation}
-  \norm{\overline\mu_\tau}_{\TV}
-  \geq
-  \abs{F_\tau(t,x)}.
-  \label{eq:tv-lower-total-mass}
-\end{equation}
-If $\cC_\tau$ is constant, equality holds in~\eqref{eq:tv-lower-total-mass}. Thus complete interior averaging is total-variation optimal among deterministic coarsenings of a fixed skeleton measure.
+If $\cC_\tau$ is constant, equality holds in the lower bound. Thus complete interior averaging is total-variation optimal among deterministic coarsenings of a fixed skeleton measure.
 
 The identity map gives the canonical raw marked measure. A Gaussian-bridge coarsening keeps, along a consecutive Hessian chain, the total displacement
 \begin{equation*}
   Y=\sum_j\sqrt{r_j}Z_j
 \end{equation*}
-and forgets the orthogonal bridge coordinates. The conditional identity~\eqref{eq:bridge-score} describes the induced signed score for a bare chain. This map is nonconstant and lies strictly between the identity and the constant coarsening.
+and forgets the orthogonal bridge coordinates. The conditional identity~\eqref{eq:bridge-score} describes the induced signed score for a bare chain.
 
 \subsection{Parabolic H\"older space}
 
@@ -298,18 +296,18 @@ with norm
   +[f]_{x;\alpha}.
   \label{eq:X-norm}
 \end{equation}
-Standard heat-semigroup estimates and cancellation in~\eqref{eq:centered-hessian-mark} imply that there is a finite constant $C_{\cD}(\alpha,T)$ such that
+Standard heat-semigroup estimates imply that there is a finite constant $C_{\cD}(\alpha,T)$ such that
 \begin{equation}
   \norm{\cD(fg)}_X
   \leq
   C_{\cD}(\alpha,T)\norm f_X\norm g_X.
   \label{eq:D-bilinear-bound}
 \end{equation}
-The exact value of the constant is not important for the manuscript structure. What matters is that it is finite for fixed $(\alpha,T)$ and that~\eqref{eq:D-bilinear-bound} closes the quadratic Duhamel map. Standard parabolic Schauder theory used later may be found in~\cite{Evans2010,Friedman1964,Lieberman1996}.
+The exact value is not important below; what matters is that the constant is finite for fixed $(\alpha,T)$ and closes the quadratic Duhamel map. Standard parabolic Schauder theory used later may be found in~\cite{Evans2010,Friedman1964,Lieberman1996}.
 
 \subsection{Coding-tree notation}
 
-For the Nguwi--Penent--Privault construction, $H(\mathcal T_{t,x,c})$ denotes the multiplicative functional of the coding tree started at time $t$, position $x$, and root code $c$~\cite{NguwiPenentPrivault2023}. We use only two structural facts from the construction in the present paper. First, an allowed composite code $g^*$ may be written
+For the Nguwi--Penent--Privault construction, $H(\mathcal T_{t,x,c})$ denotes the multiplicative functional of the coding tree started at time $t$, position $x$, and root code $c$~\cite{NguwiPenentPrivault2023}. We use only two structural facts from the construction. First, an allowed composite code $g^*$ may be written
 \begin{equation*}
   g
   =
@@ -319,4 +317,4 @@ For the Nguwi--Penent--Privault construction, $H(\mathcal T_{t,x,c})$ denotes th
 \end{equation*}
 Second, for every active direction $j$, the mechanism set of a composite code contains a three-child Hessian branch whose first child is the code associated with $-\frac12\partial_{z_j}^2g$ and whose two side children carry the spatial derivative $\partial_x^{j+1}$. Repeating this branch along the first child creates the distinguished genealogy used in~\cref{sec:coding-tree}.
 
-All coding-tree moment statements below assume that the lifetime density is strictly positive at positive times and that every prescribed allowed mechanism has positive selection probability. No uniform positive lower bound is needed in the negative theorem because those proposal probabilities cancel their reciprocal compensators on the selected genealogy.
+All coding-tree moment statements state their lifetime and mechanism-positivity assumptions locally. In particular, the negative theorem never requires a uniform positive lower bound because the selected proposal factors cancel their reciprocal compensators.
