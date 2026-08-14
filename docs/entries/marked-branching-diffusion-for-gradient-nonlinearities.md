@@ -43,7 +43,7 @@ The finite-mean offspring condition is part of the nonexplosion control for the 
 
 ## Gradient marks and automatic differentiation
 
-Let \(X_s^{t,x}\) be the underlying diffusion. The automatic-differentiation hypothesis in Assumption 3.2 asks for a measurable weight \(\mathcal W\) such that, for bounded measurable \(\varphi\),
+Let \(X_s^{t,x}\) be the underlying diffusion. The automatic-differentiation hypothesis asks for a measurable weight \(\mathcal W\) such that, for bounded measurable \(\varphi\),
 
 $$
 \partial_x\mathbb E\bigl[\varphi(X_s^{t,x})\bigr]
@@ -91,19 +91,19 @@ $$
 
 as well as the mark factor \(\mathcal W_k\). The gradient weight has short-time scale \((\Delta T_k)^{-1/2}\), so absolute moments depend sensitively on the lifetime law near zero.
 
-The compensation is an integrability balance, not an algebraic cancellation of \(\mathcal W_k\) by \(\rho\). In the explicit criterion of Assumption 3.10, one of the relevant quantities has the form
+The compensation is an integrability balance, not an algebraic cancellation of \(\mathcal W_k\) by \(\rho\). In the explicit criterion of Assumption 3.10(i), one of the relevant quantities has the form
 
 $$
 \sup_{\ell\in L,\,r\in(0,T]}
 C_{2,q}
 \left(
-\frac{\lVert c_\ell\rVert_\infty}{p_\ell}
-\sqrt{\frac{1}{r\rho(r)}}
+\frac{\lVert c_\ell\rVert_\infty}
+{p_\ell\sqrt r\,\rho(r)}
 \right)^q.
 \tag{5}
 $$
 
-Remark 3.11 notes that controlling this expression requires the ratios \(\lVert c_\ell\rVert_\infty/p_\ell\) to be uniformly bounded and, for this criterion, a density satisfying
+The whole density \(\rho(r)\) appears in the denominator in (5). Remark 3.11 notes that controlling this expression requires the ratios \(\lVert c_\ell\rVert_\infty/p_\ell\) to be uniformly bounded and, for this criterion, a density satisfying
 
 $$
 \rho(r)\geq C r^{-1/2}
@@ -113,16 +113,18 @@ near zero. Their alternative \(q\)-moment criterion requires a still stronger po
 
 ## Local uniform integrability
 
-A family of integrable random variables \(\{Y_\theta:\theta\in K\}\) is *uniformly integrable* if
+The abstract representation theorem uses [local uniform integrability](uniform-integrability-and-passage-to-expectations.md). For a compact parameter set \(K\), this means
 
 $$
 \lim_{R\to\infty}
 \sup_{\theta\in K}
-\mathbb E\left[|Y_\theta|\ind(|Y_\theta|>R)\right]
+\mathbb E\left[
+|Y_\theta|\ind(|Y_\theta|>R)
+\right]
 =0.
 $$
 
-A parameterized family is *locally uniformly integrable* when this holds after restricting the parameter to every compact set. This condition permits limits in the starting time and position to pass through expectations.
+This condition permits limits in the starting time and position to pass through expectations. A uniform \(L^q\) estimate with \(q>1\) is a standard sufficient condition.
 
 ## Integrability and viscosity representation
 
