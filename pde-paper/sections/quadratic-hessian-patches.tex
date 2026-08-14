@@ -20,7 +20,7 @@ Expanding algebraically gives a finite sum over rooted planar binary trees of he
 
 \begin{theorem}[Finite-depth patch regrouping]
 \label{thm:finite-patch-regrouping}
-For every integer $N\geq0$, the finite expansion of $z^{[N]}$ may be reorganized uniquely by its decorated patch skeleton. Replacing each maximal left-spine chain by its complete contribution~\eqref{eq:complete-patch} gives exactly the same signed function $z^{[N]}$.
+Fix $T>0$, $\lambda\in\R$, and a terminal datum $\phi$ smooth enough that the finite Picard iterates above are defined on $[0,T]\times\Torus$, with $L=P_\cdot\phi''$. For every integer $N\geq0$, the finite expansion of $z^{[N]}$ may be reorganized uniquely by its decorated patch skeleton. Replacing each maximal left-spine chain by its complete contribution~\eqref{eq:complete-patch} gives exactly the same signed function $z^{[N]}$.
 
 In particular, composing all Hessian transfers inside a patch before taking an absolute value is an exact finite-level operation. No term is discarded or added, and no convergence of an infinite tree series is used.
 \end{theorem}
@@ -35,7 +35,7 @@ For a fixed Picard depth $N$, only finitely many planar binary trees occur. Rein
 
 The next theorem is deterministic and weaker than the representation results which follow. Its purpose is to identify a small classical solution by a direct PDE iteration and to provide an overlapping uniqueness regime.
 
-Fix $0<\alpha<1$. Let $\mathcal A_{\alpha,T}$ be the coefficients $a\in C^{\alpha/2,\alpha}([0,T]\times\Torus)$ satisfying
+For $0<\alpha<1$ and $T>0$, let $\mathcal A_{\alpha,T}$ be the coefficients $a\in C^{\alpha/2,\alpha}([0,T]\times\Torus)$ satisfying
 \begin{equation*}
   \frac38\leq a\leq\frac58,
   \qquad
@@ -52,19 +52,22 @@ satisfies
   \leq
   C_{\mathrm{Sch}}(\alpha,T)\norm\phi_{C^{2+\alpha}}.
 \end{equation*}
-Put
-\begin{equation*}
-  R=C_{\mathrm{Sch}}(\alpha,T)\norm\phi_{C^{2+\alpha}}.
-\end{equation*}
 
 \begin{theorem}[Self-consistent deterministic iteration]
 \label{thm:deterministic-iteration}
+Fix $0<\alpha<1$, $T>0$, $\lambda\in\R$, and $\phi\in C^{2+\alpha}(\Torus)$. Let $C_{\mathrm{Sch}}(\alpha,T)$ be the uniform Schauder constant above and put
+\begin{equation*}
+  R
+  =
+  C_{\mathrm{Sch}}(\alpha,T)
+  \norm\phi_{C^{2+\alpha}}.
+\end{equation*}
 Assume
 \begin{equation}
   \abs\lambda R\leq\frac18.
   \label{eq:deterministic-smallness}
 \end{equation}
-Set $z_0=\phi''$. Given $z_n$, let $v_{n+1}$ solve
+Set $z_0(t,x)=\phi''(x)$. Given $z_n$, let $v_{n+1}$ be the classical solution of
 \begin{equation*}
   \partial_tv_{n+1}
   =
@@ -72,19 +75,35 @@ Set $z_0=\phi''$. Given $z_n$, let $v_{n+1}$ solve
   \qquad
   v_{n+1}(0)=\phi,
 \end{equation*}
-and put $z_{n+1}=v_{n+1,xx}$. Then the iterates remain in the H\"older ball of radius $R$, the coefficients remain in $[3/8,5/8]$, and $(z_n)$ converges in $L^2$ and uniformly to $z=v_{xx}$. The limit $v$ is a classical solution of~\eqref{eq:hessian-forward} and is unique among solutions with $\abs{\lambda v_{xx}}\leq1/8$.
+and put $z_{n+1}=v_{n+1,xx}$. Then the iterates satisfy
+\begin{equation*}
+  \norm{z_n}_{C^{\alpha/2,\alpha}}
+  \leq R,
+  \qquad
+  \frac38\leq\frac12+\lambda z_n\leq\frac58,
+\end{equation*}
+for every $n$, and $(z_n)$ converges both in $L^2([0,T]\times\Torus)$ and uniformly to a limit $z=v_{xx}$. The corresponding limit
+\begin{equation*}
+  v\in C^{1+\alpha/2,2+\alpha}([0,T]\times\Torus)
+\end{equation*}
+is a classical solution of~\eqref{eq:hessian-forward}. It is the unique solution in the class
+\begin{equation*}
+  \abs{\lambda v_{xx}}\leq\frac18
+  \qquad\text{on }[0,T]\times\Torus.
+\end{equation*}
 
-For each observation time $t\leq T$,
+For every fixed observation time $t\in[0,T]$ and $x\in\Torus$,
 \begin{equation*}
   v(t,x)=\E_x[\phi(X_t)],
 \end{equation*}
-where
+where $X$ is the periodic diffusion
 \begin{equation*}
   dX_s
   =
   \sqrt{1+2\lambda z(t-s,X_s)}\,dW_s,
   \qquad
-  X_0=x.
+  X_0=x,
+  \qquad 0\leq s\leq t.
 \end{equation*}
 The diffusion representation is implicit because its coefficient contains the fixed point $z$.
 \end{theorem}
