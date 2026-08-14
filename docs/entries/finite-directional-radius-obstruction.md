@@ -11,11 +11,53 @@ tags:
 
 # Finite directional radius obstruction
 
-Finite radius of the terminal Taylor series in one jet direction forces the derivative growth required by the [repeated-Hessian obstruction](repeated-hessian-obstruction-for-coding-trees.md) on a bounded set of positive measure. Separating the even and odd Taylor subsequences shows that a finite ordinary directional radius obstructs the all-code \(L^1\) hypothesis in the [Nguwi--Penent--Privault Feynman--Kac theorem](npp-coding-tree-feynman-kac-theorem.md), although the odd case alone does not imply nonintegrability of the identity-rooted tree.
+Finite radius of the terminal Taylor series in one jet direction forces the derivative growth required by the [repeated-Hessian obstruction](repeated-hessian-obstruction-for-coding-trees.md) on a bounded set of positive measure. Separating the even and odd Taylor subsequences shows that a finite ordinary directional radius obstructs the all-code \(L^1\) hypothesis in the [Nguwi--Penent--Privault Feynman--Kac theorem](npp-coding-tree-feynman-kac-theorem.md), although the odd case alone does not imply nonintegrability of the identity-rooted tree. The role of this result in the negative chain is summarized in the [PDE branching-representations overview](../pde-branching-representations.md).
 
 **References.** The directional-radius terminology is recorded in [Directional jet radius](directional-jet-radius.md). The coding mechanism is that of Jiang Yu Nguwi, Guillaume Penent, and Nicolas Privault, *A fully nonlinear Feynman-Kac formula with derivatives of arbitrary orders*, arXiv:2201.03882. The corollaries below are proved here.
 
-Fix \(j\in\{0,\ldots,n\}\) with \(\phi^{(j+1)}\not\equiv0\), and let \(g^*\) be an allowed composite code. For \(y\in\mathbb R\), define the formal directional coefficients
+## Setup and hypotheses
+
+Fix a terminal time \(T>0\), an integer \(n\geq0\), a smooth nonlinearity
+
+$$
+f\in C^\infty(\mathbb R^{n+1}),
+$$
+
+and smooth terminal data
+
+$$
+\phi\in C^\infty(\mathbb R).
+$$
+
+These are the data of the [heat-reference terminal PDE](heat-reference-fully-nonlinear-pde.md)
+
+$$
+\partial_tu+rac12u_{xx}+f(J_nu)=0,
+\qquad
+u(T)=\phi.
+$$
+
+Let \(H(\mathcal T_{t,x,c})\) denote the [NPP coding-tree functional](npp-coding-tree.md) rooted at code \(c\), built with a strictly positive lifetime density and positive mechanism-selection probabilities as in that construction. Fix a jet direction
+
+$$
+j\in\{0,\ldots,n\}
+$$
+
+such that
+
+$$
+\phi^{(j+1)}\not\equiv0.
+$$
+
+Let \(g^*\) be an allowed composite code, so
+
+$$
+g
+=
+a\,\partial_{z_0}^{\lambda_0}\cdots\partial_{z_n}^{\lambda_n}f
+$$
+
+for some \(a\neq0\) and nonnegative integers \(\lambda_0,\ldots,\lambda_n\). For \(y\in\mathbb R\), define the formal directional coefficients
 
 $$
 a_r^g(y)
