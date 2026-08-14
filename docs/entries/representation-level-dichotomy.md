@@ -11,7 +11,7 @@ tags:
 
 # Representation-level dichotomy
 
-For the [dichotomy benchmark](dichotomy-benchmark.md), the raw [Nguwi--Penent--Privault coding-tree](npp-coding-tree.md) functional is not absolutely integrable at any positive horizon, while a [Henry-Labordère--Oudjane--Tan--Touzi--Warin marked branching](marked-branching-diffusion-for-gradient-nonlinearities.md) estimator has finite second moment on an explicit positive time interval. The comparison is between two tree constructions attached to the same terminal-value PDE and the same terminal datum. The HLOTW construction gives a viscosity solution on the stated interval; no solution representation is attributed to the NPP tree in this example because the integrability premise of the [NPP Feynman--Kac theorem](npp-coding-tree-feynman-kac-theorem.md) fails.
+For the [dichotomy benchmark](dichotomy-benchmark.md), the raw [Nguwi--Penent--Privault coding-tree](npp-coding-tree.md) functional is not absolutely integrable at any positive horizon, while a [Henry-Labordère--Oudjane--Tan--Touzi--Warin marked branching](marked-branching-diffusion-for-gradient-nonlinearities.md) estimator has finite second moment on an explicit positive time interval. The comparison is between two tree constructions attached to the same terminal-value PDE and the same terminal datum. The HLOTW construction gives a continuous [viscosity solution](viscosity-solutions.md) on the stated interval; no solution representation is attributed to the NPP tree in this example because the integrability premise of the [NPP Feynman--Kac theorem](npp-coding-tree-feynman-kac-theorem.md) fails.
 
 **References.** Jiang Yu Nguwi, Guillaume Penent, and Nicolas Privault, *A fully nonlinear Feynman-Kac formula with derivatives of arbitrary orders*, arXiv:2201.03882. Pierre Henry-Labordère, Nadia Oudjane, Xiaolu Tan, Nizar Touzi, and Xavier Warin, *Branching diffusion representation of semilinear PDEs and Monte Carlo approximation*, *Annales de l'Institut Henri Poincaré, Probabilités et Statistiques* **55** (2019), no. 1, 184--210, arXiv:1603.01727. See [References](../meta/references.md).
 
@@ -162,7 +162,7 @@ $$
 \infty,
 $$
 
-as is immediate along \(m=2r\) from Stirling's formula. The repeated-Hessian obstruction gives (3). Its proof also shows why the conclusion is independent of the auxiliary lifetime and mechanism probabilities: on each restricted genealogy these sampling probabilities cancel the reciprocal weights in \(H\).
+as is immediate along \(m=2r\) from Stirling's formula. The repeated-Hessian obstruction gives (3). Its proof also shows why the conclusion is independent of the auxiliary lifetime and mechanism probabilities: on each restricted genealogy these [sampling compensators](importance-sampling-compensators.md) cancel the corresponding sampling probabilities.
 
 For the identity code, the NPP mechanism has
 
@@ -170,13 +170,13 @@ $$
 \mathcal M(\operatorname{Id})=\{(f^*)\}.
 $$
 
-Condition on the first identity branching occurring before \(T\). Its unique child is an \(f^*\)-rooted coding tree with a strictly positive remaining horizon. By (3), its conditional absolute expectation is infinite for every possible branching time and location. Tonelli's theorem then gives (4).
+Condition on the first identity branching occurring before \(T\). Its unique child is an \(f^*\)-rooted coding tree with a strictly positive remaining horizon. By (3), its conditional absolute expectation is infinite for every possible branching time and location. [Tonelli's theorem](tonelli-markov-and-borel-cantelli.md) then gives (4).
 
 ## Published HLOTW hypotheses and the endpoint issue
 
 HLOTW equation (2.1) permits a subset \(L\subseteq\mathbb N^{m+1}\) and puts a probability mass function on \(L\); no finiteness requirement on \(L\) is stated. Their Assumption 3.1 requires positive offspring probabilities with finite mean offspring number, a lifetime density continuous and strictly positive on \([0,T]\) with positive survival probability past \(T\), bounded continuous diffusion coefficients that are Lipschitz in space, and bounded continuous monomial coefficients and gradient directions. Assumption 3.6 adds bounded continuous first spatial derivatives of the diffusion coefficients and uniform ellipticity.
 
-For constant \(\mu=0\) and \(\sigma=1\), their automatic-differentiation weight becomes
+For constant \(\mu=0\) and \(\sigma=1\), their [automatic-differentiation weight](gaussian-integration-by-parts-and-automatic-differentiation.md) becomes
 
 $$
 \mathcal W_{t,s}
@@ -216,7 +216,7 @@ For the benchmark data and the Gamma density (5), suppose the positive-time cond
 
 ## Proof
 
-The density (5) is a probability density on \((0,\infty)\); every sampled lifetime is strictly positive almost surely. The branching law has finite mean offspring number, so the age-dependent branching process has finitely many particles on every finite horizon by the same nonexplosion argument used by HLOTW.
+The density (5) is a probability density on \((0,\infty)\); every sampled lifetime is strictly positive almost surely. The branching law has finite mean offspring number, so the age-dependent [branching process is nonexplosive](branching-diffusions-and-duhamel-trees.md) on every finite horizon by the same argument used by HLOTW.
 
 All factors in the HLOTW estimator are evaluated either at a strictly positive internal lifetime increment or through the survival function \(\overline F\). Thus \(\rho(0)\) is never evaluated. The Gamma density is finite, continuous, and strictly positive at every positive argument, while its survival function is continuous at zero with \(\overline F(0)=1\).
 
@@ -235,7 +235,7 @@ C_{2,q}
 \tag{13}
 $$
 
-Conditions (11)--(12) bound every factor in (13) by one, giving the same uniform \(L^q\) estimate as in the published proof. In particular, the estimator families required by HLOTW Theorem 3.5 are locally uniformly integrable.
+Conditions (11)--(12) bound every factor in (13) by one, giving the same uniform \(L^q\) estimate as in the published proof. In particular, the estimator families required by HLOTW Theorem 3.5 are locally uniformly integrable in the sense defined in the [HLOTW background entry](marked-branching-diffusion-for-gradient-nonlinearities.md).
 
 The continuity step in the proof of HLOTW Theorem 3.5 is also unchanged. For a fixed tree realization, every internal lifetime at which \(\rho\) is evaluated is strictly positive, so only continuity on \((0,T]\) is used; the event that a branching time falls exactly at the terminal horizon has probability zero. Uniform integrability then supplies the same passage to expectations. The first-branch conditioning identity and the viscosity argument use the density only through positive lifetime values and \(\overline F\). Therefore the singular value at the unused endpoint does not affect the proof.
 
