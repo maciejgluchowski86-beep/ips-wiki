@@ -3,19 +3,15 @@
 
 The first results concern the coding-tree representation of~\eqref{eq:general-terminal-pde}. They are included because they isolate the difference between signed exactness and absolute integrability before the quadratic-Hessian patch construction is introduced.
 
-Fix $T>0$, $n\geq0$, $f\in C^\infty(\R^{n+1})$, and $\phi\in C^\infty(\R)$. Let $j\in\{0,\ldots,n\}$ satisfy
-\begin{equation*}
-  \phi^{(j+1)}\not\equiv0.
-\end{equation*}
-Let $g^*$ be an allowed composite code and write
+For later notation, if $T>0$, $n\geq0$, $f\in C^\infty(\R^{n+1})$, $\phi\in C^\infty(\R)$, $j\in\{0,\ldots,n\}$, and $g^*$ is an allowed composite code with
 \begin{equation*}
   g
   =
   a\,\partial_{z_0}^{\lambda_0}\cdots
   \partial_{z_n}^{\lambda_n}f,
-  \qquad a\neq0.
+  \qquad a\neq0,
 \end{equation*}
-For a bounded measurable set $B\subseteq\R$, define
+then, for a bounded measurable set $B\subseteq\R$, define
 \begin{equation}
   D_m(B;g,j)
   =
@@ -26,7 +22,19 @@ For a bounded measurable set $B\subseteq\R$, define
 
 \begin{theorem}[Repeated-Hessian obstruction]
 \label{thm:repeated-hessian}
-Assume the coding-tree lifetime density is strictly positive at every positive time and every prescribed allowed mechanism has positive selection probability. If, for some bounded measurable $B$,
+Fix $T>0$, $n\geq0$, $f\in C^\infty(\R^{n+1})$, and $\phi\in C^\infty(\R)$. Let $j\in\{0,\ldots,n\}$ satisfy
+\begin{equation*}
+  \phi^{(j+1)}\not\equiv0,
+\end{equation*}
+and let $g^*$ be an allowed composite Nguwi--Penent--Privault code with
+\begin{equation*}
+  g
+  =
+  a\,\partial_{z_0}^{\lambda_0}\cdots
+  \partial_{z_n}^{\lambda_n}f,
+  \qquad a\neq0.
+\end{equation*}
+Assume the coding-tree lifetime density is strictly positive at every positive time and every prescribed allowed mechanism has positive selection probability. If, for some bounded measurable $B\subseteq\R$,
 \begin{equation}
   \limsup_{m\to\infty}
   \pa{
@@ -145,11 +153,11 @@ The same restricted genealogy gives a necessary derivative bound when the tree i
 
 \begin{proposition}[Integrated derivative bound]
 \label{prop:integrated-derivative-bound}
-Suppose that for some $t<T$ and $x\in\R$,
+Fix $T>0$, $n\geq0$, $f\in C^\infty(\R^{n+1})$, and $\phi\in C^\infty(\R)$. Let $j\in\{0,\ldots,n\}$ satisfy $\phi^{(j+1)}\not\equiv0$, and let $g^*$ be an allowed composite Nguwi--Penent--Privault code with underlying derivative $g$ as above. Assume the lifetime density and prescribed mechanism probabilities satisfy the positivity hypotheses of~\cref{thm:repeated-hessian}. If, for some $t<T$ and $x\in\R$,
 \begin{equation*}
-  \E\abs{H(\mathcal T_{t,x,g^*})}<\infty.
+  \E\abs{H(\mathcal T_{t,x,g^*})}<\infty,
 \end{equation*}
-Then there is $A<\infty$ such that, for every bounded measurable $B\subseteq\R$, there is $C_B<\infty$ satisfying
+then there is $A<\infty$ such that, for every bounded measurable $B\subseteq\R$, there is $C_B<\infty$ satisfying
 \begin{equation}
   D_m(B;g,j)
   \leq
@@ -181,13 +189,13 @@ Thus one may take $A=4/(h\beta^2)$, independent of $B$, and $C_B=M_0/(\alpha_0\k
 
 \begin{theorem}[Gevrey-$1/2$ necessity]
 \label{thm:gevrey-necessity}
-Assume that each of the two coding-tree functionals rooted at
+Fix $T>0$, $n\geq0$, $f\in C^\infty(\R^{n+1})$, and $\phi\in C^\infty(\R)$. Let $j\in\{0,\ldots,n\}$ satisfy $\phi^{(j+1)}\not\equiv0$, and assume the Nguwi--Penent--Privault lifetime density is strictly positive at every positive time and every prescribed allowed mechanism has positive selection probability. Suppose that, for each of the two roots
 \begin{equation*}
   f^*,
   \qquad
-  (\partial_{z_j}f)^*
+  (\partial_{z_j}f)^*,
 \end{equation*}
-has finite absolute expectation for at least one positive remaining horizon. Then, for Lebesgue-almost every $y\in\R$, there are constants $C_y,A_y<\infty$ such that
+there exists at least one pair $(t,x)$ with $t<T$ at which the corresponding coding-tree functional has finite absolute expectation. Then, for Lebesgue-almost every $y\in\R$, there are constants $C_y,A_y<\infty$ such that
 \begin{equation}
   \abs{\partial_{z_j}^r f(J_n\phi(y))}
   \leq
