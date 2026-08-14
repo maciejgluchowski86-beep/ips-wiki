@@ -62,7 +62,7 @@ The maximum principle is an \(L^\infty\) estimate for the *direct* nondivergence
 
 ## Parabolic Hölder spaces
 
-For \(0<\alpha<1\), the parabolic Hölder seminorm uses the scaling \(t\sim x^2\):
+The precise norm is defined in [Parabolic Holder spaces](parabolic-holder-spaces.md). For \(0<\alpha<1\), it uses the scaling \(t\sim x^2\):
 
 $$
 [f]_{C^{\alpha/2,\alpha}}
@@ -108,9 +108,9 @@ The dependence of \(C\) matters. Schauder theory does **not** give a constant de
 
 ## Interior Hölder regularity
 
-There is a rougher theory below Schauder regularity. Uniformly parabolic equations with merely bounded measurable coefficients have interior Hölder estimates under the appropriate divergence or nondivergence hypotheses: De Giorgi--Nash--Moser theory applies to divergence-form equations, while Krylov--Safonov theory applies to scalar uniformly parabolic nondivergence equations. These estimates control oscillation on compact subcylinders away from the initial time, but do not supply the second-derivative bounds of Schauder theory.
+Below Schauder regularity there is a rough-coefficient theory. [Interior Holder estimates](interior-holder-estimates-for-parabolic-equations.md) hold for uniformly parabolic equations with bounded measurable coefficients under the appropriate operator form: De Giorgi--Nash--Moser theory treats divergence-form weak solutions, while Krylov--Safonov theory treats scalar nondivergence equations.
 
-For example, if a sequence of uniformly parabolic equations has coefficients uniformly bounded between \(\kappa\) and \(K\), interior Hölder estimates can provide compactness of the solutions on \([\tau,T]\times\mathbb T\) for every \(\tau>0\). To identify second derivatives or pass a nonlinear coefficient through a classical equation, additional regularity is generally needed.
+These estimates give compactness of bounded solution families on cylinders away from the parabolic boundary, but they do not supply second-derivative bounds. To identify \(v_{xx}\) or control a nonlinear coefficient through a classical equation, the stronger Schauder hypotheses are needed.
 
 ## Why these estimates matter here
 
