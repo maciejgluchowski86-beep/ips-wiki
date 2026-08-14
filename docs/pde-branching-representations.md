@@ -88,7 +88,8 @@ for almost every \(y\). Thus the formal directional Taylor series must be entire
 The obstruction is not merely a reflection of a difficult PDE. The [dichotomy benchmark](entries/dichotomy-benchmark.md) and the proved [representation-level dichotomy](entries/representation-level-dichotomy.md) compare two branching constructions for the same equation
 
 $$
-\partial_tu+rac12u_{xx}
+\partial_tu+
+\frac12u_{xx}
 +
 \eta\left(e^{(u_x)^4}-1\right)=0,
 \qquad
@@ -252,7 +253,31 @@ This is the current logical fork of the project.
 
 **Average every patch interior first.** Fix a finite decorated skeleton and integrate out all continuous branch-time, Brownian, Gaussian/Hermite, and descendant variables inside its patches. The result is the deterministic profile \(F_S\). Under (2), these profiles are absolutely summable and the skeleton-only estimator is proved unbiased and \(L^1\). This is Theorem C-prime.
 
-**Retain the interior marks.** The [full random-patch conjecture](entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md) asks for an \(L^1\) estimator that keeps those continuous marks random. That problem is still open. Direct pathwise Hölder control already fails for one centered Hessian edge: the expected sup norm gains \(r^{\alpha/2}\), but the pathwise \(C^\alpha\) seminorm does not. Passing to a lower exponent spends regularity at every edge, and a fixed same-regularity Besov norm has the same high-frequency translation obstruction.
+**Retain the interior marks.** The [full random-patch conjecture](entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md) asks for an \(L^1\) estimator that keeps those continuous marks random. That problem is still open. Direct pathwise Hölder control fails for one centered Hessian edge, and a fixed same-regularity Besov norm has the same high-frequency translation obstruction.
+
+The [Banach-scale obstruction](entries/banach-scale-obstruction-for-raw-pde-patches.md) rules out the next natural repair. If generation \(k\) is measured in \(C^{\alpha_k}\) and the edge spends
+
+$$
+\delta_k=\alpha_{k-1}-\alpha_k,
+$$
+
+then the sharp one-edge first-moment cost is of order \(1/\delta_k\). Under any fixed total budget
+
+$$
+\sum_{k=1}^n\delta_k\leq\Delta,
+$$
+
+a stepwise first-moment Banach-scale proof incurs at least
+
+$$
+c^n\prod_{k=1}^n\delta_k^{-1}
+\geq
+c^n\left(\frac n\Delta\right)^n.
+$$
+
+The uniform budget \(\delta_k=\Delta/n\) is optimal; geometric budgets are worse. Chronological ordering does not restore a hidden \(1/n!\), because the nested time integral is a Dirichlet integral with factors \(\Gamma(\delta_k/2)\asymp1/\delta_k\).
+
+This theorem rules out a proof architecture, not conjecture C itself. The high-frequency test saturating one edge has frequency \(N\asymp e^{c/\delta}\). At depth \(n\), the worst-case test frequency therefore changes with \(n\). No fixed smooth terminal datum is shown to saturate all generations. The theorem also does not exclude every genuine Nash--Moser smoothing-and-correction scheme; a frequency-aware telescoping construction falls outside the stepwise uniform first-moment Banach-scale argument.
 
 For an integrable finite cutoff one may write
 
@@ -266,7 +291,9 @@ R_S,
 \mathbb E[R_S\mid S]=0.
 $$
 
-The [conditional-expectation and fluctuation entry](entries/conditional-expectation-and-fluctuations-of-random-fields.md) explains this decomposition and the important caveat that ordinary conditional expectation requires integrability. C-prime controls the interior-average part by defining it directly through deterministic Duhamel integrals, not by conditioning a possibly non-\(L^1\) infinite functional. The remaining obstruction is the centered raw fluctuation \(R_S\): its absolute amplitude does not close under the next Hessian edge in any fixed Hölder or same-regularity Besov space currently considered.
+The [conditional-expectation and fluctuation entry](entries/conditional-expectation-and-fluctuations-of-random-fields.md) explains this decomposition and the important caveat that ordinary conditional expectation requires integrability. C-prime controls the interior-average part by defining it directly through deterministic Duhamel integrals, not by conditioning a possibly non-\(L^1\) infinite functional. The remaining obstruction is the centered raw fluctuation \(R_S\).
+
+The settled barriers now say that a successful proof cannot simply take a first-moment regularity norm after every centered edge. It must retain additional structure before absolute values are taken: frequency, frequency together with genealogy, a multiscale martingale or square-function structure, or cancellation across several centered marks.
 
 That fluctuation problem is the present open endpoint of this PDE programme.
 
@@ -329,6 +356,7 @@ A newcomer can read the PDE section in four layers.
 - [Conditional factorization for finite PDE patches](entries/conditional-factorization-for-finite-pde-patches.md)
 - [Self-consistent patch iteration for the quadratic Hessian PDE](entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md)
 - [Skeleton-averaged \(L^1\) representation for the quadratic Hessian PDE (Theorem C-prime)](entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md)
+- [Banach-scale obstruction for raw PDE patches](entries/banach-scale-obstruction-for-raw-pde-patches.md)
 - [\(L^1\) random-patch conjecture for the quadratic Hessian PDE](entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md)
 
 The [reference list](meta/references.md) collects the literature cited throughout these pages.
