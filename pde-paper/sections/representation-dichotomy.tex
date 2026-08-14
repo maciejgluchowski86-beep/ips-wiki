@@ -77,4 +77,139 @@ is a continuous viscosity solution of~\eqref{eq:dichotomy-benchmark}.
 
 The lifetime density~\eqref{eq:HLOTW-lifetime} is singular at the origin. The theorem uses the positive-time extension of the HLOTW moment argument: internal lifetimes are almost surely positive, and the proof of the second-moment bound evaluates $\rho$ only at positive arguments. This is the only modification to the literal endpoint-continuity wording of the published assumptions.
 
-\proofplaceholder{Insert the audited proof. The NPP half should be deduced from the repeated-Hessian obstruction using the $(4r)!/r!$ lower bound. The HLOTW half should verify the explicit $q=2$ majorant, including the singular-lifetime endpoint extension, without presenting the dichotomy as the main theme of the manuscript.}
+\begin{proof}
+We first prove the NPP statement. The terminal datum is $\phi(x)=a\cos x$, so
+\begin{equation*}
+  \phi''(x)=-a\cos x\not\equiv0.
+\end{equation*}
+Thus the direction $j=1$ is active in~\cref{thm:repeated-hessian}. Since
+\begin{equation*}
+  e^{z^4}
+  =
+  \sum_{q=0}^\infty\frac{z^{4q}}{q!},
+\end{equation*}
+termwise differentiation gives, for real $z$ and $r\geq1$,
+\begin{equation*}
+  \partial_z^{4r}e^{z^4}
+  =
+  \sum_{q=r}^\infty
+  \frac{(4q)!}{q!(4q-4r)!}z^{4(q-r)}
+  \geq
+  \frac{(4r)!}{r!}.
+\end{equation*}
+Therefore
+\begin{equation}
+  \abs{\partial_{z_1}^{4r}f(z_0,z_1)}
+  \geq
+  \abs\eta\frac{(4r)!}{r!}
+  \label{eq:dichotomy-jet-lower}
+\end{equation}
+uniformly on $\R^2$. For every bounded set $B$ of positive measure,
+\begin{equation*}
+  D_{2r}(B;f,1)
+  \geq
+  \abs B\,\abs\eta\frac{(4r)!}{r!}.
+\end{equation*}
+Stirling's formula then implies
+\begin{equation*}
+  \limsup_{m\to\infty}
+  \pa{\frac{D_m(B;f,1)}{m!}}^{1/m}
+  =\infty.
+\end{equation*}
+The repeated-Hessian obstruction gives
+\begin{equation*}
+  \E\abs{H(\mathcal T_{t,x,f^*})}
+  =\infty
+\end{equation*}
+for every positive remaining horizon.
+
+For the identity code, the NPP mechanism has a unique child $f^*$. Condition on the first identity branching occurring before $T$. Its child is an $f^*$-rooted tree with positive remaining horizon, whose conditional absolute expectation is infinite by the preceding paragraph for every possible first branch time and position. Tonelli's theorem gives
+\begin{equation*}
+  \E\abs{H(\mathcal T_{t,x,\Id})}
+  =\infty.
+\end{equation*}
+
+We next verify the HLOTW assumptions used in the moment estimate. The monomial series is absolutely convergent and equals the driver in~\eqref{eq:dichotomy-benchmark}. Moreover,
+\begin{equation}
+  \sum_{r\geq1}4rp_r
+  =
+  \frac{4e}{e-1}<\infty,
+  \qquad
+  \frac{\abs{c_r}}{p_r}
+  =
+  \abs\eta(e-1).
+  \label{eq:HLOTW-offspring-check}
+\end{equation}
+The diffusion coefficients are constant, and the terminal datum has both supremum norm and Lipschitz constant equal to $a$.
+
+The survival function of~\eqref{eq:HLOTW-lifetime} satisfies
+\begin{equation}
+  \overline F_T(T)
+  =
+  \erfc(1/\sqrt2).
+  \label{eq:HLOTW-survival-T}
+\end{equation}
+Take $q=2$ in HLOTW Assumption 3.10. For a Brownian edge of duration $s-t$,
+\begin{equation*}
+  X_s-x=\sqrt{s-t}\,Z,
+  \qquad
+  \mathcal W_{t,s}=\frac Z{\sqrt{s-t}},
+\end{equation*}
+with $Z\sim N(0,1)$. The terminal constant in their $q=2$ estimate is therefore
+\begin{equation*}
+  C_{1,2}=3a^2,
+\end{equation*}
+because $\E Z^4=3$. In view of~\eqref{eq:HLOTW-survival-T}, the terminal condition becomes
+\begin{equation*}
+  \frac{3a^2}{\erfc(1/\sqrt2)^2}
+  \leq1,
+\end{equation*}
+which is exactly the assumed restriction on $a$.
+
+For the internal gradient marks, $C_{2,2}=\E Z^2=1$. Furthermore
+\begin{equation*}
+  \sqrt s\,\rho_T(s)
+  =
+  \frac{e^{-s/(2T)}}{\sqrt{2\pi T}},
+\end{equation*}
+so for $0<s\leq T$,
+\begin{equation*}
+  \frac1{\sqrt s\rho_T(s)}
+  =
+  \sqrt{2\pi T}\,e^{s/(2T)}
+  \leq
+  \sqrt{2\pi eT}.
+\end{equation*}
+Using~\eqref{eq:HLOTW-offspring-check}, the internal factor in Assumption 3.10 is bounded by
+\begin{equation*}
+  \abs\eta(e-1)\sqrt{2\pi eT}.
+\end{equation*}
+Thus the $q=2$ internal majorant is at most one provided
+\begin{equation}
+  2\pi e(e-1)^2\eta^2T\leq1,
+  \label{eq:HLOTW-time-condition}
+\end{equation}
+which is equivalent to $T\leq T_*(\eta)$.
+
+It remains only to justify the singular lifetime density at zero. The density~\eqref{eq:HLOTW-lifetime} is a probability density on $(0,\infty)$, and every sampled internal lifetime is strictly positive almost surely. The age-dependent branching genealogy is nonexplosive because~\eqref{eq:HLOTW-offspring-check} gives finite mean offspring number. Every density factor in the HLOTW estimator is evaluated at a strictly positive lifetime increment, while terminal particles use only the survival function. Hence the value $\rho_T(0)$ is never evaluated.
+
+In the proof of the HLOTW $L^q$ estimate, the multiplicative majorant is a product of terminal factors
+\begin{equation*}
+  C_{1,q}\pa{\frac1{\overline F(\Delta T)}}^q
+\end{equation*}
+and internal factors
+\begin{equation*}
+  C_{2,q}
+  \pa{
+    \frac{\norm{c_I}_\infty}
+    {p_I\sqrt{\Delta T}\rho(\Delta T)}
+  }^q,
+\end{equation*}
+with $\Delta T>0$ almost surely. The checks above bound every such factor by one for $q=2$. The published uniform-integrability and first-branch arguments therefore go through unchanged when endpoint continuity of $\rho$ is replaced by continuity and positivity on $(0,T]$. For $T<T_*(\eta)$ this gives
+\begin{equation*}
+  \E\abs{\psi_{t,x}}^2\leq1.
+\end{equation*}
+The first-branch identity recovers the absolutely convergent monomial series for the driver, and the HLOTW argument then identifies $\E[\psi_{t,x}]$ with a continuous viscosity solution of~\eqref{eq:dichotomy-benchmark}.
+\end{proof}
+
+The theorem is deliberately representation-level. The NPP mechanism repeatedly differentiates the jet nonlinearity and therefore encounters the factorial scale~\eqref{eq:dichotomy-jet-lower}. The HLOTW mechanism instead branches over the monomial coefficients $\eta/r!$ and transfers only first spatial derivatives through marked Gaussian weights. The same mild equation is sampled by two different architectures with different absolute-moment behavior. This does not contradict the NPP Feynman--Kac theorem, whose all-code $L^1$ hypothesis fails in the benchmark.
