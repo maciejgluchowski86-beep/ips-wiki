@@ -41,6 +41,11 @@ This page is the human-readable reference list for the wiki. A structured BibTeX
 - Donald G. Aronson, *Bounds for the fundamental solution of a parabolic equation*, *Bulletin of the American Mathematical Society* **73** (1967), 890--896, DOI 10.1090/S0002-9904-1967-11830-5.
 - Hongjie Dong, Seick Kim, and Sungjin Lee, *Estimates for fundamental solutions of parabolic equations in non-divergence form*, *Journal of Differential Equations* **340** (2022), 557--591, DOI 10.1016/j.jde.2022.09.007, arXiv:2201.03811.
 
+## Stochastic-calculus references
+
+- Ioannis Karatzas and Steven E. Shreve, *Brownian Motion and Stochastic Calculus*, second edition, Graduate Texts in Mathematics 113, Springer, 1991, DOI 10.1007/978-1-4612-0949-2.
+- Daniel W. Stroock and S. R. Srinivasa Varadhan, *Multidimensional Diffusion Processes*, Classics in Mathematics, Springer, 2006 reprint, DOI 10.1007/3-540-28999-2.
+
 ## Gaussian-analysis references
 
 - Svante Janson, *Gaussian Hilbert Spaces*, Cambridge Tracts in Mathematics 129, Cambridge University Press, 1997.
