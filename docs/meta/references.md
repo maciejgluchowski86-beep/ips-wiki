@@ -36,6 +36,9 @@ This page is the human-readable reference list for the wiki. A structured BibTeX
 
 - Lawrence C. Evans, *Partial Differential Equations*, second edition, Graduate Studies in Mathematics 19, American Mathematical Society, 2010.
 - Avner Friedman, *Partial Differential Equations of Parabolic Type*, Prentice-Hall, 1964.
+- Hajer Bahouri, Jean-Yves Chemin, and Raphaël Danchin, *Fourier Analysis and Nonlinear Partial Differential Equations*, Grundlehren der mathematischen Wissenschaften 343, Springer, 2011.
+- Hans Triebel, *Theory of Function Spaces*, Monographs in Mathematics 78, Birkhäuser, 1983.
+- Joseph Diestel and John J. Uhl Jr., *Vector Measures*, Mathematical Surveys 15, American Mathematical Society, 1977.
 - Michael G. Crandall, Hitoshi Ishii, and Pierre-Louis Lions, *User's guide to viscosity solutions of second order partial differential equations*, *Bulletin of the American Mathematical Society* **27** (1992), 1--67, DOI 10.1090/S0273-0979-1992-00266-5, arXiv:math/9207212.
 - Gregory M. Constantine and Thomas H. Savits, *A multivariate Faà di Bruno formula with applications*, *Transactions of the American Mathematical Society* **348** (1996), 503--520, DOI 10.1090/S0002-9947-96-01501-2.
 - Donald G. Aronson, *Bounds for the fundamental solution of a parabolic equation*, *Bulletin of the American Mathematical Society* **73** (1967), 890--896, DOI 10.1090/S0002-9904-1967-11830-5.
