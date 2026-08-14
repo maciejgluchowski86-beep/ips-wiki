@@ -97,13 +97,17 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 
 The canonical wiki entry point is `docs/pde-branching-representations.md`. It is written for a reader with measure-theoretic probability, basic functional analysis, and a first graduate PDE course. It motivates the branching programme and links the complete prerequisite chain.
 
-The quadratic-Hessian endpoint is a three-way split:
+The quadratic-Hessian coarsening hierarchy now has three proved levels:
 
-- complete interior averaging: Theorem C-prime gives a proved small-data unbiased `L^1` skeleton-only representation;
-- canonical raw-barycenter retention: a proved fixed-datum obstruction rules out `L^1` even after arbitrary proposal changes and auxiliary conditionally unbiased randomness;
-- non-barycentric retained randomness: the literal random-patch conjecture remains open for antithetic, partially averaged, coupled, or otherwise signedly reorganized constructions that still retain nontrivial continuous interior randomness.
+- raw-faithful / identity: a fixed smooth datum has infinite first moment even after arbitrary positive proposal changes and auxiliary conditionally unbiased randomness;
+- time-spine coarsening: under the C-prime condition plus one additional geometric smallness condition, retaining the actual branch times on one maximal-left spine gives an unbiased `L^1` representation with genuine continuous time randomness;
+- complete interior averaging: Theorem C-prime gives an unbiased `L^1` skeleton-only representation under the full Catalan small-data condition.
 
-The wiki is the durable mathematical record for this PDE project. The manuscript under `pde-paper/` is organized from these audited results and currently contains a complete abstract, introduction, and preliminaries together with theorem statements and explicit proof placeholders for the later sections.
+Naive patchwise Gaussian-bridge coarsening does not repair the raw obstruction: the obstruction can be realized on right combs, whose maximal-left patches all have length one, so one-edge bridge coarsening is the identity up to an invertible coordinate change.
+
+Conjecture C remains open only on the part of the full C-prime regime not covered by the time-spine theorem. It is already proved on the stronger time-spine subregime.
+
+The wiki is the durable mathematical record for this PDE project. The manuscript under `pde-paper/` now contains full proofs of the audited results included in it, including the coarsening hierarchy.
 
 ## Entry workflow
 
