@@ -11,17 +11,47 @@ tags:
 
 # Repeated-Hessian obstruction for coding trees
 
-The [Nguwi--Penent--Privault coding tree](npp-coding-tree.md) contains a three-child Hessian branch that can be repeated along one distinguished lineage. Restricting to genealogies made only from these branches gives a lower bound on the absolute expectation of the tree functional. The lifetime, offspring-selection, and survival probabilities cancel their reciprocal factors exactly, so repeated branching costs only an ordered-simplex factor. As a result, sufficiently fast growth of even jet derivatives at the terminal condition forces failure of \(L^1\) integrability.
+The [Nguwi--Penent--Privault coding tree](npp-coding-tree.md) contains a three-child Hessian branch that can be repeated along one distinguished lineage. Restricting to genealogies made only from these branches gives a lower bound on the absolute expectation of the tree functional. The lifetime, offspring-selection, and survival probabilities cancel their reciprocal factors exactly, so repeated branching costs only an ordered-simplex factor. As a result, sufficiently fast growth of even jet derivatives at the terminal condition forces failure of \(L^1\) integrability. This theorem is the first step of the negative chain summarized in the [PDE branching-representations overview](../pde-branching-representations.md).
 
 **References.** The code set, mechanism, and multiplicative functional are those of Jiang Yu Nguwi, Guillaume Penent, and Nicolas Privault, *A fully nonlinear Feynman-Kac formula with derivatives of arbitrary orders*, arXiv:2201.03882, Definitions 2.1, 2.2, and 4.1. The obstruction theorem below is proved here.
 
-Fix the [heat-reference terminal PDE](heat-reference-fully-nonlinear-pde.md), a direction \(j\in\{0,\ldots,n\}\), and assume
+## Setup and hypotheses
+
+Fix a terminal time \(T>0\), an integer \(n\geq0\), a smooth nonlinearity
+
+$$
+f\in C^\infty(\mathbb R^{n+1}),
+$$
+
+and smooth terminal data
+
+$$
+\phi\in C^\infty(\mathbb R).
+$$
+
+These are the data of the [heat-reference terminal PDE](heat-reference-fully-nonlinear-pde.md)
+
+$$
+\partial_tu+rac12u_{xx}+f(J_nu)=0,
+\qquad
+u(T)=\phi.
+$$
+
+Let \(H(\mathcal T_{t,x,c})\) be the [NPP coding-tree functional](npp-coding-tree.md) rooted at code \(c\). Assume the NPP randomization uses a lifetime density \(\rho\) that is strictly positive at every positive time and positive mechanism-selection probabilities for every allowed offspring tuple. No uniform positive lower bound on these probabilities is assumed.
+
+Fix a direction
+
+$$
+j\in\{0,\ldots,n\}
+$$
+
+and assume
 
 $$
 \phi^{(j+1)}\not\equiv0.
 $$
 
-Let \(g^*\) be a composite code, so
+Let \(g^*\) be an allowed composite code, so
 
 $$
 g
