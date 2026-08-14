@@ -253,31 +253,7 @@ This is the current logical fork of the project.
 
 **Average every patch interior first.** Fix a finite decorated skeleton and integrate out all continuous branch-time, Brownian, Gaussian/Hermite, and descendant variables inside its patches. The result is the deterministic profile \(F_S\). Under (2), these profiles are absolutely summable and the skeleton-only estimator is proved unbiased and \(L^1\). This is Theorem C-prime.
 
-**Retain the interior marks.** The [full random-patch conjecture](entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md) asks for an \(L^1\) estimator that keeps those continuous marks random. That problem is still open. Direct pathwise Hölder control fails for one centered Hessian edge, and a fixed same-regularity Besov norm has the same high-frequency translation obstruction.
-
-The [Banach-scale obstruction](entries/banach-scale-obstruction-for-raw-pde-patches.md) rules out the next natural repair. If generation \(k\) is measured in \(C^{\alpha_k}\) and the edge spends
-
-$$
-\delta_k=\alpha_{k-1}-\alpha_k,
-$$
-
-then the sharp one-edge first-moment cost is of order \(1/\delta_k\). Under any fixed total budget
-
-$$
-\sum_{k=1}^n\delta_k\leq\Delta,
-$$
-
-a stepwise first-moment Banach-scale proof incurs at least
-
-$$
-c^n\prod_{k=1}^n\delta_k^{-1}
-\geq
-c^n\left(\frac n\Delta\right)^n.
-$$
-
-The uniform budget \(\delta_k=\Delta/n\) is optimal; geometric budgets are worse. Chronological ordering does not restore a hidden \(1/n!\), because the nested time integral is a Dirichlet integral with factors \(\Gamma(\delta_k/2)\asymp1/\delta_k\).
-
-This theorem rules out a proof architecture, not conjecture C itself. The high-frequency test saturating one edge has frequency \(N\asymp e^{c/\delta}\). At depth \(n\), the worst-case test frequency therefore changes with \(n\). No fixed smooth terminal datum is shown to saturate all generations. The theorem also does not exclude every genuine Nash--Moser smoothing-and-correction scheme; a frequency-aware telescoping construction falls outside the stepwise uniform first-moment Banach-scale argument.
+**Retain the interior marks.** The [full random-patch conjecture](entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md) asks for an \(L^1\) estimator that keeps those continuous marks random. That problem is still open.
 
 For an integrable finite cutoff one may write
 
@@ -291,11 +267,91 @@ R_S,
 \mathbb E[R_S\mid S]=0.
 $$
 
-The [conditional-expectation and fluctuation entry](entries/conditional-expectation-and-fluctuations-of-random-fields.md) explains this decomposition and the important caveat that ordinary conditional expectation requires integrability. C-prime controls the interior-average part by defining it directly through deterministic Duhamel integrals, not by conditioning a possibly non-\(L^1\) infinite functional. The remaining obstruction is the centered raw fluctuation \(R_S\).
+The [conditional-expectation and fluctuation entry](entries/conditional-expectation-and-fluctuations-of-random-fields.md) explains this decomposition and the important caveat that ordinary conditional expectation requires integrability. C-prime controls the interior-average part by defining it directly through deterministic Duhamel integrals, not by conditioning a possibly non-\(L^1\) infinite functional. The remaining object is the centered raw fluctuation \(R_S\).
 
-The settled barriers now say that a successful proof cannot simply take a first-moment regularity norm after every centered edge. It must retain additional structure before absolute values are taken: frequency, frequency together with genealogy, a multiscale martingale or square-function structure, or cancellation across several centered marks.
+## Four routes through the fluctuation problem
 
-That fluctuation problem is the present open endpoint of this PDE programme.
+Four structurally different approaches have now been audited. Together they explain why the open problem is no longer simply a search for the right Hölder exponent.
+
+**1. Fixed pathwise Hölder or same-regularity Besov control.** A single centered Hessian edge has the desired expected sup-norm gain, but its pathwise \(C^\alpha\) seminorm does not. A fixed same-regularity Besov norm has the same high-frequency translation obstruction. This rules out a fixed pathwise regularity space for the raw recursion.
+
+**2. Decreasing Banach scale.** The [Banach-scale obstruction](entries/banach-scale-obstruction-for-raw-pde-patches.md) quantifies the cost of spending regularity. If generation \(k\) is measured in \(C^{\alpha_k}\) and
+
+$$
+\delta_k=\alpha_{k-1}-\alpha_k,
+$$
+
+then the sharp one-edge first-moment cost is order \(1/\delta_k\). Under any fixed total budget
+
+$$
+\sum_{k=1}^n\delta_k\leq\Delta,
+$$
+
+a stepwise first-moment proof incurs at least
+
+$$
+c^n\prod_{k=1}^n\delta_k^{-1}
+\geq
+c^n\left(\frac n\Delta\right)^n.
+$$
+
+The uniform budget is optimal; nonuniform budgets are worse. This is a barrier to the stepwise first-moment Banach-scale architecture, not a disproof of the raw estimator.
+
+**3. Condition all patch interiors.** Theorem C-prime integrates the continuous variables inside each finite skeleton before the skeleton is sampled. This gives an absolutely summable, unbiased \(L^1\) representation, but the continuous interior marks are gone. It establishes integrability only after relinquishing the full randomness required by C.
+
+**4. Joint centered marks.** The [joint centered-mark theorem](entries/joint-centered-mark-dichotomy-for-raw-pde-patches.md) does not take a norm after every centered edge. Already at two marks,
+
+$$
+\int_{r_1+r_2<T}
+\mathbb E
+\left\|
+\widehat{\mathcal K}_{(r_1,r_2)}^{\mathrm{raw}}f
+\right\|_\infty
+\,dr_1dr_2
+\leq
+C_{\alpha,T}[f]_{C^\alpha},
+$$
+
+with no intermediate regularity loss. This genuinely lies outside the Banach-scale theorem rather than renaming a stepwise estimate.
+
+At length \(m\), however, retaining all Gaussian marks gives the sharp uniform block scale
+
+$$
+c_{\alpha,T}^m m!
+\leq
+\mathfrak R_m(\alpha,T)
+\leq
+C_{\alpha,T}^m m!.
+$$
+
+If instead the internal Gaussian bridge coordinates are signedly averaged before the absolute value, a bare derivative chain collapses to a single \(He_{2m}\) endpoint weight. The fixed-total-time simplex then gives
+
+$$
+\frac{\sqrt{(2m)!}}{(m-1)!}
+\lesssim 4^m.
+$$
+
+For spatially varying patches, the deterministic commutator/cluster estimate gives the corresponding geometric bound. The price is structural: the bridge coordinates have been integrated out. The endpoint Gaussian may remain random, but the estimator is now only partially averaged and does not satisfy the literal mark-retention clause of C.
+
+These four routes repeatedly expose the same tradeoff: every currently controlled construction has either favorable absolute moments or full continuous interior randomness, but not both.
+
+The two sharp lower-bound routes still share an important limitation. Their saturating frequencies depend on the depth: the Banach-scale test uses \(N\asymp e^{c/\delta}\), while the retained-block test uses
+
+$$
+N_m\asymp\sqrt{m/T}\,e^{m/\alpha}.
+$$
+
+Neither result produces one fixed smooth terminal datum that realizes the worst-case growth at every generation. They are proof-architecture barriers, not fixed-datum non-\(L^1\) theorems.
+
+## Current endpoint
+
+Conjecture C remains open. The accumulated barriers now make both outcomes mathematically meaningful.
+
+A proof would have to retain structure before taking absolute values that is invisible to all four uniform routes: frequency together with genealogy, correlations between distinct patches, a martingale or square-function mechanism, or multi-mark cancellation that survives while the marks themselves remain random.
+
+A disproof would have to go beyond generation-dependent operator-norm tests and tie divergence to one fixed smooth datum, or otherwise prove that the actual full-randomness estimator cannot belong to \(L^1\).
+
+The current research direction is to test this latter possibility directly. No disproof is currently recorded; C remains a conjecture.
 
 ## Analytic and probabilistic prerequisites
 
@@ -357,6 +413,7 @@ A newcomer can read the PDE section in four layers.
 - [Self-consistent patch iteration for the quadratic Hessian PDE](entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md)
 - [Skeleton-averaged \(L^1\) representation for the quadratic Hessian PDE (Theorem C-prime)](entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md)
 - [Banach-scale obstruction for raw PDE patches](entries/banach-scale-obstruction-for-raw-pde-patches.md)
+- [Joint centered-mark dichotomy for raw PDE patches](entries/joint-centered-mark-dichotomy-for-raw-pde-patches.md)
 - [\(L^1\) random-patch conjecture for the quadratic Hessian PDE](entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md)
 
 The [reference list](meta/references.md) collects the literature cited throughout these pages.
