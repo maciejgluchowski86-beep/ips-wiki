@@ -109,31 +109,48 @@ Contracting every maximal left chain to one vertex gives the *patch skeleton*. T
 
 ## Complete contribution of one patch
 
-Suppose a patch has length \(m\), its successive right-subtree contributions are the smooth side profiles \(b_1,\ldots,b_m\), and the leftmost terminal contribution is \(G\). Its complete signed contribution at time \(t\) is
+Suppose a patch has length \(m\geq1\), its successive right-subtree contributions are the smooth side profiles \(b_1,\ldots,b_m\), and the leftmost terminal contribution is \(G\). For fixed ordered times
 
 $$
-\begin{aligned}
-\mathcal P_m[b_1,\ldots,b_m;G](t)
-={}&\lambda^m
-\int_{0<s_1<\cdots<s_m<t}
-\partial_x^2P_{t-s_m}\Bigl[
- b_m(s_m)\\
-&\qquad\partial_x^2P_{s_m-s_{m-1}}\Bigl[
- b_{m-1}(s_{m-1})\cdots
-\partial_x^2P_{s_2-s_1}
- [b_1(s_1)P_{s_1}G]
-\cdots\Bigr]
-\Bigr]
-\,ds_1\cdots ds_m.
-\end{aligned}
+0<s_1<\cdots<s_m<t,
+$$
+
+define recursively
+
+$$
+\Xi_1
+=
+b_1(s_1)P_{s_1}G,
 \tag{7}
 $$
 
-For \(m=0\), set \(\mathcal P_0[G](t)=P_tG\). Formula (7) is not an estimate: it is the iterated Duhamel integral obtained by following the left spine and leaving every right child as a side factor.
+and, for \(2\leq r\leq m\),
+
+$$
+\Xi_r
+=
+b_r(s_r)
+\partial_x^2P_{s_r-s_{r-1}}\Xi_{r-1}.
+\tag{8}
+$$
+
+The complete signed contribution of the patch is
+
+$$
+\mathcal P_m[b_1,\ldots,b_m;G](t)
+=
+\lambda^m
+\int_{0<s_1<\cdots<s_m<t}
+\partial_x^2P_{t-s_m}\Xi_m
+\,ds_1\cdots ds_m.
+\tag{9}
+$$
+
+For \(m=0\), set \(\mathcal P_0[G](t)=P_tG\). Equations (7)--(9) are not estimates: they are the iterated Duhamel integral obtained by following the left spine and leaving every right child as a side factor.
 
 ## Theorem: exact finite-depth regrouping
 
-For every finite depth \(N\), the expansion of \(z^{[N]}\) may be reorganized uniquely by its patch skeletons. Replacing every maximal left-spine chain by its complete contribution (7) gives exactly the same signed function \(z^{[N]}\).
+For every finite depth \(N\), the expansion of \(z^{[N]}\) may be reorganized uniquely by its patch skeletons. Replacing every maximal left-spine chain by its complete contribution (7)--(9) gives exactly the same signed function \(z^{[N]}\).
 
 In particular, composing all Hessian transfers inside a patch before taking absolute values is an exact finite-level operation. It neither discards nor adds a Duhamel-tree term.
 
@@ -141,7 +158,7 @@ In particular, composing all Hessian transfers inside a patch before taking abso
 
 Every finite planar binary tree has a unique decomposition into maximal left-child chains: starting from any internal vertex that is either the root or a right child, follow left children until the chain ends. Distinct starting vertices generate disjoint chains and every internal vertex belongs to one of them. Thus finite binary trees are in bijection with their patch skeletons together with the lengths of the contracted chains and the side subtrees attached along each chain.
 
-For a fixed tree, recursively expanding (6) along one maximal left chain gives exactly the nested integrand in (7). The inequalities
+For a fixed tree, recursively expanding (6) along one maximal left chain gives exactly (7)--(9). The inequalities
 
 $$
 0<s_1<\cdots<s_m<t
@@ -153,6 +170,6 @@ Finally, for fixed \(N\) only finitely many planar binary trees occur in (5). Re
 
 ## Finite-level patch factorization
 
-The same decomposition can be randomized patch first. Conditional on a finite patch skeleton, assign independent random seeds to distinct side patches and sample the continuous data inside each patch from any positive proposal density. The reciprocal proposal factors are [importance-sampling compensators](importance-sampling-compensators.md). Conditional independence then gives products of conditional expectations across the side patches, while the compensators recover the signed integrals (7).
+The same decomposition can be randomized patch first. Conditional on a finite patch skeleton, assign independent random seeds to distinct side patches and sample the continuous data inside each patch from any positive proposal density. The reciprocal proposal factors are [importance-sampling compensators](importance-sampling-compensators.md). Conditional independence then gives products of conditional expectations across the side patches, while the compensators recover the signed integrals (7)--(9).
 
-This finite-level factorization is an exact bookkeeping statement. It does not imply that an infinite-depth patch functional belongs to \(L^1\). In particular, the [Hermite composition identity](hermite-polynomials-and-gaussian-chaos.md) for a bare derivative chain does not survive unchanged when spatially varying multiplication operators occur between Hessian transfers. The corresponding infinite random-patch statement is recorded separately as a conjecture.
+This finite-level factorization is an exact bookkeeping statement. It does not imply that an infinite-depth patch functional belongs to \(L^1\). In particular, the [Hermite composition identity](hermite-polynomials-and-gaussian-chaos.md) for a bare derivative chain does not survive unchanged when spatially varying multiplication operators occur between Hessian transfers. The corresponding infinite random-patch statement is recorded in the [\(L^1\) random-patch conjecture](l1-random-patch-conjecture-for-quadratic-hessian-pde.md).
