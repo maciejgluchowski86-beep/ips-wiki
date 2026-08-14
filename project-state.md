@@ -8,49 +8,70 @@ The wiki is article-first. Source pages live under `docs/entries/`; the canonica
 
 ## Current research route: PDE branching representations
 
-The active research route studies probabilistic representations for terminal-value equations of the form
+The active PDE route studies probabilistic representations for nonlinear parabolic equations. The public layer contains background on the Nguwi--Penent--Privault coding tree and HLOTW marked branching, the independently audited repeated-Hessian obstruction chain, and the audited representation-level dichotomy benchmark.
 
-$$
-\partial_tu+\frac12\partial_x^2u+f(u,\partial_xu,\ldots,\partial_x^nu)=0,
-\qquad
-u(T,\cdot)=\phi.
-$$
+The PDE part of the wiki is now required to be self-contained for a reader with measure-theoretic probability, basic functional analysis, and a first graduate PDE course. Concepts beyond that background must be defined locally or linked to a prerequisite article. Lecture-notes style prerequisite entries are explicitly acceptable.
 
-The public layer now contains background on the Nguwi--Penent--Privault coding tree and HLOTW marked branching, the independently audited repeated-Hessian obstruction chain, and an audited representation-level dichotomy benchmark comparing the absolute-moment behavior of the two constructions for the same terminal-value PDE.
+## PDE prerequisite layer
 
-## Current wiki phase
+The current prerequisite layer includes:
 
-The general background layer is organized into:
-
-- `docs/entries/heat-reference-fully-nonlinear-pde.md`
 - `docs/entries/mild-formulation-and-branching-diffusion-representation.md`
-- `docs/entries/npp-coding-tree.md`
-- `docs/entries/npp-coding-tree-feynman-kac-theorem.md`
-- `docs/entries/directional-jet-radius.md`
+- `docs/entries/branching-diffusions-and-duhamel-trees.md`
+- `docs/entries/importance-sampling-compensators.md`
+- `docs/entries/gaussian-integration-by-parts-and-automatic-differentiation.md`
+- `docs/entries/hermite-polynomials-and-gaussian-chaos.md`
+- `docs/entries/spatial-jets-total-derivative-and-faa-di-bruno.md`
+- `docs/entries/viscosity-solutions.md`
+- `docs/entries/tonelli-markov-and-borel-cantelli.md`
+- `docs/entries/parabolic-maximum-principle-and-schauder-estimates.md`
+- `docs/entries/aronson-nash-gaussian-bounds.md`
+- `docs/entries/h-minus-one-energy-method.md`
 
-The branching-literature layer is organized into:
+`docs/entries/directional-jet-radius.md` already defines the directional Taylor radius, Gevrey-1/2 / ultra-analytic derivative bound, entire extension, order, and type, so those notions remain consolidated there rather than duplicated.
 
-- `docs/entries/marked-branching-diffusion-for-gradient-nonlinearities.md`
-- `docs/entries/antithetic-and-ghost-branching-schemes.md`
+## Audited obstruction and comparison results
 
-The audited obstruction layer is organized into:
+The obstruction layer remains:
 
 - `docs/entries/repeated-hessian-obstruction-for-coding-trees.md`
 - `docs/entries/finite-directional-radius-obstruction.md`
 - `docs/entries/gevrey-half-necessity-for-coding-trees.md`
 - `docs/entries/integrable-regime-of-coding-tree.md`
 
-The audited comparison layer is organized into:
+The first three entries have status `proved here`. The integrable-regime note has status `observation`.
+
+The audited comparison layer remains:
 
 - `docs/entries/dichotomy-benchmark.md`
 - `docs/entries/representation-level-dichotomy.md`
 
-The dichotomy entry has status `proved here`. Its HLOTW half does not treat the Gamma density as a literal instance of published Assumption 3.1: it records the endpoint inconsistency in the paper and proves that the HLOTW Theorems 3.5/3.12 argument extends to the chosen density, which is continuous and positive on `(0,T]` and has the required integrable `t^{-1/2}` singularity at zero. The comparison is between constructions for the same PDE and terminal data; only the HLOTW expectation is identified there with a viscosity solution.
+The dichotomy entry has status `proved here`. Its HLOTW half proves the required singular-lifetime endpoint extension rather than treating the Gamma density as a literal instance of published Assumption 3.1. Only the HLOTW expectation is identified there with a viscosity solution.
+
+## Second-order quadratic route: current status
+
+For the torus equation
+
+$$
+\partial_tu+\frac12\partial_x^2u+\lambda(\partial_x^2u)^2=0,
+$$
+
+the repaired deterministic route uses the direct `v`-level maximum principle plus Hölder/Schauder control of `z=v_{xx}`, a smallness condition of the form
+
+$$
+|\lambda|C_{\mathrm{Sch}}(\alpha,T)\|\phi\|_{C^{2+\alpha}}\leq\frac18,
+$$
+
+and the `H^{-1}` contraction estimate with ellipticity window `[3/8,5/8]` and contraction factor at most `1/3`. The torus mean must be evolved separately when reconstructing `v` from `z`.
+
+What survives as audited project mathematics is the deterministic self-consistent patch iteration, its limiting self-consistent diffusion representation, and the exact finite-level patch-factorization / first-branch identities.
+
+The full random spatially varying patch `L^1` estimate is **conjectural**. A proposed bound by the sup norms of side profiles is false, with a smooth counterexample. Never assign `proved here` status to all-horizon random-patch `L^1` integrability unless a new independent proof is supplied and audited.
 
 ## General conventions
 
-- Public entries must state proof status explicitly and must not present heuristic or unaudited claims as theorems.
+- Public entries must state proof status explicitly and must not present heuristic, conjectural, or unaudited claims as theorems.
 - Define every piece of notation before use and keep terminology aligned with the cited PDE literature.
-- Use `Definition`, `Theorem`, `Proposition`, and `Proof` sections for formal mathematical statements.
-- Verify literature citations against primary sources, preferably the current arXiv version when available.
-- Keep exact heat-semigroup transfer distinct from later resummation or variance-reduction schemes.
+- Verify literature citations against primary sources when possible.
+- Keep exact Duhamel/semigroup transfer distinct from importance-sampling randomization and from later patch resummation.
+- Distinguish divergence-form Aronson--Nash estimates from nondivergence equations and their adjoints; ellipticity alone does not provide a universal adjoint `L^infty` estimate.
