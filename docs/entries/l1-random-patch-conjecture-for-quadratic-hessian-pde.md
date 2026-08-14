@@ -8,20 +8,35 @@ tags:
   - integrability
   - conjecture
   - Hessian
-  - Gaussian analysis
+  - coarsening
 ---
 
 # L1 random-patch conjecture for the quadratic Hessian PDE
 
-The quadratic-Hessian programme now has three proved levels rather than two.
+The abstract coarsening problem is now understood exactly. The remaining conjecture is about **one structured, target-uniform representation architecture**, not about the mere pointwise existence of some nonconstant coarsening.
 
-1. [Theorem C-prime](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md) integrates every continuous variable inside a decorated skeleton and gives an unbiased \(L^1\) skeleton-only estimator under the Catalan smallness condition.
-2. The [raw-barycenter obstruction](raw-marked-l1-obstruction-for-quadratic-hessian-pde.md) shows that the canonical raw signed marked contribution cannot remain the conditional barycenter of an \(L^1\) estimator, even after arbitrary proposal changes, for one fixed arbitrarily small \(C^\infty\) datum.
-3. The [time-spine coarsening theorem](time-spine-coarsening-for-quadratic-hessian-patches.md) retains the actual branch times on one canonical maximal-left spine while averaging all other continuous marks. Under one additional geometric smallness condition, this gives an unbiased \(L^1\) estimator with genuine continuous interior randomness.
+The relevant theorem is [Residual signed variation characterizes coarsened patch representations](residual-signed-variation-characterization-for-coarsened-patches.md). If a raw skeleton measure is
 
-Thus the literal conjecture below is **proved on a stronger small-data subregime**. It remains a conjecture because its stated regime is the full C-prime region, where only complete interior averaging is presently known to close.
+$$
+\mu_\tau=R_\tau\nu_\tau
+$$
 
-The new theorem also removes one candidate escape: naive patchwise Gaussian-bridge coarsening fails on the fixed obstruction datum. The right-comb obstruction genealogies consist entirely of one-edge maximal-left patches, so a one-edge bridge map has no internal bridge coordinate to average.
+and \(\mathcal C_\tau\) is a skeleton-preserving coarsening, then
+
+$$
+\boxed{
+\|(\mathcal C_\tau)_\#\mu_\tau\|_{\mathrm{TV}}
+=
+\int
+\left|
+\mathbb E_{\nu_\tau}
+[R_\tau\mid\sigma(\mathcal C_\tau)]
+\right|d\nu_\tau.
+}
+\tag{1}
+$$
+
+For a fixed target \((t,x)\), summability of (1) over \(\tau\) is necessary and sufficient for \(L^1\) in the coarsened conditional-barycenter class. Thus the invariant is **residual signed variation**, not the type of retained variable.
 
 ## PDE and C-prime regime
 
@@ -35,30 +50,18 @@ T>0,
 \lambda\in\mathbb R,
 \qquad
 \phi\in C^{2+\alpha}(\mathbb T),
-\qquad
-\mathbb T=\mathbb R/(2\pi\mathbb Z).
 $$
 
-For
+and write
 
 $$
 \partial_tv
 =
-\frac12v_{xx}
-+\lambda(v_{xx})^2,
+\frac12v_{xx}+\lambda(v_{xx})^2,
 \qquad
 v(0)=\phi,
-$$
-
-write \(z=v_{xx}\). Then
-
-$$
-z(t)
-=
-P_t\phi''
-+\lambda\int_0^t
-\partial_x^2P_{t-s}[z(s)^2]\,ds.
-\tag{1}
+\qquad
+z=v_{xx}.
 $$
 
 Let
@@ -68,157 +71,139 @@ X_{\alpha,T}
 =
 C^{\alpha/2,\alpha}([0,T]\times\mathbb T),
 \qquad
-M
-=
-\|P_\cdot\phi''\|_{X_{\alpha,T}},
+M=\|P_\cdot\phi''\|_{X_{\alpha,T}},
 $$
 
-and let \(C_{\mathcal D}(\alpha,T)\) be the Hessian Duhamel operator constant. Put
+and put
 
 $$
 a
 =
 |\lambda|C_{\mathcal D}(\alpha,T)M.
-\tag{2}
 $$
 
 The C-prime regime is
 
 $$
 4a<1.
-\tag{3}
+\tag{2}
 $$
 
-Under (3), Theorem C-prime constructs the unique small fixed point \(z_*\) in its Catalan ball and an unbiased skeleton-only \(L^1\) estimator.
-
-## Conjecture C: full C-prime regime
-
-Under (3), does there exist a patch-first randomization with the following properties?
-
-1. Maximal consecutive left-spine Hessian events are organized into complete multi-event patches.
-2. Conditional on an exposed patch skeleton, different descendant patches may use auxiliary randomness with appropriate importance-sampling compensators.
-3. Nontrivial continuous Gaussian/Hermite, branch-time, or descendant randomness remains inside the sampled patches rather than **all** such variables being deterministically integrated out.
-4. The resulting infinite-depth random functional belongs to \(L^1\) for every \((t,x)\in[0,T]\times\mathbb T\).
-5. Its expectation is \(z_*(t,x)\).
-
-The conjecture deliberately does **not** require the canonical raw signed marked integrand to remain the conditional barycenter after all raw marks have been exposed.
-
-## What is already false
-
-For one centered Hessian edge, the canonical raw transfer is
+Under (2), [Theorem C-prime](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md) gives
 
 $$
-\widehat K_rF(x,Z)
-=
-\frac{He_2(Z)}r
-\left[
-F(x+\sqrt rZ)-F(x)
-\right].
-\tag{4}
+\sum_\tau|F_\tau(t,x)|<\infty
 $$
 
-On a raw comb cylinder \(\Gamma_m\), let \(Q_m\) be any positive proposal dominating the intrinsic signed raw measure \(
-u_m\). The raw-barycenter strengthening requires
+uniformly through the stronger \(X_{\alpha,T}\)-norm estimate.
+
+## What is completely settled
+
+### Raw-faithful retention is impossible
+
+The [raw-barycenter obstruction](raw-marked-l1-obstruction-for-quadratic-hessian-pde.md) constructs one fixed arbitrarily small smooth datum for which identity/raw-faithful retention has a divergent total-variation subseries. Pure importance sampling, proposal changes, dependence among proposal variables, and auxiliary conditionally unbiased randomness cannot repair it.
+
+In the residual-variation formula, identity coarsening gives
 
 $$
-\mathbb E_Q[Y\mid\text{raw marks}]
-=
-\frac{d\nu_m}{dQ_m}.
-\tag{5}
+\mathbb E[R_\tau\mid\sigma(\operatorname{Id})]
+=R_\tau,
 $$
 
-For one fixed smooth datum, the raw-barycenter obstruction gives
+so no signed variation is removed.
+
+### Complete averaging is L1
+
+For constant coarsening,
 
 $$
-\mathbb E|Y|=\infty
-\tag{6}
+\|(\mathcal C_\tau)_\#\mu_\tau\|_{\mathrm{TV}}
+=|F_\tau(t,x)|.
 $$
 
-for every estimator satisfying (5). This is proposal invariant: lifetime, genealogy, Gaussian proposals, dependence among proposal variables, and auxiliary conditionally unbiased randomness may all be changed.
+This is exactly C-prime and is summable throughout (2).
 
-Hence the following statement is false:
+### A structured intermediate exists
 
-> Keep the canonical raw marked state and require its raw signed contribution to remain the conditional barycenter, while changing only the positive sampling architecture or adding conditionally unbiased auxiliary randomness.
-
-## A genuine retained-randomness theorem
-
-Let \(K_{\mathrm{time}}(\alpha,T)<\infty\) be the geometric absolute-time patch constant from the time-spine theorem, and put
-
-$$
-b
-=
-|\lambda|K_{\mathrm{time}}(\alpha,T)M.
-$$
-
-Let
-
-$$
-C(a)
-=
-\sum_{n\ge0}C_na^n
-=
-\frac{1-\sqrt{1-4a}}{2a},
-\qquad C(0)=1.
-$$
-
-If
+The [time-spine theorem](time-spine-coarsening-for-quadratic-hessian-patches.md) retains the actual ordered branch times on one root maximal-left patch while averaging all other continuous variables. If
 
 $$
 4a<1,
 \qquad
 bC(a)<1,
-\tag{7}
 $$
 
-then the time-spine coarsening gives
+where
 
 $$
-\sum_{\tau}
-\|(\mathcal C_\tau^{\mathrm{time}})_\#\mu_\tau\|_{\mathrm{TV}}
-<\infty.
-\tag{8}
-$$
-
-The coarsening retains the ordered branch times on the root maximal-left patch of each finite tree and integrates out every Gaussian/Brownian mark and every continuous variable in the side subtrees. Sampling the coarsened signed measures therefore gives an unbiased \(L^1\) representation of \(z_*\) in which continuous branch-time randomness remains and affects the estimator value.
-
-Thus Conjecture C is already true on the subregime (7).
-
-## Why naive Gaussian-bridge coarsening is not the missing full-regime proof
-
-Patchwise Gaussian-bridge averaging acts only when at least two Hessian Gaussian coordinates belong to the same maximal-left patch. The fixed-datum obstruction may be realized on right combs. At every internal vertex of a right comb the left child is terminal, so every maximal-left patch has length one. On a one-edge patch the normalized endpoint Gaussian is the original Gaussian mark itself. Hence patchwise bridge coarsening is the identity, up to an invertible coordinate change, on the obstruction family and preserves its divergent total variation.
-
-This does not say that bridge averaging is useless locally. For a genuine multi-edge patch it converts factorial retained-mark growth into geometric growth. It says only that the naive patchwise version cannot be the global solution because some genealogies never contain a multi-edge patch.
-
-## Randomness, raw-faithfulness, and coarsening
-
-Random dependence on marks is strictly weaker than raw-barycenter retention. The one-edge antithetic estimator
-
-$$
-\widetilde K_rF(x,Z)
+b
 =
-\frac{He_2(Z)}{2r}
-\left[
-F(x+\sqrt rZ)
-+F(x-\sqrt rZ)
--2F(x)
-\right]
-\tag{9}
+|\lambda|K_{\mathrm{time}}(\alpha,T)M,
+\qquad
+C(a)
+=
+\frac{1-\sqrt{1-4a}}{2a},
 $$
 
-still uses \(Z\) and is unbiased, but conditional on \(Z\) it is not the raw transfer (4). Decorative randomness is weaker still: one may append unused Gaussian marks to the C-prime estimator without changing its value.
+then the residual variations are summable. Hence there is a genuine \(L^1\) representation with nondecorative continuous time randomness.
 
-The time-spine theorem gives the first proved nondecorative intermediate point. The current hierarchy is
+### Naive patchwise Gaussian bridges fail
 
-- raw-faithful / identity: non-\(L^1\) for the fixed smooth datum;
-- time-spine coarsening: \(L^1\) under (7), with continuous branch-time randomness retained;
-- constant coarsening / C-prime: \(L^1\) under the full C-prime condition (3), with all continuous interior variables averaged.
+The fixed-datum obstruction may be realized on right combs. Under the maximal-left-patch convention, every patch of such a comb has one edge. One-edge Gaussian-bridge coarsening is the identity up to an invertible coordinate change, so it preserves the divergent residual variation.
 
-## What remains open
+## Fixed-target existence is no longer open
 
-The remaining question is now quantitative rather than existential:
+The residual-variation theorem also shows that, at every **fixed** target \((t,x)\) in the C-prime regime, there are many nonconstant \(L^1\) coarsenings which retain genuine raw continuous randomness.
 
-> Does a nonconstant coarsening with genuine continuous interior randomness have summable total variation throughout the entire C-prime regime \(4a<1\)?
+Indeed, let \((\varepsilon_\tau)_\tau\) be positive and summable. Since every finite non-leaf raw patch measure has a nonatomic total-variation measure on its continuous coordinates, choose a nonnull set \(A_\tau\) with
 
-The time-spine construction answers this on the stronger subregime (7). It is open whether its additional condition can be removed, whether another choice of retained coordinates works on the full Catalan interval, or whether there is a genuine gap between the full C-prime regime and every nonconstant coarsening.
+$$
+|\mu_\tau^{t,x}|(A_\tau)
+\leq
+\varepsilon_\tau.
+$$
 
-In particular, complete interior averaging is **not necessary** for \(L^1\) in general, but it remains the only proved construction on all of (3).
+Retain the entire raw marked state on \(A_\tau\) and collapse \(A_\tau^c\) to one point. Then
+
+$$
+\begin{aligned}
+\|(\mathcal C_\tau)_\#\mu_\tau^{t,x}\|_{\mathrm{TV}}
+&=
+|\mu_\tau^{t,x}|(A_\tau)
++|\mu_\tau^{t,x}(A_\tau^c)|\\
+&\leq
+|F_\tau(t,x)|+2\varepsilon_\tau.
+\end{aligned}
+$$
+
+The sum is finite. On \(A_\tau\), all Gaussian/Hermite, branch-time, and descendant coordinates remain visible and affect the estimator.
+
+Thus the old question
+
+> for a fixed target, does there exist *some* nonconstant coarsening with genuine continuous randomness and finite first moment?
+
+has an affirmative answer throughout the full C-prime regime.
+
+This also shows why Gaussian survival is not the invariant. Entire Gaussian configurations may survive on sufficiently small pieces, whereas an abstract time-only coarsening can still have nonsummable residual variation.
+
+## Conjecture C: target-uniform structured formulation
+
+The remaining conjecture is the following stronger and more useful statement.
+
+> **Conjecture C.** Under the full C-prime condition (2), there exists one patch-first coarsening architecture, specified independently of the individual observation point \((t,x)\), which retains nondecorative continuous interior information and whose residual signed variations are summable with quantitative control sufficient to define an \(L^1\) representation for every \((t,x)\in[0,T]\times\mathbb T\).
+
+The time-spine construction proves this on its stronger small-data subregime. The sparse full-state construction above is pointwise and is deliberately not counted as a solution of this target-uniform structured conjecture.
+
+Natural stronger versions may require the coarsening to be local in the patch, to retain a nonvanishing amount of information uniformly over skeletons, or to satisfy an explicit computational constraint.
+
+## What the characterization changes
+
+The conceptual hierarchy is no longer
+
+> Gaussian marks bad, time marks good, complete averaging safest.
+
+The exact statement is
+
+> A retained sigma-field is admissible precisely to the extent that the conditional barycenter visible through it has summable \(L^1\) norm.
+
+Equivalently, cancellation before absolute values is the reduction of signed variation under conditional averaging. The named coordinates are secondary; residual signed variation is the invariant.
