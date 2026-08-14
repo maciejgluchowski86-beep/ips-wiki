@@ -125,6 +125,7 @@ nav:
       - Representation-level dichotomy: entries/representation-level-dichotomy.md
       - Finite-depth Duhamel patch regrouping: entries/finite-depth-duhamel-patch-regrouping.md
       - Conditional factorization for finite PDE patches: entries/conditional-factorization-for-finite-pde-patches.md
+      - Canonical raw signed measures for finite quadratic-Hessian trees: entries/canonical-raw-signed-measures-for-finite-quadratic-hessian-trees.md
       - Self-consistent patch iteration for the quadratic Hessian PDE: entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md
       - Skeleton-averaged L1 representation for the quadratic Hessian PDE: entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md
       - Banach-scale obstruction for raw PDE patches: entries/banach-scale-obstruction-for-raw-pde-patches.md
