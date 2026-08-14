@@ -117,6 +117,7 @@ nav:
       - Dichotomy benchmark: entries/dichotomy-benchmark.md
       - Representation-level dichotomy: entries/representation-level-dichotomy.md
       - Finite-depth Duhamel patch regrouping: entries/finite-depth-duhamel-patch-regrouping.md
+      - Conditional factorization for finite PDE patches: entries/conditional-factorization-for-finite-pde-patches.md
       - Self-consistent patch iteration for the quadratic Hessian PDE: entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md
       - L1 random-patch conjecture for the quadratic Hessian PDE: entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md
   - Meta:
