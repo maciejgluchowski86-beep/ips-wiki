@@ -122,6 +122,7 @@ nav:
       - Conditional factorization for finite PDE patches: entries/conditional-factorization-for-finite-pde-patches.md
       - Self-consistent patch iteration for the quadratic Hessian PDE: entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md
       - Skeleton-averaged L1 representation for the quadratic Hessian PDE: entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md
+      - Banach-scale obstruction for raw PDE patches: entries/banach-scale-obstruction-for-raw-pde-patches.md
       - L1 random-patch conjecture for the quadratic Hessian PDE: entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md
   - Meta:
       - Notation: meta/notation.md
