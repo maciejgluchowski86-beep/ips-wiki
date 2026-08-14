@@ -72,7 +72,7 @@ A branching event can create \(m\) children, one for each factor. If the descend
 $$
 \mathbb E\left[
 \prod_{i=1}^m Y_i
-\,\middle|\,	ext{branching data}
+\,\middle|\,\text{branching data}
 \right]
 =
 \prod_{i=1}^m\mathbb E[Y_i\mid\text{branching data}].
