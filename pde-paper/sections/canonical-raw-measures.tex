@@ -1,0 +1,312 @@
+\subsection{Canonical raw signed measures for finite Hessian trees}
+\label{subsec:canonical-raw-measures}
+
+The later notions of raw-faithfulness, coarsening, and residual signed variation require a genuine finite signed measure for each fixed finite Duhamel tree. We construct that measure here. The construction is finite-depth and uses only one positive spatial H\"older exponent at the terminal Hessian datum.
+
+Fix
+\begin{equation*}
+  0<\alpha<1,
+  \qquad
+  T>0,
+  \qquad
+  g=\phi''\in C^\alpha(\Torus).
+\end{equation*}
+No smallness assumption on $g$ or $\lambda$ is imposed in this subsection. Write $\gamma$ for standard Gaussian measure on $\R$.
+
+\paragraph{Raw mark spaces.}
+For the leaf tree $\bullet$, set
+\begin{equation*}
+  \Omega_\bullet=\R,
+  \qquad
+  \nu_\bullet=\gamma.
+\end{equation*}
+If $\tau=[\tau_1,\tau_2]$, define recursively
+\begin{equation}
+  \Omega_\tau
+  =
+  [0,T]\times\R\times
+  \Omega_{\tau_1}\times\Omega_{\tau_2},
+  \qquad
+  \nu_\tau
+  =
+  ds\otimes\gamma(dz)\otimes
+  \nu_{\tau_1}\otimes\nu_{\tau_2}.
+  \label{eq:raw-space-recursion}
+\end{equation}
+We equip every $\Omega_\tau$ with its product Borel sigma-field. Thus every $\Omega_\tau$ is standard Borel and every $\nu_\tau$ is finite. If $|\tau|$ is the number of internal vertices, then
+\begin{equation*}
+  \nu_\tau(\Omega_\tau)=T^{|\tau|}.
+\end{equation*}
+The chronological constraints are imposed by the density below rather than by changing the measurable space with the observation time.
+
+\paragraph{Canonical centered raw density.}
+For a leaf, define
+\begin{equation}
+  \mathscr R_\bullet^{t,x}(\xi)
+  =
+  g(x+\sqrt t\,\xi).
+  \label{eq:raw-density-leaf}
+\end{equation}
+Spatial addition is understood modulo $2\pi$. If $\tau=[\tau_1,\tau_2]$ and
+\begin{equation*}
+  \omega=(s,z,\omega_1,\omega_2)\in\Omega_\tau,
+\end{equation*}
+then for $0<s<t$ put
+\begin{equation*}
+  r=t-s,
+  \qquad
+  x_z=x+\sqrt r\,z,
+\end{equation*}
+and set
+\begin{align}
+  \mathscr R_\tau^{t,x}(\omega)
+  ={}&
+  \lambda\frac{\He_2(z)}r
+  \Bigl[
+    \mathscr R_{\tau_1}^{s,x_z}(\omega_1)
+    \mathscr R_{\tau_2}^{s,x_z}(\omega_2)
+  \notag\\
+  &\hspace{7em}-
+    \mathscr R_{\tau_1}^{s,x}(\omega_1)
+    \mathscr R_{\tau_2}^{s,x}(\omega_2)
+  \Bigr].
+  \label{eq:raw-density-internal}
+\end{align}
+For $s\geq t$, including $s=t$, define $\mathscr R_\tau^{t,x}=0$. The shifted and unshifted terms in~\eqref{eq:raw-density-internal} use the same descendant marks $(\omega_1,\omega_2)$. Thus~\eqref{eq:raw-density-internal} is exactly the centered one-edge realization~\eqref{eq:centered-hessian-random-field} applied to the product of two independent descendant raw fields.
+
+By induction on $\tau$, the map
+\begin{equation*}
+  (t,x,\omega)
+  \longmapsto
+  \mathscr R_\tau^{t,x}(\omega)
+\end{equation*}
+is jointly Borel measurable on $[0,T]\times\Torus\times\Omega_\tau$. The leaf map is continuous. At an internal vertex, the region $\{0<s<t\}$ is Borel, the maps $r=t-s$ and $x+\sqrt r z$ are Borel there, and~\eqref{eq:raw-density-internal} is obtained from the child densities by measurable algebraic operations. Defining the value to be zero on $s\geq t$ removes the diagonal singularity from the measurable definition.
+
+\paragraph{$L^1$-valued H\"older norm.}
+Let $(E,\mathcal E,m)$ be a finite positive measure space. For a jointly measurable field $H:\Torus\times E\to\R$ and $0<\eta<1$, define
+\begin{align}
+  \norm{H}_{\mathcal H^\eta(m)}
+  ={}&
+  \sup_{x\in\Torus}\int_E\abs{H(x,e)}\,dm(e)
+  \notag\\
+  &+
+  \sup_{x\neq y}
+  \frac{
+    \displaystyle
+    \int_E\abs{H(x,e)-H(y,e)}\,dm(e)
+  }{d_\Torus(x,y)^\eta}.
+  \label{eq:L1-valued-holder}
+\end{align}
+This is the $C^\eta$ norm of the map $x\mapsto H(x,\cdot)$ with values in $L^1(m)$. In particular, it does not take a pathwise H\"older norm before averaging.
+
+For $r>0$ define
+\begin{equation*}
+  (\mathcal K_rH)(x,z,e)
+  =
+  \frac{\He_2(z)}r
+  \br{H(x+\sqrt r z,e)-H(x,e)}.
+\end{equation*}
+
+\begin{lemma}[One centered edge with strict regularity loss]
+\label{lem:raw-one-edge-loss}
+Let $0<\beta<\eta<1$ and $T>0$. There is $C_{\beta,\eta,T}<\infty$ such that, for $0<r\leq T$,
+\begin{equation}
+  \norm{\mathcal K_rH}_{\mathcal H^\beta(\gamma\otimes m)}
+  \leq
+  C_{\beta,\eta,T}
+  r^{-1+(\eta-\beta)/2}
+  \norm H_{\mathcal H^\eta(m)}.
+  \label{eq:raw-one-edge-loss}
+\end{equation}
+Consequently the right side is integrable in $r$ on $(0,T)$.
+\end{lemma}
+
+\begin{proof}
+For the supremum part, the input H\"older increment gives
+\begin{equation*}
+  \sup_x\int\abs{\mathcal K_rH(x,z,e)}
+  \,d\gamma(z)dm(e)
+  \leq
+  c_{2,\eta}r^{-1+\eta/2}
+  \norm H_{\mathcal H^\eta(m)}.
+\end{equation*}
+For the spatial increment, write $d=d_\Torus(x,y)$. Applying the input H\"older estimate to both translated terms gives
+\begin{equation}
+  \int
+  \abs{\mathcal K_rH(x)-\mathcal K_rH(y)}
+  \leq
+  C r^{-1}d^\eta\norm H_{\mathcal H^\eta}.
+  \label{eq:raw-edge-increment-local}
+\end{equation}
+Using the preceding supremum estimate at the two points gives instead
+\begin{equation}
+  \int
+  \abs{\mathcal K_rH(x)-\mathcal K_rH(y)}
+  \leq
+  C r^{-1+\eta/2}\norm H_{\mathcal H^\eta}.
+  \label{eq:raw-edge-increment-global}
+\end{equation}
+If $d\leq\sqrt r$, divide~\eqref{eq:raw-edge-increment-local} by $d^\beta$; if $d>\sqrt r$, divide~\eqref{eq:raw-edge-increment-global} by $d^\beta$. Both cases give the factor $r^{-1+(\eta-\beta)/2}$. The supremum estimate is bounded by the same scale after changing the constant by a factor depending on $T$. Since $\eta-\beta>0$, the power of $r$ is integrable at zero.
+\end{proof}
+
+If $H_i:\Torus\times E_i\to\R$ and $m_i$ are finite positive measures, then the product field satisfies
+\begin{equation}
+  \norm{H_1H_2}_{\mathcal H^\eta(m_1\otimes m_2)}
+  \leq
+  \norm{H_1}_{\mathcal H^\eta(m_1)}
+  \norm{H_2}_{\mathcal H^\eta(m_2)}.
+  \label{eq:raw-product-holder}
+\end{equation}
+Indeed the $L^1$ norm factorizes, and the spatial increment is split as
+\begin{equation*}
+  H_1(x)H_2(x)-H_1(y)H_2(y)
+  =
+  [H_1(x)-H_1(y)]H_2(x)
+  +H_1(y)[H_2(x)-H_2(y)].
+\end{equation*}
+
+\begin{theorem}[Canonical raw signed measure for a fixed finite tree]
+\label{thm:canonical-raw-measure}
+Fix $0<\alpha<1$, $T>0$, $\lambda\in\R$, and assume
+\begin{equation*}
+  \phi''\in C^\alpha(\Torus).
+\end{equation*}
+For every finite planar full binary tree $\tau$ and every $0<\beta<\alpha$,
+\begin{equation}
+  \sup_{0\leq t\leq T}
+  \norm{\mathscr R_\tau^{t,\cdot}}_{\mathcal H^\beta(\nu_\tau)}
+  <\infty.
+  \label{eq:raw-fixed-tree-holder}
+\end{equation}
+In particular, for every target $(t,x)$,
+\begin{equation*}
+  \mathscr R_\tau^{t,x}\in L^1(\nu_\tau).
+\end{equation*}
+Hence
+\begin{equation}
+  \boxed{
+  \mu_\tau^{t,x}(A)
+  =
+  \int_A\mathscr R_\tau^{t,x}(\omega)
+  \,d\nu_\tau(\omega),
+  \qquad A\in\mathcal B(\Omega_\tau),
+  }
+  \label{eq:canonical-raw-measure}
+\end{equation}
+defines a finite countably additive signed measure. Its total variation is
+\begin{equation*}
+  \norm{\mu_\tau^{t,x}}_{\TV}
+  =
+  \int_{\Omega_\tau}
+  \abs{\mathscr R_\tau^{t,x}}d\nu_\tau
+  <\infty.
+\end{equation*}
+Moreover,
+\begin{equation}
+  \boxed{
+  \mu_\tau^{t,x}(\Omega_\tau)
+  =
+  F_\tau(t,x).
+  }
+  \label{eq:canonical-raw-mass}
+\end{equation}
+No smallness condition is required.
+\end{theorem}
+
+\begin{proof}
+We prove~\eqref{eq:raw-fixed-tree-holder} by induction on the number of internal vertices. For the leaf,~\eqref{eq:raw-density-leaf} and translation invariance give a uniform $\mathcal H^\eta(\gamma)$ bound for every $0<\eta\leq\alpha$.
+
+Let $\tau=[\tau_1,\tau_2]$, fix $0<\beta<\alpha$, and choose
+\begin{equation*}
+  \eta=\frac{\alpha+\beta}{2},
+  \qquad
+  \beta<\eta<\alpha.
+\end{equation*}
+By the induction hypothesis, the two child raw fields have finite uniform $\mathcal H^\eta$ norms. Their product has finite $\mathcal H^\eta$ norm by~\eqref{eq:raw-product-holder}. Equation~\eqref{eq:raw-density-internal} is $\lambda\mathcal K_{t-s}$ applied to this product. Lemma~\ref{lem:raw-one-edge-loss} therefore gives
+\begin{align*}
+  \sup_{t\leq T}
+  \norm{\mathscr R_\tau^{t,\cdot}}_{\mathcal H^\beta(\nu_\tau)}
+  &\leq
+  \abs\lambda C_{\beta,\eta,T}
+  \int_0^T
+  r^{-1+(\eta-\beta)/2}\,dr\\
+  &\quad\times
+  \sup_{s\leq T}
+  \norm{\mathscr R_{\tau_1}^{s,\cdot}}_{\mathcal H^\eta}
+  \sup_{s\leq T}
+  \norm{\mathscr R_{\tau_2}^{s,\cdot}}_{\mathcal H^\eta}
+  <\infty.
+\end{align*}
+Thus the density in~\eqref{eq:canonical-raw-measure} belongs to $L^1(\nu_\tau)$. Since $\nu_\tau$ is finite positive,~\eqref{eq:canonical-raw-measure} is automatically a finite countably additive signed measure.
+
+It remains to prove~\eqref{eq:canonical-raw-mass}. For the leaf,
+\begin{equation*}
+  \mu_\bullet^{t,x}(\Omega_\bullet)
+  =
+  \int g(x+\sqrt t\xi)d\gamma(\xi)
+  =
+  P_tg(x)
+  =
+  F_\bullet(t,x).
+\end{equation*}
+Assume the identity for the two children. Absolute integrability of the root density permits Fubini. Integrating first over the child spaces in~\eqref{eq:raw-density-internal} gives
+\begin{align*}
+  \mu_\tau^{t,x}(\Omega_\tau)
+  ={}&
+  \lambda\int_0^t\int_\R
+  \frac{\He_2(z)}{t-s}
+  \Bigl[
+    F_{\tau_1}(s,x_z)F_{\tau_2}(s,x_z)
+  \notag\\
+  &\hspace{7em}-
+    F_{\tau_1}(s,x)F_{\tau_2}(s,x)
+  \Bigr]
+  d\gamma(z)ds.
+\end{align*}
+The mass functions inherit spatial H\"older regularity from~\eqref{eq:raw-fixed-tree-holder}. The centered Gaussian Hessian identity~\eqref{eq:centered-hessian-mark} therefore identifies the inner integral with
+\begin{equation*}
+  \partial_x^2P_{t-s}
+  [F_{\tau_1}(s)F_{\tau_2}(s)](x).
+\end{equation*}
+The resulting time integral is exactly the deterministic recursion~\eqref{eq:tree-profile-recursion}.
+\end{proof}
+
+The strict loss in Lemma~\ref{lem:raw-one-edge-loss} is not an additional data hypothesis. For any fixed finite tree one may choose finitely many intermediate exponents below the original $\alpha$. What deteriorates with depth is the size of the constants. In particular, the sharp Banach-scale lower bound of order $(cn/\Delta)^n$ means that a stepwise first-moment proof cannot keep these finite-depth constants geometric while $n$ grows; it does not say that a fixed depth has infinite first moment.
+
+\paragraph{Decorated maximal-left-patch skeletons.}
+The raw measure above is indexed by the original planar binary tree. Later sections also index the same measure by its decorated maximal-left-patch skeleton. The decoration must record more than the chain lengths.
+
+For a non-leaf tree, follow the maximal left-child chain from the root and suppose it contains $m$ internal vertices. Let
+\begin{equation*}
+  \sigma_1,\ldots,\sigma_m
+\end{equation*}
+be the successive right subtrees in chain order, from the root vertex to the bottom vertex. Define recursively
+\begin{equation*}
+  \mathsf D(\bullet)=\bullet,
+  \qquad
+  \mathsf D(\tau)
+  =
+  \pa{
+    m;
+    \mathsf D(\sigma_1),\ldots,\mathsf D(\sigma_m)
+  }.
+  \label{eq:decorated-patch-encoding}
+\end{equation*}
+Thus the decoration records both each patch length and the ordered side-attachment slot of every descendant patch.
+
+\begin{proposition}[Tree--decorated-patch bijection]
+\label{prop:tree-patch-bijection}
+The map $\mathsf D$ in~\eqref{eq:decorated-patch-encoding} is a bijection between finite planar full binary trees and decorated maximal-left-patch skeletons.
+\end{proposition}
+
+\begin{proof}
+Construct the inverse recursively. Given
+\begin{equation*}
+  \pa{m;D_1,\ldots,D_m},
+\end{equation*}
+build a chain of $m$ internal vertices connected through left children. Attach $\mathsf D^{-1}(D_j)$ as the right subtree at the $j$-th vertex, and make the left child of the bottom vertex a leaf. Recurse inside each $D_j$. This reconstruction is unique and is visibly inverse to~\eqref{eq:decorated-patch-encoding}.
+\end{proof}
+
+A contracted patch graph decorated only by chain lengths would not be injective, because it may forget the vertex of a long patch at which a side subtree is attached. The ordered side slots are therefore part of the term \emph{decorated patch skeleton} throughout the rest of the paper. Consequently tree-indexing and decorated-skeleton-indexing are only two labels for the same $\Omega_\tau$, $\nu_\tau$, and $\mu_\tau^{t,x}$.
+
+Finally, for a right-comb tree the signed measure used in~\cref{sec:raw-faithful} is the restriction of~\eqref{eq:canonical-raw-measure} to the specified duration cylinder. The Fourier leaf projectors in that proof are compatible with the common-seed centered coupling in~\eqref{eq:raw-density-internal}: periodic heat-kernel translation invariance makes each projector a bounded function of the terminal Brownian increment and remaining time, independent of the starting point. Thus the comb lower bound is a lower bound for the canonical measures constructed here, not for a different coupling.
