@@ -11,7 +11,7 @@ tags:
 
 # Marked branching diffusion for gradient nonlinearities
 
-The branching representation of Henry-Labordère, Oudjane, Tan, Touzi, and Warin treats semilinear equations whose nonlinearity is polynomial in the solution and its first spatial gradient. As in the [mild branching-diffusion picture](mild-formulation-and-branching-diffusion-representation.md), branching turns monomials into products over independent descendants. Gradient factors are handled differently from the [Nguwi--Penent--Privault coding tree](npp-coding-tree.md): descendants carry finitely many gradient marks, and a marked particle receives an automatic-differentiation weight obtained from Malliavin integration by parts.
+The branching representation of Henry-Labordère, Oudjane, Tan, Touzi, and Warin treats semilinear equations whose nonlinearity is polynomial in the solution and its first spatial gradient. As in the [Duhamel-tree construction](branching-diffusions-and-duhamel-trees.md), branching turns monomials into products over conditionally independent descendants. Gradient factors are handled differently from the [Nguwi--Penent--Privault coding tree](npp-coding-tree.md): descendants carry finitely many gradient marks, and a marked particle receives an [automatic-differentiation weight](gaussian-integration-by-parts-and-automatic-differentiation.md) obtained from Malliavin integration by parts.
 
 **References.** Pierre Henry-Labordère, Nadia Oudjane, Xiaolu Tan, Nizar Touzi, and Xavier Warin, *Branching diffusion representation of semilinear PDEs and Monte Carlo approximation*, arXiv:1603.01727, especially Sections 2--3, Theorem 3.5, Assumption 3.10, Remark 3.11, Theorem 3.12, and Proposition 4.1; see [References](../meta/references.md).
 
@@ -29,7 +29,7 @@ c_\ell(t,x)y^{\ell_0}
 \tag{1}
 $$
 
-This is equation (2.1) in the paper. Since \(L\subseteq\mathbb N^{m+1}\), the family of monomial types is at most countable; when \(L\) is finite, (1) is literally a polynomial in \((y,z)\). The branching notation is written for the countable family \(L\), with probabilities \((p_\ell)_{\ell\in L}\) satisfying
+Since \(L\subseteq\mathbb N^{m+1}\), the family of monomial types is at most countable; when \(L\) is finite, (1) is literally a polynomial in \((y,z)\). The branching notation is written for the countable family \(L\), with probabilities \((p_\ell)_{\ell\in L}\) satisfying
 
 $$
 p_\ell>0,
@@ -38,6 +38,8 @@ p_\ell>0,
 $$
 
 When a particle branches with type \(\ell\), it produces \(|\ell|\) children. Exactly \(\ell_i\) of them receive mark \(i\), for \(i=0,\ldots,m\). Mark \(0\) represents an ordinary factor of \(u\); mark \(i\geq1\) represents the directional gradient factor \(b_i\cdot Du\).
+
+The finite-mean offspring condition is part of the nonexplosion control for the age-dependent branching process; see [Branching diffusions and Duhamel trees](branching-diffusions-and-duhamel-trees.md).
 
 ## Gradient marks and automatic differentiation
 
@@ -53,7 +55,7 @@ $$
 \tag{2}
 $$
 
-For constant nondegenerate diffusion coefficient \(\sigma_0\), the basic example is
+For constant nondegenerate diffusion coefficient \(\sigma_0\), [Gaussian integration by parts](gaussian-integration-by-parts-and-automatic-differentiation.md) gives
 
 $$
 \mathcal W(t,s,x,\Delta W)
@@ -77,17 +79,17 @@ $$
 \tag{4}
 $$
 
-Thus the mark does not ask the tree to propagate a new differential code. It determines whether the corresponding descendant carries an automatic-differentiation weight. For general nondegenerate diffusions, the paper obtains \(\mathcal W\) from a Bismut--Elworthy--Li/Malliavin integration-by-parts formula.
+Thus the mark does not ask the tree to propagate a new differential code. It determines whether the corresponding descendant carries an automatic-differentiation weight. For variable nondegenerate diffusions, HLOTW use a Bismut--Elworthy--Li/Malliavin integration-by-parts formula.
 
 ## Lifetime density and the short-time singularity
 
-Branching lifetimes have a strictly positive density \(\rho\). An internal branching factor contains the importance-sampling denominator
+Branching lifetimes have a strictly positive density \(\rho\). An internal branching factor contains the [importance-sampling denominator](importance-sampling-compensators.md)
 
 $$
 \frac{c_{I_k}(T_k,X_{T_k}^k)}{p_{I_k}\rho(\Delta T_k)}
 $$
 
-as well as the mark factor \(\mathcal W_k\). The gradient weight has the short-time scale \((\Delta T_k)^{-1/2}\), so absolute moments depend sensitively on the lifetime law near zero.
+as well as the mark factor \(\mathcal W_k\). The gradient weight has short-time scale \((\Delta T_k)^{-1/2}\), so absolute moments depend sensitively on the lifetime law near zero.
 
 The compensation is an integrability balance, not an algebraic cancellation of \(\mathcal W_k\) by \(\rho\). In the explicit criterion of Assumption 3.10, one of the relevant quantities has the form
 
@@ -109,6 +111,19 @@ $$
 
 near zero. Their alternative \(q\)-moment criterion requires a still stronger power singularity. A lifetime distribution that puts sufficient mass near zero offsets the Malliavin-weight singularity in the moment estimates.
 
+## Local uniform integrability
+
+A family of integrable random variables \(\{Y_\theta:\theta\in K\}\) is *uniformly integrable* if
+
+$$
+\lim_{R\to\infty}
+\sup_{\theta\in K}
+\mathbb E\left[|Y_\theta|\ind(|Y_\theta|>R)\right]
+=0.
+$$
+
+A parameterized family is *locally uniformly integrable* when this holds after restricting the parameter to every compact set. This condition permits limits in the starting time and position to pass through expectations.
+
 ## Integrability and viscosity representation
 
 Theorem 3.5 states the operative representation assumption abstractly. Besides the branching and automatic-differentiation hypotheses, it requires local uniform integrability of the family of tree estimators \(\psi^{s,y}\) and of the companion family used for the gradient formula, \(\widetilde\psi^{s,y}\mathcal W\). Under these hypotheses,
@@ -117,12 +132,12 @@ $$
 u(t,x)=\mathbb E[\psi^{t,x}]
 $$
 
-is a continuous viscosity solution of the semilinear PDE, and \(Du\) exists and is continuous.
+is a continuous [viscosity solution](viscosity-solutions.md) of the semilinear PDE, and \(Du\) exists and is continuous.
 
-Section 3.2 then gives explicit sufficient conditions. Assumption 3.10 is described in the paper as a small-maturity or small-nonlinearity restriction; Theorem 3.12 uses it to obtain the required uniform integrability. When the moment exponent satisfies \(q\geq2\), the theorem also gives \(\psi^{t,x}\in L^2\).
+Section 3.2 then gives explicit sufficient conditions. Assumption 3.10 is a small-maturity or small-nonlinearity restriction; Theorem 3.12 uses it to obtain the required uniform integrability. When the moment exponent satisfies \(q\geq2\), the theorem also gives \(\psi^{t,x}\in L^2\).
 
 ## Uniqueness scope
 
-Theorem 3.5 produces a viscosity solution from the branching expectation; uniqueness is a separate PDE comparison question. When uniqueness in the relevant class of bounded viscosity solutions is assumed or otherwise known, the probabilistic representation identifies that unique solution. Proposition 4.1 makes this distinction explicit in one of the paper's extensions by assuming uniqueness of the bounded viscosity solution in addition to the integrability hypotheses.
+Theorem 3.5 produces a viscosity solution from the branching expectation; uniqueness is a separate PDE comparison question. When a [viscosity comparison principle](viscosity-solutions.md) is available in the relevant class, the probabilistic representation identifies the unique solution in that class. Proposition 4.1 makes this distinction explicit in one of the paper's extensions by assuming uniqueness of the bounded viscosity solution in addition to the integrability hypotheses.
 
 The structural contrast with the Nguwi--Penent--Privault construction is therefore specific. The marked branching scheme encodes a polynomial dependence on \((u,Du)\) using finitely many kinds of gradient marks and Malliavin weights. The coding-tree construction instead propagates an infinite differential code class capable of tracking derivatives of arbitrary order.
