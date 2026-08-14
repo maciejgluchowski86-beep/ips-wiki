@@ -83,6 +83,16 @@ nav:
   - PDE and branching representations:
       - Heat-reference fully nonlinear terminal PDE: entries/heat-reference-fully-nonlinear-pde.md
       - Mild formulation and branching-diffusion representation: entries/mild-formulation-and-branching-diffusion-representation.md
+      - Branching diffusions and Duhamel trees: entries/branching-diffusions-and-duhamel-trees.md
+      - Importance-sampling compensators: entries/importance-sampling-compensators.md
+      - Gaussian integration by parts and automatic differentiation: entries/gaussian-integration-by-parts-and-automatic-differentiation.md
+      - Hermite polynomials and Gaussian chaos: entries/hermite-polynomials-and-gaussian-chaos.md
+      - Spatial jets, total derivatives, and Faa di Bruno: entries/spatial-jets-total-derivative-and-faa-di-bruno.md
+      - Viscosity solutions: entries/viscosity-solutions.md
+      - Tonelli, Markov, and Borel-Cantelli: entries/tonelli-markov-and-borel-cantelli.md
+      - Parabolic maximum principle and Schauder estimates: entries/parabolic-maximum-principle-and-schauder-estimates.md
+      - Aronson and Nash Gaussian bounds: entries/aronson-nash-gaussian-bounds.md
+      - H-minus-one energy method: entries/h-minus-one-energy-method.md
       - Marked branching diffusion for gradient nonlinearities: entries/marked-branching-diffusion-for-gradient-nonlinearities.md
       - Antithetic and ghost branching schemes: entries/antithetic-and-ghost-branching-schemes.md
       - Nguwi-Penent-Privault coding tree: entries/npp-coding-tree.md
