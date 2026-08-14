@@ -202,7 +202,7 @@ Thus cancellation before absolute values is exactly the reduction
 
 \subsection{The retained variable type is not the invariant}
 
-Two elementary examples isolate the point.
+The next two examples are abstract signed-measure examples. They are not asserted to arise from the quadratic-Hessian raw measures.
 
 \begin{example}[The entire Gaussian configuration may survive]
 \label{ex:full-gaussian-small-piece}
@@ -343,9 +343,9 @@ which is allowed to depend on this fixed target, such that
   <\infty.
   \label{eq:sparse-retention-sum}
 \end{equation}
-For every non-leaf skeleton with nonzero raw signed measure, $\cC_\tau^{t,x}$ retains the entire raw marked state on a measurable set of strictly positive total-variation measure. Hence all Gaussian/Hermite, branch-time, and descendant coordinates survive on that set and affect the canonical coarsened estimator there.
+For every non-leaf skeleton with nonzero raw signed measure, $\cC_\tau^{t,x}$ retains the entire raw marked state on a measurable set of strictly positive total-variation measure. Hence the Gaussian/Hermite, branch-time, and descendant coordinates remain observable in the retained state on that set.
 
-The proposition is pointwise in $(t,x)$. It does not construct one target-independent coarsening family which works simultaneously for all observation points.
+The proposition is pointwise in $(t,x)$. It does not construct one target-independent coarsening family which works simultaneously for all observation points, and it does not assert that every retained coordinate changes the numerical estimator value.
 \end{proposition}
 
 \begin{proof}
@@ -418,7 +418,7 @@ Fix $T>0$ and $\lambda\neq0$, and let $\phi_\varepsilon$ be the fixed smooth dat
 By~\cref{lem:right-comb-one-edge}, every patch on the right-comb obstruction family has length one. On a one-edge patch the normalized endpoint Gaussian is the original Gaussian mark, so the coarsening generates the same sigma-field as identity. If the unnormalized displacement is retained instead, the coordinate change is invertible once the edge duration is retained. In either version, total variation is unchanged on every obstruction cylinder. The divergent subseries from~\cref{thm:raw-faithful-obstruction} therefore survives.
 \end{proof}
 
-\subsection{A structured intermediate: retain one spine of branch times}
+\subsection{Derivative clusters and the absolute-time patch bound}
 
 For $m\geq1$, let
 \begin{equation*}
@@ -451,7 +451,7 @@ Set
   }{
     \norm G_{C^\alpha}
     \prod_{j=1}^m\norm{b_j}_{X_{\alpha,T}}
-  }
+  },
   \label{eq:time-patch-constant}
 \end{equation}
 and
@@ -462,48 +462,6 @@ and
   \mathfrak P_m(\alpha,T)^{1/m}.
   \label{eq:K-time}
 \end{equation}
-
-\begin{proposition}[Geometric absolute-time patch bound]
-\label{prop:K-time-finite}
-For every $0<\alpha<1$ and $T>0$,
-\begin{equation*}
-  K_{\mathrm{time}}(\alpha,T)<\infty.
-\end{equation*}
-\end{proposition}
-
-\begin{proof}
-At fixed branch times,~\eqref{eq:time-spine-integrand} is a product of $m$ Hessian heat operators interlaced with multiplication by $b_j(s_j)$. Commute consecutive derivative blocks through the multipliers. Every resulting term partitions the Hessian edges into consecutive derivative clusters. A cluster of length $\ell$ either terminates in a commutator, where the multiplier supplies one spatial H\"older increment, or reaches $G$, which supplies that increment. After integrating the internal subdivision of a cluster with total derivative duration $R$, the H\"older/Hermite estimate gives
-\begin{equation*}
-  \frac{c_{2\ell,\alpha}}{(\ell-1)!}
-  R^{-1+\alpha/2},
-  \qquad
-  \frac{c_{2\ell,\alpha}}{(\ell-1)!}
-  \leq
-  C_\alpha4^\ell.
-\end{equation*}
-If there are $q$ clusters, their derivative durations satisfy
-\begin{equation*}
-  \int_{\substack{R_i>0\\\sum_iR_i<T}}
-  \prod_{i=1}^q
-  R_i^{-1+\alpha/2}d\mathbf R
-  =
-  T^{q\alpha/2}
-  \frac{\Gamma(\alpha/2)^q}
-  {\Gamma(1+q\alpha/2)}
-  \leq
-  D_{\alpha,T}^q.
-\end{equation*}
-The derivative durations sum to $t-s_1$; the initial heat interval $s_1$ is one additional integration variable and costs at most a fixed factor $T$. There are at most $2^m$ cluster terms. Absorbing all fixed factors into one geometric base gives
-\begin{equation*}
-  \sup_{t,x}
-  \int_{\Delta_m(t)}
-  \abs{I_m(t,x;\mathbf s)}d\mathbf s
-  \leq
-  K_{\alpha,T}^m
-  \norm G_{C^\alpha}
-  \prod_{j=1}^m\norm{b_j}_{X_{\alpha,T}}.
-\end{equation*}
-\end{proof}
 
 Every non-leaf planar binary tree has a unique root maximal-left patch. If its length is $m$, let $\sigma_1,\ldots,\sigma_m$ be its successive right subtrees. Then
 \begin{equation}
@@ -516,7 +474,7 @@ Every non-leaf planar binary tree has a unique root maximal-left patch. If its l
   m+\sum_{j=1}^m\abs{\sigma_j}.
   \label{eq:root-patch-decomposition}
 \end{equation}
-The time-spine rule retains the ordered branch times of this root maximal-left patch and integrates out every Gaussian/Brownian mark on that patch together with every continuous variable in the side subtrees. For target $(t,x)$ its pushforward signed measure has density
+The time-spine coarsening retains the ordered branch times of this root maximal-left patch and integrates out every Gaussian/Brownian mark on that patch together with every continuous variable in the side subtrees. For target $(t,x)$ its pushforward signed measure has density
 \begin{equation}
   \lambda^m
   I_m[F_{\sigma_1},\ldots,F_{\sigma_m};\phi'']
@@ -524,7 +482,233 @@ The time-spine rule retains the ordered branch times of this root maximal-left p
   \label{eq:time-spine-density}
 \end{equation}
 
-\begin{theorem}[Target-uniform time-spine $L^1$ representation]
+\begin{proposition}[Absolute-time derivative-cluster bound]
+\label{prop:K-time-finite}
+For every $0<\alpha<1$ and $T>0$, define
+\begin{equation*}
+  H_\alpha
+  =
+  \pa{\E\abs Z^{2\alpha}}^{1/2},
+  \qquad
+  D_{\alpha,T}
+  =
+  \frac{2T^{\alpha/2}}{\alpha},
+  \qquad
+  A_{\alpha,T}
+  =
+  H_\alpha D_{\alpha,T},
+\end{equation*}
+and
+\begin{equation}
+  K_{\mathrm{cl}}(\alpha,T)
+  =
+  4\max\set{
+    1+A_{\alpha,T},
+    2A_{\alpha,T}
+  }.
+  \label{eq:K-cluster}
+\end{equation}
+Then, for every $m\geq1$,
+\begin{equation}
+  \boxed{
+  \begin{aligned}
+  &\sup_{t\leq T,x\in\Torus}
+  \int_{0<s_1<\cdots<s_m<t}
+  \abs{I_m[b_1,\ldots,b_m;G](t,x;\mathbf s)}
+  \,d\mathbf s\\
+  &\qquad\leq
+  2A_{\alpha,T}4^m
+  (1+A_{\alpha,T})^{m-1}
+  \norm G_{C^\alpha}
+  \prod_{j=1}^m\norm{b_j}_{X_{\alpha,T}}\\
+  &\qquad\leq
+  K_{\mathrm{cl}}(\alpha,T)^m
+  \norm G_{C^\alpha}
+  \prod_{j=1}^m\norm{b_j}_{X_{\alpha,T}}.
+  \end{aligned}
+  }
+  \label{eq:explicit-time-patch-bound}
+\end{equation}
+In particular,
+\begin{equation}
+  K_{\mathrm{time}}(\alpha,T)
+  \leq
+  K_{\mathrm{cl}}(\alpha,T)
+  <\infty.
+  \label{eq:K-time-explicit}
+\end{equation}
+No smallness assumption on a PDE parameter or datum is used in this estimate.
+\end{proposition}
+
+\begin{proof}
+Write
+\begin{equation*}
+  K_r^{(k)}
+  =
+  \partial_x^{2k}P_r,
+  \qquad
+  M_Bf=Bf,
+\end{equation*}
+and let
+\begin{equation*}
+  c_{2k,\alpha}
+  =
+  \E\br{
+    \abs{\He_{2k}(Z)}\abs Z^\alpha
+  }.
+\end{equation*}
+The Hermite and multiplication-commutator estimates give
+\begin{align}
+  \norm{K_R^{(k)}f}_\infty
+  &\leq
+  c_{2k,\alpha}
+  R^{-k+\alpha/2}
+  [f]_{C^\alpha},
+  \label{eq:cluster-Hermite-bound}\\
+  \norm{[K_R^{(k)},M_B]f}_\infty
+  &\leq
+  c_{2k,\alpha}
+  R^{-k+\alpha/2}
+  [B]_{C^\alpha}
+  \norm f_\infty.
+  \label{eq:cluster-commutator-bound}
+\end{align}
+These are the only analytic inputs.
+
+Set $s_{m+1}=t$ and
+\begin{equation*}
+  r_j=s_{j+1}-s_j,
+  \qquad 1\leq j\leq m.
+\end{equation*}
+Then $r_j>0$, $\sum_{j=1}^m r_j<t$, and
+\begin{equation*}
+  s_1=t-\sum_{j=1}^m r_j.
+\end{equation*}
+The change of variables $(s_1,\ldots,s_m)\mapsto(r_1,\ldots,r_m)$ has unit Jacobian. Thus there is no additional integration variable associated with the initial heat interval. If $B_j=b_j(s_j,\cdot)$, then
+\begin{equation}
+  I_m
+  =
+  K_{r_m}^{(1)}M_{B_m}
+  K_{r_{m-1}}^{(1)}M_{B_{m-1}}
+  \cdots
+  K_{r_1}^{(1)}M_{B_1}P_{s_1}G.
+  \label{eq:time-patch-operator-word}
+\end{equation}
+
+Expand~\eqref{eq:time-patch-operator-word} repeatedly with
+\begin{equation}
+  K_R^{(k)}M_B
+  =
+  M_BK_R^{(k)}
+  +
+  [K_R^{(k)},M_B].
+  \label{eq:cluster-expansion-identity}
+\end{equation}
+Passing a multiplier through the derivative block joins the current block to the next Hessian edge because
+\begin{equation*}
+  K_R^{(k)}K_r^{(1)}
+  =
+  K_{R+r}^{(k+1)}.
+\end{equation*}
+Choosing the commutator in~\eqref{eq:cluster-expansion-identity} terminates the current derivative cluster. Hence every resulting term partitions the $m$ derivative edges into consecutive clusters. If a term has $q$ clusters, then the $q-1$ cluster boundaries among the first $m-1$ multipliers may be chosen in
+\begin{equation*}
+  \binom{m-1}{q-1}
+\end{equation*}
+ways. At the innermost multiplier $B_1$ there are two terminal choices: the last cluster either ends in the commutator with $B_1$, or passes through $B_1$ and reaches $P_{s_1}G$. Thus the expansion contains exactly
+\begin{equation}
+  2\binom{m-1}{q-1}
+  \label{eq:q-cluster-term-count}
+\end{equation}
+terms with $q$ clusters.
+
+Consider one cluster with $\ell$ consecutive derivative edges and total duration $R$. For fixed $R$, the simplex of its $\ell$ positive edge durations has volume
+\begin{equation*}
+  \frac{R^{\ell-1}}{(\ell-1)!}.
+\end{equation*}
+If the cluster ends at a multiplier, use~\eqref{eq:cluster-commutator-bound}; if it is the innermost cluster and reaches $G$, use~\eqref{eq:cluster-Hermite-bound} together with
+\begin{equation*}
+  [P_{s_1}G]_{C^\alpha}
+  \leq
+  [G]_{C^\alpha}.
+\end{equation*}
+After the internal subdivision of the cluster is integrated, its derivative factor is therefore bounded by
+\begin{equation}
+  \frac{c_{2\ell,\alpha}}{(\ell-1)!}
+  R^{-1+\alpha/2}.
+  \label{eq:one-cluster-factor}
+\end{equation}
+Every multiplier appears exactly once, either through its supremum norm or through its $C^\alpha$ seminorm at the end of a cluster, and hence costs at most $\norm{b_j}_{X_{\alpha,T}}$.
+
+By Cauchy--Schwarz and Hermite orthogonality,
+\begin{equation*}
+  c_{2\ell,\alpha}
+  \leq
+  H_\alpha\sqrt{(2\ell)!}.
+\end{equation*}
+Moreover,
+\begin{equation*}
+  \frac{\sqrt{(2\ell)!}}{(\ell-1)!}
+  =
+  \ell\sqrt{\binom{2\ell}{\ell}}
+  \leq
+  \ell2^\ell
+  \leq
+  4^\ell.
+\end{equation*}
+Thus
+\begin{equation}
+  \frac{c_{2\ell,\alpha}}{(\ell-1)!}
+  \leq
+  H_\alpha4^\ell.
+  \label{eq:cluster-geometric-Hermite}
+\end{equation}
+
+Now fix a term whose cluster lengths are $\ell_1,\ldots,\ell_q$, with total durations $R_1,\ldots,R_q$. Since $\sum_i\ell_i=m$, multiplying~\eqref{eq:one-cluster-factor} and~\eqref{eq:cluster-geometric-Hermite} gives the coefficient $H_\alpha^q4^m$. The cluster totals satisfy $R_i>0$ and $\sum_iR_i<t\leq T$. Hence
+\begin{align*}
+  \int_{\substack{R_i>0\\\sum_iR_i<t}}
+  \prod_{i=1}^qR_i^{-1+\alpha/2}
+  \,d\mathbf R
+  &\leq
+  \prod_{i=1}^q
+  \int_0^T R^{-1+\alpha/2}\,dR\\
+  &=
+  D_{\alpha,T}^q.
+\end{align*}
+Consequently each $q$-cluster term is bounded in absolute time integral by
+\begin{equation*}
+  4^mA_{\alpha,T}^q
+  \norm G_{C^\alpha}
+  \prod_{j=1}^m\norm{b_j}_{X_{\alpha,T}}.
+\end{equation*}
+Using~\eqref{eq:q-cluster-term-count} and summing over $q$ gives
+\begin{align*}
+  \mathfrak P_m(\alpha,T)
+  &\leq
+  2\,4^m
+  \sum_{q=1}^m
+  \binom{m-1}{q-1}A_{\alpha,T}^q\\
+  &=
+  2A_{\alpha,T}4^m
+  (1+A_{\alpha,T})^{m-1}.
+\end{align*}
+This is the first inequality in~\eqref{eq:explicit-time-patch-bound}.
+
+If $A_{\alpha,T}\leq1$, then
+\begin{equation*}
+  2A_{\alpha,T}4^m(1+A_{\alpha,T})^{m-1}
+  \leq
+  [4(1+A_{\alpha,T})]^m.
+\end{equation*}
+If $A_{\alpha,T}\geq1$, then
+\begin{equation*}
+  2A_{\alpha,T}4^m(1+A_{\alpha,T})^{m-1}
+  \leq
+  (8A_{\alpha,T})^m.
+\end{equation*}
+The definition~\eqref{eq:K-cluster} therefore gives the second inequality in~\eqref{eq:explicit-time-patch-bound} and hence~\eqref{eq:K-time-explicit}.
+\end{proof}
+
+\begin{corollary}[Target-uniform time-spine $L^1$ representation]
 \label{thm:time-spine}
 Fix $0<\alpha<1$, $T>0$, $\lambda\in\R$, and $\phi\in C^{2+\alpha}(\Torus)$. Let
 \begin{equation*}
@@ -534,7 +718,7 @@ Fix $0<\alpha<1$, $T>0$, $\lambda\in\R$, and $\phi\in C^{2+\alpha}(\Torus)$. Let
   \qquad
   a=\abs\lambda C_{\cD}(\alpha,T)M,
 \end{equation*}
-and let $K_{\mathrm{time}}(\alpha,T)<\infty$ be defined by~\eqref{eq:K-time}. Put
+and let $K_{\mathrm{time}}(\alpha,T)$ be defined by~\eqref{eq:K-time}. Put
 \begin{equation*}
   b
   =
@@ -557,7 +741,7 @@ Assume
   }
   \label{eq:time-spine-smallness}
 \end{equation}
-Then the single geometric coarsening rule described above works for every observation point $(t,x)\in[0,T]\times\Torus$. More precisely, for every such target,
+Then the single time-spine coarsening rule described above works for every observation point $(t,x)\in[0,T]\times\Torus$. More precisely, for every such target,
 \begin{equation}
   \sum_{\tau\in\cT}
   \norm{(\cC_{\tau}^{\mathrm{time},t,x})_\#
@@ -568,7 +752,7 @@ Then the single geometric coarsening rule described above works for every observ
   \label{eq:time-spine-TV-sum}
 \end{equation}
 The canonical coarsened importance sampler is therefore an unbiased $L^1$ representation of the C-prime solution $z_*(t,x)$ for every target. The ordered branch-time vector on the root maximal-left patch is retained and affects the estimator nontrivially. No Gaussian/Hermite or Brownian mark is retained by this time-spine rule.
-\end{theorem}
+\end{corollary}
 
 \begin{proof}
 For $\tau\leftrightarrow(m;\sigma_1,\ldots,\sigma_m)$,~\eqref{eq:time-spine-density} and~\cref{prop:K-time-finite} give
@@ -601,6 +785,8 @@ To see that the retained time is nondecorative, take the one-vertex tree and $\p
 which depends nontrivially on $s$.
 \end{proof}
 
+The distinction between~\cref{prop:K-time-finite,thm:time-spine} is logical. The derivative-cluster estimate is an analytic statement valid for arbitrary inputs in the stated H\"older classes and uses no smallness. Smallness enters only when the estimate is inserted into the infinite tree sum defining the representation.
+
 If
 \begin{equation*}
   \theta
@@ -618,7 +804,7 @@ For $\theta\leq2$ it follows automatically from $4a<1$; for $\theta>2$ it is equ
 \begin{equation*}
   a<\frac{\theta-1}{\theta^2}.
 \end{equation*}
-Thus the time-spine theorem has a potentially stronger smallness condition than C-prime, and the exact strengthening depends on the valid operator constants.
+Thus the time-spine corollary has a potentially stronger smallness condition than C-prime, and the exact strengthening depends on the valid operator constants.
 
 The three structured points are therefore values of the same invariant:
 \begin{equation*}
