@@ -1,6 +1,7 @@
 ---
 title: Front growth and vacancy density for one-dimensional FA-1f
-status: standard fact
+status: literature
+audit: current
 tags:
   - FA-1f
   - East
@@ -123,30 +124,3 @@ T_{\mathrm{rel}}
 $$
 
 In particular, at fixed \(q>0\), the bound is uniform in \(|\Lambda|\) once the interval is large. The result applies after restricting to an irreducible component; the same chapter discusses FA-1f on a segment conditioned to contain a vacancy.
-
-Thus a possible all-density replacement for the published high-\(q\) front proof is not to reproduce the old one-step nearest-vacancy Lyapunov estimate. One can instead seek a graphical decomposition of the region behind the front into nonempty components or moving-boundary regions and apply (5) there. The unresolved issue is the conditioning: unlike East, conditioning on an FA vacancy path reads information from both sides of the path and can bias the clocks in the region whose relaxation one wants to use.
-
-## Adaptation target suggested by East
-
-The East proof indicates a stronger target than vacancy-gap tightness. One would like an FA analogue of a distinguished moving boundary: for a suitable tagged-vacancy or tagged-edge path \(\Gamma\), reveal only enough auxiliary data \(B\) to specify the boundary motion, while leaving the complete chronology behind it unexposed. Conditional on \((\Gamma,B)\), the interior transfer operator should be a positive moving-boundary FA operator and should lose dependence on the incoming configuration away from the boundary.
-
-For a local observable \(f\) supported a distance \(L\) behind the moving boundary, a natural target is an estimate of the form
-
-$$
-\sup_{\xi,\xi'}
-\left|
-\frac{K_{\Gamma,B}f(\xi)}{K_{\Gamma,B}\mathbf1(\xi)}
--
-\frac{K_{\Gamma,B}f(\xi')}{K_{\Gamma,B}\mathbf1(\xi')}
-\right|
-\le \varepsilon(L,t),
-\qquad
-\varepsilon(L,t)\longrightarrow0
-\tag{6}
-$$
-
-on a high-probability class of boundary skeletons. For East the corresponding statement is exact because the conditional law is (2). For FA-1f it would have to be proved by averaging the two-sided boundary chronology.
-
-The [tagged-vacancy bridge factorization](tagged-vacancy-bridge-factorization-for-fa-1f.md), [vacancy-lens factorization](vacancy-lens-factorization-for-fa-1f.md), and [moving-edge CBSEP resampling](moving-edge-cbsep-resampling-for-fa-1f.md) are possible ingredients: they were designed precisely to retain a vacancy boundary while averaging the update order that couples its two sides.
-
-For the Bernoulli-quench problem, the full front invariant-law theorem is stronger than necessary. Proving only an all-density analogue of the zeros lemma, namely (4), already excludes the absorbing component of every stationary subsequential limit. The East and high-density FA literature nevertheless supply a clear proof architecture: vacancy production and regional relaxation should be treated as two separate steps.
