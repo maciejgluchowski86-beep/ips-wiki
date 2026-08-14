@@ -25,7 +25,13 @@ For every integer $N\geq0$, the finite expansion of $z^{[N]}$ may be reorganized
 In particular, composing all Hessian transfers inside a patch before taking an absolute value is an exact finite-level operation. No term is discarded or added, and no convergence of an infinite tree series is used.
 \end{theorem}
 
-\proofplaceholder{Insert the audited finite-tree bijection and the direct expansion of one maximal left chain into its ordered Duhamel integral.}
+\begin{proof}
+Every finite planar binary tree has a unique decomposition into maximal left-child chains. Start at the root and at every internal vertex which is either the root or a right child. Follow left children until the next left child is a leaf. These chains are disjoint and every internal vertex belongs to exactly one of them. Contracting them gives the patch skeleton, while the chain lengths and ordered side subtrees recover the original planar tree uniquely.
+
+For one fixed chain, recursively expanding the binary Duhamel operator along its left child gives exactly the iterated integral~\eqref{eq:complete-patch}: the ordered variables $0<s_1<\cdots<s_m<t$ are the chronological constraints already present in the nested Duhamel integrals, and the right children appear as the successive multipliers $b_1,\ldots,b_m$. Thus replacing the chain by its complete patch contribution is only a rebracketing of that tree contribution.
+
+For a fixed Picard depth $N$, only finitely many planar binary trees occur. Reindexing this finite sum by the preceding bijection therefore changes neither the value nor the order of any infinite series. This proves the result.
+\end{proof}
 
 The next theorem is deterministic and weaker than the representation results which follow. Its purpose is to identify a small classical solution by a direct PDE iteration and to provide an overlapping uniqueness regime.
 
@@ -83,4 +89,149 @@ where
 The diffusion representation is implicit because its coefficient contains the fixed point $z$.
 \end{theorem}
 
-\proofplaceholder{Insert the audited Schauder-ball preservation, $H^{-1}$ contraction, compactness/identification, small-class uniqueness, and backward-Kolmogorov argument. Keep this result auxiliary to the representation theorems.}
+\begin{proof}
+We divide the argument into the invariant ball, contraction, identification, uniqueness, and diffusion representation.
+
+Suppose first that
+\begin{equation*}
+  \norm{z_n}_{C^{\alpha/2,\alpha}}\leq R.
+\end{equation*}
+By~\eqref{eq:deterministic-smallness},
+\begin{equation*}
+  \abs{\lambda z_n}\leq\frac18,
+  \qquad
+  [\lambda z_n]_{C^{\alpha/2,\alpha}}\leq\frac18.
+\end{equation*}
+Thus
+\begin{equation*}
+  a_n=\frac12+\lambda z_n
+  \in\mathcal A_{\alpha,T}.
+\end{equation*}
+The uniform Schauder estimate gives
+\begin{equation*}
+  \norm{z_{n+1}}_{C^{\alpha/2,\alpha}}
+  \leq R.
+\end{equation*}
+Since $C_{\mathrm{Sch}}\geq1$, the initialization $z_0=\phi''$ lies in the same ball. Induction therefore gives
+\begin{equation}
+  \norm{z_n}_{C^{\alpha/2,\alpha}}
+  \leq R,
+  \qquad
+  \frac38\leq\frac12+\lambda z_n\leq\frac58
+  \label{eq:deterministic-invariant-ball}
+\end{equation}
+for every $n$.
+
+For $n\geq1$, put $w_n=z_{n+1}-z_n$. Differentiating the linear equations twice, or equivalently using their divergence form for $z_n$, gives
+\begin{equation}
+  \partial_tw_n
+  =
+  \partial_x^2\br{
+    \pa{\frac12+\lambda z_n}w_n
+    +\lambda z_nw_{n-1}
+  }.
+  \label{eq:deterministic-difference}
+\end{equation}
+Every $z_n$ has zero spatial mean, so $w_n$ does as well. Set
+\begin{equation*}
+  \kappa=\frac38,
+  \qquad
+  \delta=\abs\lambda R\leq\frac18.
+\end{equation*}
+Testing~\eqref{eq:deterministic-difference} in $H^{-1}$ and using~\eqref{eq:deterministic-invariant-ball} gives
+\begin{equation}
+  \sup_{0\leq s\leq t}
+  \norm{w_n(s)}_{H^{-1}}^2
+  +\kappa\int_0^t\norm{w_n(s)}_2^2\,ds
+  \leq
+  \frac{\delta^2}{\kappa}
+  \int_0^t\norm{w_{n-1}(s)}_2^2\,ds.
+  \label{eq:Hminus1-contraction-manuscript}
+\end{equation}
+Hence
+\begin{equation*}
+  \norm{w_n}_{L^2([0,T]\times\Torus)}
+  \leq
+  \frac\delta\kappa
+  \norm{w_{n-1}}_{L^2([0,T]\times\Torus)},
+  \qquad
+  \frac\delta\kappa\leq\frac13.
+\end{equation*}
+Thus $(z_n)$ is Cauchy in space-time $L^2$.
+
+The uniform H\"older bound~\eqref{eq:deterministic-invariant-ball} makes $(z_n)$ equibounded and equicontinuous. Every subsequence therefore has a uniformly convergent subsubsequence. Such a uniform limit must agree almost everywhere with the unique $L^2$ limit, so the full sequence converges uniformly to a profile $z$ with the same H\"older bound.
+
+The corresponding $v_n$ have a uniform parabolic Schauder bound. Their second derivatives converge to $z$. The remaining spatial constant is determined by the torus mean. Indeed, if
+\begin{equation*}
+  m_n(t)=\frac1{2\pi}\int_\Torus v_n(t,x)\,dx,
+\end{equation*}
+then the iteration gives
+\begin{equation*}
+  m_{n+1}'(t)
+  =
+  \lambda\frac1{2\pi}
+  \int_\Torus z_n(t,x)z_{n+1}(t,x)\,dx.
+\end{equation*}
+Uniform convergence of $z_n$ therefore determines a unique limiting mean. Consequently $v_n$ converges to a classical function $v$ with $v_{xx}=z$, and passage to the limit yields
+\begin{equation*}
+  v_t
+  =
+  \pa{\frac12+\lambda z}z
+  =
+  \frac12v_{xx}+\lambda(v_{xx})^2.
+\end{equation*}
+
+For uniqueness, let $z$ and $\widetilde z$ be bounded weak solutions of the differentiated equation with the same initial datum and
+\begin{equation*}
+  \abs{\lambda z},\abs{\lambda\widetilde z}\leq\frac18.
+\end{equation*}
+Their difference $w=z-\widetilde z$ satisfies
+\begin{equation*}
+  \partial_tw
+  =
+  \partial_x^2\br{
+    \pa{\frac12+\lambda(z+\widetilde z)}w
+  }.
+\end{equation*}
+The coefficient lies in $[1/4,3/4]$. The $H^{-1}$ identity therefore gives
+\begin{equation*}
+  \frac12\frac d{dt}\norm w_{H^{-1}}^2
+  =
+  -\int_\Torus
+  \pa{\frac12+\lambda(z+\widetilde z)}w^2\,dx
+  \leq
+  -\frac14\norm w_2^2.
+\end{equation*}
+Since $w(0)=0$, one obtains $w=0$. Once $z=v_{xx}$ is fixed, two periodic solutions $v$ differ only by a spatial constant, and the common initial datum together with the equation fixes that constant.
+
+Finally fix an observation time $t\leq T$ and put
+\begin{equation*}
+  a(r,x)=\frac12+\lambda z(r,x).
+\end{equation*}
+The coefficient is H\"older and lies in $[3/8,5/8]$. Let $X$ solve the periodic SDE
+\begin{equation*}
+  dX_s
+  =
+  \sqrt{2a(t-s,X_s)}\,dW_s
+  =
+  \sqrt{1+2\lambda z(t-s,X_s)}\,dW_s,
+  \qquad X_0=x.
+\end{equation*}
+Applying It\^o's formula to $s\mapsto v(t-s,X_s)$, the drift is
+\begin{equation*}
+  -v_t(t-s,X_s)
+  +a(t-s,X_s)v_{xx}(t-s,X_s)
+  =0.
+\end{equation*}
+Thus $v(t-s,X_s)$ is a martingale. At $s=t$ it equals $\phi(X_t)$, while at $s=0$ it equals $v(t,x)$. Taking expectations gives the stated representation.
+\end{proof}
+
+The mild form of the iteration is
+\begin{equation*}
+  z_{n+1}(t)
+  =
+  P_t\phi''
+  +\lambda\int_0^t
+  \partial_x^2P_{t-s}[z_n(s)z_{n+1}(s)]\,ds.
+\end{equation*}
+For fixed side profile $z_n$, iterating this equation sums arbitrary consecutive left-spine Hessian events before the next outer Picard step. This is the deterministic patch interpretation of the theorem. The convergence proof above is nevertheless a Schauder/$H^{-1}$ argument, not an absolute-moment estimate for a random patch functional.
