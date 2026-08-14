@@ -93,6 +93,7 @@ nav:
       - Hermite polynomials and Gaussian chaos: entries/hermite-polynomials-and-gaussian-chaos.md
       - Holder cancellation for heat-semigroup derivatives: entries/holder-cancellation-for-heat-semigroup-derivatives.md
       - Parabolic Holder spaces: entries/parabolic-holder-spaces.md
+      - Parabolic Holder bound for the Hessian Duhamel operator: entries/parabolic-holder-bound-for-hessian-duhamel-operator.md
       - Random fields in function spaces: entries/random-fields-in-function-spaces.md
       - Conditional expectation and fluctuations of random fields: entries/conditional-expectation-and-fluctuations-of-random-fields.md
       - Besov spaces on the torus: entries/besov-spaces-on-the-torus.md
@@ -119,6 +120,7 @@ nav:
       - Finite-depth Duhamel patch regrouping: entries/finite-depth-duhamel-patch-regrouping.md
       - Conditional factorization for finite PDE patches: entries/conditional-factorization-for-finite-pde-patches.md
       - Self-consistent patch iteration for the quadratic Hessian PDE: entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md
+      - Skeleton-averaged L1 representation for the quadratic Hessian PDE: entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md
       - L1 random-patch conjecture for the quadratic Hessian PDE: entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md
   - Meta:
       - Notation: meta/notation.md
