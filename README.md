@@ -4,7 +4,7 @@ This repository is a public-facing wiki for interacting particle systems, spin s
 
 The rendered wiki is published at <https://maciejgluchowski86-beep.github.io/ips-wiki/>.
 
-The wiki is article-first. Each entry is a separate Markdown page under `docs/entries/`, with TeX math rendered in the web view and ordinary Markdown links between entries. Cross-links should usually be inline links through relevant words and phrases, not top-level related-page lists.
+The wiki is article-first. Each entry is a separate Markdown page under `docs/entries/`, with TeX math rendered in the web view and ordinary Markdown links between entries. Cross-links should usually be inline links through relevant words or phrases, not top-level related-page lists.
 
 ## Paper draft
 
@@ -123,5 +123,8 @@ Each entry should label its status in front matter as one of:
 - `definition`
 - `standard fact`
 - `proved here`
+- `observation`
 - `conditional`
 - `heuristic`
+- `open`
+- `obsolete`
