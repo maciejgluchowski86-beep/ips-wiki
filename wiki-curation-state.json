@@ -3,7 +3,7 @@
   "legacy_migration_complete": false,
   "integrations_since_last_sweep": 0,
   "entries_at_last_sweep": 91,
-  "last_sweep_commit": "0ab0ab411e3d7143009ab5f6f4cae33e5e3284bf",
+  "last_sweep_commit": "a07404e957138c65cb814d2fa3818a189d48143b",
   "priority_order": [
     "entries on the PDE reading path",
     "recently changed PDE entries",
