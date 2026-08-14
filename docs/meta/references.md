@@ -36,6 +36,7 @@ This page is the human-readable reference list for the wiki. A structured BibTeX
 
 - Lawrence C. Evans, *Partial Differential Equations*, second edition, Graduate Studies in Mathematics 19, American Mathematical Society, 2010.
 - Avner Friedman, *Partial Differential Equations of Parabolic Type*, Prentice-Hall, 1964.
+- Gary M. Lieberman, *Second Order Parabolic Differential Equations*, World Scientific, 1996.
 - Hajer Bahouri, Jean-Yves Chemin, and Raphaël Danchin, *Fourier Analysis and Nonlinear Partial Differential Equations*, Grundlehren der mathematischen Wissenschaften 343, Springer, 2011.
 - Hans Triebel, *Theory of Function Spaces*, Monographs in Mathematics 78, Birkhäuser, 1983.
 - Joseph Diestel and John J. Uhl Jr., *Vector Measures*, Mathematical Surveys 15, American Mathematical Society, 1977.
