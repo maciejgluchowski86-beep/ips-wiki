@@ -123,7 +123,7 @@ $$
 \tag{6}
 $$
 
-For variable nondegenerate diffusions, Bismut--Elworthy--Li and Malliavin integration-by-parts formulas provide analogues of (5). Their precise hypotheses depend on the diffusion coefficients; the HLOTW construction assumes such a formula rather than deriving it from the branching argument itself.
+For variable nondegenerate diffusions, [Malliavin integration by parts and the Bismut--Elworthy--Li formula](malliavin-and-bismut-automatic-differentiation.md) provide analogues of (5). Their precise hypotheses depend on the diffusion coefficients; the HLOTW construction assumes such a formula rather than deriving it from the branching argument itself.
 
 ## Why the singularity matters
 
