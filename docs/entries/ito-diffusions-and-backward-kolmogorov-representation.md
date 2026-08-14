@@ -33,18 +33,47 @@ $$
 
 A *weak solution* consists of a probability space carrying \((X,W)\) on which the integral form of (1) holds. Uniqueness in law means that the distribution of \(X\) is uniquely determined by the coefficients and the starting point, even if different probability spaces are used.
 
-For bounded continuous coefficients with a uniformly nondegenerate diffusion matrix, the associated martingale problem gives the standard diffusion law. In the one-dimensional periodic setting used here, Hölder continuity together with
+If \(\sigma\) is Lipschitz in space, the usual strong existence and pathwise-uniqueness theorem gives a stronger formulation in which \(X\) is constructed as a measurable functional of a prescribed Brownian motion. The quadratic-Hessian representation below only needs the weaker diffusion law.
+
+## Generator and martingale problem
+
+For a smooth test function \(f\), define
 
 $$
-0<c\leq |\sigma(s,x)|\leq C<\infty
+L_sf(x)
+=
+b(s,x)f'(x)
++\frac12\sigma(s,x)^2f''(x).
 \tag{2}
 $$
 
-is more than enough for the weak diffusion law needed below. If \(\sigma\) is Lipschitz in space, the usual strong existence and pathwise-uniqueness theorem gives the stronger pathwise formulation.
+A continuous process \(X\) solves the *martingale problem* for \((L_s)\) started from \(x\) if \(X_0=x\) and, for every smooth periodic test function \(f\),
+
+$$
+M_t^f
+:=
+f(X_t)-f(X_0)
+-
+\int_0^tL_sf(X_s)\,ds
+\tag{3}
+$$
+
+is a martingale.
+
+The martingale problem characterizes the diffusion law without specifying a Brownian motion on the underlying probability space. Existence and uniqueness for the martingale problem are therefore a convenient route to weak existence and uniqueness in law for (1).
+
+For the one-dimensional periodic setting used here, bounded Hölder coefficients together with uniform nondegeneracy
+
+$$
+0<c\leq |\sigma(s,x)|\leq C<\infty
+\tag{4}
+$$
+
+are sufficient for the weak diffusion law needed below. The representation theorem uses only that law, not pathwise uniqueness.
 
 ## Itô's formula
 
-If \(F\in C^{1,2}\), then along (1),
+If \(F\in C^{1,2}\), then along a weak solution of (1),
 
 $$
 \begin{aligned}
@@ -56,20 +85,10 @@ F_s+bF_x+\frac12\sigma^2F_{xx}
 &+
 \sigma(s,X_s)F_x(s,X_s)\,dW_s.
 \end{aligned}
-\tag{3}
+\tag{5}
 $$
 
-The differential operator
-
-$$
-L_s
-=
-b(s,x)\partial_x
-+\frac12\sigma(s,x)^2\partial_x^2
-\tag{4}
-$$
-
-is the generator of the diffusion.
+Thus the operator in (2) is the infinitesimal generator of the diffusion.
 
 ## Backward Kolmogorov representation
 
@@ -81,10 +100,16 @@ $$
 a(r,x)\partial_x^2v(r,x),
 \qquad
 v(0,x)=\phi(x).
-\tag{5}
+\tag{6}
 $$
 
-For this fixed observation time \(t\), define the time-reversed diffusion
+For this fixed observation time \(t\), let \(X\) have the diffusion law with time-reversed generator
+
+$$
+a(t-s,x)\partial_x^2.
+$$
+
+Equivalently, on a probability space carrying a suitable weak solution, one may write
 
 $$
 dX_s
@@ -94,7 +119,7 @@ dX_s
 X_0=x,
 \qquad
 0\leq s\leq t.
-\tag{6}
+\tag{7}
 $$
 
 Then
@@ -103,7 +128,7 @@ $$
 v(t,x)
 =
 \mathbb E_x[\phi(X_t)].
-\tag{7}
+\tag{8}
 $$
 
 ## Proof
@@ -114,14 +139,14 @@ $$
 F(s,y)=v(t-s,y).
 $$
 
-The drift in (3) is
+The drift in (5) is
 
 $$
 -v_t(t-s,X_s)
 +a(t-s,X_s)v_{xx}(t-s,X_s),
 $$
 
-which vanishes by (5). Hence \(v(t-s,X_s)\) is a local martingale. On the compact torus, the derivatives of the classical solution are bounded, so the stochastic integral is a true martingale on the finite interval. Therefore
+which vanishes by (6). Hence \(v(t-s,X_s)\) is a local martingale. On the compact torus, the derivatives of the classical solution are bounded, so the stochastic integral is a true martingale on the finite interval. Therefore
 
 $$
 v(t,x)
@@ -131,8 +156,8 @@ v(t,x)
 \mathbb E_x[\phi(X_t)].
 $$
 
-The time reversal in (6) is important: equation (5) evolves the initial datum from time \(0\) to time \(t\), while the stochastic path in (7) starts at the observation point \((t,x)\) and follows the coefficient backward through the deterministic time profile.
+The time reversal in (7) is important: equation (6) evolves the initial datum from time \(0\) to time \(t\), while the stochastic path in (8) starts at the observation point \((t,x)\) and follows the coefficient backward through the deterministic time profile.
 
 ## Relation to branching representations
 
-Formula (7) contains no branching. Once a nonlinear problem has been reduced to a linear equation with a self-consistent deterministic coefficient, the diffusion itself gives an integrable representation whenever the payoff is bounded. This is logically different from constructing an infinite random branching estimator from the original Duhamel series. The [self-consistent quadratic-Hessian theorem](self-consistent-patch-iteration-for-quadratic-hessian-pde.md) uses (7) only after the deterministic fixed point has been constructed.
+Formula (8) contains no branching. Once a nonlinear problem has been reduced to a linear equation with a self-consistent deterministic coefficient, the diffusion itself gives an integrable representation whenever the payoff is bounded. This is logically different from constructing an infinite random branching estimator from the original Duhamel series. The [self-consistent quadratic-Hessian theorem](self-consistent-patch-iteration-for-quadratic-hessian-pde.md) uses (8) only after the deterministic fixed point has been constructed.
