@@ -84,11 +84,9 @@ $$
 \partial_tu+\frac12\partial_x^2u+f(J_nu)=0
 $$
 
-on \([0,T)\), with terminal condition \(u(T,\cdot)=\phi\). Then
+on \([0,T)\), with terminal condition \(u(T,\cdot)=\phi\). For every \(t\in[0,T]\), its value \(u(t,\cdot)\) is
 
 $$
-u(t,\cdot)
-=
 P_{T-t}\phi
 +
 \int_t^T P_{s-t}\bigl[f(J_nu(s,\cdot))\bigr]\,ds.
@@ -113,7 +111,7 @@ Integrating from \(s=t\) to \(s=T\) and using \(u(T,\cdot)=\phi\) gives (5).
 
 ## Definition: mild solution
 
-A function \(u\) is a *mild solution* of the terminal problem on a class where the terms are defined if it satisfies (5) for every \(t\in[0,T]\). This definition only uses the heat semigroup and the nonlinear expression inside the time integral. If a mild solution has enough regularity to differentiate (5), then it is a classical solution of the PDE.
+A function \(u\) is a *mild solution* of the terminal problem on a class where the terms are defined if its value \(u(t,\cdot)\) equals the expression in (5) for every \(t\in[0,T]\). This definition only uses the heat semigroup and the nonlinear expression inside the time integral. If a mild solution has enough regularity to differentiate the identity, then it is a classical solution of the PDE.
 
 The mild formulation is often the natural starting point for probabilistic constructions because every heat transfer remains exact while only the nonlinear time integral is randomized.
 
