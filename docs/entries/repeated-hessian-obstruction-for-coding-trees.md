@@ -84,6 +84,8 @@ $$
 Each \(g_r^*\) is again an allowed composite code: the code class permits arbitrary jet derivatives of \(f\) together with arbitrary nonzero real scalar coefficients. Definition 2.2 contains, for every composite code \(g_{r-1}^*\), the Hessian tuple
 
 $$
+Z_r
+:=
 \left(
  g_r^*,
  \partial_x^{j+1},
@@ -128,10 +130,19 @@ $$
 \qquad s_0=t,
 $$
 
-and selecting the prescribed tuple contributes its probability \(q_{g_{r-1}^*}\). These factors cancel the corresponding reciprocal factor
+and selecting the prescribed tuple contributes
 
 $$
-\frac{1}{q_{g_{r-1}^*}\rho(s_r-s_{r-1})}
+q_r
+:=
+q_{g_{r-1}^*}(Z_r)
+>0.
+$$
+
+These factors cancel the corresponding reciprocal factor
+
+$$
+\frac{1}{q_r\rho(s_r-s_{r-1})}
 $$
 
 in the [multiplicative functional](npp-coding-tree.md). A side child born at time \(s_r\) survives with probability \(\overline F(T-s_r)\), which cancels its terminal denominator \(1/\overline F(T-s_r)\). The same cancellation holds for the final distinguished child. Hence the restriction leaves ordinary Lebesgue measure on \(\Delta_m\), together with the Brownian terminal factors. The terminal composite code is \(g_m^*\), so its absolute terminal value contributes
