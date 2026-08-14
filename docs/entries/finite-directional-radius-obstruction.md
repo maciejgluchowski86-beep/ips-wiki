@@ -37,7 +37,7 @@ $$
 u(T)=\phi.
 $$
 
-Let \(H(\mathcal T_{t,x,c})\) denote the [NPP coding-tree functional](npp-coding-tree.md) rooted at code \(c\), built with a strictly positive lifetime density and positive mechanism-selection probabilities as in that construction. Fix a jet direction
+Let \(H(\mathcal T_{t,x,c_0})\) denote the [NPP coding-tree functional](npp-coding-tree.md) rooted at code \(c_0\), built with a strictly positive lifetime density and positive mechanism-selection probabilities as in that construction. Fix a jet direction
 
 $$
 j\in\{0,\ldots,n\}
@@ -54,10 +54,10 @@ Let \(g^*\) be an allowed composite code, so
 $$
 g
 =
-a\,\partial_{z_0}^{\lambda_0}\cdots\partial_{z_n}^{\lambda_n}f
+c\,\partial_{z_0}^{\lambda_0}\cdots\partial_{z_n}^{\lambda_n}f
 $$
 
-for some \(a\neq0\) and nonnegative integers \(\lambda_0,\ldots,\lambda_n\). For \(y\in\mathbb R\), define the formal directional coefficients
+for some \(c\neq0\) and nonnegative integers \(\lambda_0,\ldots,\lambda_n\). For \(y\in\mathbb R\), define the formal directional coefficients
 
 $$
 a_r^g(y)
@@ -126,7 +126,7 @@ E\cap[-N,N]\cap
 \{R_{j,g}^{\mathrm{even}}\leq k\}
 $$
 
-of positive measure for some \(N,k\). Choose \(a\in(0,1/k)\), and set
+of positive measure for some \(N,k\). Choose \(\theta\in(0,1/k)\), and set
 
 $$
 A_m
@@ -137,7 +137,7 @@ A_m
  \partial_{z_j}^{2m}g(J_n\phi(y))
  \right|
  \geq
- (2m)!a^{2m}
+ (2m)!\theta^{2m}
 \right\}.
 \tag{3}
 $$
@@ -170,7 +170,7 @@ Take \(B=[-N,N]\). Along the subsequence in (5),
 $$
 D_m(B;g,j)
 \geq
-|A_m|(2m)!a^{2m},
+|A_m|(2m)!\theta^{2m},
 $$
 
 where \(D_m\) is the quantity defined in the [repeated-Hessian obstruction](repeated-hessian-obstruction-for-coding-trees.md). Therefore
@@ -180,7 +180,7 @@ $$
 \frac{D_m(B;g,j)}{m!}
 \right)^{1/m}
 \geq
- e^{-\varepsilon}a^2
+ e^{-\varepsilon}\theta^2
 \left(
 \frac{(2m)!}{m!}
 \right)^{1/m}.
