@@ -107,7 +107,15 @@ The planar convention records which child continues a patch; it does not change 
 
 A *patch* is a maximal chain of internal vertices obtained by repeatedly following the left child. Every internal vertex belongs to exactly one patch. The right child of each vertex is a side subtree; if that right child is internal, it begins another patch.
 
-Contracting every maximal left chain to one vertex gives the *patch skeleton*. Recording the chain lengths and attached side subtrees recovers the original planar tree uniquely.
+Contracting every maximal left chain to one vertex gives the *patch skeleton*. A *decorated patch skeleton* records, for each contracted chain, both its length and the ordered side-subtree attachment slots from the root of the chain to its bottom vertex. This ordered attachment data is part of the definition: a contracted patch graph decorated only by chain lengths need not determine the original planar tree.
+
+Equivalently, if the root maximal-left chain has length \(m\) and successive right subtrees \(\sigma_1,\ldots,\sigma_m\), the decoration at the root is
+
+$$
+(m;D(\sigma_1),\ldots,D(\sigma_m)),
+$$
+
+with the same rule applied recursively. The explicit inverse, and hence the full bijection with finite planar full binary trees, is proved in [Canonical raw signed measures for finite quadratic-Hessian trees](canonical-raw-signed-measures-for-finite-quadratic-hessian-trees.md).
 
 ## Complete contribution of one patch
 
@@ -150,13 +158,13 @@ For \(m=0\), set \(\mathcal P_0[G](t)=P_tG\). Equations (7)--(9) are the nested 
 
 ## Theorem: exact finite-depth regrouping
 
-For every integer \(N\geq0\), the expansion of \(z^{[N]}\) on \([0,T]\) may be reorganized uniquely by its patch skeletons. Replacing every maximal left-spine chain by its complete contribution (7)--(9) gives exactly the same signed function \(z^{[N]}\).
+For every integer \(N\geq0\), the expansion of \(z^{[N]}\) on \([0,T]\) may be reorganized uniquely by its decorated patch skeletons. Replacing every maximal left-spine chain by its complete contribution (7)--(9) gives exactly the same signed function \(z^{[N]}\).
 
 In particular, composing all Hessian transfers inside a patch before taking absolute values is an exact finite-level operation. It neither discards nor adds a Duhamel-tree term.
 
 ## Proof
 
-Every finite planar binary tree has a unique decomposition into maximal left-child chains: starting from any internal vertex that is either the root or a right child, follow left children until the chain ends. Distinct starting vertices generate disjoint chains and every internal vertex belongs to one of them. Thus finite binary trees are in bijection with their patch skeletons together with chain lengths and attached side subtrees.
+Every finite planar binary tree has a unique decomposition into maximal left-child chains: starting from any internal vertex that is either the root or a right child, follow left children until the chain ends. Distinct starting vertices generate disjoint chains and every internal vertex belongs to one of them. Recording the length of each chain together with the ordered right subtree at every position gives exactly the decorated skeleton defined above. Conversely, each decorated skeleton reconstructs the tree by building each left chain and reattaching its ordered side subtrees. Thus the encoding is bijective.
 
 For a fixed tree, recursively expanding (6) along one maximal left chain gives exactly (7)--(9). The inequalities
 
@@ -170,8 +178,10 @@ For fixed \(N\), only finitely many planar binary trees occur in (5). Reindexing
 
 ## Finite-level patch factorization
 
-The finite patch decomposition may be randomized patch first by assigning independent auxiliary random seeds to distinct side patches conditional on a fixed finite patch skeleton. If the data inside a patch are sampled from positive proposal laws, reciprocal densities are [importance-sampling compensators](importance-sampling-compensators.md), and their algebraic cancellation recovers the signed patch integrals (7)--(9).
+The finite patch decomposition may be randomized patch first by assigning independent auxiliary random seeds to distinct side patches conditional on a fixed finite decorated patch skeleton. If the data inside a patch are sampled from positive proposal laws, reciprocal densities are [importance-sampling compensators](importance-sampling-compensators.md), and their algebraic cancellation recovers the signed patch integrals (7)--(9).
 
 This statement concerns finite signed exactness and conditional factorization. A compensated finite-patch random variable still requires an absolute-moment estimate before it may be used as an ordinary expectation, and nothing here alone implies an infinite-depth \(L^1\) theorem. The exact finite conditional statement is isolated in [Conditional factorization for finite PDE patches](conditional-factorization-for-finite-pde-patches.md).
+
+The missing fixed-tree absolute-moment step is supplied by [Canonical raw signed measures for finite quadratic-Hessian trees](canonical-raw-signed-measures-for-finite-quadratic-hessian-trees.md): if \(\phi''\in C^\alpha\) for some \(\alpha>0\), every fixed finite tree carries a genuine finite canonical raw signed measure whose total mass is its deterministic Duhamel profile. What can fail at infinite depth is summability of those finite total variations.
 
 The later results separate the possible infinite-depth outcomes. [Theorem C-prime](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md) completely averages every continuous interior variable and is \(L^1\) under the Catalan smallness condition. The [raw-barycenter obstruction](raw-marked-l1-obstruction-for-quadratic-hessian-pde.md) shows that retaining the canonical raw signed contribution as a conditional barycenter is non-\(L^1\) for one fixed smooth datum. The [time-spine theorem](time-spine-coarsening-for-quadratic-hessian-patches.md) gives a structured target-uniform intermediate representation on a stronger regime, and the [residual signed variation characterization](residual-signed-variation-characterization-for-coarsened-patches.md) gives the exact abstract criterion for skeleton-preserving coarsenings. The remaining [random-patch conjecture](l1-random-patch-conjecture-for-quadratic-hessian-pde.md) concerns structured target-uniform coarsenings on the full C-prime regime.
