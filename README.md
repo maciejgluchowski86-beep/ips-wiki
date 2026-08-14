@@ -1,6 +1,6 @@
 # IPS Wiki
 
-This repository is a public-facing wiki for interacting particle systems, spin systems, ergodicity, duality, and related literature.
+This repository is a public-facing wiki for interacting particle systems, spin systems, ergodicity, duality, probabilistic representations for nonlinear PDEs, and related literature.
 
 The rendered wiki is published at <https://maciejgluchowski86-beep.github.io/ips-wiki/>.
 
@@ -103,6 +103,17 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 - East out of equilibrium: `docs/entries/east-out-of-equilibrium.md`
 - BABP out of equilibrium: `docs/entries/babp-out-of-equilibrium.md`
 - Chronology-averaged sign route for one-dimensional FA-1f: `docs/entries/chronology-averaged-sign-route-for-fa-1f.md`
+
+## PDE and branching representations
+
+The canonical entry point is `docs/pde-branching-representations.md`. It is written for a reader with measure-theoretic probability, basic functional analysis, and a first graduate PDE course. It motivates the branching programme and links the complete prerequisite chain.
+
+The current project-level fork is:
+
+- average all continuous variables inside each decorated patch skeleton first: Theorem C-prime gives a proved small-data unbiased `L^1` skeleton-only representation;
+- retain the continuous Gaussian/Hermite and descendant marks inside the patches: the centered raw fluctuation remains the open obstruction in the full random-patch conjecture.
+
+The wiki is the durable record for this PDE project. Project-level `proved here` entries state their load-bearing hypotheses locally rather than relying on chat context.
 
 ## Entry workflow
 
