@@ -138,6 +138,7 @@ nav:
   - Meta:
       - Notation: meta/notation.md
       - Style decisions: meta/style-decisions.md
+      - Wiki quality and pruning: meta/wiki-quality-and-pruning.md
       - Entry template: meta/entry-template.md
       - References: meta/references.md
 
