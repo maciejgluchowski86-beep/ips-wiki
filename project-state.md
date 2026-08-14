@@ -6,76 +6,61 @@ This file is the compact mutable state for the autonomous PDE/probability resear
 
 **SEARCH**
 
-Broad Fresnel search has produced a one-dimensional finite-total-variation cancellation criterion, but no new PDE theorem and no result solving the documented characterization problem. Run one focused viability cycle before either DEVELOP or termination.
+The Fresnel viability cycle failed the required positive-PDE/open-problem gate. The quadratic-Hessian programme is now being tested for a qualifying application before any further development or verification investment.
 
 ## Active programme
 
-**Fresnel integrability / oscillatory Feynman representations.**
+**Quadratic-Hessian branching/derivative-weight programme**, restricted to three candidate claims:
 
-The target is an explicit pair $(X,P)$ with all of the following properties:
+- fixed-datum raw-faithful impossibility;
+- Gevrey-$1/2$-type necessity for integrability of repeated-Hessian coding-tree representations;
+- same-PDE $L^1$/non-$L^1$ representation-architecture dichotomy.
 
-- $X\subset \mathrm{Fr}$;
-- $X$ is genuinely outside $M^{\infty,1}$ and the relevant classical symbol criteria;
-- the extra amplitudes yield a new substantive PDE/Feynman result $P$; and
-- $P$ solves an explicitly stated open problem supported by two published sources.
-
-Strict enlargement of $M^{\infty,1}$ alone is insufficient.
+The programme survives only if at least one of these can be connected to a substantive positive PDE or probabilistic-representation result that solves an explicit open problem documented in two published sources.
 
 ## Reserve programme
 
-**Quadratic-Hessian programme**, restricted to three potentially distinctive claims:
+**None.**
 
-- fixed-datum raw-faithful impossibility;
-- Gevrey-$1/2$-type necessity;
-- same-PDE $L^1$/non-$L^1$ architecture dichotomy.
-
-Do not develop the broader conceptual framing unless the Fresnel search fails or one of these exact claims acquires an important application. Do not develop this reserve during the present cycle.
+The Fresnel programme is terminated, not reserved.
 
 ## Verified results
 
 **None.**
 
-Do not promote the finite-total-variation theorem from the SEARCH dispatch. No project-specific theorem has completed the autonomous verification protocol.
+Do not promote manuscript claims or results from the Fresnel viability cycle to autonomous verified status.
 
 ## Claims under investigation
 
-1. Candidate one-dimensional theorem for
-   $$
-   V(\mathbb R)=\{f:\operatorname{Var}_{\mathbb R} f<\infty\},
-   \qquad
-   V(\mathbb R)\subset \mathrm{Fr}(\mathbb R).
-   $$
-   Explicitly avoid the notation $BV(\mathbb R)$ until conventions are fixed.
-2. Candidate incomparability of $V(\mathbb R)$ and $M^{\infty,1}(\mathbb R)$.
-3. Whether a multidimensional cancellation class produces a genuinely new PDE/path-integral theorem.
-4. Whether that theorem addresses an explicitly posed open problem satisfying the final literature gate.
+1. Fixed-datum raw-faithful impossibility for the quadratic-Hessian branching representation.
+2. Gevrey-$1/2$-type necessity for integrability of repeated-Hessian coding-tree representations.
+3. A same-PDE $L^1$/non-$L^1$ representation-architecture dichotomy.
+4. Whether any of the three claims yields a substantive positive PDE result rather than only a representation-level obstruction.
+5. Whether such a result solves a qualifying published open problem.
+6. Whether predecessor or later literature already contains the claimed necessity or architecture dichotomy.
 
 ## Unresolved objections
 
-1. The finite-variation argument may be classical Dirichlet/nonstationary-phase machinery under another name.
-2. The notation $BV(\mathbb R)$ is ambiguous for the intended finite-total-variation amplitude class.
-3. $M^{\infty,1}\subsetneq \mathrm{Fr}$ already follows from $L^1\subset \mathrm{Fr}$, so strict inclusion alone has no novelty force.
-4. No positive PDE consequence has been obtained from the new class.
-5. No narrower theorem currently solves the published full-characterization problem.
-6. The older nested-projector and newer arbitrary-projector infinite-dimensional definitions have not been proved equivalent.
-7. Projector independence remains an additional infinite-dimensional obstruction.
+1. No qualifying open problem has yet been identified.
+2. The three active claims have not completed independent hostile verification.
+3. Novelty and successor-literature checks are incomplete.
+4. Load-bearing hypotheses from Nguwi--Penent--Privault and Henry-Labordère--Oudjane--Tan--Touzi--Warin have not yet been independently matched to the manuscript examples.
+5. Representation-level negative results alone cannot satisfy `CHATGPT.md`.
 
 ## Literature anchors
 
-These are search and novelty anchors, not proofs of project-specific claims.
+These are search anchors, not proofs of project-specific claims.
 
-- Mazzucchi (2009), especially p. 34. Older confirmation of the finite-dimensional Fresnel-integrability characterization problem.
-- Mazzucchi--Nicola--Trapasso, *Journal of Functional Analysis* **289** (2025), 111009, especially the abstract and pp. 1--3. Primary current anchor for the Fresnel-integrability characterization problem and the $M^{\infty,1}$ sufficient class.
-- Nicola--Trapasso, *Communications in Mathematical Physics* **376** (2020), Theorem 1.3. Principal warning that $M^{\infty,1}$ already yields Feynman--Trotter kernel convergence.
-- Drago--Mazzucchi--Pinamonti, *Journal of Differential Equations* **464** (2026), 114193, Definition 13 and Remark 14, together with the magnetic projection-dependence discussion. Anchor for the arbitrary-projector definition, sequence independence requirement, and infinite-dimensional obstruction.
+- Nguwi--Penent--Privault, *Journal of Evolution Equations* **23** (2023), “A Fully Nonlinear Feynman--Kac Formula with Derivatives of Arbitrary Orders”.
+- Henry-Labordère--Oudjane--Tan--Touzi--Warin, *Annales de l'Institut Henri Poincaré, Probabilités et Statistiques* **55** (2019), 184--210.
 
-The final success gate still requires exact published source locations for the chosen open problem, a later-literature check for a solution, and a concrete positive PDE result.
+Exact open-problem locations and the status of later literature remain to be established.
 
 ## Wiki frontier
 
-§0 item 1 now passes. The first failure is **§0 item 2: initial, terminal, boundary, and initial-boundary value problems**.
+§0 items 1--2 pass. The current frontier is **§0 item 3: linear, semilinear, quasilinear, and fully nonlinear equations**.
 
-This integration creates `docs/entries/initial-terminal-and-boundary-value-problems.md` and links §0 item 2 of `docs/pde-reading-path.md`. The next PDE-wiki reader should restart from §0 item 1 as the target reader and stop at the next unexplained prerequisite.
+The item-3 entry is now integrated and linked from `docs/pde-reading-path.md`. The next PDE-wiki reader should restart §0 from item 1 as the target reader and stop at the first remaining unexplained PDE prerequisite.
 
 ## Dead ends
 
@@ -85,17 +70,17 @@ Keep this section sparse; record only failures expensive enough that forgetting 
 - Repeated simulation/evidence refinement without a new analytic question is not a research route; computation is for falsification and structural discovery, then analysis must resume.
 - Broad novelty claims for “cancellation before absolute values” or for the derivative-weight integrability obstruction are dead: both mechanisms have substantial predecessors.
 - The residual-signed-variation identity is standard measure theory and cannot carry standalone novelty.
-- Strictly enlarging $M^{\infty,1}$ as a function class is not by itself a research endpoint: $L^1\subset \mathrm{Fr}$ already gives discontinuous examples outside $M^{\infty,1}$.
-
-The finite-total-variation mechanism is not dead yet.
+- Fresnel closure: finite-total-variation Fresnel integrability is classical in analytic substance; the tested projective-tensor multidimensional class gives no demonstrated qualifying PDE payoff and is not preserved by free Schrödinger evolution. The Fresnel programme is terminated unless a future independently identified PDE problem specifically requires reopening it.
 
 ## Next cycle
 
-Run exactly four fresh read-only workers.
+Run fresh read-only workers.
 
-1. **Finite-variation proof auditor.** Independently prove or refute $V(\mathbb R)\subset \mathrm{Fr}(\mathbb R)$; give the cutoff-independent tail estimate with constants; audit representatives/Stieltjes integration; prove or refute incomparability with $FM$ and $M^{\infty,1}$; distinguish $V$ from standard $BV=L^1\cap V$.
-2. **Classical novelty killer.** Search classical oscillatory-integral, Fourier-analysis, Fresnel-transform, and bounded-variation literature for this exact criterion or stronger versions under alternate terminology. Give exact published source locations and determine whether anything potentially novel remains.
-3. **Fresnel PDE-pair developer/adversary.** Choose one concrete multidimensional class $X$, not a menu. Attempt to prove $X\subset \mathrm{Fr}$, produce an explicit element outside $M^{\infty,1}$ and the relevant Hörmander/symbol classes, and derive one concrete new Schrödinger, time-slicing, or projector-independent Feynman theorem. Identify an explicitly posed open problem with two published sources that this theorem would solve. If any component fails, report the earliest fatal obstruction and recommend termination.
-4. **PDE-wiki reader.** After the item-2 entry is integrated, restart `docs/pde-reading-path.md` from §0 item 1 as the target reader and stop at the next unexplained prerequisite.
+1. **Quadratic-Hessian open-problem scout.** Find an explicit respected PDE/probabilistic-representation open problem, with two published exact locations and a later-literature check, that one of the three active claims could actually solve; recommend termination if none exists.
+2. **Raw-faithful hostile auditor.** Independently prove or refute the fixed smooth datum obstruction, including the raw signed-measure construction, disjoint right-comb cylinders, total-variation lower bound, conditional Jensen, and overlap with the small-data positive representation regime.
+3. **Gevrey/dichotomy hostile auditor.** Independently verify the repeated-Hessian lower bound, Gevrey-$1/2$ necessity, and the claimed same-PDE NPP/HLOTW $L^1$ dichotomy with every external hypothesis checked.
+4. **Quadratic-Hessian literature adversary.** Search predecessor and successor literature for all three claims under alternate terminology and identify the closest stronger results.
+5. **Fresnel archival source verifier.** Verify or reject the exact classical citations for the $V(\mathbb R)\subset\mathrm{Fr}(\mathbb R)$ mechanism. This is archival closure only and must not reopen Fresnel development.
+6. **PDE-wiki reader.** After the item-3 entry is integrated, restart §0 from item 1 and stop at the first remaining unexplained PDE prerequisite.
 
-After collecting the four dispatches verbatim, launch a fresh Director session. A single later Integrator may make only the repository changes justified by that Director. Claude has no mathematical authority.
+After collecting the dispatches verbatim, launch a fresh Director session. A single later Integrator may make only the repository changes justified by that Director. Claude has no mathematical authority.
