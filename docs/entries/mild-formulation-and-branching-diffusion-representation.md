@@ -81,19 +81,17 @@ Equivalently, \(P_r^{\mathbb T}h(x)=\mathbb E[h(x+B_r\bmod 2\pi)]\). It has the 
 Let \(u\) be sufficiently smooth and solve
 
 $$
-\partial_tu+\frac12\partial_x^2u+f(J_nu)=0,
-\qquad
-u(T,\cdot)=\phi.
+\partial_tu+\frac12\partial_x^2u+f(J_nu)=0
 $$
 
-Then
+on \([0,T)\), with terminal condition \(u(T,\cdot)=\phi\). Then
 
 $$
 u(t,\cdot)
 =
 P_{T-t}\phi
 +
-\int_t^T P_{s-t}\bigl[f(J_nu(s,\cdot))\bigr] \, ds.
+\int_t^T P_{s-t}\bigl[f(J_nu(s,\cdot))\bigr]\,ds.
 \tag{5}
 $$
 
@@ -111,7 +109,7 @@ P_{s-t}\left(\partial_su+\frac12\partial_x^2u\right)
 -P_{s-t}[f(J_nu(s,\cdot))].
 $$
 
-Integrating from \(s=t\) to \(s=T\) gives (5).
+Integrating from \(s=t\) to \(s=T\) and using \(u(T,\cdot)=\phi\) gives (5).
 
 ## Definition: mild solution
 
