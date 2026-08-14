@@ -1,6 +1,7 @@
 ---
 title: Soft KCSM
 status: definition
+audit: current
 tags:
   - KCSM
   - soft constraints
@@ -55,4 +56,4 @@ $$
 c_i^\varepsilon(\eta)=1-(1-\varepsilon_i)\chi_{N(i)}(\eta).
 $$
 
-The same formula gives the soft [East model](east-model.md) when the underlying lattice is oriented. The corresponding finite-set dual coefficients are recorded in [monomial duality for FA-1f](monomial-duality-for-fa-1f.md).
+The same formula gives the soft [East model](east-model.md) when the underlying lattice is oriented.

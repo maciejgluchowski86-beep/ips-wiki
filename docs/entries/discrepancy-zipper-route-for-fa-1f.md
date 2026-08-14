@@ -1,6 +1,7 @@
 ---
 title: Discrepancy zipper route for one-dimensional FA-1f
 status: conditional
+audit: current
 tags:
   - FA-1f
   - out of equilibrium
@@ -163,7 +164,7 @@ The point of the zipper factorization is that (7) should never be used ring by r
 
 There are two possible mechanisms for doing this.
 
-1. **Patch mechanism.** If the regional boundary data can be matched to the ordinary signed-dual patch boundary data, then every unmarked bulk region contributes a standard FA patch factor. These factors are nonnegative by [patch positivity for FA-1f](patch-positivity-for-fa-1f.md).
+1. **Patch mechanism.** If the regional boundary data can be matched to the ordinary signed-dual patch boundary data, then every unmarked bulk region contributes a standard FA patch factor. Its sign is an additional input and is not established by this entry.
 2. **Projection mechanism.** In the primal heat-bath representation, one-site FA update operators are orthogonal projections in \(L^2(\mu_q)\). A region carrying a vacancy boundary therefore has a finite-volume gapped FA generator. Products containing a sufficiently rich collection of regional updates contract the orthogonal complement of local equilibrium; averaging the Poisson chronology gives the regional semigroup directly.
 
 The first mechanism is closer to the existing sign calculation. The second asks only for contraction and may therefore avoid proving a finite-time sign inequality altogether.
