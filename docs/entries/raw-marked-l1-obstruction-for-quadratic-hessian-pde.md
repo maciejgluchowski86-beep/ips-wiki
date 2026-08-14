@@ -21,7 +21,7 @@ The theorem deliberately does **not** quantify over every unbiased estimator tha
 
 That distinction is essential for the relation to [Conjecture C](l1-random-patch-conjecture-for-quadratic-hessian-pde.md).
 
-**References.** The centered Hessian mark and finite conditional construction are recorded in [Conditional factorization for finite PDE patches](conditional-factorization-for-finite-pde-patches.md). The all-order retained-block estimate and the lower-bound function \(G\) are in [Joint centered-mark dichotomy for raw PDE patches](joint-centered-mark-dichotomy-for-raw-pde-patches.md). The smooth fixed-datum construction uses [Lacunary and Hadamard-gap trigonometric series](lacunary-and-hadamard-gap-trigonometric-series.md). Proposal cancellation and disjoint-event lower bounds are isolated in [Disjoint-event lower bounds for compensated branching estimators](disjoint-event-lower-bounds-for-compensated-branching-estimators.md). Heat-kernel positivity is recorded in [Brownian confinement and heat-kernel positivity](brownian-confinement-and-heat-kernel-positivity.md). The theorem below is proved here.
+**References.** The canonical finite-tree raw spaces, raw densities, finiteness theorem, and mass identity are proved in [Canonical raw signed measures for finite quadratic-Hessian trees](canonical-raw-signed-measures-for-finite-quadratic-hessian-trees.md). The centered Hessian mark and finite conditional construction are recorded in [Conditional factorization for finite PDE patches](conditional-factorization-for-finite-pde-patches.md). The all-order retained-block estimate and the lower-bound function \(G\) are in [Joint centered-mark dichotomy for raw PDE patches](joint-centered-mark-dichotomy-for-raw-pde-patches.md). The smooth fixed-datum construction uses [Lacunary and Hadamard-gap trigonometric series](lacunary-and-hadamard-gap-trigonometric-series.md). Proposal cancellation and disjoint-event lower bounds are isolated in [Disjoint-event lower bounds for compensated branching estimators](disjoint-event-lower-bounds-for-compensated-branching-estimators.md). Heat-kernel positivity is recorded in [Brownian confinement and heat-kernel positivity](brownian-confinement-and-heat-kernel-positivity.md). The theorem below is proved here.
 
 ## Quadratic Hessian equation
 
@@ -82,7 +82,7 @@ $$
 
 with \(Z\sim N(0,1)\). Its signed expectation is exactly \(\partial_x^2P_rF\).
 
-## Long combs and their intrinsic signed measures
+## Long combs and their canonical signed measures
 
 A *length-\(m\) comb* is the planar binary Duhamel tree in which one distinguished child continues through exactly \(m\) consecutive quadratic branchings, while the other child at every branching is a terminal side leaf; after the \(m\)-th branching the distinguished child is terminal as well.
 
@@ -103,21 +103,23 @@ $$
 
 Every side leaf and the final distinguished leaf then has remaining heat time in \([h/2,h]\).
 
-At finite depth, the exact patch randomization from the finite conditional-factorization theorem produces a finite signed measure on the following raw data:
-
-- the comb genealogy and its durations;
-- the fresh Gaussian/Hermite marks at the \(m\) centered Hessian edges;
-- the independent terminal Brownian marks of the \(m\) side leaves and the final distinguished leaf.
-
-After the usual lifetime, genealogy-selection, and survival compensators are cancelled against the corresponding positive sampling factors, denote this intrinsic signed marked measure by
+Let \(\tau_m\) be the corresponding right-oriented comb tree. For smooth \(g\), the [canonical raw-measure theorem](canonical-raw-signed-measures-for-finite-quadratic-hessian-trees.md) gives a genuine finite signed measure
 
 $$
-\nu_m.
+\mu_{\tau_m}^{h,x}
 $$
 
-For each fixed \(m\), smooth terminal data make \(\nu_m\) a finite signed measure. Its total variation is denoted by \(\|\nu_m\|_{\mathrm{TV}}\).
+on its recursive raw mark space. Its coordinates include the branch times, the fresh Gaussian/Hermite marks at the \(m\) centered Hessian edges, and the independent terminal Brownian marks of the \(m\) side leaves and the final distinguished leaf. The common-seed shifted/unshifted coupling at every centered edge is exactly the one in (3).
 
-Different values of \(m\) correspond to disjoint raw genealogies: the distinguished lineage has exactly \(m\) internal vertices and then terminates. Thus the comb cylinders are pairwise disjoint.
+Let \(\Gamma_m\) be the measurable duration cylinder defined by (4), and set
+
+$$
+\mu_m
+=
+\mu_{\tau_m}^{h,x}\big|_{\Gamma_m}.
+$$
+
+Equivalently, work on the disjoint union of all raw skeleton spaces and include the skeleton label as a coordinate; then the \(\Gamma_m\)'s are pairwise disjoint measurable cylinders. The measure \(\mu_m\) is finite because it is a restriction of a finite signed measure. No separate finiteness assertion is being made here.
 
 ## Raw-barycenter-retaining estimators
 
@@ -128,7 +130,7 @@ Let \((\Omega,\mathcal F,Q)\) be any simulation probability space and let \(R\) 
 For the raw length-\(m\) comb cylinder \(\Gamma_m\), let \(Q_m\) be the restriction of the raw-coordinate proposal law to that cylinder. Assume
 
 $$
-\nu_m\ll Q_m.
+\mu_m\ll Q_m.
 \tag{5}
 $$
 
@@ -139,7 +141,7 @@ An integrable candidate estimator \(Y\in L^1(Q)\) is called *raw-barycenter-reta
 $$
 \mathbb E_Q[Y\mid\sigma(R)]
 =
-\frac{d\nu_m}{dQ_m}(R)
+\frac{d\mu_m}{dQ_m}(R)
 \qquad
 Q\text{-a.s. on }\Gamma_m.
 \tag{6}
@@ -162,10 +164,10 @@ $$
 &=
 \int_{\Gamma_m}
 \left|
-\frac{d\nu_m}{dQ_m}
+\frac{d\mu_m}{dQ_m}
 \right|dQ_m
 =
-\|\nu_m\|_{\mathrm{TV}}.
+\|\mu_m\|_{\mathrm{TV}}.
 \end{aligned}
 \tag{7}
 $$
@@ -205,7 +207,7 @@ the length-\(m\) comb satisfies
 
 $$
 \boxed{
-\|\nu_m\|_{\mathrm{TV}}
+\|\mu_m\|_{\mathrm{TV}}
 \ge
 A_h
 \bigl(B_h|\lambda|\,|a|\bigr)^m
@@ -257,7 +259,7 @@ $$
 
 Thus the final distinguished leaf can be projected exactly onto frequency \(N\), while every side leaf can be projected exactly onto frequency \(1\). No assumption on the remaining Fourier coefficients is needed.
 
-A complex test may be replaced by one of its real or imaginary parts at the cost of a universal factor, so (13) is legitimate for the total variation of a real signed measure.
+A complex test may be replaced by one of its real or imaginary parts at the cost of a universal factor, so (13) is legitimate for the total variation of a real signed measure. Periodic heat-kernel translation invariance makes the projector a function of the terminal Brownian increment and remaining time, independent of the starting point. Hence the same raw-state projector applies to both the shifted and unshifted terms of the canonical common-seed centered coupling.
 
 ### The \(m\) logarithmic Hessian factors
 
@@ -317,7 +319,7 @@ c_G
 \tag{19}
 $$
 
-The fresh Gaussian marks are independent in the intrinsic finite-patch measure, so the \(m\) factors multiply. Combining (13), the \(m\) quadratic coefficients \(|\lambda|\), and (19) proves (10), after absorbing fixed factors into \(A_h,B_h\).
+The fresh Gaussian marks are independent under the canonical product reference measure, so the \(m\) factors multiply. Combining (13), the \(m\) quadratic coefficients \(|\lambda|\), and (19) proves (10), after absorbing fixed factors into \(A_h,B_h\).
 
 The point is the shape of (19): after absolute values, every retained centered Hessian mark contributes one logarithm. Restricting to the rectangular duration region (18) is why no compensating \(1/m!\) appears.
 
@@ -421,7 +423,7 @@ $$
 for all sufficiently large \(m\), there are positive constants \(A_h,C_h\) such that
 
 $$
-\|\nu_m\|_{\mathrm{TV}}
+\|\mu_m\|_{\mathrm{TV}}
 \ge
 A_h\varepsilon
 \left(C_h|\lambda|\varepsilon\right)^m
@@ -443,11 +445,11 @@ $$
 which beats every fixed exponential factor. Consequently
 
 $$
-\|\nu_m\|_{\mathrm{TV}}
+\|\mu_m\|_{\mathrm{TV}}
 \not\longrightarrow0,
 \qquad
 \sum_{m\ge m_0}
-\|\nu_m\|_{\mathrm{TV}}
+\|\mu_m\|_{\mathrm{TV}}
 =\infty.
 \tag{29}
 $$
@@ -489,7 +491,7 @@ $$
 \right]\\
 &\ge
 \sum_{m\ge m_0}
-\|\nu_m\|_{\mathrm{TV}}.
+\|\mu_m\|_{\mathrm{TV}}.
 \end{aligned}
 \tag{31}
 $$
@@ -498,15 +500,15 @@ The last series diverges by (29), contradicting \(Y(h,x)\in L^1\). This proves (
 
 ## Why the theorem is proposal invariant
 
-The proposal invariance is not a special cancellation requiring product-form proposals. On \(\Gamma_m\), every admissible proposal merely chooses a dominating positive measure \(Q_m\) for the same intrinsic signed measure \(\nu_m\). The conditional barycenter is its Radon--Nikodym derivative. Therefore
+The proposal invariance is not a special cancellation requiring product-form proposals. On \(\Gamma_m\), every admissible proposal merely chooses a dominating positive measure \(Q_m\) for the same intrinsic signed measure \(\mu_m\). The conditional barycenter is its Radon--Nikodym derivative. Therefore
 
 $$
 \int
 \left|
-\frac{d\nu_m}{dQ_m}
+\frac{d\mu_m}{dQ_m}
 \right|dQ_m
 =
-\|\nu_m\|_{\mathrm{TV}}.
+\|\mu_m\|_{\mathrm{TV}}.
 \tag{32}
 $$
 
@@ -527,17 +529,15 @@ $$
 
 For that same datum, [Theorem C-prime](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md) gives an unbiased \(L^1\) skeleton-only estimator, while theorem (30) rules out every raw-barycenter-retaining estimator. Thus the obstruction is representation-level and persists at arbitrarily small amplitude.
 
-## Exact scope relative to Conjecture C
+## Exact scope after the coarsening characterization
 
-The theorem falsifies the following strong reading of C:
+The theorem falsifies the following strong reading of raw retention:
 
-> **Raw-barycenter C.** Keep a canonical raw marked genealogy as part of the simulation state, allow arbitrary proposal changes and auxiliary conditionally unbiased randomization, but require the canonical raw signed marked contribution to remain the conditional mean after those raw marks are exposed.
+> **Raw-barycenter retention.** Keep a canonical raw marked genealogy as part of the simulation state, allow arbitrary proposal changes and auxiliary conditionally unbiased randomization, but require the canonical raw signed marked contribution to remain the conditional mean after those raw marks are exposed.
 
-Raw-barycenter C is false even for one fixed \(C^\infty\) datum in the C-prime small-data regime.
+This class is non-\(L^1\) even for one fixed \(C^\infty\) datum in the C-prime small-data regime.
 
-The theorem does **not** falsify the literal wording of Conjecture C presently used in this wiki, which only says that the continuous interior marks remain random rather than being deterministically integrated out. A natural estimator can use those marks while changing their conditional barycenter.
-
-For example, at one Hessian edge the antithetic estimator
+The theorem does **not** quantify over all unbiased estimators using Gaussian or branch-time marks. Schemes that change the conditional barycenter by signed coupling or partial averaging lie outside the theorem. The one-edge antithetic estimator
 
 $$
 \widetilde K_rF(x,Z)
@@ -551,19 +551,15 @@ F(x+\sqrt rZ)
 \tag{34}
 $$
 
-still samples and uses the Gaussian mark \(Z\). By symmetry of the standard Gaussian and the evenness of \(He_2\),
+is the simplest example: it still samples and uses \(Z\), and
 
 $$
 \mathbb E\widetilde K_rF
 =
-\partial_x^2P_rF.
+\partial_x^2P_rF,
 \tag{35}
 $$
 
-But, given \(Z\), (34) is not the raw centered integrand (3). Thus it lies outside (6). The bridge-averaged construction in the joint centered-mark theorem, control variates whose mean vanishes only after averaging over raw states, and coupled multi-sample estimators escape for the same structural reason.
+but its conditional value at a fixed \(Z\) is not the one-sided centered raw integrand (3).
 
-Accordingly, the surviving open problem is narrower and more precise:
-
-> Can an \(L^1\) random-patch representation keep nontrivial continuous interior randomness while **changing the raw conditional barycenter through signed coupling or partial averaging across raw marked states**?
-
-The theorem proves that some such departure from raw-barycenter retention is necessary. It does **not** prove that complete interior averaging is necessary, and therefore it does not prove that C-prime is minimal or optimal among all possible escape mechanisms. C-prime is the fully averaged endpoint that is currently proved.
+The [residual signed variation characterization](residual-signed-variation-characterization-for-coarsened-patches.md) now gives the exact larger picture. At each fixed target in the full C-prime regime there are nonconstant coarsenings that retain the entire raw state on suitably small nonnull sets, while the [time-spine theorem](time-spine-coarsening-for-quadratic-hessian-patches.md) gives a structured target-uniform coarsening on its stronger small-data regime. The remaining Conjecture C is therefore a structured target-uniform problem on the full C-prime regime, not an unrestricted fixed-target existence question.
