@@ -1,25 +1,25 @@
 # Project state
 
-This file records the current state of the IPS wiki and the active PDE manuscript.
+This file records the current state of the IPS wiki and the standalone PDE manuscript.
 
 ## Repository and manuscripts
 
 There are two independent manuscript trees.
 
 - `paper/`: facilitated-spin-system paper. The repository-level `main.tex` remains its Overleaf entry point. Do not edit it as part of the PDE track unless explicitly requested.
-- `pde-paper/`: standalone manuscript **Cancellation before absolute values in branching representations with derivative weights**. Its entry point is `pde-paper/main.tex`; it has its own preamble, bibliography, and sections.
+- `pde-paper/`: standalone manuscript **Cancellation before absolute values in branching representations with derivative weights**. Its entry point is `pde-paper/main.tex`.
 
-The PDE manuscript now contains full proofs of every audited result currently included: repeated-Hessian obstruction, Gevrey-1/2 necessity, the NPP/HLOTW representation-level dichotomy, finite Hessian patch regrouping, the auxiliary deterministic iteration, Theorem C-prime, the fixed-datum raw-faithful obstruction, and the coarsening hierarchy. The former `coarsening-open-problem.tex` section has been replaced by `coarsening-hierarchy.tex`.
+The PDE manuscript contains full proofs of the audited coding-tree obstruction, Gevrey-1/2 necessity, representation-level dichotomy, finite Hessian patch regrouping, auxiliary deterministic iteration, Theorem C-prime, fixed-datum raw-faithful obstruction, time-spine coarsening theorem, and the exact residual-signed-variation characterization.
 
-The deterministic self-consistent iteration remains auxiliary and should not be presented as a principal theorem.
+The deterministic self-consistent iteration remains auxiliary.
 
 ## Canonical PDE wiki entry point
 
 - `docs/pde-branching-representations.md`
 
-The wiki is the durable mathematical record. Every `proved here` entry must state its load-bearing hypotheses and scope locally.
+The wiki is the durable mathematical record. Every `proved here` entry must state its hypotheses and scope locally.
 
-## Settled coding-tree chain
+## Coding-tree chain
 
 The following are `proved here`:
 
@@ -28,15 +28,15 @@ The following are `proved here`:
 - `docs/entries/gevrey-half-necessity-for-coding-trees.md`
 - `docs/entries/representation-level-dichotomy.md`
 
-The repeated-Hessian genealogy gives a lower bound of order `c^m D_m/m!`; proposal and lifetime factors cancel their reciprocal compensators. Integrability forces a Gevrey-1/2 directional jet. The benchmark
+The repeated-Hessian genealogy gives a lower bound of order `c^m D_m/m!`; lifetime and mechanism proposal factors cancel. Integrability forces a Gevrey-1/2 directional jet. On the benchmark
 
 $$
-\partial_tu+\frac12u_{xx}+\eta(e^{(u_x)^4}-1)=0
+\partial_tu+\frac12u_{xx}+\eta(e^{(u_x)^4}-1)=0,
 $$
 
-has a raw NPP functional which is non-`L^1` at every positive horizon while an explicit HLOTW estimator is `L^2` for short time. This establishes representation dependence of absolute integrability.
+the raw NPP functional is non-`L^1` at every positive horizon while an explicit HLOTW estimator is `L^2` for short time. This is Act I: exactness does not determine absolute integrability.
 
-## Quadratic Hessian positive chain
+## Quadratic Hessian chain
 
 For
 
@@ -50,12 +50,12 @@ $$
 
 finite Picard trees regroup exactly into maximal left-child patches.
 
-Theorem C-prime uses
+Let
 
 $$
 X_{\alpha,T}=C^{\alpha/2,\alpha}([0,T]\times\mathbb T),
 \qquad
-M=\|P_\cdot\phi''\|_{X_{\alpha,T}},
+M=\|P_\cdot\phi''\|_X,
 \qquad
  a=|\lambda|C_{\mathcal D}(\alpha,T)M.
 $$
@@ -66,144 +66,119 @@ $$
 4a<1,
 $$
 
-the deterministic interior-averaged skeleton profiles are absolutely summable. Sampling only the decorated skeleton gives an unbiased `L^1` estimator.
+Theorem C-prime gives absolute summability of the deterministic interior-averaged skeleton profiles and an unbiased skeleton-only `L^1` estimator.
 
-Permanent C-prime corrections: a fixed skeleton profile satisfies only its tree recursion; the sum satisfies the nonlinear mild equation. Do not define C-prime by conditioning an unresolved non-`L^1` infinite raw estimator.
-
-## Raw-faithful fixed-datum obstruction
-
-`docs/entries/raw-marked-l1-obstruction-for-quadratic-hessian-pde.md` is `proved here`.
-
-The obstruction may be realized on **right-oriented combs**. Put
-
-$$
-N_m=K^m,
-\qquad
-b_m=(m!)^{-1/2},
-$$
-
-inside one smooth Hessian datum
+The fixed-datum raw-faithful obstruction uses right-oriented combs and the smooth lacunary Hessian datum
 
 $$
 g_\varepsilon(x)
 =
 \varepsilon\left[
 \cos x+
-\sum_{m\ge m_0}b_m\cos(N_mx)
+\sum_{m\ge m_0}(m!)^{-1/2}\cos(K^mx)
 \right].
 $$
 
-For every fixed derivative order `k`, `sum b_m N_m^k < infinity`; hence one fixed `C^infty` datum contains every required scale. On the length-`m` right comb, restricting every Hessian duration to
+The length-`m` comb has total variation at least
 
 $$
-N_m^{-2}\le r_j\le\frac h{4m}
-$$
-
-gives one logarithm per retained centered edge and
-
-$$
-\|\mu_m\|_{\mathrm{TV}}
-\gtrsim
 \varepsilon(C|\lambda|\varepsilon)^m
-\frac{m^m}{\sqrt{m!}}.
+\frac{m^m}{\sqrt{m!}},
 $$
 
-The sum diverges. If an assumed `L^1` estimator has the canonical raw signed contribution as conditional barycenter after the raw marks are exposed, conditional Jensen gives infinite first moment. The theorem is invariant under lifetime, genealogy, and Gaussian proposal changes, arbitrary dependence among proposal variables, and auxiliary conditionally unbiased randomness.
+so every estimator retaining the canonical raw conditional barycenter has infinite first moment. The datum can be scaled into the C-prime regime.
 
-The datum can be scaled into the C-prime regime, so the same small smooth datum has an `L^1` C-prime representation and no raw-faithful `L^1` representation.
+## Exact coarsening characterization
 
-## Coarsening hierarchy
+`docs/entries/residual-signed-variation-characterization-for-coarsened-patches.md` is `proved here` and is the capstone theorem.
 
-`docs/entries/time-spine-coarsening-for-quadratic-hessian-patches.md` is `proved here`.
-
-### Naive Gaussian-bridge coarsening fails
-
-Patches are maximal left-child chains. In a right comb every left child is terminal and the continuing child is right, so every patch has length one. A one-edge Gaussian bridge map has no bridge coordinate to remove: the normalized endpoint Gaussian is the original Gaussian mark. Therefore naive patchwise Gaussian-bridge coarsening is the identity, up to an invertible coordinate change, on the obstruction combs and preserves their divergent total variation.
-
-### Time-spine coarsening succeeds
-
-For each non-leaf tree, retain the ordered branch times on its **root maximal-left patch**, average all Gaussian/Brownian marks on that patch, and average every continuous variable in the attached side subtrees.
-
-Let `K_time(alpha,T)` be the optimal geometric base for the absolute time-integral of one deterministic maximal-left patch. The derivative-cluster/commutator estimate gives
+For one skeleton, write
 
 $$
-K_{\mathrm{time}}(\alpha,T)<\infty.
+\mu_\tau=R_\tau\nu_\tau
 $$
 
-Put
+with `nu_tau` finite positive. For a skeleton-preserving coarsening `C_tau`,
 
 $$
-b=|\lambda|K_{\mathrm{time}}M,
-\qquad
-C(a)=\sum_{n\ge0}C_na^n
+\boxed{
+\|(C_\tau)_\#\mu_\tau\|_{\mathrm{TV}}
 =
-\frac{1-\sqrt{1-4a}}{2a},
-\quad C(0)=1.
+\int
+\left|
+\mathbb E_{\nu_\tau}
+[R_\tau\mid\sigma(C_\tau)]
+\right|d\nu_\tau.
+}
 $$
 
-If
+This residual signed variation is intrinsic; the conditional-expectation formula is only a representation of the total variation of the pushforward signed measure.
+
+For a countable skeleton family, the canonical coarsened estimator satisfies
 
 $$
-4a<1,
-\qquad
-bC(a)<1,
-$$
-
-then
-
-$$
-\sum_{\tau}
-\|(\mathcal C_\tau^{\mathrm{time}})_\#\mu_\tau\|_{\mathrm{TV}}
-\le
-\frac{M}{1-bC(a)}
-<\infty.
-$$
-
-Thus the canonical coarsened importance sampler is unbiased and `L^1`, while the actual branch-time vector on one maximal-left spine remains random and affects the estimator.
-
-If
-
-$$
-\theta
+\mathbb E|Y|
 =
-\frac{K_{\mathrm{time}}}{C_{\mathcal D}},
+\sum_\tau
+\|(C_\tau)_\#\mu_\tau\|_{\mathrm{TV}}.
 $$
 
-the additional condition is exactly
+Thus summability of residual signed variation is **necessary and sufficient** for `L^1` in the coarsened conditional-barycenter class. Conditional Jensen proves necessity for any auxiliary estimator with the same coarsened conditional barycenter; the canonical Radon--Nikodym estimator attains equality.
 
-$$
-\frac\theta2
-\left(1-\sqrt{1-4a}\right)<1.
-$$
+If `C_1` is coarser than `C_2`, residual variation cannot increase. Identity gives full raw total variation; constant coarsening gives the absolute skeleton mass.
 
-For `theta <= 2` it is automatic under `4a<1`; for `theta > 2` it is equivalent to
+The theorem is exact for the manuscript's skeleton-preserving class. If the skeleton label itself is coarsened, the same invariant applies after the enlarged pushforward, but the per-skeleton sum is no longer the correct formula.
 
-$$
-a<\frac{\theta-1}{\theta^2}.
-$$
+## Counterintuitive consequences
 
-Do not replace this by an unjustified universal numerical strengthening.
+The retained variable type is not the invariant.
 
-### Current three-level hierarchy
+1. There are explicit families for which identity retention has divergent variation, but a coarsening which retains the **entire Gaussian vector** on a small nonnull slab and collapses its complement has summable residual variation.
+2. There are explicit families for which complete averaging is summable while retaining **only a one-dimensional time coordinate** leaves residual variation equal to one on every skeleton and therefore diverges.
+3. At every fixed target `(t,x)` in the C-prime regime, nonatomicity of finite raw patch measures lets one retain the complete raw marked state on sets of summably small total-variation mass and collapse the complements. Hence the fixed-target existential problem for nonconstant retained randomness is closed.
 
-- raw-faithful / identity: non-`L^1` for the fixed smooth datum;
-- time-spine coarsening: `L^1` under the additional condition above, with genuine continuous branch-time randomness;
-- complete interior averaging / C-prime: `L^1` under the full Catalan condition `4a<1`.
+Do not infer from item 3 that one target-uniform architecture has been constructed.
 
-Complete averaging is therefore **not necessary** for integrability. The fixed-datum theorem proves only that some departure from the raw conditional barycenter is necessary.
+## Structured hierarchy as a sanity check
+
+The previous three points fit the exact theorem with no inconsistency.
+
+- **Raw-faithful / identity:** residual variation is the full raw total variation; the fixed-datum right-comb subseries diverges.
+- **Time-spine:** retain the actual branch times on one root maximal-left patch and average all other continuous variables. If
+  $$
+  4a<1,
+  \qquad
+  bC(a)<1,
+  $$
+  with
+  $$
+  b=|\lambda|K_{\mathrm{time}}M,
+  \qquad
+  C(a)=\frac{1-\sqrt{1-4a}}{2a},
+  $$
+  then the residual variations are summable.
+- **C-prime / constant:** residual variation is `|F_tau(t,x)|`, summable throughout `4a<1`.
+
+Naive patchwise Gaussian-bridge coarsening fails on the obstruction family because right combs consist entirely of one-edge maximal-left patches, so the one-edge bridge map generates the same retained sigma-field as identity.
 
 ## Status of Conjecture C
 
-`docs/entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md` remains status `conjecture` because it asks for retained continuous interior randomness throughout the full C-prime regime `4a<1`.
+`docs/entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md` remains status `conjecture`, but its meaning is now sharpened.
 
-It is now **proved on the stronger time-spine subregime** `4a<1` and `bC(a)<1`.
+The **fixed-target existential relaxation** is solved affirmatively throughout the full C-prime regime by sparse full-state retention. The remaining conjecture asks for one structured, target-uniform coarsening architecture with nondecorative continuous retained information and quantitative `L^1` control for every `(t,x)` in the full C-prime regime.
 
-The remaining problem is quantitative: whether a nonconstant coarsening with genuine continuous interior randomness can be made `L^1` on the entire C-prime regime. Naive patchwise Gaussian-bridge coarsening is ruled out by the one-edge-patch observation.
+The time-spine theorem proves such a structured architecture on its stronger small-data subregime.
+
+## Remaining structural problems
+
+- non-sparse full-regime coarsenings with a fixed geometric description;
+- target-uniform function-space control;
+- optimization of residual variation under information/computational constraints;
+- more global Gaussian coarsenings beyond the failed patchwise bridge map;
+- cross-skeleton coarsening.
 
 ## General conventions
 
-- State theorem/proof status explicitly.
-- Define project-specific symbols before use.
-- Keep deterministic Duhamel identities, positive proposal randomization, intrinsic signed measures, raw-faithfulness, and coarsening distinct.
-- Do not write ordinary conditional expectations of unresolved non-`L^1` objects.
-- The manuscript should preserve the narrative: exactness is signed; probabilistic representation requires absolute moments; cancellation before absolute values is structural.
+- Keep signed exactness, positive proposal randomization, intrinsic signed measures, coarsening, and conditional-barycenter requirements distinct.
+- Do not define unresolved non-`L^1` objects by ordinary conditional expectation.
+- The manuscript thesis is now exact: **cancellation before absolute values is removal of signed variation by conditional averaging; `L^1` is summability of the variation which survives.**
