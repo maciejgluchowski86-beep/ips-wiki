@@ -220,7 +220,7 @@ Let $\cT$ denote the set of finite rooted planar full binary trees. A leaf repre
 \end{equation}
 For the finite Picard expansion, these are finite iterated Duhamel integrals.
 
-A \emph{patch} is a maximal chain of internal vertices obtained by repeatedly following the left child. Every internal vertex belongs to exactly one patch. Contracting the maximal left chains gives the \emph{patch skeleton}; recording the length of each contracted chain gives a decorated patch skeleton. This is only a reparametrization of a finite planar binary tree.
+A \emph{patch} is a maximal chain of internal vertices obtained by repeatedly following the left child. Every internal vertex belongs to exactly one patch. Contracting the maximal left chains gives the \emph{patch skeleton}. A \emph{decorated patch skeleton} records both the length of every contracted chain and the ordered side-subtree attachment slots along that chain. With this decoration, finite planar full binary trees and decorated patch skeletons are in bijection; the precise inverse is proved in~\cref{prop:tree-patch-bijection} below.
 
 For a patch of length $m$, with side profiles $b_1,\ldots,b_m$ and leftmost terminal profile $G$, its complete signed contribution is
 \begin{equation}
@@ -240,22 +240,11 @@ where
 \end{align*}
 We set $\cP_0[G](t)=P_tG$.
 
-A finite patch randomization introduces continuous branch-time, Brownian, and Hermite variables inside the decorated skeleton. Their signed law, including the value of the terminal profiles, defines a finite signed measure on a canonical raw mark space. We denote that measure by
-\begin{equation*}
-  \mu_\tau^{t,x}
-\end{equation*}
-when the dependence on the skeleton and observation point matters, and usually suppress $(t,x)$ when it does not. Its total mass is exactly the deterministic contribution,
-\begin{equation}
-  \mu_\tau^{t,x}(\cM_\tau)
-  =
-  F_\tau(t,x).
-  \label{eq:mu-total-mass}
-\end{equation}
-This signed-measure point of view allows us to discuss averaging and proposal changes without choosing a particular importance sampler.
+\input{sections/canonical-raw-measures}
 
 \subsection{Coarsening the raw mark space}
 
-Let $\cC_\tau:\cM_\tau\to\overline{\cM}_\tau$ be measurable. The coarsened signed measure is
+Let $\cC_\tau:\Omega_\tau\to\overline\Omega_\tau$ be measurable. The coarsened signed measure is
 \begin{equation}
   \overline\mu_\tau
   =
