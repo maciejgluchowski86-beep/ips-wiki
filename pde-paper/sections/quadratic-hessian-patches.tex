@@ -1,0 +1,86 @@
+\section{Finite Hessian patches and a deterministic auxiliary result}
+\label{sec:patches}
+
+We now specialize to the quadratic Hessian equation~\eqref{eq:hessian-forward}. The first result is finite and algebraic. It changes the unit at which later absolute values are taken without changing the signed Picard expansion.
+
+Define the bilinear operator
+\begin{equation*}
+  \cB(f,g)(t)
+  =
+  \lambda\int_0^t
+  \partial_x^2P_{t-s}[f(s)g(s)]\,ds.
+\end{equation*}
+Set
+\begin{equation*}
+  z^{[0]}=L,
+  \qquad
+  z^{[N+1]}=L+\cB(z^{[N]},z^{[N]}).
+\end{equation*}
+Expanding algebraically gives a finite sum over rooted planar binary trees of height at most $N$.
+
+\begin{theorem}[Finite-depth patch regrouping]
+\label{thm:finite-patch-regrouping}
+For every integer $N\geq0$, the finite expansion of $z^{[N]}$ may be reorganized uniquely by its decorated patch skeleton. Replacing each maximal left-spine chain by its complete contribution~\eqref{eq:complete-patch} gives exactly the same signed function $z^{[N]}$.
+
+In particular, composing all Hessian transfers inside a patch before taking an absolute value is an exact finite-level operation. No term is discarded or added, and no convergence of an infinite tree series is used.
+\end{theorem}
+
+\proofplaceholder{Insert the audited finite-tree bijection and the direct expansion of one maximal left chain into its ordered Duhamel integral.}
+
+The next theorem is deterministic and weaker than the representation results which follow. Its purpose is to identify a small classical solution by a direct PDE iteration and to provide an overlapping uniqueness regime.
+
+Fix $0<\alpha<1$. Let $\mathcal A_{\alpha,T}$ be the coefficients $a\in C^{\alpha/2,\alpha}([0,T]\times\Torus)$ satisfying
+\begin{equation*}
+  \frac38\leq a\leq\frac58,
+  \qquad
+  [a]_{C^{\alpha/2,\alpha}}\leq\frac18.
+\end{equation*}
+Let $C_{\mathrm{Sch}}(\alpha,T)$ be a uniform Schauder constant over this class, so that the solution of
+\begin{equation*}
+  \partial_tv=av_{xx},
+  \qquad v(0)=\phi,
+\end{equation*}
+satisfies
+\begin{equation*}
+  \norm{v_{xx}}_{C^{\alpha/2,\alpha}}
+  \leq
+  C_{\mathrm{Sch}}(\alpha,T)\norm\phi_{C^{2+\alpha}}.
+\end{equation*}
+Put
+\begin{equation*}
+  R=C_{\mathrm{Sch}}(\alpha,T)\norm\phi_{C^{2+\alpha}}.
+\end{equation*}
+
+\begin{theorem}[Self-consistent deterministic iteration]
+\label{thm:deterministic-iteration}
+Assume
+\begin{equation}
+  \abs\lambda R\leq\frac18.
+  \label{eq:deterministic-smallness}
+\end{equation}
+Set $z_0=\phi''$. Given $z_n$, let $v_{n+1}$ solve
+\begin{equation*}
+  \partial_tv_{n+1}
+  =
+  \pa{\frac12+\lambda z_n}v_{n+1,xx},
+  \qquad
+  v_{n+1}(0)=\phi,
+\end{equation*}
+and put $z_{n+1}=v_{n+1,xx}$. Then the iterates remain in the H\"older ball of radius $R$, the coefficients remain in $[3/8,5/8]$, and $(z_n)$ converges in $L^2$ and uniformly to $z=v_{xx}$. The limit $v$ is a classical solution of~\eqref{eq:hessian-forward} and is unique among solutions with $\abs{\lambda v_{xx}}\leq1/8$.
+
+For each observation time $t\leq T$,
+\begin{equation*}
+  v(t,x)=\E_x[\phi(X_t)],
+\end{equation*}
+where
+\begin{equation*}
+  dX_s
+  =
+  \sqrt{1+2\lambda z(t-s,X_s)}\,dW_s,
+  \qquad
+  X_0=x.
+\end{equation*}
+The diffusion representation is implicit because its coefficient contains the fixed point $z$.
+\end{theorem}
+
+\proofplaceholder{Insert the audited Schauder-ball preservation, $H^{-1}$ contraction, compactness/identification, small-class uniqueness, and backward-Kolmogorov argument. Keep this result auxiliary to the representation theorems.}
