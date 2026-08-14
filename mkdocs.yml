@@ -93,6 +93,8 @@ nav:
       - Parabolic maximum principle and Schauder estimates: entries/parabolic-maximum-principle-and-schauder-estimates.md
       - Aronson and Nash Gaussian bounds: entries/aronson-nash-gaussian-bounds.md
       - H-minus-one energy method: entries/h-minus-one-energy-method.md
+      - Weak parabolic solutions on the torus: entries/weak-parabolic-solutions-on-the-torus.md
+      - Ito diffusions and backward Kolmogorov representation: entries/ito-diffusions-and-backward-kolmogorov-representation.md
       - Marked branching diffusion for gradient nonlinearities: entries/marked-branching-diffusion-for-gradient-nonlinearities.md
       - Antithetic and ghost branching schemes: entries/antithetic-and-ghost-branching-schemes.md
       - Nguwi-Penent-Privault coding tree: entries/npp-coding-tree.md
@@ -104,6 +106,9 @@ nav:
       - Integrable regime of the coding tree: entries/integrable-regime-of-coding-tree.md
       - Dichotomy benchmark: entries/dichotomy-benchmark.md
       - Representation-level dichotomy: entries/representation-level-dichotomy.md
+      - Finite-depth Duhamel patch regrouping: entries/finite-depth-duhamel-patch-regrouping.md
+      - Self-consistent patch iteration for the quadratic Hessian PDE: entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md
+      - L1 random-patch conjecture for the quadratic Hessian PDE: entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md
   - Meta:
       - Notation: meta/notation.md
       - Style decisions: meta/style-decisions.md
