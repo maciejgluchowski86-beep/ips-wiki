@@ -12,31 +12,21 @@ tags:
 
 # Residual signed variation characterizes coarsened patch representations
 
-The quadratic-Hessian coarsening hierarchy is governed by an exact invariant. It is not the number or type of continuous marks which remain random. It is the **signed total variation which survives after the discarded variables have been averaged**.
+The coarsening hierarchy is governed by an exact invariant. It is not the number or type of continuous marks which remain random. It is the **signed total variation which survives after the discarded variables have been averaged**.
 
-For one skeleton, this surviving variation is the \(L^1\) norm of the conditional barycenter of the raw signed density. For a countable skeleton family, summability of these residual variations is both necessary and sufficient for an \(L^1\) coarsened representation in the skeleton-preserving conditional-barycenter class.
+For one skeleton, this surviving variation is the \(L^1\) norm of the conditional barycenter of the raw signed density. For a countable skeleton family, summability of these residual variations is both necessary and sufficient for an \(L^1\) representation in the skeleton-preserving conditional-barycenter class.
 
-This characterization explains all three previously proved points:
+This puts the raw-faithful obstruction, the time-spine theorem, and Theorem C-prime on one scale. It also gives two counterintuitive consequences: the entire Gaussian configuration may survive on sufficiently small pieces and still be \(L^1\), while retaining only a time coordinate may fail.
 
-- identity/raw-faithful coarsening leaves all raw variation and is non-\(L^1\) for the fixed obstruction datum;
-- time-spine coarsening leaves only a controlled residual variation and is \(L^1\) under its geometric smallness condition;
-- constant coarsening leaves only the absolute signed mass of each skeleton and is exactly Theorem C-prime.
+The concrete quadratic-Hessian hierarchy is in [Time-spine coarsening for quadratic Hessian patches](time-spine-coarsening-for-quadratic-hessian-patches.md). The theorem below is proved here.
 
-It also gives two less intuitive consequences. A coarsening may retain the **entire Gaussian configuration** on sufficiently small pieces of the raw state space and still have summable residual variation. Conversely, retaining only a branch-time coordinate can have infinite residual variation even when complete averaging is summable.
+## Exact residual-variation identity
 
-The result is proved here. The total-variation and pushforward terminology is consistent with [Total variation, bounded variation, and derivative singularities](total-variation-bounded-variation-and-derivative-singularities.md), while the concrete quadratic-Hessian hierarchy is in [Time-spine coarsening for quadratic Hessian patches](time-spine-coarsening-for-quadratic-hessian-patches.md).
-
-## One signed measure and one coarsening
-
-Let \((\Omega,\mathcal F)\) be a measurable space. Let \(\nu\) be a finite positive measure and let
+Let \((\Omega,\mathcal F)\) be measurable, let \(\nu\) be a finite positive measure, and let
 
 $$
-R\in L^1(\nu).
-$$
-
-Define the finite signed measure
-
-$$
+R\in L^1(\nu),
+\qquad
 \mu=R\nu.
 \tag{1}
 $$
@@ -47,7 +37,7 @@ $$
 \mathcal C:\Omega\to Y
 $$
 
-be measurable into another measurable space \((Y,\mathcal Y)\). Put
+be measurable. Set
 
 $$
 \overline\nu=\mathcal C_\#\nu,
@@ -58,16 +48,15 @@ $$
 \tag{2}
 $$
 
-Because \(\mu\ll\nu\), one has \(\overline\mu\ll\overline\nu\). Let
+Since \(\overline\mu\ll\overline\nu\), write
 
 $$
 \overline R
 =
 \frac{d\overline\mu}{d\overline\nu}.
-\tag{3}
 $$
 
-### Theorem: exact residual-variation identity
+### Theorem
 
 One has
 
@@ -76,12 +65,12 @@ $$
 \overline R(\mathcal C(\omega))
 =
 \mathbb E_\nu[R\mid\mathcal G](\omega)
-\quad\text{for }\nu\text{-a.e. }\omega,
+\quad\nu\text{-a.e.}
 }
-\tag{4}
+\tag{3}
 $$
 
-where conditional expectation is taken with respect to the finite measure \(\nu\). Consequently
+and consequently
 
 $$
 \boxed{
@@ -92,23 +81,14 @@ $$
 \mathbb E_\nu[R\mid\sigma(\mathcal C)]
 \right|d\nu.
 }
-\tag{5}
+\tag{4}
 $$
 
-We call the common quantity in (5) the **residual signed variation** of \(\mu\) after the coarsening \(\mathcal C\), and write
-
-$$
-V_\mu(\mathcal C)
-:=
-\|\mathcal C_\#\mu\|_{\mathrm{TV}}.
-\tag{6}
-$$
-
-Although the conditional-expectation formula uses a reference representation \(\mu=R\nu\), the quantity \(V_\mu(\mathcal C)\) is intrinsic because it is the total variation of the pushforward signed measure.
+The common quantity is the **residual signed variation** after coarsening.
 
 ### Proof
 
-For every \(B\in\mathcal Y\),
+For every measurable \(B\subseteq Y\),
 
 $$
 \begin{aligned}
@@ -121,33 +101,97 @@ $$
 \int_B\overline R\,d\overline\nu\\
 &=
 \int_{\mathcal C^{-1}(B)}
-\overline R(\mathcal C(\omega))\,d\nu(\omega).
+\overline R(\mathcal C(\omega))d\nu(\omega).
 \end{aligned}
 $$
 
-The function \(\overline R\circ\mathcal C\) is \(\mathcal G\)-measurable, so this is precisely the defining property of the conditional expectation in (4). Therefore
+The right-hand integrand is \(\mathcal G\)-measurable, proving (3). Integrating its absolute value gives (4).
+
+Because (4) equals the total variation of the pushforward signed measure, it is independent of the choice of reference representation \(\mu=R\nu\).
+
+## Exact L1 characterization for a skeleton family
+
+Let \(\mathfrak T\) be countable. For each \(\tau\), let
 
 $$
-\begin{aligned}
-\|\overline\mu\|_{\mathrm{TV}}
-&=
-\int_Y|\overline R|\,d\overline\nu\\
-&=
-\int_\Omega
-|\overline R\circ\mathcal C|\,d\nu\\
-&=
-\int_\Omega
+\mu_\tau=R_\tau\nu_\tau
+$$
+
+be finite signed and let
+
+$$
+\mathcal C_\tau:\Omega_\tau\to Y_\tau
+$$
+
+be a skeleton-preserving coarsening. Put
+
+$$
+V_\tau
+=
+\|(\mathcal C_\tau)_\#\mu_\tau\|_{\mathrm{TV}}
+=
+\int
 \left|
-\mathbb E_\nu[R\mid\mathcal G]
-\right|d\nu,
-\end{aligned}
+\mathbb E_{\nu_\tau}
+[R_\tau\mid\sigma(\mathcal C_\tau)]
+\right|d\nu_\tau.
+\tag{5}
 $$
 
-which proves (5).
+Choose any full-support skeleton probability \(\pi\), and conditional positive proposal \(Q_\tau\) dominating
 
-## Coarsening order and exact amount of cancellation
+$$
+\overline\mu_\tau
+=(\mathcal C_\tau)_\#\mu_\tau.
+$$
 
-If \(\mathcal C_1\) is coarser than \(\mathcal C_2\), meaning
+The canonical estimator
+
+$$
+Y
+=
+\frac1{\pi(S)}
+\frac{d\overline\mu_S}{dQ_S}(U)
+$$
+
+satisfies
+
+$$
+\boxed{
+\mathbb E|Y|
+=
+\sum_{\tau\in\mathfrak T}V_\tau.
+}
+\tag{6}
+$$
+
+Therefore
+
+$$
+\boxed{
+Y\in L^1
+\quad\Longleftrightarrow\quad
+\sum_\tau V_\tau<\infty.
+}
+\tag{7}
+$$
+
+This is genuine necessity and sufficiency, not merely an upper bound. If an estimator uses auxiliary randomness but has the same coarsened signed density as its conditional barycenter after \((S,U)\) are exposed, conditional Jensen gives
+
+$$
+\mathbb E|\widetilde Y|
+\geq
+\sum_\tau V_\tau.
+\tag{8}
+$$
+
+The canonical estimator attains equality.
+
+The scope is skeleton-preserving coarsening. If the skeleton label itself is forgotten, then it is another coordinate being coarsened; the invariant is still the total variation after the enlarged pushforward, but it need not equal the sum of the separate skeleton variations.
+
+## Coarsening order
+
+If
 
 $$
 \sigma(\mathcal C_1)
@@ -161,137 +205,33 @@ $$
 V_\mu(\mathcal C_1)
 \leq
 V_\mu(\mathcal C_2).
-\tag{7}
+\tag{9}
 $$
 
-Thus more averaging can only remove signed variation.
+The endpoints are
 
-The two endpoints are exact:
+$$
+V_\mu(\operatorname{Id})
+=
+\|\mu\|_{\mathrm{TV}},
+\qquad
+V_\mu(\mathrm{const})
+=
+|\mu(\Omega)|.
+\tag{10}
+$$
 
-- if \(\mathcal C=\operatorname{Id}\), then
-  $$
-  V_\mu(\operatorname{Id})
-  =
-  \int|R|d\nu
-  =
-  \|\mu\|_{\mathrm{TV}};
-  \tag{8}
-  $$
-- if \(\mathcal C\) is constant, then
-  $$
-  V_\mu(\mathcal C)
-  =
-  \left|\int R\,d\nu\right|
-  =
-  |\mu(\Omega)|.
-  \tag{9}
-  $$
-
-Hence the amount of cancellation created before the absolute value is exactly
+Thus cancellation before absolute values is exactly
 
 $$
 \|\mu\|_{\mathrm{TV}}
 -
-V_\mu(\mathcal C)
-=
-\int|R|d\nu
--
-\int
-\left|
-\mathbb E_\nu[R\mid\sigma(\mathcal C)]
-\right|d\nu.
-\tag{10}
+V_\mu(\mathcal C).
 $$
 
-No reference to Gaussian, time, or descendant coordinates appears in (5)--(10).
+No named coordinate appears in this formula.
 
-## Countably many skeletons: an exact L1 criterion
-
-Let \(\mathfrak T\) be countable. For every \(\tau\in\mathfrak T\), let
-
-$$
-\mu_\tau=R_\tau\nu_\tau
-$$
-
-be a finite signed measure on \(\Omega_\tau\), with \(\nu_\tau\) finite positive and \(R_\tau\in L^1(\nu_\tau)\). Let
-
-$$
-\mathcal C_\tau:\Omega_\tau\to Y_\tau
-$$
-
-be a measurable skeleton-preserving coarsening and set
-
-$$
-\overline\mu_\tau
-=
-(\mathcal C_\tau)_\#\mu_\tau.
-\tag{11}
-$$
-
-For a full-support skeleton law \(\pi\), and positive proposal probabilities \(Q_\tau\) dominating \(\overline\mu_\tau\), the canonical coarsened estimator is
-
-$$
-Y
-=
-\frac1{\pi(S)}
-\frac{d\overline\mu_S}{dQ_S}(U),
-\qquad
-S\sim\pi,
-\quad
-U\mid\{S=\tau\}\sim Q_\tau.
-\tag{12}
-$$
-
-Then
-
-$$
-\boxed{
-\mathbb E|Y|
-=
-\sum_{\tau\in\mathfrak T}
-V_{\mu_\tau}(\mathcal C_\tau)
-=
-\sum_{\tau\in\mathfrak T}
-\int
-\left|
-\mathbb E_{\nu_\tau}
-[R_\tau\mid\sigma(\mathcal C_\tau)]
-\right|d\nu_\tau.
-}
-\tag{13}
-$$
-
-Consequently
-
-$$
-\boxed{
-Y\in L^1
-\quad\Longleftrightarrow\quad
-\sum_{\tau\in\mathfrak T}
-V_{\mu_\tau}(\mathcal C_\tau)<\infty.
-}
-\tag{14}
-$$
-
-This is both necessity and sufficiency for the canonical coarsened sampler.
-
-More generally, suppose an estimator \(\widetilde Y\) uses arbitrary auxiliary randomness but, after the skeleton and coarsened state are exposed, has the canonical coarsened signed density as its conditional barycenter. Conditional Jensen gives
-
-$$
-\mathbb E|\widetilde Y|
-\geq
-\sum_\tau
-V_{\mu_\tau}(\mathcal C_\tau).
-\tag{15}
-$$
-
-The canonical estimator (12) attains equality. Therefore the right side of (13) is the **minimum possible first moment in the conditional-barycenter class attached to the fixed coarsening scheme**. This is the exact necessity-and-sufficiency statement.
-
-The scope is important. Formula (13) treats the skeleton label as retained. If one also identifies states belonging to different skeletons, then the skeleton itself has been further coarsened and the relevant invariant is the total variation after that larger pushforward. There is no contradiction: residual signed variation remains the invariant, but the state space being conditioned on has changed.
-
-## Explicit example: the entire Gaussian configuration may survive
-
-The type of retained variable does not determine integrability. Here is an explicit family in which the raw variation is not summable, yet a coarsening which sometimes retains the **entire Gaussian vector** is summable.
+## Explicit Gaussian counterexample
 
 For \(n\geq1\), let
 
@@ -307,7 +247,7 @@ $$
 R_n(z)
 =
 2^{-n}+\operatorname{sgn}(z_1).
-\tag{16}
+\tag{11}
 $$
 
 Then
@@ -316,28 +256,25 @@ $$
 \mu_n(\Omega_n)=2^{-n},
 \qquad
 \|\mu_n\|_{\mathrm{TV}}=1.
-\tag{17}
 $$
 
-Thus complete averaging is summable,
+Hence constant coarsening is summable and identity retention is not.
+
+Choose a symmetric slab
 
 $$
-\sum_n|\mu_n(\Omega_n)|=1,
+A_n
+=
+\{z:|z_1|\leq\delta_n\}
 $$
 
-while identity retention is not,
+with
 
 $$
-\sum_n\|\mu_n\|_{\mathrm{TV}}=\infty.
+\gamma_n(A_n)=2^{-n},
 $$
 
-Choose \(\delta_n>0\) so that
-
-$$
-\gamma_n\{z:|z_1|\leq\delta_n\}=2^{-n},
-$$
-
-and write this symmetric slab as \(A_n\). Define
+and define
 
 $$
 \mathcal C_n(z)
@@ -346,96 +283,35 @@ $$
 (1,z),&z\in A_n,\\
 (0,*),&z\notin A_n.
 \end{cases}
-\tag{18}
+\tag{12}
 $$
 
-On \(A_n\), the whole vector \(z=(z_1,\ldots,z_n)\) is retained exactly. Outside \(A_n\), every Gaussian coordinate is forgotten.
-
-Because \(A_n\) is symmetric in \(z_1\),
-
-$$
-\int_{A_n}\operatorname{sgn}(z_1)d\gamma_n
-=
-\int_{A_n^c}\operatorname{sgn}(z_1)d\gamma_n
-=0.
-$$
-
-Hence
+On \(A_n\) the **entire Gaussian vector** survives. Symmetry gives zero signed contribution from \(\operatorname{sgn}(z_1)\) separately on \(A_n\) and \(A_n^c\), so
 
 $$
 \begin{aligned}
-V_{\mu_n}(\mathcal C_n)
+V_n
 &=
 \int_{A_n}|R_n|d\gamma_n
-+
-|\mu_n(A_n^c)|\\
++|\mu_n(A_n^c)|\\
 &=
-2^{-n}
-+2^{-n}(1-2^{-n})\\
-&<
-2^{1-n}.
+2^{-n}+2^{-n}(1-2^{-n})\\
+&<2^{1-n}.
 \end{aligned}
-\tag{19}
+\tag{13}
 $$
 
-Therefore
+Thus
 
 $$
-\sum_nV_{\mu_n}(\mathcal C_n)<\infty.
-\tag{20}
+\sum_nV_n<\infty
 $$
 
-The entire Gaussian configuration survives on a nonnull piece for every \(n\), yet the family is \(L^1\). The reason is not that the Gaussian marks became harmless; it is that only a summable amount of their signed variation survives.
+even though every Gaussian coordinate is retained exactly on a nonnull piece of every state space.
 
-### Sparse full-state retention in the C-prime regime
+## Explicit time-only counterexample
 
-The same construction is available abstractly for the quadratic-Hessian patch measures. Fix an observation point \((t,x)\) in the C-prime regime, so
-
-$$
-\sum_\tau|F_\tau(t,x)|<\infty.
-\tag{21}
-$$
-
-Every finite non-leaf raw patch measure \(\mu_\tau^{t,x}\) is absolutely continuous with respect to a reference law containing continuous Gaussian coordinates, so its total-variation measure is nonatomic on those coordinates. Let \((\varepsilon_\tau)_\tau\) be positive and summable. Choose measurable sets \(A_\tau\) with
-
-$$
-0<
-|\mu_\tau^{t,x}|(A_\tau)
-\leq
-\varepsilon_\tau
-$$
-
-whenever the raw measure is nonzero, and define \(\mathcal C_\tau\) to retain the entire raw state on \(A_\tau\) and collapse \(A_\tau^c\) to one point. Then
-
-$$
-\begin{aligned}
-V_{\mu_\tau^{t,x}}(\mathcal C_\tau)
-&=
-|\mu_\tau^{t,x}|(A_\tau)
-+
-|\mu_\tau^{t,x}(A_\tau^c)|\\
-&\leq
-|F_\tau(t,x)|
-+2\varepsilon_\tau.
-\end{aligned}
-\tag{22}
-$$
-
-Summing gives
-
-$$
-\sum_\tau
-V_{\mu_\tau^{t,x}}(\mathcal C_\tau)<\infty.
-\tag{23}
-$$
-
-Thus, at every fixed observation point in the C-prime regime, there are nonconstant \(L^1\) coarsenings which retain the complete raw Gaussian configuration on small nonnull pieces of mark space. This resolves the literal existential version of Conjecture C; what remains open is the construction of natural, non-sparse, target-uniform coarsenings with useful retained information.
-
-## Explicit example: retaining only time can fail
-
-The converse intuition is also false. A coarsening can forget every Gaussian coordinate and retain only a one-dimensional time variable while leaving a nonsummable amount of sign variation.
-
-For \(n\geq1\), take
+Let
 
 $$
 \Omega_n=(0,1)\times\mathbb R^n,
@@ -443,13 +319,12 @@ $$
 \nu_n=dt\otimes\gamma_n,
 $$
 
-and set
+and define
 
 $$
 R_n(t,z)
 =
 2^{-n}+h(t),
-\tag{24}
 $$
 
 where
@@ -469,100 +344,102 @@ $$
 \mu_n(\Omega_n)=2^{-n},
 $$
 
-so constant coarsening has summable total variation. Now retain only time,
+so complete averaging is summable. Now retain only time,
 
 $$
 \mathcal C_n(t,z)=t.
-\tag{25}
 $$
 
-All Gaussian coordinates are averaged out, but
+All Gaussian variables disappear, but
 
 $$
-\mathbb E_{\nu_n}[R_n\mid t]
+\mathbb E[R_n\mid t]
 =
-2^{-n}+h(t).
+2^{-n}+h(t),
 $$
 
-Since \(2^{-n}<1\),
+so
 
 $$
-V_{\mu_n}(\mathcal C_n)
+V_n
 =
 \int_0^1|2^{-n}+h(t)|dt
 =1.
-\tag{26}
+\tag{14}
 $$
 
-Hence
+Therefore
 
 $$
-\sum_nV_{\mu_n}(\mathcal C_n)=\infty.
-\tag{27}
+\sum_nV_n=\infty.
 $$
 
-Nothing singular is being retained except the branch-time coordinate. The failure is entirely the residual sign variation visible as a function of that time.
+Retaining only an apparently harmless time variable is not safe unless the residual sign variation visible through time is controlled.
 
-## Sanity check: the three quadratic-Hessian points
+## Sparse full-state retention for the quadratic-Hessian patches
 
-The exact characterization places the known constructions exactly where the previous theorems put them.
-
-### Raw-faithful / identity
-
-For identity coarsening,
+Fix one observation point \((t,x)\) in the C-prime regime. Then
 
 $$
-\mathbb E[R_\tau\mid\sigma(\operatorname{Id})]
-=R_\tau,
+\sum_\tau|F_\tau(t,x)|<\infty.
+\tag{15}
 $$
 
-so the residual variation is the full raw total variation. The fixed-datum right-comb theorem gives a divergent subseries. Hence the characterization predicts non-\(L^1\), exactly as proved in [Raw-barycenter L1 obstruction for the quadratic Hessian PDE](raw-marked-l1-obstruction-for-quadratic-hessian-pde.md).
-
-### Time-spine coarsening
-
-For the time-spine map, the conditional barycenter given the retained root-spine times is precisely the deterministic patch density obtained after averaging the Gaussian/Brownian marks and the side-subtree interiors. The [time-spine theorem](time-spine-coarsening-for-quadratic-hessian-patches.md) proves that the sum of the corresponding residual variations is finite under
+Every finite non-leaf raw patch measure \(\mu_\tau^{t,x}\) is absolutely continuous with respect to a reference law containing continuous Gaussian/time coordinates, hence its total-variation measure is nonatomic. Choose positive summable \(\varepsilon_\tau\), and for each nonzero non-leaf measure choose \(A_\tau\) with
 
 $$
-4a<1,
-\qquad
-bC(a)<1.
+0<
+|\mu_\tau^{t,x}|(A_\tau)
+\leq
+\varepsilon_\tau.
 $$
 
-Hence the characterization predicts \(L^1\), exactly as already proved.
-
-### Constant coarsening / C-prime
-
-For the constant map,
+Retain the entire raw state on \(A_\tau\) and collapse \(A_\tau^c\). Then
 
 $$
-V_{\mu_\tau}(\mathcal C_\tau)
-=|\mu_\tau(\Omega_\tau)|
-=|F_\tau(t,x)|.
+\begin{aligned}
+V_\tau
+&=
+|\mu_\tau^{t,x}|(A_\tau)
++|\mu_\tau^{t,x}(A_\tau^c)|\\
+&\leq
+|F_\tau(t,x)|+2\varepsilon_\tau.
+\end{aligned}
+\tag{16}
 $$
 
-Theorem C-prime proves
+Thus
 
 $$
-\sum_\tau|F_\tau(t,x)|<\infty
+\sum_\tau V_\tau<\infty.
+\tag{17}
 $$
 
-throughout the Catalan regime. Again the characterization gives exactly the known answer.
+At every fixed target in the C-prime regime, there are therefore nonconstant \(L^1\) coarsenings which retain the complete raw Gaussian configuration on small nonnull pieces. This closes the **fixed-target existential relaxation** of Conjecture C. It does not by itself construct one target-uniform coarsening architecture valid simultaneously for every \((t,x)\); that stronger formulation remains open.
 
-There is therefore no conflict among the three levels. They are three different values of the same invariant.
+## Sanity check: the three known quadratic-Hessian points
+
+The characterization reproduces all three previously proved results.
+
+- **Raw-faithful / identity.** Conditional expectation onto the full raw sigma-field is \(R_\tau\), so the residual variation is the full raw total variation. The right-comb fixed-datum theorem gives a divergent subseries.
+- **Time-spine.** Conditional expectation onto the retained root-spine times is exactly the deterministic time-spine density. The [time-spine theorem](time-spine-coarsening-for-quadratic-hessian-patches.md) proves summability under
+  $$
+  4a<1,
+  \qquad
+  bC(a)<1.
+  $$
+- **C-prime / constant.** The residual variation is \(|F_\tau(t,x)|\), whose sum is finite throughout the Catalan regime.
+
+No point in the existing hierarchy conflicts with the characterization. They are three different values of the same invariant.
 
 ## What remains open
 
-The exact characterization closes the existential question for arbitrary skeleton-preserving coarsenings at a fixed observation point, but it does not make every representation question trivial. Natural remaining problems include:
+The fixed-target skeleton-preserving integrability problem is characterized exactly. Natural remaining questions are stronger:
 
-1. **Structured full-regime coarsening.** Find a non-sparse coarsening with a fixed geometric description, rather than a set chosen only to make residual variation small, which is \(L^1\) throughout the C-prime regime.
-2. **Target-uniform schemes.** Construct one coarsening architecture which works uniformly in \((t,x)\), with quantitative control in a function-space norm rather than pointwise selection of small sets.
-3. **Information-constrained optimization.** Given a prescribed retained sigma-field or a computational budget, minimize
-   $$
-   \int
-   |\mathbb E[R_\tau\mid\mathcal G_\tau]|d\nu_\tau
-   $$
-   over admissible coarsenings.
-4. **Natural Gaussian intermediates.** Naive patchwise bridge coarsening fails on one-edge obstruction patches, but more global Gaussian coarsenings or couplings may still have controlled residual variation.
-5. **Cross-skeleton cancellation.** If the skeleton label itself may be coarsened, the correct invariant remains residual total variation after the enlarged pushforward, but the interaction with the infinite skeleton series requires a separate formulation.
+1. construct a non-sparse coarsening with a fixed geometric description which is \(L^1\) throughout the full C-prime regime;
+2. construct one target-uniform coarsening architecture with quantitative function-space control;
+3. optimize residual variation under a prescribed retained sigma-field or computational budget;
+4. find natural Gaussian coarsenings beyond the failed patchwise bridge construction;
+5. formulate cross-skeleton coarsenings where the skeleton label itself may be averaged.
 
-The conceptual endpoint is nevertheless exact: **cancellation before absolute values is precisely the removal of signed variation by conditional averaging, and integrability is equivalent to summability of the variation which remains.**
+The conceptual endpoint is exact: **cancellation before absolute values is removal of signed variation by conditional averaging, and \(L^1\) is equivalent to summability of the variation which survives.**
