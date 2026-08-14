@@ -130,6 +130,7 @@ nav:
       - Joint centered-mark dichotomy for raw PDE patches: entries/joint-centered-mark-dichotomy-for-raw-pde-patches.md
       - Raw-barycenter L1 obstruction for the quadratic Hessian PDE: entries/raw-marked-l1-obstruction-for-quadratic-hessian-pde.md
       - Time-spine coarsening for quadratic Hessian patches: entries/time-spine-coarsening-for-quadratic-hessian-patches.md
+      - Residual signed variation characterization: entries/residual-signed-variation-characterization-for-coarsened-patches.md
       - L1 random-patch conjecture for the quadratic Hessian PDE: entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md
   - Meta:
       - Notation: meta/notation.md
