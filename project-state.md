@@ -8,33 +8,32 @@ The wiki is article-first. Source pages live under `docs/entries/`; the canonica
 
 ## Current research route: PDE branching representations
 
-The active PDE route studies probabilistic representations for nonlinear parabolic equations. The public layer contains background on the Nguwi--Penent--Privault coding tree and HLOTW marked branching, the independently audited repeated-Hessian obstruction chain, the audited representation-level dichotomy benchmark, and the audited positive route for the quadratic Hessian equation on the torus.
+The active PDE route studies probabilistic representations for nonlinear parabolic equations. The canonical public entry point is
 
-The PDE part of the wiki is required to be self-contained for a reader with measure-theoretic probability, basic functional analysis, and a first graduate PDE course. Concepts beyond that background must be defined locally or linked to a prerequisite article.
+- `docs/pde-branching-representations.md`.
+
+A fresh reader should start there. It motivates the programme, gives the dependency-ordered reading map, states the settled negative chain and representation-level dichotomy, and explains the current quadratic-Hessian fork.
+
+The PDE part of the wiki is required to be self-contained for a reader with measure-theoretic probability, basic functional analysis, and a first graduate PDE course. Concepts beyond that background must be defined locally or linked to a prerequisite article. Because the wiki is the durable research record, every `proved here` entry must state its own load-bearing hypotheses and may not rely on chat context or an unstated convention from a neighboring page.
 
 ## PDE prerequisite layer
 
 The prerequisite layer includes the heat/Duhamel and classical Feynman--Kac formulas; branching-Duhamel trees, age-dependent branching nonexplosion, and importance-sampling compensators; uniform integrability; Gaussian, Malliavin, and Bismut automatic differentiation; Hermite chaos and Holder cancellation; spatial/parabolic Holder and Besov spaces; the bounded parabolic Hessian Duhamel operator; random fields, conditional expectations, and fluctuations in function spaces; spatial jets and Faà di Bruno; viscosity solutions; elementary measure-theoretic tools; parabolic maximum-principle, Schauder, and interior Holder theory; Aronson--Nash cautions; the `H^{-1}` method; weak parabolic solutions; and Ito/backward-Kolmogorov representations.
 
-`docs/entries/directional-jet-radius.md` continues to consolidate directional Taylor radius, Gevrey-1/2 / ultra-analytic derivative bounds, entire extension, order, and type.
+`docs/entries/directional-jet-radius.md` consolidates directional Taylor radius, Gevrey-1/2 / ultra-analytic derivative bounds, entire extension, order, and type.
 
-## Audited obstruction and comparison results
+## Settled negative chain and dichotomy
 
-The obstruction layer remains:
+The following project-level entries have status `proved here` and now state their full hypotheses locally:
 
 - `docs/entries/repeated-hessian-obstruction-for-coding-trees.md`
 - `docs/entries/finite-directional-radius-obstruction.md`
 - `docs/entries/gevrey-half-necessity-for-coding-trees.md`
-- `docs/entries/integrable-regime-of-coding-tree.md`
-
-The first three entries have status `proved here`. The integrable-regime note has status `observation`.
-
-The audited comparison layer remains:
-
-- `docs/entries/dichotomy-benchmark.md`
 - `docs/entries/representation-level-dichotomy.md`
 
-The dichotomy entry has status `proved here`. Its HLOTW half proves the required singular-lifetime endpoint extension rather than treating the Gamma density as a literal instance of published Assumption 3.1. Only the HLOTW expectation is identified there with a viscosity solution.
+The repeated-Hessian theorem gives non-`L^1` of a composite-code NPP tree when the even terminal jet derivatives beat the `m!` simplex scale. Finite directional radius on positive measure implies failure of the all-code NPP integrability hypothesis. Conversely, finite absolute expectation forces a Gevrey-1/2 directional derivative bound almost everywhere. The dichotomy benchmark shows that the raw NPP representation can fail at every positive horizon while an explicit HLOTW marked-branching estimator for the same PDE is `L^2` on a positive interval.
+
+`docs/entries/integrable-regime-of-coding-tree.md` remains status `observation`; it records nonvacuity rather than another obstruction theorem.
 
 ## Quadratic Hessian route
 
@@ -49,38 +48,45 @@ $$
 v(0)=\phi,
 $$
 
-write `z=v_{xx}`. Four logically distinct statements are now recorded.
+write `z=v_{xx}`. Four logically distinct statements are recorded.
 
-1. `docs/entries/finite-depth-duhamel-patch-regrouping.md` and `docs/entries/conditional-factorization-for-finite-pde-patches.md` have status `proved here`: finite Picard expansions regroup exactly into maximal left-spine patches, with finite conditional factorization when the centered Gaussian marks remain unexposed.
-2. `docs/entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md` has status `proved here`: under the explicit Schauder smallness condition, the semi-implicit iteration stays in the Holder/ellipticity ball, contracts in `H^{-1}` with ratio at most `1/3`, converges to the unique small solution, and gives the implicit self-consistent diffusion representation.
-3. `docs/entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md` has status `proved here` (Theorem C-prime): after all continuous branch-time and Gaussian/Hermite variables inside each finite decorated skeleton are integrated out, the deterministic skeleton profiles form an absolutely convergent Catalan series in
+1. `docs/entries/finite-depth-duhamel-patch-regrouping.md` and `docs/entries/conditional-factorization-for-finite-pde-patches.md` have status `proved here`. Finite Picard expansions regroup exactly into maximal left-spine patches, and finite patch randomizations factor conditionally when centered Gaussian spatial marks remain unexposed. These are finite signed identities, not infinite-depth moment estimates.
+2. `docs/entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md` has status `proved here`. Under
    $$
-   X_{\alpha,T}=C^{\alpha/2,\alpha}([0,T]\times\mathbb T)
+   |\lambda|C_{\mathrm{Sch}}(\alpha,T)
+   \|\phi\|_{C^{2+\alpha}}
+   \leq\frac18,
    $$
-   whenever
+   the semi-implicit iteration stays in the Holder/ellipticity ball, contracts in `H^{-1}` with ratio at most `1/3`, converges to the unique small solution, and gives the implicit self-consistent diffusion representation.
+3. `docs/entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md` has status `proved here` and is Theorem C-prime. Put
    $$
-   4|\lambda|C_{\mathcal D}(\alpha,T)M<1,
+   X_{\alpha,T}=C^{\alpha/2,\alpha}([0,T]\times\mathbb T),
    \qquad
    M=\|P_\cdot\phi''\|_{X_{\alpha,T}}.
    $$
-   A data-only sufficient condition is
+   If
    $$
-   4|\lambda|C_{\mathcal D}(\alpha,T)
-   (1+\mathbb E|Z|^\alpha)
-   \|\phi''\|_{C^\alpha}<1.
+   4|\lambda|C_{\mathcal D}(\alpha,T)M<1,
    $$
-   Sampling only the countable decorated skeleton with any full-support proposal and weighting by its reciprocal probability gives an unbiased `L^1` estimator. The proof uses absolute convergence to justify both the nonlinear Cauchy product and the expectation/skeleton-sum interchange.
-4. `docs/entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md` remains status `conjecture`: it retains the raw continuous marks inside each patch and asks for `L^1` of that genuinely random estimator.
+   then the deterministic interior-averaged profiles of finite decorated binary skeletons form an absolutely convergent Catalan series in `X_{alpha,T}`. Sampling only the countable decorated skeleton with any full-support proposal and weighting by its reciprocal probability gives an unbiased `L^1` estimator. Absolute convergence justifies both the nonlinear Cauchy product and the expectation/skeleton-sum interchange.
+4. `docs/entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md` remains status `conjecture`. It is now stated concretely on the explicit C-prime small-data regime and asks whether one may retain the continuous Gaussian/Hermite, branch-time, and descendant marks inside patches while preserving `L^1` and unbiasedness.
 
-Two corrections are permanent for statement 3. A fixed skeleton profile satisfies only its deterministic tree/Duhamel recursion; the **sum** of the skeleton profiles satisfies the nonlinear Hessian mild equation. Also, one must not define the interior average as `E[H | S]` for the unresolved raw infinite-patch functional, because ordinary conditional expectation already requires `H in L^1`. The theorem defines deterministic interior-averaged profiles directly, equivalently as limits of conditional expectations of integrable finite cutoffs, and samples the discrete skeleton first.
+Two corrections are permanent for C-prime. A fixed skeleton profile satisfies only its deterministic tree/Duhamel recursion; the **sum** of skeleton profiles satisfies the nonlinear Hessian mild equation. Also, one must not define the interior average as `E[H | S]` for an unresolved raw infinite-patch functional, because ordinary conditional expectation already requires `H in L^1`. C-prime defines each interior-averaged profile directly by deterministic Duhamel integrals, equivalently through conditional expectations of integrable finite cutoffs.
 
-For statement 4, deterministic Holder/Hermite growth is no longer the main issue. Raw pathwise Holder control fails already for one centered Hessian edge, and the same high-frequency translation mechanism defeats a fixed same-regularity Besov norm; lowering the exponent only creates a descending regularity ladder. C-prime proves that the interior-average/conditional-mean part is summable. The remaining obstruction is the centered raw fluctuation around that interior average. Its `L^1` function-space amplitude does not close under the next Hessian edge in any fixed Holder or same-regularity Besov space currently considered.
+## Canonical proved/open fork
+
+The current fork should always be stated this way.
+
+**Condition all patch interiors first.** Integrate out the continuous branch-time, Brownian, Gaussian/Hermite, and descendant variables attached to a finite decorated skeleton before sampling the skeleton. Under the C-prime Catalan smallness condition, the resulting skeleton profiles are absolutely summable and give a proved unbiased `L^1` skeleton-only estimator.
+
+**Retain the interior marks.** The centered raw fluctuation survives. Direct pathwise Holder control fails already for one centered Hessian edge; a fixed same-regularity Besov norm has the same high-frequency translation obstruction, and lowering regularity creates a descending ladder. Controlling this fluctuation is precisely the open content of conjecture C.
 
 Never conflate finite signed exactness, deterministic convergence, the skeleton-only `L^1` representation, and the full random-patch `L^1` conjecture.
 
 ## General conventions
 
 - Public entries must state proof status explicitly and must not present heuristic, conjectural, or unaudited claims as theorems.
+- Every proved-here entry must state its full hypotheses locally; cross-links may supply definitions and proofs of prerequisites, not missing assumptions.
 - Define every piece of notation before use and keep terminology aligned with the cited PDE literature.
 - Verify literature citations against primary sources when possible.
 - Keep exact Duhamel/semigroup transfer distinct from importance-sampling randomization and from later patch resummation.
