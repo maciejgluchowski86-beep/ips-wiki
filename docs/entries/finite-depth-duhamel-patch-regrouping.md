@@ -13,19 +13,19 @@ tags:
 
 For the quadratic Hessian equation on the torus, every finite Picard expansion of the mild equation is a finite sum over planar binary Duhamel trees. Grouping consecutive left-child vertices into maximal chains gives an exact signed reorganization of this finite expansion. The point of the regrouping is that all Hessian transfers along one chain may be composed before absolute values are taken. No assertion about an infinite random-patch estimator is part of this theorem.
 
-The construction uses the [heat semigroup and Duhamel formula](mild-formulation-and-branching-diffusion-representation.md), the deterministic [binary Duhamel tree](branching-diffusions-and-duhamel-trees.md), and the distinction between signed exactness and moment control explained in [Importance-sampling compensators](importance-sampling-compensators.md).
+The construction uses the [heat semigroup and Duhamel formula](mild-formulation-and-branching-diffusion-representation.md), the deterministic [binary Duhamel tree](branching-diffusions-and-duhamel-trees.md), and the distinction between signed exactness and moment control explained in [Importance-sampling compensators](importance-sampling-compensators.md). Its place in the larger programme is summarized in the [PDE branching-representations overview](../pde-branching-representations.md).
 
 **References.** None: the finite-depth regrouping below is proved here.
 
 ## Quadratic Hessian mild equation
 
-Let
+Fix a horizon \(T>0\), a parameter \(\lambda\in\mathbb R\), and smooth periodic data \(\phi\in C^\infty(\mathbb T)\), where
 
 $$
-\mathbb T=\mathbb R/(2\pi\mathbb Z)
+\mathbb T=\mathbb R/(2\pi\mathbb Z).
 $$
 
-and consider the forward-time equation
+Consider the forward-time equation
 
 $$
 \partial_tv
@@ -33,7 +33,9 @@ $$
 \frac12\partial_x^2v
 +\lambda(\partial_x^2v)^2,
 \qquad
-v(0,\cdot)=\phi.
+v(0,\cdot)=\phi,
+\qquad
+0\leq t\leq T.
 \tag{1}
 $$
 
@@ -77,6 +79,8 @@ $$
 $$
 
 Then (3) is \(z=L+\mathcal B(z,z)\), where \(L(t)=P_t\phi''\).
+
+The theorem below is an algebraic statement about finite Picard expansions of (3). It does not assume in advance that the infinite Picard sequence converges or that (1) has a solution.
 
 ## Finite Duhamel trees
 
@@ -150,7 +154,7 @@ For \(m=0\), set \(\mathcal P_0[G](t)=P_tG\). Equations (7)--(9) are not estimat
 
 ## Theorem: exact finite-depth regrouping
 
-For every finite depth \(N\), the expansion of \(z^{[N]}\) may be reorganized uniquely by its patch skeletons. Replacing every maximal left-spine chain by its complete contribution (7)--(9) gives exactly the same signed function \(z^{[N]}\).
+For every integer \(N\geq0\), the expansion of \(z^{[N]}\) on \([0,T]\) may be reorganized uniquely by its patch skeletons. Replacing every maximal left-spine chain by its complete contribution (7)--(9) gives exactly the same signed function \(z^{[N]}\).
 
 In particular, composing all Hessian transfers inside a patch before taking absolute values is an exact finite-level operation. It neither discards nor adds a Duhamel-tree term.
 
@@ -174,4 +178,4 @@ The finite patch decomposition may be randomized patch first by assigning indepe
 
 This statement is deliberately about finite signed exactness and conditional factorization. To interpret a compensated finite-patch random variable as an ordinary expectation one must still verify its integrability for the chosen proposal law; positivity of the proposal alone does not supply that fact. Nothing here implies that an infinite-depth patch functional belongs to \(L^1\).
 
-In particular, the [Hermite composition identity](hermite-polynomials-and-gaussian-chaos.md) for a bare derivative chain does not survive unchanged when spatially varying multiplication operators occur between Hessian transfers. The corresponding infinite random-patch statement is recorded in the [\(L^1\) random-patch conjecture](l1-random-patch-conjecture-for-quadratic-hessian-pde.md).
+In particular, the [Hermite composition identity](hermite-polynomials-and-gaussian-chaos.md) for a bare derivative chain does not survive unchanged when spatially varying multiplication operators occur between Hessian transfers. The finite conditional statement is isolated in [Conditional factorization for finite PDE patches](conditional-factorization-for-finite-pde-patches.md). After all continuous patch variables are averaged, [Theorem C-prime](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md) gives an absolutely integrable skeleton-only representation under a separate small-data condition. If the interior Gaussian/Hermite marks are retained, the corresponding infinite-depth statement remains the [\(L^1\) random-patch conjecture](l1-random-patch-conjecture-for-quadratic-hessian-pde.md).
