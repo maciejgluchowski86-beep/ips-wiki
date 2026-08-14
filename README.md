@@ -95,19 +95,34 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 
 ## PDE and branching representations
 
-The canonical wiki entry point is `docs/pde-branching-representations.md`. It is written for a reader with measure-theoretic probability, basic functional analysis, and a first graduate PDE course. It motivates the branching programme and links the complete prerequisite chain.
+The canonical wiki entry point is `docs/pde-branching-representations.md`.
 
-The quadratic-Hessian coarsening hierarchy now has three proved levels:
+The capstone theorem is `docs/entries/residual-signed-variation-characterization-for-coarsened-patches.md`. For a raw skeleton measure
 
-- raw-faithful / identity: a fixed smooth datum has infinite first moment even after arbitrary positive proposal changes and auxiliary conditionally unbiased randomness;
-- time-spine coarsening: under the C-prime condition plus one additional geometric smallness condition, retaining the actual branch times on one maximal-left spine gives an unbiased `L^1` representation with genuine continuous time randomness;
-- complete interior averaging: Theorem C-prime gives an unbiased `L^1` skeleton-only representation under the full Catalan small-data condition.
+```text
+mu_tau = R_tau nu_tau
+```
 
-Naive patchwise Gaussian-bridge coarsening does not repair the raw obstruction: the obstruction can be realized on right combs, whose maximal-left patches all have length one, so one-edge bridge coarsening is the identity up to an invertible coordinate change.
+and a skeleton-preserving coarsening `C_tau`, the exact first-moment invariant is
 
-Conjecture C remains open only on the part of the full C-prime regime not covered by the time-spine theorem. It is already proved on the stronger time-spine subregime.
+```text
+||(C_tau)_# mu_tau||_TV
+  = integral | E[R_tau | sigma(C_tau)] | d nu_tau.
+```
 
-The wiki is the durable mathematical record for this PDE project. The manuscript under `pde-paper/` now contains full proofs of the audited results included in it, including the coarsening hierarchy.
+Summability of these residual signed variations is necessary and sufficient for `L^1` in the coarsened conditional-barycenter class. The type of retained coordinate is not the invariant.
+
+The known quadratic-Hessian constructions are consistent with this exact criterion:
+
+- raw-faithful / identity: divergent residual variation for one fixed arbitrarily small smooth datum;
+- time-spine coarsening: summable residual variation under the C-prime condition plus one geometric smallness condition, with genuine branch-time randomness retained;
+- complete interior averaging / C-prime: summable residual variation under the full Catalan small-data condition.
+
+Two explicit examples show why coordinate labels are misleading: the entire Gaussian vector may be retained on sufficiently small pieces while remaining `L^1`, whereas retaining only a time coordinate may leave a divergent residual variation.
+
+At every fixed target in the C-prime regime, sparse full-state retention gives a nonconstant `L^1` coarsening. The remaining Conjecture C is therefore interpreted as a target-uniform, structured representation problem rather than a fixed-target existence question.
+
+The manuscript under `pde-paper/` contains full proofs of the audited results and now ends with the exact characterization theorem.
 
 ## Entry workflow
 
