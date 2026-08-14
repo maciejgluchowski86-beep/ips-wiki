@@ -35,7 +35,7 @@ T>0,
 \mathbb T=\mathbb R/(2\pi\mathbb Z).
 $$
 
-Consider
+Consider the forward equation
 
 $$
 \partial_tv
@@ -86,13 +86,13 @@ with \(Z\sim N(0,1)\). Its signed expectation is exactly \(\partial_x^2P_rF\).
 
 A *length-\(m\) comb* is the planar binary Duhamel tree in which one distinguished child continues through exactly \(m\) consecutive quadratic branchings, while the other child at every branching is a terminal side leaf; after the \(m\)-th branching the distinguished child is terminal as well.
 
-Fix a remaining horizon
+Fix an evaluation horizon
 
 $$
-h=T-t>0.
+h\in(0,T].
 $$
 
-We restrict to combs whose distinguished edge durations \(r_1,\ldots,r_m\) satisfy
+For the original backward terminal equation, this corresponds to evaluating at time \(T-h\). We restrict to combs whose distinguished edge durations \(r_1,\ldots,r_m\) satisfy
 
 $$
 r_j>0,
@@ -456,36 +456,36 @@ This is the step that defeats the earlier generation-dependent-frequency caveat:
 
 ## Theorem: no L1 estimator in the raw-barycenter-retaining class
 
-Fix \(T>0\) and \(\lambda\ne0\). Let \(\phi_\varepsilon\) be the single smooth terminal datum (24). For every
+Fix \(T>0\) and \(\lambda\ne0\). Let \(\phi_\varepsilon\) be the single smooth datum (24). For every
 
 $$
-0\le t<T,
+h\in(0,T],
 \qquad
 x\in\mathbb T,
 $$
 
-there is no estimator \(Y(t,x)\in L^1\) which is raw-barycenter-retaining on the long combs in the sense of (5)--(6).
+there is no estimator \(Y(h,x)\in L^1\) which is raw-barycenter-retaining on the long combs in the sense of (5)--(6).
 
 More precisely, for every proposal law satisfying the domination conditions (5), regardless of the lifetime distribution, genealogy-selection probabilities, Gaussian importance-sampling law, dependence among proposal variables, or auxiliary conditionally unbiased randomness,
 
 $$
 \boxed{
-\mathbb E_Q|Y(t,x)|=\infty.
+\mathbb E_Q|Y(h,x)|=\infty.
 }
 \tag{30}
 $$
 
 ### Proof
 
-Assume for contradiction that \(Y(t,x)\in L^1(Q)\). The comb cylinders \(\Gamma_m\) are pairwise disjoint, so by (7) and Tonelli,
+Assume for contradiction that \(Y(h,x)\in L^1(Q)\). The comb cylinders \(\Gamma_m\) are pairwise disjoint, so by (7) and Tonelli,
 
 $$
 \begin{aligned}
-\mathbb E_Q|Y(t,x)|
+\mathbb E_Q|Y(h,x)|
 &\ge
 \sum_{m\ge m_0}
 \mathbb E_Q\left[
-|Y(t,x)|\mathbf1_{\Gamma_m}
+|Y(h,x)|\mathbf1_{\Gamma_m}
 \right]\\
 &\ge
 \sum_{m\ge m_0}
@@ -494,7 +494,7 @@ $$
 \tag{31}
 $$
 
-The last series diverges by (29), contradicting \(Y(t,x)\in L^1\). This proves (30).
+The last series diverges by (29), contradicting \(Y(h,x)\in L^1\). This proves (30).
 
 ## Why the theorem is proposal invariant
 
