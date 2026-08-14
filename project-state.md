@@ -9,15 +9,63 @@ There are two independent manuscript trees.
 - `paper/`: facilitated-spin-system paper. The repository-level `main.tex` remains its Overleaf entry point. Do not edit it as part of the PDE track unless explicitly requested.
 - `pde-paper/`: standalone manuscript **Cancellation before absolute values in branching representations with derivative weights**. Its entry point is `pde-paper/main.tex`.
 
-The PDE manuscript contains full proofs of the audited coding-tree obstruction, Gevrey-1/2 necessity, representation-level dichotomy, finite Hessian patch regrouping, auxiliary deterministic iteration, Theorem C-prime, fixed-datum raw-faithful obstruction, time-spine coarsening theorem, and the exact residual-signed-variation characterization.
+The PDE manuscript is now a complete mathematical draft. It contains full proofs of every audited result included in the paper:
 
-The deterministic self-consistent iteration remains auxiliary.
+- repeated-Hessian coding-tree obstruction;
+- Gevrey-1/2 necessity;
+- NPP/HLOTW representation-level dichotomy;
+- finite Hessian patch regrouping;
+- auxiliary deterministic semi-implicit iteration;
+- Theorem C-prime;
+- fixed-datum raw-faithful obstruction;
+- exact residual-signed-variation characterization;
+- failure of naive patchwise Gaussian-bridge coarsening;
+- target-uniform time-spine representation;
+- sparse full-state retention at a fixed target.
+
+There are no proof placeholders or TODO markers in `pde-paper/`. The deterministic self-consistent iteration remains auxiliary and should not be presented as a principal representation theorem.
+
+Every principal theorem statement now carries its own load-bearing hypotheses and scope rather than inheriting them from surrounding prose. In particular:
+
+- the coding-tree negative theorem states lifetime/mechanism positivity and does not assume uniform lower bounds;
+- the representation dichotomy states the HLOTW positive-time lifetime-density extension inside the theorem;
+- the deterministic theorem states its Schauder smallness condition and uniqueness class `|lambda v_xx| <= 1/8`;
+- C-prime states `4a<1` and its fixed-point ball;
+- the raw obstruction is explicitly for raw-faithful conditional-barycenter schemes, not all unbiased estimators;
+- the residual characterization is exact for skeleton-preserving coarsenings when the skeleton label is retained, with cross-skeleton coarsening scoped separately;
+- sparse full-state retention is explicitly pointwise/fixed-target and may depend on `(t,x)`;
+- the time-spine theorem is one target-uniform geometric rule under `4a<1` and `b C(a)<1`.
+
+The C-prime/deterministic overlap statement has the additional load-bearing assumption
+
+$$
+|\lambda z_*|\leq\frac18
+$$
+
+on the C-prime profile itself. The deterministic uniqueness theorem alone does not identify the two solutions without this assumption.
 
 ## Canonical PDE wiki entry point
 
 - `docs/pde-branching-representations.md`
 
+The overview now begins with the exact residual-variation identity and contains a dependency-ordered **shortest self-contained path to the capstone**. A reader with graduate probability and a first PDE course can follow that path without leaving the wiki.
+
 The wiki is the durable mathematical record. Every `proved here` entry must state its hypotheses and scope locally.
+
+## Self-containment pass
+
+The final overview-to-capstone walk exposed and repaired several breaks.
+
+1. **Signed-measure prerequisite.** Added
+   `docs/entries/finite-signed-measures-pushforwards-and-conditional-barycenters.md`, status `standard fact`, covering Jordan decomposition, Radon--Nikodym densities, total variation, pushforward contraction, finite-measure conditional expectation, conditional Jensen, proposal-invariant first moments, and nonatomic small-set divisibility.
+2. **C-prime drift.** The C-prime page now states the exact fixed-point radius, the correct overlap assumptions with the deterministic theorem, and its position as constant coarsening after the capstone theorem.
+3. **Conditional-expectation drift.** The random-field conditional-expectation page now points to residual signed variation rather than treating raw fluctuations as an unresolved binary fork.
+4. **Joint-mark drift.** The joint centered-mark page now records the later fixed-datum obstruction, the one-edge bridge failure, and the final residual-variation interpretation.
+5. **Finite-patch drift.** The finite regrouping and finite conditional-factorization pages no longer end with the obsolete statement that arbitrary retained marks are simply the unresolved conjecture. They point to C-prime, raw-faithful failure, time-spine success, and the exact characterization.
+6. **Foundational notation.** Old `u`/`nu` transcription errors in the heat-reference, mild-formulation, and Duhamel-tree pages were removed.
+7. **Navigation.** The new signed-measure prerequisite is in the PDE navigation and the heat-reference path is correct.
+
+No missing analytic lemma was found in the quadratic-Hessian chain after these repairs. The Hölder/Hermite cancellation, Hessian Duhamel estimate, lacunary smoothness, disjoint-genealogy lower bound, Brownian confinement/heat-kernel positivity, and nonatomic small-set facts are all available inside the wiki at the level used downstream.
 
 ## Coding-tree chain
 
@@ -114,7 +162,7 @@ $$
 
 This residual signed variation is intrinsic; the conditional-expectation formula is only a representation of the total variation of the pushforward signed measure.
 
-For a countable skeleton family, the canonical coarsened estimator satisfies
+For a countable skeleton family with the skeleton label retained, the canonical coarsened estimator satisfies
 
 $$
 \mathbb E|Y|
@@ -127,7 +175,7 @@ Thus summability of residual signed variation is **necessary and sufficient** fo
 
 If `C_1` is coarser than `C_2`, residual variation cannot increase. Identity gives full raw total variation; constant coarsening gives the absolute skeleton mass.
 
-The theorem is exact for the manuscript's skeleton-preserving class. If the skeleton label itself is coarsened, the same invariant applies after the enlarged pushforward, but the per-skeleton sum is no longer the correct formula.
+If the skeleton label itself is coarsened, the same invariant applies after enlarging the raw state to include the skeleton label, but the per-skeleton sum is no longer the correct formula.
 
 ## Counterintuitive consequences
 
@@ -139,9 +187,9 @@ The retained variable type is not the invariant.
 
 Do not infer from item 3 that one target-uniform architecture has been constructed.
 
-## Structured hierarchy as a sanity check
+## Structured hierarchy
 
-The previous three points fit the exact theorem with no inconsistency.
+The known structured points fit the exact theorem with no inconsistency.
 
 - **Raw-faithful / identity:** residual variation is the full raw total variation; the fixed-datum right-comb subseries diverges.
 - **Time-spine:** retain the actual branch times on one root maximal-left patch and average all other continuous variables. If
@@ -156,14 +204,14 @@ The previous three points fit the exact theorem with no inconsistency.
   \qquad
   C(a)=\frac{1-\sqrt{1-4a}}{2a},
   $$
-  then the residual variations are summable.
+  then the residual variations are summable uniformly in the target.
 - **C-prime / constant:** residual variation is `|F_tau(t,x)|`, summable throughout `4a<1`.
 
 Naive patchwise Gaussian-bridge coarsening fails on the obstruction family because right combs consist entirely of one-edge maximal-left patches, so the one-edge bridge map generates the same retained sigma-field as identity.
 
 ## Status of Conjecture C
 
-`docs/entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md` remains status `conjecture`, but its meaning is now sharpened.
+`docs/entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md` remains status `conjecture`, but its meaning is sharpened.
 
 The **fixed-target existential relaxation** is solved affirmatively throughout the full C-prime regime by sparse full-state retention. The remaining conjecture asks for one structured, target-uniform coarsening architecture with nondecorative continuous retained information and quantitative `L^1` control for every `(t,x)` in the full C-prime regime.
 
@@ -181,4 +229,4 @@ The time-spine theorem proves such a structured architecture on its stronger sma
 
 - Keep signed exactness, positive proposal randomization, intrinsic signed measures, coarsening, and conditional-barycenter requirements distinct.
 - Do not define unresolved non-`L^1` objects by ordinary conditional expectation.
-- The manuscript thesis is now exact: **cancellation before absolute values is removal of signed variation by conditional averaging; `L^1` is summability of the variation which survives.**
+- The manuscript thesis is exact: **cancellation before absolute values is removal of signed variation by conditional averaging; `L^1` is summability of the variation which survives.**
