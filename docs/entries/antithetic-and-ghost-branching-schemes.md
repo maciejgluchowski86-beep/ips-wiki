@@ -11,13 +11,15 @@ tags:
 
 # Antithetic and ghost branching schemes
 
-Ghost-particle and antithetic branching schemes modify derivative-weight branching estimators by coupling nearby Brownian descendants before applying the singular Malliavin weight. They are variance-reduction and renormalization devices built on the [branching-diffusion representation](mild-formulation-and-branching-diffusion-representation.md), rather than an analogue of the infinite differential-code mechanism in the [Nguwi--Penent--Privault coding tree](npp-coding-tree.md). Xavier Warin developed these constructions for semilinear gradient equations and explored extensions involving Hessian nonlinearities.
+Ghost-particle and antithetic branching schemes modify derivative-weight branching estimators by coupling nearby Brownian descendants before applying the singular [automatic-differentiation weight](gaussian-integration-by-parts-and-automatic-differentiation.md). They are variance-reduction devices built on the [branching-Duhamel representation](branching-diffusions-and-duhamel-trees.md), rather than an analogue of the infinite differential-code mechanism in the [Nguwi--Penent--Privault coding tree](npp-coding-tree.md). Xavier Warin developed these constructions for semilinear gradient equations and explored extensions involving Hessian nonlinearities.
 
 **References.** Xavier Warin, *Variations on branching methods for non linear PDEs*, arXiv:1701.07660. Xavier Warin, *Monte Carlo for high-dimensional degenerated Semi Linear and Full Non Linear PDEs*, arXiv:1805.05078; see [References](../meta/references.md).
 
+A *control variate* is a random variable of known mean, usually zero, added to an estimator in order to reduce its variance without changing its expectation. Ghost and antithetic terms play this role locally inside the branching functional.
+
 ## Ghost renormalization
 
-For a first-derivative Malliavin weight, a raw factor has the short-time form
+For a first-derivative Gaussian weight, a raw factor has the short-time form
 
 $$
 \frac{\Delta W}{\Delta t}\,\Phi(X_{t+\Delta t}),
@@ -39,7 +41,7 @@ The ghost construction is recursive. A ghost particle has its own descendants, w
 
 ## Antithetic branching
 
-Warin also pairs a Brownian increment \(\Delta W\) with its antithetic increment \(-\Delta W\). For value factors the two descendants are averaged, while for gradient factors the Malliavin weight multiplies a half-difference. Schematically,
+Warin also pairs a Brownian increment \(\Delta W\) with its antithetic increment \(-\Delta W\). For value factors the two descendants are averaged, while for gradient factors the Gaussian weight multiplies a half-difference. Schematically,
 
 $$
 \Phi(X^+)
@@ -59,7 +61,13 @@ Section 2.2.2 of arXiv:1701.07660 combines this antithetic symmetry with the gho
 
 ## Hessian variants
 
-A raw second-order Malliavin weight is more singular at short times. Warin therefore uses higher-dimensional families of ghosts and antithetic descendants to form second differences before the Hessian weight is applied. Section 3 of arXiv:1701.07660 gives several such representations for nonlinearities involving \(D^2u\); its third representation is an antithetic version with a ghost family of dimension \(q=6\). The resulting combinations are discrete second differences designed to cancel the low-order terms responsible for the large variance.
+A raw second-order Gaussian derivative weight is more singular at short times; in the heat case it is proportional to
+
+$$
+\frac{He_2(Z)}{\Delta t}
+$$
+
+with \(He_2(Z)=Z^2-1\), as explained in [Hermite polynomials and Gaussian chaos](hermite-polynomials-and-gaussian-chaos.md). Warin therefore uses higher-dimensional families of ghosts and antithetic descendants to form second differences before the Hessian weight is applied. Section 3 of arXiv:1701.07660 gives several such representations for nonlinearities involving \(D^2u\); its third representation is an antithetic version with a ghost family of dimension \(q=6\). The resulting combinations are discrete second differences designed to cancel the low-order terms responsible for the large variance.
 
 The later paper arXiv:1805.05078 combines antithetic random variables with control variates for Hessian estimation in a Monte Carlo scheme that also accommodates degenerate diffusions. It proves convergence results for the semilinear part of the method and discusses a convergent setting with a driver linear in \(D^2u\), then tests more general fully nonlinear equations numerically.
 
