@@ -1,0 +1,61 @@
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage[backend=biber,style=numeric,sorting=nyt]{biblatex}
+\addbibresource{references.bib}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black
+}
+
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{problem}[theorem]{Open problem}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Torus}{\mathbb T}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\He}{\operatorname{He}}
+\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\erfc}{\operatorname{erfc}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\push}{\mathbin{\#}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\br}[1]{\left[#1\right]}
+\newcommand{\pa}[1]{\left(#1\right)}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\cB}{\mathcal B}
+\newcommand{\cT}{\mathfrak T}
+\newcommand{\cM}{\mathcal M}
+\newcommand{\cG}{\mathcal G}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cP}{\mathcal P}
+
+\newcommand{\proofplaceholder}[1]{%
+  \par\medskip
+  \noindent\textbf{Proof placeholder.} \emph{#1}
+  \par\medskip
+}
