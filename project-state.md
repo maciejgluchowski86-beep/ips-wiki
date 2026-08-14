@@ -14,7 +14,7 @@ The PDE part of the wiki is required to be self-contained for a reader with meas
 
 ## PDE prerequisite layer
 
-The current prerequisite layer includes the heat/Duhamel and classical Feynman--Kac formulas, branching-Duhamel trees and importance-sampling compensators, uniform integrability, Gaussian automatic differentiation and Hermite chaos, Holder cancellation, parabolic Holder and Besov spaces, random fields and conditional expectations in function spaces, spatial jets and Faà di Bruno, viscosity solutions, elementary measure-theoretic tools, parabolic Schauder/maximum-principle theory, Aronson--Nash cautions, the `H^{-1}` method, weak parabolic solutions, and Ito/backward-Kolmogorov representations.
+The prerequisite layer now includes the heat/Duhamel and classical Feynman--Kac formulas; branching-Duhamel trees, age-dependent branching nonexplosion, and importance-sampling compensators; uniform integrability; Gaussian, Malliavin, and Bismut automatic differentiation; Hermite chaos and Holder cancellation; spatial/parabolic Holder and Besov spaces; random fields, conditional expectations, and fluctuations in function spaces; spatial jets and Faà di Bruno; viscosity solutions; elementary measure-theoretic tools; parabolic maximum-principle, Schauder, and interior Holder theory; Aronson--Nash cautions; the `H^{-1}` method; weak parabolic solutions; and Ito/backward-Kolmogorov representations.
 
 `docs/entries/directional-jet-radius.md` continues to consolidate directional Taylor radius, Gevrey-1/2 / ultra-analytic derivative bounds, entire extension, order, and type.
 
@@ -49,13 +49,13 @@ $$
 v(0)=\phi,
 $$
 
-write `z=v_{xx}`. Three statements are kept separate.
+write `z=v_{xx}`. Three statements remain separate.
 
-1. `docs/entries/finite-depth-duhamel-patch-regrouping.md` has status `proved here`: finite Picard expansions regroup exactly into maximal left-spine patches.
+1. `docs/entries/finite-depth-duhamel-patch-regrouping.md` and `docs/entries/conditional-factorization-for-finite-pde-patches.md` have status `proved here`: finite Picard expansions regroup exactly into maximal left-spine patches, and the finite patch-first randomization factorizes conditionally when the patch skeleton exposes branch times/types but leaves the centered Gaussian spatial marks unexposed.
 2. `docs/entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md` has status `proved here`: under the explicit Schauder smallness condition, the semi-implicit iteration stays in the Holder/ellipticity ball, contracts in `H^{-1}` with ratio at most `1/3`, converges to the unique small solution, and gives the implicit self-consistent diffusion representation.
 3. `docs/entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md` remains status `conjecture`.
 
-For statement 3, the deterministic patch analysis is now substantially sharper. Hermite centering and commutator clustering give one Holder gain per derivative cluster. A length-`m` patch has at most `2^m` commutator terms, not `2^{m-1}`: the latter only counts ordered compositions, while the innermost cluster has one additional terminal choice. The correction remains geometric and does not alter the conclusion that deterministic patches with uniformly controlled spatial `C^alpha` side profiles have geometric, not factorial, growth.
+For statement 3, Hermite centering and commutator clustering give one Holder gain per derivative cluster. A length-`m` patch has at most `2^m` commutator terms, not `2^{m-1}`: the latter only counts ordered compositions, while the innermost cluster has one additional terminal choice. The correction remains geometric and does not alter the conclusion that deterministic patches with uniformly controlled spatial `C^alpha` side profiles have geometric, not factorial, growth.
 
 The direct pathwise random-Holder route has failed. For
 
