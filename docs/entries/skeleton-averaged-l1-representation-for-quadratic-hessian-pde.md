@@ -235,7 +235,7 @@ $$
 
 Summing over the \(C_n\) trees of size \(n\) gives (14). The Catalan generating series has radius \(1/4\), proving (13) under (12). Equation (15) follows from (7).
 
-## Theorem: absolutely convergent skeleton expansion
+## Theorem C-prime: absolutely convergent skeleton expansion
 
 Assume (12). Then
 
@@ -302,14 +302,23 @@ $$
 \Phi(z)=L+\lambda\mathcal D(z^2).
 $$
 
-If \(\lVert z\rVert_X,\lVert w\rVert_X\leq R(a)\), then
+The Catalan identity gives
+
+$$
+R(a)
+=
+M+|\lambda|C_{\mathcal D}R(a)^2,
+\tag{20}
+$$
+
+so \(\Phi\) maps the closed ball of radius \(R(a)\) into itself. If \(\lVert z\rVert_X,\lVert w\rVert_X\leq R(a)\), then
 
 $$
 \lVert\Phi(z)-\Phi(w)\rVert_X
 \leq
 2|\lambda|C_{\mathcal D}R(a)
 \lVert z-w\rVert_X.
-\tag{20}
+\tag{21}
 $$
 
 By (6) and (18),
@@ -319,10 +328,10 @@ $$
 =
 1-\sqrt{1-4a}
 <1.
-\tag{21}
+\tag{22}
 $$
 
-Hence \(\Phi\) is a contraction on that ball and the solution there is unique.
+Hence \(\Phi\) is a contraction of that ball and the solution there is unique.
 
 ## Reconstruction of \(v\)
 
@@ -335,14 +344,14 @@ P_t\phi
 +
 \lambda\int_0^t
 P_{t-s}[z_*(s)^2]\,ds.
-\tag{22}
+\tag{23}
 $$
 
 Differentiating twice in space and using (17) gives
 
 $$
 v_{*,xx}=z_*.
-\tag{23}
+\tag{24}
 $$
 
 Therefore \(v_*\) satisfies (1). For smooth \(\phi\), standard parabolic regularity upgrades the mild solution on positive times, and on every regime where the hypotheses of the [self-consistent deterministic theorem](self-consistent-patch-iteration-for-quadratic-hessian-pde.md) also hold, uniqueness identifies \(v_*\) with the solution constructed there.
@@ -365,7 +374,7 @@ $$
 \widehat z(t,x)
 =
 \frac{F_S(t,x)}{\pi(S)}.
-\tag{24}
+\tag{25}
 $$
 
 This estimator randomizes only the discrete skeleton. All continuous branch-time and spatial/Hermite variables inside the skeleton have already been averaged in \(F_S\).
@@ -383,7 +392,7 @@ $$
 \lVert F_\tau\rVert_X
 <\infty.
 \end{aligned}
-\tag{25}
+\tag{26}
 $$
 
 Hence \(\widehat z(t,x)\in L^1\). Moreover the expectation is absolutely convergent, so
@@ -395,12 +404,12 @@ $$
 F_\tau(t,x)
 =
 z_*(t,x).
-\tag{26}
+\tag{27}
 $$
 
-Thus the estimator is unbiased. The same absolute convergence that proves (25) justifies the interchange in (26); unbiasedness is not inferred merely from a formal compensator cancellation.
+Thus the estimator is unbiased. The same absolute convergence that proves (26) justifies the interchange in (27); unbiasedness is not inferred merely from a formal compensator cancellation.
 
-The choice of \(\pi\) does not affect \(L^1\) integrability in (25), although it does affect higher moments and Monte Carlo efficiency.
+The choice of \(\pi\) does not affect \(L^1\) integrability in (26), although it does affect higher moments and Monte Carlo efficiency.
 
 ## Why conditioning on a skeleton is not circular
 
