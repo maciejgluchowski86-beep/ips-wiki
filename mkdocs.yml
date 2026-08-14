@@ -87,6 +87,10 @@ nav:
       - Importance-sampling compensators: entries/importance-sampling-compensators.md
       - Gaussian integration by parts and automatic differentiation: entries/gaussian-integration-by-parts-and-automatic-differentiation.md
       - Hermite polynomials and Gaussian chaos: entries/hermite-polynomials-and-gaussian-chaos.md
+      - Holder cancellation for heat-semigroup derivatives: entries/holder-cancellation-for-heat-semigroup-derivatives.md
+      - Parabolic Holder spaces: entries/parabolic-holder-spaces.md
+      - Random fields in function spaces: entries/random-fields-in-function-spaces.md
+      - Besov spaces on the torus: entries/besov-spaces-on-the-torus.md
       - Spatial jets, total derivatives, and Faa di Bruno: entries/spatial-jets-total-derivative-and-faa-di-bruno.md
       - Viscosity solutions: entries/viscosity-solutions.md
       - Tonelli, Markov, and Borel-Cantelli: entries/tonelli-markov-and-borel-cantelli.md
