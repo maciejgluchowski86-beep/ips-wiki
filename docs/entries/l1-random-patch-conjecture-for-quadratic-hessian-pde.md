@@ -13,11 +13,11 @@ tags:
 
 # L1 random-patch conjecture for the quadratic Hessian PDE
 
-The quadratic Hessian route now has three proved layers below the full random-patch problem. Finite Duhamel trees regroup exactly into patches; the deterministic semi-implicit iteration converges in a small uniformly parabolic regime; and, under an explicit Catalan smallness condition, [Theorem C-prime](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md) gives an unbiased \(L^1\) estimator after **all continuous randomness inside each decorated skeleton has been averaged out**.
+The quadratic Hessian route has several proved layers below the full random-patch problem. Finite Duhamel trees regroup exactly into patches; the deterministic semi-implicit iteration converges in a small uniformly parabolic regime; and, under an explicit Catalan smallness condition, [Theorem C-prime](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md) gives an unbiased \(L^1\) estimator after **all continuous randomness inside each decorated skeleton has been averaged out**.
 
 The conjecture on this page is stronger. It asks whether one can retain the genuinely random Gaussian/Hermite and descendant marks inside the patches and still obtain an \(L^1\) unbiased estimator. That remains open.
 
-The analytic obstruction has therefore narrowed again. Deterministic Holder cancellation is sufficient after interior averaging, but direct pathwise Holder control of a raw centered Hessian edge fails. C-prime shows that the interior-average part can be summed absolutely. The remaining obstruction is the raw fluctuation around that interior average. The full fork is summarized in the [PDE branching-representations overview](../pde-branching-representations.md).
+The analytic obstruction has narrowed substantially. Deterministic Holder cancellation is sufficient after interior averaging, but direct pathwise Holder control of a raw centered Hessian edge fails. A fixed same-regularity Besov norm also fails. The new [Banach-scale obstruction](banach-scale-obstruction-for-raw-pde-patches.md) shows that simply descending through Hölder exponents does not repair the problem either: spending a regularity increment \(\delta\) costs sharply \(1/\delta\) at one edge, and any fixed total loss budget \(\Delta\) produces at least \((c n/\Delta)^n\) in a stepwise first-moment argument after \(n\) generations. C-prime shows that the interior-average part can nevertheless be summed absolutely. The remaining obstruction is the raw fluctuation around that interior average. The full fork is summarized in the [PDE branching-representations overview](../pde-branching-representations.md).
 
 **References.** Deterministic cancellation is developed in [Holder cancellation for heat-semigroup derivatives](holder-cancellation-for-heat-semigroup-derivatives.md) and [Parabolic Holder bound for the Hessian Duhamel operator](parabolic-holder-bound-for-hessian-duhamel-operator.md). Conditional means and fluctuations are defined in [Conditional expectation and fluctuations of random fields](conditional-expectation-and-fluctuations-of-random-fields.md). Fixed Holder and Besov norms are reviewed in [Parabolic Holder spaces](parabolic-holder-spaces.md) and [Besov spaces on the torus](besov-spaces-on-the-torus.md).
 
@@ -245,9 +245,58 @@ $$
 
 the \(C^\alpha\) norm stays of order one while the expected pathwise seminorm in (13) is of order \(r^{-1}\) on a Gaussian event of fixed positive probability. Hence no uniform \(r^{\alpha/2}\) gain holds in the operator norm of the raw edge on \(C^\alpha\).
 
-Lowering the regularity exponent gives a translation gain but loses regularity at every edge. Iterating that estimate therefore creates a descending regularity ladder rather than a fixed function space.
+The same high-frequency mechanism rules out a fixed same-regularity Besov repair. On a fixed Besov space \(B^s_{p,q}\), the translation difference \(f(\cdot+h)-f\) is not uniformly small on the unit ball as \(h\to0\): a frequency packet at scale \(|h|^{-1}\) keeps the operator norm bounded below. Thus neither a fixed Holder space nor a fixed same-regularity Besov space closes the raw edge recursion.
 
-The same high-frequency mechanism rules out a fixed same-regularity Besov repair. On a fixed Besov space \(B^s_{p,q}\), the translation difference \(f(\cdot+h)-f\) is not uniformly small on the unit ball as \(h\to0\): a frequency packet at scale \(|h|^{-1}\) keeps the operator norm bounded below. Passing from \(B^s_{p,q}\) to a lower exponent can recover a power of \(|h|\), but again spends regularity. Thus neither a fixed Holder space nor a fixed same-regularity Besov space closes the raw edge recursion.
+## Decreasing exponents do not repair the stepwise first-moment argument
+
+One might try to spend a small amount of regularity at each generation. Put \(\beta=\alpha-\delta\). The translation estimate
+
+$$
+[\tau_hf-f]_{C^\beta}
+\lesssim
+|h|^\delta[f]_{C^\alpha}
+$$
+
+gives
+
+$$
+\mathbb E
+[\widehat K_r f]_{C^\beta}
+\lesssim
+r^{-1+\delta/2}[f]_{C^\alpha}.
+\tag{14}
+$$
+
+After integration over one edge, this costs order \(1/\delta\). The [Banach-scale obstruction theorem](banach-scale-obstruction-for-raw-pde-patches.md) proves that this cost is sharp. More precisely, if
+
+$$
+\alpha_0>\alpha_1>\cdots>\alpha_n,
+\qquad
+\delta_k=\alpha_{k-1}-\alpha_k,
+\qquad
+\sum_{k=1}^n\delta_k\leq\Delta,
+$$
+
+then any proof that takes a first-moment Hölder norm after every centered edge and bounds each edge uniformly over the current Banach-space unit ball necessarily incurs
+
+$$
+\prod_{k=1}^n\frac{c}{\delta_k}
+\geq
+c^n\left(\frac n\Delta\right)^n.
+\tag{15}
+$$
+
+The uniform budget \(\delta_k=\Delta/n\) minimizes this product; a geometric or other nonuniform budget is worse. Preserving the chronological time simplex does not restore an \(n!\) gain: the corresponding Dirichlet integral contains \(\prod_k\Gamma(\delta_k/2)\), which has the same \(\prod_k\delta_k^{-1}\) singularity.
+
+Thus the bare Nash--Moser-style idea of repairing the fluctuation problem only by descending through a fixed total Hölder regularity budget fails. This statement is deliberately scoped. The theorem does **not** exclude every genuine Nash--Moser smoothing scheme: a smoothing/telescoping construction that retains frequency information and compensates smoothing errors is outside the stepwise uniform first-moment architecture.
+
+The lower bound also does not imply divergence of the raw estimator. The one-edge test that saturates the \(1/\delta\) cost uses frequency
+
+$$
+N\asymp e^{c/\delta}.
+$$
+
+Under the optimal depth-\(n\) budget \(\delta\asymp\Delta/n\), the saturating frequency therefore grows like \(e^{cn/\Delta}\). The test datum changes with the generation/depth. No fixed smooth terminal datum is shown to realize these worst-case operator norms at all depths, so (15) is a barrier to a proof architecture, not a counterexample to conjecture C.
 
 ## What C-prime settles
 
@@ -269,13 +318,17 @@ H
 R_S,
 \qquad
 \mathbb E[R_S\mid S]=0.
-\tag{14}
+\tag{16}
 $$
 
 C-prime controls the first term after passing to the interior-averaged limit. Conjecture C asks for the full raw functional, so it still requires control of the centered fluctuation \(R_S\).
 
-The current obstruction is precise: the \(L^1\) amplitude of the fluctuation cannot be propagated through the next Hessian edge by putting the raw field in one fixed Holder space, and the same high-frequency translation mechanism defeats a fixed same-regularity Besov norm. The fluctuation is centered, but absolute values erase that cancellation before the next edge can use it.
+The current negative information is now layered:
 
-A proof of C must therefore exploit additional structure beyond a fixed pathwise regularity norm: for example a multiscale conditional cancellation, a martingale or square-function structure, a norm that records both scale and genealogy, or another way of postponing absolute values across several random edges. None of these is currently proved.
+- a fixed pathwise Holder norm fails at one centered Hessian edge;
+- a fixed same-regularity Besov norm has the same high-frequency translation obstruction;
+- lowering the Hölder exponent at every edge with any fixed total regularity budget gives the sharp supergeometric barrier \((c n/\Delta)^n\) for every stepwise first-moment Banach-scale argument.
+
+These results do not show that \(R_S\) itself has infinite absolute expectation for a fixed smooth datum. They show instead that a successful proof must preserve more structure before taking absolute values. Candidate escape mechanisms include retaining frequency together with genealogy, using a multiscale martingale or square-function structure, or allowing cancellation across several centered Gaussian/Hermite marks before taking a first-moment norm. None of these routes is currently proved.
 
 The conjecture remains open. C-prime gives an \(L^1\) unbiased estimator only after the interior patch fluctuations have been averaged away.
