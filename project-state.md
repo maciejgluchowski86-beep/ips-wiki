@@ -8,25 +8,13 @@ This file is the compact mutable state for the autonomous PDE/probability resear
 
 ## Active programme
 
-**General-domain Dirichlet strong-KPP uniqueness: critical-end ratio test.**
+**Supercritical dissipative SQG critical-endpoint dissipation-time/multi-shell cancellation.**
 
-The two-published-source open-problem gate is confirmed for general-domain Dirichlet strong-KPP uniqueness of positive bounded solutions in the published regularity framework. For programme selection, the difference-quotient/spectral-gap cancellation route is refuted: the local strong-KPP sign is already used, and at a critical end the spectral margin can vanish as the relevant limit approaches the linearization at zero. The unresolved obstruction is comparison of positive solutions when both vanish along a critical end.
-
-The sole surviving SEARCH target is the following. For a critical connected limit with a simple isolated principal mode and
-
-$$
-f(s)=as-Bs^2+O(s^3),
-$$
-
-derive the projected quadratic amplitude equation with a quantitative perturbation error and determine whether it yields either a scale-uniform bound or an asymptotic constant for the ratio $u/v$.
-
-**Pre-committed failure condition.** If this mechanism fails already in the restricted simple-mode class, or yields only a local constant/kernel improvement without global ratio control, terminate Strong-KPP rather than moving it to reserve.
+The candidate bridge is the Dong--Pavlović $L_t^\infty C^{1-\gamma}$ endpoint. The pointwise Riesz input-exchange pairing is refuted as a source of a vanishing high-frequency coefficient: fixed-shape near-diagonal low-high/high-low triads survive uniformly over dyadic scale. The live SEARCH question is whether integrating dissipation in time and/or grouping multiple neighboring shells before absolute values yields a scale-summable gain at the $L_t^\infty C^{1-\gamma}$ endpoint. SQG has not yet passed its replacement local-mechanism test.
 
 ## Reserve programme
 
-**Supercritical dissipative SQG critical-endpoint time/multi-shell cancellation.**
-
-The candidate bridge is the Dong--Pavlović $L_t^\infty C^{1-\gamma}$ endpoint. The natural pointwise Riesz input-exchange pairing is refuted as a source of a vanishing high-frequency coefficient: fixed-shape near-diagonal low-high/high-low triads survive uniformly over dyadic scale. Genuine dissipation-time or multi-shell averaging is a distinct mechanism and remains open.
+**None.**
 
 ## Verified results
 
@@ -43,7 +31,19 @@ The classical local heat/Hermite cancellation remains reusable background mechan
 
 ## Unresolved and closure
 
-The Strong-KPP literature gate is closed. The live Strong-KPP gap is now the critical-end ratio/comparability problem above.
+Strong-KPP is terminated under the pre-registered gate.
+
+Exact critical-cylinder quadratic amplitude selection works but does not extend through qualitative connected-limit perturbations because the projected detuning term requires control comparable to
+
+$$
+|\lambda_1-a|=o(A),
+$$
+
+which the framework does not supply.
+
+Fixed-scale estimates linearize at vanishing critical ends and cannot determine relative solution amplitudes; nonlinear selection occurs on diverging scales $A^{-1/2}$.
+
+SQG is now the sole active programme.
 
 The quadratic-Hessian programme remains terminated; only the two audited observations above and previously audited programme-neutral material remain live from that programme. The Fresnel programme remains terminated as classical/low-payoff. The Navier--Stokes stochastic-cascade route is closed as a current programme and has been removed from reserve.
 
@@ -53,7 +53,7 @@ The IPS freeze is removed. Project-specific IPS wiki material duplicated or supe
 
 §0 items 1--2 pass. The current PDE-reader frontier remains **§0 item 3: linear, semilinear, quasilinear, and fully nonlinear equations**.
 
-The item-3 entry is integrated and linked from `docs/pde-reading-path.md`. Legacy migration remains incomplete. This sweep deletes eight FA-1f/BABP specialization pages for monomial duality, patch contributions, patch positivity, and patch critical density; rewrites the BABP out-of-equilibrium page as literature only; and repairs the FA-1f and BABP model pages. Remaining legacy IPS migration is incomplete, with the FA chronology/regeneration subtree still unaudited.
+The item-3 entry is integrated and linked from `docs/pde-reading-path.md`. The fifth sweep deleted 13 deprecated FA research/scaffold entries, rewrote `front-growth-and-vacancy-density-for-fa-1f.md` as literature, removed the chronology route from public navigation/reference pages, and legacy migration remains incomplete. The next migration priority is legacy PDE `status: proved here`.
 
 ## Dead ends
 
@@ -66,15 +66,15 @@ Keep this section sparse; record only failures expensive enough that forgetting 
 - For SQG, pointwise Riesz input exchange improves deep high-high $\to$ low interactions but cannot produce a vanishing shell coefficient because fixed-shape near-diagonal low-high/high-low interactions retain ratio arbitrarily close to one uniformly over scale.
 - For Navier--Stokes cascades, the published factor-$1/2$ nodewise symmetrization improves amplitude majorants but leaves the cascade law and explosion event unchanged. That route is no longer active or reserve.
 - For Strong-KPP, the difference-quotient/spectral-gap cancellation route has zero margin at critical ends and is refuted as the required bridge.
-- For Strong-KPP, local-cancellation-only or bounded-scale kernel improvements are dead ends unless they produce global ratio control on critical ends.
+- For Strong-KPP, critical-mode projection is not stable enough under connected-limit detuning: $\delta A$ dominates $\kappa A^2$ whenever $A\ll|\delta|$, while bounded windows lose the nonlinear amplitude-selection term.
 
 ## Next cycle
 
 Run at most two fresh read-only workers concurrently.
 
-1. **Strong-KPP critical-mode asymptotics worker.** Derive or refute the stable projected quadratic amplitude law and a quantitative $u/v$ consequence on the restricted simple-critical-mode class.
-2. **Strong-KPP global-bridge adversary.** Test whether the strongest such estimate actually restores finite global comparison/sliding on critical ends; actively seek counterexamples.
+1. **SQG dissipation-time/multi-shell cancellation worker.** Starting from the near-diagonal low-high/high-low interactions that defeated pointwise Riesz input exchange, perform the smallest explicit Duhamel/time-integrated and adjacent-shell grouping calculation at the supercritical $C^{1-\gamma}$ endpoint. Determine whether cancellation before absolute values yields a coefficient that actually decays or is summable in scale. Exhibit the load-bearing dyadic/time integrals explicitly.
+2. **SQG endpoint global-bridge adversary.** Independently derive the quantitative shell/time summability needed to close the published endpoint criterion, test the strongest plausible multi-shell estimate against near-diagonal adversarial configurations, and check adjacent commutator/paraproduct literature for an existing equivalent mechanism.
 
-After either finishes, use the freed slot for a **Wiki Curator fifth sweep** treating the remaining FA chronology/regeneration subtree as a dependency graph.
+After either finishes, the freed slot may start a **Wiki Curator sixth sweep**, beginning with legacy PDE `status: proved here` pages. Never exceed two concurrent workers.
 
-No DEVELOP transition is automatic. The next Director decides: if the ratio bridge survives, consider DEVELOP; if the restricted-class mechanism fails or is nonresponsive, terminate Strong-KPP and promote SQG. Claude has no mathematical authority.
+No DEVELOP transition is automatic. SQG remains at SEARCH until a replacement local mechanism survives the gate. Claude has no mathematical authority.
