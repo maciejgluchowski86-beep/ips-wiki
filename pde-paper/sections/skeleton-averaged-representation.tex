@@ -1,0 +1,86 @@
+\section{Skeleton-averaged representation}
+\label{sec:cprime}
+
+We now average all continuous variables inside a finite decorated skeleton before taking absolute values. This produces a countable signed series whose absolute convergence can be checked directly in the parabolic H\"older space.
+
+Let
+\begin{equation*}
+  M=\norm L_X,
+  \qquad
+  a=\abs\lambda C_{\cD}(\alpha,T)M.
+\end{equation*}
+For $\tau\in\cT$, define $F_\tau$ by~\eqref{eq:tree-profile-recursion}. If $\cT_n$ denotes the trees with $n$ internal vertices, then
+\begin{equation*}
+  \abs{\cT_n}
+  =
+  C_n
+  =
+  \frac1{n+1}\binom{2n}{n}.
+\end{equation*}
+The bilinear bound~\eqref{eq:D-bilinear-bound} gives
+\begin{equation}
+  \norm{F_\tau}_X
+  \leq
+  Ma^n,
+  \qquad \tau\in\cT_n.
+  \label{eq:Cprime-tree-bound}
+\end{equation}
+
+\begin{theorem}[Skeleton-averaged $L^1$ representation, Theorem C-prime]
+\label{thm:cprime}
+Fix $0<\alpha<1$, $T>0$, $\lambda\in\R$, and $\phi\in C^{2+\alpha}(\Torus)$. Assume
+\begin{equation}
+  4\abs\lambda C_{\cD}(\alpha,T)
+  \norm{P_\cdot\phi''}_{X_{\alpha,T}}
+  <1.
+  \label{eq:Cprime-smallness}
+\end{equation}
+Then
+\begin{equation}
+  z_*
+  =
+  \sum_{\tau\in\cT}F_\tau
+  \label{eq:Cprime-series}
+\end{equation}
+converges absolutely in $X_{\alpha,T}$ and satisfies
+\begin{equation*}
+  z_*
+  =
+  P_\cdot\phi''
+  +\lambda\cD(z_*^2).
+\end{equation*}
+The sum is the unique solution in the corresponding Catalan fixed-point ball.
+
+Let $\pi$ be any probability mass function on $\cT$ with $\pi(\tau)>0$ for every finite tree. If $S\sim\pi$ and
+\begin{equation}
+  \widehat z(t,x)
+  =
+  \frac{F_S(t,x)}{\pi(S)},
+  \label{eq:Cprime-estimator}
+\end{equation}
+then
+\begin{equation*}
+  \E\abs{\widehat z(t,x)}<\infty,
+  \qquad
+  \E[\widehat z(t,x)]=z_*(t,x)
+\end{equation*}
+for every $(t,x)\in[0,T]\times\Torus$.
+\end{theorem}
+
+A data-only sufficient condition follows from the heat-lift estimate
+\begin{equation*}
+  \norm{P_\cdot\phi''}_X
+  \leq
+  (1+\E\abs Z^\alpha)\norm{\phi''}_{C^\alpha}.
+\end{equation*}
+
+The theorem is not defined by conditioning an unresolved infinite raw patch functional. Each $F_\tau$ is first defined by the deterministic Duhamel recursion. At finite cutoff it can be recovered by averaging the continuous proposal variables inside the fixed skeleton, but the infinite theorem starts from the absolutely summable deterministic family.
+
+\proofplaceholder{Insert the audited Hessian-Duhamel bound, Catalan majorant, absolute Cauchy-product argument, contraction in the Catalan ball, reconstruction of $v$, and skeleton-only importance sampler. Preserve the point that the same absolute convergence justifies both the nonlinear series identity and unbiasedness.}
+
+\begin{corollary}[Overlap with the deterministic solution]
+\label{cor:Cprime-deterministic-overlap}
+On every regime where both~\eqref{eq:deterministic-smallness} and~\eqref{eq:Cprime-smallness} hold, the solution represented by~\eqref{eq:Cprime-estimator} is the deterministic solution from~\cref{thm:deterministic-iteration}.
+\end{corollary}
+
+\proofplaceholder{Insert the small-class uniqueness identification.}
