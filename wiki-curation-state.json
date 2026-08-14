@@ -2,12 +2,13 @@
   "schema_version": 1,
   "legacy_migration_complete": false,
   "integrations_since_last_sweep": 0,
-  "entries_at_last_sweep": 122,
-  "last_sweep_commit": "cf4ada90a07d2a9bc5f84f05149c285d51948239",
+  "entries_at_last_sweep": 117,
+  "last_sweep_commit": "ae77c455879e62839576cc47c6e8fa00d8c954b1",
   "priority_order": [
-    "legacy entries with status proved here",
+    "superseded or deprecated IPS project-specific entries, especially legacy status proved here",
+    "legacy PDE entries with status proved here",
     "entries on the PDE reading path",
     "recently changed PDE entries",
-    "duplicate, obsolete, scaffolding, or programme-specific entries from terminated work"
+    "other duplicate, obsolete, scaffolding, or terminated-programme entries"
   ]
 }
