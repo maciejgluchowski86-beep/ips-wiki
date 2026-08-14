@@ -43,7 +43,103 @@ then, for every $t<T$ and $x\in\R$,
 The conclusion does not require a uniform lower bound on the lifetime density or on the mechanism-selection probabilities.
 \end{theorem}
 
-\proofplaceholder{Insert the audited repeated-Hessian proof. The proof must retain the exact-count disjoint genealogies, compensator cancellation, Brownian confinement, heat-kernel positivity, and the ordered-simplex factor $(T-t)^m/(2^m m!)$.}
+\begin{proof}
+Fix $t<T$ and $x\in\R$, and write $h=T-t$. Put
+\begin{equation*}
+  g_0=g,
+  \qquad
+  g_r
+  =
+  \pa{-\frac12}^r\partial_{z_j}^{2r}g,
+  \qquad r\geq1.
+\end{equation*}
+For every $r\geq1$, the NPP mechanism set of the composite code $g_{r-1}^*$ contains the Hessian branch
+\begin{equation}
+  \pa{
+    g_r^*,
+    \partial_x^{j+1},
+    \partial_x^{j+1}
+  }.
+  \label{eq:NPP-repeated-Hessian-tuple}
+\end{equation}
+Thus this branch may be repeated indefinitely along its first child.
+
+For $m\geq1$, let $E_m$ be the event on which the distinguished composite lineage has exactly $m$ branchings before $t+h/2$, every branching uses~\eqref{eq:NPP-repeated-Hessian-tuple}, all $2m$ side children survive to $T$, and the distinguished child created at the $m$-th branching also survives to $T$. If the distinguished branch times are $s_1<\cdots<s_m$, then
+\begin{equation*}
+  t<s_1<\cdots<s_m<t+h/2,
+\end{equation*}
+and the time simplex has volume $(h/2)^m/m!$. The events $E_m$ are pairwise disjoint because the distinguished lineage has exactly $m$ internal vertices on $E_m$.
+
+Restrict the absolute expectation to one such genealogy. At the $r$-th distinguished branching the lifetime density contributes
+\begin{equation*}
+  \rho(s_r-s_{r-1})\,ds_r,
+  \qquad s_0=t,
+\end{equation*}
+and selection of the prescribed mechanism contributes a positive probability $q_r$. These factors cancel the reciprocal factor
+\begin{equation*}
+  \frac1{q_r\rho(s_r-s_{r-1})}
+\end{equation*}
+in the multiplicative functional. Likewise, each terminal survival probability cancels the corresponding reciprocal survival factor. After this cancellation, the branch times are integrated against ordinary Lebesgue measure on the simplex. This is why no uniform lower bound on the proposal probabilities enters the estimate.
+
+The terminal composite code on $E_m$ is $g_m^*$, so its absolute terminal value contributes
+\begin{equation}
+  2^{-m}
+  \abs{\partial_{z_j}^{2m}g(J_n\phi(Y))}.
+  \label{eq:NPP-terminal-composite}
+\end{equation}
+Choose $R>0$ and put $K=[x-R,x+R]$. Conditional on the distinguished branch times, the Brownian increments along the distinguished lineage concatenate to one Brownian path. Hence
+\begin{equation*}
+  \alpha_0
+  =
+  \Pp\pa{
+    \sup_{0\leq r\leq h/2}\abs{B_r}\leq R
+  }
+  >0
+\end{equation*}
+provides, uniformly in $m$ and in the branch times, a lower bound for the event that every distinguished branching position lies in $K$.
+
+Write $\psi=\phi^{(j+1)}$. Since $\psi$ is continuous and nonzero, strict positivity of the heat kernel and compactness give
+\begin{equation*}
+  \beta
+  =
+  \inf_{\substack{z\in K\\r\in[h/2,h]}}
+  P_r\abs\psi(z)
+  >0.
+\end{equation*}
+For the bounded set $B$, the Gaussian heat kernel also gives
+\begin{equation*}
+  \kappa_B
+  =
+  \inf_{\substack{z\in K,\ y\in B\\r\in[h/2,h]}}
+  p_r(y-z)
+  >0.
+\end{equation*}
+Conditioning on the distinguished branch times and positions leaves the side Brownian motions independent. On the confinement event, every side child therefore contributes at least $\beta$ after taking its absolute terminal expectation, while the final distinguished child contributes at least
+\begin{equation*}
+  2^{-m}\kappa_BD_m(B;g,j).
+\end{equation*}
+Combining these estimates with the simplex volume yields
+\begin{equation}
+  \E\br{
+    \abs{H(\mathcal T_{t,x,g^*})}\ind_{E_m}
+  }
+  \geq
+  \alpha_0\kappa_B
+  \pa{\frac{h\beta^2}{4}}^m
+  \frac{D_m(B;g,j)}{m!}.
+  \label{eq:NPP-quantitative-lower}
+\end{equation}
+Since the $E_m$ are disjoint,
+\begin{equation*}
+  \E\abs{H(\mathcal T_{t,x,g^*})}
+  \geq
+  \sum_{m\geq1}
+  \E\br{
+    \abs{H(\mathcal T_{t,x,g^*})}\ind_{E_m}
+  }.
+\end{equation*}
+Under~\eqref{eq:repeated-hessian-condition}, the terms on the right-hand side of~\eqref{eq:NPP-quantitative-lower} fail to tend to zero along a subsequence. The series diverges.
+\end{proof}
 
 The same restricted genealogy gives a necessary derivative bound when the tree is integrable.
 
@@ -64,7 +160,24 @@ Then there is $A<\infty$ such that, for every bounded measurable $B\subseteq\R$,
 The exponential base $A$ is independent of $B$.
 \end{proposition}
 
-\proofplaceholder{Insert the rearrangement of the quantitative lower bound from the repeated-Hessian proof.}
+\begin{proof}
+Let
+\begin{equation*}
+  M_0
+  =
+  \E\abs{H(\mathcal T_{t,x,g^*})}
+  <\infty.
+\end{equation*}
+The proof of~\cref{thm:repeated-hessian} gives~\eqref{eq:NPP-quantitative-lower} for every $m$. Rearranging gives
+\begin{equation*}
+  D_m(B;g,j)
+  \leq
+  \frac{M_0}{\alpha_0\kappa_B}
+  \pa{\frac4{h\beta^2}}^m
+  m!.
+\end{equation*}
+Thus one may take $A=4/(h\beta^2)$, independent of $B$, and $C_B=M_0/(\alpha_0\kappa_B)$.
+\end{proof}
 
 \begin{theorem}[Gevrey-$1/2$ necessity]
 \label{thm:gevrey-necessity}
@@ -100,4 +213,57 @@ converges for every $w\in\C$. Moreover, for almost every $y$, there are $C_y',B_
 Thus the formal directional series has entire order at most $2$. Under the stated $C^\infty$ assumptions this is a statement about the formal jet; identifying the series with the original directional germ requires an additional analyticity assumption.
 \end{theorem}
 
-\proofplaceholder{Insert the audited Markov/Borel--Cantelli argument which turns~\eqref{eq:integrated-derivative-bound} into almost-everywhere even derivative bounds, then apply the same argument to $(\partial_{z_j}f)^*$ for the odd derivatives and sum the resulting Taylor series.}
+\begin{proof}
+We first record the pointwise consequence of~\cref{prop:integrated-derivative-bound}. Fix a bounded set $B$. From~\eqref{eq:integrated-derivative-bound} and Markov's inequality,
+\begin{equation*}
+  \abs{\set{
+    y\in B:
+    \abs{\partial_{z_j}^{2m}g(J_n\phi(y))}
+    >C_B(2A)^m m!
+  }}
+  \leq
+  2^{-m}.
+\end{equation*}
+The right-hand side is summable. Borel--Cantelli therefore implies that, for almost every $y\in B$, the inequality
+\begin{equation*}
+  \abs{\partial_{z_j}^{2m}g(J_n\phi(y))}
+  \leq
+  C_B(2A)^m m!
+\end{equation*}
+holds for all sufficiently large $m$. Enlarging a point-dependent constant absorbs the finitely many remaining values. Applying the argument to $[-N,N]$, $N\geq1$, gives for almost every $y\in\R$ constants $C_y,A_y<\infty$ such that
+\begin{equation}
+  \abs{\partial_{z_j}^{2m}g(J_n\phi(y))}
+  \leq
+  C_yA_y^{2m}m!,
+  \qquad m\geq0.
+  \label{eq:pointwise-even-Gevrey}
+\end{equation}
+
+Apply~\eqref{eq:pointwise-even-Gevrey} first with $g=f$ and then with $g=\partial_{z_j}f$. The first application controls the even directional derivatives, and the second controls the odd derivatives because
+\begin{equation*}
+  \partial_{z_j}^{2m}(\partial_{z_j}f)
+  =
+  \partial_{z_j}^{2m+1}f.
+\end{equation*}
+Intersecting the two full-measure sets and enlarging the constants gives~\eqref{eq:gevrey-half}: for $r=2m$ the Gamma factor is $m!$, while for $r=2m+1$ the factorial bound is absorbed into a constant multiple of $\Gamma(m+3/2)$.
+
+Up to another change of the exponential constant,~\eqref{eq:gevrey-half} implies
+\begin{equation*}
+  \abs{\partial_{z_j}^r f(J_n\phi(y))}
+  \leq
+  \widetilde C_y\widetilde A_y^r\sqrt{r!}.
+\end{equation*}
+Hence the Taylor coefficients are bounded by
+\begin{equation*}
+  \frac{\widetilde C_y\widetilde A_y^r}{\sqrt{r!}}.
+\end{equation*}
+The resulting series has infinite radius of convergence. The standard estimate
+\begin{equation*}
+  \sum_{r\geq0}\frac{s^r}{\sqrt{r!}}
+  \leq
+  C\exp(Cs^2)
+\end{equation*}
+then gives~\eqref{eq:gaussian-entire-growth}.
+
+The conclusion concerns the formal directional series. A smooth one-variable germ need not equal its Taylor series; an actual entire extension of the directional germ therefore requires a separate analyticity assumption.
+\end{proof}
