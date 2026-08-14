@@ -124,6 +124,7 @@ Each entry should label its status in front matter as one of:
 - `standard fact`
 - `proved here`
 - `observation`
+- `literature`
 - `conditional`
 - `heuristic`
 - `open`
