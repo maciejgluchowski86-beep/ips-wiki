@@ -12,16 +12,14 @@ tags:
 
 # Joint centered-mark dichotomy for raw PDE patches
 
-A centered Hessian edge is too singular to propagate a pathwise Hölder norm at fixed regularity, and a stepwise decreasing Hölder scale pays the sharp Banach-scale cost recorded in the [Banach-scale obstruction](banach-scale-obstruction-for-raw-pde-patches.md). One can avoid that *stepwise* architecture by composing several centered marks first and taking the first absolute moment only after the whole block has been formed.
+A centered Hessian edge is too singular to propagate a pathwise Hölder norm at fixed regularity, and a stepwise decreasing Hölder scale pays the sharp cost recorded in the [Banach-scale obstruction](banach-scale-obstruction-for-raw-pde-patches.md). One can avoid that *stepwise* architecture by composing several centered marks first and taking the first absolute moment only after the whole block has been formed.
 
 That modification gives a real gain already for two marks, but at arbitrary block length it leads to a new dichotomy.
 
-- If all Gaussian marks in the block are retained as random variables until the final absolute value, the derivative-loss ladder disappears but the optimal uniform block norm grows factorially, of order \(C^m m!\).
+- If all Gaussian marks in the block are retained as separate random variables until the final absolute value, the derivative-loss ladder disappears but the optimal uniform block norm grows factorially, of order \(C^m m!\).
 - If the internal Gaussian bridge marks are signedly averaged before the absolute value, a bare \(m\)-edge derivative chain collapses to one \(He_{2m}\) endpoint weight. The time-simplex factor then reduces the coefficient to geometric growth. For spatially varying patches, the corresponding geometric bound is supplied by the commutator/cluster estimate in [Hölder cancellation for heat-semigroup derivatives](holder-cancellation-for-heat-semigroup-derivatives.md).
 
-The second branch is a *partially averaged estimator*. It no longer retains all continuous interior marks and therefore does not prove the literal [raw random-patch conjecture](l1-random-patch-conjecture-for-quadratic-hessian-pde.md).
-
-The estimates below are proved here. They are statements about uniform block norms and exact Gaussian conditioning identities. They do **not** prove that the raw infinite-depth estimator diverges for one fixed smooth terminal datum.
+These estimates are proved here. They are uniform block-norm statements and exact Gaussian conditioning identities. By themselves they do **not** prove nonintegrability for one fixed smooth datum: the lower-bound frequency depends on the block length. The later [raw-barycenter obstruction](raw-marked-l1-obstruction-for-quadratic-hessian-pde.md) closes that fixed-datum gap for the raw-faithful class, and the [residual signed variation characterization](residual-signed-variation-characterization-for-coarsened-patches.md) explains the two branches below as different retained sigma-fields.
 
 ## Setup
 
@@ -179,7 +177,7 @@ It does not contradict the Banach-scale obstruction. That theorem assumes that a
 
 ## Retaining all marks: factorial block norm
 
-Define the uniform retained-mark block constant
+Define
 
 $$
 \mathfrak R_m(\alpha,T)
@@ -199,14 +197,16 @@ $$
 
 ### Theorem
 
-There are constants \(0<c_{\alpha,T}\leq C_{\alpha,T}<\infty\) such that for every \(m\geq1\),
+There are constants \(0<c_{\alpha,T}\leq C_{\alpha,T}<\infty\) such that, for every \(m\geq1\),
 
 $$
+\boxed{
 c_{\alpha,T}^m m!
 \leq
 \mathfrak R_m(\alpha,T)
 \leq
 C_{\alpha,T}^m m!.
+}
 \tag{10}
 $$
 
@@ -282,7 +282,7 @@ C_{\alpha,T}^m m!,
 \tag{14}
 $$
 
-after enlarging the constant and using \(m^m\leq e^m m!\) up to a harmless universal Stirling factor.
+after enlarging the constant and using Stirling's formula.
 
 ### Lower bound
 
@@ -293,7 +293,7 @@ f_N(x)=N^{-\alpha}\cos(Nx).
 \tag{15}
 $$
 
-Then \([f_N]_{C^\alpha}\asymp1\), uniformly in \(N\). Moreover,
+Then \([f_N]_{C^\alpha}\asymp1\), uniformly in \(N\), and
 
 $$
 \left\|
@@ -325,9 +325,9 @@ G(q)\geq c_G,
 \tag{18}
 $$
 
-The proof is the same compactness/Riemann--Lebesgue argument used for the one-edge lower bound: \(G\) is continuous and strictly positive on compact subsets of \((0,\infty)\), while for large \(q\) the oscillatory term cannot cancel the strictly positive \(L^1\) mass of \(|He_2|\) under Gaussian measure.
+Indeed, \(G\) is continuous and strictly positive on compact subsets of \((0,\infty)\). For large \(q\), the Riemann--Lebesgue lemma applied to the oscillatory part prevents cancellation of the strictly positive \(L^1\) mass of \(|He_2|\).
 
-For fixed \(\mathbf r\), equations (2) and (16) therefore give
+For fixed \(\mathbf r\),
 
 $$
 \mathbb E
@@ -341,7 +341,7 @@ N^{-\alpha}
 \tag{19}
 $$
 
-Restrict the duration integral to
+Restrict to
 
 $$
 1\leq q_j=N\sqrt{r_j}\leq Q,
@@ -349,7 +349,7 @@ $$
 Q=N\sqrt{\frac{T}{2m}}.
 $$
 
-This box lies inside \(\Sigma_m(T)\). Since \(dr_j/r_j=2dq_j/q_j\), equations (18)--(19) yield
+This box lies inside \(\Sigma_m(T)\). Since \(dr_j/r_j=2dq_j/q_j\),
 
 $$
 \int_{\Sigma_m(T)}
@@ -364,47 +364,28 @@ N^{-\alpha}
 \tag{20}
 $$
 
-Choose \(N\) of order
+Choose
 
 $$
 N
 \asymp
-\sqrt{\frac{m}{T}}\,
- e^{m/\alpha}.
+\sqrt{\frac{m}{T}}e^{m/\alpha}.
 \tag{21}
 $$
 
-Then \(\log Q\asymp m/\alpha\) and
+Then the right side of (20) is at least a constant times
 
 $$
-N^{-\alpha}
-\asymp
-T^{\alpha/2}m^{-\alpha/2}e^{-m}.
-$$
-
-Thus the right side of (20) is bounded below by
-
-$$
- c_{\alpha,T}^m
+c_{\alpha,T}^m
 m^{-\alpha/2}
-\left(\frac{m}{e}\right)^m.
+\left(\frac{m}{e}\right)^m,
 $$
 
-Stirling's formula and absorption of the remaining polynomial factor into the exponential constant give
+and Stirling's formula gives the lower half of (10) after absorbing the polynomial factor into the exponential constant.
 
-$$
-\mathfrak R_m(\alpha,T)
-\geq
-c_{\alpha,T}^m m!,
-$$
-
-proving the lower half of (10).
-
-The optimizing frequency in (21) depends on \(m\). This point is important later.
+The optimizing frequency in (21) depends on \(m\). Thus theorem (10) is a sharp uniform operator obstruction, not yet a fixed-datum nonintegrability theorem.
 
 ## Signed averaging of Gaussian bridge marks
-
-The factorial in (10) comes from retaining the \(m\) Gaussian marks separately until the absolute value is taken. There is an exact signed collapse if the internal Gaussian bridge variables are integrated first.
 
 Let
 
@@ -415,17 +396,18 @@ Y
 \qquad
 R=\sum_{j=1}^m r_j,
 \qquad
-Z=\frac{Y}{\sqrt R}.
+Z=Y/\sqrt R.
 \tag{22}
 $$
 
-Then \(Z\sim N(0,1)\). The variable \(Y\) is the total Brownian displacement; the remaining \(m-1\) Gaussian degrees of freedom are bridge coordinates describing how that displacement is split among the edges.
+Then \(Z\sim N(0,1)\). The variable \(Y\) is the total Brownian displacement; the remaining \(m-1\) Gaussian degrees of freedom are bridge coordinates.
 
 ### Proposition: bridge-score identity
 
 One has
 
 $$
+\boxed{
 \mathbb E\left[
 \left.
 \prod_{j=1}^m
@@ -434,37 +416,21 @@ $$
 \right]
 =
 \frac{He_{2m}(Z)}{R^m}.
+}
 \tag{23}
 $$
 
-To prove (23), test both sides against a bounded smooth function \(F(Y)\). Repeated Gaussian integration by parts on the left gives
+To prove (23), test both sides against a bounded smooth function \(F(Y)\). Repeated Gaussian integration by parts on the left and the one-Gaussian Hermite formula on the right both give
 
 $$
-\mathbb E\left[
-F(Y)
-\prod_{j=1}^m
-\frac{He_2(Z_j)}{r_j}
-\right]
-=
 \partial_x^{2m}P_RF(x)\big|_{x=0}.
 $$
 
-The one-Gaussian Hermite formula gives the same quantity as
-
-$$
-\mathbb E\left[
-F(\sqrt RZ)
-\frac{He_{2m}(Z)}{R^m}
-\right].
-$$
-
-Since this holds for all such \(F\), the conditional-expectation identity (23) follows.
-
-Equation (23) is a signed Gaussian identity. It is unavailable if one has already replaced the individual score weights by their absolute values.
+Hence the conditional expectations agree.
 
 ## Geometric growth after bridge averaging
 
-For a bare consecutive derivative chain, replace the \(m\) separate Gaussian score marks by the bridge-averaged endpoint score in (23). Because \(\mathbb E He_{2m}(Z)=0\), a Hölder increment gives
+For a bare derivative chain, after bridge averaging one has
 
 $$
 \mathbb E\left[
@@ -490,83 +456,44 @@ C_\alpha\sqrt{(2m)!}.
 \tag{25}
 $$
 
-For fixed total duration \(R\), the simplex of positive \((r_1,\ldots,r_m)\) with sum \(R\) has volume
+For fixed total duration \(R\), the simplex of positive edge durations with sum \(R\) has volume
 
 $$
 \frac{R^{m-1}}{(m-1)!}.
 \tag{26}
 $$
 
-Consequently the time-integrated coefficient is bounded by
+Thus the time-integrated coefficient is at most
 
 $$
-\frac{c_{2m,\alpha}}{(m-1)!}
-\int_0^T R^{-1+\alpha/2}\,dR
-\leq
 C_{\alpha,T}
-\frac{\sqrt{(2m)!}}{(m-1)!}.
+\frac{\sqrt{(2m)!}}{(m-1)!}
+\leq
+C_{\alpha,T}4^m.
 \tag{27}
 $$
 
-Finally,
-
-$$
-\frac{\sqrt{(2m)!}}{(m-1)!}
-=
-m\sqrt{\binom{2m}{m}}
-\leq
-m2^m
-\leq
-4^m,
-\tag{28}
-$$
-
-after enlarging the base of the geometric bound. Thus the factorial retained-mark scale collapses to geometric growth once the bridge marks are signedly averaged before the absolute value.
+The factorial retained-mark scale therefore collapses to geometric growth after signed bridge averaging.
 
 ### Spatially varying side profiles
 
-Identity (23) applies literally to a bare derivative chain. In a full Duhamel patch, multiplication by spatially varying side profiles occurs between Hessian transfers, so the whole patch does not collapse directly to one \(He_{2m}\) weight. This is the same caveat recorded in the [finite patch theorem](finite-depth-duhamel-patch-regrouping.md).
+Identity (23) applies literally to a bare derivative chain. In a full Duhamel patch, multiplication by spatially varying side profiles occurs between Hessian transfers, so the entire patch does not collapse directly to one \(He_{2m}\) weight.
 
-The conclusion nevertheless remains geometric after signed interior averaging under uniform spatial \(C^\alpha\) control of the side profiles. Commuting derivative blocks through the multipliers splits the patch into derivative clusters. A cluster of length \(\ell\) contributes
+The corresponding full-patch estimate remains geometric after deterministic signed interior averaging under uniform spatial \(C^\alpha\) control of the side profiles. Commuting derivative blocks through the multipliers splits the patch into derivative clusters. A cluster of length \(\ell\) contributes
 
 $$
 \frac{c_{2\ell,\alpha}}{(\ell-1)!}
 R^{-1+\alpha/2},
 $$
 
-with coefficient at most geometric in \(\ell\), and the full commutator expansion has at most \(2^m\) terms. This is exactly the deterministic cluster estimate proved in [Hölder cancellation for heat-semigroup derivatives](holder-cancellation-for-heat-semigroup-derivatives.md).
+with geometric coefficient, and the full commutator expansion has at most \(2^m\) terms. See [Hölder cancellation for heat-semigroup derivatives](holder-cancellation-for-heat-semigroup-derivatives.md).
 
-Thus the bare bridge identity explains the mechanism, while the commutator expansion supplies the corresponding full-patch geometric estimate.
+## Final interpretation
 
-## Relation to the Banach-scale obstruction
+The two branches are best read through residual signed variation.
 
-The [Banach-scale theorem](banach-scale-obstruction-for-raw-pde-patches.md) applies to a proof that takes a first-moment Banach norm after every centered edge and propagates one-edge operator bounds down a decreasing scale. The joint block construction does not satisfy that hypothesis. It forms
+**Retain all canonical Gaussian marks.** This keeps a finer sigma-field and the sharp uniform block cost is factorial. The theorem does not by itself give a fixed-datum divergence result because the saturating frequency changes with \(m\). The later lacunary construction packs all needed frequencies into one smooth datum and proves non-\(L^1\) for the raw-faithful class.
 
-$$
-\Delta_{h_m}\cdots\Delta_{h_1}f
-$$
+**Average the internal bridge coordinates.** This passes to a coarser Gaussian sigma-field. On a genuine multi-edge patch, the residual score has geometric growth. Globally, however, naive patchwise bridge coarsening does not solve the quadratic-Hessian problem: the fixed-datum obstruction can be realized on right combs, whose maximal-left patches all have length one, so there is no bridge coordinate to average on those genealogies. See [Time-spine coarsening for quadratic Hessian patches](time-spine-coarsening-for-quadratic-hessian-patches.md).
 
-before taking the first absolute moment, so several centered translations can interact inside the same random variable.
-
-The evasion is therefore mathematical rather than terminological: equation (7) is a finite two-edge same-input-regularity estimate obtained without introducing any intermediate loss parameter. The price appears only when the block length is allowed to grow: theorem (10) gives the replacement obstruction \(C^m m!\).
-
-## Relation to conjecture C
-
-The two branches must be kept distinct.
-
-**Retained marks.** The random block (2) keeps all Gaussian marks. Its sharp uniform first-moment block norm is factorial. This blocks a direct proof that tries to control arbitrary raw length-\(m\) patches by one uniform Hölder-to-first-moment block estimate. It does not prove that the actual raw estimator for a fixed datum is non-\(L^1\), because the lower bound uses the generation-dependent frequency (21).
-
-**Bridge-averaged marks.** Equation (23) integrates out the \(m-1\) internal bridge coordinates before the absolute value. The remaining endpoint Gaussian is still random, but the original continuous interior marks are no longer all retained. This is a Rao--Blackwell-type partial averaging of the raw Gaussian data. It has the favorable geometric scale (27)--(28), but it violates item 3 in the literal statement of conjecture C, which requires the continuous interior Gaussian/Hermite marks to remain random rather than be deterministically integrated out.
-
-Thus the geometric branch is not conjecture C in disguise. It is another partially averaged representation between the fully raw estimator and the completely interior-averaged skeleton estimator of [Theorem C-prime](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md).
-
-## What remains open
-
-The theorem replaces the derivative-loss barrier by a different tradeoff:
-
-- retaining the full Gaussian interior randomness permits joint centered cancellation but leaves factorial uniform block growth;
-- signedly averaging the Gaussian bridge variables recovers geometric growth but gives up part of that interior randomness.
-
-Neither statement is a disproof of conjecture C. The factorial lower bound uses a frequency depending on \(m\), just as the Banach-scale lower bound uses a frequency depending on the regularity loss. To disprove C one would need a lower bound tied to one fixed smooth datum, or another argument showing that the actual raw estimator fails to belong to \(L^1\).
-
-Conversely, a proof of C can no longer be expected from a stepwise Banach-scale estimate or from a uniform all-order retained-mark block norm. It would have to preserve additional structure not seen by those norms: frequency together with genealogy, correlations between different patches, a martingale or square-function mechanism, or cancellation across several centered marks that survives without integrating those marks out.
+The final [residual signed variation theorem](residual-signed-variation-characterization-for-coarsened-patches.md) shows that neither ``Gaussian marks survive'' nor ``Gaussian marks are averaged'' is itself the integrability criterion. The exact invariant is the total variation left after the chosen conditional averaging.
