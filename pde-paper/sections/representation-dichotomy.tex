@@ -3,30 +3,19 @@
 
 The coding-tree obstruction by itself does not distinguish a difficult PDE from a difficult representation. The following benchmark shows that the latter distinction is real.
 
-Fix $\eta\neq0$ and
-\begin{equation*}
-  0<a\leq
-  \frac{\erfc(1/\sqrt2)}{\sqrt3},
-  \qquad
-  \erfc(r)=\frac2{\sqrt\pi}\int_r^\infty e^{-s^2}\,ds.
-\end{equation*}
-Consider
-\begin{equation}
-  \partial_tu+\frac12u_{xx}
-  +\eta\pa{e^{(u_x)^4}-1}=0,
-  \qquad
-  u(T,x)=a\cos x.
-  \label{eq:dichotomy-benchmark}
-\end{equation}
-Put
+For reference, put
 \begin{equation}
   T_*(\eta)
   =
-  \frac1{2\pi e(e-1)^2\eta^2}.
+  \frac1{2\pi e(e-1)^2\eta^2},
+  \qquad \eta\neq0,
   \label{eq:T-star}
 \end{equation}
-
-For the marked branching representation of Henry-Labord\`ere, Oudjane, Tan, Touzi, and Warin~\cite{HenryLabordereEtAl2019}, take monomial types and coefficients
+and define
+\begin{equation*}
+  \erfc(r)=\frac2{\sqrt\pi}\int_r^\infty e^{-s^2}\,ds.
+\end{equation*}
+For the marked branching representation of Henry-Labord\`ere, Oudjane, Tan, Touzi, and Warin~\cite{HenryLabordereEtAl2019}, we use monomial types and coefficients
 \begin{equation*}
   L=\set{(0,4r):r\geq1},
   \qquad
@@ -45,37 +34,50 @@ and lifetime density
 
 \begin{theorem}[Representation-level dichotomy]
 \label{thm:representation-dichotomy}
-For~\eqref{eq:dichotomy-benchmark} the following statements hold.
+Fix $\eta\in\R\setminus\{0\}$ and
+\begin{equation*}
+  0<a\leq
+  \frac{\erfc(1/\sqrt2)}{\sqrt3}.
+\end{equation*}
+For every horizon $T>0$, consider
+\begin{equation}
+  \partial_tu+\frac12u_{xx}
+  +\eta\pa{e^{(u_x)^4}-1}=0,
+  \qquad
+  u(T,x)=a\cos x.
+  \label{eq:dichotomy-benchmark}
+\end{equation}
+Then the following statements hold.
 
 \begin{enumerate}[label=\textup{(\roman*)}]
 \item Let
 \begin{equation*}
   f(z_0,z_1)=\eta(e^{z_1^4}-1).
 \end{equation*}
-For every $T>0$, $0\leq t<T$, and $x\in\R$, the Nguwi--Penent--Privault coding-tree functionals satisfy
+For every $0\leq t<T$ and $x\in\R$, the Nguwi--Penent--Privault coding-tree functionals satisfy
 \begin{equation*}
   \E\abs{H(\mathcal T_{t,x,f^*})}=\infty,
   \qquad
   \E\abs{H(\mathcal T_{t,x,\Id})}=\infty.
 \end{equation*}
-The conclusion holds for every strictly positive coding-tree lifetime density and the positive mechanism-selection probabilities of the construction.
+This conclusion holds for every coding-tree lifetime density which is strictly positive at every positive time and for the positive mechanism-selection probabilities of the Nguwi--Penent--Privault construction; no uniform positive lower bound is assumed.
 
-\item If $0<T<T_*(\eta)$ and the HLOTW estimator uses the data above, then its marked branching functional $\psi_{t,x}$ satisfies
+\item Suppose in addition that $0<T<T_*(\eta)$. Use the HLOTW monomial data $L,c_r,p_r$ and lifetime density $\rho_T$ displayed above. Then the corresponding marked branching functional $\psi_{t,x}$ satisfies
 \begin{equation*}
   \E\abs{\psi_{t,x}}^2\leq1,
   \qquad
   0\leq t\leq T,
-  \quad x\in\R.
+  \quad x\in\R,
 \end{equation*}
-Moreover
+and
 \begin{equation*}
   u(t,x)=\E[\psi_{t,x}]
 \end{equation*}
 is a continuous viscosity solution of~\eqref{eq:dichotomy-benchmark}.
+
+The HLOTW conclusion is used with the following positive-time extension of their printed lifetime regularity assumption: $\rho_T$ is continuous and strictly positive on $(0,T]$ but is allowed to be singular at $0$. This extension is valid here because every sampled internal lifetime is strictly positive almost surely, every density factor in the estimator is evaluated only at a positive lifetime increment, and terminal particles use the survival function rather than $\rho_T(0)$.
 \end{enumerate}
 \end{theorem}
-
-The lifetime density~\eqref{eq:HLOTW-lifetime} is singular at the origin. The theorem uses the positive-time extension of the HLOTW moment argument: internal lifetimes are almost surely positive, and the proof of the second-moment bound evaluates $\rho$ only at positive arguments. This is the only modification to the literal endpoint-continuity wording of the published assumptions.
 
 \begin{proof}
 We first prove the NPP statement. The terminal datum is $\phi(x)=a\cos x$, so
