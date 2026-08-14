@@ -6,26 +6,15 @@ The rendered wiki is published at <https://maciejgluchowski86-beep.github.io/ips
 
 The wiki is article-first. Each entry is a separate Markdown page under `docs/entries/`, with TeX math rendered in the web view and ordinary Markdown links between entries. Cross-links should usually be inline links through relevant words or phrases, not top-level related-page lists.
 
-## Paper draft
+## Paper drafts
 
-The canonical LaTeX manuscript lives under `paper/`. The repository-level
-`main.tex` is the Overleaf main file and loads `paper/main.tex`; the EJP/ECP
-class is supplied by the repository-level `ejpecp.cls`.
+The facilitated-spin-system manuscript lives under `paper/`. The repository-level `main.tex` is its Overleaf entry point and loads `paper/main.tex`; the EJP/ECP class is supplied by the repository-level `ejpecp.cls`. Shared macros and theorem environments for that manuscript live in `paper/preamble.tex`, and its bibliography is `paper/references.bib`. `STYLE.md` records its typography and prose conventions.
 
-The manuscript is theorem-first. The introduction and setup are followed by
-Theorems A--C: the patch representation, the coefficient criterion and
-centered-moment comparisons, and the common invariant-limit theorem. The proof
-of the representation and the proof of the convergence theorem are explicit
-destinations in the section structure. FA-1f and BABP appear later as examples,
-followed by the discussion and technical appendices.
-
-Shared macros and theorem environments live in `paper/preamble.tex`, and the
-bibliography is in `paper/references.bib`. The paper-specific typography,
-terminology, and paragraph conventions are recorded in `STYLE.md`.
+A separate nonlinear-PDE manuscript lives under `pde-paper/`. Its entry point is `pde-paper/main.tex`, with an independent preamble, bibliography, and section tree. This manuscript studies cancellation before absolute values in branching representations with derivative weights. It does not modify or replace the facilitated-spin-system paper.
 
 ## Reading target
 
-The intended reading target is the rendered MkDocs site at
+The intended wiki reading target is the rendered MkDocs site at
 <https://maciejgluchowski86-beep.github.io/ips-wiki/>.
 
 - Source pages: `docs/`
@@ -106,15 +95,15 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 
 ## PDE and branching representations
 
-The canonical entry point is `docs/pde-branching-representations.md`. It is written for a reader with measure-theoretic probability, basic functional analysis, and a first graduate PDE course. It motivates the branching programme and links the complete prerequisite chain.
+The canonical wiki entry point is `docs/pde-branching-representations.md`. It is written for a reader with measure-theoretic probability, basic functional analysis, and a first graduate PDE course. It motivates the branching programme and links the complete prerequisite chain.
 
-The quadratic-Hessian endpoint is now a three-way split:
+The quadratic-Hessian endpoint is a three-way split:
 
 - complete interior averaging: Theorem C-prime gives a proved small-data unbiased `L^1` skeleton-only representation;
 - canonical raw-barycenter retention: a proved fixed-datum obstruction rules out `L^1` even after arbitrary proposal changes and auxiliary conditionally unbiased randomness;
 - non-barycentric retained randomness: the literal random-patch conjecture remains open for antithetic, partially averaged, coupled, or otherwise signedly reorganized constructions that still retain nontrivial continuous interior randomness.
 
-The wiki is the durable record for this PDE project. Project-level `proved here` entries state their load-bearing hypotheses locally rather than relying on chat context.
+The wiki is the durable mathematical record for this PDE project. The manuscript under `pde-paper/` is organized from these audited results and currently contains a complete abstract, introduction, and preliminaries together with theorem statements and explicit proof placeholders for the later sections.
 
 ## Entry workflow
 
