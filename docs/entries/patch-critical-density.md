@@ -1,6 +1,7 @@
 ---
 title: Patch critical density
-status: proved here
+status: definition
+audit: current
 tags:
   - patch
   - patch positivity
@@ -10,13 +11,11 @@ tags:
 
 # Patch critical density
 
-For a spin system with the [patch positivity property](patch-positivity-property.md), the patch critical density is the smallest terminal one-density for which every end-patch contribution is nonnegative.
-
-**References.** None yet.
+The patch critical density is a threshold defined from end-patch contributions. The definition below is retained independently of whether the current project formulas for those contributions are correct.
 
 ## Definition
 
-Use the [end-patch contribution](patch-contribution.md) \(C(p,P)\), which is affine in the terminal one-density \(p\). The patch critical density at site \(i\) is
+For a site $i$, define
 
 $$
 p_i^\star
@@ -34,11 +33,13 @@ $$
 \mathbf p^\star=(p_i^\star)_{i\in\Lambda}.
 $$
 
-For a translation-invariant model the profile is constant, and its common value is denoted by \(p^\star\).
+For a translation-invariant model, when this profile is constant, denote its common value by $p^\star$.
 
-## Coefficient formula
+This definition uses the end-patch contribution from [patch contribution](patch-contribution.md). Any explicit evaluation of the threshold inherits the unresolved status of the contribution formulas.
 
-In the coefficient notation of [monomial duality for spin systems](monomial-duality-for-spin-systems.md),
+## Conditional coefficient formula
+
+Assume the closed-form contribution identities in [patch contribution](patch-contribution.md) and the conditional [patch positivity property](patch-positivity-property.md). Under those assumptions, the current project calculation gives
 
 $$
 p_i^\star
@@ -52,64 +53,14 @@ c_i^0(S)+c_i^1(S)<0
 \frac{c_i^0(S)}
 {c_i^0(S)+c_i^1(S)}
 \right\}.
+\tag{1}
 $$
 
-Under patch positivity, every ratio contributing to the supremum is at most \(1\), so \(p_i^\star\in[0,1]\). The inner supremum is defined to be \(0\) when its index set is empty.
-
-### Proof
-
-The \(\mathsf{IE}\) end contribution is nonnegative for every \(p\in[0,1]\). For an \(\mathsf{OE}\) end patch with initial interaction target \(S\), the denominator is positive and the numerator is
-
-$$
-c_i^0(S)
--
-\left(c_i^0(S)+c_i^1(S)\right)\psi_i(\Delta,p).
-$$
-
-Patch positivity gives
-
-$$
-c_i^0(S)+c_i^1(S)\le0,
-$$
-
-so this numerator is nondecreasing in \(p\). If
-
-$$
-c_i^0(\vn)+c_i^1(\vn)>0,
-$$
-
-then, as a function of the patch length, the numerator interpolates between
-
-$$
-c_i^0(S)
--
-\left(c_i^0(S)+c_i^1(S)\right)p
-$$
-
-and
-
-$$
-\frac{
-c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)
-}{
-c_i^0(\vn)+c_i^1(\vn)
-}.
-$$
-
-The second expression is nonnegative by patch positivity. Hence the contribution is nonnegative for every patch length exactly when the first expression is nonnegative. If \(c_i^0(S)+c_i^1(S)<0\), this is equivalent to
-
-$$
-p
-\ge
-\frac{c_i^0(S)}
-{c_i^0(S)+c_i^1(S)}.
-$$
-
-If \(c_i^0(S)+c_i^1(S)=0\), patch positivity gives \(c_i^0(S)\ge0\), so this target imposes no restriction. When \(c_i^0(\vn)+c_i^1(\vn)=0\), the same conclusion follows directly from \(\psi_i(\Delta,p)=p\). Taking the supremum over nonempty targets proves the formula.
+The inner supremum is interpreted as $0$ when its index set is empty. Formula (1) is not currently a verified project result.
 
 ## Empty-neighbour bound
 
-Suppose that
+Assume the same unverified contribution and positivity identities as above, and suppose
 
 $$
 r_i=c_i^0(\vn)+c_i^1(\vn)>0,
@@ -117,13 +68,14 @@ r_i=c_i^0(\vn)+c_i^1(\vn)>0,
 q_i=\frac{c_i^0(\vn)}{r_i}.
 $$
 
-Then
+Then the current project calculation gives, conditionally,
 
 $$
 p_i^\star\le q_i.
+\tag{2}
 $$
 
-Indeed, for every nonempty \(S\subseteq N(i)\) with \(c_i^0(S)+c_i^1(S)<0\), the determinant condition in patch positivity is equivalent to
+Indeed, for every nonempty $S\subseteq N(i)$ with $c_i^0(S)+c_i^1(S)<0$, the determinant inequality appearing in the conditional patch-positivity criterion is equivalent to
 
 $$
 \frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
@@ -131,4 +83,4 @@ $$
 \frac{c_i^0(\vn)}{c_i^0(\vn)+c_i^1(\vn)}.
 $$
 
-Since \(q_i\ge0\), taking the supremum and then the maximum with \(0\) in the coefficient formula proves the claim.
+Thus (2) follows from the conditional coefficient formula (1). Both statements remain conditional until the contribution and positivity calculations are independently verified.

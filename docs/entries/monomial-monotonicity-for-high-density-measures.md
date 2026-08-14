@@ -1,6 +1,7 @@
 ---
 title: Monomial monotonicity for high-density measures
-status: proved here
+status: conditional
+audit: current
 tags:
   - patch positivity
   - high-density measure
@@ -10,211 +11,117 @@ tags:
 
 # Monomial monotonicity for high-density measures
 
-For a uniformly bounded finite-range spin system with the [patch positivity property](patch-positivity-property.md), the semigroup preserves the order induced by moments centered at the [patch critical density](patch-critical-density.md). Ordinary [monomial](monomials.md) monotonicity and preservation of the [high-density class](high-density-measure.md) follow from this stronger statement.
+This page isolates the coefficient conditions actually used by the project monotonicity argument. It does not import the unverified [patch positivity property](patch-positivity-property.md) as an established premise.
 
-**References.** None yet.
-
-## Theorem
-
-Let \(\nu_0\) and \(\nu_1\) be probability measures such that
+Fix a profile $\mathbf p^\star=(p_i^\star)_{i\in\Lambda}\in[0,1]^\Lambda$ and the centered monomials from [high-density measure](high-density-measure.md),
 
 $$
-\nu_0\left(\chi_B^\star\right)
-\le
-\nu_1\left(\chi_B^\star\right)
-\qquad
-\text{for every }B\Subset\Lambda.
+\chi_A^\star(\eta)=\prod_{i\in A}(\eta(i)-p_i^\star).
 $$
 
-Then, for every \(A\Subset\Lambda\) and \(t\ge0\),
+## Explicit coefficient hypotheses
+
+Use the coefficient notation from [monomial duality for spin systems](monomial-duality-for-spin-systems.md). For $S\subseteq N(i)$ define
 
 $$
-\nu_0\left(P_t\chi_A^\star\right)
-\le
-\nu_1\left(P_t\chi_A^\star\right),
+d_i(S)
+=
+c_i^0(S)-p_i^\star\left(c_i^0(S)+c_i^1(S)\right),
+$$
+
+and for $S\ne\vn$ define
+
+$$
+b_i(S)=-c_i^0(S)-c_i^1(S).
+$$
+
+Assume explicitly that
+
+$$
+d_i(S)\ge0
+\qquad\text{for every }i\text{ and }S\subseteq N(i),
 \tag{1}
 $$
 
 and
 
 $$
-\nu_0\left(P_t\chi_A\right)
-\le
-\nu_1\left(P_t\chi_A\right).
+b_i(S)\ge0
+\qquad\text{for every }i\text{ and }\vn\ne S\subseteq N(i).
 \tag{2}
 $$
 
-In particular,
+These are the sign inequalities required below. No assertion is made here that the current patch-positivity or critical-density calculations imply (1)--(2).
+
+## Finite-to-infinite-volume hypothesis
+
+Assume the spin system is defined in infinite volume and admits finite-volume approximations $P_t^{\Lambda_n}$ along an exhaustion $\Lambda_n\uparrow\Lambda$ such that, for every finite $A$ and fixed $t\ge0$,
 
 $$
-\mu\in\mathcal M_\star
-\quad\Longrightarrow\quad
-\mu P_t\in\mathcal M_\star,
+\left\|P_t^{\Lambda_n}\chi_A^\star-P_t\chi_A^\star\right\|_\infty
+\longrightarrow0.
 \tag{3}
 $$
 
-and every \(\mu\in\mathcal M_\star\) satisfies
+The finite-volume generators are required to have the same local coefficient identities (1)--(2) on the sites relevant to $\chi_A^\star$ once $n$ is large. This is the precise approximation assumption used to transfer coefficient positivity to infinite volume.
+
+## Conditional monotonicity statement
+
+Under (1)--(3), if probability measures $\nu_0,\nu_1$ satisfy
 
 $$
-\mu_{\mathbf p^\star}\left(P_t\chi_A\right)
-\le
-\mu\left(P_t\chi_A\right).
+\nu_0(\chi_B^\star)\le\nu_1(\chi_B^\star)
+\qquad\text{for every }B\Subset\Lambda,
 \tag{4}
 $$
 
-There is no corresponding all-one upper bound for an arbitrary measure in \(\mathcal M_\star\) without an additional upper bound on its centered moments.
-
-## Proof
-
-Use the coefficient notation from [monomial duality for spin systems](monomial-duality-for-spin-systems.md). For \(S\subseteq N(i)\), put
+then the current generator argument gives
 
 $$
-d_i(S)
-=
-c_i^0(S)
--p_i^\star\left(c_i^0(S)+c_i^1(S)\right),
-$$
-
-and, for \(S\ne\vn\), put
-
-$$
-b_i(S)
-=
--c_i^0(S)-c_i^1(S).
-$$
-
-Patch positivity and the definition of \(p_i^\star\) give
-
-$$
-d_i(S)\ge0
-\quad(S\subseteq N(i)),
-\qquad
-b_i(S)\ge0
-\quad(\vn\ne S\subseteq N(i)).
+\nu_0(P_t\chi_A^\star)\le\nu_1(P_t\chi_A^\star)
 \tag{5}
 $$
 
-For nonempty \(S\), the first inequality in the patch-positivity criterion gives \(b_i(S)\ge0\). If \(c_i^0(S)+c_i^1(S)<0\), then the critical-density inequality gives \(d_i(S)\ge0\). If \(c_i^0(S)+c_i^1(S)=0\), then \(d_i(S)=c_i^0(S)\ge0\): in the nondegenerate case the determinant condition reduces to \((c_i^0(\vn)+c_i^1(\vn))c_i^0(S)\ge0\), while in the degenerate case \(c_i^1(S)=-c_i^0(S)\le0\).
-
-For \(S=\vn\), write
-
-$$
-r_i=c_i^0(\vn)+c_i^1(\vn).
-$$
-
-If \(r_i>0\), patch positivity gives \(p_i^\star\le c_i^0(\vn)/r_i\), and hence \(d_i(\vn)\ge0\). If \(r_i=0\), then \(d_i(\vn)=0\).
-
-A direct generator calculation gives
-
-$$
-\cL\chi_A^\star
-=
-\sum_{i\in A}
-\Bigg[
--r_i\chi_A^\star
-+
-\sum_{S\subseteq N(i)}
-d_i(S)\chi_S\chi_{A\setminus\{i\}}^\star
-+
-\sum_{\vn\ne S\subseteq N(i)}
-b_i(S)\chi_S\chi_A^\star
-\Bigg].
-\tag{6}
-$$
-
-No new dual process is needed to read the signs in this formula. For finite \(B\) and \(S\),
-
-$$
-\chi_S\chi_B^\star
-=
-\left(
-\prod_{j\in S\cap B}(1-p_j^\star)
-\right)
-\sum_{R\subseteq S}
-\left(
-\prod_{j\in S\setminus R}p_j^\star
-\right)
-\chi_{R\cup(B\setminus S)}^\star.
-\tag{7}
-$$
-
-All coefficients in (7) are nonnegative. Thus, after expanding the products in (6), the generator matrix in the centered-monomial basis has nonnegative off-diagonal entries. Its only a priori negative term is the diagonal term \(-\sum_{i\in A}r_i\).
-
-In finite volume, the exponential of this Metzler matrix has nonnegative entries. The usual finite-volume approximation, using finite range and uniformly bounded rates, gives the same conclusion in infinite volume. Therefore every finite signed measure \(\lambda\) satisfying
-
-$$
-\lambda\left(\chi_B^\star\right)\ge0
-\qquad(B\Subset\Lambda)
-$$
-
-also satisfies
-
-$$
-\lambda\left(P_t\chi_A^\star\right)\ge0.
-\tag{8}
-$$
-
-Apply (8) to \(\lambda=\nu_1-\nu_0\) to obtain (1). Since
+for every finite $A$ and $t\ge0$. Since
 
 $$
 \chi_A
 =
 \sum_{B\subseteq A}
-\left(\prod_{i\in A\setminus B}p_i^\star\right)
-\chi_B^\star,
+\left(\prod_{i\in A\setminus B}p_i^\star\right)\chi_B^\star,
 $$
 
-the same order implies (2). Taking \(\lambda=\mu\) proves (3). Finally, the nonempty centered moments of \(\mu_{\mathbf p^\star}\) vanish, so (4) follows from (2).
-
-## Product-profile corollaries
-
-If
+the same hypotheses give
 
 $$
-\mathbf p^\star\le\mathbf p\le\mathbf q,
+\nu_0(P_t\chi_A)\le\nu_1(P_t\chi_A).
+\tag{6}
 $$
 
-then
+The finite-volume calculation underlying (5) is
 
 $$
-\mu_{\mathbf p}\left(P_t\chi_A\right)
-\le
-\mu_{\mathbf q}\left(P_t\chi_A\right).
+\cL\chi_A^\star
+=
+\sum_{i\in A}
+\left[
+-r_i\chi_A^\star
++
+\sum_{S\subseteq N(i)}d_i(S)\chi_S\chi_{A\setminus\{i\}}^\star
++
+\sum_{\vn\ne S\subseteq N(i)}b_i(S)\chi_S\chi_A^\star
+\right],
 $$
 
-More generally, suppose that two mixing laws admit a coupling \((\mathbf p,\mathbf q)\) with this coordinatewise order almost surely. Averaging the product-profile inequality gives the same comparison for the corresponding mixtures.
-
-The reflected comparison below the critical profile is also a consequence. If
+where $r_i=c_i^0(\vn)+c_i^1(\vn)$, together with the algebraic identity
 
 $$
-\mathbf q\le\mathbf p,
-\qquad
-\mathbf q+\mathbf p\ge2\mathbf p^\star,
+\chi_S\chi_B^\star
+=
+\left(\prod_{j\in S\cap B}(1-p_j^\star)\right)
+\sum_{R\subseteq S}
+\left(\prod_{j\in S\setminus R}p_j^\star\right)
+\chi_{R\cup(B\setminus S)}^\star.
 $$
 
-then
-
-$$
-\left|q_i-p_i^\star\right|
-\le
-p_i-p_i^\star
-\qquad(i\in\Lambda).
-$$
-
-Hence
-
-$$
-\mu_{\mathbf q}\left(\chi_B^\star\right)
-\le
-\mu_{\mathbf p}\left(\chi_B^\star\right)
-$$
-
-for every finite \(B\), and therefore
-
-$$
-\mu_{\mathbf q}\left(P_t\chi_A\right)
-\le
-\mu_{\mathbf p}\left(P_t\chi_A\right).
-$$
-
-This comparison may again be averaged under any coupling satisfying the two displayed profile inequalities almost surely.
+Under (1)--(2), all off-diagonal coefficients in the finite centered-monomial system are nonnegative. The infinite-volume conclusion remains conditional on the approximation hypothesis (3).
