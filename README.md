@@ -95,34 +95,34 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 
 ## PDE and branching representations
 
-The canonical wiki entry point is `docs/pde-branching-representations.md`.
+The pedagogical entry point for the PDE side is `docs/pde-reading-path.md`. The advanced research map is `docs/pde-branching-representations.md`.
 
-The capstone theorem is `docs/entries/residual-signed-variation-characterization-for-coarsened-patches.md`. For a raw skeleton measure
+The capstone theorem in the current quadratic-Hessian programme is `docs/entries/residual-signed-variation-characterization-for-coarsened-patches.md`. For a raw skeleton measure
 
 ```text
 mu_tau = R_tau nu_tau
 ```
 
-and a skeleton-preserving coarsening `C_tau`, the exact first-moment invariant is
+and a skeleton-preserving coarsening `C_tau`, the exact first-moment invariant claimed there is
 
 ```text
 ||(C_tau)_# mu_tau||_TV
   = integral | E[R_tau | sigma(C_tau)] | d nu_tau.
 ```
 
-Summability of these residual signed variations is necessary and sufficient for `L^1` in the coarsened conditional-barycenter class. The type of retained coordinate is not the invariant.
+Summability of these residual signed variations is claimed to be necessary and sufficient for `L^1` in the coarsened conditional-barycenter class. The type of retained coordinate is not the invariant.
 
-The known quadratic-Hessian constructions are consistent with this exact criterion:
+The current quadratic-Hessian constructions include:
 
 - raw-faithful / identity: divergent residual variation for one fixed arbitrarily small smooth datum;
 - time-spine coarsening: summable residual variation under the C-prime condition plus one geometric smallness condition, with genuine branch-time randomness retained;
 - complete interior averaging / C-prime: summable residual variation under the full Catalan small-data condition.
 
-Two explicit examples show why coordinate labels are misleading: the entire Gaussian vector may be retained on sufficiently small pieces while remaining `L^1`, whereas retaining only a time coordinate may leave a divergent residual variation.
+Two explicit examples in the current programme show why coordinate labels are misleading: the entire Gaussian vector may be retained on sufficiently small pieces while remaining `L^1`, whereas retaining only a time coordinate may leave a divergent residual variation.
 
-At every fixed target in the C-prime regime, sparse full-state retention gives a nonconstant `L^1` coarsening. The remaining Conjecture C is therefore interpreted as a target-uniform, structured representation problem rather than a fixed-target existence question.
+At every fixed target in the C-prime regime, the manuscript gives a sparse full-state retention construction. The remaining structured problem is target-uniform rather than a fixed-target existence question.
 
-The manuscript under `pde-paper/` contains full proofs of the audited results and now ends with the exact characterization theorem.
+The manuscript under `pde-paper/` contains complete proofs of its stated results. Under the autonomous research protocol in `CHATGPT.md`, those project-specific claims remain evidence to re-audit rather than authoritative premises until they pass the required independent verification.
 
 ## Entry workflow
 
