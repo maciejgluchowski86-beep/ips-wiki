@@ -14,80 +14,119 @@ Viscosity solutions give a notion of solution for nonlinear second-order PDEs th
 
 **References.** Michael G. Crandall, Hitoshi Ishii, and Pierre-Louis Lions, *User's guide to viscosity solutions of second order partial differential equations*, *Bulletin of the American Mathematical Society* **27** (1992), 1--67, arXiv:math/9207212. See [References](../meta/references.md).
 
-## Parabolic equation
+## Parabolic sign convention
 
-Consider a scalar parabolic PDE written as
+For a forward parabolic problem, write
 
 $$
-F(t,x,u,\partial_tu,D_xu,D_x^2u)=0
+F(t,x,u,\partial_tu,D_xu,D_x^2u)=0.
 \tag{1}
 $$
 
-on an open space-time region. For the one-dimensional semilinear equation
-
-$$
-\partial_tu+\frac12\partial_x^2u+f(t,x,u,\partial_xu)=0,
-$$
-
-one may take
+The standard viscosity comparison convention assumes that the second-order part is *degenerate elliptic*: if \(X\leq Y\) as symmetric matrices, then
 
 $$
 F(t,x,r,q,p,X)
-=
-q+\frac12X+f(t,x,r,p).
+\geq
+F(t,x,r,q,p,Y).
+\tag{2}
 $$
+
+For example, the forward heat equation
+
+$$
+\partial_tv-\frac12\partial_x^2v=0
+$$
+
+corresponds to
+
+$$
+F(t,x,r,q,p,X)=q-\frac12X,
+$$
+
+which satisfies (2).
+
+The branching papers on this wiki are often written as backward terminal-value equations,
+
+$$
+\partial_tu+\frac12\partial_x^2u+f(t,x,u,\partial_xu)=0,
+\qquad
+u(T,\cdot)=\phi.
+\tag{3}
+$$
+
+To apply the standard forward viscosity convention without changing signs implicitly, set \(v(s,x)=u(T-s,x)\). Then (3) becomes
+
+$$
+\partial_sv-\frac12\partial_x^2v
+-f(T-s,x,v,\partial_xv)=0,
+\qquad
+v(0,\cdot)=\phi,
+\tag{4}
+$$
+
+whose second-order part is degenerate elliptic in the sense of (2). Statements about viscosity solutions of the terminal problem are understood through this equivalent time reversal.
 
 ## Definition: subsolution
 
-An upper-semicontinuous function \(u\) is a *viscosity subsolution* of (1) if, whenever \(\varphi\in C^{1,2}\) and \(u-\varphi\) has a local maximum at \((t_0,x_0)\), one has
+An upper-semicontinuous function \(v\) is a *viscosity subsolution* of (1) if, whenever \(\varphi\in C^{1,2}\) and \(v-\varphi\) has a local maximum at \((t_0,x_0)\), one has
 
 $$
 F\left(
- t_0,x_0,u(t_0,x_0),
+ t_0,x_0,v(t_0,x_0),
  \partial_t\varphi(t_0,x_0),
  D_x\varphi(t_0,x_0),
  D_x^2\varphi(t_0,x_0)
 \right)
 \leq0.
-\tag{2}
+\tag{5}
 $$
 
-The test function \(\varphi\) is said to *touch \(u\) from above* at \((t_0,x_0)\).
+The test function \(\varphi\) is said to *touch \(v\) from above* at \((t_0,x_0)\).
 
 ## Definition: supersolution
 
-A lower-semicontinuous function \(u\) is a *viscosity supersolution* if, whenever \(u-\varphi\) has a local minimum at \((t_0,x_0)\), the reverse inequality holds:
+A lower-semicontinuous function \(v\) is a *viscosity supersolution* if, whenever \(v-\varphi\) has a local minimum at \((t_0,x_0)\), the reverse inequality holds:
 
 $$
 F\left(
- t_0,x_0,u(t_0,x_0),
+ t_0,x_0,v(t_0,x_0),
  \partial_t\varphi(t_0,x_0),
  D_x\varphi(t_0,x_0),
  D_x^2\varphi(t_0,x_0)
 \right)
 \geq0.
-\tag{3}
+\tag{6}
 $$
 
 A continuous function is a *viscosity solution* if it is both a viscosity subsolution and a viscosity supersolution.
 
-For a continuous terminal-value problem, the terminal condition is imposed in the ordinary pointwise sense unless a weaker boundary convention is explicitly stated.
+For a continuous initial or terminal-value problem, the prescribed data are imposed in the ordinary pointwise sense unless a weaker boundary convention is explicitly stated.
 
 ## Classical solutions are viscosity solutions
 
-Suppose \(u\in C^{1,2}\) solves (1) pointwise. If \(u-\varphi\) has a local maximum at \((t_0,x_0)\), then
+Suppose \(v\in C^{1,2}\) solves (1) pointwise and \(F\) is degenerate elliptic in the sense of (2). If \(v-\varphi\) has a local maximum at \((t_0,x_0)\), then
 
 $$
-\partial_tu=\partial_t\varphi,
+\partial_tv=\partial_t\varphi,
 \qquad
-D_xu=D_x\varphi,
+D_xv=D_x\varphi,
 \qquad
-D_x^2u\leq D_x^2\varphi
+D_x^2v\leq D_x^2\varphi
 $$
 
-at the touching point. For a proper degenerate-elliptic equation, substituting these inequalities into the PDE gives the subsolution condition; the supersolution condition is analogous. Thus the viscosity notion extends the classical one.
+at the touching point. By (2),
 
-The monotonicity convention in the definition of a *proper* operator depends on whether the equation is written as \(F=0\) or with the opposite sign. When applying a comparison theorem, the sign convention and structural hypotheses on \(F\) should therefore be stated explicitly.
+$$
+F(t_0,x_0,v,\varphi_t,D\varphi,D^2\varphi)
+\leq
+F(t_0,x_0,v,v_t,Dv,D^2v)
+=0,
+$$
+
+which is the subsolution inequality. The supersolution statement is analogous.
+
+The monotonicity convention may be written with the opposite sign in other sources. Multiplying the PDE by \(-1\) reverses the subsolution and supersolution inequalities, so the sign convention should always be fixed before invoking comparison.
 
 ## Comparison and uniqueness
 
