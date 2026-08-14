@@ -59,7 +59,7 @@ Section 2.2.2 of arXiv:1701.07660 combines this antithetic symmetry with the gho
 
 ## Hessian variants
 
-A raw second-order Malliavin weight is more singular at short times. Warin therefore uses higher-dimensional families of ghosts and antithetic descendants to form second differences before the Hessian weight is applied. Section 3 of arXiv:1701.07660 gives several such representations for nonlinearities involving \(D^2u\); its third representation is an antithetic version using a six-ghost construction. The resulting combinations are discrete second differences designed to cancel the low-order terms responsible for the large variance.
+A raw second-order Malliavin weight is more singular at short times. Warin therefore uses higher-dimensional families of ghosts and antithetic descendants to form second differences before the Hessian weight is applied. Section 3 of arXiv:1701.07660 gives several such representations for nonlinearities involving \(D^2u\); its third representation is an antithetic version with a ghost family of dimension \(q=6\). The resulting combinations are discrete second differences designed to cancel the low-order terms responsible for the large variance.
 
 The later paper arXiv:1805.05078 combines antithetic random variables with control variates for Hessian estimation in a Monte Carlo scheme that also accommodates degenerate diffusions. It proves convergence results for the semilinear part of the method and discusses a convergent setting with a driver linear in \(D^2u\), then tests more general fully nonlinear equations numerically.
 
