@@ -83,10 +83,12 @@ Equation (3) is the probabilistic counterpart of the product in the mild equatio
 
 ## Nonexplosion
 
-A representation on a finite horizon requires the random tree to contain only finitely many particles almost surely. In age-dependent branching constructions such as HLOTW, a standard sufficient hypothesis is finite mean offspring number together with strictly positive lifetimes; the precise nonexplosion argument depends on the branching model. Nonexplosion guarantees that the random functional is defined as a finite product on every realized tree. It does **not** imply that the product is integrable.
+A representation on a finite horizon requires the random tree to contain only finitely many particles almost surely. The [age-dependent branching nonexplosion theorem](age-dependent-branching-and-nonexplosion.md) shows that, for the Bellman--Harris-type construction used here, strictly positive lifetimes together with finite mean offspring are enough. No deterministic positive lower bound on the lifetimes is required.
+
+Nonexplosion guarantees that the random functional is defined as a finite product on every realized finite-horizon tree. It does **not** imply that the product is integrable.
 
 ## What exactness does and does not say
 
 Conditioning on the first branching event and cancelling the sampling densities recovers the mild recursion whenever the relevant expectations may be interchanged. This is the basic exactness mechanism behind both the [HLOTW marked branching construction](marked-branching-diffusion-for-gradient-nonlinearities.md) and the [Nguwi--Penent--Privault coding tree](npp-coding-tree.md).
 
-Exact first-branch conditioning is only an algebraic identity. Absolute integrability, uniform integrability, interchange of infinite sums with expectations, and convergence of an infinite Duhamel expansion are additional analytic questions. The negative results for the NPP tree concern precisely this distinction.
+Exact first-branch conditioning is only an algebraic identity. Absolute integrability, [uniform integrability](uniform-integrability-and-passage-to-expectations.md), interchange of infinite sums with expectations, and convergence of an infinite Duhamel expansion are additional analytic questions. The negative results for the NPP tree concern precisely this distinction.
