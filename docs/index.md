@@ -1,6 +1,6 @@
 # IPS Wiki
 
-This is a public-facing mathematical wiki for interacting particle systems, spin systems, ergodicity, and related research.
+This is a public-facing mathematical wiki for interacting particle systems, spin systems, ergodicity, duality, branching representations for nonlinear PDEs, and related research.
 
 Each article is a separate page with rendered TeX math and ordinary links to neighboring entries. The source files are Markdown under `docs/`.
 
@@ -76,6 +76,15 @@ The KCSM block uses the standard convention that `0` is the facilitating state. 
 20. [East out of equilibrium](entries/east-out-of-equilibrium.md)
 21. [BABP out of equilibrium](entries/babp-out-of-equilibrium.md)
 22. [Chronology-averaged sign route for one-dimensional FA-1f](entries/chronology-averaged-sign-route-for-fa-1f.md)
+
+## PDE and branching representations
+
+Start with [Probabilistic representations for nonlinear PDEs](pde-branching-representations.md). That overview motivates the branching programme, gives the negative NPP obstruction chain and representation-level dichotomy, explains the quadratic-Hessian patch route, and states the current proved/open fork:
+
+- averaging every patch interior first gives the proved small-data skeleton-only \(L^1\) representation;
+- retaining the interior random marks leads to the open raw-fluctuation problem.
+
+The overview contains the dependency-ordered reading map for all PDE entries.
 
 ## Meta pages
 
