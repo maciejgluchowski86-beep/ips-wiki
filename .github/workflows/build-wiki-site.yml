@@ -40,7 +40,7 @@ jobs:
       - name: Check live wiki quality metadata
         run: python scripts/check_wiki_quality.py --changed-from HEAD^
 
-      - name: Report sixth-sweep references repository-wide
+      - name: Check sixth-sweep references repository-wide
         shell: bash
         run: |
           set -u
@@ -59,9 +59,6 @@ jobs:
             "Repeated-Hessian obstruction for coding trees"
           )
           exclusions=(":!.github/workflows/build-wiki-site.yml")
-          for base in "${targets[@]}"; do
-            exclusions+=(":!docs/entries/$base.md")
-          done
           found=0
           for needle in "${targets[@]}" "${titles[@]}"; do
             hits="$(git grep -n -F "$needle" -- . "${exclusions[@]}" || true)"
@@ -72,9 +69,10 @@ jobs:
             fi
           done
           if [[ "$found" -eq 0 ]]; then
-            echo "PREDELETE_REFERENCE_SCAN=zero"
+            echo "POSTDELETE_REFERENCE_SCAN=zero"
           else
-            echo "PREDELETE_REFERENCE_SCAN=nonzero"
+            echo "POSTDELETE_REFERENCE_SCAN=nonzero"
+            exit 1
           fi
 
       - name: Report wiki curation counts

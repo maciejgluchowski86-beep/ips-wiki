@@ -2,10 +2,9 @@
   "schema_version": 1,
   "legacy_migration_complete": false,
   "integrations_since_last_sweep": 0,
-  "entries_at_last_sweep": 96,
+  "entries_at_last_sweep": 91,
   "last_sweep_commit": "0ab0ab411e3d7143009ab5f6f4cae33e5e3284bf",
   "priority_order": [
-    "legacy PDE entries with status proved here",
     "entries on the PDE reading path",
     "recently changed PDE entries",
     "other duplicate, obsolete, scaffolding, or terminated-programme entries"
