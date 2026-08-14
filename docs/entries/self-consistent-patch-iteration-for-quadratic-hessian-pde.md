@@ -16,7 +16,7 @@ For a small quadratic Hessian nonlinearity on the one-dimensional torus, the det
 
 This theorem is deterministic. It uses the exact [finite-depth patch regrouping](finite-depth-duhamel-patch-regrouping.md), but it does not assert that the corresponding infinite random-patch importance sampler is integrable.
 
-**References.** The linear regularity input is standard periodic parabolic Schauder theory; see [Parabolic maximum principle and Schauder estimates](parabolic-maximum-principle-and-schauder-estimates.md) and the references there. The \(H^{-1}\) argument is given in [The \(H^{-1}\) energy method on the torus](h-minus-one-energy-method.md). The theorem below is proved here.
+**References.** The linear regularity input is standard periodic parabolic Schauder theory; see [Parabolic maximum principle and Schauder estimates](parabolic-maximum-principle-and-schauder-estimates.md) and the references there. The uniqueness step uses the [weak formulation](weak-parabolic-solutions-on-the-torus.md) and [\(H^{-1}\) energy method](h-minus-one-energy-method.md). The diffusion step uses [Itô's formula and the backward Kolmogorov representation](ito-diffusions-and-backward-kolmogorov-representation.md). The theorem below is proved here.
 
 ## Forward equation
 
@@ -164,8 +164,8 @@ Then:
    \leq R;
    \tag{12}
    $$
-3. \((v_n)\) converges to a classical solution \(v\) of (1), with \(v_{xx}=z\);
-4. this solution is unique among bounded weak solutions whose second derivative satisfies \(|\lambda z|\leq1/8\);
+3. \((v_n)_{n\geq1}\) converges to a classical solution \(v\) of (1), with \(v_{xx}=z\);
+4. the profile \(z\) is the unique bounded [weak solution](weak-parabolic-solutions-on-the-torus.md) of (2) in the small class \(|\lambda z|\leq1/8\), and consequently \(v\) is the unique classical solution of (1) whose second derivative lies in that class;
 5. for every \(t\leq T\), the solution has the self-consistent diffusion representation
    $$
    v(t,x)
@@ -173,7 +173,7 @@ Then:
    \mathbb E_x[\phi(X_t)],
    \tag{13}
    $$
-   where, for this fixed terminal time \(t\),
+   where, for this fixed observation time \(t\),
    $$
    dX_s
    =
@@ -300,7 +300,7 @@ Thus \((z_n)\) is Cauchy in space-time \(L^2\).
 
 The uniform bound (11) makes \((z_n)\) equibounded and equicontinuous in the parabolic Hölder metric. By Arzelà--Ascoli, every subsequence has a uniformly convergent subsubsequence. Any such uniform limit must coincide almost everywhere with the unique \(L^2\) limit, so the whole sequence converges uniformly to \(z\). Passing to the Hölder inequalities also gives (12).
 
-The Schauder estimates give a uniform \(C^{1+\alpha/2,2+\alpha}\) bound on \((v_n)\). Any convergent subsequence therefore has a limit with second derivative \(z\). The spatial mean
+The Schauder estimates give a uniform \(C^{1+\alpha/2,2+\alpha}\) bound on \((v_n)_{n\geq1}\). Any convergent subsequence therefore has a limit with second derivative \(z\). The spatial mean
 
 $$
 m_n(t)
@@ -341,7 +341,7 @@ $$
 \frac18.
 $$
 
-Their difference \(w=z-\widetilde z\) satisfies
+By the [weak difference identity](weak-parabolic-solutions-on-the-torus.md), their difference \(w=z-\widetilde z\) satisfies
 
 $$
 \partial_tw
@@ -369,7 +369,7 @@ $$
 -\frac14\lVert w\rVert_2^2.
 $$
 
-Since \(w(0)=0\), one gets \(w=0\). Once \(z\) is fixed, two periodic solutions \(v\) with \(v_{xx}=z\) differ only by a spatial constant, and the common initial condition together with the equation fixes that constant. Thus the solution \(v\) is unique in the stated small class.
+Since \(w(0)=0\), one gets \(w=0\). Once \(z\) is fixed, two periodic solutions \(v\) with \(v_{xx}=z\) differ only by a spatial constant, and the common initial condition together with the equation fixes that constant. Thus \(v\) is unique in the stated small class.
 
 ## Proof: torus mean
 
@@ -414,15 +414,15 @@ $$
 a(r,x)=\frac12+\lambda z(r,x).
 $$
 
-The coefficient is Hölder continuous and satisfies \(3/8\leq a\leq5/8\). Let \(X\) be the one-dimensional periodic diffusion with time-reversed generator
+The coefficient is Hölder continuous and satisfies \(3/8\leq a\leq5/8\). Let \(X\) be the periodic diffusion with time-reversed generator
 
 $$
 a(t-s,x)\partial_x^2,
 $$
 
-which is equivalently written as the SDE (14). The standard diffusion law is well defined for this uniformly elliptic Hölder coefficient.
+or equivalently the weak solution of the SDE (14). Existence of this diffusion law and the following identity are the [backward Kolmogorov representation](ito-diffusions-and-backward-kolmogorov-representation.md).
 
-Apply Itô's formula to \(s\mapsto v(t-s,X_s)\). Since the quadratic variation of (14) is
+Applying Itô's formula to \(s\mapsto v(t-s,X_s)\), the quadratic variation of (14) is
 
 $$
 d\langle X\rangle_s
@@ -430,7 +430,7 @@ d\langle X\rangle_s
 2a(t-s,X_s)\,ds,
 $$
 
-the drift is
+and the drift is
 
 $$
 -v_t(t-s,X_s)
