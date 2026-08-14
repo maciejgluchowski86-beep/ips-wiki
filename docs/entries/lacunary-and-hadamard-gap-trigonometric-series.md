@@ -193,31 +193,33 @@ c_m=(m!)^{-\vartheta}
 \tag{10}
 $$
 
-is superexponentially decaying in the sense of (9). One can see this from Stirling's formula, or directly from the ratio test after multiplying by any fixed exponential factor. For example, if \(N_m\leq Ce^{am}\), then for fixed \(k\),
+is superexponentially decaying in the sense of (9). Stirling's formula gives
 
 $$
-a_m
-:=
-(m!)^{-\vartheta}N_m^k
+\log(m!)
+=
+m\log m-m+O(\log m),
 $$
 
-satisfies, up to a fixed multiplicative constant,
+and therefore
 
 $$
-\frac{a_{m+1}}{a_m}
-\leq
-\frac{e^{ak}}{(m+1)^\vartheta}
-\longrightarrow0.
+\frac{-\log c_m}{m}
+=
+\vartheta\frac{\log(m!)}m
+=
+\vartheta\log m+O(1)
+\longrightarrow\infty.
 \tag{11}
 $$
 
-Hence
+Consequently, if \(N_m\leq Ce^{am}\), then for every fixed \(k\),
 
 $$
-\sum_m(m!)^{-\vartheta}N_m^k<\infty
+\sum_m(m!)^{-\vartheta}N_m^k<\infty,
 $$
 
-for every fixed \(k\), and the corresponding trigonometric series is \(C^\infty\).
+by the preceding superexponential-decay argument. The corresponding trigonometric series is therefore \(C^\infty\).
 
 The important quantifier is *for every fixed derivative order \(k\)*. The frequency may grow exponentially with \(m\); factorial or stronger coefficient decay still eventually dominates the exponential factor associated with that fixed derivative order.
 
