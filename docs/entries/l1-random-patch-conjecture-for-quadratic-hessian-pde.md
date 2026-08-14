@@ -13,11 +13,13 @@ tags:
 
 # L1 random-patch conjecture for the quadratic Hessian PDE
 
-The [finite-depth patch regrouping](finite-depth-duhamel-patch-regrouping.md) is an exact signed identity, and the [deterministic self-consistent patch iteration](self-consistent-patch-iteration-for-quadratic-hessian-pde.md) converges in a small uniformly parabolic regime. It remains open whether these facts can be combined into a full infinite-depth patch-first importance sampler whose random functional is absolutely integrable. The conjecture below is deliberately separate from the two proved statements.
+The quadratic Hessian route now has three proved layers below the full random-patch problem. Finite Duhamel trees regroup exactly into patches; the deterministic semi-implicit iteration converges in a small uniformly parabolic regime; and, under an explicit Catalan smallness condition, the new [skeleton-averaged representation](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md) gives an unbiased \(L^1\) estimator after **all continuous randomness inside each decorated skeleton has been averaged out**.
 
-Two earlier obstructions have now been resolved or narrowed. Sup norms of spatially varying side profiles are insufficient, but deterministic patches with uniformly bounded spatial \(C^\alpha\) side profiles have only geometric growth in their length. On the other hand, the raw random Hessian edge does **not** inherit the same pathwise \(C^\alpha\) gain. The current open problem is therefore formulated at the level of conditional means given the patch skeleton, with the centered fluctuation field separated as the likely next obstruction.
+The conjecture on this page is stronger. It asks whether one can retain the genuinely random Gaussian/Hermite and descendant marks inside the patches and still obtain an \(L^1\) unbiased estimator. That remains open.
 
-**References.** The deterministic cancellation estimates are in [Holder cancellation for heat-semigroup derivatives](holder-cancellation-for-heat-semigroup-derivatives.md). Spatial and parabolic Holder norms are defined in [Parabolic Holder spaces](parabolic-holder-spaces.md). Random function-space moments are defined in [Random fields in function spaces](random-fields-in-function-spaces.md), and conditional means and fluctuation fields are defined in [Conditional expectation and fluctuations of random fields](conditional-expectation-and-fluctuations-of-random-fields.md). A possible frequency-localized alternative for fluctuations is described in [Besov spaces on the torus](besov-spaces-on-the-torus.md).
+The analytic obstruction has therefore narrowed again. Deterministic Holder cancellation is sufficient after interior averaging, but direct pathwise Holder control of a raw centered Hessian edge fails. The skeleton-averaged theorem shows that the conditional-mean part can be summed absolutely. The remaining obstruction is the raw fluctuation around that interior average.
+
+**References.** Deterministic cancellation is developed in [Holder cancellation for heat-semigroup derivatives](holder-cancellation-for-heat-semigroup-derivatives.md) and [Parabolic Holder bound for the Hessian Duhamel operator](parabolic-holder-bound-for-hessian-duhamel-operator.md). Conditional means and fluctuations are defined in [Conditional expectation and fluctuations of random fields](conditional-expectation-and-fluctuations-of-random-fields.md). Fixed Holder and Besov norms are reviewed in [Parabolic Holder spaces](parabolic-holder-spaces.md) and [Besov spaces on the torus](besov-spaces-on-the-torus.md).
 
 ## Conjecture
 
@@ -32,18 +34,18 @@ $$
 v(0)=\phi
 $$
 
-on \(\mathbb T=\mathbb R/(2\pi\mathbb Z)\), under the Schauder smallness hypothesis of the [self-consistent iteration theorem](self-consistent-patch-iteration-for-quadratic-hessian-pde.md).
+on \(\mathbb T=\mathbb R/(2\pi\mathbb Z)\), in a sufficiently small smooth-data regime.
 
 There exists a patch-first randomization of the full Duhamel expansion with the following properties:
 
 1. maximal consecutive left-spine Hessian events are sampled and evaluated as complete multi-event patches;
-2. conditional on the patch skeleton, distinct side patches use independent auxiliary randomness, with the usual [importance-sampling compensators](importance-sampling-compensators.md);
-3. the resulting infinite-depth random functional \(H_{\mathrm{patch}}(t,x)\) belongs to \(L^1\) for every \(0\leq t\leq T\); and
-4. its expectation equals the deterministic solution produced by the self-consistent iteration.
+2. conditional on the exposed patch skeleton, distinct side patches use independent auxiliary randomness, with the usual [importance-sampling compensators](importance-sampling-compensators.md);
+3. the resulting infinite-depth random functional \(H_{\mathrm{patch}}(t,x)\) belongs to \(L^1\) for every finite horizon; and
+4. its expectation equals the deterministic solution.
 
-The sampling law is part of the conjecture: it may be chosen to exploit the multi-event structure and need not be the edge-by-edge lifetime law used in standard derivative-weight branching.
+Unlike the skeleton-averaged theorem, the conjectural estimator retains random continuous marks inside the patches.
 
-## Audited deterministic Holder cancellation
+## Deterministic Holder cancellation is no longer the obstruction
 
 Let
 
@@ -51,13 +53,7 @@ $$
 K_r^{(k)}=\partial_x^{2k}P_r.
 $$
 
-Since every positive-order Hermite polynomial has Gaussian mean zero,
-
-$$
-\mathbb E[He_{2k}(Z)]=0,
-$$
-
-and therefore
+Hermite centering gives
 
 $$
 K_r^{(k)}f(x)
@@ -70,13 +66,13 @@ He_{2k}(Z)
 \tag{1}
 $$
 
-If \(f\in C^\alpha\), \(0<\alpha<1\), then
+Hence, for \(0<\alpha<1\),
 
 $$
 \lVert K_r^{(k)}f\rVert_\infty
 \leq
 c_{2k,\alpha}
- r^{-k+\alpha/2}[f]_{C^\alpha},
+r^{-k+\alpha/2}[f]_{C^\alpha},
 \tag{2}
 $$
 
@@ -85,62 +81,28 @@ where
 $$
 c_{2k,\alpha}
 =
-\mathbb E\left[
-|He_{2k}(Z)|\,|Z|^\alpha
-\right]
+\mathbb E\left[|He_{2k}(Z)|\,|Z|^\alpha\right]
 \leq
 \sqrt{(2k)!}
 \left(\mathbb E|Z|^{2\alpha}\right)^{1/2}.
 \tag{3}
 $$
 
-For \(k=1\), this gives
+For multiplication by a spatial profile \(B\),
 
 $$
-\lVert\partial_x^2P_rf\rVert_\infty
-\leq
-c_{2,\alpha}
- r^{-1+\alpha/2}[f]_{C^\alpha}.
+[K_R^{(k)},M_B]g(x)
+=
+R^{-k}
+\mathbb E\Bigl[
+He_{2k}(Z)
+\bigl(B(x+\sqrt RZ)-B(x)\bigr)
+ g(x+\sqrt RZ)
+\Bigr],
 \tag{4}
 $$
 
-The heat semigroup also contracts spatial Holder norms:
-
-$$
-\lVert P_rf\rVert_{C^\alpha}
-\leq
-\lVert f\rVert_{C^\alpha}.
-\tag{5}
-$$
-
-## Commutators and derivative clusters
-
-Let \(M_Bg=Bg\). For every \(k\geq1\),
-
-$$
-K_R^{(k)}M_B
-=
-M_BK_R^{(k)}
-+[K_R^{(k)},M_B],
-\tag{6}
-$$
-
-and
-
-$$
-\begin{aligned}
-[K_R^{(k)},M_B]g(x)
-={}&R^{-k}
-\mathbb E\Bigl[
-He_{2k}(Z)
-\bigl(B(x+\sqrt R\,Z)-B(x)\bigr)\\
-&\hspace{38mm}\times g(x+\sqrt R\,Z)
-\Bigr].
-\end{aligned}
-\tag{7}
-$$
-
-Hence
+so
 
 $$
 \lVert[K_R^{(k)},M_B]g\rVert_\infty
@@ -148,81 +110,30 @@ $$
 c_{2k,\alpha}
 R^{-k+\alpha/2}
 [B]_{C^\alpha}\lVert g\rVert_\infty.
-\tag{8}
+\tag{5}
 $$
 
-Repeatedly applying (6) to a length-\(m\) patch groups consecutive derivative edges into clusters whose lengths form an ordered composition
+Commuting derivative blocks through a length-\(m\) patch groups the edges into consecutive clusters. A cluster of length \(\ell\) has internal time-simplex factor
 
 $$
-m=\ell_1+\cdots+\ell_q.
-\tag{9}
+\frac{R^{\ell-1}}{(\ell-1)!},
 $$
 
-There is one additional terminal choice: the innermost cluster either stops at the last side multiplier or commutes through it and reaches the terminal profile. Thus the \(2^{m-1}\) ordered compositions do not by themselves index every term. The full commutator expansion contains at most
-
-$$
-2^m
-\tag{10}
-$$
-
-terms. This correction is only an extra factor of two at the combinatorial level and does not alter the geometric-growth conclusion.
-
-A cluster of \(\ell\) consecutive Hessian edges has total heat time \(R\) and derivative operator \(K_R^{(\ell)}\). For fixed \(R\), the internal simplex of its \(\ell\) positive edge lengths has volume
-
-$$
-\frac{R^{\ell-1}}{(\ell-1)!}.
-$$
-
-Combining this factor with (8) leaves
+which leaves
 
 $$
 \frac{c_{2\ell,\alpha}}{(\ell-1)!}
 R^{-1+\alpha/2}.
-\tag{11}
+\tag{6}
 $$
 
-The singularity in (11) is integrable at zero, and
+The singularity in (6) is integrable and the coefficient is exponentially bounded in \(\ell\). The full commutator expansion contains at most \(2^m\) terms: \(2^{m-1}\) ordered compositions of the cluster lengths, together with one additional terminal choice for the innermost cluster. This is still geometric, not factorial.
 
-$$
-\frac{c_{2\ell,\alpha}}{(\ell-1)!}
-\leq
-C_\alpha4^\ell.
-\tag{12}
-$$
+Thus deterministic patches with uniformly controlled spatial \(C^\alpha\) side profiles have geometric-in-length bounds. The skeleton-averaged theorem packages the same principle more efficiently through the bounded parabolic Hessian Duhamel operator and a Catalan tree majorant.
 
-Therefore neither the Hermite constants nor the corrected cluster combinatorics reintroduce factorial growth.
+## The old sup-norm counterexample does not survive Holder control
 
-## Deterministic Holder patch bound
-
-Fix \(0<\alpha<1\) and \(T>0\). There is a constant \(C_{\alpha,T}<\infty\) such that, if
-
-$$
-G\in C^\alpha(\mathbb T),
-\qquad
-\sup_{1\leq j\leq m}
-\sup_{0\leq s\leq T}
-\lVert b_j(s,\cdot)\rVert_{C^\alpha}
-\leq M,
-$$
-
-then the complete length-\(m\) patch satisfies
-
-$$
-\sup_{0\leq t\leq T}
-\lVert\mathcal P_m[b_1,\ldots,b_m;G](t)\rVert_\infty
-\leq
-\lVert G\rVert_{C^\alpha}
-\bigl(|\lambda|C_{\alpha,T}\max\{1,M\}\bigr)^m.
-\tag{13}
-$$
-
-The proof is the cluster expansion above. Each nonterminal cluster contributes one Holder increment and one integrable total-time factor \(R^{-1+\alpha/2}\); the terminal cluster is no worse. Since the cluster lengths sum to \(m\), the cluster constants multiply geometrically, and the at-most-\(2^m\) expansion count is absorbed into the same exponential constant.
-
-This proposition is deterministic. It says nothing by itself about pathwise Holder norms of random side-patch estimators.
-
-## The old sup-norm counterexample escapes through its Holder norm
-
-The smooth counterexample to a side-profile \(L^\infty\) bound uses
+The smooth counterexample to an \(L^\infty\)-only side-profile estimate uses packets
 
 $$
 b_m(h-r,x)
@@ -234,7 +145,7 @@ b_m(h-r,x)
 N_k=2^kN_0,
 $$
 
-with disjoint temporal supports. Thus \(\lVert b_m\rVert_\infty\leq1\), but its Hessian Duhamel contribution grows linearly in \(m\). At the same time,
+with disjoint time supports. Their sup norms remain bounded while the Hessian Duhamel contribution grows with \(m\). But
 
 $$
 [\cos(Nx)]_{C^\alpha}
@@ -246,134 +157,94 @@ so
 $$
 \sup_s\lVert b_m(s,\cdot)\rVert_{C^\alpha}
 \asymp
-N_m^\alpha
-\asymp
 2^{\alpha m}.
-\tag{14}
+\tag{7}
 $$
 
-Its parabolic Holder norm has the same scaling because the time localization is of order \(N_k^{-2}\). Thus the old counterexample does not contradict (13).
+The counterexample therefore escapes through its regularity norm and does not contradict deterministic Holder closure.
 
 ## Failure of direct pathwise random Holder control
 
-The deterministic gain in (4) occurs only after averaging the centered Hermite mark. For one raw Hessian edge define
+For one raw centered Hessian edge define
 
 $$
 \widehat K_r f(x,Z)
 =
-\frac{He_2(Z)}{r}
+\frac{He_2(Z)}r
 \left[
- f(x+\sqrt r\,Z)-f(x)
+f(x+\sqrt rZ)-f(x)
 \right].
-\tag{15}
+\tag{8}
 $$
 
-Its pathwise sup norm has the expected gain:
+Its expected sup norm has the deterministic gain:
 
 $$
 \mathbb E
 \lVert\widehat K_r f(\cdot,Z)\rVert_\infty
 \leq
-c_{2,\alpha}
- r^{-1+\alpha/2}[f]_{C^\alpha}.
-\tag{16}
+c_{2,\alpha}r^{-1+\alpha/2}[f]_{C^\alpha}.
+\tag{9}
 $$
 
-However, for the pathwise Holder seminorm one only gets
+The pathwise Holder seminorm does not. One only has
 
 $$
 [\widehat K_r f(\cdot,Z)]_{C^\alpha}
 \leq
-\frac{2|He_2(Z)|}{r}
-[f]_{C^\alpha}.
-\tag{17}
+\frac{2|He_2(Z)|}{r}[f]_{C^\alpha}.
+\tag{10}
 $$
 
-There is no uniform factor \(r^{\alpha/2}\) missing from (17). Indeed, translation is not small in operator norm on the \(C^\alpha\) unit ball. For
+This loss is genuine. For
 
 $$
 f_N(x)=N^{-\alpha}\cos(Nx),
-$$
-
-one has \(\lVert f_N\rVert_{C^\alpha}\asymp1\). Choosing \(N\asymp r^{-1/2}\) and restricting \(Z\) to a fixed interval on which both \(|He_2(Z)|\) and \(|\sin(N\sqrt r Z/2)|\) are bounded below gives
-
-$$
-\mathbb E
-[\widehat K_r f_N(\cdot,Z)]_{C^\alpha}
-\geq
-c_\alpha r^{-1}.
-\tag{18}
-$$
-
-Thus a direct recursive estimate in
-
-$$
-L^p(\Omega;C^\alpha)
-$$
-
-for the raw edge fields cannot reproduce the deterministic Holder gain. The naive pathwise random-Holder route is ruled out.
-
-## Conditional expectation restores the deterministic cancellation
-
-Let \(\mathcal G\) contain the exposed patch skeleton, the edge length \(r\), and the input field \(f\), but not the centered Gaussian mark \(Z\). Then
-
-$$
-\mathbb E\left[
-\widehat K_r f(\cdot,Z)
-\,\middle|\,
-\mathcal G
-\right]
-=
-K_rf.
-\tag{19}
-$$
-
-More generally, if the input field is itself a descendant random field that is conditionally independent of the fresh Gaussian edge mark given \(\mathcal G\), then linearity and conditional independence replace \(f\) in (19) by its conditional mean.
-
-At finite patch depth, distinct side patches are conditionally independent given the patch skeleton. Consequently, whenever the products are integrable,
-
-$$
-\mathbb E\left[
-\prod_PY_P
-\,\middle|\,
-\mathcal G
-\right]
-=
-\prod_P
-m_P,
 \qquad
-m_P:=\mathbb E[Y_P\mid\mathcal G].
-\tag{20}
+N\asymp r^{-1/2},
 $$
 
-This is exactly the level at which the deterministic Holder cluster estimate can act: the signed Gaussian and descendant randomness are averaged before the function-space norm is applied.
+the \(C^\alpha\) norm stays of order one while the expected pathwise seminorm in (10) is of order \(r^{-1}\) on a Gaussian event of fixed positive probability. Hence no uniform \(r^{\alpha/2}\) gain holds in the operator norm of the raw edge on \(C^\alpha\).
 
-## Current formulation of the open problem
+Lowering the regularity exponent gives a translation gain but loses regularity at every edge. Iterating that estimate therefore creates a descending regularity ladder rather than a fixed function space.
 
-The main regularity object is now the family of conditional mean side fields
+The same high-frequency mechanism rules out a fixed same-regularity Besov repair. On a fixed Besov space \(B^s_{p,q}\), the translation difference \(f(\cdot+h)-f\) is not uniformly small on the unit ball as \(h\to0\): a frequency packet at scale \(|h|^{-1}\) keeps the operator norm bounded below. Passing from \(B^s_{p,q}\) to a lower exponent can recover a power of \(|h|\), but again spends regularity. Thus neither a fixed Holder space nor a fixed same-regularity Besov space closes the raw edge recursion.
+
+## What C-prime settles
+
+The [skeleton-averaged theorem](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md) never takes a pathwise function-space norm inside a patch. For a finite decorated skeleton \(S\), all continuous branch-time and Gaussian/Hermite variables are integrated first, producing a deterministic profile \(F_S\). These profiles lie in the parabolic Holder space
 
 $$
-m_P
+X_{\alpha,T}
 =
-\mathbb E[Y_P\mid\mathcal G_P],
-\tag{21}
+C^{\alpha/2,\alpha}([0,T]\times\mathbb T)
 $$
 
-where \(\mathcal G_P\) is the appropriate exposed patch-skeleton sigma-field. A route to C would need recursive bounds, uniform in the relevant birth time and position, that keep these conditional means in a spatial Holder or comparable deterministic regularity class so that (13) can be iterated through the genealogy.
+and satisfy an absolutely summable Catalan majorant under an explicit smallness condition. Sampling only \(S\) therefore gives an unbiased \(L^1\) estimator.
 
-This is not enough for \(L^1\) by itself. Write the raw side field as
+This should not be phrased by first writing \(\mathbb E[H\mid S]\) for the unresolved raw infinite-patch functional: a measure-theoretic conditional expectation requires \(H\in L^1\), which is exactly what is unknown. At finite integrable cutoffs the conditional-expectation language is legitimate, and the limit is the deterministic interior-averaged profile \(F_S\).
+
+The theorem proves that the **conditional-mean / interior-average part of the construction closes and is absolutely summable**. That part is no longer the open problem.
+
+## Remaining obstruction: the raw fluctuation
+
+For a finite cutoff where ordinary conditional expectation is defined, write
 
 $$
-Y_P=m_P+R_P,
+H
+=
+\mathbb E[H\mid S]
++
+R_S,
 \qquad
-R_P:=Y_P-m_P,
-\qquad
-\mathbb E[R_P\mid\mathcal G_P]=0.
-\tag{22}
+\mathbb E[R_S\mid S]=0.
+\tag{11}
 $$
 
-The field \(R_P\) is the *conditional fluctuation term*. It is the likely next obstruction: the conditional mean may be regular by cancellation while the raw estimator still has large absolute moments. A proof of C must therefore combine conditional-mean regularity with enough conditional moment or weaker function-space control of the fluctuations to justify the infinite-depth \(L^1\) limit.
+C-prime controls the first term after passing to the interior-averaged limit. Conjecture C asks for the full raw functional, so it still requires control of the centered fluctuation \(R_S\).
 
-A pathwise parabolic Holder norm is not currently the preferred target for \(R_P\): the genealogy may jump with the horizon, and even one fixed-time centered Hessian edge fails to gain in pathwise spatial \(C^\alpha\). Integrated time norms, scale-localized Besov norms, or another cancellation-adapted fluctuation norm remain possible.
+The current obstruction is precise: the \(L^1\) amplitude of the fluctuation cannot be propagated through the next Hessian edge by putting the raw field in one fixed Holder space, and the same high-frequency translation mechanism defeats a fixed same-regularity Besov norm. The fluctuation is centered, but absolute values erase that cancellation before the next edge can use it.
 
-The conjecture remains open. Neither the deterministic geometric patch estimate nor the conditional factorization identity proves absolute integrability of the infinite random patch functional.
+A proof of C must therefore exploit additional structure beyond a fixed pathwise regularity norm: for example a multiscale conditional cancellation, a martingale or square-function structure, a norm that records both scale and genealogy, or another way of postponing absolute values across several random edges. None of these is currently proved.
+
+The conjecture remains open. C-prime gives an \(L^1\) unbiased estimator only after the interior patch fluctuations have been averaged away.
