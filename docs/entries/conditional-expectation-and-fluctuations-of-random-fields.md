@@ -36,6 +36,8 @@ $$
 
 for every \(A\in\mathcal G\).
 
+The hypothesis \(Y\in L^1\) is part of the definition used here. If absolute integrability of a signed random functional is itself the open problem, one cannot invoke its ordinary conditional expectation as an intermediate construction.
+
 If \(Y=Y(x)\) is a random field, the pointwise conditional mean is
 
 $$
@@ -144,10 +146,30 @@ $$
 
 Equation (5) is pointwise in any external spatial parameter. If the conditional means belong to a function space, the right side can then be estimated using deterministic product, commutator, or semigroup bounds in that space.
 
-For branching constructions the sigma-field \(\mathcal G\) typically contains the exposed genealogy, branch times, offspring types, and ancestral positions, while independent Brownian increments and descendant auxiliary randomness remain to be averaged. The exact choice of \(\mathcal G\) must be stated in each application.
+For branching constructions the sigma-field \(\mathcal G\) typically contains the exposed genealogy, branch times, offspring types, and ancestral information, while independent Brownian increments and descendant auxiliary randomness remain to be averaged. The exact choice of \(\mathcal G\) must be stated in each application. If a Gaussian mark is responsible for a mean-zero derivative cancellation, that mark must remain outside \(\mathcal G\) until the cancellation is taken.
+
+## Interior averages when the raw functional is not known to be in L1
+
+Suppose a signed branching functional \(H\) is not yet known to lie in \(L^1\). The notation
+
+$$
+\mathbb E[H\mid\mathcal G]
+$$
+
+should then not be used as though it were already an ordinary conditional expectation.
+
+A legitimate replacement is to choose integrable cutoffs \(H^{(N)}\) or \(H^{(\varepsilon)}\), form
+
+$$
+\mathbb E[H^{(N)}\mid\mathcal G],
+$$
+
+and prove that these conditional means converge in a deterministic function space. The limit is an *interior-averaged profile*. It may exist even when the uncut raw random functional has no known absolute moment.
+
+This is exactly the distinction used in the [skeleton-averaged quadratic-Hessian representation](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md). There the limiting interior average is defined equivalently by the deterministic Duhamel recursion, and the final \(L^1\) estimator randomizes only the discrete skeleton.
 
 ## Why this matters for patches
 
-At finite depth, the [Duhamel patch regrouping](finite-depth-duhamel-patch-regrouping.md) can be randomized so that distinct side patches are conditionally independent given the patch skeleton. The deterministic Holder estimate for a complete patch acts naturally on the conditional mean side fields appearing after (5), not on the pathwise Holder norms of the raw side estimators.
+At finite depth, the [Duhamel patch regrouping](finite-depth-duhamel-patch-regrouping.md) can be randomized so that distinct side patches are conditionally independent given an exposed patch skeleton. The deterministic Holder estimate acts naturally on the conditional mean side fields appearing after (5), not on the pathwise Holder norms of the raw side estimators.
 
-The current [random-patch conjecture](l1-random-patch-conjecture-for-quadratic-hessian-pde.md) therefore separates conditional-mean regularity from fluctuation control. The former is compatible with Hermite centering and patch factorization; the latter remains an open source of absolute-moment growth.
+The skeleton-averaged theorem shows that these deterministic interior averages can be summed absolutely under a Catalan smallness condition. The remaining [full random-patch conjecture](l1-random-patch-conjecture-for-quadratic-hessian-pde.md) concerns the centered raw fluctuations discarded by that averaging step.
