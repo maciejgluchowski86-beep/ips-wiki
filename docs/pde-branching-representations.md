@@ -1,18 +1,30 @@
 # Probabilistic representations for nonlinear PDEs
 
-This part of the wiki studies probabilistic representations of nonlinear parabolic PDEs with derivative weights. The basic distinction is:
+This part of the wiki studies probabilistic representations of nonlinear parabolic PDEs with derivative weights. Its starting point is a distinction that is easy to miss:
 
 > a branching construction may be an exact **signed** Duhamel identity while failing to define an \(L^1\) random variable.
 
-For linear equations, Feynman--Kac and backward-Kolmogorov formulas provide the model. For nonlinear equations, Duhamel's formula produces products of unknown solution values, and branching turns those products into products over descendants. If the nonlinearity contains spatial derivatives, Gaussian integration by parts, Malliavin/Bismut weights, or a differential coding system transfers derivatives to the sampled motion. These derivative weights are singular on short edges. Where cancellation occurs before the first absolute value is therefore part of the representation architecture.
+Derivative weights make this distinction structural. A centered Gaussian identity such as
 
-The final conclusion of the programme is exact. If a finite raw marked skeleton contribution is the signed measure
+$$
+\partial_x^2P_rf(x)
+=
+\frac1r
+\mathbb E\left[
+He_2(Z)
+\bigl(f(x+\sqrt rZ)-f(x)\bigr)
+\right]
+$$
+
+is useful precisely because cancellation occurs before the absolute value. The programme below identifies the exact invariant behind that statement.
+
+If a finite raw marked skeleton contribution is the signed measure
 
 $$
 \mu_\tau=R_\tau\nu_\tau,
 $$
 
-where \(\nu_\tau\) is finite positive, and \(\mathcal C_\tau\) records the variables retained after coarsening, then
+with \(\nu_\tau\) finite positive, and \(\mathcal C_\tau\) records the variables retained after coarsening, then
 
 $$
 \boxed{
@@ -29,29 +41,29 @@ $$
 
 Thus **cancellation before absolute values is removal of signed variation by conditional averaging**. For skeleton-preserving coarsenings, summability of the residual variations in (A) is necessary and sufficient for \(L^1\) in the associated conditional-barycenter class. The type of retained coordinate is not the invariant.
 
-The measure-theoretic objects in (A) are developed inside the wiki in [Finite signed measures, pushforwards, and conditional barycenters](entries/finite-signed-measures-pushforwards-and-conditional-barycenters.md).
+The measure-theoretic background for (A) is contained in [Finite signed measures, pushforwards, and conditional barycenters](entries/finite-signed-measures-pushforwards-and-conditional-barycenters.md).
 
 ## Shortest self-contained path to the capstone
 
-A reader with graduate probability and a first PDE course can reach the final theorem in the following order. The links are dependencies, not merely related reading.
+A reader with graduate probability and a first PDE course can reach the final theorem without leaving the wiki by following this chain.
 
-1. [Mild formulation and branching-diffusion representation](entries/mild-formulation-and-branching-diffusion-representation.md): why Duhamel expansions lead to trees.
-2. [Branching diffusions and Duhamel trees](entries/branching-diffusions-and-duhamel-trees.md) and [Importance-sampling compensators](entries/importance-sampling-compensators.md): finite tree randomization and the difference between signed exactness and moment control.
-3. [Finite signed measures, pushforwards, and conditional barycenters](entries/finite-signed-measures-pushforwards-and-conditional-barycenters.md): the signed-measure language used by every coarsening theorem.
-4. [Gaussian integration by parts and automatic differentiation](entries/gaussian-integration-by-parts-and-automatic-differentiation.md), [Hermite polynomials and Gaussian chaos](entries/hermite-polynomials-and-gaussian-chaos.md), and [Hölder cancellation for heat-semigroup derivatives](entries/holder-cancellation-for-heat-semigroup-derivatives.md): the centered Hessian mark and its cancellation.
-5. [Parabolic Hölder spaces](entries/parabolic-holder-spaces.md) and [Parabolic Hölder bound for the Hessian Duhamel operator](entries/parabolic-holder-bound-for-hessian-duhamel-operator.md): the Banach space in which the positive skeleton series closes.
-6. [Finite-depth Duhamel patch regrouping](entries/finite-depth-duhamel-patch-regrouping.md) and [Conditional factorization for finite PDE patches](entries/conditional-factorization-for-finite-pde-patches.md): the exact finite patch architecture.
-7. [Skeleton-averaged \(L^1\) representation](entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md): C-prime, the completely averaged endpoint.
-8. [Lacunary and Hadamard-gap trigonometric series](entries/lacunary-and-hadamard-gap-trigonometric-series.md), [Disjoint-event lower bounds for compensated branching estimators](entries/disjoint-event-lower-bounds-for-compensated-branching-estimators.md), and [Brownian confinement and heat-kernel positivity](entries/brownian-confinement-and-heat-kernel-positivity.md): the fixed-datum lower-bound tools.
-9. [Raw-barycenter \(L^1\) obstruction](entries/raw-marked-l1-obstruction-for-quadratic-hessian-pde.md): identity/raw-faithful coarsening is non-\(L^1\) for one fixed smooth datum.
-10. [Time-spine coarsening](entries/time-spine-coarsening-for-quadratic-hessian-patches.md): a structured nonconstant coarsening which is \(L^1\) under a stronger smallness condition.
-11. [Residual signed variation characterization](entries/residual-signed-variation-characterization-for-coarsened-patches.md): the exact necessity-and-sufficiency theorem.
+1. [Mild formulation and branching-diffusion representation](entries/mild-formulation-and-branching-diffusion-representation.md).
+2. [Branching diffusions and Duhamel trees](entries/branching-diffusions-and-duhamel-trees.md) and [Importance-sampling compensators](entries/importance-sampling-compensators.md).
+3. [Finite signed measures, pushforwards, and conditional barycenters](entries/finite-signed-measures-pushforwards-and-conditional-barycenters.md).
+4. [Gaussian integration by parts and automatic differentiation](entries/gaussian-integration-by-parts-and-automatic-differentiation.md), [Hermite polynomials and Gaussian chaos](entries/hermite-polynomials-and-gaussian-chaos.md), and [Hölder cancellation for heat-semigroup derivatives](entries/holder-cancellation-for-heat-semigroup-derivatives.md).
+5. [Parabolic Hölder spaces](entries/parabolic-holder-spaces.md) and [Parabolic Hölder bound for the Hessian Duhamel operator](entries/parabolic-holder-bound-for-hessian-duhamel-operator.md).
+6. [Finite-depth Duhamel patch regrouping](entries/finite-depth-duhamel-patch-regrouping.md) and [Conditional factorization for finite PDE patches](entries/conditional-factorization-for-finite-pde-patches.md).
+7. [Skeleton-averaged \(L^1\) representation](entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md).
+8. [Lacunary and Hadamard-gap trigonometric series](entries/lacunary-and-hadamard-gap-trigonometric-series.md), [Disjoint-event lower bounds for compensated branching estimators](entries/disjoint-event-lower-bounds-for-compensated-branching-estimators.md), and [Brownian confinement and heat-kernel positivity](entries/brownian-confinement-and-heat-kernel-positivity.md).
+9. [Raw-barycenter \(L^1\) obstruction](entries/raw-marked-l1-obstruction-for-quadratic-hessian-pde.md).
+10. [Time-spine coarsening](entries/time-spine-coarsening-for-quadratic-hessian-patches.md).
+11. [Residual signed variation characterization](entries/residual-signed-variation-characterization-for-coarsened-patches.md).
 
-The coding-tree results below form Act I of the paper. They motivate why architecture matters, but they are not prerequisites for the measure-theoretic proof of (A).
+The coding-tree results form Act I of the paper. They motivate why representation architecture matters, but they are not prerequisites for the proof of (A).
 
-## Act I: coding trees show that exactness does not imply L1
+## Act I: exactness does not imply L1
 
-The broad Nguwi--Penent--Privault setting is
+The Nguwi--Penent--Privault setting is
 
 $$
 \partial_tu(t,x)
@@ -70,9 +82,9 @@ $$
 J_nu=(u,u_x,\ldots,u_{x^n}).
 $$
 
-The [Nguwi--Penent--Privault coding tree](entries/npp-coding-tree.md) propagates differential codes. Repeated spatial differentiation generates arbitrarily high derivatives of the jet nonlinearity. Their [coding-tree Feynman--Kac theorem](entries/npp-coding-tree-feynman-kac-theorem.md) is conditional on absolute integrability of every code-rooted functional required by the recursion.
+The [Nguwi--Penent--Privault coding tree](entries/npp-coding-tree.md) propagates differential codes. Their [coding-tree Feynman--Kac theorem](entries/npp-coding-tree-feynman-kac-theorem.md) is conditional on absolute integrability of every required code-rooted functional.
 
-The [repeated-Hessian obstruction](entries/repeated-hessian-obstruction-for-coding-trees.md) isolates a distinguished genealogy. Fix an active direction \(j\), so \(\phi^{(j+1)}\not\equiv0\), an allowed composite code \(g^*\), and a bounded measurable set \(B\). Define
+The [repeated-Hessian obstruction](entries/repeated-hessian-obstruction-for-coding-trees.md) isolates a distinguished genealogy. For an active direction \(j\), an allowed composite code \(g^*\), and bounded measurable \(B\), put
 
 $$
 D_m(B;g,j)
@@ -96,19 +108,17 @@ $$
 
 then the raw code-rooted functional is non-\(L^1\) at every positive remaining horizon. Lifetime, mechanism-selection, and survival probabilities cancel their reciprocal compensators; the ordered branch-time simplex contributes \(1/m!\).
 
-The converse direction is the [Gevrey-1/2 necessity theorem](entries/gevrey-half-necessity-for-coding-trees.md). Integrability of the relevant even and odd code roots forces, almost everywhere,
+The [Gevrey-1/2 necessity theorem](entries/gevrey-half-necessity-for-coding-trees.md) gives the converse type of statement: integrability of the relevant even and odd roots forces
 
 $$
 |\partial_{z_j}^r f(J_n\phi(y))|
 \leq
-C_yA_y^r\Gamma(r/2+1).
+C_yA_y^r\Gamma(r/2+1)
 $$
 
-Thus the formal directional Taylor series is entire with at most Gaussian growth. The [finite directional radius theorem](entries/finite-directional-radius-obstruction.md) is a convenient special case.
+for almost every \(y\). Hence the formal directional Taylor series is entire with at most Gaussian growth.
 
-### Representation-level dichotomy
-
-The coding-tree obstruction is representation-specific rather than a theorem that the PDE itself has no integrable probabilistic representation. The [representation-level dichotomy](entries/representation-level-dichotomy.md) compares two constructions for
+The [representation-level dichotomy](entries/representation-level-dichotomy.md) shows that this is a property of the representation architecture, not merely the PDE. For
 
 $$
 \partial_tu+
@@ -116,26 +126,17 @@ $$
 +
 \eta(e^{(u_x)^4}-1)=0,
 \qquad
-u(T,x)=a\cos x.
+u(T,x)=a\cos x,
 $$
 
-For
-
-$$
-0<a\leq
-\frac{\operatorname{erfc}(1/\sqrt2)}{\sqrt3},
-$$
-
-the raw NPP functional is non-\(L^1\) at every positive horizon. By contrast, an explicit [HLOTW marked branching](entries/marked-branching-diffusion-for-gradient-nonlinearities.md) estimator is \(L^2\) for
+the raw NPP functional is non-\(L^1\) at every positive horizon for the stated amplitude range, while an explicit [HLOTW marked branching](entries/marked-branching-diffusion-for-gradient-nonlinearities.md) estimator is \(L^2\) for
 
 $$
 0<T<
 \frac1{2\pi e(e-1)^2\eta^2}.
 $$
 
-This benchmark establishes the first structural lesson: the moment question is determined by representation architecture, not by signed exactness alone.
-
-## Quadratic Hessian equation and finite patches
+## Quadratic Hessian equation
 
 The main representation programme concerns
 
@@ -149,13 +150,7 @@ $$
 v(0)=\phi,
 $$
 
-on
-
-$$
-\mathbb T=\mathbb R/(2\pi\mathbb Z).
-$$
-
-Writing \(z=v_{xx}\) gives
+on \(\mathbb T=\mathbb R/(2\pi\mathbb Z)\). With \(z=v_{xx}\),
 
 $$
 z(t)
@@ -167,41 +162,17 @@ P_t\phi''
 \tag{1}
 $$
 
-Finite Picard expansion produces rooted planar binary Duhamel trees. A **patch** is a maximal chain obtained by repeatedly following the left child. The [finite-depth patch theorem](entries/finite-depth-duhamel-patch-regrouping.md) proves that replacing every such chain by its complete iterated Duhamel integral is an exact finite reindexing. The [finite conditional-factorization theorem](entries/conditional-factorization-for-finite-pde-patches.md) gives the corresponding finite probabilistic statement.
+Finite Picard expansion produces rooted planar binary Duhamel trees. A **patch** is a maximal chain obtained by repeatedly following the left child. The [finite-depth patch theorem](entries/finite-depth-duhamel-patch-regrouping.md) proves that replacing each such chain by its complete iterated Duhamel integral is an exact finite reindexing. The [finite conditional-factorization theorem](entries/conditional-factorization-for-finite-pde-patches.md) gives the corresponding finite probabilistic statement.
 
-A centered Hessian edge has
-
-$$
-\partial_x^2P_rf(x)
-=
-\frac1r
-\mathbb E\left[
-He_2(Z)
-\bigl(f(x+\sqrt rZ)-f(x)\bigr)
-\right],
-$$
-
-so mean-zero Hermite cancellation yields
-
-$$
-\|\partial_x^2P_rf\|_\infty
-\lesssim
-r^{-1+\alpha/2}[f]_{C^\alpha}.
-$$
-
-The [Hölder-cancellation entry](entries/holder-cancellation-for-heat-semigroup-derivatives.md) develops the higher-order and commutator versions.
-
-### Auxiliary deterministic theorem
-
-The [self-consistent deterministic iteration](entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md) is auxiliary. Under the explicit smallness condition
+The [self-consistent deterministic iteration](entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md) is auxiliary. Its smallness condition is
 
 $$
 |\lambda|C_{\mathrm{Sch}}(\alpha,T)
 \|\phi\|_{C^{2+\alpha}}
-\leq\frac18,
+\leq\frac18.
 $$
 
-the semi-implicit iteration stays in a fixed ellipticity window and contracts in \(H^{-1}\). It gives a classical solution, uniqueness in the class \(|\lambda v_{xx}|\le1/8\), and an implicit self-consistent diffusion representation. This condition is different from the C-prime condition below; neither is silently substituted for the other.
+It gives a classical solution and uniqueness only in the class \(|\lambda v_{xx}|\le1/8\). This condition and uniqueness class are distinct from the C-prime assumptions below.
 
 ## C-prime: complete interior averaging
 
@@ -221,7 +192,7 @@ $$
 \partial_x^2P_{t-s}f(s)ds.
 $$
 
-The [parabolic Hölder bound](entries/parabolic-holder-bound-for-hessian-duhamel-operator.md) gives
+The [Hessian Duhamel estimate](entries/parabolic-holder-bound-for-hessian-duhamel-operator.md) gives
 
 $$
 \|\mathcal D(fg)\|_X
@@ -238,7 +209,7 @@ M=\|P_\cdot\phi''\|_X,
  a=|\lambda|C_{\mathcal D}(\alpha,T)M.
 $$
 
-For a finite planar binary tree \(\tau\), let \(F_\tau\) be the deterministic profile obtained after all continuous variables inside the skeleton have been averaged. Then
+For a finite tree \(\tau\), let \(F_\tau\) be the deterministic profile obtained after every continuous variable inside that skeleton has been averaged. Then
 
 $$
 \|F_\tau\|_X
@@ -253,30 +224,24 @@ $$
 \tag{2}
 $$
 
-Sampling only the discrete skeleton gives an unbiased \(L^1\) estimator for every \((t,x)\). This is [Theorem C-prime](entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md). It is defined directly through deterministic Duhamel profiles, not as a conditional expectation of an unresolved infinite raw object.
+Sampling only the discrete skeleton gives an unbiased \(L^1\) estimator for every \((t,x)\). This is [Theorem C-prime](entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md).
 
-The deterministic and C-prime solutions are identified only when their respective smallness hypotheses both hold **and** the C-prime profile lies in the deterministic uniqueness class \(|\lambda z_*|\le1/8\).
+The deterministic and C-prime solutions are identified only when both smallness conditions hold **and** the C-prime profile itself satisfies \(|\lambda z_*|\le1/8\).
 
 ## Four routes through the fluctuation problem
 
-The earlier route map remains useful; the capstone theorem now identifies what each route was measuring.
+The route map remains useful because the capstone identifies what each route was implicitly controlling.
 
-1. **Fixed pathwise Hölder / same-regularity Besov.** A raw edge does not close at the same pathwise regularity. This attempts to control too fine a retained sigma-field by a pathwise norm.
-2. **Decreasing Banach scale.** The [Banach-scale obstruction](entries/banach-scale-obstruction-for-raw-pde-patches.md) proves the sharp cost \(1/\delta\) per step and the lower bound
-   $$
-   c^n\left(\frac n\Delta\right)^n
-   $$
-   under a fixed total regularity budget. This is a barrier to that stepwise proof architecture, not a fixed-datum nonintegrability theorem.
-3. **Joint centered marks.** The [joint centered-mark theorem](entries/joint-centered-mark-dichotomy-for-raw-pde-patches.md) delays the absolute value across several Gaussian marks. Two marks give a genuine gain, but the all-order canonical retained block has sharp scale \(C^m m!\). Signed bridge averaging reduces the bare-chain coefficient to geometric growth by coarsening the Gaussian sigma-field.
+1. **Fixed pathwise Hölder / same-regularity Besov.** A raw edge does not close at the same pathwise regularity.
+2. **Decreasing Banach scale.** The [Banach-scale obstruction](entries/banach-scale-obstruction-for-raw-pde-patches.md) gives the sharp \(1/\delta\) one-edge cost and an unavoidable \((cn/\Delta)^n\) stepwise majorant under a fixed total regularity budget. This is a proof-architecture barrier, not a fixed-datum divergence theorem.
+3. **Joint centered marks.** The [joint centered-mark theorem](entries/joint-centered-mark-dichotomy-for-raw-pde-patches.md) delays the first absolute value across several Gaussian marks. Retaining all canonical marks gives sharp factorial block growth; signed bridge averaging gives geometric growth on genuine multi-edge blocks by passing to a coarser Gaussian sigma-field.
 4. **Complete interior averaging.** C-prime takes the trivial interior sigma-field for each skeleton and retains only its total signed mass.
 
-The route history is therefore not superseded. It is reinterpreted as a sequence of attempts to reduce the residual conditional \(L^1\) norm in (A).
+These are different attempts to reduce the residual conditional \(L^1\) norm in (A).
 
 ## Fixed-datum raw-faithful obstruction
 
-The [raw-barycenter obstruction](entries/raw-marked-l1-obstruction-for-quadratic-hessian-pde.md) removes the generation-dependent-frequency caveat of the earlier barriers.
-
-Choose
+The [raw-barycenter obstruction](entries/raw-marked-l1-obstruction-for-quadratic-hessian-pde.md) removes the generation-dependent-frequency caveat. Choose
 
 $$
 N_m=K^m,
@@ -284,55 +249,25 @@ N_m=K^m,
 b_m=(m!)^{-1/2},
 $$
 
-and put all frequencies into one smooth Hessian datum
-
-$$
-g_\varepsilon(x)
-=
-\varepsilon
-\left[
-\cos x+
-\sum_{m\ge m_0}b_m\cos(N_mx)
-\right].
-$$
-
-The obstruction may be realized on right-oriented combs. Restricting each of the \(m\) Hessian durations to
-
-$$
-N_m^{-2}
-\leq r_j\leq
-\frac h{4m}
-$$
-
-gives one logarithmic factor per raw centered edge and
+and place all these modes in one smooth Hessian datum. On right-oriented combs,
 
 $$
 \|\mu_m\|_{\mathrm{TV}}
 \gtrsim
 \varepsilon(C|\lambda|\varepsilon)^m
-\frac{m^m}{\sqrt{m!}}.
+\frac{m^m}{\sqrt{m!}},
 \tag{3}
 $$
 
-The disjoint comb subseries diverges. The theorem applies to **raw-faithful** schemes: after the canonical raw state is exposed, the canonical signed contribution must remain the estimator's conditional barycenter. It does not quantify over all unbiased estimators. Within that class, conditional Jensen transfers (3) to every positive lifetime, genealogy, or Gaussian proposal, including dependent proposals and auxiliary conditionally unbiased randomness.
+so a disjoint comb subseries diverges.
 
-The datum can be scaled into the C-prime regime, yielding the clean same-data contrast:
+The theorem applies to **raw-faithful** schemes: after the canonical raw state is exposed, the canonical signed contribution must remain the estimator's conditional barycenter. It does **not** quantify over all unbiased estimators. Within that class, changing lifetime, genealogy, or Gaussian proposals, allowing dependencies between proposal variables, or adding auxiliary conditionally unbiased randomness cannot improve the first moment.
 
-> complete interior averaging is \(L^1\), while raw-faithful retention is not.
+The datum can be scaled into the C-prime regime. Thus the same small smooth datum has an \(L^1\) C-prime representation and no raw-faithful \(L^1\) representation.
 
 ## Exact coarsening characterization
 
-The capstone is [Residual signed variation characterizes coarsened patch representations](entries/residual-signed-variation-characterization-for-coarsened-patches.md). The signed-measure prerequisites are collected in [Finite signed measures, pushforwards, and conditional barycenters](entries/finite-signed-measures-pushforwards-and-conditional-barycenters.md).
-
-For one skeleton, formula (A) holds. If \(\mathcal C_1\) is coarser than \(\mathcal C_2\), the tower property and conditional Jensen give
-
-$$
-V_\tau(\mathcal C_1)
-\leq
-V_\tau(\mathcal C_2).
-$$
-
-Identity gives full raw total variation; constant coarsening gives \(|F_\tau(t,x)|\).
+The capstone is [Residual signed variation characterizes coarsened patch representations](entries/residual-signed-variation-characterization-for-coarsened-patches.md). Formula (A) is the one-skeleton identity.
 
 If the countable skeleton label is retained, the canonical coarsened importance sampler satisfies
 
@@ -343,7 +278,7 @@ $$
 \tag{4}
 $$
 
-and hence
+and therefore
 
 $$
 Y\in L^1
@@ -352,71 +287,30 @@ Y\in L^1
 \tag{5}
 $$
 
-Conditional Jensen proves that no auxiliary estimator with the same coarsened conditional barycenter can have a smaller first moment; the canonical Radon--Nikodym estimator attains equality. If the skeleton label itself is coarsened, the same principle applies to the larger pushforward state, but the per-skeleton sum need not be the correct formula.
+Conditional Jensen proves that this sum is also the minimum first moment among all auxiliary estimators with the same coarsened conditional barycenter. If the skeleton label itself is coarsened, the same signed-measure principle applies after enlarging the raw state to include the skeleton label, but the separate sum in (4) need not remain the invariant.
 
-### The retained variable type is not the invariant
+Two examples show why the theorem is not a statement about Gaussian randomness.
 
-Two explicit examples make the characterization nontrivial.
+- The entire Gaussian vector may be retained on small nonnull pieces while the residual variations remain summable.
+- Retaining only a one-dimensional time coordinate may leave residual variation equal to one at every level, even after every Gaussian coordinate has been averaged out.
 
-- There are Gaussian families with raw variation \(1\) on every level but total signed mass \(2^{-n}\). Retain the **entire Gaussian vector** on a symmetric slab of Gaussian probability \(2^{-n}\) and collapse the complement. The residual variation is less than \(2^{1-n}\), hence summable.
-- There are families with total signed mass \(2^{-n}\) for which retaining only a one-dimensional time coordinate leaves conditional signed density \(2^{-n}+h(t)\), with \(h=\pm1\). The residual variation is exactly \(1\) on every level, so the sum diverges although every Gaussian variable has been averaged out.
+Only the signed variation visible through the retained sigma-field matters.
 
-Thus named coordinate types do not characterize integrability. Only the signed variation visible through the retained sigma-field does.
+### Fixed-target sparse retention
 
-### Sparse full-state retention at a fixed target
+At each fixed \((t,x)\) in the C-prime regime, one can retain the entire raw state on suitably small nonnull sets and collapse their complements. This gives a nonconstant \(L^1\) coarsening throughout the full C-prime regime. The construction may depend on \((t,x)\), so it does **not** give one target-uniform architecture.
 
-Fix one \((t,x)\) in the C-prime regime. Since
+### Structured time-spine representation
 
-$$
-\sum_\tau|F_\tau(t,x)|<\infty,
-$$
-
-and finite non-leaf raw patch total-variation measures are nonatomic on their continuous coordinates, choose nonnull sets \(A_\tau\) of summably small raw variation. Retain the entire raw state on \(A_\tau\) and collapse \(A_\tau^c\). Then
-
-$$
-V_\tau
-\leq
-|F_\tau(t,x)|
-+2|\mu_\tau^{t,x}|(A_\tau),
-$$
-
-so the residual variations are summable.
-
-This closes the arbitrary **fixed-target** existence question for nonconstant retained randomness throughout the full C-prime regime. The chosen sets may depend on \((t,x)\); this does not construct one target-uniform architecture.
-
-## Structured hierarchy as a sanity check
-
-The three structured points sit exactly where the characterization predicts.
-
-### Raw-faithful / identity
-
-Identity retains the full raw sigma-field, so
-
-$$
-V_\tau(\operatorname{Id})
-=
-\|\mu_\tau\|_{\mathrm{TV}}.
-$$
-
-The fixed-datum right-comb subseries diverges.
-
-### Time-spine coarsening
-
-The [time-spine theorem](entries/time-spine-coarsening-for-quadratic-hessian-patches.md) uses one fixed geometric rule for every target: retain the ordered branch times on the root maximal-left patch and average every Gaussian/Brownian mark there together with every continuous variable in the side subtrees.
+The [time-spine theorem](entries/time-spine-coarsening-for-quadratic-hessian-patches.md) gives one fixed geometric rule for every target: retain the ordered branch times on the root maximal-left patch and average every Gaussian/Brownian mark there together with all continuous variables in the side subtrees.
 
 Let
 
 $$
 b=|\lambda|K_{\mathrm{time}}(\alpha,T)M,
-$$
-
-and
-
-$$
-C(a)
-=
-\frac{1-\sqrt{1-4a}}{2a},
-\qquad C(0)=1.
+\qquad
+C(a)=\frac{1-\sqrt{1-4a}}{2a},
+\quad C(0)=1.
 $$
 
 If
@@ -440,42 +334,23 @@ V_\tau(\mathcal C_\tau^{\mathrm{time}})
 <\infty
 $$
 
-uniformly in the observation point. The branch-time vector remains genuinely random and affects the estimator. This theorem may require a stronger smallness condition than C-prime; the exact strengthening depends on the ratio \(K_{\mathrm{time}}/C_{\mathcal D}\).
+uniformly in the target. The branch-time vector affects the estimator nontrivially. The extra condition may be stronger than C-prime; its exact strength depends on \(K_{\mathrm{time}}/C_{\mathcal D}\).
 
-### C-prime / constant
+### Why naive patchwise Gaussian bridges fail
 
-Constant coarsening gives
-
-$$
-V_\tau(\mathrm{const})
-=|F_\tau(t,x)|,
-$$
-
-summable throughout the full Catalan regime \(4a<1\).
-
-There is no inconsistency among the three results: they are three values of the same invariant.
-
-### Why naive patchwise Gaussian bridges still fail
-
-Patches are maximal left-child chains. The obstruction can be realized on right combs, where every left child is terminal and every continuing internal child is right. Hence every maximal-left patch on the obstruction genealogy has one edge.
-
-A one-edge Gaussian bridge map has no bridge coordinate to remove. It generates the same retained Gaussian sigma-field as identity, up to an invertible coordinate change. The divergent residual variation therefore survives unchanged. Genuine multi-edge patches still benefit locally from bridge averaging; the obstruction family simply never presents one.
+The fixed-datum obstruction can be realized on right combs. Under the maximal-left-spine convention every patch of a right comb has one edge. A one-edge bridge map has no internal bridge coordinate to remove, so it generates the same retained sigma-field as identity, up to an invertible coordinate change. The divergent residual variation therefore survives unchanged.
 
 ## What remains open
 
-The [random-patch conjecture](entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md) is now best read as a **structured target-uniform** problem. The fixed-target existential relaxation is solved by sparse full-state retention. The time-spine theorem gives a target-uniform structured architecture on the stronger regime (6).
+The [random-patch conjecture](entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md) is now a **structured target-uniform** problem. The arbitrary fixed-target existence question is solved. Natural remaining problems are:
 
-Natural remaining problems are:
-
-1. find a non-sparse geometrically defined coarsening which works throughout the full C-prime regime;
-2. extend target-uniform structured control to the full C-prime regime in a function-space norm;
-3. optimize residual variation under information or computational constraints;
-4. construct natural Gaussian coarsenings beyond the failed patchwise bridge map;
-5. formulate cross-skeleton coarsenings in which the skeleton label itself may be averaged.
+1. a non-sparse geometrically defined coarsening throughout the full C-prime regime;
+2. a target-uniform structured representation on that full regime with function-space control;
+3. optimization of residual variation under information or computational constraints;
+4. natural Gaussian coarsenings beyond the failed patchwise bridge map;
+5. cross-skeleton coarsenings in which the skeleton label itself may be averaged.
 
 ## Full reading map
-
-The shortest path above is enough for the capstone. The following map includes the surrounding analytic and literature entries.
 
 ### Foundations
 
