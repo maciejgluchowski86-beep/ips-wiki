@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+
+\input{preamble}
+
+\title{Cancellation before absolute values in branching representations with derivative weights}
+\author{Maciej G{\l}uchowski}
+% TODO: confirm author list before circulation.
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Branching representations for nonlinear parabolic equations are often exact before absolute values are taken and nonintegrable afterward. We study this distinction for representations with derivative weights. First, for the coding-tree construction of Nguwi, Penent, and Privault, we isolate a repeated-Hessian genealogy which forces failure of $L^1$ whenever an even terminal jet grows faster than the ordered-simplex scale. Conversely, integrability of the relevant code-rooted trees imposes a Gevrey-$1/2$ bound on the directional jet. A benchmark equation then shows that this failure is representation-dependent: the coding-tree functional is non-$L^1$ at every positive horizon while a marked branching construction of Henry-Labord\`ere, Oudjane, Tan, Touzi, and Warin is $L^2$ for short time.
+
+The main results concern
+\begin{equation*}
+  \partial_t v=\frac12v_{xx}+\lambda(v_{xx})^2
+\end{equation*}
+on the one-dimensional torus. Finite Duhamel trees admit an exact regrouping into maximal Hessian patches. Averaging the continuous variables inside each decorated skeleton before taking absolute values yields, under an explicit small-data condition, an absolutely convergent skeleton expansion and an unbiased $L^1$ estimator. In contrast, for one fixed arbitrarily small smooth datum, every raw-faithful estimator has infinite first moment. Raw-faithfulness is formulated by requiring the canonical raw signed marked integrand to remain the conditional barycenter after the raw marks are exposed; the obstruction is invariant under lifetime, genealogy, and Gaussian proposal changes. We finally formulate the remaining problem through coarsenings of the intrinsic signed patch measures. The identity coarsening is impossible for the constructed datum, the constant coarsening is the skeleton-averaged representation, and Gaussian-bridge coarsening gives a natural intermediate candidate.
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/preliminaries}
+\input{sections/coding-tree-obstructions}
+\input{sections/representation-dichotomy}
+\input{sections/quadratic-hessian-patches}
+\input{sections/skeleton-averaged-representation}
+\input{sections/raw-faithful-obstruction}
+\input{sections/coarsening-open-problem}
+
+\printbibliography
+
+\end{document}
