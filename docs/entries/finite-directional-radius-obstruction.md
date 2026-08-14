@@ -107,7 +107,7 @@ $$
 \qquad(y\in E_0).
 $$
 
-Tonelli's theorem gives
+[Tonelli's theorem](tonelli-markov-and-borel-cantelli.md) gives
 
 $$
 \sum_{m\geq1}|A_m|=\infty.
