@@ -16,12 +16,10 @@ The coarsening problem for the quadratic Hessian equation has a genuine intermed
 
 This entry proves two complementary statements.
 
-1. A naive patchwise Gaussian-bridge coarsening does **not** repair the fixed-datum raw obstruction. The obstruction may be realized on right-oriented combs, and under the established convention that patches are maximal left-child chains every internal vertex of a right comb is a one-edge patch. A one-edge bridge map has no bridge coordinate to remove, so the raw comb total variation is unchanged.
-2. A different coarsening is integrable. For each finite tree, retain the ordered branch times on its root maximal-left spine, and average every Gaussian/Brownian mark and every continuous variable inside the side subtrees. Under an explicit smallness condition obtained from a geometric patch estimate and the Catalan side-subtree sum, the resulting coarsened signed measures have summable total variation. Sampling them gives an unbiased \(L^1\) estimator which genuinely retains continuous branch-time randomness.
+1. A naive patchwise Gaussian-bridge coarsening does **not** repair the fixed-datum raw obstruction. The obstruction may be realized on right-oriented combs, and every maximal-left patch of such a comb has one edge. A one-edge bridge map has no bridge coordinate to remove.
+2. Retaining the ordered branch times on the root maximal-left patch while averaging the remaining continuous variables does give an \(L^1\) representation under an explicit smallness condition. The analytic patch estimate behind this statement is geometric in the patch length and requires **no smallness assumption**; smallness enters only when the finite-patch estimates are summed over all trees.
 
-The second theorem lies strictly between the raw-faithful endpoint and Theorem C-prime at the level of retained information. It does not retain the raw Hessian Gaussian marks.
-
-**References.** The finite patch convention is in [Finite-depth Duhamel patch regrouping](finite-depth-duhamel-patch-regrouping.md). The geometric derivative-cluster estimate is in [Holder cancellation for heat-semigroup derivatives](holder-cancellation-for-heat-semigroup-derivatives.md) and [Joint centered-mark dichotomy for raw PDE patches](joint-centered-mark-dichotomy-for-raw-pde-patches.md). The Catalan tree bound is in [Skeleton-averaged L1 representation for the quadratic Hessian PDE](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md). The fixed-datum lower bound is in [Raw-barycenter L1 obstruction for the quadratic Hessian PDE](raw-marked-l1-obstruction-for-quadratic-hessian-pde.md). The results below are proved here.
+The finite patch convention is in [Finite-depth Duhamel patch regrouping](finite-depth-duhamel-patch-regrouping.md). The Hermite and commutator estimates used below are recorded in [Holder cancellation for heat-semigroup derivatives](holder-cancellation-for-heat-semigroup-derivatives.md). The Catalan tree bound is in [Skeleton-averaged L1 representation for the quadratic Hessian PDE](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md), and the fixed-datum lower bound is in [Raw-barycenter L1 obstruction for the quadratic Hessian PDE](raw-marked-l1-obstruction-for-quadratic-hessian-pde.md).
 
 ## Setup
 
@@ -37,23 +35,7 @@ T>0,
 \phi\in C^{2+\alpha}(\mathbb T),
 $$
 
-where
-
-$$
-\mathbb T=\mathbb R/(2\pi\mathbb Z).
-$$
-
-Let
-
-$$
-z(t)
-=
-P_t\phi''
-+\lambda\int_0^t
-\partial_x^2P_{t-s}[z(s)^2]\,ds.
-$$
-
-Write
+and write
 
 $$
 X=X_{\alpha,T}
@@ -75,13 +57,11 @@ $$
 and put
 
 $$
-a
-=
-|\lambda|C_{\mathcal D}M.
+a=|\lambda|C_{\mathcal D}M.
 \tag{1}
 $$
 
-For a finite planar full binary tree \(	au\), let \(F_\tau\) be its deterministic Duhamel profile. If \(|\tau|=n\) is its number of internal vertices, then
+For a finite planar full binary tree \(	au\), let \(F_\tau\) be its deterministic Duhamel profile. If \(|\tau|=n\), then
 
 $$
 \|F_\tau\|_X
@@ -90,68 +70,36 @@ Ma^n.
 \tag{2}
 $$
 
-Let \(\mu_\tau^{t,x}\) be the intrinsic signed measure on the canonical raw interior-mark space of \(	au\). Its total mass is \(F_\tau(t,x)\).
+Let \(\mu_\tau^{t,x}\) be the [canonical finite raw signed measure](canonical-raw-signed-measures-for-finite-quadratic-hessian-trees.md). Its total mass is \(F_\tau(t,x)\).
 
-## Why the naive Gaussian-bridge coarsening misses the obstruction
+## Why patchwise Gaussian bridges miss the obstruction
 
-A patch is, by convention, a maximal chain obtained by repeatedly following the **left** child.
+A patch is a maximal chain obtained by repeatedly following the left child. A *right comb of length \(m\)* is the planar binary tree whose right child continues through exactly \(m\) internal vertices while every left child is a leaf.
 
-A *right comb of length \(m\)* is the planar binary tree whose right child continues through exactly \(m\) internal vertices, while the left child at every one of those vertices is a leaf; after the \(m\)-th vertex the right child is also a leaf.
-
-### Lemma: right combs have only one-edge patches
-
-Every patch of a right comb has length one.
-
-### Proof
-
-At every internal vertex of the right comb, the left child is a leaf. Hence the maximal chain obtained by following left children stops immediately. Every internal vertex is therefore the first and last vertex of its own maximal-left patch. Different vertices lie in different patches because every continuing internal child is a right child. \(\square\)
-
-The long-comb lower bound in the raw-barycenter obstruction may be realized on these right combs. The quadratic product is symmetric in its two children, so choosing the continuing child to be the right child does not change the signed comb calculation: the side leaf still carries frequency \(1\), the distinguished terminal leaf carries the frequency \(N_m\), and the same successive multipliers \(N_m+1,\ldots,N_m+m\) appear.
-
-Define the *naive patchwise Gaussian-bridge coarsening* to act separately on every maximal-left patch: for a patch with durations \(r_1,\ldots,r_\ell\) and Gaussian increments \(Z_1,\ldots,Z_\ell\), retain the endpoint Gaussian coordinate
+Every patch of a right comb has length one: the left child of every internal vertex is already terminal. Therefore, on the right-comb family used in the raw-barycenter obstruction, the patchwise endpoint Gaussian
 
 $$
 Z_{\mathrm{end}}
 =
-\frac{\sum_{j=1}^\ell\sqrt{r_j}Z_j}
+\frac{\sum_{j=1}^{\ell}\sqrt{r_j}Z_j}
 {\sqrt{r_1+\cdots+r_\ell}}
 $$
 
-and forget the \(\ell-1\) orthogonal bridge coordinates, while leaving the other raw coordinates unchanged.
-
-For \(\ell=1\),
-
-$$
-Z_{\mathrm{end}}=Z_1.
-$$
-
-Thus the bridge map is literally the identity on the Gaussian coordinate of a one-edge patch. If one uses the unnormalised endpoint displacement instead, the map \(Z_1\mapsto\sqrt{r_1}Z_1\) is invertible once the retained duration \(r_1\) is known, so total variation is again unchanged.
-
-### Corollary: patchwise bridge coarsening is nonintegrable on the fixed datum
-
-Let \(\phi_\varepsilon\) be the single smooth datum from the raw-barycenter obstruction. On the right-comb cylinders \(\Gamma_m\), naive patchwise Gaussian-bridge coarsening leaves the intrinsic signed measure unchanged up to an invertible coordinate change. Consequently
-
-$$
-\|(\mathcal C_{\Gamma_m}^{\mathrm{bridge}})_\#\mu_m\|_{\mathrm{TV}}
-=
-\|\mu_m\|_{\mathrm{TV}},
-$$
-
-and therefore
+reduces to \(Z_1\) because \(\ell=1\). If the unnormalized displacement is retained instead, \(Z_1\mapsto\sqrt{r_1}Z_1\) is invertible once the duration is retained. Hence patchwise bridge coarsening leaves total variation unchanged on every obstruction cylinder. For the fixed smooth datum of the raw-barycenter theorem,
 
 $$
 \sum_m
 \|(\mathcal C_{\Gamma_m}^{\mathrm{bridge}})_\#\mu_m\|_{\mathrm{TV}}
 =
+\sum_m\|\mu_m\|_{\mathrm{TV}}
+=
 \infty.
 \tag{3}
 $$
 
-Hence the naive patchwise bridge scheme does not give an \(L^1\) representation for that fixed smooth datum.
+Thus naive patchwise bridge coarsening is nonintegrable on that datum.
 
-This failure is combinatorial rather than quantitative: the obstruction genealogy never presents the bridge map with a patch containing two Gaussian edges.
-
-## Absolute time integral of one deterministic patch
+## Derivative clusters and the absolute-time patch bound
 
 For \(m\ge1\), let
 
@@ -159,24 +107,22 @@ $$
 0<s_1<\cdots<s_m<t\le T.
 $$
 
-Given \(G\in C^\alpha(\mathbb T)\) and side profiles \(b_1,\ldots,b_m\in X\), define
+Given \(G\in C^\alpha(\mathbb T)\) and \(b_1,\ldots,b_m\in X\), define
 
 $$
-\Xi_1
-=
-b_1(s_1)P_{s_1}G,
+\Xi_1=b_1(s_1)P_{s_1}G,
 $$
 
-and, for \(2\le r\le m\),
+and
 
 $$
 \Xi_r
-=
-b_r(s_r)
-\partial_x^2P_{s_r-s_{r-1}}\Xi_{r-1}.
+=b_r(s_r)
+\partial_x^2P_{s_r-s_{r-1}}\Xi_{r-1},
+\qquad 2\le r\le m.
 $$
 
-Write
+Set
 
 $$
 I_m[b_1,\ldots,b_m;G](t,x;\mathbf s)
@@ -185,15 +131,7 @@ I_m[b_1,\ldots,b_m;G](t,x;\mathbf s)
 \tag{4}
 $$
 
-Thus the complete deterministic patch contribution is
-
-$$
-\lambda^m
-\int_{0<s_1<\cdots<s_m<t}
-I_m(t,x;\mathbf s)\,d\mathbf s.
-$$
-
-Define the normalized absolute-time constant
+Define
 
 $$
 \mathfrak P_m(\alpha,T)
@@ -201,9 +139,8 @@ $$
 \sup
 \frac{
 \displaystyle
-\sup_{0\le t\le T}\sup_{x\in\mathbb T}
-\int_{0<s_1<\cdots<s_m<t}
-|I_m(t,x;\mathbf s)|\,d\mathbf s
+\sup_{t\le T,x\in\mathbb T}
+\int_{0<s_1<\cdots<s_m<t}|I_m|\,d\mathbf s
 }{
 \|G\|_{C^\alpha}
 \prod_{j=1}^m\|b_j\|_X
@@ -211,7 +148,7 @@ $$
 \tag{5}
 $$
 
-where the supremum is over nonzero \(G,b_1,\ldots,b_m\). Finally set
+with the supremum over nonzero inputs, and
 
 $$
 K_{\mathrm{time}}(\alpha,T)
@@ -221,88 +158,240 @@ K_{\mathrm{time}}(\alpha,T)
 \tag{6}
 $$
 
-### Proposition: the time-spine patch constant is finite
+### Proposition: explicit absolute-time derivative-cluster bound
 
-For every \(0<\alpha<1\) and \(T>0\),
+Define
 
 $$
-K_{\mathrm{time}}(\alpha,T)<\infty.
+H_\alpha
+=
+\left(\mathbb E|Z|^{2\alpha}\right)^{1/2},
+\qquad
+D_{\alpha,T}
+=
+\frac{2T^{\alpha/2}}{\alpha},
+\qquad
+A_{\alpha,T}=H_\alpha D_{\alpha,T},
 \tag{7}
 $$
 
+and
+
+$$
+K_{\mathrm{cl}}(\alpha,T)
+=
+4\max\{1+A_{\alpha,T},\,2A_{\alpha,T}\}.
+\tag{8}
+$$
+
+Then, for every \(m\ge1\),
+
+$$
+\boxed{
+\begin{aligned}
+&\sup_{t\le T,x\in\mathbb T}
+\int_{0<s_1<\cdots<s_m<t}
+|I_m[b_1,\ldots,b_m;G](t,x;\mathbf s)|\,d\mathbf s\\
+&\qquad\le
+2A_{\alpha,T}4^m(1+A_{\alpha,T})^{m-1}
+\|G\|_{C^\alpha}
+\prod_{j=1}^m\|b_j\|_X\\
+&\qquad\le
+K_{\mathrm{cl}}(\alpha,T)^m
+\|G\|_{C^\alpha}
+\prod_{j=1}^m\|b_j\|_X.
+\end{aligned}
+}
+\tag{9}
+$$
+
+Consequently
+
+$$
+K_{\mathrm{time}}(\alpha,T)
+\le
+K_{\mathrm{cl}}(\alpha,T)
+<\infty.
+\tag{10}
+$$
+
+This proposition is purely analytic. It contains no smallness condition on \(\lambda\), \(\phi\), or any nonlinear solution norm.
+
 ### Proof
 
-Write each Hessian transfer as \(K_r^{(1)}=\partial_x^2P_r\). At fixed branch times, the integrand (4) is a product of \(m\) Hessian heat operators interlaced with the spatial multiplication operators \(M_{b_j(s_j)}\), followed by the initial heat lift \(P_{s_1}G\).
+Write
 
-Use repeatedly
+$$
+K_r^{(k)}=\partial_x^{2k}P_r,
+\qquad
+M_Bf=Bf,
+$$
+
+and
+
+$$
+c_{2k,\alpha}
+=
+\mathbb E[|He_{2k}(Z)|\,|Z|^\alpha].
+$$
+
+The standard Hermite cancellation and multiplication-commutator bounds are
+
+$$
+\|K_R^{(k)}f\|_\infty
+\le
+c_{2k,\alpha}R^{-k+\alpha/2}[f]_{C^\alpha},
+\tag{11}
+$$
+
+and
+
+$$
+\|[K_R^{(k)},M_B]f\|_\infty
+\le
+c_{2k,\alpha}R^{-k+\alpha/2}
+[B]_{C^\alpha}\|f\|_\infty.
+\tag{12}
+$$
+
+Set \(s_{m+1}=t\) and
+
+$$
+r_j=s_{j+1}-s_j,
+\qquad 1\le j\le m.
+$$
+
+Then \(r_j>0\), \(\sum_jr_j<t\), and
+
+$$
+s_1=t-\sum_{j=1}^m r_j.
+$$
+
+The change of variables from \((s_1,\ldots,s_m)\) to \((r_1,\ldots,r_m)\) has unit Jacobian. In particular, the initial heat interval is **not** an extra integration variable. With \(B_j=b_j(s_j,\cdot)\),
+
+$$
+I_m
+=
+K_{r_m}^{(1)}M_{B_m}
+K_{r_{m-1}}^{(1)}M_{B_{m-1}}
+\cdots
+K_{r_1}^{(1)}M_{B_1}P_{s_1}G.
+\tag{13}
+$$
+
+Expand repeatedly with
 
 $$
 K_R^{(k)}M_B
 =
-M_BK_R^{(k)}
-+
-[K_R^{(k)},M_B].
-\tag{8}
+M_BK_R^{(k)}+[K_R^{(k)},M_B].
+\tag{14}
 $$
 
-Every resulting term partitions the \(m\) Hessian edges into consecutive derivative clusters. A cluster of length \(\ell\) either reaches the initial profile \(G\), where mean-zero Hermite cancellation gives one \(C^\alpha\) increment, or ends at a commutator with a multiplier, where the same increment is supplied by that multiplier. The standard bounds give, for a cluster of total duration \(R\),
+Passing a multiplier joins the current derivative block to the next Hessian edge because
+
+$$
+K_R^{(k)}K_r^{(1)}=K_{R+r}^{(k+1)}.
+$$
+
+Taking the commutator terminates the current derivative cluster. Thus every term partitions the \(m\) derivative edges into consecutive clusters. A term with \(q\) clusters has \(q-1\) cluster boundaries among the first \(m-1\) multipliers, and the innermost multiplier has two terminal choices: the last cluster may end in its commutator or pass through it and reach \(P_{s_1}G\). Hence the exact number of \(q\)-cluster terms is
+
+$$
+2\binom{m-1}{q-1}.
+\tag{15}
+$$
+
+Consider a cluster of length \(\ell\) and total derivative duration \(R\). For fixed \(R\), the simplex of its \(\ell\) positive edge durations has volume
+
+$$
+\frac{R^{\ell-1}}{(\ell-1)!}.
+$$
+
+If the cluster ends at a multiplier, apply (12). If the innermost cluster reaches \(G\), apply (11) and
+
+$$
+[P_{s_1}G]_{C^\alpha}\le [G]_{C^\alpha}.
+$$
+
+After the internal subdivision is integrated, the cluster contributes at most
 
 $$
 \frac{c_{2\ell,\alpha}}{(\ell-1)!}
-R^{-1+\alpha/2}
-\tag{9}
+R^{-1+\alpha/2}.
+\tag{16}
 $$
 
-after integrating the internal subdivision of \(R\). Moreover
+Every multiplier appears exactly once and costs at most \(\|b_j\|_X\).
+
+By Cauchy--Schwarz and Hermite orthogonality,
 
 $$
-\frac{c_{2\ell,\alpha}}{(\ell-1)!}
+c_{2\ell,\alpha}
 \le
-C_\alpha4^\ell.
-\tag{10}
+H_\alpha\sqrt{(2\ell)!}.
 $$
 
-If a term has \(q\) clusters, their derivative durations \(R_1,\ldots,R_q\) lie in a simplex with total at most \(T\). Their absolute integral is
+Furthermore,
 
 $$
-\int_{R_i>0,\,\sum_iR_i<T}
-\prod_{i=1}^qR_i^{-1+\alpha/2}\,d\mathbf R
+\frac{\sqrt{(2\ell)!}}{(\ell-1)!}
 =
-T^{q\alpha/2}
-\frac{\Gamma(\alpha/2)^q}
-{\Gamma(1+q\alpha/2)}
+\ell\sqrt{\binom{2\ell}{\ell}}
 \le
-D_{\alpha,T}^q
-\tag{11}
+\ell2^\ell
+\le
+4^\ell.
 $$
 
-for a finite \(D_{\alpha,T}\). These derivative durations sum to \(t-s_1\); the undifferentiated initial heat interval \(s_1\) remains as one extra integration variable. Since \(0<s_1<T\), its integral costs at most a fixed factor \(T\), which is absorbed into the geometric constant below.
-
-There are at most \(2^m\) cluster/commutator terms. The heat semigroup is contractive on \(C^\alpha\), and every multiplier contributes at most its \(X\)-norm. Combining (9)--(11) therefore gives
+Therefore
 
 $$
-\sup_{t,x}
-\int_{\Delta_m(t)}
-|I_m(t,x;\mathbf s)|\,d\mathbf s
+\frac{c_{2\ell,\alpha}}{(\ell-1)!}
 \le
-K_{\alpha,T}^m
+H_\alpha4^\ell.
+\tag{17}
+$$
+
+For a \(q\)-cluster term, the cluster lengths sum to \(m\), so (17) contributes \(H_\alpha^q4^m\). If the cluster totals are \(R_1,\ldots,R_q\), then
+
+$$
+\int_{\substack{R_i>0\\\sum_iR_i<t}}
+\prod_{i=1}^qR_i^{-1+\alpha/2}\,d\mathbf R
+\le
+\prod_{i=1}^q
+\int_0^T R^{-1+\alpha/2}\,dR
+=
+D_{\alpha,T}^q.
+\tag{18}
+$$
+
+Hence each \(q\)-cluster term is bounded by
+
+$$
+4^mA_{\alpha,T}^q
 \|G\|_{C^\alpha}
-\prod_{j=1}^m\|b_j\|_X
+\prod_{j=1}^m\|b_j\|_X.
 $$
 
-for a finite \(K_{\alpha,T}\) independent of \(m\). This proves (7). \(\square\)
-
-The definition (6) uses the optimal geometric base; any explicit geometric constant obtained from the preceding proof is a valid upper bound for \(K_{\mathrm{time}}\).
-
-## Time-spine coarsening
-
-Every non-leaf planar binary tree has a unique root maximal-left patch. Suppose its length is \(m\ge1\). Along this patch, let the successive right subtrees be
+Summing (15) over \(q\) gives
 
 $$
-\sigma_1,\ldots,\sigma_m.
+\begin{aligned}
+\mathfrak P_m(\alpha,T)
+&\le
+2\,4^m
+\sum_{q=1}^m
+\binom{m-1}{q-1}A_{\alpha,T}^q\\
+&=
+2A_{\alpha,T}4^m(1+A_{\alpha,T})^{m-1}.
+\end{aligned}
 $$
 
-The final left child is a leaf. This gives a bijective decomposition
+If \(A_{\alpha,T}\le1\), this is at most \([4(1+A_{\alpha,T})]^m\); if \(A_{\alpha,T}\ge1\), it is at most \((8A_{\alpha,T})^m\). Equations (8)--(10) follow. \(\square\)
+
+## Time-spine coarsening and the representation corollary
+
+Every non-leaf planar binary tree has a unique root maximal-left patch. If its length is \(m\ge1\), let \(\sigma_1,\ldots,\sigma_m\) be its successive right subtrees. Then
 
 $$
 \tau
@@ -310,30 +399,20 @@ $$
 (m;\sigma_1,\ldots,\sigma_m),
 \qquad
 |\tau|
-=
-m+\sum_{j=1}^m|\sigma_j|.
-\tag{12}
+=m+\sum_{j=1}^m|\sigma_j|.
+\tag{19}
 $$
 
-Define \(\mathcal C_\tau^{\mathrm{time}}\) as follows.
-
-- Retain the ordered branch times \(0<s_1<\cdots<s_m<t\) of the root maximal-left patch.
-- Average all Gaussian/Hermite and Brownian marks on that patch.
-- Average every continuous mark, including all branch times, inside each side subtree \(\sigma_j\).
-
-At finite depth, conditional factorization shows that the pushforward signed measure on the retained time simplex has density
+The time-spine rule retains the ordered branch times \(0<s_1<\cdots<s_m<t\) of this root patch, averages every Gaussian/Hermite and Brownian mark on that patch, and averages every continuous mark inside the side subtrees. The pushforward signed measure on the retained time simplex has density
 
 $$
 \lambda^m
-I_m[F_{\sigma_1},\ldots,F_{\sigma_m};\phi''](t,x;\mathbf s)\,d\mathbf s.
-\tag{13}
+I_m[F_{\sigma_1},\ldots,F_{\sigma_m};\phi'']
+(t,x;\mathbf s)\,d\mathbf s.
+\tag{20}
 $$
 
-Thus this coarsening is defined directly from a finite signed measure; no conditional expectation of an unresolved infinite random functional is used.
-
-For the leaf tree, the coarsened measure is the point mass of mass \(L(t,x)\).
-
-## Theorem: an intermediate L1 representation with retained time randomness
+### Corollary: target-uniform time-spine L1 representation
 
 Let
 
@@ -343,91 +422,91 @@ C(a)
 \sum_{n=0}^\infty C_na^n
 =
 \frac{1-\sqrt{1-4a}}{2a},
-\qquad 0\le a<\frac14,
-\tag{14}
+\qquad C(0)=1,
 $$
 
-with \(C(0)=1\), and put
+and put
 
 $$
 b
 =
 |\lambda|K_{\mathrm{time}}(\alpha,T)M.
-\tag{15}
+\tag{21}
 $$
 
 Assume
 
 $$
+\boxed{
 4a<1,
 \qquad
 bC(a)<1.
-\tag{16}
+}
+\tag{22}
 $$
 
-Then, for every \((t,x)\in[0,T]\times\mathbb T\),
+Then the same time-spine coarsening rule works for every \((t,x)\in[0,T]\times\mathbb T\), and
 
 $$
 \boxed{
 \sum_{\tau\in\mathfrak T}
-\|(\mathcal C_\tau^{\mathrm{time}})_\#\mu_\tau^{t,x}\|_{\mathrm{TV}}
+\|(\mathcal C_\tau^{\mathrm{time}})_\#
+\mu_\tau^{t,x}\|_{\mathrm{TV}}
 \le
 \frac{M}{1-bC(a)}
 <\infty.
 }
-\tag{17}
+\tag{23}
 $$
 
-Consequently the canonical importance sampler for the coarsened measures is an unbiased \(L^1\) representation of the same solution \(z_*\) as Theorem C-prime. It retains the actual ordered branch times of the root maximal-left spine as continuous random variables.
+Consequently its canonical importance sampler is an unbiased \(L^1\) representation of the C-prime solution \(z_*(t,x)\) for every target. The ordered branch-time vector is retained and is nondecorative. No Gaussian/Hermite or Brownian mark is retained by this rule.
 
 ### Proof
 
-Let \(	au\leftrightarrow(m;\sigma_1,\ldots,\sigma_m)\) be the decomposition (12). By (13), the definition of \(K_{\mathrm{time}}\), and \(\|\phi''\|_{C^\alpha}\le M\),
+For \(	au\leftrightarrow(m;\sigma_1,\ldots,\sigma_m)\), the density (20), the definition of \(K_{\mathrm{time}}\), and (2) give
 
 $$
 \begin{aligned}
 \|(\mathcal C_\tau^{\mathrm{time}})_\#\mu_\tau^{t,x}\|_{\mathrm{TV}}
 &\le
-|\lambda|^m
-K_{\mathrm{time}}^m
-M
+|\lambda|^mK_{\mathrm{time}}^mM
 \prod_{j=1}^m\|F_{\sigma_j}\|_X\\
 &\le
-M b^m
-\prod_{j=1}^m a^{|\sigma_j|},
+Mb^m\prod_{j=1}^ma^{|\sigma_j|}.
 \end{aligned}
-\tag{18}
+\tag{24}
 $$
 
-where the second line uses (2).
-
-Sum first over the \(m\) side subtrees. Since
+Since
 
 $$
-\sum_{\sigma\in\mathfrak T}a^{|\sigma|}
-=
-C(a),
+\sum_{\sigma\in\mathfrak T}a^{|\sigma|}=C(a),
 $$
 
-we obtain
+summing independently over the side subtrees gives
 
 $$
-\begin{aligned}
 \sum_{\tau\in\mathfrak T}
 \|(\mathcal C_\tau^{\mathrm{time}})_\#\mu_\tau^{t,x}\|_{\mathrm{TV}}
-&\le
-M
-+
-M\sum_{m=1}^\infty
-[bC(a)]^m\\
-&=
+\le
+M+M\sum_{m\ge1}[bC(a)]^m
+=
 \frac{M}{1-bC(a)}.
-\end{aligned}
 $$
 
-This proves (17).
+Condition \(4a<1\) also gives the absolutely convergent C-prime sum of the total masses \(F_\tau(t,x)\), so the residual-variation theorem gives the unbiased \(L^1\) representation.
 
-The total mass of every coarsened measure is \(F_\tau(t,x)\). Condition \(4a<1\) gives absolute convergence of \(\sum_\tau F_\tau=z_*\). Sampling a skeleton with any full-support mass function and then sampling the retained time vector from any positive proposal dominating its coarsened signed measure therefore gives an unbiased estimator. Equation (17) gives its finite first moment. \(\square\)
+For nondecorativity, take the one-vertex tree and \(\phi''(x)=\cos x\). At \(x=0\), the retained-time density contains
+
+$$
+\partial_x^2P_{t-s}[(P_s\cos)^2](0)
+=
+-2e^{-2t+s},
+$$
+
+which depends nontrivially on \(s\). \(\square\)
+
+The separation between the proposition and the corollary is load-bearing: the derivative-cluster bound is an unconditional analytic estimate, whereas (22) is needed only to sum the finite-patch bounds over the infinite tree family.
 
 ## Exact form of the additional smallness condition
 
@@ -440,7 +519,7 @@ $$
 {C_{\mathcal D}(\alpha,T)}.
 $$
 
-When \(a>0\), one has \(b=\theta a\), and
+When \(a>0\), \(b=\theta a\), and
 
 $$
 aC(a)
@@ -448,44 +527,31 @@ aC(a)
 \frac{1-\sqrt{1-4a}}2.
 $$
 
-Thus the second inequality in (16) is exactly
+Thus the second condition in (22) is
 
 $$
 \boxed{
 \frac\theta2
 \left(1-\sqrt{1-4a}\right)<1.
 }
-\tag{19}
+\tag{25}
 $$
 
 If \(	heta\le2\), this is automatic under \(4a<1\). If \(	heta>2\), it is equivalent to
 
 $$
-a
-<
-\frac{\theta-1}{\theta^2}.
-\tag{20}
+a<\frac{\theta-1}{\theta^2}.
+\tag{26}
 $$
 
-Hence the time-spine theorem requires the C-prime condition together with one explicit additional geometric-series condition. Whether this is numerically stricter throughout the C-prime interval depends on the chosen valid constants \(K_{\mathrm{time}}\) and \(C_{\mathcal D}\); no universal numerical strengthening is asserted.
+Hence the time-spine representation requires the C-prime condition together with one explicit additional geometric-series condition. Whether it is numerically stricter throughout the C-prime interval depends on the chosen valid constants \(K_{\mathrm{time}}\) and \(C_{\mathcal D}\).
 
-## The coarsening hierarchy is nontrivial
+## The structured hierarchy
 
-The three proved levels are now:
+The three proved levels are:
 
 1. **Raw-faithful / identity.** For the fixed smooth datum of the raw-barycenter theorem, the canonical raw measures have nonsummable total variation. Naive patchwise bridge coarsening also fails because the obstruction uses one-edge patches.
-2. **Time-spine coarsening.** Under (16), one root-spine time vector remains random and the total-variation sum is finite.
+2. **Time-spine coarsening.** Under (22), the root-spine branch-time vector remains random and the total-variation sum is finite uniformly in the target.
 3. **Complete interior averaging / C-prime.** Under \(4a<1\), every continuous interior mark is integrated out and the skeleton-only estimator is \(L^1\).
 
-The middle level is not decorative. For example, for the one-vertex tree and datum \(\phi''(x)=\cos x\), the retained-time density at \(x=0\) is proportional to
-
-$$
-\partial_x^2P_{t-s}
-[(P_s\cos)^2](0)
-=
--2e^{-2t+s},
-$$
-
-which depends nontrivially on \(s\). The sampled branch time therefore affects the estimator value.
-
-This theorem shows that the correct structural dichotomy is not “raw randomness versus no randomness.” Averaging enough continuous marks to move signed mass between raw states is necessary for the fixed-datum obstruction, but complete averaging is not necessary for \(L^1\) in the stronger small-data regime (16).
+Thus the correct structural dichotomy is not “raw randomness versus no randomness.” Enough averaging to move signed mass between canonical raw states is necessary for the fixed-datum raw obstruction, but complete averaging is not necessary in the stronger small-data regime (22).
