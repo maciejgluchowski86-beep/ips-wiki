@@ -15,6 +15,8 @@ The [Nguwi--Penent--Privault coding tree](npp-coding-tree.md) contains a three-c
 
 **References.** The code set, mechanism, and multiplicative functional are those of Jiang Yu Nguwi, Guillaume Penent, and Nicolas Privault, *A fully nonlinear Feynman-Kac formula with derivatives of arbitrary orders*, arXiv:2201.03882, Definitions 2.1, 2.2, and 4.1. The obstruction theorem below is proved here.
 
+The elementary lower-bound machinery used in the proof is isolated in [Disjoint-event lower bounds for compensated branching estimators](disjoint-event-lower-bounds-for-compensated-branching-estimators.md). The spatial localization step uses [Brownian confinement and heat-kernel positivity](brownian-confinement-and-heat-kernel-positivity.md).
+
 ## Setup and hypotheses
 
 Fix a terminal time \(T>0\), an integer \(n\geq0\), a smooth nonlinearity
@@ -32,7 +34,7 @@ $$
 These are the data of the [heat-reference terminal PDE](heat-reference-fully-nonlinear-pde.md)
 
 $$
-\partial_tu+rac12u_{xx}+f(J_nu)=0,
+\partial_tu+\frac12u_{xx}+f(J_nu)=0,
 \qquad
 u(T)=\phi.
 $$
@@ -151,7 +153,7 @@ $$
 \tag{6}
 $$
 
-The events \(E_m\) are pairwise disjoint because the distinguished lineage has exactly \(m\) internal vertices on \(E_m\).
+The events \(E_m\) are pairwise disjoint because the distinguished lineage has exactly \(m\) internal vertices on \(E_m\). This is the exact-count disjointness pattern formalized in [Disjoint-event lower bounds for compensated branching estimators](disjoint-event-lower-bounds-for-compensated-branching-estimators.md).
 
 Consider the expectation restricted to one such genealogy. At the \(r\)-th distinguished branching, the lifetime density contributes
 
@@ -175,7 +177,9 @@ $$
 \frac{1}{q_r\rho(s_r-s_{r-1})}
 $$
 
-in the [multiplicative functional](npp-coding-tree.md). A side child born at time \(s_r\) survives with probability \(\overline F(T-s_r)\), which cancels its terminal denominator \(1/\overline F(T-s_r)\). The same cancellation holds for the final distinguished child. Hence the restriction leaves ordinary Lebesgue measure on \(\Delta_m\), together with the Brownian terminal factors. The terminal composite code is \(g_m^*\), so its absolute terminal value contributes
+in the [multiplicative functional](npp-coding-tree.md). A side child born at time \(s_r\) survives with probability \(\overline F(T-s_r)\), which cancels its terminal denominator \(1/\overline F(T-s_r)\). The same cancellation holds for the final distinguished child. Hence the restriction leaves ordinary Lebesgue measure on \(\Delta_m\), together with the Brownian terminal factors. This is the restricted absolute-moment compensator cancellation recorded in the disjoint-event prerequisite above; in particular, no uniform lower bound on the proposal probabilities is needed.
+
+The terminal composite code is \(g_m^*\), so its absolute terminal value contributes
 
 $$
 2^{-m}
@@ -185,7 +189,7 @@ $$
 \tag{7}
 $$
 
-It remains to bound the Brownian transfers uniformly in \(m\). Choose \(R>0\) and put \(K=[x-R,x+R]\). Conditional on the branching times, the Brownian pieces along the distinguished lineage concatenate to a standard Brownian path up to \(s_m\). Therefore
+It remains to bound the Brownian transfers uniformly in \(m\). Choose \(R>0\) and put \(K=[x-R,x+R]\). Conditional on the branching times, the Brownian pieces along the distinguished lineage concatenate to a standard Brownian path up to \(s_m\). Therefore [Brownian confinement](brownian-confinement-and-heat-kernel-positivity.md) gives
 
 $$
 \alpha
@@ -197,9 +201,9 @@ $$
 \tag{8}
 $$
 
-is a lower bound, independent of \(m\) and of the points of \(\Delta_m\), for the event that every distinguished branching position lies in \(K\).
+as a lower bound, independent of \(m\) and of the points of \(\Delta_m\), for the event that every distinguished branching position lies in \(K\).
 
-Write \(\psi=\phi^{(j+1)}\). Since \(\psi\) is continuous and not identically zero, strict positivity of the heat kernel gives
+Write \(\psi=\phi^{(j+1)}\). Since \(\psi\) is continuous and not identically zero, strict positivity of the heat kernel and compactness give
 
 $$
 \beta
@@ -220,6 +224,8 @@ p_r(y-z)
 >0.
 \tag{10}
 $$
+
+Both uniform positivity statements are instances of the compact heat-kernel lower bounds in the Brownian/heat-kernel prerequisite.
 
 Conditioning first on the distinguished branching times and positions preserves independence of the side-child Brownian motions. On the confinement event from (8), each side child contributes at least \(\beta\) after taking absolute terminal expectation, while the final distinguished child contributes at least
 
