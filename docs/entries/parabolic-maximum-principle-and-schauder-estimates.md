@@ -114,4 +114,4 @@ For example, if a sequence of uniformly parabolic equations has coefficients uni
 
 ## Why these estimates matter here
 
-The maximum principle and Schauder estimates are the deterministic tools behind the self-consistent second-order diffusion route studied later in this project. The relevant smallness condition controls the coefficient inside a fixed ellipticity window; Hölder/Schauder control then supplies the regularity of \(z=v_{xx}\). Gaussian kernel bounds are a different tool and require their own structural hypotheses, recorded in [Aronson and Nash Gaussian bounds](aronson-nash-gaussian-bounds.md).
+The maximum principle and Schauder estimates are the deterministic tools behind the [self-consistent patch iteration for the quadratic Hessian PDE](self-consistent-patch-iteration-for-quadratic-hessian-pde.md). There a fixed Hölder ball simultaneously controls the Schauder constant and keeps the linearized coefficient in the ellipticity window \([3/8,5/8]\). Gaussian kernel bounds are a different tool and require their own structural hypotheses, recorded in [Aronson and Nash Gaussian bounds](aronson-nash-gaussian-bounds.md).
