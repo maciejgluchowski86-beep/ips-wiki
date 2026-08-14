@@ -82,12 +82,13 @@ nav:
       - Chronology-averaged sign route for one-dimensional FA-1f: entries/chronology-averaged-sign-route-for-fa-1f.md
   - PDE and branching representations:
       - Overview: pde-branching-representations.md
-      - Heat-reference fully nonlinear terminal PDE: entries/heat-reference-fully-nonlinear-pde.md
+      - Heat-reference fully nonlinear terminal PDE: entries/heat-reference-fully-nonlinear-terminal-pde.md
       - Mild formulation and branching-diffusion representation: entries/mild-formulation-and-branching-diffusion-representation.md
       - Feynman-Kac formula for linear parabolic equations: entries/feynman-kac-formula-for-linear-parabolic-equations.md
       - Branching diffusions and Duhamel trees: entries/branching-diffusions-and-duhamel-trees.md
       - Age-dependent branching and finite-horizon nonexplosion: entries/age-dependent-branching-and-nonexplosion.md
       - Importance-sampling compensators: entries/importance-sampling-compensators.md
+      - Finite signed measures, pushforwards, and conditional barycenters: entries/finite-signed-measures-pushforwards-and-conditional-barycenters.md
       - Uniform integrability and passage to expectations: entries/uniform-integrability-and-passage-to-expectations.md
       - Gaussian integration by parts and automatic differentiation: entries/gaussian-integration-by-parts-and-automatic-differentiation.md
       - Malliavin and Bismut automatic differentiation: entries/malliavin-and-bismut-automatic-differentiation.md
