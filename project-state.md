@@ -21,6 +21,10 @@ The current prerequisite layer includes:
 - `docs/entries/importance-sampling-compensators.md`
 - `docs/entries/gaussian-integration-by-parts-and-automatic-differentiation.md`
 - `docs/entries/hermite-polynomials-and-gaussian-chaos.md`
+- `docs/entries/holder-cancellation-for-heat-semigroup-derivatives.md`
+- `docs/entries/parabolic-holder-spaces.md`
+- `docs/entries/random-fields-in-function-spaces.md`
+- `docs/entries/besov-spaces-on-the-torus.md`
 - `docs/entries/spatial-jets-total-derivative-and-faa-di-bruno.md`
 - `docs/entries/viscosity-solutions.md`
 - `docs/entries/tonelli-markov-and-borel-cantelli.md`
@@ -70,13 +74,23 @@ write `z=v_{xx}`. Three statements are kept separate.
    $$
    |\lambda|C_{\mathrm{Sch}}(\alpha,T)\|\phi\|_{C^{2+\alpha}}\leq\frac18
    $$
-   preserves the Hölder ball. The semi-implicit profiles contract in `H^{-1}` with ratio at most `1/3`, converge to the unique bounded weak profile in the small class `|lambda z| <= 1/8`, and give the implicit self-consistent diffusion representation. The iteration coefficient lies in `[3/8,5/8]`; the nonlinear/difference ellipticity coefficient lies in `[1/4,3/4]`. The torus mean is
+   preserves the Holder ball. The semi-implicit profiles contract in `H^{-1}` with ratio at most `1/3`, converge to the unique bounded weak profile in the small class `|lambda z| <= 1/8`, and give the implicit self-consistent diffusion representation. The iteration coefficient lies in `[3/8,5/8]`; the nonlinear/difference ellipticity coefficient lies in `[1/4,3/4]`. The torus mean is
    $$
    m(t)=m(0)+\lambda\int_0^t\frac1{2\pi}\int_{\mathbb T}z(s,x)^2\,dx\,ds.
    $$
-3. `docs/entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md` has status `conjecture`. The full infinite random patch-first `L^1` estimator is not proved. A smooth high-frequency counterexample shows that even one spatially varying Hessian Duhamel insertion is not bounded from side-profile `L^infty` to output `L^infty`; hence no proof may rely only on products of side-profile sup norms.
+3. `docs/entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md` remains status `conjecture`. The earlier sup-norm obstruction is now understood more sharply. Hermite centering gives
+   $$
+   \|\partial_x^{2k}P_rf\|_\infty
+   \lesssim
+   \sqrt{(2k)!}\,r^{-k+\alpha/2}[f]_{C^\alpha}.
+   $$
+   Commuting derivative blocks through multiplication operators decomposes a length-`m` patch into derivative clusters. A cluster of length `ell` receives one Holder increment, its internal simplex reduces the time singularity to `R^{-1+alpha/2}`, and the remaining cluster constants are geometric in `ell`. The full commutator expansion has at most `2^m` terms. Consequently deterministic patches with uniformly bounded spatial `C^alpha` side profiles have a geometric-in-length bound.
 
-Never conflate the three statements. In particular, deterministic convergence and finite signed exactness do not establish the conjectural random-patch `L^1` estimate.
+The smooth high-frequency counterexample to an `L^infty` side-profile bound is consistent with this improvement: its spatial and parabolic Holder norms grow like the highest frequency to the power `alpha`, hence like `2^{alpha m}` for the dyadic construction.
+
+The unresolved part of statement 3 is now a **random regularity problem**. A proof must recursively control function-space moments of the random side-patch fields, for example in `L^p(Omega;L^infty_t C^alpha_x)` or a suitable integrated/Besov substitute, and then sum those bounds through the patch genealogy. Full pathwise parabolic Holder regularity is sufficient but may be unnecessarily strong because a naive horizon coupling of a lifetime-based tree can have pathwise time jumps.
+
+Never conflate the three statements. In particular, the new deterministic Holder patch estimate does not establish the conjectural random-patch `L^1` theorem.
 
 ## General conventions
 
