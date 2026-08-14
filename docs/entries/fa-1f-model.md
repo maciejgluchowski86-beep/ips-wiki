@@ -1,6 +1,7 @@
 ---
 title: FA-1f model
 status: definition
+audit: current
 tags:
   - KCSM
   - FA-1f
@@ -46,7 +47,7 @@ $$
 \bigl(E_i^q f(\eta)-f(\eta)\bigr).
 $$
 
-A refresh occurs only at a [legal update](legal-update.md), meaning a clock ring whose site has at least one vacant neighbour. The corresponding finite-set dual is recorded in [monomial duality for FA-1f](monomial-duality-for-fa-1f.md), and its specialized patch factors are recorded in [patch contributions for FA-1f](patch-contributions-for-fa-1f.md).
+A refresh occurs only at a [legal update](legal-update.md), meaning a clock ring whose site has at least one vacant neighbour.
 
 The [biased annihilating branching process](babp-model.md) has the same legal updates but refreshes at a rate equal to the number of vacant neighbours.
 

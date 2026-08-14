@@ -1,16 +1,16 @@
 ---
 title: BABP out of equilibrium
-status: proved here
+status: literature
+audit: current
 tags:
   - BABP
   - out of equilibrium
   - convergence
-  - patch positivity
 ---
 
 # BABP out of equilibrium
 
-This entry records established long-time results for the [biased annihilating branching process](babp-model.md) and proves a convergence result for high-density initial laws using [monomial monotonicity](monomial-monotonicity-for-high-density-measures.md). The literature results rely on the classical self-duality of BABP and its quasi-duality with the double-flip process; the high-density result instead uses the patch critical density \(p^\star=p\).
+This entry records published long-time results for the [biased annihilating branching process](babp-model.md): stationary-measure classification, convergence from product initial laws, and finite-particle results. The arguments in the cited literature use classical duality and quasi-duality methods.
 
 **References.** Neuhauser and Sudbury, *The biased annihilating branching process*; Sudbury and Lloyd, *Quantum operators in classical probability theory. II. The concept of duality in interacting particle systems*; Sudbury and Lloyd, *Quantum operators in classical probability theory. IV. Quasi-duality and thinnings of interacting particle systems*; Sudbury, *Hunting submartingales in the jumping voter model and the biased annihilating branching process*; Martinelli, Shapira, and Toninelli, *Long time behaviour of one facilitated kinetically constrained models: results and open problems*.
 
@@ -61,74 +61,6 @@ p_{0,i}\le\sqrt p
 $$
 
 then \(\mu_{\mathbf p_0}P_t\) converges exponentially to \(\mu_q\). This is the inhomogeneous extension in their Remark 5.5.
-
-## High-density initial laws
-
-The patch method treats a high-one-density range, including profiles above the quasi-thinning threshold. The [common invariant-limit theorem](common-invariant-limit-under-uniform-pure-deaths.md) is not applicable because the BABP rates vanish at the all-one configuration. Instead, the proof compares the initial law with a homogeneous product law whose convergence is already known from (1).
-
-**Proposition.** Let \(\mathbf p_0=(p_{0,i})_{i\in\Z^d}\) satisfy
-
-$$
-p\le p_{0,i}\le p_+<1
-\qquad
-\text{for every }i\in\Z^d.
-\tag{3}
-$$
-
-Then \(\mu_{\mathbf p_0}P_t\) converges exponentially to \(\mu_q\) on local functions.
-
-More generally, the same conclusion holds for every probability measure \(\nu\in\mathcal M_\star\) such that
-
-$$
-0
-\le
-\nu(\chi_B^\star)
-\le
-(p_+-p)^{|B|}
-\qquad
-\text{for every }B\Subset\Z^d.
-\tag{4}
-$$
-
-### Proof
-
-The goal is to place the initial centered moments between those of equilibrium and those of one homogeneous product law. Since the [BABP patch critical density](patch-critical-density-for-babp.md) is \(p^\star=p\), for every nonempty finite \(B\),
-
-$$
-\begin{aligned}
-\mu_q(\chi_B^\star)&=0,
-\\
-\mu_{\mathbf p_0}(\chi_B^\star)
-&=
-\prod_{i\in B}(p_{0,i}-p),
-\\
-\mu_{q_-}(\chi_B^\star)
-&=
-(p_+-p)^{|B|},
-\qquad
-q_-:=1-p_+>0.
-\end{aligned}
-\tag{5}
-$$
-
-Here \(\mu_{q_-}\) is written in the KCSM convention: its zero density is \(q_-\), so its one density is \(p_+\). Assumption (3) makes the middle term in (5) lie between the other two. BABP has bounded finite-range rates and patch positivity, so the centered-moment monotonicity theorem applies and gives, for every \(A\Subset\Z^d\),
-
-$$
-p^{|A|}
-=
-\mu_q(P_t\chi_A)
-\le
-\mu_{\mathbf p_0}(P_t\chi_A)
-\le
-\mu_{q_-}(P_t\chi_A).
-\tag{6}
-$$
-
-The homogeneous convergence theorem (1), applied with initial vacancy density \(q_->0\), shows that the last term in (6) converges exponentially to \(p^{|A|}\). Hence the middle term does as well. Every local function is a finite linear combination of monomials, so the same conclusion holds for all local functions.
-
-Under (4), the centered moments of \(\nu\) satisfy the same lower and upper comparisons as the middle term in (5). Repeating (6) with \(\nu\) in place of \(\mu_{\mathbf p_0}\) proves the general statement.
-
-Condition (3) allows \(p_{0,i}>\sqrt p\), which is outside the quasi-thinning range (2), provided the profile remains uniformly bounded away from \(1\).
 
 ## Finite particle starts
 

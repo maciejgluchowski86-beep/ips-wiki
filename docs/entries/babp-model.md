@@ -1,6 +1,7 @@
 ---
 title: Biased annihilating branching process
 status: definition
+audit: current
 tags:
   - KCSM
   - BABP
@@ -44,8 +45,6 @@ c_i(\eta)
 \bigl(f(\eta^i)-f(\eta)\bigr).
 \tag{2}
 $$
-
-The coefficients of the flip rates in (2) determine the [monomial dual for BABP](monomial-duality-for-babp.md).
 
 ## Relation to FA-1f
 
@@ -119,4 +118,4 @@ $$
 
 The update rate \(c_i\) does not depend on \(\eta(i)\), and the refresh law is the one-site marginal of \(\mu_q\). Hence \(\mu_q\) is reversible. The all-one configuration is absorbing because every update rate vanishes there. BABP is not attractive in the usual product order.
 
-Its specialized patch factors are recorded under [patch contributions for BABP](patch-contributions-for-babp.md), and known convergence results together with a high-density comparison are recorded under [BABP out of equilibrium](babp-out-of-equilibrium.md).
+Known convergence results are recorded under [BABP out of equilibrium](babp-out-of-equilibrium.md).

@@ -8,9 +8,19 @@ This file is the compact mutable state for the autonomous PDE/probability resear
 
 ## Active programme
 
-**Strong-KPP uniqueness cancellation-interface search.**
+**General-domain Dirichlet strong-KPP uniqueness: critical-end ratio test.**
 
-The published open-problem documentation for strong-KPP uniqueness on arbitrary domains is adequate for the SEARCH-stage gate. No usable signed-cancellation interface has yet been established. Before any transition to DEVELOP, isolate a local quantitative mechanism and show a strict cancellation-aware gain at the exact analytic interface it is intended to improve.
+The two-published-source open-problem gate is confirmed for general-domain Dirichlet strong-KPP uniqueness of positive bounded solutions in the published regularity framework. For programme selection, the difference-quotient/spectral-gap cancellation route is refuted: the local strong-KPP sign is already used, and at a critical end the spectral margin can vanish as the relevant limit approaches the linearization at zero. The unresolved obstruction is comparison of positive solutions when both vanish along a critical end.
+
+The sole surviving SEARCH target is the following. For a critical connected limit with a simple isolated principal mode and
+
+$$
+f(s)=as-Bs^2+O(s^3),
+$$
+
+derive the projected quadratic amplitude equation with a quantitative perturbation error and determine whether it yields either a scale-uniform bound or an asymptotic constant for the ratio $u/v$.
+
+**Pre-committed failure condition.** If this mechanism fails already in the restricted simple-mode class, or yields only a local constant/kernel improvement without global ratio control, terminate Strong-KPP rather than moving it to reserve.
 
 ## Reserve programme
 
@@ -33,19 +43,17 @@ The classical local heat/Hermite cancellation remains reusable background mechan
 
 ## Unresolved and closure
 
-The quadratic-Hessian legacy dependency audit is resolved. The programme remains terminated; only the two audited observations above and previously audited programme-neutral material remain live from this sweep.
+The Strong-KPP literature gate is closed. The live Strong-KPP gap is now the critical-end ratio/comparability problem above.
 
-The Fresnel programme remains terminated as classical/low-payoff for the present objective.
+The quadratic-Hessian programme remains terminated; only the two audited observations above and previously audited programme-neutral material remain live from that programme. The Fresnel programme remains terminated as classical/low-payoff. The Navier--Stokes stochastic-cascade route is closed as a current programme and has been removed from reserve.
 
-The IPS freeze is removed. Project-specific IPS wiki material duplicated or superseded by the paper is now delete-first curation debt. This does **not** make generic definition or literature pages delete candidates merely because the project-specific theorem layer is deprecated; the next Curator must enumerate dependencies before deleting anything.
-
-The Navier--Stokes stochastic-cascade route is closed as a current programme and has been removed from reserve.
+The IPS freeze is removed. Project-specific IPS wiki material duplicated or superseded by the paper remains delete-first curation debt. Generic definition and literature pages are not deletion candidates merely because the project-specific theorem layer is deprecated.
 
 ## Wiki frontier
 
 §0 items 1--2 pass. The current PDE-reader frontier remains **§0 item 3: linear, semilinear, quasilinear, and fully nonlinear equations**.
 
-The item-3 entry is integrated and linked from `docs/pde-reading-path.md`. Legacy migration remains incomplete. When a Wiki Curator sweep is due, it replaces the ordinary PDE-reader slot for that cycle.
+The item-3 entry is integrated and linked from `docs/pde-reading-path.md`. Legacy migration remains incomplete. This sweep deletes eight FA-1f/BABP specialization pages for monomial duality, patch contributions, patch positivity, and patch critical density; rewrites the BABP out-of-equilibrium page as literature only; and repairs the FA-1f and BABP model pages. Remaining legacy IPS migration is incomplete, with the FA chronology/regeneration subtree still unaudited.
 
 ## Dead ends
 
@@ -57,13 +65,16 @@ Keep this section sparse; record only failures expensive enough that forgetting 
 - The elementary heat/Hermite cancellation alone does not control tree-depth moments.
 - For SQG, pointwise Riesz input exchange improves deep high-high $\to$ low interactions but cannot produce a vanishing shell coefficient because fixed-shape near-diagonal low-high/high-low interactions retain ratio arbitrarily close to one uniformly over scale.
 - For Navier--Stokes cascades, the published factor-$1/2$ nodewise symmetrization improves amplitude majorants but leaves the cascade law and explosion event unchanged. That route is no longer active or reserve.
+- For Strong-KPP, the difference-quotient/spectral-gap cancellation route has zero margin at critical ends and is refuted as the required bridge.
+- For Strong-KPP, local-cancellation-only or bounded-scale kernel improvements are dead ends unless they produce global ratio control on critical ends.
 
 ## Next cycle
 
-Run exactly three fresh read-only workers in the listed priority order, with at most two active concurrently.
+Run at most two fresh read-only workers concurrently.
 
-1. **Strong-KPP cancellation-interface scout.** Locate and quantitatively test the smallest plausible signed-cancellation or conditional-averaging interface for the documented strong-KPP uniqueness problem.
-2. **Strong-KPP literature adversary/open-problem verifier.** Recheck the exact published open-problem formulation, closest results, successor literature, and whether the proposed interface would address the documented gap.
-3. **Wiki Curator.** Perform the first dependency-safe delete sweep of the superseded IPS project-specific cluster, prioritizing legacy `status: proved here` pages. Generic definition and literature pages are not deleted merely because the project-specific theorem layer is deprecated.
+1. **Strong-KPP critical-mode asymptotics worker.** Derive or refute the stable projected quadratic amplitude law and a quantitative $u/v$ consequence on the restricted simple-critical-mode class.
+2. **Strong-KPP global-bridge adversary.** Test whether the strongest such estimate actually restores finite global comparison/sliding on critical ends; actively seek counterexamples.
 
-Workers 1 and 2 may start concurrently. Worker 3 starts when a slot opens. After collecting the dispatches verbatim, launch a fresh Director session. A single later Integrator may make only the repository changes justified by that Director. Claude has no mathematical authority.
+After either finishes, use the freed slot for a **Wiki Curator fifth sweep** treating the remaining FA chronology/regeneration subtree as a dependency graph.
+
+No DEVELOP transition is automatic. The next Director decides: if the ratio bridge survives, consider DEVELOP; if the restricted-class mechanism fails or is nonresponsive, terminate Strong-KPP and promote SQG. Claude has no mathematical authority.
