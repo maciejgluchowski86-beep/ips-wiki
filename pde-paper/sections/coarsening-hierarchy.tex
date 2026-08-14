@@ -1,0 +1,298 @@
+\section{A hierarchy of coarsened patch representations}
+\label{sec:coarsening}
+
+The positive and negative theorems fit into a common measure-theoretic family. Fix $(t,x)$ and a finite decorated skeleton $\tau$. Let $\mu_\tau$ be its intrinsic signed measure on the canonical raw mark space $\cM_\tau$, so that
+\begin{equation*}
+  \mu_\tau(\cM_\tau)=F_\tau(t,x).
+\end{equation*}
+For a measurable map
+\begin{equation*}
+  \cC_\tau:\cM_\tau\to\overline{\cM}_\tau,
+\end{equation*}
+set
+\begin{equation}
+  \overline\mu_\tau
+  =
+  (\cC_\tau)_{\#}\mu_\tau.
+  \label{eq:coarsening-main}
+\end{equation}
+If $S$ is sampled from a full-support law $\pi$ and, conditional on $S=\tau$, a positive proposal $Q_\tau$ dominates $\overline\mu_\tau$, the canonical coarsened weight has first moment
+\begin{equation}
+  \E\abs Y
+  =
+  \sum_{\tau\in\cT}
+  \norm{\overline\mu_\tau}_{\TV}.
+  \label{eq:coarsened-L1-sum}
+\end{equation}
+The skeleton and conditional proposal laws cancel from this quantity. Moreover
+\begin{equation}
+  \abs{F_\tau(t,x)}
+  \leq
+  \norm{(\cC_\tau)_{\#}\mu_\tau}_{\TV}
+  \leq
+  \norm{\mu_\tau}_{\TV}.
+  \label{eq:coarsening-sandwich}
+\end{equation}
+Thus complete interior averaging is total-variation optimal skeleton by skeleton, but~\eqref{eq:coarsening-sandwich} leaves room for nonconstant integrable coarsenings.
+
+\subsection{Patchwise Gaussian bridges do not repair the raw obstruction}
+
+The first candidate fails for an exact combinatorial reason.
+
+\begin{lemma}[Right combs are one-edge patches]
+\label{lem:right-comb-one-edge}
+Under the convention that a patch is a maximal chain obtained by repeatedly following the left child, every patch of the right combs used in~\cref{thm:raw-faithful-obstruction} has length one.
+\end{lemma}
+
+\begin{proof}
+At every internal vertex of a right comb the left child is a leaf, while the continuing internal child is the right child. A maximal left-child chain therefore stops at its first vertex. Hence each internal vertex forms its own one-edge patch.
+\end{proof}
+
+For a patch of length $\ell$ with durations $r_1,\ldots,r_\ell$ and Gaussian increments $Z_1,\ldots,Z_\ell$, the naive Gaussian-bridge coarsening retains
+\begin{equation*}
+  Z_{\mathrm{end}}
+  =
+  \frac{\sum_{j=1}^\ell\sqrt{r_j}Z_j}
+  {\sqrt{r_1+\cdots+r_\ell}}
+\end{equation*}
+and forgets the orthogonal bridge coordinates. If $\ell=1$, then $Z_{\mathrm{end}}=Z_1$. Thus on every obstruction comb cylinder the Gaussian part of this coarsening is the identity. If the unnormalised endpoint displacement is retained instead, the map $Z_1\mapsto\sqrt{r_1}Z_1$ is invertible once $r_1$ is retained, so total variation is again unchanged.
+
+\begin{corollary}[Naive patchwise bridge coarsening fails]
+\label{cor:bridge-coarsening-fails}
+For the fixed smooth datum of~\cref{thm:raw-faithful-obstruction}, patchwise Gaussian-bridge coarsening leaves the total variation of every right-comb obstruction measure unchanged. Hence
+\begin{equation*}
+  \sum_m
+  \norm{(\cC_{\Gamma_m}^{\mathrm{bridge}})_{\#}\mu_m}_{\TV}
+  =\infty.
+\end{equation*}
+In particular, this coarsening does not yield an $L^1$ representation.
+\end{corollary}
+
+\begin{proof}
+By~\cref{lem:right-comb-one-edge}, every patch on $\Gamma_m$ has length one, so the bridge map is the identity up to an invertible coordinate change. Pushforward by an invertible measurable coordinate change preserves total variation. The conclusion follows from~\eqref{eq:raw-comb-TV-divergence}.
+\end{proof}
+
+The point is structural. The bridge mechanism only has something to average when at least two Hessian Gaussian coordinates occur in the same patch; the obstruction genealogy never presents such a patch.
+
+\subsection{Retaining the times of one maximal-left spine}
+
+A different coarsening gives a genuine intermediate representation. We first isolate the deterministic patch estimate which controls its first moment.
+
+For $m\geq1$, let
+\begin{equation*}
+  0<s_1<\cdots<s_m<t\leq T.
+\end{equation*}
+Given $G\in C^\alpha(\Torus)$ and $b_1,\ldots,b_m\in X$, define
+\begin{align*}
+  \Xi_1&=b_1(s_1)P_{s_1}G,\\
+  \Xi_r&=b_r(s_r)
+  \partial_x^2P_{s_r-s_{r-1}}\Xi_{r-1},
+  \qquad 2\leq r\leq m,
+\end{align*}
+and
+\begin{equation}
+  I_m[b_1,\ldots,b_m;G](t,x;\mathbf s)
+  =
+  \partial_x^2P_{t-s_m}\Xi_m(x).
+  \label{eq:time-spine-integrand}
+\end{equation}
+Define
+\begin{equation}
+  \mathfrak P_m(\alpha,T)
+  =
+  \sup
+  \frac{
+    \displaystyle
+    \sup_{t\leq T,x\in\Torus}
+    \int_{0<s_1<\cdots<s_m<t}
+    \abs{I_m(t,x;\mathbf s)}\,d\mathbf s
+  }{
+    \norm G_{C^\alpha}
+    \prod_{j=1}^m\norm{b_j}_X
+  },
+  \label{eq:time-patch-constant}
+\end{equation}
+where the supremum is over nonzero arguments, and put
+\begin{equation}
+  K_{\mathrm{time}}(\alpha,T)
+  =
+  \sup_{m\geq1}
+  \mathfrak P_m(\alpha,T)^{1/m}.
+  \label{eq:K-time}
+\end{equation}
+
+\begin{proposition}[Geometric absolute-time patch bound]
+\label{prop:K-time-finite}
+For every $0<\alpha<1$ and $T>0$,
+\begin{equation*}
+  K_{\mathrm{time}}(\alpha,T)<\infty.
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+At fixed branch times,~\eqref{eq:time-spine-integrand} is a product of $m$ Hessian heat operators interlaced with spatial multiplications by $b_j(s_j)$. Commute consecutive derivative blocks through these multipliers using
+\begin{equation*}
+  K_R^{(k)}M_B
+  =
+  M_BK_R^{(k)}+[K_R^{(k)},M_B].
+\end{equation*}
+Every term of the resulting expansion partitions the $m$ Hessian edges into consecutive derivative clusters. A cluster of length $\ell$ either terminates in a commutator with a multiplier or reaches the initial profile $G$. In the first case the multiplier supplies one spatial H\"older increment; in the second the increment is supplied by $G$. The H\"older/Hermite estimate therefore gives, after integrating the internal subdivision of a cluster with total duration $R$,
+\begin{equation*}
+  \frac{c_{2\ell,\alpha}}{(\ell-1)!}
+  R^{-1+\alpha/2},
+\end{equation*}
+with
+\begin{equation*}
+  \frac{c_{2\ell,\alpha}}{(\ell-1)!}
+  \leq
+  C_\alpha4^\ell.
+\end{equation*}
+If an expansion term has $q$ clusters, their total durations lie in a simplex and
+\begin{equation*}
+  \int_{\substack{R_i>0\\\sum_iR_i<T}}
+  \prod_{i=1}^qR_i^{-1+\alpha/2}\,d\mathbf R
+  =
+  T^{q\alpha/2}
+  \frac{\Gamma(\alpha/2)^q}
+  {\Gamma(1+q\alpha/2)}
+  \leq
+  D_{\alpha,T}^q.
+\end{equation*}
+There are at most $2^m$ commutator/cluster terms. The heat semigroup is contractive on $C^\alpha$, and every multiplier is bounded by its $X$-norm. Hence
+\begin{equation*}
+  \sup_{t,x}
+  \int_{\Delta_m(t)}
+  \abs{I_m(t,x;\mathbf s)}\,d\mathbf s
+  \leq
+  K_{\alpha,T}^m
+  \norm G_{C^\alpha}
+  \prod_{j=1}^m\norm{b_j}_X
+\end{equation*}
+for a finite constant $K_{\alpha,T}$ independent of $m$. This proves~\cref{prop:K-time-finite}.
+\end{proof}
+
+Every non-leaf planar binary tree has a unique root maximal-left patch. Suppose its length is $m$. Let $\sigma_1,\ldots,\sigma_m$ be the successive right subtrees attached to this patch. Then
+\begin{equation}
+  \tau
+  \longleftrightarrow
+  (m;\sigma_1,\ldots,\sigma_m),
+  \qquad
+  \abs\tau
+  =
+  m+\sum_{j=1}^m\abs{\sigma_j}.
+  \label{eq:root-patch-decomposition}
+\end{equation}
+
+Define the \emph{time-spine coarsening} $\cC_\tau^{\mathrm{time}}$ by retaining the ordered branch times $0<s_1<\cdots<s_m<t$ of this root maximal-left patch and integrating out all Gaussian/Hermite and Brownian marks on the patch and every continuous variable, including every branch time, inside the side subtrees $\sigma_j$. By finite conditional factorization, its pushforward signed measure on the retained simplex has density
+\begin{equation}
+  \lambda^m
+  I_m[F_{\sigma_1},\ldots,F_{\sigma_m};\phi'']
+  (t,x;\mathbf s)\,d\mathbf s.
+  \label{eq:time-spine-density}
+\end{equation}
+For the leaf tree it is the point mass of mass $L(t,x)$.
+
+Put
+\begin{equation*}
+  a=\abs\lambda C_{\cD}(\alpha,T)M,
+  \qquad
+  b=\abs\lambda K_{\mathrm{time}}(\alpha,T)M,
+\end{equation*}
+and
+\begin{equation}
+  C(a)
+  =
+  \sum_{n=0}^\infty C_na^n
+  =
+  \frac{1-\sqrt{1-4a}}{2a},
+  \qquad C(0)=1.
+  \label{eq:time-spine-Catalan}
+\end{equation}
+
+\begin{theorem}[Intermediate $L^1$ representation with retained time randomness]
+\label{thm:time-spine}
+Assume
+\begin{equation}
+  4a<1,
+  \qquad
+  bC(a)<1.
+  \label{eq:time-spine-smallness}
+\end{equation}
+Then, for every $(t,x)\in[0,T]\times\Torus$,
+\begin{equation}
+  \sum_{\tau\in\cT}
+  \norm{(\cC_\tau^{\mathrm{time}})_{\#}\mu_\tau^{t,x}}_{\TV}
+  \leq
+  \frac{M}{1-bC(a)}
+  <\infty.
+  \label{eq:time-spine-TV-sum}
+\end{equation}
+Consequently the canonical importance sampler for these coarsened measures is an unbiased $L^1$ representation of the same solution $z_*$ as~\cref{thm:cprime}. The actual ordered branch times on the root maximal-left spine remain as continuous random variables.
+\end{theorem}
+
+\begin{proof}
+Let $\tau\leftrightarrow(m;\sigma_1,\ldots,\sigma_m)$ be~\eqref{eq:root-patch-decomposition}. By~\eqref{eq:time-spine-density}, the definition of $K_{\mathrm{time}}$, and $\norm{\phi''}_{C^\alpha}\leq M$,
+\begin{align*}
+  \norm{(\cC_\tau^{\mathrm{time}})_{\#}\mu_\tau^{t,x}}_{\TV}
+  &\leq
+  \abs\lambda^mK_{\mathrm{time}}^mM
+  \prod_{j=1}^m\norm{F_{\sigma_j}}_X \\
+  &\leq
+  Mb^m
+  \prod_{j=1}^m a^{\abs{\sigma_j}},
+\end{align*}
+where~\eqref{eq:Cprime-tree-bound} is used in the second line. Summing independently over the $m$ side subtrees gives
+\begin{align*}
+  \sum_{\tau\in\cT}
+  \norm{(\cC_\tau^{\mathrm{time}})_{\#}\mu_\tau^{t,x}}_{\TV}
+  &\leq
+  M+M\sum_{m=1}^\infty
+  \br{bC(a)}^m \\
+  &=
+  \frac{M}{1-bC(a)}.
+\end{align*}
+This is~\eqref{eq:time-spine-TV-sum}.
+
+The total mass of the coarsened measure for skeleton $\tau$ remains $F_\tau(t,x)$. The condition $4a<1$ gives the absolutely convergent C-prime sum $\sum_\tau F_\tau=z_*$. Sampling the skeleton and then any positive proposal dominating its retained-time signed measure therefore gives an unbiased estimator, while~\eqref{eq:time-spine-TV-sum} gives its finite first moment.
+\end{proof}
+
+The second inequality in~\eqref{eq:time-spine-smallness} is the exact additional condition at the level of this majorant. If
+\begin{equation*}
+  \theta
+  =
+  \frac{K_{\mathrm{time}}(\alpha,T)}
+  {C_{\cD}(\alpha,T)},
+\end{equation*}
+then $b=\theta a$ when $a>0$ and
+\begin{equation}
+  bC(a)<1
+  \quad\Longleftrightarrow\quad
+  \frac\theta2
+  \pa{1-\sqrt{1-4a}}<1.
+  \label{eq:time-spine-theta-condition}
+\end{equation}
+If $\theta\leq2$, this follows automatically from $4a<1$; if $\theta>2$, it is equivalent to
+\begin{equation*}
+  a<\frac{\theta-1}{\theta^2}.
+\end{equation*}
+Thus the theorem adds one explicit geometric-series condition to the C-prime hypothesis. We do not attach a universal numerical strengthening to the phrase ``slightly stronger'', because it depends on the chosen valid operator constants.
+
+The retained time variable is not decorative. For the one-vertex tree and $\phi''(x)=\cos x$, at $x=0$ the retained-time density is proportional to
+\begin{equation*}
+  \partial_x^2P_{t-s}[(P_s\cos)^2](0)
+  =
+  -2e^{-2t+s},
+\end{equation*}
+which depends nontrivially on $s$.
+
+\subsection{The resulting hierarchy}
+
+The coarsening family therefore contains at least three mathematically distinct levels.
+
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \textbf{Raw-faithful / identity.} For the fixed smooth datum of~\cref{thm:raw-faithful-obstruction}, the total-variation sum diverges. Naive patchwise Gaussian-bridge coarsening also fails by~\cref{cor:bridge-coarsening-fails}.
+\item \textbf{Time-spine coarsening.} Under~\eqref{eq:time-spine-smallness}, a nonconstant continuous branch-time vector remains random and the total-variation sum is finite.
+\item \textbf{Complete interior averaging / C-prime.} Under~\eqref{eq:Cprime-smallness}, all continuous interior variables are averaged out and the skeleton-only estimator is in $L^1$.
+\end{enumerate}
+
+The hierarchy shows that the structural requirement is neither ``retain all randomness'' nor ``average everything''. The fixed-datum theorem forces a departure from the canonical raw conditional barycenter, but~\cref{thm:time-spine} shows that complete interior averaging is not necessary for $L^1$ on a stronger small-data regime. Gaussian bridge coarsening remains useful as a local cancellation mechanism, but the naive patchwise version is not a global solution because the obstruction genealogies consist of one-edge patches.
