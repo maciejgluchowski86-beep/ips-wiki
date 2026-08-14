@@ -49,8 +49,7 @@ $$
 z(t)
 =
 P_t\phi''
-+
-\lambda\int_0^t
++\lambda\int_0^t
 \partial_x^2P_{t-s}[z(s)^2]\,ds.
 $$
 
@@ -263,7 +262,7 @@ C_\alpha4^\ell.
 \tag{10}
 $$
 
-If a term has \(q\) clusters, the remaining cluster durations \(R_1,\ldots,R_q\) lie in a simplex with total at most \(T\). Their absolute integral is
+If a term has \(q\) clusters, their derivative durations \(R_1,\ldots,R_q\) lie in a simplex with total at most \(T\). Their absolute integral is
 
 $$
 \int_{R_i>0,\,\sum_iR_i<T}
@@ -277,7 +276,9 @@ D_{\alpha,T}^q
 \tag{11}
 $$
 
-for a finite \(D_{\alpha,T}\). There are at most \(2^m\) cluster/commutator terms. The heat semigroup is contractive on \(C^\alpha\), and every multiplier contributes at most its \(X\)-norm. Combining (9)--(11) therefore gives
+for a finite \(D_{\alpha,T}\). These derivative durations sum to \(t-s_1\); the undifferentiated initial heat interval \(s_1\) remains as one extra integration variable. Since \(0<s_1<T\), its integral costs at most a fixed factor \(T\), which is absorbed into the geometric constant below.
+
+There are at most \(2^m\) cluster/commutator terms. The heat semigroup is contractive on \(C^\alpha\), and every multiplier contributes at most its \(X\)-norm. Combining (9)--(11) therefore gives
 
 $$
 \sup_{t,x}
