@@ -28,11 +28,21 @@ The bilinear bound~\eqref{eq:D-bilinear-bound} gives
 
 \begin{theorem}[Skeleton-averaged $L^1$ representation, Theorem C-prime]
 \label{thm:cprime}
-Fix $0<\alpha<1$, $T>0$, $\lambda\in\R$, and $\phi\in C^{2+\alpha}(\Torus)$. Assume
+Fix $0<\alpha<1$, $T>0$, $\lambda\in\R$, and $\phi\in C^{2+\alpha}(\Torus)$. Let
+\begin{equation*}
+  X=X_{\alpha,T},
+  \qquad
+  M=\norm{P_\cdot\phi''}_{X},
+\end{equation*}
+and let $C_{\cD}(\alpha,T)$ be a valid constant in the bilinear estimate~\eqref{eq:D-bilinear-bound}. Put
+\begin{equation*}
+  a
+  =
+  \abs\lambda C_{\cD}(\alpha,T)M.
+\end{equation*}
+Assume
 \begin{equation}
-  4\abs\lambda C_{\cD}(\alpha,T)
-  \norm{P_\cdot\phi''}_{X_{\alpha,T}}
-  <1.
+  4a<1.
   \label{eq:Cprime-smallness}
 \end{equation}
 Then
@@ -42,14 +52,22 @@ Then
   \sum_{\tau\in\cT}F_\tau
   \label{eq:Cprime-series}
 \end{equation}
-converges absolutely in $X_{\alpha,T}$ and satisfies
+converges absolutely in $X$. It satisfies
 \begin{equation*}
   z_*
   =
   P_\cdot\phi''
   +\lambda\cD(z_*^2).
 \end{equation*}
-The sum is the unique solution in the corresponding Catalan fixed-point ball.
+Define
+\begin{equation*}
+  R_*(a)
+  =
+  M\frac{1-\sqrt{1-4a}}{2a},
+  \qquad
+  R_*(0)=M.
+\end{equation*}
+Then $z_*$ is the unique fixed point of $z\mapsto P_\cdot\phi''+\lambda\cD(z^2)$ in the closed $X$-ball of radius $R_*(a)$.
 
 Let $\pi$ be any probability mass function on $\cT$ with $\pi(\tau)>0$ for every finite tree. If $S\sim\pi$ and
 \begin{equation}
@@ -58,13 +76,26 @@ Let $\pi$ be any probability mass function on $\cT$ with $\pi(\tau)>0$ for every
   \frac{F_S(t,x)}{\pi(S)},
   \label{eq:Cprime-estimator}
 \end{equation}
-then
+then, for every $(t,x)\in[0,T]\times\Torus$,
 \begin{equation*}
-  \E\abs{\widehat z(t,x)}<\infty,
+  \widehat z(t,x)\in L^1,
   \qquad
-  \E[\widehat z(t,x)]=z_*(t,x)
+  \E[\widehat z(t,x)]=z_*(t,x).
 \end{equation*}
-for every $(t,x)\in[0,T]\times\Torus$.
+Moreover, defining
+\begin{equation*}
+  v_*(t)
+  =
+  P_t\phi
+  +\lambda\int_0^tP_{t-s}[z_*(s)^2]\,ds,
+\end{equation*}
+one has
+\begin{equation*}
+  v_*\in C^{1+\alpha/2,2+\alpha}([0,T]\times\Torus),
+  \qquad
+  v_{*,xx}=z_*,
+\end{equation*}
+so $v_*$ is a classical solution of~\eqref{eq:hessian-forward}.
 \end{theorem}
 
 A data-only sufficient condition follows from the heat-lift estimate
@@ -122,52 +153,32 @@ The non-leaf planar trees are in bijection with ordered pairs $(\tau_1,\tau_2)$ 
 \end{align*}
 The absolute convergence is load-bearing here: it justifies the Cauchy product and the exchange of the two tree sums.
 
-Put
-\begin{equation*}
-  R(a)
-  =
-  M\frac{1-\sqrt{1-4a}}{2a},
-\end{equation*}
-with $R(0)=M$. The Catalan identity gives
+The Catalan identity gives
 \begin{equation}
-  R(a)
+  R_*(a)
   =
-  M+\abs\lambda C_{\cD}R(a)^2.
+  M+\abs\lambda C_{\cD}R_*(a)^2.
   \label{eq:Cprime-radius-identity}
 \end{equation}
 For
 \begin{equation*}
   \Phi(z)=L+\lambda\cD(z^2),
 \end{equation*}
-~\eqref{eq:Cprime-radius-identity} shows that $\Phi$ maps the closed $X$-ball of radius $R(a)$ into itself. If $\norm z_X,\norm w_X\leq R(a)$, then
+~\eqref{eq:Cprime-radius-identity} shows that $\Phi$ maps the closed $X$-ball of radius $R_*(a)$ into itself. If $\norm z_X,\norm w_X\leq R_*(a)$, then
 \begin{equation*}
   \norm{\Phi(z)-\Phi(w)}_X
   \leq
-  2\abs\lambda C_{\cD}R(a)\norm{z-w}_X.
+  2\abs\lambda C_{\cD}R_*(a)\norm{z-w}_X.
 \end{equation*}
-Using the explicit value of $R(a)$,
+Using the explicit value of $R_*(a)$,
 \begin{equation*}
-  2\abs\lambda C_{\cD}R(a)
+  2\abs\lambda C_{\cD}R_*(a)
   =
   1-\sqrt{1-4a}<1.
 \end{equation*}
 Thus $z_*$ is the unique fixed point in this ball.
 
-Define
-\begin{equation*}
-  v_*(t)
-  =
-  P_t\phi
-  +\lambda\int_0^t
-  P_{t-s}[z_*(s)^2]\,ds.
-\end{equation*}
-Differentiating twice in space and using the fixed-point equation gives $v_{*,xx}=z_*$. Standard parabolic Schauder regularity then yields
-\begin{equation*}
-  v_*
-  \in
-  C^{1+\alpha/2,2+\alpha}([0,T]\times\Torus),
-\end{equation*}
-so $v_*$ is a classical solution of~\eqref{eq:hessian-forward}.
+Define $v_*$ as in the theorem statement. Differentiating twice in space and using the fixed-point equation gives $v_{*,xx}=z_*$. Standard parabolic Schauder regularity yields the claimed regularity and therefore the classical solution property.
 
 It remains to prove the probabilistic statement. Sample $S\sim\pi$ and define~\eqref{eq:Cprime-estimator}. Then
 \begin{align*}
@@ -191,12 +202,18 @@ The skeleton proposal cancels from the first moment exactly as in ordinary impor
 
 \begin{corollary}[Overlap with the deterministic solution]
 \label{cor:Cprime-deterministic-overlap}
-Assume~\eqref{eq:Cprime-smallness}, and suppose in addition that the C-prime Hessian profile satisfies
+Fix $0<\alpha<1$, $T>0$, $\lambda\in\R$, and $\phi\in C^{2+\alpha}(\Torus)$. Assume the C-prime condition~\eqref{eq:Cprime-smallness} and the deterministic smallness condition
+\begin{equation*}
+  \abs\lambda C_{\mathrm{Sch}}(\alpha,T)
+  \norm\phi_{C^{2+\alpha}}
+  \leq\frac18.
+\end{equation*}
+Let $z_*$ be the C-prime fixed point, and assume in addition that
 \begin{equation*}
   \abs{\lambda z_*}\leq\frac18
   \qquad\text{on }[0,T]\times\Torus.
 \end{equation*}
-Then the C-prime solution is the unique small-class solution from~\cref{thm:deterministic-iteration} whenever that deterministic construction is available.
+Then the C-prime classical solution coincides with the solution produced by~\cref{thm:deterministic-iteration}.
 \end{corollary}
 
 \begin{proof}
