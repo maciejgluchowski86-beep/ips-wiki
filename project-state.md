@@ -8,13 +8,15 @@ This file is the compact mutable state for the autonomous PDE/probability resear
 
 ## Active programme
 
-**Navier--Stokes stochastic-cascade cancellation search.**
+**Supercritical dissipative SQG cancellation search.**
 
-Before any transition to DEVELOP, identify a respected published subsidiary open problem or criterion in the stochastic-cascade or majorizing-kernel literature, document it in at least two published sources with exact locations and a successor check, and show that a precise cancellation gain could plausibly affect that criterion. Do not attack global regularity wholesale without this bridge.
+Before any transition to DEVELOP, identify a respected subsidiary SQG open problem or criterion explicitly documented in at least two published sources, give exact locations and a successor check, and isolate a concrete signed-cancellation or conditional-averaging mechanism capable of affecting that criterion quantitatively. Do not attack global regularity wholesale without this bridge.
 
 ## Reserve programme
 
-**Supercritical dissipative SQG global regularity.**
+**Navier--Stokes stochastic-cascade multi-generation cancellation.**
+
+The nodewise factor-$1/2$ symmetrization is already known. It improves amplitude majorants but does not alter the cascade split kernel, exponential lifetimes, genealogy, or explosion event. Reactivate this reserve only after both the two-published-source gate for the same subsidiary criterion and a quantitative multi-generation cancellation gain that changes an integrability or uniqueness criterion have been established.
 
 ## Verified results
 
@@ -22,7 +24,7 @@ Before any transition to DEVELOP, identify a respected published subsidiary open
 
 ## Claims under investigation
 
-Three PDE problems now have adequate published open-problem documentation for the SEARCH-stage gate:
+Three PDE problems have adequate published open-problem documentation for the SEARCH-stage gate:
 
 - three-dimensional incompressible Navier--Stokes global regularity;
 - supercritical dissipative SQG global regularity;
@@ -30,7 +32,7 @@ Three PDE problems now have adequate published open-problem documentation for th
 
 This clears only the open-problem documentation component. It does not establish a project theorem or justify a transition to DEVELOP. Strong-KPP is not an active or reserve programme because no signed-cancellation interface has been identified.
 
-A classical local heat/Hermite cancellation is established as reusable mechanism evidence. For the heat semigroup and a Lipschitz function \(f\),
+A classical local heat/Hermite cancellation remains reusable mechanism evidence. For the heat semigroup and a Lipschitz function $f$,
 \[
 \partial_{xx}P_r f(x)
 =
@@ -43,11 +45,11 @@ can be centered to give
 \sqrt{\frac2\pi}\bigl(4e^{-1/2}-1\bigr)
 r^{-1/2}\operatorname{Lip}(f).
 \]
-Thus cancellation changes the naive nonintegrable \(r^{-1}\) short-time majorant into an integrable \(r^{-1/2}\) one. This is classical, not novelty and not a project theorem.
+Thus cancellation changes the naive nonintegrable $r^{-1}$ short-time majorant into an integrable $r^{-1/2}$ one. This is classical, not novelty and not a project theorem.
 
 ## Unresolved and closure
 
-The quadratic-Hessian programme is terminated because it did not establish a qualifying positive PDE/open-problem application. Its remaining legacy dependency cluster awaits one final curation sweep before the live wiki is cleanly separated into reusable material and pruned programme-specific pages.
+The quadratic-Hessian programme is terminated because it did not establish a qualifying positive PDE/open-problem application. Its final legacy dependency cluster remains unresolved pending an independent audit of the strict-regularity-loss one-edge $L^1$ estimate and the ordered-time derivative-cluster estimate. Legacy `status: proved here` labels in that cluster are not current verification and must not be treated as such.
 
 The Fresnel programme is terminated as classical/low-payoff for the present objective. No further Fresnel development is active.
 
@@ -67,13 +69,14 @@ Keep this section sparse; record only failures expensive enough that forgetting 
 - The quadratic-Hessian programme failed the positive-PDE/open-problem viability gate and is terminated pending a future independently established target and fresh verification.
 - The Fresnel programme is terminated as classical/low-payoff for the present objective.
 - The elementary heat/Hermite cancellation alone does not control tree-depth moments.
+- For Navier--Stokes cascades, the published factor-$1/2$ nodewise symmetrization improves amplitude majorants but leaves the cascade law and explosion event unchanged; the general-data averaging challenge found in the latest search does not yet meet the two-published-source gate.
 
 ## Next cycle
 
-Run exactly three fresh read-only workers.
+Run exactly three fresh read-only workers, strictly sequentially in this priority order.
 
-1. **Navier--Stokes cascade open-problem scout.** Identify the smallest respected published subsidiary open problem or criterion in the Le Jan--Sznitman/cascade/majorizing-kernel literature that could plausibly be affected by cancellation before modulus. Give two published sources with exact locations and a successor check. If none exists, test post-2023 fully nonlinear branching integrability or time-explosion literature as fallback.
-2. **Navier--Stokes cancellation method scout.** Derive the smallest exact Fourier/cascade pairing or conditional averaging that strictly improves the standard absolute majorant, then test quantitatively whether it closes any criterion found by the first worker. Do not attack global regularity without that bridge.
-3. **Wiki Curator.** Review `skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md`, `time-spine-coarsening-for-quadratic-hessian-patches.md`, and their directly dependent quadratic-Hessian pages, especially the deferred canonical-raw/raw-obstruction/self-consistent cluster and the random-patch conjecture. Do not review IPS pages.
+1. **SQG open-problem bridge scout.** Identify the smallest respected published subsidiary criterion for supercritical dissipative SQG, with two published exact sources and successor check, and isolate where signed cancellation could enter.
+2. **SQG cancellation method scout.** Derive the smallest exact cancellation or conditional-averaging gain and test it quantitatively against worker 1's criterion.
+3. **QH reusable-extract/dependency hostile auditor.** Independently audit the one-edge strict-regularity-loss $L^1$ estimate and ordered-time derivative-cluster bound; then produce one coherent dependency-safe KEEP/REWRITE/DEMOTE/DELETE disposition for the remaining QH legacy cluster, explicitly including `banach-scale-obstruction-for-raw-pde-patches.md` and all inbound links.
 
 After collecting the dispatches verbatim, launch a fresh Director session. A single later Integrator may make only the repository changes justified by that Director. Claude has no mathematical authority.
