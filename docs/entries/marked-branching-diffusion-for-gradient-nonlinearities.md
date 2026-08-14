@@ -15,9 +15,9 @@ The branching representation of Henry-Labordère, Oudjane, Tan, Touzi, and Warin
 
 **References.** Pierre Henry-Labordère, Nadia Oudjane, Xiaolu Tan, Nizar Touzi, and Xavier Warin, *Branching diffusion representation of semilinear PDEs and Monte Carlo approximation*, arXiv:1603.01727, especially Sections 2--3, Theorem 3.5, Assumption 3.10, Remark 3.11, Theorem 3.12, and Proposition 4.1; see [References](../meta/references.md).
 
-## Polynomial driver class
+## Countable monomial driver class
 
-For a diffusion in \(\mathbb R^d\), let \(m\geq0\), let \(L\subseteq\mathbb N^{m+1}\), and write \(\ell=(\ell_0,\ldots,\ell_m)\) and \(|\ell|=\sum_{i=0}^m\ell_i\). The paper considers nonlinearities of the form
+For a diffusion in \(\mathbb R^d\), let \(m\geq0\), let \(L\subseteq\mathbb N^{m+1}\), and write \(\ell=(\ell_0,\ldots,\ell_m)\) and \(|\ell|=\sum_{i=0}^m\ell_i\). Section 2.1 writes the nonlinearity as
 
 $$
 f(t,x,y,z)
@@ -29,7 +29,7 @@ c_\ell(t,x)y^{\ell_0}
 \tag{1}
 $$
 
-This is equation (2.1) in the paper. Since \(L\subseteq\mathbb N^{m+1}\), the index family is at most countable; the polynomial cases motivating the construction correspond to finitely many nonzero monomials. The branching law assigns probabilities \((p_\ell)_{\ell\in L}\) with
+This is equation (2.1) in the paper. Since \(L\subseteq\mathbb N^{m+1}\), the family of monomial types is at most countable; when \(L\) is finite, (1) is literally a polynomial in \((y,z)\). The branching notation is written for the countable family \(L\), with probabilities \((p_\ell)_{\ell\in L}\) satisfying
 
 $$
 p_\ell>0,
