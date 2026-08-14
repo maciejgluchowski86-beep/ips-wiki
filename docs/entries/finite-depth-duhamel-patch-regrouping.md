@@ -25,7 +25,7 @@ $$
 \mathbb T=\mathbb R/(2\pi\mathbb Z).
 $$
 
-Consider the forward-time equation
+Consider
 
 $$
 \partial_tv
@@ -45,7 +45,7 @@ $$
 z=\partial_x^2v.
 $$
 
-For a smooth solution, differentiating (1) twice gives
+For a smooth solution,
 
 $$
 \partial_tz
@@ -57,7 +57,7 @@ z(0,\cdot)=\phi''.
 \tag{2}
 $$
 
-Hence the mild equation for \(z\) is
+Hence
 
 $$
 z(t)
@@ -68,7 +68,7 @@ P_t\phi''
 \tag{3}
 $$
 
-Define the bilinear Duhamel operator
+Define
 
 $$
 \mathcal B(f,g)(t)
@@ -78,9 +78,7 @@ $$
 \tag{4}
 $$
 
-Then (3) is \(z=L+\mathcal B(z,z)\), where \(L(t)=P_t\phi''\).
-
-The theorem below is an algebraic statement about finite Picard expansions of (3). It does not assume in advance that the infinite Picard sequence converges or that (1) has a solution.
+Then (3) is \(z=L+\mathcal B(z,z)\), where \(L(t)=P_t\phi''\). The theorem below is algebraic: it does not assume convergence of an infinite Picard sequence or existence of a solution of (1).
 
 ## Finite Duhamel trees
 
@@ -94,7 +92,7 @@ z^{[N+1]}
 \tag{5}
 $$
 
-Expanding (5) algebraically gives a finite sum indexed by rooted planar binary trees of height at most \(N\). A leaf contributes \(L\). If a tree \(\tau\) has left and right subtrees \(\tau_L,\tau_R\), its contribution is defined recursively by
+Expanding (5) gives a finite sum indexed by rooted planar binary trees of height at most \(N\). A leaf contributes \(L\). If \(\tau\) has left and right subtrees \(\tau_L,\tau_R\), its contribution is
 
 $$
 V_\tau
@@ -103,28 +101,26 @@ V_\tau
 \tag{6}
 $$
 
-The planar convention records which child will continue a patch; it does not change the product in (4).
+The planar convention records which child continues a patch; it does not change the product in (4).
 
 ## Definition: Duhamel patch
 
-A *patch* of a finite planar binary tree is a maximal chain of internal vertices obtained by repeatedly following the left child. Every internal vertex belongs to exactly one patch. The right child of each vertex is a side subtree; if that right child is itself internal, it is the root of another patch.
+A *patch* is a maximal chain of internal vertices obtained by repeatedly following the left child. Every internal vertex belongs to exactly one patch. The right child of each vertex is a side subtree; if that right child is internal, it begins another patch.
 
-Contracting every maximal left chain to one vertex gives the *patch skeleton*. The skeleton records the incidence of the patches, while the length of each contracted chain records the number of consecutive Hessian events in that patch.
+Contracting every maximal left chain to one vertex gives the *patch skeleton*. Recording the chain lengths and attached side subtrees recovers the original planar tree uniquely.
 
 ## Complete contribution of one patch
 
-Suppose a patch has length \(m\geq1\), its successive right-subtree contributions are the smooth side profiles \(b_1,\ldots,b_m\), and the leftmost terminal contribution is \(G\). For fixed ordered times
+Suppose a patch has length \(m\geq1\), successive right-subtree contributions \(b_1,\ldots,b_m\), and leftmost terminal contribution \(G\). For
 
 $$
 0<s_1<\cdots<s_m<t,
 $$
 
-define recursively
+define
 
 $$
-\Xi_1
-=
-b_1(s_1)P_{s_1}G,
+\Xi_1=b_1(s_1)P_{s_1}G,
 \tag{7}
 $$
 
@@ -138,7 +134,7 @@ b_r(s_r)
 \tag{8}
 $$
 
-The complete signed contribution of the patch is
+The complete signed contribution is
 
 $$
 \mathcal P_m[b_1,\ldots,b_m;G](t)
@@ -150,7 +146,7 @@ $$
 \tag{9}
 $$
 
-For \(m=0\), set \(\mathcal P_0[G](t)=P_tG\). Equations (7)--(9) are not estimates: they are the iterated Duhamel integral obtained by following the left spine and leaving every right child as a side factor.
+For \(m=0\), set \(\mathcal P_0[G](t)=P_tG\). Equations (7)--(9) are the nested Duhamel integral along the left spine, not an estimate.
 
 ## Theorem: exact finite-depth regrouping
 
@@ -160,7 +156,7 @@ In particular, composing all Hessian transfers inside a patch before taking abso
 
 ## Proof
 
-Every finite planar binary tree has a unique decomposition into maximal left-child chains: starting from any internal vertex that is either the root or a right child, follow left children until the chain ends. Distinct starting vertices generate disjoint chains and every internal vertex belongs to one of them. Thus finite binary trees are in bijection with their patch skeletons together with the lengths of the contracted chains and the side subtrees attached along each chain.
+Every finite planar binary tree has a unique decomposition into maximal left-child chains: starting from any internal vertex that is either the root or a right child, follow left children until the chain ends. Distinct starting vertices generate disjoint chains and every internal vertex belongs to one of them. Thus finite binary trees are in bijection with their patch skeletons together with chain lengths and attached side subtrees.
 
 For a fixed tree, recursively expanding (6) along one maximal left chain gives exactly (7)--(9). The inequalities
 
@@ -170,12 +166,12 @@ $$
 
 are the chronological constraints already present in the nested Duhamel integrals. No exchange of an infinite sum or conditionally convergent series occurs.
 
-Finally, for fixed \(N\) only finitely many planar binary trees occur in (5). Reindexing this finite sum by the preceding bijection therefore leaves the sum unchanged. This proves the theorem.
+For fixed \(N\), only finitely many planar binary trees occur in (5). Reindexing this finite sum by the preceding bijection therefore leaves the signed expansion unchanged.
 
 ## Finite-level patch factorization
 
-The finite patch decomposition may be randomized patch first by assigning independent auxiliary random seeds to distinct side patches conditional on a fixed finite patch skeleton. This gives exact conditional independence of the side-patch data by construction. If the data inside a patch are sampled from positive proposal laws, the corresponding reciprocal factors are the [importance-sampling compensators](importance-sampling-compensators.md), and their algebraic cancellation recovers the signed patch integrals (7)--(9).
+The finite patch decomposition may be randomized patch first by assigning independent auxiliary random seeds to distinct side patches conditional on a fixed finite patch skeleton. If the data inside a patch are sampled from positive proposal laws, reciprocal densities are [importance-sampling compensators](importance-sampling-compensators.md), and their algebraic cancellation recovers the signed patch integrals (7)--(9).
 
-This statement is deliberately about finite signed exactness and conditional factorization. To interpret a compensated finite-patch random variable as an ordinary expectation one must still verify its integrability for the chosen proposal law; positivity of the proposal alone does not supply that fact. Nothing here implies that an infinite-depth patch functional belongs to \(L^1\).
+This statement concerns finite signed exactness and conditional factorization. A compensated finite-patch random variable still requires an absolute-moment estimate before it may be used as an ordinary expectation, and nothing here alone implies an infinite-depth \(L^1\) theorem. The exact finite conditional statement is isolated in [Conditional factorization for finite PDE patches](conditional-factorization-for-finite-pde-patches.md).
 
-In particular, the [Hermite composition identity](hermite-polynomials-and-gaussian-chaos.md) for a bare derivative chain does not survive unchanged when spatially varying multiplication operators occur between Hessian transfers. The finite conditional statement is isolated in [Conditional factorization for finite PDE patches](conditional-factorization-for-finite-pde-patches.md). After all continuous patch variables are averaged, [Theorem C-prime](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md) gives an absolutely integrable skeleton-only representation under a separate small-data condition. If the interior Gaussian/Hermite marks are retained, the corresponding infinite-depth statement remains the [\(L^1\) random-patch conjecture](l1-random-patch-conjecture-for-quadratic-hessian-pde.md).
+The later results separate the possible infinite-depth outcomes. [Theorem C-prime](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md) completely averages every continuous interior variable and is \(L^1\) under the Catalan smallness condition. The [raw-barycenter obstruction](raw-marked-l1-obstruction-for-quadratic-hessian-pde.md) shows that retaining the canonical raw signed contribution as a conditional barycenter is non-\(L^1\) for one fixed smooth datum. The [time-spine theorem](time-spine-coarsening-for-quadratic-hessian-patches.md) gives a structured target-uniform intermediate representation on a stronger regime, and the [residual signed variation characterization](residual-signed-variation-characterization-for-coarsened-patches.md) gives the exact abstract criterion for skeleton-preserving coarsenings. The remaining [random-patch conjecture](l1-random-patch-conjecture-for-quadratic-hessian-pde.md) concerns structured target-uniform coarsenings on the full C-prime regime.
