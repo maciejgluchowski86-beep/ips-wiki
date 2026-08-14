@@ -21,13 +21,24 @@ This page records durable style choices for the public IPS wiki.
 - Use TeX delimiters `\(...\)` for inline math and `$$...$$` for displayed math.
 - Do not put private strategy, raw scratch work, credentials, personal data, or unpublished claims without proof status into this public repository.
 
+## Durable theorem records
+
+- Treat every `proved here` entry as an independently citable durable record, not as a summary of a conversation or of a neighboring page.
+- State all load-bearing hypotheses locally in the entry: domains, horizons, regularity classes, parameter ranges, sampling assumptions, and the exact object to which the theorem applies. Cross-links may define standard notation or prove prerequisites, but they must not hide a hypothesis needed to know whether the theorem applies.
+- Define every project-specific symbol before its first use. If a standard symbol has a convention that matters to the theorem, state that convention locally or link its definition at first use.
+- State logical boundaries locally. In particular, if a theorem proves a conditional, finite-depth, skeleton-averaged, or deterministic statement while a stronger neighboring statement remains open, say exactly what the theorem does and does not prove.
+- A reader arriving from the navigation page with no chat history should be able to reconstruct the theorem statement, proof dependencies, and status from the wiki alone.
+
 ## Self-contained PDE entries
 
 - The PDE part of the wiki assumes measure-theoretic probability, basic functional analysis, and a first graduate PDE course, but no prior familiarity with branching representations, Malliavin methods, viscosity solutions, advanced parabolic regularity, Gaussian chaos, Gevrey classes, or the NPP/HLOTW literature.
-- Every notion beyond that background must be defined in the entry where it is first used or linked to a prerequisite entry that defines it.
+- The canonical entry point is `docs/pde-branching-representations.md`; it should remain synchronized with the settled theorem chain and the current open endpoint.
+- Every notion beyond the assumed background must be defined in the entry where it is first used or linked to a prerequisite entry that defines it.
 - Lecture-notes style entries are welcome when a concept needs development: motivate the object, define it, state the usable result, prove it when elementary or cite an appropriate source, and explain why it enters the PDE research route.
 - The negative coding-tree results and the representation-level dichotomy are settled audited results and should have complete prerequisite paths.
-- The random spatially varying patch \(L^1\) estimate for the second-order quadratic PDE is conjectural. Do not state or imply that it is proved. The deterministic self-consistent iteration, its limiting diffusion representation, and exact finite-level patch-factorization identities are logically separate from that conjecture.
+- For the quadratic Hessian equation, keep four layers distinct: finite signed patch exactness/factorization; the deterministic self-consistent theorem; the proved skeleton-averaged `L^1` representation (Theorem C-prime); and the conjectural full random-patch `L^1` representation that retains continuous interior marks.
+- State the proved/open fork plainly when relevant: averaging every patch interior first gives the small-data skeleton-only `L^1` theorem; retaining the interior marks leaves the centered raw fluctuation as the open obstruction.
+- Do not write `E[H | S]` for an unresolved infinite patch functional unless `H in L^1` has already been established. For C-prime, define the interior-averaged skeleton profile directly by deterministic Duhamel integrals, equivalently through conditional expectations of integrable finite cutoffs.
 - When discussing Gaussian kernel bounds, distinguish divergence-form Aronson--Nash theory from nondivergence equations and their adjoints. Do not infer a universal adjoint \(L^\infty\) estimate from ellipticity alone.
 
 ## Mathematical prose around displays
