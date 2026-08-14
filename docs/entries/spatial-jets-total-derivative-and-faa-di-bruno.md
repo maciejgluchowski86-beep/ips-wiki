@@ -45,16 +45,24 @@ $$
 \tag{1}
 $$
 
-It is convenient to write the operator acting on jet functions as
+It is convenient to encode (1) by the formal total-derivative operator
 
 $$
-D_x
+D_xg
 =
-\sum_{j=0}^n z_{j+1}\partial_{z_j},
+\sum_{j=0}^n z_{j+1}\partial_{z_j}g.
 \tag{2}
 $$
 
-with the understanding that after applying \(D_x\) one substitutes \(z_{j+1}=\partial_x^{j+1}u\). Formula (2) is a bookkeeping device: it is not differentiation with respect to one jet coordinate, but differentiation along the spatially generated jet curve.
+Here \(z_{n+1}\) is an auxiliary coordinate from the extended jet \(J_{n+1}u\). Thus \(D_xg\) is naturally a function of \((z_0,\ldots,z_{n+1})\), and after substitution one has
+
+$$
+(D_xg)(J_{n+1}u)
+=
+\partial_x[g(J_nu)].
+$$
+
+The notation is a bookkeeping device: \(D_x\) is differentiation along the spatially generated jet curve, not differentiation with respect to one fixed jet coordinate.
 
 ## Second total derivative
 
