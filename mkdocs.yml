@@ -92,6 +92,8 @@ nav:
       - Finite directional radius obstruction: entries/finite-directional-radius-obstruction.md
       - Gevrey-1/2 necessity for coding trees: entries/gevrey-half-necessity-for-coding-trees.md
       - Integrable regime of the coding tree: entries/integrable-regime-of-coding-tree.md
+      - Dichotomy benchmark: entries/dichotomy-benchmark.md
+      - Representation-level dichotomy: entries/representation-level-dichotomy.md
   - Meta:
       - Notation: meta/notation.md
       - Style decisions: meta/style-decisions.md
