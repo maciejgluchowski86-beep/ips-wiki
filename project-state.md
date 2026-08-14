@@ -49,7 +49,7 @@ write `z=v_{xx}`. The settled positive chain is:
    \|\phi\|_{C^{2+\alpha}}
    \leq\frac18,
    $$
-   the semi-implicit iteration stays in the Holder/ellipticity ball, contracts in `H^{-1}` with ratio at most `1/3`, converges to the unique small solution, and gives the implicit self-consistent diffusion representation.
+   the semi-implicit iteration stays in the Hölder/ellipticity ball, contracts in `H^{-1}` with ratio at most `1/3`, converges to the unique small solution, and gives the implicit self-consistent diffusion representation.
 3. `docs/entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md`, status `proved here` (Theorem C-prime): with
    $$
    X_{\alpha,T}=C^{\alpha/2,\alpha}([0,T]\times\mathbb T),
@@ -67,52 +67,54 @@ Two permanent corrections for C-prime: a fixed skeleton profile satisfies only i
 
 ## Current fluctuation barriers
 
-The centered raw fluctuation is the only remaining obstruction between C-prime and conjecture C. Three negative facts are now settled.
+The centered raw fluctuation is the only remaining obstruction between C-prime and conjecture C. Four routes are now settled enough to serve as the canonical map.
 
-1. A fixed pathwise Holder norm does not close even for one centered Hessian edge.
-2. A fixed same-regularity Besov norm has the same high-frequency translation obstruction.
-3. `docs/entries/banach-scale-obstruction-for-raw-pde-patches.md`, status `proved here`, rules out the decreasing-Hölder-exponent repair for any **stepwise first-moment Banach-scale argument**.
+1. **Fixed pathwise Hölder / same-regularity Besov.** A raw centered Hessian edge has the expected sup-norm gain, but its pathwise same-regularity Hölder seminorm does not. The corresponding fixed Besov operator has the same high-frequency translation obstruction.
+2. **Decreasing Banach scale.** `docs/entries/banach-scale-obstruction-for-raw-pde-patches.md`, status `proved here`, shows that the optimal time-integrated first-moment norm from `C^alpha` to `C^(alpha-delta)` costs order `1/delta`. If
+   $$
+   \delta_k=\alpha_{k-1}-\alpha_k>0,
+   \qquad
+   \sum_{k=1}^n\delta_k\leq\Delta,
+   $$
+   then every **stepwise first-moment Banach-scale proof** pays at least
+   $$
+   c^n\prod_{k=1}^n\delta_k^{-1}
+   \geq
+   c^n\left(\frac n\Delta\right)^n.
+   $$
+   Uniform loss is optimal; geometric and other nonuniform budgets are worse. Chronological ordering does not restore a hidden factorial gain.
+3. **Condition all patch interiors.** Theorem C-prime proves absolute summability and an unbiased `L^1` estimator, but only after all continuous interior patch variables have been averaged out. This gives integrability without the full randomness required by C.
+4. **Joint centered marks.** `docs/entries/joint-centered-mark-dichotomy-for-raw-pde-patches.md`, status `proved here`, forms several centered Gaussian marks before the first absolute moment and therefore genuinely lies outside the stepwise Banach-scale theorem. A two-mark block has a finite no-intermediate-loss estimate. At block length `m`, however, retaining all Gaussian marks gives the sharp uniform scale
+   $$
+   c_{\alpha,T}^m m!
+   \leq
+   \mathfrak R_m(\alpha,T)
+   \leq
+   C_{\alpha,T}^m m!.
+   $$
+   If the internal Gaussian bridge coordinates are signedly averaged first, a bare derivative chain collapses to an `He_{2m}` endpoint weight and the time-simplex coefficient becomes geometric; for full spatially varying patches the earlier commutator/cluster estimate gives the corresponding geometric bound. This favorable branch is only a **partially averaged estimator** because the bridge marks are no longer retained.
 
-For the raw edge
+The joint-mark theorem really evades the `(n/Delta)^n` theorem rather than contradicting it: the latter assumes a first-moment Banach norm after every centered edge, while the joint block takes no such intermediate norm. The new factorial obstruction replaces the derivative-loss ladder.
 
-$$
-\widehat K_r f(x,Z)
-=
-\frac{He_2(Z)}r
-\left[f(x+\sqrt r Z)-f(x)\right],
-$$
-
-the optimal time-integrated first-moment norm from `C^alpha` to `C^(alpha-delta)` is of order `1/delta`. If
-
-$$
-\delta_k=\alpha_{k-1}-\alpha_k>0,
-\qquad
-\sum_{k=1}^n\delta_k\leq\Delta,
-$$
-
-then every stepwise first-moment proof that takes a Banach norm after each centered edge incurs at least
-
-$$
-c^n\prod_{k=1}^n\delta_k^{-1}
-\geq
-c^n\left(\frac n\Delta\right)^n.
-$$
-
-The uniform budget `delta_k=Delta/n` is optimal; geometric and other nonuniform budgets are worse. Chronological ordering does not restore a hidden `1/n!`: the corresponding Dirichlet time integral contains `prod Gamma(delta_k/2)` and has the same product `prod delta_k^{-1}` singularity.
-
-This is a proof-architecture barrier, not a disproof of conjecture C. The sharp one-edge lower bound is saturated by frequencies `N ~ exp(c/delta)`. Under the optimal depth-`n` budget, the saturating frequency grows like `exp(c n/Delta)`, so the test datum changes with depth. No fixed smooth terminal datum is shown to realize the worst-case operator norms at every generation.
-
-The result rules out the bare Nash--Moser-style **loss budget by itself**. It does not rule out every genuine Nash--Moser smoothing/telescoping construction, because such a scheme can retain frequency information and compensate smoothing errors rather than applying a uniform Banach-space operator bound at each generation.
+Both sharp lower-bound mechanisms use depth-dependent high frequencies. The Banach-scale test has `N ~ exp(c/delta)`; the retained-block test has `N_m ~ sqrt(m/T) exp(m/alpha)`. Neither supplies one fixed smooth datum that realizes the worst-case norm at all generations. Therefore neither theorem disproves conjecture C.
 
 ## Canonical proved/open fork
 
-**Condition all patch interiors first.** Integrate out the continuous branch-time, Brownian, Gaussian/Hermite, and descendant variables attached to a finite decorated skeleton before sampling the skeleton. Under the C-prime Catalan smallness condition, the resulting skeleton profiles are absolutely summable and give a proved unbiased `L^1` skeleton-only estimator.
+**Condition or signedly average interior variables before the absolute value.** The deterministic/Hermite cancellations become strong enough to give geometric growth; C-prime proves the fully interior-averaged version in `L^1`, and the bridge-averaged joint-mark construction gives a partially averaged geometric variant.
 
-**Retain the interior marks.** The centered raw fluctuation survives. Fixed Holder and same-regularity Besov spaces fail, and the proved Banach-scale obstruction shows that merely spending a bounded amount of regularity across generations yields the supergeometric `(n/Delta)^n` cost.
+**Retain the interior marks as genuinely random variables.** Fixed Hölder/Besov norms fail, the stepwise loss budget gives `(n/Delta)^n`, and all-order joint retained-mark blocks have factorial `m!` uniform growth.
 
-A successful proof of C must therefore preserve more structure before taking absolute values: retain frequency, retain frequency together with genealogy, exploit a multiscale martingale/square-function mechanism, or allow cancellation across several centered Gaussian/Hermite marks before taking a first-moment norm.
+The recurring tradeoff is therefore: every currently controlled route has either favorable absolute moments or full continuous interior randomness, but not both.
 
-Never conflate finite signed exactness, deterministic convergence, the skeleton-only `L^1` representation, the Banach-scale proof barrier, and the full random-patch `L^1` conjecture.
+## Current strategic status of conjecture C
+
+Conjecture C remains status `conjecture`. No proof or disproof has been audited.
+
+The active next mathematical direction is now to test whether C itself is false rather than continuing only to search for another uniform first-moment proof architecture. Do not pre-empt that outcome in the wiki. A genuine disproof must overcome the generation-dependent-frequency caveat and tie non-`L^1` to one fixed smooth datum, or obtain a fixed-datum divergence argument by another mechanism.
+
+If C is true, a proof must preserve structure discarded by all four settled routes: frequency together with genealogy, correlations between patches, a martingale/square-function mechanism, or cancellation across several centered marks that survives while those marks themselves remain random.
+
+Never conflate finite signed exactness, deterministic convergence, the skeleton-only `L^1` representation, the Banach-scale proof barrier, the joint retained-mark factorial barrier, partial bridge averaging, and the full random-patch `L^1` conjecture.
 
 ## General conventions
 
