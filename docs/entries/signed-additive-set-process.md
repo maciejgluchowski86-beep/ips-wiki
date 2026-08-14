@@ -1,6 +1,7 @@
 ---
 title: Signed additive set process
 status: definition
+audit: current
 tags:
   - duality
   - additive process
@@ -15,7 +16,7 @@ $$
 (A_t,\sigma_t)\in\{A:A\Subset\Lambda\}\times\{+,-\}.
 $$
 
-Signs are multiplied by the usual sign rule, and act on real numbers by \(+x=x\) and \(-x=-x\). The process is designed for finite-set [duality](duality.md) formulas for [spin systems](spin-system.md). In [monomial duality for spin systems](monomial-duality-for-spin-systems.md), the set coordinate indexes the [monomial](monomials.md) and the sign coordinate records signs of coefficients.
+Signs are multiplied by the usual sign rule, and act on real numbers by $+x=x$ and $-x=-x$. The process is designed for finite-set [duality](duality.md) formulas for [spin systems](spin-system.md). In [monomial duality for spin systems](monomial-duality-for-spin-systems.md), the set coordinate indexes the [monomial](monomials.md) and the sign coordinate records signs of coefficients.
 
 It is specified by nonnegative rates and sign labels
 
@@ -34,7 +35,7 @@ $$
 \beta_i(\vn)=0.
 $$
 
-For \(Y=(A,\sigma)\) with \(i\in A\), define the update maps
+For $Y=(A,\sigma)$ with $i\in A$, define the update maps
 
 $$
 D_{i,S}Y=\left((A\setminus\{i\})\cup S,\sigma\sigma_i^\delta(S)\right),
@@ -42,11 +43,11 @@ D_{i,S}Y=\left((A\setminus\{i\})\cup S,\sigma\sigma_i^\delta(S)\right),
 B_{i,S}Y=\left(A\cup S,\sigma\sigma_i^\beta(S)\right).
 $$
 
-The update \(D_{i,\vn}\) is a death. It removes the source site \(i\) and changes the sign by \(\sigma_i^\delta(\vn)\).
+The update $D_{i,\vn}$ is a death. It removes the source site $i$ and changes the sign by $\sigma_i^\delta(\vn)$.
 
-For \(S\ne\vn\), the update \(D_{i,S}\) is a split. It removes the source site \(i\), activates \(S\), and changes the sign by \(\sigma_i^\delta(S)\). It occurs at rate \(\delta_i(S)\).
+For $S\ne\vn$, the update $D_{i,S}$ is a split. It removes the source site $i$, activates $S$, and changes the sign by $\sigma_i^\delta(S)$. It occurs at rate $\delta_i(S)$.
 
-For \(S\ne\vn\), the update \(B_{i,S}\) is a birth. It keeps the source site \(i\), activates \(S\), and changes the sign by \(\sigma_i^\beta(S)\). It occurs at rate \(\beta_i(S)\). The convention \(\beta_i(\vn)=0\) removes the empty birth.
+For $S\ne\vn$, the update $B_{i,S}$ is a birth. It keeps the source site $i$, activates $S$, and changes the sign by $\sigma_i^\beta(S)$. It occurs at rate $\beta_i(S)$. The convention $\beta_i(\vn)=0$ removes the empty birth.
 
 A [graphical construction](graphical-construction-of-signed-additive-set-process.md) realizes these deaths, splits, and births as independent Poisson interactions.
 
