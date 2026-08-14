@@ -11,7 +11,7 @@ tags:
 
 # Nguwi-Penent-Privault coding tree
 
-The Nguwi--Penent--Privault construction rewrites the [heat-reference PDE](heat-reference-fully-nonlinear-pde.md) as an infinite system indexed by differential *codes*. A random branching tree samples the product terms in this system. Reciprocal lifetime and offspring-selection probabilities are inserted into a multiplicative functional so that conditioning on the first branch exactly recovers the code-indexed Duhamel equations.
+The Nguwi--Penent--Privault construction rewrites the [heat-reference PDE](heat-reference-fully-nonlinear-pde.md) as an infinite system indexed by differential *codes*. A random [branching tree](branching-diffusions-and-duhamel-trees.md) samples the product terms in this system. Reciprocal lifetime and offspring-selection probabilities are inserted into a [multiplicative importance-sampling functional](importance-sampling-compensators.md) so that conditioning on the first branch exactly recovers the code-indexed Duhamel equations.
 
 **References.** Jiang Yu Nguwi, Guillaume Penent, and Nicolas Privault, *A fully nonlinear Feynman-Kac formula with derivatives of arbitrary orders*, arXiv:2201.03882. For a multidimensional deep-learning implementation, see the same authors, *A deep branching solver for fully nonlinear partial differential equations*, arXiv:2203.03234; see [References](../meta/references.md).
 
@@ -20,6 +20,8 @@ Throughout, fix \(f\in C^\infty(\mathbb R^{n+1})\). For any smooth \(g:\mathbb R
 $$
 g^*(v)(t,x)=g(J_nv(t,x)).
 $$
+
+The [jet and total-derivative conventions](spatial-jets-total-derivative-and-faa-di-bruno.md) used here agree with the heat-reference PDE entry.
 
 ## Definition
 
@@ -58,7 +60,7 @@ $$
 \mathcal M(\operatorname{Id})=\{(f^*)\}.
 $$
 
-For codes of the form \(g^*\) and \(\partial_x^k\), Nguwi--Penent--Privault Definition 2.2 gives the explicit tuples by applying the multivariate Faà di Bruno formula to the derivatives of \(f(J_nu)\) and \(g(J_nu)\). Scalar combinatorial coefficients are absorbed into the coefficient \(a\) allowed in the code set. Equation (1) is the reason for the mechanism: each tuple \(Z\) is exactly one product term that a branching event must reproduce.
+For codes of the form \(g^*\) and \(\partial_x^k\), Nguwi--Penent--Privault Definition 2.2 gives the explicit tuples by applying the [multivariate Faà di Bruno formula](spatial-jets-total-derivative-and-faa-di-bruno.md) to derivatives of \(f(J_nu)\) and \(g(J_nu)\). Scalar combinatorial coefficients are absorbed into the coefficient \(a\) allowed in the code set. Equation (1) is the reason for the mechanism: each tuple \(Z\) is exactly one product term that a branching event must reproduce.
 
 ## Definition
 
@@ -75,7 +77,7 @@ q_c(Z)=\mathbb P(I_c=Z),
 \qquad Z\in\mathcal M(c).
 $$
 
-A random coding tree \(\mathcal T_{t,x,c}\) starts from one particle at time \(t\), position \(x\), and code \(c\). Each particle evolves along an independent Brownian path and receives an independent lifetime with density \(\rho\). If its lifetime reaches beyond \(T\), the branch stops at \(T\). If it dies before \(T\), a tuple \(Z=(c_1,\ldots,c_m)\) is sampled from \(\mathcal M(c)\), and \(m\) children are born at the death position with codes \(c_1,\ldots,c_m\). Descendants repeat the same construction independently.
+A random coding tree \(\mathcal T_{t,x,c}\) starts from one particle at time \(t\), position \(x\), and code \(c\). Each particle evolves along an independent Brownian path and receives an independent lifetime with density \(\rho\). If its lifetime reaches beyond \(T\), the branch stops at \(T\). If it dies before \(T\), a tuple \(Z=(c_1,\ldots,c_m)\) is sampled from \(\mathcal M(c)\), and \(m\) children are born at the death position with codes \(c_1,\ldots,c_m\). Descendants repeat the same construction independently conditional on their birth data.
 
 Let \(\mathcal K^\circ\) be the particles that die before \(T\) and \(\mathcal K^\partial\) the particles alive at the terminal horizon. For a particle \(k\), let \(c_k\) be its code, \(\tau_k\) its lifetime, \(I_{c_k}\) its sampled offspring tuple when \(k\in\mathcal K^\circ\), \(T_{k^-}\) its birth time, and \(X_T^k\) its position at time \(T\) when \(k\in\mathcal K^\partial\).
 
@@ -109,7 +111,7 @@ Thus the unknown solution does not appear at terminal leaves.
 
 ## Proposition
 
-The factors \(1/\rho\), \(1/q_c\), and \(1/\overline F\) in (2) are importance-sampling corrections. Conditioning on the first branch cancels the auxiliary lifetime law and offspring-selection law and reproduces the Duhamel recursion (1), provided the relevant expectations are integrable.
+The factors \(1/\rho\), \(1/q_c\), and \(1/\overline F\) in (2) are [importance-sampling compensators](importance-sampling-compensators.md). Conditioning on the first branch cancels the auxiliary lifetime law and offspring-selection law and reproduces the Duhamel recursion (1), provided the relevant expectations are integrable.
 
 ## Proof
 
@@ -121,6 +123,6 @@ $$
 \rho(r)\,dr\; q_c(Z).
 $$
 
-Multiplication by the internal-node factor in (2) cancels both \(\rho(r)\) and \(q_c(Z)\). Conditional independence of the descendants turns their joint contribution into the product of their expectations. Summing over \(Z\in\mathcal M(c)\) and integrating \(r\) therefore gives the nonlinear Duhamel term in (1).
+Multiplication by the internal-node factor in (2) cancels both \(\rho(r)\) and \(q_c(Z)\). Conditional independence of the descendant subtrees turns their joint contribution into the product of their expectations. Summing over \(Z\in\mathcal M(c)\) and integrating \(r\) therefore gives the nonlinear Duhamel term in (1).
 
 This cancellation establishes the recursion satisfied by the expectation. It does not by itself justify taking absolute expectations or exchanging all sums, products, and integrals. Those requirements are part of the [Nguwi--Penent--Privault Feynman-Kac theorem](npp-coding-tree-feynman-kac-theorem.md).
