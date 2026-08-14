@@ -3,21 +3,20 @@
 
 The previous sections show that complete interior averaging can restore $L^1$, while the canonical raw marked integrand can have infinite first moment. The distinction admits an exact formulation. The relevant invariant is not which types of marks remain random. It is the amount of signed variation which remains after the discarded variables have been averaged.
 
-Fix an observation point $(t,x)$ and a finite decorated skeleton $\tau$. Let $\mu_\tau$ be its intrinsic signed measure on the raw mark space $\cM_\tau$. Choose a finite positive reference measure $\nu_\tau$ and write
-\begin{equation}
-  \mu_\tau
-  =
-  R_\tau\nu_\tau,
-  \qquad
-  R_\tau\in L^1(\nu_\tau).
-  \label{eq:mu-R-nu}
-\end{equation}
+\subsection{The exact invariant}
+
+\begin{theorem}[Residual signed variation characterization]
+\label{thm:residual-characterization}
+Let $\cT$ be a countable set of retained skeleton labels. For every $\tau\in\cT$, let $(\cM_\tau,\mathcal F_\tau)$ be a measurable raw mark space, let $\nu_\tau$ be a finite positive measure, let $R_\tau\in L^1(\nu_\tau)$, and define the finite signed measure
+\begin{equation*}
+  \mu_\tau=R_\tau\nu_\tau.
+\end{equation*}
 Let
 \begin{equation*}
   \cC_\tau:\cM_\tau\to\overline{\cM}_\tau
 \end{equation*}
-be measurable, and set
-\begin{equation}
+be measurable, and put
+\begin{equation*}
   \overline\mu_\tau
   =
   (\cC_\tau)_\#\mu_\tau,
@@ -25,14 +24,8 @@ be measurable, and set
   \overline\nu_\tau
   =
   (\cC_\tau)_\#\nu_\tau.
-  \label{eq:coarsening-main}
-\end{equation}
-
-\subsection{The exact invariant}
-
-\begin{theorem}[Residual signed variation characterization]
-\label{thm:residual-characterization}
-For every skeleton $\tau$,
+\end{equation*}
+Then, for every $\tau$,
 \begin{equation}
   \frac{d\overline\mu_\tau}{d\overline\nu_\tau}
   (\cC_\tau(\omega))
@@ -44,10 +37,10 @@ For every skeleton $\tau$,
     \sigma(\cC_\tau)
   }(\omega)
   \quad
-  \nu_\tau\text{-a.e.}
+  \nu_\tau\text{-a.e.},
   \label{eq:conditional-pushforward-density}
 \end{equation}
-and therefore
+and hence
 \begin{equation}
   \boxed{
   \norm{(\cC_\tau)_\#\mu_\tau}_{\TV}
@@ -61,11 +54,35 @@ and therefore
   }
   \label{eq:residual-TV-identity}
 \end{equation}
-The right side is independent of the particular representation $\mu_\tau=R_\tau\nu_\tau$ because it equals the intrinsic total variation of the pushforward signed measure.
+The quantity in~\eqref{eq:residual-TV-identity} is intrinsic: it is independent of the chosen positive reference representation $\mu_\tau=R_\tau\nu_\tau$.
 
-Let $\cT$ be the countable family of finite decorated skeletons. Suppose the skeleton label is retained, so coarsenings act separately inside each $\tau$. Then a coarsened conditional-barycenter estimator belongs to $L^1$ if and only if
+Assume now that the skeleton label $\tau$ itself is retained. Let $\pi$ be any full-support probability mass function on $\cT$, and for every $\tau$ let $Q_\tau$ be a probability measure dominating $\overline\mu_\tau$. If
+\begin{equation}
+  Y
+  =
+  \frac1{\pi(S)}
+  \frac{d\overline\mu_S}{dQ_S}(U),
+  \qquad
+  S\sim\pi,
+  \quad
+  U\mid\{S=\tau\}\sim Q_\tau,
+  \label{eq:canonical-coarsened-weight}
+\end{equation}
+is the canonical coarsened importance sampler, then
 \begin{equation}
   \boxed{
+  \E\abs Y
+  =
+  \sum_{\tau\in\cT}
+  \norm{\overline\mu_\tau}_{\TV}.
+  }
+  \label{eq:coarsened-L1-sum}
+\end{equation}
+Consequently
+\begin{equation}
+  \boxed{
+  Y\in L^1
+  \quad\Longleftrightarrow\quad
   \sum_{\tau\in\cT}
   \int
   \abs{
@@ -77,7 +94,18 @@ Let $\cT$ be the countable family of finite decorated skeletons. Suppose the ske
   }
   \label{eq:exact-L1-characterization}
 \end{equation}
-More precisely, the left side of~\eqref{eq:exact-L1-characterization} is the minimum possible first moment among all estimators whose conditional barycenter, after the skeleton and coarsened state have been exposed, is the canonical coarsened signed density.
+
+More generally, let $\widetilde Y\in L^1$ be any estimator, possibly with additional auxiliary randomness, such that after the retained skeleton and retained coarsened state are exposed its conditional barycenter equals the canonical signed density in~\eqref{eq:canonical-coarsened-weight}. Then
+\begin{equation}
+  \E\abs{\widetilde Y}
+  \geq
+  \sum_{\tau\in\cT}
+  \norm{\overline\mu_\tau}_{\TV}.
+  \label{eq:coarsened-jensen-lower}
+\end{equation}
+Thus the right side of~\eqref{eq:coarsened-L1-sum} is the minimum possible first moment in the conditional-barycenter class associated with the fixed skeleton-preserving coarsening scheme. If the sum is infinite, no $L^1$ estimator in that class exists; if it is finite, the canonical sampler~\eqref{eq:canonical-coarsened-weight} attains it.
+
+If the skeleton label itself is also coarsened, the same one-measure identity~\eqref{eq:residual-TV-identity} applies after enlarging the raw state to include the skeleton label, but the per-skeleton sum~\eqref{eq:coarsened-L1-sum} need not be the correct invariant.
 \end{theorem}
 
 \begin{proof}
@@ -101,7 +129,7 @@ For every measurable $B\subseteq\overline{\cM}_\tau$,
   \overline R_\tau(\cC_\tau(\omega))
   \,d\nu_\tau(\omega).
 \end{align*}
-The function $\overline R_\tau\circ\cC_\tau$ is $\sigma(\cC_\tau)$-measurable, so this is exactly the defining identity for the conditional expectation in~\eqref{eq:conditional-pushforward-density}. Hence
+The function $\overline R_\tau\circ\cC_\tau$ is $\sigma(\cC_\tau)$-measurable, so this is precisely the defining property of the conditional expectation in~\eqref{eq:conditional-pushforward-density}. Therefore
 \begin{align*}
   \norm{\overline\mu_\tau}_{\TV}
   &=
@@ -115,34 +143,23 @@ The function $\overline R_\tau\circ\cC_\tau$ is $\sigma(\cC_\tau)$-measurable, s
 \end{align*}
 which proves~\eqref{eq:residual-TV-identity}.
 
-For the family statement, choose any full-support skeleton law $\pi$ and, conditional on $S=\tau$, any positive probability proposal $Q_\tau$ dominating $\overline\mu_\tau$. The canonical coarsened importance-sampling weight is
-\begin{equation}
-  Y
-  =
-  \frac1{\pi(S)}
-  \frac{d\overline\mu_S}{dQ_S}(U),
-  \qquad
-  U\mid\{S=\tau\}\sim Q_\tau.
-  \label{eq:canonical-coarsened-weight}
-\end{equation}
-Then
-\begin{equation}
+For~\eqref{eq:coarsened-L1-sum}, condition on $S$ and use the Radon--Nikodym identity:
+\begin{align*}
   \E\abs Y
-  =
+  &=
+  \sum_{\tau\in\cT}
+  \pi(\tau)
+  \int
+  \frac1{\pi(\tau)}
+  \abs{\frac{d\overline\mu_\tau}{dQ_\tau}}
+  dQ_\tau\\
+  &=
   \sum_{\tau\in\cT}
   \norm{\overline\mu_\tau}_{\TV}.
-  \label{eq:coarsened-L1-sum}
-\end{equation}
-Thus~\eqref{eq:exact-L1-characterization} is sufficient.
+\end{align*}
+This proves necessity and sufficiency for the canonical sampler.
 
-Conversely, let $\widetilde Y$ use arbitrary auxiliary randomness but assume that, after $(S,U)$ are exposed, its conditional barycenter is the right side of~\eqref{eq:canonical-coarsened-weight}. Conditional Jensen gives
-\begin{equation*}
-  \E\abs{\widetilde Y}
-  \geq
-  \sum_\tau
-  \norm{\overline\mu_\tau}_{\TV}.
-\end{equation*}
-Hence finiteness of~\eqref{eq:exact-L1-characterization} is necessary in this class, and the canonical estimator attains equality.
+Finally, if $\widetilde Y$ has the same coarsened conditional barycenter, conditional Jensen on each retained skeleton/coarsened-state fiber gives~\eqref{eq:coarsened-jensen-lower}. The canonical sampler has equality, so the lower bound is sharp.
 \end{proof}
 
 We call
@@ -173,9 +190,7 @@ The endpoints are
   \qquad
   V_\tau(\mathrm{const})
   =
-  \abs{\mu_\tau(\cM_\tau)}
-  =
-  \abs{F_\tau(t,x)}.
+  \abs{\mu_\tau(\cM_\tau)}.
   \label{eq:residual-endpoints}
 \end{equation}
 Thus cancellation before absolute values is exactly the reduction
@@ -184,8 +199,6 @@ Thus cancellation before absolute values is exactly the reduction
   -
   V_\tau(\cC_\tau).
 \end{equation*}
-
-The theorem is stated for skeleton-preserving coarsenings because that is the representation class used throughout the paper. If the skeleton label itself is also forgotten, then it is simply another coordinate being coarsened. The invariant remains the total variation after that larger pushforward, but it need not equal the sum of the separate skeleton variations.
 
 \subsection{The retained variable type is not the invariant}
 
@@ -259,7 +272,7 @@ Let
 \begin{equation*}
   \Omega_n=(0,1)\times\R^n,
   \qquad
-  \nu_n=dt\otimes\gamma_n,
+  \nu_n=ds\otimes\gamma_n,
 \end{equation*}
 and define
 \begin{equation*}
@@ -278,7 +291,7 @@ Again
 \begin{equation*}
   \mu_n(\Omega_n)=2^{-n},
 \end{equation*}
-so complete averaging is summable. Now retain only time,
+so complete averaging is summable. Retain only time,
 \begin{equation*}
   \cC_n(s,z)=s.
 \end{equation*}
@@ -307,18 +320,32 @@ These examples rule out any characterization based only on which named coordinat
 
 \subsection{Sparse full-state retention in the C-prime regime}
 
-The Gaussian example has a direct consequence for the quadratic-Hessian patch measures.
-
-\begin{proposition}[Sparse raw retention is L1]
+\begin{proposition}[Sparse full-state retention at a fixed target]
 \label{prop:sparse-raw-retention}
-Fix $(t,x)$ in the C-prime regime~\eqref{eq:Cprime-smallness}. Then there exists a nonconstant skeleton-preserving coarsening scheme such that
+Fix $0<\alpha<1$, $T>0$, $\lambda\in\R$, and $\phi\in C^{2+\alpha}(\Torus)$. Put
+\begin{equation*}
+  M=\norm{P_\cdot\phi''}_{X_{\alpha,T}},
+  \qquad
+  a=\abs\lambda C_{\cD}(\alpha,T)M,
+\end{equation*}
+and assume $4a<1$. Fix one observation point
+\begin{equation*}
+  (t,x)\in[0,T]\times\Torus.
+\end{equation*}
+Then there exists a nonconstant skeleton-preserving coarsening family
+\begin{equation*}
+  \{\cC_\tau^{t,x}:\tau\in\cT\}
+\end{equation*}
+which is allowed to depend on this fixed target, such that
 \begin{equation}
   \sum_{\tau\in\cT}
-  \norm{(\cC_\tau)_\#\mu_\tau^{t,x}}_{\TV}
-  <\infty,
+  \norm{(\cC_\tau^{t,x})_\#\mu_\tau^{t,x}}_{\TV}
+  <\infty.
   \label{eq:sparse-retention-sum}
 \end{equation}
-and, for every non-leaf skeleton whose raw signed measure is nonzero, $\cC_\tau$ retains the entire raw marked state on a nonnull measurable subset.
+For every non-leaf skeleton with nonzero raw signed measure, $\cC_\tau^{t,x}$ retains the entire raw marked state on a measurable set of strictly positive total-variation measure. Hence all Gaussian/Hermite, branch-time, and descendant coordinates survive on that set and affect the canonical coarsened estimator there.
+
+The proposition is pointwise in $(t,x)$. It does not construct one target-independent coarsening family which works simultaneously for all observation points.
 \end{proposition}
 
 \begin{proof}
@@ -327,7 +354,7 @@ Theorem C-prime gives
   \sum_{\tau\in\cT}
   \abs{F_\tau(t,x)}<\infty.
 \end{equation*}
-Each finite non-leaf raw measure is absolutely continuous with respect to a reference law containing continuous Gaussian and time coordinates. Hence its total-variation measure is nonatomic. Choose positive numbers $\varepsilon_\tau$ with
+Each finite non-leaf raw measure is absolutely continuous with respect to a reference law containing continuous Gaussian and time coordinates, so its total-variation measure is nonatomic. Choose positive numbers $\varepsilon_\tau$ with
 \begin{equation*}
   \sum_\tau\varepsilon_\tau<\infty.
 \end{equation*}
@@ -338,9 +365,9 @@ For every nonzero non-leaf measure choose a measurable set $A_\tau$ such that
   \leq
   \varepsilon_\tau.
 \end{equation*}
-Define $\cC_\tau$ to be the identity on $A_\tau$ and to collapse $A_\tau^c$ to a single point. The two images are disjoint, so
+Define $\cC_\tau^{t,x}$ to be the identity on $A_\tau$ and to collapse $A_\tau^c$ to a single point; for the leaf use the constant map. The two images are disjoint, so
 \begin{align*}
-  V_\tau(\cC_\tau)
+  V_\tau(\cC_\tau^{t,x})
   &=
   \abs{\mu_\tau^{t,x}}(A_\tau)
   +
@@ -353,21 +380,14 @@ Define $\cC_\tau$ to be the identity on $A_\tau$ and to collapse $A_\tau^c$ to a
 Summing proves~\eqref{eq:sparse-retention-sum}.
 \end{proof}
 
-On $A_\tau$ every Gaussian/Hermite, branch-time, and descendant coordinate is retained, so the surviving randomness is not decorative. Consequently the literal pointwise existential formulation of Conjecture C is true throughout the full C-prime regime. The remaining questions concern structured, non-sparse, or target-uniform coarsenings rather than mere existence.
+Thus the literal fixed-target existence question for nonconstant retained randomness is closed throughout the full C-prime regime. The remaining questions concern structured, non-sparse, or target-uniform coarsenings.
 
-\subsection{The three structured quadratic-Hessian points}
+\subsection{The structured quadratic-Hessian points}
 
-The characterization is consistent with every previously proved construction.
+For the intrinsic quadratic-Hessian measures $\mu_\tau^{t,x}$, the characterization is consistent with every previously proved construction.
 
 \paragraph{Raw-faithful / identity.}
-For the identity,
-\begin{equation*}
-  \E_{\nu_\tau}
-  [R_\tau\mid\sigma(\Id)]
-  =
-  R_\tau,
-\end{equation*}
-so the residual variation is the full raw total variation. The fixed smooth datum from~\cref{thm:raw-faithful-obstruction} has a divergent right-comb subseries. Thus~\cref{thm:residual-characterization} predicts non-$L^1$, exactly as the obstruction theorem does.
+For identity coarsening, the residual variation is the full raw total variation. The fixed smooth datum from~\cref{thm:raw-faithful-obstruction} has a divergent right-comb subseries. Thus~\cref{thm:residual-characterization} predicts non-$L^1$, exactly as the raw-faithful obstruction does.
 
 \paragraph{Constant coarsening / C-prime.}
 For the constant map,
@@ -376,9 +396,7 @@ For the constant map,
   =
   \abs{F_\tau(t,x)},
 \end{equation*}
-and Theorem C-prime proves summability throughout~\eqref{eq:Cprime-smallness}.
-
-The remaining structured point is the time-spine construction. Before recalling it, we record why the first Gaussian candidate fails.
+and Theorem C-prime proves summability throughout $4a<1$.
 
 \subsection{Patchwise Gaussian bridges do not repair the raw obstruction}
 
@@ -391,15 +409,13 @@ Under the convention that a patch is a maximal chain obtained by repeatedly foll
 At every internal vertex of a right comb the left child is a leaf, while the continuing internal child is the right child. A maximal left-child chain therefore stops at its first vertex.
 \end{proof}
 
-For a patch of length $\ell$, naive Gaussian-bridge coarsening retains the total endpoint Gaussian and forgets the $\ell-1$ orthogonal bridge coordinates. If $\ell=1$, the endpoint Gaussian is the original Gaussian mark. Thus on every obstruction comb cylinder this coarsening generates the same sigma-field as the identity.
-
 \begin{corollary}[Naive patchwise bridge coarsening fails]
 \label{cor:bridge-coarsening-fails}
-For the fixed smooth datum of~\cref{thm:raw-faithful-obstruction}, patchwise Gaussian-bridge coarsening preserves the divergent residual variation on the right-comb obstruction family. Hence it is not $L^1$.
+Fix $T>0$ and $\lambda\neq0$, and let $\phi_\varepsilon$ be the fixed smooth datum in~\cref{thm:raw-faithful-obstruction}. For every evaluation horizon $h\in(0,T]$ and every $x\in\Torus$, the naive coarsening which acts separately on each maximal-left patch by retaining its endpoint Gaussian and forgetting only internal Gaussian bridge coordinates has infinite first moment in the canonical coarsened conditional-barycenter class.
 \end{corollary}
 
 \begin{proof}
-By~\cref{lem:right-comb-one-edge}, every patch has length one. The coarsening is therefore the identity, up to an invertible coordinate change, on each obstruction cylinder. Total variation is preserved.
+By~\cref{lem:right-comb-one-edge}, every patch on the right-comb obstruction family has length one. On a one-edge patch the normalized endpoint Gaussian is the original Gaussian mark, so the coarsening generates the same sigma-field as identity. If the unnormalized displacement is retained instead, the coordinate change is invertible once the edge duration is retained. In either version, total variation is unchanged on every obstruction cylinder. The divergent subseries from~\cref{thm:raw-faithful-obstruction} therefore survives.
 \end{proof}
 
 \subsection{A structured intermediate: retain one spine of branch times}
@@ -408,7 +424,7 @@ For $m\geq1$, let
 \begin{equation*}
   0<s_1<\cdots<s_m<t\leq T.
 \end{equation*}
-Given $G\in C^\alpha(\Torus)$ and $b_1,\ldots,b_m\in X$, define
+Given $G\in C^\alpha(\Torus)$ and $b_1,\ldots,b_m\in X_{\alpha,T}$, define
 \begin{align*}
   \Xi_1&=b_1(s_1)P_{s_1}G,\\
   \Xi_r&=b_r(s_r)
@@ -434,7 +450,7 @@ Set
     \abs{I_m(t,x;\mathbf s)}d\mathbf s
   }{
     \norm G_{C^\alpha}
-    \prod_{j=1}^m\norm{b_j}_X
+    \prod_{j=1}^m\norm{b_j}_{X_{\alpha,T}}
   }
   \label{eq:time-patch-constant}
 \end{equation}
@@ -485,7 +501,7 @@ The derivative durations sum to $t-s_1$; the initial heat interval $s_1$ is one 
   \leq
   K_{\alpha,T}^m
   \norm G_{C^\alpha}
-  \prod_{j=1}^m\norm{b_j}_X.
+  \prod_{j=1}^m\norm{b_j}_{X_{\alpha,T}}.
 \end{equation*}
 \end{proof}
 
@@ -500,7 +516,7 @@ Every non-leaf planar binary tree has a unique root maximal-left patch. If its l
   m+\sum_{j=1}^m\abs{\sigma_j}.
   \label{eq:root-patch-decomposition}
 \end{equation}
-Define $\cC_\tau^{\mathrm{time}}$ by retaining the ordered branch times of the root maximal-left patch and integrating out every Gaussian/Brownian mark on that patch together with every continuous variable in the side subtrees. Its pushforward signed measure has density
+The time-spine rule retains the ordered branch times of this root maximal-left patch and integrates out every Gaussian/Brownian mark on that patch together with every continuous variable in the side subtrees. For target $(t,x)$ its pushforward signed measure has density
 \begin{equation}
   \lambda^m
   I_m[F_{\sigma_1},\ldots,F_{\sigma_m};\phi'']
@@ -508,45 +524,50 @@ Define $\cC_\tau^{\mathrm{time}}$ by retaining the ordered branch times of the r
   \label{eq:time-spine-density}
 \end{equation}
 
-Put
+\begin{theorem}[Target-uniform time-spine $L^1$ representation]
+\label{thm:time-spine}
+Fix $0<\alpha<1$, $T>0$, $\lambda\in\R$, and $\phi\in C^{2+\alpha}(\Torus)$. Let
 \begin{equation*}
+  X=X_{\alpha,T},
+  \qquad
   M=\norm{P_\cdot\phi''}_X,
   \qquad
-  a=\abs\lambda C_{\cD}M,
-  \qquad
-  b=\abs\lambda K_{\mathrm{time}}M,
+  a=\abs\lambda C_{\cD}(\alpha,T)M,
+\end{equation*}
+and let $K_{\mathrm{time}}(\alpha,T)<\infty$ be defined by~\eqref{eq:K-time}. Put
+\begin{equation*}
+  b
+  =
+  \abs\lambda K_{\mathrm{time}}(\alpha,T)M,
 \end{equation*}
 and
-\begin{equation}
+\begin{equation*}
   C(a)
-  =
-  \sum_{n\geq0}C_na^n
   =
   \frac{1-\sqrt{1-4a}}{2a},
   \qquad
   C(0)=1.
-  \label{eq:time-spine-Catalan}
-\end{equation}
-
-\begin{theorem}[Intermediate L1 representation with retained time randomness]
-\label{thm:time-spine}
+\end{equation*}
 Assume
 \begin{equation}
+  \boxed{
   4a<1,
   \qquad
   bC(a)<1.
+  }
   \label{eq:time-spine-smallness}
 \end{equation}
-Then
+Then the single geometric coarsening rule described above works for every observation point $(t,x)\in[0,T]\times\Torus$. More precisely, for every such target,
 \begin{equation}
   \sum_{\tau\in\cT}
-  V_\tau(\cC_\tau^{\mathrm{time}})
+  \norm{(\cC_{\tau}^{\mathrm{time},t,x})_\#
+  \mu_\tau^{t,x}}_{\TV}
   \leq
   \frac{M}{1-bC(a)}
   <\infty.
   \label{eq:time-spine-TV-sum}
 \end{equation}
-Hence the canonical coarsened importance sampler is an unbiased $L^1$ representation of the same solution $z_*$ as Theorem C-prime. The ordered branch times on the root maximal-left patch remain random and affect the estimator.
+The canonical coarsened importance sampler is therefore an unbiased $L^1$ representation of the C-prime solution $z_*(t,x)$ for every target. The ordered branch-time vector on the root maximal-left patch is retained and affects the estimator nontrivially. No Gaussian/Hermite or Brownian mark is retained by this time-spine rule.
 \end{theorem}
 
 \begin{proof}
@@ -569,7 +590,15 @@ where~\eqref{eq:Cprime-tree-bound} is used in the second line. Summing independe
   =
   \frac{M}{1-bC(a)}.
 \end{equation*}
-The total mass of the coarsened measure remains $F_\tau(t,x)$, and $4a<1$ gives the absolutely convergent C-prime sum $\sum_\tau F_\tau=z_*$. Theorem~\ref{thm:residual-characterization} then gives the claimed $L^1$ representation.
+The bound is uniform in $(t,x)$. The total mass of every coarsened skeleton measure remains $F_\tau(t,x)$, and $4a<1$ gives the absolutely convergent C-prime sum. Theorem~\ref{thm:residual-characterization} therefore yields the claimed $L^1$ representation at every target.
+
+To see that the retained time is nondecorative, take the one-vertex tree and $\phi''(x)=\cos x$. At $x=0$ the retained-time density contains
+\begin{equation*}
+  \partial_x^2P_{t-s}[(P_s\cos)^2](0)
+  =
+  -2e^{-2t+s},
+\end{equation*}
+which depends nontrivially on $s$.
 \end{proof}
 
 If
@@ -585,19 +614,13 @@ then the second condition in~\eqref{eq:time-spine-smallness} is
   \pa{1-\sqrt{1-4a}}<1.
   \label{eq:time-spine-theta-condition}
 \end{equation}
-For $\theta\leq2$ this follows from $4a<1$; for $\theta>2$ it is equivalent to
+For $\theta\leq2$ it follows automatically from $4a<1$; for $\theta>2$ it is equivalent to
 \begin{equation*}
   a<\frac{\theta-1}{\theta^2}.
 \end{equation*}
-The retained time is nondecorative. For the one-vertex tree and $\phi''(x)=\cos x$, at $x=0$ the retained-time density contains
-\begin{equation*}
-  \partial_x^2P_{t-s}[(P_s\cos)^2](0)
-  =
-  -2e^{-2t+s},
-\end{equation*}
-which is not constant in $s$.
+Thus the time-spine theorem has a potentially stronger smallness condition than C-prime, and the exact strengthening depends on the valid operator constants.
 
-Thus the three structured points are values of the same invariant:
+The three structured points are therefore values of the same invariant:
 \begin{equation*}
   \text{identity/raw-faithful: divergent residual variation},
 \end{equation*}
@@ -607,15 +630,14 @@ Thus the three structured points are values of the same invariant:
 \begin{equation*}
   \text{constant/C-prime: summable residual variation under }4a<1.
 \end{equation*}
-No point in the previously proved hierarchy conflicts with~\cref{thm:residual-characterization}.
 
 \subsection{What remains open}
 
-The characterization closes the existential question for arbitrary skeleton-preserving coarsenings at a fixed observation point. The remaining problems are structural and quantitative.
+The exact characterization closes the arbitrary fixed-target existence problem for skeleton-preserving coarsenings, but it does not make the structured representation problem trivial.
 
 \begin{enumerate}[label=\textup{(\roman*)}]
 \item Find a non-sparse coarsening with a fixed geometric description which is $L^1$ throughout the full C-prime regime.
-\item Construct one target-uniform coarsening architecture with quantitative control in a function-space norm rather than pointwise selection of small sets.
+\item Extend a target-uniform structured construction, such as the time-spine rule, to the full C-prime regime with quantitative function-space control.
 \item Given a prescribed retained sigma-field or computational budget, optimize the residual variation
 \begin{equation*}
   \int
