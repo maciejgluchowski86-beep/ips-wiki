@@ -36,9 +36,9 @@ and a coarsening retains the sigma-field $\mathcal G_\tau$, then the first-momen
   d\nu_\tau.
   \label{eq:intro-residual-variation}
 \end{equation}
-Summability of~\eqref{eq:intro-residual-variation} over the skeletons is both necessary and sufficient in the coarsened conditional-barycenter class. Thus ``cancellation before absolute values'' is precisely the removal of signed variation by conditional averaging. The type of retained coordinate---Gaussian, branch time, or otherwise---is not the invariant.
+For a fixed observation target, summability of~\eqref{eq:intro-residual-variation} over the skeletons is both necessary and sufficient in the skeleton-preserving coarsened conditional-barycenter class. Thus ``cancellation before absolute values'' is precisely the removal of signed variation by conditional averaging. The type of retained coordinate---Gaussian, branch time, or otherwise---is not the invariant. In the quadratic-Hessian application this characterization is pointwise in the target $(t,x)$; constructing one coarsening architecture which works simultaneously for all targets is a separate, stronger problem.
 
-The paper reaches this point in three stages. The first concerns existing branching representations and shows that $L^1$ can depend on the architecture even when the PDE and terminal datum are fixed. The second constructs and obstructs representations for a quadratic Hessian equation, including a fully averaged $L^1$ representation and a fixed-datum raw-faithful non-$L^1$ theorem. The third identifies the exact coarsening invariant, places the structured raw, time-spine, and fully averaged constructions on the same scale, and shows that even the entire Gaussian configuration may survive on sufficiently small pieces without destroying $L^1$.
+The paper reaches this point in three stages. The first concerns existing branching representations and shows that $L^1$ can depend on the architecture even when the PDE and terminal datum are fixed. The second constructs and obstructs representations for a quadratic Hessian equation, including a fully averaged $L^1$ representation and a fixed-datum raw-faithful non-$L^1$ theorem. The third identifies the exact fixed-target coarsening invariant, places the structured raw, time-spine, and fully averaged constructions on the same scale, and shows that even the entire Gaussian configuration may survive on sufficiently small pieces without destroying $L^1$. The time-spine construction is additionally target-uniform, but requires a stronger small-data condition.
 
 \subsection{Formal exactness and the coding-tree obstruction}
 
@@ -229,7 +229,7 @@ The raw-faithful theorem is not an impossibility theorem for randomness. There i
 \end{equation}
 still uses the sampled Gaussian mark and has expectation $\partial_x^2P_rF$, but conditional on $Z$ it is not the canonical one-sided raw integrand~\eqref{eq:intro-centered-hessian}. It therefore falls outside raw-faithfulness. Antithetic and ghost constructions of this kind are standard in branching methods; see~\cite{Warin2017}.
 
-The final characterization goes further. Even the **entire** raw Gaussian configuration may remain visible on a nonnull subset of each mark space without destroying $L^1$, provided the total variation carried by those subsets is summable. Conversely, a representation which retains only branch times can fail if a nonsummable signed oscillation remains visible as a function of time. Variable type is therefore not a proxy for integrability.
+The final characterization goes further. Even the **entire** raw Gaussian configuration may remain visible on a nonnull subset of each mark space without destroying $L^1$, provided the total variation carried by those subsets is summable. Separately, an abstract signed-measure example shows that retaining only a one-dimensional time coordinate can leave nonsummable residual variation. This second example is not a quadratic-Hessian counterexample. Variable type is therefore not a proxy for integrability.
 
 \subsection{Residual signed variation: the exact characterization}
 
@@ -256,9 +256,9 @@ Theorem~\ref{thm:residual-characterization} proves the exact identity
   d\nu_\tau.
   \label{eq:intro-residual-TV}
 \end{equation}
-For skeleton-preserving coarsenings, an $L^1$ conditional-barycenter representation exists if and only if the sum of~\eqref{eq:intro-residual-TV} over $\tau$ is finite. The canonical coarsened importance sampler attains this first moment exactly; conditional Jensen proves necessity for every auxiliary estimator with the same coarsened barycenter.
+For a fixed target and skeleton-preserving coarsenings, an $L^1$ conditional-barycenter representation exists if and only if the sum of~\eqref{eq:intro-residual-TV} over $\tau$ is finite. The canonical coarsened importance sampler attains this first moment exactly; conditional Jensen proves necessity for every auxiliary estimator with the same coarsened barycenter. This criterion is pointwise in $(t,x)$ when applied to the quadratic-Hessian measures $\mu_\tau^{t,x}$.
 
-The structured constructions sit exactly where this theorem predicts. Identity coarsening leaves the full raw total variation and is ruled out by~\cref{thm:raw-faithful-obstruction}. Constant coarsening leaves only $|F_\tau(t,x)|$ and is Theorem C-prime. Retaining the branch times on the root maximal-left patch gives a nonconstant intermediate representation under the additional geometric condition
+The structured constructions sit exactly where this theorem predicts. Identity coarsening leaves the full raw total variation and is ruled out by~\cref{thm:raw-faithful-obstruction}. Constant coarsening leaves only $|F_\tau(t,x)|$ and is Theorem C-prime. Retaining the branch times on the root maximal-left patch gives one target-uniform nonconstant intermediate representation under the additional geometric condition
 \begin{equation}
   4a<1,
   \qquad
@@ -281,7 +281,7 @@ one may choose a nonnull set $A_\tau$ of arbitrarily small raw total-variation m
 \begin{equation*}
   |F_\tau(t,x)|+2|\mu_\tau|(A_\tau),
 \end{equation*}
-so the sets may be chosen to make the sum finite. On the retained pieces all Gaussian/Hermite and time variables survive and affect the estimator. This pointwise construction does not by itself give one target-uniform architecture. The remaining open problem is to construct natural, non-sparse, target-uniform coarsenings with useful quantitative information.
+so the sets may be chosen to make the sum finite. On the retained pieces the Gaussian/Hermite, branch-time, and descendant coordinates remain explicitly observable in the retained state. This pointwise construction does not prove that every retained coordinate changes the estimator value, and it does not by itself give one target-uniform architecture. The remaining open problem is to construct natural, non-sparse, target-uniform coarsenings with useful quantitative information.
 
 This gives the precise endpoint of the paper's thesis:
 \begin{equation*}
@@ -293,4 +293,4 @@ This gives the precise endpoint of the paper's thesis:
 
 \subsection{Organization}
 
-\Cref{sec:preliminaries} fixes the semigroup, signed-measure, tree, and coarsening notation. \Cref{sec:coding-tree} proves the repeated-Hessian obstruction and Gevrey-$1/2$ necessity. \Cref{sec:dichotomy} gives the Nguwi--Penent--Privault versus HLOTW benchmark. \Cref{sec:patches} proves the finite patch regrouping and records the auxiliary deterministic iteration. \Cref{sec:cprime} proves the skeleton-averaged $L^1$ theorem. \Cref{sec:raw-faithful} proves the fixed-datum raw-faithful obstruction and isolates decorative and antithetic randomness. \Cref{sec:coarsening} proves the exact residual-variation characterization, gives the Gaussian-retention and time-only counterexamples, recovers the structured coarsening hierarchy, and states the remaining structural problems.
+\Cref{sec:preliminaries} fixes the semigroup, signed-measure, tree, and coarsening notation. \Cref{sec:coding-tree} proves the repeated-Hessian obstruction and Gevrey-$1/2$ necessity. \Cref{sec:dichotomy} gives the Nguwi--Penent--Privault versus HLOTW benchmark. \Cref{sec:patches} proves the finite patch regrouping and records the auxiliary deterministic iteration. \Cref{sec:cprime} proves the skeleton-averaged $L^1$ theorem. \Cref{sec:raw-faithful} proves the fixed-datum raw-faithful obstruction and isolates decorative and antithetic randomness. \Cref{sec:coarsening} proves the exact fixed-target residual-variation characterization, gives the abstract Gaussian-retention and time-only examples, recovers the structured coarsening hierarchy, and states the remaining target-uniform structural problems.
