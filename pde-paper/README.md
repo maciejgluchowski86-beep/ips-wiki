@@ -8,4 +8,6 @@ Compile from this directory with
 latexmk -pdf main.tex
 ```
 
-The current draft contains a complete abstract, introduction, and preliminaries; theorem statements and section structure for the audited results; and explicit placeholders where the proofs will be inserted from the proved-here wiki entries.
+The manuscript now contains full proofs of the audited results included in the paper: the repeated-Hessian obstruction and Gevrey-1/2 necessity, the NPP/HLOTW representation-level dichotomy, finite Hessian patch regrouping, the auxiliary deterministic iteration, Theorem C-prime, the fixed-datum raw-faithful obstruction, and the coarsening hierarchy. The hierarchy includes the failure of naive patchwise Gaussian-bridge coarsening and the positive time-spine representation which retains continuous branch-time randomness under an additional geometric smallness condition.
+
+The manuscript deliberately does not modify or share source files with the facilitated-spin-system paper under `paper/`.
