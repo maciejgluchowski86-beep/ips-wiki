@@ -177,4 +177,4 @@ $$
 
 Hence equal initial means remain equal and their difference has mean zero for all time. This is exactly the situation in semi-implicit iterations for second derivatives: every iterate with initial datum \(\phi''\) has zero spatial mean.
 
-The method controls differences of the second-derivative variables. Recovering the underlying function from its second derivative still leaves a time-dependent spatial constant; that constant must be fixed separately by the mean evolution of the original PDE.
+The method controls differences of the second-derivative variables. Recovering the underlying function from its second derivative still leaves a time-dependent spatial constant; that constant must be fixed separately by the mean evolution of the original PDE. In the [quadratic-Hessian patch iteration](self-consistent-patch-iteration-for-quadratic-hessian-pde.md), this estimate gives the contraction ratio \(q\leq1/3\), while the torus mean is evolved by a separate scalar identity.
