@@ -1,6 +1,7 @@
 ---
 title: Tonelli, Markov, and Borel-Cantelli
 status: standard fact
+audit: current
 tags:
   - probability
   - measure theory
@@ -15,7 +16,7 @@ Several PDE branching arguments on this wiki reduce to elementary measure-theore
 
 ## Tonelli's theorem
 
-Let \((X,\mu)\) and \((Y,\nu)\) be sigma-finite measure spaces, and let \(f:X\times Y\to[0,\infty]\) be measurable. Then
+Let $(X,\mu)$ and $(Y,\nu)$ be sigma-finite measure spaces, and let $f:X\times Y\to[0,\infty]$ be measurable. Then
 
 $$
 \int_{X\times Y}f\,d(\mu\otimes\nu)
@@ -26,9 +27,9 @@ $$
 \tag{1}
 $$
 
-with the value \(+\infty\) allowed.
+with the value $+\infty$ allowed.
 
-The permission to take the value \(+\infty\) is often the important point. For example, if \(A_m\subseteq X\) are measurable, then Tonelli applied to
+The permission to take the value $+\infty$ is often the important point. For example, if $A_m\subseteq X$ are measurable, then Tonelli applied to
 
 $$
 f(y,m)=\ind(A_m)(y)
@@ -47,7 +48,7 @@ No prior summability assumption is needed.
 
 ## Markov's inequality
 
-If \(F\geq0\) is measurable and \(a>0\), then
+If $F\geq0$ is measurable and $a>0$, then
 
 $$
 \mu\{F>a\}
@@ -56,11 +57,11 @@ $$
 \tag{3}
 $$
 
-For a probability measure this is the usual probabilistic Markov inequality. In the [Gevrey necessity proof](gevrey-half-necessity-for-coding-trees.md), \(F\) is the absolute value of a high jet derivative and \(\mu\) is Lebesgue measure on a bounded set.
+For a probability measure this is the usual probabilistic Markov inequality. The same estimate applies to Lebesgue measure on a bounded set and is often used to turn integral derivative bounds into exceptional-set estimates.
 
 ## First Borel--Cantelli lemma
 
-Let \((A_m)\) be measurable events in a probability space. If
+Let $(A_m)$ be measurable events in a probability space. If
 
 $$
 \sum_{m=1}^\infty\mathbb P(A_m)<\infty,
@@ -75,24 +76,24 @@ $$
 
 Independence is not required for this direction.
 
-The same statement holds on a finite-measure space after normalizing the measure. Equivalently, if \(B\) has finite measure and
+The same statement holds on a finite-measure space after normalizing the measure. Equivalently, if $B$ has finite measure and
 
 $$
 \sum_m|A_m|<\infty,
 \qquad A_m\subseteq B,
 $$
 
-then almost every point of \(B\) belongs to only finitely many \(A_m\).
+then almost every point of $B$ belongs to only finitely many $A_m$.
 
-## Two patterns used in the coding-tree arguments
+## Two reusable patterns
 
-**Positive-measure limsup.** If every point of a set \(E_0\) of positive measure belongs to infinitely many \(A_m\), then the left side of (2) is infinite on \(E_0\), so
+**Positive-measure limsup.** If every point of a set $E_0$ of positive measure belongs to infinitely many $A_m$, then the left side of (2) is infinite on $E_0$, so
 
 $$
 \sum_m|A_m|=\infty.
 $$
 
-This is the step used in the [finite directional radius obstruction](finite-directional-radius-obstruction.md).
+This is a generic way to turn pointwise recurrence of exceptional events into divergence of their total measure.
 
 **Almost-everywhere eventual bound.** If Markov's inequality gives
 
@@ -100,4 +101,4 @@ $$
 |A_m|\leq2^{-m},
 $$
 
-then the sum of the exceptional measures is finite, and Borel--Cantelli implies that almost every point lies in only finitely many \(A_m\). This turns an integral derivative estimate into the pointwise eventual estimate used in the [Gevrey-1/2 necessity theorem](gevrey-half-necessity-for-coding-trees.md).
+then the exceptional measures are summable, and Borel--Cantelli implies that almost every point lies in only finitely many $A_m$. Hence any property holding outside $A_m$ at level $m$ holds eventually for almost every point.

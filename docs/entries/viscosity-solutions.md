@@ -1,6 +1,7 @@
 ---
 title: Viscosity solutions
 status: definition
+audit: current
 tags:
   - PDE
   - viscosity solution
@@ -23,12 +24,10 @@ F(t,x,u,\partial_tu,D_xu,D_x^2u)=0.
 \tag{1}
 $$
 
-The standard viscosity comparison convention assumes that the second-order part is *degenerate elliptic*: if \(X\leq Y\) as symmetric matrices, then
+The standard viscosity comparison convention assumes that the second-order part is *degenerate elliptic*: if $X\leq Y$ as symmetric matrices, then
 
 $$
-F(t,x,r,q,p,X)
-\geq
-F(t,x,r,q,p,Y).
+F(t,x,r,q,p,X)\geq F(t,x,r,q,p,Y).
 \tag{2}
 $$
 
@@ -55,7 +54,7 @@ u(T,\cdot)=\phi.
 \tag{3}
 $$
 
-To apply the standard forward viscosity convention without changing signs implicitly, set \(v(s,x)=u(T-s,x)\). Then (3) becomes
+To apply the standard forward viscosity convention without changing signs implicitly, set $v(s,x)=u(T-s,x)$. Then (3) becomes
 
 $$
 \partial_sv-\frac12\partial_x^2v
@@ -69,7 +68,7 @@ whose second-order part is degenerate elliptic in the sense of (2). Statements a
 
 ## Definition: subsolution
 
-An upper-semicontinuous function \(v\) is a *viscosity subsolution* of (1) if, whenever \(\varphi\in C^{1,2}\) and \(v-\varphi\) has a local maximum at \((t_0,x_0)\), one has
+An upper-semicontinuous function $v$ is a *viscosity subsolution* of (1) if, whenever $\varphi\in C^{1,2}$ and $v-\varphi$ has a local maximum at $(t_0,x_0)$, one has
 
 $$
 F\left(
@@ -82,11 +81,11 @@ F\left(
 \tag{5}
 $$
 
-The test function \(\varphi\) is said to *touch \(v\) from above* at \((t_0,x_0)\).
+The test function $\varphi$ is said to *touch $v$ from above* at $(t_0,x_0)$.
 
 ## Definition: supersolution
 
-A lower-semicontinuous function \(v\) is a *viscosity supersolution* if, whenever \(v-\varphi\) has a local minimum at \((t_0,x_0)\), the reverse inequality holds:
+A lower-semicontinuous function $v$ is a *viscosity supersolution* if, whenever $v-\varphi$ has a local minimum at $(t_0,x_0)$, the reverse inequality holds:
 
 $$
 F\left(
@@ -99,13 +98,11 @@ F\left(
 \tag{6}
 $$
 
-A continuous function is a *viscosity solution* if it is both a viscosity subsolution and a viscosity supersolution.
-
-For a continuous initial or terminal-value problem, the prescribed data are imposed in the ordinary pointwise sense unless a weaker boundary convention is explicitly stated.
+A continuous function is a *viscosity solution* if it is both a viscosity subsolution and a viscosity supersolution. For a continuous initial or terminal-value problem, the prescribed data are imposed in the ordinary pointwise sense unless a weaker boundary convention is explicitly stated.
 
 ## Classical solutions are viscosity solutions
 
-Suppose \(v\in C^{1,2}\) solves (1) pointwise and \(F\) is degenerate elliptic in the sense of (2). If \(v-\varphi\) has a local maximum at \((t_0,x_0)\), then
+Suppose $v\in C^{1,2}$ solves (1) pointwise and $F$ is degenerate elliptic in the sense of (2). If $v-\varphi$ has a local maximum at $(t_0,x_0)$, then
 
 $$
 \partial_tv=\partial_t\varphi,
@@ -126,14 +123,14 @@ $$
 
 which is the subsolution inequality. The supersolution statement is analogous.
 
-The monotonicity convention may be written with the opposite sign in other sources. Multiplying the PDE by \(-1\) reverses the subsolution and supersolution inequalities, so the sign convention should always be fixed before invoking comparison.
+The monotonicity convention may be written with the opposite sign in other sources. Multiplying the PDE by $-1$ reverses the subsolution and supersolution inequalities, so the sign convention should always be fixed before invoking comparison.
 
 ## Comparison and uniqueness
 
-A *comparison principle* is a theorem of the form: if \(u\) is a viscosity subsolution and \(v\) is a viscosity supersolution with compatible boundary or terminal data, then \(u\leq v\). Whenever comparison holds in the chosen function class, there is at most one viscosity solution in that class.
+A *comparison principle* is a theorem of the form: if $u$ is a viscosity subsolution and $v$ is a viscosity supersolution with compatible boundary or terminal data, then $u\leq v$. Whenever comparison holds in the chosen function class, there is at most one viscosity solution in that class.
 
 Comparison is not automatic for every nonlinear PDE. It depends on continuity, ellipticity, growth, and domain assumptions. This is why the [HLOTW marked branching entry](marked-branching-diffusion-for-gradient-nonlinearities.md) separates two statements: their branching expectation is shown to be a viscosity solution under their integrability hypotheses, while uniqueness requires a separate comparison result or an explicit uniqueness assumption.
 
 ## Why this notion appears in branching representations
 
-A branching construction often first produces a continuous expectation and a mild integral identity. Differentiability of that expectation may be insufficient to verify the PDE pointwise. Viscosity stability permits one to identify limits of approximations as solutions under much weaker differentiability. In the [representation-level dichotomy](representation-level-dichotomy.md), the HLOTW estimator is identified with a continuous viscosity solution, while no solution is attributed to the nonintegrable NPP functional.
+A branching construction often first produces a continuous expectation and a mild integral identity. Differentiability of that expectation may be insufficient to verify the PDE pointwise. Viscosity stability permits one to identify limits of approximations as solutions under much weaker differentiability, provided the appropriate stability and comparison hypotheses are available.

@@ -32,7 +32,7 @@ and lifetime density
   \label{eq:HLOTW-lifetime}
 \end{equation}
 
-\begin{theorem}[Representation-level dichotomy]
+\begin{theorem}[Two branching representations for one benchmark]
 \label{thm:representation-dichotomy}
 Fix $\eta\in\R\setminus\{0\}$ and
 \begin{equation*}
@@ -45,7 +45,7 @@ For every horizon $T>0$, consider
   +\eta\pa{e^{(u_x)^4}-1}=0,
   \qquad
   u(T,x)=a\cos x.
-  \label{eq:dichotomy-benchmark}
+  \label{eq:representation-benchmark-pde}
 \end{equation}
 Then the following statements hold.
 
@@ -73,7 +73,7 @@ and
 \begin{equation*}
   u(t,x)=\E[\psi_{t,x}]
 \end{equation*}
-is a continuous viscosity solution of~\eqref{eq:dichotomy-benchmark}.
+is a continuous viscosity solution of~\eqref{eq:representation-benchmark-pde}.
 
 The HLOTW conclusion is used with the following positive-time extension of their printed lifetime regularity assumption: $\rho_T$ is continuous and strictly positive on $(0,T]$ but is allowed to be singular at $0$. This extension is valid here because every sampled internal lifetime is strictly positive almost surely, every density factor in the estimator is evaluated only at a positive lifetime increment, and terminal particles use the survival function rather than $\rho_T(0)$.
 \end{enumerate}
@@ -131,7 +131,7 @@ For the identity code, the NPP mechanism has a unique child $f^*$. Condition on 
   =\infty.
 \end{equation*}
 
-We next verify the HLOTW assumptions used in the moment estimate. The monomial series is absolutely convergent and equals the driver in~\eqref{eq:dichotomy-benchmark}. Moreover,
+We next verify the HLOTW assumptions used in the moment estimate. The monomial series is absolutely convergent and equals the driver in~\eqref{eq:representation-benchmark-pde}. Moreover,
 \begin{equation}
   \sum_{r\geq1}4rp_r
   =
@@ -211,7 +211,7 @@ with $\Delta T>0$ almost surely. The checks above bound every such factor by one
 \begin{equation*}
   \E\abs{\psi_{t,x}}^2\leq1.
 \end{equation*}
-The first-branch identity recovers the absolutely convergent monomial series for the driver, and the HLOTW argument then identifies $\E[\psi_{t,x}]$ with a continuous viscosity solution of~\eqref{eq:dichotomy-benchmark}.
+The first-branch identity recovers the absolutely convergent monomial series for the driver, and the HLOTW argument then identifies $\E[\psi_{t,x}]$ with a continuous viscosity solution of~\eqref{eq:representation-benchmark-pde}.
 \end{proof}
 
 The theorem is deliberately representation-level. The NPP mechanism repeatedly differentiates the jet nonlinearity and therefore encounters the factorial scale~\eqref{eq:dichotomy-jet-lower}. The HLOTW mechanism instead branches over the monomial coefficients $\eta/r!$ and transfers only first spatial derivatives through marked Gaussian weights. The same mild equation is sampled by two different architectures with different absolute-moment behavior. This does not contradict the NPP Feynman--Kac theorem, whose all-code $L^1$ hypothesis fails in the benchmark.
