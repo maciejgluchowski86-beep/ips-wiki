@@ -13,7 +13,7 @@ tags:
 
 Finite absolute expectation of a composite-code [Nguwi--Penent--Privault coding tree](npp-coding-tree.md) imposes a factorial bound on the corresponding even terminal jet derivatives. If the trees rooted at both \(f^*\) and \((\partial_{z_j}f)^*\) are integrable, the even and odd bounds combine into a pointwise Gevrey-\(1/2\) bound almost everywhere. Under the smoothness assumptions of the coding-tree construction, this conclusion concerns the formal directional Taylor series; coincidence with the original directional germ requires an additional analyticity hypothesis.
 
-**References.** The coding-tree construction is from Jiang Yu Nguwi, Guillaume Penent, and Nicolas Privault, *A fully nonlinear Feynman-Kac formula with derivatives of arbitrary orders*, arXiv:2201.03882. The Gevrey and entire-function terminology is recorded in [Directional jet radius](directional-jet-radius.md). The necessity statements below are proved here.
+**References.** The coding-tree construction is from Jiang Yu Nguwi, Guillaume Penent, and Nicolas Privault, *A fully nonlinear Feynman-Kac formula with derivatives of arbitrary orders*, arXiv:2201.03882. The Gevrey and entire-function terminology is defined in [Directional jet radius](directional-jet-radius.md). The necessity statements below are proved here.
 
 Fix \(j\in\{0,\ldots,n\}\) with \(\phi^{(j+1)}\not\equiv0\), and let \(g^*\) be an allowed composite code. Recall
 
@@ -94,7 +94,7 @@ $$
 
 ## Proof
 
-Fix a bounded set \(B\). By (2) and Markov's inequality,
+Fix a bounded set \(B\). By (2) and [Markov's inequality](tonelli-markov-and-borel-cantelli.md),
 
 $$
 \left|
@@ -112,7 +112,7 @@ C_B(2A)^m m!
 \tag{4}
 $$
 
-The right-hand side is summable in \(m\). The Borel--Cantelli lemma therefore implies that for almost every \(y\in B\), inequality
+The right-hand side is summable in \(m\). The [first Borel--Cantelli lemma](tonelli-markov-and-borel-cantelli.md) therefore implies that for almost every \(y\in B\), inequality
 
 $$
 \left|
