@@ -13,15 +13,53 @@ tags:
 
 A finite patch-first randomization can be organized so that the combinatorial and temporal patch data are exposed while the Gaussian spatial marks inside distinct patches remain independent. Conditional expectation then replaces every side patch by its conditional mean field before the parent heat or Hermite kernel is applied. The conditioning sigma-field must not contain the Gaussian mark whose centering is needed for the derivative cancellation.
 
-This is a finite-depth statement. It is a probabilistic form of the exact [finite-depth Duhamel patch regrouping](finite-depth-duhamel-patch-regrouping.md) and does not imply the infinite-depth \(L^1\) conjecture.
+This is a finite-depth statement for the quadratic Hessian equation. It is a probabilistic form of the exact [finite-depth Duhamel patch regrouping](finite-depth-duhamel-patch-regrouping.md) and does not by itself imply an infinite-depth \(L^1\) result. Its place in the larger programme is summarized in the [PDE branching-representations overview](../pde-branching-representations.md).
 
 **References.** None: the statement below is the finite-level conditional-expectation form of the patch regrouping proved in this project. Conditional means and fluctuations are defined in [Conditional expectation and fluctuations of random fields](conditional-expectation-and-fluctuations-of-random-fields.md).
 
+## Setup
+
+Fix \(T>0\), \(\lambda\in\mathbb R\), and \(\phi\in C^\infty(\mathbb T)\), where
+
+$$
+\mathbb T=\mathbb R/(2\pi\mathbb Z).
+$$
+
+For
+
+$$
+\partial_tv
+=
+\frac12\partial_x^2v
++\lambda(\partial_x^2v)^2,
+\qquad
+v(0)=\phi,
+$$
+
+write \(z=v_{xx}\). The finite Picard recursion is
+
+$$
+z^{[0]}(t)=P_t\phi'',
+$$
+
+and
+
+$$
+z^{[N+1]}(t)
+=
+P_t\phi''
++
+\lambda\int_0^t
+\partial_x^2P_{t-s}
+\left[(z^{[N]}(s))^2\right]ds.
+\tag{1}
+$$
+
+For every finite \(N\), expanding (1) produces finitely many planar binary Duhamel trees. The [finite patch theorem](finite-depth-duhamel-patch-regrouping.md) decomposes each such tree uniquely into maximal left-spine patches. No infinite-depth convergence assumption is used on this page.
+
 ## Patch skeleton data
 
-Fix a finite Picard depth. The deterministic binary Duhamel expansion contains finitely many planar trees, and every such tree has a unique decomposition into maximal left-spine patches.
-
-For a patch-first randomization, expose the following data:
+Fix a finite Picard depth \(N\). For a patch-first randomization, expose the following data:
 
 - the finite patch genealogy and the incidence relation between patches;
 - the length of each patch;
@@ -38,7 +76,7 @@ $$
 \mathbb E[He_2(Z)\mid\mathcal G_{\mathrm{skel}}]
 $$
 
-would no longer produce the cancellation \(\mathbb E He_2(Z)=0\).
+would no longer produce the cancellation \(\mathbb E He_2(Z)=0\). Here \(He_2(z)=z^2-1\) is the probabilists' second [Hermite polynomial](hermite-polynomials-and-gaussian-chaos.md).
 
 ## Random fields rather than pre-evaluated values
 
@@ -61,8 +99,10 @@ Y_P(x)
 \,\middle|\,
 \mathcal G_{\mathrm{skel}}
 \right].
-\tag{1}
+\tag{2}
 $$
+
+Ordinary conditional expectation in (2) requires the relevant finite-cutoff field to be integrable. This is automatic only after it has been verified for the chosen finite proposal; the page does not use conditional expectation of an unresolved nonintegrable infinite-patch functional.
 
 If a parent patch later reaches a random branch position \(X\), independent of the side-patch seeds conditional on the skeleton and the parent seed, then the same field is evaluated at \(X\).
 
@@ -78,7 +118,7 @@ $$
 \right]
 =
 \prod_{j=1}^k m_{P_j}(x).
-\tag{2}
+\tag{3}
 $$
 
 If \(X\) is the parent branch location and is generated independently of the child-patch seeds after conditioning on the parent information, then conditioning first on \(X\) gives
@@ -91,20 +131,20 @@ $$
 \right]
 =
 \prod_{j=1}^k m_{P_j}(X).
-\tag{3}
+\tag{4}
 $$
 
-The parent heat or derivative kernel then averages the right side of (3) over the law of \(X\).
+The parent heat or derivative kernel then averages the right side of (4) over the law of \(X\).
 
 ## Proof
 
-Conditional on \(\mathcal G_{\mathrm{skel}}\), the seeds \(\omega_{P_1},\ldots,\omega_{P_k}\) are independent by construction. For fixed \(x\), each \(Y_{P_j}(x)\) is a measurable function of its own seed and the exposed skeleton data. Conditional independence therefore gives (2).
+Conditional on \(\mathcal G_{\mathrm{skel}}\), the seeds \(\omega_{P_1},\ldots,\omega_{P_k}\) are independent by construction. For fixed \(x\), each \(Y_{P_j}(x)\) is a measurable function of its own seed and the exposed skeleton data. Conditional independence therefore gives (3).
 
-For (3), condition additionally on the parent branch position \(X\). The value of \(X\) changes the common argument at which the child fields are evaluated but does not reveal their independent seeds. Applying (2) pointwise at \(x=X\) gives (3).
+For (4), condition additionally on the parent branch position \(X\). The value of \(X\) changes the common argument at which the child fields are evaluated but does not reveal their independent seeds. Applying (3) pointwise at \(x=X\) gives (4).
 
 ## One centered Hessian edge
 
-Let a parent derivative edge have deterministic elapsed time \(r\), and let its fresh Gaussian mark be \(Z\sim N(0,1)\). For an input field \(f\) independent of \(Z\) conditional on the exposed data, define
+Let a parent derivative edge have deterministic elapsed time \(r>0\), and let its fresh Gaussian mark be \(Z\sim N(0,1)\). For an input field \(f\) independent of \(Z\) conditional on the exposed data, define
 
 $$
 \widehat K_r f(x,Z)
@@ -113,7 +153,7 @@ $$
 \left[
  f(x+\sqrt r Z)-f(x)
 \right].
-\tag{4}
+\tag{5}
 $$
 
 Because \(Z\) is not exposed in \(\mathcal G_{\mathrm{skel}}\), conditional expectation gives
@@ -126,7 +166,7 @@ $$
 \right]
 =
 \partial_x^2P_rf.
-\tag{5}
+\tag{6}
 $$
 
 If \(f\) is itself a random side field, condition first on the side field and then use the tower property. Under the corresponding conditional independence,
@@ -144,7 +184,7 @@ $$
 \,\middle|\,
 \mathcal G_{\mathrm{skel}}
 \right].
-\tag{6}
+\tag{7}
 $$
 
 Thus the deterministic [Holder cancellation estimate](holder-cancellation-for-heat-semigroup-derivatives.md) acts on the conditional mean field after the fresh Gaussian mark has been averaged.
@@ -155,14 +195,16 @@ If patch lengths, branch times, or mechanism types are sampled from positive pro
 
 The result is the same finite signed Duhamel contribution as in the deterministic patch regrouping. Integrability of the chosen finite random variable is still required to interpret all conditional expectations as ordinary \(L^1\) conditional expectations.
 
-## Scope for the random-patch conjecture
+## What follows at infinite depth
 
-Equations (2)--(6) explain why the current [random-patch conjecture](l1-random-patch-conjecture-for-quadratic-hessian-pde.md) is formulated in terms of conditional mean side fields. They do not control the centered fluctuations
+There are now two distinct continuations of the finite identity.
+
+If all continuous branch-time and Gaussian/Hermite variables inside a decorated skeleton are integrated out before the skeleton is sampled, the resulting deterministic profiles are the objects summed in [Theorem C-prime](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md). Under its explicit Catalan smallness condition, that skeleton-only estimator is unbiased and belongs to \(L^1\).
+
+If the continuous marks are retained as genuine random variables inside the patches, the centered fluctuation
 
 $$
-R_P
-=
-Y_P-m_P.
+R_P=Y_P-m_P
 $$
 
-Those fluctuations disappear from signed conditional means but remain relevant to absolute moments. Controlling them uniformly through the patch genealogy is a separate open problem.
+survives. Controlling those raw fluctuations is the unresolved content of the [\(L^1\) random-patch conjecture](l1-random-patch-conjecture-for-quadratic-hessian-pde.md). The finite factorization on this page does not supply that control.
