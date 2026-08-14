@@ -3,7 +3,7 @@
   "legacy_migration_complete": false,
   "integrations_since_last_sweep": 0,
   "entries_at_last_sweep": 109,
-  "last_sweep_commit": "1ef072cc4f1ca13d0ae35ecd178ccfbb1d8cf70f",
+  "last_sweep_commit": "aeacb6f160635ddbdf8482b3b85f95f6b7edfdbb",
   "priority_order": [
     "remaining superseded or deprecated IPS project-specific entries, especially legacy status: proved here in the FA chronology/regeneration subtree",
     "legacy PDE entries with status proved here",
