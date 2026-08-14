@@ -376,6 +376,8 @@ $$
 \frac{(4r)!}{r!},
 $$
 
-which is detected by the repeated-Hessian genealogy. The HLOTW construction instead branches over the monomial coefficients \(\eta/r!\) and transfers only first spatial derivatives through marked Malliavin weights. The same [mild equation](mild-formulation-and-branching-diffusion-representation.md) is therefore sampled by two structurally different tree constructions with different absolute-moment behavior.
+which is detected by the repeated-Hessian genealogy. The benchmark is entire, so the [finite directional radius obstruction](finite-directional-radius-obstruction.md) is not the relevant special case. Instead its directional entire function has order \(4\), consistent with the failure of the [Gevrey-1/2 necessity](gevrey-half-necessity-for-coding-trees.md) required by all-code NPP integrability.
+
+The HLOTW construction instead branches over the monomial coefficients \(\eta/r!\) and transfers only first spatial derivatives through marked Malliavin weights. No [antithetic or ghost branching](antithetic-and-ghost-branching-schemes.md) modification is used in this comparison. The same [mild equation](mild-formulation-and-branching-diffusion-representation.md) is therefore sampled by two structurally different tree constructions with different absolute-moment behavior.
 
 This does not contradict the NPP Feynman--Kac theorem. That theorem assumes all-code \(L^1\) integrability; the benchmark violates that premise. Nor does the comparison assert that both tree functionals represent a common solution: only the HLOTW expectation is identified here with a viscosity solution, while the NPP statement is the failure of the raw coding-tree functional's required integrability.
