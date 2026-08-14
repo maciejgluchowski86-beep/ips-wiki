@@ -11,11 +11,47 @@ tags:
 
 # Gevrey-1/2 necessity for coding trees
 
-Finite absolute expectation of a composite-code [Nguwi--Penent--Privault coding tree](npp-coding-tree.md) imposes a factorial bound on the corresponding even terminal jet derivatives. If the trees rooted at both \(f^*\) and \((\partial_{z_j}f)^*\) are integrable, the even and odd bounds combine into a pointwise Gevrey-\(1/2\) bound almost everywhere. Under the smoothness assumptions of the coding-tree construction, this conclusion concerns the formal directional Taylor series; coincidence with the original directional germ requires an additional analyticity hypothesis.
+Finite absolute expectation of a composite-code [Nguwi--Penent--Privault coding tree](npp-coding-tree.md) imposes a factorial bound on the corresponding even terminal jet derivatives. If the trees rooted at both \(f^*\) and \((\partial_{z_j}f)^*\) are integrable, the even and odd bounds combine into a pointwise Gevrey-\(1/2\) bound almost everywhere. Under the smoothness assumptions of the coding-tree construction, this conclusion concerns the formal directional Taylor series; coincidence with the original directional germ requires an additional analyticity hypothesis. The role of this result in the negative chain is summarized in the [PDE branching-representations overview](../pde-branching-representations.md).
 
 **References.** The coding-tree construction is from Jiang Yu Nguwi, Guillaume Penent, and Nicolas Privault, *A fully nonlinear Feynman-Kac formula with derivatives of arbitrary orders*, arXiv:2201.03882. The Gevrey and entire-function terminology is defined in [Directional jet radius](directional-jet-radius.md). The necessity statements below are proved here.
 
-Fix \(j\in\{0,\ldots,n\}\) with \(\phi^{(j+1)}\not\equiv0\), and let \(g^*\) be an allowed composite code. Recall
+## Setup and hypotheses
+
+Fix a terminal time \(T>0\), an integer \(n\geq0\),
+
+$$
+f\in C^\infty(\mathbb R^{n+1}),
+\qquad
+\phi\in C^\infty(\mathbb R),
+$$
+
+and the [heat-reference terminal PDE](heat-reference-fully-nonlinear-pde.md)
+
+$$
+\partial_tu+rac12u_{xx}+f(J_nu)=0,
+\qquad
+u(T)=\phi.
+$$
+
+Let \(H(\mathcal T_{t,x,c})\) be the [NPP coding-tree functional](npp-coding-tree.md), with strictly positive lifetime density and positive mechanism-selection probabilities. Fix
+
+$$
+j\in\{0,\ldots,n\},
+\qquad
+\phi^{(j+1)}\not\equiv0,
+$$
+
+and let \(g^*\) be an allowed composite code, so
+
+$$
+g
+=
+a\,\partial_{z_0}^{\lambda_0}\cdots\partial_{z_n}^{\lambda_n}f
+$$
+
+for some \(a\neq0\) and nonnegative integers \(\lambda_0,\ldots,\lambda_n\).
+
+Recall
 
 $$
 D_m(B;g,j)
@@ -134,7 +170,7 @@ f^*,
 (\partial_{z_j}f)^*
 $$
 
-has finite absolute expectation for at least one positive remaining time. Then for Lebesgue-almost every \(y\in\mathbb R\) there are constants \(C_y,A_y<\infty\) such that
+has finite absolute expectation for at least one positive remaining time: namely, for each root there exist \(t<T\) and \(x\in\mathbb R\) for which the corresponding absolute expectation is finite. Then for Lebesgue-almost every \(y\in\mathbb R\) there are constants \(C_y,A_y<\infty\) such that
 
 $$
 \left|
