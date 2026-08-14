@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "legacy_migration_complete": false,
-  "integrations_since_last_sweep": 0,
+  "integrations_since_last_sweep": 1,
   "entries_at_last_sweep": 91,
   "last_sweep_commit": "a07404e957138c65cb814d2fa3818a189d48143b",
   "priority_order": [
