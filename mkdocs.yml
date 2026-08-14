@@ -88,6 +88,7 @@ nav:
       - Importance-sampling compensators: entries/importance-sampling-compensators.md
       - Uniform integrability and passage to expectations: entries/uniform-integrability-and-passage-to-expectations.md
       - Gaussian integration by parts and automatic differentiation: entries/gaussian-integration-by-parts-and-automatic-differentiation.md
+      - Malliavin and Bismut automatic differentiation: entries/malliavin-and-bismut-automatic-differentiation.md
       - Hermite polynomials and Gaussian chaos: entries/hermite-polynomials-and-gaussian-chaos.md
       - Holder cancellation for heat-semigroup derivatives: entries/holder-cancellation-for-heat-semigroup-derivatives.md
       - Parabolic Holder spaces: entries/parabolic-holder-spaces.md
@@ -98,6 +99,7 @@ nav:
       - Viscosity solutions: entries/viscosity-solutions.md
       - Tonelli, Markov, and Borel-Cantelli: entries/tonelli-markov-and-borel-cantelli.md
       - Parabolic maximum principle and Schauder estimates: entries/parabolic-maximum-principle-and-schauder-estimates.md
+      - Interior Holder estimates for parabolic equations: entries/interior-holder-estimates-for-parabolic-equations.md
       - Aronson and Nash Gaussian bounds: entries/aronson-nash-gaussian-bounds.md
       - H-minus-one energy method: entries/h-minus-one-energy-method.md
       - Weak parabolic solutions on the torus: entries/weak-parabolic-solutions-on-the-torus.md
