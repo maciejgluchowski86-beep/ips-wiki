@@ -20,7 +20,7 @@ Definitions should live in one place and be linked elsewhere. Standard PDE facts
 
 The reader should first acquire the following objects and distinctions:
 
-1. what a partial differential equation is, its order, unknown, independent variables, and differential operator;
+1. [basic PDE objects and vocabulary](entries/partial-differential-equations-basic-vocabulary.md): what a partial differential equation is, its order, unknown, independent variables, and differential operator;
 2. initial, terminal, boundary, and initial-boundary value problems;
 3. linear, semilinear, quasilinear, and fully nonlinear equations;
 4. elliptic, parabolic, and hyperbolic equations, first through canonical examples and only then through the general principal-part classification;
