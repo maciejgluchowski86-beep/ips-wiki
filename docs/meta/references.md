@@ -32,6 +32,20 @@ This page is the human-readable reference list for the wiki. A structured BibTeX
 - Aidan Sudbury, *Hunting submartingales in the jumping voter model and the biased annihilating branching process*, Advances in Applied Probability, 1999.
 - Fabio Martinelli, Assaf Shapira, and Cristina Toninelli, *Long time behaviour of one facilitated kinetically constrained models: results and open problems*, arXiv:2510.20461, 2025.
 
+## PDE and analysis references
+
+- Lawrence C. Evans, *Partial Differential Equations*, second edition, Graduate Studies in Mathematics 19, American Mathematical Society, 2010.
+- Avner Friedman, *Partial Differential Equations of Parabolic Type*, Prentice-Hall, 1964.
+- Michael G. Crandall, Hitoshi Ishii, and Pierre-Louis Lions, *User's guide to viscosity solutions of second order partial differential equations*, *Bulletin of the American Mathematical Society* **27** (1992), 1--67, DOI 10.1090/S0273-0979-1992-00266-5, arXiv:math/9207212.
+- Gregory M. Constantine and Thomas H. Savits, *A multivariate Faà di Bruno formula with applications*, *Transactions of the American Mathematical Society* **348** (1996), 503--520, DOI 10.1090/S0002-9947-96-01501-2.
+- Donald G. Aronson, *Bounds for the fundamental solution of a parabolic equation*, *Bulletin of the American Mathematical Society* **73** (1967), 890--896, DOI 10.1090/S0002-9904-1967-11830-5.
+- Hongjie Dong, Seick Kim, and Sungjin Lee, *Estimates for fundamental solutions of parabolic equations in non-divergence form*, *Journal of Differential Equations* **340** (2022), 557--591, DOI 10.1016/j.jde.2022.09.007, arXiv:2201.03811.
+
+## Gaussian-analysis references
+
+- Svante Janson, *Gaussian Hilbert Spaces*, Cambridge Tracts in Mathematics 129, Cambridge University Press, 1997.
+- David Nualart, *The Malliavin Calculus and Related Topics*, second edition, Probability and Its Applications, Springer, 2006, DOI 10.1007/3-540-28329-3.
+
 ## Branching representations for nonlinear PDEs
 
 - Jiang Yu Nguwi, Guillaume Penent, and Nicolas Privault, *A fully nonlinear Feynman-Kac formula with derivatives of arbitrary orders*, *Journal of Evolution Equations* **23** (2023), Paper No. 22, DOI 10.1007/s00028-023-00873-3, arXiv:2201.03882.
