@@ -1,0 +1,103 @@
+\section{Coding-tree obstructions}
+\label{sec:coding-tree}
+
+The first results concern the coding-tree representation of~\eqref{eq:general-terminal-pde}. They are included because they isolate the difference between signed exactness and absolute integrability before the quadratic-Hessian patch construction is introduced.
+
+Fix $T>0$, $n\geq0$, $f\in C^\infty(\R^{n+1})$, and $\phi\in C^\infty(\R)$. Let $j\in\{0,\ldots,n\}$ satisfy
+\begin{equation*}
+  \phi^{(j+1)}\not\equiv0.
+\end{equation*}
+Let $g^*$ be an allowed composite code and write
+\begin{equation*}
+  g
+  =
+  a\,\partial_{z_0}^{\lambda_0}\cdots
+  \partial_{z_n}^{\lambda_n}f,
+  \qquad a\neq0.
+\end{equation*}
+For a bounded measurable set $B\subseteq\R$, define
+\begin{equation}
+  D_m(B;g,j)
+  =
+  \int_B
+  \abs{\partial_{z_j}^{2m}g(J_n\phi(y))}\,dy.
+  \label{eq:Dm}
+\end{equation}
+
+\begin{theorem}[Repeated-Hessian obstruction]
+\label{thm:repeated-hessian}
+Assume the coding-tree lifetime density is strictly positive at every positive time and every prescribed allowed mechanism has positive selection probability. If, for some bounded measurable $B$,
+\begin{equation}
+  \limsup_{m\to\infty}
+  \pa{
+    \frac{D_m(B;g,j)}{m!}
+  }^{1/m}
+  =\infty,
+  \label{eq:repeated-hessian-condition}
+\end{equation}
+then, for every $t<T$ and $x\in\R$,
+\begin{equation*}
+  \E\abs{H(\mathcal T_{t,x,g^*})}
+  =\infty.
+\end{equation*}
+The conclusion does not require a uniform lower bound on the lifetime density or on the mechanism-selection probabilities.
+\end{theorem}
+
+\proofplaceholder{Insert the audited repeated-Hessian proof. The proof must retain the exact-count disjoint genealogies, compensator cancellation, Brownian confinement, heat-kernel positivity, and the ordered-simplex factor $(T-t)^m/(2^m m!)$.}
+
+The same restricted genealogy gives a necessary derivative bound when the tree is integrable.
+
+\begin{proposition}[Integrated derivative bound]
+\label{prop:integrated-derivative-bound}
+Suppose that for some $t<T$ and $x\in\R$,
+\begin{equation*}
+  \E\abs{H(\mathcal T_{t,x,g^*})}<\infty.
+\end{equation*}
+Then there is $A<\infty$ such that, for every bounded measurable $B\subseteq\R$, there is $C_B<\infty$ satisfying
+\begin{equation}
+  D_m(B;g,j)
+  \leq
+  C_BA^m m!,
+  \qquad m\geq1.
+  \label{eq:integrated-derivative-bound}
+\end{equation}
+The exponential base $A$ is independent of $B$.
+\end{proposition}
+
+\proofplaceholder{Insert the rearrangement of the quantitative lower bound from the repeated-Hessian proof.}
+
+\begin{theorem}[Gevrey-$1/2$ necessity]
+\label{thm:gevrey-necessity}
+Assume that each of the two coding-tree functionals rooted at
+\begin{equation*}
+  f^*,
+  \qquad
+  (\partial_{z_j}f)^*
+\end{equation*}
+has finite absolute expectation for at least one positive remaining horizon. Then, for Lebesgue-almost every $y\in\R$, there are constants $C_y,A_y<\infty$ such that
+\begin{equation}
+  \abs{\partial_{z_j}^r f(J_n\phi(y))}
+  \leq
+  C_yA_y^r\Gamma\pa{\frac r2+1},
+  \qquad r\geq0.
+  \label{eq:gevrey-half}
+\end{equation}
+Consequently the formal directional Taylor series
+\begin{equation*}
+  F_y(w)
+  =
+  \sum_{r=0}^\infty
+  \frac{\partial_{z_j}^r f(J_n\phi(y))}{r!}w^r
+\end{equation*}
+converges for every $w\in\C$. Moreover, for almost every $y$, there are $C_y',B_y<\infty$ such that
+\begin{equation}
+  \abs{F_y(w)}
+  \leq
+  C_y'\exp(B_y\abs w^2),
+  \qquad w\in\C.
+  \label{eq:gaussian-entire-growth}
+\end{equation}
+Thus the formal directional series has entire order at most $2$. Under the stated $C^\infty$ assumptions this is a statement about the formal jet; identifying the series with the original directional germ requires an additional analyticity assumption.
+\end{theorem}
+
+\proofplaceholder{Insert the audited Markov/Borel--Cantelli argument which turns~\eqref{eq:integrated-derivative-bound} into almost-everywhere even derivative bounds, then apply the same argument to $(\partial_{z_j}f)^*$ for the odd derivatives and sum the resulting Taylor series.}
