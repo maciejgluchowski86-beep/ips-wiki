@@ -17,7 +17,7 @@ The coarsening results for branching representations are most transparent when a
 
 A reader who knows ordinary conditional expectation and the Radon--Nikodym theorem can regard all of the statements below as standard. The purpose of the page is to fix notation and make the later PDE entries self-contained.
 
-**References.** These are standard consequences of the Jordan decomposition, Radon--Nikodym theorem, and conditional Jensen inequality; see any graduate measure-theory text. The relation to branching proposals is explained in [Importance-sampling compensators](importance-sampling-compensators.md). The distinction between function variation and signed-measure variation is recorded in [Total variation, bounded variation, and derivative singularities](total-variation-bounded-variation-and-derivative-singularities.md).
+**References.** These are standard consequences of the Jordan decomposition, Radon--Nikodym theorem, conditional Jensen inequality, and the elementary divisibility theorem for finite nonatomic measures. The relation to branching proposals is explained in [Importance-sampling compensators](importance-sampling-compensators.md). The distinction between function variation and signed-measure variation is recorded in [Total variation, bounded variation, and derivative singularities](total-variation-bounded-variation-and-derivative-singularities.md).
 
 ## Finite signed measures and total variation
 
@@ -286,6 +286,39 @@ $$
 $$
 
 The canonical Radon--Nikodym estimator attains equality. Hence, once the retained signed measure is fixed, auxiliary conditionally unbiased randomness cannot improve its first-moment cost.
+
+## Nonatomic measures contain arbitrarily small nonnull pieces
+
+A finite positive measure \(\lambda\) is *nonatomic* if no measurable set of positive measure is an atom. Equivalently for the use below, every set \(A\) with \(\lambda(A)>0\) contains a measurable subset \(B\subset A\) with
+
+$$
+0<\lambda(B)<\lambda(A).
+$$
+
+The standard divisibility theorem for finite nonatomic measures implies that for every \(A\) with \(\lambda(A)>0\) and every
+
+$$
+0<\varepsilon<\lambda(A),
+$$
+
+there exists measurable \(B\subset A\) such that
+
+$$
+0<\lambda(B)\leq\varepsilon.
+\tag{17}
+$$
+
+In fact one can prescribe any value in \([0,\lambda(A)]\). For the PDE application only (17) is needed.
+
+If \(\mu=R\nu\) and \(\nu\) is nonatomic, then
+
+$$
+|\mu|=|R|\nu
+$$
+
+is also nonatomic. Indeed, an atom of \(|\mu|\) would contain a subset on which \(\nu\) can be divided while \(|R|\nu\) remains positive, contradicting atomicity. Consequently every nonzero finite raw patch measure whose reference law has continuous Gaussian or time coordinates has nonnull sets of arbitrarily small positive total-variation mass.
+
+This is the only measure-theoretic input needed for the sparse full-state retention construction in the capstone theorem.
 
 ## Relation to coarsened branching representations
 
