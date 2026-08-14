@@ -17,7 +17,7 @@ The [finite-depth patch regrouping](finite-depth-duhamel-patch-regrouping.md) is
 
 A previous obstruction showed that side-profile sup norms cannot control a spatially varying Hessian patch. That obstruction does **not** survive under a uniform positive spatial Holder bound. The audited deterministic estimate below shows that Holder cancellation changes the analytic problem: for deterministic side profiles with uniformly bounded \(C^\alpha\) norms, complete patches grow at most geometrically in their length. The unresolved issue is now recursive regularity and moment control for the *random* side-patch fields.
 
-**References.** The Holder cancellation estimates are recorded in [Holder cancellation for heat-semigroup derivatives](holder-cancellation-for-heat-semigroup-derivatives.md). Parabolic Holder norms are defined in [Parabolic Holder spaces](parabolic-holder-spaces.md). The conjecture and counterexample concern the patch construction developed in this project.
+**References.** The Holder cancellation estimates are recorded in [Holder cancellation for heat-semigroup derivatives](holder-cancellation-for-heat-semigroup-derivatives.md). Parabolic Holder norms are defined in [Parabolic Holder spaces](parabolic-holder-spaces.md). Random function-space moments are defined in [Random fields in function spaces](random-fields-in-function-spaces.md), and a possible frequency-localized alternative is described in [Besov spaces on the torus](besov-spaces-on-the-torus.md). The conjecture and counterexample concern the patch construction developed in this project.
 
 ## Conjecture
 
@@ -153,12 +153,14 @@ R^{-k+\alpha/2}
 \tag{8}
 $$
 
-Apply (6) successively along a complete length-\(m\) patch. At each multiplier there are two choices: commute the current derivative block through the multiplier, thereby extending the block by the next Hessian edge, or stop the block by taking the commutator. Thus the resulting terms are indexed by ordered compositions
+Apply (6) successively along a complete length-\(m\) patch. At each multiplier there are two choices: commute the current derivative block through the multiplier, thereby extending the block by the next Hessian edge, or stop the block by taking the commutator. The resulting cluster lengths form an ordered composition
 
 $$
 m=\ell_1+\cdots+\ell_q.
 \tag{9}
 $$
+
+There is one additional terminal choice: the innermost cluster either stops at the last side multiplier or commutes through it and reaches the terminal profile. Thus the cluster-length compositions organize the expansion, but do not by themselves index every term uniquely.
 
 A cluster of \(\ell\) consecutive Hessian edges has total heat time \(R\) and derivative operator \(K_R^{(\ell)}\). For fixed \(R\), the internal simplex of its \(\ell\) positive edge lengths has volume
 
@@ -183,7 +185,7 @@ C_\alpha4^\ell.
 \tag{11}
 $$
 
-The number of ordered compositions of \(m\) is \(2^{m-1}\). Thus neither the Hermite constants nor the cluster combinatorics reintroduce factorial growth.
+There are \(2^{m-1}\) ordered compositions of \(m\), and after the terminal choice the full commutator expansion has at most \(2^m\) terms. Thus neither the Hermite constants nor the cluster combinatorics reintroduce factorial growth.
 
 The terminal cluster can be commuted all the way to the initial heat transfer. Its internal simplex gives an even better factor: after applying (2) to the terminal profile, the remaining total-time factor is of order \(R^{\alpha/2}/\ell!\), rather than \(R^{-1+\alpha/2}/(\ell-1)!\).
 
@@ -220,9 +222,9 @@ $$
 
 ### Proof
 
-Expand the patch by repeated use of (6). Every term corresponds to a composition (9). Multipliers passed without a commutator contribute only their sup norms. Each nonterminal cluster ends at one commutator and contributes one spatial Holder seminorm together with the integrable time factor (10). The terminal cluster either ends at a commutator, leaving a heat-semigroup contraction on \(G\), or reaches \(G\) and uses the terminal Holder gain described above.
+Expand the patch by repeated use of (6). Every term has a cluster-length composition (9), together with the possible terminal choice described above. Multipliers passed without a commutator contribute only their sup norms. Each nonterminal cluster ends at one commutator and contributes one spatial Holder seminorm together with the integrable time factor (10). The terminal cluster either ends at a commutator, leaving a heat-semigroup contraction on \(G\), or reaches \(G\) and uses the terminal Holder gain described above.
 
-For a nonterminal cluster, integrating \(R^{-1+\alpha/2}\) over \((0,T]\) costs at most \(2T^{\alpha/2}/\alpha\). By (11), the remaining length-dependent coefficient is bounded by a fixed exponential in the cluster length. The terminal-cluster coefficient has the same property. Since the cluster lengths sum to \(m\), products of the cluster coefficients are bounded by \(C_{\alpha,T}^m\). Finally, there are at most \(2^{m-1}\) compositions. Absorbing this factor and the \(C^\alpha\) bounds of the multipliers into a larger value of \(C_{\alpha,T}\) gives (13).
+For a nonterminal cluster, integrating \(R^{-1+\alpha/2}\) over \((0,T]\) costs at most \(2T^{\alpha/2}/\alpha\). By (11), the remaining length-dependent coefficient is bounded by a fixed exponential in the cluster length. The terminal-cluster coefficient has the same property. Since the cluster lengths sum to \(m\), products of the cluster coefficients are bounded by \(C_{\alpha,T}^m\). Finally, the full expansion contains at most \(2^m\) terms. Absorbing this factor and the \(C^\alpha\) bounds of the multipliers into a larger value of \(C_{\alpha,T}\) gives (13).
 
 The proposition is deterministic. It does not estimate the Holder norms of the random side-patch fields generated by a branching construction.
 
@@ -300,13 +302,13 @@ The full parabolic \(C^{\alpha/2,\alpha}\) norm has the same scaling because the
 
 The deterministic estimate (13) removes the earlier factorial/Hermite obstruction for patches whose side profiles have uniformly controlled spatial Holder norms. The open problem is therefore no longer to tame a deterministic factorial growth produced by consecutive Hessian transfers. It is to control the *random regularity* of the side patches strongly enough that the geometric deterministic majorant can be averaged recursively.
 
-A sufficient route would be a recursive moment estimate for random side fields in a norm such as
+A sufficient route would be a recursive [random function-space moment](random-fields-in-function-spaces.md) estimate such as
 
 $$
 L^p\bigl(\Omega;L^\infty([0,T];C^\alpha(\mathbb T))\bigr),
 $$
 
-or in a suitable parabolic Holder or Besov-type space. Which norm is natural is itself part of the problem.
+or an estimate in a suitable parabolic Holder or [Besov space](besov-spaces-on-the-torus.md). Which norm is natural is itself part of the problem.
 
 Full pathwise parabolic Holder regularity should not be assumed automatically. In a naive common-randomness coupling across the horizon variable, the realized branching topology can change when a sampled lifetime crosses the observation horizon, producing time discontinuities of the raw estimator. The commutator argument above only needs spatial \(C^\alpha\) control at the sampled branch times. An averaged, integrated, or Besov regularity norm may therefore be more appropriate than a pathwise \(C^{\alpha/2,\alpha}\) norm.
 
