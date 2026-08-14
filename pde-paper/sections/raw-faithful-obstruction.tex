@@ -1,0 +1,123 @@
+\section{Raw-faithful patches have infinite first moment}
+\label{sec:raw-faithful}
+
+Theorem C-prime proves that averaging complete interiors can restore $L^1$. We now show that, for one fixed smooth datum, no change of positive proposal can achieve the same result while the canonical raw marked contribution remains the conditional barycenter.
+
+\subsection{Long combs and the raw-faithful class}
+
+A length-$m$ comb is the planar binary tree in which one distinguished child continues through exactly $m$ consecutive quadratic branchings, while the other child at each branching is terminal, and the distinguished child is terminal after the $m$-th branching. Fix an evaluation horizon $h>0$. We restrict to combs whose distinguished edge durations satisfy
+\begin{equation*}
+  r_j>0,
+  \qquad
+  r_1+\cdots+r_m<\frac h2.
+\end{equation*}
+The side leaves and final distinguished leaf then have remaining heat time in $[h/2,h]$.
+
+Let $\Gamma_m$ be the raw cylinder on which the distinguished lineage has exactly this length-$m$ comb genealogy. Let $\mu_m$ denote the intrinsic signed measure on $\Gamma_m$, including its durations, centered Gaussian/Hermite marks, and terminal Brownian marks, after the positive lifetime, genealogy, and survival proposal factors have been cancelled against their reciprocal compensators. The cylinders $\Gamma_m$ are pairwise disjoint.
+
+Let $(\Omega,\mathcal F,Q)$ be a simulation probability space with exposed canonical raw coordinate $R$. Write $Q_m$ for the restriction of the law of $R$ to $\Gamma_m$ and assume $\mu_m\ll Q_m$. By~\cref{def:raw-faithful}, an assumed $L^1(Q)$ estimator is raw-faithful on $\Gamma_m$ if its conditional barycenter there is $d\mu_m/dQ_m$.
+
+\subsection{The fixed smooth datum}
+
+Choose an integer $K\geq3$ and set
+\begin{equation}
+  N_m=K^m,
+  \qquad
+  b_m=(m!)^{-1/2}.
+  \label{eq:Nm-bm}
+\end{equation}
+For $m_0$ sufficiently large and $\varepsilon>0$, define
+\begin{equation}
+  g_\varepsilon(x)
+  =
+  \varepsilon\br{
+    \cos x+
+    \sum_{m\geq m_0}
+    b_m\cos(N_mx)
+  }.
+  \label{eq:fixed-smooth-g}
+\end{equation}
+For every fixed integer $k\geq0$,
+\begin{equation*}
+  \sum_{m\geq m_0}b_mN_m^k
+  =
+  \sum_{m\geq m_0}
+  \frac{K^{km}}{\sqrt{m!}}
+  <\infty,
+\end{equation*}
+since the ratio of consecutive terms is $K^k/\sqrt{m+1}$. Hence $g_\varepsilon\in C^\infty(\Torus)$ by termwise differentiation. It has zero mean and therefore equals $\phi_\varepsilon''$, where
+\begin{equation}
+  \phi_\varepsilon(x)
+  =
+  -\varepsilon\cos x
+  -\varepsilon\sum_{m\geq m_0}
+  \frac{b_m}{N_m^2}\cos(N_mx).
+  \label{eq:fixed-smooth-phi}
+\end{equation}
+
+\begin{theorem}[Raw-faithful $L^1$ obstruction]
+\label{thm:raw-faithful-obstruction}
+Fix $T>0$ and $\lambda\neq0$. Let $\phi_\varepsilon$ be the single smooth datum~\eqref{eq:fixed-smooth-phi}. For every evaluation horizon $h\in(0,T]$ and every $x\in\Torus$, there is no $L^1$ estimator which is raw-faithful on the long combs.
+
+More precisely, let $(\Omega,\mathcal F,Q)$ be any simulation probability space whose raw coordinate $R$ has restrictions $Q_m$ satisfying $\mu_m\ll Q_m$. If a scalar estimator $Y(h,x)$ were in $L^1(Q)$ and satisfied, for every $m$,
+\begin{equation*}
+  \E_Q[Y(h,x)\mid\sigma(R)]
+  =
+  \frac{d\mu_m}{dQ_m}(R)
+  \qquad Q\text{-a.s. on }\Gamma_m,
+\end{equation*}
+then necessarily
+\begin{equation*}
+  \E_Q\abs{Y(h,x)}=\infty,
+\end{equation*}
+a contradiction. Hence no such $L^1$ estimator exists.
+The conclusion is unchanged if one changes the lifetime law, genealogy proposal, Gaussian proposal, or dependence structure of these proposals, or adds auxiliary conditionally unbiased randomness.
+\end{theorem}
+
+The theorem is driven by total variation rather than by an operator norm. For the frequency $N_m$ already present in~\eqref{eq:fixed-smooth-g}, the length-$m$ comb satisfies a lower bound of the form
+\begin{equation}
+  \norm{\mu_m}_{\TV}
+  \geq
+  A_h\varepsilon
+  (C_h\abs\lambda\varepsilon)^m
+  \frac{m^m}{\sqrt{m!}},
+  \label{eq:comb-TV-lower}
+\end{equation}
+for all sufficiently large $m$. Thus
+\begin{equation*}
+  \sum_m\norm{\mu_m}_{\TV}=\infty.
+\end{equation*}
+The construction uses one fixed datum, not a sequence of generation-dependent tests.
+
+\proofplaceholder{Insert the audited total-variation proof. It should define the bounded Fourier tests using the positive periodic heat kernel, project the side leaves onto frequency $1$ and the distinguished leaf onto $N_m$, restrict each duration to $N_m^{-2}\leq r_j\leq h/(4m)$, obtain one logarithm from every raw Hessian mark, and finish with disjointness plus conditional Jensen. State the Radon--Nikodym form of proposal invariance explicitly.}
+
+\subsection{The same small-data regime has opposite outcomes}
+
+The fixed datum may be made arbitrarily small without affecting the divergence mechanism. For every fixed $0<\alpha<1$ and $T>0$, choose $\varepsilon$ small enough that
+\begin{equation}
+  4\abs\lambda C_{\cD}(\alpha,T)
+  \norm{P_\cdot\phi_\varepsilon''}_{X_{\alpha,T}}<1.
+  \label{eq:raw-overlap-Cprime}
+\end{equation}
+Then~\cref{thm:cprime} gives an unbiased $L^1$ skeleton-averaged estimator for the solution associated with $\phi_\varepsilon$, while~\cref{thm:raw-faithful-obstruction} rules out every raw-faithful estimator for the same datum at every positive evaluation horizon.
+
+\begin{corollary}[Averaged versus raw-faithful]
+\label{cor:clean-contrast}
+There are arbitrarily small $C^\infty$ terminal data for which complete interior averaging gives an unbiased $L^1$ representation, while every raw-faithful representation has infinite first moment.
+\end{corollary}
+
+\subsection{Randomness itself is not obstructed}
+
+The conclusion concerns raw-faithfulness, not randomness as such. Two examples should be kept next to the theorem.
+
+\paragraph{Decorative randomness.}
+Sample the C-prime skeleton $S$ and, in addition, sample any family of independent continuous marks $G$. Return
+\begin{equation*}
+  \frac{F_S(t,x)}{\pi(S)}
+\end{equation*}
+without using $G$. The estimator remains the C-prime estimator. The simulation contains continuous random variables, but they are decorative. This example rules out any interpretation of the theorem which treats the mere presence of random marks as mathematically significant.
+
+\paragraph{Antithetic randomness.}
+The estimator~\eqref{eq:antithetic-prelim} uses its Gaussian mark nontrivially and has the correct signed expectation, but it changes the conditional barycenter relative to the one-sided raw state. It therefore lies outside the theorem. More complicated bridge averages, control variates, and coupled multi-sample constructions can escape for the same reason.
+
+The correct negative statement is consequently sharp at the level of conditional barycenters: pure importance sampling and auxiliary unbiased randomization cannot repair the canonical raw signed measure. Any surviving random-mark representation must first redistribute signed mass between raw states.
