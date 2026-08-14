@@ -16,13 +16,13 @@ $$
 u(T,\cdot)=\phi.
 $$
 
-The starting point is the coding-tree Feynman--Kac representation of Nguwi--Penent--Privault. The current mathematical investigation concerns integrability of the raw coding-tree functional and possible patch-style resummations of derivative chronologies.
+The starting point is the coding-tree Feynman--Kac representation of Nguwi--Penent--Privault. The current public layer contains both the background construction and an independently audited negative chain describing when repeated Hessian genealogies force failure of absolute integrability.
 
-New resummation statements are still under audit. Public wiki entries must not label them `proved here` or state them as established theorems until that audit is complete.
+Further representation comparisons and resummation statements remain under audit and must not be added as established results until separately approved.
 
 ## Current wiki phase
 
-The public background layer is organized into the following entries:
+The background layer is organized into:
 
 - `docs/entries/heat-reference-fully-nonlinear-pde.md`
 - `docs/entries/mild-formulation-and-branching-diffusion-representation.md`
@@ -30,7 +30,14 @@ The public background layer is organized into the following entries:
 - `docs/entries/npp-coding-tree-feynman-kac-theorem.md`
 - `docs/entries/directional-jet-radius.md`
 
-These pages define the PDE and jet notation, Duhamel and branching-diffusion background, the Nguwi--Penent--Privault coding construction and Theorem 4.2, and the one-variable analytic growth notions used to diagnose jet-direction derivative growth.
+The audited obstruction layer is organized into:
+
+- `docs/entries/repeated-hessian-obstruction-for-coding-trees.md`
+- `docs/entries/finite-directional-radius-obstruction.md`
+- `docs/entries/gevrey-half-necessity-for-coding-trees.md`
+- `docs/entries/integrable-regime-of-coding-tree.md`
+
+The first three obstruction entries have status `proved here`. The integrable-regime note has status `observation`; it records a direct nonvacuous regime and a narrowly stated issue with the uniform offspring-probability estimate in the printed proof of Nguwi--Penent--Privault Proposition 4.3.
 
 ## General conventions
 
