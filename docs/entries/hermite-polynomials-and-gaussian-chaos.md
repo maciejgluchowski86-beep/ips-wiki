@@ -37,6 +37,8 @@ He_1(z)=z,
 \qquad
 He_2(z)=z^2-1,
 \qquad
+He_3(z)=z^3-3z,
+\qquad
 He_4(z)=z^4-6z^2+3.
 $$
 
