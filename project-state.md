@@ -8,9 +8,9 @@ The wiki is article-first. Source pages live under `docs/entries/`; the canonica
 
 ## Current research route: PDE branching representations
 
-The active PDE route studies probabilistic representations for nonlinear parabolic equations. The public layer contains background on the Nguwi--Penent--Privault coding tree and HLOTW marked branching, the independently audited repeated-Hessian obstruction chain, and the audited representation-level dichotomy benchmark.
+The active PDE route studies probabilistic representations for nonlinear parabolic equations. The public layer contains background on the Nguwi--Penent--Privault coding tree and HLOTW marked branching, the independently audited repeated-Hessian obstruction chain, the audited representation-level dichotomy benchmark, and the audited deterministic positive route for a quadratic Hessian equation on the torus.
 
-The PDE part of the wiki is now required to be self-contained for a reader with measure-theoretic probability, basic functional analysis, and a first graduate PDE course. Concepts beyond that background must be defined locally or linked to a prerequisite article. Lecture-notes style prerequisite entries are explicitly acceptable.
+The PDE part of the wiki is required to be self-contained for a reader with measure-theoretic probability, basic functional analysis, and a first graduate PDE course. Concepts beyond that background must be defined locally or linked to a prerequisite article. Lecture-notes style prerequisite entries are explicitly acceptable.
 
 ## PDE prerequisite layer
 
@@ -27,6 +27,8 @@ The current prerequisite layer includes:
 - `docs/entries/parabolic-maximum-principle-and-schauder-estimates.md`
 - `docs/entries/aronson-nash-gaussian-bounds.md`
 - `docs/entries/h-minus-one-energy-method.md`
+- `docs/entries/weak-parabolic-solutions-on-the-torus.md`
+- `docs/entries/ito-diffusions-and-backward-kolmogorov-representation.md`
 
 `docs/entries/directional-jet-radius.md` already defines the directional Taylor radius, Gevrey-1/2 / ultra-analytic derivative bound, entire extension, order, and type, so those notions remain consolidated there rather than duplicated.
 
@@ -48,25 +50,33 @@ The audited comparison layer remains:
 
 The dichotomy entry has status `proved here`. Its HLOTW half proves the required singular-lifetime endpoint extension rather than treating the Gamma density as a literal instance of published Assumption 3.1. Only the HLOTW expectation is identified there with a viscosity solution.
 
-## Second-order quadratic route: current status
+## Quadratic Hessian route
 
-For the torus equation
-
-$$
-\partial_tu+\frac12\partial_x^2u+\lambda(\partial_x^2u)^2=0,
-$$
-
-the repaired deterministic route uses the direct `v`-level maximum principle plus Hölder/Schauder control of `z=v_{xx}`, a smallness condition of the form
+For the forward torus equation
 
 $$
-|\lambda|C_{\mathrm{Sch}}(\alpha,T)\|\phi\|_{C^{2+\alpha}}\leq\frac18,
+\partial_tv
+=
+\frac12\partial_x^2v
++\lambda(\partial_x^2v)^2,
+\qquad
+v(0)=\phi,
 $$
 
-and the `H^{-1}` contraction estimate with ellipticity window `[3/8,5/8]` and contraction factor at most `1/3`. The torus mean must be evolved separately when reconstructing `v` from `z`.
+write `z=v_{xx}`. Three statements are kept separate.
 
-What survives as audited project mathematics is the deterministic self-consistent patch iteration, its limiting self-consistent diffusion representation, and the exact finite-level patch-factorization / first-branch identities.
+1. `docs/entries/finite-depth-duhamel-patch-regrouping.md` has status `proved here`. At every finite Picard depth, maximal left-spine chains give an exact signed reindexing of the finite binary Duhamel-tree expansion. Finite patch-factorization / compensator identities are algebraic and do not imply infinite-depth moment bounds.
+2. `docs/entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md` has status `proved here`. With a uniform Schauder constant over the coefficient class `3/8 <= a <= 5/8` and `[a]_{C^{alpha/2,alpha}} <= 1/8`, the smallness condition
+   $$
+   |\lambda|C_{\mathrm{Sch}}(\alpha,T)\|\phi\|_{C^{2+\alpha}}\leq\frac18
+   $$
+   preserves the Hölder ball. The semi-implicit profiles contract in `H^{-1}` with ratio at most `1/3`, converge to the unique bounded weak profile in the small class `|lambda z| <= 1/8`, and give the implicit self-consistent diffusion representation. The iteration coefficient lies in `[3/8,5/8]`; the nonlinear/difference ellipticity coefficient lies in `[1/4,3/4]`. The torus mean is
+   $$
+   m(t)=m(0)+\lambda\int_0^t\frac1{2\pi}\int_{\mathbb T}z(s,x)^2\,dx\,ds.
+   $$
+3. `docs/entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md` has status `conjecture`. The full infinite random patch-first `L^1` estimator is not proved. A smooth high-frequency counterexample shows that even one spatially varying Hessian Duhamel insertion is not bounded from side-profile `L^infty` to output `L^infty`; hence no proof may rely only on products of side-profile sup norms.
 
-The full random spatially varying patch `L^1` estimate is **conjectural**. A proposed bound by the sup norms of side profiles is false, with a smooth counterexample. Never assign `proved here` status to all-horizon random-patch `L^1` integrability unless a new independent proof is supplied and audited.
+Never conflate the three statements. In particular, deterministic convergence and finite signed exactness do not establish the conjectural random-patch `L^1` estimate.
 
 ## General conventions
 
