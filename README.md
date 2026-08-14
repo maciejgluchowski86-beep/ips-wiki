@@ -22,7 +22,7 @@ The intended wiki reading target is the rendered MkDocs site at
 - Meta/style pages: `docs/meta/`
 - Site configuration: `mkdocs.yml`
 
-GitHub Actions contains a `Build wiki site` workflow. It builds the site from `docs/` and deploys through GitHub Pages after every push to `main` when Pages is enabled for the repository.
+GitHub Actions contains a `Build wiki site` workflow. It checks live-wiki curation metadata, builds the site from `docs/`, and deploys through GitHub Pages after every push to `main` when Pages is enabled for the repository.
 
 ## Current core entries
 
@@ -97,48 +97,30 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 
 The pedagogical entry point for the PDE side is `docs/pde-reading-path.md`. The advanced research map is `docs/pde-branching-representations.md`.
 
-The capstone theorem in the current quadratic-Hessian programme is `docs/entries/residual-signed-variation-characterization-for-coarsened-patches.md`. For a raw skeleton measure
-
-```text
-mu_tau = R_tau nu_tau
-```
-
-and a skeleton-preserving coarsening `C_tau`, the exact first-moment invariant claimed there is
-
-```text
-||(C_tau)_# mu_tau||_TV
-  = integral | E[R_tau | sigma(C_tau)] | d nu_tau.
-```
-
-Summability of these residual signed variations is claimed to be necessary and sufficient for `L^1` in the coarsened conditional-barycenter class. The type of retained coordinate is not the invariant.
-
-The current quadratic-Hessian constructions include:
-
-- raw-faithful / identity: divergent residual variation for one fixed arbitrarily small smooth datum;
-- time-spine coarsening: summable residual variation under the C-prime condition plus one geometric smallness condition, with genuine branch-time randomness retained;
-- complete interior averaging / C-prime: summable residual variation under the full Catalan small-data condition.
-
-Two explicit examples in the current programme show why coordinate labels are misleading: the entire Gaussian vector may be retained on sufficiently small pieces while remaining `L^1`, whereas retaining only a time coordinate may leave a divergent residual variation.
-
-At every fixed target in the C-prime regime, the manuscript gives a sparse full-state retention construction. The remaining structured problem is target-uniform rather than a fixed-target existence question.
-
-The manuscript under `pde-paper/` contains complete proofs of its stated results. Under the autonomous research protocol in `CHATGPT.md`, those project-specific claims remain evidence to re-audit rather than authoritative premises until they pass the required independent verification.
+The capstone theorem in the current quadratic-Hessian programme is `docs/entries/residual-signed-variation-characterization-for-coarsened-patches.md`. Its project-specific claims remain evidence to re-audit rather than authoritative premises until they pass the current verification protocol in `CHATGPT.md`.
 
 ## Entry workflow
 
-1. Draft a mock entry in chat.
-2. Check terminology, notation, proof status, and inline links against existing entries.
-3. Add literature references where appropriate.
-4. Commit the approved entry to `docs/entries/`.
-5. The site deploys automatically after the push to `main`.
+The live wiki is not scratch space. See `docs/meta/wiki-quality-and-pruning.md`.
+
+1. Draft or revise material in a ChatGPT session, not directly in `docs/`.
+2. Check terminology, notation, dependency links, mathematical status, and sources.
+3. Run the status-appropriate wiki-quality review.
+4. Admit the page to `docs/entries/` only with `audit: current`.
+5. Periodic Wiki Curator sweeps keep, rewrite, demote, or delete older material.
+6. Git history is the default archive of pruned pages.
+
+During the legacy migration, old pages without `audit: current` are review debt rather than grandfathered content. Any legacy page that is materially edited must be brought to the current standard in the same change.
 
 ## Public-content rule
 
-This repository is intended to be safe for public viewing. Do not add private research strategy, raw scratch work, credentials, personal information, copyrighted source text, or unpublished claims stated without proof status.
+The rendered wiki should contain only useful, well-written material that is reliable at its stated status. Do not add private research strategy, raw scratch work, worker dispatches, tentative proof attempts, credentials, personal information, copyrighted source text, or unaudited project claims. Delete obsolete/scaffolding material from the live wiki rather than maintaining a public research archive.
 
-## Mathematical status convention
+## Mathematical status and audit convention
 
-Each entry should label its status in front matter as one of:
+`status` describes the mathematical role of an entry. `audit: current` separately records that the page has passed the present live-wiki quality gate.
+
+Allowed status labels are:
 
 - `definition`
 - `standard fact`
@@ -149,4 +131,7 @@ Each entry should label its status in front matter as one of:
 - `conjecture`
 - `heuristic`
 - `open`
-- `obsolete`
+
+`proved here` is reserved for a project-specific theorem that is `verified` under the current autonomous verification protocol. A legacy `proved here` label does not itself establish verification.
+
+`obsolete` may occur only as legacy migration metadata. Once identified, obsolete material should be deleted from `docs/`; Git history preserves it.
