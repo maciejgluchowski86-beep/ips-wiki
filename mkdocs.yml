@@ -126,15 +126,10 @@ nav:
       - Representation-level dichotomy: entries/representation-level-dichotomy.md
       - Finite-depth Duhamel patch regrouping: entries/finite-depth-duhamel-patch-regrouping.md
       - Conditional factorization for finite PDE patches: entries/conditional-factorization-for-finite-pde-patches.md
-      - Canonical raw signed measures for finite quadratic-Hessian trees: entries/canonical-raw-signed-measures-for-finite-quadratic-hessian-trees.md
-      - Self-consistent patch iteration for the quadratic Hessian PDE: entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md
-      - Skeleton-averaged L1 representation for the quadratic Hessian PDE: entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md
-      - Banach-scale obstruction for raw PDE patches: entries/banach-scale-obstruction-for-raw-pde-patches.md
+      - Strict Holder loss for a centered heat-Hessian edge: entries/strict-holder-loss-for-centered-heat-hessian-edge.md
+      - Ordered-time derivative-cluster bound: entries/ordered-time-derivative-cluster-bound.md
       - Joint centered-mark dichotomy for raw PDE patches: entries/joint-centered-mark-dichotomy-for-raw-pde-patches.md
-      - Raw-barycenter L1 obstruction for the quadratic Hessian PDE: entries/raw-marked-l1-obstruction-for-quadratic-hessian-pde.md
-      - Time-spine coarsening for quadratic Hessian patches: entries/time-spine-coarsening-for-quadratic-hessian-patches.md
       - Residual signed variation characterization: entries/residual-signed-variation-characterization-for-coarsened-patches.md
-      - L1 random-patch conjecture for the quadratic Hessian PDE: entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md
   - Meta:
       - Notation: meta/notation.md
       - Style decisions: meta/style-decisions.md

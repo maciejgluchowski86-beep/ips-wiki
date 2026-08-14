@@ -8,52 +8,38 @@ This file is the compact mutable state for the autonomous PDE/probability resear
 
 ## Active programme
 
-**Supercritical dissipative SQG cancellation search.**
+**Strong-KPP uniqueness cancellation-interface search.**
 
-Before any transition to DEVELOP, identify a respected subsidiary SQG open problem or criterion explicitly documented in at least two published sources, give exact locations and a successor check, and isolate a concrete signed-cancellation or conditional-averaging mechanism capable of affecting that criterion quantitatively. Do not attack global regularity wholesale without this bridge.
+The published open-problem documentation for strong-KPP uniqueness on arbitrary domains is adequate for the SEARCH-stage gate. No usable signed-cancellation interface has yet been established. Before any transition to DEVELOP, isolate a local quantitative mechanism and show a strict cancellation-aware gain at the exact analytic interface it is intended to improve.
 
 ## Reserve programme
 
-**Navier--Stokes stochastic-cascade multi-generation cancellation.**
+**Supercritical dissipative SQG critical-endpoint time/multi-shell cancellation.**
 
-The nodewise factor-$1/2$ symmetrization is already known. It improves amplitude majorants but does not alter the cascade split kernel, exponential lifetimes, genealogy, or explosion event. Reactivate this reserve only after both the two-published-source gate for the same subsidiary criterion and a quantitative multi-generation cancellation gain that changes an integrability or uniqueness criterion have been established.
+The candidate bridge is the Dong--Pavlović $L_t^\infty C^{1-\gamma}$ endpoint. The natural pointwise Riesz input-exchange pairing is refuted as a source of a vanishing high-frequency coefficient: fixed-shape near-diagonal low-high/high-low triads survive uniformly over dyadic scale. Genuine dissipation-time or multi-shell averaging is a distinct mechanism and remains open.
 
 ## Verified results
 
 **None.**
 
-## Claims under investigation
+## Reusable audited observations
 
-Three PDE problems have adequate published open-problem documentation for the SEARCH-stage gate:
+Two observations from the terminated quadratic-Hessian programme survived hostile audit without becoming verified project theorems:
 
-- three-dimensional incompressible Navier--Stokes global regularity;
-- supercritical dissipative SQG global regularity;
-- strong-KPP uniqueness on arbitrary domains.
+- the time-integrated first-moment norm of one centered heat-Hessian edge from $C^\alpha$ to $C^\beta$ has sharp cost $\asymp(\alpha-\beta)^{-1}$ on compact exponent ranges;
+- the ordered-time derivative-cluster norm satisfies $\mathfrak P_m(\alpha,T)\leq 2A_{\alpha,T}4^m(1+A_{\alpha,T})^{m-1}$.
 
-This clears only the open-problem documentation component. It does not establish a project theorem or justify a transition to DEVELOP. Strong-KPP is not an active or reserve programme because no signed-cancellation interface has been identified.
-
-A classical local heat/Hermite cancellation remains reusable mechanism evidence. For the heat semigroup and a Lipschitz function $f$,
-\[
-\partial_{xx}P_r f(x)
-=
-\frac1r\mathbb E[(Z^2-1)f(x+\sqrt r\,Z)]
-\]
-can be centered to give
-\[
-\|\partial_{xx}P_r f\|_\infty
-\le
-\sqrt{\frac2\pi}\bigl(4e^{-1/2}-1\bigr)
-r^{-1/2}\operatorname{Lip}(f).
-\]
-Thus cancellation changes the naive nonintegrable $r^{-1}$ short-time majorant into an integrable $r^{-1/2}$ one. This is classical, not novelty and not a project theorem.
+The classical local heat/Hermite cancellation remains reusable background mechanism evidence, not project novelty.
 
 ## Unresolved and closure
 
-The quadratic-Hessian programme is terminated because it did not establish a qualifying positive PDE/open-problem application. Its final legacy dependency cluster remains unresolved pending an independent audit of the strict-regularity-loss one-edge $L^1$ estimate and the ordered-time derivative-cluster estimate. Legacy `status: proved here` labels in that cluster are not current verification and must not be treated as such.
+The quadratic-Hessian legacy dependency audit is resolved. The programme remains terminated; only the two audited observations above and previously audited programme-neutral material remain live from this sweep.
 
-The Fresnel programme is terminated as classical/low-payoff for the present objective. No further Fresnel development is active.
+The Fresnel programme remains terminated as classical/low-payoff for the present objective.
 
-IPS treatment is frozen pending the author's policy answer about applying the autonomous verification bar to already published work. No further IPS curation changes should be made meanwhile.
+The IPS freeze is removed. Project-specific IPS wiki material duplicated or superseded by the paper is now delete-first curation debt. This does **not** make generic definition or literature pages delete candidates merely because the project-specific theorem layer is deprecated; the next Curator must enumerate dependencies before deleting anything.
+
+The Navier--Stokes stochastic-cascade route is closed as a current programme and has been removed from reserve.
 
 ## Wiki frontier
 
@@ -66,17 +52,18 @@ The item-3 entry is integrated and linked from `docs/pde-reading-path.md`. Legac
 Keep this section sparse; record only failures expensive enough that forgetting them risks repeating work.
 
 - Broad novelty claims for cancellation before absolute values or representation-architecture dependence have substantial predecessors.
-- The quadratic-Hessian programme failed the positive-PDE/open-problem viability gate and is terminated pending a future independently established target and fresh verification.
+- The quadratic-Hessian programme failed the positive-PDE/open-problem viability gate and is terminated.
 - The Fresnel programme is terminated as classical/low-payoff for the present objective.
 - The elementary heat/Hermite cancellation alone does not control tree-depth moments.
-- For Navier--Stokes cascades, the published factor-$1/2$ nodewise symmetrization improves amplitude majorants but leaves the cascade law and explosion event unchanged; the general-data averaging challenge found in the latest search does not yet meet the two-published-source gate.
+- For SQG, pointwise Riesz input exchange improves deep high-high $\to$ low interactions but cannot produce a vanishing shell coefficient because fixed-shape near-diagonal low-high/high-low interactions retain ratio arbitrarily close to one uniformly over scale.
+- For Navier--Stokes cascades, the published factor-$1/2$ nodewise symmetrization improves amplitude majorants but leaves the cascade law and explosion event unchanged. That route is no longer active or reserve.
 
 ## Next cycle
 
-Run exactly three fresh read-only workers, strictly sequentially in this priority order.
+Run exactly three fresh read-only workers in the listed priority order, with at most two active concurrently.
 
-1. **SQG open-problem bridge scout.** Identify the smallest respected published subsidiary criterion for supercritical dissipative SQG, with two published exact sources and successor check, and isolate where signed cancellation could enter.
-2. **SQG cancellation method scout.** Derive the smallest exact cancellation or conditional-averaging gain and test it quantitatively against worker 1's criterion.
-3. **QH reusable-extract/dependency hostile auditor.** Independently audit the one-edge strict-regularity-loss $L^1$ estimate and ordered-time derivative-cluster bound; then produce one coherent dependency-safe KEEP/REWRITE/DEMOTE/DELETE disposition for the remaining QH legacy cluster, explicitly including `banach-scale-obstruction-for-raw-pde-patches.md` and all inbound links.
+1. **Strong-KPP cancellation-interface scout.** Locate and quantitatively test the smallest plausible signed-cancellation or conditional-averaging interface for the documented strong-KPP uniqueness problem.
+2. **Strong-KPP literature adversary/open-problem verifier.** Recheck the exact published open-problem formulation, closest results, successor literature, and whether the proposed interface would address the documented gap.
+3. **Wiki Curator.** Perform the first dependency-safe delete sweep of the superseded IPS project-specific cluster, prioritizing legacy `status: proved here` pages. Generic definition and literature pages are not deleted merely because the project-specific theorem layer is deprecated.
 
-After collecting the dispatches verbatim, launch a fresh Director session. A single later Integrator may make only the repository changes justified by that Director. Claude has no mathematical authority.
+Workers 1 and 2 may start concurrently. Worker 3 starts when a slot opens. After collecting the dispatches verbatim, launch a fresh Director session. A single later Integrator may make only the repository changes justified by that Director. Claude has no mathematical authority.

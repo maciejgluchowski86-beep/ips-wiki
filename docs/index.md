@@ -79,12 +79,7 @@ The KCSM block uses the standard convention that `0` is the facilitating state. 
 
 ## PDE and branching representations
 
-Start with [Probabilistic representations for nonlinear PDEs](pde-branching-representations.md). That overview motivates the branching programme, gives the negative NPP obstruction chain and representation-level dichotomy, explains the quadratic-Hessian patch route, and states the current proved/open fork:
-
-- averaging every patch interior first gives the proved small-data skeleton-only \(L^1\) representation;
-- retaining the interior random marks leads to the open raw-fluctuation problem.
-
-The overview contains the dependency-ordered reading map for all PDE entries.
+Start with [Probabilistic representations for nonlinear PDEs](pde-branching-representations.md), then follow the [PDE reading path](pde-reading-path.md). The terminated quadratic-Hessian theorem chain is not part of the live research path. The surviving material is limited to audited reusable finite or analytic mechanisms and observations; it does not supply an active quadratic-Hessian representation theorem.
 
 ## Meta pages
 
