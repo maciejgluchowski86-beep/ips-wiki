@@ -8,13 +8,13 @@ The wiki is article-first. Source pages live under `docs/entries/`; the canonica
 
 ## Current research route: PDE branching representations
 
-The active PDE route studies probabilistic representations for nonlinear parabolic equations. The public layer contains background on the Nguwi--Penent--Privault coding tree and HLOTW marked branching, the independently audited repeated-Hessian obstruction chain, the audited representation-level dichotomy benchmark, and the audited deterministic positive route for a quadratic Hessian equation on the torus.
+The active PDE route studies probabilistic representations for nonlinear parabolic equations. The public layer contains background on the Nguwi--Penent--Privault coding tree and HLOTW marked branching, the independently audited repeated-Hessian obstruction chain, the audited representation-level dichotomy benchmark, and the audited positive route for the quadratic Hessian equation on the torus.
 
-The PDE part of the wiki is required to be self-contained for a reader with measure-theoretic probability, basic functional analysis, and a first graduate PDE course. Concepts beyond that background must be defined locally or linked to a prerequisite article. Lecture-notes style prerequisite entries are explicitly acceptable.
+The PDE part of the wiki is required to be self-contained for a reader with measure-theoretic probability, basic functional analysis, and a first graduate PDE course. Concepts beyond that background must be defined locally or linked to a prerequisite article.
 
 ## PDE prerequisite layer
 
-The prerequisite layer now includes the heat/Duhamel and classical Feynman--Kac formulas; branching-Duhamel trees, age-dependent branching nonexplosion, and importance-sampling compensators; uniform integrability; Gaussian, Malliavin, and Bismut automatic differentiation; Hermite chaos and Holder cancellation; spatial/parabolic Holder and Besov spaces; random fields, conditional expectations, and fluctuations in function spaces; spatial jets and Faà di Bruno; viscosity solutions; elementary measure-theoretic tools; parabolic maximum-principle, Schauder, and interior Holder theory; Aronson--Nash cautions; the `H^{-1}` method; weak parabolic solutions; and Ito/backward-Kolmogorov representations.
+The prerequisite layer includes the heat/Duhamel and classical Feynman--Kac formulas; branching-Duhamel trees, age-dependent branching nonexplosion, and importance-sampling compensators; uniform integrability; Gaussian, Malliavin, and Bismut automatic differentiation; Hermite chaos and Holder cancellation; spatial/parabolic Holder and Besov spaces; the bounded parabolic Hessian Duhamel operator; random fields, conditional expectations, and fluctuations in function spaces; spatial jets and Faà di Bruno; viscosity solutions; elementary measure-theoretic tools; parabolic maximum-principle, Schauder, and interior Holder theory; Aronson--Nash cautions; the `H^{-1}` method; weak parabolic solutions; and Ito/backward-Kolmogorov representations.
 
 `docs/entries/directional-jet-radius.md` continues to consolidate directional Taylor radius, Gevrey-1/2 / ultra-analytic derivative bounds, entire extension, order, and type.
 
@@ -49,38 +49,34 @@ $$
 v(0)=\phi,
 $$
 
-write `z=v_{xx}`. Three statements remain separate.
+write `z=v_{xx}`. Four logically distinct statements are now recorded.
 
-1. `docs/entries/finite-depth-duhamel-patch-regrouping.md` and `docs/entries/conditional-factorization-for-finite-pde-patches.md` have status `proved here`: finite Picard expansions regroup exactly into maximal left-spine patches, and the finite patch-first randomization factorizes conditionally when the patch skeleton exposes branch times/types but leaves the centered Gaussian spatial marks unexposed.
+1. `docs/entries/finite-depth-duhamel-patch-regrouping.md` and `docs/entries/conditional-factorization-for-finite-pde-patches.md` have status `proved here`: finite Picard expansions regroup exactly into maximal left-spine patches, with finite conditional factorization when the centered Gaussian marks remain unexposed.
 2. `docs/entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md` has status `proved here`: under the explicit Schauder smallness condition, the semi-implicit iteration stays in the Holder/ellipticity ball, contracts in `H^{-1}` with ratio at most `1/3`, converges to the unique small solution, and gives the implicit self-consistent diffusion representation.
-3. `docs/entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md` remains status `conjecture`.
+3. `docs/entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md` has status `proved here` (Theorem C-prime): after all continuous branch-time and Gaussian/Hermite variables inside each finite decorated skeleton are integrated out, the deterministic skeleton profiles form an absolutely convergent Catalan series in
+   $$
+   X_{\alpha,T}=C^{\alpha/2,\alpha}([0,T]\times\mathbb T)
+   $$
+   whenever
+   $$
+   4|\lambda|C_{\mathcal D}(\alpha,T)M<1,
+   \qquad
+   M=\|P_\cdot\phi''\|_{X_{\alpha,T}}.
+   $$
+   A data-only sufficient condition is
+   $$
+   4|\lambda|C_{\mathcal D}(\alpha,T)
+   (1+\mathbb E|Z|^\alpha)
+   \|\phi''\|_{C^\alpha}<1.
+   $$
+   Sampling only the countable decorated skeleton with any full-support proposal and weighting by its reciprocal probability gives an unbiased `L^1` estimator. The proof uses absolute convergence to justify both the nonlinear Cauchy product and the expectation/skeleton-sum interchange.
+4. `docs/entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md` remains status `conjecture`: it retains the raw continuous marks inside each patch and asks for `L^1` of that genuinely random estimator.
 
-For statement 3, Hermite centering and commutator clustering give one Holder gain per derivative cluster. A length-`m` patch has at most `2^m` commutator terms, not `2^{m-1}`: the latter only counts ordered compositions, while the innermost cluster has one additional terminal choice. The correction remains geometric and does not alter the conclusion that deterministic patches with uniformly controlled spatial `C^alpha` side profiles have geometric, not factorial, growth.
+Two corrections are permanent for statement 3. A fixed skeleton profile satisfies only its deterministic tree/Duhamel recursion; the **sum** of the skeleton profiles satisfies the nonlinear Hessian mild equation. Also, one must not define the interior average as `E[H | S]` for the unresolved raw infinite-patch functional, because ordinary conditional expectation already requires `H in L^1`. The theorem defines deterministic interior-averaged profiles directly, equivalently as limits of conditional expectations of integrable finite cutoffs, and samples the discrete skeleton first.
 
-The direct pathwise random-Holder route has failed. For
+For statement 4, deterministic Holder/Hermite growth is no longer the main issue. Raw pathwise Holder control fails already for one centered Hessian edge, and the same high-frequency translation mechanism defeats a fixed same-regularity Besov norm; lowering the exponent only creates a descending regularity ladder. C-prime proves that the interior-average/conditional-mean part is summable. The remaining obstruction is the centered raw fluctuation around that interior average. Its `L^1` function-space amplitude does not close under the next Hessian edge in any fixed Holder or same-regularity Besov space currently considered.
 
-$$
-\widehat K_rf(x,Z)
-=
-\frac{He_2(Z)}r
-\bigl(f(x+\sqrt r Z)-f(x)\bigr),
-$$
-
-the expected sup norm gains `r^{alpha/2}`, but the pathwise `C^alpha` seminorm does not; uniformly on the `C^alpha` unit ball its expected size remains of order `r^{-1}`. Thus recursive `L^p(Omega;C^alpha)` bounds for raw edge fields cannot supply the deterministic Holder cancellation.
-
-The live formulation uses the conditional mean given the exposed patch skeleton. Averaging the fresh Gaussian and descendant randomness first restores the deterministic heat-derivative operator, and finite-depth patch factorization gives products of conditional mean side fields. The current regularity problem is to propagate suitable Holder/comparable bounds for these conditional means, uniformly in birth time and position. Writing a raw side field as
-
-$$
-Y_P=m_P+R_P,
-\qquad
-m_P=\mathbb E[Y_P\mid\mathcal G_P],
-\qquad
-\mathbb E[R_P\mid\mathcal G_P]=0,
-$$
-
-the centered fluctuation `R_P` is the likely next absolute-moment obstruction. Conditional-mean regularity alone does not prove `L^1` for the full estimator.
-
-Never conflate finite signed exactness, deterministic convergence, and the random-patch `L^1` conjecture.
+Never conflate finite signed exactness, deterministic convergence, the skeleton-only `L^1` representation, and the full random-patch `L^1` conjecture.
 
 ## General conventions
 
