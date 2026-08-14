@@ -1,0 +1,80 @@
+\section{A representation-level dichotomy}
+\label{sec:dichotomy}
+
+The coding-tree obstruction by itself does not distinguish a difficult PDE from a difficult representation. The following benchmark shows that the latter distinction is real.
+
+Fix $\eta\neq0$ and
+\begin{equation*}
+  0<a\leq
+  \frac{\erfc(1/\sqrt2)}{\sqrt3},
+  \qquad
+  \erfc(r)=\frac2{\sqrt\pi}\int_r^\infty e^{-s^2}\,ds.
+\end{equation*}
+Consider
+\begin{equation}
+  \partial_tu+\frac12u_{xx}
+  +\eta\pa{e^{(u_x)^4}-1}=0,
+  \qquad
+  u(T,x)=a\cos x.
+  \label{eq:dichotomy-benchmark}
+\end{equation}
+Put
+\begin{equation}
+  T_*(\eta)
+  =
+  \frac1{2\pi e(e-1)^2\eta^2}.
+  \label{eq:T-star}
+\end{equation}
+
+For the marked branching representation of Henry-Labord\`ere, Oudjane, Tan, Touzi, and Warin~\cite{HenryLabordereEtAl2019}, take monomial types and coefficients
+\begin{equation*}
+  L=\set{(0,4r):r\geq1},
+  \qquad
+  c_r=\frac\eta{r!},
+  \qquad
+  p_r=\frac1{(e-1)r!},
+\end{equation*}
+and lifetime density
+\begin{equation}
+  \rho_T(s)
+  =
+  \frac{s^{-1/2}e^{-s/(2T)}}{\sqrt{2\pi T}},
+  \qquad s>0.
+  \label{eq:HLOTW-lifetime}
+\end{equation}
+
+\begin{theorem}[Representation-level dichotomy]
+\label{thm:representation-dichotomy}
+For~\eqref{eq:dichotomy-benchmark} the following statements hold.
+
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item Let
+\begin{equation*}
+  f(z_0,z_1)=\eta(e^{z_1^4}-1).
+\end{equation*}
+For every $T>0$, $0\leq t<T$, and $x\in\R$, the Nguwi--Penent--Privault coding-tree functionals satisfy
+\begin{equation*}
+  \E\abs{H(\mathcal T_{t,x,f^*})}=\infty,
+  \qquad
+  \E\abs{H(\mathcal T_{t,x,\Id})}=\infty.
+\end{equation*}
+The conclusion holds for every strictly positive coding-tree lifetime density and the positive mechanism-selection probabilities of the construction.
+
+\item If $0<T<T_*(\eta)$ and the HLOTW estimator uses the data above, then its marked branching functional $\psi_{t,x}$ satisfies
+\begin{equation*}
+  \E\abs{\psi_{t,x}}^2\leq1,
+  \qquad
+  0\leq t\leq T,
+  \quad x\in\R.
+\end{equation*}
+Moreover
+\begin{equation*}
+  u(t,x)=\E[\psi_{t,x}]
+\end{equation*}
+is a continuous viscosity solution of~\eqref{eq:dichotomy-benchmark}.
+\end{enumerate}
+\end{theorem}
+
+The lifetime density~\eqref{eq:HLOTW-lifetime} is singular at the origin. The theorem uses the positive-time extension of the HLOTW moment argument: internal lifetimes are almost surely positive, and the proof of the second-moment bound evaluates $\rho$ only at positive arguments. This is the only modification to the literal endpoint-continuity wording of the published assumptions.
+
+\proofplaceholder{Insert the audited proof. The NPP half should be deduced from the repeated-Hessian obstruction using the $(4r)!/r!$ lower bound. The HLOTW half should verify the explicit $q=2$ majorant, including the singular-lifetime endpoint extension, without presenting the dichotomy as the main theme of the manuscript.}
