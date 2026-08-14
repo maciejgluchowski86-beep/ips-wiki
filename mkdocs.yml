@@ -83,6 +83,8 @@ nav:
   - PDE and branching representations:
       - Heat-reference fully nonlinear terminal PDE: entries/heat-reference-fully-nonlinear-pde.md
       - Mild formulation and branching-diffusion representation: entries/mild-formulation-and-branching-diffusion-representation.md
+      - Marked branching diffusion for gradient nonlinearities: entries/marked-branching-diffusion-for-gradient-nonlinearities.md
+      - Antithetic and ghost branching schemes: entries/antithetic-and-ghost-branching-schemes.md
       - Nguwi-Penent-Privault coding tree: entries/npp-coding-tree.md
       - Nguwi-Penent-Privault coding-tree Feynman-Kac theorem: entries/npp-coding-tree-feynman-kac-theorem.md
       - Directional jet radius: entries/directional-jet-radius.md
