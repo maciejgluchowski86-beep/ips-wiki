@@ -15,6 +15,7 @@ The PDE manuscript is now a complete mathematical draft. It contains full proofs
 - Gevrey-1/2 necessity;
 - NPP/HLOTW representation-level dichotomy;
 - finite Hessian patch regrouping;
+- canonical finite-tree raw signed measures and their mass identity;
 - auxiliary deterministic semi-implicit iteration;
 - Theorem C-prime;
 - fixed-datum raw-faithful obstruction;
@@ -30,6 +31,7 @@ Every principal theorem statement now carries its own load-bearing hypotheses an
 - the coding-tree negative theorem states lifetime/mechanism positivity and does not assume uniform lower bounds;
 - the representation dichotomy states the HLOTW positive-time lifetime-density extension inside the theorem;
 - the deterministic theorem states its Schauder smallness condition and uniqueness class `|lambda v_xx| <= 1/8`;
+- the canonical raw-measure theorem assumes exactly `phi'' in C^alpha`, `0<alpha<1`, for each fixed finite tree and no smallness condition;
 - C-prime states `4a<1` and its fixed-point ball;
 - the raw obstruction is explicitly for raw-faithful conditional-barycenter schemes, not all unbiased estimators;
 - the residual characterization is exact for skeleton-preserving coarsenings when the skeleton label is retained, with cross-skeleton coarsening scoped separately;
@@ -48,9 +50,78 @@ on the C-prime profile itself. The deterministic uniqueness theorem alone does n
 
 - `docs/pde-branching-representations.md`
 
-The overview now begins with the exact residual-variation identity and contains a dependency-ordered **shortest self-contained path to the capstone**. A reader with graduate probability and a first PDE course can follow that path without leaving the wiki.
+The overview begins with the exact residual-variation identity and contains a dependency-ordered **shortest self-contained path to the capstone**. A reader with graduate probability and a first PDE course can follow that path without leaving the wiki.
 
 The wiki is the durable mathematical record. Every `proved here` entry must state its hypotheses and scope locally.
+
+## Hostile-referee repair: canonical raw signed measures
+
+The load-bearing objection that `mu_tau^{t,x}` had previously been asserted rather than constructed is repaired.
+
+The durable proved-here entry is
+
+- `docs/entries/canonical-raw-signed-measures-for-finite-quadratic-hessian-trees.md`.
+
+For `g=phi'' in C^alpha(T)`, `0<alpha<1`, and every fixed finite planar full binary tree `tau`, the raw mark space is defined recursively by
+
+$$
+\Omega_\bullet=\mathbb R,
+\qquad
+\Omega_{[\tau_1,\tau_2]}
+=[0,T]\times\mathbb R\times\Omega_{\tau_1}\times\Omega_{\tau_2},
+$$
+
+with product Borel sigma-field and finite positive reference measure
+
+$$
+\nu_\bullet=\gamma,
+\qquad
+\nu_{[\tau_1,\tau_2]}
+=ds\otimes\gamma\otimes\nu_{\tau_1}\otimes\nu_{\tau_2}.
+$$
+
+The canonical centered raw density is defined recursively using the same descendant marks in the shifted and unshifted terms. An `L^1`-valued Holder estimate with any strict loss `beta<eta` gives the one-edge bound
+
+$$
+\|K_rH\|_{\mathcal H^\beta}
+\leq
+C r^{-1+(\eta-\beta)/2}
+\|H\|_{\mathcal H^\eta}.
+$$
+
+The time singularity is integrable. Induction on the fixed finite tree therefore proves
+
+$$
+\|\mu_\tau^{t,x}\|_{TV}<\infty.
+$$
+
+Because the raw density is `L^1` with respect to a finite positive measure, `mu_tau^{t,x}` is a genuine countably additive finite signed measure. Absolute integrability permits Fubini, and induction plus the centered Gaussian Hessian identity proves the mass identity
+
+$$
+\boxed{
+\mu_\tau^{t,x}(\Omega_\tau)=F_\tau(t,x).
+}
+$$
+
+No smallness condition is needed. No derivative of `phi''` beyond positive Holder regularity is used.
+
+This finite-depth theorem is fully compatible with the Banach-scale lower bound. The correct reading of the `(cn/Delta)^n` result is: **finite `L^1` constants exist at every fixed finite depth, but a stepwise first-moment Holder-scale proof cannot keep them geometric as depth grows.** It is not a fixed-depth nonintegrability theorem.
+
+The referee also identified an ambiguity in “decorated maximal-left-patch skeleton.” Lengths alone are insufficient. Throughout the PDE track, a decorated skeleton now records both each maximal-left-chain length and the ordered side-subtree attachment slots along that chain. With this definition there is an explicit bijection
+
+$$
+\tau
+\longleftrightarrow
+(m;\sigma_1,\ldots,\sigma_m)
+$$
+
+recursively between finite planar full binary trees and decorated patch skeletons. Tree indexing and decorated-skeleton indexing therefore refer to the same `Omega_tau`, `nu_tau`, and `mu_tau^{t,x}`.
+
+No upstream theorem was weakened by this repair:
+
+- C-prime, time-spine, and sparse retention already assume `phi in C^{2+alpha}`, hence `phi'' in C^alpha`;
+- the raw-faithful obstruction uses one `C^infty` datum, and its comb measure is the restriction of the canonical right-comb measure to the chosen duration cylinder;
+- the residual-variation theorem was already abstractly exact for arbitrary finite signed measures; the new theorem supplies the previously missing concrete finite measures.
 
 ## Self-containment pass
 
@@ -58,14 +129,13 @@ The final overview-to-capstone walk exposed and repaired several breaks.
 
 1. **Signed-measure prerequisite.** Added
    `docs/entries/finite-signed-measures-pushforwards-and-conditional-barycenters.md`, status `standard fact`, covering Jordan decomposition, Radon--Nikodym densities, total variation, pushforward contraction, finite-measure conditional expectation, conditional Jensen, proposal-invariant first moments, and nonatomic small-set divisibility.
-2. **C-prime drift.** The C-prime page now states the exact fixed-point radius, the correct overlap assumptions with the deterministic theorem, and its position as constant coarsening after the capstone theorem.
-3. **Conditional-expectation drift.** The random-field conditional-expectation page now points to residual signed variation rather than treating raw fluctuations as an unresolved binary fork.
-4. **Joint-mark drift.** The joint centered-mark page now records the later fixed-datum obstruction, the one-edge bridge failure, and the final residual-variation interpretation.
-5. **Finite-patch drift.** The finite regrouping and finite conditional-factorization pages no longer end with the obsolete statement that arbitrary retained marks are simply the unresolved conjecture. They point to C-prime, raw-faithful failure, time-spine success, and the exact characterization.
-6. **Foundational notation.** Old `u`/`nu` transcription errors in the heat-reference, mild-formulation, and Duhamel-tree pages were removed.
-7. **Navigation.** The new signed-measure prerequisite is in the PDE navigation and the heat-reference path is correct.
-
-No missing analytic lemma was found in the quadratic-Hessian chain after these repairs. The Hölder/Hermite cancellation, Hessian Duhamel estimate, lacunary smoothness, disjoint-genealogy lower bound, Brownian confinement/heat-kernel positivity, and nonatomic small-set facts are all available inside the wiki at the level used downstream.
+2. **Canonical raw measures.** Added the fixed-tree construction above, including measurable spaces, finite total variation, mass identity, and the precise tree/decorated-skeleton bijection.
+3. **C-prime drift.** The C-prime page states the exact fixed-point radius, the correct overlap assumptions with the deterministic theorem, and its position as constant coarsening after the capstone theorem.
+4. **Conditional-expectation drift.** The random-field conditional-expectation page points to residual signed variation rather than treating raw fluctuations as an unresolved binary fork.
+5. **Joint-mark drift.** The joint centered-mark page records the later fixed-datum obstruction, the one-edge bridge failure, and the final residual-variation interpretation.
+6. **Finite-patch drift.** The finite regrouping page now defines the full decorated patch data needed for the bijection and points to the canonical raw-measure theorem; the finite conditional-factorization page points to C-prime, raw-faithful failure, time-spine success, and the exact characterization.
+7. **Foundational notation.** Old `u`/`nu` transcription errors in the heat-reference, mild-formulation, and Duhamel-tree pages were removed.
+8. **Navigation.** The signed-measure and canonical raw-measure prerequisites are both in the PDE navigation and the shortest reading path.
 
 ## Coding-tree chain
 
@@ -96,7 +166,7 @@ $$
 z=v_{xx},
 $$
 
-finite Picard trees regroup exactly into maximal left-child patches.
+finite Picard trees regroup exactly into maximal left-child patches. Every fixed finite tree also carries the canonical finite raw signed measure constructed above.
 
 Let
 
