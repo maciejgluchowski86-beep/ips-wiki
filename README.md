@@ -108,10 +108,11 @@ GitHub Actions contains a `Build wiki site` workflow. It builds the site from `d
 
 The canonical entry point is `docs/pde-branching-representations.md`. It is written for a reader with measure-theoretic probability, basic functional analysis, and a first graduate PDE course. It motivates the branching programme and links the complete prerequisite chain.
 
-The current project-level fork is:
+The quadratic-Hessian endpoint is now a three-way split:
 
-- average all continuous variables inside each decorated patch skeleton first: Theorem C-prime gives a proved small-data unbiased `L^1` skeleton-only representation;
-- retain the continuous Gaussian/Hermite and descendant marks inside the patches: the centered raw fluctuation remains the open obstruction in the full random-patch conjecture.
+- complete interior averaging: Theorem C-prime gives a proved small-data unbiased `L^1` skeleton-only representation;
+- canonical raw-barycenter retention: a proved fixed-datum obstruction rules out `L^1` even after arbitrary proposal changes and auxiliary conditionally unbiased randomness;
+- non-barycentric retained randomness: the literal random-patch conjecture remains open for antithetic, partially averaged, coupled, or otherwise signedly reorganized constructions that still retain nontrivial continuous interior randomness.
 
 The wiki is the durable record for this PDE project. Project-level `proved here` entries state their load-bearing hypotheses locally rather than relying on chat context.
 
