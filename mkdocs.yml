@@ -98,9 +98,13 @@ nav:
       - Random fields in function spaces: entries/random-fields-in-function-spaces.md
       - Conditional expectation and fluctuations of random fields: entries/conditional-expectation-and-fluctuations-of-random-fields.md
       - Besov spaces on the torus: entries/besov-spaces-on-the-torus.md
+      - Lacunary and Hadamard-gap trigonometric series: entries/lacunary-and-hadamard-gap-trigonometric-series.md
+      - Total variation, bounded variation, and derivative singularities: entries/total-variation-bounded-variation-and-derivative-singularities.md
       - Spatial jets, total derivatives, and Faa di Bruno: entries/spatial-jets-total-derivative-and-faa-di-bruno.md
       - Viscosity solutions: entries/viscosity-solutions.md
       - Tonelli, Markov, and Borel-Cantelli: entries/tonelli-markov-and-borel-cantelli.md
+      - Disjoint-event lower bounds for compensated branching estimators: entries/disjoint-event-lower-bounds-for-compensated-branching-estimators.md
+      - Brownian confinement and heat-kernel positivity: entries/brownian-confinement-and-heat-kernel-positivity.md
       - Parabolic maximum principle and Schauder estimates: entries/parabolic-maximum-principle-and-schauder-estimates.md
       - Interior Holder estimates for parabolic equations: entries/interior-holder-estimates-for-parabolic-equations.md
       - Aronson and Nash Gaussian bounds: entries/aronson-nash-gaussian-bounds.md
