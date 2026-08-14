@@ -8,17 +8,25 @@ This file is the compact mutable state for the autonomous PDE/probability resear
 
 ## Active programme
 
-**Supercritical dissipative SQG endpoint temporal-modulus closure test.**
+**Long-maturity marked-branching representations by time-slab conditional averaging.**
 
-The candidate global bridge remains the Dong--Pavlović $L_t^\infty C^{1-\gamma}$ endpoint, but the mechanism has **not** survived the SEARCH gate and DEVELOP is not authorized.
+The setting is the Henry-Labordère--Oudjane--Tan--Touzi--Warin semilinear class
 
-Established for this search:
+$$
+-\partial_t u-Lu=f(t,x,u,Du),
+$$
 
-- pointwise Riesz input-exchange cancellation is refuted as a source of a vanishing high-frequency coefficient;
-- exact dissipation-time integration under the bare $L_t^\infty C^{1-\gamma}$ bound gives a scale-independent critical coefficient;
-- every fixed finite-neighbor shell grouping is refuted as a universal bridge by an isolated comparable-frequency packet with a nonzero $O(1)$ normalized contribution at arbitrarily high scale;
-- the Dong--Pavlović bridge needs a vanishing high-frequency gain, not necessarily shell summability;
-- the sole remaining SEARCH question is whether actual SQG dynamics forces temporal coherence strictly better than the natural $N^\gamma$ dissipation-scale variation, or otherwise imposes a constraint that explicitly excludes the isolated comparable-frequency packet.
+with $f$ polynomial in $(u,Du)$. The existing marked-branching construction provides a positive short-time module, but its one-shot representation theorem is subject to an integrability/non-explosion condition that restricts the usable regime to small maturity or small nonlinearity.
+
+The first SEARCH gate is an exact two-slab $L^1$ theorem. It must:
+
+- construct the exact two-slab estimator, including the independent replicas required by polynomial products and all Malliavin/gradient weights;
+- prove unbiasedness without inserting the unknown interface solution as data;
+- make conditional averaging at the deterministic slab interface a genuine computable representation operation;
+- derive an explicit first-moment recursion; and
+- exhibit a parameter regime in which two slabs are integrable although the corresponding one-shot HLOTW criterion fails.
+
+Warin's nested methods are evidence that time decomposition is structurally relevant, but they are also the main novelty hazard. The target is an exact unbiased representation theorem, not generic nested Monte Carlo. The novelty and open-problem status of this formulation are **unverified**. DEVELOP is not authorized until both the mechanism and literature gates pass.
 
 ## Reserve programme
 
@@ -39,29 +47,26 @@ The classical local heat/Hermite cancellation remains reusable background mechan
 
 ## Unresolved and closure
 
-Strong-KPP is terminated under the pre-registered gate.
+SQG is terminated. Genuine smooth SQG solutions, after exact scaling, attain $N^{\gamma\eta}$ temporal variation of the normalized comparable-frequency coefficient; this exactly cancels the $N^{-\gamma\eta}$ zero-mass-kernel gain, and no explicit packet-excluding mechanism was found.
 
-Exact critical-cylinder quadratic amplitude selection works but does not extend through qualitative connected-limit perturbations because the projected detuning term requires control comparable to
+Five programmes are now terminated: quadratic-Hessian, Fresnel, Navier--Stokes cascade, Strong-KPP, and SQG. There is still no verified project result.
 
-$$
-|\lambda_1-a|=o(A),
-$$
+The active two-slab branching candidate remains in SEARCH. It fails immediately if either:
 
-which the framework does not supply.
+1. the exact $L^1$ recursion gives no strict enlargement after interface norms are accounted for; or
+2. the exact unbiased two-slab theorem is already contained in, or subsumed by, the existing literature.
 
-Fixed-scale estimates linearize at vanishing critical ends and cannot determine relative solution amplitudes; nonlinear selection occurs on diverging scales $A^{-1/2}$.
+Its exact novelty/open-problem status has not yet passed the final literature audit.
 
-SQG is the sole active programme. Dissipation-time cancellation and every fixed finite-shell cancellation route are closed under the bare endpoint norm. Only the actual-solution temporal-modulus question remains unresolved: a useful $C_t^\eta$ estimate for the relevant normalized coefficient must improve on the scale-covariant $N^{\gamma\eta}$ variation, or some other equation-generated constraint must exclude the isolated packet.
-
-The quadratic-Hessian programme remains terminated; only the two audited observations above and previously audited programme-neutral material remain live from that programme. The Fresnel programme remains terminated as classical/low-payoff. The Navier--Stokes stochastic-cascade route is closed as a current programme and has been removed from reserve.
-
-The IPS freeze is removed. Project-specific IPS wiki material duplicated or superseded by the paper remains delete-first curation debt. Generic definition and literature pages are not deletion candidates merely because the project-specific theorem layer is deprecated.
+The IPS freeze remains removed. Project-specific IPS wiki material duplicated or superseded by the paper remains delete-first curation debt. Generic definition and literature pages are not deletion candidates merely because the project-specific theorem layer is deprecated.
 
 ## Wiki frontier
 
 §0 items 1--2 pass. The current PDE-reader frontier remains **§0 item 3: linear, semilinear, quasilinear, and fully nonlinear equations**.
 
-The item-3 entry is integrated and linked from `docs/pde-reading-path.md`. The sixth sweep removes the four remaining legacy PDE `status: proved here` pages and rewrites the sole IPS `proved here` page as a definition, leaving zero live `proved here` entries. Legacy migration remains incomplete. The next priority is the PDE reading path and the remaining unaudited PDE/background entries.
+The item-3 entry is integrated and linked from `docs/pde-reading-path.md`. The sixth sweep left zero live `status: proved here` entries. Legacy migration remains incomplete. The next priority is the PDE reading path and the remaining unaudited PDE/background entries.
+
+SQG termination creates no new archive page. Programme termination together with incomplete legacy migration triggers another Wiki Curator sweep under the repository rules.
 
 ## Dead ends
 
@@ -71,17 +76,15 @@ Keep this section sparse; record only failures expensive enough that forgetting 
 - The quadratic-Hessian programme failed the positive-PDE/open-problem viability gate and is terminated.
 - The Fresnel programme is terminated as classical/low-payoff for the present objective.
 - The elementary heat/Hermite cancellation alone does not control tree-depth moments.
-- For SQG, pointwise Riesz input exchange fails on fixed-shape near-diagonal packets: the normalized contribution remains nonvanishing uniformly over dyadic scale.
-- For SQG, exact Duhamel dissipation and every fixed finite-neighbor shell grouping fail to yield $g_j\to0$ under the bare $L_t^\infty C^{1-\gamma}$ norm. Ordinary scale-covariant time Hölder regularity cannot supply the missing gain; only temporal regularity strictly better than $N^{\gamma\eta}$ scaling, or another explicit packet-excluding mechanism, could do so.
-- For Navier--Stokes cascades, the published factor-$1/2$ nodewise symmetrization improves amplitude majorants but leaves the cascade law and explosion event unchanged. That route is no longer active or reserve.
-- For Strong-KPP, the difference-quotient/spectral-gap cancellation route has zero margin at critical ends and is refuted as the required bridge.
-- For Strong-KPP, critical-mode projection is not stable enough under connected-limit detuning: $\delta A$ dominates $\kappa A^2$ whenever $A\ll|\delta|$, while bounded windows lose the nonlinear amplitude-selection term.
+- For Navier--Stokes cascades, the published factor-$1/2$ nodewise symmetrization improves amplitude majorants but leaves the cascade law and explosion event unchanged.
+- For Strong-KPP, the cancellation route has zero margin at critical ends, while critical-mode projection is not stable enough under connected-limit detuning: $\delta A$ dominates $\kappa A^2$ whenever $A\ll|\delta|$.
+- For SQG, actual smooth scale-covariant solutions can have normalized comparable-frequency coefficients with nonzero $C_t^\eta$ variation scaling as $N^{\gamma\eta}$; this exactly cancels the $N^{-\gamma\eta}$ zero-mass-kernel gain, and no explicit equation-generated packet exclusion was found.
 
 ## Next cycle
 
 Run exactly two fresh read-only workers concurrently.
 
-1. **SQG nonlinear packet embedding worker.** Starting from the adversary's fixed comparable-frequency packet, construct or rigorously perturb to an actual smooth SQG solution and use SQG scaling to test the normalized near-diagonal coefficient on times $t\sim N^{-\gamma}$. Determine whether its physical-time $C^\eta$ modulus necessarily scales like $N^{\gamma\eta}$, so that the zero-mass kernel gain $N^{-\gamma\eta}$ is cancelled. This worker must either rigorously exclude a scale-improving modulus or identify the precise obstruction to the packet embedding.
-2. **SQG temporal-modulus hostile auditor and literature adversary.** Independently derive the strongest time regularity forced by $L_t^\infty C^{1-\gamma}$ for actual SQG solutions near a candidate singular time. A useful result must give $o(N^{\gamma\eta})$, or another explicit scale-decaying effect, for the relevant normalized coefficient; ordinary parabolic scale covariance does not count. Check adjacent critical Besov/commutator/paraproduct literature for an existing theorem. If no mechanism excludes the isolated packet, recommend termination of SQG rather than another finite-shell variant.
+1. **Marked-branching two-slab mechanism and novelty worker.** Derive the exact two-slab marked estimator for the HLOTW polynomial-$(u,Du)$ class. Make unbiasedness, independent-copy structure, Malliavin weights, conditioning, and the first-moment recursion explicit. Determine whether there is a strict admissible-maturity gain over the one-shot criterion. In parallel, aggressively check HLOTW successors, Warin's nested methods, and later branching-integrability literature for an existing exact theorem. If the construction is tautological, gives no strict $L^1$ gain, or is already subsumed, recommend immediate termination.
+2. **Wiki Curator, seventh sweep.** Because programme termination is itself a pruning trigger and legacy migration remains incomplete, review one coherent batch of at most about twelve pages, beginning with the next unaudited PDE-reading-path material and extending where directly coupled to the new branching programme, especially branching/nonexplosion, marked-gradient, Malliavin-weight, and uniform-integrability entries. Return exact KEEP/REWRITE/DEMOTE/DELETE actions, statuses, `audit: current` decisions, inbound links, and dependency-safe repairs.
 
-No Wiki Curator is needed in the next cycle immediately after this sweep. No DEVELOP transition is automatic. Claude has no mathematical authority.
+No DEVELOP transition is automatic. Claude has no mathematical or editorial authority.
