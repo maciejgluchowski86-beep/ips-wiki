@@ -76,14 +76,23 @@ jobs:
           fi
 
       - name: Report wiki curation counts
-        shell: bash
         run: |
-          entries="$(find docs/entries -maxdepth 1 -type f -name '*.md' | wc -l | tr -d ' ')"
-          proved="$(grep -l '^status: proved here$' docs/entries/*.md 2>/dev/null | wc -l | tr -d ' ')"
-          audited="$(grep -l '^audit: current$' docs/entries/*.md 2>/dev/null | wc -l | tr -d ' ')"
-          echo "ENTRY_COUNT=$entries"
-          echo "PROVED_HERE_COUNT=$proved"
-          echo "AUDIT_CURRENT_COUNT=$audited"
+          python - <<'PY'
+          from pathlib import Path
+
+          entries = list(Path("docs/entries").glob("*.md"))
+          proved = 0
+          audited = 0
+          for path in entries:
+              text = path.read_text(encoding="utf-8")
+              if "\nstatus: proved here\n" in f"\n{text}":
+                  proved += 1
+              if "\naudit: current\n" in f"\n{text}":
+                  audited += 1
+          print(f"ENTRY_COUNT={len(entries)}")
+          print(f"PROVED_HERE_COUNT={proved}")
+          print(f"AUDIT_CURRENT_COUNT={audited}")
+          PY
 
       - name: Build site
         run: mkdocs build --strict
