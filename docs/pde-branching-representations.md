@@ -41,7 +41,7 @@ $$
 
 Thus **cancellation before absolute values is removal of signed variation by conditional averaging**. For skeleton-preserving coarsenings, summability of the residual variations in (A) is necessary and sufficient for \(L^1\) in the associated conditional-barycenter class. The type of retained coordinate is not the invariant.
 
-The measure-theoretic background for (A) is contained in [Finite signed measures, pushforwards, and conditional barycenters](entries/finite-signed-measures-pushforwards-and-conditional-barycenters.md).
+The measure-theoretic background for (A) is contained in [Finite signed measures, pushforwards, and conditional barycenters](entries/finite-signed-measures-pushforwards-and-conditional-barycenters.md). For the quadratic-Hessian construction, the existence and finiteness of the concrete measures \(\mu_\tau^{t,x}\) are proved in [Canonical raw signed measures for finite quadratic-Hessian trees](entries/canonical-raw-signed-measures-for-finite-quadratic-hessian-trees.md).
 
 ## Shortest self-contained path to the capstone
 
@@ -53,11 +53,12 @@ A reader with graduate probability and a first PDE course can reach the final th
 4. [Gaussian integration by parts and automatic differentiation](entries/gaussian-integration-by-parts-and-automatic-differentiation.md), [Hermite polynomials and Gaussian chaos](entries/hermite-polynomials-and-gaussian-chaos.md), and [Hölder cancellation for heat-semigroup derivatives](entries/holder-cancellation-for-heat-semigroup-derivatives.md).
 5. [Parabolic Hölder spaces](entries/parabolic-holder-spaces.md) and [Parabolic Hölder bound for the Hessian Duhamel operator](entries/parabolic-holder-bound-for-hessian-duhamel-operator.md).
 6. [Finite-depth Duhamel patch regrouping](entries/finite-depth-duhamel-patch-regrouping.md) and [Conditional factorization for finite PDE patches](entries/conditional-factorization-for-finite-pde-patches.md).
-7. [Skeleton-averaged \(L^1\) representation](entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md).
-8. [Lacunary and Hadamard-gap trigonometric series](entries/lacunary-and-hadamard-gap-trigonometric-series.md), [Disjoint-event lower bounds for compensated branching estimators](entries/disjoint-event-lower-bounds-for-compensated-branching-estimators.md), and [Brownian confinement and heat-kernel positivity](entries/brownian-confinement-and-heat-kernel-positivity.md).
-9. [Raw-barycenter \(L^1\) obstruction](entries/raw-marked-l1-obstruction-for-quadratic-hessian-pde.md).
-10. [Time-spine coarsening](entries/time-spine-coarsening-for-quadratic-hessian-patches.md).
-11. [Residual signed variation characterization](entries/residual-signed-variation-characterization-for-coarsened-patches.md).
+7. [Canonical raw signed measures for finite quadratic-Hessian trees](entries/canonical-raw-signed-measures-for-finite-quadratic-hessian-trees.md).
+8. [Skeleton-averaged \(L^1\) representation](entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md).
+9. [Lacunary and Hadamard-gap trigonometric series](entries/lacunary-and-hadamard-gap-trigonometric-series.md), [Disjoint-event lower bounds for compensated branching estimators](entries/disjoint-event-lower-bounds-for-compensated-branching-estimators.md), and [Brownian confinement and heat-kernel positivity](entries/brownian-confinement-and-heat-kernel-positivity.md).
+10. [Raw-barycenter \(L^1\) obstruction](entries/raw-marked-l1-obstruction-for-quadratic-hessian-pde.md).
+11. [Time-spine coarsening](entries/time-spine-coarsening-for-quadratic-hessian-patches.md).
+12. [Residual signed variation characterization](entries/residual-signed-variation-characterization-for-coarsened-patches.md).
 
 The coding-tree results form Act I of the paper. They motivate why representation architecture matters, but they are not prerequisites for the proof of (A).
 
@@ -117,8 +118,7 @@ $$
 \partial_tv
 =
 \frac12v_{xx}
-+
-\lambda(v_{xx})^2,
++\lambda(v_{xx})^2,
 \qquad
 v(0)=\phi,
 $$
@@ -129,13 +129,28 @@ $$
 z(t)
 =
 P_t\phi''
-+
-\lambda\int_0^t
++\lambda\int_0^t
 \partial_x^2P_{t-s}[z(s)^2]ds.
 \tag{1}
 $$
 
 Finite Picard expansion produces rooted planar binary Duhamel trees. A **patch** is a maximal chain obtained by repeatedly following the left child. The [finite-depth patch theorem](entries/finite-depth-duhamel-patch-regrouping.md) proves exact finite regrouping; the [finite conditional-factorization theorem](entries/conditional-factorization-for-finite-pde-patches.md) gives the corresponding probabilistic factorization.
+
+The missing measure-theoretic step is now explicit. If \(0<\alpha<1\) and
+
+$$
+\phi''\in C^\alpha(\mathbb T),
+$$
+
+then every fixed finite planar binary tree \(\tau\) carries a canonical centered raw signed measure \(\mu_\tau^{t,x}\) on a recursively defined finite-product standard Borel mark space. The measure is finite for every target and satisfies
+
+$$
+\boxed{
+\mu_\tau^{t,x}(\Omega_\tau)=F_\tau(t,x).
+}
+$$
+
+No smallness assumption is needed for this fixed-tree statement. A decorated maximal-left-patch skeleton is a genuine reindexing of the same measure provided its decoration records the ordered side-subtree attachment slots as well as the patch lengths.
 
 The [self-consistent deterministic iteration](entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md) is auxiliary. Its smallness condition is
 
@@ -184,7 +199,7 @@ The deterministic and C-prime solutions are identified only when both theorem hy
 ## Four routes through the fluctuation problem
 
 1. **Fixed pathwise Hölder / same-regularity Besov.** A raw edge does not close at the same pathwise regularity.
-2. **Decreasing Banach scale.** The [Banach-scale obstruction](entries/banach-scale-obstruction-for-raw-pde-patches.md) gives the sharp \(1/\delta\) one-edge cost and an unavoidable \((cn/\Delta)^n\) stepwise majorant. It is a proof-architecture barrier, not a fixed-datum divergence theorem.
+2. **Decreasing Banach scale.** The [Banach-scale obstruction](entries/banach-scale-obstruction-for-raw-pde-patches.md) gives the sharp \(1/\delta\) one-edge cost and an unavoidable \((cn/\Delta)^n\) stepwise majorant. The correct reading is that the constants which give finite first moments at each fixed depth cannot be kept geometric as the depth grows. It is a depth-uniform proof-architecture barrier, not a claim that a fixed finite tree has infinite first moment and not a fixed-datum divergence theorem.
 3. **Joint centered marks.** The [joint centered-mark theorem](entries/joint-centered-mark-dichotomy-for-raw-pde-patches.md) delays the first absolute value across several Gaussian marks. Full canonical retention has sharp factorial block growth; signed bridge averaging gives geometric growth on genuine multi-edge blocks.
 4. **Complete interior averaging.** C-prime retains only each skeleton's total signed mass.
 
@@ -210,7 +225,7 @@ $$
 \tag{3}
 $$
 
-so the raw total variation is not summable.
+so the raw total variation is not summable. Here \(\mu_m\) is the restriction of the canonical raw measure for the right-comb tree to the duration cylinder used in the lower bound.
 
 The theorem applies to **raw-faithful** schemes: after the canonical raw state is exposed, the canonical signed contribution must remain the estimator's conditional barycenter. It does **not** quantify over all unbiased estimators. Within that class, changing positive proposals or adding auxiliary conditionally unbiased randomness cannot improve the first moment.
 
@@ -337,6 +352,7 @@ The [random-patch conjecture](entries/l1-random-patch-conjecture-for-quadratic-h
 
 - [Finite-depth Duhamel patch regrouping](entries/finite-depth-duhamel-patch-regrouping.md)
 - [Conditional factorization for finite PDE patches](entries/conditional-factorization-for-finite-pde-patches.md)
+- [Canonical raw signed measures for finite quadratic-Hessian trees](entries/canonical-raw-signed-measures-for-finite-quadratic-hessian-trees.md)
 - [Self-consistent patch iteration for the quadratic Hessian PDE](entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md)
 - [Skeleton-averaged \(L^1\) representation for the quadratic Hessian PDE](entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md)
 - [Banach-scale obstruction for raw PDE patches](entries/banach-scale-obstruction-for-raw-pde-patches.md)
