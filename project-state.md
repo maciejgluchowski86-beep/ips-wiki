@@ -8,13 +8,13 @@ This file is the compact mutable state for the autonomous PDE/probability resear
 
 ## Active programme
 
-**Open-problem-first signed-cancellation PDE search.**
+**Navier--Stokes stochastic-cascade cancellation search.**
 
-Development begins only after an explicit respected positive PDE or probabilistic-representation open problem is documented in at least two published sources with exact locations, checked against successor literature, and paired with a concrete cancellation mechanism that plausibly yields a positive theorem.
+Before any transition to DEVELOP, identify a respected published subsidiary open problem or criterion in the stochastic-cascade or majorizing-kernel literature, document it in at least two published sources with exact locations and a successor check, and show that a precise cancellation gain could plausibly affect that criterion. Do not attack global regularity wholesale without this bridge.
 
 ## Reserve programme
 
-**None.**
+**Supercritical dissipative SQG global regularity.**
 
 ## Verified results
 
@@ -22,25 +22,36 @@ Development begins only after an explicit respected positive PDE or probabilisti
 
 ## Claims under investigation
 
-The current search has three objectives, in this order:
+Three PDE problems now have adequate published open-problem documentation for the SEARCH-stage gate:
 
-1. identify a qualifying open PDE or probabilistic-representation problem;
-2. identify an explicit local cancellation gain relevant to that problem;
-3. test novelty and successor literature before beginning development.
+- three-dimensional incompressible Navier--Stokes global regularity;
+- supercritical dissipative SQG global regularity;
+- strong-KPP uniqueness on arbitrary domains.
+
+This clears only the open-problem documentation component. It does not establish a project theorem or justify a transition to DEVELOP. Strong-KPP is not an active or reserve programme because no signed-cancellation interface has been identified.
+
+A classical local heat/Hermite cancellation is established as reusable mechanism evidence. For the heat semigroup and a Lipschitz function \(f\),
+\[
+\partial_{xx}P_r f(x)
+=
+\frac1r\mathbb E[(Z^2-1)f(x+\sqrt r\,Z)]
+\]
+can be centered to give
+\[
+\|\partial_{xx}P_r f\|_\infty
+\le
+\sqrt{\frac2\pi}\bigl(4e^{-1/2}-1\bigr)
+r^{-1/2}\operatorname{Lip}(f).
+\]
+Thus cancellation changes the naive nonintegrable \(r^{-1}\) short-time majorant into an integrable \(r^{-1/2}\) one. This is classical, not novelty and not a project theorem.
 
 ## Unresolved and closure
 
-The quadratic-Hessian programme is terminated because no qualifying positive PDE/open-problem application was established. This is a failure to establish a qualifying target, not a theorem that no related open problem exists.
+The quadratic-Hessian programme is terminated because it did not establish a qualifying positive PDE/open-problem application. Its remaining legacy dependency cluster awaits one final curation sweep before the live wiki is cleanly separated into reusable material and pruned programme-specific pages.
 
-The following quadratic-Hessian claims are archived and unverified:
+The Fresnel programme is terminated as classical/low-payoff for the present objective. No further Fresnel development is active.
 
-- the fixed-datum raw-faithful obstruction;
-- the repeated-Hessian lower bound and Gevrey-$1/2$ necessity statement, including its analyticity caveat;
-- the exact same-PDE NPP-non-$L^1$/HLOTW-$L^2$ benchmark.
-
-Broad novelty for representation-architecture dependence has prior art. Any future reuse of the archived claims requires fresh verification, beginning with the missing second hostile audit.
-
-The Fresnel programme is terminated. Its finite-total-variation-to-Fresnel mechanism is classical in substance, and the archival citation roles have been corrected. No further Fresnel development is active.
+IPS treatment is frozen pending the author's policy answer about applying the autonomous verification bar to already published work. No further IPS curation changes should be made meanwhile.
 
 ## Wiki frontier
 
@@ -52,17 +63,17 @@ The item-3 entry is integrated and linked from `docs/pde-reading-path.md`. Legac
 
 Keep this section sparse; record only failures expensive enough that forgetting them risks repeating work.
 
-- Repeated simulation/evidence refinement without a new analytic question is not a research route; computation is for falsification and structural discovery, then analysis must resume.
 - Broad novelty claims for cancellation before absolute values or representation-architecture dependence have substantial predecessors.
 - The quadratic-Hessian programme failed the positive-PDE/open-problem viability gate and is terminated pending a future independently established target and fresh verification.
 - The Fresnel programme is terminated as classical/low-payoff for the present objective.
+- The elementary heat/Hermite cancellation alone does not control tree-depth moments.
 
 ## Next cycle
 
 Run exactly three fresh read-only workers.
 
-1. **Open-problem scout.** Search broadly, without privileging quadratic-Hessian or Fresnel, for a substantive positive PDE/probabilistic-representation open problem explicitly posed in at least two published sources; give exact locations and check successor literature.
-2. **Method scout.** Independently find the smallest explicit setting where delaying absolute value across signed local terms gives a strict analytic/probabilistic estimate improvement, and test whether it has a plausible route to a qualifying positive PDE problem.
-3. **Wiki Curator.** Review the next coherent batch of at most twelve remaining legacy `proved here` entries; if that bucket has fewer than twelve, fill the batch with terminated quadratic-Hessian programme-specific pages and propose KEEP/REWRITE/DEMOTE/DELETE. No promotion to `proved here`.
+1. **Navier--Stokes cascade open-problem scout.** Identify the smallest respected published subsidiary open problem or criterion in the Le Jan--Sznitman/cascade/majorizing-kernel literature that could plausibly be affected by cancellation before modulus. Give two published sources with exact locations and a successor check. If none exists, test post-2023 fully nonlinear branching integrability or time-explosion literature as fallback.
+2. **Navier--Stokes cancellation method scout.** Derive the smallest exact Fourier/cascade pairing or conditional averaging that strictly improves the standard absolute majorant, then test quantitatively whether it closes any criterion found by the first worker. Do not attack global regularity without that bridge.
+3. **Wiki Curator.** Review `skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md`, `time-spine-coarsening-for-quadratic-hessian-patches.md`, and their directly dependent quadratic-Hessian pages, especially the deferred canonical-raw/raw-obstruction/self-consistent cluster and the random-patch conjecture. Do not review IPS pages.
 
 After collecting the dispatches verbatim, launch a fresh Director session. A single later Integrator may make only the repository changes justified by that Director. Claude has no mathematical authority.

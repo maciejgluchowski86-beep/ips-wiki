@@ -127,19 +127,18 @@ Existing entries:
 
 The standard theory may be presented with proof sketches and textbook references. The project-specific operator estimates must remain checkable in full where they are used.
 
-## 7. Current cancellation machinery
+## 7. Reusable cancellation mechanisms
 
-After the preceding layers, the reader can enter the present research programme:
+The terminated quadratic-Hessian theorem chain is not part of the core path. The surviving audited mechanism notes are:
 
-- [Finite-depth Duhamel patch regrouping](entries/finite-depth-duhamel-patch-regrouping.md);
-- [Conditional factorization for finite PDE patches](entries/conditional-factorization-for-finite-pde-patches.md);
-- [Canonical raw signed measures for finite quadratic-Hessian trees](entries/canonical-raw-signed-measures-for-finite-quadratic-hessian-trees.md);
-- [Skeleton-averaged L1 representation for the quadratic Hessian PDE](entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md);
-- [Raw-barycenter L1 obstruction for the quadratic Hessian PDE](entries/raw-marked-l1-obstruction-for-quadratic-hessian-pde.md);
-- [Time-spine coarsening for quadratic Hessian patches](entries/time-spine-coarsening-for-quadratic-hessian-patches.md);
-- [Residual signed variation characterization](entries/residual-signed-variation-characterization-for-coarsened-patches.md).
+- [Finite-depth Duhamel patch regrouping](entries/finite-depth-duhamel-patch-regrouping.md), for finite combinatorial reindexing into maximal-left patches;
+- [Conditional factorization for finite PDE patches](entries/conditional-factorization-for-finite-pde-patches.md), for finite conditional independence with explicit integrability and fresh-mark hypotheses;
+- [Joint centered-mark identities for Gaussian derivative weights](entries/joint-centered-mark-dichotomy-for-raw-pde-patches.md), for the two-mark mixed-difference gain and Gaussian bridge conditional-score identity;
+- [Residual signed variation under coarsening](entries/residual-signed-variation-characterization-for-coarsened-patches.md), for the pushforward/conditional-expectation total-variation identity and its countable-family consequence.
 
-The [advanced PDE research overview](pde-branching-representations.md) organizes these results and the coding-tree material, but it should be read only after the prerequisite path is comfortable.
+These are reusable finite or measure-theoretic mechanisms. They do not form an active quadratic-Hessian theorem chain and do not by themselves supply an infinite-depth branching representation.
+
+The [advanced PDE representation overview](pde-branching-representations.md) places these mechanisms in the broader branching and cancellation framework.
 
 ## 8. Literature and importance
 

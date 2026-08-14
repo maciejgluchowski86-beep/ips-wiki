@@ -97,7 +97,7 @@ GitHub Actions contains a `Build wiki site` workflow. It checks live-wiki curati
 
 The pedagogical entry point for the PDE side is `docs/pde-reading-path.md`. The advanced research map is `docs/pde-branching-representations.md`.
 
-The capstone theorem in the current quadratic-Hessian programme is `docs/entries/residual-signed-variation-characterization-for-coarsened-patches.md`. Its project-specific claims remain evidence to re-audit rather than authoritative premises until they pass the current verification protocol in `CHATGPT.md`.
+The PDE core path now treats the surviving audited material from the terminated quadratic-Hessian programme only as reusable background and mechanism notes.
 
 ## Entry workflow
 
