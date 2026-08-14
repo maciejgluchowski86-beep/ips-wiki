@@ -17,11 +17,10 @@ A branching diffusion is a random tree whose particles move by diffusion between
 
 ## From Duhamel to a tree
 
-Consider, in forward time, an integral equation of the form
+Consider, in forward time, an integral equation in which the value \(u(t)\) is
 
 $$
-u(t)
-=P_t\phi
+P_t\phi
 +\int_0^t P_{t-s}\bigl[B(u(s),u(s))\bigr]\,ds,
 \tag{1}
 $$
