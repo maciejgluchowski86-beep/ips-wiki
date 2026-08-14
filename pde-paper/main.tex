@@ -20,7 +20,17 @@ The main results concern
 \end{equation*}
 on the one-dimensional torus. Finite Duhamel trees admit an exact regrouping into maximal Hessian patches. Averaging the continuous variables inside each decorated skeleton before taking absolute values yields, under an explicit small-data condition, an absolutely convergent skeleton expansion and an unbiased $L^1$ estimator. In contrast, for one fixed arbitrarily small smooth datum, every raw-faithful estimator has infinite first moment. Raw-faithfulness requires the canonical raw signed marked integrand to remain the conditional barycenter after the raw marks are exposed; the obstruction is invariant under lifetime, genealogy, and Gaussian proposal changes.
 
-The coarsening class is nevertheless nontrivial. Naive patchwise Gaussian-bridge coarsening still fails on the obstruction combs because every maximal-left patch there has one edge. By contrast, retaining the actual branch times on one canonical maximal-left spine while averaging all other continuous marks gives an unbiased $L^1$ representation under one additional geometric smallness condition. Thus the proved hierarchy contains a nonintegrable raw-faithful level, an integrable representation with genuine time randomness, and the fully interior-averaged C-prime representation.
+We finally characterize the entire skeleton-preserving coarsening class. If the raw signed measure of skeleton $\tau$ is $\mu_\tau=R_\tau\nu_\tau$ and $\mathcal C_\tau$ is a coarsening, then its exact first-moment cost is
+\begin{equation*}
+  \| (\mathcal C_\tau)_\#\mu_\tau\|_{\mathrm{TV}}
+  =
+  \int
+  \left|
+    \mathbb E_{\nu_\tau}
+    [R_\tau\mid\sigma(\mathcal C_\tau)]
+  \right|d\nu_\tau.
+\end{equation*}
+Summability of these residual signed variations is necessary and sufficient for $L^1$ in the coarsened conditional-barycenter class. The criterion is not determined by the type of retained variable: one may retain the entire Gaussian configuration on sufficiently small pieces and remain integrable, while retaining only branch times can fail. The previously proved raw-faithful, time-spine, and fully averaged constructions are three instances of this single invariant.
 \end{abstract}
 
 \input{sections/introduction}
