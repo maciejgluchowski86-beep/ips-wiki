@@ -77,7 +77,7 @@ These results do not say that the underlying PDE lacks a probabilistic represent
   \partial_tu+\frac12u_{xx}
   +\eta\pa{e^{(u_x)^4}-1}=0,
   \qquad
-  u(T,x)=a\cos x.
+  u(T,x)=a\cos x,
   \label{eq:intro-benchmark}
 \end{equation}
 The Nguwi--Penent--Privault functional is non-$L^1$ at every positive horizon, while the marked branching representation of Henry-Labord\`ere, Oudjane, Tan, Touzi, and Warin~\cite{HenryLabordereEtAl2019} has a finite second moment on an explicit positive interval. This is~\cref{thm:representation-dichotomy}. We use the example only to establish the first step of the paper's logic: formal exactness does not imply $L^1$, and the moment question cannot be read off from the PDE alone.
@@ -273,7 +273,7 @@ where
 \end{equation*}
 The retained time vector affects the estimator nontrivially. Naive patchwise Gaussian-bridge coarsening, on the other hand, fails on the right-comb obstruction because every maximal-left patch there has one edge and therefore no bridge coordinate to remove.
 
-The characterization also resolves the literal existential version of the retained-randomness question throughout the full C-prime regime. Since
+At each **fixed** target $(t,x)$, the characterization also closes the existential relaxation of the retained-randomness problem throughout the full C-prime regime. Since
 \begin{equation*}
   \sum_\tau|F_\tau(t,x)|<\infty,
 \end{equation*}
@@ -281,7 +281,7 @@ one may choose a nonnull set $A_\tau$ of arbitrarily small raw total-variation m
 \begin{equation*}
   |F_\tau(t,x)|+2|\mu_\tau|(A_\tau),
 \end{equation*}
-so the sets may be chosen to make the sum finite. On the retained pieces all Gaussian/Hermite and time variables survive and affect the estimator. What remains open is therefore not existence of some nonconstant $L^1$ coarsening, but construction of natural, non-sparse, target-uniform coarsenings with useful quantitative information.
+so the sets may be chosen to make the sum finite. On the retained pieces all Gaussian/Hermite and time variables survive and affect the estimator. This pointwise construction does not by itself give one target-uniform architecture. The remaining open problem is to construct natural, non-sparse, target-uniform coarsenings with useful quantitative information.
 
 This gives the precise endpoint of the paper's thesis:
 \begin{equation*}
