@@ -37,6 +37,8 @@ This page is the human-readable reference list for the wiki. A structured BibTeX
 - Jiang Yu Nguwi, Guillaume Penent, and Nicolas Privault, *A fully nonlinear Feynman-Kac formula with derivatives of arbitrary orders*, arXiv:2201.03882.
 - Jiang Yu Nguwi, Guillaume Penent, and Nicolas Privault, *A deep branching solver for fully nonlinear partial differential equations*, arXiv:2203.03234.
 - Pierre Henry-Labordère, Nadia Oudjane, Xiaolu Tan, Nizar Touzi, and Xavier Warin, *Branching diffusion representation of semilinear PDEs and Monte Carlo approximation*, arXiv:1603.01727.
+- Xavier Warin, *Variations on branching methods for non linear PDEs*, arXiv:1701.07660.
+- Xavier Warin, *Monte Carlo for high-dimensional degenerated Semi Linear and Full Non Linear PDEs*, arXiv:1805.05078.
 - Qiao Huang and Nicolas Privault, *Stability analysis of a branching diffusion solver for semilinear heat equations*, arXiv:2502.17853, version 2.
 - D. Blömker, M. Romito, and R. Tribe, *A probabilistic representation for the solutions to some non-linear PDEs using pruned branching trees*, arXiv:math/0505449.
 
