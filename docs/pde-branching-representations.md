@@ -45,7 +45,7 @@ The [Nguwi--Penent--Privault coding tree](entries/npp-coding-tree.md) propagates
 
 The [Henry-Labordère--Oudjane--Tan--Touzi--Warin marked branching construction](entries/marked-branching-diffusion-for-gradient-nonlinearities.md) has a different architecture. It expands a polynomial or countable monomial driver in \((u,Du)\), branches according to those monomials, and transfers first derivatives through automatic-differentiation weights. The constant-diffusion case follows from [Gaussian integration by parts](entries/gaussian-integration-by-parts-and-automatic-differentiation.md); variable diffusions lead to [Malliavin/Bismut weights](entries/malliavin-and-bismut-automatic-differentiation.md). These weights are singular on short edges, so the lifetime density must be chosen together with the moment estimate.
 
-The [antithetic and ghost branching schemes](entries/antithetic-and-ghost-branching-schemes.md) are related variance/cancellation devices, but they are logically separate from the project-level patch construction below.
+The [antithetic and ghost branching schemes](entries/antithetic-and-ghost-branching-schemes.md) are related variance/cancellation devices. They become important again below because they show that “the marks remain random” is weaker than “the canonical raw integrand remains the conditional barycenter.”
 
 ## The negative coding-tree chain
 
@@ -114,7 +114,7 @@ The HLOTW expectation is identified with a continuous viscosity solution. The co
 
 ## Patch regrouping: average before taking absolute values
 
-The positive project-level route is developed for the quadratic Hessian equation on the torus,
+The project-level patch route is developed for the quadratic Hessian equation on the torus,
 
 $$
 \partial_tv
@@ -126,13 +126,7 @@ $$
 v(0)=\phi,
 $$
 
-with
-
-$$
-z=v_{xx}.
-$$
-
-Then
+with \(z=v_{xx}\). Then
 
 $$
 z(t)
@@ -145,7 +139,7 @@ P_t\phi''
 \tag{1}
 $$
 
-A naive edge-by-edge randomization applies a centered Hessian weight at every derivative edge. That is exactly where short-edge absolute moments become dangerous. The central alternative is to regroup **consecutive Hessian events first** and delay absolute values until after the interior of a whole patch has been averaged.
+A naive edge-by-edge randomization applies a centered Hessian weight at every derivative edge. That is exactly where short-edge absolute moments become dangerous. The central alternative is to regroup **consecutive Hessian events first** and delay absolute values until more of the signed local structure has been combined.
 
 The [finite-depth Duhamel patch theorem](entries/finite-depth-duhamel-patch-regrouping.md) is purely algebraic: every finite planar binary tree decomposes uniquely into maximal left-child chains, and replacing each chain by its complete multi-event Duhamel integral changes no signed term. The [finite conditional-factorization theorem](entries/conditional-factorization-for-finite-pde-patches.md) gives the probabilistic version: expose the patch genealogy and times but leave the centered Gaussian marks unexposed, so independent side patches factor after conditional expectation.
 
@@ -188,7 +182,7 @@ $$
 z_{n+1}(0)=\phi''.
 $$
 
-With a uniform Schauder constant \(C_{\mathrm{Sch}}(\alpha,T)\), the explicit condition
+With a uniform Schauder constant \(C_{\mathrm{Sch}}(\alpha,T)\), the condition
 
 $$
 |\lambda|C_{\mathrm{Sch}}(\alpha,T)
@@ -197,7 +191,7 @@ $$
 \frac18
 $$
 
-keeps the iteration coefficient in \([3/8,5/8]\), gives an \(H^{-1}\) contraction with ratio at most \(1/3\), and produces the unique small uniformly parabolic solution. Its implicit diffusion representation is obtained from [Itô's formula and the backward Kolmogorov equation](entries/ito-diffusions-and-backward-kolmogorov-representation.md). The [maximum-principle/Schauder](entries/parabolic-maximum-principle-and-schauder-estimates.md), [weak-solution](entries/weak-parabolic-solutions-on-the-torus.md), and [\(H^{-1}\) energy](entries/h-minus-one-energy-method.md) entries contain the supporting analytic tools.
+keeps the iteration coefficient in \([3/8,5/8]\), gives an \(H^{-1}\) contraction with ratio at most \(1/3\), and produces the unique small uniformly parabolic solution.
 
 The stronger representation statement is [Theorem C-prime: the skeleton-averaged \(L^1\) representation](entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md). Define
 
@@ -205,18 +199,18 @@ $$
 (\mathcal Df)(t)
 =
 \int_0^t
-\partial_x^2P_{t-s}f(s)\,ds.
+\partial_x^2P_{t-s}f(s)\,ds,
 $$
 
-The [parabolic Hölder bound for \(\mathcal D\)](entries/parabolic-holder-bound-for-hessian-duhamel-operator.md) makes
+and
 
 $$
 X_{\alpha,T}
 =
-C^{\alpha/2,\alpha}([0,T]\times\mathbb T)
+C^{\alpha/2,\alpha}([0,T]\times\mathbb T).
 $$
 
-into a closing space for the quadratic map. If
+If
 
 $$
 M=\|P_\cdot\phi''\|_{X_{\alpha,T}}
@@ -229,65 +223,48 @@ $$
 \tag{2}
 $$
 
-then the deterministic profiles attached to finite planar binary skeletons satisfy a Catalan majorant and
+then the deterministic profiles attached to finite decorated binary skeletons satisfy a Catalan majorant and
 
 $$
 \sum_S\|F_S\|_{X_{\alpha,T}}<\infty.
 $$
 
-Sampling a discrete skeleton \(S\) with any full-support probability mass function \(\pi\) and returning
+Sampling a discrete skeleton \(S\) with any full-support mass function \(\pi\) and returning
 
 $$
-\widehat z(t,x)
-=
-\frac{F_S(t,x)}{\pi(S)}
+\widehat z(t,x)=\frac{F_S(t,x)}{\pi(S)}
 $$
 
-gives an unbiased \(L^1\) estimator of the absolutely summed solution profile. All branch times and Gaussian/Hermite variables inside \(S\) have been integrated out before the skeleton is sampled. Absolute convergence justifies both the nonlinear Cauchy product and the expectation/skeleton-sum interchange.
+gives an unbiased \(L^1\) estimator. All branch-time and Gaussian/Hermite variables inside \(S\) have been integrated out before the skeleton is sampled.
 
-On their common small-data regime, C-prime is strictly stronger in conclusion than the deterministic theorem because it adds an integrable probabilistic representation. It is strictly weaker than the full random-patch conjecture because it removes the interior random marks.
+## The quadratic-Hessian endpoint is now a three-way split
 
-## The fork: proved interior averaging versus open raw fluctuations
+The earlier fork “average the interiors or retain the raw marks” was useful but is no longer precise enough.
 
-This is the current logical fork of the project.
+**Complete interior averaging.** Theorem C-prime integrates every continuous interior variable first. Under (2), this is proved unbiased and \(L^1\).
 
-**Average every patch interior first.** Fix a finite decorated skeleton and integrate out all continuous branch-time, Brownian, Gaussian/Hermite, and descendant variables inside its patches. The result is the deterministic profile \(F_S\). Under (2), these profiles are absolutely summable and the skeleton-only estimator is proved unbiased and \(L^1\). This is Theorem C-prime.
+**Canonical raw-barycenter retention.** The new [raw-barycenter obstruction](entries/raw-marked-l1-obstruction-for-quadratic-hessian-pde.md) proves that this endpoint is impossible in \(L^1\) for one fixed arbitrarily small smooth datum. The theorem allows arbitrary lifetime, genealogy, and Gaussian proposals, arbitrary dependence among them, and auxiliary conditionally unbiased randomness. What it forbids is moving signed mass between distinct canonical raw marked states: after the raw marks are exposed, the canonical raw signed contribution must remain the estimator's conditional barycenter.
 
-**Retain the interior marks.** The [full random-patch conjecture](entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md) asks for an \(L^1\) estimator that keeps those continuous marks random. That problem is still open.
+**Non-barycentric retained randomness.** This is the surviving content of [Conjecture C](entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md). An estimator may still sample and use continuous interior marks while changing the raw conditional barycenter through antithetic pairing, partial averaging, control variates across marked states, coupled samples, or another signed reorganization. No full infinite-depth \(L^1\) construction of this kind is currently proved, and the raw-barycenter theorem does not rule one out.
 
-For an integrable finite cutoff one may write
+This distinction matters. “The marks remain random” does not imply “the canonical raw integrand is their conditional mean.” For example, the antithetic Hessian transfer
 
 $$
-H
-=
-\mathbb E[H\mid S]
-+
-R_S,
-\qquad
-\mathbb E[R_S\mid S]=0.
+\frac{He_2(Z)}{2r}
+\left[
+F(x+\sqrt rZ)+F(x-\sqrt rZ)-2F(x)
+\right]
 $$
 
-The [conditional-expectation and fluctuation entry](entries/conditional-expectation-and-fluctuations-of-random-fields.md) explains this decomposition and the important caveat that ordinary conditional expectation requires integrability. C-prime controls the interior-average part by defining it directly through deterministic Duhamel integrals, not by conditioning a possibly non-\(L^1\) infinite functional. The remaining object is the centered raw fluctuation \(R_S\).
+still uses the random mark \(Z\) and is unbiased by Gaussian symmetry, but it is not the canonical one-sided raw transfer conditional on \(Z\). It therefore lies outside the negative theorem.
 
 ## Four routes through the fluctuation problem
 
-Four structurally different approaches have now been audited. Together they explain why the open problem is no longer simply a search for the right Hölder exponent.
+The four audited routes remain useful because each isolated a different failure mechanism.
 
 **1. Fixed pathwise Hölder or same-regularity Besov control.** A single centered Hessian edge has the desired expected sup-norm gain, but its pathwise \(C^\alpha\) seminorm does not. A fixed same-regularity Besov norm has the same high-frequency translation obstruction. This rules out a fixed pathwise regularity space for the raw recursion.
 
-**2. Decreasing Banach scale.** The [Banach-scale obstruction](entries/banach-scale-obstruction-for-raw-pde-patches.md) quantifies the cost of spending regularity. If generation \(k\) is measured in \(C^{\alpha_k}\) and
-
-$$
-\delta_k=\alpha_{k-1}-\alpha_k,
-$$
-
-then the sharp one-edge first-moment cost is order \(1/\delta_k\). Under any fixed total budget
-
-$$
-\sum_{k=1}^n\delta_k\leq\Delta,
-$$
-
-a stepwise first-moment proof incurs at least
+**2. Decreasing Banach scale.** The [Banach-scale obstruction](entries/banach-scale-obstruction-for-raw-pde-patches.md) quantifies the cost of spending regularity. If generation \(k\) is measured in \(C^{\alpha_k}\) and \(\delta_k=\alpha_{k-1}-\alpha_k\), the sharp one-edge first-moment cost is order \(1/\delta_k\). Under any fixed total budget \(\sum_k\delta_k\leq\Delta\), a stepwise first-moment proof incurs at least
 
 $$
 c^n\prod_{k=1}^n\delta_k^{-1}
@@ -295,26 +272,11 @@ c^n\prod_{k=1}^n\delta_k^{-1}
 c^n\left(\frac n\Delta\right)^n.
 $$
 
-The uniform budget is optimal; nonuniform budgets are worse. This is a barrier to the stepwise first-moment Banach-scale architecture, not a disproof of the raw estimator.
+The uniform budget is optimal; nonuniform budgets are worse. This is a barrier to the stepwise first-moment Banach-scale architecture, not by itself a nonintegrability theorem.
 
-**3. Condition all patch interiors.** Theorem C-prime integrates the continuous variables inside each finite skeleton before the skeleton is sampled. This gives an absolutely summable, unbiased \(L^1\) representation, but the continuous interior marks are gone. It establishes integrability only after relinquishing the full randomness required by C.
+**3. Condition all patch interiors.** Theorem C-prime integrates the continuous variables inside each finite skeleton before the skeleton is sampled. This gives an absolutely summable, unbiased \(L^1\) representation, but the continuous interior marks are gone.
 
-**4. Joint centered marks.** The [joint centered-mark theorem](entries/joint-centered-mark-dichotomy-for-raw-pde-patches.md) does not take a norm after every centered edge. Already at two marks,
-
-$$
-\int_{r_1+r_2<T}
-\mathbb E
-\left\|
-\widehat{\mathcal K}_{(r_1,r_2)}^{\mathrm{raw}}f
-\right\|_\infty
-\,dr_1dr_2
-\leq
-C_{\alpha,T}[f]_{C^\alpha},
-$$
-
-with no intermediate regularity loss. This genuinely lies outside the Banach-scale theorem rather than renaming a stepwise estimate.
-
-At length \(m\), however, retaining all Gaussian marks gives the sharp uniform block scale
+**4. Joint centered marks.** The [joint centered-mark theorem](entries/joint-centered-mark-dichotomy-for-raw-pde-patches.md) does not take a norm after every centered edge. Already at two marks there is a finite joint estimate with no intermediate regularity loss, so this route genuinely escapes route 2. At length \(m\), however, retaining all canonical Gaussian marks gives the sharp uniform block scale
 
 $$
 c_{\alpha,T}^m m!
@@ -324,38 +286,81 @@ c_{\alpha,T}^m m!
 C_{\alpha,T}^m m!.
 $$
 
-If instead the internal Gaussian bridge coordinates are signedly averaged before the absolute value, a bare derivative chain collapses to a single \(He_{2m}\) endpoint weight. The fixed-total-time simplex then gives
+If instead the internal Gaussian bridge coordinates are signedly averaged before the absolute value, the bare chain collapses to one \(He_{2m}\) endpoint weight and the factorial reduces to geometric growth. With spatial multipliers, the commutator/cluster expansion gives the corresponding deterministic geometric estimate. The favorable branch has altered the raw marked state by averaging bridge coordinates.
+
+### Fixed-datum closure of route 4
+
+The old route-2 and route-4 lower bounds had a shared caveat: their optimizing frequency changed with the depth. The raw-barycenter theorem removes that caveat.
+
+Choose
 
 $$
-\frac{\sqrt{(2m)!}}{(m-1)!}
-\lesssim 4^m.
+N_m=K^m,
+\qquad
+b_m=(m!)^{-1/2},
 $$
 
-For spatially varying patches, the deterministic commutator/cluster estimate gives the corresponding geometric bound. The price is structural: the bridge coordinates have been integrated out. The endpoint Gaussian may remain random, but the estimator is now only partially averaged and does not satisfy the literal mark-retention clause of C.
-
-These four routes repeatedly expose the same tradeoff: every currently controlled construction has either favorable absolute moments or full continuous interior randomness, but not both.
-
-The two sharp lower-bound routes still share an important limitation. Their saturating frequencies depend on the depth: the Banach-scale test uses \(N\asymp e^{c/\delta}\), while the retained-block test uses
+and put all these modes into one smooth Hessian terminal datum
 
 $$
-N_m\asymp\sqrt{m/T}\,e^{m/\alpha}.
+g_\varepsilon(x)
+=
+\varepsilon
+\left[
+\cos x+
+\sum_{m\ge m_0}b_m\cos(N_mx)
+\right].
 $$
 
-Neither result produces one fixed smooth terminal datum that realizes the worst-case growth at every generation. They are proof-architecture barriers, not fixed-datum non-\(L^1\) theorems.
+For every fixed derivative order \(k\),
 
-## Current endpoint
+$$
+\sum_m b_mN_m^k<\infty,
+$$
 
-Conjecture C remains open. The accumulated barriers now make both outcomes mathematically meaningful.
+so this is one \(C^\infty\) function. On the length-\(m\) long comb, terminal Fourier projections isolate the side frequency \(1\) and the distinguished frequency \(N_m\). Restricting every Hessian duration to
 
-A proof would have to retain structure before taking absolute values that is invisible to all four uniform routes: frequency together with genealogy, correlations between distinct patches, a martingale or square-function mechanism, or multi-mark cancellation that survives while the marks themselves remain random.
+$$
+N_m^{-2}
+\le r_j\le
+\frac{h}{4m}
+$$
 
-A disproof would have to go beyond generation-dependent operator-norm tests and tie divergence to one fixed smooth datum, or otherwise prove that the actual full-randomness estimator cannot belong to \(L^1\).
+produces one factor
 
-The current research direction is to test this latter possibility directly. No disproof is currently recorded; C remains a conjecture.
+$$
+\int_{N_m^{-2}}^{h/(4m)}
+\frac{dr}{r}
+\asymp m
+$$
+
+at each of the \(m\) retained centered edges. The rectangle lies inside the duration simplex, so there is no compensating \(1/m!\). The resulting intrinsic total variation obeys
+
+$$
+\|\nu_m\|_{\mathrm{TV}}
+\gtrsim
+\varepsilon(C|\lambda|\varepsilon)^m
+\frac{m^m}{\sqrt{m!}},
+$$
+
+which is not summable. Conditional Jensen then transfers this divergence to every estimator whose conditional barycenter is the raw signed comb contribution.
+
+This is the first fixed-datum non-\(L^1\) theorem in the quadratic-Hessian fluctuation route. It is also proposal invariant, because the relevant quantity is the total variation of the intrinsic signed comb measure rather than the density of any particular sampling law.
+
+## What the programme has established
+
+The resulting picture is sharper than the earlier “integrability versus randomness” slogan.
+
+1. **Signed exactness is cheap.** Finite patches are exact identities.
+2. **Complete averaging is sufficient.** C-prime gives a small-data \(L^1\) representation after all continuous interior variables are integrated out.
+3. **Pure importance sampling cannot rescue the canonical raw integrand.** The raw-barycenter theorem rules out every proposal change and auxiliary conditionally unbiased randomization that leaves the canonical raw marked contribution as its conditional mean.
+4. **The remaining possible escape must be non-barycentric.** Any surviving random-mark construction has to redistribute signed mass between raw states before the first absolute moment is taken.
+
+The theorem does **not** prove that complete averaging is necessary. Therefore C-prime should not be called minimal or optimal among all conceivable estimators. It is the fully averaged endpoint for which a complete \(L^1\) theorem is proved. Between it and the impossible raw-barycenter endpoint lies the honest remaining problem: partial averaging, antithetic/ghost coupling, control variates, or other signed reorganizations that still retain nontrivial continuous randomness.
 
 ## Analytic and probabilistic prerequisites
 
-The remaining background pages provide the tools used by the settled chain. [Random fields in function spaces](entries/random-fields-in-function-spaces.md) distinguishes pointwise random variables from Banach-valued random fields. [Tonelli, Markov, and Borel--Cantelli](entries/tonelli-markov-and-borel-cantelli.md) records the measure-theoretic arguments used in the obstruction proofs. [Interior Hölder estimates](entries/interior-holder-estimates-for-parabolic-equations.md) distinguish De Giorgi--Nash--Moser and Krylov--Safonov compactness from Schauder regularity. [Aronson--Nash Gaussian bounds](entries/aronson-nash-gaussian-bounds.md) records the divergence/nondivergence and adjoint caveats that prevent misuse of heat-kernel estimates.
+The background pages used by this chain include [Random fields in function spaces](entries/random-fields-in-function-spaces.md), [Conditional expectation and fluctuations of random fields](entries/conditional-expectation-and-fluctuations-of-random-fields.md), [Tonelli, Markov, and Borel--Cantelli](entries/tonelli-markov-and-borel-cantelli.md), [Disjoint-event lower bounds for compensated branching estimators](entries/disjoint-event-lower-bounds-for-compensated-branching-estimators.md), [Brownian confinement and heat-kernel positivity](entries/brownian-confinement-and-heat-kernel-positivity.md), [Lacunary and Hadamard-gap trigonometric series](entries/lacunary-and-hadamard-gap-trigonometric-series.md), and [Total variation, bounded variation, and derivative singularities](entries/total-variation-bounded-variation-and-derivative-singularities.md). The parabolic analytic layer is supplied by the Hölder, Schauder, weak-solution, and \(H^{-1}\) entries linked below.
 
 ## Reading map
 
@@ -369,10 +374,14 @@ A newcomer can read the PDE section in four layers.
 - [Branching diffusions and Duhamel trees](entries/branching-diffusions-and-duhamel-trees.md)
 - [Age-dependent branching and finite-horizon nonexplosion](entries/age-dependent-branching-and-nonexplosion.md)
 - [Importance-sampling compensators](entries/importance-sampling-compensators.md)
+- [Disjoint-event lower bounds for compensated branching estimators](entries/disjoint-event-lower-bounds-for-compensated-branching-estimators.md)
 - [Uniform integrability and passage to expectations](entries/uniform-integrability-and-passage-to-expectations.md)
 - [Gaussian integration by parts and automatic differentiation](entries/gaussian-integration-by-parts-and-automatic-differentiation.md)
 - [Malliavin and Bismut automatic differentiation](entries/malliavin-and-bismut-automatic-differentiation.md)
 - [Hermite polynomials and Gaussian chaos](entries/hermite-polynomials-and-gaussian-chaos.md)
+- [Brownian confinement and heat-kernel positivity](entries/brownian-confinement-and-heat-kernel-positivity.md)
+- [Lacunary and Hadamard-gap trigonometric series](entries/lacunary-and-hadamard-gap-trigonometric-series.md)
+- [Total variation, bounded variation, and derivative singularities](entries/total-variation-bounded-variation-and-derivative-singularities.md)
 - [Spatial jets, total derivatives, and Faà di Bruno](entries/spatial-jets-total-derivative-and-faa-di-bruno.md)
 - [Viscosity solutions](entries/viscosity-solutions.md)
 - [Tonelli, Markov, and Borel--Cantelli](entries/tonelli-markov-and-borel-cantelli.md)
@@ -414,6 +423,7 @@ A newcomer can read the PDE section in four layers.
 - [Skeleton-averaged \(L^1\) representation for the quadratic Hessian PDE (Theorem C-prime)](entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md)
 - [Banach-scale obstruction for raw PDE patches](entries/banach-scale-obstruction-for-raw-pde-patches.md)
 - [Joint centered-mark dichotomy for raw PDE patches](entries/joint-centered-mark-dichotomy-for-raw-pde-patches.md)
+- [Raw-barycenter \(L^1\) obstruction for the quadratic Hessian PDE](entries/raw-marked-l1-obstruction-for-quadratic-hessian-pde.md)
 - [\(L^1\) random-patch conjecture for the quadratic Hessian PDE](entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md)
 
 The [reference list](meta/references.md) collects the literature cited throughout these pages.
