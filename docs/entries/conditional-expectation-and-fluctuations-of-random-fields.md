@@ -1,6 +1,7 @@
 ---
 title: Conditional expectation and fluctuations of random fields
 status: standard fact
+audit: current
 tags:
   - probability
   - conditional expectation
@@ -14,7 +15,7 @@ tags:
 
 For a random field, taking a function-space norm before averaging and averaging before taking the norm are different operations. This distinction is important in branching representations with signed derivative weights: pathwise regularity can be poor even when conditional averaging restores a smooth deterministic operator. The natural decomposition is into a conditional mean and a centered fluctuation.
 
-**References.** Conditional expectation is standard measure-theoretic probability. For Banach-valued integration and conditional expectation, see Joseph Diestel and John J. Uhl Jr., *Vector Measures*, American Mathematical Society, 1977. See [References](../meta/references.md). The signed-measure version used in the final PDE theorem is summarized in [Finite signed measures, pushforwards, and conditional barycenters](finite-signed-measures-pushforwards-and-conditional-barycenters.md).
+**References.** Conditional expectation is standard measure-theoretic probability. For Banach-valued integration and conditional expectation, see Joseph Diestel and John J. Uhl Jr., *Vector Measures*, American Mathematical Society, 1977. See [References](../meta/references.md). The signed-measure version used elsewhere on the wiki is summarized in [Finite signed measures, pushforwards, and conditional barycenters](finite-signed-measures-pushforwards-and-conditional-barycenters.md).
 
 ## Scalar conditional expectation
 
@@ -164,21 +165,19 @@ $$
 \mathbb E[H^{(N)}\mid\mathcal G],
 $$
 
-and prove that these conditional means converge in a deterministic function space. The limit is an *interior-averaged profile*. It may exist even when the uncut raw random functional has no known absolute moment.
-
-This is the distinction used in the [skeleton-averaged quadratic-Hessian representation](skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md). There the interior-averaged profiles are defined directly by deterministic Duhamel recursion, and the final estimator randomizes only the discrete skeleton.
+and prove that these conditional means converge in a deterministic function space. The limit is an *interior-averaged profile*. Such a profile may also be defined directly by an independently justified deterministic recursion, without presupposing absolute integrability of an uncut raw functional.
 
 ## From conditional averaging to residual signed variation
 
 At finite depth, the [Duhamel patch regrouping](finite-depth-duhamel-patch-regrouping.md) can be randomized so that distinct side patches are conditionally independent given an exposed patch skeleton. The deterministic Holder estimate acts naturally on the conditional mean side fields after factorization, not on pathwise Holder norms of the raw side estimators.
 
-The final theorem sharpens this mean-versus-fluctuation distinction. For a finite raw signed measure
+For a finite raw signed measure
 
 $$
 \mu=R\nu
 $$
 
-and a measurable retained state \(\mathcal C\), the [residual signed variation characterization](residual-signed-variation-characterization-for-coarsened-patches.md) proves
+and a measurable retained state \(\mathcal C\), the [residual signed variation characterization](residual-signed-variation-characterization-for-coarsened-patches.md) gives
 
 $$
 \|\mathcal C_\#\mu\|_{\mathrm{TV}}
@@ -189,6 +188,4 @@ $$
 \right|d\nu.
 $$
 
-Thus the amount of cancellation obtained before the first absolute value is measured exactly by the signed variation removed through conditional averaging. The identity/raw-faithful construction, the time-spine representation, and complete interior averaging are different retained sigma-fields in this same framework.
-
-At each fixed target in the C-prime regime, sparse nonconstant coarsenings can retain the full raw state on small sets and still have summable residual variation. What remains open is the construction of natural, non-sparse, target-uniform coarsenings with useful quantitative control, not the existence of some pointwise nonconstant coarsening.
+Thus the amount of cancellation obtained before the first absolute value is measured exactly by the signed variation removed through conditional averaging. Different retained sigma-fields can be compared within this same framework. This identity does not by itself validate any terminated representation theorem.

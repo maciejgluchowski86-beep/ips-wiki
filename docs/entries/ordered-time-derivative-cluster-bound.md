@@ -42,7 +42,7 @@ and, for $2\leq r\leq m$,
 \]
 Set
 \[
-I_m[b_1,\ldots,b_m;G](t,x;\mathbf s)
+I_m(t,x;\mathbf s)
 =
 \partial_x^2P_{t-s_m}\Xi_m(x).
 \tag{1}
@@ -55,7 +55,7 @@ Define
 \frac{
 \displaystyle
 \sup_{t\leq T,x\in\mathbb T}
-\int_{0<s_1<\cdots<s_m<t}|I_m|\,d\mathbf s
+\int_{0<s_1<\cdots<s_m<t}|I_m(t,x;\mathbf s)|\,d\mathbf s
 }{
 \|G\|_{C^\alpha}
 \prod_{j=1}^m\|b_j\|_X
@@ -94,7 +94,7 @@ Equivalently,
 \begin{aligned}
 &\sup_{t\leq T,x\in\mathbb T}
 \int_{0<s_1<\cdots<s_m<t}
-|I_m[b_1,\ldots,b_m;G](t,x;\mathbf s)|\,d\mathbf s\\
+|I_m(t,x;\mathbf s)|\,d\mathbf s\\
 &\qquad\leq
 2A_{\alpha,T}4^m(1+A_{\alpha,T})^{m-1}
 \|G\|_{C^\alpha}

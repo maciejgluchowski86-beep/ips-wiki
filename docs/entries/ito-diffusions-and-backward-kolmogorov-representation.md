@@ -1,6 +1,7 @@
 ---
 title: Itô diffusions and the backward Kolmogorov representation
 status: standard fact
+audit: current
 tags:
   - probability
   - stochastic calculus
@@ -11,7 +12,7 @@ tags:
 
 # Itô diffusions and the backward Kolmogorov representation
 
-A second-order parabolic operator can be realized as the generator of a diffusion. For equations without a zeroth-order potential, the resulting Feynman--Kac formula is simply the backward Kolmogorov representation: evaluate the initial or terminal datum along the diffusion and take expectation. This is the probabilistic step used in the self-consistent quadratic-Hessian representation.
+A second-order parabolic operator can be realized as the generator of a diffusion. For equations without a zeroth-order potential, the resulting Feynman--Kac formula is simply the backward Kolmogorov representation: evaluate the initial or terminal datum along the diffusion and take expectation.
 
 **References.** Ioannis Karatzas and Steven E. Shreve, *Brownian Motion and Stochastic Calculus*, second edition, Springer, 1991, especially the chapters on stochastic integration, Brownian motion and PDEs, and stochastic differential equations. Daniel W. Stroock and S. R. Srinivasa Varadhan, *Multidimensional Diffusion Processes*, Springer, 2006 reprint. See [References](../meta/references.md).
 
@@ -33,7 +34,7 @@ $$
 
 A *weak solution* consists of a probability space carrying \((X,W)\) on which the integral form of (1) holds. Uniqueness in law means that the distribution of \(X\) is uniquely determined by the coefficients and the starting point, even if different probability spaces are used.
 
-If \(\sigma\) is Lipschitz in space, the usual strong existence and pathwise-uniqueness theorem gives a stronger formulation in which \(X\) is constructed as a measurable functional of a prescribed Brownian motion. The quadratic-Hessian representation below only needs the weaker diffusion law.
+If \(\sigma\) is Lipschitz in space, the usual strong existence and pathwise-uniqueness theorem gives a stronger formulation in which \(X\) is constructed as a measurable functional of a prescribed Brownian motion. The discussion below only needs the weaker diffusion law.
 
 ## Generator and martingale problem
 
@@ -160,4 +161,4 @@ The time reversal in (7) is important: equation (6) evolves the initial datum fr
 
 ## Relation to branching representations
 
-Formula (8) contains no branching. Once a nonlinear problem has been reduced to a linear equation with a self-consistent deterministic coefficient, the diffusion itself gives an integrable representation whenever the payoff is bounded. This is logically different from constructing an infinite random branching estimator from the original Duhamel series. The [self-consistent quadratic-Hessian theorem](self-consistent-patch-iteration-for-quadratic-hessian-pde.md) uses (8) only after the deterministic fixed point has been constructed.
+Formula (8) contains no branching. Once a nonlinear problem has been reduced to a linear equation with a self-consistent deterministic coefficient, the diffusion itself gives an integrable representation whenever the payoff is bounded. This is logically different from constructing an infinite random branching estimator from the original Duhamel series.

@@ -1,6 +1,7 @@
 ---
 title: Parabolic maximum principle and Schauder estimates
 status: standard fact
+audit: current
 tags:
   - PDE
   - parabolic equation
@@ -112,6 +113,6 @@ Below Schauder regularity there is a rough-coefficient theory. [Interior Holder 
 
 These estimates give compactness of bounded solution families on cylinders away from the parabolic boundary, but they do not supply second-derivative bounds. To identify \(v_{xx}\) or control a nonlinear coefficient through a classical equation, the stronger Schauder hypotheses are needed.
 
-## Why these estimates matter here
+## Related tools
 
-The maximum principle and Schauder estimates are the deterministic tools behind the [self-consistent patch iteration for the quadratic Hessian PDE](self-consistent-patch-iteration-for-quadratic-hessian-pde.md). There a fixed Hölder ball simultaneously controls the Schauder constant and keeps the linearized coefficient in the ellipticity window \([3/8,5/8]\). Gaussian kernel bounds are a different tool and require their own structural hypotheses, recorded in [Aronson and Nash Gaussian bounds](aronson-nash-gaussian-bounds.md).
+Gaussian kernel bounds are a different tool and require their own structural hypotheses, recorded in [Aronson and Nash Gaussian bounds](aronson-nash-gaussian-bounds.md).

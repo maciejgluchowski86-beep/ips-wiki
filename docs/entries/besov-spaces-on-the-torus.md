@@ -1,6 +1,7 @@
 ---
 title: Besov spaces on the torus
 status: definition
+audit: current
 tags:
   - functional analysis
   - PDE
@@ -132,6 +133,6 @@ Parabolic Besov spaces implement this scaling in their dyadic decomposition. The
 
 ## Why this may matter for branching fields
 
-The random-patch problem requires a random regularity estimate, not merely a deterministic patch bound. A pathwise [parabolic Holder norm](parabolic-holder-spaces.md) may be too strong for a raw branching estimator because its genealogy can change discontinuously with the horizon. Besov norms offer alternative ways to measure the same short-scale oscillations, for example by combining frequency-localized random estimates in \(L^p(\Omega)\) or by integrating their scale dependence rather than taking a pathwise supremum.
+A random regularity estimate can be substantially stronger than a deterministic bound on an averaged profile. A pathwise [parabolic Holder norm](parabolic-holder-spaces.md) may be too strong for a raw branching estimator because its genealogy can change discontinuously with the horizon. Besov norms offer alternative ways to measure the same short-scale oscillations, for example by combining frequency-localized random estimates in \(L^p(\Omega)\) or by integrating their scale dependence rather than taking a pathwise supremum.
 
-No Besov estimate for the random patch field is currently proved. The [random-patch conjecture](l1-random-patch-conjecture-for-quadratic-hessian-pde.md) records this only as a possible function-space route.
+No Besov estimate for a raw branching patch field is asserted here.

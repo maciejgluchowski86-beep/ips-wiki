@@ -1,6 +1,7 @@
 ---
 title: Random fields in function spaces
 status: definition
+audit: current
 tags:
   - probability
   - random field
@@ -128,18 +129,6 @@ The two operations are compared in [Conditional expectation and fluctuations of 
 
 A raw lifetime-based branching estimator can change its realized genealogy when the observation horizon crosses a sampled lifetime. Under the most direct common-randomness coupling in the horizon variable, the sample path in time can therefore jump even though its expectation is smooth. Thus pathwise parabolic Holder regularity may fail for a natural estimator.
 
-There is a second, purely spatial obstruction in the quadratic-Hessian problem: a centered single-edge Hessian estimator can have the correct expected sup-norm cancellation while its pathwise \(C^\alpha\) seminorm has no corresponding short-edge gain. Thus the space
-
-$$
-L^p\left(
-\Omega;L^\infty_tC^\alpha_x
-\right)
-$$
-
-is not automatically the right target for raw patch fields either.
+The [strict one-edge Hölder-loss estimate](strict-holder-loss-for-centered-heat-hessian-edge.md) records a related spatial warning: an integrated first-moment estimate for a centered heat-Hessian edge in a Hölder norm has a sharp cost proportional to the inverse regularity gap. Thus a same-exponent pathwise Hölder target is not automatically supplied by the centered derivative cancellation alone.
 
 Possible weaker targets for fluctuations include integrated-in-time spatial regularity or a [Besov norm](besov-spaces-on-the-torus.md). The appropriate choice depends on which cancellations survive before the norm is applied.
-
-## Why this matters for random patches
-
-The deterministic Holder patch estimate in the [\(L^1\) random-patch conjecture](l1-random-patch-conjecture-for-quadratic-hessian-pde.md) is geometric once its side profiles have controlled spatial \(C^\alpha\) norms. The current route does not ask the raw random side estimators themselves to satisfy that pathwise bound. Instead it uses [conditional patch factorization](conditional-expectation-and-fluctuations-of-random-fields.md) to expose conditional mean side fields, where signed Gaussian cancellation can act before the Holder norm is taken. The centered fluctuation fields then require separate moment or weaker function-space control.
