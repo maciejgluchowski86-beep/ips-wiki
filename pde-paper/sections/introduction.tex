@@ -23,7 +23,22 @@ The results below support the following principle.
 For branching representations with singular derivative weights, cancellation before absolute values is a structural part of integrability, not a variance-reduction refinement added after the representation has been constructed.
 \end{quote}
 
-The paper reaches this conclusion in three stages. The first concerns existing branching representations and shows that $L^1$ can depend on the architecture even when the PDE and terminal datum are fixed. The second constructs an integrable representation for a quadratic Hessian equation by averaging complete patch interiors before absolute values. The third identifies the boundary of this mechanism: pure proposal changes cannot repair the canonical raw marked integrand, but complete interior averaging is not necessary. A nonconstant time-spine coarsening remains integrable on a stronger small-data regime.
+The final theorem makes this principle exact. If the raw signed measure of a finite skeleton is
+\begin{equation*}
+  \mu_\tau=R_\tau\nu_\tau
+\end{equation*}
+and a coarsening retains the sigma-field $\mathcal G_\tau$, then the first-moment cost which survives that coarsening is exactly
+\begin{equation}
+  \int
+  \abs{
+    \E_{\nu_\tau}[R_\tau\mid\mathcal G_\tau]
+  }
+  d\nu_\tau.
+  \label{eq:intro-residual-variation}
+\end{equation}
+Summability of~\eqref{eq:intro-residual-variation} over the skeletons is both necessary and sufficient in the coarsened conditional-barycenter class. Thus ``cancellation before absolute values'' is precisely the removal of signed variation by conditional averaging. The type of retained coordinate---Gaussian, branch time, or otherwise---is not the invariant.
+
+The paper reaches this point in three stages. The first concerns existing branching representations and shows that $L^1$ can depend on the architecture even when the PDE and terminal datum are fixed. The second constructs and obstructs representations for a quadratic Hessian equation, including a fully averaged $L^1$ representation and a fixed-datum raw-faithful non-$L^1$ theorem. The third identifies the exact coarsening invariant, places the structured raw, time-spine, and fully averaged constructions on the same scale, and shows that even the entire Gaussian configuration may survive on sufficiently small pieces without destroying $L^1$.
 
 \subsection{Formal exactness and the coding-tree obstruction}
 
@@ -204,11 +219,7 @@ This is~\cref{thm:raw-faithful-obstruction}. The amplitude $\varepsilon$ may be 
 
 \subsection{Randomness itself is not obstructed}
 
-The raw-faithful theorem is not an impossibility theorem for randomness. This point belongs in the main theorem narrative because otherwise the scope is easy to misread.
-
-There is first a vacuous counterexample. Start from the C-prime estimator and sample an independent family of Gaussian variables labelled by the interior edges of the sampled skeleton. If the returned scalar is still $F_S/\pi(S)$, the simulation contains continuous random marks but their presence is decorative.
-
-There are also nontrivial escape mechanisms. At one Hessian edge, the antithetic estimator
+The raw-faithful theorem is not an impossibility theorem for randomness. There is first a vacuous counterexample: append independent Gaussian variables to the C-prime simulation and do not use them. More substantively, the one-edge antithetic estimator
 \begin{equation}
   \widetilde K_rF(x,Z)
   =
@@ -218,65 +229,68 @@ There are also nontrivial escape mechanisms. At one Hessian edge, the antithetic
 \end{equation}
 still uses the sampled Gaussian mark and has expectation $\partial_x^2P_rF$, but conditional on $Z$ it is not the canonical one-sided raw integrand~\eqref{eq:intro-centered-hessian}. It therefore falls outside raw-faithfulness. Antithetic and ghost constructions of this kind are standard in branching methods; see~\cite{Warin2017}.
 
-The relevant question is therefore whether enough signed mass can be redistributed between raw states before absolute values are taken while nontrivial continuous randomness remains.
+The final characterization goes further. Even the **entire** raw Gaussian configuration may remain visible on a nonnull subset of each mark space without destroying $L^1$, provided the total variation carried by those subsets is summable. Conversely, a representation which retains only branch times can fail if a nonsummable signed oscillation remains visible as a function of time. Variable type is therefore not a proxy for integrability.
 
-\subsection{A proved coarsening hierarchy}
+\subsection{Residual signed variation: the exact characterization}
 
-For a finite decorated skeleton $\tau$, let $\mu_\tau$ be its intrinsic signed measure on the raw interior-mark space $\cM_\tau$, and let
+For a finite decorated skeleton $\tau$, write
+\begin{equation*}
+  \mu_\tau=R_\tau\nu_\tau
+\end{equation*}
+with $\nu_\tau$ finite positive, and let
 \begin{equation}
   \overline\mu_\tau
   =
-  (\cC_\tau)_{\#}\mu_\tau
+  (\cC_\tau)_\#\mu_\tau.
   \label{eq:intro-coarsening}
 \end{equation}
-for a measurable coarsening $\cC_\tau$. A canonical importance sampler for the coarsened state has first moment
-\begin{equation*}
-  \sum_\tau\norm{\overline\mu_\tau}_{\TV}.
-\end{equation*}
-The constant coarsening gives Theorem C-prime and minimizes total variation skeleton by skeleton, since
+Theorem~\ref{thm:residual-characterization} proves the exact identity
 \begin{equation}
-  \abs{F_\tau(t,x)}
-  \leq
-  \norm{(\cC_\tau)_{\#}\mu_\tau}_{\TV}.
-  \label{eq:intro-tv-optimality}
+  \norm{\overline\mu_\tau}_{\TV}
+  =
+  \int
+  \abs{
+    \E_{\nu_\tau}
+    [R_\tau\mid\sigma(\cC_\tau)]
+  }
+  d\nu_\tau.
+  \label{eq:intro-residual-TV}
 \end{equation}
-The identity coarsening is impossible for the datum~\eqref{eq:intro-lacunary-datum}.
+For skeleton-preserving coarsenings, an $L^1$ conditional-barycenter representation exists if and only if the sum of~\eqref{eq:intro-residual-TV} over $\tau$ is finite. The canonical coarsened importance sampler attains this first moment exactly; conditional Jensen proves necessity for every auxiliary estimator with the same coarsened barycenter.
 
-The first natural intermediate candidate, patchwise Gaussian-bridge coarsening, fails globally for an exact reason. The obstruction uses right combs, while patches are maximal left-child chains. Every internal vertex of a right comb is therefore its own one-edge patch. A one-edge bridge map has no bridge coordinate to integrate out, so on the obstruction family the coarsening is the identity up to an invertible coordinate change. The lower bound~\eqref{eq:intro-raw-tv} survives unchanged; see~\cref{cor:bridge-coarsening-fails}.
-
-A different nonconstant coarsening succeeds. For each finite tree, retain the ordered branch times on its root maximal-left spine and average every Gaussian/Brownian mark together with all continuous variables in the side subtrees. Let
-\begin{equation*}
-  M=\norm{P_\cdot\phi''}_X,
-  \qquad
-  a=\abs\lambda C_{\cD}M,
-  \qquad
-  b=\abs\lambda K_{\mathrm{time}}M,
-\end{equation*}
-where $K_{\mathrm{time}}(\alpha,T)<\infty$ is the optimal geometric constant for the absolute time-integral of one deterministic maximal-left patch. If
+The structured constructions sit exactly where this theorem predicts. Identity coarsening leaves the full raw total variation and is ruled out by~\cref{thm:raw-faithful-obstruction}. Constant coarsening leaves only $|F_\tau(t,x)|$ and is Theorem C-prime. Retaining the branch times on the root maximal-left patch gives a nonconstant intermediate representation under the additional geometric condition
 \begin{equation}
   4a<1,
   \qquad
   b\frac{1-\sqrt{1-4a}}{2a}<1,
   \label{eq:intro-time-spine-smallness}
 \end{equation}
-with the usual value $1$ for the fraction at $a=0$, then~\cref{thm:time-spine} gives
+where
 \begin{equation*}
-  \sum_\tau
-  \norm{(\cC_\tau^{\mathrm{time}})_{\#}\mu_\tau}_{\TV}
-  <\infty.
+  a=\abs\lambda C_{\cD}\norm{P_\cdot\phi''}_X,
+  \qquad
+  b=\abs\lambda K_{\mathrm{time}}\norm{P_\cdot\phi''}_X.
 \end{equation*}
-The retained time vector affects the estimator nontrivially, so this is not decorative randomness.
+The retained time vector affects the estimator nontrivially. Naive patchwise Gaussian-bridge coarsening, on the other hand, fails on the right-comb obstruction because every maximal-left patch there has one edge and therefore no bridge coordinate to remove.
 
-The resulting hierarchy has three proved levels:
+The characterization also resolves the literal existential version of the retained-randomness question throughout the full C-prime regime. Since
 \begin{equation*}
-  \text{raw-faithful: non-}L^1
-  \quad\longrightarrow\quad
-  \text{time-spine: }L^1
-  \quad\longrightarrow\quad
-  \text{C-prime: }L^1.
+  \sum_\tau|F_\tau(t,x)|<\infty,
 \end{equation*}
-The arrows represent increasing coarsening, not implications between smallness regimes. The fixed-datum obstruction shows that some departure from the raw conditional barycenter is necessary. The time-spine theorem shows that complete interior averaging is not necessary.
+one may choose a nonnull set $A_\tau$ of arbitrarily small raw total-variation mass, retain the complete raw state on $A_\tau$, and collapse its complement. The residual variation is bounded by
+\begin{equation*}
+  |F_\tau(t,x)|+2|\mu_\tau|(A_\tau),
+\end{equation*}
+so the sets may be chosen to make the sum finite. On the retained pieces all Gaussian/Hermite and time variables survive and affect the estimator. What remains open is therefore not existence of some nonconstant $L^1$ coarsening, but construction of natural, non-sparse, target-uniform coarsenings with useful quantitative information.
+
+This gives the precise endpoint of the paper's thesis:
+\begin{equation*}
+  \boxed{
+  \begin{minipage}{0.84\textwidth}
+  The $L^1$ cost of a coarsened branching representation is its residual signed variation. Cancellation before absolute values is exactly the reduction of that variation by conditional averaging.
+  \end{minipage}}
+\end{equation*}
 
 \subsection{Organization}
 
-\Cref{sec:preliminaries} fixes the semigroup, signed-measure, tree, and coarsening notation. \Cref{sec:coding-tree} proves the repeated-Hessian obstruction and Gevrey-$1/2$ necessity. \Cref{sec:dichotomy} gives the Nguwi--Penent--Privault versus HLOTW benchmark. \Cref{sec:patches} proves the finite patch regrouping and records the auxiliary deterministic iteration. \Cref{sec:cprime} proves the skeleton-averaged $L^1$ theorem. \Cref{sec:raw-faithful} proves the fixed-datum raw-faithful obstruction and isolates decorative and antithetic randomness. \Cref{sec:coarsening} proves the failure of naive patchwise Gaussian-bridge coarsening and the intermediate $L^1$ representation with retained branch-time randomness.
+\Cref{sec:preliminaries} fixes the semigroup, signed-measure, tree, and coarsening notation. \Cref{sec:coding-tree} proves the repeated-Hessian obstruction and Gevrey-$1/2$ necessity. \Cref{sec:dichotomy} gives the Nguwi--Penent--Privault versus HLOTW benchmark. \Cref{sec:patches} proves the finite patch regrouping and records the auxiliary deterministic iteration. \Cref{sec:cprime} proves the skeleton-averaged $L^1$ theorem. \Cref{sec:raw-faithful} proves the fixed-datum raw-faithful obstruction and isolates decorative and antithetic randomness. \Cref{sec:coarsening} proves the exact residual-variation characterization, gives the Gaussian-retention and time-only counterexamples, recovers the structured coarsening hierarchy, and states the remaining structural problems.
