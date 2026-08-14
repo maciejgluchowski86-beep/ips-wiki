@@ -82,7 +82,7 @@ nav:
       - Chronology-averaged sign route for one-dimensional FA-1f: entries/chronology-averaged-sign-route-for-fa-1f.md
   - PDE and branching representations:
       - Overview: pde-branching-representations.md
-      - Heat-reference fully nonlinear terminal PDE: entries/heat-reference-fully-nonlinear-terminal-pde.md
+      - Heat-reference fully nonlinear terminal PDE: entries/heat-reference-fully-nonlinear-pde.md
       - Mild formulation and branching-diffusion representation: entries/mild-formulation-and-branching-diffusion-representation.md
       - Feynman-Kac formula for linear parabolic equations: entries/feynman-kac-formula-for-linear-parabolic-equations.md
       - Branching diffusions and Duhamel trees: entries/branching-diffusions-and-duhamel-trees.md
