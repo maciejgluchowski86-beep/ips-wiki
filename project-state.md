@@ -2,19 +2,37 @@
 
 This file records the current state of the IPS wiki. Keep it short and overwrite it when the wiki structure or active research route changes.
 
-## Repository and paper
+## Repository and manuscripts
 
-The wiki is article-first. Source pages live under `docs/entries/`; the canonical IPS paper remains under `paper/`, with repository-level `main.tex` serving as the Overleaf entry point. Do not edit the paper as part of the PDE research track unless explicitly requested.
+The wiki is article-first. Source pages live under `docs/entries/`.
+
+There are now two independent manuscript trees:
+
+- `paper/`: the facilitated-spin-system paper. The repository-level `main.tex` remains its Overleaf entry point. Do not edit this manuscript as part of the PDE track unless explicitly requested.
+- `pde-paper/`: the standalone manuscript **Cancellation before absolute values in branching representations with derivative weights**. Its entry point is `pde-paper/main.tex`; it has its own preamble, bibliography, and section tree.
+
+The current PDE manuscript draft has the abstract, introduction, and preliminaries written in full. Later sections contain the audited theorem statements and explicit proof placeholders; proofs are to be inserted from the proved-here wiki records rather than reconstructed from memory.
+
+Its narrative spine is:
+
+1. formal signed exactness does not imply `L^1`;
+2. the NPP repeated-Hessian obstruction, Gevrey-1/2 necessity, and the NPP/HLOTW benchmark show that integrability depends on representation architecture;
+3. finite Hessian patches permit cancellation before absolute values;
+4. complete interior averaging gives Theorem C-prime;
+5. for one fixed arbitrarily small smooth datum, every raw-faithful estimator has infinite first moment;
+6. the remaining problem is formulated through coarsenings of the intrinsic signed patch measures.
+
+The deterministic self-consistent iteration is included only as an auxiliary small-solution/uniqueness result and must not be presented as a principal theorem of the manuscript.
 
 ## Current research route: PDE branching representations
 
-The canonical public entry point is
+The canonical public wiki entry point is
 
 - `docs/pde-branching-representations.md`.
 
 A fresh reader should start there. It motivates the programme, gives the dependency-ordered reading map, states the settled negative coding-tree chain and representation-level dichotomy, and explains the quadratic-Hessian representation programme.
 
-The PDE wiki is the durable research record. Every `proved here` entry must state its load-bearing hypotheses and logical scope locally rather than rely on chat context.
+The PDE wiki is the durable mathematical record. Every `proved here` entry must state its load-bearing hypotheses and logical scope locally rather than rely on chat context.
 
 ## Settled negative coding-tree chain
 
@@ -43,7 +61,7 @@ $$
 write `z=v_{xx}`.
 
 1. `docs/entries/finite-depth-duhamel-patch-regrouping.md` and `docs/entries/conditional-factorization-for-finite-pde-patches.md`, status `proved here`: finite Picard trees regroup exactly into maximal left-spine patches, and finite patch randomizations factor conditionally when centered Gaussian marks remain unexposed. These are finite signed identities, not infinite-depth moment estimates.
-2. `docs/entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md`, status `proved here`: a small semi-implicit uniformly parabolic iteration contracts in `H^{-1}` and gives the deterministic small solution and its implicit self-consistent diffusion representation.
+2. `docs/entries/self-consistent-patch-iteration-for-quadratic-hessian-pde.md`, status `proved here`: a small semi-implicit uniformly parabolic iteration contracts in `H^{-1}` and gives the deterministic small solution and its implicit self-consistent diffusion representation. This is the weakest major result in the current chain and is auxiliary in the manuscript.
 3. `docs/entries/skeleton-averaged-l1-representation-for-quadratic-hessian-pde.md`, status `proved here` (Theorem C-prime): with
    $$
    X_{\alpha,T}=C^{\alpha/2,\alpha}([0,T]\times\mathbb T),
@@ -77,7 +95,7 @@ Two permanent C-prime corrections: a fixed skeleton profile satisfies only its d
 
 `docs/entries/raw-marked-l1-obstruction-for-quadratic-hessian-pde.md`, status `proved here`, removes the generation-dependent-frequency caveat for a precise estimator class.
 
-Choose exponentially separated frequencies and factorially decaying coefficients,
+Choose
 
 $$
 N_m=K^m,
@@ -113,7 +131,7 @@ $$
 
 which is not summable.
 
-The theorem applies to the **raw-barycenter-retaining class**. On each raw comb cylinder, if `Q_m` is any positive proposal dominating the intrinsic signed comb measure `nu_m`, an assumed integrable estimator is required to satisfy
+The theorem applies to the **raw-barycenter-retaining / raw-faithful class**. On each raw comb cylinder, if `Q_m` is any positive proposal dominating the intrinsic signed comb measure `nu_m`, an assumed integrable estimator is required to satisfy
 
 $$
 \mathbb E_Q[Y\mid\text{raw marks}]
@@ -132,28 +150,56 @@ $$
 
 This covers arbitrary lifetime, genealogy, and Gaussian proposals, arbitrary dependence among proposal variables, and auxiliary conditionally unbiased randomness. It is proposal invariant because the lower bound is the total variation of the intrinsic signed measure.
 
-The datum may be scaled by arbitrarily small `varepsilon`; hence the obstruction occurs inside the C-prime small-data regime.
+The datum may be scaled by arbitrarily small `varepsilon`; hence the obstruction occurs inside the C-prime small-data regime. This same-data contrast is a principal theorem-level point of the PDE manuscript.
+
+## Coarsening formulation and remaining open problem
+
+For a finite decorated skeleton `tau`, let `mu_tau` be its intrinsic signed measure on the canonical raw interior-mark space and let
+
+$$
+\overline\mu_\tau
+=
+(\mathcal C_\tau)_\#\mu_\tau
+$$
+
+for a measurable coarsening `C_tau`. The canonical coarsened importance sampler has first moment
+
+$$
+\sum_\tau\|\overline\mu_\tau\|_{\mathrm{TV}}.
+$$
+
+The open problem is whether there is a **nonconstant** coarsening which retains nontrivial continuous interior information and makes this sum finite in the C-prime regime.
+
+The endpoints are settled:
+
+- identity coarsening: impossible for the fixed smooth datum by the raw-faithful obstruction;
+- constant coarsening: exactly C-prime, with total variation `|F_tau(t,x)|` and finite sum under the C-prime smallness condition;
+- Gaussian-bridge coarsening: natural intermediate candidate; for bare chains it replaces the product of `He_2` scores by one `He_{2m}` endpoint score and changes factorial retained-mark growth into geometric growth.
+
+For every deterministic coarsening,
+
+$$
+|F_\tau(t,x)|
+\leq
+\|(\mathcal C_\tau)_\#\mu_\tau\|_{\mathrm{TV}}
+\leq
+\|\mu_\tau\|_{\mathrm{TV}}.
+$$
+
+Hence the constant coarsening is **total-variation optimal skeleton by skeleton** within deterministic coarsenings. This does not imply that every nonconstant coarsening diverges.
+
+Decorative randomness must be discussed explicitly: appending unused Gaussian marks to the C-prime estimator leaves an `L^1` estimator with random variables in the simulation state, so mere presence of randomness is not the correct retention notion. Antithetic and partially averaged constructions can use marks nontrivially while changing the raw conditional barycenter and therefore lie outside the negative theorem.
 
 ## Exact status of Conjecture C
 
 `docs/entries/l1-random-patch-conjecture-for-quadratic-hessian-pde.md` remains status `conjecture`.
 
-A **strong raw-barycenter reading is false**: one cannot keep the canonical raw signed marked contribution as the conditional barycenter and rescue it by importance sampling or auxiliary conditionally unbiased randomness.
-
-The **literal mark-dependent reading remains open**. An estimator may still sample and use continuous interior marks while changing the raw conditional barycenter. Antithetic/ghost coupling, partial bridge or Rao--Blackwell averaging, control variates across raw states, and coupled multi-sample constructions lie outside the negative theorem.
-
-The current quadratic-Hessian endpoint is therefore a three-way split:
-
-- complete interior averaging: C-prime is proved `L^1`;
-- canonical raw-barycenter retention: proved impossible in `L^1` for one fixed arbitrarily small smooth datum;
-- non-barycentric retained randomness: open.
-
-Do **not** state that the negative theorem proves all continuous marks must be integrated out. It does not prove that C-prime is minimal or optimal among every possible estimator. It proves that some departure from raw-barycenter retention is necessary; C-prime is the fully averaged endpoint currently proved.
+A **strong raw-barycenter reading is false**. The **literal mark-dependent reading remains open** for non-barycentric retained randomness. Do not state that the negative theorem proves all continuous marks must be integrated out.
 
 ## General conventions
 
 - Public entries must state proof status explicitly and must not present heuristic, conjectural, or unaudited claims as theorems.
 - Every proved-here entry must state its full hypotheses locally; cross-links may supply definitions and proofs of prerequisites, not missing assumptions.
 - Define every project-specific symbol before use.
-- Keep exact Duhamel/semigroup transfer distinct from proposal randomization, raw marked integrands, and later patch averaging.
+- Keep exact Duhamel/semigroup transfer distinct from proposal randomization, raw marked integrands, coarsening, and later patch averaging.
 - Do not write ordinary conditional expectations of unresolved non-`L^1` objects. For negative results, formulate conditional-barycenter properties under an assumed `L^1` candidate and derive a contradiction.
