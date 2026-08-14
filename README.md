@@ -126,6 +126,7 @@ Each entry should label its status in front matter as one of:
 - `observation`
 - `literature`
 - `conditional`
+- `conjecture`
 - `heuristic`
 - `open`
 - `obsolete`
