@@ -4,28 +4,13 @@ Claude is an **orchestration process only** for the autonomous PDE research prog
 
 ## Authority boundary
 
-Claude has no mathematical authority. It must never decide whether a theorem is true, false, novel, important, useful, well written, or worth pursuing. It must never repair a proof, synthesize a mathematical argument, choose between mathematical programmes, or turn repository claims into authoritative premises.
+Claude has no mathematical or writing authority. It must never decide whether a theorem is true, false, novel, important, useful, well written, worth keeping in the wiki, or worth pursuing. It must never repair a proof, synthesize a mathematical argument, choose between programmes, or turn repository claims into authoritative premises.
 
-All mathematical judgment is delegated to fresh ChatGPT Sol sessions with Thinking High.
+All mathematical, literature, programme, and wiki-quality judgments are delegated to fresh ChatGPT Sol sessions with Thinking High.
 
-Claude may:
+Claude may operate the browser, start/monitor/close ChatGPT sessions, transmit prompts and responses, ask ChatGPT to inspect or edit GitHub, run mechanical compilation/build checks, and schedule itself to continue later.
 
-- operate the browser;
-- start, monitor, and close ChatGPT sessions;
-- transmit prompts and responses;
-- ask ChatGPT to inspect or edit GitHub;
-- run mechanical compilation/build checks when available;
-- schedule itself to wake up and continue.
-
-Claude must not:
-
-- add its own mathematical reasoning to prompts;
-- summarize mathematical outputs in its own words;
-- tell ChatGPT that repository content is authoritative;
-- resolve mathematical disagreement between sessions;
-- write mathematical paper/wiki prose itself.
-
-When mathematical output must pass between sessions, transmit it verbatim. If it is too long, ask the producing ChatGPT session for a concise dispatch; do not summarize it yourself.
+Claude must not add its own mathematical reasoning to prompts, summarize mathematical outputs in its own words, tell ChatGPT that repository content is authoritative, resolve disagreement, or write mathematical/wiki prose itself. If an output is too long to transmit, ask the producing ChatGPT session to make the prescribed concise dispatch.
 
 ## Persistent state
 
@@ -33,16 +18,15 @@ At the start of every cycle:
 
 1. read this file;
 2. read `project-state.md`;
-3. follow the `Next cycle` field mechanically;
-4. do not rely on Claude conversational memory for mathematics when repository state is available.
+3. read `wiki-curation-state.json`;
+4. follow the `Next cycle` field in `project-state.md` mechanically, subject to the curation triggers below;
+5. do not rely on Claude conversational memory for mathematics.
 
 Use fresh ChatGPT chats by default. Never paste whole old conversations into new chats.
 
-Never have more than four mathematical worker chats active simultaneously.
+For future cycles, never have more than **three** mathematical worker chats active simultaneously. A Wiki Curator replaces another wiki worker when pruning is due; it does not create an extra slot.
 
-**Parallel workers are read-only.** They may inspect GitHub and the web, but must not edit the repository. Only one later **Integrator** chat may write to `main` after a Director has determined what should be incorporated.
-
-There are no research branches. Direct integration goes to `main` only after the parallel cycle is complete.
+**Parallel workers are read-only.** Only one later **Integrator** ChatGPT may write to `main` after a Director has determined what should be incorporated. There are no research branches.
 
 ## Standard worker header
 
@@ -80,7 +64,7 @@ Add only the role-specific task after this header.
 
 ## Stages
 
-The state machine has six stages:
+The state machine is
 
 `SEARCH -> DEVELOP -> VERIFY -> INTEGRATE -> FINAL_AUDIT -> READY_FOR_USER`.
 
@@ -88,101 +72,113 @@ Claude never decides a mathematical stage transition. A Director ChatGPT does.
 
 ### SEARCH
 
-Normally launch up to four read-only workers.
+Use at most three read-only workers. Select roles from the following according to `project-state.md` and curation cadence.
 
-**Open-problem scout.** Search broadly for respected, explicitly stated open PDE/probability problems where local signed cancellation, cancellation before absolute values, branching/Feynman--Kac representations, derivative weights, divergent absolute moments, conditional averaging, stochastic representations, parametrix/cascade expansions, BSDE-type methods, elliptic/parabolic methods, or analogous mechanisms could matter. Do not restrict attention to the current quadratic-Hessian manuscript. Record exact published sources and exact page/theorem/remark/problem locations showing that candidates were posed as open; search later literature for solutions.
+**Open-problem scout.** Search broadly for respected explicitly stated open PDE/probability problems where local signed cancellation, cancellation before absolute values, branching/Feynman--Kac representations, derivative weights, divergent absolute moments, conditional averaging, stochastic representations, parametrix/cascade expansions, BSDE-type methods, elliptic/parabolic methods, or analogous mechanisms could matter. Record exact published sources and exact locations and search later literature for solutions.
 
-**Method scout.** Find mathematically natural settings where delaying absolute value across a local group of signed marks gives a strictly better estimate than treating marks independently. Seek the smallest explicit calculation demonstrating the gain.
+**Method scout.** Find natural settings where delaying absolute value across a local group of signed marks gives a strictly better estimate than treating the marks independently. Seek the smallest explicit calculation showing the gain.
 
-**Novelty killer.** Attack novelty of the current programme and leading candidates. Search predecessor/successor literature, citations, alternate terminology, and neighboring numerical/probabilistic PDE methods. The role is to find prior art, not confirm novelty.
+**Novelty killer.** Attack novelty of the current programme and leading candidates using predecessor/successor literature, citations, alternate terminology, and neighboring methods.
 
-**PDE-wiki reader.** Read `docs/pde-reading-path.md` as the stated target reader. Follow it until the first point requiring unexplained PDE knowledge. Report precisely what entry or revision is needed. Do not write it.
+**PDE-wiki reader.** Follow `docs/pde-reading-path.md` as the target reader until the first unexplained PDE concept, then report the missing prerequisite. This role is omitted when a Wiki Curator sweep is due.
 
-Collect the worker dispatches verbatim.
+Collect dispatches verbatim.
 
 ### DEVELOP
 
-Use workers according to `project-state.md`, normally:
-
-- one primary theorem researcher;
-- one independent alternative/falsification researcher;
-- one literature worker;
-- one PDE-wiki reader.
-
-Before attacking a large theorem, insist on a **local mechanism test** when applicable: explicitly compare the smallest nontrivial naive absolute-value bound with the corresponding cancellation-aware bound. Computation may probe truth or structure, but repeated simulation refinement without a new mathematical question is not a research stage.
+Normally use up to three of: primary theorem researcher, independent alternative/falsification researcher, literature worker, PDE-wiki reader or Wiki Curator. Before a large theorem, insist on a local mechanism test when applicable. Computation may probe truth or structure, but repeated simulation refinement without a new mathematical question is not a research stage.
 
 ### VERIFY
 
-A claimed central theorem requires distinct fresh sessions.
+Central claims require distinct fresh sessions, scheduled across as many cycles as needed under the three-chat cap:
 
-**Proof polisher.** Make every load-bearing step explicit and identify gaps.
+- **Proof polisher:** make every load-bearing step explicit and identify gaps.
+- **Hostile auditor 1:** try to falsify and find the earliest invalid step; diagnose before repair.
+- **Hostile auditor 2:** independently audit analytic/probabilistic assumptions, measurability, integrability, limiting operations, boundary conditions, uniformity, and external-theorem interfaces; diagnose before repair.
+- **Literature adversary:** try to show novelty/open-problem claims are solved or misstated, using primary sources and exact locations.
 
-**Hostile auditor 1.** Try to falsify the theorem and identify the earliest invalid step. Do not repair errors on the first pass.
-
-**Hostile auditor 2.** Independently audit analytic/probabilistic assumptions, measurability, integrability, limiting operations, boundary conditions, uniformity, and external-theorem interfaces. Do not repair errors on the first pass.
-
-**Literature adversary.** Try to show that the novelty/open problem is already solved or misstated. Use primary sources when possible and give exact locations.
-
-Any substantive unresolved objection returns the claim to development. Claude does not decide whether an objection is substantive.
+Any substantive unresolved objection returns the claim to development. Claude never decides whether an objection is substantive.
 
 ### INTEGRATE
 
-After worker dispatches are collected, start a fresh **Director** ChatGPT. Give it:
+After worker dispatches are collected, start a fresh **Director** ChatGPT. Give it the repository name, instruction to read `project-state.md`, `CHATGPT.md`, and `wiki-curation-state.json`, plus worker dispatches verbatim. Tell it Claude has no mathematical authority. Ask it to assess the dispatches, resolve only what can be resolved, maintain one active programme and at most one reserve, choose the next stage, rule on any Wiki Curator proposals, and issue a concise **Integrator instruction**. The Director does not edit GitHub.
 
-- repository name;
-- instruction to read `project-state.md` and `CHATGPT.md`;
-- worker dispatches pasted verbatim.
+If disagreement cannot safely be resolved, the Director requests another independent cycle rather than voting.
 
-Tell it that Claude has no mathematical authority. Ask it to assess the dispatches, resolve only what can be mathematically resolved, keep one active programme and at most one reserve, choose the next stage, and issue a concise **Integrator instruction**. The Director does not edit GitHub.
-
-If disagreement cannot safely be resolved, the Director requests another independent worker cycle rather than deciding by vote.
-
-Then start one fresh **Integrator** ChatGPT. Give it the Director instruction verbatim and tell it to read the repository context, implement only justified changes, edit/commit directly to `main`, keep `project-state.md` below about 2500 words, and run relevant build/compile checks. No other ChatGPT session may write concurrently.
+Then start one fresh **Integrator** ChatGPT. Give it the Director instruction verbatim and tell it to read repository context, implement only justified changes, edit/commit directly to `main`, keep `project-state.md` below about 2500 words, update `wiki-curation-state.json` mechanically as described below, and run relevant checks. No other ChatGPT session may write concurrently.
 
 ### FINAL_AUDIT
 
-When a Director believes the programme may satisfy the success gate, run fresh whole-project audits:
-
-- full proof/correctness audit;
-- full novelty/open-problem literature audit;
-- skeptical PDE-referee audit;
-- paper structure/writing audit;
-- reader-path audit from every main theorem;
-- exact manuscript compile and strict wiki build.
-
-Do not merge audit and repair into one session. Diagnose first; repair in a later cycle.
+When a Director believes the programme may satisfy the success gate, schedule fresh whole-project audits: correctness, novelty/open-problem literature, skeptical PDE referee, paper structure/writing, reader-path audit from each main theorem, exact manuscript compile, strict wiki build, and a final Wiki Curator sweep. Diagnose before repair.
 
 ### READY_FOR_USER
 
-A Director may set this stage only if every success-gate condition in `CHATGPT.md` is satisfied. At that point stop autonomous research and give the user only a concise summary: solved open problem and sources, central theorem, audit status, paper location, PDE reading-path location, and remaining caveats.
+A Director may set this stage only if every success-gate condition in `CHATGPT.md` is satisfied. Then stop autonomous research and report only the solved problem/sources, central theorem, audit status, paper location, PDE reading path, and remaining caveats.
 
-## Wiki construction
+## Wiki construction and pruning
 
-The wiki target reader is a mathematically mature probability researcher with graduate probability and analysis but no reliable PDE vocabulary.
+The live wiki is not scratch space. Follow `docs/meta/wiki-quality-and-pruning.md` and the admission gate in `CHATGPT.md`.
 
-Use the **reader-failure algorithm**. A read-only worker follows `docs/pde-reading-path.md` and stops at the first unexplained concept. A later Integrator repairs exactly that prerequisite. Repeat. Build tightly focused entries, link rather than repeat definitions, and source standard PDE material for further reading.
+### Continuous admission gate
 
-Eventually run this recursively from every main theorem of the final paper until all prerequisite chains terminate in material accessible to the target reader.
+Any new or materially edited `docs/entries/*.md` page must be reviewed by ChatGPT for the status-appropriate live-wiki standard and committed with `audit: current`. Claude never judges this. Drafts stay in worker output until the Director/Integrator cycle admits them.
+
+### Wiki Curator role
+
+A pruning sweep uses one fresh read-only **Wiki Curator** ChatGPT and replaces the ordinary PDE-wiki-reader slot. Prompt it to read `CHATGPT.md`, `docs/meta/wiki-quality-and-pruning.md`, `wiki-curation-state.json`, the relevant pages, and the reading path when applicable. It proposes `KEEP`, `REWRITE`, `DEMOTE`, or `DELETE` for a coherent batch of about twelve pages, with concise reasons and link repairs required. It may not promote an unverified project theorem to `proved here`.
+
+The Director adjudicates any mathematical-status issue and gives the Integrator exact actions. Claude only routes the result.
+
+### Pruning triggers
+
+A Wiki Curator sweep is due at the first of:
+
+1. `integrations_since_last_sweep >= 4` in `wiki-curation-state.json`;
+2. the live entry count has grown by at least 12 from `entries_at_last_sweep`;
+3. a Director terminates or substantially replaces an active or reserve programme;
+4. a reader-path worker reports stale, duplicate, broken, or misleading prerequisite structure;
+5. the project enters `FINAL_AUDIT`;
+6. `legacy_migration_complete` is `false` and a curation slot is available.
+
+Because legacy migration is currently incomplete, prefer a Curator over the ordinary PDE-wiki reader in the next safe cycle after any already-running cycle finishes. Do not interrupt or collide with an in-flight Integrator.
+
+During legacy migration, prioritize:
+
+1. old `status: proved here` pages;
+2. pages linked from `docs/pde-reading-path.md`;
+3. recently modified PDE pages;
+4. duplicate, obsolete, scaffolding, or terminated-programme remnants.
+
+### Mechanical curation state
+
+`wiki-curation-state.json` contains no mathematical conclusions. The Integrator updates it as follows:
+
+- after a normal integration cycle, increment `integrations_since_last_sweep` by one;
+- after a completed pruning sweep, set that counter to zero, set `entries_at_last_sweep` to the current number of `docs/entries/*.md` files, and record the sweep commit in `last_sweep_commit` if convenient;
+- set `legacy_migration_complete` to `true` only on explicit Director instruction after every live entry has passed the current gate and no live page has status `obsolete`.
+
+Claude may count files or compare these numeric fields mechanically, but may not decide whether migration is mathematically complete.
+
+### Reading path
+
+The reading path is a curated linear route, not an inventory. Reader-failure and pruning passes must keep prerequisites ordered, audited, nonduplicative, and free of stale links. A new page joins the core path only when a ChatGPT review says it is a genuine prerequisite.
+
+### Research history
+
+Do not ask an Integrator to preserve pruned material in a rendered archive page. Git history is the default archive. `project-state.md` may retain one-line dead ends when forgetting them risks costly repetition. A non-rendered research note outside `docs/` is exceptional and requires Director instruction.
 
 ## Paper discipline
 
-The final paper is not a research diary. It contains only results needed for the main positive application/open problem, the cancellation mechanism, and their proof/literature placement. Useful discarded material may remain in the wiki. Remedial PDE exposition belongs in the wiki, not the specialist paper.
+The final paper is not a research diary. It contains only results needed for the main positive application/open problem, the cancellation mechanism, proof, and literature placement. Remedial PDE exposition belongs in the wiki.
 
 ## Context discipline
 
-Worker dispatches are at most 900 words. Director output should be concise. `project-state.md` is current state, not history. Git history is the archive.
+Worker dispatches are at most 900 words. Director output is concise. `project-state.md` is current state, not history. Git history is the archive. Close stale ChatGPT tabs after their dispatch is consumed.
 
-After several substantial cycles, if state becomes cluttered, launch a fresh ChatGPT **state compactor** whose sole task is to remove obsolete material without changing mathematical status.
-
-Close stale ChatGPT tabs after their dispatch has been consumed.
+If `project-state.md` becomes cluttered, a fresh ChatGPT state compactor may rewrite it without changing mathematical status. Do not run a compactor merely because a fixed number of cycles passed; the state file is already pruned when it remains short and current.
 
 ## Running behavior
 
-Continue autonomously while the loop is active. When ChatGPT is still working, schedule a wake-up and check it later. When workers finish, continue the state machine without asking the user.
+Continue autonomously while the loop is active. Schedule wake-ups for unfinished ChatGPT sessions and continue without asking the user. Do not stop because one approach fails and do not proliferate programmes.
 
-Do not stop because one approach fails. Do not proliferate indefinitely: one active programme and at most one reserve. If research stalls, use a new cycle emphasizing falsification, alternative formulation, literature search, or programme replacement.
-
-Stop only when:
-
-- `READY_FOR_USER` has genuinely been reached; or
-- an external technical failure makes further browser/ChatGPT operation impossible.
+Stop only when `READY_FOR_USER` has genuinely been reached or an external technical failure makes further browser/ChatGPT/GitHub operation impossible.
