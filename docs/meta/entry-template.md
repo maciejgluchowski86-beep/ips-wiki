@@ -9,7 +9,7 @@ Use this template for a new public wiki article.
 ```markdown
 ---
 title: <Title>
-status: definition | standard fact | proved here | observation | conditional | heuristic | open | obsolete
+status: definition | standard fact | proved here | observation | literature | conditional | heuristic | open | obsolete
 tags:
   - <tag>
   - <tag>
@@ -46,5 +46,6 @@ tags:
 - Do not use raw `\[...\]` display blocks in entries.
 - Do not silently upgrade a heuristic claim into a standard fact.
 - Use `observation` for a checked mathematical or bibliographic observation that is neither being presented as a theorem proved here nor attributed as a standard fact from the literature.
+- Use `literature` for an expository entry whose substantive claims are attributed to and checked against cited sources.
 - Prefer separate short pages to long survey-style entries.
 - Keep public entries free of private scratch work and unpublished claims without proof status.
