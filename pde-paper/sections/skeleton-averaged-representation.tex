@@ -191,9 +191,14 @@ The skeleton proposal cancels from the first moment exactly as in ordinary impor
 
 \begin{corollary}[Overlap with the deterministic solution]
 \label{cor:Cprime-deterministic-overlap}
-On every regime where both~\eqref{eq:deterministic-smallness} and~\eqref{eq:Cprime-smallness} hold, the solution represented by~\eqref{eq:Cprime-estimator} is the deterministic solution from~\cref{thm:deterministic-iteration}.
+Assume~\eqref{eq:Cprime-smallness}, and suppose in addition that the C-prime Hessian profile satisfies
+\begin{equation*}
+  \abs{\lambda z_*}\leq\frac18
+  \qquad\text{on }[0,T]\times\Torus.
+\end{equation*}
+Then the C-prime solution is the unique small-class solution from~\cref{thm:deterministic-iteration} whenever that deterministic construction is available.
 \end{corollary}
 
 \begin{proof}
-Both constructions give classical solutions of~\eqref{eq:hessian-forward}. On the common regime in which the C-prime solution also satisfies the small-class bound $\abs{\lambda z_*}\leq1/8$, uniqueness in~\cref{thm:deterministic-iteration} identifies the two solutions. In particular, whenever both stated theorem hypotheses are imposed together, the represented fixed point is the deterministic small solution.
+Both constructions give classical solutions of~\eqref{eq:hessian-forward}. The displayed bound puts the C-prime solution in the uniqueness class of~\cref{thm:deterministic-iteration}, so the two solutions coincide.
 \end{proof}
