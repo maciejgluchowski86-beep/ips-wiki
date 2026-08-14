@@ -21,6 +21,15 @@ This page records durable style choices for the public IPS wiki.
 - Use TeX delimiters `\(...\)` for inline math and `$$...$$` for displayed math.
 - Do not put private strategy, raw scratch work, credentials, personal data, or unpublished claims without proof status into this public repository.
 
+## Self-contained PDE entries
+
+- The PDE part of the wiki assumes measure-theoretic probability, basic functional analysis, and a first graduate PDE course, but no prior familiarity with branching representations, Malliavin methods, viscosity solutions, advanced parabolic regularity, Gaussian chaos, Gevrey classes, or the NPP/HLOTW literature.
+- Every notion beyond that background must be defined in the entry where it is first used or linked to a prerequisite entry that defines it.
+- Lecture-notes style entries are welcome when a concept needs development: motivate the object, define it, state the usable result, prove it when elementary or cite an appropriate source, and explain why it enters the PDE research route.
+- The negative coding-tree results and the representation-level dichotomy are settled audited results and should have complete prerequisite paths.
+- The random spatially varying patch \(L^1\) estimate for the second-order quadratic PDE is conjectural. Do not state or imply that it is proved. The deterministic self-consistent iteration, its limiting diffusion representation, and exact finite-level patch-factorization identities are logically separate from that conjecture.
+- When discussing Gaussian kernel bounds, distinguish divergence-form Aronson--Nash theory from nondivergence equations and their adjoints. Do not infer a universal adjoint \(L^\infty\) estimate from ellipticity alone.
+
 ## Mathematical prose around displays
 
 - Do not leave isolated bridge fragments such as "with", "Thus", or "and" between displayed formulas.
