@@ -8,6 +8,15 @@ Compile from this directory with
 latexmk -pdf main.tex
 ```
 
-The manuscript now contains full proofs of the audited results included in the paper: the repeated-Hessian obstruction and Gevrey-1/2 necessity, the NPP/HLOTW representation-level dichotomy, finite Hessian patch regrouping, the auxiliary deterministic iteration, Theorem C-prime, the fixed-datum raw-faithful obstruction, and the coarsening hierarchy. The hierarchy includes the failure of naive patchwise Gaussian-bridge coarsening and the positive time-spine representation which retains continuous branch-time randomness under an additional geometric smallness condition.
+The manuscript contains full proofs of the audited results included in the paper: the repeated-Hessian obstruction and Gevrey-1/2 necessity, the NPP/HLOTW representation-level dichotomy, finite Hessian patch regrouping, the auxiliary deterministic iteration, Theorem C-prime, the fixed-datum raw-faithful obstruction, the structured time-spine coarsening theorem, and the exact residual-signed-variation characterization of skeleton-preserving coarsenings.
+
+The final theorem identifies the exact first-moment invariant:
+
+```text
+residual variation = total variation after pushforward
+                   = L1 norm of the conditional raw signed barycenter.
+```
+
+It also records explicit counterexamples showing that retaining Gaussian marks is not intrinsically bad and retaining only branch times is not intrinsically safe.
 
 The manuscript deliberately does not modify or share source files with the facilitated-spin-system paper under `paper/`.
