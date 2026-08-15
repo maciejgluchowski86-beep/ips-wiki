@@ -1,20 +1,30 @@
-# Finite-window edge correctors and finite-seed convergence for the one-dimensional biased annihilating branching process
+# An exact finite-window certificate below Sudbury's BABP finite-seed range
 
-Working research-note draft. Mathematical content is based on verified project claims `BABP-EDGE-001` and `BABP-CONV-001`. Priority language is intentionally conservative pending full-text comparison with Sudbury (1998, 1999).
+Working research-note draft. Mathematical content is based on verified project claims `BABP-EDGE-001` and `BABP-CONV-001`. Historical attribution has been revised after full-text comparison with Sudbury (1999).
 
 ## Abstract
 
-Consider the one-dimensional biased annihilating branching process (BABP) in particle variables, with a vacant site becoming occupied at rate `lambda` times the number of occupied nearest neighbours and an occupied site becoming vacant at rate equal to that number. We prove a finite-window criterion for convergence from a deterministic finite nonempty initial configuration. If the right edge admits a bounded local corrector whose generator drift is uniformly positive in every finite-window edge state, then the process converges locally to Bernoulli product equilibrium. The proof applies the same statewise corrector to the two particle populations bordering each internal vacant gap. The resulting corrected gap width has uniformly negative drift; localization of an exponential test gives uniform lifetime and maximum-width tails, and a spatially truncated compensator over gap nucleations yields a no-escape estimate for fixed windows. Stationarity of subsequential limits and the one-dimensional classification of stationary BABP laws then identify the limit.
+Consider the one-dimensional biased annihilating branching process (BABP) in particle variables, with a vacant site becoming occupied at rate `lambda` times the number of occupied nearest neighbours and an occupied site becoming vacant at rate equal to that number. Sudbury (1999) proved finite-seed convergence for `lambda>=0.0347` by a computer-assisted finite-window submartingale construction; his threshold is explicitly the value obtained from an eight-site window.
 
-An exact rational ten-site certificate satisfies the criterion at
+We extend the same finite-window mechanism to an exact rational ten-site certificate at
 
 $$
 \lambda=\frac1{40},
 $$
 
-with minimum statewise drift `1033/40000000`. Hence BABP at `lambda=1/40`, started from every deterministic finite nonempty particle set, converges locally to Bernoulli equilibrium of density `1/41`. This parameter lies below the `lambda>0.0347` finite-seed range recorded by Martinelli--Shapira--Toninelli (2025, Remark 5.4).
+with uniform statewise drift
 
-## 1. Model and result
+$$
+\frac{1033}{40000000}>0.
+$$
+
+Consequently BABP at `lambda=1/40`, started from every deterministic finite nonempty particle set, converges locally to Bernoulli equilibrium of density `1/41`.
+
+For completeness we give a self-contained proof of the convergence implication under a strict statewise corrector hypothesis. The proof applies the same local corrector to the two particle populations bordering each internal vacant gap. The resulting corrected gap width has uniformly negative drift; localization of an exponential test gives uniform lifetime and maximum-width tails, and a spatially truncated compensator over gap nucleations yields a fixed-window nonescape estimate. Stationarity of subsequential limits and the one-dimensional classification of stationary BABP laws then identify the limit.
+
+The finite-window method and its role as the threshold-dependent input for finite-seed convergence are classical; the new contribution here is the exact below-range certificate together with this self-contained modern proof.
+
+## 1. Model, historical framework, and result
 
 For a configuration `xi in {0,1}^Z`, write `xi(x)=1` when there is a particle at `x` and put
 
@@ -40,6 +50,15 @@ $$
 \qquad
 1\to0\text{ at rate }N_x.
 \tag{1.2}
+$$
+
+This is exactly Sudbury's 1999 normalization: his flip rate is
+
+$$
+c(x,\eta)
+=
+\bigl[\eta(x)+\lambda(1-\eta(x))\bigr]
+\sum_{y\sim x}\eta(y).
 $$
 
 The nontrivial product equilibrium is Bernoulli with particle density
@@ -81,7 +100,7 @@ $$
 
 where `phi:{0,1}^k -> R` is bounded.
 
-### Theorem 1.1: statewise edge corrector implies finite-seed convergence
+### Theorem 1.1: self-contained strict-corrector convergence bridge
 
 Fix `lambda>0`. Suppose that for some `k>=1`, bounded `phi:{0,1}^k -> R`, and `v>0`, the exact drift of (1.4) satisfies
 
@@ -98,11 +117,11 @@ $$
 \tag{1.6}
 $$
 
-locally on `{0,1}^Z`, where `pi_q` is Bernoulli product measure of density (1.3).
+locally on `{0,1}^Z`.
 
-The hypothesis is the **statewise** inequality (1.5). We do not claim that a bare positive asymptotic velocity of the two outer edges is sufficient for (1.6).
+Theorem 1.1 is a self-contained proof of a classical implication rather than a priority claim. Sudbury (1999), immediately before his Theorem 7, states that the Neuhauser--Sudbury (1993) finite-seed convergence argument relied on existence of a suitable finite-window submartingale and proceeds unchanged once that condition is extended to the `0.0347` range. Our hypothesis (1.5) is a strict statewise version of that classical submartingale condition.
 
-### Corollary 1.2: an exact certificate at `lambda=1/40`
+### Corollary 1.2: exact ten-site certificate at `lambda=1/40`
 
 At
 
@@ -122,14 +141,16 @@ D_{10,1/40}(u,z;\phi)
 \tag{1.8}
 $$
 
-for all `2^11=2048` edge states. Consequently, from every deterministic finite nonempty initial set,
+for all `2^11=2048` edge states. Consequently
 
 $$
-\operatorname{Law}_B(B_t)\Longrightarrow\pi_{1/41}.
+\operatorname{Law}_B(B_t)\Longrightarrow\pi_{1/41}
 \tag{1.9}
 $$
 
-Martinelli--Shapira--Toninelli (2025), Remark 5.4, record finite-seed convergence for `lambda>0.0347`. Since `1/40=0.025`, (1.9) lies below that recorded range. We make no priority claim stronger than this comparison in the present draft.
+for every deterministic finite nonempty initial set.
+
+Sudbury's Theorem 7 gives finite-seed convergence for `lambda>=0.0347`; Martinelli--Shapira--Toninelli (2025), Remark 5.4, still records the historical `0.0347` range. Since `1/40=0.025`, (1.9) lies below that published range.
 
 ## 2. Exact finite-window edge generator
 
@@ -143,29 +164,23 @@ $$
 T_-^zu=(u_2,\ldots,u_k,z),
 $$
 
-and let `u^(j)` denote the word obtained by flipping `u_j`.
+and let `u^{(j)}` denote the word obtained by flipping `u_j`.
 
 There are three classes of transitions that can change `H_R`.
 
-First, a birth at `R+1` occurs at rate `lambda`, moves the edge one step right, and changes the word to `T_+u`. Its contribution is
+A birth at `R+1` occurs at rate `lambda`, moves the edge one step right, and changes the word to `T_+u`. Its contribution is
 
 $$
 \lambda\bigl[1+\phi(T_+u)-\phi(u)\bigr].
 $$
 
-Second, the rightmost particle can die only when `u_1=1`; then its death rate is one, the new edge is `R-1`, and the new word is `T_-^zu`. Its contribution is
+The rightmost particle can die only when `u_1=1`; then its death rate is one, the new edge is `R-1`, and the new word is `T_-^zu`. Its contribution is
 
 $$
 u_1\bigl[-1+\phi(T_-^zu)-\phi(u)\bigr].
 $$
 
-Third, for `1<=j<=k`, the recorded site `R-j` has
-
-$$
-u_{j-1}+u_{j+1}
-$$
-
-occupied neighbours. Its flip rate is
+For `1<=j<=k`, the recorded site `R-j` has `u_{j-1}+u_{j+1}` occupied neighbours. Its flip rate is
 
 $$
 (u_{j-1}+u_{j+1})\bigl[\lambda(1-u_j)+u_j\bigr],
@@ -187,9 +202,9 @@ D_{k,\lambda}(u,z;\phi)
 \tag{2.1}
 $$
 
-Only one unrecorded bit is needed. A flip of the site carrying `z` may depend on the next site farther left, but that flip changes neither `R` nor the current word `u` and hence has zero instantaneous contribution to `L H_R`. Uniformity over `z=0,1` handles its future effect.
+Only one unrecorded bit is needed. A flip of the site carrying `z` may depend on the next site farther left, but that flip changes neither `R` nor the current word `u`, so it has zero instantaneous contribution to `L H_R`.
 
-Since `phi` is bounded, `H_R` has uniformly bounded jumps and only a fixed number of local clocks can change it. After the usual localization,
+Since `phi` is bounded, `H_R` has uniformly bounded jumps and only a fixed number of local clocks can change it. After localization,
 
 $$
 M_t
@@ -200,21 +215,89 @@ is a martingale with predictable quadratic variation bounded by `Ct`. Hence `M_t
 
 $$
 \liminf_{t\to\infty}\frac{R(B_t)}t\ge v
-\qquad\text{a.s.}
+\qquad\text{a.s.},
 \tag{2.2}
 $$
 
-Reflection gives
+and reflection gives
 
 $$
-\limsup_{t\to\infty}\frac{L(B_t)}t\le -v
+\limsup_{t\to\infty}\frac{L(B_t)}t\le-v
 \qquad\text{a.s.}
 \tag{2.3}
 $$
 
-These are lower/upper asymptotic-velocity bounds; existence of limiting edge speeds is not asserted.
+Existence of limiting edge speeds is not asserted.
 
-## 3. The rational certificate
+## 3. Exact relation with Sudbury's finite-window construction
+
+Sudbury fixes the leftmost particle and records the `m` sites immediately to its right. In a local picture
+
+```text
+... 0 1 x_1 ... x_m x_{m+1} ...
+```
+
+his binary `m`-block is `(x_1,...,x_m)`, while `x_{m+1}` is the unresolved end-value. Reflecting the configuration identifies
+
+$$
+m=k,
+$$
+
+his block state with `u`, and his end-value with `z`.
+
+For a fixed assignment of end-values, Sudbury writes `Q` for the block generator and
+
+$$
+a=\lambda\mathbf 1-b
+$$
+
+for the bare edge-position drift. The corrected gain in state `i` is
+
+$$
+a_i+\sum_jq_{ij}(S_j-S_i).
+\tag{3.1}
+$$
+
+Equation (3.1) is precisely (2.1) after reflection and the identification `S_i=phi(u)`.
+
+The cancellative issue is that the worst exterior bit depends on the current block state. Sudbury describes this as a Maxwell's demon. His Lemma 5 constructs a single correction vector which makes the score a submartingale for **every possible assignment of end-values**. Because an end-value assignment can choose `0` or `1` independently for every block state, this is equivalent to imposing the statewise inequality for both exterior bits at every `u`.
+
+Sudbury solves the robust finite-state problem by an iterative minimax algorithm. The project solves it directly as a linear programme maximizing a common lower margin. Sudbury's Section 4 makes the common-margin version explicit: for `U_0` he requires
+
+$$
+\sum_jq_{ij}(S_j-S_i)+a_i\ge U_0
+\tag{3.2}
+$$
+
+for all possible end-value matrices. Equation (3.2) is the project condition `D>=v` with `U_0=v`.
+
+### The historical `0.0347` value
+
+Sudbury's Table 2 states:
+
+```text
+m    lambda_m
+2    0.2653
+3    0.1832
+4    0.1154
+5    0.0805
+6    0.0589
+7    0.0443
+8    0.0347
+```
+
+He explicitly says these are values found by trial and error and that the listed decimal is not proved to be the true critical value. Thus the independently computed project crossing
+
+$$
+\lambda_8^*=0.0346195434755\ldots
+\tag{3.3}
+$$
+
+is a refinement of the **same** eight-site feasibility boundary, not merely a coincidentally close calibration.
+
+The historical provenance is therefore settled: the published `0.0347` comes literally from an eight-site finite-window submartingale in the same normalization.
+
+## 4. The exact rational `k=10` certificate
 
 For `k=10` and `lambda=1/40`, the corrector is stored in exact rational form in
 
@@ -224,35 +307,26 @@ The certificate assigns one rational value to each of the `2^10=1024` words. Sub
 
 $$
 v=\frac{1033}{40000000}.
-\tag{3.1}
+\tag{4.1}
 $$
 
-The independent audit rederived (2.1), decoded the rational vector independently, checked all 2048 inequalities, and reproduced two calibrations:
+The independent audit rederived (2.1), decoded the rational vector independently, and checked all 2048 inequalities.
 
-1. for `k=1`, strict feasibility holds exactly when
-   $$
-   \lambda>\frac13;
-   \tag{3.2}
-   $$
-2. for `k=8`, an independent numerical LP places the zero crossing at
-   $$
-   0.0346195434755\ldots.
-   \tag{3.3}
-   $$
+Conceptually this certificate is an `m=10` witness in Sudbury's established finite-window framework. Sudbury's paper reports BABP threshold searches only through `m=8`; the construction itself is defined for arbitrary fixed `m`. The range extension at `1/40` is therefore computational/certificational rather than a new submartingale mechanism.
 
-The second number is consistent with the historical `0.0347` threshold, but we do not infer from this numerical match that Sudbury (1999) literally used the same eight-site window or normalization.
+For a publication version, the rational vector and a minimal independent verifier should be supplementary material. The body needs (2.1), the certificate format, (4.1), and a reproducibility statement.
 
-For a publication version, the machine-readable rational vector and a minimal independent verifier should be supplementary material. The body only needs (2.1), the certificate format, the exact minimum (3.1), and a reproducibility statement.
+## 5. Internal vacant gaps
 
-## 4. Internal vacant gaps
+We now give a self-contained proof of Theorem 1.1 rather than importing the Neuhauser--Sudbury convergence argument used by Sudbury.
 
 An **internal gap** is a maximal nonempty finite interval of vacant sites strictly between the leftmost and rightmost particles.
 
-Three elementary one-dimensional facts make internal gaps genealogically tractable.
+Three one-dimensional facts make internal gaps genealogically tractable.
 
-**New gaps are born at width one.** A new internal vacant component is created only when a particle with both neighbours occupied dies. The resulting new gap is the singleton consisting of that site. If exactly one neighbour was vacant, the death merely enlarges an existing gap.
+**New gaps are born at width one.** A new internal vacant component is created only when a particle with both neighbours occupied dies. If exactly one neighbour is vacant, the death enlarges an existing gap.
 
-**A positive gap cannot split.** A vacant site strictly inside a gap has two vacant neighbours and hence birth rate zero. Births can occur only at the endpoint vacancies, shrinking the gap by one. At width one, a birth closes it.
+**A positive gap cannot split.** A vacant site strictly inside a gap has two vacant neighbours and hence birth rate zero. Births occur only at endpoint vacancies and shrink the gap.
 
 **Two positive gaps cannot merge while both are alive.** If the particle block separating them erodes to a single particle, that particle has a vacant neighbour on each side and therefore death rate zero.
 
@@ -280,30 +354,30 @@ for every finite nonempty `C`. Put
 
 $$
 Z=H_L(C)-H_R(A)-1.
-\tag{4.1}
+\tag{5.1}
 $$
 
 If `K=||phi||_infty`, then while the gap is alive,
 
 $$
 g-2K\le Z\le g+2K.
-\tag{4.2}
+\tag{5.2}
 $$
 
 For `g>=2`, no nearest-neighbour transition sees particles on both sides of the gap, so the two side generators decouple and
 
 $$
 L^\times Z\le-2v.
-\tag{4.3}
+\tag{5.3}
 $$
 
-At width one, the sole vacancy fills at total rate `2lambda`; either such birth closes the gap. Passing to the killed tagged-gap process only decreases the generator of a positive test function. Thus (4.3) is the drift input for the killed process as well, in the sense needed below.
+At width one, the sole vacancy fills at total rate `2lambda`; either such birth closes the gap. Passing to the killed tagged-gap process only decreases the generator of a positive test function.
 
-This is the point where the statewise nature of (1.5) is essential. The two particle sets `A_t` and `C_t` are random internal populations created by the current gap genealogy, not the original process viewed only at its outer edges.
+The statewise nature of (1.5) is essential here: `A_t` and `C_t` are random internal populations, not merely the two outer edges of the original cloud.
 
-## 5. Localized exponential estimate
+## 6. Localized exponential gap estimate
 
-Only fixed neighborhoods of the two inner particle edges can change `Z`. Consequently there are deterministic finite constants `J` and `rho`, depending only on `(k,lambda,phi)`, such that each non-killing jump satisfies
+Only fixed neighbourhoods of the two inner particle edges can change `Z`. Consequently there are finite deterministic `J,rho`, depending only on `(k,lambda,phi)`, such that every non-killing jump satisfies
 
 $$
 |\Delta Z|\le J
@@ -320,7 +394,7 @@ e^{\theta y}-1
 \frac{\theta^2}{2}e^{\theta J}y^2.
 $$
 
-Using (4.3), choose `theta>0` small enough that
+Choose `theta>0` so small that
 
 $$
 -2v\theta+
@@ -334,46 +408,48 @@ $$
 L^\dagger e^{\theta Z}
 \le
 -\gamma e^{\theta Z}.
-\tag{5.1}
+\tag{6.1}
 $$
 
-The exponential is unbounded as the gap width grows, so (5.1) is used only after **localization**. Let `tau_n` be the first time the live gap width, or equivalently `Z` up to the bounded correction (4.2), reaches a fixed level `n`; one may also stop after a finite number of jumps. Apply Dynkin's formula to the bounded stopped process. Then remove the jump cutoff and send `n` to infinity using positivity and Fatou/monotone localization. This is the order of argument needed to justify the unbounded exponential test.
+The exponential is unbounded as the gap width grows, so (6.1) is used only after **localization**. Stop when the live gap width, or equivalently `Z` up to the bounded correction (5.2), reaches a finite level `n`; one may also stop after a finite number of jumps. Apply Dynkin's formula to the bounded stopped process. Remove the jump cutoff and send `n` to infinity using positivity and Fatou/monotone localization.
 
-For a gap born at width one, the result is uniform exponential control of its closure time `tau` and maximal width:
+For a gap born at width one this gives uniform constants such that
 
 $$
 \mathbf P(\tau>t)
 \le C_0e^{-\gamma t},
-\tag{5.2}
+\tag{6.2}
 $$
+
+and
 
 $$
 \mathbf P\left(\sup_{s<\tau}g_s\ge m\right)
 \le C_1e^{-\theta m}.
-\tag{5.3}
+\tag{6.3}
 $$
 
-The constants are independent of the gap's birth location and of the surrounding finite particle configuration.
+The constants are independent of the gap's birth location and surrounding finite configuration.
 
-## 6. Spatial displacement and the nucleation compensator
+## 7. Spatial displacement and the nucleation compensator
 
-Let `N_t` count shifts of either endpoint of a tagged gap before it closes. At each boundary, an extension occurs only when the bounding particle dies, at rate at most `1`, and a shrinkage occurs by a birth into the adjacent vacancy at rate at most `lambda`. Therefore
+Let `N_t` count shifts of either endpoint of a tagged gap before closure. At each boundary, extension occurs only when the bounding particle dies, at rate at most `1`, while shrinkage occurs by a birth into the adjacent vacancy at rate at most `lambda`. Hence
 
 $$
 N_t\preceq\operatorname{Pois}(\beta t),
 \qquad
 \beta=2(1+\lambda).
-\tag{6.1}
+\tag{7.1}
 $$
 
-A gap born at `x` that contains the origin at age `r` must have accumulated at least `|x|` endpoint shifts. Combining (5.2), (5.3), and (6.1) without any independence assumption gives constants `C,c_1,c_2>0` such that
+A gap born at `x` that contains the origin at age `r` must have accumulated at least `|x|` endpoint shifts. Combining (6.2), (6.3), and (7.1), without an independence assumption, gives
 
 $$
 \mathbf P(E_{m,r,x})
 \le
 C e^{-c_1m}e^{-c_2r}
 \mathbf P\bigl(\operatorname{Pois}(\beta r)\ge|x|\bigr)^{1/3},
-\tag{6.2}
+\tag{7.2}
 $$
 
 where `E_{m,r,x}` is the event that the descendant gap is alive at age `r`, contains zero, and has width at least `m`. Moreover,
@@ -382,12 +458,12 @@ $$
 \sum_{x\in\mathbb Z}
 \mathbf P\bigl(\operatorname{Pois}(\beta r)\ge|x|\bigr)^{1/3}
 \le C_\beta(1+r).
-\tag{6.3}
+\tag{7.3}
 $$
 
 A new gap can be nucleated at a fixed site at predictable rate at most `2`. The all-space compensator is justified in the following order.
 
-First fix `N<infinity` and count only nucleations at sites `|x|<=N`. By the strong Markov property at each nucleation time and (6.2), the expected number of such genealogies that produce a width-`m` gap containing zero at time `t` is at most
+First fix `N<infinity` and count only nucleations at sites `|x|<=N`. By the strong Markov property at each nucleation time and (7.2), the expected number of such genealogies producing a width-`m` gap containing zero at time `t` is at most
 
 $$
 2\sum_{|x|\le N}
@@ -395,37 +471,37 @@ $$
 C e^{-c_1m}e^{-c_2(t-s)}
 \mathbf P\bigl(\operatorname{Pois}(\beta(t-s))\ge|x|\bigr)^{1/3}
 \,ds.
-\tag{6.4}
+\tag{7.4}
 $$
 
-Only after obtaining this finite spatial sum do we send `N` to infinity. The counted events increase with `N`, so **monotone convergence** applies. Using (6.3) then yields
+Only after obtaining this finite spatial sum do we send `N` to infinity. The counted events increase with `N`, so **monotone convergence** applies. Using (7.3) yields
 
 $$
 \limsup_{t\to\infty}
 \mathbf P_B(G_m(t))
 \le Ce^{-cm},
-\tag{6.5}
+\tag{7.5}
 $$
 
-where `G_m(t)` is the event that zero lies in an internal gap of width at least `m`. The finitely many gaps present at time zero contribute only exponentially decaying survival probabilities.
+where `G_m(t)` is the event that zero lies in an internal gap of width at least `m`.
 
-## 7. Nonescape from fixed windows
+## 8. Nonescape and local convergence
 
 Fix `M`. By (2.2)--(2.3),
 
 $$
 \mathbf P_B\bigl(R(B_t)\le M\text{ or }L(B_t)\ge-M\bigr)
 \longrightarrow0.
-\tag{7.1}
+\tag{8.1}
 $$
 
-On the complementary event there are particles on both sides of `[-M,M]`. If the entire window is nevertheless empty, then it lies inside an internal gap of width at least `2M+1`. By (6.5),
+On the complementary event there are particles on both sides of `[-M,M]`. If the entire window is empty, then it lies inside an internal gap of width at least `2M+1`. Therefore
 
 $$
 \limsup_{t\to\infty}
 \mathbf P_B(B_t\cap[-M,M]=\varnothing)
 \le Ce^{-cM}.
-\tag{7.2}
+\tag{8.2}
 $$
 
 In particular,
@@ -434,41 +510,28 @@ $$
 \lim_{M\to\infty}
 \limsup_{t\to\infty}
 \mathbf P_B(B_t\cap[-M,M]=\varnothing)=0.
-\tag{7.3}
+\tag{8.3}
 $$
 
-This is the target-level information not supplied by total particle-number growth alone.
+Jahnel--Köppl (2026), Theorem 2.5, gives stationarity of weak limit points for one-dimensional IPS under locality/rate hypotheses BABP satisfies directly.
 
-## 8. Stationary limits and identification of the limit
-
-The configuration space `{0,1}^Z` is compact, so every time sequence has weakly convergent subsequences.
-
-Jahnel--Köppl (2026), Theorem 2.5, gives stationarity of weak limit points for one-dimensional interacting particle systems under locality/rate hypotheses that BABP satisfies directly: updates are single-site, the site flip rate is uniformly bounded by `2 max(1,lambda)`, and influence is nearest-neighbour. Thus every subsequential limit of `Law_B(B_t)` is stationary.
-
-For stationary-law classification we use Martinelli--Shapira--Toninelli (2025), Corollary 2.9. Their variables are complementary infection variables. Write their infection density as `q` and `p=1-q`. Their BABP update rates are proportional to their nearest-neighbour constraint, with infected-to-healthy rate `p` and healthy-to-infected rate `q`. The present convention is obtained by the constant rescaling
+For stationary-law classification use Martinelli--Shapira--Toninelli (2025), Corollary 2.9. Their variables are complementary infection variables. If their infection density is `q` and `p=1-q`, then
 
 $$
 \lambda=\frac qp,
 \qquad
 L_{\mathrm{project}}=p^{-1}L_{\mathrm{MST}}.
-\tag{8.1}
+\tag{8.4}
 $$
 
 A positive constant time rescaling does not change stationary laws. Hence every stationary one-dimensional BABP law in the convention (1.2) is
 
 $$
-\nu=\alpha\delta_\varnothing+(1-\alpha)\pi_q,
-\qquad \alpha\in[0,1].
-\tag{8.2}
+\nu=\alpha\delta_\varnothing+(1-\alpha)\pi_q.
+\tag{8.5}
 $$
 
-Let `nu` be a subsequential limit. For each fixed `M`, emptiness of `[-M,M]` is a clopen cylinder, so (7.2) passes to the limit:
-
-$$
-\nu(B\cap[-M,M]=\varnothing)\le Ce^{-cM}.
-$$
-
-But (8.2) gives
+Let `nu` be a subsequential limit. For each fixed `M`, emptiness of `[-M,M]` is a clopen cylinder, so (8.2) passes to the limit. But (8.5) gives
 
 $$
 \nu(B\cap[-M,M]=\varnothing)
@@ -479,21 +542,49 @@ $$
 
 Sending `M` to infinity yields `alpha=0`. Every subsequential limit is `pi_q`, proving Theorem 1.1.
 
-Neither the Mountford (1993) nor Ramírez--Varadhan (1996) stationary-limit theorem is needed as an unchecked input: Jahnel--Köppl provides the required current source. Their older papers remain relevant historical antecedents.
+Neither Mountford (1993) nor Ramírez--Varadhan (1996) is needed as an unchecked theorem input; Jahnel--Köppl provides the stationary-limit interface used here.
 
-## 9. Relation to earlier BABP work
+## 9. Relation to Sudbury's convergence theorem
 
-Neuhauser--Sudbury (1993) introduced and analyzed BABP, including its product equilibrium and stationary-law structure. Mountford (1993) gave a finite-particle stationary-limit/coupling argument and finite-seed convergence in the earlier `lambda>1/3` regime. Sudbury (1997) proved convergence for translation-invariant initial measures by relative entropy. Lloyd--Sudbury (1997) developed the quasi-duality/thinning machinery later reused in modern BABP--DFP arguments. Sudbury (1998) developed a computer-assisted finite-boundary method for sign-definite drift functions in non-attractive one-dimensional systems. Sudbury (1999) extended finite-seed BABP convergence to the `0.0347` range and obtained edge-speed bounds by submartingale methods.
+The closest prior result is now source-checked in full.
 
-Martinelli--Shapira--Toninelli (2025) prove new all-parameter results, including exponential ergodicity for the DFP and linear growth for BABP from finite seeds, but their Remark 5.4 still records finite-seed local convergence only above `0.0347`.
+Sudbury's Section 3 defines, for a finite particle cloud with right and left edges `Ri,Le`, the global corrected span
 
-Our exact `k=1` and `k=8` calibrations show that the present edge-corrector LP is very likely close to Sudbury's historical submartingale calculation. The full Sudbury (1999) body was not available in the present literature audit, so we do not claim literal identity of the constructions or priority for the general corrector criterion.
+$$
+L
+=
+Ri-Le+S_{i(Ri)}+S_{i(Le)}-(2m+2)
+$$
 
-The safe statement is the concrete mathematical one: the exact `k=10` certificate at `lambda=1/40`, together with Theorem 1.1, proves finite-seed local convergence at `0.025`, below the range recorded in the 2025 progress paper.
+when `Ri-Le>=2m+1`, and `L=0` otherwise. Lemmas 5--9 construct a robust finite-window submartingale. Table 2 gives `m=8`, `lambda_8=0.0347`.
 
-## 10. Open front problem
+Immediately before Theorem 7, Sudbury explains that Neuhauser--Sudbury (1993), Section 5 had used existence of a suitable submartingale as the threshold-dependent input to exclude the null limiting measure. Since his Section 3 extends this condition to `lambda>=0.0347`, that earlier argument proceeds unchanged. Thus the **logical corrector-to-convergence principle is prior work**.
 
-For fixed `lambda`, define the optimal `k`-window margin
+The proof given in Sections 5--8 above is nevertheless not the argument written in Sudbury 1999. Sudbury does not analyze internal-gap genealogies or prove the exponential gap and spatial-compensator estimates used here; he delegates the convergence bridge to Neuhauser--Sudbury Section 5. Until that older section is inspected, no priority claim should be made for the specific internal-gap proof architecture.
+
+The project contribution should therefore be described as an exact range extension within the classical finite-window framework, plus a self-contained modern convergence proof.
+
+## 10. Novelty and scope
+
+The literature audit through 2026-08-15 found no later same-model finite-seed theorem below the `0.0347` range. With Sudbury's full text now checked, the source-level picture is:
+
+- **finite-window submartingale method:** classical;
+- **literal eight-site origin of `0.0347`:** verified;
+- **finite-window submartingale as sufficient threshold-dependent input for finite-seed convergence:** classical;
+- **exact rational `k=10`, `lambda=1/40` certificate:** project contribution;
+- **finite-seed convergence at `lambda=1/40`:** range extension beyond Sudbury's published theorem;
+- **tagged-gap/nonescape proof:** project self-contained proof; historical proof-method priority still unverified against Neuhauser--Sudbury (1993), Section 5;
+- **all-parameter statement:** open.
+
+A safe introduction sentence is:
+
+> Sudbury proved finite-seed convergence for one-dimensional BABP for `lambda>=0.0347` using an eight-site finite-window submartingale. We extend the same finite-window mechanism to an exact rational ten-site certificate at `lambda=1/40`, yielding finite-seed convergence at `0.025`. We also give a self-contained proof of the convergence implication from a strict statewise corrector by controlling internal vacant gaps.
+
+Do not claim that the finite-window method or the abstract corrector-to-convergence implication is new.
+
+## 11. Open front problem
+
+For fixed `lambda`, define
 
 $$
 v_k(\lambda)
@@ -509,19 +600,19 @@ $$
 
 A current research reduction relates the infinite-window limit to invariant laws of the environment seen from the right edge and suggests a one-dimensional front-gap inequality as a route to `v_k(lambda)>0` for every `lambda>0`. That reduction is not part of the verified theorem in this note and should remain outside the main theorem until independently audited.
 
-The present result therefore leaves open the all-parameter question:
+The present result leaves open:
 
-> Does every `lambda>0` admit a finite-window statewise corrector with positive margin, or can finite-seed convergence for smaller parameters be proved by a different mechanism?
+> Does every `lambda>0` admit a finite-window statewise corrector with positive margin, or must smaller parameters be handled by a different mechanism?
 
-## References to check in final manuscript
+## References for the focused note
 
 - T. S. Mountford, *A coupling of finite particle systems*, Journal of Applied Probability 30 (1993), 258--262.
 - C. Neuhauser and A. Sudbury, *The biased annihilating branching process*, Advances in Applied Probability 25 (1993), 24--38.
 - A. Sudbury, *The convergence of the biased annihilating branching process and the double-flipping process in Z^d*, Stochastic Processes and their Applications 68 (1997), 255--264.
 - A. Sudbury and P. Lloyd, *Quantum operators in classical probability theory IV: Quasi-duality and thinnings of interacting particle systems*, Annals of Probability 25 (1997), 96--114.
 - A. Sudbury, *A method for finding bounds on critical values for non-attractive interacting particle systems*, Journal of Physics A 31 (1998), 8323--8331.
-- A. Sudbury, *Hunting submartingales in the jumping voter model and the biased annihilating branching process*, Advances in Applied Probability 31 (1999), 839--854.
+- A. Sudbury, *Hunting submartingales in the jumping voter model and the biased annihilating branching process*, Advances in Applied Probability 31 (1999), 839--854; especially Section 3, Table 2, Lemmas 5--9 and Theorem 7.
 - F. Martinelli, A. Shapira and C. Toninelli, *Long time behaviour of one facilitated kinetically constrained models: results and open problems*, arXiv:2510.20461 (2025).
 - B. Jahnel and J. Köppl, *Restriction and mixing properties of interacting particle systems with unbounded range*, arXiv:2603.21817 (2026).
 
-Before submission-level priority language, obtain and inspect the full Sudbury (1998, 1999) texts, especially the 1999 BABP convergence bridge.
+For any eventual claim that the **specific internal-gap proof mechanism** is new, inspect Neuhauser--Sudbury (1993), Section 5 in full. This is no longer needed for the range-extension or finite-window provenance claims.
