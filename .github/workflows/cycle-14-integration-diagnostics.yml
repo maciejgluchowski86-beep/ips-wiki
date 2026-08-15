@@ -61,6 +61,11 @@ jobs:
                       continue
                   if ' ' in target:
                       target = target.split(' ', 1)[0]
+                  # Markdown-looking mathematical notation such as [f](x) is
+                  # not a repository link. Local repository links in this wiki
+                  # use a path separator or a filename extension.
+                  if '/' not in target and '.' not in target:
+                      continue
                   target = unquote(target)
                   resolved = (path.parent / target).resolve()
                   checked += 1
