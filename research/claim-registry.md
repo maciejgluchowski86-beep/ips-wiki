@@ -38,7 +38,7 @@ Basis: the same principal designation of `paper/` as the canonical patch source.
 
 ### BABP-EDGE-001
 
-Status: `claimed`
+Status: `verified`
 
 Claim: for one-dimensional BABP in the time-scaled convention with birth rate `lambda` per occupied neighbour and death rate `1` per occupied neighbour, at
 
@@ -58,7 +58,23 @@ $$
 \mathcal L H(B)\ge \frac{1033}{40000000}>0.
 $$
 
-Consequently the right edge has strictly positive asymptotic outward speed and, by reflection, the left edge has strictly negative asymptotic outward speed.
+For every finite nonempty initial configuration,
+
+$$
+\liminf_{t\to\infty}\frac{R(B_t)}t
+\ge \frac{1033}{40000000}
+\qquad\text{a.s.}
+$$
+
+and, by reflection,
+
+$$
+\limsup_{t\to\infty}\frac{L(B_t)}t
+\le -\frac{1033}{40000000}
+\qquad\text{a.s.}
+$$
+
+This is a lower-asymptotic-velocity statement. It does not assert that either ratio has a limit.
 
 Source proof/certificate:
 
@@ -70,8 +86,13 @@ Professor check:
 - `research/active/babp-finite-seed/notes/professor-edge-corrector-verification.md`;
 - `research/active/babp-finite-seed/meetings/003-edge-corrector-breakthrough.md`.
 
-Significance: the same finite-window edge-corrector hierarchy has threshold `1/3` at window size one and numerical zero-drift threshold `0.0346195435...` at window size eight, calibrating to the historical `0.0347` edge-speed/submartingale cutoff in Sudbury's published finite-seed theorem. Since `1/40=0.025<0.0347`, the ten-site certificate strictly penetrates that historical finite-window edge-speed cutoff.
+Independent hostile audit:
 
-Claim boundary: this entry does **not** claim finite-seed convergence at `lambda=1/40`. The edge-speed-to-local-convergence bridge remains an open proof-spine edge.
+- commit `d1ef2ca`;
+- `research/active/babp-finite-seed/audits/001-edge-corrector-audit.md`.
 
-Pending independent audit: `research/active/babp-finite-seed/audits/001-edge-corrector-request.md`. Do not promote to `verified` until the resulting durable audit supports it.
+The audit independently rederived the generator, checked that one unresolved exterior bit suffices and no event class is missing, established the martingale bounds needed for the displayed liminf/limsup conclusion, independently decoded and checked all `2048` exact certificate inequalities, analytically reproduced the `k=1` threshold `lambda>1/3`, and independently numerically reproduced the `k=8` zero crossing `0.0346195434755...`.
+
+Significance and historical boundary: within the audited finite-window corrector hierarchy, the `k=10` certificate gives a positive ballistic-edge bound at `lambda=0.025`, below the numerical `0.0347` boundary appearing in Sudbury's published finite-seed theorem. The accessible Sudbury record confirms the `0.0347` convergence threshold, hunted-submartingale method, and edge-speed bounds, but the full body was not accessible. Therefore the literal identification of Sudbury's computation with this exact `k=8` LP, normalization, or eight-site encoding is **not verified**. The `k=1` and `k=8` calibrations are strong mechanism-level evidence, not source-verified historical identity.
+
+Claim boundary: this entry does **not** claim finite-seed convergence at `lambda=1/40`, does **not** claim an improvement of Sudbury's published convergence theorem, and does **not** claim existence of limiting edge speeds. The edge-bound-to-local-convergence bridge remains an open proof-spine edge.
