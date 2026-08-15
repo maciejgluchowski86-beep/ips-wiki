@@ -1,22 +1,46 @@
-# Group meeting 006: Sudbury provenance correction and the invariant-front bottleneck
+# Group meeting 006: Sudbury correction, novelty ruling, and BABP closure
 
 Date: 2026-08-15
 
 Professor review of:
 
 - Graduate Student A, `students/student-a/writeup-001-literature-and-manuscript-plan.md`, commits `0239d37` and `87d59d8`;
-- the full text of Aidan Sudbury (1999), *Hunting submartingales in the jumping voter model and the biased annihilating branching process*, especially Section 3, Table 2, Lemmas 5 and 7, and Theorem 7;
-- Graduate Student B, `students/student-b/003-front-gap.md`, commits `5c357ef` and `1365840`.
+- the full text of Aidan Sudbury (1999), especially Section 3, Table 2, Lemmas 5 and 7, and Theorem 7;
+- Graduate Student B, `students/student-b/003-front-gap.md`, commits `5c357ef` and `1365840`;
+- Graduate Student A's earlier opportunity-cost reconnaissance `students/student-a/recon-001-open-problem-scan.md`;
+- the principal's standing scientific-taste ruling that a quantitatively better instance obtained only by running an existing arbitrary-size method at a larger window/order/degree or analogous complexity parameter does not count as a new result.
 
 state_narrowed: yes
 
-Evidence pointer: the Student A source comparison above; Sudbury (1999), pp. 847--852, especially the Maxwell's-demon construction, Lemma 5, Table 2, Lemma 7, and the paragraph immediately before Theorem 7; and Student B's `003-front-gap.md`.
+Evidence pointer: Student A's full-text source comparison; Sudbury (1999), pp. 847--852, especially the Maxwell's-demon construction, Lemma 5, Table 2, Lemma 7, and the paragraph immediately before Theorem 7; Student B's `003-front-gap.md`; and Student A's noisy-East opportunity-cost comparison.
 
-## Source-verified correction to Meetings 003--005
+## Standing novelty standard and correction to the programme record
 
-The project previously had incomplete access to Sudbury (1999). That caused two novelty/provenance statements to be too strong. The full paper now resolves both.
+The principal's ruling is adopted as a general protocol rule in `CHATGPT.md`, not as a BABP-specific exception.
 
-First, the historical finite-window identification is exact, not merely a numerical calibration. Sudbury uses the same BABP normalization as the project,
+A larger-window/order/degree instantiation of a method already formulated at arbitrary size does not become a project research result merely because it produces a better numerical constant or an exact certificate. Such mathematics may remain verified and useful, but it is not to be counted as a contribution, used to justify continuation, or framed as discovery.
+
+This changes the BABP programme's scorecard.
+
+The exact ten-site certificate
+
+$$
+\lambda=\frac1{40},\qquad
+D_{10,1/40}(u,z;\phi)
+\ge\frac{1033}{40000000}>0
+$$
+
+remains mathematically verified. The resulting finite-seed convergence at `lambda=1/40` also remains mathematically correct. But neither counts as a project result under the standing novelty standard, because Sudbury's method is explicitly defined for arbitrary finite window size and Lemma 7 gives free extension in window size. The project ran that existing mechanism at `m=10` after Sudbury reported computations only through `m=8`.
+
+Likewise, `BABP-CONV-001` remains a verified self-contained proof/formulation, but the corrector-to-convergence implication is classical prior work and is not a project theorem-level contribution.
+
+Earlier Meeting 004/005 language treating the `lambda=1/40` theorem as the programme's central new result is therefore superseded. The registry and stable note may retain the verified mathematics, but must mark it as non-contributory under the standing novelty standard.
+
+## Source-verified Sudbury identification
+
+The historical identification is exact.
+
+Sudbury uses the same BABP normalization
 
 $$
 0\to1\text{ at rate }\lambda N_x,
@@ -24,121 +48,92 @@ $$
 1\to0\text{ at rate }N_x.
 $$
 
-He follows the leftmost particle and records the `m` sites immediately to its right. Reflecting space identifies his window size `m` with the project `k`, his `m`-block with the edge word `u`, and the one site just beyond the window with the project exterior bit `z`. His correction values `S_i` are the project corrector `phi` up to this reflection. His corrected local gain
+He follows one outer particle, records an `m`-site binary block and one unresolved end-value, and adds a correction vector `S`. After reflection,
 
-$$
-a_i+\sum_j q_{ij}(S_j-S_i)
-$$
+- his `m` is the project `k`;
+- his block state is the project edge word `u`;
+- his end-value is the project exterior bit `z`;
+- his correction vector is `phi`;
+- his corrected gain
+  $$
+  a_i+\sum_jq_{ij}(S_j-S_i)
+  $$
+  is the project `D_{k,lambda}(u,z;phi)`.
 
-is the project finite-window drift `D_{k,lambda}(u,z;phi)`.
+The Maxwell's-demon equivalence is exact at the robust-condition level. Sudbury permits the exterior bit to be chosen as a function of the current block state and Lemma 5 requires one correction vector to work for every such assignment. Since the drift in row `i` depends only on the end-value assigned to row `i`, this is equivalent to requiring both `z=0` and `z=1` inequalities in every state.
 
-The Maxwell's-demon equivalence is exact at the robust-condition level. Sudbury allows the exterior end-value to be chosen as a function of the current `m`-block state. An assignment of end-values is therefore a map from block states to `{0,1}`. Lemma 5 requires one correction vector to give a submartingale for **every** such assignment. The drift in row `i` depends only on the single end-value assigned to row `i`; hence requiring the inequality for every assignment is equivalent to requiring it for both possible end-values separately in every state. After reflection this is exactly the project's statewise requirement over both `z=0,1`.
+Lemma 7 gives free window extension: a successful `m_1` correction remains successful for any `m_2>m_1` by ignoring the extra coordinates. Table 2 reports trial values through `m=8`, `lambda_8=0.0347`; Sudbury explicitly does not claim those decimals are exact critical values. The project `k=8` crossing `0.0346195434755...` is therefore a refinement of exactly the same optimization problem.
 
-Second, Sudbury's Lemma 7 really does give free extension in window size at fixed `lambda`: if a suitable submartingale exists for `m=m_1`, use the same correction on the first `m_1` sites of every larger `m_2` configuration. Since the `m_1` construction already works whatever the next end-value is, the extra sites do not spoil the submartingale. This is the historical counterpart of the project's exact window-nesting lemma.
+Immediately before Theorem 7, Sudbury states that Neuhauser--Sudbury (1993) used a suitable submartingale in the finite-seed stationary-state argument and that, once his Section 3 extends that condition to `0.0347`, their Section 5 proceeds unchanged. Thus the corrector-to-convergence principle is prior art.
 
-Sudbury's Table 2 reports
+## Student B's all-parameter reduction
 
-```text
-m    lambda_m
-2    0.2653
-3    0.1832
-4    0.1154
-5    0.0805
-6    0.0589
-7    0.0443
-8    0.0347
-```
+The one part of the BABP direction that could satisfy the standing novelty standard is the structural all-parameter question: does the finite-window method eventually work for every `lambda>0`, or is there a genuine positive floor?
 
-and explicitly describes these as trial-and-error values rather than proved exact critical parameters. The project value `0.0346195434755...` is therefore a refinement of Sudbury's own eight-site boundary, not a merely similar number.
-
-## Novelty correction
-
-The theorem-level implication recorded as `BABP-CONV-001` is mathematically correct but is not a new general criterion.
-
-Immediately before Theorem 7, Sudbury states that Neuhauser--Sudbury (1993) used the existence of a suitable submartingale in the stationary-state argument, that Section 3 of the 1999 paper extends this condition from `lambda>1/3` to `lambda>0.0347`, and that the argument of Neuhauser--Sudbury Section 5 then proceeds unchanged. Theorem 7 is the resulting finite-seed convergence theorem.
-
-Thus the following language from the earlier project record was overstated and is superseded by this meeting:
-
-- Meeting 004's description of the corrector-to-convergence implication as a "central new theorem";
-- Meeting 005's framing of `BABP-CONV-001` as the programme's novel theorem-level contribution;
-- the earlier claim-registry/results wording that left publication-level priority of the general implication open rather than recognizing it as prior art;
-- Meeting 003's statement that literal identity of the `k=8` mechanism with Sudbury was unverified.
-
-The corrected contribution is:
-
-1. Sudbury's finite-window robust submartingale mechanism is classical and applies for arbitrary fixed window size.
-2. The project supplies an independently audited exact rational ten-site certificate at
-   $$
-   \lambda=\frac1{40}
-   $$
-   with minimum drift
-   $$
-   \frac{1033}{40000000}>0.
-   $$
-3. Combining that certificate with the classical convergence implication gives finite-seed convergence at `lambda=1/40`, a strict extension below Sudbury's published `0.0347` range inside his mechanism.
-4. The project also supplies a self-contained tagged-internal-gap proof of the implication. No novelty claim is made for that proof architecture until Neuhauser--Sudbury (1993), Section 5, is inspected.
-
-`BABP-EDGE-001` is unaffected mathematically. Its provenance is now stronger: the finite-window mechanism and the historical `m=8` comparison are source-verified, while the exact `k=10`, `lambda=1/40` rational certificate remains a genuine new project datum.
-
-`BABP-CONV-001` remains `verified` because the correction is about novelty, not correctness. Its registry entry now explicitly labels the implication classical.
-
-## Student B's E5 reduction
-
-The novelty correction lowers the value of stopping at `lambda=1/40`, but Student B's new work materially strengthens the case for continuing toward all parameters.
-
-I checked the core of `003-front-gap.md` for proof-spine use. For fixed `lambda>0`, the infinite right-front process on `{0,1}^N` is Feller; the local half-line generator has cylinder functions as a core, and the frame-shift part is a bounded perturbation. Finite-dimensional LP duality and compactness then give the exact fixed-parameter reduction
+Student B materially narrowed that question. For fixed `lambda>0`, after adding the cylinder-core repair,
 
 $$
 \lim_{k\to\infty}v_k(\lambda)
 =
-\inf_{\mu\in\mathcal I_\lambda}\mu(\lambda-u_1).
+\inf_{\mu\in\mathcal I_\lambda}\mu(\lambda-u_1),
 $$
 
-The reverse compactness step is not contaminated by arbitrary tail extensions: for a cylinder depending on the first `ell` coordinates, once `k>=ell+1`, its front generator depends only on coordinates already contained in the finite marginal and is independent of the exterior control. The cylinder-core argument then upgrades infinitesimal stationarity to invariance.
-
-Stationarity of the first front bit gives
+where `I_lambda` is the invariant-law set of the infinite environment seen from the right edge. Stationarity of the first bit gives
 
 $$
 \mu(\lambda-u_1)
 =
 \frac{\lambda}{1+\lambda}
-\left(\lambda-\frac12\mu(01)\right),
+\left(\lambda-\frac12\mu(01)\right).
 $$
 
-so the exact finite-window target is
+Hence the finite-window method succeeds at a fixed parameter exactly when every invariant front law has uniformly positive current, equivalently when
 
 $$
 \sup_{\mu\in\mathcal I_\lambda}\mu(01)<2\lambda.
 $$
 
-Student B also proves an important separation: every Cesaro invariant front law selected from the singleton has strictly positive current for every `lambda>0`, using the all-parameter finite-seed cardinality growth theorem plus reflection symmetry. Therefore a failure of the finite-window programme could occur only through an additional invariant semi-infinite-tail phase not selected from finite seeds. The nearest-gap-only corrector no-go recovers the `1/3` obstruction, confirming that genuinely deeper front correlations are needed.
+Student B also shows that every Cesaro invariant front law selected from the singleton has positive current for every `lambda>0`. Thus any obstruction must be an additional invariant semi-infinite-tail phase not selected from finite seeds.
 
-This is a real narrowing. The current obstruction is no longer "make the finite LP work at small lambda". It is a phase-selection problem for the infinite front.
+This is real target-relevant narrowing. It does **not** close the all-parameter problem. The remaining theorem is an infinite-volume phase-selection/uniqueness problem. At `lambda=0` there is a large absorbing family of hard-core tails, so the endpoint is singular. Student B has no proof of front uniqueness or positive current for all invariant laws; the obvious reset coupling is circular because later left shifts can re-expose the untouched tail. The entropy/current idea still requires a nontrivial no-incoming-flux theorem from particle-index infinity.
 
 ## Opportunity-cost decision
 
-**continue**, but with the scientific payoff redefined.
+**close BABP and pivot.**
 
-The `lambda=1/40` result is a range extension inside Sudbury's method, not a new mechanism or new general convergence principle. That materially lowers its standalone novelty relative to what Meeting 005 believed.
+This is not a judgment that the all-parameter BABP problem is unimportant. It is an expected-value judgment for this group now.
 
-I nevertheless keep BABP as the active direction for the next substantial block because the all-parameter target remains genuinely open and Student B has just reduced the finite-window route to a sharply stated invariant-front obstruction. In particular, the physical front already has positive current for every parameter; the only remaining issue is whether a hostile invariant semi-infinite-tail phase exists. This is substantially more localized than the problem at Meeting 005 and is a qualitatively different theorem question from merely increasing the LP window.
+After applying the principal's standing novelty standard, the programme has produced useful verified technical mathematics but **no completed project research result**. The only qualifying target left is the all-parameter structural theorem, and the current reduction moves it into a difficult semi-infinite invariant-phase problem for which the group has no concrete proof mechanism beyond speculative uniqueness/entropy routes.
 
-The next block is not open-ended. If the hostile-phase/uniqueness attack produces no theorem-level narrowing, the next group meeting should explicitly re-run the opportunity-cost comparison against Student A's noisy-East reserve rather than continue numerical windows by inertia.
+Graduate Student A's earlier reconnaissance ranked the residual positive-rates/noisy-East problem above BABP unless BABP produced a genuinely new small-parameter theorem rather than a reconstruction/instance of the historical mechanism. Under the standing novelty standard, that condition has now been met in the negative. The noisy-East target also has stronger group-specific leverage from the principal's recent work and a cheap decisive first falsification test: replace the one-site common-state wall by a two-site agreed block and compute the exact killed finite-state crossing/regeneration operator under adversarial exterior input.
+
+Sunk effort does not justify another BABP variant. Student B's front reduction is preserved as durable dormant mathematics and may be revisited if an independent idea for hostile-phase exclusion appears. The already-created `assignment-004.md`, if present, is superseded by this closure and should not be executed.
+
+## Programme outcome
+
+BABP finite-seed programme: **closed without a new project result under the standing novelty standard**.
+
+Useful retained mathematics:
+
+- independently audited ten-site rational corrector at `lambda=1/40`;
+- independently checked self-contained tagged-gap convergence proof;
+- source-verified identification with Sudbury's arbitrary-window framework;
+- infinite-front LP dual/reduction to hostile invariant front phases, presently research-branch mathematics rather than a promoted theorem.
+
+The broader all-parameter BABP problem remains open and worthwhile.
+
+## Next direction
+
+Open a new programme on the residual positive-rates conjecture for simple one-sided one-dimensional IPS, focused first on the noisy-East region left by the principal's recent results.
+
+The first research block should be a cheap falsification test of the smallest genuinely stronger wall mechanism: a length-two agreed block under the canonical coupling, with adversarial exterior state. Construct the exact killed finite-state chain/operator controlling whether disagreement crosses the block before regeneration to full agreement. Determine whether its next-generation factor is uniformly `<1` in any meaningful part of the residual noisy-East region and, especially, how it behaves when approaching the East boundary.
+
+Graduate Students A and B become idle with their existing lineages. Because this is a genuinely new scientific direction, a new persistent graduate student may be created for it.
 
 ## Neuhauser--Sudbury (1993), Section 5
 
-It is worth obtaining and inspecting the full Section 5 if the principal can provide it. This is now a **publication/attribution** question, not a mathematical dependency of the range extension or the all-parameter programme. It will settle whether the project's tagged-gap nonescape proof is merely a modern reproof of the same local mechanism or a genuinely different proof architecture.
+It is still worth inspecting if the principal supplies it conveniently, solely for attribution of the tagged-gap proof architecture. It is no longer a dependency of any active programme and should not consume a research session.
 
-Do not spend a new independent research session solely acquiring it. If the principal supplies the text, Student A or the Professor should perform the bounded comparison and update the manuscript attribution.
+## Wiki
 
-## Wiki and stable surface
-
-The live-wiki freeze should remain in force. The prior-art correction makes immediate `proved here` wiki language especially inappropriate until the research note is reframed around the exact range certificate and the all-parameter question.
-
-The stable `main` surface must be corrected now because the claim registry, theorem note, and project state currently carry the stronger novelty framing. The mathematical verification statuses remain unchanged.
-
-## Next work
-
-Graduate Student B remains the active development student. The next assignment is `students/student-b/assignment-004.md`, aimed at proving or refuting exclusion of hostile invariant front phases, with front uniqueness as one sufficient route but not a mandatory formulation.
-
-Graduate Student A becomes idle after completing the full-text literature comparison. If Neuhauser--Sudbury (1993), Section 5, is supplied, A may perform a bounded source comparison without reopening a second scientific direction.
+Keep the live-wiki freeze in force. No BABP `proved here` update is warranted: the verified computations are retained as technical records but do not satisfy the standing novelty standard for project contributions.
