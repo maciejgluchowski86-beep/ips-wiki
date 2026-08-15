@@ -2,97 +2,117 @@
 
 ## Target
 
-One-dimensional biased annihilating branching process (BABP), finite nonempty initial particle set, convergence to Bernoulli equilibrium for every branching parameter `lambda>0`.
+One-dimensional biased annihilating branching process (BABP), finite nonempty initial particle set, convergence to Bernoulli equilibrium for every `lambda>0`.
 
-Use
+Use particle variables with
 
 $$
-q=\frac{\lambda}{1+\lambda},
+0\to1\text{ at rate }\lambda N_x,
 \qquad
-p=\frac1{1+\lambda}
+1\to0\text{ at rate }N_x,
+\qquad
+q=\frac{\lambda}{1+\lambda}.
 $$
 
-for particle/vacancy density versus the canonical patch-paper convention.
-
-## Current recorded state of the art
-
-### Neuhauser--Sudbury (1993)
+## Neuhauser--Sudbury (1993)
 
 Claudia Neuhauser and Aidan Sudbury, *The biased annihilating branching process*, Advances in Applied Probability 25 (1993), 24--38.
 
-Foundational BABP stationary-law and spreading results.
+Foundational stationary-law/spreading work. Sudbury (1999) states that their Section 5 stationary-state argument used existence of a suitable edge submartingale in the then-known `lambda>1/3` range.
 
-### Mountford (1993) and Sudbury (1999)
+The full body of Neuhauser--Sudbury Section 5 has not yet been inspected in this project. It is now the only important remaining historical comparison for the **proof architecture** of the project's tagged-gap reproof; it is not a dependency of the current mathematics.
 
-The finite-seed convergence theorem was known for `lambda>1/3`; Sudbury's 1999 paper
+## Sudbury (1999): full-text comparison completed
 
-Aidan Sudbury, *Hunting submartingales in the jumping voter model and the biased annihilating branching process*, Advances in Applied Probability 31 (1999), 839--854,
+Aidan Sudbury, *Hunting submartingales in the jumping voter model and the biased annihilating branching process*, Advances in Applied Probability 31 (1999), 839--854.
 
-improved the range to the published numerical boundary `0.0347`.
+The full text is now available and settles the provenance questions that were previously open.
 
-The accessible publisher record confirms the convergence threshold, the submartingale framing and edge-speed bounds. The full body has not been obtained, so literal identity of Sudbury's internal calculation with the project's `k=8` LP remains unverified.
+### Exact finite-window identification
 
-### Martinelli--Shapira--Toninelli (2025)
+Sudbury uses the same BABP normalization as the project. In Section 3 he follows an outer particle, records an `m`-site block and one additional end-value, and corrects the edge score by a vector `S` indexed by the block state. After reflection:
 
-Fabio Martinelli, Assaf Shapira, Cristina Toninelli, *Long time behaviour of one facilitated kinetically constrained models: results and open problems*, arXiv:2510.20461 (2025).
+- `m=k`;
+- the block state is `u`;
+- the end-value is `z`;
+- `S_i=phi(u)`;
+- the local gain `a_i+sum_j q_ij(S_j-S_i)` is `D_{k,lambda}(u,z;phi)`.
 
-Relevant items checked in the primary arXiv text:
+The Maxwell's-demon formulation permits the end-value to depend on the current block state. Lemma 5 requires one correction vector to give a submartingale for every possible assignment of these end-values. Since the drift in state `i` depends only on the one bit assigned to `i`, this is exactly the robust statewise condition over both `z=0,1` for every `u`.
 
-- Corollary 2.9: every stationary measure of one-dimensional BABP is a convex combination of the completely healthy configuration and Bernoulli equilibrium;
-- Theorem 5.2: DFP exponential ergodicity for every `lambda>0`;
-- Application 1: BABP from any finite nonempty seed has linear particle-number growth for every `lambda>0`;
-- Remark 5.4: finite-seed convergence is recorded as known for `lambda>1/3` by Mountford and improved to `lambda>0.0347` by Sudbury;
+Lemma 7 states that if a suitable submartingale exists for window `m_1`, then one exists for every `m_2>m_1`; the proof simply uses the `m_1` correction on the first `m_1` coordinates and treats the next coordinate as the arbitrary end-value. This is the historical version of the project's window-nesting lemma.
+
+Table 2 reports trial values
+
+```text
+m    lambda_m
+2    0.2653
+3    0.1832
+4    0.1154
+5    0.0805
+6    0.0589
+7    0.0443
+8    0.0347
+```
+
+Sudbury explicitly says these values were found by trial and error and does not claim the displayed decimals are exact critical values. The project value `0.0346195434755...` therefore refines the same eight-site optimization problem.
+
+### Corrector-to-convergence implication is prior art
+
+Immediately before Theorem 7, Sudbury states that Neuhauser--Sudbury (1993) used existence of a suitable submartingale in their stationary-state argument, that his Section 3 extends this condition from `1/3` to `0.0347`, and that the argument of their Section 5 then proceeds unchanged. Theorem 7 gives finite-seed convergence in the resulting range.
+
+Therefore the implication “suitable robust finite-window edge submartingale => finite-seed convergence” is classical. The project `BABP-CONV-001` is a verified self-contained reproof/formulation, not a new general criterion.
+
+## Current verified project contribution
+
+### `BABP-EDGE-001`
+
+At `lambda=1/40`, `k=10`, an exact rational corrector has statewise drift
+
+$$
+\frac{1033}{40000000}>0.
+$$
+
+Independent hostile audit: commit `d1ef2ca`.
+
+This is a new exact range certificate inside Sudbury's classical finite-window framework.
+
+### `BABP-CONV-001`
+
+The project has a self-contained tagged-gap proof that the statewise corrector condition implies finite-seed local convergence. Correctness was independently accepted in commits `abb05f6` and `1aeb5a5`.
+
+The implication itself is prior art by the Sudbury/Neuhauser--Sudbury chain above. The project proof remains useful for self-contained exposition and for making the exact statewise hypothesis transparent. Its proof-architecture novelty is unresolved pending Neuhauser--Sudbury (1993), Section 5.
+
+Together, the exact certificate and the classical implication prove finite-seed convergence at `lambda=1/40=0.025`, below Sudbury's published `0.0347` range.
+
+## Martinelli--Shapira--Toninelli (2025)
+
+Fabio Martinelli, Assaf Shapira, Cristina Toninelli, *Long time behaviour of one facilitated kinetically constrained models: results and open problems*, arXiv:2510.20461.
+
+Relevant items:
+
+- Corollary 2.9: stationary one-dimensional BABP laws are convex combinations of the empty state and Bernoulli equilibrium;
+- Theorem 5.2: all-parameter DFP exponential ergodicity;
+- Application 1: finite-seed BABP particle number grows linearly for every `lambda>0`;
+- Remark 5.4: the historical finite-seed range is recorded at `0.0347`;
 - Application 2 / Remark 5.5: convergence from Bernoulli and certain inhomogeneous product initial laws.
 
-The new project's corrector-to-convergence proof does **not** use the 2025 particle-number growth theorem. Corollary 2.9 is used for stationary-law classification.
+Application 1 is now used in the infinite-front analysis to prove positive current for every singleton-selected Cesaro front law. It is not used in the self-contained corrector-to-convergence bridge.
 
-### Jahnel--Köppl (2026): stationary weak limit points
+## Jahnel--Köppl (2026)
 
-Benedikt Jahnel and Jonas Köppl, *Restriction and mixing properties of interacting particle systems with unbounded range*, arXiv:2603.21817 (2026).
+Benedikt Jahnel and Jonas Köppl, *Restriction and mixing properties of interacting particle systems with unbounded range*, arXiv:2603.21817.
 
-Theorem 2.5 states that for a one-dimensional IPS satisfying assumptions `(L1)` and `(R1)--(R3)` with an exponential profile, every weak limit point of the measure-valued dynamics is stationary.
+Theorem 2.5 supplies stationarity of weak limit points for one-dimensional IPS under `(L1)` and `(R1)--(R3)` with exponential influence. BABP satisfies these directly by bounded single-site rates and nearest-neighbour influence. This is the source-checked stationary-limit input used in the project proof.
 
-BABP fits the theorem directly for every fixed `lambda>0`:
+## Current all-parameter literature boundary
 
-- finite local state space `{0,1}`;
-- single-site updates, hence uniformly bounded update diameter `(R1)`;
-- each site's total flip rate is bounded by `2 max(1,lambda)`, giving `(L1)`;
-- the rate at a site depends only on its two nearest neighbours, so the influence kernel has finite range and satisfies `(R3)` for an exponential profile; the exponential profile satisfies `(R2)` by the triangle inequality.
+No checked source currently removes the finite-seed restriction for every `lambda>0`. The active project reduction is no longer a claim of a new finite-window method; it asks whether the infinite environment seen from the front has hostile invariant semi-infinite-tail phases.
 
-This is a cleaner current source for the subsequential-limit invariance input than relying on inaccessible details of Mountford / Ramírez--Varadhan.
-
-Audit 003 is tasked with independently checking this theorem interface.
-
-## Current project claims and literature boundary
-
-### `BABP-EDGE-001` — verified
-
-At `lambda=1/40`, a ten-site statewise corrector has exact drift `1033/40000000>0` and yields verified two-sided liminf/limsup ballistic edge bounds. Independent hostile audit: commit `d1ef2ca`.
-
-This is not a convergence theorem by itself.
-
-### `BABP-CONV-001` — claimed
-
-Student B assignment 002 proves, and the Professor has independently reconstructed, the following candidate theorem:
-
-> existence of a uniformly positive **statewise** finite-window BABP edge corrector implies local convergence from every finite nonempty deterministic initial set to Bernoulli equilibrium.
-
-The proof controls internal vacant gaps via the same corrector, derives exponential gap tails and local nonescape, then uses Jahnel--Köppl Theorem 2.5 and Martinelli--Shapira--Toninelli Corollary 2.9.
-
-Combining the bridge with `BABP-EDGE-001` gives claimed finite-seed convergence at `lambda=1/40=0.025`, below the `0.0347` range recorded in Martinelli--Shapira--Toninelli Remark 5.4.
-
-This is **not yet a verified novelty claim**. Two independent correctness audits are pending, and a later publication-level successor/citation search is still required before any manuscript claim that this is the current best finite-seed range.
+Student B's `003-front-gap.md` reduces positive finite-window drift at fixed `lambda` to positive current for **every** invariant front law. Every front law selected by the singleton has positive current; the unresolved issue is phase selection/uniqueness at the semi-infinite tail.
 
 ## Other background
 
-Lloyd--Sudbury (1997) supplies quasi-duality/thinning algebra; Sudbury (1997) supplies qualitative convergence background for translation-invariant initial laws. The DFP change-of-basis route is currently demoted because the finite-test cylinder has no probability-law DFP representation and its exact finite-window signed representation has exponentially growing coefficient norm.
+Lloyd--Sudbury (1997) supplies quasi-duality/thinning algebra; Sudbury (1997) supplies qualitative convergence background for translation-invariant initial laws. The DFP black-box route remains demoted for finite-seed convergence because the finite-test signed representation has an exponentially growing coefficient norm.
 
-## Canonical project source
-
-The principal's paper `paper/`, *Patch representations and convergence for facilitated spin systems*, is authoritative for patch construction/proofs. Its BABP subsection and discussion record finite-seed BABP as an unresolved hard-model problem at manuscript time. The current BABP proof does not use patch contraction.
-
-## Successor / novelty status
-
-At programme initialization, a targeted search found no post-2025 theorem removing the recorded `0.0347` finite-seed restriction. This is not yet publication-level novelty verification.
-
-Before promoting `BABP-CONV-001` beyond verified project status or drafting a publication claim, search 2025--2026 successors, citations to Sudbury and Martinelli--Shapira--Toninelli, alternate BABP/jumping-voter terminology, theses/preprints, and any results on finite initial configurations.
+The principal's canonical patch paper remains authoritative for patch construction/proofs but is not the active BABP mechanism.
