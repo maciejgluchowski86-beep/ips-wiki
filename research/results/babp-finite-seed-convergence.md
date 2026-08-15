@@ -1,8 +1,58 @@
-# BABP finite-seed convergence from a statewise edge corrector
+# Exact ten-site BABP certificate below Sudbury's published range
 
-Status: verified project theorem.
+Status: verified project mathematics; historical attribution corrected after full-text comparison with Sudbury (1999).
 
-Claim registry: `BABP-CONV-001` and `BABP-EDGE-001` in `research/claim-registry.md`.
+Claim registry: `BABP-EDGE-001` and `BABP-CONV-001` in `research/claim-registry.md`.
+
+## What is new and what is not
+
+An earlier version of this project record overstated the novelty of the implication from a robust finite-window edge corrector to finite-seed convergence. The full text of Sudbury (1999) settles that question against the stronger reading.
+
+Sudbury's Section 3 is already a finite-window edge-corrector/submartingale construction for BABP. He follows an outer particle, records an `m`-site block, keeps the single next site as an unresolved end-value, and adds a correction `S_i` indexed by the block state. After reflection,
+
+- his `m` is the present `k`;
+- his `m`-block is the present edge word `u`;
+- his end-value `x_{m+1}` is the present exterior bit `z`;
+- his corrected local gain
+
+$$
+a_i+\sum_jq_{ij}(S_j-S_i)
+$$
+
+is the present finite-window drift `D_{k,lambda}(u,z;phi)`.
+
+The Maxwell's-demon formulation is exactly the robust exterior-bit issue. Sudbury lets the end-value be chosen as a function of the current block state, and Lemma 5 requires one correction vector to give a submartingale for every assignment of those end-values. Since the drift in a given block state depends only on that state's single end-value, this is equivalent to requiring the statewise inequality for both `z=0` and `z=1` in every `u`.
+
+Sudbury's Table 2 reports the trial values
+
+```text
+m    lambda_m
+2    0.2653
+3    0.1832
+4    0.1154
+5    0.0805
+6    0.0589
+7    0.0443
+8    0.0347
+```
+
+and explicitly says they were obtained by trial and error rather than proved exact critical values. His Lemma 7 says that if a submartingale exists for `m=m_1`, then one exists for every larger `m_2`, by using the `m_1` correction on the first `m_1` sites and ignoring the rest.
+
+Immediately before Theorem 7, Sudbury states that Neuhauser--Sudbury (1993) used existence of a suitable submartingale in their stationary-state argument, that his Section 3 extends that condition from the old `1/3` range to `0.0347`, and that their Section 5 argument then proceeds unchanged. Therefore the theorem-level principle “a suitable robust finite-window corrector suffices for finite-seed convergence” is classical, not a project discovery.
+
+The verified project contribution recorded here is narrower and concrete: an exact rational `k=10` certificate at
+
+$$
+\lambda=\frac1{40}=0.025
+$$
+
+with uniform margin
+
+$$
+\frac{1033}{40000000}>0,
+$$
+
+which extends Sudbury's published finite-window/convergence range. The independently computed `k=8` crossing `0.0346195434755...` is a refinement of his reported decimal for the same eight-site problem. The proof below is a self-contained modern proof of the classical corrector-to-convergence implication. Whether its particular tagged-gap architecture is itself new remains unresolved until Neuhauser--Sudbury (1993), Section 5, is inspected in full.
 
 ## Model
 
@@ -34,7 +84,7 @@ $$
 
 The exact finite-window drift is denoted by `D_{k,lambda}(u,z;phi)` as in `BABP-EDGE-001`.
 
-## Theorem
+## Self-contained corrector-to-convergence proposition
 
 Assume there are `k>=1`, a bounded `phi:{0,1}^k -> R`, and `v>0` such that
 
@@ -51,7 +101,7 @@ $$
 
 locally on `{0,1}^Z`.
 
-The statewise corrector hypothesis is essential to the proof below. The theorem does not assert that bare outer-edge liminf/limsup velocity bounds alone imply convergence.
+This proposition is retained as a verified self-contained project proof, not as a novelty claim. The statewise corrector hypothesis is essential to the proof below. Bare outer-edge liminf/limsup velocity bounds alone are not asserted to imply convergence.
 
 ## Internal-gap contraction
 
@@ -114,7 +164,7 @@ $$
 \gamma=v\theta.
 $$
 
-This use of the unbounded exponential test is localized. Stop first when the gap width reaches `n` and, if desired, after the first `n` jumps. Dynkin's formula applies on the stopped state space. Let the jump-count cutoff and then `n` tend to infinity, using positivity and Fatou/monotone localization. Consequently a gap born at width one has uniform tails
+This use of the unbounded exponential test is localized. Stop first when the gap width reaches `n` and, if desired, after the first `n` jumps. Dynkin's formula applies on the stopped state space. Let the jump-count cutoff and then `n` tend to infinity using positivity and Fatou/monotone localization. Consequently a gap born at width one has uniform tails
 
 $$
 \mathbf P(\tau>t)\le C_0e^{-\gamma t}
@@ -155,7 +205,7 @@ $$
 \le C_\beta(1+r).
 $$
 
-A gap is nucleated at a fixed site at predictable rate at most two. For complete rigor, first sum only nucleations at sites `|x|<=N`. The strong Markov property at nucleation times and the preceding uniform estimate give
+A gap is nucleated at a fixed site at predictable rate at most two. First sum only nucleations at sites `|x|<=N`. The strong Markov property at nucleation times and the preceding uniform estimate give
 
 $$
 2\sum_{|x|\le N}\int_0^t
@@ -200,7 +250,7 @@ $$
 
 ## External stationary-limit interface
 
-Jahnel--Köppl, *Restriction and mixing properties of interacting particle systems with unbounded range* (2026), Theorem 2.5, proves that on `Z` every weak limit point is stationary under assumptions `(L1)` and `(R1)--(R3)` with an exponentially decaying influence profile. BABP satisfies these assumptions directly. Use singleton update regions. The site flip rate is bounded by `2 max(1,lambda)`, update diameter is bounded, and changing a spin can affect the flip rate only at its two nearest neighbours. With `rho(r)=e^{-alpha r}`, `(R2)` follows from the triangle inequality and `(R3)` follows from finite-range influence. No shift-invariance or reversibility of the initial law is required.
+Jahnel--Köppl, *Restriction and mixing properties of interacting particle systems with unbounded range* (2026), Theorem 2.5, proves that on `Z` every weak limit point is stationary under assumptions `(L1)` and `(R1)--(R3)` with an exponentially decaying influence profile. BABP satisfies these assumptions directly: updates are single-site, site rates are bounded by `2 max(1,lambda)`, and influence has nearest-neighbour support. With `rho(r)=e^{-alpha r}`, `(R2)` follows from the triangle inequality and `(R3)` from finite-range influence.
 
 For stationary-law classification, Martinelli--Shapira--Toninelli (2025), Corollary 2.9, use complementary infection variables `eta=1-xi`. Their constraint is
 
@@ -214,7 +264,7 @@ $$
 \lambda=\frac qp,
 $$
 
-the present generator is exactly `p^{-1}` times theirs. This constant time rescaling does not alter stationary laws. Thus every stationary one-dimensional BABP law in the present convention is
+the present generator is exactly `p^{-1}` times theirs. Constant time rescaling does not alter stationary laws. Thus every stationary one-dimensional BABP law in the present convention is
 
 $$
 \alpha\delta_\varnothing+(1-\alpha)\pi_q.
@@ -243,7 +293,7 @@ $$
 
 Sending `M` to infinity yields `alpha=0`. Every subsequential limit is `pi_q`, hence the full trajectory converges locally.
 
-## Verified concrete corollary at `lambda=1/40`
+## Exact `lambda=1/40` range extension
 
 `BABP-EDGE-001` supplies a ten-site corrector at
 
@@ -260,17 +310,17 @@ $$
 
 Therefore one-dimensional BABP at `lambda=1/40`, started from every finite nonempty deterministic particle set, converges locally to Bernoulli product equilibrium of density `1/41`.
 
-Martinelli--Shapira--Toninelli (2025), Remark 5.4, records the previous finite-seed convergence range as `lambda>0.0347`. Thus `1/40=0.025` lies strictly below that recorded range.
+Sudbury (1999), Theorem 7, gives the published `0.0347` finite-seed range using the same finite-window submartingale framework. Hence `1/40=0.025` is a strict range extension **inside that classical mechanism**.
 
 ## Verification record and scope
 
 The edge certificate was independently audited in commit `d1ef2ca`, `research/active/babp-finite-seed/audits/001-edge-corrector-audit.md`.
 
-The convergence theorem was independently reviewed in:
+The convergence proof was independently reviewed in:
 
 - commit `abb05f6`, `research/active/babp-finite-seed/audits/002-convergence-review-a.md`;
 - commit `1aeb5a5`, `research/active/babp-finite-seed/audits/002-convergence-review-b.md`.
 
-Both reviews accepted the theorem. The localization and finite-spatial-truncation points requested by Review A are included above. Review B independently checked the generator/time-rescaling convention and the Jahnel--Köppl stationary-limit interface.
+Both reviews accepted the mathematics. The localization and finite-spatial-truncation points requested by Review A are included above. Review B independently checked the generator/time-rescaling convention and the Jahnel--Köppl stationary-limit interface.
 
-No convergence rate is claimed. The initial condition is restricted to finite nonempty deterministic sets. The all-parameter statement remains open. A targeted successor search through 2026-08-15 found no later theorem removing the `0.0347` restriction, but publication-level closest-prior-work/novelty review remains pending.
+No convergence rate is claimed. The initial condition is restricted to finite nonempty deterministic sets. The all-parameter statement remains open. The finite-window mechanism and corrector-to-convergence principle are prior art; the exact ten-site certificate at `1/40` is the verified project range improvement.
