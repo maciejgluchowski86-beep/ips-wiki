@@ -36,6 +36,42 @@ Basis: the same principal designation of `paper/` as the canonical patch source.
 
 ## Active or later project claims
 
-None yet under the professor-and-graduate-students architecture.
+### BABP-EDGE-001
 
-When a claim is added or materially strengthened on `main`, add or update an entry here in the same commit unless an existing entry already covers the exact claim.
+Status: `claimed`
+
+Claim: for one-dimensional BABP in the time-scaled convention with birth rate `lambda` per occupied neighbour and death rate `1` per occupied neighbour, at
+
+$$
+\lambda=\frac1{40}
+$$
+
+there exists a bounded corrector depending on the first ten sites behind the rightmost particle such that, for
+
+$$
+H(B)=R(B)+\phi(u(B)),
+$$
+
+the generator drift is uniformly bounded below by
+
+$$
+\mathcal L H(B)\ge \frac{1033}{40000000}>0.
+$$
+
+Consequently the right edge has strictly positive asymptotic outward speed and, by reflection, the left edge has strictly negative asymptotic outward speed.
+
+Source proof/certificate:
+
+- `research/active/babp-finite-seed/students/student-b/001-threshold-and-dfp.md`;
+- `research/active/babp-finite-seed/students/student-b/edge-corrector-certificate.py`.
+
+Professor check:
+
+- `research/active/babp-finite-seed/notes/professor-edge-corrector-verification.md`;
+- `research/active/babp-finite-seed/meetings/003-edge-corrector-breakthrough.md`.
+
+Significance: the same finite-window edge-corrector hierarchy has threshold `1/3` at window size one and numerical zero-drift threshold `0.0346195435...` at window size eight, calibrating to the historical `0.0347` edge-speed/submartingale cutoff in Sudbury's published finite-seed theorem. Since `1/40=0.025<0.0347`, the ten-site certificate strictly penetrates that historical finite-window edge-speed cutoff.
+
+Claim boundary: this entry does **not** claim finite-seed convergence at `lambda=1/40`. The edge-speed-to-local-convergence bridge remains an open proof-spine edge.
+
+Pending independent audit: `research/active/babp-finite-seed/audits/001-edge-corrector-request.md`. Do not promote to `verified` until the resulting durable audit supports it.
