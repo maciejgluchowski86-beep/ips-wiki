@@ -4,41 +4,64 @@ This file is the compact current-state index for the autonomous research program
 
 ## Research architecture
 
-The project now uses a professor-and-graduate-students model.
+The group is organized as a persistent ChatGPT Professor directing persistent graduate-student sessions.
 
-- **Professor:** the former Research Lead, the persistent mathematician session holding the current mathematical thread.
-- **Graduate Student A:** the former Research Partner, the persistent session that audited and redesigned the architecture.
-- **Graduate Student B:** a separate persistent mathematical session to be created or resumed by Claude under `CLAUDE.md`.
+At adoption of this revision:
 
-The Professor is a ChatGPT session, not the human principal. The principal is the PI: they inspect progress and set scientific priorities but are not asked to referee proofs or manage technical work.
+- the former Research Lead becomes the **Professor**;
+- the former Research Partner becomes the first **Graduate Student**.
 
-All regular group members work on the same active programme. Many sessions may remain alive and idle, but at most two sessions may be in flight at once. Fresh sessions are used episodically as outside experts, stagnation consultants, and independent auditors.
+The Professor directs and audits the big picture. Graduate students do specified autonomous hands-on research. The Professor may do mathematics directly when useful, but that is not its default function.
 
-There is no Director, Integrator, pre-nomination gate examination, SEARCH/DEVELOP/VERIFY state machine, reserve-programme requirement, fixed worker dispatch, or `Next cycle` instruction.
+Professor and student sessions are kept alive as long as the platform permits. If a session reaches a platform length limit, the successor continues the same role lineage. Conversation links are optional pointers only; the protocol does not assume a successor can read an authenticated predecessor conversation. Repository handover plus exact transcript transfer is the fallback.
 
-The Professor owns target choice, proof-spine decomposition, assignments, recombination, opportunity-cost judgment, and programme closure. Students own technical attacks and have broad freedom in method.
+Many sessions may remain alive and idle. At most two sessions may be in flight at once.
 
-Every active programme is periodically synthesized through Professor group meetings. After three consecutive completed meetings with no recorded mathematical information gain, Claude mechanically launches a fresh stagnation consultation. The consultation does not kill the programme automatically; it forces an outside expected-value review and an explicit Professor decision to continue, pivot, or close.
+There is no Director, Integrator, seven-gate examination, SEARCH/DEVELOP/VERIFY state machine, reserve-programme requirement, fixed worker taxonomy, fresh-session default, 900-word dispatch, or `Next cycle` instruction.
 
-## Active programme
+## Active scientific direction
 
 **None yet.**
 
-The Professor is to choose a new programme autonomously with input from the graduate students. Previously closed programmes and routes listed below are not to be retried.
+The Professor is to choose a new direction autonomously and assign the first specified research task to the existing Graduate Student.
 
-Reconnaissance is not intended to become a permanent mode. If no programme is active at two consecutive principal check-ins, `CLAUDE.md` requires an explicit Professor target-selection meeting.
+A new graduate student is not spawned per task or cycle. The Professor may call a new persistent student when it chooses a completely new scientific direction. Existing students remain available for directions they already know.
 
-When a programme is selected, record here its short title, branch, target, main obstruction, current bottleneck, proof-spine path, latest information gain, and active research-note path.
+Previously closed programmes and routes listed below are not to be retried.
+
+When a direction is selected, record here:
+
+- short title;
+- research branch;
+- positive target;
+- main obstruction;
+- current proof-spine bottleneck;
+- Professor;
+- active graduate student;
+- active workspace path; and
+- latest group-meeting path.
+
+## Professor review and homeostasis
+
+After each substantial student handoff, before sending the same thread into another substantial variant, the Professor reads the decisive raw technical material and holds an asynchronous group meeting.
+
+Each meeting records `state_narrowed: yes | no` with a pointer to the evidence.
+
+A new speculative variant does not by itself count as narrowing. Narrowing means target-relevant uncertainty was actually reduced by a proof, counterexample, route elimination, sharper reduction or obstruction, improved controlling estimate, necessary-hypothesis change, material literature resolution, or comparable mathematical information.
+
+The Professor may close or redirect a direction on expected-value and opportunity-cost grounds. It does not need an impossibility theorem or proof that all imaginable methods fail.
+
+After three consecutive no-narrowing meetings, Claude mechanically launches a fresh outside Stagnation Consultant. The consultant advises; the Professor retains authority and must respond explicitly. Three further no-narrowing meetings trigger another fresh consultation.
 
 ## Canonical prior work: patch construction
 
 The principal's manuscript `paper/`, *Patch representations and convergence for facilitated spin systems*, is the canonical project source for the patch construction and its proofs. It supersedes the deprecated IPS wiki layer on these points.
 
-In particular, the paper proves conditional patch factorization over the successful-interaction skeleton and proves the resulting exact patch representation of the spin-system semigroup. Old wiki pages that still describe these as conditional are stale and must not be used as the project authority.
+In particular, the paper proves conditional patch factorization over the successful-interaction skeleton and the resulting exact patch representation of the spin-system semigroup. Old wiki pages that still describe these as conditional are stale and must not be used as project authority.
 
-The patch construction is a preferred reusable research asset when it naturally applies: retain a successful-interaction skeleton, decompose one-site spacetime histories into patches, condition on the skeleton, and average local signed contributions before global comparison. It is not a mandatory template for new work.
+The patch construction is a preferred reusable research asset when it naturally applies: retain a successful-interaction skeleton, decompose local spacetime histories into patches, condition on the skeleton, and average signed local contributions before global comparison. It is not a mandatory template for new work.
 
-These canonical claims are indexed in `research/claim-registry.md`.
+The canonical patch claims are indexed in `research/claim-registry.md`.
 
 ## Reusable observations from closed work
 
@@ -96,51 +119,52 @@ The broader mathematical problems may remain open. What is closed is the recorde
 
 These are heuristics, not gates.
 
-- Work from the actual obstruction. A cancellation that exists only in a weaker or unweighted quantity is not useful unless it survives in the norm or quantity that controls the theorem.
+- Work from the actual obstruction. A cancellation that exists only in a weaker or unweighted quantity is not useful unless it survives in the norm or quantity controlling the theorem.
 - Test the first nontrivial composition and natural critical scaling early when a proposed local gain is central.
 - Stress a mechanism on examples selected from the obstruction, not examples selected to flatter the mechanism.
 - Do cheap decisive mathematics before exhaustive literature work, while still checking novelty before making a strong claim.
 - A classical technique may support new mathematics. Novelty should be located in the theorem or obstruction-level consequence, not in the mere existence of cancellation or conditional averaging.
-- Repeated failure can be information even without an impossibility theorem. The Professor may close a programme on opportunity-cost grounds when the proof spine is not narrowing and better targets have higher expected value.
+- Repeated failed variants with no genuine narrowing are evidence against tractability even when no impossibility theorem is available.
 
 ## Research workspace
 
 Workspace documentation and templates live under `research/`.
 
-For a new programme the Professor creates a branch `research/<short-programme-slug>` and a directory `research/active/<short-programme-slug>/` containing at least:
+For a new direction the Professor creates a branch `research/<short-programme-slug>` and a directory `research/active/<short-programme-slug>/` containing at least:
 
 - `state.md`;
 - `proof-spine.md`;
-- technical notes or TeX files as needed;
+- technical notes as needed;
 - `literature.md`;
 - `audit-log.md`;
-- `meetings/`; and
-- `students/`.
+- `meetings/`;
+- `students/`; and
+- `handover.md` when a session succession is pending or completed.
 
-The Professor owns the state, proof spine, group-meeting synthesis, and principal-facing brief. Students keep substantial independent calculations under their own subdirectories when useful.
-
-The repository is canonical long-term memory. Persistent sessions should regularly re-ground from the current state, proof spine, latest meeting note, and relevant technical files rather than relying on conversational memory alone.
+The repository is canonical technical memory. Persistent conversations are working memory.
 
 ## Stable claim promotion
 
-`research/claim-registry.md` records the status of project-specific mathematical claims promoted to `main`.
+`research/claim-registry.md` is the mechanical status index for project-specific mathematical claims on `main`.
 
-A manuscript on `main` is a draft artifact by default and does not establish its own theorem claims. New or materially strengthened project-specific theorem claims promoted to `main` must be registered as `claimed`, `verified`, or principal-designated `canonical`, with audit references for `verified` claims.
+A manuscript being present on `main` does not make its theorems verified. Verified claims point to durable independent audit records. Principal-designated canonical claims are recorded explicitly.
 
-Claude checks the presence of this metadata mechanically; mathematical correctness remains a ChatGPT responsibility.
+The Professor owns scientific promotion; Claude verifies registry and repository metadata mechanically.
 
 ## Wiki
 
 The wiki is frozen except for correctness repairs and prerequisites genuinely required to understand or check active research or a theorem.
 
-Do not run systematic legacy migration, generic reading-path expansion, or periodic curation while the freeze is in force. Existing wiki content is left in place for now. Deprecated IPS wiki material is superseded by the canonical patch paper where they conflict.
+Do not run systematic legacy migration, generic reading-path expansion, or periodic curation while the freeze is in force.
 
-When the first central theorem of a new programme reaches independent audit, the Professor should ask in the principal-facing brief whether theorem-driven wiki work should expand. The freeze remains until the principal changes it.
+When the first central theorem of a new programme enters independent audit, the Professor raises the freeze for principal review. Nothing automatically unfreezes it.
 
-`wiki-curation-state.json` may remain as historical/mechanical state but does not schedule work under the current protocol.
+Deprecated IPS wiki material is superseded by the canonical patch paper where they conflict.
 
 ## Principal-facing status
 
-The principal may check in daily or more often. The Professor's active `state.md` brief should report the active problem, mathematical change since the previous brief, proof-spine movement, present bottleneck, current direction decision, assignments, no-information-gain meeting count, pending audits or stagnation consultations, and any genuine principal-level question.
+The principal may check in daily or more often.
+
+The Professor's brief should state the active target, what changed mathematically, what raw material the Professor inspected, the current proof-spine bottleneck, strongest positive and negative evidence, whether the state narrowed, the continue/pivot/close decision, next assignment, and any pending outside consultation or genuine principal-level question.
 
 Daily check-ins are informational and do not pause autonomous work.

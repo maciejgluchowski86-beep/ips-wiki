@@ -1,27 +1,37 @@
-# Student update
+# Graduate-student handoff
 
-This is a short durable handoff to the Professor after a substantial assignment. It is not a required chat-response format and does not replace the technical files.
+This is a short durable handoff to the Professor after a substantial autonomous assignment. It is not a required chat-response format and does not replace the technical files.
 
 ## Assignment
 
-What mathematical question were you trying to resolve?
+State the specified mathematical objective the Professor asked you to investigate and why it matters to the current proof spine.
 
 ## Outcome
 
 State the strongest supported result: proof, partial result, counterexample, obstruction, failed route, computation, literature finding, or unresolved point.
 
+If nothing material was learned, say so plainly.
+
 ## Decisive files
 
-Point to the exact technical notes, code, figures, or source locations the Professor should read.
+Point to the exact technical notes, code, figures, calculations, or source locations the Professor should read.
 
-## What actually changed
+## What uncertainty changed
 
-What uncertainty was reduced, if any? If nothing material changed, say so rather than dressing a new variant up as progress.
+What target-relevant uncertainty was reduced?
 
-## Blocker or objection
+If the answer is none, say none. A new possible variant is not by itself progress.
 
-What is now preventing further progress on this assignment?
+## Failed attempts worth preserving
+
+Record only failures whose details would be expensive to rediscover, with file pointers.
+
+## Current blocker
+
+What precisely prevents this assignment from going further?
 
 ## Recommendation to the Professor
 
-Continue this line, change the subproblem, ask the other student to attack it, request outside help, revise the proof spine, or another recommendation. The Professor decides.
+Recommend a next move if useful: continue this line, change the subproblem, inspect a particular calculation, use another existing relevant student, request outside specialist help, revise the proof spine, pivot, or close.
+
+The Professor decides the direction.

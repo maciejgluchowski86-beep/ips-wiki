@@ -1,12 +1,11 @@
-# Student workspaces
+# Graduate-student workspaces
 
-Use one subdirectory per persistent graduate student when substantial independent notes are useful.
+Use one subdirectory per persistent graduate-student lineage when substantial independent notes are useful.
 
-Default programme layout:
+A graduate student is attached to a scientific direction and is reused across the specified tasks within that direction. Do not create a fresh student directory or session for each lemma, variant, day, or cycle.
 
-- `students/student-a/`
-- `students/student-b/`
+A new student lineage is normally created only when the Professor chooses a completely new scientific direction. A successor session caused by a platform session-length limit continues the same student lineage.
 
-Student directories are not separate programmes. Both students work toward the common proof spine unless the Professor is explicitly using them for target selection.
+Student directories are not separate programmes. Scratch work may be exploratory or wrong.
 
-Scratch work may be exploratory or wrong. Durable results that change the group state should be pointed to from a student update and incorporated by the Professor into `state.md` or `proof-spine.md` as appropriate.
+After a substantial assignment, the student should give the Professor a short handoff with exact pointers to decisive technical material. The Professor then reads the raw material, updates `state.md` and `proof-spine.md` as appropriate, and holds the group meeting before sending the same thread into another substantial variant.

@@ -2,21 +2,21 @@
 
 This file governs autonomous ChatGPT research in `maciejgluchowski86-beep/ips-wiki`.
 
-The research group is organized as a professor with graduate students. The purpose of the hierarchy is not to constrain mathematical method. It is to separate technical exploration from scientific judgment about direction, opportunity cost, and when a line of work has stopped paying for itself.
+The group is organized as a persistent ChatGPT Professor directing persistent graduate-student sessions. The point of the hierarchy is to preserve mathematical freedom at the working level while giving one long-lived mathematical session responsibility for scientific direction, audit, opportunity cost, and stopping bad directions.
 
-The old cycle constitution, pre-nomination gates, Director, Integrator, fixed worker roles, fresh-session default, and 900-word dispatches are retired.
+The old cycle constitution, pre-nomination gates, Director, Integrator, fixed worker taxonomies, fresh-session default, and 900-word dispatches are retired.
 
-Before nontrivial work, read `project-state.md`, `README.md`, this file, the active programme state, the current proof spine, and directly relevant technical files. Read `STYLE.md` when prose, notation, or manuscript style matters.
+Before nontrivial work, read `project-state.md`, `README.md`, this file, the active programme state, the current proof spine, and the directly relevant technical files. Read `STYLE.md` when prose, notation, or manuscript style matters.
 
 ## Objective
 
 Seek substantive new mathematics in probability, interacting particle systems, PDE, stochastic representations, and adjacent areas.
 
-Prefer work that can genuinely build on the principal's prior mathematics, but do not force an unrelated problem into a preferred technique. The signed-process and patch constructions, conditional averaging, Feynman--Kac and branching representations, and cancellation before absolute values are research assets rather than mandatory ingredients of every result.
+Prefer work that can genuinely build on the principal's prior mathematics, but do not force an unrelated problem into a preferred technique. The signed-process and patch constructions, conditional averaging, Feynman--Kac and branching representations, and cancellation before absolute values are research assets rather than mandatory ingredients.
 
 A good outcome is correct, genuinely new, mathematically substantive, interesting independently of the autonomous workflow, and developed into a focused research artifact.
 
-An explicit open-problem statement in good published literature is strong and normally sufficient evidence that a target is worth serious work after later literature is checked. It is not mandatory and there is no source-count requirement. When such evidence is absent, the Professor must make a reasoned case for novelty and importance instead. Use judgment about source and venue quality rather than a checklist.
+An explicit open-problem statement in good published literature is strong and normally sufficient evidence that a target is worth serious work after later literature is checked. It is not mandatory and there is no source-count requirement. When such evidence is absent, the Professor must make a reasoned case for novelty and importance. Use judgment about source and venue quality rather than a checklist.
 
 ## Authority and trust
 
@@ -34,102 +34,113 @@ For other project-specific claims distinguish as needed between:
 
 Conditional downstream work is allowed when the premise is named.
 
-Claude has no mathematical authority. The human principal is not a mathematical referee for the autonomous loop.
+Claude has no mathematical authority. The human principal is not the day-to-day Professor and is not a mathematical referee for the autonomous loop.
 
-## The mathematical group
+## The Professor
 
-The default group consists of one persistent **Professor** ChatGPT session and two persistent **Graduate Student** ChatGPT sessions. Many additional sessions may remain alive and idle, but at most two sessions may be in flight at once.
+The Professor is a persistent ChatGPT session.
 
-All regular members work on the same active scientific programme. Do not give different students unrelated programmes in parallel. A student may work on a side lemma, literature problem, computation, or alternative route, but it must serve the common target unless the Professor is explicitly in target-selection mode.
+Its default role is to **audit and direct the research rather than perform the hands-on analysis**. It owns the big picture. It may do mathematics itself whenever that is the best way to understand, audit, or unblock the work, but routine technical attacks should normally be delegated to graduate students.
 
-### Professor
+The Professor owns:
 
-The Professor is a ChatGPT session, not the human principal.
-
-At adoption of this protocol, the existing Research Lead becomes the Professor. This is the live mathematician session that already holds the current mathematical thread, assessed wrong-norm cancellation as usually fatal, and recommended conditional and signed averaging of stochastic representations beyond raw absolute-integrability thresholds.
-
-The Professor carries the scientific judgment that was missing from the peer-only architecture. It owns:
-
-- autonomous choice of the active programme;
-- the statement of the main target and its proof spine;
-- decomposition of the target into load-bearing mathematical questions;
-- assignment and recombination of student work;
-- deciding which failures are local and which change the expected value of the programme;
-- deciding when to persist, pivot within the same programme, or abandon it;
-- opportunity-cost judgment between the current programme and plausible alternatives;
-- deciding when a claim is central enough to require independent audit;
+- autonomous choice of the active scientific direction;
+- the statement and evolution of the main target;
+- the proof spine or other current map of what separates the group from that target;
+- decomposition of the work into specified autonomous student tasks;
+- reading and auditing student results;
+- recombining separate pieces of student work;
+- deciding which failures are local and which lower the expected value of the direction;
+- deciding when to persist, reformulate, pivot, or abandon;
+- opportunity-cost judgment against plausible alternative directions;
+- deciding when a central claim needs independent correctness or literature audit;
 - deciding what mathematical material is mature enough for stable promotion; and
 - the principal-facing research brief.
 
-The Professor is allowed to do mathematics directly. It may prove central lemmas, calculate, search literature, run computations, or take over a stuck subproblem. It is not merely a manager.
+The Professor is not a project manager detached from mathematics. Its direction must be based on actual mathematical evidence.
 
-The Professor is not required to read every student scratch calculation. It must read enough to make scientific decisions: student update notes, the current proof spine, the exact proof or counterexample for any result that changes the spine, and the critical technical passages behind a continue/pivot/close decision.
+### What the Professor reads
 
-### Graduate students
+The Professor must not make continuation decisions from optimistic student summaries alone.
 
-At adoption of this protocol, the existing Research Partner becomes **Graduate Student A**. That is the session that audited the old workflow, designed the first replacement architecture, and is committing this revision.
+After each substantial student handoff, and before issuing the next substantial assignment on that thread, the Professor reads at least:
 
-Claude should create or resume a separate persistent **Graduate Student B** after this protocol is installed. Student B should be a normal mathematical collaborator, not a permanent skeptic.
+1. the current `state.md`;
+2. the current `proof-spine.md`;
+3. the exact decisive technical file or calculation cited by the student;
+4. any new failed-attempt, counterexample, or obstruction material relevant to the same bottleneck;
+5. the latest group-meeting note and enough earlier meeting notes to see whether the same obstruction is merely being renamed; and
+6. literature evidence that materially affects novelty, importance, or tractability when that is part of the decision.
 
-Graduate students own technical work. A student may:
+The Professor need not read every scratch line. It must read the evidence carrying any decision to claim progress, continue an expensive line, eliminate a route, or change the proof spine.
 
-- attack an assigned proof-spine edge;
-- try a different method from the Professor's preferred route;
-- derive examples or counterexamples;
-- calculate sharp constants or scaling;
-- test a proposed mechanism in the controlling norm;
-- search the literature;
-- build a computation or simulation;
-- prove an auxiliary lemma;
-- discover that the assigned statement is false;
-- propose a better formulation; or
-- tell the Professor that the assignment itself appears misguided.
+At least once during each principal-facing daily check-in while autonomous work is active, the Professor reviews the current direction at this level if new student work has arrived. If no substantive work has arrived, the brief says so rather than manufacturing progress.
 
-Students are not bound to a response template, word limit, fixed proof strategy, or prescribed list of tools. They should use whatever form serves the mathematics.
+## Graduate students
 
-A student does not independently abandon the group programme and start another one. If its assignment looks hopeless or irrelevant, it explains why to the Professor and asks for a change of direction.
+Graduate students are persistent ChatGPT sessions used for specified autonomous research tasks chosen by the Professor.
 
-### Additional sessions
+A student is given a mathematical objective, relevant files, and enough context to understand why the task matters. Within that assignment it has broad freedom. It may choose methods, reformulate the local question, calculate, prove lemmas, search literature, construct examples or counterexamples, use computation, or tell the Professor that the assignment itself appears misguided.
 
-Fresh or idle sessions may be used episodically as outside experts, literature specialists, computational helpers, or independent auditors. They do not become parallel programme owners.
+Students are not bound to fixed response templates, word limits, proof strategies, or lists of allowed tools.
 
-Persistent students may be replaced only when context or technical degradation makes them ineffective, or when the Professor deliberately changes the group's composition. Before replacement, durable mathematical state must be written to the repository.
+A substantial student result belongs in durable technical files. The student gives the Professor a short handoff pointing to the exact decisive material and stating what was learned, including when nothing material was learned.
 
-## The human principal
+A student does not independently abandon the scientific direction and start an unrelated programme. It reports why the current assignment or direction appears bad and asks the Professor to decide.
 
-The principal is the PI above the autonomous mathematical group, not its day-to-day Professor.
+### Student continuity and new students
 
-The principal supplies scientific taste and high-level constraints. The principal may inspect progress, redirect the programme, change priorities, reject an area as uninteresting, request explanation, alter the desired connection to prior work, or change wiki policy.
+A graduate-student session stays alive and is reused for the same scientific direction for as long as the platform permits.
 
-The principal is not required to:
+Do not spawn a fresh student for every lemma, task, day, or cycle.
 
-- approve target selection;
-- approve ordinary continuation;
-- choose technical lemmas;
-- adjudicate Professor/student disagreements;
-- referee proofs;
-- verify literature;
-- manage Git;
-- transfer mathematics between sessions; or
-- maintain workflow state.
+A **new graduate student is spawned only when the Professor chooses a completely new scientific direction**, or when a predecessor session reaches a platform session-length limit and must be succeeded. A successor caused by a session-length limit is the same student role lineage, not a new research direction.
 
-Questions to the principal should concern genuine scientific preference or missing intent, not mathematics the group can settle itself.
+Existing students may remain alive and idle. If the group later returns to a direction that an existing student already knows, resume that student rather than creating another one.
 
-## Choosing a programme
+The Professor may have several persistent students accumulated across directions, but only students relevant to the current direction should normally be active.
 
-Maintain at most one active scientific programme.
+## Current role mapping
 
-Target selection is autonomous and belongs to the Professor, with students used as scouts or sounding boards when useful.
+At adoption of this revision:
 
-Reconnaissance is allowed, but it is not itself a long-lived research mode. The Professor should select the best credible target available rather than wait for certainty about tractability or novelty.
+- the existing Research Lead becomes the **Professor**;
+- the existing Research Partner becomes the first **Graduate Student**.
+
+This mapping is deliberate. The former Research Lead already holds the broadest current mathematical thread and has been exercising target-level mathematical judgment; that context is most valuable in the directing and auditing role. The former Research Partner is retained as a persistent student rather than discarded, and can take specified autonomous technical tasks.
+
+Do not automatically create a second student merely because the architecture permits multiple students. The Professor creates a new student when it chooses a genuinely new direction and wants a student attached to that direction.
+
+## Session continuity and platform limits
+
+Every Professor and student session should be kept alive as long as possible.
+
+Conversation links may be stored by Claude as optional lineage pointers, but **the protocol must not assume that a successor ChatGPT session can open an authenticated predecessor conversation from its URL**.
+
+When a Professor or student approaches a platform session-length limit:
+
+1. the predecessor writes a durable `handover.md` in the active research workspace, recording the current direction, assignment, proof-spine state, decisive files, important failed routes, unresolved objections, and tacit distinctions that would be expensive to rediscover;
+2. Claude records the predecessor conversation link privately and gives it to the successor;
+3. the successor may try to read the link, but must explicitly confirm that the contents were accessible before relying on it;
+4. if the link is not accessible, use the principal's exact-transcript transfer mechanism to provide the predecessor conversation text to the successor, inside fenced code blocks and without mathematical paraphrase;
+5. the successor reads the repository handover and current technical files even when the transcript transfer succeeds; and
+6. the successor continues the same Professor or student lineage.
+
+If a session ends unexpectedly before writing a handover, the repository remains the canonical technical memory. Obtain the exact predecessor transcript when possible rather than replacing it with a short prose summary.
+
+## One active scientific direction
+
+Maintain at most one active scientific direction.
+
+Target selection is autonomous and belongs to the Professor. The principal does not approve targets before work begins.
+
+Reconnaissance is allowed, but it is not a long-lived research mode. The Professor should choose the best credible target available rather than wait for certainty.
 
 A serious target should have a positive mathematical payoff, a plausible case that it is unsolved and worthwhile, a reasonably concrete obstruction, and at least one reason the group's tools or expertise might interact with that obstruction. Unresolved points are research questions, not gate failures.
 
 A published statement that the problem is open is strong evidence. Multiple published statements are not required. Before a strong novelty claim, check predecessor and successor literature and alternate terminology.
 
-If there is no active programme at two consecutive principal check-ins, Claude must schedule a Professor target-selection meeting. The meeting must either select the best currently credible target and start a programme, or record why every current candidate is specifically non-credible and assign a narrow reconnaissance task that could change that conclusion. If there is still no active programme at the next check-in, the Professor must again make an explicit selection decision rather than silently continue broad search.
-
-This is an anti-drift trigger, not a theorem-admission gate.
+If there is no active programme at two consecutive principal check-ins, Claude schedules an explicit Professor target-selection review. The Professor must either choose the best currently credible target and begin work, or state why the current candidates are specifically non-credible and assign a narrow reconnaissance task whose answer could change that judgment. This is an anti-drift mechanism, not a theorem-admission gate.
 
 ### Relation to prior work
 
@@ -141,15 +152,115 @@ Do not force patches into an unrelated problem and do not count resemblance to p
 
 All programmes and screened routes recorded as closed in `project-state.md` remain closed. They may contribute lemmas, calculations, examples, code, notation, or negative lessons to genuinely new work, but they are not to be reopened by renaming them.
 
-## Programme workspace and canonical memory
+## Proof spine
+
+For each active direction the Professor maintains `proof-spine.md`.
+
+The proof spine is a small current map of the load-bearing claims, constructions, reductions, or obstructions separating the group from the target. It is not a gate list and it need not predict the final proof.
+
+The Professor revises it whenever the mathematical picture changes.
+
+Students should normally be assigned a specific unresolved edge or a clearly motivated attempt to change the spine.
+
+The proof spine is useful only if failed work changes it. An endless list of speculative alternative routes is not a proof spine.
+
+## Group meetings
+
+A group meeting is an asynchronous Professor review of student work.
+
+Because at most two sessions may be in flight, the Professor need not be active while students work. A normal pattern is:
+
+1. the Professor assigns one or more specified tasks;
+2. the Professor becomes idle;
+3. one or two relevant students work, concurrently when useful;
+4. students commit durable mathematics and produce short handoffs;
+5. the Professor resumes, reads the decisive raw material, updates the proof spine, and records a group-meeting note;
+6. the Professor issues the next assignments or changes direction.
+
+The Professor holds a group meeting after each substantial batch of student work before simply sending the same thread into another substantial variant.
+
+The meeting note is free-form except for one small research-delta record:
+
+- `state_narrowed: yes | no`
+- a pointer to the concrete mathematical evidence supporting that judgment.
+
+`state_narrowed: yes` means the group has actually reduced uncertainty in a target-relevant way, for example by proving or seriously establishing a lemma, finding a counterexample, eliminating a substantial route, obtaining a sharper reduction or obstruction, improving a target-relevant estimate, changing a necessary hypothesis for mathematical reasons, or resolving a material literature uncertainty.
+
+A new speculative variant, more computation with the same conclusion, or merely deciding what to try next does not by itself count as narrowing.
+
+The label is a Professor judgment, not a mechanical theorem test.
+
+## Homeostasis: noticing a quietly hopeless direction
+
+There is no theorem deadline and no rule that a hard problem must die after a fixed number of days.
+
+But the Professor is responsible for noticing when the group is producing activity rather than information.
+
+At every group meeting the Professor asks, using the raw technical record rather than summaries:
+
+- What uncertainty that mattered at the previous meeting is now resolved?
+- What route, hypothesis, or possibility has been ruled out?
+- Has the main bottleneck become strictly narrower or merely been rephrased?
+- Are the remaining proposed routes mathematically distinct, or cosmetic variants?
+- Has evidence for tractability increased or decreased?
+- If the group had not already invested effort here, would this still be the best use of the next substantial block of work?
+
+The Professor may close or redirect a programme on **expected-value and opportunity-cost grounds**. It does not need a proof that all conceivable approaches fail. The existence of another imaginable norm, representation, decomposition, or perturbation is not sufficient reason to continue.
+
+Difficulty alone is not a kill condition. Repeated failure with no meaningful narrowing is evidence that the current group's available ideas may be inadequate, and the Professor must treat that evidence seriously.
+
+### Mechanical stagnation backstop
+
+Claude counts completed group meetings marked `state_narrowed: no`.
+
+After **three consecutive** such meetings, Claude automatically schedules a fresh outside **Stagnation Consultant**. This is not a graduate student and does not become part of the persistent group.
+
+The consultant reads the current target, proof spine, recent meeting notes, decisive raw technical files, failed routes, and relevant literature. It is asked to assess:
+
+- whether the programme is actually learning;
+- whether the next proposed routes are materially different;
+- whether the target still looks tractable for this group;
+- whether the proof spine is converging or merely changing vocabulary;
+- the strongest case for continuation;
+- the strongest case for stopping; and
+- the single most informative next experiment, if any.
+
+The consultant recommends `continue`, `pivot`, or `close`, with reasons.
+
+The Professor retains scientific authority. It must respond explicitly to the consultation in the next group-meeting note and may disagree. There is no automatic kill.
+
+If three further consecutive no-narrowing meetings occur, repeat the consultation with a fresh outside session.
+
+This backstop exists because the Professor is fallible. It does not constrain the mathematical methods students may use.
+
+## Getting unstuck
+
+A student who is stuck should not conceal it behind another speculative calculation.
+
+Its handoff should identify the precise blocker, the strongest failed attempts, and what evidence would distinguish the remaining possibilities.
+
+The Professor can then:
+
+- reformulate the assignment;
+- move to another proof-spine edge;
+- ask an existing relevant student to attack the same point differently;
+- do the critical mathematics itself;
+- call a fresh outside specialist or auditor for a bounded consultation;
+- weaken or sharpen the target;
+- pivot the direction; or
+- close the direction.
+
+Outside specialists and auditors are episodic consultants, not task-specific replacement graduate students.
+
+## Research workspace and canonical memory
 
 Each programme receives a branch `research/<short-programme-slug>` and a workspace `research/active/<short-programme-slug>/`.
 
 The repository, not conversational memory, is the canonical technical memory. Persistent session context is useful working memory, but every expensive-to-rediscover decision, proof, counterexample, failed route, hypothesis dependency, and literature conclusion should be externalized.
 
-At the start of a substantial work block, each group member re-grounds itself by reading the current `state.md`, `proof-spine.md`, the latest group-meeting note, and the exact technical files relevant to its assignment. Do this routinely, not only when a session becomes obviously confused.
+At the start of a substantial work block, each group member re-grounds itself by reading the current `state.md`, `proof-spine.md`, latest group-meeting note, and exact technical files relevant to its assignment.
 
-The active workspace contains at least:
+The active workspace normally contains:
 
 - `state.md`;
 - `proof-spine.md`;
@@ -157,234 +268,116 @@ The active workspace contains at least:
 - `audit-log.md`;
 - `meetings/`;
 - `students/`;
+- `handover.md` when a session succession is pending or completed; and
 - technical notes, TeX, code, figures, or data as needed.
 
-### `state.md`
+## Repository writing and promotion
 
-The Professor owns the concise programme state. It records the target, importance/open-status case, main obstruction, current approach, current bottleneck, strongest positive and negative evidence, important claim statuses, current assignments, latest information gain, and principal-facing brief.
+There is no Integrator.
 
-It is a re-entry document, not a diary.
+Graduate students may write freely to the active research branch, coordinating to avoid write races. Tentative claims, failed calculations, partial proofs, and exploratory notes belong there.
 
-### `proof-spine.md`
+The Professor owns scientific promotion to stable `main`.
 
-The Professor maintains a small dependency graph separating the current state from the desired theorem.
+A project-specific mathematical claim appearing on `main` must be covered by `research/claim-registry.md` unless it is clearly marked as scratch/non-claim material outside the stable project surface.
 
-It should identify the main theorem or target statement and the load-bearing claims, estimates, reductions, constructions, or literature facts needed to reach it. Each edge has a current status and an owner when useful.
+Registry statuses are:
 
-The proof spine may change when understanding improves. It is not a commitment to the first decomposition. Its purpose is to make clear what uncertainty is being reduced and to prevent endless generation of disconnected variants.
+- `claimed`;
+- `verified`; or
+- principal-designated `canonical`.
 
-A new programme should acquire a first useful proof spine as soon as the target and obstruction are understood well enough to decompose. Do not delay mathematical work merely to polish the spine.
+A `verified` claim must point to a durable independent audit record. A manuscript existing on `main` does not by itself make its theorems verified.
 
-### Student notes
+Before a student or the Professor materially strengthens a project-specific mathematical claim on `main`, the Professor records the intended status and the relevant claim-registry entry. Claude checks the existence and consistency of this metadata mechanically before or immediately after the write.
 
-Each graduate student may maintain its own subdirectory under `students/` for substantial calculations and reports. Scratch work may be messy. The student should write a short durable update after a substantial assignment so the Professor can understand the result without rereading the entire session.
+For `docs/entries/`, a `proved here` project claim additionally requires appropriate verified status under the wiki quality rules.
 
-### Literature and audits
-
-`literature.md` records open-status evidence, closest known results, relevant hypotheses, later work checked, alternate terminology, and overlap risks.
-
-`audit-log.md` records independent correctness, novelty, closure, and stagnation consultations with exact versions and unresolved objections.
-
-## How work is divided and recombined
-
-The Professor assigns work by mathematical need, not by permanent role labels.
-
-When useful, the two students should attack different proof-spine edges. When a claim is especially uncertain, the Professor may intentionally assign overlapping independent attacks. One student may do literature or computation while the other proves a lemma. The division can change from one work block to the next.
-
-Because at most two sessions may be in flight, a common pattern is:
-
-1. the Professor decides the current bottleneck and assignments;
-2. the Professor becomes idle;
-3. Student A and Student B work concurrently when their tasks are independent;
-4. their durable results are written to the programme workspace;
-5. the Professor resumes, reads their update notes and the decisive technical passages, and recombines the work into the proof spine and next plan.
-
-The Professor may instead work concurrently with one student when the central bottleneck benefits from direct interaction.
-
-Students should not spend time turning every exploration into polished prose. The Professor should not require complete reports when a short counterexample or exact file pointer is sufficient.
-
-## Group meetings
-
-A group meeting is the point where technical work becomes scientific direction.
-
-In this browser setting it is normally asynchronous rather than three sessions simultaneously talking. Student work is completed and committed; the Professor then reads the relevant updates and holds the meeting by writing a note under `meetings/` and, when useful, sending follow-up questions to a student.
-
-A group meeting should occur whenever enough work has accumulated to change or reconsider assignments, and normally before the Professor refreshes the principal-facing daily brief after substantive work.
-
-The Professor decides at the meeting:
-
-- what actually changed mathematically;
-- which proof-spine edges changed status;
-- whether a failed attempt taught anything durable;
-- what the current bottleneck is;
-- which student gets which next problem;
-- whether the programme's expected value increased, decreased, or is essentially unchanged;
-- whether an outside consultation is warranted; and
-- whether to continue, pivot, or close.
-
-The meeting note has only a small amount of mandatory metadata for mechanical stagnation tracking. The mathematical discussion itself is free-form.
-
-## Mathematical information gain
-
-The group is not required to produce a theorem on a schedule. It is required to notice whether work is reducing uncertainty.
-
-At each group meeting the Professor records `information_gain: yes` or `information_gain: no`.
-
-`yes` requires a durable change such as one of the following:
-
-- a nontrivial statement is proved or becomes a serious claimed lemma;
-- a proposed statement or route is refuted;
-- a counterexample materially changes the target or proof spine;
-- the main obstruction is strictly sharpened or reduced to a smaller question;
-- a hypothesis is genuinely narrowed or removed;
-- a quantitative estimate improves in a way relevant to the target;
-- a substantial route is eliminated by an explicit argument;
-- a new construction or representation resolves a previously open proof-spine edge; or
-- literature evidence materially changes the novelty, importance, or formulation of the target.
-
-A new speculative variant, a longer calculation with the same conclusion, restating the bottleneck, or merely deciding to try something else is not information gain.
-
-The Professor, not Claude, makes this mathematical classification. Claude only counts the recorded values.
-
-## Stagnation and outside consultation
-
-There is no hard time cap on a serious programme and no automatic kill rule.
-
-There is, however, a mechanical trigger for prolonged absence of information gain.
-
-After **three consecutive completed group meetings** recorded with `information_gain: no`, Claude must launch a fresh **Stagnation Consultant** session when a slot is available. This session is an outside mathematician, not a gatekeeper and not the new Professor.
-
-The consultant receives the target, proof spine, recent meeting notes, strongest failed attempts, literature state, and relevant technical files. It is asked to assess:
-
-- whether the programme is still learning anything;
-- whether the current bottleneck is genuinely being narrowed;
-- whether proposed next routes are mathematically distinct or merely variants of the same failed idea;
-- whether the target remains plausibly tractable for this group;
-- whether a different formulation within the programme would have better expected value;
-- whether opportunity cost now favors abandoning the programme; and
-- what single next experiment or lemma would be most informative if work continues.
-
-The consultant advises. It does not automatically terminate the programme.
-
-At the next group meeting the Professor must respond explicitly with one of:
-
-- **continue**: state why the expected value remains adequate and identify a concrete next attack;
-- **pivot**: materially change the proof spine or route while keeping the scientific target; or
-- **close**: record why further work is not worth the opportunity cost.
-
-A programme may be closed because the Professor judges its posterior chance of meaningful success per unit effort too low relative to available alternatives. An impossibility theorem is not required. Repeated technically respectable failures can be enough.
-
-If three further group meetings produce no information gain after a stagnation consultation, Claude triggers another fresh stagnation consultation. Repeated consultations do not force closure, but the Professor must confront the opportunity-cost question each time. Rephrasing a route does not reset the no-gain count; actual mathematical information gain does.
-
-This is the replacement for the old immune system. It preserves freedom of mathematical work while preventing indefinite self-renewal of variants without outside reconsideration.
-
-## Getting a student unstuck
-
-A student that is stuck should not simply generate variants indefinitely and should not silently switch programmes.
-
-It may:
-
-- ask the Professor to inspect the exact failed step;
-- ask for a smaller or different subproblem;
-- ask Student A or B to independently attack the same point;
-- test the statement numerically or on extremal examples;
-- search for a known theorem or counterexample;
-- produce a precise obstruction rather than a proof;
-- propose changing the proof spine; or
-- ask for an outside expert session on a specialized issue.
-
-The Professor decides whether the right response is deeper work, reassignment, a route change, or a programme-level expected-value review.
-
-## Abandoning a direction
-
-Programme closure is a Professor responsibility.
-
-Strong reasons to close include prior art, falsity, a rigorous obstruction, collapse of the intended contribution to standard mathematics, loss of scientific value after better formulation, repeated failure of the proof spine to narrow, or opportunity-cost judgment that the group's available methods are not strong enough relative to better targets.
-
-Difficulty alone is not a reason to stop. Conversely, the mere logical possibility of another route is not a reason to continue.
-
-The Professor should distinguish:
-
-- **local failure**: one lemma or estimate failed; reassign or change method;
-- **route failure**: the current mechanism is exhausted; pivot the proof spine;
-- **programme failure**: expected value of further work is too low; close and choose another target.
-
-If a student strongly contests a proposed programme closure on mathematical grounds, the Professor may request a fresh closure audit before deciding. The Professor still owns the final autonomous decision unless the principal redirects.
-
-Closing a programme does not stop autonomous research. Record the closure and begin target selection for the next programme.
+Claude verifies repository paths, branches, commits, diffs, and mechanical checks against its local clone. Claude's verification establishes repository facts, not mathematical correctness.
 
 ## Independent audits
 
-Fresh independent sessions are used where independence adds value.
+Fresh sessions are for bounded independent review, not ordinary development.
 
-Launch an independent auditor when:
+Use them when:
 
-1. a central claimed lemma or theorem will support substantial downstream work;
-2. the Professor and a student materially disagree about the validity of a load-bearing argument;
-3. a contested technical obstruction may close the programme;
-4. the stagnation trigger fires;
-5. a serious novelty or prior-art concern could invalidate the programme;
-6. a major result is about to move into stable public status; or
-7. final theorem verification is underway.
+- a central claimed lemma or theorem will support substantial downstream work;
+- the Professor wants an independent check of a proof, obstruction, or literature claim;
+- a Stagnation Consultant is mechanically triggered;
+- a serious novelty concern could invalidate the programme;
+- a major result is being promoted to stable verified status; or
+- final theorem verification is underway.
 
-Correctness auditors should read the exact files and try to falsify the claim, identify the earliest unsupported load-bearing step, look for counterexamples and missed hypotheses, and check external-theorem interfaces.
+Give the auditor the actual research files. Ask it to inspect the proof or issue in context, try to falsify it, identify the earliest unsupported load-bearing step or strongest counterexample, check external theorem interfaces, and distinguish fatal defects from repairable gaps.
 
-Novelty auditors should search predecessor and successor literature, alternate terminology, citation chains, and adjacent methods.
+For novelty audits, search predecessor, successor, alternate terminology, citation chains, and adjacent methods.
 
-A prior auditor may be resumed to check a repair of its own objection. Use another fresh session when genuinely independent final confirmation is required.
+An auditor or consultant does not become Professor or graduate student.
 
-An auditor does not become the Professor and does not own the programme.
+At most two sessions may be in flight. Idle persistent sessions remain alive.
 
 ## Verification of major results
 
 Pre-research gatekeeping is abolished. Post-result verification remains strict.
 
-A central theorem is not verified merely because the Professor and students agree. Before publication-level confidence is claimed:
+A central theorem is not verified because the Professor and students agree.
+
+Before publication-level confidence is claimed:
 
 - the exact proof must survive independent hostile checking;
-- load-bearing external theorem hypotheses must be checked;
-- important limiting, integrability, conditioning, regularity, and uniformity steps must be explicit enough to audit;
+- load-bearing external hypotheses must be checked in the present setting;
+- important limiting, integrability, conditioning, regularity, and uniformity interfaces must be explicit enough to audit;
 - substantive objections must be repaired or the claim weakened;
-- novelty and closest-prior-work claims must be independently checked; and
+- novelty and closest prior work must be independently checked; and
 - at least two genuinely independent correctness reviews should leave no unresolved substantive objection.
 
-These audits occur after there is substantial mathematics to audit, not before research is permitted to begin.
+These audits occur after there is substantial mathematics to audit.
 
-## Repository writing and claim promotion
+## Inter-session transport
 
-There is no Integrator.
+Long mathematics should move through the repository whenever possible.
 
-The Professor and students may write freely to the active research branch, subject to ordinary Git coordination. Tentative claims, failed arguments, partial proofs, speculative notes, and computations belong there.
+Every payload Claude transfers verbatim between browser sessions must be enclosed in a Markdown fenced code block. Choose an outer fence longer than any run of backticks inside the payload.
 
-`main` has a stronger invariant.
+Claude must not render, normalize, paraphrase, repair, or reconstruct transferred mathematics.
 
-The canonical project claim registry is `research/claim-registry.md`. Before relying on a project-specific theorem found on `main`, read that registry. A manuscript on `main` is a draft artifact by default; its presence on `main` does not make its claims verified.
+If unfenced mathematical source has already been corrupted, ask the producing session to re-emit the exact source inside a fence or read the repository copy.
 
-Any commit to `main` that adds or materially strengthens a project-specific theorem claim outside the scratch research workspace must update `research/claim-registry.md` in the same commit or explicitly point to an already-current registry entry.
+Conversation transcripts transferred for session succession must also use fenced blocks and must be exact, not reconstructed summaries.
 
-Each registered claim records:
+## Human principal
 
-- a stable claim identifier;
-- the source file and theorem/section pointer;
-- status;
-- the relevant audit-log pointer when verified; and
-- enough description to distinguish it from nearby claims.
+The principal is the PI above the autonomous group, not its Professor.
 
-A claim may be registered as `claimed` while development continues. A claim may be registered as `verified` only when the required independent audits are recorded. Principal-designated canonical results, such as the patch paper results, may be registered as `canonical`.
+The principal supplies scientific taste and high-level constraints. The principal may inspect progress, redirect the programme, change priorities, reject an area as uninteresting, request explanation, alter the desired connection to prior work, or change wiki policy.
 
-Claude enforces this mechanically for requested main-branch mathematical promotions by checking that the claim registry is included and that a `verified` entry contains audit references. Claude does not judge the proof itself.
+The principal is not required to approve target selection or ordinary continuation, choose technical lemmas, adjudicate Professor/student disagreements, referee proofs, verify literature, manage Git, transfer routine mathematics, or maintain workflow state.
 
-A `docs/entries/` page with `status: proved here` requires an appropriate verified registry entry. Wiki-specific quality rules still apply.
+The principal may provide exact predecessor transcripts when session-link access fails.
 
-Governance files, mechanical metadata, bibliographic corrections, and non-mathematical repository changes do not require claim-registry entries.
+Questions to the principal should concern genuine scientific preference or missing intent, not mathematics the group can settle itself.
 
-## Paper development
+## Principal-facing daily brief
 
-A paper should emerge from the mathematics rather than record the chronology of the search.
+The Professor owns the principal-facing brief.
 
-Students may draft technical sections. The Professor owns the final mathematical story and decides what belongs in the paper. Draft manuscript claims remain claimed unless the registry says otherwise.
+When autonomous work has occurred since the previous check-in, it states concisely:
 
-The final paper should contain the problem, relevant prior work, main result, genuinely needed ideas, proofs, and consequences. Do not force patch language, cancellation language, or IPS provenance into the framing unless they are genuinely part of the best explanation.
+- active target;
+- what changed mathematically;
+- what the Professor directly inspected;
+- current proof-spine bottleneck;
+- strongest positive evidence;
+- strongest negative evidence;
+- whether the mathematical state narrowed since the previous group meeting;
+- current direction decision: continue, pivot, or close;
+- next student assignment or Professor action;
+- any pending independent audit or stagnation consultation; and
+- any genuine question for the principal.
+
+If nothing material changed, say so plainly.
+
+The principal is not asked to referee the mathematics behind the brief.
 
 ## Wiki
 
@@ -395,43 +388,18 @@ Wiki work is frozen except for:
 - correctness repairs; and
 - prerequisites genuinely required to understand or check active research or a theorem.
 
-Do not run systematic legacy migration, periodic curation, or general reading-path expansion while the freeze is in force.
+Do not run systematic legacy migration, periodic curation, or generic reading-path expansion while the freeze is in force.
 
-When the first central theorem of a new programme reaches independent audit, the Professor should raise in the principal-facing brief whether theorem-driven wiki work should expand. The freeze does not lift automatically; the principal controls that policy.
+When the first central theorem of a new programme enters independent audit, the Professor raises the wiki freeze for principal review in the daily brief. Nothing automatically unfreezes it.
 
 Deprecated IPS wiki material does not override the canonical patch paper.
 
-## Principal-facing daily brief
-
-After substantive work and normally before a daily principal check-in, the Professor refreshes the principal-facing section of `state.md`.
-
-The brief should say:
-
-- the active problem;
-- the main target in one or two sentences;
-- what changed mathematically since the previous brief;
-- which proof-spine item changed status, if any;
-- the present bottleneck;
-- what the students and Professor are doing next;
-- the Professor's current continue/pivot/close judgment;
-- the consecutive no-information-gain meeting count;
-- whether an outside audit or stagnation consultation is pending; and
-- any question only the principal can usefully answer.
-
-The principal is not asked to certify the mathematics.
-
-## Browser transport
-
-The browser-automation channel reliably preserves arbitrary text only inside fenced code blocks.
-
-Every payload Claude transfers verbatim between sessions must be enclosed in a Markdown code fence. Claude must use an outer fence longer than any internal run of backticks.
-
-Claude must not render, normalize, paraphrase, repair, or reconstruct transferred mathematics. When long mathematics already exists in the repository, transfer the path and commit rather than duplicating it through the browser.
-
 ## Continuous operation
 
-Keep the research group working until the principal stops or redirects it or an external technical failure prevents further operation.
+The group continues autonomously until the principal stops or redirects it, an external technical failure prevents operation, or a natural research outcome calls for a new direction.
 
-Do not stop because a lemma failed, a student is stuck, an auditor found a repairable gap, a programme was closed, or the principal has not checked in.
+Do not stop merely because a lemma fails, a student is stuck, a programme is closed, or the principal has not checked in.
 
-The correct response to closure is to select another programme, not to stop the autonomous research process.
+After a direction is closed, the Professor selects the next direction. Because that is a completely new direction, it may spawn a new persistent graduate student for it.
+
+The closed programmes and routes listed in `project-state.md` remain closed.

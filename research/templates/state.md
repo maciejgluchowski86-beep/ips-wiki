@@ -1,22 +1,26 @@
 # Programme state
 
-This is the Professor-owned re-entry document for the active programme. Keep it concise and current. Long arguments belong in technical files.
+This is the Professor-owned re-entry document for the active scientific direction. Keep it concise and current. Long arguments belong in technical files.
 
-## Programme
+## Direction
 
 Title:
 
 Branch:
 
-Professor:
+Professor lineage:
 
-Graduate students:
+Active graduate-student lineage:
+
+Workspace:
+
+Latest group meeting:
 
 ## Target
 
 State the positive mathematical result currently being pursued and the precise problem it addresses.
 
-## Why this problem
+## Why this target
 
 Record the current case that the target is important, new, and plausibly tractable. Published open-problem statements are useful evidence when available but are not mandatory.
 
@@ -48,9 +52,9 @@ Claims with an argument or proof that still need independent checking.
 
 Claims whose unresolved premises are named explicitly.
 
-### Refuted
+### Refuted or eliminated
 
-Statements or routes killed by a valid counterexample or fatal argument.
+Statements or routes killed by a valid counterexample, argument, or decisive target-level failure.
 
 ### Open
 
@@ -66,27 +70,31 @@ What currently makes the Professor think continued work may pay off?
 
 ## Strongest negative evidence
 
-What currently most lowers the expected value of the programme?
+What currently most lowers the expected value of the direction?
 
-## Current assignments
+## Current assignment
 
-Professor:
+State the specified autonomous task currently assigned to the graduate student and why it is the right next question.
 
-Student A:
+## Research delta
 
-Student B:
+Latest meeting `state_narrowed`:
 
-## Latest information gain
+Evidence pointer:
 
-Last group meeting:
-
-Latest `information_gain: yes` meeting:
-
-Consecutive completed `information_gain: no` meetings since then:
+Consecutive no-narrowing meetings:
 
 Stagnation consultation pending or completed:
 
 Record the actual mathematical change, not merely that work occurred.
+
+## Session continuity
+
+Professor predecessor link, if any: store privately with Claude rather than here unless the principal explicitly wants it committed.
+
+Student predecessor link, if any: store privately with Claude rather than here unless the principal explicitly wants it committed.
+
+Handover path when relevant: `handover.md`
 
 ## Files
 
@@ -94,21 +102,29 @@ List the important technical-note, code, manuscript, literature, meeting, and au
 
 ## Principal-facing brief
 
-### Active problem and target
+### Active target
 
-### What changed mathematically since the previous brief
+### What changed mathematically
 
-### Proof-spine movement
+### What the Professor directly inspected
 
-### Current bottleneck
+### Current proof-spine bottleneck
+
+### Strongest reason to continue
+
+### Strongest reason to doubt the direction
+
+### State narrowed since last group meeting
+
+`yes` or `no`, with the evidence pointer.
 
 ### Direction
 
 `continue`, `pivot`, or `close`, with a short Professor rationale.
 
-### What the group is doing next
+### What happens next
 
-### No-information-gain meeting count
+State the next student assignment, Professor action, or outside consultation.
 
 ### Pending audit or stagnation consultation
 
