@@ -17,13 +17,15 @@ The repository is canonical technical memory. Conversation links are optional on
 - Positive target: for every `lambda>0`, prove local convergence of one-dimensional biased annihilating branching process started from a finite nonempty particle set to Bernoulli equilibrium of particle density `lambda/(1+lambda)`.
 - Known range: classical finite-seed convergence is known for `lambda>0.0347`.
 - Main obstruction: BABP self-duality reduces local convergence to decay of a finite-test signed observable with factor `-1/lambda`; for small `lambda` this observable is badly conditioned and global particle-number growth does not control it.
-- Current proof-spine bottleneck: reconstruct the exact origin of the historical `0.0347` threshold and test whether the 2025 all-parameter DFP exponential-ergodicity theorem plus BABP--DFP quasi-duality removes that obstruction.
+- Current proof-spine bottleneck: reconstruct the exact origin of the historical `0.0347` threshold and determine whether the 2025 all-parameter DFP/linear-growth inputs remove that obstruction or expose a sharper non-dual missing lemma.
 - Professor: persistent ChatGPT Professor.
 - Active graduate student: Graduate Student B, to be created for this new direction.
-- Student A: idle, retained with the closed FA-1f context.
+- Concurrent bounded reconnaissance: Graduate Student A scans recent high-quality progress/open-problem literature and compares a small set of alternative targets against BABP on expected value.
 - Latest group meeting: none yet in the BABP workspace.
 
-Why this target: the canonical patch paper explicitly records finite-seed BABP convergence as unresolved for part of the parameter range. Martinelli--Shapira--Toninelli (2025) add strong all-parameter structure -- DFP exponential ergodicity, BABP linear growth from finite seeds, and product-law convergence -- while still recording the finite-seed gap. This makes the remaining obstruction substantially more localized than in the preceding FA-1f programme.
+Why this target: the canonical patch paper explicitly records finite-seed BABP convergence as unresolved for part of the parameter range. Martinelli--Shapira--Toninelli (2025) add strong all-parameter structure -- DFP exponential ergodicity, BABP linear growth from finite seeds, and product-law convergence -- while still recording the finite-seed gap. This makes the remaining obstruction more localized than in the preceding FA-1f programme.
+
+BABP is the current working target, not an irreversible commitment and not a commitment to duality/cancellation as method. If the historical obstruction audit shows that the modern inputs do not materially change the old threshold mechanism, the Professor will compare BABP immediately against the reconnaissance pool before inventing another representation.
 
 ## Most recently closed programme
 
@@ -39,6 +41,8 @@ K_t(A,B)=q^{|A|-|B|}Q_t(A,B),
 $$
 
 where `Q_t` is the same E1 Markov semigroup. Thus the full `h`-weighted transfer is conservative.
+
+After the first version of Meeting 002, the principal supplied additional tractability evidence: extensive prior ChatGPT work on one-dimensional FA-1f off-equilibrium convergence had already failed to produce a result. This is not an impossibility theorem, but together with the two present-project negatives it materially lowers expected value for reopening that target. The principal also clarified that cancellation/duality is not a preferred or required organizing mechanism and recommended recent serious progress/survey papers with explicit open problems as target-selection sources.
 
 Decisive records:
 
@@ -87,6 +91,7 @@ Broader mathematical problems may remain open. What is closed is the recorded pr
 - For SQG, scale-covariant solutions restore exactly the zero-mass-kernel gain.
 - For Strong-KPP, the cancellation route has no endpoint margin.
 - For stochastic cascades, improving a nodewise amplitude majorant without changing the explosion mechanism does not attack the obstruction.
+- Substantial prior model-assisted effort without a route is real tractability evidence and should enter opportunity-cost judgments, even when it is not a mathematical refutation.
 
 ## Research heuristics
 
@@ -98,6 +103,7 @@ These are heuristics, not gates.
 - Preserve useful failures when they identify a reusable obstruction.
 - Use independent audits after there is a central claim worth attacking, not as a substitute for sustained development.
 - Close directions on expected-value grounds when the remaining route is only an unspecified hope for a new mechanism.
+- Use recent serious progress/survey papers and explicit open-problem lists as a problem-first target source; do not force cancellation, duality, or patches into candidates.
 
 ## Group-meeting homeostasis
 
