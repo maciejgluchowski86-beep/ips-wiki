@@ -61,7 +61,7 @@ $$
 \tag{3}
 $$
 
-provided the product is integrable. Equation (3) is the probabilistic counterpart of multiplication in the mild equation.
+provided each $Y_i\in L^1$ and $\prod_{i=1}^m |Y_i|\in L^1$. Equation (3) is the probabilistic counterpart of multiplication in the mild equation.
 
 ## Nonexplosion and integrability
 

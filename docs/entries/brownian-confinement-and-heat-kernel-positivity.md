@@ -87,7 +87,7 @@ The same conclusion holds on the torus. The condition $t\geq t_0>0$ matters: for
 
 ## Positive heat transfer
 
-Let $\psi:\mathbb R\to\mathbb R$ be continuous and not identically zero. Since $|\psi|$ is bounded below by a positive number on some nonempty open interval and the heat kernel is strictly positive,
+Let $\psi:\mathbb R\to\mathbb R$ be bounded, continuous, and not identically zero. Since $|\psi|$ is bounded below by a positive number on some nonempty open interval and the heat kernel is strictly positive,
 
 $$
 P_t|\psi|(x)>0
