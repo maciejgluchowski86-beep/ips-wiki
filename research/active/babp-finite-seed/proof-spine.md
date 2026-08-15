@@ -8,7 +8,7 @@ $$
 q=\frac{\lambda}{1+\lambda}.
 $$
 
-Begin with `B={0}`. The programme is now committed after Meeting 003 because the finite-window edge method produced a new exact certificate below the historical `0.0347` cutoff.
+Begin with `B={0}`. The programme is committed after Meeting 003 because the finite-window edge method produced an independently audited nontrivial certificate at `lambda=1/40`.
 
 ## E0. Finite-test convergence criterion
 
@@ -55,30 +55,44 @@ D_{k,\lambda}(u,z;\phi)
 \end{aligned}
 $$
 
-If `D>=v>0` uniformly, then the right edge has asymptotic speed at least `v` and the left edge has reflected negative speed.
+If `D>=v>0` uniformly, then for every finite nonempty initial configuration
 
-**Status:** generator criterion and speed implication checked by the Professor for current proof-spine use. Fresh independent audit pending.
+$$
+\liminf_{t\to\infty}\frac{R(B_t)}t\ge v
+\qquad\text{a.s.},
+$$
+
+and by reflection
+
+$$
+\limsup_{t\to\infty}\frac{L(B_t)}t\le -v
+\qquad\text{a.s.}
+$$
+
+The corrector argument does **not** by itself prove existence of limits `R(B_t)/t` or `L(B_t)/t`.
+
+**Status:** verified by fresh independent hostile audit.
 
 **Calibration:**
 
 - `k=1`: strict feasibility iff `lambda>1/3`, analytically;
-- `k=8`: independently solved numerical zero-drift threshold `0.0346195435...`, matching the published `0.0347` cutoff to the stated precision;
-- `k=10`, `lambda=1/40`: an exact rational certificate has minimum drift
+- `k=8`: independently reproduced numerical zero-drift threshold `0.0346195434755...`, with sign change between `0.03461954` and `0.03461955`;
+- `k=10`, `lambda=1/40`: exact rational certificate with minimum drift
 
 $$
 \frac{1033}{40000000}>0.
 $$
 
-**Project claim:** `BABP-EDGE-001`, status `claimed` in `research/claim-registry.md`.
+**Project claim:** `BABP-EDGE-001`, status `verified` in `research/claim-registry.md`.
 
 **Decisive pointers:**
 
 - `students/student-b/001-threshold-and-dfp.md`;
 - `students/student-b/edge-corrector-certificate.py`;
 - `notes/professor-edge-corrector-verification.md`;
-- `audits/001-edge-corrector-request.md`.
+- `audits/001-edge-corrector-audit.md`, commit `d1ef2ca`.
 
-**Historical qualification:** the accessible Sudbury (1999) record explicitly combines the `0.0347` improvement with hunted submartingales and edge-speed bounds, and the finite-window hierarchy reproduces both historical numerical cutoffs. Exact line-by-line identification with Sudbury's internal `k=8` calculation is not yet verified from the full paper.
+**Historical qualification.** The accessible Sudbury (1999) record confirms the published `0.0347` finite-seed convergence threshold, hunted-submartingale method, and edge-speed bounds. The full paper body was not accessible. Therefore the numerical `k=8` calibration is strong mechanism-level evidence but literal identity with Sudbury's LP, normalization, or an eight-site state encoding is unverified. The present verified claim stands independently of that provenance question.
 
 ## E3. DFP as a black-box route to finite-test observables
 
@@ -98,11 +112,11 @@ Thus DFP exponential ergodicity is not a black-box solution; it would need a qua
 
 **Status:** algebraic obstruction verified for present use; DFP demoted to secondary route.
 
-## E4. Edge speed to local convergence
+## E4. Ballistic edge bounds to local convergence
 
 This is the **current first unresolved theorem-level edge**.
 
-Determine whether strictly positive two-sided outward edge speed, together with the known invariant-law classification and all-parameter growth information, is sufficient to imply finite-seed local convergence.
+Determine whether the verified two-sided lower-asymptotic-velocity bounds, together with the known invariant-law classification and all-parameter growth information, are sufficient to imply finite-seed local convergence.
 
 The immediate test parameter is
 
@@ -116,15 +130,15 @@ A valid proof must separate:
 2. classification of invariant limits as mixtures of the empty state and Bernoulli equilibrium;
 3. exclusion of the empty component.
 
-Positive hull speed does not by itself visibly imply item 3, so no downstream convergence claim is allowed until this bridge is established.
+The ballistic hull bounds do not by themselves visibly imply item 3, so no downstream convergence claim is allowed until this bridge is established.
 
 **Status:** open.
 
 **Owner:** Graduate Student B, assignment `students/student-b/assignment-002.md`.
 
-**If proved with no second parameter restriction:** `BABP-EDGE-001` immediately gives a genuine finite-seed convergence improvement below `0.0347`.
+**If proved with no second parameter restriction:** `BABP-EDGE-001` immediately supplies the missing edge input at `lambda=1/40`, yielding a genuine finite-seed convergence theorem below the published `0.0347` convergence threshold. That theorem has not yet been proved.
 
-## E5. Remove the edge threshold
+## E5. Remove the finite-window edge threshold
 
 For fixed `k`, define
 
@@ -132,13 +146,13 @@ $$
 v_k(\lambda)=\sup_\phi\min_{u,z}D_{k,\lambda}(u,z;\phi)
 $$
 
-and the finite-window threshold
+and
 
 $$
 \lambda_k=\inf\{\lambda>0:v_k(\lambda)>0\}.
 $$
 
-The computed values decrease sharply through `k=10`. The all-parameter target would follow from the historical route if E4 is sufficient and one proves
+The computed values decrease sharply through `k=10`. The all-parameter target would follow from this route if E4 is sufficient and one proves
 
 $$
 \lambda_k\longrightarrow0,
@@ -150,17 +164,25 @@ Possible analytic interpretations include a Poisson equation or hitting-time cor
 
 **Status:** open, downstream of E4.
 
+## H1. Historical provenance question
+
+The exact relation between the present `k=8` LP and Sudbury's internal 1999 calculation is not source-verified because the full paper body was inaccessible to Student B and the independent auditor.
+
+This question is **not load-bearing for E2**: `BABP-EDGE-001` has an independent proof and hostile audit. It is useful mainly for understanding the historical bridge E4. Student B should continue to seek the full proof as part of assignment 002. No separate research session will be spent solely to establish that Sudbury literally used the same eight-site LP.
+
+**Status:** open provenance question, secondary to E4.
+
 ## O1. Opportunity-cost comparison
 
-Graduate Student A's reconnaissance ranked the residual simple-IPS positive-rates/noisy-East problem above *provisional* BABP unless Student B found a genuinely new small-parameter lemma. Student B did: the exact `lambda=1/40` edge certificate penetrates the historical cutoff and yields the concrete E4/E5 programme above.
+Graduate Student A's reconnaissance ranked the residual simple-IPS positive-rates/noisy-East problem above provisional BABP unless Student B found a genuinely new small-parameter lemma. Student B did: the exact `lambda=1/40` edge certificate is now independently audited and yields the concrete E4/E5 programme above.
 
-Therefore BABP now outranks the reconnaissance alternatives for the next substantial block. The noisy-East residual remains the strongest identified future candidate if BABP's edge bridge fails or the finite-window thresholds prove analytically sterile.
+Therefore BABP remains the next substantial investment. The noisy-East residual remains the strongest identified future candidate if BABP's bridge fails or the finite-window thresholds prove analytically sterile.
 
 **Status:** bounded reconnaissance complete; Student A idle.
 
 ## Current first unresolved edge
 
-**E4: establish or refute the edge-speed-to-local-convergence bridge, first at `lambda=1/40`.**
+**E4: establish or refute the ballistic-edge-bound-to-local-convergence bridge, first at `lambda=1/40`.**
 
 Do not spend the main effort on `lambda_k -> 0` until the group knows that a positive finite-window corrector buys the convergence theorem or knows the exact extra lemma required.
 
@@ -173,4 +195,4 @@ Do not spend the main effort on `lambda_k -> 0` until the group knows that a pos
 
 ## Revision note
 
-Meeting 003 materially narrowed the programme. The historical numerical cutoff was localized to a finite-state edge-corrector problem; an exact 10-site certificate at `lambda=1/40` crosses the old numerical boundary; and the proof spine now has a precise near-term theorem bridge E4 followed by an analytic all-parameter problem E5. The new edge claim is `claimed` pending fresh independent audit and does not yet include convergence at `lambda=1/40`.
+Independent audit 001 verified the generator, exact certificate, martingale consequence, `k=1` calibration, and numerical `k=8` crossing. It corrected three overstatements from Meeting 003: the certificate gives liminf/limsup ballistic bounds rather than speed-limit existence; literal historical `k=8` identity is unverified; and no improvement of Sudbury's published convergence theorem has yet been proved. `BABP-EDGE-001` is now `verified` with this narrower boundary.
