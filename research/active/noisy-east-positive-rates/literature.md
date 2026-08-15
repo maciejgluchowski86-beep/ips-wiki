@@ -6,47 +6,96 @@
 
 *Time-Scaling, Ergodicity, and Covariance Decay of Interacting Particle Systems*, Journal of Statistical Physics 192 (2025), article 6.
 
-Student A's reconnaissance reports that Section 7 studies the positive-rates problem for binary one-sided nearest-neighbour systems, proves the additive subcase, and leaves a small residual parameter region outside the known criteria.
+On the normalized face `r11=0`, write
+
+$$
+a=r_{00},\qquad b=r_{01},\qquad c=r_{10}.
+$$
+
+The published theorem statements used by this programme cover, among other relevant regions,
+
+$$
+c<a+b,
+\qquad
+c<\frac12,
+$$
+
+and Corollary 7.2 covers
+
+$$
+0<b\le a
+$$
+
+under its stated order/positive-rate hypotheses. The direction `b<=a` is also used in the proof after the alternating-site state flip and application of Gray's weak-monotonicity theorem.
 
 ### Głuchowski--Menz (2026)
 
 *Ergodicity Criterion for One-Sided, One-Dimensional IPS with a Long-Lived State*, Electronic Communications in Probability 31 (2026), DOI `10.1214/26-ECP767`, arXiv `2508.08459`.
 
-Student A's reconnaissance reports that the paper sharpens the residual to noisy versions of East and proves the one-site long-lived-state criterion
+The theorem gives ergodicity when, for some state `s`,
 
 $$
-\delta(a)<\sqrt2\,\beta(a).
+\delta(s)<\sqrt2\,\beta(s).
 $$
 
-The residual near East is outside this criterion for both possible wall states.
+On the complement of the 2025 regions above, `a<b` and `c>=a+b>b`. Hence on `r11=0`, state zero has
 
-These are the principal's own papers, so they provide unusually strong group-specific leverage, but their exact statements and conventions must still be reread directly before a load-bearing new proof uses them.
+$$
+\beta(0)=1-c,
+\qquad
+\delta(0)=b,
+$$
 
-## Open-status check already performed
+while state one has `beta(1)=0`. The 2026 theorem therefore additionally covers
 
-Student A searched through 2026-08-15 under the exact paper title, `positive rates conjecture simple IPS`, `noisy East ergodicity`, and related terminology. It found the 2026 ECP publication but no later source resolving the noisy-East residual or the simple-IPS positive-rates conjecture.
+$$
+b<\sqrt2(1-c).
+$$
 
-This is a targeted successor check, not a permanent proof of absence. Before a major novelty claim, rerun a focused predecessor/successor audit.
+### Source inconsistency and corrected residual set
 
-## Opportunity-cost source
+The 2026 paper contains a prose summary of the 2025 covered region with the opposite `a,b` inequality from the published 2025 Corollary 7.2. No correction notice was found during assignment 002. For mathematical state, this programme follows the actual published theorem statement and proof.
 
-See:
+Combining the complements of the proved sufficient regions gives the normalized unresolved set
 
-`research/active/babp-finite-seed/students/student-a/recon-001-open-problem-scan.md`
+$$
+\boxed{
+\mathcal R=
+\left\{
+0<a<b,
+\quad \frac12\le c<1,
+\quad c\ge a+b,
+\quad b\ge\sqrt2(1-c)
+\right\}.
+}
+$$
 
-on branch `research/babp-finite-seed`.
+Thus
 
-That reconnaissance ranks this target above BABP because of the principal's exact prior reduction, canonical coupling/disagreement machinery, and a cheap finite-block falsification test.
+$$
+1>c>b>a>0=r_{11}
+$$
 
-## First source task for Graduate Student C
+throughout `R`.
 
-Before deriving the two-site chain, read the two papers above and record:
+The assignment-001 path
 
-1. exact generator/transition convention for simple IPS;
-2. canonical coupling definition;
-3. exact meaning of disagreement crossing and the one-site wall event;
-4. the theorem statement and proof step where the factor `sqrt(2)` enters;
-5. time-scaling/state-symmetry reduction used to describe the residual noisy-East region;
-6. any block argument already present that would make the proposed two-site test prior art.
+$$
+a=\varepsilon,
+\qquad b=\frac\varepsilon2,
+\qquad c=1-\varepsilon^2
+$$
 
-Do not rely on the reconnaissance summary for these load-bearing details.
+is not unresolved: `b<a` places it in the 2025 Corollary 7.2 region. Earlier repository wording to the contrary is corrected in Meeting 002 and the Professor notes.
+
+## Programme result from source comparison
+
+Assignment 002's target-relevant calculations are performed on the true residual set above. The sharp frozen-exterior three-site East-boundary factor is `5/6`, but repeated attacks under a permanently present exterior disagreement penetrate every fixed finite block almost surely. Therefore the local one-attack statistic does not itself supply a block-renewal theorem.
+
+The finite-wall programme closed at Group Meeting 002 under the pre-committed dynamic-exterior stop rule.
+
+## Open-status record
+
+The 2026 paper states that its criterion narrows the unresolved simple positive-rate systems to noisy versions of East. No later resolution was found in the programme's targeted successor search through 2026-08-16.
+
+The broader positive-rates/noisy-East problem remains open; only the present finite-wall programme is closed.
