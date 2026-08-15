@@ -1,114 +1,96 @@
-# Professor verification: two-site failure and length-three persistence diagnostic
+# Professor verification: assignment-001 wall diagnostics
 
 Date: 2026-08-15
 
 Source under review: `students/student-c/001-two-site-wall.md` and its two verifier scripts.
 
-This note records an independent Professor reconstruction of the two load-bearing calculations used for the first noisy-East direction decision. The calculations below were rebuilt from the canonical coupling rather than inferred from Student C's closed forms.
+## Post-verification source correction
 
-## 1. Two-site killed excursion
+The finite-state calculations in this note were independently reconstructed correctly, but their parameter-path interpretation was wrong.
 
-Use the residual path
+On the normalized face `r11=0`, write
 
 $$
-r_{11}=0,\qquad
-r_{10}=1-\varepsilon^2,\qquad
-r_{01}=\frac\varepsilon2,\qquad
-r_{00}=\varepsilon,
-\qquad 0<\varepsilon<\frac12.
+a=r_{00},\qquad b=r_{01},\qquad c=r_{10}.
 $$
 
-For a two-site agreed block with a frozen exterior disagreement, the transient states have the protected/left site diagonal and the boundary/right site off-diagonal. With exterior orientation `01`, the orientation-`10` subsystem
+Published Głuchowski--Menz (2025), Corollary 7.2, proves exponential ergodicity when `0<b<=a` under the corresponding order/positive-rate assumptions. Hence the path used here,
+
+$$
+a=\varepsilon,
+\qquad b=\frac\varepsilon2,
+\qquad c=1-\varepsilon^2,
+$$
+
+is already covered because `b<a`. Any earlier wording in this note calling it a genuine residual or unresolved path is retracted.
+
+Assignment 002 subsequently reconstructed the true normalized unresolved set as
+
+$$
+\mathcal R=
+\left\{
+0<a<b,
+\quad \frac12\le c<1,
+\quad c\ge a+b,
+\quad b\ge\sqrt2(1-c)
+\right\}.
+$$
+
+See `notes/professor-uniform-three-site-review.md` for the source check and the target-relevant three-site analysis.
+
+## 1. Two-site killed excursion on the assignment-001 path
+
+With exterior orientation `01`, the orientation-`10` subsystem
 
 $$
 S_0=(0;10),\qquad S_1=(1;10)
 $$
 
-is closed. Writing generally
+has transient kernel
 
 $$
-a=r_{00},\qquad b=r_{01},\qquad c=r_{10},\qquad r_{11}=0,
-$$
-
-with `c>a>=b`, direct canonical-coupling enumeration gives
-
-$$
-K=rac12
+K=\frac12
 \begin{pmatrix}
 1-a+c-b & b\\
 1-c & c-b
-\end{pmatrix},
+\end{pmatrix}
 $$
 
 and crossing vector
 
 $$
-x=rac12
+x=\frac12
 \begin{pmatrix}a-b\\c\end{pmatrix}.
 $$
 
-The larger eigenvalue of this matrix is
+The larger eigenvalue is
 
 $$
 \rho(K)=
 \frac{1-a-2b+2c+\sqrt{(1-a)^2+4b(1-c)}}4.
 $$
 
-I also independently enumerated the full four-state transient kernel. Along the path above, this eigenvalue is the Perron root of the full killed kernel, not merely of the closed subsystem. Substitution gives
+Independent enumeration of the full four-state transient kernel confirms that on the path above this is its Perron root. Substitution gives
 
 $$
 \rho_2(\varepsilon)
 =
 \frac{3-2\varepsilon-2\varepsilon^2+
 \sqrt{(1-\varepsilon)^2+2\varepsilon^3}}4
-=1-\frac34\varepsilon-\frac12\varepsilon^2+O(\varepsilon^3),
+\longrightarrow1.
 $$
 
-hence
-
-$$
-\rho_2(\varepsilon)\to1.
-$$
-
-Solving
-
-$$
-(I-K)h=x
-$$
-
-gives for the entry state `S_1`
-
-$$
-h_1=
-\frac{a+2bc-b-c^2+c}
-{ab-ac+2a+b^2-bc+2b+c^2-3c+2}.
-$$
-
-Starting from the fully agreed block `11`, the designated boundary attack against exterior `01` enters `S_1` with probability `c`. Therefore
-
-$$
-F_2=c h_1.
-$$
-
-On the residual path,
+Solving `(I-K)h=x` and multiplying by the boundary-attack probability gives
 
 $$
 F_2(\varepsilon)
 =
 \frac{2(1-\varepsilon^2)(3+2\varepsilon-2\varepsilon^2-2\varepsilon^3)}
 {6+7\varepsilon+6\varepsilon^2+4\varepsilon^3}
-=1-\frac12\varepsilon-\frac{25}{12}\varepsilon^2+O(\varepsilon^3),
+\longrightarrow1.
 $$
 
-so
-
-$$
-F_2(\varepsilon)\to1.
-$$
-
-The fully agreed block `11` is also the worst one-attack state along this path for small `epsilon`; exchanging the two copies gives the same value for the opposite exterior orientation.
-
-## 2. Deterministic East-limit mechanism
+## 2. East-limit local mechanism
 
 At `epsilon=0`,
 
@@ -118,59 +100,27 @@ r_{10}=1,
 r_{00}=r_{01}=r_{11}=0.
 $$
 
-Thus an updated site becomes `1` exactly in local environment `10`.
+Starting from agreed `11` with exterior disagreement `01`, a boundary update creates disagreement orientation `10` deterministically. Boundary updates preserve it; the next protected-site update compares environments `11` and `10` and creates disagreement deterministically. This exactly explains the two limits to one.
 
-Start from a fully agreed two-site block `11` with exterior disagreement `01`. A boundary update at the right block site compares environments `10` and `11`, hence creates disagreement orientation `10` deterministically. While the right block site updates, the two environments are `10` and `01`, so the disagreement remains. When the protected left site next updates, its two copies see environments `11` and `10`, hence its coupled pair becomes `01` deterministically. Crossing has occurred before regeneration.
+## 3. Length-three diagnostic on the same path
 
-This is the exact local mechanism behind both limits to one.
-
-## 3. Independent length-three reconstruction
-
-I rebuilt the full length-three killed embedded chain along the same path. A transient state is a triple of coupled-site pairs such that the protected leftmost pair is diagonal and at least one block pair is off-diagonal. There are
+The independently reconstructed 24-state length-three killed chain gives conditional limits
 
 $$
-2\cdot4\cdot4-2^3=24
+001:\frac{43}{75},\qquad
+011:\frac45,\qquad
+101:\frac{19}{30},\qquad
+111:\frac9{10}
 $$
 
-such states. At each embedded block update, one of the three sites is selected with probability `1/3`; crossing absorbs when site zero becomes off-diagonal, and regeneration absorbs when all three block sites are diagonal.
-
-For exterior orientation `01`, exact symbolic solution of the independently reconstructed system gives, conditional on a successful boundary attack of orientation `10`, the following limits for the four fully agreed words whose rightmost common bit is `1`:
+for the four agreed words ending in one. The four words ending in zero have vanishing attack probability. The opposite exterior orientation gives the same values, so
 
 $$
-001:\ \frac{43}{75},\qquad
-011:\ \frac45,\qquad
-101:\ \frac{19}{30},\qquad
-111:\ \frac9{10}.
+R_3^{\rm adv}(\varepsilon)\to\frac9{10}.
 $$
 
-For the four fully agreed words whose rightmost common bit is `0`, the attack probability is
+## 4. Correct status
 
-$$
-|r_{00}-r_{01}|=\frac\varepsilon2,
-$$
+The mathematics above remains a verified finite-state diagnostic. It does **not** establish failure of a two-site wall within the unresolved noisy-East set, because the chosen path was already covered by the 2025 theorem. Likewise the `9/10` value is not residual evidence.
 
-so their unconditional one-attack crossing factors tend to zero.
-
-I separately reconstructed the operator with exterior orientation `10`. Its four nonvanishing limits are again
-
-$$
-\frac{43}{75},\quad\frac45,\quad\frac{19}{30},\quad\frac9{10},
-$$
-
-as also follows from exact copy-label exchange symmetry of the canonical coupling. Thus the adversary genuinely ranges over all eight fully agreed three-site words and both exterior disagreement orientations, and
-
-$$
-\boxed{
-\lim_{\varepsilon\downarrow0}R_3^{\rm adv}(\varepsilon)=\frac9{10}.
-}
-$$
-
-The maximizer is the all-one word `111` for either exterior orientation.
-
-## 4. Status boundary
-
-The two-site conclusion is a verified diagnostic negative: length two has no contraction margin stable along this genuine residual approach to East.
-
-The length-three calculation refutes the proposed inference that the same local cycle automatically forces every fixed block length to have limiting factor one. It does **not** prove a length-three wall theorem, uniform contraction throughout the residual parameter region, or a concatenation theorem for the infinite IPS.
-
-Under the standing novelty standard, neither finite-state computation is a project result. Their role is to determine whether there is enough structural evidence to spend one further block on a regime-wide characterization of the finite-wall mechanism.
+The target-relevant replacement is assignment 002: on the true residual set the sharp East-boundary frozen-exterior three-site supremum is `5/6`, while repeated attacks show that the one-attack statistic does not concatenate. Those facts, not the assignment-001 path, control the programme's final direction decision.
