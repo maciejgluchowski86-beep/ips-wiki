@@ -4,89 +4,105 @@ This file is the compact current-state index for the autonomous research program
 
 ## Standing novelty standard
 
-A quantitatively improved instance of an already-established arbitrary-size method does not count as a new project result merely because the computation is exact or the numerical constant is better. Larger windows, orders, degrees, truncation levels, or analogous complexity parameters are useful diagnostics/certificates but do not justify a contribution claim by themselves.
+A quantitatively improved instance of an already-established arbitrary-size method does not count as a new project result merely because the computation is exact or the numerical constant is better. A qualifying result must add structural mathematics: a theorem across a genuine regime, a qualitative mechanism, a structural success/failure theorem, or a proof/refutation of the target problem.
 
-A qualifying project result must add structural mathematics: for example a theorem about a method across a genuine parameter regime, a qualitative mechanism, a structural success/failure theorem, or a proof/refutation of the target open problem.
+## Most recently closed programme: residual positive-rates / noisy East
 
-## Active scientific direction
+Branch: `research/noisy-east-positive-rates`.
 
-**Residual positive-rates conjecture / noisy East for simple one-sided one-dimensional IPS.**
+Workspace: `research/active/noisy-east-positive-rates/`.
 
-- Branch: `research/noisy-east-positive-rates`.
-- Workspace: `research/active/noisy-east-positive-rates/`.
-- Positive target: prove ergodicity in the remaining noisy-East region, ultimately completing the simple-IPS positive-rates conjecture.
-- Active student: persistent Graduate Student C.
-- Latest meeting: `meetings/001-two-site-wall-review.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/002-three-site-gap-and-wall-closure.md`, `state_narrowed: yes`.
 
-### First wall test
+**Decision: close the present noisy-East finite-wall programme.** The positive-rates/noisy-East problem itself remains open.
 
-Student C's exact two-site calculation is negative near East. On the genuine strict residual path
+### Source-corrected residual set
+
+On `r11=0`, with
 
 $$
-r_{11}=0,\qquad
-r_{10}=1-\varepsilon^2,\qquad
-r_{01}=\frac\varepsilon2,\qquad
-r_{00}=\varepsilon,
+a=r_{00},\qquad b=r_{01},\qquad c=r_{10},
 $$
 
-the two-site killed-excursion Perron factor and one-attack crossing factor satisfy
+the normalized unresolved set obtained from the actual proved 2025/2026 criteria is
 
 $$
-\rho_2(\varepsilon)\to1,
-\qquad
-F_2(\varepsilon)\to1.
+\mathcal R=
+\left\{
+0<a<b,
+\quad \frac12\le c<1,
+\quad c\ge a+b,
+\quad b\ge\sqrt2(1-c)
+\right\}.
 $$
 
-The Professor independently rebuilt the chain and verified the deterministic East-limit crossing mechanism in `notes/professor-wall-test-verification.md`.
-
-A targeted length-three diagnostic on the same path prevents an immediate structural kill of all finite walls. The full 24-state chain, maximized over all eight fully agreed three-site words and both exterior disagreement orientations, has
+The assignment-001 path
 
 $$
-R_3^{\rm adv}(\varepsilon)\to\frac9{10}.
+a=\varepsilon,
+\qquad b=\frac\varepsilon2,
+\qquad c=1-\varepsilon^2
 $$
 
-This is diagnostic only, not a project result.
+was incorrectly labeled as residual in earlier state files. Published Głuchowski--Menz (2025), Corollary 7.2, already covers it because `b<a`. The earlier two-site limits to one and the `9/10` length-three value on that path remain correct finite-state diagnostics but are not evidence about the unresolved set.
 
-### Current structural question
+### Assignment-002 result on the true residual
 
-Graduate Student C assignment 002 must characterize the exact length-three adversarial factor over the **entire normalized residual region and every asymptotic approach to the East boundary**. The relevant question is whether
-
-$$
-\sup_{\bar r\in\partial_E R}
-\limsup_{\substack{r\to\bar r\\r\in R}}
-R_3^{\rm adv}(r)<1.
-$$
-
-The exact residual set `R` and its East boundary must first be recovered from the 2025/2026 source reductions.
-
-### Pre-committed finite-wall stop rule
-
-If Student C finds any genuine residual sequence approaching the East boundary with
+For the frozen-exterior length-three one-attack statistic,
 
 $$
-R_3^{\rm adv}(r_n)\to1,
+R_3^{\rm adv}(r),
 $$
 
-the finite-wall route is abandoned for this programme. **Do not move to length four.** This is an opportunity-cost ruling, not a theorem that every longer block fails.
+maximized over all agreed three-site words and both exterior disagreement orientations, Student C proved and the Professor independently reconstructed
 
-If a uniform length-three gap exists, continuation still requires a rigorous block-renewal/concatenation theorem that survives dynamically changing exterior states, repeated attacks, overlap, and dependence. If the frozen-exterior diagnostic cannot be upgraded to such a domination without an uncontrolled stronger quantity, the finite-wall route is also abandoned rather than enlarged.
+$$
+\sup_{\bar r\in\partial_E\mathcal R}
+\limsup_{\substack{r\to\bar r\\r\in\mathcal R}}
+R_3^{\rm adv}(r)
+=\frac56.
+$$
 
-## Most recently closed programme: BABP finite seed
+The value is sharp along the genuine residual sequence
 
-BABP closed without a new project result under the standing novelty standard.
+$$
+a=\frac\varepsilon2,
+\qquad b=\varepsilon,
+\qquad c=1-\varepsilon^2.
+$$
 
-Retained verified mathematics:
+No project claim is registered from this finite-state local theorem.
+
+### Why the wall route closes despite the `5/6` gap
+
+At every strict residual parameter point, a permanently frozen exterior disagreement eventually penetrates every fixed finite agreed block almost surely under repeated attacks. Thus `R_3^adv<1` controls one attacked excursion only and cannot concatenate into disagreement extinction.
+
+A valid proof would require a strictly stronger dynamic source-episode estimate controlling exterior-disagreement lifetime, repeated attacks, overlap, and episode duration. No such domination follows from the `5/6` calculation and no concrete closing inequality is known.
+
+Meeting 001 pre-committed to abandon the finite-wall route in exactly this circumstance rather than respond by increasing block length. There will be no length-four rescue.
+
+The programme therefore closes without a qualifying new project result. A future return to noisy East requires a genuinely new mechanism or a separately motivated episode theorem with a concrete quantitative closure.
+
+## Next direction selected
+
+Reopen Graduate Student A's opportunity-cost list. The next target is the explicit sharp-concentration problem for discordant edges in the voter model on random regular graphs: extend concentration to the natural `sqrt(t/n)` fluctuation scale uniformly through all sublinear times `t=o(n)`.
+
+The published Avena--Baldasso--Hazra--den Hollander--Quattropani paper states this strengthening as expected but beyond its current method. The first research block should attack the load-bearing integrated-drift/coalescing-walk covariance obstruction and should have an early structural exit criterion. It must not be organized as a sequence of slightly longer time-window bounds.
+
+A new branch/workspace should be initialized for this genuinely new direction, with a new persistent graduate student.
+
+## Earlier closed programme: BABP finite seed
+
+BABP closed without a new project result under the standing novelty standard. Retained verified mathematics:
 
 - `BABP-EDGE-001`: exact ten-site `lambda=1/40` certificate, audit `d1ef2ca`;
 - `BABP-CONV-001`: verified self-contained corrector-to-convergence proof, reviews `abb05f6` and `1aeb5a5`.
 
-Neither counts as a project contribution because Sudbury's finite-window method is already defined for arbitrary window size and the convergence implication is classical. Student B's dormant invariant-front reduction remains useful only if a genuinely structural all-parameter idea appears.
-
-Do not reopen BABP merely to enlarge finite windows or improve numerical thresholds.
+Neither is a project contribution because Sudbury's finite-window method is already arbitrary-window and the convergence implication is classical.
 
 ## Wiki freeze
 
-The principal controls the freeze decision. Professor recommendation remains **keep the live wiki frozen**. No BABP `proved here` update is warranted, and the noisy-East programme has no verified new theorem yet.
+The principal controls the freeze decision. Professor recommendation remains **keep the live wiki frozen**. No noisy-East `proved here` update is warranted.
 
 ## Closed programmes and routes
 
@@ -100,6 +116,7 @@ Closed programmes not to be retried by renaming include:
 - long-maturity marked branching;
 - Gaussian bridge coarsening;
 - 1D hard FA-1f finite-seed programme based on centered-transform / unnormalized patch-transfer routes;
-- 1D BABP finite-seed programme based on finite-window submartingales and the unresolved invariant-front continuation.
+- 1D BABP finite-seed programme based on finite-window submartingales and the unresolved invariant-front continuation;
+- residual noisy-East programme based on fixed finite agreed-block walls and frozen-exterior crossing factors.
 
 Broader mathematical problems may remain open. What is closed is the recorded programme/mechanism at its present expected value.
