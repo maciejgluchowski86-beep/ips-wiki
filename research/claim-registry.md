@@ -93,15 +93,23 @@ Independent hostile audit:
 
 The audit independently rederived the generator, checked that one unresolved exterior bit suffices and no event class is missing, established the martingale bounds needed for the displayed liminf/limsup conclusion, independently decoded and checked all `2048` exact certificate inequalities, analytically reproduced the `k=1` threshold `lambda>1/3`, and independently numerically reproduced the `k=8` zero crossing `0.0346195434755...`.
 
-Significance and historical boundary: within the audited finite-window corrector hierarchy, the `k=10` certificate gives a positive ballistic-edge bound at `lambda=0.025`, below the numerical `0.0347` boundary appearing in Sudbury's published finite-seed theorem. The accessible Sudbury record confirms the `0.0347` convergence threshold, hunted-submartingale method, and edge-speed bounds, but the full body was not accessible. Therefore the literal identification of Sudbury's computation with this exact `k=8` LP, normalization, or eight-site encoding is **not verified**. The `k=1` and `k=8` calibrations are strong mechanism-level evidence, not source-verified historical identity.
+Historical boundary: the accessible Sudbury record confirms the `0.0347` convergence threshold, hunted-submartingale method, and edge-speed bounds, but literal identity of Sudbury's internal computation with the present `k=8` LP is not verified.
 
-Claim boundary: this entry does **not** claim finite-seed convergence at `lambda=1/40`, does **not** claim an improvement of Sudbury's published convergence theorem, and does **not** claim existence of limiting edge speeds.
+Claim boundary: this entry does not claim finite-seed convergence at `lambda=1/40` by itself and does not claim existence of limiting edge speeds.
 
 ### BABP-CONV-001
 
-Status: `claimed`
+Status: `verified`
 
-Claim: fix `lambda>0` and consider one-dimensional nearest-neighbour BABP in the same convention as `BABP-EDGE-001`. Assume there exist an integer `k>=1`, a bounded corrector
+Claim: fix `lambda>0` and consider one-dimensional nearest-neighbour BABP in particle variables with single-site rates
+
+$$
+0\to1\text{ at rate }\lambda N_x,
+\qquad
+1\to0\text{ at rate }N_x,
+$$
+
+where `N_x` is the number of occupied nearest neighbours. Assume there exist an integer `k>=1`, a bounded corrector
 
 $$
 \phi:\{0,1\}^k\to\mathbb R,
@@ -128,9 +136,9 @@ $$
 
 and `pi_q` is Bernoulli product equilibrium.
 
-The statewise drift hypothesis is essential to the proof as presently written. Bare liminf/limsup ballistic-edge bounds are not asserted to imply convergence.
+The statewise drift hypothesis is load-bearing. Bare liminf/limsup ballistic-edge bounds are not asserted to imply convergence.
 
-Proof mechanism: the same corrector is placed on the two populations bordering a tagged internal vacant gap. The corrected gap width has uniformly negative drift. Exponential tilting gives uniform exponential tails for gap lifetime and maximal width; a Poisson domination of boundary displacement and a compensator sum over gap nucleations yield
+Proof mechanism: the same corrector is placed on the two populations bordering a tagged internal vacant gap. The corrected gap width has uniformly negative drift. After localization, exponential tilting gives uniform exponential tails for gap lifetime and maximal width. Poisson domination of boundary displacement and a finite-spatial-truncation compensator sum, followed by monotone convergence, yield
 
 $$
 \limsup_{t\to\infty}
@@ -138,35 +146,37 @@ $$
 \le Ce^{-cM}.
 $$
 
-Together with stationarity of all one-dimensional weak limit points and the stationary-law classification, this excludes the empty component from every subsequential limit.
+This excludes the empty component from every stationary subsequential limit.
 
-External inputs used by the Professor check:
+External inputs and convention checks:
 
-- Jahnel--Köppl (2026), Theorem 2.5: for one-dimensional IPS satisfying their bounded-rate/bounded-update/exponentially decaying influence assumptions, every weak limit point is stationary. BABP has single-site finite-range updates and uniformly bounded site rates, so these assumptions apply for every fixed `lambda>0`.
-- Martinelli--Shapira--Toninelli (2025), Corollary 2.9: every stationary law of one-dimensional BABP is a convex combination of the completely healthy/empty configuration and Bernoulli equilibrium.
+- Jahnel--Köppl (2026), Theorem 2.5, was checked from the full source. BABP satisfies `(L1)` and `(R1)--(R3)` with exponential influence: updates are single-site, site rates are uniformly bounded, and the influence kernel has nearest-neighbour support. Hence every weak limit point is stationary for every fixed `lambda>0`.
+- Martinelli--Shapira--Toninelli (2025), Corollary 2.9, was checked in their complementary infection variables. Their generator has infected-to-healthy rate `p c_x` and healthy-to-infected rate `q c_x`; with `lambda=q/p`, the present generator is `p^{-1}` times theirs. Stationary laws are therefore the same, and every stationary one-dimensional BABP law is `alpha delta_empty+(1-alpha)pi_q`.
+- Mountford (1993) and Ramírez--Varadhan (1996) are historical antecedents for the stationary-limit principle, but their full hypotheses were not independently source-checked in the reviews and are not needed for the verified proof because Jahnel--Köppl supplies the required input directly.
 
 Source proof:
 
 - `research/active/babp-finite-seed/students/student-b/002-edge-speed-to-convergence.md`, commit `f79d0fb`.
 
-Professor check:
+Professor proof with reviewer repairs folded in:
 
-- `research/active/babp-finite-seed/notes/professor-corrector-to-convergence-verification.md`;
-- `research/active/babp-finite-seed/meetings/004-corrector-to-convergence.md`.
+- `research/active/babp-finite-seed/notes/professor-corrector-to-convergence-verification.md`.
 
-Concrete corollary: combining the general bridge with verified claim `BABP-EDGE-001` gives, at
+Independent correctness reviews:
+
+- commit `abb05f6`, `research/active/babp-finite-seed/audits/002-convergence-review-a.md`;
+- commit `1aeb5a5`, `research/active/babp-finite-seed/audits/002-convergence-review-b.md`.
+
+Both reviews independently reconstructed the tagged-gap argument and accepted the theorem. Review A requested explicit localization for the unbounded exponential test and finite spatial truncation before the infinite compensator sum; those repairs are now part of the Professor proof and require no additional hypothesis. Review B independently checked the generator normalization and the Jahnel--Köppl stationary-limit interface.
+
+Concrete corollary: combining this theorem with verified `BABP-EDGE-001` gives, at
 
 $$
 \lambda=\frac1{40},
 $$
 
-local convergence from every finite nonempty deterministic initial particle set to Bernoulli equilibrium. This parameter lies below the `0.0347` finite-seed convergence range recorded in Martinelli--Shapira--Toninelli (2025), Remark 5.4.
+local convergence from every finite nonempty deterministic initial particle set to Bernoulli equilibrium. Martinelli--Shapira--Toninelli (2025), Remark 5.4, records the previous finite-seed convergence range as `lambda>0.0347`; `1/40=0.025` lies strictly below that recorded range.
 
 Claim boundary: this entry does not claim convergence for every `lambda>0`; it does not claim a quantitative convergence rate; it does not extend the initial condition beyond finite nonempty deterministic sets; and it does not assert that bare asymptotic edge-velocity bounds suffice without the statewise corrector.
 
-Audit status: this theorem is substantially stronger than `BABP-EDGE-001`, so audit `d1ef2ca` does not verify it. Two fresh independent correctness reviews are requested in:
-
-- `research/active/babp-finite-seed/audits/002-corrector-to-convergence-request.md`;
-- `research/active/babp-finite-seed/audits/003-corrector-to-convergence-request.md`.
-
-Do not promote `BABP-CONV-001` to `verified` until both reviews have returned and the Professor has resolved any objections.
+Novelty status: a targeted successor search through 2026-08-15 found no later theorem removing the `0.0347` restriction, but publication-level closest-prior-work/novelty audit remains pending and is separate from the verified mathematical correctness of this claim.
