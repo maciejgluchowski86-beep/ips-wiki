@@ -1,6 +1,7 @@
 ---
 title: Marked branching diffusion for gradient nonlinearities
 status: literature
+audit: current
 tags:
   - PDE
   - branching process
@@ -11,135 +12,79 @@ tags:
 
 # Marked branching diffusion for gradient nonlinearities
 
-The branching representation of Henry-Labordère, Oudjane, Tan, Touzi, and Warin treats semilinear equations whose nonlinearity is polynomial in the solution and its first spatial gradient. As in the [Duhamel-tree construction](branching-diffusions-and-duhamel-trees.md), branching turns monomials into products over conditionally independent descendants. Gradient factors are handled differently from the [Nguwi--Penent--Privault coding tree](npp-coding-tree.md): descendants carry finitely many gradient marks, and a marked particle receives an [automatic-differentiation weight](gaussian-integration-by-parts-and-automatic-differentiation.md) obtained from Malliavin integration by parts.
+Henry-Labordère, Oudjane, Tan, Touzi, and Warin (HLOTW) give a branching-diffusion representation for semilinear parabolic PDEs whose nonlinearity is polynomial in the solution and its first spatial gradient. Branching represents products, while marked descendants carry automatic-differentiation weights for directional gradient factors.
 
-**References.** Pierre Henry-Labordère, Nadia Oudjane, Xiaolu Tan, Nizar Touzi, and Xavier Warin, *Branching diffusion representation of semilinear PDEs and Monte Carlo approximation*, arXiv:1603.01727, especially Sections 2--3, Theorem 3.5, Assumption 3.10, Remark 3.11, Theorem 3.12, and Proposition 4.1; see [References](../meta/references.md).
+**Source audit.** Pierre Henry-Labordère, Nadia Oudjane, Xiaolu Tan, Nizar Touzi, and Xavier Warin, *Branching diffusion representation of semilinear PDEs and Monte Carlo approximation*, *Annales de l'Institut Henri Poincaré, Probabilités et Statistiques* 55(1) (2019), 184--210, DOI 10.1214/17-AIHP880; arXiv:1603.01727. The discussion below follows Sections 2--3, including the abstract representation theorem and the explicit sufficient moment conditions in Assumption 3.10 and Theorem 3.12.
 
-## Countable monomial driver class
+## Polynomial driver and marks
 
-For a diffusion in \(\mathbb R^d\), let \(m\geq0\), let \(L\subseteq\mathbb N^{m+1}\), and write \(\ell=(\ell_0,\ldots,\ell_m)\) and \(|\ell|=\sum_{i=0}^m\ell_i\). Section 2.1 writes the nonlinearity as
+The driver is written as
 
 $$
 f(t,x,y,z)
 =
-\sum_{\ell\in L}
-c_\ell(t,x)y^{\ell_0}
-\prod_{i=1}^m
-\bigl(b_i(t,x)\cdot z\bigr)^{\ell_i}.
+\sum_{\ell\in L}c_\ell(t,x)y^{\ell_0}
+\prod_{i=1}^m\bigl(b_i(t,x)\cdot z\bigr)^{\ell_i},
 \tag{1}
 $$
 
-Since \(L\subseteq\mathbb N^{m+1}\), the family of monomial types is at most countable; when \(L\) is finite, (1) is literally a polynomial in \((y,z)\). The branching notation is written for the countable family \(L\), with probabilities \((p_\ell)_{\ell\in L}\) satisfying
+where $L\subseteq\mathbb N^{m+1}$ is at most countable, $\ell=(\ell_0,\ldots,\ell_m)$, and the offspring probabilities satisfy $p_\ell>0$ and $\sum_\ell|\ell|p_\ell<\infty$. A branch of type $\ell$ creates $|\ell|$ children: $\ell_0$ ordinary value marks and $\ell_i$ copies of directional-gradient mark $i$.
+
+## Automatic differentiation
+
+For the underlying diffusion $X_s^{t,x}$, HLOTW assume an automatic-differentiation formula of the form
 
 $$
-p_\ell>0,
-\qquad
-\sum_{\ell\in L}|\ell|p_\ell<\infty.
-$$
-
-When a particle branches with type \(\ell\), it produces \(|\ell|\) children. Exactly \(\ell_i\) of them receive mark \(i\), for \(i=0,\ldots,m\). Mark \(0\) represents an ordinary factor of \(u\); mark \(i\geq1\) represents the directional gradient factor \(b_i\cdot Du\).
-
-The finite-mean offspring condition is part of the nonexplosion control for the age-dependent branching process; see [Branching diffusions and Duhamel trees](branching-diffusions-and-duhamel-trees.md).
-
-## Gradient marks and automatic differentiation
-
-Let \(X_s^{t,x}\) be the underlying diffusion. The automatic-differentiation hypothesis asks for a measurable weight \(\mathcal W\) such that, for bounded measurable \(\varphi\),
-
-$$
-\partial_x\mathbb E\bigl[\varphi(X_s^{t,x})\bigr]
+D_x\mathbb E[\varphi(X_s^{t,x})]
 =
-\mathbb E\bigl[
-\varphi(X_s^{t,x})
-\mathcal W(t,s,x,\Delta W)
-\bigr].
+\mathbb E[\varphi(X_s^{t,x})\mathcal W(t,s,x)].
 \tag{2}
 $$
 
-For constant nondegenerate diffusion coefficient \(\sigma_0\), [Gaussian integration by parts](gaussian-integration-by-parts-and-automatic-differentiation.md) gives
+For constant invertible diffusion coefficient $\sigma_0$,
 
 $$
-\mathcal W(t,s,x,\Delta W)
-=
-(\sigma_0^\top)^{-1}
-\frac{W_s-W_t}{s-t}.
+\mathcal W(t,s,x)
+=(\sigma_0^\top)^{-1}\frac{W_s-W_t}{s-t}.
 \tag{3}
 $$
 
-Brownian scaling makes the typical size of (3) proportional to \((s-t)^{-1/2}\). For a particle \(k\) with mark \(\theta_k\), the factor entering the branching functional is
+A nonzero mark pairs this weight with the corresponding vector $b_i$. Variable-coefficient versions rely on Malliavin/Bismut formulas under their own regularity and nondegeneracy hypotheses; see [Malliavin and Bismut automatic differentiation](malliavin-and-bismut-automatic-differentiation.md).
 
-$$
-\mathcal W_k
-=
-\ind(\theta_k=0)
-+
-\ind(\theta_k\neq0)
-\,b_{\theta_k}(T_{k^-},X_{T_{k^-}}^k)
-\cdot
-\mathcal W(T_{k^-},T_k,X_{T_{k^-}}^k,\Delta W^k).
-\tag{4}
-$$
+## Lifetime density and moment cost
 
-Thus the mark does not ask the tree to propagate a new differential code. It determines whether the corresponding descendant carries an automatic-differentiation weight. For variable nondegenerate diffusions, HLOTW use a Bismut--Elworthy--Li/Malliavin integration-by-parts formula.
-
-## Lifetime density and the short-time singularity
-
-Branching lifetimes have a strictly positive density \(\rho\). An internal branching factor contains the [importance-sampling denominator](importance-sampling-compensators.md)
+A particle lifetime is sampled from a positive density $\rho$. An internal branching factor contains the compensator
 
 $$
 \frac{c_{I_k}(T_k,X_{T_k}^k)}{p_{I_k}\rho(\Delta T_k)}
 $$
 
-as well as the mark factor \(\mathcal W_k\). The gradient weight has short-time scale \((\Delta T_k)^{-1/2}\), so absolute moments depend sensitively on the lifetime law near zero.
+and, for a gradient mark, an automatic-differentiation factor with short-time scale $(\Delta T_k)^{-1/2}$. Thus algebraic unbiasedness does not remove the short-time singularity from absolute moments.
 
-The compensation is an integrability balance, not an algebraic cancellation of \(\mathcal W_k\) by \(\rho\). In the explicit criterion of Assumption 3.10(i), one of the relevant quantities has the form
+One explicit $q$-moment quantity in Assumption 3.10 has the form
 
 $$
 \sup_{\ell\in L,\,r\in(0,T]}
 C_{2,q}
 \left(
-\frac{\lVert c_\ell\rVert_\infty}
+\frac{\|c_\ell\|_\infty}
 {p_\ell\sqrt r\,\rho(r)}
 \right)^q.
-\tag{5}
+\tag{4}
 $$
 
-The whole density \(\rho(r)\) appears in the denominator in (5). Remark 3.11 notes that controlling this expression requires the ratios \(\lVert c_\ell\rVert_\infty/p_\ell\) to be uniformly bounded and, for this criterion, a density satisfying
+Remark 3.11 explains that this criterion requires the coefficient-to-offspring ratios $\|c_\ell\|_\infty/p_\ell$ to be uniformly controlled and a lifetime density sufficiently singular near zero; for the displayed criterion, a lower bound of order $r^{-1/2}$ is the relevant balance. The alternative moment condition in Assumption 3.10 uses a stronger power requirement.
 
-$$
-\rho(r)\geq C r^{-1/2}
-$$
+These conditions are sufficient conditions for the integrability needed by the representation. They impose a small-maturity or small-nonlinearity regime through the associated positive moment majorant; the paper itself describes this restriction explicitly.
 
-near zero. Their alternative \(q\)-moment criterion requires a still stronger power singularity. A lifetime distribution that puts sufficient mass near zero offsets the Malliavin-weight singularity in the moment estimates.
+## Representation theorem and uniform integrability
 
-## Local uniform integrability
+The abstract representation theorem requires local uniform integrability of the branching estimator family and of the companion family used to represent the gradient. Under those hypotheses, the branching expectation defines a continuous viscosity solution and its spatial gradient exists and is continuous. Section 3.2 supplies explicit sufficient conditions; Theorem 3.12 derives the required uniform integrability from Assumption 3.10 and gives an $L^2$ conclusion when the chosen moment exponent is at least two.
 
-The abstract representation theorem uses [local uniform integrability](uniform-integrability-and-passage-to-expectations.md). For a compact parameter set \(K\), this means
+The [uniform-integrability](uniform-integrability-and-passage-to-expectations.md) condition is analytically distinct from finite-horizon [nonexplosion of the genealogy](age-dependent-branching-and-nonexplosion.md). A finite tree can still carry a nonintegrable product.
 
-$$
-\lim_{R\to\infty}
-\sup_{\theta\in K}
-\mathbb E\left[
-|Y_\theta|\ind(|Y_\theta|>R)
-\right]
-=0.
-$$
+## Scope and uniqueness
 
-This condition permits limits in the starting time and position to pass through expectations. A uniform \(L^q\) estimate with \(q>1\) is a standard sufficient condition.
+The representation theorem constructs a viscosity solution under its branching, automatic-differentiation, and integrability hypotheses. Identification with a unique PDE solution additionally requires an appropriate comparison/uniqueness result in the solution class. The paper makes this distinction explicitly in later extensions.
 
-## Integrability and viscosity representation
-
-Theorem 3.5 states the operative representation assumption abstractly. Besides the branching and automatic-differentiation hypotheses, it requires local uniform integrability of the family of tree estimators \(\psi^{s,y}\) and of the companion family used for the gradient formula, \(\widetilde\psi^{s,y}\mathcal W\). Under these hypotheses,
-
-$$
-u(t,x)=\mathbb E[\psi^{t,x}]
-$$
-
-is a continuous [viscosity solution](viscosity-solutions.md) of the semilinear PDE, and \(Du\) exists and is continuous.
-
-Section 3.2 then gives explicit sufficient conditions. Assumption 3.10 is a small-maturity or small-nonlinearity restriction; Theorem 3.12 uses it to obtain the required uniform integrability. When the moment exponent satisfies \(q\geq2\), the theorem also gives \(\psi^{t,x}\in L^2\).
-
-## Uniqueness scope
-
-Theorem 3.5 produces a viscosity solution from the branching expectation; uniqueness is a separate PDE comparison question. When a [viscosity comparison principle](viscosity-solutions.md) is available in the relevant class, the probabilistic representation identifies the unique solution in that class. Proposition 4.1 makes this distinction explicit in one of the paper's extensions by assuming uniqueness of the bounded viscosity solution in addition to the integrability hypotheses.
-
-The structural contrast with the Nguwi--Penent--Privault construction is therefore specific. The marked branching scheme encodes a polynomial dependence on \((u,Du)\) using finitely many kinds of gradient marks and Malliavin weights. The coding-tree construction instead propagates an infinite differential code class capable of tracking derivatives of arbitrary order.
+The cited HLOTW theorem is a finite-horizon marked-branching representation under these integrability hypotheses. It does not state a general deterministic-interface or time-slab theorem that resets the moment condition at intermediate times.

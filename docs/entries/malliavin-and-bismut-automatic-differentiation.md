@@ -1,6 +1,7 @@
 ---
 title: Malliavin and Bismut automatic differentiation
 status: standard fact
+audit: current
 tags:
   - probability
   - stochastic calculus
@@ -12,134 +13,67 @@ tags:
 
 # Malliavin and Bismut automatic differentiation
 
-Automatic-differentiation formulas for diffusions transfer a derivative with respect to the starting point from the payoff onto a stochastic weight. For Brownian motion this is ordinary Gaussian integration by parts. For a nonconstant uniformly nondegenerate diffusion, the Bismut--Elworthy--Li formula is a standard way to obtain the corresponding weight and is the mechanism used in marked branching representations such as HLOTW.
+Malliavin integration by parts and Bismut--Elworthy--Li formulas provide stochastic weights for derivatives of diffusion semigroups. Different versions require different smoothness, ellipticity, and integrability hypotheses. This page records the common identity used by probabilistic PDE representations and treats the constant-coefficient case explicitly; it does not assert a single universal variable-coefficient theorem.
 
-**References.** David Nualart, *The Malliavin Calculus and Related Topics*, second edition, Springer, 2006. Ioannis Karatzas and Steven E. Shreve, *Brownian Motion and Stochastic Calculus*, second edition, Springer, 1991. Pierre Henry-Labordère, Nadia Oudjane, Xiaolu Tan, Nizar Touzi, and Xavier Warin, arXiv:1603.01727. See [References](../meta/references.md).
+**References.** David Nualart, *The Malliavin Calculus and Related Topics*, 2nd ed., Springer, 2006. Ioannis Karatzas and Steven E. Shreve, *Brownian Motion and Stochastic Calculus*, 2nd ed., Springer, 1991. Pierre Henry-Labordère, Nadia Oudjane, Xiaolu Tan, Nizar Touzi, and Xavier Warin, *Ann. Inst. H. Poincaré Probab. Statist.* 55(1) (2019), 184--210. See [References](../meta/references.md).
 
-## Diffusion flow and its Jacobian
+## Diffusion flow
 
-Consider an \(d\)-dimensional diffusion
-
-$$
-dX_s^{t,x}
-=
-\mu(s,X_s^{t,x})\,ds
-+
-\sigma(s,X_s^{t,x})\,dW_s,
-\qquad
-X_t^{t,x}=x.
-\tag{1}
-$$
-
-Assume the coefficients are regular enough that the solution depends differentiably on the starting point. Its spatial Jacobian is
+For
 
 $$
-Y_s^{t,x}
-:=
-D_xX_s^{t,x}.
-\tag{2}
+dX_s^{t,x}=\mu(s,X_s^{t,x})\,ds+\sigma(s,X_s^{t,x})\,dW_s,
+\qquad X_t^{t,x}=x,
 $$
 
-Differentiating the SDE formally and then using standard stochastic-flow theory gives the linear matrix SDE
+regular coefficients may generate a stochastic flow differentiable in $x$. Its Jacobian is $Y_s^{t,x}=D_xX_s^{t,x}$. Under hypotheses permitting differentiation of the SDE, $Y$ solves the corresponding linearized matrix SDE.
 
-$$
-\begin{aligned}
-dY_s
-={}&
-D_x\mu(s,X_s)Y_s\,ds\\
-&+
-\sum_j
-D_x\sigma_j(s,X_s)Y_s\,dW_s^j,
-\qquad
-Y_t=I,
-\end{aligned}
-\tag{3}
-$$
+## The automatic-differentiation identity
 
-where \(\sigma_j\) denotes the \(j\)-th diffusion column.
-
-## Bismut--Elworthy--Li formula
-
-Suppose in addition that \(\sigma\) is uniformly nondegenerate, so that \(\sigma^{-1}\) is defined with suitable bounds. For a bounded measurable payoff \(\varphi\), a standard Bismut--Elworthy--Li formula has the form
+The variable-coefficient statement used in branching representations is the existence of an integrable random weight $\mathcal W(t,s,x)$ such that
 
 $$
 D_x\mathbb E[\varphi(X_s^{t,x})]
 =
-\mathbb E\left[
-\varphi(X_s^{t,x})
-\mathcal W(t,s,x)
-\right],
-\tag{4}
+\mathbb E[\varphi(X_s^{t,x})\mathcal W(t,s,x)]
+\tag{1}
 $$
 
-with stochastic weight
+for the payoff class in question. Bismut--Elworthy--Li formulas construct such weights for nondegenerate diffusions under regularity assumptions on the coefficients and suitable moment bounds on the flow Jacobian. The exact formula and hypotheses must be checked in the theorem being applied.
+
+For the constant-coefficient diffusion
 
 $$
-\mathcal W(t,s,x)
-=
-\frac1{s-t}
-\int_t^s
-\left(
-\sigma(r,X_r^{t,x})^{-1}
-Y_r^{t,x}
-\right)^\top
- dW_r.
-\tag{5}
+X_s^{t,x}=x+\sigma_0(W_s-W_t),
 $$
 
-The exact matrix convention depends on whether gradients are represented as row or column vectors. Formula (4), rather than the convention in (5), is the invariant content used by the branching representation.
-
-When \(\mu=0\) and \(\sigma=\sigma_0\) is constant, one has \(Y_r=I\), and (5) reduces to
+with invertible matrix $\sigma_0$, ordinary Gaussian integration by parts gives the exact formula
 
 $$
 \mathcal W(t,s,x)
-=
-(\sigma_0^\top)^{-1}
-\frac{W_s-W_t}{s-t},
-\tag{6}
+=(\sigma_0^\top)^{-1}\frac{W_s-W_t}{s-t}.
+\tag{2}
 $$
 
-which is exactly the Gaussian weight derived in [Gaussian integration by parts and automatic differentiation](gaussian-integration-by-parts-and-automatic-differentiation.md).
-
-## Why the weight has a short-time singularity
-
-The stochastic integral in (5) has typical size of order \((s-t)^{1/2}\). The prefactor \((s-t)^{-1}\) therefore gives
-
-$$
-|\mathcal W(t,s,x)|
-\sim
-(s-t)^{-1/2}
-$$
-
-at the level of moments. This short-time singularity is the source of the lifetime-density balance in the [HLOTW marked branching construction](marked-branching-diffusion-for-gradient-nonlinearities.md).
+No Malliavin machinery is needed for (2).
 
 ## Malliavin integration by parts
 
-Malliavin calculus views a sufficiently regular random variable \(F=F(W)\) as differentiable with respect to perturbations of the driving Brownian path. Its *Malliavin derivative* \(D_rF\) is a random process describing the first-order response to a perturbation of the noise near time \(r\).
-
-The adjoint of the Malliavin derivative is the *divergence* or *Skorokhod integral* \(\delta\). In its basic form, Malliavin integration by parts says
+For a sufficiently regular Wiener functional $F$, the Malliavin derivative $DF$ is an $L^2$-valued random variable. The adjoint of $D$ is the divergence operator $\delta$. For $u$ in the domain of $\delta$,
 
 $$
-\mathbb E\left[
-\langle DF,u\rangle_{L^2}
-\right]
+\mathbb E[\langle DF,u\rangle_{L^2}]
 =
-\mathbb E[F\,\delta(u)]
-\tag{7}
+\mathbb E[F\,\delta(u)].
+\tag{3}
 $$
 
-for processes \(u\) in the domain of \(\delta\). For adapted square-integrable \(u\), \(\delta(u)\) agrees with the ordinary Ito integral
+When $u$ is adapted and square-integrable, $\delta(u)$ agrees with the Itô integral $\int u_r\,dW_r$. A Bismut formula chooses $u$ so that the Malliavin perturbation corresponds to a perturbation of the starting point, thereby moving the derivative from the payoff to a stochastic integral.
 
-$$
-\delta(u)
-=
-\int u_r\,dW_r.
-$$
+## Short-time scale
 
-The Bismut weight is obtained by choosing a process \(u\) whose Malliavin perturbation reproduces a perturbation of the starting point. Formula (7) then moves the derivative from the payoff to the stochastic integral, producing (4).
+In standard nondegenerate settings, the stochastic weight in (1) has first or higher moments of order $(s-t)^{-1/2}$ as $s\downarrow t$. This is the scale relevant for [marked branching representations](marked-branching-diffusion-for-gradient-nonlinearities.md).
 
-## Scope
+## Scope for the wiki
 
-The precise hypotheses for (4)--(5) vary across versions of the theorem. Smoothness of the stochastic flow, nondegeneracy of \(\sigma\), and moment bounds for the Jacobian are typical assumptions. The PDE wiki will state the hypotheses of the cited branching theorem when a variable-coefficient Bismut weight is actually used.
-
-For the explicit dichotomy benchmark, the diffusion coefficient is constant and none of this machinery is needed beyond the elementary Gaussian formula (6). This entry is included so that the general HLOTW literature discussion does not rely on undefined Malliavin or Bismut terminology.
+Whenever a variable-coefficient Bismut weight is used later, the relevant external theorem must supply the regularity, nondegeneracy, and integrability needed for (1). The wiki does not infer those hypotheses from the schematic identity. For constant diffusion coefficients, use the elementary Gaussian formula (2).

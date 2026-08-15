@@ -1,96 +1,71 @@
 # Probabilistic representations for nonlinear PDEs
 
-This page is a compact map of the representation and cancellation mechanisms used on the PDE side of the wiki. The linear starting point is the heat or diffusion semigroup; nonlinear Duhamel terms generate trees; derivative nonlinearities introduce signed weights; and integrability must be checked separately from signed exactness.
+This page is a compact map of branching and signed-weight representations for nonlinear PDEs. The recurring separation is between **exactness** of a signed probabilistic identity and **integrability** of the resulting random variable.
 
 For prerequisites, follow the [PDE reading path](pde-reading-path.md).
 
-## Mild equations and tree expansions
+## Mild equations and branching trees
 
-A semilinear or derivative-dependent parabolic equation is first rewritten in mild form. Iterating the Duhamel term produces a finite tree expansion at every fixed Picard depth. A branching process can randomize that finite or infinite tree family by sampling lifetimes and offspring types.
+A semilinear parabolic equation can be rewritten in [mild form](entries/mild-formulation-and-branching-diffusion-representation.md). Iterating the Duhamel term produces trees: diffusion edges carry the linear transition semigroup, while polynomial nonlinearities become products at branching vertices.
 
-Relevant background pages are:
+The basic probabilistic ingredients are:
 
-- [Mild formulation and branching-diffusion representation](entries/mild-formulation-and-branching-diffusion-representation.md);
 - [Branching diffusions and Duhamel trees](entries/branching-diffusions-and-duhamel-trees.md);
 - [Age-dependent branching and finite-horizon nonexplosion](entries/age-dependent-branching-and-nonexplosion.md);
 - [Importance-sampling compensators](entries/importance-sampling-compensators.md).
 
-Reciprocal proposal densities can make a sampled tree term unbiased, but unbiasedness is only a signed identity. It does not imply that the absolute first moment is finite.
+Sampling lifetimes and offspring types can reproduce the deterministic integral recursion exactly. That signed identity alone does not imply finite first moment.
 
-## Derivative weights and local cancellation
+## Marked gradient branching
 
-Heat-semigroup derivatives admit Gaussian/Hermite representations. A centered second derivative may be written
-\[
+For polynomial dependence on $(u,Du)$, the HLOTW construction uses finitely many marks. Ordinary marks represent factors of $u$; gradient marks attach [automatic-differentiation weights](entries/gaussian-integration-by-parts-and-automatic-differentiation.md) to descendants. The published theorem and its small-maturity/small-nonlinearity moment hypotheses are summarized in [Marked branching diffusion for gradient nonlinearities](entries/marked-branching-diffusion-for-gradient-nonlinearities.md).
+
+Derivative weights have short-time singularities. In the Brownian case a first derivative contributes a centered Gaussian score of size $r^{-1/2}$; a second derivative is represented by a Hermite score of size $r^{-1}$. Lifetime-density compensators and branching products therefore interact directly with moment estimates.
+
+## Cancellation before absolute values
+
+Heat-semigroup derivatives admit centered Gaussian/Hermite formulas. For example,
+
+$$
 \partial_{xx}P_r f(x)
 =
-\frac1r
-\mathbb E\left[
-He_2(Z)
-\bigl(f(x+\sqrt r\,Z)-f(x)\bigr)
-\right],
-\qquad
-He_2(z)=z^2-1.
-\tag{1}
-\]
-The subtraction uses \(\mathbb E He_2(Z)=0\). If regularity of \(f\) turns the increment into a positive power of \(r\), the centered formula can improve the short-time absolute majorant.
+\frac1r\mathbb E\left[He_2(Z)f(x+\sqrt r\,Z)\right],
+\qquad He_2(z)=z^2-1.
+$$
 
-The general background is in [Gaussian integration by parts and automatic differentiation](entries/gaussian-integration-by-parts-and-automatic-differentiation.md), [Hermite polynomials and Gaussian chaos](entries/hermite-polynomials-and-gaussian-chaos.md), and [Hölder cancellation for heat-semigroup derivatives](entries/holder-cancellation-for-heat-semigroup-derivatives.md).
+Because $\mathbb E He_2(Z)=0$, one may subtract a constant inside the expectation. If regularity converts the resulting increment into a positive power of $r$, the short-time absolute majorant improves. See [Hölder cancellation for heat-semigroup derivatives](entries/holder-cancellation-for-heat-semigroup-derivatives.md) and [Hermite polynomials and Gaussian chaos](entries/hermite-polynomials-and-gaussian-chaos.md).
 
-Two reusable finite calculations are isolated in [Joint centered-mark identities for Gaussian derivative weights](entries/joint-centered-mark-dichotomy-for-raw-pde-patches.md):
+More generally, delaying the first absolute value can permit exact cancellation among several signed marks or inside a conditional fiber. Such a local gain is useful only if it survives the recursion in which the marks are composed.
 
-- a two-mark mixed difference can be estimated before the first absolute value, giving an integrable short-time product singularity;
-- conditioning independent Gaussian increments on their total displacement averages bridge coordinates and replaces the product of second-order scores by one higher Hermite score.
+## Conditional coarsening and total variation
 
-These are local identities. They do not by themselves control products accumulated over arbitrary branching depth.
+A marked contribution can be regarded as a finite signed measure $\mu=R\nu$. If a measurable map $\mathcal C$ retains only part of the raw information, then
 
-## Finite regrouping and conditional factorization
-
-There are two distinct finite operations that should not be conflated with an infinite representation theorem.
-
-[Finite-depth Duhamel patch regrouping](entries/finite-depth-duhamel-patch-regrouping.md) records a purely combinatorial reindexing of finite planar binary trees by maximal left-child chains and their ordered side attachments.
-
-[Conditional factorization for finite PDE patches](entries/conditional-factorization-for-finite-pde-patches.md) records the probabilistic counterpart: if distinct child pieces use conditionally independent fresh seeds and the relevant products are integrable, their conditional expectation factorizes. A centered Gaussian mark must remain outside the conditioning sigma-field until the stage where its mean-zero cancellation is used.
-
-Both statements are finite. Neither supplies depth-uniform moment control.
-
-## Signed measures, coarsening, and first moments
-
-A useful way to separate signed exactness from integrability is to regard a marked contribution as a finite signed measure
-\[
-\mu=R\nu
-\]
-relative to a finite positive measure \(\nu\). If a measurable map \(\mathcal C\) retains only part of the mark information, then [Residual signed variation under coarsening](entries/residual-signed-variation-characterization-for-coarsened-patches.md) gives
-\[
+$$
 \|\mathcal C_\#\mu\|_{\mathrm{TV}}
 =
-\int
-\left|
-\mathbb E_\nu[R\mid\sigma(\mathcal C)]
-\right|\,d\nu.
-\tag{2}
-\]
-Conditional Jensen shows that further coarsening cannot increase this residual total variation.
+\int\left|\mathbb E_\nu[R\mid\sigma(\mathcal C)]\right|\,d\nu
+\leq
+\int|R|\,d\nu.
+\tag{1}
+$$
 
-For a countable family of signed contributions, sampling the family label and then sampling each coarsened signed measure from a dominating positive proposal gives
-\[
-\mathbb E|Y|
-=
-\sum_\tau
-\|(\mathcal C_\tau)_\#\mu_\tau\|_{\mathrm{TV}}.
-\tag{3}
-\]
-Thus the first-moment problem is a summability problem for the variation that survives conditional averaging.
+The measure-theoretic background is in [Finite signed measures, pushforwards, and conditional barycenters](entries/finite-signed-measures-pushforwards-and-conditional-barycenters.md). Strict inequality in (1) requires genuine sign cancellation inside conditional fibers; ordinary resampling of a fixed retained signed measure cannot improve its total-variation cost.
 
-The underlying measure-theoretic vocabulary is collected in [Finite signed measures, pushforwards, and conditional barycenters](entries/finite-signed-measures-pushforwards-and-conditional-barycenters.md), and limiting arguments require the separate [uniform-integrability](entries/uniform-integrability-and-passage-to-expectations.md) checks appropriate to the construction.
+Conditional independence is equally important for products. If different descendants use fresh independent randomness after a branching vertex, conditional expectations factorize across descendants. This mechanism is exact but can be destroyed by conditioning on a variable that was meant to remain available for a later centered cancellation.
 
-## Scope
+## Exactness, moments, and limits
 
-The reusable mechanism is cancellation before absolute values: perform an exact finite algebraic or conditional averaging step while signs are still present, and only then estimate the resulting object. The possible gain may come from spatial increments, joint Gaussian marks, conditional independence, or coarsening of signed measures.
+Any proposed branching representation has several separate obligations:
 
-Three issues remain logically separate in any proposed application:
+1. **finite-step exactness:** conditioning on the first branch or finite tree must reproduce the intended mild recursion;
+2. **genealogical nonexplosion:** only finitely many particles are born before a finite horizon;
+3. **absolute integrability:** the multiplicative estimator belongs to $L^1$ (or to the stronger moment class required by the theorem);
+4. **passage to limits:** truncations or approximations are uniformly integrable or otherwise justified;
+5. **PDE identification:** the expectation has the regularity or viscosity properties required to solve the target PDE, with uniqueness supplied separately when needed.
 
-1. **exactness:** does the finite or infinite representation equal the intended PDE quantity?
-2. **integrability:** is the estimator an \(L^1\) random variable, with all limiting operations justified?
-3. **problem relevance:** does the cancellation gain close a published analytic or probabilistic criterion that matters for the target PDE?
+See [Uniform integrability and passage to expectations](entries/uniform-integrability-and-passage-to-expectations.md) for the limiting step. None of these obligations is implied merely by algebraic unbiasedness.
 
-The current research programme is in SEARCH and uses these pages as background mechanisms rather than as an active quadratic-Hessian theorem chain.
+## How to evaluate a proposed coarsening
+
+For a finite Gaussian/Hermite or Bismut mark cluster, a useful quantitative test is to compare the raw total variation with the variation after an exact conditioning/coarsening step. A strict factor smaller than one is only the first test. One must then determine whether the factor persists, multiplies, or disappears when two clusters are composed through the product structure of a branching tree. This finite-dimensional calibration can be studied independently of any particular PDE application.

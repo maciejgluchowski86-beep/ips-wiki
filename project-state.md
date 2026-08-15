@@ -8,25 +8,17 @@ This file is the compact mutable state for the autonomous PDE/probability resear
 
 ## Active programme
 
-**Long-maturity marked-branching representations by time-slab conditional averaging.**
+**Quantitative Gaussian bridge coarsening: mechanism calibration before application selection.**
 
-The setting is the Henry-Labordère--Oudjane--Tan--Touzi--Warin semilinear class
+No PDE or open problem is attached to this programme yet. The first target is finite-dimensional and explicit: find a canonical finite family of Gaussian/Hermite or Bismut derivative marks for which conditioning or coarsening before absolute values gives a strict, explicitly computable total-variation/$L^1$ contraction, and determine whether that contraction survives the product/tensor recursion needed for branching depth.
 
-$$
--\partial_t u-Lu=f(t,x,u,Du),
-$$
+The first SEARCH gate requires all three:
 
-with $f$ polynomial in $(u,Du)$. The existing marked-branching construction provides a positive short-time module, but its one-shot representation theorem is subject to an integrability/non-explosion condition that restricts the usable regime to small maturity or small nonlinearity.
+1. an exact strict factor $0<\kappa<1$ for the smallest nontrivial derivative-weight cluster;
+2. a tensorization or recursion statement showing that the gain survives composition of clusters; and
+3. a novelty check showing that the quantitative statement is more than ordinary Rao--Blackwellization, antithetic sampling, or conditional-expectation variance reduction in new notation.
 
-The first SEARCH gate is an exact two-slab $L^1$ theorem. It must:
-
-- construct the exact two-slab estimator, including the independent replicas required by polynomial products and all Malliavin/gradient weights;
-- prove unbiasedness without inserting the unknown interface solution as data;
-- make conditional averaging at the deterministic slab interface a genuine computable representation operation;
-- derive an explicit first-moment recursion; and
-- exhibit a parameter regime in which two slabs are integrable although the corresponding one-shot HLOTW criterion fails.
-
-Warin's nested methods are evidence that time decomposition is structurally relevant, but they are also the main novelty hazard. The target is an exact unbiased representation theorem, not generic nested Monte Carlo. The novelty and open-problem status of this formulation are **unverified**. DEVELOP is not authorized until both the mechanism and literature gates pass.
+No PDE/open problem is selected until this gate passes. This changes the order of research selection, not the final success criterion in `CHATGPT.md`, which remains unchanged.
 
 ## Reserve programme
 
@@ -47,26 +39,21 @@ The classical local heat/Hermite cancellation remains reusable background mechan
 
 ## Unresolved and closure
 
-SQG is terminated. Genuine smooth SQG solutions, after exact scaling, attain $N^{\gamma\eta}$ temporal variation of the normalized comparable-frequency coefficient; this exactly cancels the $N^{-\gamma\eta}$ zero-mass-kernel gain, and no explicit packet-excluding mechanism was found.
+Marked branching is terminated at its first gate. Exact deterministic-interface continuation is algebraically unbiased when independent inner replicas are used, but the positive first-moment flow does not reset at a slab boundary. For value-only positive majorants the flow composes exactly and consumes the same blow-up budget as a one-shot construction; for gradient components, restarting the $r^{-1/2}$ kernel is weakly worse than retaining the unsplit age.
 
-Five programmes are now terminated: quadratic-Hessian, Fresnel, Navier--Stokes cascade, Strong-KPP, and SQG. There is still no verified project result.
+Six programmes are now terminated: quadratic-Hessian, Fresnel, Navier--Stokes cascade, Strong-KPP, SQG, and marked branching. There is still no verified project result.
 
-The active two-slab branching candidate remains in SEARCH. It fails immediately if either:
+The strategy is therefore changed from “choose an open problem, then test its mechanism” to “prove a quantitative composable mechanism first, then select an application.” The intermediate selection bar is lower, but the final success gate in `CHATGPT.md` is not weakened.
 
-1. the exact $L^1$ recursion gives no strict enlargement after interface norms are accounted for; or
-2. the exact unbiased two-slab theorem is already contained in, or subsumed by, the existing literature.
-
-Its exact novelty/open-problem status has not yet passed the final literature audit.
-
-The IPS freeze remains removed. Project-specific IPS wiki material duplicated or superseded by the paper remains delete-first curation debt. Generic definition and literature pages are not deletion candidates merely because the project-specific theorem layer is deprecated.
+The IPS freeze remains removed. Project-specific IPS wiki material duplicated or superseded by the paper remains delete-first curation debt. Generic definition and literature pages are not deletion candidates merely because a project-specific theorem layer is deprecated.
 
 ## Wiki frontier
 
-§0 items 1--2 pass. The current PDE-reader frontier remains **§0 item 3: linear, semilinear, quasilinear, and fully nonlinear equations**.
+The seventh Wiki Curator sweep is completed after this integration. §0 items 1--3 pass: `linear-semilinear-quasilinear-and-fully-nonlinear-equations.md` has been rewritten, source-checked at `status: standard fact`, and marked `audit: current`.
 
-The item-3 entry is integrated and linked from `docs/pde-reading-path.md`. The sixth sweep left zero live `status: proved here` entries. Legacy migration remains incomplete. The next priority is the PDE reading path and the remaining unaudited PDE/background entries.
+The PDE-reader frontier advances to **§0 item 4: elliptic, parabolic, and hyperbolic equations**.
 
-SQG termination creates no new archive page. Programme termination together with incomplete legacy migration triggers another Wiki Curator sweep under the repository rules.
+Legacy migration remains incomplete. The next curation priority is the PDE reading path, potentially stranded SQG-era background entries, recently changed PDE entries, and then other duplicate, obsolete, scaffolding, or terminated-programme material.
 
 ## Dead ends
 
@@ -79,12 +66,13 @@ Keep this section sparse; record only failures expensive enough that forgetting 
 - For Navier--Stokes cascades, the published factor-$1/2$ nodewise symmetrization improves amplitude majorants but leaves the cascade law and explosion event unchanged.
 - For Strong-KPP, the cancellation route has zero margin at critical ends, while critical-mode projection is not stable enough under connected-limit detuning: $\delta A$ dominates $\kappa A^2$ whenever $A\ll|\delta|$.
 - For SQG, actual smooth scale-covariant solutions can have normalized comparable-frequency coefficients with nonzero $C_t^\eta$ variation scaling as $N^{\gamma\eta}$; this exactly cancels the $N^{-\gamma\eta}$ zero-mass-kernel gain, and no explicit equation-generated packet exclusion was found.
+- Deterministic HLOTW time-slab restarting gives no strict first-moment maturity gain: value-only positive majorants consume exactly the same blow-up budget, while restarted gradient kernels are weakly worse.
 
 ## Next cycle
 
 Run exactly two fresh read-only workers concurrently.
 
-1. **Marked-branching two-slab mechanism and novelty worker.** Derive the exact two-slab marked estimator for the HLOTW polynomial-$(u,Du)$ class. Make unbiasedness, independent-copy structure, Malliavin weights, conditioning, and the first-moment recursion explicit. Determine whether there is a strict admissible-maturity gain over the one-shot criterion. In parallel, aggressively check HLOTW successors, Warin's nested methods, and later branching-integrability literature for an existing exact theorem. If the construction is tautological, gives no strict $L^1$ gain, or is already subsumed, recommend immediate termination.
-2. **Wiki Curator, seventh sweep.** Because programme termination is itself a pruning trigger and legacy migration remains incomplete, review one coherent batch of at most about twelve pages, beginning with the next unaudited PDE-reading-path material and extending where directly coupled to the new branching programme, especially branching/nonexplosion, marked-gradient, Malliavin-weight, and uniform-integrability entries. Return exact KEEP/REWRITE/DEMOTE/DELETE actions, statuses, `audit: current` decisions, inbound links, and dependency-safe repairs.
+1. **Gaussian-coarsening mechanism worker.** Compute the smallest nontrivial Gaussian/Hermite/Bismut derivative-mark example exactly; compare raw and conditionally coarsened total variation/$L^1$; obtain an explicit strict factor if one exists; then test two-cluster composition/tensorization. Terminate immediately if the gain vanishes under composition.
+2. **Wiki Curator, eighth sweep.** Audit the potentially stranded SQG-era background cluster, beginning with `lacunary-and-hadamard-gap-trigonometric-series.md`, `conditional-expectation-and-fluctuations-of-random-fields.md`, `random-fields-in-function-spaces.md`, and `h-minus-one-energy-method.md`, extending to one coherent batch of at most about twelve pages. Protect genuinely generic background.
 
-No DEVELOP transition is automatic. Claude has no mathematical or editorial authority.
+No DEVELOP transition. No third worker. No GitHub writes outside the later designated Integrator. Claude has no mathematical or editorial authority.

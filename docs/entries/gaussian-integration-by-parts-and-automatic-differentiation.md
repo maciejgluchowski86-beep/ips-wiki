@@ -1,136 +1,98 @@
 ---
 title: Gaussian integration by parts and automatic differentiation
 status: standard fact
+audit: current
 tags:
   - probability
   - PDE
   - heat semigroup
-  - Malliavin calculus
   - automatic differentiation
 ---
 
 # Gaussian integration by parts and automatic differentiation
 
-Gaussian integration by parts transfers derivatives from a payoff onto an explicit random weight. For the heat semigroup this gives exact formulas for spatial derivatives without differentiating the terminal function pointwise. Branching representations use these weights to encode gradient or Hessian factors along diffusion edges.
+Gaussian integration by parts transfers derivatives from a payoff to explicit centered Gaussian weights. For heat kernels this gives exact spatial-derivative formulas without differentiating the payoff pointwise.
 
-**References.** David Nualart, *The Malliavin Calculus and Related Topics*, second edition, Springer, 2006. Pierre Henry-Labordère, Nadia Oudjane, Xiaolu Tan, Nizar Touzi, and Xavier Warin, arXiv:1603.01727. See [References](../meta/references.md).
+**References.** David Nualart, *The Malliavin Calculus and Related Topics*, 2nd ed., Springer, 2006. Pierre Henry-Labordère, Nadia Oudjane, Xiaolu Tan, Nizar Touzi, and Xavier Warin, *Ann. Inst. H. Poincaré Probab. Statist.* 55(1) (2019), 184--210. See [References](../meta/references.md).
 
 ## Gaussian integration by parts
 
-Let \(Z\sim N(0,1)\). For every continuously differentiable \(\varphi\) for which the expectations below are finite,
+If $Z\sim N(0,1)$ and $\varphi$ is continuously differentiable with the relevant expectations finite, then
 
 $$
-\mathbb E[Z\varphi(Z)]
-=
-\mathbb E[\varphi'(Z)].
+\mathbb E[Z\varphi(Z)]=\mathbb E[\varphi'(Z)].
 \tag{1}
 $$
 
-Indeed, with the standard normal density
+This follows from ordinary integration by parts against the density $(2\pi)^{-1/2}e^{-z^2/2}$.
+
+## Heat-semigroup derivative
+
+For
 
 $$
-\gamma(z)
-=
-\frac1{\sqrt{2\pi}}e^{-z^2/2},
+(P_th)(x)=\mathbb E[h(x+\sqrt t\,Z)],
 $$
 
-one has \(\gamma'(z)=-z\gamma(z)\), so ordinary integration by parts gives (1).
-
-## First derivative of the heat semigroup
-
-For the heat semigroup
-
-$$
-(P_th)(x)
-=
-\mathbb E[h(x+\sqrt t\,Z)],
-$$
-
-formula (1) gives
+one obtains
 
 $$
 \partial_xP_th(x)
 =
-\frac1{\sqrt t}
-\mathbb E[h(x+\sqrt t\,Z)Z]
+\frac1{\sqrt t}\mathbb E[h(x+\sqrt t\,Z)Z]
 =
 \mathbb E\left[h(x+B_t)\frac{B_t}{t}\right].
 \tag{2}
 $$
 
-The factor \(B_t/t\) is an *automatic-differentiation weight*. Its typical size is \(t^{-1/2}\), because \(B_t\) has size \(t^{1/2}\).
+The weight $B_t/t$ is centered and has moment size of order $t^{-1/2}$.
 
-The same identity holds on the torus for periodic \(h\), by applying the real-line formula to the periodic lift of \(h\).
-
-## Higher derivatives
-
-Repeated Gaussian integration by parts gives
+Repeated integration by parts gives
 
 $$
 \partial_x^kP_th(x)
 =
- t^{-k/2}
-\mathbb E\left[
- h(x+\sqrt t\,Z)He_k(Z)
-\right],
+t^{-k/2}\mathbb E\left[h(x+\sqrt t\,Z)He_k(Z)\right],
 \tag{3}
 $$
 
-where \(He_k\) is the probabilists' [Hermite polynomial](hermite-polynomials-and-gaussian-chaos.md). In particular,
+where $He_k$ is the probabilists' [Hermite polynomial](hermite-polynomials-and-gaussian-chaos.md). In particular,
 
 $$
 \partial_x^2P_th(x)
 =
-\frac1t
-\mathbb E\left[
- h(x+\sqrt t\,Z)(Z^2-1)
-\right].
-\tag{4}
+\frac1t\mathbb E[h(x+\sqrt t\,Z)(Z^2-1)].
 $$
 
-The natural short-time scale of a \(k\)-th derivative weight is therefore \(t^{-k/2}\).
+The same identities apply to periodic functions by lifting them to the real line.
 
-## Definition
+## Automatic-differentiation weights
 
-Let \(X_s^{t,x}\) be a diffusion started from \(x\) at time \(t\). An *automatic-differentiation weight* for its transition operator is a random vector \(\mathcal W(t,s,x)\) such that
+For a diffusion $X_s^{t,x}$, an **automatic-differentiation weight** is a random vector $\mathcal W(t,s,x)$ satisfying
 
 $$
 D_x\mathbb E[\varphi(X_s^{t,x})]
 =
-\mathbb E\left[
-\varphi(X_s^{t,x})\mathcal W(t,s,x)
-\right]
-\tag{5}
+\mathbb E[\varphi(X_s^{t,x})\mathcal W(t,s,x)]
+\tag{4}
 $$
 
-for an appropriate class of test functions \(\varphi\).
-
-For constant nondegenerate diffusion coefficient \(\sigma_0\),
+for a specified class of payoffs. For constant invertible diffusion matrix $\sigma_0$,
 
 $$
-X_s^{t,x}
-=
-x+\sigma_0(W_s-W_t)
+X_s^{t,x}=x+\sigma_0(W_s-W_t),
 $$
 
 and one may take
 
 $$
 \mathcal W(t,s,x)
-=
-(\sigma_0^\top)^{-1}
-\frac{W_s-W_t}{s-t}.
-\tag{6}
+=(\sigma_0^\top)^{-1}\frac{W_s-W_t}{s-t}.
+\tag{5}
 $$
 
-For variable nondegenerate diffusions, [Malliavin integration by parts and the Bismut--Elworthy--Li formula](malliavin-and-bismut-automatic-differentiation.md) provide analogues of (5). Their precise hypotheses depend on the diffusion coefficients; the HLOTW construction assumes such a formula rather than deriving it from the branching argument itself.
+Variable-coefficient analogues are provided by Malliavin/Bismut formulas under additional regularity and nondegeneracy hypotheses; see [Malliavin and Bismut automatic differentiation](malliavin-and-bismut-automatic-differentiation.md).
 
-## Why the singularity matters
+## Short-time singularity
 
-Suppose a branching lifetime has density \(\rho(s)\). A gradient-marked branch contributes both an importance-sampling factor \(1/\rho(s)\) and an automatic-differentiation factor of size \(s^{-1/2}\). Moment estimates therefore contain combinations such as
-
-$$
-\frac1{\sqrt s\,\rho(s)}.
-$$
-
-This is the origin of the lifetime-density condition in the [HLOTW marked branching construction](marked-branching-diffusion-for-gradient-nonlinearities.md). Treating several derivative transfers edge by edge can create nonintegrable products of these short-time singularities; composition before taking absolute values can behave very differently, which is why Hermite-chaos identities matter in later patch calculations.
+A gradient weight has natural size $(s-t)^{-1/2}$. If a branching time with density $\rho$ is sampled as well, a marked internal factor can contain both $1/\rho(s-t)$ and a derivative weight. Moment estimates must therefore balance the lifetime law against this short-time singularity. The exact algebraic identity does not by itself provide that integrability.

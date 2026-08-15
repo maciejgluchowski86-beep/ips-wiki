@@ -1,6 +1,7 @@
 ---
 title: Branching diffusions and Duhamel trees
 status: standard fact
+audit: current
 tags:
   - PDE
   - branching process
@@ -11,83 +12,63 @@ tags:
 
 # Branching diffusions and Duhamel trees
 
-A branching diffusion is a random tree whose particles move by diffusion between branching times. In probabilistic representations of nonlinear parabolic PDEs, the tree is obtained by randomizing the time integrals in a [mild or Duhamel formulation](mild-formulation-and-branching-diffusion-representation.md): diffusion edges realize the linear semigroup, while offspring reproduce products appearing in the nonlinearity.
+A branching diffusion is a random tree whose particles move according to a diffusion between branching times. In probabilistic representations of nonlinear parabolic PDEs, diffusion edges realize the linear semigroup and offspring reproduce products in the mild nonlinearity.
 
-**References.** Pierre Henry-Labordère, Nadia Oudjane, Xiaolu Tan, Nizar Touzi, and Xavier Warin, *Branching diffusion representation of semilinear PDEs and Monte Carlo approximation*, arXiv:1603.01727. Jiang Yu Nguwi, Guillaume Penent, and Nicolas Privault, *A fully nonlinear Feynman-Kac formula with derivatives of arbitrary orders*, arXiv:2201.03882. See [References](../meta/references.md).
+**References.** Pierre Henry-Labordère, Nadia Oudjane, Xiaolu Tan, Nizar Touzi, and Xavier Warin, *Ann. Inst. H. Poincaré Probab. Statist.* 55(1) (2019), 184--210. Jiang Yu Nguwi, Guillaume Penent, and Nicolas Privault, arXiv:2201.03882. See [References](../meta/references.md).
 
-## From Duhamel to a tree
+## Duhamel trees
 
-Consider, in forward time, an integral equation in which the value \(u(t)\) is
+For an integral equation
 
 $$
-P_t\phi
-+\int_0^t P_{t-s}\bigl[B(u(s),u(s))\bigr]\,ds,
+u(t)=P_t\phi+\int_0^tP_{t-s}[B(u(s),u(s))]\,ds,
 \tag{1}
 $$
 
-where \((P_t)_{t\geq0}\) is a diffusion semigroup and \(B\) is bilinear. Substituting the right-hand side of (1) for either occurrence of \(u\) produces another time integral. Repeating the substitution produces rooted binary trees: every occurrence of the bilinear term has two children, and every edge carries one semigroup transfer.
+with bilinear $B$, repeatedly substituting the right-hand side for each occurrence of $u$ generates rooted binary trees. Internal vertices carry integration times, edges carry semigroup transfers, and leaves carry initial or terminal data. Higher-degree polynomial terms produce the corresponding offspring numbers.
 
-A *binary Duhamel tree* is this deterministic bookkeeping object. Its internal vertices are integration times and its leaves carry the terminal or initial data. Before randomization, the contribution of a fixed finite tree is an iterated time integral of products of semigroup transfers.
+A finite Duhamel tree is deterministic bookkeeping. A branching diffusion randomizes the same time and offspring choices.
 
-## Randomizing one time integral
+## Randomizing an integration time
 
-Let \(\tau\) be a positive random variable with density \(\rho\), strictly positive on the time interval of interest. For an integrable function \(F\),
+Let $\tau$ have density $\rho>0$ on the relevant interval. For integrable $F$,
 
 $$
-\int_0^h F(s)\,ds
+\int_0^hF(s)\,ds
 =
-\mathbb E\left[
-\ind(\tau<h)\frac{F(\tau)}{\rho(\tau)}
-\right].
+\mathbb E\left[\mathbf1_{\{\tau<h\}}\frac{F(\tau)}{\rho(\tau)}\right].
 \tag{2}
 $$
 
-Thus an integration time may be sampled instead of integrated. The reciprocal factor \(1/\rho(\tau)\) is an [importance-sampling compensator](importance-sampling-compensators.md).
+The reciprocal density is an [importance-sampling compensator](importance-sampling-compensators.md). Offspring types may likewise be sampled with positive probabilities and compensated by their reciprocals.
 
-If the sampled lifetime exceeds the remaining horizon, the particle becomes a leaf. If it falls inside the horizon, the corresponding nonlinear term is evaluated and the particle branches.
+## Branching diffusion data
 
-## Definition
+On a finite horizon, a standard construction specifies for each particle a birth time and position, a positive lifetime, an offspring type, and possibly a mark. Between branch times the particle follows the underlying diffusion. At a branching vertex, finitely many children are born at the parent position.
 
-Fix a finite horizon. A *branching diffusion* consists of the following data.
+The load-bearing independence condition is recursive: conditional on the data exposed at a branching vertex, distinct descendant subtrees are independent copies of the construction with the prescribed child types. Brownian increments on disjoint descendant branches are correspondingly independent after their common ancestral history is fixed.
 
-1. Each particle has a birth time, birth position, and possibly a mark or code.
-2. Between birth and death it follows a diffusion, independently of the motions of particles outside its ancestral line once the common past is fixed.
-3. It receives a positive lifetime. If the lifetime reaches beyond the horizon, the particle is terminal.
-4. If it dies before the horizon, an offspring type is sampled and a finite family of children is born at the death position.
-5. Conditional on the information at a branching vertex, the descendant subtrees are independent copies of the construction with the prescribed child types.
+The genealogy, branch times, types, and marks form a branching skeleton. Exactly which variables are included in a skeleton depends on the representation, so conditional-independence statements should always specify the sigma-field being conditioned on.
 
-The *branching skeleton* is the combinatorial information consisting of the genealogy, branch times, and offspring types. Conditional on this skeleton, the remaining Brownian increments and, in the standard construction, the descendant subtree data are independent across different branches.
+## Products from independent descendants
 
-## Products and offspring
-
-Suppose a Duhamel integrand contains a monomial
+If a monomial contains $m$ factors and children $Y_1,\ldots,Y_m$ are conditionally independent given the branching data, then
 
 $$
-c\,u_1\cdots u_m.
-$$
-
-A branching event can create \(m\) children, one for each factor. If the descendants are conditionally independent and their expected contributions are \(u_1,\ldots,u_m\), then
-
-$$
-\mathbb E\left[
-\prod_{i=1}^m Y_i
-\,\middle|\,\text{branching data}
-\right]
+\mathbb E\left[\prod_{i=1}^mY_i\,\middle|\,\mathcal G\right]
 =
-\prod_{i=1}^m\mathbb E[Y_i\mid\text{branching data}].
+\prod_{i=1}^m\mathbb E[Y_i\mid\mathcal G],
 \tag{3}
 $$
 
-Equation (3) is the probabilistic counterpart of the product in the mild equation. The offspring probabilities may themselves be randomized; their reciprocals then appear as additional compensators.
+provided the product is integrable. Equation (3) is the probabilistic counterpart of multiplication in the mild equation.
 
-## Nonexplosion
+## Nonexplosion and integrability
 
-A representation on a finite horizon requires the random tree to contain only finitely many particles almost surely. The [age-dependent branching nonexplosion theorem](age-dependent-branching-and-nonexplosion.md) shows that, for the Bellman--Harris-type construction used here, strictly positive lifetimes together with finite mean offspring are enough. No deterministic positive lower bound on the lifetimes is required.
+The [age-dependent branching theorem](age-dependent-branching-and-nonexplosion.md) gives a simple sufficient condition for finite-horizon nonexplosion in the Bellman--Harris setting: positive lifetimes and finite mean offspring, with the stated independence assumptions. Nonexplosion means every realized finite-horizon product has finitely many factors.
 
-Nonexplosion guarantees that the random functional is defined as a finite product on every realized finite-horizon tree. It does **not** imply that the product is integrable.
+It does not imply $L^1$ integrability. Exact first-branch conditioning, moment bounds, [uniform integrability](uniform-integrability-and-passage-to-expectations.md), and passage from finite to infinite expansions are logically separate steps.
 
-## What exactness does and does not say
+## Derivative marks
 
-Conditioning on the first branching event and cancelling the sampling densities recovers the mild recursion whenever the relevant expectations may be interchanged. This is the basic exactness mechanism behind both the [HLOTW marked branching construction](marked-branching-diffusion-for-gradient-nonlinearities.md) and the [Nguwi--Penent--Privault coding tree](npp-coding-tree.md).
-
-Exact first-branch conditioning is only an algebraic identity. Absolute integrability, [uniform integrability](uniform-integrability-and-passage-to-expectations.md), interchange of infinite sums with expectations, and convergence of an infinite Duhamel expansion are additional analytic questions. The negative results for the NPP tree concern precisely this distinction.
+When the nonlinearity contains gradient factors, a child may carry an automatic-differentiation mark. The [HLOTW marked branching construction](marked-branching-diffusion-for-gradient-nonlinearities.md) uses finitely many gradient-mark types and Malliavin/Bismut weights. Other constructions may propagate differential codes instead. In either case, the short-time singularity of derivative weights enters the moment analysis but does not alter the elementary product mechanism (3).
