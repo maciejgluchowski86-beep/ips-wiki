@@ -16,6 +16,14 @@ Prefer work that can genuinely build on the principal's prior mathematics, but d
 
 A good outcome is correct, genuinely new, mathematically substantive, interesting independently of the autonomous workflow, and developed into a focused research artifact.
 
+### Standing novelty standard
+
+A quantitatively improved instance of an already-established method does **not** count as a new project result merely because the computation is exact, the witness is larger, or the constant is better. In particular, taking a method already defined for arbitrary window size, order, degree, truncation level, parameter budget, or analogous complexity parameter and running it at a larger value to obtain a better numerical threshold or constant is verified mathematics when correct, but it is not a substantive research contribution of this programme.
+
+Such calculations may still be useful as calibration, evidence, certificates, counterexamples, or inputs to later work, and they may remain in the claim registry with their mathematical verification status. They must not be used to justify novelty, programme continuation, or a contribution claim by themselves.
+
+To count as a project result, the mathematical advance must go beyond this kind of quantitative instantiation. Examples include proving a structural theorem about the method itself, resolving whether the method succeeds or fails throughout a genuine parameter regime, establishing a qualitative phenomenon not already implicit in the prior framework, introducing a genuinely new mechanism, or proving/refuting the target open problem. This standard governs target selection, group-meeting judgments, claim registration, manuscript framing, and stable promotion to `main`.
+
 An explicit open-problem statement in good published literature is strong and normally sufficient evidence that a target is worth serious work after later literature is checked. It is not mandatory and there is no source-count requirement. When such evidence is absent, the Professor must make a reasoned case for novelty and importance. Use judgment about source and venue quality rather than a checklist.
 
 ## Authority and trust
@@ -186,7 +194,7 @@ The meeting note is free-form except for one small research-delta record:
 
 `state_narrowed: yes` means the group has actually reduced uncertainty in a target-relevant way, for example by proving or seriously establishing a lemma, finding a counterexample, eliminating a substantial route, obtaining a sharper reduction or obstruction, improving a target-relevant estimate, changing a necessary hypothesis for mathematical reasons, or resolving a material literature uncertainty.
 
-A new speculative variant, more computation with the same conclusion, or merely deciding what to try next does not by itself count as narrowing.
+A new speculative variant, more computation with the same conclusion, or merely deciding what to try next does not by itself count as narrowing. Under the standing novelty standard, a larger-window/order/degree computation inside an already arbitrary-size method also does not count as a project result merely because it improves a numerical constant.
 
 The label is a Professor judgment, not a mechanical theorem test.
 
@@ -287,11 +295,11 @@ Registry statuses are:
 - `verified`; or
 - principal-designated `canonical`.
 
-A `verified` claim must point to a durable independent audit record. A manuscript existing on `main` does not by itself make its theorems verified.
+A `verified` claim must point to a durable independent audit record. A manuscript existing on `main` does not by itself make its theorems verified. **Verification status records correctness, not novelty or contribution status.** A verified calculation that is only a larger or more exact instantiation of a prior arbitrary-size method may stay in the registry for provenance and reuse, but must be labelled honestly and must not be presented as a project result under the standing novelty standard.
 
 Before a student or the Professor materially strengthens a project-specific mathematical claim on `main`, the Professor records the intended status and the relevant claim-registry entry. Claude checks the existence and consistency of this metadata mechanically before or immediately after the write.
 
-For `docs/entries/`, a `proved here` project claim additionally requires appropriate verified status under the wiki quality rules.
+For `docs/entries/`, a `proved here` project claim additionally requires appropriate verified status under the wiki quality rules and must satisfy the standing novelty standard if it is presented as a project contribution.
 
 Claude verifies repository paths, branches, commits, diffs, and mechanical checks against its local clone. Claude's verification establishes repository facts, not mathematical correctness.
 
