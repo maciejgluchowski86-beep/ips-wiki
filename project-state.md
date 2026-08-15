@@ -1,167 +1,112 @@
 # Project state
 
-This file is the compact current-state index for the autonomous research programme. It is not a workflow scheduler. Git history and the files under `research/` carry the detailed record.
+This is the compact current-state index for the autonomous research programme. Detailed mathematics lives under `research/` and in Git history. `CHATGPT.md` governs the workflow.
 
 ## Research architecture
 
-The group is organized as a persistent ChatGPT Professor directing persistent graduate-student sessions.
+The group has one persistent ChatGPT Professor directing persistent graduate-student sessions. At most two sessions are in flight at once. The Professor owns scientific direction, proof spines, audits, opportunity-cost judgments, and closure decisions. Students do specified autonomous technical work and persist with their scientific direction.
 
-At adoption of this revision:
-
-- the former Research Lead becomes the **Professor**;
-- the former Research Partner becomes the first **Graduate Student**.
-
-The Professor directs and audits the big picture. Graduate students do specified autonomous hands-on research. The Professor may do mathematics directly when useful, but that is not its default function.
-
-Professor and student sessions are kept alive as long as the platform permits. If a session reaches a platform length limit, the successor continues the same role lineage. Conversation links are optional pointers only; the protocol does not assume a successor can read an authenticated predecessor conversation. Repository handover plus exact transcript transfer is the fallback.
-
-Many sessions may remain alive and idle. At most two sessions may be in flight at once.
-
-There is no Director, Integrator, seven-gate examination, SEARCH/DEVELOP/VERIFY state machine, reserve-programme requirement, fixed worker taxonomy, fresh-session default, 900-word dispatch, or `Next cycle` instruction.
+The repository is canonical technical memory. Conversation links are optional only; successor sessions must rely on repository handovers and exact transcript transfer when necessary.
 
 ## Active scientific direction
 
-**1D hard FA-1f from a finite seed.**
+**1D BABP from a finite seed.**
 
-- Research branch: `research/fa1f-finite-seed`
-- Positive target: for every `q in (0,1)`, prove local convergence of one-dimensional hard FA-1f started from a single vacancy to its Bernoulli product equilibrium law; finite nonempty vacancy sets are the natural later extension.
-- Main obstruction: the hard model is non-attractive and lacks the uniform pure-death component used twice in the canonical patch-paper convergence theorem; finite-seed point masses are not usefully bracketed by nondegenerate product laws in centered-moment order.
-- Current proof-spine bottleneck: derive the exact unnormalized hard-FA successful-skeleton/patch expansion, including consistency probabilities and skeleton intensities, and test the first complete branching composition in the singleton equilibrium deviation.
+- Research branch: `research/babp-finite-seed`
+- Workspace: `research/active/babp-finite-seed/`
+- Positive target: for every `lambda>0`, prove local convergence of one-dimensional biased annihilating branching process started from a finite nonempty particle set to Bernoulli equilibrium of particle density `lambda/(1+lambda)`.
+- Known range: classical finite-seed convergence is known for `lambda>0.0347`.
+- Main obstruction: BABP self-duality reduces local convergence to decay of a finite-test signed observable with factor `-1/lambda`; for small `lambda` this observable is badly conditioned and global particle-number growth does not control it.
+- Current proof-spine bottleneck: reconstruct the exact origin of the historical `0.0347` threshold and test whether the 2025 all-parameter DFP exponential-ergodicity theorem plus BABP--DFP quasi-duality removes that obstruction.
 - Professor: persistent ChatGPT Professor.
-- Active graduate student: Graduate Student A.
-- Active workspace: `research/active/fa1f-finite-seed/`
-- Latest group meeting: `research/active/fa1f-finite-seed/meetings/001-h-transform-review.md`.
+- Active graduate student: Graduate Student B, to be created for this new direction.
+- Student A: idle, retained with the closed FA-1f context.
+- Latest group meeting: none yet in the BABP workspace.
 
-Graduate Student A verified the centered `h`-transform reduction exactly, including infinite-volume duality and the single-vacancy specialization. The same work showed that the transform is an invertible finite-volume similarity, has no current front/attractiveness/additivity simplification, and shares its local simultaneous-neighbour algebra with the closed Bernoulli-quench sibling route. The Professor therefore demoted the transform as a standalone proof strategy while retaining it as a verified identity.
+Why this target: the canonical patch paper explicitly records finite-seed BABP convergence as unresolved for part of the parameter range. Martinelli--Shapira--Toninelli (2025) add strong all-parameter structure -- DFP exponential ergodicity, BABP linear growth from finite seeds, and product-law convergence -- while still recording the finite-seed gap. This makes the remaining obstruction substantially more localized than in the preceding FA-1f programme.
 
-This programme is not a reopening of the closed 1D sibling-cancellation route. Any future argument that takes absolute values of the two refreshed sibling weights and seeks a generation-by-generation contraction is explicitly the closed mechanism and is not to be pursued. The active route instead tests whether the canonical patch representation, before normalization by consistency probabilities, exposes a model-specific hard-FA skeleton cost that survives the first full branching composition.
+## Most recently closed programme
 
-One persistent student remains enough for the current decisive calculation; no second student is active.
+**1D hard FA-1f from a finite seed** was closed at Group Meeting 002 on expected-value grounds. The open problem itself remains worthwhile.
 
-## Professor review and homeostasis
+Two distinct project mechanisms were settled:
 
-After each substantial student handoff, before sending the same thread into another substantial variant, the Professor reads the decisive raw technical material and holds an asynchronous group meeting.
+1. the exact centered `h`-transform to a positive finite-set process is correct but is an invertible finite-volume similarity with no demonstrated simplification;
+2. the exact unnormalized successful-skeleton transfer restores real consistency-probability losses on restricted routing sectors, but after complete branching its centered coefficient matrix satisfies
 
-Each meeting records `state_narrowed: yes | no` with a pointer to the evidence.
+$$
+K_t(A,B)=q^{|A|-|B|}Q_t(A,B),
+$$
 
-A new speculative variant does not by itself count as narrowing. Narrowing means target-relevant uncertainty was actually reduced by a proof, counterexample, route elimination, sharper reduction or obstruction, improved controlling estimate, necessary-hypothesis change, material literature resolution, or comparable mathematical information.
+where `Q_t` is the same E1 Markov semigroup. Thus the full `h`-weighted transfer is conservative.
 
-The Professor may close or redirect a direction on expected-value and opportunity-cost grounds. It does not need an impossibility theorem or proof that all imaginable methods fail.
+Decisive records:
 
-After three consecutive no-narrowing meetings, Claude mechanically launches a fresh outside Stagnation Consultant. The consultant advises; the Professor retains authority and must respond explicitly. Three further no-narrowing meetings trigger another fresh consultation.
+- `research/active/fa1f-finite-seed/meetings/002-unnormalized-patch-review.md`;
+- `research/active/fa1f-finite-seed/notes/professor-transfer-verification.md`;
+- `research/active/fa1f-finite-seed/students/student-a/002-unnormalized-patches.md`.
+
+This closure is not the previously closed Bernoulli-quench sibling route. The obstruction is stronger: the complete positive coefficient transfer is conservative.
 
 ## Canonical prior work: patch construction
 
-The principal's manuscript `paper/`, *Patch representations and convergence for facilitated spin systems*, is the canonical project source for the patch construction and its proofs. It supersedes the deprecated IPS wiki layer on these points.
+The principal's manuscript `paper/`, *Patch representations and convergence for facilitated spin systems*, is authoritative for the patch construction and its proofs and supersedes the deprecated IPS wiki layer on those points.
 
-In particular, the paper proves conditional patch factorization over the successful-interaction skeleton and the resulting exact patch representation of the spin-system semigroup. Old wiki pages that still describe these as conditional are stale and must not be used as project authority.
-
-The patch construction is a preferred reusable research asset when it naturally applies: retain a successful-interaction skeleton, decompose local spacetime histories into patches, condition on the skeleton, and average signed local contributions before global comparison. It is not a mandatory template for new work.
-
-The canonical patch claims are indexed in `research/claim-registry.md`.
-
-## Reusable observations from closed work
-
-Two observations from the terminated quadratic-Hessian programme survived hostile audit without becoming the target theorem of a successful programme:
-
-- the time-integrated first-moment norm of one centered heat-Hessian edge from $C^\alpha$ to $C^\beta$ has sharp cost $\asymp(\alpha-\beta)^{-1}$ on compact exponent ranges;
-- the ordered-time derivative-cluster norm satisfies $\mathfrak P_m(\alpha,T)\leq 2A_{\alpha,T}4^m(1+A_{\alpha,T})^{m-1}$.
-
-Classical local heat/Hermite cancellation remains reusable background mechanism evidence, not project novelty by itself. As a calibration, two first-derivative Gaussian marks admit the exact conditional-coarsening $L^1$ ratio
-
-$$
-\kappa=\frac{\pi}{2e},
-$$
-
-and independent clusters tensorize as $\kappa^n$.
+It proves conditional patch factorization over the successful-interaction skeleton and the exact patch representation. The construction is a preferred reusable asset when it naturally addresses the obstruction, not a mandatory research template.
 
 ## Closed programmes and routes
 
-The following programmes are permanently closed and are not to be retried:
+Closed programmes not to be retried by renaming:
 
 - quadratic-Hessian;
 - Fresnel integrability;
 - Navier--Stokes stochastic cascade;
 - Strong-KPP uniqueness;
 - supercritical dissipative SQG;
-- long-maturity marked branching; and
-- Gaussian bridge coarsening.
+- long-maturity marked branching;
+- Gaussian bridge coarsening;
+- 1D hard FA-1f finite-seed programme based on the centered transform / unnormalized patch-transfer routes.
 
-The following screened routes are also closed and are not to be revived by renaming them:
+Closed screened routes:
 
 - 1D FA-1f Bernoulli-quench sibling cancellation;
 - strongly non-harmonic Wigner--Fokker--Planck via unweighted Moyal/skew cancellation;
 - 2D FA-1f relaxation logarithm via local signed-move cancellation;
-- the nearest-vacancy annular/electrical-capacity observable for that 2D FA-1f route; and
-- the general bootstrap-percolation sharpness route based only on bare inclusion--exclusion/Bonferroni overlap subtraction.
+- 2D FA-1f nearest-vacancy annular/electrical-capacity observable;
+- general bootstrap-percolation sharpness from bare inclusion--exclusion/Bonferroni overlap subtraction.
 
-The broader mathematical problems may remain open. What is closed is the recorded programme or route.
+Broader mathematical problems may remain open. What is closed is the recorded programme or mechanism.
 
-## Expensive dead ends worth remembering
+## Reusable negative lessons
 
-- Quadratic-Hessian did not lead to a sufficiently worthwhile positive target despite producing reusable estimates.
-- Fresnel integrability collapsed to classical/low-payoff mathematics for the project.
-- For Navier--Stokes cascades, the published factor-$1/2$ nodewise symmetrization improves amplitude majorants but leaves the cascade law and explosion event unchanged.
-- For Strong-KPP, the proposed cancellation route has zero margin at critical ends, while connected-limit detuning produces a linear error that dominates the hoped-for quadratic gain at sufficiently small amplitude.
-- For supercritical SQG, smooth scale-covariant solutions can restore exactly the critical-scale loss that the zero-mass-kernel cancellation was meant to remove; no equation-generated exclusion of the saturating family was found.
-- Deterministic restarting of the marked branching representation gives no strict first-moment maturity gain: value-only positive majorants spend the same blow-up budget and restarted gradient kernels are not better.
-- Gaussian bridge coarsening gives an exact strict contraction, but it is an instance of classical conditional-expectation contraction rather than a new obstruction-level mechanism.
-- In the 1D FA-1f sibling route, cancellation visible at two generations is lost at the next nontrivial composition, restoring the critical scaling.
-- For strongly non-harmonic Wigner--Fokker--Planck, the weighted coercive norm introduces a translated-bump loss that destroys the unweighted Moyal/skew gain at the relevant level.
-- For the 2D FA-1f local signed-move route, the relevant reversible Dirichlet form is a sum of squared individual increments without the needed sign cross-term.
-- The nearest-vacancy annular/electrical-capacity observable gives the wrong scale after the pivotal-shell calculation; concentrating variation near the typical radius also fails to produce the desired logarithmic improvement.
-- Bare inclusion--exclusion/Bonferroni overlap subtraction did not provide a sufficiently distinctive obstruction-level route to general bootstrap-percolation sharpness.
+- Wrong-norm or wrong-weight cancellation is usually fatal when the critical conversion exactly restores the lost scale.
+- A strict local gain must be tested under the first nontrivial composition and in the controlling quantity.
+- For FA-1f, both the centered positive transform and the full unnormalized patch coefficient transfer reduce to the same conservative dynamics; restricted routing losses are redistributed globally.
+- For FA-1f sibling cancellation, the apparent two-generation gain fails at the next nontrivial composition.
+- For 2D FA-1f relaxation, the reversible Dirichlet form lacks the cross-term required by the proposed local signed-move mechanism, and the nearest-vacancy capacity observable has the wrong scale.
+- For SQG, scale-covariant solutions restore exactly the zero-mass-kernel gain.
+- For Strong-KPP, the cancellation route has no endpoint margin.
+- For stochastic cascades, improving a nodewise amplitude majorant without changing the explosion mechanism does not attack the obstruction.
 
 ## Research heuristics
 
 These are heuristics, not gates.
 
-- Work from the actual obstruction. A cancellation that exists only in a weaker or unweighted quantity is not useful unless it survives in the norm or quantity controlling the theorem.
-- Test the first nontrivial composition and natural critical scaling early when a proposed local gain is central.
-- Stress a mechanism on examples selected from the obstruction, not examples selected to flatter the mechanism.
-- Do cheap decisive mathematics before exhaustive literature work, while still checking novelty before making a strong claim.
-- A classical technique may support new mathematics. Novelty should be located in the theorem or obstruction-level consequence, not in the mere existence of cancellation or conditional averaging.
-- Repeated failed variants with no genuine narrowing are evidence against tractability even when no impossibility theorem is available.
+- Work from the actual obstruction.
+- Unresolved is a research state, not a rejection criterion.
+- Test scaling, weights, and first composition early.
+- Preserve useful failures when they identify a reusable obstruction.
+- Use independent audits after there is a central claim worth attacking, not as a substitute for sustained development.
+- Close directions on expected-value grounds when the remaining route is only an unspecified hope for a new mechanism.
 
-## Research workspace
+## Group-meeting homeostasis
 
-Workspace documentation and templates live under `research/`.
-
-For a new direction the Professor creates a branch `research/<short-programme-slug>` and a directory `research/active/<short-programme-slug>/` containing at least:
-
-- `state.md`;
-- `proof-spine.md`;
-- technical notes as needed;
-- `literature.md`;
-- `audit-log.md`;
-- `meetings/`;
-- `students/`; and
-- `handover.md` when a session succession is pending or completed.
-
-The repository is canonical technical memory. Persistent conversations are working memory.
+Every substantial student handoff is followed by a Professor group meeting before another substantial variant is assigned. Each meeting records exactly `state_narrowed: yes` or `state_narrowed: no` with a concrete evidence pointer. Three consecutive `no` meetings trigger an outside stagnation consultant; the Professor retains authority.
 
 ## Stable claim promotion
 
-`research/claim-registry.md` is the mechanical status index for project-specific mathematical claims on `main`.
-
-A manuscript being present on `main` does not make its theorems verified. Verified claims point to durable independent audit records. Principal-designated canonical claims are recorded explicitly.
-
-The Professor owns scientific promotion; Claude verifies registry and repository metadata mechanically.
+`research/claim-registry.md` is the status index for project-specific mathematical claims on `main`. A central theorem requires independent hostile correctness review and novelty checking before verified promotion.
 
 ## Wiki
 
-The wiki is frozen except for correctness repairs and prerequisites genuinely required to understand or check active research or a theorem.
-
-Do not run systematic legacy migration, generic reading-path expansion, or periodic curation while the freeze is in force.
-
-When the first central theorem of a new programme enters independent audit, the Professor raises the wiki freeze for principal review. Nothing automatically unfreezes it.
-
-Deprecated IPS wiki material is superseded by the canonical patch paper where they conflict.
-
-## Principal-facing status
-
-The principal may check in daily or more often.
-
-The Professor's brief should state the active target, what changed mathematically, what raw material the Professor inspected, the current proof-spine bottleneck, strongest positive and negative evidence, whether the state narrowed, the continue/pivot/close decision, next assignment, and any pending outside consultation or genuine principal-level question.
-
-Daily check-ins are informational and do not pause autonomous work.
+The wiki is frozen except for correctness repairs and prerequisites genuinely required by active research. Deprecated IPS wiki material does not override the canonical patch paper.
