@@ -60,6 +60,38 @@ Before committing to a large theorem, perform a local mechanism test when possib
 
 Computation and simulation are discovery and falsification tools. Once a likely statement is visible, return to analysis. Negative results may support the story but do not satisfy the objective by themselves.
 
+## Pre-nomination SEARCH protocol
+
+Positive-target gate. State one precise positive PDE/probability theorem or application. Its scientific value must be intelligible independently of the proposed cancellation mechanism. “Develop a representation” or “investigate whether cancellation helps” does not pass.
+
+Respected-open-problem gate. Identify the substantive gap solved by that theorem in at least two published papers/books, with exact locations, and check successor literature. Broad parent problems do not suffice when the proposed theorem concerns a narrower subsidiary issue.
+
+Obstruction-interface gate. Exhibit the exact estimate, divergence, explosion criterion, uniqueness step, compactness failure, or other obstruction that blocks the target. State the quantitative threshold when one exists, otherwise the precise structural change that would remove it.
+
+Local-gain gate. On the smallest informative example, compare the naive and cancellation-aware quantities in the same quantity or norm relevant to gate 3. Require a strict, explicit gain.
+
+Composition-and-scaling gate. Test the first nontrivial composition and the natural scaling regime. The gain must survive at least two interacting units and must retain enough margin to affect gate 3 after critical rescaling.
+
+Adversarial-saturation gate. Before nomination, choose a natural family that stresses or saturates the obstruction, chosen from the obstruction rather than retrospectively from the mechanism. If it restores the bad scaling, either prove that the equation excludes that family or reject the candidate.
+
+Novelty-killer gate. Search predecessor and successor literature under alternate terminology for the mechanism and intended use. A classical mechanism may still support a programme, but only when there is concrete evidence that its proposed obstruction-level consequence is not merely a standard application. An exact constant for a classical contraction is insufficient.
+
+Nomination rule: all seven must be PASS. UNRESOLVED is not a pass. Work needed to decide a gate is permitted as a bounded pre-nomination screen or calibration experiment, but it does not occupy the active scientific-programme slot. DEVELOP retains all existing stronger requirements.
+
+Within the autonomous programme:
+
+only a Director may authorize a protocol amendment;
+
+an Integrator may only implement that Director instruction;
+
+Claude and workers may not amend it;
+
+a relaxation or deletion of a gate requires a dedicated diagnostic Director cycle;
+
+a weakened rule cannot rescue the candidate whose failure motivated the change. Any weakening takes effect prospectively for candidates considered after the amendment is committed.
+
+A Director may clarify or strengthen a gate without that extra separation, but cannot quietly reinterpret a failed gate as passed.
+
 ## Verification protocol
 
 Central theorems pass distinct fresh roles.

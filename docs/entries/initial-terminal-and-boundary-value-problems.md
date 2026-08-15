@@ -1,6 +1,7 @@
 ---
 title: Initial, terminal, and boundary value problems
 status: standard fact
+audit: current
 tags:
   - PDE
   - initial value problem

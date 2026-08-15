@@ -15,6 +15,8 @@ Viscosity solutions give a notion of solution for nonlinear second-order PDEs th
 
 **References.** Michael G. Crandall, Hitoshi Ishii, and Pierre-Louis Lions, *User's guide to viscosity solutions of second order partial differential equations*, *Bulletin of the American Mathematical Society* **27** (1992), 1--67, arXiv:math/9207212. See [References](../meta/references.md).
 
+**Prerequisite.** [Elliptic, parabolic, and hyperbolic equations](elliptic-parabolic-and-hyperbolic-equations.md) fixes the principal-part and parabolic terminology used below, including the distinction between uniform and degenerate parabolicity.
+
 ## Parabolic sign convention
 
 For a forward parabolic problem, write

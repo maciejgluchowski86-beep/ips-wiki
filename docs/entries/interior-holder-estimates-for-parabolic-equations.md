@@ -1,6 +1,7 @@
 ---
 title: Interior Holder estimates for parabolic equations
 status: standard fact
+audit: current
 tags:
   - PDE
   - parabolic equation
@@ -13,7 +14,7 @@ tags:
 
 Uniform parabolicity produces interior continuity even when the coefficients are only bounded and measurable. The precise theorem depends on whether the equation is in divergence or nondivergence form. These estimates are weaker than Schauder theory: they control the solution itself in a Holder norm but do not produce classical second derivatives.
 
-**References.** Lawrence C. Evans, *Partial Differential Equations*, second edition, American Mathematical Society, 2010. Gary M. Lieberman, *Second Order Parabolic Differential Equations*, World Scientific, 1996. See [References](../meta/references.md).
+**References.** N. V. Krylov and M. V. Safonov, *A certain property of solutions of parabolic equations with measurable coefficients*, *Mathematics of the USSR-Izvestiya* **16** (1981), 151--164. Lawrence C. Evans, *Partial Differential Equations*, second edition, American Mathematical Society, 2010. Gary M. Lieberman, *Second Order Parabolic Differential Equations*, World Scientific, 1996. See [References](../meta/references.md).
 
 ## Parabolic cylinders
 
@@ -49,7 +50,7 @@ K|\xi|^2.
 \tag{2}
 $$
 
-For bounded solutions in the appropriate strong or viscosity class, Krylov--Safonov theory gives numbers
+A standard strong-solution formulation assumes that \(u\in W^{1,2}_{d+1,\mathrm{loc}}(Q_1)\cap L^\infty(Q_1)\), where the parabolic Sobolev notation means that \(u_t\), the first spatial derivatives, and the second spatial derivatives have the indicated local integrability, and that (1) holds almost everywhere. Krylov--Safonov theory then gives numbers
 
 $$
 0<\alpha<1,
@@ -57,7 +58,7 @@ $$
 C<\infty,
 $$
 
-depending only on the dimension and the ellipticity ratio, such that
+depending only on the dimension and ellipticity data, such that
 
 $$
 [u]_{C^{\alpha/2,\alpha}(Q_{1/2})}
@@ -65,6 +66,8 @@ $$
 C\lVert u\rVert_{L^\infty(Q_1)}.
 \tag{3}
 $$
+
+Equivalent formulations are available in other standard strong-solution classes. With merely measurable coefficients, one should not silently replace this framework by the usual continuous-operator viscosity theory; measurable-coefficient viscosity formulations require their own definitions and hypotheses.
 
 After parabolic rescaling, the same estimate holds on smaller cylinders with the corresponding scale factors.
 
@@ -112,5 +115,3 @@ are not interchangeable with the divergence-form equation \(u_t=\partial_x(au_x)
 ## Compactness consequence
 
 Suppose \((u_n)\) is uniformly bounded and solves equations of the same structural class on a common cylinder, with a common ellipticity window. The estimates above give a common Holder modulus on every strictly smaller cylinder. By Arzela--Ascoli, one may therefore extract subsequences converging locally uniformly.
-
-This is the role of interior Holder estimates in compactness arguments. In the audited quadratic-Hessian theorem the stronger uniform Schauder ball is available, so its convergence proof does not need to rely on the rough-coefficient theorem.

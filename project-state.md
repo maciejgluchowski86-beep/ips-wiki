@@ -8,11 +8,9 @@ This file is the compact mutable state for the autonomous PDE/probability resear
 
 ## Active programme
 
-**Failure-mode diagnosis and selection-protocol redesign after seven terminated programmes.**
+**No active scientific programme.** Current activity is bounded pre-nomination candidate screening under the seven-gate protocol in `CHATGPT.md`.
 
-No PDE or open problem is selected this cycle. The next task is to identify which selection errors are genuinely common across the seven closures and to preregister a stronger programme-selection gate before an eighth scientific programme is chosen.
-
-This is deliberately a one-cycle diagnostic programme. It makes no positive theorem claim and does not nominate a successor programme in advance.
+All seven gates must pass before a candidate can occupy the active scientific-programme slot. Screening work may resolve an eligibility gate, but it is not itself an active scientific programme.
 
 ## Reserve programme
 
@@ -39,41 +37,38 @@ and independent clusters tensorize as $\kappa^n$. This is not a project theorem.
 
 ## Unresolved and closure
 
-Seven programmes are now terminated: quadratic-Hessian, Fresnel, Navier--Stokes cascade, Strong-KPP, SQG, marked branching, and Gaussian coarsening. There is still no verified project result.
+Seven programmes are terminated: quadratic-Hessian, Fresnel integrability, Navier--Stokes stochastic cascade, Strong-KPP uniqueness, supercritical dissipative SQG, long-maturity marked branching, and Gaussian bridge coarsening. There is still no verified project result.
 
-Gaussian coarsening passes its strict-factor and tensorization gates but fails its preregistered novelty gate. The gain is conditional-expectation/Rao--Blackwell contraction specialized to Gaussian derivative weights, so the programme is not weakening the novelty standard after seeing the result.
-
-The next cycle is diagnostic before any successor selection. It will classify the common and idiosyncratic failure modes across the seven closures and preregister a stronger SEARCH selection protocol rather than immediately choosing an eighth scientific programme.
+Cycle 14 adopted the pre-nomination seven-gate SEARCH protocol now recorded in `CHATGPT.md`. No eighth programme was nominated because no candidate dossier was presented, and all seven gates must be PASS before nomination. The next scientific work is therefore bounded candidate screening rather than promotion of an unresolved candidate.
 
 The IPS freeze remains removed. Project-specific IPS wiki material duplicated or superseded by the paper remains delete-first curation debt. Generic definition and literature pages are not deletion candidates merely because a project-specific theorem layer is deprecated.
 
 ## Wiki frontier
 
-The eighth Wiki Curator sweep is completed after this integration: six unchanged KEEP pages, one generic rewrite, and two audit-metadata completions, with no deletions or renames.
+The ninth Wiki Curator sweep is completed after this integration: eight KEEP, four REWRITE, zero DEMOTE, zero DELETE, plus the new audited §0 item 4 classification page.
 
-The PDE-reader frontier remains at **§0 item 4: elliptic, parabolic, and hyperbolic equations**.
+The PDE-reader frontier is now **§0 item 5: classical, weak, mild, and viscosity solution notions**. The missing item-5 page should be a roadmap linking to specialized entries rather than duplicating them.
 
-Legacy migration remains incomplete. The next curation priority is the PDE reading path, recently changed PDE entries, and then other duplicate, obsolete, scaffolding, or terminated-programme material.
+Legacy migration remains incomplete. The next curation priority is the PDE reading path beginning with §0 item 5, then recently changed PDE entries, potentially stranded SQG-era background entries, and other duplicate, obsolete, scaffolding, or terminated-programme material.
 
 ## Dead ends
 
 Keep this section sparse; record only failures expensive enough that forgetting them risks repeating work.
 
-- Broad novelty claims for cancellation before absolute values or representation-architecture dependence have substantial predecessors.
 - The quadratic-Hessian programme failed the positive-PDE/open-problem viability gate and is terminated.
 - The Fresnel programme is terminated as classical/low-payoff for the present objective.
-- The elementary heat/Hermite cancellation alone does not control tree-depth moments.
 - For Navier--Stokes cascades, the published factor-$1/2$ nodewise symmetrization improves amplitude majorants but leaves the cascade law and explosion event unchanged.
 - For Strong-KPP, the cancellation route has zero margin at critical ends, while critical-mode projection is not stable enough under connected-limit detuning: $\delta A$ dominates $\kappa A^2$ whenever $A\ll|\delta|$.
 - For SQG, actual smooth scale-covariant solutions can have normalized comparable-frequency coefficients with nonzero $C_t^\eta$ variation scaling as $N^{\gamma\eta}$; this exactly cancels the $N^{-\gamma\eta}$ zero-mass-kernel gain, and no explicit equation-generated packet exclusion was found.
 - Deterministic HLOTW time-slab restarting gives no strict first-moment maturity gain: value-only positive majorants consume exactly the same blow-up budget, while restarted gradient kernels are weakly worse.
 - Two first-derivative Gaussian marks admit the exact $L^1$ coarsening factor $\pi/(2e)$, tensorizing to $\kappa^n$, but this is an instance of classical conditional-expectation contraction and fails the novelty gate.
+- Procedural: unresolved target/mechanism/obstruction/novelty questions are pre-nomination screening work, not reasons to promote a candidate into the active scientific slot.
 
 ## Next cycle
 
-Run exactly two fresh read-only workers concurrently.
+Run exactly two fresh read-only workers, with no more than two concurrent.
 
-1. **Failure-mode and selection-protocol auditor.** Reconstruct the seven terminated programmes from repository state/history. For each, identify the earliest fatal gate and classify it as absent local gain, failed composition/scaling, known classical mechanism, absent respected open problem, inability to remove the actual PDE obstruction, or other. Determine which failures share a common cause and which are idiosyncratic. Produce a revised preregistered SEARCH protocol that would have rejected these programmes earlier. Do not nominate a successor programme.
-2. **Wiki Curator, ninth sweep.** Return to the PDE-reading-path frontier at §0 item 4, auditing the elliptic/parabolic/hyperbolic prerequisite cluster and directly coupled pages, at most about twelve entries. Apply KEEP/REWRITE/DEMOTE/DELETE under the existing live-wiki policy. Make no mathematical promotion based on the diagnostic programme.
+1. **Pre-nomination candidate screener.** Search for at most two serious candidates. For each, run all seven gates explicitly, including exact two-source open-problem documentation, successor check, obstruction map, smallest local calculation, first composition/scaling test, a non-retrospective adversarial family, and alternate-terminology novelty search. Recommend at most one candidate for later Director consideration. Do not nominate it and do not treat an unresolved gate as a pass.
+2. **PDE solution-notions prerequisite worker.** Starting only after the new item-4 page exists, draft and independently source-check the missing §0 item-5 comparison page: classical, weak/distributional, mild, and viscosity solutions. It should be a roadmap rather than duplicate the specialized existing pages. Return a reader-side acceptance test and exact proposed dependency links. No GitHub writes.
 
-No DEVELOP transition. No third worker. No successor programme is nominated in advance. No GitHub writes outside the later designated Integrator. Claude has no mathematical or editorial authority.
+The next Director decides whether any candidate actually clears the seven gates. Until then there is no eighth scientific programme and no reserve. No DEVELOP transition and no eighth programme is preselected.

@@ -1,6 +1,7 @@
 ---
 title: Parabolic Holder spaces
 status: standard fact
+audit: current
 tags:
   - PDE
   - Holder space
@@ -10,7 +11,7 @@ tags:
 
 # Parabolic Holder spaces
 
-Parabolic equations scale one time derivative like two spatial derivatives. The corresponding Holder spaces therefore measure spatial increments with exponent \(\alpha\) and time increments with exponent \(\alpha/2\). This is the regularity scale used by Schauder theory and by the Holder cancellation estimates for Hessian heat-semigroup edges.
+Parabolic equations scale one time derivative like two spatial derivatives. The corresponding Holder spaces therefore measure spatial increments with exponent \(\alpha\) and time increments with exponent \(\alpha/2\). This is the regularity scale used by classical parabolic Schauder theory.
 
 **References.** Avner Friedman, *Partial Differential Equations of Parabolic Type*, Prentice-Hall, 1964. Lawrence C. Evans, *Partial Differential Equations*, second edition, American Mathematical Society, 2010. See [References](../meta/references.md).
 
@@ -139,39 +140,35 @@ $$
 \min\{2,N|x-y|\}.
 $$
 
-Let \(\chi\in C_c^\infty(\mathbb R)\). The parabolically scaled packet
+Let \(\chi\in C_c^\infty(\mathbb R)\), assume that \(\chi(\tau_0)\neq0\) for some \(\tau_0\geq0\), and fix \(T>0\). For all sufficiently large \(N\), so that \(\tau_0/N^2\leq T\), the parabolically scaled packet
 
 $$
 u_N(t,x)
 =
-\chi(N^2t)\cos(Nx)
+\chi(N^2t)\cos(Nx),
+\qquad
+0\leq t\leq T,
 \tag{8}
 $$
 
 satisfies
 
 $$
-\lVert u_N\rVert_{C^{\alpha/2,\alpha}}
+\lVert u_N\rVert_{C^{\alpha/2,\alpha}([0,T]\times\mathbb T)}
 \asymp
-N^\alpha
+N^\alpha,
 $$
 
-whenever \(\chi\) is nonzero, again with constants depending on \(\alpha\) and \(\chi\). The spatial lower bound follows from (7), while the time increment of \(\chi(N^2t)\) has the same scaling because
+with constants depending on \(\alpha\), \(\chi\), and the chosen nonzero value of \(\chi\). The spatial lower bound follows by evaluating at the time \(t=\tau_0/N^2\) and using (7). For the time part, the scaling identity
 
 $$
 |N^2(t-s)|^{\alpha/2}
 =
-N^\alpha|t-s|^{\alpha/2}.
+N^\alpha|t-s|^{\alpha/2}
 $$
 
-This scaling is why high spatial frequencies localized to time intervals of length \(N^{-2}\) can have bounded sup norm but rapidly growing parabolic Holder norm.
+and the smooth compact support of \(\chi\) give the matching upper bound. Thus high spatial frequencies localized to time intervals of length \(N^{-2}\) naturally carry parabolic Holder size of order \(N^\alpha\).
 
-## Relation to Schauder theory
+## Relation to parabolic regularity
 
-The coefficient class in [Parabolic maximum principle and Schauder estimates](parabolic-maximum-principle-and-schauder-estimates.md) is measured in \(C^{\alpha/2,\alpha}\). For the random-patch problem, the elementary heat-kernel commutator estimate uses only the weaker quantity
-
-$$
-\sup_t [u(t,\cdot)]_{C^\alpha}.
-$$
-
-A pathwise parabolic Holder bound is therefore sufficient but not logically necessary for that estimate.
+The coefficient and forcing classes in [Parabolic maximum principle and Schauder estimates](parabolic-maximum-principle-and-schauder-estimates.md) are measured in parabolic Holder norms. The heat equation and its perturbations respect the scaling $t\sim x^2$, so frequency localization in space and localization on the corresponding $N^{-2}$ time scale contribute at the same Holder order. Uniform spatial Holder control alone is weaker because it contains no information about temporal increments.

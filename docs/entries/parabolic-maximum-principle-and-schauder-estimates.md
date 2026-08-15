@@ -16,6 +16,8 @@ Uniformly parabolic equations have two complementary regularity mechanisms used 
 
 **References.** Lawrence C. Evans, *Partial Differential Equations*, second edition, American Mathematical Society, 2010. For classical parabolic Schauder theory, see also Avner Friedman, *Partial Differential Equations of Parabolic Type*, Prentice-Hall, 1964. See [References](../meta/references.md).
 
+**Prerequisite.** See [Elliptic, parabolic, and hyperbolic equations](elliptic-parabolic-and-hyperbolic-equations.md) for the principal-part classification and the uniform-parabolicity convention used below.
+
 Throughout this page, \(\mathbb T=\mathbb R/(2\pi\mathbb Z)\) is the one-dimensional torus.
 
 ## Uniform parabolicity

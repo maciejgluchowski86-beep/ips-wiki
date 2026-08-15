@@ -1,6 +1,7 @@
 ---
 title: Feynman-Kac formula for linear parabolic equations
 status: standard fact
+audit: current
 tags:
   - PDE
   - probability
@@ -13,7 +14,7 @@ tags:
 
 The classical Feynman--Kac formula represents a linear parabolic PDE by an expectation over a diffusion path. Nonlinear branching formulas generalize this idea: the diffusion still carries the linear part, while branching or auxiliary random weights encode nonlinear terms that a single path cannot represent directly.
 
-**References.** Ioannis Karatzas and Steven E. Shreve, *Brownian Motion and Stochastic Calculus*, second edition, Springer, 1991. Daniel W. Stroock and S. R. Srinivasa Varadhan, *Multidimensional Diffusion Processes*, Springer, 2006 reprint. See [References](../meta/references.md).
+**References.** Ioannis Karatzas and Steven E. Shreve, *Brownian Motion and Stochastic Calculus*, second edition, Springer, 1991, especially the chapter on Brownian motion and partial differential equations. Daniel W. Stroock and S. R. Srinivasa Varadhan, *Multidimensional Diffusion Processes*, Springer, 2006 reprint. See [References](../meta/references.md).
 
 ## Heat equation
 

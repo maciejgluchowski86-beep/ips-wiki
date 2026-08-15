@@ -87,7 +87,7 @@ For a second-order equation, ask how $D^2u$ enters:
 - **quasilinear:** $D^2u$ enters linearly, but its coefficients may depend on $u$ or $Du$;
 - **fully nonlinear:** the dependence on $D^2u$ is nonlinear.
 
-This classification is separate from the elliptic/parabolic/hyperbolic classification, which concerns the principal second-order part and is the next item in the reading path.
+This classification is separate from the [elliptic/parabolic/hyperbolic classification](elliptic-parabolic-and-hyperbolic-equations.md), which concerns the principal part and principal symbol and is the next item in the reading path.
 
 ## Further reading
 

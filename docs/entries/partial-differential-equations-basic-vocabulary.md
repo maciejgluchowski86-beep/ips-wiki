@@ -1,6 +1,7 @@
 ---
 title: Partial differential equations: basic vocabulary
 status: standard fact
+audit: current
 tags:
   - PDE
   - differential operator
@@ -18,13 +19,25 @@ The entry assumes standard multivariable calculus and Euclidean-space notation. 
 
 ## Domain and independent variables
 
-A **domain** for the equation is a set $\Omega\subseteq\mathbb R^d$ on which the unknown function is considered. A point
+In standard PDE terminology, a **domain** is an open connected set $\Omega\subseteq\mathbb R^d$. When connectedness or openness is not intended, this wiki will instead say **spatial set** or name the set directly.
+
+A point
 
 $$
 x=(x_1,\ldots,x_d)\in\Omega
 $$
 
-collects the **independent variables**. When one variable plays the role of time it is often written separately, for example $(t,x)$ with $x\in\mathbb R^d$.
+collects the **independent variables**. When one variable plays the role of time it is often written separately, for example $(t,x)$ with $x\in\Omega$.
+
+For a set $A\subseteq\mathbb R^d$, its closure is denoted by $\overline A$ and its boundary by $\partial A$. In particular, because a domain $\Omega$ is open,
+
+$$
+\partial\Omega
+=
+\overline\Omega\setminus\Omega.
+$$
+
+These notations are used in the next entry when initial, terminal, and spatial boundary data are distinguished.
 
 ## Scalar and vector unknowns
 
