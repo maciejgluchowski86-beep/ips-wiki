@@ -2,279 +2,132 @@
 
 Date: 2026-08-15
 
-## Executive conclusion
+Updated after full-text comparison with Aidan Sudbury (1999), *Hunting submartingales in the jumping voter model and the biased annihilating branching process*, Adv. Appl. Probab. 31, 839--854.
 
-The verified project result is mathematically ready for a focused note, but the priority language should remain deliberately asymmetric.
+## Executive correction
 
-For the **concrete finite-seed convergence result at**
+The full Sudbury text changes the novelty assessment materially.
 
-$$
-\lambda=\frac1{40}=0.025,
-$$
+### 1. The historical `0.0347` mechanism is now source-verified
 
-I found no source through 2026-08-15 proving the same one-dimensional BABP finite-seed convergence theorem at any parameter below the `0.0347` range recorded by Martinelli--Shapira--Toninelli (2025). The closest same-target theorem I found is Sudbury (1999), whose published abstract says that finite nonzero initial configurations converge to Bernoulli equilibrium for `lambda >= 0.0347` and that edge-speed bounds are obtained. Martinelli--Shapira--Toninelli, Section 5 and Remark 5.4, still record the finite-seed range as `lambda>0.0347` after proving their new all-parameter DFP and BABP results. Searches of successor literature, alternate terminology, author/citation pages, recent preprints, and a 2026 IPS reference book did not reveal a later below-threshold theorem.
+The project reconstruction is correct. Sudbury's BABP construction is literally a finite-window edge-corrector/submartingale construction with an `m`-site window and one unresolved exterior bit. His `m=8` computation is the source of the published `0.0347` number.
 
-I therefore rate the concrete range improvement as **strongly supported by the accessible literature search**, but I do **not** recommend a publication-level sentence of the form "first", "best known", or "improves the best known threshold" yet. The main reason is source incompleteness, not a positive indication of overlap: I could not inspect the body of Sudbury (1999), and its exact finite-window construction and convergence bridge are the closest possible predecessor.
+More precisely, after reflection of left and right edges,
 
-For the **general theorem that a uniformly positive statewise finite-window edge corrector implies finite-seed local convergence**, priority is **unresolved**. The project proof is verified, but Sudbury's 1998 finite-boundary computational method and 1999 "hunting submartingales" paper are methodologically close enough that the exact overlap cannot responsibly be judged from abstracts. The new proof's internal-gap genealogy, corrected-gap contraction, uniform gap tails, spatial compensator, and nonescape argument may be genuinely new, but I cannot call that new without the full Sudbury (1999) text or an expert who knows it closely.
+- Sudbury's `m` is the project's `k`;
+- his binary `m`-block state is the project's edge word `u`;
+- his right-hand end-value `x_{m+1}` is the project's exterior bit `z`;
+- his correction vector `S_i` is the project's bounded corrector `phi(u)` up to the harmless reflection/sign convention for the chosen edge;
+- his local gain
+  $$
+  a_i+\sum_jq_{ij}(S_j-S_i)
+  $$
+  is the same finite-state generator drift that the project writes as
+  $$
+  D_{k,\lambda}(u,z;\phi).
+  $$
 
-I found no accessible theorem that makes the `lambda=1/40` corollary a straightforward consequence of known work. The older accessible statements either retain a positive parameter restriction, assume translation-invariant initial laws, give only stationary/invariance inputs, or concern a different annihilating-branching model.
+Sudbury does not formulate this as one linear programme. Instead, he regards the exterior bit as a state-dependent adversarial choice, his "Maxwell's demon", and iterates to the worst end-value assignment. Because each exterior choice changes only the row corresponding to the current `m`-block state, requiring the score to be a submartingale for **every possible assignment of end-values** is equivalent to requiring the local drift inequality for both values `z=0,1` in every state. This is exactly the project's statewise robust finite-window condition.
 
-## 1. Search scope and terminology
-
-I searched specifically for both possible novelty failures:
-
-1. a theorem already proving deterministic finite-seed one-dimensional BABP convergence below `0.0347`;
-2. a general theorem whose hypotheses are automatically satisfied by `BABP-EDGE-001`, making `BABP-CONV-001` a routine corollary.
-
-The search ran through 2026-08-15 and used combinations of the following names and mechanisms:
-
-- `biased annihilating branching process`;
-- `biased annihilating process`;
-- `annihilating branching process`;
-- `branching annihilating process`;
-- `branching-annihilating process` and `branching-annihilating random walk`;
-- `jumping voter model`;
-- `finite particle system`;
-- `finite seed`, `finite nonzero initial configuration`, `finite non-null initial configuration`;
-- `edge speed`, `front speed`, `interface`, `boundary`, `submartingale`, `edge submartingale`;
-- `complete convergence` and `local convergence`;
-- `duality`, `quasi-duality`, `thinning`, `double-flipping process`;
-- the numerical strings `0.0347`, `0.03461954`, and combinations with `BABP`;
-- title/author searches around Neuhauser, Sudbury, Mountford, Lloyd, Martinelli, Shapira, Toninelli, Swart, and later papers citing the historical BABP papers.
-
-I checked the Cambridge records and Crossref citation lists for the 1993 and 1999 papers, the ScienceDirect record for Sudbury (1997), Monash publication records for Sudbury (1998), the Annals/Monash record for Lloyd--Sudbury (1997), the 2025 Martinelli--Shapira--Toninelli preprint, 2024--2026 papers returned by alternate-term searches, and the 2026 Cambridge book *A Course in Interacting Particle Systems* as a recent reference/citation-chain check. I also searched for papers citing Sudbury (1999) and for recent work using generic `annihilating branching process` terminology.
-
-This is a serious targeted search, not an exhaustive bibliometric proof of absence. In particular, Google Scholar-style citation graphs can contain records not exposed by Crossref or ordinary web indexing.
-
-## 2. Closest same-model predecessors
-
-### 2.1 Neuhauser--Sudbury (1993), *The biased annihilating branching process*
-
-This is the model-defining source. Its accessible Cambridge abstract uses the same normalization in words: offspring are placed on empty neighboring sites at rate `lambda` and neighboring particles kill/coalesce at rate `1`. It identifies Bernoulli product equilibrium of density
+Table 2 on p. 850 then states explicitly
 
 $$
-\frac{\lambda}{1+\lambda}
+m=8,\qquad \lambda_8=0.0347.
 $$
 
-and the empty state as the stationary laws in one dimension. It also contains the original one-dimensional spreading/convergence theory in a restricted parameter regime.
-
-What it contributes relative to the project theorem:
-
-- **statewise finite-window corrector hypothesis:** not visible in the accessible source record;
-- **outer-edge/spreading input:** yes, in the historical restricted regime;
-- **local internal-gap/nonescape argument:** not established from the accessible record;
-- **below-0.0347 finite-seed theorem:** no;
-- **stationary-law classification:** yes, historical source for the classification used later by Martinelli--Shapira--Toninelli.
-
-It does not make the `lambda=1/40` result an accessible corollary.
-
-### 2.2 Mountford (1993), *A coupling of finite particle systems*
-
-The published Cambridge abstract says that for a large class of one-dimensional IPS started from a finite configuration, every subsequential limit measure along times tending to infinity is invariant. It then applies this to one-dimensional BABP with parameter `>1/3`, for finite non-null initial configurations, to obtain convergence to the upper invariant law.
-
-This is very close to the **last step** of the project proof, but it is not the new noescape input. In the verified project proof the same logical role is now filled by Jahnel--Köppl (2026), whose full theorem was directly checked.
-
-What Mountford contributes:
-
-- **statewise corrector hypothesis:** not indicated by the abstract;
-- **outer-edge speed:** not the advertised theorem;
-- **stationary subsequential limits:** yes;
-- **finite-seed convergence:** yes, but only in the then-known `lambda>1/3` range;
-- **local gap/nonescape bridge from an edge corrector:** not source-verified.
-
-**Source limitation:** I could obtain the published abstract and bibliographic record but not the full paper body. I therefore do not claim a line-by-line comparison of Mountford's coupling hypotheses or proof with the present gap argument.
-
-### 2.3 Sudbury (1997), *The convergence of the biased annihilating branching process and the double-flipping process in Z^d*
-
-The ScienceDirect abstract is unambiguous about the initial-law scope: the convergence theorem assumes the **initial measure is translation-invariant**. In that setting finite-range stochastic Ising systems with zero flip rates converge, and BABP converges to a mixture of the product law and the empty state. The method is relative entropy.
-
-This does not contain the deterministic finite-seed theorem: a finite deterministic configuration on `Z` is not translation-invariant. It is important stationary/ergodic background, but it is not a simple-rescaling route around the finite-seed obstruction.
-
-Classification for the audit:
-
-- **statewise corrector:** no evidence;
-- **outer-edge speed:** no;
-- **local noescape/gap:** no, at least not in the theorem advertised by the abstract;
-- **initial law:** translation-invariant, hence different from the project theorem;
-- **method:** relative entropy, genuinely different.
-
-### 2.4 Lloyd--Sudbury (1997), quasi-duality and thinnings
-
-The paper develops quasi-duality and thinning relations between interacting particle systems. Martinelli--Shapira--Toninelli explicitly credit these ideas as antecedents for the modern BABP--DFP arguments in their Section 5.
-
-I found no statement in the accessible metadata or in the 2025 paper saying that this quasi-duality yields deterministic finite-seed BABP convergence below `0.0347`. Martinelli--Shapira--Toninelli have this toolkit available and still state the finite-seed restriction in Remark 5.4. Therefore quasi-duality is related structure, not an accessible theorem subsuming `BABP-CONV-001`.
-
-### 2.5 Sudbury (1998), *A method for finding bounds on critical values for non-attractive interacting particle systems*
-
-This source matters mainly for **methodological priority**. The indexed bibliographic record confirms the paper. An accessible abstract reproduction describes a computer-assisted method that searches for a function with a sign-definite expected drift by enumerating all relevant `0/1` configurations near the boundary of a finite one-dimensional process. It applies the method to a branching-annihilating random walk and to contact-process bounds.
-
-That description is plainly close in spirit to the present finite-window LP/corrector construction. It does **not**, from the material I could inspect, state the present BABP `lambda=1/40` result or the general statewise-corrector-to-convergence theorem.
-
-For priority language, however, this paper means that we should not describe the finite-window computational device itself as a new general methodology. The safe contribution is the exact new certificate/range plus the verified convergence bridge, not "introducing" boundary correctors or finite-state drift searches.
-
-**Source limitation:** I verified the primary bibliographic record but not the full article body; the detailed method description available to me came through an indexed abstract reproduction rather than a line-by-line primary-text inspection.
-
-### 2.6 Sudbury (1999), *Hunting submartingales in the jumping voter model and the biased annihilating branching process*
-
-This is the closest prior theorem and the main unresolved priority interface.
-
-The Cambridge primary abstract states that for one-dimensional BABP started from a finite nonzero initial configuration, the previous convergence result is extended from `lambda >= 1/3` to
+Sudbury also says these values were found "by trial and error" and explicitly says the tabulated decimal was not proved to be a true critical value. Thus the project's independently computed `k=8` zero
 
 $$
-\lambda\ge0.0347,
+0.0346195434755\ldots
 $$
 
-and that bounds on the edge speed are obtained. The paper is explicitly organized around hunting submartingales.
+should no longer be described as merely a numerical calibration to a possibly different construction. It is a numerical refinement of the same `m=8` finite-window feasibility boundary. Sudbury's `0.0347` is the safe decimal-grid value used by his computation and continuation argument, not an exact algebraic threshold.
 
-The independent project audit has calibrated the present finite-window LP against the historical numbers without assuming identity:
+**Provenance verdict:** the historical-mechanism identification is now **verified from source**, not inferred.
 
-- at window size `k=1`, strict feasibility occurs exactly for `lambda>1/3`;
-- a fresh `k=8` implementation has zero crossing
+### 2. The general corrector-to-convergence implication is not a new theorem-level idea
 
-$$
-0.0346195434755\ldots,
-$$
+This is the significant correction.
 
-which rounds to the published `0.0347` scale;
-- at `k=10`, the project obtains strict positive drift at `lambda=1/40`.
-
-This is strong evidence that the current corrector family is closely related to the historical submartingale machinery. It is **not** source verification that Sudbury used the identical LP, the identical window convention, or literally an eight-site window.
-
-Most importantly for the current writeup, I could not obtain the full article body legitimately through the available web interfaces. Cambridge exposes the abstract, references, and access page, but the nominal PDF route redirects to the access page. Therefore I cannot answer from source whether Sudbury already proves a theorem of the form
-
-> statewise positive finite-window edge drift implies finite-seed local convergence,
-
-nor whether his convergence bridge uses an internal-gap argument equivalent to ours.
-
-This prevents a strong priority claim for the **general criterion**, even though it does not undermine the mathematical result.
-
-### 2.7 Martinelli--Shapira--Toninelli (2025)
-
-This is the strongest current state-of-the-art source I found and the main evidence that the concrete parameter improvement is real.
-
-Their Section 5 revisits BABP using self-duality, quasi-duality with DFP, and a new all-parameter exponential-ergodicity result for DFP. They derive all-parameter BABP structural consequences, including linear growth from finite nonempty sets, and convergence from suitable Bernoulli product initial laws. Nevertheless, their Remark 5.4 still records deterministic finite-seed BABP convergence only in the historical range `lambda>0.0347`, citing Mountford and Sudbury.
-
-This distinction is load-bearing:
-
-- **DFP exponential ergodicity:** all parameters, but for the auxiliary process;
-- **BABP linear growth from finite seeds:** all parameters, but does not control local holes;
-- **BABP convergence from product initial laws:** all parameters in the stated product-law setting;
-- **BABP convergence from a finite deterministic nonempty seed:** still recorded only for `lambda>0.0347`.
-
-The project proof does not use the 2025 particle-number growth theorem. It instead obtains a target-level nonescape estimate from the statewise corrector.
-
-Their convention must be translated explicitly in the manuscript. They use complementary infection variables with infection density `q` and `p=1-q`; for BABP their constraint is the number of particle neighbors. In project particle variables,
+Sudbury's Section 3 does not merely prove an edge-speed theorem. He defines, for a finite particle configuration with right and left edges `Ri,Le`, the two-edge corrected span
 
 $$
-\lambda=\frac qp,
-\qquad
-L_{\mathrm{project}}=p^{-1}L_{\mathrm{MST}}.
+L=Ri-Le+S_{i(Ri)}+S_{i(Le)}-(2m+2)
 $$
 
-This scalar time change preserves stationary laws.
+when the span is large enough, and `L=0` otherwise; he then seeks one correction vector making this a submartingale for every possible exterior assignment. Lemmas 5--9 construct exactly such a robust finite-window submartingale.
 
-## 3. Successor and alternate-model checks
+Immediately before Theorem 7, on p. 852, Sudbury states that the Neuhauser--Sudbury (1993) stationary-state argument **relied on the existence of a suitable submartingale**, that Section 3 has extended this condition from the old `1/3` range to `0.0347`, and that "the argument of their Section 5 can then proceed unchanged." Theorem 7 then gives finite-seed convergence.
 
-### 3.1 Papers citing Sudbury (1999)
+Therefore the logical principle
 
-The Cambridge/Crossref cited-by list exposed only four records: Sudbury (2001) on critical infection bounds, Steif--Sudbury (2006) on a catalytic model, Sun--Swart (2008) on the Brownian net, and Maillard--Penington (2024) on branching random walk with non-local competition. None is a same-model theorem superseding the `0.0347` finite-seed range.
+> a suitable robust finite-window edge submartingale/corrector is a sufficient threshold-dependent input for finite-seed BABP convergence
 
-Crossref citation lists are incomplete, so I did not treat this as an exhaustive successor check. I separately searched the exact title, model name, threshold, author names, and the 2025 progress paper through 2026-08-15. I found no later same-target theorem.
+is already present in the 1993/1999 argument. The project's stronger hypothesis
 
-The 2026 Cambridge book *A Course in Interacting Particle Systems* still cites Sudbury (1997), Sudbury (1999), and Lloyd--Sudbury in its current reference apparatus. I found no indication in the searchable book record of a new finite-seed BABP theorem or a lower threshold. This is supporting evidence only, not a substitute for a citation-index audit.
+$$
+D_{k,\lambda}(u,z;\phi)\ge v>0
+$$
 
-### 3.2 `Branching-annihilating random walk` is dangerously ambiguous
+is certainly sufficient for Sudbury's "suitable submartingale" condition. `BABP-CONV-001` is a correct and useful self-contained theorem, but **the implication itself should not be advertised as new**.
 
-Several recent papers returned by alternate terminology concern different processes and do not subsume this BABP.
+The project's proof remains substantially different from what Sudbury 1999 writes down. Sudbury uses a corrected **global span** and then imports Neuhauser--Sudbury Section 5. The 1999 paper contains none of the project's explicit internal-gap machinery:
 
-Birkner--Callegaro--Cerny--Gantert--Oswald (2024), *Survival and complete convergence for a branching annihilating random walk*, studies a discrete-time BARW with offspring/jump and annihilation rules different from the present nearest-neighbor BABP generator. Its "complete convergence" title is therefore a false positive for this audit.
+- no genealogy of individual internal vacant gaps;
+- no corrected tagged-gap width with drift `<=-2v`;
+- no exponential gap-lifetime or maximum-width tail;
+- no Poisson endpoint-displacement estimate;
+- no all-space nucleation compensator;
+- no fixed-window nonescape estimate of the form
+  $$
+  \limsup_{t\to\infty}\mathbf P(B_t\cap[-M,M]=\varnothing)\le Ce^{-cM}.
+  $$
 
-Latz--Swart (2022/2023) use `annihilating branching process` for what they rebrand the **cancellative contact process**, a process with contact-type infection modulo two and an independent death mechanism. That is also not the present BABP, whose death/coalescence rate is generated by occupied neighbors.
+But Sudbury 1999 delegates the actual convergence bridge to Neuhauser--Sudbury (1993), Section 5. Since that full section has still not been inspected, I do **not** claim that the project's tagged-gap proof technique is itself new. What is settled is the theorem-level priority question: the sufficiency of the finite-window submartingale is prior art.
 
-Older `branching annihilating process` and parity-preserving BARW terminology similarly contains models with diffusion, double offspring, or parity constraints. A result for those models cannot be imported merely from the common words `branching` and `annihilating`.
+### 3. The `lambda=1/40` result is a new range certificate inside Sudbury's mechanism, not a new mechanism
 
-### 3.3 Later duality and general-IPS literature
+Sudbury's construction is generic in the window size `m`. Lemma 7 explicitly says that a submartingale for `m_1` extends to every larger `m_2` at the same parameter. More importantly, the minimax/end-value algorithm itself is defined for arbitrary fixed `m`; Sudbury simply reports BABP threshold searches only through `m=8` in Table 2.
 
-Modern duality papers and the 2026 Swart text contain useful general theory and historical references, but I found no theorem whose hypotheses transparently turn `BABP-EDGE-001` into deterministic finite-seed convergence at `lambda=1/40`. The verified project bridge is therefore not presently identifiable as a routine corollary of a generic complete-convergence theorem.
+The project calculation at
 
-Jahnel--Köppl (2026) does make one piece routine in a modern way: every weak subsequential limit is stationary under hypotheses directly satisfied by BABP. That theorem replaces reliance on uninspected historical stationary-limit arguments, but it does not prove that the stationary limit has no empty component. The new gap/nonescape estimate is still needed.
+$$
+k=10,\qquad \lambda=\frac1{40}
+$$
 
-## 4. Exact status of the older unavailable sources
+therefore does **not** require a new conceptual device beyond Sudbury's finite-window submartingale mechanism. Under the exact identification above, the project's rational corrector is a valid `m=10` witness for Sudbury's local robust-submartingale problem. Feeding that witness into the old convergence architecture is enough in principle to extend the finite-seed theorem to `1/40`.
 
-These limitations should be stated in the manuscript preparation record rather than hidden.
+The genuinely new mathematical datum is the exact certificate/range extension:
 
-### Mountford (1993)
+$$
+D_{10,1/40}(u,z;\phi)
+\ge\frac{1033}{40000000}>0
+$$
 
-Available: published abstract and bibliographic record.
+for all `2048` states. The project also gives a self-contained modern proof of convergence from this strict statewise inequality, with stronger intermediate noescape estimates than are stated in Sudbury 1999.
 
-Verified from that abstract: a general one-dimensional finite-particle stationary-limit principle and its application to finite non-null BABP for parameter `>1/3`.
+Thus the right description of the contribution is:
 
-Not verified from source: exact hypotheses, exact coupling construction, or any finer relationship to the current internal-gap proof.
+> extend Sudbury's finite-window submartingale computation from the published `m=8`, `0.0347` range to an exact rational `m=10` certificate at `lambda=1/40`, and give a self-contained internal-gap proof that such a strict statewise corrector implies finite-seed local convergence.
 
-### Ramírez--Varadhan (1996)
+It is **not**:
 
-Available: bibliographic records, author bibliography, and Project Euclid identifier.
+> introduce the finite-window corrector method, or discover for the first time that such a corrector implies convergence.
 
-The Project Euclid body was not obtainable through the available interface. I therefore have **not** independently checked its theorem statements or hypotheses line by line. The project theorem does not need it because Jahnel--Köppl (2026) supplies the required stationary-limit statement from an accessible current source.
+## 1. Source-level comparison with Sudbury (1999)
 
-### Sudbury (1999)
+### 1.1 Normalization is identical
 
-Available: Cambridge abstract, references, bibliographic metadata, citation list, and DOI.
+Sudbury defines BABP by the flip rate
 
-Verified directly: finite-seed convergence extended to the `0.0347` range and edge-speed bounds; submartingale is central enough to appear in the title and keywords.
+$$
+c(x,\eta)
+=
+\bigl[\eta(x)+\lambda(1-\eta(x))\bigr]
+\sum_{y\in N_x}\eta(y).
+$$
 
-Not verified: the internal finite-window calculation, the precise corrector state space, exact normalization, literal window size, or the convergence bridge from the hunted submartingale to local convergence.
-
-Accordingly, the project's identification of the historical threshold mechanism is **numerically calibrated rather than source-verified**: exact `k=1` reproduction of the old `1/3` threshold and independent `k=8` crossing at `0.0346195434755...` strongly indicate the connection, but they do not substitute for the text of Sudbury's proof.
-
-This is the single most important remaining literature issue before submission-level priority confidence.
-
-## 5. Does accessible prior work already imply the project theorem?
-
-I found no such implication.
-
-A decomposition of the required logic makes the point clear. From a statewise corrector the project proves:
-
-1. two-sided outer-edge linear motion;
-2. the same corrector applied to the two particle populations bordering **every internal gap** gives a corrected gap with uniformly negative drift;
-3. after localization, exponential tilting yields uniform gap lifetime and maximum-width tails;
-4. Poisson endpoint displacement plus a spatially truncated compensator and monotone convergence control gaps nucleated anywhere in space;
-5. this gives a uniform no-escape estimate for fixed windows;
-6. a stationary-limit theorem plus stationary-law classification then forces the Bernoulli component and excludes the empty state.
-
-Accessible earlier theorems supply pieces of step 6 and, in restricted regimes, some form of step 1. Sudbury (1997) treats different initial laws. Martinelli--Shapira--Toninelli (2025) supplies strong all-parameter global growth but still records the finite-seed gap. None of the accessible statements supplies steps 2--5 under the statewise corrector hypothesis.
-
-Thus the concrete `lambda=1/40` theorem is not an **accessible straightforward corollary** of the literature I found. The unresolved caveat is whether Sudbury (1999) already contains essentially steps 2--5 in its body.
-
-## 6. Recommended manuscript packaging
-
-I recommend a **staged approach**:
-
-1. prepare a complete short standalone note now, centered on the general statewise-corrector criterion and the exact `lambda=1/40` certificate;
-2. continue the all-parameter front programme separately;
-3. if the front-gap problem is later solved, either enlarge the note before submission if timing and exposition remain clean, or publish the strengthening separately.
-
-Do not hold a complete verified finite-seed improvement indefinitely for E5. The present result has a coherent proof mechanism and a concrete below-recorded-range corollary. Conversely, do not inflate it into a broad BABP paper before the all-parameter argument exists.
-
-A suitable working title is:
-
-> **Finite-window edge correctors and finite-seed convergence for the one-dimensional biased annihilating branching process**
-
-The note can be short because the logical spine is narrow.
-
-### Proposed structure
-
-#### 1. Introduction
-
-- define the exact finite-seed question;
-- state that Sudbury (1999) proves convergence in the `0.0347` range and that Martinelli--Shapira--Toninelli (2025), Remark 5.4, still records that range;
-- state the general statewise-corrector theorem and `lambda=1/40` corollary;
-- explicitly avoid a priority adjective pending the final historical audit.
-
-#### 2. BABP and finite-window edge correctors
-
-State the project convention:
+Thus an occupied site dies at rate equal to its number of occupied nearest neighbours and a vacant site is born at rate `lambda` times that number. This is exactly the project convention
 
 $$
 0\to1\text{ at rate }\lambda N_x,
@@ -282,141 +135,302 @@ $$
 1\to0\text{ at rate }N_x.
 $$
 
-Give the exact edge-window generator. For right edge `R`, word `u=(u_1,\ldots,u_k)`, exterior bit `z`, set `u_0=1`, `u_{k+1}=z`,
+There is no time rescaling and no parameter conversion between Sudbury's `lambda` and the project's `lambda`. His product density is exactly
 
 $$
-T_+u=(1,u_1,\ldots,u_{k-1}),
+\frac{\lambda}{1+\lambda}.
 $$
 
-$$
-T_-^zu=(u_2,\ldots,u_k,z),
-$$
-
-and let `u^(j)` flip the `j`th bit. Then
+The MST conversion
 
 $$
-\begin{aligned}
-D_{k,\lambda}(u,z;\phi)
-={}&\lambda\left[1+\phi(T_+u)-\phi(u)\right]\\
-&+u_1\left[-1+\phi(T_-^zu)-\phi(u)\right]\\
-&+\sum_{j=1}^k
-(u_{j-1}+u_{j+1})\bigl[\lambda(1-u_j)+u_j\bigr]
-\left[\phi(u^{(j)})-\phi(u)\right].
-\end{aligned}
-$$
-
-State the statewise hypothesis and prove the basic outer-edge consequence by the bounded-jump martingale decomposition.
-
-#### 3. Exact rational certificate at `lambda=1/40`
-
-State the `k=10` certificate, exact minimum
-
-$$
-\frac{1033}{40000000},
-$$
-
-and the verification format. The full 1024-entry rational vector is better supplied as machine-readable supplementary material than typeset in the body. Include an exact checksum or reproducibility statement and independently useful calibrations:
-
-- `k=1` threshold exactly `lambda>1/3`;
-- `k=8` numerical crossing `0.0346195434755...` as historical calibration, explicitly **not** as a claim about Sudbury's literal internal window.
-
-#### 4. Statewise edge corrector contracts internal gaps
-
-Give the gap genealogy first: new positive gaps are born at width one, positive gaps do not split, and two positive gaps cannot merge while both live.
-
-For a tagged gap between particle populations `A` and `C`, define
-
-$$
-Z=H_L(C)-H_R(A)-1.
-$$
-
-Prove the uniform drift `L Z <= -2v` before closure and record `g-2||phi||_infty <= Z <= g+2||phi||_infty`.
-
-#### 5. Uniform gap tails and the all-space nucleation sum
-
-This section must visibly include Review A's two rigor repairs.
-
-First localize `exp(theta Z)`: stop when the gap width or `Z` reaches a finite level, apply Dynkin/optional stopping to the bounded stopped process, and only then remove the localization. Derive uniform exponential lifetime and width tails.
-
-Then dominate endpoint displacement by a Poisson process of rate `2(1+lambda)` and sum over new gap nucleations. **First truncate the spatial compensator to `|x|<=N`; only after obtaining the finite sum pass to `N->infinity` by monotone convergence.** This should be written in the main proof, not left as a footnote.
-
-#### 6. Nonescape and local convergence
-
-Use the two outer edges plus the large-gap estimate to prove
-
-$$
-\limsup_{t\to\infty}
-\mathbf P_B(B_t\cap[-M,M]=\varnothing)
-\le Ce^{-cM}.
-$$
-
-Then invoke Jahnel--Köppl for stationarity of weak limits and Martinelli--Shapira--Toninelli for the one-dimensional stationary-law classification. State the convention conversion at the point of citation:
-
-$$
-\lambda=\frac qp,
+\lambda=q/p,
 \qquad
-L_{\mathrm{project}}=p^{-1}L_{\mathrm{MST}}.
+L_{\mathrm{project}}=p^{-1}L_{\mathrm{MST}}
 $$
 
-The empty-window estimate forces the coefficient of `delta_empty` to vanish.
+is a separate modern convention issue and should remain explicit when MST is cited.
 
-#### 7. Discussion
+### 1.2 Exact state-space identification
 
-- explain that the hypothesis is statewise and stronger than a bare ballistic-edge statement;
-- make no convergence-rate claim;
-- mention the open all-parameter positive-corrector/front problem;
-- discuss the relation to Sudbury's submartingale method conservatively until his proof has been inspected.
+Sudbury fixes the leftmost particle and records the `m` sites immediately to its right. Writing the configuration near that edge as
 
-## 7. Safe novelty language
+```text
+... 0 1 x_1 ... x_m x_{m+1} ...
+```
 
-### Safe now
+his finite state is the binary word `(x_1,...,x_m)` and `x_{m+1}` is the unresolved end-value. He emphasizes that for cancellative BABP there is no monotone worst choice for `x_{m+1}`.
 
-The following wording is supported by the verified mathematics plus the current literature audit:
+Reflecting the picture gives the project right-edge state
 
-> We construct an exact rational ten-site edge corrector for one-dimensional BABP at `lambda=1/40` and prove that any uniformly positive statewise finite-window edge corrector implies local convergence from every finite nonempty deterministic initial configuration. Consequently BABP at `lambda=1/40` converges locally to Bernoulli equilibrium. The parameter `1/40=0.025` lies below the `lambda>0.0347` finite-seed range recorded by Martinelli--Shapira--Toninelli (2025, Remark 5.4).
+```text
+R, R-1, ..., R-k, R-k-1
+```
 
-Also safe:
+with
 
-> We found no later theorem in our search through 2026-08-15 that removes the `0.0347` finite-seed restriction.
+```text
+u=(u_1,...,u_k),
+z=u_{k+1}.
+```
 
-provided it is presented as a literature-search statement rather than mathematical proof of priority.
+So `m=k` literally, not only heuristically.
 
-### Not safe yet
+For a fixed assignment of end-values, Sudbury's `Q` is the infinitesimal generator of the `m`-block and
 
-Do not presently write:
+$$
+a=\lambda\mathbf 1-b
+$$
 
-- "the first improvement since Sudbury";
-- "the best known finite-seed threshold";
-- "the first proof below `0.0347`";
-- "Sudbury used exactly the same eight-site LP";
-- "our corrector-to-convergence theorem is new";
-- "positive edge speed implies convergence".
+is the bare edge-position drift. The corrected one-edge gain in state `i` is
 
-The first five require stronger source/priority checking; the last is mathematically stronger than the verified theorem.
+$$
+a_i+\sum_jq_{ij}(S_j-S_i).
+$$
 
-## 8. Recommended final literature check before submission
+This is the reflected version of `D_{k,lambda}(u,z;phi)`.
 
-The remaining check is narrow enough to give to a fresh specialist rather than repeat a broad search.
+The important robust condition is Lemma 5: a single `S` makes the score a submartingale **for every possible assignment of end-values**. Since the end bit for each state may be selected independently, this is equivalent to statewise control for both `z=0` and `z=1` at every word `u`.
 
-Ask the specialist to obtain and read the full bodies of:
+### 1.3 Sudbury's algorithm versus the project's LP
 
-1. Sudbury (1999), especially the BABP theorem, finite-boundary/submartingale construction, and convergence bridge;
-2. Sudbury (1998), to determine exactly which finite-window/corrector formalism is already stated there;
-3. Mountford (1993), only to clarify historical provenance of the stationary-limit bridge, not because the project proof depends on it;
-4. Ramírez--Varadhan (1996), likewise for provenance if the manuscript discusses the older stationary-limit literature.
+Sudbury's algorithm solves the same finite robust-control problem in a Bellman/minimax form:
 
-The specialist's key comparison question should be:
+1. assign one exterior bit to every `m`-block state;
+2. solve the corresponding linear system `Q^*S=-a`;
+3. change each assigned exterior bit according to the sign of the one-row perturbation `E^iS`;
+4. iterate to a fixed worst assignment.
 
-> Does Sudbury (1999), perhaps together with Mountford (1993), already state or prove that a uniformly positive **statewise finite-window** edge submartingale/corrector yields deterministic finite-seed local convergence, including control of internal holes/gaps? If yes, which exact hypotheses and theorem numbers, and does the present `k=10`, `lambda=1/40` certificate plug into them without new argument?
+The project instead writes every local inequality simultaneously and optimizes the common margin `v` by linear programming.
 
-If the answer is yes, package the project contribution as a new exact certificate/range extension under an existing convergence bridge. If the answer is no, the current verified internal-gap bridge is a stronger candidate for a separate theorem-level novelty claim.
+These are two solution procedures for the same finite-window drift problem. Sudbury's later edge-speed Section 4 makes the common-margin form explicit: for a number `U_0` he seeks
+
+$$
+\sum_jq_{ij}(S_j-S_i)+a_i\ge U_0
+$$
+
+for all admissible end-value matrices, and deduces a lower edge-speed bound. This is directly the project's statewise `D>=v` formulation with `U_0=v`, after reflection.
+
+### 1.4 The eight-site provenance is literal
+
+Sudbury's Table 2, p. 850, is headed "Values of lambda for which a submartingale exists" and lists
+
+```text
+m    lambda_m
+2    0.2653
+3    0.1832
+4    0.1154
+5    0.0805
+6    0.0589
+7    0.0443
+8    0.0347
+```
+
+He immediately explains that these are trial values rather than proved exact critical values. The `m=2` example is explicit: values at or above `0.2653` tried successfully while values at or below `0.2652` did not.
+
+The project's `k=8` LP zero
+
+$$
+0.0346195434755\ldots
+$$
+
+therefore refines the same object. The published `0.0347` is a safe upper decimal from Sudbury's search, not a different normalization and not an unrelated speed threshold.
+
+On p. 851 Sudbury explicitly calls the anchor `lambda_8=0.0347`; on p. 852 Lemma 9 extends the robust submartingale condition to every `lambda>=0.0347`, followed immediately by Theorem 7.
+
+## 2. Convergence bridge: what is old and what is different
+
+### 2.1 What Sudbury proves/uses
+
+Sudbury's finite-configuration score is
+
+$$
+L
+=
+Ri-Le+S_{i(Ri)}+S_{i(Le)}-(2m+2)
+$$
+
+when `Ri-Le>=2m+1`, and zero otherwise. The correction at each outer edge is local; the score is a corrected total span.
+
+His Section 3 establishes the existence of a suitable robust submartingale for every `lambda>=0.0347`. The final paragraph before Theorem 7 is decisive: Neuhauser--Sudbury's stationary-state proof relied on such a submartingale at `lambda>=1/3`; Sudbury has extended "this condition" to `0.0347`; their Section 5 then proceeds unchanged.
+
+Hence a project statement asserting that **the existence of the appropriate finite-window statewise corrector is a sufficient input for finite-seed convergence** cannot be claimed as a new theorem-level principle.
+
+### 2.2 What the project proof adds as a proof architecture
+
+The project does not reuse Sudbury's global corrected span or the uninspected Neuhauser--Sudbury Section 5 proof. It gives an independent route:
+
+1. place the same right/left corrector on the two particle populations bordering a tagged internal gap;
+2. use one-dimensional gap genealogy to show births at width one, no splitting, and no merging of live positive gaps;
+3. obtain a corrected gap width with drift at most `-2v`;
+4. localize before applying the exponential test and obtain uniform lifetime and maximum-width tails;
+5. dominate boundary displacement by a Poisson process;
+6. truncate the all-space gap-nucleation compensator to `|x|<=N`, then remove the truncation by monotone convergence;
+7. derive fixed-window nonescape;
+8. combine stationarity of weak limits with stationary-law classification.
+
+Sudbury 1999 does not state these intermediate results. In particular, its Section 4 edge-speed theorem is separate from the convergence proof and does not contain an internal-hole estimate.
+
+This makes the present proof self-contained and quantitatively informative. It does **not**, on the evidence currently available, justify saying that the internal-gap proof idea itself is historically new, because the precise proof inside Neuhauser--Sudbury (1993), Section 5 remains uninspected.
+
+### 2.3 Strength comparison
+
+As hypotheses, the project theorem is not stronger than Sudbury's historical framework. It assumes a uniform strict margin `v>0`; Sudbury phrases the convergence input as existence of a suitable submartingale robust to all end-values, and his edge-speed section separately formulates positive common gain `U_0`.
+
+As intermediate conclusions, the project proof is stronger/more explicit than anything stated in Sudbury 1999: it yields exponential tagged-gap tails and a quantitative fixed-window nonescape bound. The final convergence conclusion is the same type of deterministic finite-seed local convergence.
+
+## 3. Does Sudbury already give convergence below `0.0347`?
+
+No such result appears in the paper.
+
+- Table 2 stops at `m=8`.
+- Lemma 9 and Theorem 7 stop at `lambda>=0.0347`.
+- Section 4 gives edge-speed bounds for selected parameters and reports BABP calculations for `m=4` and `m=8`, not a lower finite-seed convergence threshold.
+
+But there is also no conceptual barrier in Sudbury's method at eight sites. The construction and the minimax algorithm are defined for arbitrary fixed `m`. Therefore the project `k=10` certificate is best viewed as extending the same method computationally and certifiably.
+
+In particular, `lambda=1/40` does **not** require a new convergence mechanism once the `m=10` certificate is known: Sudbury's own logic says the stationary-state argument can be rerun whenever a suitable finite-window submartingale is available. The project's self-contained `BABP-CONV-001` is useful because it removes reliance on that historical black box and records all hypotheses cleanly, not because the abstract implication was absent from the literature.
+
+## 4. Revised novelty verdict
+
+### 4.1 Concrete range improvement
+
+**Status: strongly supported as a genuine literature-range extension.**
+
+The full closest predecessor now confirms that its finite-seed theorem stops at `lambda>=0.0347`, and that this number came from an `m=8` finite-window computation. The earlier successor search through 2026-08-15 found no later same-model finite-seed theorem below that range.
+
+Thus the defensible contribution is:
+
+> an exact rational ten-site certificate extends Sudbury's finite-window submartingale method to `lambda=1/40=0.025`, yielding deterministic finite-seed convergence below Sudbury's published `0.0347` range.
+
+I still recommend against absolute bibliometric language such as "first ever" or "best known" unless a fresh independent literature auditor repeats the successor search. But the former reason for withholding range-priority language -- inability to inspect Sudbury itself -- is gone.
+
+### 4.2 General statewise-corrector criterion
+
+**Status as novelty: refuted.**
+
+The project theorem is mathematically verified but should not be sold as a new theorem-level implication. Sudbury 1999 explicitly identifies the suitable finite-window submartingale as the threshold-dependent hypothesis on which the earlier convergence proof relies and applies that implication to obtain Theorem 7.
+
+A safe description is:
+
+> We give a self-contained proof, via internal-gap contraction and nonescape, of the finite-window-submartingale convergence implication used in the classical BABP argument.
+
+Whether this **particular proof** is new remains unresolved until Neuhauser--Sudbury (1993), Section 5 is read in full.
+
+### 4.3 Finite-window method
+
+**Status as novelty: refuted.**
+
+Sudbury 1999 explicitly uses the same `m`-block, one exterior end-value, worst-case state-dependent assignment, and corrected edge score. Sudbury 1998 is an additional methodological predecessor. The project should not say it introduces finite-window edge correctors, state-dependent boundary optimization, or the underlying finite-state submartingale search.
+
+### 4.4 What is clearly project-specific
+
+- the exact rational `k=10`, `lambda=1/40` certificate;
+- the exact minimum drift `1033/40000000` verified over all `2048` states;
+- the direct LP formulation and exact machine-checkable certificate format;
+- the self-contained tagged-internal-gap proof with localization and finite-spatial-truncation repairs;
+- the current all-parameter front-environment reduction, if it survives its separate audit.
+
+## 5. Remaining source limitations
+
+### Mountford (1993)
+
+Still not obtained in full. Its published abstract supports the historical stationary-limit role, but its exact hypotheses and proof were not checked line by line. This is no longer a correctness dependency because Jahnel--Köppl (2026) supplies the stationary-limit theorem used by `BABP-CONV-001`.
+
+### Ramírez--Varadhan (1996)
+
+Still not obtained in full. Exact hypotheses remain unverified from source. Again this is provenance only, not a theorem dependency.
+
+### Neuhauser--Sudbury (1993), Section 5
+
+The full proof referred to by Sudbury 1999 has not been inspected. This no longer leaves the **logical corrector-to-convergence implication** unresolved -- Sudbury 1999 explicitly says that is the condition his theorem reuses -- but it does leave open whether the project's detailed internal-gap proof architecture is historically new.
+
+### Sudbury (1998)
+
+Full text remains uninspected. It is already clear that finite-boundary computational submartingales predate the project. A full read would improve methodological attribution but is no longer needed to settle the central 1999 provenance question.
+
+## 6. Revised manuscript packaging
+
+Keep the staged short note, but change its center of gravity.
+
+The note should **not** be presented as introducing a new convergence criterion. It should present:
+
+1. Sudbury's finite-window framework in modern statewise-corrector notation;
+2. the exact rational `k=10`, `lambda=1/40` certificate as the range-extending result;
+3. a self-contained proof of the classical corrector-to-convergence bridge through internal gaps and nonescape;
+4. the modern stationary-limit/stationary-law interfaces with explicit normalization;
+5. a short discussion of the all-parameter front problem.
+
+A better working title is:
+
+> **An exact finite-window certificate below Sudbury's BABP finite-seed range**
+
+or, if the self-contained proof is emphasized,
+
+> **Finite-window submartingales and finite-seed convergence for the one-dimensional biased annihilating branching process**
+
+## 7. Safe novelty language after the full-text audit
+
+Recommended introduction language:
+
+> Sudbury proved finite-seed convergence for one-dimensional BABP for `lambda>=0.0347` using a computer-assisted finite-window submartingale construction. His `0.0347` value comes from an eight-site window. We extend the same finite-window mechanism to an exact rational ten-site certificate at `lambda=1/40`, with uniform statewise drift `1033/40000000`. This yields finite-seed convergence at `lambda=1/40`. For completeness, we give a self-contained convergence proof from a strict statewise corrector, based on contraction of internal vacant gaps and a fixed-window nonescape estimate.
+
+Recommended historical sentence:
+
+> The finite-window mechanism itself and its use as the threshold-dependent input for finite-seed convergence are due to Neuhauser--Sudbury and Sudbury; our contribution is the exact below-range certificate and the self-contained internal-gap proof recorded here.
+
+Do not write:
+
+- "we introduce finite-window edge correctors";
+- "we prove for the first time that a positive statewise edge corrector implies finite-seed convergence";
+- "the `0.0347` mechanism was previously unknown";
+- "Sudbury's threshold merely happens numerically to match our `k=8` LP".
+
+Potentially safe after one independent successor-literature confirmation:
+
+- "we improve Sudbury's published finite-seed parameter range";
+- "the first parameter improvement over the `0.0347` range found in the literature since Sudbury".
+
+I would still avoid "best known" without a broader bibliographic check than this project has performed.
+
+## 8. Claim-registry correction requested
+
+The **mathematical statements** of `BABP-EDGE-001` and `BABP-CONV-001` do not need weakening. Their novelty/provenance wording does need correction.
+
+### `BABP-EDGE-001`
+
+Replace the current historical boundary saying literal identity with Sudbury's internal computation is unverified.
+
+Suggested replacement:
+
+> Historical provenance: Sudbury (1999), Section 3, uses the same finite-window robust edge-submartingale mechanism. His `m`-block is the reflected version of the present `k`-site edge word and his unresolved end-value is the present exterior bit. Table 2 explicitly gives the `m=8` value `0.0347`. The independently computed project zero `0.0346195434755...` is a refinement of this same eight-site feasibility boundary; Sudbury reports `0.0347` as a trial value rather than an exact critical root.
+
+### `BABP-CONV-001`
+
+Keep the verified theorem and the tagged-gap proof record, but revise the novelty paragraph.
+
+Suggested replacement:
+
+> Historical provenance: Sudbury (1999), immediately before Theorem 7, states that the Neuhauser--Sudbury (1993) finite-seed convergence argument relies on existence of a suitable finite-window submartingale and that, once his Section 3 extends that condition to `lambda>=0.0347`, their Section 5 proceeds unchanged. Thus the abstract implication from an appropriate finite-window submartingale to finite-seed convergence is classical rather than a new project principle. The project proof is an independent self-contained proof under the stronger uniform statewise margin hypothesis, using tagged internal gaps, exponential gap tails, a spatial compensator, and nonescape. Priority of this specific proof mechanism has not been checked against the full Neuhauser--Sudbury (1993) Section 5.
+
+Replace the current novelty-status sentence with:
+
+> Novelty status: the exact `lambda=1/40`, `k=10` certificate appears to extend the published finite-seed range beyond Sudbury's `m=8`, `0.0347` computation; the finite-window method and corrector-to-convergence principle themselves are prior work. A successor search through 2026-08-15 found no later below-`0.0347` finite-seed theorem.
+
+The Professor should make this registry change because it is stable-main provenance metadata. I have not edited the registry in this student assignment.
 
 ## Handoff to Professor
 
-**Closest prior theorem found:** Sudbury (1999), finite nonzero initial configuration, convergence to Bernoulli equilibrium in the `lambda>=0.0347` range, with edge-speed bounds and submartingale methodology.
+**Closest prior theorem:** Sudbury (1999), Theorem 7, with Section 3 Lemmas 5--9 and Table 2.
 
-**Novelty status:** concrete convergence at `lambda=1/40`: **strongly supported** as below the range recorded in the current 2025 progress paper, with no successor below `0.0347` found through 2026-08-15. Priority of the general statewise-corrector-to-convergence criterion: **unresolved** because the body of Sudbury (1999) was not obtainable for exact comparison.
+**Historical mechanism:** **verified from source**. The published `0.0347` is literally the `m=8` finite-window submartingale computation in the same normalization as the project. The project's `k=8` LP is the same finite-state problem written directly as statewise drift inequalities.
 
-**Recommended paper scope:** staged short standalone note now: general verified corrector criterion + exact `lambda=1/40`, `k=10` certificate/corollary. Do not wait for the all-parameter front-gap programme, but keep E5 out of the main theorem unless it is completed in time.
+**General criterion novelty:** **refuted**. Sudbury explicitly says the earlier finite-seed convergence argument relies on a suitable submartingale and proceeds unchanged once his finite-window condition is extended. `BABP-CONV-001` is a self-contained reproof under a strict statewise hypothesis, not a new theorem-level implication.
 
-**Exact literature issue requiring fresh specialist audit:** full-text comparison with Sudbury (1999), with Sudbury (1998) as methodological predecessor. Mountford (1993) and Ramírez--Varadhan (1996) also remain not line-by-line source-verified, but the theorem itself no longer depends on them because Jahnel--Köppl (2026) supplies the stationary-limit input directly.
+**Concrete range novelty:** **strongly supported**. Sudbury stops at `m=8`, `lambda>=0.0347`; no successor below that range was found in the prior search. The `k=10`, `lambda=1/40` certificate is a range extension within Sudbury's mechanism.
+
+**Does a larger Sudbury window trivially reach `1/40`?** Yes in the conceptual sense: his construction is defined for arbitrary fixed `m`, and the project's `k=10` witness is exactly a valid `m=10` witness. The new content is finding and exactly certifying that witness, not inventing a new finite-window mechanism.
+
+**Remaining historical uncertainty:** only proof-method priority at the level of the project's detailed internal-gap/nonescape argument, because Neuhauser--Sudbury (1993), Section 5 remains uninspected. Mountford (1993) and Ramírez--Varadhan (1996) also remain unavailable in full, but are not correctness dependencies.
+
+**Claim registry:** provenance/novelty wording should change as specified in Section 8; the mathematical verified claim statements need not change.
