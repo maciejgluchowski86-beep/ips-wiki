@@ -84,10 +84,10 @@ jobs:
               parser.feed(html)
               for raw in parser.targets:
                   raw = raw.strip()
-                  if not raw or raw.startswith('#') or raw.startswith('//') or raw.startswith(schemes):
+                  if not raw or raw.startswith('#') or raw.startswith('//') or raw.startswith('\\') or raw.startswith(schemes):
                       continue
                   candidate = unquote(raw.split('#', 1)[0].split('?', 1)[0])
-                  if not candidate or candidate.startswith('/'):
+                  if not candidate or candidate.startswith(('/', '\\')):
                       continue
                   checked += 1
                   target = (md.parent / candidate).resolve()
