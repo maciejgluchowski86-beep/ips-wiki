@@ -1,170 +1,141 @@
 # Project state
 
-This file is the compact current-state index for the autonomous research programme. It is not a workflow scheduler. Git history and the files under `research/` carry the detailed record.
+This file is the compact current-state index for the autonomous research programme. Detailed mathematics lives under `research/` and in Git history. `CHATGPT.md` governs the workflow.
 
 ## Research architecture
 
-The group is organized as a persistent ChatGPT Professor directing persistent graduate-student sessions.
+The group has one persistent ChatGPT Professor directing persistent graduate-student sessions. At most two sessions are in flight at once. The Professor owns scientific direction, proof spines, audits, opportunity-cost judgments, and closure decisions.
 
-At adoption of this revision:
-
-- the former Research Lead becomes the **Professor**;
-- the former Research Partner becomes the first **Graduate Student**.
-
-The Professor directs and audits the big picture. Graduate students do specified autonomous hands-on research. The Professor may do mathematics directly when useful, but that is not its default function.
-
-Professor and student sessions are kept alive as long as the platform permits. If a session reaches a platform length limit, the successor continues the same role lineage. Conversation links are optional pointers only; the protocol does not assume a successor can read an authenticated predecessor conversation. Repository handover plus exact transcript transfer is the fallback.
-
-Many sessions may remain alive and idle. At most two sessions may be in flight at once.
-
-There is no Director, Integrator, seven-gate examination, SEARCH/DEVELOP/VERIFY state machine, reserve-programme requirement, fixed worker taxonomy, fresh-session default, 900-word dispatch, or `Next cycle` instruction.
+The repository is canonical technical memory. Conversation links are optional only; successor sessions must rely on repository handovers and exact transcript transfer when necessary.
 
 ## Active scientific direction
 
-**None yet.**
+**1D BABP from a finite seed — committed programme.**
 
-The Professor is to choose a new direction autonomously and assign the first specified research task to the existing Graduate Student.
+- Research branch: `research/babp-finite-seed`
+- Workspace: `research/active/babp-finite-seed/`
+- Main target: prove finite-seed local convergence for every `lambda>0`.
+- Verified theorem `BABP-CONV-001`: for any fixed `lambda>0`, a bounded finite-window edge corrector with uniform statewise positive drift implies local convergence from every finite nonempty deterministic initial particle set to Bernoulli equilibrium.
+- Verified certificate `BABP-EDGE-001`: at `lambda=1/40`, `k=10`, the minimum statewise drift is exactly `1033/40000000>0`.
+- Verified concrete consequence: at `lambda=1/40=0.025`, BABP from every finite nonempty deterministic seed converges locally to Bernoulli equilibrium of density `1/41`.
+- Martinelli--Shapira--Toninelli (2025), Remark 5.4, records the previous finite-seed convergence range as `lambda>0.0347`.
+- The convergence theorem was independently accepted in commits `abb05f6` and `1aeb5a5`; the edge certificate was independently audited in `d1ef2ca`.
+- Stable theorem proof: `research/results/babp-finite-seed-convergence.md`.
+- Latest group meeting: `research/active/babp-finite-seed/meetings/005-convergence-promotion.md`, `state_narrowed: yes`.
 
-A new graduate student is not spawned per task or cycle. The Professor may call a new persistent student when it chooses a completely new scientific direction. Existing students remain available for directions they already know.
+## Verified theorem mechanism
 
-Previously closed programmes and routes listed below are not to be retried.
-
-When a direction is selected, record here:
-
-- short title;
-- research branch;
-- positive target;
-- main obstruction;
-- current proof-spine bottleneck;
-- Professor;
-- active graduate student;
-- active workspace path; and
-- latest group-meeting path.
-
-## Professor review and homeostasis
-
-After each substantial student handoff, before sending the same thread into another substantial variant, the Professor reads the decisive raw technical material and holds an asynchronous group meeting.
-
-Each meeting records `state_narrowed: yes | no` with a pointer to the evidence.
-
-A new speculative variant does not by itself count as narrowing. Narrowing means target-relevant uncertainty was actually reduced by a proof, counterexample, route elimination, sharper reduction or obstruction, improved controlling estimate, necessary-hypothesis change, material literature resolution, or comparable mathematical information.
-
-The Professor may close or redirect a direction on expected-value and opportunity-cost grounds. It does not need an impossibility theorem or proof that all imaginable methods fail.
-
-After three consecutive no-narrowing meetings, Claude mechanically launches a fresh outside Stagnation Consultant. The consultant advises; the Professor retains authority and must respond explicitly. Three further no-narrowing meetings trigger another fresh consultation.
-
-## Canonical prior work: patch construction
-
-The principal's manuscript `paper/`, *Patch representations and convergence for facilitated spin systems*, is the canonical project source for the patch construction and its proofs. It supersedes the deprecated IPS wiki layer on these points.
-
-In particular, the paper proves conditional patch factorization over the successful-interaction skeleton and the resulting exact patch representation of the spin-system semigroup. Old wiki pages that still describe these as conditional are stale and must not be used as project authority.
-
-The patch construction is a preferred reusable research asset when it naturally applies: retain a successful-interaction skeleton, decompose local spacetime histories into patches, condition on the skeleton, and average signed local contributions before global comparison. It is not a mandatory template for new work.
-
-The canonical patch claims are indexed in `research/claim-registry.md`.
-
-## Reusable observations from closed work
-
-Two observations from the terminated quadratic-Hessian programme survived hostile audit without becoming the target theorem of a successful programme:
-
-- the time-integrated first-moment norm of one centered heat-Hessian edge from $C^\alpha$ to $C^\beta$ has sharp cost $\asymp(\alpha-\beta)^{-1}$ on compact exponent ranges;
-- the ordered-time derivative-cluster norm satisfies $\mathfrak P_m(\alpha,T)\leq 2A_{\alpha,T}4^m(1+A_{\alpha,T})^{m-1}$.
-
-Classical local heat/Hermite cancellation remains reusable background mechanism evidence, not project novelty by itself. As a calibration, two first-derivative Gaussian marks admit the exact conditional-coarsening $L^1$ ratio
+Use particle variables with rates
 
 $$
-\kappa=\frac{\pi}{2e},
+0\to1\text{ at rate }\lambda N_x,
+\qquad
+1\to0\text{ at rate }N_x.
 $$
 
-and independent clusters tensorize as $\kappa^n$.
+The theorem hypothesis is the statewise finite-window corrector inequality
+
+$$
+D_{k,\lambda}(u,z;\phi)\ge v>0
+$$
+
+for every edge state. It is stronger than the resulting outer-edge liminf/limsup ballistic bounds.
+
+Applied to the two populations bordering an internal vacant gap, the same corrector gives a corrected gap width with uniformly negative drift. Positive gaps are born at width one, do not split, and distinct positive gaps cannot merge. After localization, exponential tilting gives uniform lifetime and maximum-width tails. Poisson boundary displacement and a compensator sum, first truncated to a finite spatial region and then passed to the limit by monotone convergence, give
+
+$$
+\limsup_{t\to\infty}
+\mathbf P_B(B_t\cap[-M,M]=\varnothing)
+\le Ce^{-cM}.
+$$
+
+Jahnel--Köppl (2026), Theorem 2.5, applies directly: BABP has bounded single-site rates and nearest-neighbour influence, so every weak limit point is stationary. Martinelli--Shapira--Toninelli (2025), Corollary 2.9, after the explicit rescaling `lambda=q/p`, `L_project=p^{-1}L_MST`, classifies stationary laws as
+
+$$
+\alpha\delta_\varnothing+(1-\alpha)\pi_q.
+$$
+
+The empty-window estimate forces `alpha=0`. The 2025 particle-number growth theorem is not used.
+
+## Current proof-spine bottleneck
+
+The remaining target is all `lambda>0`.
+
+Student B's commit `b9fdc55`, `research/active/babp-finite-seed/students/student-b/002-edge-environment-dual.md`, proposes an exact infinite-front interpretation of the finite-window LP. For fixed `lambda`, let `I_lambda` be the invariant laws of the environment seen from the right edge. The proposed reduction is
+
+$$
+\lim_{k\to\infty}v_k(\lambda)
+=
+\frac{\lambda}{1+\lambda}
+\left(\lambda-\frac12\sup_{\mu\in\mathcal I_\lambda}\mu(01)\right).
+$$
+
+The safe next mathematical target is the **front-gap lemma**
+
+$$
+\sup_{\mu\in\mathcal I_\lambda}\mu(01)<2\lambda
+\qquad\text{for every fixed }\lambda>0.
+$$
+
+The front reduction is currently a research claim, not an independently audited theorem. Monotonicity in window size is proved; parameter monotonicity in `lambda` is not, so shorthand equivalence with `lambda_k -> 0` should not be used without an additional argument.
+
+## Current work
+
+- Graduate Student B: validate and attack the invariant-front/front-gap reduction, assignment `students/student-b/assignment-003.md`.
+- Graduate Student A: focused writeup plus closest-prior-work/successor audit, assignment `students/student-a/assignment-writeup-001.md`.
+
+Publication-level novelty checking remains pending. A targeted successor search through 2026-08-15 found no later theorem removing the `0.0347` restriction, but the verified status refers to mathematical correctness, not a priority claim.
+
+## Wiki-freeze review
+
+The protocol trigger has fired because the programme's first central theorem entered independent audit. The principal controls whether the live-wiki freeze is lifted.
+
+Professor recommendation: **keep the wiki frozen for now**. Stabilize the focused manuscript and complete the closest-prior-work audit first. If the principal later lifts the freeze, a concise `proved here` BABP update can be considered under the wiki quality rules.
+
+## Main promotion
+
+The following stable surface has been promoted to `main`:
+
+- `research/claim-registry.md` with `BABP-EDGE-001` and `BABP-CONV-001` verified;
+- `research/results/babp-finite-seed-convergence.md`;
+- this `project-state.md`.
+
+The exploratory active workspace, student calculations, meeting history, and unresolved front-process work remain on `research/babp-finite-seed`.
+
+## Most recently closed programme
+
+**1D hard FA-1f from a finite seed** was closed at Group Meeting 002 on expected-value grounds. The broader problem remains open. The two project mechanisms closed there were the centered positive transform and the unnormalized patch-transfer route; both reduced to the same conservative dynamics.
+
+The principal also supplied prior negative tractability evidence from extensive earlier ChatGPT work on 1D FA-1f off-equilibrium convergence. Cancellation/duality is not a preferred or required organizing mechanism.
 
 ## Closed programmes and routes
 
-The following programmes are permanently closed and are not to be retried:
+Closed programmes not to be retried by renaming:
 
 - quadratic-Hessian;
 - Fresnel integrability;
 - Navier--Stokes stochastic cascade;
 - Strong-KPP uniqueness;
 - supercritical dissipative SQG;
-- long-maturity marked branching; and
-- Gaussian bridge coarsening.
+- long-maturity marked branching;
+- Gaussian bridge coarsening;
+- 1D hard FA-1f finite-seed programme based on the centered transform / unnormalized patch-transfer routes.
 
-The following screened routes are also closed and are not to be revived by renaming them:
+Closed screened routes:
 
 - 1D FA-1f Bernoulli-quench sibling cancellation;
 - strongly non-harmonic Wigner--Fokker--Planck via unweighted Moyal/skew cancellation;
 - 2D FA-1f relaxation logarithm via local signed-move cancellation;
-- the nearest-vacancy annular/electrical-capacity observable for that 2D FA-1f route; and
-- the general bootstrap-percolation sharpness route based only on bare inclusion--exclusion/Bonferroni overlap subtraction.
+- 2D FA-1f nearest-vacancy annular/electrical-capacity observable;
+- general bootstrap-percolation sharpness from bare inclusion--exclusion/Bonferroni overlap subtraction.
 
-The broader mathematical problems may remain open. What is closed is the recorded programme or route.
+Broader mathematical problems may remain open. What is closed is the recorded programme or mechanism.
 
-## Expensive dead ends worth remembering
+## Stable claims
 
-- Quadratic-Hessian did not lead to a sufficiently worthwhile positive target despite producing reusable estimates.
-- Fresnel integrability collapsed to classical/low-payoff mathematics for the project.
-- For Navier--Stokes cascades, the published factor-$1/2$ nodewise symmetrization improves amplitude majorants but leaves the cascade law and explosion event unchanged.
-- For Strong-KPP, the proposed cancellation route has zero margin at critical ends, while connected-limit detuning produces a linear error that dominates the hoped-for quadratic gain at sufficiently small amplitude.
-- For supercritical SQG, smooth scale-covariant solutions can restore exactly the critical-scale loss that the zero-mass-kernel cancellation was meant to remove; no equation-generated exclusion of the saturating family was found.
-- Deterministic restarting of the marked branching representation gives no strict first-moment maturity gain: value-only positive majorants spend the same blow-up budget and restarted gradient kernels are not better.
-- Gaussian bridge coarsening gives an exact strict contraction, but it is an instance of classical conditional-expectation contraction rather than a new obstruction-level mechanism.
-- In the 1D FA-1f sibling route, cancellation visible at two generations is lost at the next nontrivial composition, restoring the critical scaling.
-- For strongly non-harmonic Wigner--Fokker--Planck, the weighted coercive norm introduces a translated-bump loss that destroys the unweighted Moyal/skew gain at the relevant level.
-- For the 2D FA-1f local signed-move route, the relevant reversible Dirichlet form is a sum of squared individual increments without the needed sign cross-term.
-- The nearest-vacancy annular/electrical-capacity observable gives the wrong scale after the pivotal-shell calculation; concentrating variation near the typical radius also fails to produce the desired logarithmic improvement.
-- Bare inclusion--exclusion/Bonferroni overlap subtraction did not provide a sufficiently distinctive obstruction-level route to general bootstrap-percolation sharpness.
+`research/claim-registry.md` is the status index.
 
-## Research heuristics
+- `BABP-EDGE-001`: `verified`, audit `d1ef2ca`.
+- `BABP-CONV-001`: `verified`, independent correctness reviews `abb05f6` and `1aeb5a5`.
 
-These are heuristics, not gates.
-
-- Work from the actual obstruction. A cancellation that exists only in a weaker or unweighted quantity is not useful unless it survives in the norm or quantity controlling the theorem.
-- Test the first nontrivial composition and natural critical scaling early when a proposed local gain is central.
-- Stress a mechanism on examples selected from the obstruction, not examples selected to flatter the mechanism.
-- Do cheap decisive mathematics before exhaustive literature work, while still checking novelty before making a strong claim.
-- A classical technique may support new mathematics. Novelty should be located in the theorem or obstruction-level consequence, not in the mere existence of cancellation or conditional averaging.
-- Repeated failed variants with no genuine narrowing are evidence against tractability even when no impossibility theorem is available.
-
-## Research workspace
-
-Workspace documentation and templates live under `research/`.
-
-For a new direction the Professor creates a branch `research/<short-programme-slug>` and a directory `research/active/<short-programme-slug>/` containing at least:
-
-- `state.md`;
-- `proof-spine.md`;
-- technical notes as needed;
-- `literature.md`;
-- `audit-log.md`;
-- `meetings/`;
-- `students/`; and
-- `handover.md` when a session succession is pending or completed.
-
-The repository is canonical technical memory. Persistent conversations are working memory.
-
-## Stable claim promotion
-
-`research/claim-registry.md` is the mechanical status index for project-specific mathematical claims on `main`.
-
-A manuscript being present on `main` does not make its theorems verified. Verified claims point to durable independent audit records. Principal-designated canonical claims are recorded explicitly.
-
-The Professor owns scientific promotion; Claude verifies registry and repository metadata mechanically.
-
-## Wiki
-
-The wiki is frozen except for correctness repairs and prerequisites genuinely required to understand or check active research or a theorem.
-
-Do not run systematic legacy migration, generic reading-path expansion, or periodic curation while the freeze is in force.
-
-When the first central theorem of a new programme enters independent audit, the Professor raises the freeze for principal review. Nothing automatically unfreezes it.
-
-Deprecated IPS wiki material is superseded by the canonical patch paper where they conflict.
-
-## Principal-facing status
-
-The principal may check in daily or more often.
-
-The Professor's brief should state the active target, what changed mathematically, what raw material the Professor inspected, the current proof-spine bottleneck, strongest positive and negative evidence, whether the state narrowed, the continue/pivot/close decision, next assignment, and any pending outside consultation or genuine principal-level question.
-
-Daily check-ins are informational and do not pause autonomous work.
+No all-parameter BABP convergence claim is currently registered.
