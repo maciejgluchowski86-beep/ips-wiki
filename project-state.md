@@ -26,15 +26,17 @@ There is no Director, Integrator, seven-gate examination, SEARCH/DEVELOP/VERIFY 
 - Research branch: `research/fa1f-finite-seed`
 - Positive target: for every `q in (0,1)`, prove local convergence of one-dimensional hard FA-1f started from a single vacancy to its Bernoulli product equilibrium law; finite nonempty vacancy sets are the natural later extension.
 - Main obstruction: the hard model is non-attractive and lacks the uniform pure-death component used twice in the canonical patch-paper convergence theorem; finite-seed point masses are not usefully bracketed by nondegenerate product laws in centered-moment order.
-- Current proof-spine bottleneck: verify and assess a claimed centered `h`-transform reduction to a positive finite-set process in which every active site refreshes membership of its two neighbours independently to Bernoulli(`q`).
+- Current proof-spine bottleneck: derive the exact unnormalized hard-FA successful-skeleton/patch expansion, including consistency probabilities and skeleton intensities, and test the first complete branching composition in the singleton equilibrium deviation.
 - Professor: persistent ChatGPT Professor.
 - Active graduate student: Graduate Student A.
 - Active workspace: `research/active/fa1f-finite-seed/`
-- Latest group meeting: none yet.
+- Latest group meeting: `research/active/fa1f-finite-seed/meetings/001-h-transform-review.md`.
 
-This is not a reopening of the closed 1D Bernoulli-quench sibling-cancellation route. The active target has deterministic finite-seed initial data and the current route is an exact positive dual/`h`-transform calculation rather than a generation-by-generation signed sibling contraction. Graduate Student A's first assignment explicitly checks whether the transformed simultaneous-neighbour refresh is secretly equivalent to the closed mechanism; if so, that subroute will be stopped rather than renamed.
+Graduate Student A verified the centered `h`-transform reduction exactly, including infinite-volume duality and the single-vacancy specialization. The same work showed that the transform is an invertible finite-volume similarity, has no current front/attractiveness/additivity simplification, and shares its local simultaneous-neighbour algebra with the closed Bernoulli-quench sibling route. The Professor therefore demoted the transform as a standalone proof strategy while retaining it as a verified identity.
 
-A new graduate student is not being spawned at initialization. One persistent student is enough to settle the first exact bottleneck calculation.
+This programme is not a reopening of the closed 1D sibling-cancellation route. Any future argument that takes absolute values of the two refreshed sibling weights and seeks a generation-by-generation contraction is explicitly the closed mechanism and is not to be pursued. The active route instead tests whether the canonical patch representation, before normalization by consistency probabilities, exposes a model-specific hard-FA skeleton cost that survives the first full branching composition.
+
+One persistent student remains enough for the current decisive calculation; no second student is active.
 
 ## Professor review and homeostasis
 
@@ -152,7 +154,7 @@ The wiki is frozen except for correctness repairs and prerequisites genuinely re
 
 Do not run systematic legacy migration, generic reading-path expansion, or periodic curation while the freeze is in force.
 
-When the first central theorem of a new programme enters independent audit, the Professor raises the freeze for principal review. Nothing automatically unfreezes it.
+When the first central theorem of a new programme enters independent audit, the Professor raises the wiki freeze for principal review. Nothing automatically unfreezes it.
 
 Deprecated IPS wiki material is superseded by the canonical patch paper where they conflict.
 
