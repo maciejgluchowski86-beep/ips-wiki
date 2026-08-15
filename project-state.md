@@ -1,90 +1,117 @@
 # Project state
 
-This file is the compact mutable state for the autonomous PDE/probability research programme. It records current useful state only. Git history is the archive.
+This file is the compact current-state index for the autonomous research programme. It is not a workflow scheduler. Git history and the files under `research/` carry the detailed record.
 
-## Stage
+## Research architecture
 
-**SEARCH**
+The old cycle architecture is retired. Research is now carried by two persistent ChatGPT sessions: a Research Lead and a Research Partner. At most two sessions may be in flight at once; idle sessions remain available with their context intact. Fresh sessions are used episodically for independent audit rather than as the default research workforce.
+
+There is no Director, Integrator, pre-nomination gate examination, SEARCH/DEVELOP/VERIFY state machine, reserve-programme requirement, or `Next cycle` instruction.
+
+Target selection is autonomous. Once a credible programme is selected, the default is sustained work on that problem. There is no hard time cap. Programmes are closed for substantive mathematical or literature reasons, not because a fixed amount of time elapsed.
 
 ## Active programme
 
-**No active scientific programme.**
+**None yet.**
 
-## Reserve programme
+The persistent Lead and Partner are to select a new programme autonomously under `CHATGPT.md` and then work on it continuously. Previously closed programmes and routes listed below are not to be retried.
 
-**None.**
+When a programme is selected, record here its short title, branch, target, main obstruction, current bottleneck, and active research-note path.
 
-## Verified results
+## Canonical prior work: patch construction
 
-**None.**
+The principal's manuscript `paper/`, *Patch representations and convergence for facilitated spin systems*, is the canonical project source for the patch construction and its proofs. It supersedes the deprecated IPS wiki layer on these points.
 
-## Reusable audited observations
+In particular, the paper proves conditional patch factorization over the successful-interaction skeleton and proves the resulting exact patch representation of the spin-system semigroup. Old wiki pages that still describe these as conditional are stale and must not be used as the project authority.
 
-Two observations from the terminated quadratic-Hessian programme survived hostile audit without becoming verified project theorems:
+The patch construction is a preferred reusable research asset when it naturally applies: retain a successful-interaction skeleton, decompose one-site spacetime histories into patches, condition on the skeleton, and average local signed contributions before global comparison. It is not a mandatory template for new work.
+
+## Reusable observations from closed work
+
+Two observations from the terminated quadratic-Hessian programme survived hostile audit without becoming the target theorem of a successful programme:
 
 - the time-integrated first-moment norm of one centered heat-Hessian edge from $C^\alpha$ to $C^\beta$ has sharp cost $\asymp(\alpha-\beta)^{-1}$ on compact exponent ranges;
 - the ordered-time derivative-cluster norm satisfies $\mathfrak P_m(\alpha,T)\leq 2A_{\alpha,T}4^m(1+A_{\alpha,T})^{m-1}$.
 
-The classical local heat/Hermite cancellation remains reusable background mechanism evidence, not project novelty. As a classical calibration, two first-derivative Gaussian marks admit an exact conditional-coarsening $L^1$ ratio
+Classical local heat/Hermite cancellation remains reusable background mechanism evidence, not project novelty by itself. As a calibration, two first-derivative Gaussian marks admit the exact conditional-coarsening $L^1$ ratio
 
 $$
 \kappa=\frac{\pi}{2e},
 $$
 
-and independent clusters tensorize as $\kappa^n$. This is not a project theorem.
+and independent clusters tensorize as $\kappa^n$.
 
-## Unresolved and closure
+## Closed programmes and routes
 
-Seven previously nominated programmes are terminated: quadratic-Hessian, Fresnel integrability, Navier--Stokes stochastic cascade, Strong-KPP uniqueness, supercritical dissipative SQG, long-maturity marked branching, and Gaussian bridge coarsening. Separately, the screened 1D FA-1f Bernoulli-quench candidate is closed at Gate 6 and was never nominated. Cycle 17 screened strongly non-harmonic WFP and the 2D FA-1f relaxation logarithm; neither was nominated because the proposed mechanisms fail Gates 4--6. Cycle 18 screened the general bootstrap-percolation sharpness conjecture via bare inclusion-exclusion/Bonferroni overlap subtraction; it was not nominated because Gates 4--6 remain unresolved and Gate 7 fails. The general sharpness conjecture remains open; only this proposed route was rejected for nomination. There is no active programme, no reserve, and no verified project result.
+The following programmes are permanently closed and are not to be retried:
 
-The IPS freeze remains removed. Project-specific IPS wiki material duplicated or superseded by the paper remains delete-first curation debt. Generic definition and literature pages are not deletion candidates merely because a project-specific theorem layer is deprecated.
+- quadratic-Hessian;
+- Fresnel integrability;
+- Navier--Stokes stochastic cascade;
+- Strong-KPP uniqueness;
+- supercritical dissipative SQG;
+- long-maturity marked branching; and
+- Gaussian bridge coarsening.
 
-## Current SEARCH guidance
+The following screened routes are also closed and are not to be revived by renaming them:
 
-This is current search strategy, not an eighth gate.
+- 1D FA-1f Bernoulli-quench sibling cancellation;
+- strongly non-harmonic Wigner--Fokker--Planck via unweighted Moyal/skew cancellation;
+- 2D FA-1f relaxation logarithm via local signed-move cancellation;
+- the nearest-vacancy annular/electrical-capacity observable for that 2D FA-1f route; and
+- the general bootstrap-percolation sharpness route based only on bare inclusion--exclusion/Bonferroni overlap subtraction.
 
-Work from the obstruction side. Once a positive target and its exact obstruction have been identified, test the smallest obstruction-level calculation before doing expensive successor/alternate-terminology literature work.
+The broader mathematical problems may remain open. What is closed is the recorded programme or route.
 
-Wrong-norm cancellation is not a mechanism. Reject a proposed mechanism when its strict cancellation exists only in a weaker or unweighted quantity and disappears, or incurs critical-scale loss, in the norm/quantity that actually controls the obstruction.
+## Expensive dead ends worth remembering
 
-Squared-move Dirichlet forms are a warning, not a universal exclusion. For a reversible target whose relevant Dirichlet form is already a sum of squared individual increments with no cross-terms, do not pursue local signed-move cancellation unless a genuinely different representation creates an obstruction-level interaction or cross-term. Do not exclude reversible Dirichlet-form problems categorically; global capacity, recurrence, renormalisation, or another representation may still solve them.
-
-Cheap mathematics before expensive literature. After the target and obstruction are concrete, run the Gate-4/5/6 local tests before substantial Gate-2 successor checking and Gate-7 novelty searching. Full Gate 2 and Gate 7 still remain mandatory before nomination.
-
-Because this is mutable SEARCH state, a future Director may amend or remove it without a dedicated constitutional-amendment cycle. Workers and Claude may not amend it; an Integrator may only implement a Director decision. Any change to the seven binding gates themselves remains governed by the stricter amendment rule in CHATGPT.md.
-
-## Wiki frontier
-
-The heat-equation/Gaussian-kernel atom remains integrated and audited.
-
-Cycle-18 Curator sweep found two immediately repairable correctness defects, now repaired, and four necessary but incompletely transmitted §1 prerequisite atoms. No new atom was admitted, and there were zero DEMOTE and zero DELETE decisions.
-
-Legacy migration remains incomplete.
-
-Current frontier remains **§1 Brownian motion interpretation**, followed by **heat semigroup/generator**.
-
-## Dead ends
-
-Keep this section sparse; record only failures expensive enough that forgetting them risks repeating work.
-
-- The quadratic-Hessian programme failed the positive-PDE/open-problem viability gate and is terminated.
-- The Fresnel programme is terminated as classical/low-payoff for the present objective.
+- Quadratic-Hessian did not lead to a sufficiently worthwhile positive target despite producing reusable estimates.
+- Fresnel integrability collapsed to classical/low-payoff mathematics for the project.
 - For Navier--Stokes cascades, the published factor-$1/2$ nodewise symmetrization improves amplitude majorants but leaves the cascade law and explosion event unchanged.
-- For Strong-KPP, the cancellation route has zero margin at critical ends, while critical-mode projection is not stable enough under connected-limit detuning: $\delta A$ dominates $\kappa A^2$ whenever $A\ll|\delta|$.
-- For SQG, actual smooth scale-covariant solutions can have normalized comparable-frequency coefficients with nonzero $C_t^\eta$ variation scaling as $N^{\gamma\eta}$; this exactly cancels the $N^{-\gamma\eta}$ zero-mass-kernel gain, and no explicit equation-generated packet exclusion was found.
-- Deterministic HLOTW time-slab restarting gives no strict first-moment maturity gain: value-only positive majorants consume exactly the same blow-up budget, while restarted gradient kernels are weakly worse.
-- Two first-derivative Gaussian marks admit the exact $L^1$ coarsening factor $\pi/(2e)$, tensorizing to $\kappa^n$, but this is an instance of classical conditional-expectation contraction and fails the novelty gate.
-- For the 1D FA-1f Bernoulli-quench sibling-cancellation candidate, the two sibling coins give only a double zero: the first rate weighting still cancels, but at three generations $D_q^3 f(\{0\})/a=1-4q+2q^2\to1$, restoring the critical scaling; Gate 6 therefore rejects this mechanism.
-- Strongly non-harmonic WFP via unweighted Moyal/skew cancellation: the weighted coercive norm produces the translated-bump $R$-loss, so Gates 4--6 reject this route.
-- 2D FA-1f relaxation logarithm via local signed-move cancellation: the relevant reversible Dirichlet form is a sum of squared individual increments with no sign cross-term, so Gates 4--6 reject this route. This does not reject global recurrence/capacity approaches. The nearest-vacancy annular/electrical-capacity observable is also closed: corrected pivotal shell events give $D(H)/\operatorname{Var}(H)\gtrsim q^2\log(1/q)$, while concentrating variation at the typical radius gives only the $q^2$ scale; broader non-radial/multi-vacancy capacity approaches remain open.
-- Procedural: unresolved target/mechanism/obstruction/novelty questions are pre-nomination screening work, not reasons to promote a candidate into the active scientific slot.
+- For Strong-KPP, the proposed cancellation route has zero margin at critical ends, while connected-limit detuning produces a linear error that dominates the hoped-for quadratic gain at sufficiently small amplitude.
+- For supercritical SQG, smooth scale-covariant solutions can restore exactly the critical-scale loss that the zero-mass-kernel cancellation was meant to remove; no equation-generated exclusion of the saturating family was found.
+- Deterministic restarting of the marked branching representation gives no strict first-moment maturity gain: value-only positive majorants spend the same blow-up budget and restarted gradient kernels are not better.
+- Gaussian bridge coarsening gives an exact strict contraction, but it is an instance of classical conditional-expectation contraction rather than a new obstruction-level mechanism.
+- In the 1D FA-1f sibling route, cancellation visible at two generations is lost at the next nontrivial composition, restoring the critical scaling.
+- For strongly non-harmonic Wigner--Fokker--Planck, the weighted coercive norm introduces a translated-bump loss that destroys the unweighted Moyal/skew gain at the relevant level.
+- For the 2D FA-1f local signed-move route, the relevant reversible Dirichlet form is a sum of squared individual increments without the needed sign cross-term.
+- The nearest-vacancy annular/electrical-capacity observable gives the wrong scale after the pivotal-shell calculation; concentrating variation near the typical radius also fails to produce the desired logarithmic improvement.
+- Bare inclusion--exclusion/Bonferroni overlap subtraction did not provide a sufficiently distinctive obstruction-level route to general bootstrap-percolation sharpness.
 
-## Next cycle
+## Research heuristics
 
-Run exactly two fresh read-only workers, with no more than two concurrent.
+These are heuristics, not gates.
 
-Pre-nomination candidate screener. Search for at most two fresh serious candidates and apply all seven unchanged gates. Work obstruction-first under the current SEARCH guidance. A Gate-4 calculation must be carried out on an actual smallest example for the proposed target, in the same quantity that controls the Gate-3 obstruction; an abstract cancellation toy model is insufficient. Gate 5 must identify the target's natural critical scaling rather than choose one retrospectively. Gate 6 must use an obstruction-selected adversarial family belonging to the actual problem. Full two-published-source successor checking and alternate-terminology novelty checking remain mandatory before recommendation. Recommend at most one candidate only after seven PASSes. Do not nominate, enter DEVELOP, reopen a rejected mechanism by renaming it, or resubmit bare inclusion-exclusion/Bonferroni overlap subtraction without a genuinely different obstruction-level consequence.
+- Work from the actual obstruction. A cancellation that exists only in a weaker or unweighted quantity is not useful unless it survives in the norm or quantity that controls the theorem.
+- Test the first nontrivial composition and natural critical scaling early when a proposed local gain is central.
+- Stress a mechanism on examples selected from the obstruction, not examples selected to flatter the mechanism.
+- Do cheap decisive mathematics before exhaustive literature work, while still checking novelty before making a strong claim.
+- A classical technique may support new mathematics. Novelty should be located in the theorem or obstruction-level consequence, not in the mere existence of cancellation or conditional averaging.
 
-Wiki Curator, independent §1 repair pass. Independently re-audit brownian-confinement-and-heat-kernel-positivity.md, branching-diffusions-and-duhamel-trees.md, and mild-formulation-and-branching-diffusion-representation.md, together with the four proposed prerequisite atoms: Brownian motion and the heat kernel; heat semigroup and generator; heat-semigroup smoothing; Duhamel formula and mild solutions. Return complete, untruncated replacement/new-page text for every page recommended for integration, plus the exact reading-path patch. Verify all hypotheses, dependency links, and sources independently. Do not assume the cycle-18 truncated appendix is authoritative. Advance the frontier to §2 only if the complete four-atom chain passes the live-wiki gate.
+## Research workspace
 
-No third worker. No active programme or reserve is created.
+Workspace documentation and templates live under `research/`.
+
+For a new programme the Lead creates a branch `research/<short-programme-slug>` and a directory `research/active/<short-programme-slug>/` containing at least:
+
+- `state.md`;
+- technical notes or TeX files as needed;
+- `literature.md`;
+- `audit-log.md`; and
+- optional `partner/` notes.
+
+The templates under `research/templates/` are starting points, not mandatory forms.
+
+## Wiki
+
+The wiki is frozen except for correctness repairs and prerequisites genuinely required to understand or check active research or a theorem.
+
+Do not run systematic legacy migration, generic reading-path expansion, or periodic curation while the freeze is in force. Existing wiki content is left in place for now. Deprecated IPS wiki material is superseded by the canonical patch paper where they conflict.
+
+`wiki-curation-state.json` may remain as historical/mechanical state but does not schedule work under the current protocol.
+
+## Principal-facing status
+
+The principal may check in daily or more often. The active programme's `state.md` should contain a short brief explaining what changed, what was proved/refuted/clarified, the present bottleneck, reasons to continue or doubt the programme, what comes next, and any genuine principal-level question.
+
+Daily check-ins are informational and do not pause autonomous work.
