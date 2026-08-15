@@ -95,4 +95,78 @@ The audit independently rederived the generator, checked that one unresolved ext
 
 Significance and historical boundary: within the audited finite-window corrector hierarchy, the `k=10` certificate gives a positive ballistic-edge bound at `lambda=0.025`, below the numerical `0.0347` boundary appearing in Sudbury's published finite-seed theorem. The accessible Sudbury record confirms the `0.0347` convergence threshold, hunted-submartingale method, and edge-speed bounds, but the full body was not accessible. Therefore the literal identification of Sudbury's computation with this exact `k=8` LP, normalization, or eight-site encoding is **not verified**. The `k=1` and `k=8` calibrations are strong mechanism-level evidence, not source-verified historical identity.
 
-Claim boundary: this entry does **not** claim finite-seed convergence at `lambda=1/40`, does **not** claim an improvement of Sudbury's published convergence theorem, and does **not** claim existence of limiting edge speeds. The edge-bound-to-local-convergence bridge remains an open proof-spine edge.
+Claim boundary: this entry does **not** claim finite-seed convergence at `lambda=1/40`, does **not** claim an improvement of Sudbury's published convergence theorem, and does **not** claim existence of limiting edge speeds.
+
+### BABP-CONV-001
+
+Status: `claimed`
+
+Claim: fix `lambda>0` and consider one-dimensional nearest-neighbour BABP in the same convention as `BABP-EDGE-001`. Assume there exist an integer `k>=1`, a bounded corrector
+
+$$
+\phi:\{0,1\}^k\to\mathbb R,
+$$
+
+and `v>0` such that the exact finite-window right-edge drift satisfies
+
+$$
+D_{k,\lambda}(u,z;\phi)\ge v
+$$
+
+for every `u in {0,1}^k` and `z in {0,1}`. Then, for every finite nonempty deterministic initial particle set `B`,
+
+$$
+\operatorname{Law}_B(B_t)\Longrightarrow\pi_q
+\qquad(t\to\infty),
+$$
+
+locally on `{0,1}^Z`, where
+
+$$
+q=\frac{\lambda}{1+\lambda}
+$$
+
+and `pi_q` is Bernoulli product equilibrium.
+
+The statewise drift hypothesis is essential to the proof as presently written. Bare liminf/limsup ballistic-edge bounds are not asserted to imply convergence.
+
+Proof mechanism: the same corrector is placed on the two populations bordering a tagged internal vacant gap. The corrected gap width has uniformly negative drift. Exponential tilting gives uniform exponential tails for gap lifetime and maximal width; a Poisson domination of boundary displacement and a compensator sum over gap nucleations yield
+
+$$
+\limsup_{t\to\infty}
+\mathbf P_B(B_t\cap[-M,M]=\varnothing)
+\le Ce^{-cM}.
+$$
+
+Together with stationarity of all one-dimensional weak limit points and the stationary-law classification, this excludes the empty component from every subsequential limit.
+
+External inputs used by the Professor check:
+
+- Jahnel--Köppl (2026), Theorem 2.5: for one-dimensional IPS satisfying their bounded-rate/bounded-update/exponentially decaying influence assumptions, every weak limit point is stationary. BABP has single-site finite-range updates and uniformly bounded site rates, so these assumptions apply for every fixed `lambda>0`.
+- Martinelli--Shapira--Toninelli (2025), Corollary 2.9: every stationary law of one-dimensional BABP is a convex combination of the completely healthy/empty configuration and Bernoulli equilibrium.
+
+Source proof:
+
+- `research/active/babp-finite-seed/students/student-b/002-edge-speed-to-convergence.md`, commit `f79d0fb`.
+
+Professor check:
+
+- `research/active/babp-finite-seed/notes/professor-corrector-to-convergence-verification.md`;
+- `research/active/babp-finite-seed/meetings/004-corrector-to-convergence.md`.
+
+Concrete corollary: combining the general bridge with verified claim `BABP-EDGE-001` gives, at
+
+$$
+\lambda=\frac1{40},
+$$
+
+local convergence from every finite nonempty deterministic initial particle set to Bernoulli equilibrium. This parameter lies below the `0.0347` finite-seed convergence range recorded in Martinelli--Shapira--Toninelli (2025), Remark 5.4.
+
+Claim boundary: this entry does not claim convergence for every `lambda>0`; it does not claim a quantitative convergence rate; it does not extend the initial condition beyond finite nonempty deterministic sets; and it does not assert that bare asymptotic edge-velocity bounds suffice without the statewise corrector.
+
+Audit status: this theorem is substantially stronger than `BABP-EDGE-001`, so audit `d1ef2ca` does not verify it. Two fresh independent correctness reviews are requested in:
+
+- `research/active/babp-finite-seed/audits/002-corrector-to-convergence-request.md`;
+- `research/active/babp-finite-seed/audits/003-corrector-to-convergence-request.md`.
+
+Do not promote `BABP-CONV-001` to `verified` until both reviews have returned and the Professor has resolved any objections.
