@@ -1,0 +1,117 @@
+name: Cycle 19 integrator checks
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Check live wiki quality metadata
+        run: python scripts/check_wiki_quality.py --changed-from HEAD^
+
+      - name: Count live entry metadata
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          entries = sorted(Path('docs/entries').glob('*.md'))
+          proved = 0
+          audited = 0
+          for path in entries:
+              text = path.read_text(encoding='utf-8')
+              if '\nstatus: proved here\n' in '\n' + text:
+                  proved += 1
+              if '\naudit: current\n' in '\n' + text:
+                  audited += 1
+          print(f'ENTRY_COUNT={len(entries)}')
+          print(f'PROVED_HERE_COUNT={proved}')
+          print(f'AUDIT_CURRENT_COUNT={audited}')
+          PY
+
+      - name: Check repository-wide Markdown relative links
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import unquote
+          import markdown
+          import sys
+
+          root = Path('.').resolve()
+          markdown_files = [p for p in root.rglob('*.md') if '.git' not in p.parts and 'site' not in p.parts]
+          schemes = ('http://', 'https://', 'mailto:', 'tel:', 'javascript:', 'data:')
+          failures = []
+          checked = 0
+
+          class LinkCollector(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.targets = []
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if tag == 'a' and 'href' in attrs:
+                      self.targets.append(attrs['href'])
+                  elif tag in {'img', 'source'} and 'src' in attrs:
+                      self.targets.append(attrs['src'])
+
+          extensions = [
+              'meta', 'admonition', 'attr_list', 'def_list', 'footnotes', 'md_in_html', 'toc',
+              'pymdownx.arithmatex', 'pymdownx.details', 'pymdownx.superfences',
+              'pymdownx.highlight', 'pymdownx.inlinehilite',
+          ]
+
+          for md in markdown_files:
+              html = markdown.markdown(md.read_text(encoding='utf-8'), extensions=extensions)
+              parser = LinkCollector()
+              parser.feed(html)
+              for raw in parser.targets:
+                  raw = raw.strip()
+                  if not raw or raw.startswith('#') or raw.startswith('//') or raw.startswith('\\') or raw.startswith(schemes):
+                      continue
+                  candidate = unquote(raw.split('#', 1)[0].split('?', 1)[0])
+                  if not candidate or candidate.startswith(('/', '\\')):
+                      continue
+                  checked += 1
+                  target = (md.parent / candidate).resolve()
+                  try:
+                      target.relative_to(root)
+                  except ValueError:
+                      failures.append((md.relative_to(root), raw, 'escapes repository'))
+                      continue
+                  if not target.exists():
+                      failures.append((md.relative_to(root), raw, 'missing target'))
+
+          if failures:
+              print(f'RELATIVE_LINK_CHECK=FAIL checked={checked} failures={len(failures)}')
+              for source, raw, reason in failures:
+                  print(f'{source}: {raw} [{reason}]')
+              sys.exit(1)
+          print(f'RELATIVE_LINK_CHECK=PASS checked={checked}')
+          PY
+
+      - name: Strict MkDocs build
+        if: always()
+        run: mkdocs build --strict
