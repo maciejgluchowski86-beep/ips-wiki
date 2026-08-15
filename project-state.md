@@ -21,25 +21,20 @@ There is no Director, Integrator, seven-gate examination, SEARCH/DEVELOP/VERIFY 
 
 ## Active scientific direction
 
-**None yet.**
+**1D hard FA-1f from a finite seed.**
 
-The Professor is to choose a new direction autonomously and assign the first specified research task to the existing Graduate Student.
+- Research branch: `research/fa1f-finite-seed`
+- Positive target: for every `q in (0,1)`, prove local convergence of one-dimensional hard FA-1f started from a single vacancy to its Bernoulli product equilibrium law; finite nonempty vacancy sets are the natural later extension.
+- Main obstruction: the hard model is non-attractive and lacks the uniform pure-death component used twice in the canonical patch-paper convergence theorem; finite-seed point masses are not usefully bracketed by nondegenerate product laws in centered-moment order.
+- Current proof-spine bottleneck: verify and assess a claimed centered `h`-transform reduction to a positive finite-set process in which every active site refreshes membership of its two neighbours independently to Bernoulli(`q`).
+- Professor: persistent ChatGPT Professor.
+- Active graduate student: Graduate Student A.
+- Active workspace: `research/active/fa1f-finite-seed/`
+- Latest group meeting: none yet.
 
-A new graduate student is not spawned per task or cycle. The Professor may call a new persistent student when it chooses a completely new scientific direction. Existing students remain available for directions they already know.
+This is not a reopening of the closed 1D Bernoulli-quench sibling-cancellation route. The active target has deterministic finite-seed initial data and the current route is an exact positive dual/`h`-transform calculation rather than a generation-by-generation signed sibling contraction. Graduate Student A's first assignment explicitly checks whether the transformed simultaneous-neighbour refresh is secretly equivalent to the closed mechanism; if so, that subroute will be stopped rather than renamed.
 
-Previously closed programmes and routes listed below are not to be retried.
-
-When a direction is selected, record here:
-
-- short title;
-- research branch;
-- positive target;
-- main obstruction;
-- current proof-spine bottleneck;
-- Professor;
-- active graduate student;
-- active workspace path; and
-- latest group-meeting path.
+A new graduate student is not being spawned at initialization. One persistent student is enough to settle the first exact bottleneck calculation.
 
 ## Professor review and homeostasis
 
