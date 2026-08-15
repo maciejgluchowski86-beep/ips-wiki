@@ -1,12 +1,14 @@
-# Exact ten-site BABP certificate below Sudbury's published range
+# Verified BABP finite-window technical record
 
-Status: verified project mathematics; historical attribution corrected after full-text comparison with Sudbury (1999).
+Status: verified project mathematics retained for reuse. **This file does not record a new project research result under the standing novelty standard in `CHATGPT.md`.**
 
 Claim registry: `BABP-EDGE-001` and `BABP-CONV-001` in `research/claim-registry.md`.
 
-## What is new and what is not
+## Research-contribution correction
 
-An earlier version of this project record overstated the novelty of the implication from a robust finite-window edge corrector to finite-seed convergence. The full text of Sudbury (1999) settles that question against the stronger reading.
+Earlier versions of this record successively overstated two things. First, before the full text of Sudbury (1999) was available, the project treated the finite-window mechanism and the corrector-to-convergence implication as potentially new. The full source shows that both are classical. Second, after that provenance correction, the project still described the exact ten-site `lambda=1/40` calculation as a project contribution or new range result. The principal has now supplied a standing novelty standard: running an existing method at a larger window/order/degree or analogous complexity parameter to obtain a quantitatively better constant does not count as a new result, even when the arithmetic is exact.
+
+That standard applies directly here.
 
 Sudbury's Section 3 is already a finite-window edge-corrector/submartingale construction for BABP. He follows an outer particle, records an `m`-site block, keeps the single next site as an unresolved end-value, and adds a correction `S_i` indexed by the block state. After reflection,
 
@@ -40,7 +42,7 @@ and explicitly says they were obtained by trial and error rather than proved exa
 
 Immediately before Theorem 7, Sudbury states that Neuhauser--Sudbury (1993) used existence of a suitable submartingale in their stationary-state argument, that his Section 3 extends that condition from the old `1/3` range to `0.0347`, and that their Section 5 argument then proceeds unchanged. Therefore the theorem-level principle “a suitable robust finite-window corrector suffices for finite-seed convergence” is classical, not a project discovery.
 
-The verified project contribution recorded here is narrower and concrete: an exact rational `k=10` certificate at
+The exact rational `k=10` certificate at
 
 $$
 \lambda=\frac1{40}=0.025
@@ -49,10 +51,12 @@ $$
 with uniform margin
 
 $$
-\frac{1033}{40000000}>0,
+\frac{1033}{40000000}>0
 $$
 
-which extends Sudbury's published finite-window/convergence range. The independently computed `k=8` crossing `0.0346195434755...` is a refinement of his reported decimal for the same eight-site problem. The proof below is a self-contained modern proof of the classical corrector-to-convergence implication. Whether its particular tagged-gap architecture is itself new remains unresolved until Neuhauser--Sudbury (1993), Section 5, is inspected in full.
+is mathematically correct and independently audited. It is a useful larger-window witness inside Sudbury's arbitrary-`m` framework. Under the principal's standing novelty standard, it is **not counted as a new project result or contribution**. Likewise, the independently computed `k=8` crossing `0.0346195434755...` is a refinement of Sudbury's reported decimal for the same eight-site problem, not a research result.
+
+The proof below is retained because it is a clean, audited, self-contained modern proof of the classical corrector-to-convergence implication and may be useful as technical infrastructure. No novelty claim is made for its tagged-gap architecture until Neuhauser--Sudbury (1993), Section 5, is inspected.
 
 ## Model
 
@@ -101,7 +105,7 @@ $$
 
 locally on `{0,1}^Z`.
 
-This proposition is retained as a verified self-contained project proof, not as a novelty claim. The statewise corrector hypothesis is essential to the proof below. Bare outer-edge liminf/limsup velocity bounds alone are not asserted to imply convergence.
+This proposition is retained as verified mathematics, not as a novelty claim. The statewise corrector hypothesis is essential to the proof below. Bare outer-edge liminf/limsup velocity bounds alone are not asserted to imply convergence.
 
 ## Internal-gap contraction
 
@@ -224,7 +228,7 @@ $$
 
 But the mixture probability is at least `alpha`. Letting `M` tend to infinity gives `alpha=0`. Thus every subsequential limit is `pi_q`, and the full trajectory converges locally.
 
-## Exact `lambda=1/40` range extension
+## Exact `lambda=1/40` technical consequence
 
 `BABP-EDGE-001` supplies
 
@@ -235,7 +239,7 @@ $$
 
 for every edge state. Hence BABP at `lambda=1/40`, from every finite nonempty deterministic particle set, converges locally to Bernoulli equilibrium of density `1/41`.
 
-Sudbury (1999), Theorem 7, gives the published `0.0347` finite-seed range using the same finite-window submartingale framework. Thus `1/40=0.025` is a strict range extension inside that classical mechanism.
+Sudbury (1999), Theorem 7, reports the `0.0347` finite-seed range using the same finite-window framework. The `1/40` statement is a correct larger-window quantitative extension inside that framework. It is **not counted as a project research result** under the standing novelty standard.
 
 ## Verification record and scope
 
@@ -246,4 +250,4 @@ The convergence proof was independently reviewed in:
 - commit `abb05f6`, `research/active/babp-finite-seed/audits/002-convergence-review-a.md`;
 - commit `1aeb5a5`, `research/active/babp-finite-seed/audits/002-convergence-review-b.md`.
 
-No convergence rate is claimed. The initial condition is restricted to finite nonempty deterministic sets. The all-parameter statement remains open. The finite-window mechanism and corrector-to-convergence principle are prior art; the exact ten-site certificate at `1/40` is the verified project range improvement.
+No convergence rate is claimed. The initial condition is restricted to finite nonempty deterministic sets. The all-parameter statement remains open. Under the standing novelty standard, the verified finite-window calculations and classical convergence implication are retained as technical infrastructure rather than counted as programme results.
