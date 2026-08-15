@@ -8,137 +8,129 @@ Branch: `research/babp-finite-seed`
 
 Professor lineage: persistent ChatGPT Professor
 
-Active graduate-student lineage: Graduate Student B
+Active graduate student: Graduate Student B
 
-Second active session: Graduate Student A, writeup/closest-prior-work task
+Graduate Student A: idle after full-text literature comparison
 
 Workspace: `research/active/babp-finite-seed/`
 
-Latest group meeting: `meetings/005-convergence-promotion.md`
+Latest group meeting: `meetings/006-sudbury-correction-and-front-reduction.md`
 
 ## Target
 
-For every `lambda>0`, prove that one-dimensional biased annihilating branching process started from a finite nonempty particle set converges locally to Bernoulli equilibrium of density
+For every `lambda>0`, prove that one-dimensional BABP started from a finite nonempty particle set converges locally to Bernoulli equilibrium of density
 
 $$
 q=\frac{\lambda}{1+\lambda}.
 $$
 
-The programme is committed.
+The programme remains active.
 
-## Verified results
+## Verified mathematics
 
 ### `BABP-EDGE-001`
 
-At
-
-$$
-\lambda=\frac1{40},\qquad k=10,
-$$
-
-there is a bounded rational right-edge corrector with uniform statewise drift
+At `lambda=1/40`, `k=10`, there is a bounded rational finite-window corrector with
 
 $$
 D_{10,1/40}(u,z;\phi)
 \ge\frac{1033}{40000000}>0
 $$
 
-for all `2^11` edge states. Consequently, from every finite nonempty initial configuration,
-
-$$
-\liminf_{t\to\infty}\frac{R(B_t)}t
-\ge\frac{1033}{40000000},
-\qquad
-\limsup_{t\to\infty}\frac{L(B_t)}t
-\le-\frac{1033}{40000000}
-\quad\text{a.s.}
-$$
-
-Verified by independent audit `d1ef2ca`.
+for all `2048` edge/exterior states. The exact certificate and its ballistic liminf/limsup consequences were independently audited in commit `d1ef2ca`.
 
 ### `BABP-CONV-001`
 
-For fixed `lambda>0`, if some finite-window corrector satisfies
+For fixed `lambda>0`, a bounded finite-window corrector with uniform statewise positive drift implies local convergence from every finite nonempty deterministic initial set. The project has a self-contained tagged-gap proof, independently accepted in commits `abb05f6` and `1aeb5a5`, with the Review A localization and finite-spatial-truncation repairs incorporated.
+
+Combining the two verified claims gives finite-seed convergence at
 
 $$
-D_{k,\lambda}(u,z;\phi)\ge v>0
+\lambda=\frac1{40}=0.025.
 $$
 
-for every edge state, then BABP started from every finite nonempty deterministic set converges locally to Bernoulli equilibrium.
+## Historical/novelty correction after Sudbury full text
 
-The proof puts the same statewise corrector on the two populations bordering each internal vacant gap. The corrected gap width has negative drift; after localization, exponential tilting gives uniform lifetime and width tails. Poisson boundary displacement plus a finite-spatial-truncation compensator sum yields
+Meeting 006 corrects the earlier novelty framing.
 
-$$
-\limsup_{t\to\infty}
-\mathbf P_B(B_t\cap[-M,M]=\varnothing)
-\le Ce^{-cM}.
-$$
+Sudbury (1999), Section 3, is literally the same finite-window robust edge-submartingale framework. After reflection:
 
-Jahnel--Köppl (2026), Theorem 2.5, applies directly to BABP and makes every weak limit point stationary. Martinelli--Shapira--Toninelli (2025), Corollary 2.9, after the explicit time rescaling `lambda=q/p`, classifies every stationary law as `alpha delta_empty+(1-alpha)pi_q`. The nonescape estimate forces `alpha=0`.
+- `m=k`;
+- his `m`-block is the project edge word `u`;
+- his one unresolved end-value is `z`;
+- his correction `S_i` is `phi`;
+- his local gain `a_i+sum_j q_ij(S_j-S_i)` is `D_{k,lambda}`.
 
-This theorem was independently accepted in:
+His Maxwell's-demon end-value can depend on the current block state, and Lemma 5 requires one correction vector to work for every assignment of end-values. Since each row depends only on its own one-bit end-value, this is exactly the statewise both-`z` robust condition. Lemma 7 gives free extension from any window `m_1` to every larger `m_2` by ignoring the additional sites.
 
-- `audits/002-convergence-review-a.md`, commit `abb05f6`;
-- `audits/002-convergence-review-b.md`, commit `1aeb5a5`.
+Table 2 reports the trial-and-error sequence ending with `m=8`, `lambda_m=0.0347`, and explicitly does not assert that these decimals are exact critical values. Thus the project `k=8` crossing `0.0346195434755...` refines the same eight-site problem.
 
-Combining it with `BABP-EDGE-001` proves finite-seed convergence at
+Immediately before Theorem 7, Sudbury states that Neuhauser--Sudbury (1993) used existence of a suitable submartingale to rule out the null stationary limit; his Section 3 extends that condition to `0.0347`, after which their Section 5 argument proceeds unchanged. Therefore the corrector-to-convergence implication itself is prior art.
 
-$$
-\lambda=\frac1{40}=0.025,
-$$
+Correct contribution statement:
 
-below the `0.0347` range recorded in Martinelli--Shapira--Toninelli (2025), Remark 5.4.
+> The project extends Sudbury's published finite-window computation from the reported `m=8`, `0.0347` range to an exact rational `m=10` certificate at `lambda=1/40`, yielding the corresponding finite-seed convergence range extension. The project also gives a self-contained tagged-gap proof of the classical implication. No novelty claim is made for that proof architecture until Neuhauser--Sudbury (1993), Section 5, is inspected.
 
-Stable proof: `research/results/babp-finite-seed-convergence.md`.
+The mathematical statuses of `BABP-EDGE-001` and `BABP-CONV-001` remain `verified`; the correction is to provenance and novelty.
 
-## Current bottleneck
+## Current all-parameter reduction
 
-The remaining scientific target is all `lambda>0`.
+Student B's `students/student-b/003-front-gap.md`, commits `5c357ef` and `1365840`, validates the infinite-front reduction after supplying the missing cylinder-core argument.
 
-Student B's `students/student-b/002-edge-environment-dual.md`, commit `b9fdc55`, reduces the finite-window optimization to invariant laws of the infinite environment seen from the right edge. Its core proposed identity is
+For each fixed `lambda>0`, let `I_lambda` be the invariant laws of the environment seen from the rightmost particle. Then
 
 $$
 \lim_{k\to\infty}v_k(\lambda)
 =
+\inf_{\mu\in\mathcal I_\lambda}\mu(\lambda-u_1),
+$$
+
+and every invariant front law satisfies
+
+$$
+\mu(\lambda-u_1)
+=
 \frac{\lambda}{1+\lambda}
-\left(\lambda-\frac12
-\sup_{\mu\in\mathcal I_\lambda}\mu(u_1=0,u_2=1)\right).
+\left(\lambda-\frac12\mu(01)\right).
 $$
 
-The safe next theorem target is therefore
+Hence the exact fixed-parameter finite-window target is
 
 $$
-\sup_{\mu\in\mathcal I_\lambda}\mu(01)<2\lambda
-\qquad\text{for every fixed }\lambda>0.
+\sup_{\mu\in\mathcal I_\lambda}\mu(01)<2\lambda.
 $$
 
-This front-process reduction is not yet an independently audited project theorem. The Professor checked its main algebra for proof-spine use. The note's shorthand equivalence with `lambda_k -> 0` should not be used without separately proving the relevant monotonicity in the parameter `lambda`; monotonicity in window size alone is known.
+Student B also shows that every Cesaro invariant front law selected from the singleton has strictly positive current for every `lambda>0`, using the all-parameter finite-seed cardinality-growth theorem and reflection symmetry. Thus the only possible obstruction to the finite-window route is an additional invariant semi-infinite-tail phase with smaller current that is not selected from finite seeds.
 
-## Literature and novelty status
+A sufficient stronger statement is uniqueness of the invariant law of the infinite front process. This is not proved. A nearest-gap-only corrector cannot improve the old `1/3` threshold, so deeper tail correlations are genuinely necessary.
 
-Martinelli--Shapira--Toninelli (2025), Remark 5.4, records finite-seed convergence down to `lambda>0.0347`. A targeted successor search through 2026-08-15 found no later theorem removing that restriction. Publication-level closest-prior-work/novelty audit remains pending and is part of Student A's writeup assignment.
+## Current bottleneck
 
-## Current work
+Exclude hostile invariant semi-infinite-tail phases, preferably by proving front uniqueness or directly proving positive current for every invariant front law.
 
-Graduate Student B: `students/student-b/assignment-003.md`, validate and attack the invariant-front/front-gap reduction for all parameters.
+Student B assignment: `students/student-b/assignment-004.md`.
 
-Graduate Student A: `students/student-a/assignment-writeup-001.md`, prepare a focused theorem note/manuscript skeleton and perform a source-specific closest-prior-work audit.
+## Opportunity cost
+
+The full Sudbury comparison materially lowers the standalone novelty of the `lambda=1/40` result: it is a range extension within a classical mechanism. BABP nevertheless remains active for one further substantial block because the all-parameter problem is still open and the front reduction has sharply localized the remaining obstruction.
+
+If the next hostile-phase/uniqueness attack produces no theorem-level narrowing, the next group meeting should explicitly compare continuation against Student A's noisy-East reserve rather than continue by enlarging LP windows.
+
+## Neuhauser--Sudbury (1993), Section 5
+
+Worth obtaining if the principal can provide it, for publication attribution and to determine whether the tagged-gap proof architecture is already present. It is not a dependency of the verified range extension or current all-parameter mathematics. No separate session should be spent solely acquiring it.
 
 ## Wiki freeze
 
-The first central theorem has completed independent correctness audit, so the protocol trigger for principal review has fired. The principal controls whether the live-wiki freeze is lifted.
-
-Professor recommendation: keep the wiki frozen until the focused manuscript and novelty audit are complete. No automatic wiki edit.
+Recommendation remains: keep the live wiki frozen. The full-text correction makes a `proved here` BABP page inappropriate until the stable research note is reframed around the exact range certificate and prior art is fully attributed.
 
 ## Research delta
 
 Latest meeting `state_narrowed`: yes
 
-Evidence pointer: `audits/002-convergence-review-a.md`, `audits/002-convergence-review-b.md`, `notes/professor-corrector-to-convergence-verification.md`, `research/results/babp-finite-seed-convergence.md`, and `meetings/005-convergence-promotion.md`.
+Evidence pointer: `students/student-a/writeup-001-literature-and-manuscript-plan.md`, Sudbury (1999) Section 3/Table 2/Lemmas 5 and 7/Theorem 7, `students/student-b/003-front-gap.md`, and `meetings/006-sudbury-correction-and-front-reduction.md`.
 
 Consecutive no-narrowing meetings: 0
-
-Stagnation consultation: none.
 
 ## Direction
 
