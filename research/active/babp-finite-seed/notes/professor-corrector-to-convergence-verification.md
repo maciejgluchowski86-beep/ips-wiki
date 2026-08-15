@@ -2,163 +2,238 @@
 
 Date: 2026-08-15
 
-Status: Professor-checked; the resulting convergence theorem is a new project claim and remains `claimed` pending independent hostile review.
+Status: verified after Professor reconstruction and two fresh independent correctness reviews.
 
-Decisive student source: `students/student-b/002-edge-speed-to-convergence.md`.
+Decisive student source: `students/student-b/002-edge-speed-to-convergence.md`, commit `f79d0fb`.
 
-## 1. Precise theorem boundary
+Independent reviews:
 
-The load-bearing hypothesis is not merely a ballistic edge conclusion. Fix `lambda>0` and assume there are `k>=1`, a bounded `phi:{0,1}^k -> R`, and `v>0` such that the exact right-edge corrector drift satisfies
+- `audits/002-convergence-review-a.md`, commit `abb05f6`;
+- `audits/002-convergence-review-b.md`, commit `1aeb5a5`.
+
+The two rigor points raised by Review A are incorporated below: localization for the unbounded exponential test function and finite spatial truncation before the infinite compensator sum. The convention/time-rescaling clarification requested by Review B is also incorporated.
+
+## 1. Model convention and theorem boundary
+
+Use particle variables `xi(x) in {0,1}`, with `xi(x)=1` meaning a BABP particle. Put
+
+$$
+N_x(\xi)=\xi(x-1)+\xi(x+1).
+$$
+
+The project generator is the single-site flip process
+
+$$
+0\to1\text{ at rate }\lambda N_x(\xi),
+\qquad
+1\to0\text{ at rate }N_x(\xi).
+$$
+
+Fix `lambda>0`. The load-bearing hypothesis is not merely a ballistic edge conclusion. Assume there are `k>=1`, a bounded function `phi:{0,1}^k -> R`, and `v>0` such that the exact right-edge corrector drift satisfies
 
 $$
 D_{k,\lambda}(u,z;\phi)\ge v
 $$
 
-for every edge word `u in {0,1}^k` and exterior bit `z in {0,1}`.
+for every edge word `u in {0,1}^k` and exterior bit `z in {0,1}`. Call this hypothesis `(EC)`.
 
-Call this hypothesis `(EC)`.
+The theorem verified here is:
 
-The claim checked here is:
+> If `(EC)` holds, then one-dimensional BABP started from every finite nonempty deterministic particle set converges locally to Bernoulli equilibrium of particle density `q=lambda/(1+lambda)`.
 
-> `(EC)` implies local convergence of one-dimensional BABP from every finite nonempty deterministic initial particle set to Bernoulli equilibrium of particle density `q=lambda/(1+lambda)`.
-
-The proof uses the statewise corrector inequality on internal gaps. Bare statements about `liminf R_t/t` and `limsup L_t/t` are insufficient by themselves.
+The proof uses `(EC)` statewise on internal gaps. Bare statements about `liminf R_t/t` and `limsup L_t/t` are not asserted to imply convergence.
 
 ## 2. Gap genealogy
 
 An internal gap is a maximal nonempty finite interval of vacant sites strictly between the outer particles.
 
-A new internal gap is created only when a particle with both nearest neighbours occupied dies. Hence every nucleated gap is born with width one.
+A new internal gap is created only when a particle with both nearest neighbours occupied dies. Hence every post-time-zero gap genealogy is born with width one. If exactly one neighbour is vacant, the death merely extends the existing adjacent gap. If both neighbours are vacant, the death rate is zero.
 
-A positive gap cannot merge with another positive gap. If two gaps are separated by a block of particles, deaths at the two exposed ends may shorten that separating block. If only one separating particle remains, both of its nearest neighbours are vacant, so its death rate is zero. Thus the final separator cannot disappear while both gaps are positive. Interior births cannot split a gap because an interior vacant site has no occupied nearest neighbour. Therefore each positive gap has a well-defined genealogy from its birth until closure.
-
-This point is correct and is essential for the later compensator sum over nucleations.
+A positive gap cannot split: a strictly interior vacant site has two vacant neighbours and therefore birth rate zero, so births occur only at endpoint vacancies and shrink the gap. Distinct positive gaps cannot merge. A particle block separating them may erode from its two exposed ends, but once only one separating particle remains, that particle has a vacant neighbour on each side and therefore death rate zero. Thus every positive internal gap has an unambiguous genealogy from nucleation until closure.
 
 ## 3. Corrected width of a tagged gap
 
-Fix a tagged gap while alive. Let `A_t` be all particles to its left and `C_t` all particles to its right. Both remain finite and nonempty until closure. Put
+Fix a tagged gap while alive. Let `A_t` be all particles to its left and `C_t` all particles to its right. Both are finite and nonempty until closure. Put
 
 $$
 a_t=R(A_t),\qquad b_t=L(C_t),\qquad g_t=b_t-a_t-1\ge1.
 $$
 
-Before closure, the dynamics of the left and right populations agree with two standalone BABP systems at their inner edges. For `g_t>=2` no local transition sees particles on both sides. For `g_t=1`, the unique vacant site receives two birth contributions of rate `lambda`, one from each side; either event closes the tagged gap.
+For `g_t>=2`, no nearest-neighbour update sees particles on both sides of the gap, so the two inner-edge dynamics agree with standalone BABP dynamics on `A_t` and `C_t`. At `g_t=1`, the unique vacancy has two occupied neighbours and fills at total rate `2lambda`, exactly the sum of the rate-`lambda` outward birth from each side. Either such event closes the tagged gap. Death of either bounding particle depends only on its particle-side neighbour because the gap-side neighbour is vacant.
 
-Let `H_R(A)=R(A)+phi(U_R(A))`. By `(EC)`,
-
-$$
-\mathcal L H_R(A)\ge v.
-$$
-
-By reflection, with `H_L(C)=L(C)-phi(U_L(C))`,
+Let
 
 $$
-\mathcal L H_L(C)\le -v.
+H_R(A)=R(A)+\phi(U_R(A)).
 $$
 
-Hence for
+By `(EC)`,
+
+$$
+\mathcal L H_R(A)\ge v
+$$
+
+for every finite nonempty `A`. Reflection gives
+
+$$
+H_L(C)=L(C)-\phi(U_L(C)),
+\qquad
+\mathcal L H_L(C)\le-v.
+$$
+
+Define
 
 $$
 Z=H_L(C)-H_R(A)-1
-=g-phi(U_L(C))-phi(U_R(A))
+=g-\phi(U_L(C))-\phi(U_R(A)).
 $$
 
-the product generator before closure satisfies
+The product generator before closure satisfies
 
 $$
-\mathcal L^{\times}Z\le-2v.
+\mathcal L^\times Z\le-2v.
 $$
 
-At width one, replacing either closing transition by killing sends the exponential test function to zero rather than to a positive post-transition value. Thus killing only decreases the generator. There is no missing cross-gap event.
+At width one, replace either closing transition by killing. For any positive test function, the killed transition value is zero while the corresponding continuation value under the product generator is positive. Killing therefore only decreases the generator.
 
-If `K=||phi||_infty`, then while alive
+If `K=||phi||_infty`, then while the gap is alive
 
 $$
 g-2K\le Z\le g+2K.
 $$
 
-Only fixed neighbourhoods of the two inner edges change `Z`; jump sizes and the total rate of `Z`-changing events are uniformly bounded in the ambient finite particle configuration.
+Only fixed `k`-neighbourhoods of the two inner edges can change `Z`. Hence there are deterministic constants `J,rho<infinity`, depending only on `(k,lambda,phi)`, such that every non-killing jump has `|Delta Z|<=J` and the total rate of `Z`-changing events is at most `rho`, uniformly in the ambient finite particle configuration.
 
-## 4. Exponential lifetime and width tails
+## 4. Localized exponential estimate
 
-Let `J` bound `|Delta Z|` and `rho` bound the rate of `Z`-changing events. For sufficiently small `theta>0`, Taylor's inequality gives
-
-$$
-\frac{\mathcal L^\dagger e^{\theta Z}}{e^{\theta Z}}
-\le
-\theta\mathcal L^\times Z
-+\frac{\theta^2}{2}e^{\theta J}\rho J^2
-\le -\gamma
-$$
-
-for some `gamma>0`, uniformly over every alive tagged-gap state.
-
-Therefore a gap born with width one has uniform exponential lifetime tail
+For `f=e^{theta Z}` and `|y|<=J`,
 
 $$
-P(\tau>t)\le C e^{-\gamma t}
+e^{\theta y}-1
+\le \theta y+\frac{\theta^2}{2}e^{\theta J}y^2.
 $$
 
-and uniform maximum-width tail
+Thus, statewise on alive tagged-gap states,
 
 $$
-P\left(\sup_{s<\tau}g_s\ge m\right)\le C e^{-\theta m}.
+\frac{\mathcal L^\dagger f}{f}
+\le -2v\theta
++\frac{\theta^2}{2}e^{\theta J}\rho J^2.
 $$
 
-The constants depend only on the corrector data, not on the surrounding finite configuration or the gap's birth location. For each deterministic initial gap, the same lifetime estimate holds with a finite prefactor depending on its initial width.
+Choose `theta>0` so small that the second term is at most `v theta`, and put `gamma=v theta`. Then
 
-I find this exponential-tilting step correct.
+$$
+\mathcal L^\dagger e^{\theta Z}\le-\gamma e^{\theta Z}.
+$$
+
+Because `e^{theta Z}` is unbounded as the gap width grows, the probabilistic consequences are taken after localization. Let
+
+$$
+\sigma_n=\inf\{t<\tau:g_t\ge n\},
+$$
+
+where `tau` is the gap closure time, and if desired also stop after the first `n` jumps. On the stopped state space the exponential test is bounded, so Dynkin's formula applies to
+
+$$
+e^{\gamma(t\wedge\tau\wedge\sigma_n)}
+ e^{\theta Z_{t\wedge\tau\wedge\sigma_n}}
+$$
+
+with cemetery value zero after closure. Letting the jump-count localization and then `n` tend to infinity, using positivity together with Fatou/monotone localization, gives the killed-semigroup estimate used below.
+
+For a gap born at width one, `Z_0<=1+2K`, while on survival `Z_t>=1-2K`. Hence
+
+$$
+\mathbf P(\tau>t)\le C_0e^{-\gamma t}.
+$$
+
+Stopping instead at `sigma_m` gives
+
+$$
+\mathbf P(\sigma_m<\tau)\le C_1e^{-\theta m}.
+$$
+
+The constants depend only on `(k,lambda,phi,v)`, not on the surrounding finite configuration, the gap age, or the birth location. A deterministic initial gap of width `g_0` satisfies the same lifetime estimate with a finite prefactor depending on `g_0`.
 
 ## 5. Spatial displacement
 
-Let `N_t` count inner-boundary shifts of a tagged gap before closure. Each boundary extends by one only when its bounding particle dies; because the gap-side neighbour is vacant, that death rate is at most one. Each boundary shrinks by a birth into the adjacent vacancy at rate `lambda`; at width one the two closing births contribute total rate `2 lambda`. Thus the predictable intensity of `N_t` is at most
+Let `N_t` count changes of either endpoint of the tagged gap before closure. Each endpoint extends by one only when the bounding particle dies. Since its gap-side neighbour is vacant, the extension rate is at most one. Each endpoint shrinks by one through a birth into the adjacent vacancy at rate `lambda`. At width one, the two closing birth clocks have total rate `2lambda`. Therefore the predictable intensity of `N_t` is at most
 
 $$
-\beta=2(1+\lambda).
+\beta=2(1+\lambda),
 $$
 
-Consequently `N_t` is stochastically dominated by a rate-`beta` Poisson process.
+so `N_t` is stochastically dominated by a rate-`beta` Poisson process.
 
-A gap born at the singleton `{x}` that contains the origin at age `r` must have undergone at least `|x|` boundary shifts. Combining lifetime, maximum-width, and displacement bounds gives, without any independence assumption,
+A gap born as the singleton `{x}` that contains the origin at age `r` must have undergone at least `|x|` endpoint shifts. If `E_{m,r,x}` denotes the event that this genealogy is alive at age `r`, has width at least `m`, and contains zero, then
 
 $$
-P(E_{m,r,x})
+E_{m,r,x}\subset
+\{\sigma_m<\tau\}\cap\{\tau>r\}\cap\{N_r\ge|x|\}.
+$$
+
+No independence is needed. Using `P(A cap B cap C)<= [P(A)P(B)P(C)]^{1/3}` gives
+
+$$
+\mathbf P(E_{m,r,x})
 \le C e^{-c_1m}e^{-c_2r}
-P(\operatorname{Pois}(\beta r)\ge|x|)^{1/3}.
+\mathbf P(\operatorname{Pois}(\beta r)\ge|x|)^{1/3}.
 $$
 
-The sum over `x` is `O(1+r)`: terms up to a constant multiple of `r+1` are counted crudely, and the remaining Poisson tail is exponentially summable. This is sufficient for the nucleation sum.
-
-## 6. Summation over gap nucleations
-
-A post-time-zero internal gap is nucleated at `x` only when the particle at `x` dies with both neighbours occupied. The sitewise nucleation intensity is therefore at most two.
-
-Because gap genealogies do not merge, the event that some post-time-zero gap of width at least `m` contains the origin at time `t` is bounded by the expected number of gap nucleations whose descendants have that property. The predictable compensator and the strong Markov property at a nucleation time give
+Moreover,
 
 $$
-\begin{aligned}
-P(G_m(t);\text{post-time-zero genealogy})
-&\le
-2\sum_{x\in\mathbb Z}\int_0^t
+\sum_{x\in\mathbb Z}
+\mathbf P(\operatorname{Pois}(\beta r)\ge|x|)^{1/3}
+\le C_\beta(1+r).
+$$
+
+Indeed, the `O(1+r)` sites up to a sufficiently large multiple of the Poisson mean contribute at most one each, and beyond that cutoff the standard Chernoff bound is exponentially summable even after taking a cube root.
+
+## 6. Truncated compensator sum over nucleations
+
+A new gap is nucleated at site `x` only when `x` is occupied, both neighbours are occupied, and the particle at `x` dies. Its predictable nucleation intensity is therefore at most two.
+
+To avoid any implicit infinite-space interchange, first fix `N<infinity` and count only nucleations with `|x|<=N`. By the strong Markov property at a nucleation time and the uniform tagged-gap estimate, the expected number of those nucleations whose descendant gap at time `t` contains zero and has width at least `m` is at most
+
+$$
+2\sum_{|x|\le N}\int_0^t
 C e^{-c_1m}e^{-c_2(t-s)}
-P(\operatorname{Pois}(\beta(t-s))\ge|x|)^{1/3}\,ds\\
-&\le C'e^{-cm}.
-\end{aligned}
+\mathbf P(\operatorname{Pois}(\beta(t-s))\ge|x|)^{1/3}\,ds.
 $$
 
-The infinite spatial sum is legitimate because the Poisson displacement weights are summable. No bound on the total particle number is used.
-
-There are finitely many initial internal gaps for a finite initial seed. Their survival probabilities tend to zero exponentially, with initial-width-dependent prefactors. Hence
+The probability that at least one such genealogy contributes is bounded by this expected count. Now let `N->infinity`. The left-hand events increase with `N`, so monotone convergence applies. The spatial summability from the previous section gives
 
 $$
-\limsup_{t\to\infty}P(G_m(t))\le Ce^{-cm}.
+\mathbf P(\text{a post-time-zero gap of width at least }m
+\text{ contains }0\text{ at time }t)
+\le C'e^{-cm}
 $$
 
-This is genuinely a uniform late-time bound in the required `limsup` sense; it is not merely a separate estimate for each tagged gap.
+uniformly in `t`, because
 
-## 7. Nonescape
+$$
+\int_0^\infty e^{-c_2r}(1+r)\,dr<\infty.
+$$
 
-The same statewise corrector also gives the already verified ballistic bounds
+There are only finitely many internal gaps at time zero. The probability that any fixed initial gap survives to time `t` tends to zero exponentially, with a finite prefactor depending on its deterministic initial width. Consequently, if
+
+$$
+G_m(t)=\{0\text{ lies in an internal gap of width at least }m\},
+$$
+
+then
+
+$$
+\limsup_{t\to\infty}\mathbf P_B(G_m(t))\le Ce^{-cm}.
+$$
+
+This is a uniform late-time estimate after summing all gap genealogies, not a per-gap statement.
+
+## 7. Nonescape from fixed windows
+
+The same statewise corrector gives the separately verified outer-edge bounds
 
 $$
 \liminf_{t\to\infty}\frac{R(B_t)}t\ge v,
@@ -167,81 +242,128 @@ $$
 \quad\text{a.s.}
 $$
 
-Thus for each fixed `M`,
+For fixed `M`,
 
 $$
-P(R_t\le M\text{ or }L_t\ge-M)\to0.
+\mathbf P_B(R_t\le M\text{ or }L_t\ge-M)\to0.
 $$
 
-If both outer edges lie beyond `[-M,M]` and the window contains no particle, that window lies inside an internal gap of width at least `2M+1`. Therefore
+On the complementary event, if `B_t cap [-M,M]` is empty, then `[-M,M]` lies in an internal gap of width at least `2M+1`. Hence
 
 $$
 \limsup_{t\to\infty}
-P_B(B_t\cap[-M,M]=\varnothing)
-\le Ce^{-cM}.
+\mathbf P_B(B_t\cap[-M,M]=\varnothing)
+\le Ce^{-cM},
 $$
 
-Consequently
+and therefore
 
 $$
 \lim_{M\to\infty}\limsup_{t\to\infty}
-P_B(B_t\cap[-M,M]=\varnothing)=0.
+\mathbf P_B(B_t\cap[-M,M]=\varnothing)=0.
 $$
 
-This is exactly the estimate required to rule out any positive empty-state component in a stationary subsequential limit.
+The proof uses no property of the deterministic initial state beyond finiteness and nonemptiness.
 
-## 8. External stationary-limit inputs
+## 8. Stationarity of weak limit points: direct source check
 
-Student B left the theorem conditional on checking the generic Mountford / Ramirez--Varadhan subsequential-invariance hypothesis. I checked a cleaner current primary source.
+The historical Mountford and Ramírez--Varadhan results are useful provenance, but the verification does not depend on uninspected versions of those papers.
 
-Benedikt Jahnel and Jonas Koeppl, *Restriction and mixing properties of interacting particle systems with unbounded range*, arXiv:2603.21817 (2026), Theorem 2.5, proves in one dimension that every weak limit point of an IPS is stationary under assumptions `(L1)` and `(R1)--(R3)` with exponentially decaying influence.
+Jahnel--Köppl, *Restriction and mixing properties of interacting particle systems with unbounded range*, arXiv:2603.21817 (2026), Theorem 2.5, states for `S=Z` that every weak limit point is stationary when `(L1)` and `(R1)--(R3)` hold with `rho(r)=e^{-alpha r}` for some `alpha>0`. Their theorem explicitly says no shift-invariance or reversibility is required.
 
-BABP satisfies these hypotheses directly:
+BABP fits their framework directly. Use singleton update regions `Delta={x}`. The rates are translation-invariant and continuous. For every site, the total flip rate is at most `2 max(1,lambda)`, so `(L1)` holds. Singleton updates have uniformly bounded diameter, so `(R1)` holds. For `rho(r)=e^{-alpha r}`, `(R2)` follows from the triangle inequality with constant one. A change at `y` can alter the flip rate at `x` only when `|x-y|=1`, and the oscillation is uniformly bounded by a constant depending only on `lambda`; hence the influence kernel has finite range and `(R3)` holds for every `alpha>0`. Thus Theorem 2.5 applies for every fixed `lambda>0`.
 
-- the state space is finite, `{0,1}^Z`;
-- updates are single-site, so the update diameter is uniformly bounded;
-- each site flips at rate at most `2 max(1,lambda)`, giving `(L1)`;
-- a flip rate depends only on the two nearest neighbours, so the influence kernel has finite range and therefore satisfies `(R3)` for every exponential profile.
+Review B could inspect this source in full. Mountford (1993) was accessible only through its published abstract, and Ramírez--Varadhan (1996) was verified bibliographically but not line by line; neither inaccessible older source is needed for the theorem.
 
-Thus subsequential-limit invariance applies at `lambda=1/40` and in fact at every `lambda>0`; no positivity-of-rates assumption is needed here.
+## 9. Stationary-law classification and time-rescaling convention
 
-For stationary-law classification, Martinelli--Shapira--Toninelli, arXiv:2510.20461 (2025), Corollary 2.9, states explicitly that every stationary law of one-dimensional BABP is a convex combination of equilibrium and the completely healthy configuration. In particle variables this is
+Martinelli--Shapira--Toninelli (2025) use complementary spin variables `eta=1-xi`, where `eta=0` is an infection. Their constraint is
 
 $$
-\alpha\delta_\varnothing+(1-\alpha)\pi_q.
+c_x(\eta)=2-\eta_{x-1}-\eta_{x+1}=N_x(\xi).
 $$
 
-Therefore the external inputs required by the gap proof do apply in the convention used here.
+Their BABP generator has healthy-to-infected rate `q c_x` and infected-to-healthy rate `p c_x`, where `p=1-q`. After multiplying their generator by `1/p`, the rates become
 
-## 9. Convergence conclusion
+$$
+0\to1\text{ in particle variables at rate }(q/p)N_x,
+\qquad
+1\to0\text{ at rate }N_x.
+$$
 
-The configuration space is compact. Let `t_n -> infinity` and take any weakly convergent subsequence of the laws, with limit `nu`. The one-dimensional stationary-limit theorem gives stationarity of `nu`, and the BABP classification gives
+Thus the present parameter is
+
+$$
+\lambda=\frac qp,
+\qquad
+q=\frac{\lambda}{1+\lambda},
+\qquad
+p=\frac1{1+\lambda},
+$$
+
+and
+
+$$
+L_{\mathrm{project}}=p^{-1}L_{\mathrm{MST}}.
+$$
+
+A positive scalar time-rescaling does not change stationary laws. Martinelli--Shapira--Toninelli, Corollary 2.9, therefore gives in the present convention that every stationary one-dimensional BABP law is
+
+$$
+\alpha\delta_\varnothing+(1-\alpha)\pi_q,
+\qquad \alpha\in[0,1].
+$$
+
+Review B checked the full 2025 source and the original Neuhauser--Sudbury convention. No normalization mismatch remains.
+
+## 10. Subsequence argument
+
+The configuration space `{0,1}^Z` is compact in the product topology. Given any sequence `t_n->infinity`, extract a weakly convergent subsequence with limit `nu`. Section 8 makes `nu` stationary, and Section 9 gives
 
 $$
 \nu=\alpha\delta_\varnothing+(1-\alpha)\pi_q.
 $$
 
-For each `M`, the cylinder event of being empty on `[-M,M]` is clopen, and the nonescape estimate yields
+For each fixed `M`, the event
 
 $$
-\nu(B\cap[-M,M]=\varnothing)\le Ce^{-cM}.
+E_M=\{B:B\cap[-M,M]=\varnothing\}
 $$
 
-The mixture formula gives the lower bound `>=alpha`. Sending `M -> infinity` yields `alpha=0`. Every subsequential limit is therefore `pi_q`, hence the full law converges locally to `pi_q`.
-
-No particle-number growth theorem is used.
-
-No assumption on the deterministic initial configuration is needed beyond being finite and nonempty. The proof can likely be extended to almost surely finite nonempty random initial configurations by conditioning, but that extension is not part of the present claim.
-
-## 10. Concrete corollary and status
-
-Verified claim `BABP-EDGE-001` supplies `(EC)` at
+is a clopen cylinder. Hence probabilities converge along the subsequence and the nonescape estimate gives
 
 $$
-\lambda=\frac1{40},\qquad k=10,\qquad
-v=\frac{1033}{40000000}>0.
+\nu(E_M)\le Ce^{-cM}.
 $$
 
-Therefore the bridge proof yields local finite-seed convergence at `lambda=1/40`, strictly below the `0.0347` finite-seed range recorded in the 2025 progress paper.
+The mixture formula gives
 
-I accept this as a **claimed** project theorem, not yet verified. It is substantially stronger than `BABP-EDGE-001`, so audit `d1ef2ca` does not verify it. Two fresh independent correctness reviews are requested before promotion.
+$$
+\nu(E_M)
+=\alpha+(1-\alpha)(1-q)^{2M+1}\ge\alpha.
+$$
+
+Letting `M->infinity` yields `alpha=0`. Every subsequential limit is therefore `pi_q`, so the full trajectory converges locally to `pi_q`.
+
+The 2025 particle-number growth theorem is not used.
+
+## 11. Concrete corollary
+
+Verified project claim `BABP-EDGE-001` supplies `(EC)` at
+
+$$
+\lambda=\frac1{40},\qquad k=10,
+\qquad v=\frac{1033}{40000000}>0.
+$$
+
+Therefore the theorem above yields local convergence from every finite nonempty deterministic initial particle set at `lambda=1/40`.
+
+Martinelli--Shapira--Toninelli (2025), Remark 5.4, records finite-seed convergence only for `lambda>0.0347` after the earlier `lambda>1/3` result. Since `1/40=0.025<0.0347`, this corollary lies strictly below that recorded published range.
+
+A targeted successor search through 2026-08-15 found no later theorem removing the `0.0347` finite-seed restriction. This is current evidence for novelty, not a substitute for the independent closest-prior-work audit required before publication-level novelty confidence.
+
+## 12. Verification decision
+
+The internal proof has been reconstructed by the Professor and accepted independently by two fresh hostile correctness reviewers. Both reviews confirm the statewise character of `(EC)` is essential to the present proof and find no hidden initial-condition or particle-growth hypothesis. Review A's localization and finite-truncation rigor requests are explicitly built into Sections 4 and 6 above. Review B's convention/time-rescaling request is explicitly built into Section 9.
+
+Accordingly `BABP-CONV-001` may be promoted to `verified` for mathematical use. Publication-level novelty checking remains a separate pending task.
