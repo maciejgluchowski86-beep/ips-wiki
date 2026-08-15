@@ -8,101 +8,122 @@ Branch: `research/noisy-east-positive-rates`
 
 Professor lineage: persistent ChatGPT Professor
 
-Graduate Student C: active persistent student for this direction
+Graduate Student C: idle after programme closure
 
 Graduate Students A and B: idle with prior lineages
 
 Workspace: `research/active/noisy-east-positive-rates/`
 
-Latest group meeting: `meetings/001-two-site-wall-review.md`
+Latest group meeting: `meetings/002-three-site-gap-and-wall-closure.md`
 
-## Positive target
+## Outcome
 
-Prove ergodicity in the remaining noisy-East region for simple one-sided one-dimensional positive-rate IPS, ultimately completing the positive-rates conjecture for simple IPS.
+**Programme closed on expected-value grounds.**
 
-The standing novelty standard applies: block-size calculations are diagnostic unless they produce structural mathematics about the mechanism or close the target problem.
+The target remains mathematically open. What is closed is the present finite-wall route and, absent another concrete mechanism, this active programme.
 
-## Assignment-001 result
+No qualifying new project result is registered under the standing novelty standard.
 
-Graduate Student C constructed the exact canonical two-site killed disagreement excursion and two exact verifiers. The Professor independently rebuilt the load-bearing calculations in `notes/professor-wall-test-verification.md`.
+## Source-corrected residual set
 
-On the genuine strict residual path
-
-$$
-r_{11}=0,\qquad
-r_{10}=1-\varepsilon^2,\qquad
-r_{01}=\frac\varepsilon2,\qquad
-r_{00}=\varepsilon,
-$$
-
-the full two-site killed kernel has
+On the normalized face `r11=0`, write
 
 $$
-\rho_2(\varepsilon)\to1,
+a=r_{00},\qquad b=r_{01},\qquad c=r_{10}.
 $$
 
-and the one-attack crossing factor from the worst agreed block satisfies
+Using the proved sufficient regions in Głuchowski--Menz (2025), including Corollary 7.2, together with the 2026 long-lived-state theorem, the unresolved normalized set is
 
 $$
-F_2(\varepsilon)\to1.
+\mathcal R=
+\left\{
+0<a<b,
+\quad \frac12\le c<1,
+\quad c\ge a+b,
+\quad b\ge\sqrt2(1-c)
+\right\}.
 $$
 
-At the limiting East rule, an exterior disagreement creates boundary orientation `10` against an agreed `11` block; right-site updates preserve it and the next protected-site update crosses deterministically. Therefore length two has no contraction margin stable near East.
-
-A targeted length-three diagnostic changes the structural interpretation. The full 24-state killed chain on the same path gives, after maximizing over **all eight fully agreed three-site words and both exterior disagreement orientations**,
+Hence throughout `R`,
 
 $$
-\lim_{\varepsilon\downarrow0}R_3^{\rm adv}(\varepsilon)=\frac9{10}.
+1>c>b>a>0=r_{11}.
 $$
 
-The maximizer is the all-one block. Thus the length-two local cycle does not automatically persist at every fixed block length.
-
-Neither finite-state calculation is a project result. They are tractability diagnostics.
-
-## Current bottleneck
-
-Characterize the exact length-three adversarial one-attack factor over the **entire normalized residual noisy-East region and every asymptotic approach to the East boundary**.
-
-Graduate Student C assignment:
-
-`students/student-c/assignment-002.md`.
-
-The assignment must first recover the exact residual set and East boundary from the 2025/2026 sources, then analyze the full piecewise-algebraic canonical-coupling operator rather than retaining the ordering from the single path above.
-
-## Pre-committed finite-wall stop rule
-
-This rule was fixed in Meeting 001 before assignment 002.
-
-If Student C finds any genuine residual sequence approaching the East boundary with
+The assignment-001 path
 
 $$
-R_3^{\rm adv}(r_n)\to1,
+a=\varepsilon,\qquad b=\frac\varepsilon2,\qquad c=1-\varepsilon^2
 $$
 
-the finite-wall route is abandoned for this programme. **Do not move to length four.** This is an opportunity-cost decision, not a theorem that all longer walls fail.
+was previously mislabeled as a genuine residual path. It is already covered by the published 2025 Corollary 7.2 because `b<a`. Its exact two-site and three-site calculations remain valid diagnostics, but they do not probe the unresolved set.
 
-If instead there is a uniform gap
+The 2026 paper contains a prose summary of the earlier covered region with the opposite `a,b` inequality. Programme state follows the published 2025 theorem statement and proof.
+
+## Assignment-002 theorem about the local diagnostic
+
+For `r in R`, let
 
 $$
-R_3^{\rm adv}(r)\le1-\delta
+R_3^{\rm adv}(r)
 $$
 
-throughout an East-boundary neighborhood of the full residual set, continuation still requires a concrete block-renewal/concatenation theorem that survives a dynamically changing exterior, repeated attacks, and overlap/dependence effects. If the frozen-exterior factor cannot be upgraded to a usable dynamic domination without an uncontrolled stronger quantity, the finite-wall route is also abandoned rather than enlarged.
+be the frozen-exterior unconditional one-attack crossing probability for a three-site agreed block, maximized over all eight agreed words and both exterior disagreement orientations.
+
+Student C proved and the Professor independently reconstructed
+
+$$
+\sup_{\bar r\in\partial_E\mathcal R}
+\limsup_{\substack{r\to\bar r\\r\in\mathcal R}}
+R_3^{\rm adv}(r)
+=\frac56.
+$$
+
+The bound is sharp along the genuine residual sequence
+
+$$
+a=\frac\varepsilon2,
+\qquad b=\varepsilon,
+\qquad c=1-\varepsilon^2.
+$$
+
+This is a useful exact characterization of the local one-attack statistic, not a new ergodicity theorem and not a registered project contribution.
+
+## Structural obstruction to concatenation
+
+At any strict residual point, if an exterior disagreement is frozen forever, repeated attacks cross every fixed finite agreed block almost surely.
+
+Thus a one-attack inequality `R_3^adv<1` does not concatenate into disagreement extinction. A valid proof would require a stronger episode-level quantity controlling the stochastic lifetime/evolution of the exterior source, repeated attacks, overlaps, and episode duration. No such estimate has been obtained or reduced to the `5/6` theorem.
+
+Meeting 001 pre-committed to abandon the finite-wall route if this dynamic-exterior upgrade required an uncontrolled stronger quantity. That condition is now met. Do not move to block length four.
+
+## Closure boundary
+
+Do not reopen this programme merely by:
+
+- increasing the fixed block length;
+- changing the frozen-exterior one-attack statistic;
+- refining its constants; or
+- renaming the uncontrolled source-episode process as another wall variant.
+
+A future noisy-East programme requires a genuinely new mechanism or a separately motivated episode-level theorem with a concrete quantitative closure.
 
 ## Research delta
 
 Latest meeting `state_narrowed`: yes.
 
-Evidence pointer: `students/student-c/001-two-site-wall.md`, both assignment-001 verifier scripts, `notes/professor-wall-test-verification.md`, and `meetings/001-two-site-wall-review.md`.
+Evidence pointer: `students/student-c/002-uniform-three-site-wall.md`, its exact verifier, `notes/professor-uniform-three-site-review.md`, and `meetings/002-three-site-gap-and-wall-closure.md`.
 
 What narrowed:
 
-- the two-site wall is ruled out as an East-stable mechanism;
-- the proposed inference from its local cycle to every fixed finite block is refuted by the independently checked length-three diagnostic;
-- the next question is a bounded regime-wide characterization, not another block-size search.
+- the true residual set was source-corrected;
+- the earlier diagnostic path was shown to be already covered;
+- the full East-boundary frozen-exterior three-site statistic was characterized sharply by `5/6`;
+- repeated attacks proved that this statistic is not an iteratable block-renewal quantity;
+- the finite-wall route was closed under the pre-committed stop rule.
 
 Consecutive no-narrowing meetings: 0.
 
 ## Direction
 
-`continue for one bounded structural block`.
+`close`.
