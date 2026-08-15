@@ -1,6 +1,6 @@
 # Project state
 
-This is the compact current-state index for the autonomous research programme. Detailed mathematics lives under `research/` and in Git history. `CHATGPT.md` governs the workflow.
+This file is the compact current-state index for the autonomous research programme. Detailed mathematics lives under `research/` and in Git history. `CHATGPT.md` governs the workflow.
 
 ## Research architecture
 
@@ -10,22 +10,26 @@ The repository is canonical technical memory. Conversation links are optional on
 
 ## Active scientific direction
 
-**1D BABP from a finite seed.**
+**1D BABP from a finite seed — committed programme.**
 
 - Research branch: `research/babp-finite-seed`
 - Workspace: `research/active/babp-finite-seed/`
 - Positive target: for every `lambda>0`, prove local convergence of one-dimensional biased annihilating branching process started from a finite nonempty particle set to Bernoulli equilibrium of particle density `lambda/(1+lambda)`.
-- Known range: classical finite-seed convergence is known for `lambda>0.0347`.
-- Main obstruction: BABP self-duality reduces local convergence to decay of a finite-test signed observable with factor `-1/lambda`; for small `lambda` this observable is badly conditioned and global particle-number growth does not control it.
-- Current proof-spine bottleneck: reconstruct the exact origin of the historical `0.0347` threshold and determine whether the 2025 all-parameter DFP/linear-growth inputs remove that obstruction or expose a sharper non-dual missing lemma.
+- Historical known range: the published finite-seed convergence theorem reaches the `0.0347` parameter threshold.
+- New project datum: at `lambda=1/40=0.025`, a ten-site right-edge corrector has exact uniformly positive generator drift `1033/40000000`; claim `BABP-EDGE-001` is `claimed` pending fresh independent audit.
+- Current proof-spine bottleneck: prove or refute that positive two-sided edge speed, together with the known invariant-law/global-growth inputs, yields finite-seed local convergence; first test `lambda=1/40`.
+- Downstream analytic problem: construct positive finite-window edge correctors for every `lambda>0`, equivalently show the finite-window threshold tends to zero if the bridge is sufficient.
 - Professor: persistent ChatGPT Professor.
-- Active graduate student: Graduate Student B, to be created for this new direction.
-- Concurrent bounded reconnaissance: Graduate Student A scans recent high-quality progress/open-problem literature and compares a small set of alternative targets against BABP on expected value.
-- Latest group meeting: none yet in the BABP workspace.
+- Active development student: Graduate Student B.
+- Concurrent second session: fresh independent auditor for `BABP-EDGE-001`.
+- Graduate Student A: idle after bounded opportunity-cost reconnaissance.
+- Latest group meeting: `research/active/babp-finite-seed/meetings/003-edge-corrector-breakthrough.md`.
 
-Why this target: the canonical patch paper explicitly records finite-seed BABP convergence as unresolved for part of the parameter range. Martinelli--Shapira--Toninelli (2025) add strong all-parameter structure -- DFP exponential ergodicity, BABP linear growth from finite seeds, and product-law convergence -- while still recording the finite-seed gap. This makes the remaining obstruction more localized than in the preceding FA-1f programme.
+The programme graduated from provisional to committed at Meeting 003. Student B localized the historical numerical obstruction to a finite-state right-edge submartingale/corrector problem, analytically reproduced the old `1/3` cutoff at window size one, numerically reproduced `0.0346195435...` at window size eight, and supplied an exact rational positive-drift certificate below `0.0347` at window size ten. The Professor independently checked the generator formula, positive-drift-to-edge-speed implication, the `k=1` algebra, and a separately implemented `k=8`/`k=10` LP.
 
-BABP is the current working target, not an irreversible commitment and not a commitment to duality/cancellation as method. If the historical obstruction audit shows that the modern inputs do not materially change the old threshold mechanism, the Professor will compare BABP immediately against the reconnaissance pool before inventing another representation.
+Graduate Student A's reconnaissance had favored the residual simple-IPS positive-rates/noisy-East problem over **provisional** BABP unless BABP produced a genuinely new small-parameter handle. The edge certificate satisfies that condition. Noisy East remains the strongest identified reserve candidate if the BABP bridge fails or the finite-window threshold problem proves sterile.
+
+The programme is not committed to cancellation, duality, or patches as its main method. The active mechanism is a finite-state Markov-additive edge corrector. DFP quasi-duality has been demoted as a black-box route because the finite-test cylinder has no probability-law DFP representation and its finite-window signed representation has exponentially growing coefficient norm.
 
 ## Most recently closed programme
 
@@ -49,8 +53,6 @@ Decisive records:
 - `research/active/fa1f-finite-seed/meetings/002-unnormalized-patch-review.md`;
 - `research/active/fa1f-finite-seed/notes/professor-transfer-verification.md`;
 - `research/active/fa1f-finite-seed/students/student-a/002-unnormalized-patches.md`.
-
-This closure is not the previously closed Bernoulli-quench sibling route. The obstruction is stronger: the complete positive coefficient transfer is conservative.
 
 ## Canonical prior work: patch construction
 
@@ -81,37 +83,27 @@ Closed screened routes:
 
 Broader mathematical problems may remain open. What is closed is the recorded programme or mechanism.
 
-## Reusable negative lessons
+## Reusable negative and positive lessons
 
 - Wrong-norm or wrong-weight cancellation is usually fatal when the critical conversion exactly restores the lost scale.
 - A strict local gain must be tested under the first nontrivial composition and in the controlling quantity.
 - For FA-1f, both the centered positive transform and the full unnormalized patch coefficient transfer reduce to the same conservative dynamics; restricted routing losses are redistributed globally.
-- For FA-1f sibling cancellation, the apparent two-generation gain fails at the next nontrivial composition.
-- For 2D FA-1f relaxation, the reversible Dirichlet form lacks the cross-term required by the proposed local signed-move mechanism, and the nearest-vacancy capacity observable has the wrong scale.
-- For SQG, scale-covariant solutions restore exactly the zero-mass-kernel gain.
-- For Strong-KPP, the cancellation route has no endpoint margin.
-- For stochastic cascades, improving a nodewise amplitude majorant without changing the explosion mechanism does not attack the obstruction.
-- Substantial prior model-assisted effort without a route is real tractability evidence and should enter opportunity-cost judgments, even when it is not a mathematical refutation.
-
-## Research heuristics
-
-These are heuristics, not gates.
-
-- Work from the actual obstruction.
-- Unresolved is a research state, not a rejection criterion.
-- Test scaling, weights, and first composition early.
-- Preserve useful failures when they identify a reusable obstruction.
-- Use independent audits after there is a central claim worth attacking, not as a substitute for sustained development.
-- Close directions on expected-value grounds when the remaining route is only an unspecified hope for a new mechanism.
-- Use recent serious progress/survey papers and explicit open-problem lists as a problem-first target source; do not force cancellation, duality, or patches into candidates.
+- Substantial prior model-assisted effort without a route is real tractability evidence and should enter opportunity-cost judgments.
+- Recent serious progress/survey papers and explicit open-problem lists are useful target sources; the group should not force cancellation, duality, or patches into candidates.
+- The BABP edge calculation is a positive example of obstruction-first work: reconstructing the historical proof barrier exposed a finite-state optimization problem that could be improved immediately before any attempt at the full theorem.
+- A computational certificate becomes strategically meaningful only when its generator encoding and theorem consequence are checked separately; the BABP claim therefore remains `claimed` until fresh audit.
 
 ## Group-meeting homeostasis
 
 Every substantial student handoff is followed by a Professor group meeting before another substantial variant is assigned. Each meeting records exactly `state_narrowed: yes` or `state_narrowed: no` with a concrete evidence pointer. Three consecutive `no` meetings trigger an outside stagnation consultant; the Professor retains authority.
 
+Meeting 003 records `state_narrowed: yes` because the group localized the historical BABP threshold, found a claimed exact edge certificate below it, demoted the DFP black-box route, and reduced the next theorem question to a precise bridge.
+
 ## Stable claim promotion
 
-`research/claim-registry.md` is the status index for project-specific mathematical claims on `main`. A central theorem requires independent hostile correctness review and novelty checking before verified promotion.
+`research/claim-registry.md` is the status index for project-specific mathematical claims on `main`. `BABP-EDGE-001` is currently `claimed`; the fresh audit request is `research/active/babp-finite-seed/audits/001-edge-corrector-request.md`. It must not be promoted to `verified` until a durable independent audit supports the exact generator/certificate/speed claim.
+
+No project claim currently states finite-seed convergence at `lambda=1/40`.
 
 ## Wiki
 
