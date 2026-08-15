@@ -55,10 +55,8 @@ u(t,x)
 \mathbb E[g(x+B_{T-t})]
 +
 \int_t^T
-\mathbb E\bigl[f(s,x+B_{s-t},u,Du)\bigr]\,ds,
+\mathbb E\bigl[f(s,x+B_{s-t},u(s,x+B_{s-t}),Du(s,x+B_{s-t}))\bigr]\,ds.
 $$
-
-with $u$ and $Du$ evaluated at $(s,x+B_{s-t})$ inside the integrand.
 
 For a smooth solution, the formula follows by differentiating $P_{t,s}u(s,\cdot)$ in $s$ and integrating from $t$ to $T$.
 

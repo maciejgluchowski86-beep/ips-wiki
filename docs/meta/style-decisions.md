@@ -51,7 +51,7 @@ This page records durable style choices for the public IPS wiki.
 
 - Link a concept the first time it is mathematically useful in an entry.
 - Avoid linking every repeated occurrence of the same term.
-- Prefer semantic links such as `[local functions](local-functions.md)` over navigation lists.
+- Prefer semantic links such as `[local functions](../entries/local-functions.md)` over navigation lists.
 - Use short index/navigation pages only for deliberate curated paths, not as substitutes for inline links.
 
 ## Subset convention
