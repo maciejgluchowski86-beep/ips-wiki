@@ -12,13 +12,17 @@ tags:
 
 # Feynman-Kac formula for linear parabolic equations
 
-The classical Feynman--Kac formula represents a linear parabolic PDE by an expectation over a diffusion path. Nonlinear branching formulas generalize this idea: the diffusion still carries the linear part, while branching or auxiliary random weights encode nonlinear terms that a single path cannot represent directly.
+The classical Feynman--Kac formula represents a linear parabolic equation by an expectation over a diffusion path. The Gaussian heat equation is the basic case; a bounded potential produces an exponential path weight, and a bounded source produces a time integral along the path.
 
-**References.** Ioannis Karatzas and Steven E. Shreve, *Brownian Motion and Stochastic Calculus*, second edition, Springer, 1991, especially the chapter on Brownian motion and partial differential equations. Daniel W. Stroock and S. R. Srinivasa Varadhan, *Multidimensional Diffusion Processes*, Springer, 2006 reprint. See [References](../meta/references.md).
+**Prerequisite.** The normalization $\partial_tu=\frac12\Delta u$ and the Gaussian heat operators are fixed in [Heat equation and Gaussian heat kernel](heat-equation-and-gaussian-heat-kernel.md).
+
+**References.** Ioannis Karatzas and Steven E. Shreve, *Brownian Motion and Stochastic Calculus*, 2nd ed., Springer, 1991, §4.3 for the heat equation and §4.4, especially the multidimensional and one-dimensional Feynman--Kac formulas. For diffusion generators and their PDE connection, see §5.7 of the same book. See [References](../meta/references.md).
+
+Throughout the first three sections, let $X_s=x+W_s-W_t$ be Brownian motion started from $x$ at time $t$. To keep every expectation automatically finite, assume the terminal datum $\phi$ is bounded and continuous and, when present, the potential $V$ and source $g$ are bounded and continuous on $[0,T]\times\mathbb R$. These are convenient sufficient hypotheses for the probabilistic formulas below. Stronger regularity may be imposed when a classical $C^{1,2}$ solution is required.
 
 ## Heat equation
 
-Let \(X_s=x+W_s-W_t\) be Brownian motion started from \(x\) at time \(t\). For bounded continuous terminal data \(\phi\), the backward heat equation
+For the backward heat equation
 
 $$
 \partial_tu
@@ -29,22 +33,20 @@ u(T,x)=\phi(x),
 \tag{1}
 $$
 
-has the representation
+we have
 
 $$
 u(t,x)
-=
-\mathbb E_{t,x}[\phi(X_T)]
-=
-P_{T-t}\phi(x).
+=\mathbb E_{t,x}[\phi(X_T)]
+=P_{T-t}\phi(x).
 \tag{2}
 $$
 
-On the torus, \(X\) is read modulo \(2\pi\), or equivalently one uses the periodic heat semigroup.
+For bounded uniformly continuous $\phi$, the [approximate-identity theorem](heat-equation-and-gaussian-heat-kernel.md#approximate-identity) gives the terminal condition uniformly as $t\uparrow T$. On the torus, use the periodized kernel or read $X$ modulo $2\pi$.
 
-## Adding a potential
+## Adding a bounded potential
 
-Consider
+Let $V\in C_b([0,T]\times\mathbb R)$. For
 
 $$
 \partial_tu
@@ -56,12 +58,11 @@ u(T,x)=\phi(x),
 \tag{3}
 $$
 
-with bounded continuous \(V\). Then
+the Feynman--Kac formula is
 
 $$
 u(t,x)
-=
-\mathbb E_{t,x}\left[
+=\mathbb E_{t,x}\left[
 \exp\left(
 \int_t^T V(s,X_s)\,ds
 \right)
@@ -70,11 +71,11 @@ u(t,x)
 \tag{4}
 $$
 
-The exponential factor is often called a *Feynman--Kac weight*.
+Because $V$ and $\phi$ are bounded, the random variable in (4) is bounded in absolute value by $e^{T\|V\|_\infty}\|\phi\|_\infty$.
 
-## Adding a source term
+## Adding a bounded source term
 
-For
+Let in addition $g\in C_b([0,T]\times\mathbb R)$. For
 
 $$
 \partial_tu
@@ -107,22 +108,21 @@ u(t,x)
 \tag{6}
 $$
 
-Equation (6) is the probabilistic analogue of the Duhamel formula.
+The second expectation is absolutely integrable because its integrand is bounded by $e^{T\|V\|_\infty}\|g\|_\infty$. Equation (6) is the probabilistic version of the Duhamel/variation-of-constants formula.
 
-## Proof idea by Ito's formula
+## Verification by Itô's formula
 
-Define
+Suppose, in addition to the boundedness assumptions above, that $u$ is a bounded $C^{1,2}$ solution of (3). Define
 
 $$
 M_s
 =
 \exp\left(
 \int_t^sV(r,X_r)\,dr
-\right)
-u(s,X_s).
+\right)u(s,X_s).
 $$
 
-Applying [Ito's formula](ito-diffusions-and-backward-kolmogorov-representation.md) gives
+Applying [Itô's formula](ito-diffusions-and-backward-kolmogorov-representation.md) gives
 
 $$
 \begin{aligned}
@@ -140,42 +140,52 @@ u_x(s,X_s)\,dW_s.
 \end{aligned}
 $$
 
-For equation (3) the drift vanishes, so \(M\) is a martingale after the usual integrability check. Taking expectations between \(t\) and \(T\) yields (4). For equation (5), integrating the remaining drift gives (6).
+The drift vanishes. If $u_x$ is bounded, the stochastic integral is square-integrable, hence a true martingale, and taking expectations gives (4). For (5), the same calculation leaves the drift $-g(s,X_s)$ and yields (6). Thus the stochastic representation and the analytic theorem constructing a sufficiently regular solution are logically separate statements.
 
-## General diffusions
+## General diffusion
 
-If
+Let
 
 $$
 dX_s
 =b(s,X_s)\,ds
-+\sigma(s,X_s)\,dW_s,
++\sigma(s,X_s)\,dW_s.
+\tag{7}
 $$
 
-then the second-order operator
+A convenient sufficient hypothesis is that $b$ and $\sigma$ are bounded and continuous, globally Lipschitz in the spatial variable uniformly in time, and that $\sigma$ is uniformly nondegenerate. Then (7) has a unique strong solution, and its generator is
 
 $$
 \mathcal L_s
 =b(s,x)\partial_x
-+\frac12\sigma(s,x)^2\partial_x^2
++\frac12\sigma(s,x)^2\partial_x^2.
+\tag{8}
 $$
 
-replaces \(\frac12\partial_x^2\). Under standard regularity and integrability assumptions, solutions of
+If $\phi\in C_b(\mathbb R)$ and $V,g\in C_b([0,T]\times\mathbb R)$, the path functional
 
 $$
-\partial_tu+\mathcal L_tu+Vu+g=0
+\begin{aligned}
+u(t,x)
+={}&\mathbb E_{t,x}\left[
+e^{\int_t^T V(r,X_r)\,dr}\phi(X_T)
+\right]\\
+&+\mathbb E_{t,x}\left[
+\int_t^T e^{\int_t^s V(r,X_r)\,dr}g(s,X_s)\,ds
+\right]
+\end{aligned}
+\tag{9}
 $$
 
-have the analogous path representation.
+is finite. Under the additional regularity needed to identify a classical solution, Itô's formula verifies
+
+$$
+\partial_tu+\mathcal L_tu+Vu+g=0,
+\qquad u(T,\cdot)=\phi.
+$$
+
+More general weak-diffusion and coefficient hypotheses are possible, but are not needed for the sufficient version recorded here.
 
 ## Relation to branching formulas
 
-The classical formula is linear in \(u\). If the PDE contains a nonlinear term such as
-
-$$
-f(u,\partial_xu,\partial_x^2u),
-$$
-
-a single diffusion path does not directly turn products of unknown solution values into an expectation. [Duhamel trees](branching-diffusions-and-duhamel-trees.md) and their branching randomizations address this by creating descendants whose conditionally independent contributions multiply.
-
-Thus titles such as the [Nguwi--Penent--Privault coding-tree Feynman--Kac theorem](npp-coding-tree-feynman-kac-theorem.md) use “Feynman--Kac” in an extended sense: the representation remains probabilistic and diffusion-based, but nonlinearities are encoded by a random tree rather than by one exponential weight along one path.
+The formula above is linear in the unknown $u$. If the PDE contains nonlinear products of $u$ or its derivatives, one diffusion path does not directly represent those products. [Duhamel trees](branching-diffusions-and-duhamel-trees.md) and branching randomizations create descendants whose conditionally independent contributions multiply. That is an additional construction with its own integrability requirements, not part of the classical Feynman--Kac theorem.

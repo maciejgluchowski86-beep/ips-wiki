@@ -28,6 +28,8 @@ This follows from ordinary integration by parts against the density $(2\pi)^{-1/
 
 ## Heat-semigroup derivative
 
+The heat-kernel normalization and $P_t$ notation are fixed in [Heat equation and Gaussian heat kernel](heat-equation-and-gaussian-heat-kernel.md).
+
 For
 
 $$

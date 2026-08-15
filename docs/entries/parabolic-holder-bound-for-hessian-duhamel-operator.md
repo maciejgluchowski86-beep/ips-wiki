@@ -14,7 +14,7 @@ tags:
 
 The second-derivative heat kernel has pointwise short-time size of order $r^{-1}$, which is not time-integrable. On a positive Hölder class its mean-zero Hermite structure gives enough cancellation for the time-integrated Hessian operator to be bounded on the natural parabolic Hölder space. This is a constant-coefficient Schauder/Duhamel estimate.
 
-**References.** This is a standard parabolic Schauder estimate in the constant-coefficient setting. The proof below is included because the explicit operator norm and its dependence on the Hermite constants are useful. See [Parabolic Hölder spaces](parabolic-holder-spaces.md), [Hölder cancellation for heat-semigroup derivatives](holder-cancellation-for-heat-semigroup-derivatives.md), and the references in [Parabolic maximum principle and Schauder estimates](parabolic-maximum-principle-and-schauder-estimates.md).
+**Prerequisites and references.** The heat kernel and $P_r$ notation are fixed in [Heat equation and Gaussian heat kernel](heat-equation-and-gaussian-heat-kernel.md). This is a standard parabolic Schauder estimate in the constant-coefficient setting. The proof below is included because the explicit operator norm and its dependence on the Hermite constants are useful. See [Parabolic Hölder spaces](parabolic-holder-spaces.md), [Hölder cancellation for heat-semigroup derivatives](holder-cancellation-for-heat-semigroup-derivatives.md), and the references in [Parabolic maximum principle and Schauder estimates](parabolic-maximum-principle-and-schauder-estimates.md).
 
 Fix $0<\alpha<1$, $T>0$, and $\mathbb T=\mathbb R/(2\pi\mathbb Z)$. For a function $f=f(t,x)$, write
 
@@ -80,8 +80,7 @@ $$
 m_\alpha=\mathbb E|Z|^\alpha,
 \qquad
 c_{k,\alpha}
-=
-\mathbb E\left[|He_k(Z)|\,|Z|^\alpha\right].
+=\mathbb E\left[|He_k(Z)|\,|Z|^\alpha\right].
 \tag{4}
 $$
 

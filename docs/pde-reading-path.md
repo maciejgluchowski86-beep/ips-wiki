@@ -16,7 +16,7 @@ Definitions should live in one place and be linked elsewhere. Standard PDE facts
 
 ## 0. PDE vocabulary
 
-**Vocabulary layer complete. Current wiki frontier: §1, beginning with the heat equation and heat kernel.**
+**Vocabulary layer complete. Current wiki frontier: §1, beginning with Brownian motion interpretation.**
 
 The reader should first acquire the following objects and distinctions:
 
@@ -31,11 +31,11 @@ These are deliberately prerequisites rather than compressed terminology lists.
 
 ## 1. The heat equation as the model parabolic PDE
 
-**Current wiki frontier: heat equation and heat kernel.**
+**Current wiki frontier: Brownian motion interpretation.**
 
 Once the vocabulary layer is in place, use the heat equation repeatedly as the canonical example. The required chain is:
 
-- heat equation and heat kernel;
+- [heat equation and Gaussian heat kernel](entries/heat-equation-and-gaussian-heat-kernel.md);
 - Brownian motion interpretation;
 - heat semigroup and generator;
 - smoothing;

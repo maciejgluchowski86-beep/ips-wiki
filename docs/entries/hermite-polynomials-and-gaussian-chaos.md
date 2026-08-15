@@ -1,6 +1,7 @@
 ---
 title: Hermite polynomials and Gaussian chaos
 status: standard fact
+audit: current
 tags:
   - probability
   - Gaussian analysis
@@ -75,7 +76,7 @@ $$
 
 ## Heat-kernel derivative formula
 
-For bounded measurable \(G\), Gaussian integration by parts gives
+The heat-kernel normalization and \(P_t\) notation are fixed in [Heat equation and Gaussian heat kernel](heat-equation-and-gaussian-heat-kernel.md). For bounded measurable \(G\), Gaussian integration by parts gives
 
 $$
 \partial_x^nP_tG(x)

@@ -1,6 +1,7 @@
 ---
 title: Holder cancellation for heat-semigroup derivatives
 status: standard fact
+audit: current
 tags:
   - PDE
   - heat semigroup
@@ -12,6 +13,8 @@ tags:
 # Holder cancellation for heat-semigroup derivatives
 
 A heat-semigroup derivative has a singular short-time kernel, but every positive-order Hermite weight has mean zero. Subtracting a constant therefore converts spatial Holder regularity into a positive power of the edge length. The same cancellation controls commutators between heat-semigroup derivatives and spatial multiplication operators.
+
+**Prerequisite.** The Gaussian kernel and the notation \(P_r\) are fixed in [Heat equation and Gaussian heat kernel](heat-equation-and-gaussian-heat-kernel.md).
 
 **References.** The Gaussian derivative formula and Hermite normalization are recorded in [Gaussian integration by parts and automatic differentiation](gaussian-integration-by-parts-and-automatic-differentiation.md) and [Hermite polynomials and Gaussian chaos](hermite-polynomials-and-gaussian-chaos.md). The estimates below are standard consequences of those formulas.
 

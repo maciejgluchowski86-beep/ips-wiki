@@ -96,7 +96,7 @@ The converse is false without a separate time-regularity estimate.
 
 ## Heat-semigroup contraction
 
-Let \(P_r\) be the heat semigroup on \(\mathbb T\). Coupling the two values with the same Brownian increment gives
+The heat-kernel normalization used here is fixed in [Heat equation and Gaussian heat kernel](heat-equation-and-gaussian-heat-kernel.md). Let \(P_r\) be the heat semigroup on \(\mathbb T\). Coupling the two values with the same Brownian increment gives
 
 $$
 |P_rf(x)-P_rf(y)|
