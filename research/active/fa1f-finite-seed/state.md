@@ -14,7 +14,7 @@ Active graduate-student lineage: Graduate Student A
 
 Workspace: `research/active/fa1f-finite-seed/`
 
-Latest group meeting: none yet
+Latest group meeting: `meetings/001-h-transform-review.md`
 
 ## Target
 
@@ -38,51 +38,45 @@ The canonical patch paper `paper/`, *Patch representations and convergence for f
 
 The target builds directly on the principal's prior mathematics: for FA-1f the patch threshold is exactly `p`, and the centered-monomial basis from Theorem B has nonnegative semigroup coefficients.
 
-## Why this is not a reopened closed FA-1f route
+## Relation to closed FA-1f routes
 
-The closed 1D FA-1f route studied a Bernoulli-quench sibling-cancellation mechanism. Its decisive failure was that a cancellation visible at two generations disappeared at the next nontrivial composition, restoring the critical scaling. That route is not being retried.
+This programme is not the closed 1D Bernoulli-quench sibling-cancellation route. The target starts from one deterministic vacancy and the current proof line works with the canonical successful-skeleton/patch representation rather than a generation-by-generation signed sibling majorant.
 
-The present target has a different initial condition and a different proposed reduction. It starts from one deterministic vacancy, not a homogeneous Bernoulli quench, and uses the canonical centered-moment positivity to seek a positive Markov dual via an `h`-transform. No sibling cancellation, density-derivative expansion, or generation-by-generation contraction is assumed. If the `h`-transform reduction is correct but gives no leverage, it will be abandoned rather than reinterpreted as the closed sibling route.
+Graduate Student A did find an exact overlap between the local algebra of the verified centered `h`-transform and the old sibling route: the same parameter `a=-p/q`, the same two-neighbour factorization, and the same maximal two-sibling event appear. Therefore any future attempt to extract progress by taking absolute values of those two refreshed sibling weights and seeking a contraction is explicitly closed. This overlap is recorded in `students/student-a/001-centered-h-transform.md`, Section 13.
 
-The closed 2D relaxation-logarithm and nearest-vacancy capacity routes concern a different dimension, a different theorem (spectral-gap asymptotics), and a Dirichlet-form/capacity mechanism. They are irrelevant to the present proof spine except as negative lessons.
+The closed 2D relaxation-logarithm and nearest-vacancy capacity routes concern a different dimension, theorem, and mechanism.
 
 ## Main obstruction
 
-Known high-density out-of-equilibrium arguments use attractiveness/contact-process comparison, finite-volume mixing, or related devices that are not available uniformly for all `q`. Hard FA-1f is non-attractive.
+Hard FA-1f is non-attractive, and the canonical patch-paper convergence theorem does not apply because it requires a uniform environment-independent creation of facilitating states, which becomes a uniform pure-death component in the dual. Hard FA-1f has no such component.
 
-The patch paper's Theorem C does not apply: its convergence mechanism requires a uniform environment-independent creation of facilitating states, which becomes a uniform pure-death component in the dual. Hard FA-1f has no such component. Section 8.2 of the canonical paper states that the proof would need model-specific replacements for both late-interaction suppression and end-factor relaxation. Moreover, finite-seed point masses are not usefully bracketed by nondegenerate product laws in the centered-moment order.
+Theorem C uses uniform pure deaths twice: to suppress successful interactions after a cut time by a backward-chain survival factor, and to control terminal end-factor dependence when there are no late interactions. Section 8.2 states that a hard-model extension requires model-specific replacements for both bounds. Finite-seed point masses are also not usefully bracketed by nondegenerate product laws in the centered-moment order.
 
 ## Present approach
 
-Exploit the especially simple centered generator of FA-1f. Put
+The first approach, an exact centered `h`-transform to a positive finite-set process, has been verified but demoted as a proof strategy. Student A showed that on finite cycles it is an invertible similarity transform of the transpose FA-1f generator; the transformed process has no current monotone/additive/front simplification sufficient for finite-seed convergence.
+
+The active approach now returns to the canonical successful-skeleton proof **before normalization by patch consistency probabilities**. Define
 
 $$
-\chi_A^*(\eta)=\prod_{i\in A}(\eta(i)-p),
-\qquad h(A)=q^{|A|}.
+\widehat C(P)
+=
+\mathbf E_P\left[F(P)\mathbf 1_{\operatorname{Con}(P)}\right]
+=
+\mathbf P_P(\operatorname{Con}(P))C(P),
 $$
 
-The Professor's initial calculation in `notes/professor-initial-reduction.md` claims that after conjugation by `h`, the centered-monomial semigroup is dual to a genuine finite-set Markov process: every active site `i` rings at rate one and refreshes membership of its two neighbours independently to Bernoulli(`q`), leaving all other memberships unchanged. If this is correct, then
+with the analogous end-patch amplitude. The aim is to expose the actual probability cost of a hard-FA successful skeleton and test whether full branching geometry creates a useful loss which the normalized patch contributions hide.
 
-$$
-P_t\chi_A^*(\eta^{0})
-=q^{|A|}\left(1-q^{-1}\mathbf P_A(0\in\mathcal A_t)\right).
-$$
-
-Thus the target reduces to the local-density statement
-
-$$
-\mathbf P_A(0\in\mathcal A_t)\longrightarrow q
-$$
-
-for every finite nonempty initial active set `A` of this transformed process.
-
-This reduction is currently `claimed`, not verified. Graduate Student A's first task is to check it from first principles and determine whether the transformed process has genuinely more tractable structure or is merely an equivalent reformulation.
+This is currently only a candidate mechanism. A single backward-chain heuristic is not enough because every successful FA-1f record has both neighbours as target and creates a full family of source/target patches. Assignment 002 tests the complete first composition in the actual singleton equilibrium deviation.
 
 ## Proof spine
 
 Path: `proof-spine.md`
 
-Current bottleneck: establish and assess the centered `h`-transform reduction, then identify a target-relevant mechanism for local convergence of the transformed finite-set process.
+Current bottleneck: E2, the exact unnormalized hard-FA patch/skeleton expansion and its first full branching-composition test.
+
+If E2 survives, the next theorem-level edges are E3a late-interaction control and E3b terminal-dependence relaxation without uniform pure deaths.
 
 ## Mathematical state
 
@@ -92,47 +86,53 @@ Current bottleneck: establish and assess the centered `h`-transform reduction, t
 - For FA-1f, the canonical paper proves patch positivity and patch threshold `p^*=p`.
 - The canonical paper proves positivity of the semigroup in the centered-monomial basis.
 - Martinelli--Shapira--Toninelli's Conjecture 1 contains the active target as a special case.
+- The centered `h`-transform / finite-set dual reduction from the initial Professor calculation is correct for every finite initial dual set, including nonexplosion and the infinite-volume semigroup passage. Decisive check: `students/student-a/001-centered-h-transform.md` Sections 1--4.
 
 ### Claimed
 
-- The exact `h`-transform/finite-set dual reduction in `notes/professor-initial-reduction.md`.
+- No new theorem-level claim from the unnormalized patch route yet. The local `widehat C` formulas and full skeleton bookkeeping are assignment 002 rather than established facts in the active workspace.
 
 ### Conditional
 
-- Any downstream use of the transformed finite-set process is conditional on the claimed duality until Student A checks it.
+- Any future E3 estimate based on unnormalized patch amplitudes is conditional on E2 being derived exactly and showing a target-level handle beyond the verified `h`-transform.
 
 ### Refuted or eliminated
 
-- The previously closed Bernoulli-quench sibling-cancellation route is not part of this programme.
+- The previously closed Bernoulli-quench sibling-cancellation route remains closed.
+- The centered `h`-transform as a standalone proof strategy is demoted: it is an exact positive reformulation but no current simplification. Evidence: `students/student-a/001-centered-h-transform.md` Sections 7--15 and `meetings/001-h-transform-review.md`.
 - The previously closed 2D signed-move and nearest-vacancy-capacity routes are not part of this programme.
 
 ### Open
 
-- Whether the transformed finite-set process has a useful recurrence, regeneration, front, invariant-measure, or coupling structure that yields one-site density convergence from finite nonempty sets.
-- Whether the transformed process or the exact duality is already known under another name.
-- If this reduction gives no leverage, whether the unnormalized patch/successful-skeleton representation yields a more informative model-specific late-interaction estimate.
+- Exact unnormalized hard-FA patch amplitudes and full successful-skeleton measure bookkeeping.
+- Whether the apparent criticality of one backward outgoing chain survives the first full branching composition.
+- Whether consistency probabilities plus one-dimensional overlap/coalescence/recurrence yield a late-interaction estimate unavailable in the normalized representation.
+- Whether the unnormalized patch expansion is merely another resummation of the verified `h`-transform and therefore adds no leverage.
+- If E2 survives, model-specific replacements for late-interaction suppression and terminal-dependence relaxation.
 
 ## Current bottleneck
 
-The first bottleneck is not yet the full convergence theorem. It is to validate the exact transformed process and decide whether the target has genuinely been reduced to a more tractable positive finite-set problem.
+Determine whether the unnormalized successful-skeleton expansion creates any real target-level gain after all patches generated by the first two successful records are included. The first-composition calculation is deliberately chosen to kill the route early if it only reproduces the old sibling algebra or a critical positive transform with no additional geometry.
 
 ## Strongest positive evidence
 
-The centered basis is unusually rigid for FA-1f: the patch threshold equals the equilibrium density and the coefficient signs are exact. The proposed `h`-transform uses the absorbing all-one configuration to produce a natural harmonic weight `q^{|A|}`, suggesting a genuine Markov representation rather than another signed majorant. The resulting local update rule, if correct, is explicit enough for direct probabilistic analysis.
+The patch construction is canonical and exact, and the hard-model failure of Theorem C is sharply localized. Restoring consistency probabilities changes the object being estimated: instead of normalized local contributions alone, one sees the probability cost of the successful skeleton. This directly addresses the missing pure-death majorant rather than changing coordinates abstractly.
 
 ## Strongest negative evidence
 
-A change of dual representation can simply move the original difficulty. The transformed process is not obviously attractive, and finite-seed local convergence may be equivalent in hardness to the original conjecture. Earlier local-cancellation attempts in FA-1f failed after composition, so any apparent simplification must be tested on multi-particle configurations immediately.
+Student A's assignment 001 showed that a very clean positive reformulation can still be only an invertible change of coordinates. The same local two-neighbour algebra also overlaps exactly with the permanently closed sibling route. The patch alternative therefore has to survive a full branching-composition test in the actual centered target quantity; a chain-only `e^{-Delta}` factor is not evidence of progress.
 
 ## Current assignment
 
-Graduate Student A: independently derive or refute the claimed `h`-transform duality, identify the transformed process precisely, analyze its first nontrivial multi-particle transitions, and assess whether it offers a mathematically distinct route to the single-vacancy convergence theorem. Exact assignment: `students/student-a/assignment-001.md`.
+Graduate Student A: derive the unnormalized hard-FA patch representation exactly from Theorem 4.4, compute all local amplitudes and skeleton intensities, write the singleton equilibrium deviation in that expansion, and evaluate skeletons with zero, one, and two successful records including the full patch family. Determine whether the first composition gives a real gain or only reproduces E1 / the closed sibling mechanism.
+
+Exact assignment: `students/student-a/assignment-002.md`.
 
 ## Research delta
 
-Latest meeting `state_narrowed`: not applicable; no student group meeting yet.
+Latest meeting `state_narrowed`: yes
 
-Evidence pointer: `notes/professor-initial-reduction.md`
+Evidence pointer: `students/student-a/001-centered-h-transform.md`, Sections 1--4 and 7--15; meeting judgment in `meetings/001-h-transform-review.md`.
 
 Consecutive no-narrowing meetings: 0
 
@@ -144,7 +144,9 @@ Stagnation consultation pending or completed: none
 - `notes/professor-initial-reduction.md`
 - `literature.md`
 - `audit-log.md`
-- `students/student-a/assignment-001.md`
+- `meetings/001-h-transform-review.md`
+- `students/student-a/001-centered-h-transform.md`
+- `students/student-a/assignment-002.md`
 
 ## Principal-facing brief
 
@@ -154,35 +156,35 @@ Single-vacancy convergence to equilibrium for 1D hard FA-1f for every `q in (0,1
 
 ### What changed mathematically
 
-Programme initialized. The Professor identified a candidate centered `h`-transform reduction to an explicit finite-set neighbour-refresh process; this is currently a claimed calculation awaiting Student A's check.
+E1 was verified exactly, but the transformed process was shown to be an invertible finite-volume coordinate transform with no present front/monotonicity/BABP simplification. The active proof strategy therefore pivots to the unnormalized successful-skeleton/patch expansion.
 
 ### What the Professor directly inspected
 
-`CHATGPT.md`, `project-state.md`, `README.md`, the canonical patch paper supplied by the principal, and the 2025 Martinelli--Shapira--Toninelli open-problems paper at the target/conjecture level.
+`students/student-a/001-centered-h-transform.md` in full, the current state and proof spine, and the original Professor reduction. The decisive structural evidence is the finite-volume similarity, exact front identities, non-attractiveness/non-additivity, BABP form comparison, and closed-route algebra overlap in Student A's Sections 7--15.
 
 ### Current proof-spine bottleneck
 
-Validate and assess the finite-set dual reduction.
+E2: exact unnormalized hard-FA patch amplitudes plus the first full branching-composition calculation in the singleton equilibrium deviation.
 
 ### Strongest reason to continue
 
-The target is explicitly open and the canonical patch/centered-moment machinery gives an unusually concrete possible reduction.
+The target remains strong and the patch route attacks the precise point where the canonical convergence proof fails.
 
 ### Strongest reason to doubt the direction
 
-The transformed finite-set process may encode the same hard non-attractive dynamics without adding leverage.
+The first clean reduction was sterile, and the local patch algebra may again collapse to an exact critical reformulation or the already closed sibling mechanism.
 
 ### State narrowed since last group meeting
 
-Not applicable before the first student meeting.
+`yes`: E1 was verified and simultaneously eliminated as the main proof mechanism; the exact closed-route overlap was identified.
 
 ### Direction
 
-`continue`: this is the best current target and the first calculation is cheap and decisive enough to justify immediate work.
+`continue`, with a proof-strategy pivot inside the same target.
 
 ### What happens next
 
-Graduate Student A checks the reduction and probes the transformed process. No second student is needed yet.
+Graduate Student A performs assignment 002. No second student is needed before this decisive composition test.
 
 ### Pending audit or stagnation consultation
 
