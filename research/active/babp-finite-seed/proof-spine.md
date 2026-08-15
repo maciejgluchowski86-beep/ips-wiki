@@ -8,7 +8,7 @@ $$
 q=\frac{\lambda}{1+\lambda}.
 $$
 
-Begin with `B={0}`. The programme is committed after Meeting 003 because the finite-window edge method produced an independently audited nontrivial certificate at `lambda=1/40`.
+Begin with `B={0}`. The programme is committed. Meeting 004 produced a complete **claimed** bridge from a statewise positive finite-window edge corrector to finite-seed convergence; two fresh independent audits are pending before that theorem can be promoted.
 
 ## E0. Finite-test convergence criterion
 
@@ -22,18 +22,20 @@ $$
 
 The functions indexed by subsets of a fixed finite window form a basis of local observables, and Bernoulli equilibrium has zero expectation for every nonempty such duality function. Hence decay of these finite-test observables implies local convergence.
 
-**Status:** established external input; independently rederived by Student B.
+**Status:** established external input; independently rederived by Student B. Not used in the new gap bridge.
 
-## E1. Existing all-parameter literature inputs
+## E1. External stationary-limit inputs
 
-For every `lambda>0` the current literature supplies:
+For every fixed `lambda>0`:
 
-- the one-dimensional stationary-law classification needed for finite-seed convergence arguments;
-- exponential ergodicity of DFP on local observables;
-- linear growth of BABP cardinality from finite nonempty seeds;
-- exponential convergence from Bernoulli product initial laws.
+1. every weak limit point of the one-dimensional BABP trajectory is stationary;
+2. every stationary BABP law is a convex combination of the empty state and Bernoulli equilibrium.
 
-**Status:** established external input.
+For (1), the Professor checked Jahnel--Köppl (2026), Theorem 2.5. BABP has finite local state space, single-site updates, uniformly bounded site rate, and nearest-neighbour dependence, so its influence has finite range and satisfies the theorem's exponential-decay assumptions.
+
+For (2), Martinelli--Shapira--Toninelli (2025), Corollary 2.9, states the one-dimensional BABP classification directly.
+
+**Status:** external primary-source inputs checked by the Professor; audit 003 will independently verify the interface.
 
 ## E2. Finite-window right-edge corrector
 
@@ -58,87 +60,90 @@ $$
 If `D>=v>0` uniformly, then for every finite nonempty initial configuration
 
 $$
-\liminf_{t\to\infty}\frac{R(B_t)}t\ge v
-\qquad\text{a.s.},
+\liminf_{t\to\infty}\frac{R(B_t)}t\ge v,
+\qquad
+\limsup_{t\to\infty}\frac{L(B_t)}t\le-v
+\quad\text{a.s.}
 $$
 
-and by reflection
+The corrector argument does not assert existence of the corresponding limits.
 
-$$
-\limsup_{t\to\infty}\frac{L(B_t)}t\le -v
-\qquad\text{a.s.}
-$$
-
-The corrector argument does **not** by itself prove existence of limits `R(B_t)/t` or `L(B_t)/t`.
-
-**Status:** verified by fresh independent hostile audit.
+**Status:** verified by fresh hostile audit `d1ef2ca` as claim `BABP-EDGE-001`.
 
 **Calibration:**
 
-- `k=1`: strict feasibility iff `lambda>1/3`, analytically;
-- `k=8`: independently reproduced numerical zero-drift threshold `0.0346195434755...`, with sign change between `0.03461954` and `0.03461955`;
+- `k=1`: strict feasibility iff `lambda>1/3`;
+- `k=8`: independently reproduced numerical zero crossing `0.0346195434755...`;
 - `k=10`, `lambda=1/40`: exact rational certificate with minimum drift
 
 $$
 \frac{1033}{40000000}>0.
 $$
 
-**Project claim:** `BABP-EDGE-001`, status `verified` in `research/claim-registry.md`.
+Literal historical identity with Sudbury's internal `k=8` calculation remains unverified and is not load-bearing.
 
-**Decisive pointers:**
+## E3. DFP black-box route
 
-- `students/student-b/001-threshold-and-dfp.md`;
-- `students/student-b/edge-corrector-certificate.py`;
-- `notes/professor-edge-corrector-verification.md`;
-- `audits/001-edge-corrector-audit.md`, commit `d1ef2ca`.
+The deterministic finite-test self-duality cylinder has no probability-law representation by DFP initial sets, and its unique signed representation on a finite ambient window has total-variation norm growing exponentially with window size.
 
-**Historical qualification.** The accessible Sudbury (1999) record confirms the published `0.0347` finite-seed convergence threshold, hunted-submartingale method, and edge-speed bounds. The full paper body was not accessible. Therefore the numerical `k=8` calibration is strong mechanism-level evidence but literal identity with Sudbury's LP, normalization, or an eight-site state encoding is unverified. The present verified claim stands independently of that provenance question.
+**Status:** algebraic obstruction established for present use; DFP demoted to a secondary route.
 
-## E3. DFP as a black-box route to finite-test observables
+## E4. Statewise corrector to local convergence
 
-Let `y=sqrt(1+lambda)` and use the BABP--DFP quasi-duality one-site factors
+This is the theorem proved in Student B assignment 002.
 
-$$
-a=\frac1{y+1},\qquad b=-\frac1{y-1}.
-$$
-
-Student B showed, and the Professor checked the one-site algebra, that a deterministic finite-test self-duality cylinder cannot be represented by a probability law on DFP initial sets. On a finite ambient window the unique signed representation has total-variation norm growing like
+Assume the **statewise** condition `(EC)`:
 
 $$
-y^{|V\setminus T|}.
+\exists k\ge1,\ \phi:\{0,1\}^k\to\mathbb R\text{ bounded},\ v>0
+\quad\text{such that}\quad
+D_{k,\lambda}(u,z;\phi)\ge v
 $$
 
-Thus DFP exponential ergodicity is not a black-box solution; it would need a quantitative exponent beating this coefficient growth or a different spatial argument.
+for every `u,z`.
 
-**Status:** algebraic obstruction verified for present use; DFP demoted to secondary route.
-
-## E4. Ballistic edge bounds to local convergence
-
-This is the **current first unresolved theorem-level edge**.
-
-Determine whether the verified two-sided lower-asymptotic-velocity bounds, together with the known invariant-law classification and all-parameter growth information, are sufficient to imply finite-seed local convergence.
-
-The immediate test parameter is
+Then for every finite nonempty deterministic initial `B`,
 
 $$
-\lambda=\frac1{40}.
+\operatorname{Law}_B(B_t)\Longrightarrow\pi_q.
 $$
 
-A valid proof must separate:
+The proof is not an inference from the outer liminf/limsup bounds alone. It reuses `(EC)` on every internal gap:
 
-1. invariance of subsequential local weak limits;
-2. classification of invariant limits as mixtures of the empty state and Bernoulli equilibrium;
-3. exclusion of the empty component.
+1. positive gaps are born at width one, do not split, and distinct positive gaps do not merge;
+2. applying the right/left corrector to the populations bordering a tagged gap gives a corrected width with drift at most `-2v` until closure;
+3. exponential tilting gives uniform exponential tails for gap lifetime and maximal width;
+4. boundary displacement is Poisson dominated;
+5. a compensator sum over gap nucleations yields
 
-The ballistic hull bounds do not by themselves visibly imply item 3, so no downstream convergence claim is allowed until this bridge is established.
+$$
+\limsup_{t\to\infty}
+\mathbf P_B(0\text{ lies in an internal gap of width at least }m)
+\le Ce^{-cm};
+$$
 
-**Status:** open.
+6. combining this with the outer ballistic bounds yields
 
-**Owner:** Graduate Student B, assignment `students/student-b/assignment-002.md`.
+$$
+\limsup_{t\to\infty}
+\mathbf P_B(B_t\cap[-M,M]=\varnothing)
+\le Ce^{-cM};
+$$
 
-**If proved with no second parameter restriction:** `BABP-EDGE-001` immediately supplies the missing edge input at `lambda=1/40`, yielding a genuine finite-seed convergence theorem below the published `0.0347` convergence threshold. That theorem has not yet been proved.
+7. E1 then forces every subsequential stationary mixture to have zero empty-state coefficient.
 
-## E5. Remove the finite-window edge threshold
+No particle-number growth theorem is used. The initial condition is only assumed finite, deterministic, and nonempty.
+
+**Status:** `claimed` as project claim `BABP-CONV-001`. Professor independently reconstructed the load-bearing gap argument and external theorem interface. Two fresh independent audits are pending:
+
+- `audits/002-corrector-to-convergence-request.md`;
+- `audits/003-corrector-to-convergence-request.md`.
+
+**Concrete claimed corollary:** verified `BABP-EDGE-001` supplies `(EC)` at `lambda=1/40`, so finite-seed convergence holds there. This lies below the `0.0347` range recorded in Martinelli--Shapira--Toninelli (2025), Remark 5.4. Do not promote this conclusion until both audits are resolved.
+
+## E5. Remove the finite-window corrector threshold
+
+Assuming E4 survives audit, this becomes the first development bottleneck.
 
 For fixed `k`, define
 
@@ -152,47 +157,39 @@ $$
 \lambda_k=\inf\{\lambda>0:v_k(\lambda)>0\}.
 $$
 
-The computed values decrease sharply through `k=10`. The all-parameter target would follow from this route if E4 is sufficient and one proves
+The all-parameter target follows if one proves that for every `lambda>0` there is some finite `k` and bounded `phi` satisfying `(EC)`. A sufficient formulation is
 
 $$
 \lambda_k\longrightarrow0,
 $$
 
-or otherwise constructs, for every fixed `lambda>0`, some finite `k` and bounded corrector with positive drift.
+provided the threshold definition behaves as expected.
 
-Possible analytic interpretations include a Poisson equation or hitting-time corrector for the environment seen from the edge, but no such representation is yet established.
+The computed values decrease sharply through `k=10`, but no analytic proof is known. Candidate interpretations include a Poisson equation/hitting-time corrector for the environment seen from the edge or an explicit multiscale family of correctors.
 
-**Status:** open, downstream of E4.
+**Status:** open. Development is paused until audits 002 and 003 settle E4, because any repair to E4 may change the right object to generalize.
 
-## H1. Historical provenance question
+## H1. Historical provenance
 
-The exact relation between the present `k=8` LP and Sudbury's internal 1999 calculation is not source-verified because the full paper body was inaccessible to Student B and the independent auditor.
-
-This question is **not load-bearing for E2**: `BABP-EDGE-001` has an independent proof and hostile audit. It is useful mainly for understanding the historical bridge E4. Student B should continue to seek the full proof as part of assignment 002. No separate research session will be spent solely to establish that Sudbury literally used the same eight-site LP.
-
-**Status:** open provenance question, secondary to E4.
+The exact relation between the present `k=8` LP and Sudbury's internal 1999 calculation remains unverified because the full paper body has not been obtained. This is not load-bearing for E2 or E4. It may still illuminate the historical convergence proof, but no separate session is assigned solely to provenance.
 
 ## O1. Opportunity-cost comparison
 
-Graduate Student A's reconnaissance ranked the residual simple-IPS positive-rates/noisy-East problem above provisional BABP unless Student B found a genuinely new small-parameter lemma. Student B did: the exact `lambda=1/40` edge certificate is now independently audited and yields the concrete E4/E5 programme above.
-
-Therefore BABP remains the next substantial investment. The noisy-East residual remains the strongest identified future candidate if BABP's bridge fails or the finite-window thresholds prove analytically sterile.
-
-**Status:** bounded reconnaissance complete; Student A idle.
+The residual simple-IPS positive-rates/noisy-East problem remains the strongest identified reserve. BABP continues to outrank it after the verified edge certificate and now a complete claimed convergence proof at `lambda=1/40`.
 
 ## Current first unresolved edge
 
-**E4: establish or refute the ballistic-edge-bound-to-local-convergence bridge, first at `lambda=1/40`.**
+**Correctness audit of E4 / `BABP-CONV-001`.**
 
-Do not spend the main effort on `lambda_k -> 0` until the group knows that a positive finite-window corrector buys the convergence theorem or knows the exact extra lemma required.
+There is no new development assignment until two independent reviews return. If the theorem survives, E5 becomes the first mathematical development edge.
 
 ## Routes demoted or excluded
 
-- DFP change-of-basis as a black-box finite-seed solution: demoted by the coefficient-norm obstruction.
-- Local patch-weight contraction: not an active route; BABP already has more direct finite-state edge structure.
-- Closed FA-1f sibling-cancellation and related closed programmes remain closed.
-- Do not infer local convergence from cardinality growth or hull expansion alone.
+- Bare outer ballistic bounds are not to be substituted for the statewise corrector in E4.
+- DFP change-of-basis is not the current finite-seed route.
+- Local patch-weight contraction is not active.
+- Closed FA-1f routes remain closed.
 
 ## Revision note
 
-Independent audit 001 verified the generator, exact certificate, martingale consequence, `k=1` calibration, and numerical `k=8` crossing. It corrected three overstatements from Meeting 003: the certificate gives liminf/limsup ballistic bounds rather than speed-limit existence; literal historical `k=8` identity is unverified; and no improvement of Sudbury's published convergence theorem has yet been proved. `BABP-EDGE-001` is now `verified` with this narrower boundary.
+Meeting 004 materially narrowed the programme. The statewise finite-window corrector was shown to control not only outer spreading but internal-gap persistence. This yields a complete claimed bridge to finite-seed convergence and, combined with verified `BABP-EDGE-001`, a claimed convergence theorem at `lambda=1/40`. Because this is substantially stronger than the audited edge claim, it is separately registered and awaits two independent hostile reviews.
