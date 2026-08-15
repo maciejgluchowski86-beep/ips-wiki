@@ -1,6 +1,7 @@
 ---
 title: Lacunary and Hadamard-gap trigonometric series
 status: standard fact
+audit: current
 tags:
   - analysis
   - Fourier analysis

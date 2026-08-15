@@ -1,0 +1,83 @@
+name: Temporary strict wiki integration check
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  strict-wiki-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Repository-wide git grep and Markdown link check
+        shell: bash
+        run: |
+          set -euo pipefail
+          git grep -n -E '\]\([^)]*\.md(#[^)]*)?\)' -- '*.md' > /tmp/markdown-links.txt || true
+          echo "Repository-wide git grep Markdown-link hits: $(wc -l < /tmp/markdown-links.txt)"
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.parse import unquote
+          import re
+          import subprocess
+          import sys
+
+          root = Path.cwd().resolve()
+          files = subprocess.check_output(
+              ["git", "ls-files", "*.md"], text=True
+          ).splitlines()
+          link_re = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
+          checked = 0
+          missing = []
+
+          for name in files:
+              source = root / name
+              text = source.read_text(encoding="utf-8")
+              for raw in link_re.findall(text):
+                  target = raw.strip().split(maxsplit=1)[0].strip("<>")
+                  if not target or target.startswith(("#", "http://", "https://", "mailto:", "tel:")):
+                      continue
+                  clean = unquote(target.split("#", 1)[0].split("?", 1)[0])
+                  if not clean.lower().endswith(".md"):
+                      continue
+                  checked += 1
+                  if clean.startswith("/"):
+                      candidate = root / clean.lstrip("/")
+                  else:
+                      candidate = source.parent / clean
+                  if not candidate.resolve().is_file():
+                      missing.append(f"{name}: {target}")
+
+          print(f"Repository-wide local Markdown links checked: {checked}")
+          if missing:
+              print("Broken local Markdown links:")
+              for item in missing:
+                  print(f"- {item}")
+              sys.exit(1)
+          print("Repository-wide local Markdown link check passed.")
+          PY
+
+      - name: Strict MkDocs build
+        run: mkdocs build --strict

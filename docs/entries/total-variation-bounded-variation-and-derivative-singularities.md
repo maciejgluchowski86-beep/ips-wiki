@@ -1,6 +1,7 @@
 ---
 title: Total variation, bounded variation, and derivative singularities
 status: standard fact
+audit: current
 tags:
   - analysis
   - measure theory
