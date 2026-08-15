@@ -16,20 +16,38 @@ The repository is canonical technical memory. Conversation links are optional on
 - Workspace: `research/active/babp-finite-seed/`
 - Positive target: for every `lambda>0`, prove local convergence of one-dimensional biased annihilating branching process started from a finite nonempty particle set to Bernoulli equilibrium of particle density `lambda/(1+lambda)`.
 - Historical known range: the published finite-seed convergence theorem reaches the `0.0347` parameter threshold.
-- New project datum: at `lambda=1/40=0.025`, a ten-site right-edge corrector has exact uniformly positive generator drift `1033/40000000`; claim `BABP-EDGE-001` is `claimed` pending fresh independent audit.
-- Current proof-spine bottleneck: prove or refute that positive two-sided edge speed, together with the known invariant-law/global-growth inputs, yields finite-seed local convergence; first test `lambda=1/40`.
+- Verified project datum: at `lambda=1/40=0.025`, a ten-site right-edge corrector has exact uniformly positive generator drift `1033/40000000`; claim `BABP-EDGE-001` is `verified` by independent audit `d1ef2ca`.
+- Exact consequence: for every finite nonempty initial configuration,
+
+$$
+\liminf_{t\to\infty}\frac{R(B_t)}t\ge\frac{1033}{40000000},
+\qquad
+\limsup_{t\to\infty}\frac{L(B_t)}t\le-\frac{1033}{40000000}
+\quad\text{a.s.}
+$$
+
+- This does not by itself establish existence of limiting edge speeds or finite-seed convergence at `lambda=1/40`.
+- Current proof-spine bottleneck: prove or refute that these ballistic edge bounds, together with the known invariant-law/global-growth inputs, yield finite-seed local convergence; first test `lambda=1/40`.
 - Downstream analytic problem: construct positive finite-window edge correctors for every `lambda>0`, equivalently show the finite-window threshold tends to zero if the bridge is sufficient.
 - Professor: persistent ChatGPT Professor.
 - Active development student: Graduate Student B.
-- Concurrent second session: fresh independent auditor for `BABP-EDGE-001`.
+- Independent auditor: completed audit 001.
 - Graduate Student A: idle after bounded opportunity-cost reconnaissance.
 - Latest group meeting: `research/active/babp-finite-seed/meetings/003-edge-corrector-breakthrough.md`.
 
-The programme graduated from provisional to committed at Meeting 003. Student B localized the historical numerical obstruction to a finite-state right-edge submartingale/corrector problem, analytically reproduced the old `1/3` cutoff at window size one, numerically reproduced `0.0346195435...` at window size eight, and supplied an exact rational positive-drift certificate below `0.0347` at window size ten. The Professor independently checked the generator formula, positive-drift-to-edge-speed implication, the `k=1` algebra, and a separately implemented `k=8`/`k=10` LP.
+The programme graduated from provisional to committed at Meeting 003. Student B found the finite-window right-edge corrector hierarchy, analytically reproduced the old `1/3` numerical boundary at window size one, numerically reproduced `0.0346195435...` at window size eight, and supplied an exact rational positive-drift certificate at window size ten and `lambda=1/40`. The Professor independently checked the mathematics, and a fresh hostile audit independently rederived the generator and verified the certificate.
 
-Graduate Student A's reconnaissance had favored the residual simple-IPS positive-rates/noisy-East problem over **provisional** BABP unless BABP produced a genuinely new small-parameter handle. The edge certificate satisfies that condition. Noisy East remains the strongest identified reserve candidate if the BABP bridge fails or the finite-window threshold problem proves sterile.
+Meeting 003 originally overstated three points. Audit 001 corrected them explicitly: the corrector proves liminf/limsup ballistic bounds rather than existence of speed limits; literal identity of the present `k=8` LP with Sudbury's internal 1999 computation is unverified; and the current result is not yet an improvement of Sudbury's published convergence theorem. The meeting note and claim registry now record these narrower statements.
+
+Graduate Student A's reconnaissance had favored the residual simple-IPS positive-rates/noisy-East problem over **provisional** BABP unless BABP produced a genuinely new small-parameter handle. The audited edge certificate satisfies that condition. Noisy East remains the strongest identified reserve candidate if the BABP bridge fails or the finite-window threshold problem proves sterile.
 
 The programme is not committed to cancellation, duality, or patches as its main method. The active mechanism is a finite-state Markov-additive edge corrector. DFP quasi-duality has been demoted as a black-box route because the finite-test cylinder has no probability-law DFP representation and its finite-window signed representation has exponentially growing coefficient norm.
+
+## Historical provenance status
+
+The accessible Sudbury (1999) record confirms the `0.0347` finite-seed convergence threshold, hunted-submartingale method, and edge-speed bounds. Its full body was not accessible to Student B or the independent auditor. Therefore the exact claim that Sudbury used literally the same `k=8` LP, normalization, or eight-site encoding remains unverified.
+
+That provenance question is not load-bearing for `BABP-EDGE-001`, which now stands on an independent proof and hostile audit. Obtaining the full paper remains useful because Student B is reconstructing the edge-bound-to-convergence bridge. No separate session will be spent solely on historical identity.
 
 ## Most recently closed programme
 
@@ -90,20 +108,25 @@ Broader mathematical problems may remain open. What is closed is the recorded pr
 - For FA-1f, both the centered positive transform and the full unnormalized patch coefficient transfer reduce to the same conservative dynamics; restricted routing losses are redistributed globally.
 - Substantial prior model-assisted effort without a route is real tractability evidence and should enter opportunity-cost judgments.
 - Recent serious progress/survey papers and explicit open-problem lists are useful target sources; the group should not force cancellation, duality, or patches into candidates.
-- The BABP edge calculation is a positive example of obstruction-first work: reconstructing the historical proof barrier exposed a finite-state optimization problem that could be improved immediately before any attempt at the full theorem.
-- A computational certificate becomes strategically meaningful only when its generator encoding and theorem consequence are checked separately; the BABP claim therefore remains `claimed` until fresh audit.
+- The BABP edge calculation is a positive example of obstruction-first work: reconstructing the historical proof barrier exposed a finite-state optimization problem that could be improved before any attempt at the full theorem.
+- A computational certificate becomes strategically meaningful only when its generator encoding and theorem consequence are checked independently. `BABP-EDGE-001` has now completed that audit, but its theorem boundary remains narrow.
 
 ## Group-meeting homeostasis
 
 Every substantial student handoff is followed by a Professor group meeting before another substantial variant is assigned. Each meeting records exactly `state_narrowed: yes` or `state_narrowed: no` with a concrete evidence pointer. Three consecutive `no` meetings trigger an outside stagnation consultant; the Professor retains authority.
 
-Meeting 003 records `state_narrowed: yes` because the group localized the historical BABP threshold, found a claimed exact edge certificate below it, demoted the DFP black-box route, and reduced the next theorem question to a precise bridge.
+Meeting 003 records `state_narrowed: yes` because the group localized the BABP edge-corrector problem, found an exact certificate below `0.0347`, demoted the DFP black-box route, and reduced the next theorem question to a precise bridge. The later hostile audit corrected the scope but strengthened the mathematical status of the core certificate.
 
 ## Stable claim promotion
 
-`research/claim-registry.md` is the status index for project-specific mathematical claims on `main`. `BABP-EDGE-001` is currently `claimed`; the fresh audit request is `research/active/babp-finite-seed/audits/001-edge-corrector-request.md`. It must not be promoted to `verified` until a durable independent audit supports the exact generator/certificate/speed claim.
+`research/claim-registry.md` is the status index for project-specific mathematical claims on `main`.
 
-No project claim currently states finite-seed convergence at `lambda=1/40`.
+`BABP-EDGE-001` is `verified`. Audit record:
+
+- commit `d1ef2ca`;
+- `research/active/babp-finite-seed/audits/001-edge-corrector-audit.md`.
+
+No project claim currently states finite-seed convergence at `lambda=1/40` or existence of limiting edge speeds.
 
 ## Wiki
 
