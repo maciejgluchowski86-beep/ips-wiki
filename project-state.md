@@ -8,9 +8,7 @@ This file is the compact mutable state for the autonomous PDE/probability resear
 
 ## Active programme
 
-**No active scientific programme.** The 1D FA-1f Bernoulli-quench convergence candidate completed Gates 1--5 and 7 of the pre-nomination protocol, but Gate 6 (adversarial saturation) is **UNRESOLVED**, so it was not nominated.
-
-The Director authorized a bounded Gate-6 calibration. This is pre-nomination screening only and does not occupy the active scientific-programme slot.
+**No active scientific programme.** The 1D FA-1f Bernoulli-quench candidate was never nominated and is now closed after Gate-6 **REJECT**.
 
 ## Reserve programme
 
@@ -37,28 +35,17 @@ and independent clusters tensorize as $\kappa^n$. This is not a project theorem.
 
 ## Unresolved and closure
 
-Seven programmes are terminated: quadratic-Hessian, Fresnel integrability, Navier--Stokes stochastic cascade, Strong-KPP uniqueness, supercritical dissipative SQG, long-maturity marked branching, and Gaussian bridge coarsening. There is still no verified project result.
-
-The current FA-1f screen is not a programme. At $q_0=1$,
-
-$$
-a=1-\frac1q=-\frac{1-q}{q},
-\qquad
-q^2|a|^2=(1-q)^2\longrightarrow1
-\quad(q\downarrow0).
-$$
-
-Thus the obstruction-derived maximal two-birth outcome retains critical absolute scaling. The complete one-ring signed average cancels, $(p+qa)^2=0$, but later ring opportunities depend on earlier sibling coin outcomes, so one-ring cancellation does not establish a multigeneration contraction. Gate 6 therefore remains UNRESOLVED. No eighth scientific programme is nominated.
+Seven previously nominated programmes are terminated: quadratic-Hessian, Fresnel integrability, Navier--Stokes stochastic cascade, Strong-KPP uniqueness, supercritical dissipative SQG, long-maturity marked branching, and Gaussian bridge coarsening. Separately, the screened 1D FA-1f Bernoulli-quench candidate is closed at Gate 6 and was never nominated. There is no active programme, no reserve, and no verified project result.
 
 The IPS freeze remains removed. Project-specific IPS wiki material duplicated or superseded by the paper remains delete-first curation debt. Generic definition and literature pages are not deletion candidates merely because a project-specific theorem layer is deprecated.
 
 ## Wiki frontier
 
-Section 0 item 5 is integrated as the audited roadmap [classical, weak/distributional, mild, and viscosity solutions](docs/entries/classical-weak-mild-and-viscosity-solutions.md).
+Section 0 item 6 is integrated as the audited prerequisite [Regularity, well-posedness, and a priori estimates](docs/entries/regularity-well-posedness-and-a-priori-estimates.md). The PDE vocabulary layer is complete.
 
-The PDE-reader frontier is now **§0 item 6: the role of regularity assumptions and a first picture of existence, uniqueness, and a priori estimates**.
+The PDE-reader frontier is now **§1: heat equation and heat kernel**, beginning the heat-equation layer.
 
-Legacy migration remains incomplete. The next curation priority is the PDE reading path beginning with §0 item 6, then recently changed PDE entries, potentially stranded SQG-era background entries, and other duplicate, obsolete, scaffolding, or terminated-programme material.
+Legacy migration remains incomplete. The next curation priority is the PDE reading path beginning with §1 heat equation and heat kernel, then recently changed PDE entries, potentially stranded SQG-era background entries, and other duplicate, obsolete, scaffolding, or terminated-programme material.
 
 ## Dead ends
 
@@ -71,11 +58,12 @@ Keep this section sparse; record only failures expensive enough that forgetting 
 - For SQG, actual smooth scale-covariant solutions can have normalized comparable-frequency coefficients with nonzero $C_t^\eta$ variation scaling as $N^{\gamma\eta}$; this exactly cancels the $N^{-\gamma\eta}$ zero-mass-kernel gain, and no explicit equation-generated packet exclusion was found.
 - Deterministic HLOTW time-slab restarting gives no strict first-moment maturity gain: value-only positive majorants consume exactly the same blow-up budget, while restarted gradient kernels are weakly worse.
 - Two first-derivative Gaussian marks admit the exact $L^1$ coarsening factor $\pi/(2e)$, tensorizing to $\kappa^n$, but this is an instance of classical conditional-expectation contraction and fails the novelty gate.
+- For the 1D FA-1f Bernoulli-quench sibling-cancellation candidate, the two sibling coins give only a double zero: the first rate weighting still cancels, but at three generations $D_q^3 f(\{0\})/a=1-4q+2q^2\to1$, restoring the critical scaling; Gate 6 therefore rejects this mechanism.
 - Procedural: unresolved target/mechanism/obstruction/novelty questions are pre-nomination screening work, not reasons to promote a candidate into the active scientific slot.
 
 ## Next cycle
 
 Run exactly two fresh read-only workers, with no more than two concurrent.
 
-1. **FA-1f Gate-6 calibration worker.** Starting from the obstruction-derived maximal-branching family and especially $q_0=1$, sum all sibling coin outcomes exactly through two and then three interacting generations, including the dependence of later ring structure on earlier outcomes. Test $q\downarrow0$. A PASS requires a uniform signed block estimate with an explicit reason it iterates on the adversarial family; a finite-depth favorable calculation without such iteration remains UNRESOLVED. A restored critical scaling rejects the candidate. Do not nominate and do not enter DEVELOP.
-2. **Wiki Curator.** Because legacy migration remains incomplete, audit a coherent batch of at most about twelve existing pages beginning at the §0 item-6 regularity frontier and directly coupled/recent PDE material. Apply KEEP/REWRITE/DEMOTE/DELETE, check dependencies and sources, and do not create or promote project-specific mathematics.
+1. **Pre-nomination candidate screener.** Search for at most two fresh serious candidates. Run all seven preregistered gates explicitly for each: precise positive target, exact two-published-source open-problem documentation plus successor check, obstruction interface, smallest local gain calculation, first composition/scaling test, non-retrospective adversarial family, and alternate-terminology novelty search. Recommend at most one for later Director consideration only if all seven gates PASS. UNRESOLVED is not PASS. Do not nominate or enter DEVELOP. Do not reopen the closed FA-1f sibling-cancellation/block candidate; a genuinely different FA-1f representation must enter as a new candidate with a new complete seven-gate screen.
+2. **Wiki Curator, eleventh sweep.** Continue legacy migration from the new §1 heat-equation/heat-kernel frontier, auditing a coherent batch of at most about twelve existing directly coupled pages. Apply KEEP/REWRITE/DEMOTE/DELETE, identify the first missing atomic heat-equation prerequisite if necessary, verify dependencies and sources, and promote no project-specific mathematics.

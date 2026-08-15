@@ -73,6 +73,7 @@ nav:
       - BABP out of equilibrium: entries/babp-out-of-equilibrium.md
   - PDE and branching representations:
       - PDE reading path: pde-reading-path.md
+      - Regularity, well-posedness, and a priori estimates: entries/regularity-well-posedness-and-a-priori-estimates.md
       - Overview: pde-branching-representations.md
       - Heat-reference fully nonlinear terminal PDE: entries/heat-reference-fully-nonlinear-pde.md
       - Mild formulation and branching-diffusion representation: entries/mild-formulation-and-branching-diffusion-representation.md
