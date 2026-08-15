@@ -8,110 +8,169 @@ $$
 q=\frac{\lambda}{1+\lambda}.
 $$
 
-Begin with `B={0}`. Existing results cover `lambda>0.0347`; the active novelty is the remaining small-parameter range.
+Begin with `B={0}`. The programme is now committed after Meeting 003 because the finite-window edge method produced a new exact certificate below the historical `0.0347` cutoff.
 
-This is the current working target. A bounded concurrent reconnaissance compares its expected value against other explicit open problems before the group commits to prolonged technical development.
+## E0. Finite-test convergence criterion
 
-## E0. Self-duality convergence criterion
-
-BABP self-duality gives, for finite `B'`,
+BABP self-duality gives, for finite `T`,
 
 $$
-\mathbf E\left[\left(-\frac1\lambda\right)^{|B'(t)\cap B|}\right]
+\mathbf E_B\left[\left(-\frac1\lambda\right)^{|B(t)\cap T|}\right]
 =
-\mathbf E\left[\left(-\frac1\lambda\right)^{|B(t)\cap B'|}\right].
+\mathbf E_T\left[\left(-\frac1\lambda\right)^{|T(t)\cap B|}\right].
 $$
 
-Martinelli--Shapira--Toninelli Remark 5.3 states that decay of the right-hand side to zero for every finite test set `B'` implies convergence of the law of `B(t)` to `pi`.
+The functions indexed by subsets of a fixed finite window form a basis of local observables, and Bernoulli equilibrium has zero expectation for every nonempty such duality function. Hence decay of these finite-test observables implies local convergence.
 
-**Status:** established external input; Student B should rederive the precise implication needed for finite-dimensional distributions.
+**Status:** established external input; independently rederived by Student B.
 
-## E1. Existing all-parameter inputs
+## E1. Existing all-parameter literature inputs
 
-For every `lambda>0`:
+For every `lambda>0` the current literature supplies:
 
-- DFP is exponentially ergodic on local observables uniformly over initial configurations (Martinelli--Shapira--Toninelli Theorem 5.2);
-- BABP started from a finite nonempty seed grows linearly in cardinality almost surely, via BABP--DFP quasi-duality;
-- BABP started from Bernoulli product initial laws converges exponentially to equilibrium.
+- the one-dimensional stationary-law classification needed for finite-seed convergence arguments;
+- exponential ergodicity of DFP on local observables;
+- linear growth of BABP cardinality from finite nonempty seeds;
+- exponential convergence from Bernoulli product initial laws.
 
 **Status:** established external input.
 
-## E2. Locate the historical threshold obstruction
+## E2. Finite-window right-edge corrector
 
-Reconstruct the best classical finite-seed convergence argument, in particular Sudbury's theorem giving convergence for `lambda>0.0347`.
+For a finite nonempty BABP configuration `B`, let `R=max B`. Encode the first `k` sites behind `R` by `u in {0,1}^k` and the next unresolved bit by `z`. For bounded `phi:{0,1}^k -> R`, put
 
-Identify the exact statement whose proof requires the numerical lower bound on `lambda`: a submartingale drift, edge-speed estimate, coupling success probability, block event, or other inequality. Express that condition in current `lambda`, `p`, `q` notation and determine which parts of the proof are already available for every `lambda>0` from the 2025 results.
+$$
+H(B)=R(B)+\phi(u(B)).
+$$
+
+The exact generator drift is
+
+$$
+\begin{aligned}
+D_{k,\lambda}(u,z;\phi)
+={}&\lambda[1+\phi(T_+u)-\phi(u)]\\
+&+u_1[-1+\phi(T_-^zu)-\phi(u)]\\
+&+\sum_{j=1}^k n_j^z(u)[\lambda(1-u_j)+u_j]
+[\phi(u^{(j)})-\phi(u)].
+\end{aligned}
+$$
+
+If `D>=v>0` uniformly, then the right edge has asymptotic speed at least `v` and the left edge has reflected negative speed.
+
+**Status:** generator criterion and speed implication checked by the Professor for current proof-spine use. Fresh independent audit pending.
+
+**Calibration:**
+
+- `k=1`: strict feasibility iff `lambda>1/3`, analytically;
+- `k=8`: independently solved numerical zero-drift threshold `0.0346195435...`, matching the published `0.0347` cutoff to the stated precision;
+- `k=10`, `lambda=1/40`: an exact rational certificate has minimum drift
+
+$$
+\frac{1033}{40000000}>0.
+$$
+
+**Project claim:** `BABP-EDGE-001`, status `claimed` in `research/claim-registry.md`.
+
+**Decisive pointers:**
+
+- `students/student-b/001-threshold-and-dfp.md`;
+- `students/student-b/edge-corrector-certificate.py`;
+- `notes/professor-edge-corrector-verification.md`;
+- `audits/001-edge-corrector-request.md`.
+
+**Historical qualification:** the accessible Sudbury (1999) record explicitly combines the `0.0347` improvement with hunted submartingales and edge-speed bounds, and the finite-window hierarchy reproduces both historical numerical cutoffs. Exact line-by-line identification with Sudbury's internal `k=8` calculation is not yet verified from the full paper.
+
+## E3. DFP as a black-box route to finite-test observables
+
+Let `y=sqrt(1+lambda)` and use the BABP--DFP quasi-duality one-site factors
+
+$$
+a=\frac1{y+1},\qquad b=-\frac1{y-1}.
+$$
+
+Student B showed, and the Professor checked the one-site algebra, that a deterministic finite-test self-duality cylinder cannot be represented by a probability law on DFP initial sets. On a finite ambient window the unique signed representation has total-variation norm growing like
+
+$$
+y^{|V\setminus T|}.
+$$
+
+Thus DFP exponential ergodicity is not a black-box solution; it would need a quantitative exponent beating this coefficient growth or a different spatial argument.
+
+**Status:** algebraic obstruction verified for present use; DFP demoted to secondary route.
+
+## E4. Edge speed to local convergence
+
+This is the **current first unresolved theorem-level edge**.
+
+Determine whether strictly positive two-sided outward edge speed, together with the known invariant-law classification and all-parameter growth information, is sufficient to imply finite-seed local convergence.
+
+The immediate test parameter is
+
+$$
+\lambda=\frac1{40}.
+$$
+
+A valid proof must separate:
+
+1. invariance of subsequential local weak limits;
+2. classification of invariant limits as mixtures of the empty state and Bernoulli equilibrium;
+3. exclusion of the empty component.
+
+Positive hull speed does not by itself visibly imply item 3, so no downstream convergence claim is allowed until this bridge is established.
 
 **Status:** open.
 
-**Current owner:** Graduate Student B.
+**Owner:** Graduate Student B, assignment `students/student-b/assignment-002.md`.
 
-## E3. Determine whether the new all-parameter inputs remove E2
+**If proved with no second parameter restriction:** `BABP-EDGE-001` immediately gives a genuine finite-seed convergence improvement below `0.0347`.
 
-The first concrete probe is the existing DFP/quasi-duality interface, because it is the new ingredient in the 2025 progress paper. Let
+## E5. Remove the edge threshold
 
-$$
-F_{B'}(C)=\left(-\frac1\lambda\right)^{|C\cap B'|}.
-$$
-
-Test whether
+For fixed `k`, define
 
 $$
-\mathbf E_B F_{B'}(B(t))
+v_k(\lambda)=\sup_\phi\min_{u,z}D_{k,\lambda}(u,z;\phi)
 $$
 
-can be controlled using DFP ergodicity/quasi-duality, beginning with `B'={0}` and `B'={0,1}`. An exact representation, stable finite linear combination, or a proof that no stable representation exists would all narrow the spine.
+and the finite-window threshold
 
-**Status:** open.
+$$
+\lambda_k=\inf\{\lambda>0:v_k(\lambda)>0\}.
+$$
 
-**Dependencies:** E0/E1; informed by E2.
+The computed values decrease sharply through `k=10`. The all-parameter target would follow from the historical route if E4 is sufficient and one proves
 
-**Important qualification:** duality is not a required method. If reconstructing Sudbury's proof shows that the true missing statement is spatial, regenerative, coupling-based, spectral, or otherwise independent of DFP algebra, replace this edge with that statement rather than forcing an algebraic route.
+$$
+\lambda_k\longrightarrow0,
+$$
 
-## E4. The actual new lemma
+or otherwise constructs, for every fixed `lambda>0`, some finite `k` and bounded corrector with positive drift.
 
-After E2/E3, formulate the smallest target-level statement not already in the literature whose proof would close the remaining small-parameter range.
+Possible analytic interpretations include a Poisson equation or hitting-time corrector for the environment seen from the edge, but no such representation is yet established.
 
-A satisfactory E4 has the form:
-
-> all other ingredients are available, and finite-seed convergence follows from this precise lemma.
-
-The lemma may be a local-density estimate, regeneration/coupling statement, control of the signed finite-test observable, or another mechanism revealed by the historical audit.
-
-**Status:** not yet formulated sharply enough.
+**Status:** open, downstream of E4.
 
 ## O1. Opportunity-cost comparison
 
-In parallel with E2/E3, inspect recent high-quality progress/survey literature that explicitly records open problems in probability/IPS/KCM and adjacent areas. Produce a small ranked set of alternative targets with:
+Graduate Student A's reconnaissance ranked the residual simple-IPS positive-rates/noisy-East problem above *provisional* BABP unless Student B found a genuinely new small-parameter lemma. Student B did: the exact `lambda=1/40` edge certificate penetrates the historical cutoff and yields the concrete E4/E5 programme above.
 
-- precise theorem statement;
-- exact evidence that the problem remains open or an honest successor check;
-- the present obstruction;
-- why this group has a plausible leverage point;
-- why the problem is preferable or inferior to BABP on tractability/significance grounds.
+Therefore BABP now outranks the reconnaissance alternatives for the next substantial block. The noisy-East residual remains the strongest identified future candidate if BABP's edge bridge fails or the finite-window thresholds prove analytically sterile.
 
-This is not a second scientific programme and should not become an aimless survey.
-
-**Status:** open bounded reconnaissance.
-
-**Owner:** Graduate Student A.
-
-**Decision use:** if Student B finds that the 2025 BABP inputs leave the old threshold mechanism essentially unchanged, compare immediately against O1 before inventing a new BABP representation.
+**Status:** bounded reconnaissance complete; Student A idle.
 
 ## Current first unresolved edge
 
-**E2/E3 are the BABP mathematical bottleneck. O1 is the concurrent opportunity-cost check.**
+**E4: establish or refute the edge-speed-to-local-convergence bridge, first at `lambda=1/40`.**
 
-The Professor should decide the next substantial investment only after both have returned or one produces a decisive answer first.
+Do not spend the main effort on `lambda_k -> 0` until the group knows that a positive finite-window corrector buys the convergence theorem or knows the exact extra lemma required.
 
-## Routes not to pursue at initialization
+## Routes demoted or excluded
 
-- Do not repeat the closed FA-1f sibling-cancellation mechanism.
-- Do not start with local patch consistency weights alone. BABP already has classical self/quasi-duality, and a local positive transfer without a target-level gain would merely repackage known algebra.
-- Do not infer finite-seed convergence from linear growth of `|B(t)|` alone; the self-duality test depends on the finite local intersection `B(t) cap B'`.
-- Do not treat cancellation or duality as a success condition. They are optional tools only.
-- Do not continue BABP merely because work has started. If O1 reveals a materially better target and E2/E3 expose no new handle, pivot.
+- DFP change-of-basis as a black-box finite-seed solution: demoted by the coefficient-norm obstruction.
+- Local patch-weight contraction: not an active route; BABP already has more direct finite-state edge structure.
+- Closed FA-1f sibling-cancellation and related closed programmes remain closed.
+- Do not infer local convergence from cardinality growth or hull expansion alone.
 
 ## Revision note
 
-The principal supplied new tractability evidence after closure of the FA-1f programme: extensive prior ChatGPT work on 1D FA-1f off-equilibrium convergence had not produced a result. The principal also released cancellation/duality as any presumed organizing mechanism and recommended recent progress/open-problem papers for target selection. The FA closure is therefore strengthened, while BABP remains active only as the best current concrete target pending the first obstruction audit and bounded opportunity-cost reconnaissance.
+Meeting 003 materially narrowed the programme. The historical numerical cutoff was localized to a finite-state edge-corrector problem; an exact 10-site certificate at `lambda=1/40` crosses the old numerical boundary; and the proof spine now has a precise near-term theorem bridge E4 followed by an analytic all-parameter problem E5. The new edge claim is `claimed` pending fresh independent audit and does not yet include convergence at `lambda=1/40`.
