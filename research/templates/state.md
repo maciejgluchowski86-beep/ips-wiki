@@ -1,12 +1,24 @@
 # Programme state
 
+This is the Professor-owned re-entry document for the active programme. Keep it concise and current. Long arguments belong in technical files.
+
+## Programme
+
+Title:
+
+Branch:
+
+Professor:
+
+Graduate students:
+
 ## Target
 
 State the positive mathematical result currently being pursued and the precise problem it addresses.
 
 ## Why this problem
 
-Record the current evidence that the target is important, new, and plausibly tractable. Published open-problem statements are useful evidence when available but are not mandatory.
+Record the current case that the target is important, new, and plausibly tractable. Published open-problem statements are useful evidence when available but are not mandatory.
 
 ## Main obstruction
 
@@ -15,6 +27,12 @@ State the mathematical obstruction in the existing theory as precisely as curren
 ## Present approach
 
 Record the current strategy and why it might interact with the obstruction.
+
+## Proof spine
+
+Path: `proof-spine.md`
+
+Summarize only the current load-bearing unresolved edge or edges.
 
 ## Mathematical state
 
@@ -32,41 +50,67 @@ Claims whose unresolved premises are named explicitly.
 
 ### Refuted
 
-Statements or approaches killed by a valid counterexample or fatal argument.
+Statements or routes killed by a valid counterexample or fatal argument.
 
 ### Open
 
-The current unresolved technical questions.
+Current unresolved technical questions.
 
 ## Current bottleneck
 
 Identify the one or few issues presently limiting progress.
 
-## Negative evidence
+## Strongest positive evidence
 
-Record the strongest evidence that the programme or current route may fail.
+What currently makes the Professor think continued work may pay off?
 
-## Next mathematical questions
+## Strongest negative evidence
 
-List only the questions that are genuinely useful for re-entry and near-term work.
+What currently most lowers the expected value of the programme?
+
+## Current assignments
+
+Professor:
+
+Student A:
+
+Student B:
+
+## Latest information gain
+
+Last group meeting:
+
+Latest `information_gain: yes` meeting:
+
+Consecutive completed `information_gain: no` meetings since then:
+
+Stagnation consultation pending or completed:
+
+Record the actual mathematical change, not merely that work occurred.
 
 ## Files
 
-Record the important technical-note, code, manuscript, and literature paths.
+List the important technical-note, code, manuscript, literature, meeting, and audit paths.
 
 ## Principal-facing brief
 
-### What changed
+### Active problem and target
 
-### What was proved, refuted, or clarified
+### What changed mathematically since the previous brief
+
+### Proof-spine movement
 
 ### Current bottleneck
 
-### Strongest reason to continue
+### Direction
 
-### Strongest reason the programme might fail
+`continue`, `pivot`, or `close`, with a short Professor rationale.
 
-### What we are doing next
+### What the group is doing next
+
+### No-information-gain meeting count
+
+### Pending audit or stagnation consultation
 
 ### Question for the principal
 

@@ -1,9 +1,22 @@
 # Active research programmes
 
-Create one subdirectory here for the single active scientific programme:
+There is at most one active scientific programme.
+
+No programme has yet been selected under the professor-and-graduate-students protocol.
+
+When the Professor selects one, create:
 
 `research/active/<short-programme-slug>/`
 
-The active directory should normally contain `state.md`, `literature.md`, `audit-log.md`, technical notes suited to the mathematics, and optionally a `partner/` directory for substantial independent work by the Research Partner.
+with at least:
 
-There is no active programme at the moment this skeleton is created. The persistent Research Lead and Research Partner will select one autonomously and create its directory on the corresponding research branch.
+- `state.md`
+- `proof-spine.md`
+- `literature.md`
+- `audit-log.md`
+- `meetings/`
+- `students/student-a/`
+- `students/student-b/`
+- technical notes, TeX, code, figures, or data as needed
+
+The active programme lives on a branch `research/<short-programme-slug>` until material is deliberately promoted to `main` under `CHATGPT.md`.
