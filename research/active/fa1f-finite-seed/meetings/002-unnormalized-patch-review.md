@@ -66,6 +66,16 @@ The open problem itself remains important. Closure is an expected-value judgment
 
 A proof from here would require a new one-dimensional spatial theorem -- for example regeneration or local equilibration behind the vacancy fronts -- that is not presently encoded in either representation. We have no concrete such mechanism. Inventing a third coordinate system or another local patch decomposition would be momentum, not a narrowed proof strategy.
 
+## Principal information received after the first version of this meeting
+
+After this meeting was first committed, the principal supplied material tractability evidence that had not previously been available to the Professor: they had already worked extensively with ChatGPT on off-equilibrium convergence for one-dimensional FA-1f without obtaining a result. They also clarified that cancellation in duality is not a preferred or required main ingredient, and suggested using recent progress/survey papers with explicit open-problem lists as target-selection sources.
+
+This new information does **not** reverse the closure decision. It strengthens it. The two present-project mechanisms already failed for precise mathematical reasons, and there is now independent prior-effort evidence that the same target has absorbed substantial model-assisted work without producing a route. This is not an impossibility theorem, but it materially lowers expected value relative to fresh problems.
+
+The released methodological constraint also changes what comes next: the group should not search for another duality/cancellation reformulation merely because that is where the previous project machinery lies. Target selection should be problem-first, with recent high-quality progress/open-problem literature used explicitly for opportunity-cost comparison.
+
+The Professor therefore reaffirms **close** for FA-1f and records the closure as made on more complete evidence than the first version of this note had available.
+
 ## Next scientific direction
 
 The next target will be **one-dimensional BABP convergence from a finite nonempty particle set for all positive branching parameters**, i.e. removal of the remaining small-parameter gap below the classical `0.0347` threshold.
@@ -74,8 +84,10 @@ This is a genuinely new direction rather than a continuation of FA-1f. It is att
 
 - it is explicitly identified in the canonical patch paper as an unresolved finite-seed hard-model problem;
 - classical BABP has exact self-duality and quasi-duality, and the 2025 Martinelli--Shapira--Toninelli work adds all-parameter linear growth from finite seeds and exponential ergodicity for the double-flipping process;
-- the remaining gap is therefore more sharply localized than for FA-1f: the task is to turn existing growth/duality structure into local convergence for small branching parameter, not first to discover the geometry of a non-attractive KCM.
+- the remaining gap is therefore more sharply localized than for FA-1f: the task is to determine exactly why the old finite-seed proof stops and whether newer all-parameter inputs remove that obstruction.
 
-A new persistent Graduate Student B is warranted because this is a new scientific direction. Graduate Student A should remain alive and idle with the FA-1f context rather than be repurposed.
+This selection is **provisional against opportunity cost**, not a commitment to duality as the method. A concurrent bounded reconnaissance over recent high-quality progress and survey papers will compare BABP against other open problems before the group invests deeply.
 
-The new BABP workspace will be initialized on `research/babp-finite-seed`.
+A new persistent Graduate Student B is warranted because BABP is a new scientific direction. Graduate Student A remains alive with the FA-1f context and may be used for bounded target-selection reconnaissance without reopening FA-1f.
+
+The new BABP workspace is initialized on `research/babp-finite-seed`.
