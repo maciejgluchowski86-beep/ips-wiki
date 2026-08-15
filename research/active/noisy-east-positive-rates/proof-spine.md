@@ -4,44 +4,93 @@
 
 Prove ergodicity for the remaining noisy-East region of simple one-sided one-dimensional positive-rate IPS, ultimately completing the positive-rates conjecture for simple IPS.
 
-## E0. Residual noisy-East reduction
+**Programme status:** closed at Group Meeting 002 for the present finite-wall route. The target itself remains open.
 
-The 2025/2026 Głuchowski--Menz papers reduce the unresolved simple-IPS positive-rates problem to a region adjacent to the East boundary after time scaling and state symmetries. On the normalized face used in Student C's first calculation,
+## E0. Source-corrected residual noisy-East set
+
+On the normalized face
 
 $$
-r_{xy}=P_0(1\mid xy),\qquad r_{11}=0,
+r_{11}=0,
 $$
 
-and the difficult region approaches the East corner with `r10` near one and `r00,r01` small.
+write
 
-**Status:** source-checked for assignment 001 at the level needed to validate its strict residual path. Assignment 002 must state the full normalized residual set and East boundary exactly before making a regime-wide claim.
+$$
+a=r_{00},\qquad b=r_{01},\qquad c=r_{10}.
+$$
+
+The proved 2025 sufficient regions relevant here include
+
+$$
+c<a+b,
+\qquad
+c<\frac12,
+\qquad
+0<b\le a
+$$
+
+(the last from published Corollary 7.2). The 2026 long-lived-state criterion additionally covers, on their complement,
+
+$$
+b<\sqrt2(1-c).
+$$
+
+Therefore the unresolved normalized set used by this programme is
+
+$$
+\boxed{
+\mathcal R=
+\left\{
+0<a<b,
+\quad \frac12\le c<1,
+\quad c\ge a+b,
+\quad b\ge\sqrt2(1-c)
+\right\}.
+}
+$$
+
+In particular
+
+$$
+1>c>b>a>0=r_{11}.
+$$
+
+The 2026 prose summary of the earlier covered region reverses the `a,b` inequality relative to the published 2025 Corollary 7.2. The proof spine uses the actual theorem statement and proof.
+
+**Correction to the earlier spine:** the assignment-001 path
+
+$$
+a=\varepsilon,
+\qquad b=\frac\varepsilon2,
+\qquad c=1-\varepsilon^2
+$$
+
+is not unresolved; `b<a` places it in Corollary 7.2. Earlier E2/E3 statements calling it a genuine residual path are superseded.
 
 ## E1. One-site wall mechanism
 
-The long-lived-state theorem supplies ergodicity under
+The 2026 long-lived-state theorem proves ergodicity if
 
 $$
-\delta(a)<\sqrt2\,\beta(a).
+\delta(s)<\sqrt2\,\beta(s).
 $$
 
-Near the residual East region neither state supplies a sufficient one-site wall. Student C independently reproduced the one-site obstruction from the source convention.
-
-**Status:** established prior-work mechanism and calibrated obstruction.
-
-## E2. Two-site agreed-block test
-
-Student C constructed the exact killed two-site excursion under the canonical coupling. The Professor independently reconstructed it.
-
-On
+On `R`, state one has `beta(1)=0`, while for state zero
 
 $$
-r_{11}=0,\qquad
-r_{10}=1-\varepsilon^2,\qquad
-r_{01}=\frac\varepsilon2,\qquad
-r_{00}=\varepsilon,
+\beta(0)=1-c,
+\qquad
+\delta(0)=b,
 $$
 
-which lies strictly in the unresolved region for small positive `epsilon`,
+and `b>=sqrt(2)(1-c)`. Hence the one-site criterion does not cover `R`.
+
+**Status:** established prior-work obstruction.
+
+## E2. Two-site diagnostic
+
+Student C's exact two-site killed excursion on the assignment-001 path satisfies
 
 $$
 \rho_2(\varepsilon)\to1,
@@ -49,84 +98,77 @@ $$
 F_2(\varepsilon)\to1.
 $$
 
-At the limiting East rule, the failure is a deterministic local cycle: an exterior disagreement creates boundary orientation `10`, which survives boundary updates and crosses on the next protected-site update.
+The finite-state algebra and deterministic East-limit mechanism were independently checked. However, after E0's source correction this path is already in the 2025 covered region.
 
-**Status:** two-site wall rejected as an East-stable contraction mechanism.
+**Status:** correct diagnostic calculation, but not target evidence about the unresolved residual.
 
-## E3. Length-three persistence diagnostic
+## E3. Earlier length-three diagnostic
 
-The proposed inference from E2 to all fixed finite block lengths is false on the same path.
+On the same already-covered path, the frozen-exterior length-three one-attack factor tends to `9/10` after maximizing over all agreed words and exterior orientations.
 
-The exact 24-state length-three killed chain, maximized over all eight fully agreed words and both exterior disagreement orientations, satisfies
+**Status:** correct diagnostic calculation; not evidence about `R` after the source correction.
 
-$$
-\lim_{\varepsilon\downarrow0}R_3^{\rm adv}(\varepsilon)=\frac9{10}.
-$$
+## E4. Exact three-site characterization on the true residual
 
-The Professor independently rebuilt both exterior orientations and obtained the conditional limits
-
-$$
-\frac{43}{75},\quad\frac45,\quad\frac{19}{30},\quad\frac9{10}
-$$
-
-for the four agreed words ending in one, while the four words ending in zero have vanishing attack probability.
-
-**Status:** verified diagnostic for proof-spine use. Not a project result under the standing novelty standard.
-
-## E4. Current structural diagnostic: uniform three-site characterization
-
-Let `R` be the exact normalized residual set and `partial_E R` its East boundary. For each parameter point define
+For `r in R`, define
 
 $$
 R_3^{\rm adv}(r)
 $$
 
-as the unconditional one-attack crossing probability maximized over all fully agreed three-site words and both exterior disagreement orientations.
+as the frozen-exterior unconditional one-attack crossing probability maximized over all eight fully agreed three-site words and both exterior disagreement orientations.
 
-The current question is
-
-$$
-\sup_{\bar r\in\partial_E R}
-\limsup_{\substack{r\to\bar r\\r\in R}}
-R_3^{\rm adv}(r)<1\ ?
-$$
-
-This requires a full piecewise-algebraic analysis of the canonical coupling across the actual residual region, not another sampled path.
-
-**Owner:** Graduate Student C, assignment `students/student-c/assignment-002.md`.
-
-## E5. Structural theorem required if E4 is positive
-
-A uniform local gap at length three would still not prove ergodicity.
-
-The missing theorem must convert a local adversarial block-crossing bound into extinction of disagreements in the infinite canonical coupling. A valid theorem must handle at least:
-
-- exterior states changing during a block excursion;
-- repeated attacks on a regenerated block;
-- overlap between neighboring blocks;
-- dependence between successive regeneration/crossing events;
-- the relation between the local reproduction quantity and the global disagreement fronts used in the one-site proof.
-
-A favorable fixed-block constant without this concatenation theorem is not a project result.
-
-## Pre-committed finite-wall stop rule
-
-Meeting 001 fixed the following opportunity-cost rule before E4 is solved.
-
-If there exists a genuine residual sequence approaching the East boundary with
+Student C proved, and the Professor independently reconstructed,
 
 $$
-R_3^{\rm adv}(r_n)\to1,
+\boxed{
+\sup_{\bar r\in\partial_E\mathcal R}
+\limsup_{\substack{r\to\bar r\\r\in\mathcal R}}
+R_3^{\rm adv}(r)
+=\frac56.
+}
 $$
 
-the finite-wall route is closed for this programme. **Do not respond by computing length four.** This does not prove all longer blocks fail; it says the group will not pursue a block-by-block rescue without a separate structural theorem predicting it.
+The proof uses exact symbolic elimination on the nonzero East edge and a seven-class singular perturbation at the East corner. The value is sharp along
 
-Even if E4 gives a uniform gap, close the finite-wall route if the frozen-exterior factor cannot be upgraded to a rigorous dynamic block-renewal domination without introducing an uncontrolled stronger quantity.
+$$
+a=\frac\varepsilon2,
+\qquad b=\varepsilon,
+\qquad c=1-\varepsilon^2.
+$$
 
-## Novelty guardrail
+**Status:** Professor-checked target-relevant local theorem. Not registered as a project contribution because it concerns a local diagnostic that does not itself imply ergodicity.
 
-Block lengths two and three are diagnostics. The standing novelty standard rules out a sequence of larger block calculations as a contribution. A qualifying result must be structural: a regime-wide theorem about the wall mechanism, a valid renewal theorem yielding new ergodicity, a structural impossibility theorem, or another genuinely new mechanism.
+## E5. Fatal obstruction for the present finite-wall concatenation
 
-## Current first unresolved edge
+At every strict point of `R`, freeze an exterior disagreement forever. For any fixed finite agreed block, eventual crossing occurs almost surely.
 
-**E4: exact uniform characterization of the length-three adversarial factor over the full residual East-boundary regime.**
+Reason: every excursion either crosses or regenerates almost surely, and from every regenerated agreed word there is a fixed positive probability, depending on the parameter point, of crossing before the next regeneration. Strong Markov iteration makes survival through infinitely many regenerations probability zero.
+
+Therefore `R_3^adv<1` controls only one attacked excursion. It is not an iteratable adversarial crossing probability.
+
+A legitimate block-renewal theorem would need a stronger episode-level estimate controlling:
+
+- the stochastic lifetime and evolution of the exterior disagreement source;
+- repeated attacks during that lifetime;
+- multiple nearby disagreements;
+- block overlap and dependence; and
+- episode-duration tails sufficient for temporal coupling.
+
+No such estimate follows from E4, and no concrete closing inequality has been obtained.
+
+**Status:** structural obstruction to the present finite-wall route.
+
+## Pre-committed stop rule and closure
+
+Meeting 001 stated in advance that, even if E4 produced a uniform gap, the finite-wall route would be abandoned if the frozen-exterior statistic could not be upgraded to dynamic domination without an uncontrolled stronger quantity.
+
+E5 triggers that condition. There will be no move to block length four.
+
+The source-episode object required after E5 is not treated as a routine extension of this proof spine. Without an independently motivated quantitative closure it would simply rename the missing mechanism.
+
+## Programme conclusion
+
+The present noisy-East finite-wall programme is closed without a qualifying new project result.
+
+A future return requires a genuinely different mechanism or a separately motivated episode-level theorem with an actual tractable estimate. The positive-rates/noisy-East target remains open.
