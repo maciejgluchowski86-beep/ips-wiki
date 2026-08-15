@@ -2,7 +2,28 @@
 
 Date: 2026-08-15
 
-Status: Professor-checked for proof-spine use; the new project claim remains `claimed` pending a fresh independent audit.
+Status: Professor check completed; subsequent fresh hostile audit `audits/001-edge-corrector-audit.md` at commit `d1ef2ca` verified the mathematical core with the corrections recorded below.
+
+## Audit correction
+
+Three phrases in the original Professor note were too strong.
+
+1. Uniform positive drift proves
+
+$$
+\liminf_{t\to\infty}\frac{R(B_t)}t\ge v,
+\qquad
+\limsup_{t\to\infty}\frac{L(B_t)}t\le -v
+\quad\text{a.s.},
+$$
+
+not existence of limiting edge speeds. The phrase “positive edge speed” below should be read only in this lower-asymptotic-velocity sense unless a separate speed-existence theorem is supplied.
+
+2. The exact identification of Sudbury's internal 1999 computation with this `k=8` LP is unverified because the full paper body remained inaccessible. The numerical and methodological calibration is strong evidence, not source-verified identity.
+
+3. The `lambda=1/40` certificate is not yet an improvement of Sudbury's published convergence theorem. It is a verified positive finite-window corrector and ballistic-edge bound below `0.0347`; the convergence bridge remains open.
+
+`BABP-EDGE-001` is now `verified` with this narrower wording in `research/claim-registry.md`.
 
 ## 1. Generator convention and edge observable
 
@@ -71,7 +92,7 @@ I checked the bookkeeping independently:
 
 Thus the finite linear programme in Student B's note is the exact uniform-drift problem for this observable, not a surrogate.
 
-## 2. Positive drift implies positive edge speed
+## 2. Positive drift implies a lower asymptotic edge velocity
 
 If for some `v>0`
 
@@ -91,9 +112,15 @@ $$
 \liminf_{t\to\infty}\frac{R(B_t)}t\ge v
 $$
 
-almost surely. Reflection gives the analogous strictly negative speed for the left edge.
+almost surely. Reflection gives
 
-This validates the consequence drawn from an exact positive-drift certificate.
+$$
+\limsup_{t\to\infty}\frac{L(B_t)}t\le -v
+$$
+
+almost surely.
+
+This validates the ballistic consequence drawn from an exact positive-drift certificate. It does not prove that either ratio has a limit.
 
 ## 3. Independent `k=1` calibration
 
@@ -127,7 +154,7 @@ $$
 \lambda>\frac13.
 $$
 
-Thus the one-site corrector recovers the classical `1/3` boundary exactly, not approximately.
+Thus the one-site corrector recovers the classical `1/3` numerical boundary exactly.
 
 ## 4. Independent numerical LP calibration for `k=8`
 
@@ -151,7 +178,7 @@ The same independent implementation gives positive optimum at
 k=10, lambda=0.025.
 ```
 
-This reproduces Student B's finite-window thresholds without using the committed certificate or Student B's LP code.
+The subsequent hostile audit independently rebuilt this LP and refined the crossing to `0.0346195434755...`.
 
 ## 5. Historical calibration judgment
 
@@ -163,11 +190,11 @@ The accessible publisher record gives the following facts:
 
 The full 1999 proof text was not accessible through the available publisher interface, so I cannot certify that Sudbury literally used the identical `k=8` state encoding or exactly the same LP normalization.
 
-Nevertheless, the mechanism identification is strong enough for present research use: the exact BABP right-edge generator criterion reproduces the old `1/3` threshold at `k=1`, and the same finite-window hierarchy reproduces `0.0346195435...` at `k=8`, while the relevant published paper explicitly ties its improvement to hunted submartingales and edge-speed bounds. I therefore accept that the project has located the historical threshold mechanism at the level needed to direct research, while retaining the exact line-by-line historical identification as an audit item.
+The audit therefore records the historical conclusion as **partial**: the exact `k=1` calibration, numerical `k=8` calibration, paper title, abstract, and contemporaneous finite-boundary submartingale methodology strongly support mechanism-level reconstruction, but literal `k=8` equivalence remains an open provenance question.
 
-## 6. Claim boundary
+## 6. Verified claim boundary
 
-The exact project claim supported by Student B's certificate is:
+The exact project claim is:
 
 $$
 \lambda=\frac1{40},\qquad k=10,
@@ -180,11 +207,23 @@ $$
 =\frac{1033}{40000000}>0.
 $$
 
-The principal independently ran the committed exact-arithmetic verifier and reproduced this minimum. The Professor has independently checked the generator criterion and separately solved the LP numerically, obtaining positive feasibility at the same parameter.
+Consequently, for every finite nonempty initial configuration,
 
-This is a strict improvement of the finite-window edge-submartingale/edge-speed certificate below the historical `0.0347` cutoff. It is **not yet** a proof of finite-seed convergence at `lambda=1/40`: the edge-speed-to-local-convergence bridge must still be verified or reproved.
+$$
+\liminf_{t\to\infty}\frac{R(B_t)}t
+\ge\frac{1033}{40000000},
+\qquad
+\limsup_{t\to\infty}\frac{L(B_t)}t
+\le-\frac{1033}{40000000}
+\quad\text{a.s.}
+$$
 
-Decisive student files:
+The principal independently ran the committed exact-arithmetic verifier. The Professor independently checked the generator criterion. The fresh auditor independently rederived the generator, decoded the payload, and verified all `2048` inequalities and the martingale consequence.
+
+This result stands mathematically without resolving the historical provenance question. It is **not yet** a proof of finite-seed convergence at `lambda=1/40` and is **not** a theorem asserting limiting edge-speed existence.
+
+Decisive files:
 
 - `students/student-b/001-threshold-and-dfp.md`;
-- `students/student-b/edge-corrector-certificate.py`.
+- `students/student-b/edge-corrector-certificate.py`;
+- `audits/001-edge-corrector-audit.md`.
