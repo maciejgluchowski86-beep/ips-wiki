@@ -35,7 +35,7 @@ and independent clusters tensorize as $\kappa^n$. This is not a project theorem.
 
 ## Unresolved and closure
 
-Seven previously nominated programmes are terminated: quadratic-Hessian, Fresnel integrability, Navier--Stokes stochastic cascade, Strong-KPP uniqueness, supercritical dissipative SQG, long-maturity marked branching, and Gaussian bridge coarsening. Separately, the screened 1D FA-1f Bernoulli-quench candidate is closed at Gate 6 and was never nominated. Cycle 17 screened strongly non-harmonic WFP and the 2D FA-1f relaxation logarithm; neither was nominated because the proposed mechanisms fail Gates 4--6. The open problems themselves are not declared closed. There is no active programme, no reserve, and no verified project result.
+Seven previously nominated programmes are terminated: quadratic-Hessian, Fresnel integrability, Navier--Stokes stochastic cascade, Strong-KPP uniqueness, supercritical dissipative SQG, long-maturity marked branching, and Gaussian bridge coarsening. Separately, the screened 1D FA-1f Bernoulli-quench candidate is closed at Gate 6 and was never nominated. Cycle 17 screened strongly non-harmonic WFP and the 2D FA-1f relaxation logarithm; neither was nominated because the proposed mechanisms fail Gates 4--6. Cycle 18 screened the general bootstrap-percolation sharpness conjecture via bare inclusion-exclusion/Bonferroni overlap subtraction; it was not nominated because Gates 4--6 remain unresolved and Gate 7 fails. The general sharpness conjecture remains open; only this proposed route was rejected for nomination. There is no active programme, no reserve, and no verified project result.
 
 The IPS freeze remains removed. Project-specific IPS wiki material duplicated or superseded by the paper remains delete-first curation debt. Generic definition and literature pages are not deletion candidates merely because a project-specific theorem layer is deprecated.
 
@@ -55,13 +55,13 @@ Because this is mutable SEARCH state, a future Director may amend or remove it w
 
 ## Wiki frontier
 
-The heat-equation/Gaussian-kernel atom has been integrated and audited.
+The heat-equation/Gaussian-kernel atom remains integrated and audited.
 
-Eleventh sweep disposition: **8 KEEP / 4 REWRITE / 0 DEMOTE / 0 DELETE**.
+Cycle-18 Curator sweep found two immediately repairable correctness defects, now repaired, and four necessary but incompletely transmitted §1 prerequisite atoms. No new atom was admitted, and there were zero DEMOTE and zero DELETE decisions.
 
 Legacy migration remains incomplete.
 
-Current frontier is **§1 Brownian motion interpretation**, followed by **heat semigroup/generator**.
+Current frontier remains **§1 Brownian motion interpretation**, followed by **heat semigroup/generator**.
 
 ## Dead ends
 
@@ -83,7 +83,8 @@ Keep this section sparse; record only failures expensive enough that forgetting 
 
 Run exactly two fresh read-only workers, with no more than two concurrent.
 
-1. **Pre-nomination candidate screener.** Search for at most two fresh serious candidates. Use all seven unchanged gates. After a precise positive target and exact obstruction are identified, apply the current obstruction-first strategy: run the smallest obstruction-norm local calculation, first composition/scaling test, and obstruction-selected adversarial test before substantial two-source successor and alternate-terminology literature work. Full Gates 2 and 7 are still compulsory before recommendation. Recommend at most one only after seven PASSes. Do not nominate or enter DEVELOP. Do not reopen previously rejected mechanisms merely by renaming them.
-2. **Wiki Curator, twelfth sweep.** Start at the new §1 Brownian motion interpretation frontier, then heat semigroup/generator. Audit a coherent batch of at most about twelve directly coupled pages under KEEP/REWRITE/DEMOTE/DELETE, identify the next missing atomic prerequisites, verify dependency ordering and source hypotheses, and promote no project-specific mathematics.
+Pre-nomination candidate screener. Search for at most two fresh serious candidates and apply all seven unchanged gates. Work obstruction-first under the current SEARCH guidance. A Gate-4 calculation must be carried out on an actual smallest example for the proposed target, in the same quantity that controls the Gate-3 obstruction; an abstract cancellation toy model is insufficient. Gate 5 must identify the target's natural critical scaling rather than choose one retrospectively. Gate 6 must use an obstruction-selected adversarial family belonging to the actual problem. Full two-published-source successor checking and alternate-terminology novelty checking remain mandatory before recommendation. Recommend at most one candidate only after seven PASSes. Do not nominate, enter DEVELOP, reopen a rejected mechanism by renaming it, or resubmit bare inclusion-exclusion/Bonferroni overlap subtraction without a genuinely different obstruction-level consequence.
+
+Wiki Curator, independent §1 repair pass. Independently re-audit brownian-confinement-and-heat-kernel-positivity.md, branching-diffusions-and-duhamel-trees.md, and mild-formulation-and-branching-diffusion-representation.md, together with the four proposed prerequisite atoms: Brownian motion and the heat kernel; heat semigroup and generator; heat-semigroup smoothing; Duhamel formula and mild solutions. Return complete, untruncated replacement/new-page text for every page recommended for integration, plus the exact reading-path patch. Verify all hypotheses, dependency links, and sources independently. Do not assume the cycle-18 truncated appendix is authoritative. Advance the frontier to §2 only if the complete four-atom chain passes the live-wiki gate.
 
 No third worker. No active programme or reserve is created.

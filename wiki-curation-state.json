@@ -3,7 +3,7 @@
   "legacy_migration_complete": false,
   "integrations_since_last_sweep": 0,
   "entries_at_last_sweep": 95,
-  "last_sweep_commit": "c9ae816e1fa315692adc969ada8b6abe066181f6",
+  "last_sweep_commit": "3b5ba9b93336094c87b6990f11a93c628d6fadc9",
   "priority_order": [
     "entries on the PDE reading path, beginning with §1 Brownian motion interpretation and then heat semigroup/generator",
     "recently changed PDE entries",
