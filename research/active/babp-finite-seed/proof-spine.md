@@ -2,62 +2,54 @@
 
 ## Main target
 
-For one-dimensional BABP with branching parameter `lambda>0`, started from any finite nonempty particle set `B`, prove local convergence to Bernoulli equilibrium `pi` with particle density
+For one-dimensional BABP with branching parameter `lambda>0`, started from any finite nonempty particle set `B`, prove local convergence to Bernoulli equilibrium `pi_q` with
 
 $$
 q=\frac{\lambda}{1+\lambda}.
 $$
 
-Begin with `B={0}`. The programme is committed. Meeting 004 produced a complete **claimed** bridge from a statewise positive finite-window edge corrector to finite-seed convergence; two fresh independent audits are pending before that theorem can be promoted.
+The programme now has a verified theorem below the previously recorded finite-seed range. The remaining target is all `lambda>0`.
 
 ## E0. Finite-test convergence criterion
 
-BABP self-duality gives, for finite `T`,
+BABP self-duality gives the standard finite-test criterion for local convergence.
 
-$$
-\mathbf E_B\left[\left(-\frac1\lambda\right)^{|B(t)\cap T|}\right]
-=
-\mathbf E_T\left[\left(-\frac1\lambda\right)^{|T(t)\cap B|}\right].
-$$
+**Status:** established external input; not used in the new corrector-to-convergence bridge.
 
-The functions indexed by subsets of a fixed finite window form a basis of local observables, and Bernoulli equilibrium has zero expectation for every nonempty such duality function. Hence decay of these finite-test observables implies local convergence.
-
-**Status:** established external input; independently rederived by Student B. Not used in the new gap bridge.
-
-## E1. External stationary-limit inputs
+## E1. Stationary-limit and stationary-law inputs
 
 For every fixed `lambda>0`:
 
-1. every weak limit point of the one-dimensional BABP trajectory is stationary;
-2. every stationary BABP law is a convex combination of the empty state and Bernoulli equilibrium.
+1. every weak limit point of the BABP law is stationary;
+2. every stationary one-dimensional BABP law is a convex combination of the empty state and Bernoulli equilibrium.
 
-For (1), the Professor checked Jahnel--Köppl (2026), Theorem 2.5. BABP has finite local state space, single-site updates, uniformly bounded site rate, and nearest-neighbour dependence, so its influence has finite range and satisfies the theorem's exponential-decay assumptions.
+For (1), Jahnel--Köppl (2026), Theorem 2.5, was checked from the full source. BABP satisfies `(L1)` and `(R1)--(R3)` with `rho(r)=e^{-alpha r}`: updates are single-site, site rates are uniformly bounded, and influence is nearest-neighbour.
 
-For (2), Martinelli--Shapira--Toninelli (2025), Corollary 2.9, states the one-dimensional BABP classification directly.
+For (2), Martinelli--Shapira--Toninelli (2025), Corollary 2.9, applies after the explicit constant time rescaling
 
-**Status:** external primary-source inputs checked by the Professor; audit 003 will independently verify the interface.
+$$
+\lambda=q/p,
+\qquad
+L_{\mathrm{project}}=p^{-1}L_{\mathrm{MST}}.
+$$
+
+**Status:** verified external interfaces for present use. Mountford and Ramírez--Varadhan remain historical antecedents but are not needed as unchecked hypotheses.
 
 ## E2. Finite-window right-edge corrector
 
-For a finite nonempty BABP configuration `B`, let `R=max B`. Encode the first `k` sites behind `R` by `u in {0,1}^k` and the next unresolved bit by `z`. For bounded `phi:{0,1}^k -> R`, put
+For a finite nonempty BABP configuration, let `R` be its right edge and let `u in {0,1}^k`, `z in {0,1}` encode the first `k+1` sites behind it. For bounded `phi`, put
 
 $$
 H(B)=R(B)+\phi(u(B)).
 $$
 
-The exact generator drift is
+The exact drift is `D_{k,lambda}(u,z;phi)`. If
 
 $$
-\begin{aligned}
-D_{k,\lambda}(u,z;\phi)
-={}&\lambda[1+\phi(T_+u)-\phi(u)]\\
-&+u_1[-1+\phi(T_-^zu)-\phi(u)]\\
-&+\sum_{j=1}^k n_j^z(u)[\lambda(1-u_j)+u_j]
-[\phi(u^{(j)})-\phi(u)].
-\end{aligned}
+D_{k,\lambda}(u,z;\phi)\ge v>0
 $$
 
-If `D>=v>0` uniformly, then for every finite nonempty initial configuration
+uniformly, then
 
 $$
 \liminf_{t\to\infty}\frac{R(B_t)}t\ge v,
@@ -66,130 +58,132 @@ $$
 \quad\text{a.s.}
 $$
 
-The corrector argument does not assert existence of the corresponding limits.
+for every finite nonempty initial state.
 
-**Status:** verified by fresh hostile audit `d1ef2ca` as claim `BABP-EDGE-001`.
+**Status:** verified claim `BABP-EDGE-001`, audit `d1ef2ca`.
 
-**Calibration:**
-
-- `k=1`: strict feasibility iff `lambda>1/3`;
-- `k=8`: independently reproduced numerical zero crossing `0.0346195434755...`;
-- `k=10`, `lambda=1/40`: exact rational certificate with minimum drift
+At `k=10`, `lambda=1/40`, the exact minimum drift is
 
 $$
 \frac{1033}{40000000}>0.
 $$
 
-Literal historical identity with Sudbury's internal `k=8` calculation remains unverified and is not load-bearing.
-
 ## E3. DFP black-box route
 
-The deterministic finite-test self-duality cylinder has no probability-law representation by DFP initial sets, and its unique signed representation on a finite ambient window has total-variation norm growing exponentially with window size.
+The finite-test self-duality cylinder has no probability-law DFP representation, and its finite-window signed representation has exponentially growing coefficient norm.
 
-**Status:** algebraic obstruction established for present use; DFP demoted to a secondary route.
+**Status:** demoted.
 
-## E4. Statewise corrector to local convergence
+## E4. Statewise corrector to finite-seed convergence
 
-This is the theorem proved in Student B assignment 002.
-
-Assume the **statewise** condition `(EC)`:
+Assume `(EC)`:
 
 $$
-\exists k\ge1,\ \phi:\{0,1\}^k\to\mathbb R\text{ bounded},\ v>0
-\quad\text{such that}\quad
+\exists k,\phi,v>0\quad
 D_{k,\lambda}(u,z;\phi)\ge v
+\quad\text{for every }(u,z).
 $$
 
-for every `u,z`.
-
-Then for every finite nonempty deterministic initial `B`,
+Then for every finite nonempty deterministic initial set,
 
 $$
 \operatorname{Law}_B(B_t)\Longrightarrow\pi_q.
 $$
 
-The proof is not an inference from the outer liminf/limsup bounds alone. It reuses `(EC)` on every internal gap:
-
-1. positive gaps are born at width one, do not split, and distinct positive gaps do not merge;
-2. applying the right/left corrector to the populations bordering a tagged gap gives a corrected width with drift at most `-2v` until closure;
-3. exponential tilting gives uniform exponential tails for gap lifetime and maximal width;
-4. boundary displacement is Poisson dominated;
-5. a compensator sum over gap nucleations yields
-
-$$
-\limsup_{t\to\infty}
-\mathbf P_B(0\text{ lies in an internal gap of width at least }m)
-\le Ce^{-cm};
-$$
-
-6. combining this with the outer ballistic bounds yields
+The proof uses `(EC)` on internal gaps, not merely on the two outer edges. Positive gaps have unique genealogies. The corrected width of a tagged gap has drift at most `-2v`; after localization, exponential tilting gives uniform lifetime and width tails. Poisson boundary displacement and a compensator sum, first truncated to `|x|<=N` and then passed to `N=infinity` by monotone convergence, yield
 
 $$
 \limsup_{t\to\infty}
 \mathbf P_B(B_t\cap[-M,M]=\varnothing)
-\le Ce^{-cM};
+\le Ce^{-cM}.
 $$
 
-7. E1 then forces every subsequential stationary mixture to have zero empty-state coefficient.
+E1 then excludes the empty component of every subsequential limit.
 
-No particle-number growth theorem is used. The initial condition is only assumed finite, deterministic, and nonempty.
+No particle-number growth theorem is used.
 
-**Status:** `claimed` as project claim `BABP-CONV-001`. Professor independently reconstructed the load-bearing gap argument and external theorem interface. Two fresh independent audits are pending:
+**Status:** verified claim `BABP-CONV-001` after Professor reconstruction and two fresh independent correctness reviews:
 
-- `audits/002-corrector-to-convergence-request.md`;
-- `audits/003-corrector-to-convergence-request.md`.
+- `audits/002-convergence-review-a.md`, commit `abb05f6`;
+- `audits/002-convergence-review-b.md`, commit `1aeb5a5`.
 
-**Concrete claimed corollary:** verified `BABP-EDGE-001` supplies `(EC)` at `lambda=1/40`, so finite-seed convergence holds there. This lies below the `0.0347` range recorded in Martinelli--Shapira--Toninelli (2025), Remark 5.4. Do not promote this conclusion until both audits are resolved.
+Stable proof: `research/results/babp-finite-seed-convergence.md`.
 
-## E5. Remove the finite-window corrector threshold
-
-Assuming E4 survives audit, this becomes the first development bottleneck.
-
-For fixed `k`, define
+**Concrete verified corollary:** finite-seed convergence at
 
 $$
-v_k(\lambda)=\sup_\phi\min_{u,z}D_{k,\lambda}(u,z;\phi)
+\lambda=\frac1{40}=0.025,
 $$
 
-and
+below the `0.0347` range recorded in Martinelli--Shapira--Toninelli (2025), Remark 5.4.
+
+## E5. Positive correctors for every `lambda>0`
+
+This is the current first development edge.
+
+For fixed `lambda`, define
 
 $$
-\lambda_k=\inf\{\lambda>0:v_k(\lambda)>0\}.
+v_k(\lambda)=\sup_\phi\min_{u,z}D_{k,\lambda}(u,z;\phi).
 $$
 
-The all-parameter target follows if one proves that for every `lambda>0` there is some finite `k` and bounded `phi` satisfying `(EC)`. A sufficient formulation is
+Window monotonicity is exact:
 
 $$
-\lambda_k\longrightarrow0,
+v_{k+1}(\lambda)\ge v_k(\lambda).
 $$
 
-provided the threshold definition behaves as expected.
+Student B's `002-edge-environment-dual.md`, commit `b9fdc55`, proposes an infinite-volume dual. Let `Q_infinity` be the environment seen from the right edge and `I_lambda` its invariant laws. The core proposed identity is
 
-The computed values decrease sharply through `k=10`, but no analytic proof is known. Candidate interpretations include a Poisson equation/hitting-time corrector for the environment seen from the edge or an explicit multiscale family of correctors.
+$$
+\lim_{k\to\infty}v_k(\lambda)
+=
+\inf_{\mu\in\mathcal I_\lambda}
+\int(\lambda-u_1)\,d\mu.
+$$
 
-**Status:** open. Development is paused until audits 002 and 003 settle E4, because any repair to E4 may change the right object to generalize.
+For every invariant front law, stationarity of the first bit gives
 
-## H1. Historical provenance
+$$
+\mu(u_1=1)
+=
+\frac{\lambda}{1+\lambda}
+\left(1+\frac12\mu(u_1=0,u_2=1)\right).
+$$
 
-The exact relation between the present `k=8` LP and Sudbury's internal 1999 calculation remains unverified because the full paper body has not been obtained. This is not load-bearing for E2 or E4. It may still illuminate the historical convergence proof, but no separate session is assigned solely to provenance.
+Hence the proposed reduction is
 
-## O1. Opportunity-cost comparison
+$$
+\lim_{k\to\infty}v_k(\lambda)
+=
+\frac{\lambda}{1+\lambda}
+\left(\lambda-rac12
+\sup_{\mu\in\mathcal I_\lambda}\mu(01)\right).
+$$
 
-The residual simple-IPS positive-rates/noisy-East problem remains the strongest identified reserve. BABP continues to outrank it after the verified edge certificate and now a complete claimed convergence proof at `lambda=1/40`.
+The direct all-parameter target is therefore the **front-gap lemma**:
+
+$$
+\sup_{\mu\in\mathcal I_\lambda}\mu(01)<2\lambda
+\qquad\text{for every fixed }\lambda>0.
+$$
+
+If the infinite-front dual identity is correct and the front-gap lemma holds, E4 gives the full all-parameter finite-seed theorem.
+
+**Status:** front reduction claimed for research use, not independently audited. Graduate Student B owns its validation and the front-gap attack in assignment 003.
+
+**Parameter-threshold caution:** the shorthand statement `lambda_k -> 0`, with `lambda_k=inf{lambda:v_k(lambda)>0}`, should not be treated as equivalent to the all-parameter corrector statement unless the relevant monotonicity/interval structure in the parameter `lambda` is proved. Monotonicity in the window size `k` does not by itself supply this.
+
+## N1. Publication-level novelty
+
+A targeted search through 2026-08-15 found no later theorem removing the `0.0347` restriction, and the 2025 progress paper records that as the known range. Publication-level priority/closest-prior-work checking remains pending.
+
+**Owner:** Graduate Student A as part of the writeup assignment, followed by independent literature audit before submission-level confidence.
 
 ## Current first unresolved edge
 
-**Correctness audit of E4 / `BABP-CONV-001`.**
+**E5: verify the infinite-front reduction and prove positive worst invariant front drift for every fixed `lambda>0`, preferably through the front-gap lemma.**
 
-There is no new development assignment until two independent reviews return. If the theorem survives, E5 becomes the first mathematical development edge.
+## Reserve
 
-## Routes demoted or excluded
-
-- Bare outer ballistic bounds are not to be substituted for the statewise corrector in E4.
-- DFP change-of-basis is not the current finite-seed route.
-- Local patch-weight contraction is not active.
-- Closed FA-1f routes remain closed.
-
-## Revision note
-
-Meeting 004 materially narrowed the programme. The statewise finite-window corrector was shown to control not only outer spreading but internal-gap persistence. This yields a complete claimed bridge to finite-seed convergence and, combined with verified `BABP-EDGE-001`, a claimed convergence theorem at `lambda=1/40`. Because this is substantially stronger than the audited edge claim, it is separately registered and awaits two independent hostile reviews.
+The residual simple-IPS positive-rates/noisy-East problem remains the strongest identified reserve if the all-parameter BABP front problem becomes analytically sterile.
