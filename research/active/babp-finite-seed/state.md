@@ -8,7 +8,7 @@ Branch: `research/babp-finite-seed`
 
 Professor lineage: persistent ChatGPT Professor
 
-Active graduate-student lineage: Graduate Student B (to be created)
+Active graduate-student lineage: Graduate Student B (to be created for BABP); Graduate Student A may concurrently perform bounded target-selection reconnaissance
 
 Workspace: `research/active/babp-finite-seed/`
 
@@ -24,6 +24,8 @@ $$
 
 Equivalently, remove the remaining small-parameter restriction in the classical finite-seed convergence theorem.
 
+BABP is the current working target, not an irreversible commitment. The Professor will compare it against a bounded reconnaissance of recent high-quality open-problem/progress literature before investing deeply beyond the first obstruction audit.
+
 ## Why this target
 
 This is an established open finite-seed problem with substantially more structure than the closed FA-1f direction.
@@ -33,6 +35,8 @@ Neuhauser--Sudbury proved the basic stationary-law structure for BABP. Finite-se
 The canonical patch paper also identifies BABP from a finite nonempty particle set as an unresolved hard-model convergence problem and proves patch positivity with threshold equal to equilibrium density.
 
 Unlike the closed FA-1f programme, the immediate task is not to discover basic geometry. BABP already has exact self-duality and quasi-duality with DFP, and the 2025 paper supplies a strong all-parameter mixing theorem for DFP. The research question is whether those ingredients can be sharpened or recombined to close the finite-seed gap.
+
+However, the principal has now supplied additional opportunity-cost evidence: extensive prior ChatGPT work on the neighboring 1D FA-1f off-equilibrium problem did not yield results, and cancellation/duality is explicitly not a required organizing method. Accordingly BABP is being pursued because of its sharply localized historical gap and new auxiliary results, not because it is another duality problem. If the first obstruction audit shows that the 2025 inputs do not materially change the old threshold mechanism, the Professor will compare BABP immediately against the reconnaissance pool rather than manufacture another duality variant.
 
 ## Main obstruction
 
@@ -50,20 +54,22 @@ The 2025 quasi-duality with DFP controls different multiplicative weights and pr
 
 Do **not** start by repeating local patch-weight contraction. The FA closure showed why a conservative positive transform can hide behind such decompositions, and for BABP the classical duality algebra is already known.
 
-The first line is to audit the exact interface between:
+The first BABP line is an obstruction audit of the exact interface between:
 
 1. the classical finite-seed convergence proofs and the numerical threshold `0.0347`;
 2. BABP self-duality;
 3. BABP--DFP quasi-duality/thinning;
 4. the 2025 all-parameter DFP exponential-ergodicity theorem and BABP linear-growth theorem.
 
-The aim is to isolate the smallest new lemma which, if proved, would remove the threshold.
+The aim is to isolate the smallest new lemma which, if proved, would remove the threshold. Duality is a diagnostic starting point because it is where the existing theorem is formulated; it is not a binding method. If the missing lemma is spatial, coupling-based, spectral, renewal-based, or otherwise non-dual, Student B should follow the mathematics.
+
+Concurrently, Graduate Student A may perform a bounded opportunity-cost reconnaissance across recent serious progress/survey papers with explicit open problems. That task is target selection, not a second active scientific programme. It should return a small ranked set of concrete problems with exact open-status evidence, successor checks, and a tractability argument for this group.
 
 ## Proof spine
 
 Path: `proof-spine.md`.
 
-Current bottleneck: identify whether the modern DFP/quasi-duality machinery gives a genuinely new route to the finite-test self-duality observable, or whether the old threshold obstruction survives unchanged.
+Current bottleneck: identify whether the modern DFP/quasi-duality machinery or the historical proof structure yields a genuinely tractable missing lemma for finite-seed BABP, while bounded reconnaissance tests whether BABP remains the best available target.
 
 ## Mathematical state
 
@@ -83,6 +89,7 @@ These are external/canonical inputs, not new project claims.
 - Whether DFP exponential ergodicity can control the finite-test BABP self-duality observable for deterministic finite seeds.
 - Whether a thinning/quasi-duality representation exists with coefficients that remain stable as `lambda` becomes small.
 - If not, what genuinely new one-dimensional lemma is needed.
+- Whether a different open problem identified in current progress/survey literature has materially higher expected value for this group.
 
 ## Strongest positive evidence
 
@@ -90,15 +97,17 @@ The target already has a nearly complete structural toolkit: exact dualities, al
 
 ## Strongest negative evidence
 
-The finite-seed gap has survived since 1999 despite strong algebraic dualities. The small-`lambda` self-duality weight is large and sign-changing, so naive use of growth or absolute values is badly conditioned. The 2025 authors had the DFP theorem in hand and still did not close finite-seed convergence, which is evidence that a nontrivial obstruction remains.
+The finite-seed gap has survived since 1999 despite strong algebraic dualities. The small-`lambda` self-duality weight is large and sign-changing, so naive use of growth or absolute values is badly conditioned. The 2025 authors had the DFP theorem in hand and still did not close finite-seed convergence, which is evidence that a nontrivial obstruction remains. More broadly, the principal's prior unsuccessful FA-1f effort is evidence against overinvesting in neighboring off-equilibrium KCM problems merely because they fit existing project machinery.
 
-## Current assignment
+## Current assignments
 
-Graduate Student B will reconstruct the best finite-seed proof, locate the threshold exactly, and test whether the 2025 DFP/quasi-duality machinery changes that obstruction. Exact assignment: `students/student-b/assignment-001.md`.
+Graduate Student B: reconstruct the best finite-seed BABP proof, locate the threshold exactly, and test whether the 2025 DFP/quasi-duality machinery changes that obstruction. Exact assignment: `students/student-b/assignment-001.md`.
+
+Graduate Student A: bounded opportunity-cost reconnaissance across recent high-quality open-problem/progress literature, returning a small ranked candidate set and explicit comparison with BABP. Exact assignment: `students/student-a/assignment-recon-001.md`.
 
 ## Research delta
 
-Latest meeting `state_narrowed`: not applicable; no group meeting yet.
+Latest meeting `state_narrowed`: not applicable; no BABP group meeting yet.
 
 Consecutive no-narrowing meetings: 0
 
