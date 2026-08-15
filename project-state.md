@@ -4,7 +4,7 @@ This file is the compact current-state index for the autonomous research program
 
 ## Research architecture
 
-The group has one persistent ChatGPT Professor directing persistent graduate-student sessions. At most two sessions are in flight at once. The Professor owns scientific direction, proof spines, audits, opportunity-cost judgments, and closure decisions. Students do specified autonomous technical work and persist with their scientific direction.
+The group has one persistent ChatGPT Professor directing persistent graduate-student sessions. At most two sessions are in flight at once. The Professor owns scientific direction, proof spines, audits, opportunity-cost judgments, and closure decisions.
 
 The repository is canonical technical memory. Conversation links are optional only; successor sessions must rely on repository handovers and exact transcript transfer when necessary.
 
@@ -14,63 +14,34 @@ The repository is canonical technical memory. Conversation links are optional on
 
 - Research branch: `research/babp-finite-seed`
 - Workspace: `research/active/babp-finite-seed/`
-- Positive target: for every `lambda>0`, prove local convergence of one-dimensional biased annihilating branching process started from a finite nonempty particle set to Bernoulli equilibrium of density `lambda/(1+lambda)`.
-- Historical recorded range: Martinelli--Shapira--Toninelli (2025), Remark 5.4, records finite-seed convergence for `lambda>0.0347` after Sudbury.
-- Verified project claim `BABP-EDGE-001`: at `lambda=1/40`, a ten-site statewise edge corrector has exact drift `1033/40000000>0` and yields the audited liminf/limsup ballistic bounds.
-- New claimed project theorem `BABP-CONV-001`: for fixed `lambda>0`, existence of any bounded finite-window corrector with uniform statewise positive drift implies local convergence from every finite nonempty deterministic set to Bernoulli equilibrium.
-- Concrete claimed corollary: combining `BABP-CONV-001` with verified `BABP-EDGE-001` gives finite-seed convergence at `lambda=1/40=0.025`, below the range recorded in the 2025 progress paper.
-- Claim status: `BABP-CONV-001` is `claimed`, not `verified`; two independent hostile audits are requested.
-- Current first unresolved issue: correctness audit of the corrector-to-convergence bridge.
-- Downstream development problem, if the bridge survives: construct a positive statewise finite-window corrector for every `lambda>0`, e.g. prove the finite-window threshold tends to zero.
-- Professor: persistent ChatGPT Professor.
-- Graduate Student B: temporarily idle pending theorem audits.
-- Graduate Student A: idle after bounded opportunity-cost reconnaissance.
-- Two in-flight slots: independent audits 002 and 003 of `BABP-CONV-001`.
-- Latest group meeting: `research/active/babp-finite-seed/meetings/004-corrector-to-convergence.md`.
+- Main target: prove finite-seed local convergence for every `lambda>0`.
+- Verified theorem `BABP-CONV-001`: for any fixed `lambda>0`, a bounded finite-window edge corrector with uniform statewise positive drift implies local convergence from every finite nonempty deterministic initial particle set to Bernoulli equilibrium.
+- Verified certificate `BABP-EDGE-001`: at `lambda=1/40`, `k=10`, the minimum statewise drift is exactly `1033/40000000>0`.
+- Verified concrete consequence: at `lambda=1/40=0.025`, BABP from every finite nonempty deterministic seed converges locally to Bernoulli equilibrium of density `1/41`.
+- Martinelli--Shapira--Toninelli (2025), Remark 5.4, records the previous finite-seed convergence range as `lambda>0.0347`.
+- The convergence theorem was independently accepted in commits `abb05f6` and `1aeb5a5`; the edge certificate was independently audited in `d1ef2ca`.
+- Stable theorem proof: `research/results/babp-finite-seed-convergence.md`.
+- Latest group meeting: `research/active/babp-finite-seed/meetings/005-convergence-promotion.md`, `state_narrowed: yes`.
 
-## Verified edge result
+## Verified theorem mechanism
 
-For finite nonempty `B`, let `R=max B`, encode the first `k` sites behind `R` by `u` and the next exterior bit by `z`, and put
+Use particle variables with rates
 
 $$
-H(B)=R(B)+\phi(u(B)).
-$$
-
-The exact statewise drift is
-
-$$
-\begin{aligned}
-D_{k,\lambda}(u,z;\phi)
-={}&\lambda[1+\phi(T_+u)-\phi(u)]\\
-&+u_1[-1+\phi(T_-^zu)-\phi(u)]\\
-&+\sum_{j=1}^k n_j^z(u)[\lambda(1-u_j)+u_j]
-[\phi(u^{(j)})-\phi(u)].
-\end{aligned}
-$$
-
-At `lambda=1/40`, `k=10`, the verified rational certificate has
-
-$$
-\min_{u,z}D_{10,1/40}(u,z;\phi)
-=\frac{1033}{40000000}>0.
-$$
-
-Therefore, for every finite nonempty initial configuration,
-
-$$
-\liminf_{t\to\infty}\frac{R(B_t)}t\ge\frac{1033}{40000000},
+0\to1\text{ at rate }\lambda N_x,
 \qquad
-\limsup_{t\to\infty}\frac{L(B_t)}t\le-\frac{1033}{40000000}
-\quad\text{a.s.}
+1\to0\text{ at rate }N_x.
 $$
 
-Audit `d1ef2ca` independently verified this claim. It does not assert existence of limiting speeds.
+The theorem hypothesis is the statewise finite-window corrector inequality
 
-## Claimed convergence bridge
+$$
+D_{k,\lambda}(u,z;\phi)\ge v>0
+$$
 
-Meeting 004 changed the theorem picture. The bridge does **not** use bare ballistic edge bounds as a sufficient hypothesis. It uses the full statewise inequality `D>=v` on every edge state.
+for every edge state. It is stronger than the resulting outer-edge liminf/limsup ballistic bounds.
 
-For a tagged internal vacant gap, put the same corrector on the particles bordering its left and right sides. The corrected gap width has uniformly negative drift. Positive gaps are born at width one, do not split, and distinct positive gaps cannot merge in one dimension. Exponential tilting gives uniform lifetime and maximum-width tails; Poisson domination controls physical gap displacement; and a compensator sum over all gap nucleations yields
+Applied to the two populations bordering an internal vacant gap, the same corrector gives a corrected gap width with uniformly negative drift. Positive gaps are born at width one, do not split, and distinct positive gaps cannot merge. After localization, exponential tilting gives uniform lifetime and maximum-width tails. Poisson boundary displacement and a compensator sum, first truncated to a finite spatial region and then passed to the limit by monotone convergence, give
 
 $$
 \limsup_{t\to\infty}
@@ -78,45 +49,64 @@ $$
 \le Ce^{-cM}.
 $$
 
-The Professor independently reconstructed these steps and found no use of the 2025 particle-number-growth theorem. The deterministic initial configuration is only required to be finite and nonempty.
+Jahnel--Köppl (2026), Theorem 2.5, applies directly: BABP has bounded single-site rates and nearest-neighbour influence, so every weak limit point is stationary. Martinelli--Shapira--Toninelli (2025), Corollary 2.9, after the explicit rescaling `lambda=q/p`, `L_project=p^{-1}L_MST`, classifies stationary laws as
 
-The external stationary-limit inputs were also checked by the Professor:
+$$
+\alpha\delta_\varnothing+(1-\alpha)\pi_q.
+$$
 
-- Jahnel--Köppl (2026), Theorem 2.5, applies to BABP because its updates are single-site, rates per site are uniformly bounded, and influences have finite nearest-neighbour range; hence every weak limit point is stationary.
-- Martinelli--Shapira--Toninelli (2025), Corollary 2.9, classifies every stationary one-dimensional BABP law as a mixture of the empty state and Bernoulli equilibrium.
+The empty-window estimate forces `alpha=0`. The 2025 particle-number growth theorem is not used.
 
-The empty-window estimate forces the empty mixture coefficient to vanish. This gives the claimed general implication `(EC) => finite-seed convergence` and the concrete `lambda=1/40` corollary.
+## Current proof-spine bottleneck
 
-Because this theorem is substantially stronger than the verified edge result, the existing audit does not cover it. It is registered separately as `BABP-CONV-001` with status `claimed`.
+The remaining target is all `lambda>0`.
 
-## Historical provenance status
+Student B's commit `b9fdc55`, `research/active/babp-finite-seed/students/student-b/002-edge-environment-dual.md`, proposes an exact infinite-front interpretation of the finite-window LP. For fixed `lambda`, let `I_lambda` be the invariant laws of the environment seen from the right edge. The proposed reduction is
 
-The accessible Sudbury (1999) record confirms the `0.0347` finite-seed convergence threshold, hunted-submartingale method, and edge-speed bounds. Its full body has not been obtained, so literal identity with the present `k=8` LP remains unverified.
+$$
+\lim_{k\to\infty}v_k(\lambda)
+=
+\frac{\lambda}{1+\lambda}
+\left(\lambda-rac12\sup_{\mu\in\mathcal I_\lambda}\mu(01)\right).
+$$
 
-This provenance question is not load-bearing for either current project claim. The claimed `lambda=1/40` convergence theorem stands or falls on the new gap proof plus the checked external stationary-limit inputs.
+The safe next mathematical target is the **front-gap lemma**
+
+$$
+\sup_{\mu\in\mathcal I_\lambda}\mu(01)<2\lambda
+\qquad\text{for every fixed }\lambda>0.
+$$
+
+The front reduction is currently a research claim, not an independently audited theorem. Monotonicity in window size is proved; parameter monotonicity in `lambda` is not, so shorthand equivalence with `lambda_k -> 0` should not be used without an additional argument.
+
+## Current work
+
+- Graduate Student B: validate and attack the invariant-front/front-gap reduction, assignment `students/student-b/assignment-003.md`.
+- Graduate Student A: focused writeup plus closest-prior-work/successor audit, assignment `students/student-a/assignment-writeup-001.md`.
+
+Publication-level novelty checking remains pending. A targeted successor search through 2026-08-15 found no later theorem removing the `0.0347` restriction, but the verified status refers to mathematical correctness, not a priority claim.
+
+## Wiki-freeze review
+
+The protocol trigger has fired because the programme's first central theorem entered independent audit. The principal controls whether the live-wiki freeze is lifted.
+
+Professor recommendation: **keep the wiki frozen for now**. Stabilize the focused manuscript and complete the closest-prior-work audit first. If the principal later lifts the freeze, a concise `proved here` BABP update can be considered under the wiki quality rules.
+
+## Main promotion
+
+Meeting 005 judged the following stable enough for selective promotion to `main`:
+
+- `research/claim-registry.md` with `BABP-EDGE-001` and `BABP-CONV-001` verified;
+- `research/results/babp-finite-seed-convergence.md`;
+- this `project-state.md`.
+
+The exploratory active workspace, student calculations, meeting history, and unresolved front-process work remain on `research/babp-finite-seed`.
 
 ## Most recently closed programme
 
-**1D hard FA-1f from a finite seed** was closed at Group Meeting 002 on expected-value grounds. The open problem itself remains worthwhile.
-
-Two distinct project mechanisms were settled:
-
-1. the exact centered `h`-transform to a positive finite-set process is correct but is an invertible finite-volume similarity with no demonstrated simplification;
-2. the exact unnormalized successful-skeleton transfer restores real consistency-probability losses on restricted routing sectors, but after complete branching its centered coefficient matrix satisfies
-
-$$
-K_t(A,B)=q^{|A|-|B|}Q_t(A,B),
-$$
-
-where `Q_t` is the same E1 Markov semigroup. Thus the full `h`-weighted transfer is conservative.
+**1D hard FA-1f from a finite seed** was closed at Group Meeting 002 on expected-value grounds. The broader problem remains open. The two project mechanisms closed there were the centered positive transform and the unnormalized patch-transfer route; both reduced to the same conservative dynamics.
 
 The principal also supplied prior negative tractability evidence from extensive earlier ChatGPT work on 1D FA-1f off-equilibrium convergence. Cancellation/duality is not a preferred or required organizing mechanism.
-
-## Canonical prior work: patch construction
-
-The principal's manuscript `paper/`, *Patch representations and convergence for facilitated spin systems*, is authoritative for the patch construction and its proofs and supersedes the deprecated IPS wiki layer on those points.
-
-The patch construction remains a research asset, not a mandatory template. The active BABP mechanism is the finite-state edge corrector and internal-gap control.
 
 ## Closed programmes and routes
 
@@ -141,39 +131,11 @@ Closed screened routes:
 
 Broader mathematical problems may remain open. What is closed is the recorded programme or mechanism.
 
-## Reusable lessons
-
-- Wrong-norm or wrong-weight cancellation is usually fatal when the critical conversion restores the lost scale.
-- Test a strict local gain under the first nontrivial composition and in the controlling quantity.
-- Substantial prior model-assisted effort without a route is real tractability evidence.
-- Recent progress/survey papers with explicit open problems are useful target sources; do not force duality, cancellation, or patches into a target.
-- The BABP programme is a positive example of obstruction-first work: reconstructing a historical numerical barrier exposed an improvable finite-state optimization problem.
-- A theorem consequence must be audited separately from a computational certificate. `BABP-EDGE-001` is verified; `BABP-CONV-001` is not yet.
-- The distinction between a statewise generator inequality and its asymptotic corollary can be mathematically decisive: the new gap proof needs the former.
-
-## Group-meeting homeostasis
-
-Meeting 003: `state_narrowed: yes`.
-
-Meeting 004: `state_narrowed: yes`, because the statewise edge corrector was shown to control internal gaps and produced a complete claimed convergence proof at `lambda=1/40`.
-
-Three-consecutive-no backstop is not active.
-
-## Stable claim promotion
+## Stable claims
 
 `research/claim-registry.md` is the status index.
 
 - `BABP-EDGE-001`: `verified`, audit `d1ef2ca`.
-- `BABP-CONV-001`: `claimed`. Pending audits:
-  - `research/active/babp-finite-seed/audits/002-corrector-to-convergence-request.md`;
-  - `research/active/babp-finite-seed/audits/003-corrector-to-convergence-request.md`.
+- `BABP-CONV-001`: `verified`, independent correctness reviews `abb05f6` and `1aeb5a5`.
 
-Do not promote the convergence theorem until both independent reviews have returned and their objections, if any, have been resolved by the Professor.
-
-## Opportunity cost
-
-The residual simple positive-rates/noisy-East problem remains the strongest reserve target from Student A's reconnaissance. BABP remains preferred while its theorem audits are pending because it has one verified nontrivial result and a complete claimed open-problem theorem.
-
-## Wiki
-
-The wiki is frozen except for correctness repairs and prerequisites genuinely required by active research. Deprecated IPS wiki material does not override the canonical patch paper.
+No all-parameter BABP convergence claim is currently registered.
