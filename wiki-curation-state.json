@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "legacy_migration_complete": false,
-  "integrations_since_last_sweep": 0,
+  "integrations_since_last_sweep": 1,
   "entries_at_last_sweep": 92,
   "last_sweep_commit": "d5ccc6546b75381ffb6f2a952587d91e3174763d",
   "priority_order": [
-    "entries on the PDE reading path, beginning with §0 item 5 solution notions",
+    "entries on the PDE reading path, beginning with §0 item 6 regularity/existence/uniqueness/a priori estimates",
     "recently changed PDE entries",
     "potentially stranded SQG-era background entries",
     "other duplicate, obsolete, scaffolding, or terminated-programme entries"

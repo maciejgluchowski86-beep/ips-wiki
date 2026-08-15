@@ -8,9 +8,9 @@ This file is the compact mutable state for the autonomous PDE/probability resear
 
 ## Active programme
 
-**No active scientific programme.** Current activity is bounded pre-nomination candidate screening under the seven-gate protocol in `CHATGPT.md`.
+**No active scientific programme.** The 1D FA-1f Bernoulli-quench convergence candidate completed Gates 1--5 and 7 of the pre-nomination protocol, but Gate 6 (adversarial saturation) is **UNRESOLVED**, so it was not nominated.
 
-All seven gates must pass before a candidate can occupy the active scientific-programme slot. Screening work may resolve an eligibility gate, but it is not itself an active scientific programme.
+The Director authorized a bounded Gate-6 calibration. This is pre-nomination screening only and does not occupy the active scientific-programme slot.
 
 ## Reserve programme
 
@@ -39,17 +39,26 @@ and independent clusters tensorize as $\kappa^n$. This is not a project theorem.
 
 Seven programmes are terminated: quadratic-Hessian, Fresnel integrability, Navier--Stokes stochastic cascade, Strong-KPP uniqueness, supercritical dissipative SQG, long-maturity marked branching, and Gaussian bridge coarsening. There is still no verified project result.
 
-Cycle 14 adopted the pre-nomination seven-gate SEARCH protocol now recorded in `CHATGPT.md`. No eighth programme was nominated because no candidate dossier was presented, and all seven gates must be PASS before nomination. The next scientific work is therefore bounded candidate screening rather than promotion of an unresolved candidate.
+The current FA-1f screen is not a programme. At $q_0=1$,
+
+$$
+a=1-\frac1q=-\frac{1-q}{q},
+\qquad
+q^2|a|^2=(1-q)^2\longrightarrow1
+\quad(q\downarrow0).
+$$
+
+Thus the obstruction-derived maximal two-birth outcome retains critical absolute scaling. The complete one-ring signed average cancels, $(p+qa)^2=0$, but later ring opportunities depend on earlier sibling coin outcomes, so one-ring cancellation does not establish a multigeneration contraction. Gate 6 therefore remains UNRESOLVED. No eighth scientific programme is nominated.
 
 The IPS freeze remains removed. Project-specific IPS wiki material duplicated or superseded by the paper remains delete-first curation debt. Generic definition and literature pages are not deletion candidates merely because a project-specific theorem layer is deprecated.
 
 ## Wiki frontier
 
-The ninth Wiki Curator sweep is completed after this integration: eight KEEP, four REWRITE, zero DEMOTE, zero DELETE, plus the new audited §0 item 4 classification page.
+Section 0 item 5 is integrated as the audited roadmap [classical, weak/distributional, mild, and viscosity solutions](docs/entries/classical-weak-mild-and-viscosity-solutions.md).
 
-The PDE-reader frontier is now **§0 item 5: classical, weak, mild, and viscosity solution notions**. The missing item-5 page should be a roadmap linking to specialized entries rather than duplicating them.
+The PDE-reader frontier is now **§0 item 6: the role of regularity assumptions and a first picture of existence, uniqueness, and a priori estimates**.
 
-Legacy migration remains incomplete. The next curation priority is the PDE reading path beginning with §0 item 5, then recently changed PDE entries, potentially stranded SQG-era background entries, and other duplicate, obsolete, scaffolding, or terminated-programme material.
+Legacy migration remains incomplete. The next curation priority is the PDE reading path beginning with §0 item 6, then recently changed PDE entries, potentially stranded SQG-era background entries, and other duplicate, obsolete, scaffolding, or terminated-programme material.
 
 ## Dead ends
 
@@ -68,7 +77,5 @@ Keep this section sparse; record only failures expensive enough that forgetting 
 
 Run exactly two fresh read-only workers, with no more than two concurrent.
 
-1. **Pre-nomination candidate screener.** Search for at most two serious candidates. For each, run all seven gates explicitly, including exact two-source open-problem documentation, successor check, obstruction map, smallest local calculation, first composition/scaling test, a non-retrospective adversarial family, and alternate-terminology novelty search. Recommend at most one candidate for later Director consideration. Do not nominate it and do not treat an unresolved gate as a pass.
-2. **PDE solution-notions prerequisite worker.** Starting only after the new item-4 page exists, draft and independently source-check the missing §0 item-5 comparison page: classical, weak/distributional, mild, and viscosity solutions. It should be a roadmap rather than duplicate the specialized existing pages. Return a reader-side acceptance test and exact proposed dependency links. No GitHub writes.
-
-The next Director decides whether any candidate actually clears the seven gates. Until then there is no eighth scientific programme and no reserve. No DEVELOP transition and no eighth programme is preselected.
+1. **FA-1f Gate-6 calibration worker.** Starting from the obstruction-derived maximal-branching family and especially $q_0=1$, sum all sibling coin outcomes exactly through two and then three interacting generations, including the dependence of later ring structure on earlier outcomes. Test $q\downarrow0$. A PASS requires a uniform signed block estimate with an explicit reason it iterates on the adversarial family; a finite-depth favorable calculation without such iteration remains UNRESOLVED. A restored critical scaling rejects the candidate. Do not nominate and do not enter DEVELOP.
+2. **Wiki Curator.** Because legacy migration remains incomplete, audit a coherent batch of at most about twelve existing pages beginning at the §0 item-6 regularity frontier and directly coupled/recent PDE material. Apply KEEP/REWRITE/DEMOTE/DELETE, check dependencies and sources, and do not create or promote project-specific mathematics.

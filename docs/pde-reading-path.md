@@ -16,7 +16,7 @@ Definitions should live in one place and be linked elsewhere. Standard PDE facts
 
 ## 0. PDE vocabulary
 
-**Current wiki frontier: §0 item 5, classical, weak, mild, and viscosity solution notions.** Item 4 is now integrated and audited; the remaining vocabulary layer should continue to be built before later entries are treated as self-contained.
+**Current wiki frontier: §0 item 6, the role of regularity assumptions and a first picture of existence, uniqueness, and a priori estimates.** Item 5 is now integrated and audited; the remaining vocabulary layer should continue to be built before later entries are treated as self-contained.
 
 The reader should first acquire the following objects and distinctions:
 
@@ -24,7 +24,7 @@ The reader should first acquire the following objects and distinctions:
 2. [initial, terminal, boundary, and initial-boundary value problems](entries/initial-terminal-and-boundary-value-problems.md);
 3. [linear, semilinear, quasilinear, and fully nonlinear equations](entries/linear-semilinear-quasilinear-and-fully-nonlinear-equations.md);
 4. [elliptic, parabolic, and hyperbolic equations](entries/elliptic-parabolic-and-hyperbolic-equations.md), first through canonical examples and only then through the general principal-part classification;
-5. classical, weak, mild, and viscosity solutions, including why different notions are useful;
+5. [classical, weak/distributional, mild, and viscosity solutions](entries/classical-weak-mild-and-viscosity-solutions.md)
 6. the role of regularity assumptions and a first picture of existence, uniqueness, and a priori estimates.
 
 These are deliberately prerequisites rather than compressed terminology lists. The autonomous wiki process should create focused entries for them by the reader-failure algorithm in `CHATGPT.md`.
