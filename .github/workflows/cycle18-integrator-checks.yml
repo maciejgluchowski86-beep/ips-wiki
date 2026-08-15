@@ -49,54 +49,44 @@ jobs:
       - name: Check repository-wide Markdown relative links
         run: |
           python - <<'PY'
+          from html.parser import HTMLParser
           from pathlib import Path
           from urllib.parse import unquote
-          import re
+          import markdown
           import sys
 
           root = Path('.').resolve()
           markdown_files = [p for p in root.rglob('*.md') if '.git' not in p.parts and 'site' not in p.parts]
-          inline = re.compile(r'!?\[[^\]]*\]\(([^)]+)\)')
-          reference = re.compile(r'^\s*\[[^\]]+\]:\s*(\S+)', re.MULTILINE)
           schemes = ('http://', 'https://', 'mailto:', 'tel:', 'javascript:', 'data:')
           failures = []
           checked = 0
 
-          def without_fences(text: str) -> str:
-              out = []
-              in_fence = False
-              marker = None
-              for line in text.splitlines():
-                  stripped = line.lstrip()
-                  if stripped.startswith('```') or stripped.startswith('~~~'):
-                      token = stripped[:3]
-                      if not in_fence:
-                          in_fence = True
-                          marker = token
-                      elif token == marker:
-                          in_fence = False
-                          marker = None
-                      continue
-                  if not in_fence:
-                      out.append(line)
-              return '\n'.join(out)
+          class LinkCollector(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.targets = []
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if tag == 'a' and 'href' in attrs:
+                      self.targets.append(attrs['href'])
+                  elif tag in {'img', 'source'} and 'src' in attrs:
+                      self.targets.append(attrs['src'])
+
+          extensions = [
+              'meta', 'admonition', 'attr_list', 'def_list', 'footnotes', 'md_in_html', 'toc',
+              'pymdownx.arithmatex', 'pymdownx.details', 'pymdownx.superfences',
+              'pymdownx.highlight', 'pymdownx.inlinehilite',
+          ]
 
           for md in markdown_files:
-              text = without_fences(md.read_text(encoding='utf-8'))
-              targets = [m.group(1).strip() for m in inline.finditer(text)]
-              targets += [m.group(1).strip() for m in reference.finditer(text)]
-              for raw in targets:
-                  if raw.startswith('<') and raw.endswith('>'):
-                      raw = raw[1:-1].strip()
+              html = markdown.markdown(md.read_text(encoding='utf-8'), extensions=extensions)
+              parser = LinkCollector()
+              parser.feed(html)
+              for raw in parser.targets:
+                  raw = raw.strip()
                   if not raw or raw.startswith('#') or raw.startswith('//') or raw.startswith(schemes):
                       continue
-                  # Strip an optional Markdown title from ordinary link destinations.
-                  if ' ' in raw and not raw.startswith(('"', "'")):
-                      candidate = raw.split()[0]
-                  else:
-                      candidate = raw
-                  candidate = candidate.split('#', 1)[0].split('?', 1)[0]
-                  candidate = unquote(candidate)
+                  candidate = unquote(raw.split('#', 1)[0].split('?', 1)[0])
                   if not candidate or candidate.startswith('/'):
                       continue
                   checked += 1
@@ -118,4 +108,5 @@ jobs:
           PY
 
       - name: Strict MkDocs build
+        if: always()
         run: mkdocs build --strict
