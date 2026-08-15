@@ -2,124 +2,71 @@
 
 ## Main target
 
-For one-dimensional BABP with branching parameter `lambda>0`, started from any finite nonempty particle set `B`, prove local convergence to Bernoulli equilibrium `pi_q` with
+For one-dimensional BABP with branching parameter `lambda>0`, started from any finite nonempty particle set, prove local convergence to Bernoulli equilibrium of density
 
 $$
-q=\frac{\lambda}{1+\lambda}.
+q=\frac{\lambda}{1+\lambda}
 $$
 
-The programme now has a verified theorem below the previously recorded finite-seed range. The remaining target is all `lambda>0`.
+for every `lambda>0`.
 
-## E0. Finite-test convergence criterion
+The finite-window submartingale mechanism is classical after full-text comparison with Sudbury (1999). The genuinely open target is the all-parameter extension.
 
-BABP self-duality gives the standard finite-test criterion for local convergence.
-
-**Status:** established external input; not used in the new corrector-to-convergence bridge.
-
-## E1. Stationary-limit and stationary-law inputs
+## E1. External stationary inputs
 
 For every fixed `lambda>0`:
 
-1. every weak limit point of the BABP law is stationary;
-2. every stationary one-dimensional BABP law is a convex combination of the empty state and Bernoulli equilibrium.
+1. every weak limit point is stationary, by Jahnel--Köppl (2026), Theorem 2.5, whose `(L1)` and `(R1)--(R3)` hypotheses hold for nearest-neighbour BABP;
+2. every stationary one-dimensional BABP law is a convex combination of the empty state and Bernoulli equilibrium, by Martinelli--Shapira--Toninelli (2025), Corollary 2.9, after `lambda=q/p` and the constant rescaling `L_project=p^{-1}L_MST`.
 
-For (1), Jahnel--Köppl (2026), Theorem 2.5, was checked from the full source. BABP satisfies `(L1)` and `(R1)--(R3)` with `rho(r)=e^{-alpha r}`: updates are single-site, site rates are uniformly bounded, and influence is nearest-neighbour.
+**Status:** checked external inputs.
 
-For (2), Martinelli--Shapira--Toninelli (2025), Corollary 2.9, applies after the explicit constant time rescaling
+## E2. Finite-window robust edge corrector
 
-$$
-\lambda=q/p,
-\qquad
-L_{\mathrm{project}}=p^{-1}L_{\mathrm{MST}}.
-$$
+For bounded `phi:{0,1}^k->R`, the corrected right edge has exact statewise drift `D_{k,lambda}(u,z;phi)`.
 
-**Status:** verified external interfaces for present use. Mountford and Ramírez--Varadhan remain historical antecedents but are not needed as unchecked hypotheses.
-
-## E2. Finite-window right-edge corrector
-
-For a finite nonempty BABP configuration, let `R` be its right edge and let `u in {0,1}^k`, `z in {0,1}` encode the first `k+1` sites behind it. For bounded `phi`, put
-
-$$
-H(B)=R(B)+\phi(u(B)).
-$$
-
-The exact drift is `D_{k,lambda}(u,z;phi)`. If
+If
 
 $$
 D_{k,\lambda}(u,z;\phi)\ge v>0
 $$
 
-uniformly, then
+for every edge word `u` and exterior bit `z`, then the right/left edges satisfy the audited ballistic liminf/limsup bounds.
+
+At
 
 $$
-\liminf_{t\to\infty}\frac{R(B_t)}t\ge v,
-\qquad
-\limsup_{t\to\infty}\frac{L(B_t)}t\le-v
-\quad\text{a.s.}
+\lambda=\frac1{40},\qquad k=10,
 $$
 
-for every finite nonempty initial state.
-
-**Status:** verified claim `BABP-EDGE-001`, audit `d1ef2ca`.
-
-At `k=10`, `lambda=1/40`, the exact minimum drift is
+there is an exact rational certificate with
 
 $$
-\frac{1033}{40000000}>0.
+\min_{u,z}D_{10,1/40}(u,z;\phi)
+=\frac{1033}{40000000}>0.
 $$
 
-## E3. DFP black-box route
+**Status:** verified project claim `BABP-EDGE-001`, audit `d1ef2ca`.
 
-The finite-test self-duality cylinder has no probability-law DFP representation, and its finite-window signed representation has exponentially growing coefficient norm.
+**Historical correction:** Sudbury (1999), Section 3, uses the same mechanism. After reflection, his `m`-block/end-value/correction/local gain are the project `k`/`u,z`/`phi`/`D`. His Lemma 5 is the robust all-end-value condition and Lemma 7 is window nesting. Table 2 reports the same `m=8`, `0.0347` problem by trial and error. Thus the mechanism and arbitrary-window formulation are prior art; the exact `k=10`, `lambda=1/40` certificate is the project contribution.
 
-**Status:** demoted.
+## E3. Corrector to finite-seed convergence
 
-## E4. Statewise corrector to finite-seed convergence
+The project has a self-contained proof that the statewise condition in E2 implies local convergence from every finite nonempty deterministic initial set. It applies the same corrector to the two populations bordering internal vacant gaps and proves uniform local nonescape.
 
-Assume `(EC)`:
+**Status:** mathematically verified as `BABP-CONV-001` after reviews `abb05f6` and `1aeb5a5`.
 
-$$
-\exists k,\phi,v>0\quad
-D_{k,\lambda}(u,z;\phi)\ge v
-\quad\text{for every }(u,z).
-$$
+**Novelty correction:** the implication is classical. Sudbury (1999), immediately before Theorem 7, says the Neuhauser--Sudbury (1993) stationary-state argument relied on a suitable submartingale and proceeds unchanged once Section 3 extends its parameter range. The project proof is retained as a self-contained modern proof, not a new criterion. Novelty of the particular tagged-gap architecture is unresolved until Neuhauser--Sudbury (1993), Section 5, is inspected.
 
-Then for every finite nonempty deterministic initial set,
+Concrete verified range extension:
 
 $$
-\operatorname{Law}_B(B_t)\Longrightarrow\pi_q.
+\lambda=\frac1{40}=0.025
 $$
 
-The proof uses `(EC)` on internal gaps, not merely on the two outer edges. Positive gaps have unique genealogies. The corrected width of a tagged gap has drift at most `-2v`; after localization, exponential tilting gives uniform lifetime and width tails. Poisson boundary displacement and a compensator sum, first truncated to `|x|<=N` and then passed to `N=infinity` by monotone convergence, yield
+lies below Sudbury's published `0.0347` range.
 
-$$
-\limsup_{t\to\infty}
-\mathbf P_B(B_t\cap[-M,M]=\varnothing)
-\le Ce^{-cM}.
-$$
-
-E1 then excludes the empty component of every subsequential limit.
-
-No particle-number growth theorem is used.
-
-**Status:** verified claim `BABP-CONV-001` after Professor reconstruction and two fresh independent correctness reviews:
-
-- `audits/002-convergence-review-a.md`, commit `abb05f6`;
-- `audits/002-convergence-review-b.md`, commit `1aeb5a5`.
-
-Stable proof: `research/results/babp-finite-seed-convergence.md`.
-
-**Concrete verified corollary:** finite-seed convergence at
-
-$$
-\lambda=\frac1{40}=0.025,
-$$
-
-below the `0.0347` range recorded in Martinelli--Shapira--Toninelli (2025), Remark 5.4.
-
-## E5. Positive correctors for every `lambda>0`
-
-This is the current first development edge.
+## E4. Exact infinite-front reduction
 
 For fixed `lambda`, define
 
@@ -127,63 +74,83 @@ $$
 v_k(\lambda)=\sup_\phi\min_{u,z}D_{k,\lambda}(u,z;\phi).
 $$
 
-Window monotonicity is exact:
+Window nesting is exact: `v_{k+1}(lambda)>=v_k(lambda)`.
+
+Student B's `003-front-gap.md` validates the infinite-front reduction. Let `Q_infinity` be the environment seen from the right edge and `I_lambda` its invariant laws. Cylinder functions form a core for the Feller generator. Finite LP duality plus compactness gives
 
 $$
-v_{k+1}(\lambda)\ge v_k(\lambda).
-$$
-
-Student B's `002-edge-environment-dual.md`, commit `b9fdc55`, proposes an infinite-volume dual. Let `Q_infinity` be the environment seen from the right edge and `I_lambda` its invariant laws. The core proposed identity is
-
-$$
+\boxed{
 \lim_{k\to\infty}v_k(\lambda)
 =
-\inf_{\mu\in\mathcal I_\lambda}
-\int(\lambda-u_1)\,d\mu.
+\inf_{\mu\in\mathcal I_\lambda}\mu(\lambda-u_1).
+}
 $$
 
-For every invariant front law, stationarity of the first bit gives
+The first-bit stationary balance gives
 
 $$
-\mu(u_1=1)
+\mu(\lambda-u_1)
 =
 \frac{\lambda}{1+\lambda}
-\left(1+\frac12\mu(u_1=0,u_2=1)\right).
+\left(\lambda-\frac12\mu(01)\right).
 $$
 
-Hence the proposed reduction is
+Therefore existence of a positive finite-window corrector at fixed `lambda` is equivalent to
 
 $$
-\lim_{k\to\infty}v_k(\lambda)
-=
-\frac{\lambda}{1+\lambda}
-\left(\lambda-rac12
-\sup_{\mu\in\mathcal I_\lambda}\mu(01)\right).
+\sup_{\mu\in\mathcal I_\lambda}\mu(01)<2\lambda.
 $$
 
-The direct all-parameter target is therefore the **front-gap lemma**:
+**Status:** Professor-checked for proof-spine use; not yet independently audited as a stable project theorem.
+
+No parameter-monotonicity statement is used.
+
+## E5. Physical front versus hostile invariant phases
+
+Student B proves that every Cesaro invariant front law selected from the singleton has strictly positive current for every `lambda>0`.
+
+Indeed, Martinelli--Shapira--Toninelli's all-parameter linear cardinality growth and reflection symmetry give
 
 $$
-\sup_{\mu\in\mathcal I_\lambda}\mu(01)<2\lambda
-\qquad\text{for every fixed }\lambda>0.
+\liminf_{t\to\infty}\frac{\mathbf E R_t}{t}>0,
 $$
 
-If the infinite-front dual identity is correct and the front-gap lemma holds, E4 gives the full all-parameter finite-seed theorem.
+and the front compensator identifies every singleton Cesaro limit `mu_phys` with
 
-**Status:** front reduction claimed for research use, not independently audited. Graduate Student B owns its validation and the front-gap attack in assignment 003.
+$$
+\mu_{\rm phys}(\lambda-u_1)>0.
+$$
 
-**Parameter-threshold caution:** the shorthand statement `lambda_k -> 0`, with `lambda_k=inf{lambda:v_k(lambda)>0}`, should not be treated as equivalent to the all-parameter corrector statement unless the relevant monotonicity/interval structure in the parameter `lambda` is proved. Monotonicity in the window size `k` does not by itself supply this.
+Thus the all-parameter finite-window route can fail only if `Q_infinity` has another invariant semi-infinite-tail law with nonpositive or smaller current.
 
-## N1. Publication-level novelty
+Gap coordinates show a reversible coagulation/fragmentation bulk with iid geometric reference gaps and a single driven boundary at the moving front. At `lambda=0` there are many absorbing hard-core tails, so uniqueness at positive `lambda` cannot be inferred by continuity from zero.
 
-A targeted search through 2026-08-15 found no later theorem removing the `0.0347` restriction, and the 2025 progress paper records that as the known range. Publication-level priority/closest-prior-work checking remains pending.
+A one-gap corrector `R+h(g_1)` cannot beat `lambda>1/3`; deeper correlations are necessary.
 
-**Owner:** Graduate Student A as part of the writeup assignment, followed by independent literature audit before submission-level confidence.
+**Status:** this is the current target-relevant reduction.
 
 ## Current first unresolved edge
 
-**E5: verify the infinite-front reduction and prove positive worst invariant front drift for every fixed `lambda>0`, preferably through the front-gap lemma.**
+Exclude hostile invariant semi-infinite-tail phases for every `lambda>0`.
 
-## Reserve
+A sufficient statement is:
 
-The residual simple-IPS positive-rates/noisy-East problem remains the strongest identified reserve if the all-parameter BABP front problem becomes analytically sterile.
+> **FRONT-UNIQUENESS.** The infinite right-front process has a unique invariant probability law for every fixed `lambda>0`.
+
+Uniqueness is stronger than necessary. It is enough to prove positive current for every invariant front law, or that every invariant law lies in the closed convex hull of the singleton-selected Cesaro limit set.
+
+Promising directions currently visible:
+
+- a coupling that controls re-entry of untouched tail information under later left shifts;
+- an entropy/current argument in gap coordinates using reversible bulk and positive boundary affinity, with a proof that no compensating flux can arrive from particle-index infinity;
+- finite-tail boundary truncations as a falsification/calibration tool for a possible hostile phase.
+
+**Owner:** Graduate Student B, assignment `students/student-b/assignment-004.md`.
+
+## Opportunity-cost checkpoint
+
+The `lambda=1/40` result is a genuine exact range extension but not a new mechanism. BABP remains active for one further substantial hostile-phase block because E4--E5 sharply localize the all-parameter obstruction. If that block produces no theorem-level narrowing, explicitly compare continuation against the noisy-East reserve at the next group meeting.
+
+## Publication/provenance side question
+
+Obtain Neuhauser--Sudbury (1993), Section 5, if conveniently available. It is needed only to settle attribution of the project's tagged-gap proof architecture, not for the all-parameter proof spine.
