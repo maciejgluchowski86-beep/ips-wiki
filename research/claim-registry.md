@@ -2,7 +2,7 @@
 
 This file is the mechanical status index for project-specific mathematical claims that appear on `main` outside the scratch research workspace.
 
-Allowed statuses are `claimed`, `verified`, and principal-designated `canonical`. A `verified` claim must point to a durable independent audit record. Mathematical verification and novelty/priority are separate questions.
+Allowed mathematical statuses are `claimed`, `verified`, and principal-designated `canonical`. A `verified` claim must point to a durable independent audit record. **Mathematical verification is separate from research-contribution status.** Under the standing novelty standard in `CHATGPT.md`, a verified calculation obtained only by instantiating an existing arbitrary-size method at a larger window/order/degree or analogous complexity parameter is not a new project result merely because it improves a numerical constant.
 
 ## Canonical patch results
 
@@ -26,11 +26,15 @@ Source: `paper/sections/main-results.tex` and `paper/sections/representation.tex
 
 Basis: principal designation of `paper/` as the canonical patch source.
 
-## Active or later project claims
+## Verified BABP mathematics retained for reuse
+
+The two entries below remain mathematically verified and may be used as technical inputs. After the Sudbury full-text comparison and the principal's standing novelty ruling, **neither counts as a project research result or contribution**. Sudbury's finite-window method is defined for arbitrary window size, so the ten-site computation is exactly the kind of larger-window quantitative instantiation excluded by the protocol's novelty standard. The corrector-to-convergence implication is classical prior work.
 
 ### BABP-EDGE-001
 
 Status: `verified`
+
+Research-contribution status: **not a project result under the standing novelty standard**.
 
 Claim: for one-dimensional BABP in particle variables with rates
 
@@ -80,19 +84,15 @@ Independent hostile audit:
 - commit `d1ef2ca`;
 - `research/active/babp-finite-seed/audits/001-edge-corrector-audit.md`.
 
-Historical identification, corrected after full-text comparison with Sudbury (1999): Sudbury's Section 3 uses the same finite-window robust submartingale mechanism. His `m` is the window size, his `m`-block is the edge word, the single end-value is the exterior bit, and his corrected local gain
+Historical identification: Sudbury (1999), Section 3, uses the same finite-window robust submartingale mechanism. After reflection, his window size `m`, block state, unresolved end-value, correction vector, and corrected local gain are respectively the present `k`, edge word `u`, exterior bit `z`, corrector `phi`, and drift `D_{k,lambda}`. His Maxwell's-demon formulation is exactly the robust both-`z` condition: the exterior value may be assigned independently as a function of the current block state, and Lemma 5 requires one corrector to work for every such assignment. Lemma 7 extends any successful `m_1` construction to every larger `m_2` by ignoring the extra sites. Table 2 reports the trial value `m=8`, `lambda_m=0.0347`.
 
-$$
-a_i+\sum_jq_{ij}(S_j-S_i)
-$$
-
-is the reflected form of `D_{k,lambda}`. His Maxwell's-demon formulation permits the end-value to depend on the current block state, and Lemma 5 requires one corrector to work for every assignment of those end-values; because only the current row's single end-value enters its drift, this is exactly the robust requirement that both exterior-bit values work in every edge state. Table 2 reports `m=8`, `lambda_m=0.0347`, explicitly as a trial-and-error value rather than an exact critical value. Lemma 7 states that a submartingale at `m_1` extends to every larger `m_2` by ignoring the extra sites.
-
-Novelty boundary: the finite-window submartingale mechanism is Sudbury's, not a project invention. The project contribution recorded here is the independently audited **exact rational ten-site certificate at `lambda=1/40`**, together with the exact drift margin above. The project `k=8` crossing `0.0346195434755...` refines Sudbury's reported decimal for the same eight-site optimization problem.
+The independently computed project value `0.0346195434755...` refines the same eight-site optimization, and the exact `k=10`, `lambda=1/40` witness is a correct larger-window instance. It is useful verified technical data but, under the principal's standing standard, not a substantive new result.
 
 ### BABP-CONV-001
 
 Status: `verified`
+
+Research-contribution status: **not a new project theorem; verified self-contained formulation/proof of a classical implication**.
 
 Claim: fix `lambda>0` and the BABP convention above. If there exist `k>=1`, bounded `phi:{0,1}^k->R`, and `v>0` such that
 
@@ -128,12 +128,8 @@ Independent correctness reviews:
 - commit `abb05f6`, `research/active/babp-finite-seed/audits/002-convergence-review-a.md`;
 - commit `1aeb5a5`, `research/active/babp-finite-seed/audits/002-convergence-review-b.md`.
 
-The project proof applies the corrector to both populations bordering a tagged internal gap. After localization, exponential tilting gives uniform gap lifetime/width tails; Poisson displacement and a finite-spatial-truncation compensator sum followed by monotone convergence yield local nonescape. Jahnel--Köppl (2026), Theorem 2.5, supplies stationarity of weak limit points, and Martinelli--Shapira--Toninelli (2025), Corollary 2.9, supplies the stationary-law classification after the explicit time rescaling `lambda=q/p`, `L_project=p^{-1}L_MST`.
+Historical/novelty status: Sudbury (1999), immediately before Theorem 7, states that the Neuhauser--Sudbury (1993) finite-seed convergence argument relies on existence of a suitable finite-window submartingale, that his Section 3 extends this condition from the old `1/3` range to `0.0347`, and that their Section 5 proceeds unchanged. Thus the implication from the appropriate finite-window submartingale to finite-seed convergence is classical rather than a project discovery.
 
-Concrete consequence: together with `BABP-EDGE-001`, this proves finite-seed convergence at `lambda=1/40=0.025`.
-
-**Historical/novelty correction.** The implication from a suitable robust finite-window submartingale to finite-seed convergence is not new. Sudbury (1999), immediately before Theorem 7, states that Neuhauser--Sudbury (1993) used existence of a suitable submartingale to exclude the null stationary limit, that his Section 3 extends this condition from the old `1/3` range to `0.0347`, and that the argument of Neuhauser--Sudbury Section 5 then proceeds unchanged. Thus `BABP-CONV-001` is retained as a verified, self-contained project formulation/proof of a **classical implication**, not as a new general criterion.
-
-The verified new range datum is the exact `k=10`, `lambda=1/40` certificate inside Sudbury's established mechanism. Whether the project's particular tagged-gap proof architecture is itself new remains unresolved because Neuhauser--Sudbury (1993), Section 5, has not yet been inspected in full. No priority claim is made for that proof architecture.
+The project's tagged-internal-gap proof is a useful self-contained proof architecture, but no novelty claim is made for that architecture until Neuhauser--Sudbury (1993), Section 5, is inspected. Combining this classical implication with `BABP-EDGE-001` yields mathematically valid convergence at `lambda=1/40`; because the only new input is the larger-window instance of Sudbury's arbitrary-`m` method, that quantitative range extension is **not counted as a project result** under the standing novelty standard.
 
 Claim boundary: no all-parameter theorem, no convergence rate, and no initial laws beyond finite nonempty deterministic sets are claimed.
