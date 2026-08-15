@@ -8,7 +8,7 @@ This file is the compact mutable state for the autonomous PDE/probability resear
 
 ## Active programme
 
-**No active scientific programme.** The 1D FA-1f Bernoulli-quench candidate was never nominated and is now closed after Gate-6 **REJECT**.
+**No active scientific programme.**
 
 ## Reserve programme
 
@@ -35,17 +35,33 @@ and independent clusters tensorize as $\kappa^n$. This is not a project theorem.
 
 ## Unresolved and closure
 
-Seven previously nominated programmes are terminated: quadratic-Hessian, Fresnel integrability, Navier--Stokes stochastic cascade, Strong-KPP uniqueness, supercritical dissipative SQG, long-maturity marked branching, and Gaussian bridge coarsening. Separately, the screened 1D FA-1f Bernoulli-quench candidate is closed at Gate 6 and was never nominated. There is no active programme, no reserve, and no verified project result.
+Seven previously nominated programmes are terminated: quadratic-Hessian, Fresnel integrability, Navier--Stokes stochastic cascade, Strong-KPP uniqueness, supercritical dissipative SQG, long-maturity marked branching, and Gaussian bridge coarsening. Separately, the screened 1D FA-1f Bernoulli-quench candidate is closed at Gate 6 and was never nominated. Cycle 17 screened strongly non-harmonic WFP and the 2D FA-1f relaxation logarithm; neither was nominated because the proposed mechanisms fail Gates 4--6. The open problems themselves are not declared closed. There is no active programme, no reserve, and no verified project result.
 
 The IPS freeze remains removed. Project-specific IPS wiki material duplicated or superseded by the paper remains delete-first curation debt. Generic definition and literature pages are not deletion candidates merely because a project-specific theorem layer is deprecated.
 
+## Current SEARCH guidance
+
+This is current search strategy, not an eighth gate.
+
+Work from the obstruction side. Once a positive target and its exact obstruction have been identified, test the smallest obstruction-level calculation before doing expensive successor/alternate-terminology literature work.
+
+Wrong-norm cancellation is not a mechanism. Reject a proposed mechanism when its strict cancellation exists only in a weaker or unweighted quantity and disappears, or incurs critical-scale loss, in the norm/quantity that actually controls the obstruction.
+
+Squared-move Dirichlet forms are a warning, not a universal exclusion. For a reversible target whose relevant Dirichlet form is already a sum of squared individual increments with no cross-terms, do not pursue local signed-move cancellation unless a genuinely different representation creates an obstruction-level interaction or cross-term. Do not exclude reversible Dirichlet-form problems categorically; global capacity, recurrence, renormalisation, or another representation may still solve them.
+
+Cheap mathematics before expensive literature. After the target and obstruction are concrete, run the Gate-4/5/6 local tests before substantial Gate-2 successor checking and Gate-7 novelty searching. Full Gate 2 and Gate 7 still remain mandatory before nomination.
+
+Because this is mutable SEARCH state, a future Director may amend or remove it without a dedicated constitutional-amendment cycle. Workers and Claude may not amend it; an Integrator may only implement a Director decision. Any change to the seven binding gates themselves remains governed by the stricter amendment rule in CHATGPT.md.
+
 ## Wiki frontier
 
-Section 0 item 6 is integrated as the audited prerequisite [Regularity, well-posedness, and a priori estimates](docs/entries/regularity-well-posedness-and-a-priori-estimates.md). The PDE vocabulary layer is complete.
+The heat-equation/Gaussian-kernel atom has been integrated and audited.
 
-The PDE-reader frontier is now **§1: heat equation and heat kernel**, beginning the heat-equation layer.
+Eleventh sweep disposition: **8 KEEP / 4 REWRITE / 0 DEMOTE / 0 DELETE**.
 
-Legacy migration remains incomplete. The next curation priority is the PDE reading path beginning with §1 heat equation and heat kernel, then recently changed PDE entries, potentially stranded SQG-era background entries, and other duplicate, obsolete, scaffolding, or terminated-programme material.
+Legacy migration remains incomplete.
+
+Current frontier is **§1 Brownian motion interpretation**, followed by **heat semigroup/generator**.
 
 ## Dead ends
 
@@ -59,11 +75,15 @@ Keep this section sparse; record only failures expensive enough that forgetting 
 - Deterministic HLOTW time-slab restarting gives no strict first-moment maturity gain: value-only positive majorants consume exactly the same blow-up budget, while restarted gradient kernels are weakly worse.
 - Two first-derivative Gaussian marks admit the exact $L^1$ coarsening factor $\pi/(2e)$, tensorizing to $\kappa^n$, but this is an instance of classical conditional-expectation contraction and fails the novelty gate.
 - For the 1D FA-1f Bernoulli-quench sibling-cancellation candidate, the two sibling coins give only a double zero: the first rate weighting still cancels, but at three generations $D_q^3 f(\{0\})/a=1-4q+2q^2\to1$, restoring the critical scaling; Gate 6 therefore rejects this mechanism.
+- Strongly non-harmonic WFP via unweighted Moyal/skew cancellation: the weighted coercive norm produces the translated-bump $R$-loss, so Gates 4--6 reject this route.
+- 2D FA-1f relaxation logarithm via local signed-move cancellation: the relevant reversible Dirichlet form is a sum of squared individual increments with no sign cross-term, so Gates 4--6 reject this route. This does not reject global recurrence/capacity approaches.
 - Procedural: unresolved target/mechanism/obstruction/novelty questions are pre-nomination screening work, not reasons to promote a candidate into the active scientific slot.
 
 ## Next cycle
 
 Run exactly two fresh read-only workers, with no more than two concurrent.
 
-1. **Pre-nomination candidate screener.** Search for at most two fresh serious candidates. Run all seven preregistered gates explicitly for each: precise positive target, exact two-published-source open-problem documentation plus successor check, obstruction interface, smallest local gain calculation, first composition/scaling test, non-retrospective adversarial family, and alternate-terminology novelty search. Recommend at most one for later Director consideration only if all seven gates PASS. UNRESOLVED is not PASS. Do not nominate or enter DEVELOP. Do not reopen the closed FA-1f sibling-cancellation/block candidate; a genuinely different FA-1f representation must enter as a new candidate with a new complete seven-gate screen.
-2. **Wiki Curator, eleventh sweep.** Continue legacy migration from the new §1 heat-equation/heat-kernel frontier, auditing a coherent batch of at most about twelve existing directly coupled pages. Apply KEEP/REWRITE/DEMOTE/DELETE, identify the first missing atomic heat-equation prerequisite if necessary, verify dependencies and sources, and promote no project-specific mathematics.
+1. **Pre-nomination candidate screener.** Search for at most two fresh serious candidates. Use all seven unchanged gates. After a precise positive target and exact obstruction are identified, apply the current obstruction-first strategy: run the smallest obstruction-norm local calculation, first composition/scaling test, and obstruction-selected adversarial test before substantial two-source successor and alternate-terminology literature work. Full Gates 2 and 7 are still compulsory before recommendation. Recommend at most one only after seven PASSes. Do not nominate or enter DEVELOP. Do not reopen previously rejected mechanisms merely by renaming them.
+2. **Wiki Curator, twelfth sweep.** Start at the new §1 Brownian motion interpretation frontier, then heat semigroup/generator. Audit a coherent batch of at most about twelve directly coupled pages under KEEP/REWRITE/DEMOTE/DELETE, identify the next missing atomic prerequisites, verify dependency ordering and source hypotheses, and promote no project-specific mathematics.
+
+No third worker. No active programme or reserve is created.

@@ -2,10 +2,10 @@
   "schema_version": 1,
   "legacy_migration_complete": false,
   "integrations_since_last_sweep": 0,
-  "entries_at_last_sweep": 94,
-  "last_sweep_commit": "37dad4042dcf9377fd8a58fd0731c387ce9a5a2c",
+  "entries_at_last_sweep": 95,
+  "last_sweep_commit": "c9ae816e1fa315692adc969ada8b6abe066181f6",
   "priority_order": [
-    "entries on the PDE reading path, beginning with §1 heat equation and heat kernel",
+    "entries on the PDE reading path, beginning with §1 Brownian motion interpretation and then heat semigroup/generator",
     "recently changed PDE entries",
     "potentially stranded SQG-era background entries",
     "other duplicate, obsolete, scaffolding, or terminated-programme entries"
