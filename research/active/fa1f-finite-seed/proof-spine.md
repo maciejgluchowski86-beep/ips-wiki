@@ -1,6 +1,6 @@
 # Proof spine
 
-This file is maintained by the Professor.
+This file records the final mathematical state of the **closed** FA-1f finite-seed programme.
 
 ## Main target
 
@@ -12,37 +12,33 @@ $$
 
 for every local function `f`.
 
-Equivalently, it is enough to prove convergence of all centered monomials
+Equivalently, it is enough to prove
 
 $$
-P_t\chi_A^*(\eta^{0})\longrightarrow 0,
-\qquad
-\chi_A^*(\eta)=\prod_{i\in A}(\eta(i)-p),
+P_t\chi_A^*(\eta^{0})\longrightarrow0
 $$
 
-for every nonempty finite `A`.
+for every finite nonempty `A`.
 
-## Obstruction map
+The mathematical problem remains open. This workspace is closed because the two concrete mechanisms developed here were shown not to reduce the hard obstruction.
+
+## Settled edges
 
 ### E0. Centered-moment reduction
 
-**Statement.** Since centered monomials form a basis for local functions and `mu_p(chi_A^*)=0` for nonempty `A`, the main target follows from decay of every nonempty centered monomial.
-
 **Status:** verified/standard.
 
-**Owner:** Professor.
-
-**Decisive pointer:** canonical patch paper, Section 5.4.
+Centered monomials form a basis for local functions and have zero `mu_p` mean for nonempty index sets.
 
 ### E1. Exact positive finite-set dual after the harmonic transform
 
-Define
+For
 
 $$
-H(A,\eta)=q^{-|A|}\chi_A^*(\eta).
+H(A,\eta)=q^{-|A|}\chi_A^*(\eta),
 $$
 
-There is a Markov process `(\mathcal A_t)` on finite nonempty subsets of `Z` with generator
+the transformed finite-set chain has generator
 
 $$
 \mathcal G g(A)
@@ -51,12 +47,12 @@ $$
 \left[
 \sum_{R\subseteq\{i-1,i+1\}}
 q^{|R|}p^{2-|R|}
-\,g\bigl((A\setminus\{i-1,i+1\})\cup R\bigr)
+ g\bigl((A\setminus\{i-1,i+1\})\cup R\bigr)
 -g(A)
 \right].
 $$
 
-The infinite-volume semigroup duality is exact:
+The exact semigroup duality is
 
 $$
 P_t\chi_A^*(\eta)
@@ -66,102 +62,74 @@ q^{-|\mathcal A_t|}\chi_{\mathcal A_t}^*(\eta)
 \right].
 $$
 
-For the one-vacancy configuration `eta^{0}`,
+For the single-vacancy configuration,
 
 $$
 P_t\chi_A^*(\eta^{0})
 =
-q^{|A|}
-\left(
-1-q^{-1}\mathbf P_A(0\in\mathcal A_t)
-\right).
+q^{|A|}\left(1-q^{-1}\mathbf P_A(0\in\mathcal A_t)\right).
 $$
 
-**Status:** verified for current research use by an independent Student A derivation, including nonexplosion and the infinite-volume semigroup passage.
-
-**Owner:** retained as a Professor tool; not the active proof route.
+**Status:** verified for current research use.
 
 **Decisive pointer:** `students/student-a/001-centered-h-transform.md`, Sections 1--4.
 
-**Structural qualification.** On every finite cycle the duality matrix is invertible and
+**Strategic result:** demoted as a proof mechanism. On finite cycles it is an invertible similarity transform of FA-1f; the transformed process is not attractive or additive, has the same basic front identities, and the available BABP comparison does not import an all-parameter finite-seed theorem.
+
+### E2. Unnormalized successful-skeleton / patch transfer
+
+Student A derived the exact Mecke representation before normalization, the hard-FA consistency probabilities and unnormalized patch amplitudes, and the zero/one/two-record contributions to the singleton deviation.
+
+The restricted same-source transfer has a genuine mass deficit, but the complete first branching transfer is critical: the missing mass is routed exactly into child-source sectors.
+
+More strongly, let `K_t(A,B)` be the coefficient matrix of the centered semigroup,
 
 $$
-G^{(V)}=\mathbf H(L^{(V)})^{\mathsf T}\mathbf H^{-1}.
+P_t\chi_A^*=\sum_BK_t(A,B)\chi_B^*.
 $$
 
-The transformed process is Bernoulli(`q`) reversible but is not attractive or additive, is cancellative only at `q=1/2`, has the same basic vacancy-front generator identities as hard FA-1f, and has equilibrium Dirichlet form comparable to BABP without gaining a known all-parameter finite-seed theorem. The local simultaneous-neighbour algebra is exactly the algebra of the closed Bernoulli-quench sibling route. Thus E1 is an exact positive reformulation, not presently a simplification of the theorem.
-
-**Decisive pointer for the qualification:** `students/student-a/001-centered-h-transform.md`, Sections 7--15.
-
-### E2. Unnormalized successful-skeleton / patch expansion for hard FA-1f
-
-The canonical patch paper proves that, after fixing the successful-interaction skeleton, the local marked histories factor over patches. In the canonical proof the skeleton marginal contains the consistency probabilities while the displayed patch contributions are normalized conditional expectations.
-
-The active route is to put those factors back together and work with the unnormalized amplitudes
+Let `Q_t=e^{t\mathcal G}` be the E1 Markov semigroup. Then
 
 $$
-\widehat C(P)
-:=
-\mathbf E_P\left[F(P)\mathbf 1_{\operatorname{Con}(P)}\right]
-=
-\mathbf P_P(\operatorname{Con}(P))C(P),
+K_t(A,B)=q^{|A|-|B|}Q_t(A,B).
 $$
 
-and analogously for end patches. The point is not to obtain another local cancellation constant. It is to expose the actual probability cost of maintaining a hard-model successful skeleton, which normalization can hide.
+Hence
 
-**Status:** open as a research reduction. The underlying factorization is canonical; the exact hard-FA specialization, all unnormalized patch formulas, and the correct full-skeleton measure bookkeeping have not yet been independently derived in the active workspace.
+$$
+\sum_Bq^{|B|-|A|}K_t(A,B)=1.
+$$
 
-**Owner:** Graduate Student A.
+**Status:** verified for the strategic decision.
 
-**First required output:** a complete exact table of unnormalized FA-1f patch amplitudes and the corresponding skeleton-intensity factors, followed by a check on the smallest full skeleton in which one successful record creates all of its source/target descendant patches. A single ancestry-chain calculation is not enough because every successful record transmits dependence to both neighbours.
+**Decisive pointers:**
 
-### E3. Model-specific replacement for the two hard-model failures of Theorem C
+- `students/student-a/002-unnormalized-patches.md`, especially Sections 9--14;
+- `students/student-a/002-transfer-normalization-clarification.md`;
+- `notes/professor-transfer-verification.md`.
 
-The canonical convergence theorem uses uniform pure deaths twice. Hard FA-1f has no such component. A successful patch route must replace both uses at the level of the actual unnormalized skeleton expansion.
+**Strategic result:** the unnormalization-only route is closed. Restoring consistency probabilities changes the decomposition but not the conservative `h`-weighted coefficient dynamics.
 
-#### E3a. Late-interaction control
+## Unresolved theorem-level obstruction
 
-Find a target-relevant estimate showing that the total contribution of skeletons with a successful interaction after a cut time `T` becomes negligible as `T -> infinity`, for the one-vacancy centered observable or an equivalent quantity. The estimate may be polynomial; exponential decay is not required.
+A proof of the target would still need genuinely new one-dimensional spatial information, for example a regeneration/coupling theorem behind the vacancy fronts or another mechanism controlling local equilibration from a finite seed. Neither E1 nor the local patch weights provide such a theorem.
 
-The canonical pure-death proof obtains this from an exponential factor along one backward chain. In hard FA-1f the naive chain-only unnormalized calculation appears critical, so any gain must use more than one-dimensional chain weight: full branching geometry, coalescence/overlap, recurrence, terminal structure, or another model-specific mechanism.
+The former E3a/E3b goals remain mathematically correct descriptions of what a patch-based extension of the canonical convergence theorem would need:
 
-**Status:** open.
+- control of late successful interactions without uniform pure deaths;
+- terminal-dependence relaxation with the full skeleton weight included.
 
-#### E3b. Terminal-dependence relaxation on no-late-interaction skeletons
-
-On skeletons with no successful interaction after `T`, prove that the remaining dependence on the terminal one-vacancy configuration converges to the equilibrium terminal value in a summable/controlled way after the unnormalized skeleton weights are included.
-
-The one-site empty-target relaxation in the canonical formulas is explicit, but in the hard model it is not by itself enough: one must control the total skeleton weight multiplying the relaxing end factors without the pure-death comparison majorant.
-
-**Status:** open.
-
-### E4. Recombination
-
-Combine E3a and E3b with finite propagation and the canonical patch representation to prove decay of every centered monomial from `eta^{0}`.
-
-**Status:** open; downstream of E2/E3.
-
-## Current first unresolved edge
-
-**E2 is now the current bottleneck.**
-
-The exact `h`-transform E1 has been settled and is not being pursued as the main mechanism. Before investing in a global patch argument we need to know what the unnormalized hard-FA skeleton actually weighs after *all* patches created by the first few successful records are included.
-
-The most informative immediate question is whether the apparent criticality of a single backward outgoing chain survives the first full branching composition. If the full unnormalized expansion merely reproduces the closed sibling algebra or has no target-relevant loss after that composition, this patch subroute should be downgraded or closed quickly.
-
-## Mathematically distinct alternative route
-
-E1 remains available as an exact identity and may become useful if a genuinely new probabilistic theorem for the transformed process appears. It is not an active alternative merely because it exists.
-
-A genuinely different later route would have to use external finite-seed FA structure not encoded by either the transformed process or the local patch weights, for example a regeneration theorem behind the physical vacancy fronts. No such route is currently developed enough to enter the spine.
+But after E2 these are no longer active proof-spine edges, because no concrete mechanism for either remains.
 
 ## Routes eliminated or demoted
 
-- 1D Bernoulli-quench sibling cancellation: closed project route; do not retry. Student A found that its local algebra reappears exactly in the simultaneous-neighbour term of E1. Any future absolute-value contraction based on those two sibling weights is the closed route.
-- Centered `h`-transform as a standalone proof strategy: **demoted after Meeting 001**. E1 is correct but finite-volume similarity, identical front identities, lack of attractiveness/additivity, and the BABP comparison give no present simplification.
-- 2D FA-1f local signed-move cancellation for the relaxation logarithm: different target and closed route.
-- 2D nearest-vacancy/electrical-capacity observable: different target and closed route.
+- 1D Bernoulli-quench sibling cancellation: permanently closed prior route.
+- Centered `h`-transform as a standalone proof strategy: demoted in Meeting 001.
+- Unnormalized-consistency-probability contraction: closed in Meeting 002. The full transfer is exactly E1 in different coordinates.
+- Any future attempt to turn the simultaneous two-neighbour refresh into an absolute-value sibling contraction: the already closed Bernoulli-quench route.
 
-## Revision note
+## Programme decision
 
-Meeting 001 materially changed the spine. Student A verified E1 but also showed that it is an invertible finite-volume coordinate transform and that the obvious probabilistic handles do not improve the finite-seed problem. The programme therefore pivots within the same target from E1 to the unnormalized patch/skeleton route E2. The exact student evidence is `students/student-a/001-centered-h-transform.md`.
+**Closed in Meeting 002 on expected-value grounds.**
+
+This is not an impossibility claim about finite-seed FA-1f. The target remains worthwhile and open. The decision is that the group's two concrete leverage points from the principal's patch/centered-moment machinery have both been reduced to the same conservative positive dynamics, and no third target-relevant spatial mechanism is presently identified. Continuing would amount to searching for an unspecified new idea rather than pursuing a live proof edge.
