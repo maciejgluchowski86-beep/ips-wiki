@@ -8,141 +8,128 @@ Branch: `research/voter-discordant-concentration`
 
 Professor lineage: persistent ChatGPT Professor
 
-Graduate Student D: active persistent student for this direction
+Graduate Student D: idle pending independent review
 
 Graduate Students A, B, C: idle with prior lineages
 
 Workspace: `research/active/voter-discordant-concentration/`
 
-Latest group meeting: `meetings/001-sharp-concentration-reduction.md`
+Latest group meeting: `meetings/002-genealogical-variance-claim.md`
 
-## Corrected target
+Independent correctness reviews in flight:
 
-For a random `d`-regular graph, fixed `d>=3`, voter model started from i.i.d. Bernoulli(`u`) opinions, and discordant-edge density `Dcal_t^n`, prove the corrected all-sublinear concentration statement
+- `audits/assignment-001-review-a.md`;
+- `audits/assignment-002-review-b.md`.
+
+## Central claim entering audit
+
+`VOTER-CONC-001` is registered as **claimed**, not verified.
+
+For every finite simple `d`-regular graph `G`, every `u in (0,1)`, and every `t>=0`, let `Dcal_t` be the voter-model discordant-edge density and let `pi` be uniform on vertices. The claimed deterministic inequality is
+
+$$
+\boxed{
+\operatorname{Var}_u^G(\mathcal D_t)
+\le2\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t).
+}
+$$
+
+For a uniformly random simple `d`-regular graph with fixed `d>=3`, the source meeting-time estimates then imply, for every deterministic `t_n=o(n)`,
+
+$$
+\operatorname{Var}_u^G(\mathcal D_{t_n}^n)
+=O_{\mathbb P}\left(\frac{1+t_n}{n}\right),
+$$
+
+and hence for every `C_n->infinity`,
 
 $$
 \mathbf P_u^G\left(
 |\mathcal D_{t_n}^n-\mathbf E_u^G\mathcal D_{t_n}^n|
 >C_n\sqrt{\frac{1+t_n}{n}}
-\right)\xrightarrow{\mathbb P}0
+\right)\xrightarrow{\mathbb P}0.
 $$
 
-for every `t_n=o(n)` and `C_n->infinity`.
+If additionally `t_n>=1`, the variance is `O_P(t_n/n)`, giving the `C_n sqrt(t_n/n)` scale proposed in source Eq. (1.9) throughout that regime.
 
-Equivalently use the scale
+## Structural proof mechanism
 
-$$
-n^{-1/2}+\sqrt{t_n/n}.
-$$
+Student D's assignment 002 found a route that bypasses both the integrated-drift estimate and the variance-differential sign problem.
 
-For `t_n->infinity` this reduces to the source's intended `sqrt(t_n/n)` dynamical scale.
+Condition on the Harris genealogy at observation time. The vertices split into ancestral clusters `C_v(t)`, and conditional on the genealogy those clusters carry independent Bernoulli(`u`) initial labels. The discordant-edge count becomes a weighted cut statistic on the quotient multigraph of ancestral clusters.
 
-## Source correction
+The law of total variance has two terms.
 
-Graduate Student D and the Professor independently checked that literal Eq. (1.9) in Avena--Baldasso--Hazra--den Hollander--Quattropani (2024) is false as written.
+1. The conditional cut variance is bounded by the ancestral cluster-square sum:
+   $$
+   \mathbf E[\operatorname{Var}(\mathcal D_t\mid H_t)]
+   \le \frac1{n^2}\mathbf E\sum_v|C_v(t)|^2
+   =\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t).
+   $$
+2. The conditional mean is
+   $$
+   \mathbf E[\mathcal D_t\mid H_t]
+   =p\left(1-\frac{J_t}{m}\right),
+   \qquad p=2u(1-u),
+   $$
+   where `J_t` counts original edges whose endpoints have a common ancestor. Pairwise covariances in `J_t` are controlled by cross-interaction of the two ancestral edge families. Source Eq. (5.6) bounds the averaged interaction probability by four times the stationary two-walk meeting probability; since `p<=1/2`, this conditional-mean variance is also at most the same meeting probability.
 
-The source quantifies over every `t_n` with `t_n/n->0`, so it includes `t_n->0`. But Bernoulli initial conditions have
+The Professor independently reconstructed these steps in `notes/professor-assignment-002-verification.md`, including the delicate within-family-coalescence versus four-independent-walk interface.
 
-$$
-\operatorname{Var}(\mathcal D_0)
-=\frac{4u(1-u)[d-(4d-2)u(1-u)]}{dn},
-$$
+## Small-time source correction retained
 
-and hence nondegenerate fluctuations of order `n^{-1/2}` on every simple `d`-regular graph. With
-
-$$
-t_n=n^{-3},\qquad C_n=\log n,
-$$
-
-the process has no clock ring with probability tending to one while the source threshold is `(log n)/n^2=o(n^{-1/2})`.
-
-The correction is recorded in `notes/professor-assignment-001-verification.md` and Meeting 001. It is not yet promoted as a stable project claim; the programme target is the corrected theorem above.
-
-## Verified reduction
-
-For a fixed `d`-regular graph, if `k_x` is the number of neighbours disagreeing with `x`, then
+Literal source Eq. (1.9) remains false because it allows arbitrary `t_n->0`. Bernoulli initial conditions fluctuate on scale `n^{-1/2}`; the explicit counterexample is
 
 $$
-LD=\sum_x\frac{k_x}{d}(d-2k_x).
+t_n=n^{-3},\qquad C_n=\log n.
 $$
 
-For normalized discordance, Dynkin's martingale has predictable bracket bounded by
+Thus the corrected all-sublinear scale is `sqrt((1+t_n)/n)`. The claimed proof recovers the original source scale from time one onward.
+
+## Superseded routes
+
+The following calculations remain correct and useful but are no longer load-bearing:
+
+- the exact martingale bracket bound `d<M>_t/dt<=4/n`;
+- the edge/wedge four-lineage covariance representation;
+- the sufficient integrated-drift bound;
+- the variance-differential route through `Cov(Dcal,L Dcal)`;
+- the obstruction to routine sample-and-discard tuning.
+
+Assignment 002 also found the exact incidence identity
 
 $$
-\frac d{dt}\langle M\rangle_t\le\frac4n,
+\mathcal D(\sigma)=\frac1{2n}\sigma^TQ\sigma,
+\qquad
+L\mathcal D(\sigma)=\frac1n\sigma^T(P-P^2)\sigma,
 $$
 
-so the martingale variance is at most `4t/n` on every graph.
+but no direct sign estimate for `Cov(Dcal,L Dcal)` is needed for the claimed theorem.
 
-The centered drift is a signed spatial average of two-spin observables on edges and length-two wedges. Generic drift covariances therefore require four coalescing ancestral lineages. A sufficient estimate is
+## Verification and novelty boundary
 
-$$
-\mathbf E_u^G\left[
-\left(\int_0^t(L\mathcal D(\eta_s)-\mathbf E L\mathcal D(\eta_s))\,ds\right)^2
-\right]
-=O_{\mathbb P}(t/n)
-$$
+The Professor accepts the theorem only at `claimed` status.
 
-for `1<=t=o(n)`.
+Two genuinely independent hostile correctness reviews are now required. If both leave no substantive objection, the next step is a dedicated closest-prior-work / novelty audit before `verified` promotion or manuscript contribution language.
 
-## New variance-differential route
+Under the standing novelty standard, the claimed theorem is structurally eligible: it is a deterministic graph variance inequality plus a full-regime consequence, not a larger-window or better-constant instantiation. Actual novelty is still pending independent literature review.
 
-Let
-
-$$
-V(t)=\operatorname{Var}_u^G(\mathcal D_t).
-$$
-
-Then
-
-$$
-V'(t)=2\operatorname{Cov}_u^G(\mathcal D_t,L\mathcal D_t)
-+\mathbf E_u^G\Gamma(\mathcal D)(\eta_t),
-$$
-
-and the carré-du-champ term is at most `4/n`. Therefore a uniform bound
-
-$$
-\operatorname{Cov}_u^G(\mathcal D_t,L\mathcal D_t)\le C/n
-$$
-
-through sublinear times would directly yield the corrected variance scale. This same-time signed four-walk sum is the first object in assignment 002.
-
-## Published method limitation
-
-Section 5 of the source samples `K` edges and discards every sampled dual edge-family that interacts with another family. At shrinking error `delta`, this implementation pays sampling scale `K^{-1/2}` and bad-family fraction of natural size `K(t/n)`. Balancing these gives `(t/n)^{1/3}`, not the desired `(t/n)^{1/2}`.
-
-This rules out routine tuning of the sample-and-discard-at-unit-cost architecture, not every possible use of the source duality. A sharp proof must evaluate/cancel interacting four-walk contributions or use a different corrector/martingale decomposition.
-
-## Current assignment
-
-Graduate Student D:
-
-`students/student-d/assignment-002.md`.
-
-Begin at `u=1/2`. Expand `Cov(Dcal,L Dcal)` as the exact signed edge/wedge four-walk sum and test whether incidence identities, collision-pairing cancellation, or a Poisson/corrector reformulation reduce it to `O(1/n)`.
-
-Do not tune `K_n`, improve the polynomial time exponent, or sum absolute cross-meeting bounds as the main output.
-
-## Opportunity-cost condition
-
-If assignment 002 yields only absolute cross-meeting estimates with excessive time growth and no cancellation, corrector, or other structural mechanism, the next meeting must reassess continuation rather than incrementally refine Section 5.
+No uniform-in-time process-supremum concentration theorem is claimed. The random-regular result is sequence-wise quenched-in-environment-probability.
 
 ## Research delta
 
 Latest meeting `state_narrowed: yes`.
 
-Evidence pointer: `students/student-d/001-sharp-concentration-reduction.md`, `notes/professor-assignment-001-verification.md`, and `meetings/001-sharp-concentration-reduction.md`.
+Evidence pointer: `students/student-d/002-four-walk-cancellation.md`, `notes/professor-assignment-002-verification.md`, and `meetings/002-genealogical-variance-claim.md`.
 
-What narrowed:
-
-- literal Eq. (1.9) was refuted and the necessary small-time correction identified;
-- the martingale part was closed at the sharp scale;
-- the remaining issue was reduced to an explicit signed four-lineage covariance problem;
-- routine sample-and-discard tuning was ruled out as a route to the sharp scale.
+The target proof has collapsed from a four-walk time-integrated cancellation problem to a static genealogical total-variance argument controlled by one two-walk meeting probability.
 
 Consecutive no-narrowing meetings: 0.
 
+## Wiki freeze
+
+The first central theorem of this programme has entered independent audit, so the protocol's wiki-review trigger has fired. Professor recommendation: **keep the live wiki frozen** until correctness and novelty audits are complete.
+
 ## Direction
 
-`continue for one bounded structural cancellation block`.
+`continue through independent audit`.
