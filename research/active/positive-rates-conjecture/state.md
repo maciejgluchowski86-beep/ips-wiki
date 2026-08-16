@@ -28,66 +28,40 @@ $$
 \right\}.
 $$
 
-Latest meeting: `meetings/008-restart-tail-and-empty-supnorm-region.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/009-regenerated-mass-loss-and-duration-mode-obstruction.md`, `state_narrowed: yes`.
 
 Active work:
 
-- Student F: `students/student-f/assignment-008.md`, bounded-height signed mass/disagreement kernel, conditional on the global Foster lift;
-- Student G: `students/student-g/assignment-004.md`, make the global restart-corrector Foster lift rigorous or refute it.
+- Student F: `students/student-f/assignment-009.md`, mode-resolved `L^1(w)` block operator retaining mass relaxation/reset-history modes;
+- Student G: still in flight on `students/student-g/assignment-004.md`, global restart-corrector Foster lift.
 
-## Closed proof mechanisms
+## Closed mechanisms / corrections
 
 1. Fixed finite agreed-block / frozen-exterior wall crossing.
 2. Cellwise last-exit/scaffold insertion positivity.
 3. Meeting 005 one-generation centered-transfer contraction `(T)`: exact near-East depth-two ratios tend to `3/2` without right killing and `7/5` with it.
-4. The claim that the crude right-weighted criterion `max{c,b-a}Z<1` already proves a nonempty part of the residual chamber. Student F proves `cZ>1` throughout `R`, so this condition has no residual solutions.
+4. The crude condition `max{c,b-a}Z<1` contributes no residual subregion: throughout `\mathcal R`, `c>b-a` and `cZ>1`.
 
 The canonical predecessor-trail decomposition remains active.
 
-## Canonical trail and global sufficient quantity
+## Global trail target
 
 Put
 
 $$
-B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a.
+B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a,
 $$
 
-The principal's centered-dual working reduction gives a canonical predecessor trail with positive factor
-
-$$
-e^{-\omega\tau}.
-$$
-
-The right region has segmentwise survival
-
-$$
-|R_{\gamma,t}(\eta)|\le C_A\prod_k s_1(u_k).
-$$
-
-With
+and let
 
 $$
 w(u)=e^{-\omega u}s_1(u),
-$$
-
-and
-
-$$
+\qquad
 Z=\int_0^\infty w(u)du
-=\frac{a+b+2}{2ab+3a-bc+b-2c+2},
+=\frac{a+b+2}{a(2b+3)+(1-c)(b+2)}.
 $$
 
-the crude sup-norm sufficient condition would be `max{c,g}Z<1`. However throughout the residual chamber
-
-$$
-c>g
-\qquad\text{and}\qquad
-\boxed{cZ>1},
-$$
-
-so this criterion contributes no residual subregion.
-
-The correct global right-weighted invariant quantity is
+The nonempty-exit term is controlled by
 
 $$
 \boxed{
@@ -99,11 +73,11 @@ J_{x,r}
 }
 $$
 
-Showing `J_{x,r}->0` with trail depth is sufficient for the nonempty-exit term. The full Poisson-Mecke trail factorization and the complementary no-exit term still require independent audit before a closing proof.
+Showing `J_{x,r}->0` with trail depth is sufficient for the nonempty-exit term. The exact Poisson--Mecke trail factorization and the complementary no-exit term still require independent audit before a closing proof.
 
-## Mass/disagreement decomposition
+## Exact mass/disagreement decomposition
 
-Each centered insertion splits exactly as
+Each centered insertion splits as
 
 $$
 \boxed{
@@ -111,69 +85,98 @@ g\,\mu(h_{p_*}(\eta_y)f)
 =(Br-c)\bar\mu(f)+Br(1-r)(\mu^1-\mu^0)(f).}
 $$
 
-The first term is a signed mass channel; the second is a positive conditional-law disagreement channel. Near East the equilibrium mass coefficient is order `epsilon^2`, the disagreement coefficient order `epsilon`, and the right-weighted equilibrium mass multiplier tends to `2/5`.
+The first term is signed mass; the second is a positive conditional-law disagreement channel.
 
-The unresolved disagreement-stack height has negative drift under the reset coupling, and Student F proved that every disagreement under the common-uniform coupling has coalescence intensity at least
+## Student G: accepted restart inputs
+
+For one fixed parent disagreement, the number `N` of exposure re-entries before that parent first coalesces satisfies
 
 $$
-q=1-c+a=\omega.
+P(N\ge n\mid\mathcal F)\le h_1^{n-1},
 $$
 
-## Student G Assignment 003: same-parent restart count
+and hence has the explicit exponential pgf bound
 
-Meeting 007 gave a single-exposure child probability bounded by `h_1<1`, uniformly even for non-rightmost disagreements.
+$$
+E[s^N\mid\mathcal F]\le\frac{(1-h_1)s}{1-h_1s}.
+$$
 
-G now proves that if `N` is the number of exposure entries of the **same parent disagreement** before that parent first coalesces, then
+The stack-height minorant gives an exponential height factor `phi(lambda)<1`; near East the scalar restart/height stress factor can be chosen to tend to `16/21<1`.
+
+What remains unverified is G's global product/phase Foster lift over all parent levels. Assignment 004 is still in flight.
+
+## Student F Assignment 008: uniform regenerated-mass loss
+
+For the one-site zero-boundary equilibrium density
+
+$$
+r_0=\frac1{1+b},
+$$
+
+Student F proves, and the Professor checks,
 
 $$
 \boxed{
-P(N\ge n\mid\mathcal F)\le h_1^{n-1},\qquad n\ge1.
+|Br_0-c|Z<\frac23
 }
 $$
 
-Hence for `1<=s<h_1^{-1}`,
+at every strict residual parameter point.
+
+Thus a mass component genuinely returned to the equilibrium mode has a uniform right-weighted scalar loss. This is independent of G's Foster premise.
+
+## New structural obstruction: duration modes cannot be integrated before the norm
+
+A mass branch need not be in the equilibrium mode. Its current rightmost density evolves as
+
+$$
+r(u)=r_0+(r-r_0)e^{-(1+b)u},
+$$
+
+so it carries a nontrivial mass-relaxation mode.
+
+Near East, for the exact depth-two invariant profile `A_{2,epsilon}(u)`,
+
+$$
+\frac g{|m_\varepsilon|}
+\left|\int_0^\infty w(u)A_{2,\varepsilon}(u)du\right|
+\to\frac35<1,
+$$
+
+whereas the quantity actually appearing in `J_{x,r}` obeys
 
 $$
 \boxed{
-E[s^N\mid\mathcal F]
-\le M(s):=\frac{(1-h_1)s}{1-h_1s}.}
+\frac g{|m_\varepsilon|}
+\int_0^\infty w(u)|A_{2,\varepsilon}(u)|du
+\to\frac75>1.
+}
 $$
 
-This is Professor-checked and removes arbitrary same-parent re-entry as an uncontrolled variable.
+Therefore a proof may use signed cancellation at fixed duration profile, but may not manufacture cancellation by integrating duration before taking the block norm.
 
-The accepted stack-clearing minorant gives
+F's fully-regenerated height-one signed matrix has strong local cancellation, with spectral radius tending to `sqrt(2/5)` near East, but it is not iterable as the true block kernel because it has already averaged duration.
 
-$$
-\phi(\lambda)
-=\lambda\left(1-\alpha+\frac{\alpha}{2\lambda-1}\right)<1
-$$
+## Static spin words do not close the bounded state
 
-for an explicit interval of `lambda>1`. Along the near-East path, the algebraic choice `lambda=2`, `s=1+epsilon^2/4` gives
+At `(a,b,c)=(1/10,3/10,4/5)`, F gives exact nonzero conditional-independence determinants proving that the zero-boundary invariant spatial law is neither first- nor second-order Markov. Thus current spin or a short static spin word cannot supply exact bounded-state closure.
 
-$$
-M(s)\phi(2)\to\frac{16}{21}<1.
-$$
+This does not rule out a finite temporal reset-history / generator-mode state.
 
-This is a **coupling-side restart/height stress factor**, not a multiplier for `J_{x,r}` and not a signed block theorem.
+## Current bottleneck
 
-## What remains unverified in G's Foster lift
+The block route now has two interfaces.
 
-G proposes a product corrector over all unresolved parent levels and a global Foster inequality. The scalar pgf, height minorant, finite-height algebra, and `16/21` limit check. The missing rigorous step is the global phase bookkeeping: inactive/exposed/child-alive phases and later new-parent reinfections must be represented by an explicit Markov state and shown transition by transition to be superharmonic under the proposed corrector.
+1. **G:** prove or refute a global finite restart/Foster phase state for arbitrary disagreement height.
+2. **F:** build the corresponding **mode-resolved `L^1(w)` signed block operator**, retaining mass relaxation/reset-history modes until the norm is taken. The new equilibrium mass loss `<2/3` is the regenerative anchor.
 
-Thus the **same-parent restart bundle is solved**; the global product/phase lift is still an open technical lemma.
+A scalar Foster return statement alone is insufficient to determine the signed bounded kernel; the return state must preserve enough mass/reset information to reconstruct the signed profile.
 
-## Current bottleneck split
-
-The block theorem has separated into two complementary tasks.
-
-1. **Global restart-corrector lemma (Student G).** Prove a rigorous all-level Foster inequality reducing arbitrary restart/height excursions to a finite bounded-height/phase set, or give an exact obstruction.
-2. **Bounded-height signed kernel (Student F).** Conditional on that reduction, compute or dominate the finite right-weighted mass/disagreement kernel and prove block spectral radius `<1`, or exhibit an exact residual obstruction.
-
-If both succeed, they must be combined to prove `J_{x,r}->0`. Only then should the full trail/no-exit convergence implication be reconstructed.
+If both interfaces close, combine them to prove `J_{x,r}->0`; only then reconstruct the full trail/no-exit convergence implication.
 
 ## Anti-circularity rule
 
-Do not return to the empty crude criterion, rescue one-step `(T)`, replace disagreement by unrestricted total variation, or enumerate fixed scalar depths. The next accepted progress must settle one of the two precise block lemmas above.
+Do not integrate duration before the absolute-value norm, iterate the diagnostic `K^(1)` matrix as the proof kernel, replace the invariant law by a short static Markov approximation, return to one-step `(T)`, or replace the disagreement channel by unrestricted total variation.
 
 ## Wiki
 
