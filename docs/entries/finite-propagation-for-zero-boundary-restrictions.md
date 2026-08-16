@@ -13,11 +13,29 @@ tags:
 
 A local observable cannot distinguish an infinite-volume finite-range spin system from a sufficiently distant zero boundary unless its backward influence cluster reaches that boundary. Taking the boundary at distance proportional to time makes this error exponentially small, with any prescribed exponential rate after choosing the proportionality constant sufficiently large.
 
-Let $(P_t)_{t\ge0}$ be the semigroup of a uniformly bounded finite-range spin system on a [polynomial-growth lattice](polynomial-growth-lattice.md). For $R\Subset\Lambda$, let $P_t^{R,0}$ be the zero-boundary semigroup on $R$.
+Let $(P_t)_{t\ge0}$ be the semigroup of a uniformly bounded finite-range spin system. Let
+
+$$
+\overline c
+=
+\sup_{i\in\Lambda,\eta}c_i(\eta)
+<\infty,
+$$
+
+and put
+
+$$
+m
+=
+\sup_{i\in\Lambda}|N(i)\cup\{i\}|
+<\infty.
+$$
+
+For $R\Subset\Lambda$, let $P_t^{R,0}$ be the zero-boundary semigroup on $R$. No polynomial-growth assumption is needed for this lemma.
 
 ## Lemma
 
-Let $A\Subset\Lambda$, and let $f$ be supported on $A$. For every $a>0$, there are $v<\infty$ and $C_A<\infty$ such that
+Let $f$ be supported on $A\Subset\Lambda$. For every $a>0$, there are $v<\infty$ and $C_A<\infty$ such that
 
 $$
 \|(P_t-P_t^{R,0})f\|_\infty
@@ -26,34 +44,101 @@ C_Ae^{-at}\|f\|_\infty
 \tag{1}
 $$
 
-for every $t\ge0$ and every $R\Subset\Lambda$ containing $B(A,vt)$. The speed $v$ may depend on $a$, but not on $t$ or $R$.
+for every $t\ge0$ and every finite $R$ containing
+
+$$
+B(A,\lceil vt\rceil).
+$$
+
+The speed $v$ may depend on $a$, but not on $t$ or on $R$.
 
 ## Proof
 
-Choose $\ell<\infty$ such that $c_i$ depends only on $B(i,\ell)$, and put
+Construct the process from rate-$\overline c$ candidate clocks at each site and independent acceptance marks. Explore the graphical construction backward from the sites in $A$ at time $t$. Whenever a candidate clock at a site $i$ is encountered, add the sites in
 
 $$
-\overline c=\sup_{i,\eta}c_i(\eta),
-\qquad
-m=\sup_i|B(i,\ell)|.
+N(i)\cup\{i\}
 $$
 
-Construct the process using rate-$\overline c$ candidate clocks and acceptance marks. Explore backward from $A$ at time $t$, adding $B(i,\ell)$ whenever a candidate clock at $i$ is encountered. If this influence cluster stays in $R$, the infinite-volume and zero-boundary processes, coupled with the same clocks and marks in $R$, agree on $A$ at time $t$.
+to the set of spins whose earlier values must be determined. This gives the backward influence cluster of $A$ at time $t$.
 
-To leave $B(A,r)$, the cluster must contain a chronological dependency path of length at least $n=\lceil r/\ell\rceil$. There are at most $|A|m^k$ spatial paths of length $k$, while the expected number of time-ordered $k$-tuples of rings along a fixed path is $(\overline c t)^k/k!$. Hence for every $\theta>0$,
+Couple the infinite-volume process and the zero-boundary process by using the same clocks and acceptance marks inside $R$. If the backward influence cluster stays inside $R$, the two processes see exactly the same graphical information needed to determine the spins on $A$ at time $t$. Hence they agree on the support of $f$ at that time.
+
+To leave $B(A,n)$, the influence cluster must contain a chronological dependency path with at least $n$ candidate clocks. For a path of length $k$, there are at most
 
 $$
-\mathbb P(\text{influence cluster leaves }B(A,r))
+|A|m^k
+$$
+
+possible spatial sequences. Along any fixed spatial path, the expected number of chronologically ordered $k$-tuples of rate-$\overline c$ clock rings in $[0,t]$ is
+
+$$
+\frac{(\overline c t)^k}{k!}.
+$$
+
+Therefore
+
+$$
+\mathbb P\bigl(\text{influence cluster leaves }B(A,n)\bigr)
+\le
+|A|\sum_{k\ge n}\frac{(m\overline c t)^k}{k!}.
+\tag{2}
+$$
+
+For every $\theta>0$,
+
+$$
+\sum_{k\ge n}\frac{x^k}{k!}
+\le
+e^{-\theta n}\sum_{k\ge0}\frac{(xe^\theta)^k}{k!}
+=
+\exp(xe^\theta-\theta n).
+$$
+
+Applying this to (2) gives
+
+$$
+\mathbb P\bigl(\text{influence cluster leaves }B(A,n)\bigr)
 \le
 |A|\exp\bigl(m\overline c\,t e^\theta-\theta n\bigr).
+\tag{3}
 $$
 
-Set $r=vt$ and choose $v$ so large that
+Take
 
 $$
-\frac{\theta v}{\ell}-m\overline c e^\theta\ge a.
+n=\lceil vt\rceil
 $$
 
-The graphical coupling then gives (1).
+and choose $v$ so that
 
-In the patch convergence proof this lemma controls the [spatial-confinement](undoing-duality-under-confined-interactions.md) error $\rho_A(T,R)$.
+$$
+\theta v-m\overline c e^\theta>a.
+$$
+
+After increasing the multiplicative constant to cover bounded values of $t$, (3) is at most $C_Ae^{-at}$.
+
+On the coupling event that the influence cluster stays inside $R$, the two processes give the same value of $f$. Thus
+
+$$
+|P_tf(\eta)-P_t^{R,0}f(\eta)|
+\le
+2\|f\|_\infty
+\mathbb P(\text{influence cluster leaves }R)
+$$
+
+uniformly in $\eta$. This proves (1).
+
+## Consequences used by the patch paper
+
+For fixed $t$ and local $f$, zero-boundary semigroups converge uniformly to the infinite-volume semigroup along any exhaustion whose boundary recedes from the dependence set of $f$. This is the approximation used to pass positivity of the finite-volume centered-monomial semigroup to infinite volume in [centered-moment order preservation](monomial-monotonicity-for-high-density-measures.md).
+
+Taking $f=\chi_A$ and $a=\varepsilon$ gives a linearly growing region $R_T$ with
+
+$$
+\|(P_T-P_T^{R_T,0})\chi_A\|_\infty
+\le
+C_Ae^{-\varepsilon T},
+$$
+
+which is the [spatial-confinement](undoing-duality-under-confined-interactions.md) error used in the common invariant-limit proof. Polynomial growth enters only after this step, to control $|R_T|$.

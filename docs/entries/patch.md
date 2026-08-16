@@ -13,7 +13,7 @@ tags:
 
 Fix the [graphical construction](graphical-construction-of-signed-additive-set-process.md) of a signed additive set process and its all-time [successful-interaction](successful-interaction.md) skeleton $\mathcal I$. The deterministic initial record is $(\infty,0,A_0)$.
 
-A record $(j,t,S)\in\mathcal I$ gives an **incoming** successful interaction at every site in $S$. If $j\ne\infty$, it also gives an **outgoing** successful interaction at its source $j$. Thus the initial record gives only incoming interactions.
+A record $(j,t,S)\in\mathcal I$ gives an **incoming** successful interaction at every site in $S$. If $j\ne\infty$, it also gives an **outgoing** successful interaction at its source $j$. Thus the initial record gives only incoming interactions, while every ordinary record gives one outgoing interaction and one incoming interaction at each target site.
 
 For $i\in\Lambda$, put
 
@@ -29,20 +29,34 @@ $$
 \{t>0:(i,t,S)\in\mathcal I\text{ for some }S\},
 $$
 
-and $\mathcal T(i)=\mathcal T^{\mathsf I}(i)\cup\mathcal T^{\mathsf O}(i)$. For $s\in\mathcal T(i)$ define
+and
 
 $$
-e_i(s)=\inf\{u>s:u\in\mathcal T(i)\},
-\qquad \inf\vn=\infty.
+\mathcal T(i)
+=
+\mathcal T^{\mathsf I}(i)\cup\mathcal T^{\mathsf O}(i).
+$$
+
+For $s\in\mathcal T(i)$ define the next successful interaction involving $i$ by
+
+$$
+e_i(s)
+=
+\inf\{u>s:u\in\mathcal T(i)\},
+\qquad
+\inf\varnothing=\infty.
+\tag{1}
 $$
 
 ## Definition
 
-Let $(j,s,S)\in\mathcal I$ be a record involving $i$, meaning that $i\in S$ or $i=j$. The patch beginning at $(i,s)$ is
+Let $(j,s,S)\in\mathcal I$ be a record involving $i$, meaning that $i\in S$ or $i=j$. The patch beginning at $(i,s)$ is the labeled tuple
 
 $$
-P=
+P
+=
 \bigl(i(P),[s(P),e(P)),\mathsf X(P)\mathsf Y(P),S(P)\bigr),
+\tag{2}
 $$
 
 where
@@ -60,23 +74,35 @@ $$
 Its initial label is
 
 $$
-\mathsf X(P)=
+\mathsf X(P)
+=
 \begin{cases}
 \mathsf I,&i(P)\in S(P),\\
 \mathsf O,&i(P)\notin S(P),
 \end{cases}
+\tag{3}
 $$
 
 and its terminal label is
 
 $$
-\mathsf Y(P)=
+\mathsf Y(P)
+=
 \begin{cases}
 \mathsf I,&e(P)<\infty\text{ and }e(P)\in\mathcal T^{\mathsf I}(i(P)),\\
 \mathsf O,&e(P)<\infty\text{ and }e(P)\in\mathcal T^{\mathsf O}(i(P)),\\
 \mathsf E,&e(P)=\infty.
 \end{cases}
+\tag{4}
 $$
+
+Thus the boundary labels have the following meanings:
+
+- $\mathsf I$ at the initial boundary means the patch begins with an incoming successful interaction;
+- $\mathsf O$ at the initial boundary means it begins with an outgoing successful interaction;
+- $\mathsf I$ at the terminal boundary means the next successful interaction at the site is incoming;
+- $\mathsf O$ at the terminal boundary means the next successful interaction at the site is outgoing;
+- $\mathsf E$ means there is no later successful interaction involving the site.
 
 The six possible boundary types are
 
@@ -88,48 +114,73 @@ $$
 
 Let $\mathcal P$ be the family of all patches. Every patch with terminal label $\mathsf E$ is infinite, and every other full patch is finite.
 
-The successful-interaction skeleton fixes the patch boundaries but deliberately omits death clocks, rings at inactive sources, and the split/birth kind of an outgoing successful interaction. Those omitted marks are averaged under the [consistent patch law](patch-consistency-event.md).
+The successful-interaction skeleton fixes the patch boundaries but deliberately omits the split/birth kind of an outgoing successful interaction, all empty-target death clocks, and all rings at inactive sources. Those omitted marks are the random data averaged under the [consistent patch law](patch-consistency-event.md).
 
 ## Finite-horizon truncation
 
-Fix $t\ge0$. For a patch $P\in\mathcal P$ with $s(P)\le t$, let $P^{\downarrow t}$ be obtained by replacing its endpoint by $\min\{e(P),t\}$ and, when $t<e(P)$, replacing its terminal label by $\mathsf E$.
+Fix $t\ge0$. For a patch $P\in\mathcal P$ with $s(P)\le t$, define its truncation $P^{\downarrow t}$ by
+
+$$
+P^{\downarrow t}
+=
+\left(
+ i(P),
+ [s(P),\min\{e(P),t\}),
+ \mathsf X(P)\mathsf Y^{\downarrow t}(P),
+ S(P)
+\right),
+\tag{5}
+$$
+
+where
+
+$$
+\mathsf Y^{\downarrow t}(P)
+=
+\begin{cases}
+\mathsf Y(P),&e(P)\le t,\\
+\mathsf E,&t<e(P).
+\end{cases}
+$$
 
 The bulk and end patch families are
 
 $$
-\mathcal B_t=\{P\in\mathcal P:e(P)\le t\},
-$$
-
-$$
-\mathcal E_t
+\mathcal B_t
 =
-\{P^{\downarrow t}:P\in\mathcal P,\ s(P)\le t<e(P)\},
+\{P\in\mathcal P:e(P)\le t\},
 $$
 
 and
 
 $$
-\mathcal P_t=\mathcal B_t\cup\mathcal E_t.
+\mathcal E_t
+=
+\{P^{\downarrow t}:P\in\mathcal P,\ s(P)\le t<e(P)\}.
 $$
 
-The family $\mathcal P_t$ is finite almost surely. Distinct end patches have distinct sites, because the successful-interaction times partition each site line into consecutive intervals.
-
-For compatibility with older notes, one may call
+The finite-horizon patch family is
 
 $$
-\mathcal C_t=\{P\in\mathcal P:s(P)\le t<e(P)\}
+\mathcal P_t
+=
+\mathcal B_t\cup\mathcal E_t.
+\tag{6}
 $$
 
-the cut patches. Their truncations are exactly the end patches, but the paper's finite-horizon representation is stated directly using $\mathcal B_t$ and $\mathcal E_t$.
+It is finite almost surely. Distinct end patches have distinct base sites because the successful-interaction times partition each site line into consecutive intervals.
+
+The canonical paper formulates its finite-horizon representation directly with $\mathcal B_t$ and $\mathcal E_t$; no separate cut-patch family is needed.
 
 ## Geometric extension
 
-If $P$ is an end patch and $u\ge e(P)$ is finite, its geometric extension through time $u$ is
+If $P$ is an end patch and $u\ge e(P)$ is finite, its extension through time $u$ is the geometric patch
 
 $$
 P^{\uparrow u}
 =
 \bigl(i(P),[s(P),u),\mathsf X(P)\mathsf E,S(P)\bigr).
+\tag{7}
 $$
 
-This changes only the patch shape. It does **not** include the probability that the realized skeleton has no successful interaction in the added interval. Probability-weighted continuation is a separate ingredient in the convergence proof.
+Thus $P^{\uparrow e(P)}=P$. This notation changes only the patch shape. It does **not** assert that the extension occurs in the realized successful-interaction skeleton, and it does **not** include the probability that no successful interaction interrupts the added interval. The ordinary contribution of $P^{\uparrow u}$ is given by the [patch contribution](patch-contribution.md) formulas. The probability-weighted continuation identity is a separate result proved in [late interactions and no-late relaxation](exponential-relaxation-under-confined-late-interactions.md).
