@@ -1,8 +1,8 @@
 # Project claim registry
 
-This file is the mechanical status index for project-specific mathematical claims that appear on `main` outside the scratch research workspace.
+This file is the mechanical status index for project-specific mathematical claims that appear on `main` outside scratch research workspaces.
 
-Allowed mathematical statuses are `claimed`, `verified`, and principal-designated `canonical`. A `verified` claim must point to a durable independent audit record. **Mathematical verification is separate from research-contribution status.** Under the standing novelty standard in `CHATGPT.md`, a verified calculation obtained only by instantiating an existing arbitrary-size method at a larger window/order/degree or analogous complexity parameter is not a new project result merely because it improves a numerical constant.
+Allowed mathematical statuses are `claimed`, `verified`, and principal-designated `canonical`. A `verified` claim must point to a durable independent audit record. **Mathematical verification is separate from research-contribution status.** Under the standing novelty standard in `CHATGPT.md`, correct mathematics can be verified while still not counting as a new project result.
 
 ## Canonical patch results
 
@@ -28,15 +28,13 @@ Basis: principal designation of `paper/` as the canonical patch source.
 
 ## Verified BABP mathematics retained for reuse
 
-The two entries below remain mathematically verified and may be used as technical inputs. After the Sudbury full-text comparison and the principal's standing novelty ruling, **neither counts as a project research result or contribution**. Sudbury's finite-window method is defined for arbitrary window size, so the ten-site computation is exactly the kind of larger-window quantitative instantiation excluded by the protocol's novelty standard. The corrector-to-convergence implication is classical prior work.
-
 ### BABP-EDGE-001
 
 Status: `verified`
 
 Research-contribution status: **not a project result under the standing novelty standard**.
 
-Claim: for one-dimensional BABP in particle variables with rates
+Claim: for one-dimensional BABP with rates
 
 $$
 0\to1\text{ at rate }\lambda N_x,
@@ -44,20 +42,13 @@ $$
 1\to0\text{ at rate }N_x,
 $$
 
-at
+at `lambda=1/40` there is a bounded ten-site edge corrector with
 
 $$
-\lambda=\frac1{40}
+D_{10,1/40}(u,z;\phi)\ge \frac{1033}{40000000}>0
 $$
 
-there is a bounded corrector depending on the first ten sites behind the rightmost particle such that
-
-$$
-D_{10,1/40}(u,z;\phi)
-\ge \frac{1033}{40000000}>0
-$$
-
-for every `u in {0,1}^10` and `z in {0,1}`. Consequently, for every finite nonempty initial configuration,
+for every edge state `(u,z)`. Consequently, for every finite nonempty initial configuration,
 
 $$
 \liminf_{t\to\infty}\frac{R(B_t)}t
@@ -70,7 +61,7 @@ $$
 
 No existence of limiting edge speeds is asserted.
 
-Source proof/certificate:
+Source/certificate:
 
 - `research/active/babp-finite-seed/students/student-b/001-threshold-and-dfp.md`;
 - `research/active/babp-finite-seed/students/student-b/edge-corrector-certificate.py`.
@@ -84,9 +75,7 @@ Independent hostile audit:
 - commit `d1ef2ca`;
 - `research/active/babp-finite-seed/audits/001-edge-corrector-audit.md`.
 
-Historical identification: Sudbury (1999), Section 3, uses the same finite-window robust submartingale mechanism. After reflection, his window size `m`, block state, unresolved end-value, correction vector, and corrected local gain are respectively the present `k`, edge word `u`, exterior bit `z`, corrector `phi`, and drift `D_{k,lambda}`. His Maxwell's-demon formulation is exactly the robust both-`z` condition: the exterior value may be assigned independently as a function of the current block state, and Lemma 5 requires one corrector to work for every such assignment. Lemma 7 extends any successful `m_1` construction to every larger `m_2` by ignoring the extra sites. Table 2 reports the trial value `m=8`, `lambda_m=0.0347`.
-
-The independently computed project value `0.0346195434755...` refines the same eight-site optimization, and the exact `k=10`, `lambda=1/40` witness is a correct larger-window instance. It is useful verified technical data but, under the principal's standing standard, not a substantive new result.
+Novelty status: Sudbury (1999), Section 3, already gives the same arbitrary-window robust submartingale mechanism and Lemma 7 extends successful constructions to larger windows. The ten-site witness is a correct larger-window instance, not a new project result.
 
 ### BABP-CONV-001
 
@@ -94,90 +83,58 @@ Status: `verified`
 
 Research-contribution status: **not a new project theorem; verified self-contained formulation/proof of a classical implication**.
 
-Claim: fix `lambda>0` and the BABP convention above. If there exist `k>=1`, bounded `phi:{0,1}^k->R`, and `v>0` such that
+Claim: if for fixed `lambda>0` there exist `k`, bounded `phi`, and `v>0` such that
 
 $$
 D_{k,\lambda}(u,z;\phi)\ge v
 $$
 
-for every edge state `(u,z)`, then, for every finite nonempty deterministic initial particle set `B`,
+for every edge state `(u,z)`, then every finite nonempty deterministic initial set converges locally to Bernoulli equilibrium `pi_{lambda/(1+lambda)}`.
 
-$$
-\operatorname{Law}_B(B_t)\Longrightarrow\pi_{\lambda/(1+\lambda)}
-\qquad(t\to\infty)
-$$
-
-locally on `{0,1}^Z`.
-
-The statewise drift hypothesis is load-bearing in the project proof; bare liminf/limsup edge bounds are not asserted to imply convergence.
-
-Stable self-contained proof:
+Stable proof:
 
 - `research/results/babp-finite-seed-convergence.md`.
-
-Source proof:
-
-- commit `f79d0fb`, `research/active/babp-finite-seed/students/student-b/002-edge-speed-to-convergence.md`.
-
-Professor proof with reviewer repairs:
-
-- `research/active/babp-finite-seed/notes/professor-corrector-to-convergence-verification.md`.
 
 Independent correctness reviews:
 
 - commit `abb05f6`, `research/active/babp-finite-seed/audits/002-convergence-review-a.md`;
 - commit `1aeb5a5`, `research/active/babp-finite-seed/audits/002-convergence-review-b.md`.
 
-Historical/novelty status: Sudbury (1999), immediately before Theorem 7, states that the Neuhauser--Sudbury (1993) finite-seed convergence argument relies on existence of a suitable finite-window submartingale, that his Section 3 extends this condition from the old `1/3` range to `0.0347`, and that their Section 5 proceeds unchanged. Thus the implication from the appropriate finite-window submartingale to finite-seed convergence is classical rather than a project discovery.
+Historical status: Sudbury (1999) states that the Neuhauser--Sudbury finite-seed stationary-state argument proceeds unchanged once the suitable finite-window submartingale is available. No novelty claim is made for this implication.
 
-The project's tagged-internal-gap proof is a useful self-contained proof architecture, but no novelty claim is made for that architecture until Neuhauser--Sudbury (1993), Section 5, is inspected. Combining this classical implication with `BABP-EDGE-001` yields mathematically valid convergence at `lambda=1/40`; because the only new input is the larger-window instance of Sudbury's arbitrary-`m` method, that quantitative range extension is **not counted as a project result** under the standing novelty standard.
-
-Claim boundary: no all-parameter theorem, no convergence rate, and no initial laws beyond finite nonempty deterministic sets are claimed.
-
-## Claimed voter-discordance result pending novelty audit
+## Verified voter-discordance mathematics retained for reuse
 
 ### VOTER-CONC-001
 
-Status: `claimed`
+Status: `verified`
 
-Correctness status: **Professor reconstruction plus two independent hostile correctness reviews have passed with no mathematical repair requested. `verified` promotion is deliberately withheld pending the closest-prior-work / novelty audit pre-committed in Meeting 002.**
+Research-contribution status: **not a new project result under the standing novelty standard**.
 
-Research-contribution status: **unresolved pending the dedicated novelty audit**. The theorem is structurally eligible under the standing novelty standard, but priority has not yet been established.
-
-Claim: let `G` be any finite simple `d`-regular graph with **`d>=1`** and `n` vertices; connectedness is not required. Let the rate-one continuous-time voter model start from i.i.d. Bernoulli(`u`) opinions, `u in (0,1)`, and let `Dcal_t` be the fraction of discordant edges. If `pi` is uniform on vertices and `tau_meet` is the meeting time of two independent rate-one continuous-time simple random walks, with walkers started independently from `pi`, then for every `t>=0`,
+Claim: let `G` be a finite simple `d`-regular graph with `d>=1`, not necessarily connected, with `n` vertices. Start the rate-one continuous-time voter model from i.i.d. Bernoulli(`u`) opinions, `u in (0,1)`, and let `Dcal_t` be the fraction of discordant edges. If `pi` is uniform on vertices and `tau_meet` is the meeting time of two independent rate-one continuous-time simple random walks started from `pi tensor pi`, then for every `t>=0`,
 
 $$
+\boxed{
 \operatorname{Var}_u^G(\mathcal D_t)
-\le 2\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t).
+\le2\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t).
+}
 $$
 
-For a uniformly random simple `d`-regular graph with fixed **`d>=3`**, source Eq. (5.8) of Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), together with the high-probability `Theta(n)` stationary mean meeting time and spectral-gap input used there, gives for every deterministic `t_n=o(n)`
+For uniformly random simple `d`-regular graphs with fixed `d>=3`, Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), equation (5.8), together with the high-probability `Theta(n)` stationary mean meeting time and spectral-gap input used there, gives for every deterministic `t_n=o(n)`
 
 $$
 \operatorname{Var}_u^G(\mathcal D_{t_n}^n)
-=O_{\mathbb P}\left(\frac{1+t_n}{n}\right).
+=O_{\mathbb P}\left(\frac{1+t_n}{n}\right),
 $$
 
-For `0<=t_n<1`, the same `O_P(1/n)` conclusion may be obtained by monotonicity from time one. The bare printed `O(t/n)` wording in source (5.7) is not used uniformly down to zero because `q_0=1/n`.
-
-Consequently, for every `C_n->infinity`,
-
-$$
-\mathbf P_u^G\left(
-|\mathcal D_{t_n}^n-\mathbf E_u^G\mathcal D_{t_n}^n|
->C_n\sqrt{\frac{1+t_n}{n}}
-\right)\xrightarrow{\mathbb P}0.
-$$
-
-If additionally `1<=t_n=o(n)`, then
+hence concentration at scale `C_n sqrt((1+t_n)/n)` for every `C_n->infinity`. For deterministic `1<=t_n=o(n)`,
 
 $$
 \operatorname{Var}_u^G(\mathcal D_{t_n}^n)=O_{\mathbb P}(t_n/n),
 $$
 
-so the concentration scale `C_n sqrt(t_n/n)` proposed in source Eq. (1.9) holds throughout that deterministic regime.
+and the source scale `C_n sqrt(t_n/n)` follows.
 
-The project also establishes that literal source Eq. (1.9) is false when its displayed quantifiers permit unrestricted very-small times: Bernoulli initial data have `n^{-1/2}` fluctuations and `t_n=n^{-3}`, `C_n=log n` is an explicit counterexample. Stable wording is limited to this theorem-level statement: no complete classification of every possible subunit sequence under the original scale is claimed.
+The literal displayed source Eq. (1.9) is false when its quantifiers permit unrestricted very-small times: the Bernoulli initial condition has `n^{-1/2}` fluctuations and `t_n=n^{-3}`, `C_n=log n` is an explicit counterexample. Priority of this narrow source correction is unresolved; no complete classification of subunit-time sequences is claimed.
 
 Source proof:
 
@@ -186,17 +143,32 @@ Source proof:
 
 Professor reconstruction:
 
-- `research/active/voter-discordant-concentration/notes/professor-assignment-002-verification.md`;
-- Group Meeting 002, `research/active/voter-discordant-concentration/meetings/002-genealogical-variance-claim.md`.
+- `research/active/voter-discordant-concentration/notes/professor-assignment-002-verification.md`.
 
 Independent correctness reviews:
 
 - Review A: commit `add0681`, `research/active/voter-discordant-concentration/audits/001-genealogy-review-a.md`, `PASS`;
-- Review B: commit `45f960b`, `research/active/voter-discordant-concentration/audits/002-genealogy-review-b.md`, `PASS`; Review B explicitly states it did not read Review A.
+- Review B: commit `45f960b`, `research/active/voter-discordant-concentration/audits/002-genealogy-review-b.md`, `PASS`, explicitly independent of Review A.
 
-Novelty / closest-prior-work audit:
+Closest-prior-work / novelty audit:
 
-- assignment: `research/active/voter-discordant-concentration/audits/assignment-003-novelty-prior-work.md`;
-- status: pending.
+- commit `5ab5dce`;
+- `research/active/voter-discordant-concentration/audits/003-novelty-prior-work.md`.
 
-Claim boundary: no uniform-in-time process supremum estimate is claimed; the random-regular result is sequence-wise quenched-in-environment-probability. The source-scale conclusion is asserted for deterministic `1<=t_n=o(n)`, not for arbitrary `t_n->0`.
+Fatal comparison: Avena et al. (2024), Proposition 4.1 proof (4.2), already gives the relevant two-edge no-cross-interaction decoupling, while (5.5)--(5.6) gives
+
+$$
+\mathbf P_{\nu\otimes\nu}(\tau^{e,f}\le t)
+\le4\mathbf P_{\pi\otimes\pi}(\tau_{\rm meet}\le t).
+$$
+
+For Bernoulli initial data these ingredients immediately imply
+
+$$
+\operatorname{Var}_u^G(\mathcal D_t)
+\le4\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t),
+$$
+
+which, combined with source (5.8), already yields the same random-regular asymptotic concentration conclusions. The project improves the constant `4` to `2` and supplies a cleaner genealogy-conditioned quotient-cut proof, but this does not constitute a new theorem-level contribution under the standing novelty standard.
+
+Claim boundary: no uniform-in-time process-supremum concentration theorem is claimed.
