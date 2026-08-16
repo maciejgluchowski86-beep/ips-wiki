@@ -209,4 +209,104 @@ Student G `769a985`, interval/exact verifier beside the report:
 
 The verifier displays decimal endpoints but all assertions use exact rational interval arithmetic and exact finite uniformization.
 
-Direction decision: stop raw finite-window/HJB enumeration. No G008/F013 is issued. The next possible coupling-side mathematics must be a new actual-front tail theorem preserving pre-exposure common-spin history or a genuine convective-survival theorem. One bounded outside consultant is authorized to assess whether either has sufficient expected value and interface with `J_{x,r}`.
+Direction decision: stop raw finite-window/HJB enumeration. One bounded outside consultant is authorized to assess a new actual-front theorem or convective-survival theorem.
+
+## Meeting 018: actual-front certificate; one occupation block
+
+Meeting: `meetings/018-consultation-actual-front-certificate-and-one-occupation-block.md`. `state_narrowed: yes`.
+
+Outside consultation 001 supplied, and the Professor independently checked, a retained two-spin first-exposure exploration preserving the pre-exposure common spin. At the hard point,
+
+$$
+P(\sigma_m\le T)
+\le\frac{15}{4}e^{T/20}\left(\frac58\right)^m,
+$$
+
+and therefore
+
+$$
+E\sum_{j<-L}D_j(T)
+\le10e^{T/20}\left(\frac58\right)^{L+1}.
+$$
+
+A second certificate gives finite deterministic discovery speed. One occupation-weighted continuation is authorized because the new state directly resolves the first-exposure-history defect.
+
+## Meeting 019: two-spin occupation closure fails; common-coupling interface stops
+
+Meeting: `meetings/019-two-spin-occupation-obstruction-and-common-coupling-stop.md`. `state_narrowed: yes`.
+
+Student G `f2f0804`, exact verifier beside it:
+
+- after a genuine source coalescence, two reachable histories with the same retained `(s,t,C0)` state have source-return laws differing by at least `(b-a)/2=99/20000`;
+- G003 controls same-parent re-entry only, not distinct later source episodes;
+- robust finite-depth closure over the hidden return capacity obeys
+  $$
+  r_0=h_0,\qquad
+  r_n=\frac{h_0}{1-(1-h_0)r_{n-1}},
+  $$
+  with `r_n->1`;
+- the missing all-depth episode count is itself a zero-frequency occupation quantity.
+
+Actual occupation and extinction remain unresolved, but Meeting 018's stopping rule is met. Common-uniform global coalescence / zero-frequency occupation is abandoned as the load-bearing proof interface.
+
+## Meeting 020: recombined zero mode survives; final light-cone test
+
+Meeting: `meetings/020-recombined-zero-mode-survives-light-cone-screening-test.md`. `state_narrowed: yes`.
+
+Student F `a7cddfd`, verifier `8d4feea`:
+
+- the full unsplit two-insertion transfer has exact spectral decomposition
+  $$
+  E_{N,u}=m_0\rho_{N-1}+\rho_N(P_u-\Pi)[Y_{N-1}(\cdot-\pi\cdot)];
+  $$
+- the first term is a genuine zero temporal-frequency projection, not an artifact of splitting mass and disagreement;
+- its remote norm is `|m_0|^2 Delta_{M+1}` up to an explicit exponentially localized covariance;
+- on `a=b(1-c)`, the invariant law is Bernoulli product and the signed insertion vanishes.
+
+A final short-time light-cone screening test is authorized because late durations are already killed by the trail weight.
+
+## Meeting 021: light-cone screening reduces to two-step tail shift; profile implementation exhausted
+
+Meeting: `meetings/021-light-cone-reduces-to-two-step-tail-shift-and-trail-route-stop.md`. `state_narrowed: yes`.
+
+Student F `f0d5277`, verifier `15b5436`:
+
+- centered observables of the fixed rightmost two-site suffix localize exponentially;
+- at `u=0`, the recombined defect has exact decomposition
+  $$
+  E_{N,0}(f)=\pi_N[(H_N-h_*)f]+h_*\delta_N^{(2)}(f);
+  $$
+- at `(a,b,c)=(1/10,3/10,4/5)`, `h_*=-34/8775`;
+- the remaining law is exactly the two-step tail-shift defect
+  $$
+  \Delta_M^{(2)}=\|\theta^2\mu-\mu\|_{\mathcal F_M};
+  $$
+- the positive-time no-crossing normal form leaves the same law and yields
+  $$
+  \Gamma_M\le c^2Z\Delta_{\lceil M/2\rceil}^{(2)}+Ce^{-\gamma M}.
+  $$
+
+Meeting 020's stop condition is met. The current centered predecessor-trail/profile implementation is recorded as exhausted. Outside consultation 002 is authorized before further internal proof work.
+
+## Meeting 022: no credible proof architecture; `J-SPEC` route decision opened
+
+Meeting: `meetings/022-no-credible-proof-architecture-but-j-route-decision-reopened.md`. `state_narrowed: yes`.
+
+Outside consultation 002 returns `no-credible-route`. The Professor independently accepts its exact trajectory-valued spatial transfer kernel `Q`. Constant-zero and constant-one input trajectories produce mutually singular output path laws; on the full path-law class the Dobrushin coefficient is one and TV/KL can be transmitted isometrically. No independent mechanism is identified for weak ergodicity of the reachable `Q` orbit, an alternative coupling, or a new transform.
+
+A parallel principal target study supplies new, unverified finite-box evidence that the absolute-duration singleton `J` norm may itself grow at strict residual points, while signed duration-resolvent pairings are orders of magnitude smaller. Durable note: `notes/principal-target-hierarchy-and-j-norm-evidence.md`.
+
+Define
+
+$$
+\rho_J(a,b,c)=\limsup_{n\to\infty}J_n^{1/n}.
+$$
+
+Immediate route-decision target:
+
+$$
+\text{either }\rho_J<1\text{ throughout the residual chamber,
+ or }\rho_J>1\text{ at one strict residual point.}
+$$
+
+Student G Assignment 009 receives one bounded asymptotic certificate block at the strong-growth point `(1/1000,1/10,9999/10000)`. Larger finite-depth numerics alone do not count. Student F remains idle. If G returns unresolved without an asymptotic mechanism, revert to the consultant's `no-credible-route` state.
