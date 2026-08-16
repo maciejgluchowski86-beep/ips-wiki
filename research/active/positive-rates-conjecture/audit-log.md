@@ -120,26 +120,93 @@ Student F moved to `students/student-f/assignment-010.md`.
 
 Meeting: `meetings/012-balanced-circulation-refutes-16-phase-product-class.md`. `state_narrowed: yes`.
 
-Student G:
+Student G write-up `d6f3a9d`, verifier `3963d86`: explicit exact rational circulation at the hard near-East point gives positive exposure-entry flux and zero scalar edge-weight circulation, so weighted AM--GM contradicts every nearest-neighbour scalar edge-product/coboundary certificate. Same-parent renewal survives; richer nonlocal correctors are not decided.
 
-- write-up commit `d6f3a9d`, `students/student-g/005-16-phase-foster-feasibility.md`;
-- exact verifier commit `3963d86`, `students/student-g/005-16-phase-foster-feasibility-verifier.py`.
+## Meeting 013: first invariant profile truncates; zero-frequency response isolated
 
-Professor-checked conclusions:
+Meeting: `meetings/013-equilibrium-profile-truncates-zero-frequency-response-remains.md`. `state_narrowed: yes`.
 
-1. At the strict residual point
-   $$
-   (a,b,c)=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
-   $$
-   G gives an explicit normalized rational circulation on 28 of the 64 triple phases.
-2. The verifier checks exact spatial flow conservation and exact zero expected exponent change in all 16 scalar edge-weight coordinates, while the exposure-entry flux `R_mu` and changing-update mass `C_mu` are positive.
-3. For every positive scalar edge matrix `Q` and every `s>1`, weighted AM--GM gives
-   $$
-   \sum_e\mu_eG_Q(e)
-   \ge C_\mu\left(s^{R_\mu/C_\mu}-1\right)>0.
-   $$
-4. Any coboundary certificate would force the circulation average to be nonpositive. Therefore the entire nearest-neighbour scalar edge-product/coboundary Foster class is impossible at this strict residual point.
-5. The obstruction is repeatable in the bulk, so finite boundary/height/insertion corrections cannot repair the class.
-6. Same-parent renewal remains valid. Matrix-product/nonlocal correctors, every finite temporal state, `J` decay, and the conjecture are not decided.
+Student F `5979255`:
 
-Direction decision: do not enlarge scalar local corrector contexts mechanically. Student G moves to `students/student-g/assignment-006.md` to decide whether the common-uniform disagreement process itself survives from a finite seed near East or instead admits a genuinely nonlocal extinction/regeneration theorem. Student F continues Assignment 010 on common-mass profile truncation.
+- exact suffix intertwining and suffix-projectivity of zero-boundary invariant laws;
+- depth-uniform finite-context truncation of the first invariant centered insertion;
+- explicit separated-gap localization and one-segment weighted finite-speed tail;
+- exact post-insertion boundary discrepancy as a zero-frequency Green response.
+
+The full iterative profile theorem remains open because the first mass branch carries `bar pi_N`, not `pi_{N-1}`.
+
+## Meeting 014: zero-frequency response equals tail-shift defect
+
+Meeting: `meetings/014-zero-frequency-response-equals-tail-shift-defect.md`. `state_narrowed: yes`.
+
+Student F `1727be2`, verifier `a845bf2`:
+
+$$
+\Delta_M=\|\theta\mu-\mu\|_{\mathcal F_{M-1}},
+$$
+
+and reverse-martingale convergence gives
+
+$$
+\lim_M\Delta_M=\|\theta\mu-\mu\|_{\mathcal T}.
+$$
+
+Thus zero-frequency locality is exactly tail-shift agreement. Conditional on it, F obtains a valid one-next-segment `J`-compatible mass truncation estimate.
+
+Operational overlap: replacement G had already committed Assignment 006 shortly before Meeting 014 was composed; Meeting 015 records the correction without rewriting Meeting 014.
+
+## Meeting 015: local erasure and convective random-map problem
+
+Meeting: `meetings/015-local-coalescence-convective-escape-and-random-map-test.md`. `state_narrowed: yes`.
+
+Student G replacement `78470a1`, verifier `43f4bb1`:
+
+- every finite seed becomes permanently coupled at each fixed site;
+- survival is equivalent to convective escape to `-infinity`;
+- moving-frame additive weight contracts exponentially;
+- full-line Hamming amplification `alpha(t)` is submultiplicative;
+- one `alpha(T)<1` would give exponential extinction;
+- finite controlled-CTMC upper certificates reduce the problem to a complete finite-time random map.
+
+At the hard point, short-time Hamming drift is `9997/10000>0`.
+
+## Meeting 016: profile and coupling sides converge on finite-time damage contraction
+
+Meeting: `meetings/016-route-review-converges-on-finite-time-damage-contraction.md`. `state_narrowed: yes`.
+
+Student F `2093c22`. Original verifier `3750a53` fails because SymPy retains a convergence-conditioned `Piecewise` for a symbolic geometric sum; it is not counted as passing. Repair `5494008` fixes the tooling assertion without changing the mathematics.
+
+Professor accepts
+
+$$
+\Delta_M\le2c\int_0^\infty\beta_{M-1}(t)dt.
+$$
+
+Hence integrable zero-boundary Hamming susceptibility implies tail-shift agreement, and one finite-time `alpha_0(T)<1` gives explicit exponential `Delta_M` decay. The profile and coupling sides now share a finite-time common-random-map damage mechanism. Meeting 016 authorizes only G007 and places a hard stop on raw larger finite-window/controller variants afterward.
+
+## Meeting 017: fixed-boundary convergence and stop of raw random-map enumeration
+
+Meeting: `meetings/017-fixed-boundary-sandwich-and-random-map-stop.md`. `state_narrowed: yes`.
+
+Student G `769a985`, interval/exact verifier beside the report:
+
+1. The adversarial right controller is removable:
+   $$
+   0\le A_{L,R}(T)-B_{L,R}^e(T)
+   \le(L+1)P(\operatorname{Pois}(T)\ge R+1).
+   $$
+2. `alpha(T)` has the two-sided convergent fixed-boundary approximation
+   $$
+   B_{L,R}^e(T)-r_{L,R}(T)
+   \le\alpha(T)\le
+   B_{L,R}^e(T)+r_{L,R}(T)+\ell_L(T).
+   $$
+3. At the hard near-East point an explicit protected-source event proves
+   $$
+   \alpha(t)>1\qquad(0<t\le47).
+   $$
+4. At `T=47`, diagnostic `1%` causal errors already require `L>=67`, `R>=74`, with naive state count `2^210`.
+
+The verifier displays decimal endpoints but all assertions use exact rational interval arithmetic and exact finite uniformization.
+
+Direction decision: stop raw finite-window/HJB enumeration. No G008/F013 is issued. The next possible coupling-side mathematics must be a new actual-front tail theorem preserving pre-exposure common-spin history or a genuine convective-survival theorem. One bounded outside consultant is authorized to assess whether either has sufficient expected value and interface with `J_{x,r}`.
