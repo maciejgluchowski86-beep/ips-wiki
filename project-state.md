@@ -13,9 +13,9 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed by the principal until changed or stopped: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/009-regenerated-mass-loss-and-duration-mode-obstruction.md`, `state_narrowed: yes`.
-- Student F: `students/student-f/assignment-009.md`, mode-resolved `L^1(w)` block operator.
-- Student G: still in flight on `students/student-g/assignment-004.md`, rigorous global restart-corrector Foster lift.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/010-exposed-product-refuted-and-16-phase-foster-reduction.md`, `state_narrowed: yes`.
+- Student F: `students/student-f/assignment-009.md`, mode-resolved `L^1(w)` signed block operator.
+- Student G: `students/student-g/assignment-005.md`, 16-phase all-height coupling Foster feasibility.
 
 On the normalized face `r11=0`, with
 
@@ -35,7 +35,7 @@ $$
 \right\}.
 $$
 
-Closed mechanisms include fixed finite walls, cellwise nonnegative scaffold insertion, one-step centered `L^1` contraction, and the crude scalar criterion `max{c,b-a}Z<1` on the residual chamber.
+Closed mechanisms include fixed finite walls, cellwise nonnegative scaffold insertion, one-step centered `L^1` contraction, the crude scalar criterion `max{c,b-a}Z<1` on the residual chamber, and Student G Assignment 003's exposed-only global product Foster lift.
 
 ### Current trail reduction
 
@@ -63,9 +63,34 @@ g\,\mu(h_{p_*}(\eta_y)f)
 =(Br-c)\bar\mu(f)+Br(1-r)(\mu^1-\mu^0)(f).
 $$
 
-Student G has proved geometric tails for repeated same-parent exposure entries. Its scalar height/restart stress factor can be chosen to tend to `16/21<1` near East, but the global product/phase Foster lift is still in flight and not yet Professor-verified.
+Student G's same-parent geometric restart tail remains Professor-checked. The separate scalar height/restart stress factor can tend to `16/21<1` near East, but Meeting 010 proves that it does **not** lift to Assignment 003's global product corrector.
 
-### Meeting 009: uniform regenerated-mass loss
+### Meeting 010: old global Foster product refuted
+
+Student G Assignment 004, commit `4128cee` with verifier commits `bec4dda` and `4586833`, gives a reachable all-`01` disagreement stack for which the exposed-only product has exact tilted drift
+
+$$
+\boxed{
+\frac{\mathscr L_sV}{V}
+=(1-a)(s-1)
++(H-2)(1-a)(s e_0-1)
++\omega(\lambda^{-1}-1).
+}
+$$
+
+For `s>1`, `lambda>1`, `e_0>=1`, the interior term grows positively with height, so the proposed product cannot be superharmonic uniformly in `H`. With the old near-East choices this drift tends to `(H-2)/7`.
+
+The coupling-side replacement is an exact 16-edge-phase nearest-neighbour product/coboundary feasibility problem. Let `A={00,11,01,10}` and choose positive weights `q_{alpha beta}`. For the product `C_Q=prod q_{sigma_{i-1},sigma_i}`, each of the 64 triples has an exact local tilted drift `G_Q(alpha,beta,gamma)`. Uniform all-height interior control is equivalent to finding a phase potential `psi` with
+
+$$
+G_Q(\alpha,\beta,\gamma)
+\le
+\psi(\alpha,\beta)-\psi(\beta,\gamma)
+$$
+
+for all triples, equivalently no positive cycle on the associated 16-vertex de Bruijn graph. Full Foster contraction additionally requires finitely many boundary/height/insertion inequalities. Student G Assignment 005 attacks this exact finite feasibility problem.
+
+### Student F: regenerated mass and duration modes
 
 For the one-site zero-boundary equilibrium density
 
@@ -79,17 +104,15 @@ $$
 \boxed{|Br_0-c|Z<\frac23}
 $$
 
-throughout the strict residual chamber. Thus a genuinely regenerated equilibrium mass component has a uniform right-weighted loss.
+throughout the strict residual chamber.
 
-### Meeting 009: duration profile is load-bearing
-
-A mass branch carries a transient zero-boundary relaxation mode
+A mass branch carries a transient relaxation mode
 
 $$
 r(u)=r_0+(r-r_0)e^{-(1+b)u}.
 $$
 
-Near East, the same depth-two profile gives
+Near East,
 
 $$
 \frac g{|m_\varepsilon|}\left|\int w(u)A_{2,\varepsilon}(u)du\right|\to\frac35,
@@ -103,18 +126,16 @@ $$
 }
 $$
 
-Therefore duration cannot be integrated before the block absolute-value norm. F's contracting height-one signed matrix is only a diagnostic, not an iterable proof kernel.
-
-Exact invariant-law determinants at `(1/10,3/10,4/5)` also refute first- and second-order spatial Markov closure, so a correct finite bounded state must use temporal reset-history / generator modes rather than a short present-spin word.
+Therefore duration cannot be integrated before the block absolute-value norm. Short static spin words also fail to close the invariant law. Student F Assignment 009 seeks the correct mode-resolved `L^1(w)` operator.
 
 ### Current proof target
 
-The remaining block theorem has two interfaces:
+Two interfaces remain:
 
-1. **G:** rigorous global finite restart/Foster phase for arbitrary disagreement height;
-2. **F:** a **mode-resolved `L^1(w)` signed block operator** retaining equilibrium mass, transient mass/reset modes, disagreement phases, and duration information until the norm is taken. The uniform equilibrium loss `<2/3` is the regenerative anchor.
+1. **G:** prove or refute the 16-phase nearest-neighbour product/coboundary Foster inequalities, including boundary/height transitions;
+2. **F:** prove or refute a mode-resolved `L^1(w)` signed block contraction retaining equilibrium mass, transient mass/reset modes, disagreement phases, and duration information until the norm.
 
-If both close, combine them to prove `J_{x,r}->0`; only then reconstruct the full trail/no-exit convergence argument.
+If both close positively, combine them to prove `J_{x,r}->0`; only then reconstruct the full trail/no-exit convergence argument.
 
 ## Most recently completed programme
 
