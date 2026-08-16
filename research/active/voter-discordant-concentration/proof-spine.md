@@ -2,7 +2,7 @@
 
 ## Main target
 
-Prove the corrected sharp concentration theorem for the discordant-edge density in the voter model on random `d`-regular graphs:
+The corrected sharp concentration theorem for the discordant-edge density in the voter model on random `d`-regular graphs is now **claimed**:
 
 $$
 \mathbf P_u^G\left(
@@ -11,191 +11,140 @@ $$
 \right)\xrightarrow{\mathbb P}0
 $$
 
-for fixed `d>=3`, `u in (0,1)`, every `t_n=o(n)`, and every `C_n->infinity`.
+for fixed `d>=3`, `u in (0,1)`, every deterministic `t_n=o(n)`, and every `C_n->infinity`.
 
-For `t_n->infinity`, this is the `sqrt(t_n/n)` scale intended by Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), Eq. (1.9).
+For deterministic `t_n>=1`, the claimed proof gives the sharper source scale `C_n sqrt(t_n/n)`.
 
-## E0. Source correction
+## E0. Small-time correction of source Eq. (1.9)
 
-Literal Eq. (1.9) quantifies over every `t_n=o(n)` and hence includes `t_n->0`. Bernoulli initial conditions already have variance
-
-$$
-\operatorname{Var}(\mathcal D_0)
-=\frac{4u(1-u)[d-(4d-2)u(1-u)]}{dn}.
-$$
-
-The choice
+Literal Eq. (1.9) allows arbitrary `t_n->0`, but Bernoulli initial conditions have nondegenerate `n^{-1/2}` fluctuations. The explicit choice
 
 $$
 t_n=n^{-3},\qquad C_n=\log n
 $$
 
-is a counterexample to the displayed source statement: with probability tending to one no clock rings, while the threshold is `(log n)/n^2=o(n^{-1/2})`.
+contradicts the displayed source statement.
 
-**Status:** independently Professor-checked mathematical correction. Not yet promoted to a stable project claim.
+**Status:** Professor-checked; included in `VOTER-CONC-001`; independent audit pending with the theorem package.
 
-## E1. Exact semimartingale and martingale scale
+## E1. Deterministic genealogical variance inequality
 
-For a fixed `d`-regular graph, let `D` be the number of discordant edges and `k_x` the number of disagreeing neighbours of `x`. Then
+Condition on the Harris genealogy `H_t`. The ancestral clusters `C_v(t)` receive independent Bernoulli initial labels. The discordant-edge count is a weighted cut statistic on the quotient multigraph of clusters.
 
-$$
-LD=\sum_x\frac{k_x}{d}(d-2k_x).
-$$
-
-For `\mathcal D=D/(dn/2)`,
+Let
 
 $$
-\mathcal D_t=\mathcal D_0+M_t+\int_0^tL\mathcal D(\eta_s)\,ds,
+q_t^G=\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t).
 $$
 
-and
+The conditional cut variance satisfies
 
 $$
-\frac d{dt}\langle M\rangle_t
-=\frac{4}{d^3n^2}\sum_xk_x(d-2k_x)^2
-\le\frac4n.
+\mathbf E[\operatorname{Var}(\mathcal D_t\mid H_t)]\le q_t^G.
 $$
 
-Thus
+The conditional mean is
 
 $$
-\mathbf E[M_t^2]\le4t/n.
+\mathbf E[\mathcal D_t\mid H_t]
+=p\left(1-\frac{J_t}{m}\right),
+\qquad p=2u(1-u),
 $$
 
-**Status:** verified for proof-spine use. The martingale is not the obstruction.
-
-## E2. Local quadratic drift
-
-With spins `sigma_x=2eta(x)-1`,
+where `J_t` counts original edges whose endpoints have coalesced genealogically. Coupling two ancestral edge families to independent pair systems up to their first cross-family interaction and then applying source Eq. (5.6) gives
 
 $$
-\mathcal D
-=\frac12-\frac1{dn}\sum_{\{x,y\}\in E}\sigma_x\sigma_y,
+\operatorname{Var}(\mathbf E[\mathcal D_t\mid H_t])\le q_t^G.
 $$
 
-and
-
-$$
-L\mathcal D
-=-\frac1d
-+\frac{2}{dn}\sum_{\{x,y\}\in E}\sigma_x\sigma_y
--\frac{2}{d^2n}
-\sum_x\sum_{\{y,z\}\subset N(x)}\sigma_y\sigma_z.
-$$
-
-Hence the drift is a signed spatial average of two-spin observables on edges and length-two wedges.
-
-**Status:** exact.
-
-## E3. Four-lineage covariance representation
-
-For two two-spin observables at times `s>=r`, voter duality gives an exact staggered system of four coalescing ancestral lineages. If `Pi` is the final partition of four labels by common ancestor and `mu=2u-1`, then
-
-$$
-\mathbf E[Z_q(s)Z_{q'}(r)]
-=\mathbf E_{\rm CRW}[\mu^{N_{\rm odd}(\Pi)}].
-$$
-
-Subtracting the separate pair expectations gives the covariance. Generic disjoint supports require all four labels. Cross meetings are exactly the dependence events.
-
-At `u=1/2`, only final partitions with all blocks of even size contribute.
-
-**Status:** exact dual reduction.
-
-## E4. Sufficient integrated-drift estimate
-
-Centering the semimartingale gives
-
-$$
-X_t=X_0+M_t+
-\int_0^t\widetilde h_s\,ds.
-$$
-
-Therefore the corrected theorem follows from
+Therefore
 
 $$
 \boxed{
-\mathbf E_u^G\left[
-\left(\int_0^t\widetilde h_s\,ds\right)^2
-\right]
-=O_{\mathbb P}(t/n)
+\operatorname{Var}_u^G(\mathcal D_t)\le2q_t^G.
 }
 $$
 
-uniformly for `1<=t=o(n)`, together with the initial `O(1/n)` variance and E1.
+**Status:** central claimed theorem; Professor independently reconstructed; two hostile reviews pending.
 
-**Status:** sufficient target, unproved.
+## E2. Random-regular meeting estimate
 
-## E5. Variance-differential route
-
-A potentially simpler route avoids the double time integral. Let
+For a uniform random simple `d`-regular graph with fixed `d>=3`, Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), equations (5.7)--(5.8), together with the standard high-probability spectral-gap and mean-meeting-time inputs used there, give for deterministic `1<=t_n=o(n)`
 
 $$
-V(t)=\operatorname{Var}_u^G(\mathcal D_t).
+q_{t_n}^G=O_{\mathbb P}(t_n/n).
 $$
 
-Then
+For `0<=t_n<1`, monotonicity and the time-one estimate give
 
 $$
-V'(t)
-=2\operatorname{Cov}_u^G(\mathcal D_t,L\mathcal D_t)
-+\mathbf E_u^G\Gamma(\mathcal D)(\eta_t),
+q_{t_n}^G=O_{\mathbb P}(1/n).
 $$
 
-with
+Hence for every deterministic `t_n=o(n)`,
 
 $$
-\mathbf E_u^G\Gamma(\mathcal D)(\eta_t)\le4/n.
+q_{t_n}^G=O_{\mathbb P}((1+t_n)/n).
 $$
 
-Thus it is enough to prove
+**Status:** source interface checked by Professor; independent audit pending.
+
+## E3. Concentration consequence
+
+E1 and E2 give
 
 $$
-\boxed{
-\operatorname{Cov}_u^G(\mathcal D_t,L\mathcal D_t)\le C/n
-}
+\operatorname{Var}_u^G(\mathcal D_{t_n}^n)
+=O_{\mathbb P}((1+t_n)/n).
 $$
 
-through `t=o(n)`. This covariance is a signed same-time edge/wedge four-spin sum and has a simultaneous four-walk representation.
+Chebyshev yields the corrected target for arbitrary `C_n->infinity`. If `t_n>=1`, use the sharper `O_P(t_n/n)` estimate to obtain the source scale.
 
-**Status:** current first structural test.
+**Status:** claimed consequence pending independent review.
 
-## E6. Why the published discard method does not reach the sharp scale routinely
+## Superseded proof routes
 
-Section 5 samples `K` edges and discards sampled families that interact with another sampled family. At target error `delta`, the visible architecture pays
+The following are no longer load-bearing, though their exact calculations remain useful:
 
-$$
-K^{-1/2}
-$$
+- the Dynkin martingale / integrated-centered-drift decomposition;
+- the staggered four-lineage covariance formula;
+- the sufficient integrated-drift estimate;
+- the variance differential
+  $$
+  V'(t)=2\operatorname{Cov}(\mathcal D_t,L\mathcal D_t)+\mathbf E\Gamma(\mathcal D)(\eta_t);
+  $$
+- the same-time signed four-walk cancellation problem;
+- the Section 5 sample-and-discard shrinking-scale analysis.
 
-for sampling and approximately
-
-$$
-K(t/n)
-$$
-
-for the fraction of interacting sampled families. Balancing gives the characteristic scale `(t/n)^{1/3}`.
-
-At `delta=C sqrt(t/n)`, no choice of `K` can simultaneously make the sampling error and unit-cost deletion error negligible for arbitrary `C_n->infinity` and arbitrary `t_n/n->0`.
-
-**Status:** structural obstruction to routine tuning of the sample-and-discard-at-unit-cost implementation. It does not rule out a signed four-walk refinement of the duality method.
-
-## Current first unresolved edge
-
-At `u=1/2`, expand
+Assignment 002 nevertheless produced the exact incidence identities
 
 $$
-\operatorname{Cov}(\mathcal D_t,L\mathcal D_t)
+\mathcal D(\sigma)=\frac1{2n}\sigma^TQ\sigma,
+\qquad
+L\mathcal D(\sigma)=\frac1n\sigma^T(P-P^2)\sigma.
 $$
 
-as the full signed edge/wedge four-walk sum and determine whether the incidence coefficients cancel the leading cross-meeting contribution, or whether a Poisson/corrector observable removes it.
+No sign estimate for `Cov(Dcal,L Dcal)` is asserted.
 
-If the same-time route fails for a precise structural reason, return to E4 only if time integration creates a new cancellation not visible in E5.
+## Current unresolved edge: verification and novelty
 
-**Owner:** Graduate Student D, assignment `students/student-d/assignment-002.md`.
+There is no further development lemma before correctness audit.
 
-## Novelty and opportunity-cost guardrail
+Two independent reviewers must stress-test E1--E3, especially:
 
-Do not optimize the exponent in the published moderate-time window. A larger polynomial window is diagnostic only.
+1. conditional cut-variance combinatorics;
+2. ancestral cluster-square equals stationary meeting probability;
+3. the four-family covariance coupling and within-family coalescence;
+4. oriented versus unoriented edge averaging;
+5. source (5.7)--(5.8) and the sequence-wise quenched probability mode;
+6. small-time claim boundaries.
 
-Meeting 001 pre-commits to reassessment if assignment 002 produces only absolute cross-meeting estimates with excessive time growth and no signed cancellation, corrector, or other structural mechanism.
+If both correctness reviews pass, run a separate closest-prior-work / novelty audit. Only then consider `verified` promotion and a stable theorem note/manuscript.
+
+## Novelty guardrail
+
+`VOTER-CONC-001` is structurally eligible under the standing novelty standard because it is a deterministic graph inequality and a full-regime theorem, not a larger-window or better-constant instance. Publication-level novelty is **not yet established**.
+
+## Direction
+
+Continue through independent audit; Graduate Student D is idle meanwhile.
