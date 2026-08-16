@@ -2,161 +2,144 @@
 
 ## Principal reset: fixed positive-rates target
 
-Date: 2026-08-16
+Date: 2026-08-16.
 
 The principal fixed the scientific target to the positive rates conjecture for simple IPS and instructed the Professor to prevent circular progress through equivalent reformulations.
 
 ## Inherited negative knowledge
 
-From branch `research/noisy-east-positive-rates`:
-
-- source-corrected residual chamber on `r11=0`;
-- failure of the one-site long-lived-state criterion there;
-- sharp `5/6` three-site frozen-exterior one-attack diagnostic;
-- almost-sure eventual crossing of every fixed finite agreed block under a permanently frozen exterior disagreement;
-- closure of the fixed-finite-wall route.
+From `research/noisy-east-positive-rates`: source-corrected residual chamber on `r11=0`; failure of the one-site long-lived-state criterion there; sharp `5/6` three-site frozen-exterior diagnostic; almost-sure eventual crossing of every fixed finite agreed block under permanently frozen exterior disagreement; closure of the fixed-finite-wall route.
 
 ## Meeting 001: exact density/sign information
 
-Meeting: `meetings/001-density-estimates-and-regional-kernel.md`.
+Meeting: `meetings/001-density-estimates-and-regional-kernel.md`. `state_narrowed: yes`.
 
-`state_narrowed: yes`.
+Student F `db49c30`: right-conditioned `L^-` insertion estimate after explicit burn-in. Student G `1f41488`: direct transient zero-density, finite-box concentration, and adjacent-`11` suppression estimates.
 
-Student F, commit `db49c30`, reconstructed the hidden-type algebra and proved the right-conditioned `L^-` insertion estimate after explicit burn-in. Student G, commit `1f41488`, proved direct transient zero-density, finite-box concentration, and adjacent-`11` suppression estimates for the original dynamics.
+## Meeting 002: one-cell insertion works; two-cell composition fails
 
-## Meeting 002: one-cell insertion works, two-cell composition fails
+Meeting: `meetings/002-cellwise-insertion-composition-fails.md`. `state_narrowed: yes`.
 
-Meeting: `meetings/002-cellwise-insertion-composition-fails.md`.
+Student F `d2c6e92`, verifier `cfbcaf5`: one-cell regional integration is positive, but hidden predecessor transfer is negative on sufficiently short cells. Cellwise scaffold positivity closed.
 
-`state_narrowed: yes`.
+## Meeting 003: live-source contraction
 
-Student F, commit `d2c6e92`, plus verifier `cfbcaf5`: one-cell regional integration is positive, but the hidden predecessor transfer is negative on sufficiently short cells. Cellwise last-exit/scaffold positivity is closed.
+Meeting: `meetings/003-live-source-contraction.md`. `state_narrowed: yes`.
 
-## Meeting 003: true rightmost-source contraction
+Student F `d0a508c`, verifier `f379cd3`: rightmost live disagreement has childless regeneration and finite-slab regeneration; coupling drift isolates `J_i`; residual-uniform first-generation contraction fails near East.
 
-Meeting: `meetings/003-live-source-contraction.md`.
+## Meeting 004: finite-generation clearing and depth obstruction
 
-`state_narrowed: yes`.
+Meeting: `meetings/004-two-generation-regeneration-and-depth-obstruction.md`. `state_narrowed: yes`.
 
-Student F, commit `d0a508c`, verifier `f379cd3`: a rightmost live disagreement has explicit childless regeneration; a finite-slab regeneration event exists; the coupling drift isolates `J_i`; residual-uniform first-generation contraction from zero-rich/no-`11` snapshots fails near East.
+Student F `893700c`, verifier `5e3c4bc`: every disagreement has coalescence probability at own update at least `q=1-c+a`; finite-depth ordered clearing is positive but certified depth gaps are summable. Finite-generation escalation stops.
 
-## Meeting 004: two-generation regeneration and all-depth obstruction
+## Meeting 005: centered predecessor-trail reduction
 
-Meeting: `meetings/004-two-generation-regeneration-and-depth-obstruction.md`.
+Meeting: `meetings/005-principal-trail-reduction-and-all-depth-transfer.md`. `state_narrowed: yes`.
 
-`state_narrowed: yes`.
+Durable note: `notes/principal-centered-trail-reduction.md`. Canonical predecessor trail, positive vertical factor `e^{-(1-c+a)tau}`, right contribution after final-coin averaging, and all-depth invariant reduction established as working spine. One-generation contraction `(T)` proposed.
 
-Student F, commit `893700c`, verifier `5e3c4bc`: every disagreement site has coalescence intensity at least `q=1-c+a`; the parent-child episode clears before grandchild creation with positive environment-uniform probability; finite-depth ordered clearing is positive but the certified depth gaps are summable. Finite-generation escalation stops.
+## Meeting 006: exact one-step obstruction; block target
 
-## Meeting 005: principal centered predecessor-trail reduction
+Meeting: `meetings/006-one-step-transfer-refuted-block-stack-target.md`. `state_narrowed: yes`.
 
-Meeting: `meetings/005-principal-trail-reduction-and-all-depth-transfer.md`.
+Principal update `notes/principal-centered-trail-update2.md`. Exact near-East `3/2` and `7/5` one-step obstructions; mass/disagreement decomposition; negative stack-height drift. Meeting 008 later corrects Meeting 006's erroneous claim that `max{c,b-a}Z<1` gives a residual subregion.
 
-`state_narrowed: yes`.
+## Meeting 007: exposure resolvent and restart bottleneck
 
-Durable note: `notes/principal-centered-trail-reduction.md`.
+Meeting: `meetings/007-student-g-exposure-resolvent-and-restart-bottleneck.md`. `state_narrowed: yes`.
 
-Working conclusions: the residual centered dual has a canonical predecessor trail with positive factor `e^{-(1-c+a)tau}`; the right contribution is uniformly bounded after final-coin averaging; finite zero-boundary mixing reduces the nonempty-exit term to an all-depth invariant expectation; exact East cancellation holds. Meeting 005 proposed a one-generation centered signed-measure contraction `(T)`.
+Student G `c7a33b5`, verifier `e20847a`: exact live-exposure child probability and weighted local `J_i` occupation resolvent. Crude global summation fails near East because repeated exposure re-entry is uncontrolled.
 
-## Meeting 006: exact depth-two obstruction to `(T)`; block mass/disagreement target
+## Meeting 008: same-parent restart tail; crude residual region empty
 
-Meeting: `meetings/006-one-step-transfer-refuted-block-stack-target.md`.
+Meeting: `meetings/008-restart-tail-and-empty-supnorm-region.md`. `state_narrowed: yes`.
 
-`state_narrowed: yes`.
+Student G `0ca3fd1`, verifier `75b700f`: same-parent exposure re-entry count has geometric tail and explicit exponential pgf. Scalar restart/height diagnostic can tend to `16/21<1` near East, but is not a global Foster theorem.
 
-Durable principal update: `notes/principal-centered-trail-update2.md`.
+Student F verifier `0755d22`, write-up `3cb6ac9`: throughout the residual chamber `cZ>1` and `c>b-a`; the crude condition `max{c,b-a}Z<1` has no residual solutions.
 
-Professor checks confirmed the segmentwise right-killing formula, the exact near-East `3/2` and `7/5` one-step obstructions, the mass/disagreement decomposition, and negative stack-height drift. Meeting 006 also stated that the crude condition `max{c,b-a}Z<1` gives a residual subregion; Meeting 008 later corrects that statement.
+## Meeting 009: regenerated-mass loss and duration-mode obstruction
 
-## Meeting 007: Student G exposure resolvent and restart bottleneck
+Meeting: `meetings/009-regenerated-mass-loss-and-duration-mode-obstruction.md`. `state_narrowed: yes`.
 
-Meeting: `meetings/007-student-g-exposure-resolvent-and-restart-bottleneck.md`.
+Student F `ac7de96`, verifier `ff3c5d5`:
 
-`state_narrowed: yes`.
+- uniform regenerated mass loss `|Br_0-c|Z<2/3`;
+- nontrivial mass relaxation mode;
+- norm-order obstruction: signed duration average gives near-East `3/5`, actual `L^1` factor gives `7/5`;
+- contracting height-one signed matrix is diagnostic only;
+- first- and second-order static spatial Markov closure fail at `(1/10,3/10,4/5)`.
 
-Student G, commit `c7a33b5`, verifier `e20847a`: every live exposure edge, including non-rightmost disagreements, has an exact killed-chain child probability and weighted `J_i` occupation resolvent. Crude global summation fails near East because repeated exposure re-entry/restart count is uncontrolled. G's local `J_i` is distinct from the global trail quantity `J_{x,r}`.
+Meeting 009 recorded G as still in flight; G had returned only after that meeting's working snapshot.
 
-## Meeting 008: same-parent restart tail and empty crude residual region
+## Meeting 010: exposed-only Foster product refuted; 16-phase reduction
 
-Meeting: `meetings/008-restart-tail-and-empty-supnorm-region.md`.
+Meeting: `meetings/010-exposed-product-refuted-and-16-phase-foster-reduction.md`. `state_narrowed: yes`.
 
-`state_narrowed: yes`.
+Student G `4128cee`, verifier commits `bec4dda`, `4586833`:
 
-Student G, commit `0ca3fd1`, verifier `75b700f`: same-parent exposure re-entry count has geometric tail and explicit exponential pgf. The scalar height/restart stress factor can be chosen to tend to `16/21<1` near East, but the global product/phase Foster lift remains unverified.
+- Assignment-003 exposed-only global product is false on reachable all-`01` stacks;
+- exact tilted drift has positive bulk term linear in stack height and tends to `(H-2)/7` under the old near-East choices;
+- same-parent tail survives;
+- nearest-neighbour scalar edge-product class reduces exactly to 16 edge phases / 64 triple drifts and a no-positive-cycle/coboundary feasibility problem plus finite boundary inequalities.
 
-Student F, verifier `0755d22`, write-up commit `3cb6ac9`: throughout the residual chamber `cZ>1` and `c>b-a`, so the crude condition `max{c,b-a}Z<1` has no residual solutions. The purported easy residual subregion from Meeting 006 is removed.
+## Meeting 011: finite common-mass mode closure refuted
 
-The remaining block theorem splits into a global restart/Foster phase lemma (G) and a bounded-height signed mass/disagreement kernel (F).
+Meeting: `meetings/011-finite-mode-closure-refuted-profile-truncation-target.md`. `state_narrowed: yes`.
 
-## Meeting 009: uniform regenerated-mass loss and duration-mode obstruction
+Student F `0ca0ef3`, verifier `9c2db13`:
 
-Meeting: `meetings/009-regenerated-mass-loss-and-duration-mode-obstruction.md`.
-
-`state_narrowed: yes`.
-
-Student F:
-
-- commit `ac7de96`, `students/student-f/008-bounded-signed-kernel.md`;
-- verifier commit `ff3c5d5`, `students/student-f/008-bounded-signed-kernel-verifier.py`.
-
-Professor-checked conclusions:
-
-1. **Uniform regenerated mass loss.** With `r_0=1/(1+b)`,
+1. The first transient mass mode contracts:
    $$
-   |Br_0-c|Z<\frac23
+   \kappa_T=BZ_{\omega+1+b}<1,
    $$
-   at every strict residual parameter point. This is independent of G's Foster premise and upgrades the near-East `2/5` limit to the full chamber.
-2. **Mass relaxation is a state variable.** A mass branch has rightmost density
+   with exact denominator gap
    $$
-   r(u)=r_0+(r-r_0)e^{-(1+b)u},
+   a^2+5ab+a(1-c)+7a+4b(1-c)+6(1-c)>0.
    $$
-   so a nontrivial transient mass/reset mode survives between insertions; near East it is order one while the equilibrium centered mode vanishes.
-3. **Norm-order obstruction.** Near East,
+2. Near East,
    $$
-   \frac g{|m_\varepsilon|}\left|\int w(u)A_{2,\varepsilon}(u)du\right|\to\frac35,
+   \kappa_T=1-\frac{13}{3}\varepsilon^2+\frac{38}{9}\varepsilon^3+O(\varepsilon^4).
    $$
-   but the actual `J`-compatible quantity is
+3. Exact common-mass transfer is operator-valued and duration-resolved.
+4. On an `N`-site interval,
    $$
-   \frac g{|m_\varepsilon|}\int w(u)|A_{2,\varepsilon}(u)|du\to\frac75.
+   L_N^j h_{p_*}(\eta_1)
+   =q_*^{-1}B^j\eta_1\cdots\eta_{j+1}+R_j,
+   \qquad \deg R_j\le j,
    $$
-   Hence duration integration cannot precede the block absolute-value norm.
-4. **Height-one signed cancellation is real but diagnostic only.** F's exact fully-regenerated matrix has spectral radius about `0.10325` at `(1/10,3/10,4/5)` and tends to `sqrt(2/5)` near East, but it cannot be iterated as the proof kernel because its duration coordinate has already been integrated.
-5. **Static short-word closure fails.** Exact invariant-law determinants refute first- and second-order spatial Markov closure at `(1/10,3/10,4/5)`. This rules out current-spin / two-spin static closure but not a finite temporal reset-history state.
-6. **Revised bounded target.** The bounded kernel must be a mode-resolved `L^1(w)` operator retaining mass relaxation/reset-history information until the norm is taken. A scalar Foster return statement alone does not determine this signed kernel.
+   so the cyclic mode dimension is at least `N` even at disagreement height zero. Depth-uniform finite linear mode closure is closed.
 
-Meeting 009 recorded G as still in flight on Assignment 004; G returned after that meeting. Student F moved to `students/student-f/assignment-009.md`.
+Operational overlap correction: G's Assignment 005 commits `d6f3a9d` and `3963d86` landed seconds before Meeting 011 was committed but were not seen during composition. A correction is appended to Meeting 011; its mathematical ruling on F is unchanged.
 
-## Meeting 010: exposed-only Foster product refuted; 16-phase finite reduction
+Student F moved to `students/student-f/assignment-010.md`.
 
-Meeting: `meetings/010-exposed-product-refuted-and-16-phase-foster-reduction.md`.
+## Meeting 012: balanced circulation refutes the 16-phase scalar product class
 
-`state_narrowed: yes`.
+Meeting: `meetings/012-balanced-circulation-refutes-16-phase-product-class.md`. `state_narrowed: yes`.
 
 Student G:
 
-- commit `4128cee`, `students/student-g/004-global-restart-corrector.md`;
-- verifier commits `bec4dda` and `4586833`, `students/student-g/004-global-restart-corrector-verifier.py`.
+- write-up commit `d6f3a9d`, `students/student-g/005-16-phase-foster-feasibility.md`;
+- exact verifier commit `3963d86`, `students/student-g/005-16-phase-foster-feasibility-verifier.py`.
 
 Professor-checked conclusions:
 
-1. **Assignment-003 global product is false.** On the reachable all-`01` stack `sigma_i=01`, the exposed-only product with `V=lambda^H C_old` has exact tilted drift
+1. At the strict residual point
    $$
-   \frac{\mathscr L_sV}{V}
-   =(1-a)(s-1)
-   +(H-2)(1-a)(s e_0-1)
-   +\omega(\lambda^{-1}-1).
+   (a,b,c)=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
    $$
-   For `s>1`, finite `lambda>1`, and `e_0>=1`, the interior coefficient is positive, so the drift is positive for all sufficiently large `H`.
-2. **Near-East old-product failure.** With Assignment-003's choices, the drift tends to `(H-2)/7`; hence the checked scalar `16/21` factor is not a global Foster multiplier.
-3. **Same-parent tail survives.** The geometric same-parent restart theorem and the separate height minorant remain valid. The failure is specifically the independent-level product rule that assigned no credit to child-alive/nonexposed phases.
-4. **Exact stronger local state.** For pair alphabet `A={00,11,01,10}`, a nearest-neighbour edge product `C_Q=prod q_{sigma_{i-1},sigma_i}` yields 64 exact local tilted drift functions `G_Q(alpha,beta,gamma)`.
-5. **Finite no-positive-cycle reduction.** For this nearest-neighbour product/coboundary class, all-height interior control is equivalent to absence of a positive cycle on the 16-vertex de Bruijn graph, equivalently existence of a phase potential `psi` with
+   G gives an explicit normalized rational circulation on 28 of the 64 triple phases.
+2. The verifier checks exact spatial flow conservation and exact zero expected exponent change in all 16 scalar edge-weight coordinates, while the exposure-entry flux `R_mu` and changing-update mass `C_mu` are positive.
+3. For every positive scalar edge matrix `Q` and every `s>1`, weighted AM--GM gives
    $$
-   G_Q(\alpha,\beta,\gamma)
-   \le
-   \psi(\alpha,\beta)-\psi(\beta,\gamma)
+   \sum_e\mu_eG_Q(e)
+   \ge C_\mu\left(s^{R_\mu/C_\mu}-1\right)>0.
    $$
-   for all triples. A complete Foster theorem additionally requires finitely many boundary/height/insertion inequalities.
-6. **Current coupling blocker.** Existence of feasible positive phase weights and boundary parameters throughout the residual chamber is unresolved. Student G moves to `students/student-g/assignment-005.md` to solve or refute this finite feasibility problem.
+4. Any coboundary certificate would force the circulation average to be nonpositive. Therefore the entire nearest-neighbour scalar edge-product/coboundary Foster class is impossible at this strict residual point.
+5. The obstruction is repeatable in the bulk, so finite boundary/height/insertion corrections cannot repair the class.
+6. Same-parent renewal remains valid. Matrix-product/nonlocal correctors, every finite temporal state, `J` decay, and the conjecture are not decided.
 
-Student F remains in flight on `students/student-f/assignment-009.md`.
+Direction decision: do not enlarge scalar local corrector contexts mechanically. Student G moves to `students/student-g/assignment-006.md` to decide whether the common-uniform disagreement process itself survives from a finite seed near East or instead admits a genuinely nonlocal extinction/regeneration theorem. Student F continues Assignment 010 on common-mass profile truncation.
