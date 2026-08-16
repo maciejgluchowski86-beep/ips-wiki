@@ -13,9 +13,9 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed until changed or stopped by the principal: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/019-two-spin-occupation-obstruction-and-common-coupling-stop.md`, `state_narrowed: yes`.
-- Student F: active on `students/student-f/assignment-013.md`, the signed two-insertion recombination test.
-- Student G successor: idle. No G009 common-coupling continuation is authorized.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/020-recombined-zero-mode-survives-light-cone-screening-test.md`, `state_narrowed: yes`.
+- Student F: active on `students/student-f/assignment-014.md`, the bounded light-cone screening test.
+- Student G successor: idle. Common-uniform global-coalescence / zero-frequency occupation is abandoned as the load-bearing disagreement interface.
 
 On `r11=0`, with
 
@@ -30,85 +30,106 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-Closed mechanisms include fixed finite walls, cellwise nonnegative scaffold insertion, one-step centered `L^1`, the empty crude scalar criterion, exposed-only and full nearest-neighbour scalar coupling products, and depth-uniform finite linear common-mass mode closure. Raw enlargement of finite random-map/HJB windows is stopped.
-
-Meeting 019 additionally abandons **global common-uniform coalescence / zero-frequency disagreement occupation as the load-bearing disagreement interface**. Previously proved common-coupling lemmas remain valid auxiliary results.
-
 ### Current predecessor-trail target
 
 Put
 
 $$
-B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a,
+B=b+c-a,\qquad g=b-a,\qquad\omega=1-c+a,
 \qquad w(u)=e^{-\omega u}s_1(u).
 $$
 
-The centered predecessor-trail working reduction leaves
+The centered predecessor-trail reduction leaves
 
 $$
 J_{x,r}
 =B g^{n-1}\int\left(\prod_k w(u_k)\right)|\pi^0_{m,r}(F_{x,u})|du.
 $$
 
-Proving `J_{x,r}->0` with depth is sufficient for the nonempty-exit term. Exact Poisson--Mecke factorization and the no-exit complement remain downstream audits after `J` decay is proved.
+Proving `J_{x,r}->0` with depth is sufficient for the nonempty-exit term. Every duration must remain visible until the final modulus.
 
-### G008 and the coupling stop
+### F013: intrinsic zero mode after signed recombination
 
-At the hard near-East point, G008 proves that after a genuine source coalescence the retained two-spin first-exposure state forgets residual right-ancestry capacity. Two actual histories with the same `(s,t,C0)` projection have source-return kernels differing by at least
-
-$$
-\frac{b-a}{2}=\frac{99}{20000}.
-$$
-
-The robust finite-depth projected Bellman closure obeys
+With
 
 $$
-r_0=\frac{1000197}{1020203},
+r_0=\frac1{1+b},
 \qquad
-r_n=\frac{r_0}{1-(1-r_0)r_{n-1}},
+m_0=\frac{b(1-c)-a}{1+b},
 $$
 
-and `r_n->1`. This refutes strict zero-frequency contraction of that robust closed two-spin envelope, not the actual occupation theorem itself.
-
-The missing all-depth source-episode quantity is already a zero-frequency occupation observable:
+and
 
 $$
-E N_i\le E O_i,
+\rho_N=\mathcal J_N\pi_N-m_0\pi_{N-1},
+$$
+
+F013 proves for the full two-insertion defect
+
+$$
+E_{N,u}(f)
+=m_0\rho_{N-1}(f)
++\rho_N(P_u-\Pi)[Y_{N-1}(f-\pi f)].
+$$
+
+Thus the zero temporal-frequency projection survives **before** any positive mass/disagreement split.
+
+Moreover
+
+$$
+\rho_n(f)
+=m_0(\bar\pi_n-\pi_{n-1})(f)
++B\pi_n[(\eta_n-r_0)f],
+$$
+
+and the covariance term is exponentially localized by F010. Hence off `m_0=0`, the remote zero mode differs from `|m_0|^2 Delta_{M+1}` only by an exponential error. The old zero-frequency obstruction was therefore not an artifact of splitting the signed insertion.
+
+On the exact surface
+
+$$
+a=b(1-c),
+$$
+
+the zero-boundary invariant law is Bernoulli product, `J_N pi_N=0`, and the two-insertion defect vanishes identically.
+
+### One remaining concrete mechanism
+
+F013 does not decide the actual weighted norm
+
+$$
+\Gamma_M
+=\sup_N\int_0^\infty w(u)\|E_{N,u}\|_{\mathrm{remote},M}du,
+$$
+
+because the transient complement may cancel the zero mode at the same duration.
+
+Meeting 020 rejects generic depth-uniform observability/mixing as another restatement. It isolates one concrete finite-propagation mechanism instead. Since
+
+$$
+0\le w(u)\le e^{-\omega u},
 \qquad
-E N_i\le D_i(0)+cE O_{i+1},
-\qquad
-O_i=\int_0^\infty D_i(t)dt.
+\|E_{N,u}\|_{TV}\le2c^2,
 $$
 
-No new mechanism controlling it was obtained. The explicit Meeting-018 stopping condition is therefore met: do not enlarge the exposure state, add ancestry counters, restart raw finite windows, or continue with a cosmetic common-coupling variant.
-
-### Return to the signed insertion
-
-For any law `mu` with rightmost density `r`,
+late durations `u>=alpha M` already cost at most
 
 $$
-r(1-r)(\mu^1-\mu^0)(f)
-=\mu[(\eta_y-r)f].
+\frac{2c^2}{\omega}e^{-\omega\alpha M}.
 $$
 
-Thus the old positive `disagreement branch` is intrinsically a signed covariance. At equilibrium F010 already gives a positive-frequency resolvent and an explicit exponential separated-gap estimate for this covariance.
-
-The next test keeps the full first signed insertion
+Thus it suffices to prove short-time **light-cone screening**, for example
 
 $$
-\nu_N=\mathcal J_N\pi_N,
-\qquad
-(\mathcal J_N\mu)(f)=\mu((B\eta_N-c)f),
+\|E_{N,u}\|_{\mathrm{remote},M}
+\le
+C e^{-\gamma M}
++C P(\operatorname{Pois}(\Lambda u)\ge\delta M),
+\qquad 0\le u\le\alpha M.
 $$
 
-evolves it for one zero-boundary trail duration, and applies the second insertion without estimating mass and disagreement pieces separately:
+Assignment 014 first tests the static centered two-site suffix covariance at `u=0`, then the graphical finite-speed extension to positive time.
 
-$$
-\kappa_{N,u}
-=\mathcal J_{N-1}(\nu_N P_u^{N-1,0}).
-$$
-
-F013 asks whether the resulting remote defect localizes after the correct `L^1(w)` norm, or whether an unavoidable zero-frequency term survives recombination. This is one bounded signed-representation test, not an all-depth theorem.
+If this succeeds, `Gamma_M` decays exponentially. If it fails structurally or returns unresolved without a sharper mechanism, the present predecessor-trail/profile implementation is recorded as exhausted rather than continued by generic observability, third insertions, matrix products, or reopened common-uniform occupation.
 
 ## Most recently completed programme
 
