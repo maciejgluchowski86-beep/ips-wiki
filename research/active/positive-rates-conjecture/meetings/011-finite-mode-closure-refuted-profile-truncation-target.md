@@ -175,10 +175,7 @@ The `J`-compatible block norm is therefore profile-valued/infinite-dimensional: 
 Let `L_N` be the zero-boundary generator on `\{1,\ldots,N\}` in the centered-trail spin convention. For a site spin `x` and its right neighbour `y`,
 
 $$
-\boxed{
-c(x,y)(1-2x)
-=1-cy-(1+b)x+Bxy.
-}
+\boxed{c(x,y)(1-2x)=1-cy-(1+b)x+Bxy.}
 $$
 
 The only degree-raising term is `Bxy`.
@@ -206,17 +203,13 @@ $$
 Since `B,q_*>0`, these vectors have distinct nonzero top polynomial degrees and are linearly independent. Thus any linear space invariant under the zero-boundary semigroup and containing the one-site centered insertion must satisfy
 
 $$
-\boxed{
-\dim E_N\ge N.
-}
+\boxed{\dim E_N\ge N.}
 $$
 
 This obstruction already holds at disagreement height zero. Consequently:
 
 $$
-\boxed{
-\text{bounded disagreement/restart height does not imply bounded mass-mode dimension.}
-}
+\boxed{\text{bounded disagreement/restart height does not imply bounded mass-mode dimension.}}
 $$
 
 The depth-uniform finite generator/mode state proposed in Assignments 008--009 is therefore closed.
@@ -252,3 +245,11 @@ The programme narrows again.
 - F is redirected to quantitative profile regeneration/truncation rather than another finite-mode ansatz.
 
 The predecessor-trail Poisson--Mecke factorization and complementary no-exit term remain separate mandatory audits after a proof of `J_{x,r}->0`.
+
+## Post-meeting overlap correction
+
+This meeting was committed at 21:26:02 local time. Student G had in fact committed its Assignment 005 result at 21:25:28 and verifier at 21:25:51, seconds before this file landed. The Professor did not see those commits while composing Meeting 011.
+
+Accordingly, the statements above that G was still in flight and that its 16-phase task remained open/useful are stale operationally. They are preserved above as the contemporaneous record rather than silently rewritten.
+
+Meeting 012 (`012-balanced-circulation-refutes-16-phase-product-class.md`) reviews G's completed work and supersedes those coupling-status statements: G refutes the entire nearest-neighbour scalar edge-product/coboundary Foster class at a strict residual point by an exact balanced-circulation AM--GM certificate. The mathematical ruling on Student F in Meeting 011 is unchanged.
