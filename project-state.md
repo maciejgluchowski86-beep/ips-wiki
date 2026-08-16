@@ -13,9 +13,9 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed until changed or stopped by the principal: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/021-light-cone-reduces-to-two-step-tail-shift-and-trail-route-stop.md`, `state_narrowed: yes`.
-- Students F and G: idle; no F015/G009 continuation is authorized.
-- Active task: bounded outside route-selection consultation `research/active/positive-rates-conjecture/consultants/assignment-002-post-trail-architecture-review.md`.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/022-no-credible-proof-architecture-but-j-route-decision-reopened.md`, `state_narrowed: yes`.
+- Student G: active on `students/student-g/assignment-009.md`, one bounded asymptotic route-decision block on `(J-SPEC)`.
+- Student F: idle.
 
 On `r11=0`, with
 
@@ -32,86 +32,80 @@ $$
 
 ### Route status
 
-Common-uniform global coalescence / zero-frequency disagreement occupation was abandoned as the load-bearing disagreement interface in Meeting 019.
+Meeting 019 abandons common-uniform global coalescence / zero-frequency disagreement occupation as the load-bearing disagreement interface.
 
-Meeting 021 now records the **current centered predecessor-trail/profile implementation as exhausted**. The predecessor-trail reduction remains valid mathematics, but no further local composition variant is active.
+Meeting 021 records the current centered predecessor-trail/profile implementation as exhausted after signed recombination and light-cone screening both reduce to unresolved one-/two-step tail-shift memory.
 
-Closed/stopped variants include fixed walls, cellwise nonnegative insertion, one-step centered `L^1`, crude scalar sup bounds, exposed-only and full nearest-neighbour scalar coupling products, depth-uniform finite common-mass mode closure, raw finite-window Hamming enumeration, larger exposure-state ancestry tracking, generic observability/spectral-gap continuation of the current profile route, third-insertion experiments, and default matrix-product engineering.
-
-### Latest mathematical obstruction
-
-The predecessor-trail reduction leaves
+Outside consultation 002 returns `RECOMMENDATION: no-credible-route`. It constructs an exact trajectory-valued spatial kernel `Q` for the stationary system, but proves
 
 $$
-J_{x,r}
-=B g^{n-1}\int\left(\prod_k w(u_k)\right)|\pi^0_{m,r}(F_{x,u})|du,
+Q(\mathbf0,\cdot)\perp Q(\mathbf1,\cdot),
 $$
 
-with
+so full path-space Dobrushin/TV and KL contraction are unavailable. No independent mechanism was found for weak ergodicity of the reachable `Q`-orbit, an alternative coupling, or a new transform.
+
+The consultant's `no-credible-route` judgment is accepted as the current **proof-architecture** assessment.
+
+### New principal target hierarchy
+
+The principal independently ran finite-box calculations on the canonical singleton predecessor-trail absolute-duration norm. Durable note:
+
+`research/active/positive-rates-conjecture/notes/principal-target-hierarchy-and-j-norm-evidence.md`.
+
+For singleton depth `n`, normalize the canonical absolute-duration quantity as
 
 $$
-B=b+c-a,\qquad g=b-a,\qquad\omega=1-c+a.
-$$
-
-F013 proves that the full unsplit two-insertion transfer retains a genuine zero temporal-frequency projection. F014 then proves that the proposed short-time light-cone mechanism controls all fixed-suffix and causal-propagation terms but leaves an initial two-step spatial boundary law.
-
-For
-
-$$
-H_N=Y_NY_{N-1},
+J_n=\frac gB N_n,
 \qquad
-h_*=\pi_2(H_2),
-\qquad
-\delta_N^{(2)}=\bar{\bar\pi}_N-\pi_{N-2},
+B=b+c-a,
+\qquad g=b-a,
 $$
 
-one has exactly
-
-$$
-E_{N,0}(f)
-=\pi_N[(H_N-h_*)f]
-+h_*\delta_N^{(2)}(f).
-$$
-
-Centered observables of the fixed two-site suffix localize exponentially. At the strict residual point `(a,b,c)=(1/10,3/10,4/5)`, however,
-
-$$
-h_*=-\frac{34}{8775}\ne0.
-$$
-
-The remote norm of the remaining spatial law is
+and define
 
 $$
 \boxed{
-\Delta_M^{(2)}
-=\|\theta^2\mu-\mu\|_{\mathcal F_M},
+\rho_J(a,b,c)
+:=
+\limsup_{n\to\infty}J_n^{1/n}
+=
+\limsup_{n\to\infty}N_n^{1/n}.
 }
 $$
 
-where `mu` is the projective half-line zero-boundary invariant law.
-
-For positive time, F014 proves an exponentially accurate no-crossing normal form and consequently
+The immediate route-decision target is
 
 $$
 \boxed{
-\Gamma_M
-\le
-c^2 Z\,\Delta_{\lceil M/2\rceil}^{(2)}
-+Ce^{-\gamma M}.
+\text{either prove }\rho_J<1\text{ throughout the residual chamber,
+ or prove }\rho_J>1\text{ at one strict residual point.}
 }
+\tag{J-SPEC}
 $$
 
-Thus the finite-propagation part works; the unresolved object is an additional zero-frequency two-step tail-shift theorem. No independent mechanism for that theorem was found. This was the pre-registered stopping case in Meeting 020.
+The principal's numerical evidence is not yet independently verified asymptotically, but it reports apparent growth at
 
-### Current decision
+$$
+(a,b,c)=\left(\frac1{1000},\frac1{10},\frac{9999}{10000}\right)
+$$
 
-Do not issue another predecessor-trail/profile or common-coupling variant by default. Before further internal work, outside consultation 002 must identify a **genuinely different proof architecture** or recommend that no credible route is presently available.
+with `N_10≈2.3975` and three-depth ratio about `1.153`.
 
-A proposal to prove one- or two-step tail-shift agreement counts as genuinely new only if it supplies an independent structural mechanism specific to the one-sided stationary law rather than assuming or renaming the missing mixing theorem.
+Student G Assignment 009 must decide this by an asymptotic certificate, not by larger finite-depth Monte Carlo.
 
-Unresolved target-level facts include `Delta_M->0`, `Delta_M^(2)->0`, `Gamma_M->0`, `J_{x,r}->0`, common-uniform extinction versus convective survival, and the positive rates conjecture.
+### Why `(J-SPEC)` is allowed after the route stop
 
-On the exact surface `a=b(1-c)`, the zero-boundary invariant law is Bernoulli product and the signed insertion obstruction vanishes.
+Meeting 021 stopped attempts to **prove** `J->0` by the existing profile implementation. `(J-SPEC)` asks whether `J->0` itself is false. This is a logically prior route-killing question justified by new principal evidence and does not reopen third insertions, generic observability, common-coupling occupation, trajectory-kernel exactness, or matrix-product engineering.
+
+If `rho_J>1` is proved at one strict residual point, the absolute-duration `J` strategy is refuted there. The exact predecessor-trail identity remains valid; future work would have to retain signed right-region/duration cancellation which the uniform absolute survival bound discards.
+
+If Assignment 009 returns unresolved with only deeper finite-depth evidence and no asymptotic mechanism, return to consultation 002's `no-credible-route` state and keep both students idle until genuinely new input arrives.
+
+### Later signed-resolvent ideas are not active
+
+The principal's study reports very strong cancellation in signed duration-resolvent pairings at the apparent growth points and proposes later targets `(ML)`, `(JT)`, and possibly `(MR)`.
+
+These are not active tasks. The scalar resolvent target is only a proxy until the exact duration-dependent right-region class is reconstructed and linked to the ergodicity integral.
 
 ## Most recently completed programme
 
