@@ -6,113 +6,81 @@ Title: corrected sharp concentration of voter-model discordant edges on random r
 
 Branch: `research/voter-discordant-concentration`
 
-Professor lineage: persistent ChatGPT Professor
-
-Graduate Student D: idle pending novelty / closest-prior-work audit
-
-Graduate Students A, B, C: idle with prior lineages
-
 Workspace: `research/active/voter-discordant-concentration/`
 
-Latest group meeting: `meetings/003-correctness-passed-novelty-audit.md`
+Persistent Graduate Student D: idle; programme closed
 
-Central claim: `VOTER-CONC-001`, status **claimed**.
+Latest group meeting: `meetings/004-novelty-fails-and-programme-closes.md`
 
-Correctness reviews:
+## Final mathematical status
 
-- Review A: `audits/001-genealogy-review-a.md`, commit `add0681`, `PASS`;
-- Review B: `audits/002-genealogy-review-b.md`, commit `45f960b`, `PASS`.
+`VOTER-CONC-001` is **verified mathematics but not a new project result under the standing novelty standard**.
 
-Novelty audit now assigned:
-
-- `audits/assignment-003-novelty-prior-work.md`.
-
-## Central deterministic theorem package
-
-The correctness-reviewed deterministic inequality is stated for every finite simple `d`-regular graph with **`d>=1`**, not necessarily connected. For i.i.d. Bernoulli(`u`) voter initial data, `u in (0,1)`, and every `t>=0`,
+For every finite simple `d`-regular graph with `d>=1`, not necessarily connected, every `u in (0,1)`, and every `t>=0`,
 
 $$
-\boxed{
 \operatorname{Var}_u^G(\mathcal D_t)
 \le2\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t).
-}
 $$
 
-Here `pi` is uniform on vertices and the two independent simple random walks have the same rate-one clock convention as the voter ancestry.
+Correctness basis:
 
-The mechanism is genealogical. Conditional on the Harris arrows at observation time, ancestral clusters carry independent Bernoulli initial labels and the discordant-edge count is a weighted cut statistic on the quotient multigraph. Total variance separates:
+- Student D proof: commit `e73fd25`, `students/student-d/002-four-walk-cancellation.md`;
+- Professor reconstruction: `notes/professor-assignment-002-verification.md`;
+- hostile Review A: commit `add0681`, `audits/001-genealogy-review-a.md`, `PASS`;
+- hostile Review B: commit `45f960b`, `audits/002-genealogy-review-b.md`, `PASS`, explicitly independent of Review A.
 
-1. a conditional cut variance bounded by the ancestral cluster-square sum, exactly giving at most the stationary two-walk meeting probability;
-2. the variance of the conditional mean, controlled by cross-interaction of two ancestral edge families and source Eq. (5.6), again bounded by the same meeting probability.
-
-Both hostile reviewers reconstructed the delicate within-family-coalescence interface and found no omitted term. The source event may overcount active cross-family collisions by tracking retired raw paths, which is harmless for the upper bound.
-
-## Random-regular consequence
-
-For uniformly random simple regular graphs the application retains **fixed `d>=3`**.
-
-The all-small-time meeting estimate should be read from Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), source **Eq. (5.8)** together with the high-probability `Theta(n)` stationary mean meeting time and spectral-gap input. This gives for every deterministic `t_n=o(n)`
-
-$$
-q_{t_n}^G
-=O_{\mathbb P}\left(\frac{1+t_n}{n}\right),
-$$
-
-and for deterministic `1<=t_n=o(n)`,
-
-$$
-q_{t_n}^G=O_{\mathbb P}(t_n/n).
-$$
-
-For `0<=t_n<1`, monotonicity from the time-one estimate gives `O_P(1/n)`. The bare printed `O(t/n)` wording of source (5.7) is not used uniformly down to zero.
-
-Consequently the correctness-reviewed theorem package gives
+The deterministic theorem yields on fixed-`d>=3` random regular graphs
 
 $$
 \operatorname{Var}_u^G(\mathcal D_{t_n}^n)
-=O_{\mathbb P}\left(\frac{1+t_n}{n}\right)
+=O_{\mathbb P}((1+t_n)/n)
 $$
 
-for every deterministic `t_n=o(n)`, and hence concentration at scale
+for deterministic `t_n=o(n)`, and `O_P(t_n/n)` for deterministic `1<=t_n=o(n)`.
+
+## Novelty correction
+
+The novelty audit, commit `5ab5dce`, `audits/003-novelty-prior-work.md`, is negative.
+
+Avena--Baldasso--Hazra--den Hollander--Quattropani (2024) already provide in Proposition 4.1 proof (4.2) the relevant two-edge decoupling on no cross-family interaction and in (5.5)--(5.6) the bound
 
 $$
-C_n\sqrt{\frac{1+t_n}{n}}
+\mathbf P_{\nu\otimes\nu}(\tau^{e,f}\le t)
+\le4\mathbf P_{\pi\otimes\pi}(\tau_{\rm meet}\le t).
 $$
 
-for every `C_n->infinity`. For deterministic `1<=t_n=o(n)`, it gives the source scale `C_n sqrt(t_n/n)`.
+For Bernoulli initial opinions these ingredients immediately give
+
+$$
+\operatorname{Var}_u^G(\mathcal D_t)
+\le4\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t),
+$$
+
+and source (5.8) then gives the same asymptotic random-regular concentration consequences. The project improves the deterministic constant from `4` to `2` and supplies a cleaner quotient-genealogy proof, but these are not a new theorem-level contribution under the standing novelty standard.
 
 ## Small-time source correction
 
-Literal source Eq. (1.9) is false because its displayed quantifiers allow unrestricted `t_n->0`, while Bernoulli initial conditions already fluctuate on scale `n^{-1/2}`. The explicit counterexample
+Literal source Eq. (1.9) is mathematically false for unrestricted very-small times; the counterexample
 
 $$
 t_n=n^{-3},\qquad C_n=\log n
 $$
 
-was independently confirmed by both hostile reviewers.
+is independently verified.
 
-The stable wording is theorem-level: the project proves the source `sqrt(t_n/n)` scale for every deterministic `1<=t_n=o(n)` and the corrected `sqrt((1+t_n)/n)` scale for all deterministic `t_n=o(n)`. No complete classification of every possible subunit-time sequence under the original scale is claimed.
-
-## Promotion boundary
-
-Correctness has passed the Professor reconstruction and two genuinely independent hostile reviews. Nevertheless `VOTER-CONC-001` remains `claimed` because Meeting 002 pre-committed to a dedicated closest-prior-work / novelty audit **before verified promotion or manuscript contribution language**.
-
-The novelty audit must determine separately whether the deterministic inequality, the corrected random-regular theorem, the source-scale theorem from time one onward, and the small-time correction are new or prior art. A negative novelty outcome will not undo mathematical correctness; it will change research-contribution status as happened in the BABP programme.
+Priority of that narrow correction remains unresolved because the novelty auditor could not inspect Federico Capannoli's 2025 thesis. This does not keep the programme active: even if new, the correction is too small to carry the scientific direction on opportunity-cost grounds.
 
 ## Research delta
 
 Latest meeting `state_narrowed: yes`.
 
-Evidence pointer: `audits/001-genealogy-review-a.md`, `audits/002-genealogy-review-b.md`, and `meetings/003-correctness-passed-novelty-audit.md`.
+Evidence pointer: `audits/003-novelty-prior-work.md` and `meetings/004-novelty-fails-and-programme-closes.md`.
 
-What narrowed: the theorem package has passed two independent hostile correctness reviews with no requested mathematical repair; only priority/contribution status remains unresolved.
-
-Consecutive no-narrowing meetings: 0.
-
-## Wiki freeze
-
-Keep the live wiki frozen until novelty/contribution status is settled. No `proved here` promotion is appropriate yet.
+The main contribution uncertainty is resolved negatively while correctness remains established.
 
 ## Direction
 
-`continue through novelty audit`.
+`closed`.
+
+Do not reopen to optimize constants, repackage the factor-4 corollary, or further polish the genealogy proof. A future return requires a genuinely distinct theorem not already implied by the 2024 source ingredients.
