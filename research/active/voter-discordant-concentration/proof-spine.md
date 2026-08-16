@@ -1,35 +1,44 @@
 # Proof spine
 
-## Main target
+## Main theorem package
 
-The corrected sharp concentration theorem for the discordant-edge density in the voter model on random `d`-regular graphs is now **claimed**:
+`VOTER-CONC-001` has passed the Professor reconstruction and two independent hostile correctness reviews, but remains **claimed** pending the pre-committed novelty / closest-prior-work audit.
+
+For a finite simple `d`-regular graph with `d>=1`, not necessarily connected, i.i.d. Bernoulli(`u`) voter initial data, and every `t>=0`,
 
 $$
-\mathbf P_u^G\left(
-|\mathcal D_{t_n}^n-\mathbf E_u^G\mathcal D_{t_n}^n|
->C_n\sqrt{\frac{1+t_n}{n}}
-\right)\xrightarrow{\mathbb P}0
+\boxed{
+\operatorname{Var}_u^G(\mathcal D_t)
+\le2\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t).
+}
 $$
 
-for fixed `d>=3`, `u in (0,1)`, every deterministic `t_n=o(n)`, and every `C_n->infinity`.
+For a uniformly random simple `d`-regular graph with fixed `d>=3`, this yields for every deterministic `t_n=o(n)`
 
-For deterministic `t_n>=1`, the claimed proof gives the sharper source scale `C_n sqrt(t_n/n)`.
+$$
+\operatorname{Var}_u^G(\mathcal D_{t_n}^n)
+=O_{\mathbb P}((1+t_n)/n),
+$$
+
+and hence concentration at scale `C_n sqrt((1+t_n)/n)` for every `C_n->infinity`. For deterministic `1<=t_n=o(n)`, the stronger variance scale `O_P(t_n/n)` gives the source's proposed `C_n sqrt(t_n/n)` scale.
 
 ## E0. Small-time correction of source Eq. (1.9)
 
-Literal Eq. (1.9) allows arbitrary `t_n->0`, but Bernoulli initial conditions have nondegenerate `n^{-1/2}` fluctuations. The explicit choice
+Literal Eq. (1.9) allows arbitrary `t_n->0`, while Bernoulli initial conditions have nondegenerate `n^{-1/2}` fluctuations. The choice
 
 $$
 t_n=n^{-3},\qquad C_n=\log n
 $$
 
-contradicts the displayed source statement.
+is a counterexample to the displayed statement.
 
-**Status:** Professor-checked; included in `VOTER-CONC-001`; independent audit pending with the theorem package.
+Both hostile reviews independently confirm this calculation.
+
+**Status:** correctness passed. Stable scope: the project proves the original source scale for deterministic `1<=t_n=o(n)` and the corrected `sqrt((1+t_n)/n)` scale for all deterministic sublinear sequences. No claim of a complete classification of every subunit sequence under the original scale.
 
 ## E1. Deterministic genealogical variance inequality
 
-Condition on the Harris genealogy `H_t`. The ancestral clusters `C_v(t)` receive independent Bernoulli initial labels. The discordant-edge count is a weighted cut statistic on the quotient multigraph of clusters.
+Condition on the Harris genealogy `H_t`. The ancestral clusters `C_v(t)` receive independent Bernoulli initial labels. The discordant-edge count is a weighted cut statistic on the quotient multigraph.
 
 Let
 
@@ -51,7 +60,7 @@ $$
 \qquad p=2u(1-u),
 $$
 
-where `J_t` counts original edges whose endpoints have coalesced genealogically. Coupling two ancestral edge families to independent pair systems up to their first cross-family interaction and then applying source Eq. (5.6) gives
+where `J_t` counts original edges whose endpoints have coalesced genealogically. Coupling two ancestral edge families to independent pair systems up to cross-family interaction and applying source (5.6) gives
 
 $$
 \operatorname{Var}(\mathbf E[\mathcal D_t\mid H_t])\le q_t^G.
@@ -60,91 +69,86 @@ $$
 Therefore
 
 $$
-\boxed{
 \operatorname{Var}_u^G(\mathcal D_t)\le2q_t^G.
-}
 $$
 
-**Status:** central claimed theorem; Professor independently reconstructed; two hostile reviews pending.
+Review A and Review B both reconstructed the within-family-coalescence issue and found no missing term. The source four-independent-walk event can only overcount active cross-family interaction, which is harmless for the upper bound.
+
+**Status:** correctness passed by two independent hostile reviews; registry status still `claimed` pending novelty audit.
 
 ## E2. Random-regular meeting estimate
 
-For a uniform random simple `d`-regular graph with fixed `d>=3`, Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), equations (5.7)--(5.8), together with the standard high-probability spectral-gap and mean-meeting-time inputs used there, give for deterministic `1<=t_n=o(n)`
+For uniformly random simple regular graphs, keep fixed `d>=3`.
 
-$$
-q_{t_n}^G=O_{\mathbb P}(t_n/n).
-$$
-
-For `0<=t_n<1`, monotonicity and the time-one estimate give
-
-$$
-q_{t_n}^G=O_{\mathbb P}(1/n).
-$$
-
-Hence for every deterministic `t_n=o(n)`,
+Use Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), source **(5.8)**, together with the high-probability `Theta(n)` stationary mean meeting time and spectral-gap bound used there. For deterministic `t_n=o(n)`,
 
 $$
 q_{t_n}^G=O_{\mathbb P}((1+t_n)/n).
 $$
 
-**Status:** source interface checked by Professor; independent audit pending.
+For deterministic `1<=t_n=o(n)`,
+
+$$
+q_{t_n}^G=O_{\mathbb P}(t_n/n).
+$$
+
+For `0<=t_n<1`, monotonicity from time one gives `O_P(1/n)`.
+
+The bare printed source (5.7) wording `O(t/n)` is not used uniformly down to `t=0`, since `q_0=1/n`.
+
+**Status:** correctness passed by both reviews.
 
 ## E3. Concentration consequence
 
-E1 and E2 give
+E1 and E2 give the variance bounds above. Quenched Chebyshev then yields the corrected concentration theorem and the source scale from time one onward.
 
-$$
-\operatorname{Var}_u^G(\mathcal D_{t_n}^n)
-=O_{\mathbb P}((1+t_n)/n).
-$$
-
-Chebyshev yields the corrected target for arbitrary `C_n->infinity`. If `t_n>=1`, use the sharper `O_P(t_n/n)` estimate to obtain the source scale.
-
-**Status:** claimed consequence pending independent review.
+**Status:** correctness passed by both reviews.
 
 ## Superseded proof routes
 
-The following are no longer load-bearing, though their exact calculations remain useful:
+The following remain mathematically useful but are not load-bearing:
 
-- the Dynkin martingale / integrated-centered-drift decomposition;
-- the staggered four-lineage covariance formula;
-- the sufficient integrated-drift estimate;
-- the variance differential
-  $$
-  V'(t)=2\operatorname{Cov}(\mathcal D_t,L\mathcal D_t)+\mathbf E\Gamma(\mathcal D)(\eta_t);
-  $$
-- the same-time signed four-walk cancellation problem;
-- the Section 5 sample-and-discard shrinking-scale analysis.
+- Dynkin martingale / integrated-centered-drift decomposition;
+- staggered four-lineage covariance formula;
+- integrated-drift target;
+- variance-differential route;
+- same-time signed four-walk cancellation;
+- Section 5 sample-and-discard shrinking-scale analysis.
 
-Assignment 002 nevertheless produced the exact incidence identities
+Assignment 002 also established
 
 $$
 \mathcal D(\sigma)=\frac1{2n}\sigma^TQ\sigma,
 \qquad
-L\mathcal D(\sigma)=\frac1n\sigma^T(P-P^2)\sigma.
+L\mathcal D(\sigma)=\frac1n\sigma^T(P-P^2)\sigma,
 $$
 
-No sign estimate for `Cov(Dcal,L Dcal)` is asserted.
+without asserting a sign for `Cov(Dcal,L Dcal)`.
 
-## Current unresolved edge: verification and novelty
+## Current unresolved edge: priority / novelty
 
-There is no further development lemma before correctness audit.
+The remaining gate is not mathematical correctness. It is whether the theorem package is genuinely new.
 
-Two independent reviewers must stress-test E1--E3, especially:
+A fresh external auditor is assigned in
 
-1. conditional cut-variance combinatorics;
-2. ancestral cluster-square equals stationary meeting probability;
-3. the four-family covariance coupling and within-family coalescence;
-4. oriented versus unoriented edge averaging;
-5. source (5.7)--(5.8) and the sequence-wise quenched probability mode;
-6. small-time claim boundaries.
+`audits/assignment-003-novelty-prior-work.md`.
 
-If both correctness reviews pass, run a separate closest-prior-work / novelty audit. Only then consider `verified` promotion and a stable theorem note/manuscript.
+The audit must search predecessor and successor literature and alternate terminology for:
 
-## Novelty guardrail
+1. the deterministic regular-graph variance inequality or a stronger theorem implying it;
+2. the genealogy-conditioned quotient-cut / total-variance argument;
+3. the corrected all-sublinear random-regular concentration theorem;
+4. the source-scale `sqrt(t_n/n)` theorem for deterministic `1<=t_n=o(n)`;
+5. the literal small-time correction of source Eq. (1.9).
 
-`VOTER-CONC-001` is structurally eligible under the standing novelty standard because it is a deterministic graph inequality and a full-regime theorem, not a larger-window or better-constant instance. Publication-level novelty is **not yet established**.
+The fact that the 2024 source posed Eq. (1.9) as open is evidence but not sufficient priority checking.
+
+## Promotion rule
+
+Meeting 002 pre-committed to a dedicated novelty audit after two correctness reviews and **before `verified` promotion or manuscript contribution language**. Preserve that rule.
+
+If the novelty audit finds decisive prior art, mathematical correctness remains intact but research-contribution status must be downgraded. If it survives, `VOTER-CONC-001` may be promoted to `verified` with the two correctness audits and novelty audit attached.
 
 ## Direction
 
-Continue through independent audit; Graduate Student D is idle meanwhile.
+Continue through novelty audit; Graduate Student D remains idle.
