@@ -1,0 +1,7 @@
+# Principal starting note
+
+Date: 2026-08-16
+
+The following note is recorded verbatim. It is a starting lead, not a verified theorem statement, and must not be silently cleaned up or strengthened.
+
+> I once went down a route where i defined (in the monomial-duality process) for an interval of sites R the time of last successful interaction that goes outside R, which split the process into early and late part (late part is confined to R because of one-sidedness) by the trail of active spacetime points that give ancestry to that last interaction. That successful interaction and this trail is revealed, for everything else we undo duality. Then the late part contributes a term that looks like evaluation of a product function over expectation of the spin system running with fixed sites outside R and the early like the spin system with rules slightly changed at the boundary, and the trail itself gives a positive exponential term. In the Duhamel expansion of this I was able to get, via naive bounds, a partial result, that if the spin system is such that it eventually has a high density of (whatever the convention is, 0s or 1s) then its actually ergodic, because the appropriate contributions are small. That was meaningful progress because it reduced the problem from exact convergence to a qualitative statement, that hopefully can be proven with large box approximations maybe. This does not need to be the main argument, but its somewhere to start the research.
