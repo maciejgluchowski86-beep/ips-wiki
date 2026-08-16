@@ -32,211 +32,278 @@ $$
 
 The fixed-wall route and the cellwise scaffold-positivity route are closed.
 
-## E1. Reusable hidden-interaction algebra
+## E1. Direct dynamics retained for reuse
 
-In complemented spins, with
-
-$$
-B=b+c-a,\qquad \rho=\frac cB,
-$$
-
-a hidden successful rightward dual interaction has signed type average
+Student G's transient identities and Student F's coupling work remain established technical inputs. In particular,
 
 $$
-B\eta_i-c=B(\eta_i-\rho).
-$$
-
-For the noise-reduced process `L^-`, after explicit burn-in the hidden insertion is nonnegative against nonnegative right-history-measurable companions.
-
-One-cell regional integration removes the raw left-spin Duhamel dependence, but two-cell composition has signed transfer
-
-$$
-\Psi_\Delta(z)=(b+c-a)K_\Delta(z)-c
-$$
-
-and is negative on sufficiently short cells at every residual parameter point.
-
-**Status:** correct reusable mathematics; the cellwise last-exit/scaffold route is closed.
-
-## E2. Direct transient information on the original dynamics
-
-Student G Assignment 001, Professor-checked at Meeting 001, gives
-
-$$
-\boxed{
 \frac d{dt}m_i
 =(b+c)-(1+b+c)m_i-(b+c-a)q_i+c(m_i-m_{i+1}),
-}
 $$
 
-with boundary-uniform transient zero-density and finite-box concentration, plus
-
 $$
-\boxed{
 \frac d{dt}\mathbb P(11)
-\le b-(1+b)\mathbb P(11).
-}
+\le b-(1+b)\mathbb P(11),
 $$
 
-These are direct dynamical inputs, but marginal density / `11` control does not by itself close disagreement contraction.
-
-## E3. Coupling drift and high-risk state
-
-For
+and, for coupled disagreement indicator `D_i` and high-risk state `J_i`,
 
 $$
-D_i=1_{\{X_i\ne Y_i\}},
-$$
-
-and
-
-$$
-J_i=1_{\{D_i=0,D_{i+1}=1,X_i=Y_i=1\}},
-$$
-
-one has
-
-$$
-\boxed{
 \mathcal L^{\rm coup}D_i
 \le
 -(1-c+a)D_i+(b-a)D_{i+1}+(c-b+a)J_i.
-}
 $$
 
-A useful environmental estimate must control `J_i` weighted by disagreement. Substituting only the marginal `11` probability creates an additive error.
-
-**Status:** Professor-checked direct bridge and precise missing weighted quantity.
-
-## E4. Uniform coalescence hazard for every disagreement
-
-Student F Assignment 004 strengthens the rightmost-source observation.
-
-Put
+Every disagreement site has predictable coalescence intensity at least
 
 $$
 q:=1-c+a>0.
 $$
 
-At an update of any disagreeing site, the four possible right-neighbour pair states give coalescence probabilities
+This gives true one- and two-generation regeneration and positive finite-depth ordered-clearing events. The certified depth-dependent clearing gaps are summable, so these facts do not themselves prove arbitrary-depth extinction.
+
+**Status:** live-disagreement route paused, not closed. No further finite-generation escalation.
+
+## E2. Closed cellwise scaffold mechanism
+
+Earlier reconstruction of the principal's old last-exit idea showed that one-cell regional integration is positive, but when the predecessor interaction is itself hidden the exact transfer is
 
 $$
-1-c+a,\qquad 1-b,\qquad 1-a,\qquad 1-c+b.
+\Psi_\Delta(z)=(b+c-a)K_\Delta(z)-c,
 $$
 
-All are at least `q` throughout `R`. Therefore
+and `Psi_Delta(0)<0` for all sufficiently short positive `Delta` at every residual parameter point.
+
+**Status:** the mechanism "hide one interaction type, integrate one cell, iterate nonnegative transfers cell by cell" is closed.
+
+This does **not** close the new centered predecessor-trail route below, because that route allows signs and only asks for contraction after the full left-region invariant expectation is formed.
+
+## E3. Centered dual residual algebra
+
+Use the normalized centered character
+
+$$
+H_p(A,\eta)=\prod_{i\in A} h_p(\eta_i),
+\qquad
+h_p(u)=\frac{u-p}{1-p}.
+$$
+
+For the residual normalized family define
+
+$$
+B=b+c-a,
+\qquad
+p_*=\rho=\frac cB,
+\qquad
+q_* = \frac{b-a}{B},
+\qquad
+\omega=1-c+a.
+$$
+
+The centered dual coefficients specialize to
 
 $$
 \boxed{
-D_i=1
-\Longrightarrow
-\text{predictable coalescence intensity of site }i\ge q,
+\beta=B,
+\qquad
+\lambda=0,
+\qquad
+\delta_* = \frac{b(1-c)-a}{b-a}.
 }
 $$
 
-without a rightmost hypothesis and without fixing the disagreement orientation.
+When `delta_*<0`, use the signed-death convention with jump rate `|delta_*|`. The vertical no-death factor and FK potential still combine to
 
-If `T_i` is the next coalescence of a disagreeing site and `R_{i-1}` the next ring immediately to its left, then
+$$
+\boxed{e^{-\omega\tau}.}
+$$
+
+**Status:** Professor algebra check passed. The complete Poisson-Mecke factorization remains a working lemma pending Student F's independent reconstruction.
+
+## E4. Canonical predecessor trail and exact nonempty-exit factorization
+
+For a finite interval `R=[ell,r]` and initial dual set `A subset R`, define `tau_R(t)` using **every** active successful birth/jump crossing, including refresh coin zero. On `{tau_R(t)>0}`, recursively choose the final relevant exit and then the last relevant predecessor entering each current trail site.
+
+The root `x in A` determines the trail depth exactly:
+
+$$
+n_x=r-x+1.
+$$
+
+Conditional on the decorated trail, spacetime splits into left region, trail, and right region using disjoint Poisson families. In the residual family every selected trail interaction is a birth. The principal exploration gives
 
 $$
 \boxed{
-\mathbb P(T_i<R_{i-1}\mid\mathcal F)
-\ge
-p:=\frac q{1+q}.
-}
-$$
-
-**Status:** Professor-checked structural live-coupling lemma.
-
-## E5. One-source and two-generation regeneration
-
-For a rightmost source `j` with `j-1` agreed, Meeting 003 proved a positive probability that the source dies before creating its first child.
-
-Assignment 004 now controls the correct post-birth state. After the first child at `j-1` has been created, with `j-2` still agreed, let `sigma_2` be grandchild creation and `tau_2` elimination of both parent and child. The race lemma E4 applied twice yields
-
-$$
-\boxed{
-\mathbb P(\tau_2<\sigma_2\mid\mathcal F)
-\ge
-p^2
+E_A[W_t^\eta;\tau_R(t)>0]
 =
-\left(\frac{1-c+a}{2-c+a}\right)^2>0.
+\sum_{x\in A}B(b-a)^{n_x-1}
+\int_{\Delta_{n_x}(t)}
+ e^{-\omega t_{n_x}}
+ L_\gamma(\eta)
+ [\rho U_{\gamma,0}(\eta)+q_*U_{\gamma,1}(\eta)]\,dt.
 }
+\tag{13'}
 $$
 
-The full process still permits arbitrary child death and reinfection outside this successful clearing subevent. The bound is uniform over the actual common right environment and all post-first-child local states.
+**Status:** accepted as active working reduction; Student F Assignment 006 must independently audit uniqueness, conditioning, signed-death treatment, and the complementary no-exit term before this becomes a closing lemma.
 
-**Status:** Professor-checked two-generation live-episode contraction.
+## E5. Right region is uniformly bounded
 
-## E6. East-boundary stress test
+Average the final refresh coin before taking absolute values. The resulting right-region operator is a composition of sup-norm contractions: Markov semigroups, projections, sub-Markov killed semigroups, and multiplication by a spin.
+
+Hence for fixed initial monomial `A`,
+
+$$
+\boxed{
+\sup_{\gamma,t,\eta}|R_{\gamma,t}(\eta)|\le C_A,
+}
+\tag{R}
+$$
+
+with `C_A` independent of interval length and trail depth.
+
+**Status:** Professor-checked operator bound. No right-region mixing theorem is needed.
+
+## E6. Left finite-volume relaxation reduces the problem to invariant trail observables
+
+Let `m=min A`, write trail gaps as `u=(u_1,...,u_n)`, total trail duration `|u|`, and lag after the final exit as
+
+$$
+s=t-|u|.
+$$
+
+The left contribution is
+
+$$
+L_{\gamma,t}=P_s^{<r+1,0}F_{x,u},
+$$
+
+where `F_{x,u}` is formed by alternating zero-boundary semigroups with centered multiplications at successive trail sites.
+
+For fixed `R`, the finite zero-boundary chain on `[m,r]` is irreducible at every strict residual parameter point, so
+
+$$
+P_s^{[m,r],0}F\to \pi^0_{m,r}(F)
+$$
+
+uniformly in initial state as `s to infinity`.
+
+The recent-exit part `s<T_R` has `|u|>t-T_R`. Since
+
+$$
+\omega=1-c+a>0,
+$$
+
+its fixed-depth simplex mass vanishes exponentially in `t`. Combining this with E5 yields the all-depth nonempty-trail criterion
+
+$$
+\boxed{
+B(b-a)^{n-1}
+\int_{(0,\infty)^n}
+ e^{-\omega|u|}
+ |\pi^0_{m,r}(F_{x,u})|\,du
+\longrightarrow0,
+\qquad n=r-x+1\to\infty.
+}
+\tag{L}
+$$
+
+**Status:** Professor checked the reduction from finite-volume relaxation to (L), conditional on E4. The complementary `tau_R(t)=0` contribution must be reconstructed explicitly before claiming that (L) alone closes ergodicity.
+
+## E7. Exact East cancellation and near-East one-level scale
+
+For the exact East heat-bath model with zero facilitating boundary, the finite-volume invariant law is product Bernoulli. The final trail event is a birth, so
+
+$$
+F_{x,u}=h_{p_*}(\eta_r)G_{x,u}(\eta_{<r}),
+$$
+
+and therefore
+
+$$
+\boxed{\pi^0_{m,r}(F_{x,u})=0.}
+$$
+
+The equilibrium trail contribution at East is exactly zero. The exact East point has `omega=0`, so it is only a structural limiting case for the strict positive-rate proof.
 
 Along
 
 $$
-a=\varepsilon^2,\qquad b=\varepsilon,\qquad c=1-\varepsilon^2,
+a=\varepsilon^2,
+\qquad b=\varepsilon,
+\qquad c=1-\varepsilon^2,
 $$
 
-the crude universal two-generation clearing event has probability `4 epsilon^4+O(epsilon^6)`. However, F's exact controlled 24-state post-birth calculation on structured states gives much stronger regeneration gaps of order `epsilon` even against a state-feedback right-boundary adversary.
-
-For prospective grandchild spin zero,
-
-$$
-V_*=1-\frac92\varepsilon+O(\varepsilon^2),
-$$
-
-and for prospective grandchild spin one,
-
-$$
-V_*=1-\varepsilon+O(\varepsilon^2).
-$$
-
-**Status:** diagnostic, not load-bearing. It confirms a real post-birth killing mechanism but no uniform East-boundary gap.
-
-## E7. Finite-depth ordered clearing and correction
-
-The ordered-clearing argument extends to arbitrary finite active-span depth.
-
-If the live disagreement episode occupies a span of depth at most `m` between a coupled left boundary and coupled right tail, sequentially require the current leftmost disagreement to coalesce before the next ring at the agreed site immediately to its left. Each successful race has conditional probability at least `p`, and each success permanently advances the coupled prefix by at least one site. Hence
+the one-site constant-mode Laplace factor is
 
 $$
 \boxed{
-\mathbb P(\text{clear a depth-}m\text{ episode before a new disagreement crosses its left boundary}\mid\mathcal F)
-\ge p^m.
+\frac{b-a}{\omega}
+|\pi^0_{\{r\}}(h_{p_*})|
+=
+\frac{1-\varepsilon}{2(1+\varepsilon)}<\frac12.
 }
 $$
 
-The exponent is **active-span depth**, not merely current disagreement count. Internal agreed gaps can be infected and therefore do not justify counting only currently off-diagonal sites.
+**Status:** structural evidence that an all-depth centered contraction has the correct near-East scale at one level.
 
-Since
+## E8. Sufficient centered-transfer theorem
+
+For a trail-generated signed measure `nu` on sites through `y`, define
 
 $$
-\sum_{m\ge1}p^m<\infty,
+(\mathcal C_{y,u}\nu)(f)
+=
+\nu(h_{p_*}(\eta_y)P_u^{<y,0}f),
+\qquad f=f(\eta_{<y}).
 $$
 
-these certified depth-dependent clearing gaps are summable. They do not force extinction when failures increase ancestry depth indefinitely.
+A sufficient all-depth theorem is the existence of norms on the generated class and `theta<1` such that
 
-**Status:** finite-depth theorem plus explicit obstruction to naive depth-by-depth multiplication.
+$$
+\boxed{
+(b-a)\int_0^\infty e^{-\omega u}
+\|\mathcal C_{y,u}\nu\|_{*,y-1}\,du
+\le
+\theta\|\nu\|_{*,y}
+}
+\tag{T}
+$$
 
-## E8. Current load-bearing edge: all-depth disagreement-stack contraction
+uniformly in interval and depth, together with uniform starting/final functional control. Iteration gives exponential decay in (L).
 
-Finite-depth escalation stops here. Do not compute separate depth-three, depth-four, etc. episodes.
+Total variation on all signed measures cannot work because multiplication by `h_{p_*}` has size `1/q_*`. The norm must retain centering cancellation and only needs to control the generated signed-measure class.
 
-The remaining problem is to control arbitrary ancestry depth structurally. A qualifying next edge must be one of:
+The principal exploration reports that the two-level scalar invariant integrand changes sign as the inter-trail time varies. That latest sign-change claim is not yet independently verified. If true, it rules out pointwise positivity and simple scalar sign iteration, but does not rule out (T).
 
-1. a weighted disagreement-stack Lyapunov/supermartingale with negative drift;
-2. a finite multi-type branching/influence domination with spectral radius `<1`;
-3. a disagreement-weighted `J_i` estimate that closes E3 after summation / Gronwall;
-4. a finite summary or restart kernel dominating arbitrary deeper stacks;
-5. a rigorous obstruction showing that a materially defined class of all-depth contractions cannot work.
+## E9. Relation to the live-coupling line
 
-The uniform coalescence lemma E4 is the principal new input. The crude contact-process comparison using death `q` and maximal left-birth rate is not expected to suffice near the East boundary unless additional state structure is proved.
+The same positive-rate scale appears in both routes:
 
-Student F is attacking E8 in `students/student-f/assignment-005.md`. Student G is still completing Assignment 002 and may independently provide the weighted `J_i` control.
+$$
+\boxed{q=\omega=1-c+a.}
+$$
+
+In the coupling it is a universal disagreement coalescence floor. In the predecessor-trail formula it is the exponential penalty for long trails. No automatic implication between the routes is asserted.
+
+A productive bridge would be an actual inequality from the coupling to zero-boundary invariant sensitivity/correlation bounds strong enough to control `\mathcal C_{y,u}`. Without such an inequality, merely noting the shared parameter does not count as progress.
+
+## E10. Current load-bearing edge: audit and prove/kill (L)/(T)
+
+Student F Assignment 006 must:
+
+1. independently audit E3--E6, including the `tau_R=0` complement;
+2. reproduce the reported two-level sign change before using it;
+3. prove (T), prove (L) by another all-depth mechanism, or produce a rigorous obstruction to a materially specified signed-transfer norm/spectral mechanism.
+
+Finite-level calculations count only when they prove or falsify an all-depth mechanism. Do not return to cellwise positivity or deeper live-generation enumeration.
+
+Student G remains on Assignment 002 and will be folded in on return.
 
 ## Anti-circularity checkpoint
 
-Meeting 004 resolves the two-generation reinfection question positively and immediately tests composition far enough to show why finite-depth positive numbers are not a proof. The next accepted spine change must handle arbitrary depth in one structural theorem or eliminate such a theorem. A third-generation hitting probability alone does not count.
+Meeting 005 changes the all-depth object from the full disagreement ancestry stack to the narrower family of invariant centered trail observables produced by an exact predecessor decomposition. The right region and post-exit relaxation are no longer active obstacles. The remaining work is one explicit all-depth signed-transfer estimate.
 
 ## Current direction
 
-Attack E8 while preserving the fixed positive-rates target.
+Attack E10 while preserving the fixed positive-rates target.
