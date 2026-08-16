@@ -10,7 +10,7 @@ Workspace: `research/active/positive-rates-conjecture/`
 
 Principal ruling: **the scientific target is fixed until the principal changes or stops it.** Proof routes may be closed or redirected; the target does not change.
 
-On the normalized face `r11=0`, write
+On `r11=0`, write
 
 $$
 a=r_{00},\qquad b=r_{01},\qquad c=r_{10},
@@ -23,18 +23,16 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-Latest meeting: `meetings/015-local-coalescence-convective-escape-and-random-map-test.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/016-route-review-converges-on-finite-time-damage-contraction.md`, `state_narrowed: yes`.
 
 Active work:
 
-- Student F: `students/student-f/assignment-012.md`, decide tail-shift agreement of the projective half-line invariant law;
-- Student G successor: `students/student-g/assignment-007.md`, decide the finite-time random-map Hamming contraction `alpha(T)<1` at the strict near-East rational point, or prove a genuine survival/lower obstruction.
-
-Operational note: the original G session failed before committing Assignment 006. The successor repeated Assignment 006 and committed `78470a1` plus verifier `43f4bb1`. Those commits landed shortly before Meeting 014 and were not seen during its composition; Meeting 015 contains the G ruling. No uncommitted predecessor mathematics is used.
+- Student G successor: `students/student-g/assignment-007.md`, decide the finite-time full-line random-map Hamming contraction `alpha(T)<1` at the strict near-East rational point, or prove a genuine convective-survival/lower obstruction.
+- Student F: Assignment 012 completed in `students/student-f/012-tail-shift-agreement.md`; no new assignment. F is idle after finishing its current response, pending G007.
 
 ## Closed mechanisms
 
-Closed: fixed finite walls; cellwise nonnegative scaffold insertion; one-step centered `L^1` contraction; crude scalar `max{c,b-a}Z<1`; G's exposed-only global Foster product; G's full nearest-neighbour scalar edge-product/coboundary Foster class; F's depth-uniform finite linear common-mass mode closure.
+Closed: fixed finite walls; cellwise nonnegative scaffold insertion; one-step centered `L^1`; crude scalar `max{c,b-a}Z<1`; G's exposed-only global Foster product; G's full nearest-neighbour scalar edge-product/coboundary Foster class; F's depth-uniform finite linear common-mass mode closure.
 
 Do not reopen these by enlarging finite scalar contexts or finite common-mass alphabets.
 
@@ -74,129 +72,139 @@ $$
 \qquad r_0=\frac1{1+b}.
 $$
 
-The exact common-mass semigroup has no depth-uniform finite linear mode closure.
+The exact common-mass semigroup has no depth-uniform finite linear mode closure. Assignments 010--011 instead give suffix projectivity, finite-context truncation of the first invariant insertion, and the tail-shift formulation of the zero-frequency response.
 
-Assignments 010--011 establish exact suffix projectivity, finite-context truncation of the first invariant insertion, explicit one-segment localization, and the exact tail-shift formulation of the zero-frequency boundary response. Let
-
-$$
-\mu=\pi_\infty^0,
-\qquad
-\theta(x_0,x_1,\ldots)=(x_1,x_2,\ldots),
-$$
+Let `mu=pi_infty^0`, let `theta` drop the boundary-nearest spin, and let
 
 $$
-\mathcal F_m=\sigma(X_j:j\ge m),
-\qquad
-\mathcal T=\bigcap_m\mathcal F_m.
+\mathcal T=\bigcap_m\sigma(X_j:j\ge m).
 $$
 
 Then
 
 $$
-\Delta_M
-=\|\theta\mu-\mu\|_{\mathcal F_{M-1}},
-$$
-
-and
-
-$$
-\boxed{
 \lim_{M\to\infty}\Delta_M
-=\|\theta\mu-\mu\|_{\mathcal T}.
-}
+=\|\theta\mu-\mu\|_{\mathcal T},
 $$
 
-Thus zero-frequency boundary locality is equivalent to the tail-shift theorem
+so tail-shift agreement is equivalent to `Delta_M->0`.
+
+### Assignment 012: damage-susceptibility criterion
+
+For finite zero-boundary chains define the far-left single-flip damage kernel
 
 $$
-\boxed{
-\mu|_{\mathcal T}=(\theta\mu)|_{\mathcal T}.
-}
+\beta_m(t)
+=
+\sup_{n,\eta,i}E\sum_{j\le i-m}D_j(t)
 $$
 
-Conditional on this theorem, the mass branch after one centered insertion already has a `J`-compatible one-next-segment truncation bound. Student F Assignment 012 is the final bounded decision block on this theorem before route-level review.
-
-## Coupling side: Meeting 015
-
-For the actual common-uniform coupling, every finite disagreement seed becomes permanently coupled at each fixed site. If `R_t=max D_t`, then each current rightmost disagreement coalesces permanently with hazard at least
+and the zero-boundary Hamming amplification
 
 $$
-q=1-c+a.
+\alpha_0(t)
+=
+\sup_{n,\eta,i}E\sum_jD_j(t).
 $$
 
-Consequently finite-seed survival is equivalent to **convective escape to `-infinity`**; no disagreement can persist in a fixed spatial window.
-
-The exact local drift obeys
-
-$$
-\boxed{
-\mathcal L^{\rm coup}D_i\le-qD_i+cD_{i+1}.
-}
-$$
-
-Hence for every `z>c/q`,
+Meeting 016 accepts
 
 $$
 \boxed{
-E\sum_i z^iD_i(t)
-\le e^{-(q-c/z)t}\sum_i z^iD_i(0).
+\Delta_M
+\le
+2c\int_0^\infty\beta_{M-1}(t)dt.
 }
 $$
 
-This is exponential moving-frame/local contraction, not global extinction.
-
-Define the finite-time single-flip Hamming amplification
+Finite speed gives
 
 $$
-\alpha(t)
-=\sup_{\eta,i}E\,d_H(\Phi_t\eta,\Phi_t\eta^i).
+\beta_m(t)
+\le E[(\operatorname{Pois}(t)-m+1)_+],
+\qquad
+\beta_m(t)\le\alpha_0(t).
 $$
 
-Meeting 015 accepts
-
-$$
-\alpha(t+s)\le\alpha(t)\alpha(s).
-$$
-
-If `alpha(T)<1` for one finite `T`, then every finite seed dies out with exponential block-time tail.
-
-G also gives the exact finite controlled-CTMC upper hierarchy
+Hence
 
 $$
 \boxed{
+\int_0^\infty\alpha_0(t)dt<\infty
+\Longrightarrow
+\Delta_M\to0.
+}
+$$
+
+Moreover `alpha_0` is submultiplicative, so one finite-time inequality
+
+$$
+\boxed{\alpha_0(T)<1}
+$$
+
+proves tail-shift agreement with an explicit exponential bound on `Delta_M`. The finite controlled-CTMC hierarchy from G extends to a zero-boundary certificate after finitely many close-boundary geometries are included.
+
+No `alpha_0(T)<1` certificate is currently proved.
+
+Verifier status: F's original verifier commit `3750a53` fails because SymPy retains the symbolic geometric-series convergence condition in `Piecewise` form. It is **not** counted as passing. F's subsequent `5494008` replaces that assertion by an exact rational geometric-series check; this is a tooling repair, not a mathematical change.
+
+## Coupling side
+
+For the actual common-uniform full-line coupling, every finite disagreement seed becomes permanently coupled at each fixed site. Finite-seed survival, if it occurs, is purely convective escape to `-infinity`.
+
+With
+
+$$
+q=1-c+a,
+$$
+
+one has
+
+$$
+\mathcal L^{\rm coup}D_i\le-qD_i+cD_{i+1},
+$$
+
+hence moving-frame exponential contraction for every `z>c/q`.
+
+Define
+
+$$
+\alpha(t)=\sup_{\eta,i}E\,d_H(\Phi_t\eta,\Phi_t\eta^i).
+$$
+
+Meeting 015 accepts submultiplicativity and the implication
+
+$$
+\boxed{
+\alpha(T)<1
+\Longrightarrow
+P(\tau>nT)\le\alpha(T)^n|D_0|.
+}
+$$
+
+The exact finite controlled-chain hierarchy gives
+
+$$
 \alpha(T)
 \le
 A_{L,R}(T)+E[(\operatorname{Pois}(T)-L)_+].
-}
 $$
 
-At the hard rational point
+G007 is the one currently authorized execution block on this diagnostic.
 
-$$
-(a,b,c)=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
-$$
+## Route-level decision after Meeting 016
 
-short-time Hamming damage is expansive:
+The common-mass and coupling sides have converged on the same **finite-time random-map damage-contraction mechanism**, although the coefficients `alpha_0` and full-line `alpha` are not automatically identical.
 
-$$
-\left.\frac d{dt}E|D_t|\right|_{t=0}
-=c-q=\frac{9997}{10000}>0.
-$$
+Continue only through G007. Do not dispatch F to a duplicate HJB search and do not begin matrix-product/nonlocal-norm engineering.
 
-Thus any `alpha(T)<1` theorem must bundle genuinely nonlocal clearing after initial expansion. Assignment 007 executes this finite diagnostic; it is not a new scalar local Foster architecture.
+Hard stop for this implementation: if G007 returns unresolved and the only proposed continuation is larger `L,R,T` computation, a more elaborate controller, or generic matrix-product engineering without a new convergence theorem, do not issue another variant. Reassess the predecessor-trail route or use a bounded outside consultation.
 
-## Route-level checkpoint
-
-Both sides have now been reduced to concrete nonlocal decision theorems:
-
-1. F012: tail-shift agreement of the projective half-line invariant law;
-2. G007: finite-time random-map Hamming contraction versus genuine convective-survival obstruction.
-
-Do not launch open-ended matrix-product/nonlocal norm engineering. The promised route-level expected-value review is due when F012 returns; G007 is allowed in parallel only because it executes the exact finite diagnostic already exposed by G006.
+If G proves full-line `alpha(T)<1`, next check the finitely many close-zero-boundary cases required to obtain `alpha_0(T)<1`; then formulate a single combined block transfer before arbitrary trail iteration. If G proves convective survival or `alpha(T)>=1` for all times, close every use of eventual global coalescence of this synchronous coupling.
 
 ## Anti-circularity
 
-Do not integrate duration before the actual absolute-value norm; use `16/21` as a global Foster multiplier; enlarge scalar local correctors mechanically; revive finite common-mass mode closure; replace the signed disagreement channel by unrestricted total variation; import the predecessor-trail reset-height drift into the actual common-uniform disagreement process; infer extinction from fixed-site coupling or `V_z`; or infer survival merely because a finite upper certificate stays above one.
+Do not integrate duration before the actual absolute-value norm; use `16/21` as a global Foster multiplier; enlarge scalar local correctors mechanically; revive finite common-mass mode closure; replace the signed disagreement channel by unrestricted total variation; import the predecessor-trail reset-height drift into the actual common-uniform process; infer extinction from fixed-site coupling or moving-frame contraction; infer survival because one finite upper certificate exceeds one; or treat the failed `3750a53` verifier as a valid certificate.
 
 ## Wiki
 
