@@ -26,33 +26,52 @@ $$
 \le2\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t).
 $$
 
-Claimed random-regular consequences:
+## Independent correctness reviews completed
 
-$$
-\operatorname{Var}_u^G(\mathcal D_{t_n}^n)
-=O_{\mathbb P}((1+t_n)/n)
-$$
+Review A:
 
-for every deterministic `t_n=o(n)`, yielding the corrected concentration theorem, and `O_P(t_n/n)` for deterministic `t_n>=1`, yielding the source scale in that regime.
-
-## Independent correctness reviews
-
-Two genuinely independent reviews are assigned and pending:
-
-- Review A assignment: `audits/assignment-001-review-a.md`;
-- Review B assignment: `audits/assignment-002-review-b.md`.
-
-Expected outputs:
-
+- commit `add0681`;
 - `audits/001-genealogy-review-a.md`;
-- `audits/002-genealogy-review-b.md`.
+- verdict `PASS`.
 
-`VOTER-CONC-001` remains `claimed` until the reviews are completed and substantive objections, if any, are resolved.
+Review B:
 
-## Novelty audit
+- commit `45f960b`;
+- `audits/002-genealogy-review-b.md`;
+- verdict `PASS`;
+- explicitly did not read Review A.
 
-A dedicated closest-prior-work / novelty audit is pending **after** correctness review. Until that audit survives, do not state publication priority or final contribution status.
+Both reconstruct the proof independently and request no mathematical repair. Both verify the conditional genealogy argument, ordered-pair count, cluster-square/meeting identity, four-family coupling including within-family coalescence, edge orientation normalization, random-walk clock convention, random-regular source interface, quenched probability mode, and the very-small-time counterexample.
 
-## Wiki trigger
+Editorial clarifications adopted into the project statement:
 
-The first central theorem in this programme has entered independent audit. Under `CHATGPT.md`, this triggers principal review of the wiki freeze. Professor recommendation remains to keep the live wiki frozen until correctness and novelty review are complete.
+- deterministic theorem: finite simple `d`-regular graphs with `d>=1`; connectedness not required;
+- random-regular consequence: fixed `d>=3`;
+- use source (5.8), not the bare (5.7) wording, for the all-small-time meeting estimate; monotonicity handles `t<1`;
+- phrase the source-(1.9) defect at theorem level rather than claiming a complete classification of every subunit sequence.
+
+## Meeting 003: correctness passed; novelty gate remains
+
+`meetings/003-correctness-passed-novelty-audit.md`
+
+- `state_narrowed: yes`.
+- Correctness barrier passed with two independent hostile reviews.
+- `VOTER-CONC-001` deliberately remains `claimed` because Meeting 002 pre-committed to a closest-prior-work / novelty audit before `verified` promotion or manuscript contribution language.
+
+## Novelty audit in flight
+
+Assignment:
+
+`audits/assignment-003-novelty-prior-work.md`.
+
+Expected output:
+
+`audits/003-novelty-prior-work.md`.
+
+The audit must classify separately the deterministic inequality, corrected all-sublinear random-regular theorem, source-scale theorem for deterministic `1<=t_n=o(n)`, and small-time correction of literal Eq. (1.9). It must search predecessor/successor literature and alternate terminology rather than relying on the 2024 source's open-problem statement.
+
+Until this audit is resolved, `VOTER-CONC-001` remains `claimed` despite having passed correctness review.
+
+## Wiki
+
+Keep the live wiki frozen until novelty/contribution status is settled.
