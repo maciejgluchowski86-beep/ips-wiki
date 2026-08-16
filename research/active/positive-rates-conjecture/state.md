@@ -28,47 +28,24 @@ $$
 \right\}.
 $$
 
-Latest meeting: `meetings/006-one-step-transfer-refuted-block-stack-target.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/007-student-g-exposure-resolvent-and-restart-bottleneck.md`, `state_narrowed: yes`.
 
 Active work:
 
-- Student F: **Assignment 006 is superseded immediately** by `students/student-f/assignment-007.md`, block contraction of the trail-generated mass/disagreement stack;
-- Student G: still finishing `students/student-g/assignment-002.md`; do not interrupt it.
+- Student F: `students/student-f/assignment-007.md`, block contraction of the trail-generated mass/disagreement stack;
+- Student G: `students/student-g/assignment-003.md`, coupling-side restart-count bridge for the same block theorem.
+
+Operational note: Student G's session had silently stopped producing work during Meetings 003--006; after re-prompt it completed Assignment 002 at commit `c7a33b5` with verifier `e20847a`. The delay carries no mathematical meaning.
 
 ## Closed proof mechanisms
 
 1. Fixed finite agreed-block / frozen-exterior wall crossing.
 2. Cellwise last-exit/scaffold insertion positivity: one-cell regional integration works, but two-cell hidden transfer changes sign on short cells.
-3. **Meeting 005 one-generation centered-transfer contraction `(T)`.** The principal's continued calculation gives an exact near-East depth-two obstruction with absolute-value ratio tending to `3/2` without the improved right factor and `7/5` with it. Therefore no one-step `L^1` norm of that form can be the all-depth theorem.
+3. Meeting 005 one-generation centered-transfer contraction `(T)`: exact near-East depth-two ratios tend to `3/2` without right killing and `7/5` with it, so one-step `L^1` contraction is false.
 
-The canonical predecessor-trail decomposition itself remains active.
+The canonical predecessor-trail decomposition remains active.
 
-## Reusable direct coupling mathematics
-
-Student F proved for the common-uniform coupling that every disagreement site has predictable coalescence intensity at least
-
-$$
-q=1-c+a>0,
-$$
-
-regardless of orientation and of the right-neighbour pair state. This gives genuine one- and two-generation regeneration and positive finite-depth clearing events. The crude finite-depth clearing gaps are summable and do not themselves yield all-depth extinction.
-
-Student F also proved
-
-$$
-\mathcal L^{\rm coup}D_i
-\le
--(1-c+a)D_i+(b-a)D_{i+1}+(c-b+a)J_i.
-$$
-
-Student G proved direct transient zero-density / finite-box concentration and adjacent-`11` suppression. These remain available inputs.
-
-## Canonical centered predecessor trail
-
-Durable notes:
-
-- `notes/principal-centered-trail-reduction.md`;
-- `notes/principal-centered-trail-update2.md`.
+## Canonical trail and current all-depth criterion
 
 Put
 
@@ -76,23 +53,19 @@ $$
 B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a.
 $$
 
-The principal's exact working reduction decomposes a nonempty-exit centered-dual history into left region, canonical predecessor trail, and right region. The selected residual trail interactions are births and the complete trail factor is
+The principal's centered-dual working reduction gives a canonical predecessor trail with positive factor
 
 $$
-\boxed{e^{-\omega\tau}}.
+e^{-\omega\tau}.
 $$
 
-The full Poisson-Mecke factorization remains a working lemma pending independent audit before any closing proof.
-
-## Stronger segmentwise right-region control
-
-The right contribution admits a product survival bound
+The right region has the segmentwise bound
 
 $$
-|R_{\gamma,t}(\eta)|\le C_A\prod_{k=1}^n s_1(u_k),
+|R_{\gamma,t}(\eta)|\le C_A\prod_k s_1(u_k).
 $$
 
-where `s_1` is survival of an explicit killed two-state chain. Define
+With
 
 $$
 w(u)=e^{-\omega u}s_1(u),
@@ -101,151 +74,166 @@ $$
 and
 
 $$
-Z=\int_0^\infty w(u)\,du
-=\frac{\omega+1+B+a}{(\omega+a)(\omega+1+B)-a}.
+Z=\int_0^\infty w(u)du
+=\frac{\omega+1+B+a}{(\omega+a)(\omega+1+B)-a},
 $$
 
-A direct sup-norm argument proves trail decay on the genuine parameter subregion
+direct trail-depth decay is already proved when
 
 $$
-\boxed{\max\{c,g\}Z<1.}
+\max\{c,g\}Z<1.
 $$
 
-This subregion does not reach the difficult near-East regime.
+The hard near-East regime remains.
 
-## Exact depth-two obstruction to Meeting 005 target
-
-Along
-
-$$
-a=\varepsilon^2,\qquad b=\varepsilon,\qquad c=1-\varepsilon^2,
-$$
-
-let
-
-$$
-m_\varepsilon=-\frac{\varepsilon}{1+\varepsilon},
-$$
-
-and
-
-$$
-M_{2,\varepsilon}
-=\frac{(1+\varepsilon)(2\varepsilon-1)}{2\varepsilon^2+5\varepsilon+1}.
-$$
-
-The exact depth-two invariant scalar
-
-$$
-A_{2,\varepsilon}(u)
-=m_\varepsilon^2
-+e^{-(1+\varepsilon)u}(M_{2,\varepsilon}-m_\varepsilon^2)
-$$
-
-changes sign. The principal capture gives, and the Professor independently checked,
-
-$$
-\frac{g}{|m_\varepsilon|}\int_0^\infty e^{-\omega u}|A_{2,\varepsilon}(u)|\,du\to\frac32,
-$$
-
-and
-
-$$
-\frac{g}{|m_\varepsilon|}\int_0^\infty w(u)|A_{2,\varepsilon}(u)|\,du\to\frac75.
-$$
-
-Thus one-step pointwise positivity, left-only one-step `L^1` contraction, and one-step contraction using only segmentwise right killing are all false near East.
-
-## Correct all-depth sufficient quantity
-
-The right-weighted invariant quantity is
+The correct global right-weighted invariant quantity is
 
 $$
 \boxed{
 J_{x,r}
 =B g^{n-1}
 \int_{(0,\infty)^n}
-\left(\prod_{k=1}^n w(u_k)\right)
-|\pi^0_{m,r}(F_{x,u})|\,du.
+\left(\prod_k w(u_k)\right)
+|\pi^0_{m,r}(F_{x,u})|du.
 }
 $$
 
-The trail reduction gives
+Showing `J_{x,r}->0` with trail depth is sufficient for the nonempty-exit term. The complementary no-exit term and full Poisson-Mecke factorization still require independent audit before a closing proof.
 
-$$
-\limsup_{t\to\infty}\sup_\eta |D_R(t,\eta)|
-\le C_A\sum_{x\in A}J_{x,r}.
-$$
+## Mass/disagreement decomposition and stack drift
 
-Hence `J_{x,r}->0` with trail depth is sufficient for the nonempty-exit term. The complementary no-exit term must still be audited in the full convergence reconstruction.
-
-## Mass/disagreement decomposition
-
-For a law `mu` whose rightmost spin has density `r`, left marginal `bar mu`, and conditional left laws `mu^1,mu^0`, the centered insertion obeys
+For a law `mu` with rightmost density `r`, left marginal `bar mu`, and conditional left laws `mu^1,mu^0`,
 
 $$
 \boxed{
 g\,\mu(h_{p_*}(\eta_y)f)
-=(Br-c)\bar\mu(f)
-+Br(1-r)(\mu^1-\mu^0)(f).
+=(Br-c)\bar\mu(f)+Br(1-r)(\mu^1-\mu^0)(f).
 }
 $$
 
-This is now the key structural identity. It separates a signed mass channel from a positive disagreement channel. Near East, the equilibrium mass coefficient is order `epsilon^2`, the disagreement coefficient is order `epsilon`, and the right-weighted equilibrium mass multiplier tends to
+The first term is a signed mass channel; the second is a positive conditional-law disagreement channel. Near East the equilibrium mass coefficient is order `epsilon^2`, the disagreement coefficient order `epsilon`, and the right-weighted equilibrium mass multiplier tends to `2/5`.
+
+The principal reset coupling gives negative drift for unresolved disagreement-stack height. Student F independently proved the related local fact that every disagreement under the common-uniform coupling has coalescence intensity at least
 
 $$
-\frac25.
+q=1-c+a=\omega.
 $$
 
-Taking unrestricted total variation of the disagreement channel loses the required cancellation and reproduces the depth-two expansion.
+Stack recurrence alone does not control signed branching.
 
-## Disagreement-stack drift inside the trail route
+## Student G Assignment 002: exact live-exposure resolvent
 
-The principal's reset coupling for the conditional-law difference gives a number `K` of consecutive unresolved levels removed during one zero-boundary segment with
-
-$$
-\mathbb P(K\ge j)
-\ge
-\frac{B+\omega}{B+2\omega}2^{-(j-1)}.
-$$
-
-Hence
+Student G's return gives the missing **single-exposure weighted control** for the high-risk local coupling state
 
 $$
-\mathbb EK\ge\frac{2(B+\omega)}{B+2\omega}>1.
+J_i=1_{\{D_i=0,D_{i+1}=1,X_i=Y_i=1\}}.
 $$
 
-If one transfer adds at most one unresolved level,
+This `J_i` is not the global trail quantity `J_{x,r}` above.
+
+At any stopping time with `D_i=0,D_{i+1}=1`, stop when either `i` becomes a disagreement or `i+1` coalesces. Write
 
 $$
-H'\le(H-K)_+ +1,
+d=b-a,\qquad k=1-c,\qquad q=1-c+a,
 $$
 
-so stack height has strict negative drift for large `H`.
+and
 
-This makes Student F's live-coupling work directly relevant to the trail proof. However, stack-height recurrence alone does not control signed mass branching.
+$$
+\mathfrak D=(b+q)(1+q)-a(1-c).
+$$
 
-## Current bottleneck: block mass/disagreement contraction
+The exposure is upper dominated by the killed two-state chain
 
-The active target is a **parameter-dependent block contraction**, not a one-step transfer norm.
+$$
+K\xrightarrow{a}J,\qquad K\xrightarrow{d}\text{child},
+$$
 
-Seek a norm on trail-generated decompositions into signed mass components and coupled disagreement pairs, weighted by unresolved stack height, and constants
+$$
+J\xrightarrow{k}K,\qquad J\xrightarrow{c}\text{child},
+$$
+
+with killing to right coalescence at rate `q`. Consequently
+
+$$
+P(\text{child before right coalescence}\mid\mathcal F)
+\le h_x<1,
+$$
+
+where
+
+$$
+h_0=\frac{d(1+q)+ac}{\mathfrak D},
+\qquad
+h_1=\frac{c(b+q)+(1-c)d}{\mathfrak D}.
+$$
+
+The expected high-risk occupation during one exposure obeys
+
+$$
+\boxed{
+E\left[\int J_i(t)dt\mid\mathcal F\right]
+\le g_x,
+\qquad
+g_0=\frac a{\mathfrak D},
+\quad
+g_1=\frac{b+q}{\mathfrak D}.
+}
+$$
+
+The exact child compensator on that exposure is
+
+$$
+\boxed{
+P(\text{child before right coalescence}\mid\mathcal F)
+=E\int\bigl[d+(c-d)J_i(t)\bigr]dt.
+}
+$$
+
+This holds for non-rightmost disagreements inside arbitrary-depth stacks.
+
+## Why G's crude global summation is not the block theorem
+
+If `N_i(T)` counts exposure entries, G proves
+
+$$
+E\int_0^T J_i(t)dt
+\le
+\frac{b+q}{\mathfrak D}
+\left[
+1+\int_0^T u_i(t)dt+c\int_0^T u_{i+2}(t)dt
+\right].
+$$
+
+Near East,
+
+$$
+q-(c-d)g_1=-1+O(\varepsilon),
+$$
+
+so inserting this crude all-time bound into the disagreement drift loses all damping. The failure is caused by **repeated exposure entries/restarts**, not by the one-exposure resolvent.
+
+This does not refute `J_{x,r}->0`. It identifies the coupling-side version of the same branching/restart problem left by the mass/disagreement decomposition.
+
+## Current bottleneck: block mass/disagreement contraction with restart control
+
+The active target remains a parameter-dependent block theorem. Seek a norm on trail-generated signed mass components and coupled disagreement components, weighted by unresolved stack/restart state, and finite constants
 
 $$
 m_0<\infty,\qquad \theta<1
 $$
 
-such that the complete right-weighted transfer satisfies
+such that
 
 $$
 \boxed{\|T^{m_0}\nu\|_*\le\theta\|\nu\|_*.}
 $$
 
-The unresolved point is controlling repeated branching into `bar mu` and `mu^1-mu^0` without falling back on total variation.
+Student F attacks the complete block theorem. Student G attacks the complementary coupling problem: control the exposure-entry/restart count for the conditional-law disagreement channel strongly enough to enter such a block norm, or give an exact obstruction.
 
 ## Anti-circularity rule
 
-Do not attempt to rescue one-step `(T)`, return to cellwise positivity, or enumerate finite trail depths as a substitute for an all-depth theorem. The next accepted progress must prove the block mass/disagreement contraction, prove `J->0` by another structural mechanism, expose a false step in the trail reduction/update, or give a rigorous all-depth obstruction.
+Do not rescue one-step `(T)`, return to cellwise positivity, globally replace `J_i` by marginal `11`, or enumerate fixed depths. The next accepted progress must control signed branching/restarts structurally, prove `J_{x,r}->0` by another all-depth mechanism, or produce a rigorous obstruction.
 
 ## Wiki
 
