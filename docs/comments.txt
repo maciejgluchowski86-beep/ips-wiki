@@ -1,0 +1,1223 @@
+Comments on IPS Wiki (docs/entries).
+
+Status: working document, provisional. Started 2026-08-15 while reading the wiki. Items
+are added as they come up and will be revised, merged, or withdrawn as reading
+continues; nothing here is settled, and the numbering is chronological rather than by
+importance. Reader-side comments only -- these are asks about exposition, notation, and
+site organization, not curation decisions and not edits made to the wiki. The wiki
+freeze is in force, so no entry has been changed on account of anything below.
+
+Conventions in this file: plain ASCII for mathematics, since the file is not rendered
+(vn = empty set, chi_S = monomial, subseteq = inclusion). Entries are cited by filename
+and, where the exact spot matters, by section name or line number.
+
+Open items so far: 1 spin-system.md scope of the term; 2 spin-system.md ordering of the
+N versus N_* distinction; 3 site-wide, formulas not copy-pasteable; 4
+pure-noise-spin-system.md undefined c_i^x plus a target-versus-source superscript
+collision; 5 site-wide, organization is a reading order and loses the structure; 6
+c_i^x(.) carries two different domains across six entries; 7 lattice-and-graph.md,
+"lattice" undefined and "oriented" used for "acyclic"; 8
+kinetically-constrained-spin-model.md, the reversibility argument is one asserted
+sentence and "reversible" is nowhere defined; 9 site-wide, references carry no
+hyperlinks although a fully linked BibTeX file already exists in the repository; 10
+lattice-and-graph.md, N(i) has no stated meaning and the graph edges point opposite to
+influence; 11 house style, entries open taxonomically or inside a construction instead
+of stating the mechanism; 12 attractiveness is undefined, its consequences unstated, and
+the BABP non-attractiveness claim unargued; 13 naming, "attractive" versus
+"(stochastically) monotone", with the collision against four existing uses of
+"monotonicity" -- decided in favour of "attractive"; 14 specification for a new
+attractive-spin-system.md entry; 15 monomial-duality-for-spin-systems.md is not readable,
+implicit conventions and the repair presented before the defect; 16 reading order, the
+duality entry is placed before the signed additive set process it depends on.
+
+
+1. Entry: spin-system.md (and interacting-particle-system.md)
+
+The wiki restricts "spin system" to the two-state case, {0,1}^Lambda with single-site
+flip updates. This is not a universal definition of the term but the specific technical
+convention of Tom Liggett's books (Interacting Particle Systems, 1985, Chapter III
+"Spin Systems"; Stochastic Interacting Systems), where "spin system" names one class of
+IPS among several (spin systems, exclusion processes, nearest-particle systems, ...),
+deliberately restricted to two states and flip dynamics. The current page's references
+line already cites exactly these two Liggett books, so the definition is faithful to
+that source -- but the page does not say so.
+
+In the broader statistical-mechanics / Gibbs-measure literature (e.g. Georgii, Gibbs
+Measures and Phase Transitions, and the physics literature generally), "spin system" is
+used far more broadly: a "spin" is simply the local state, with no restriction to two
+values or to a discrete space. Potts-model dynamics (q>2 states), clock models, and
+continuous-spin models (XY, Heisenberg, O(n)) are all routinely called spin systems in
+that tradition.
+
+Ask: the page should say explicitly that its restriction to two states is Liggett's
+specific usage/legacy, in contrast with the general statistical-mechanics usage of
+"spin system", not the only meaning of the term. As currently written, a reader coming
+from the statistical-mechanics side could easily mistake the definition for the
+standard/universal one.
+
+
+2. Entry: spin-system.md, section "Locality" -- order of exposition
+
+The section states the locality condition using N_*(i) first, and only afterwards
+explains what N_*(i) is:
+
+    "there is a finite neighbourhood N_*(i), containing i, such that c_i(eta) depends
+     only on eta|_{N_*(i)}. The neighbour set N(i) itself does not contain i, and
+     N_*(i) = N(i) cup {i}."
+
+So the reader meets the condition before the notation that carries its entire content.
+The two symbols differ by a single subscript star, and the distinction is exactly the
+mathematically decisive one: whether the flip rate at i may depend on the spin at i.
+
+The distinction is not a triviality. If c_i(eta) depended only on eta|_{N(i)}, i.e. on
+the neighbours excluding i, then c_i(eta) = c_i(eta^i), and reversibility
+pi(eta) c_i(eta) = pi(eta^i) c_i(eta^i) together with positive rates forces
+pi(eta) = pi(eta^i) for all i and eta. The only reversible measure would then be the
+uniform product measure: no Gibbs measure with nontrivial coupling, no phase transition.
+Concretely, for 1d Glauber-Ising, c_i(sigma) = (1/2)[1 - (gamma/2) sigma_i (sigma_{i-1}
++ sigma_{i+1})] with gamma = tanh(2 beta J), the dependence on sigma_i is what makes a
+spin that disagrees with both neighbours flip at rate (1+gamma)/2 while one that agrees
+flips at (1-gamma)/2, ratio e^{4 beta J}. A reader who carries away "the rate depends on
+the neighbourhood of i" in the graph-theoretic sense has lost detailed balance entirely.
+
+Ask: state the N versus N_* distinction before it is used, not after -- either a short
+sentence opening the section ("write N(i) for the neighbours of i, which by convention
+excludes i, and N_*(i) = N(i) cup {i}"), or an explicit prerequisite pointer to
+lattice-and-graph.md, section "Neighbourhood description", where the distinction is
+already set up correctly. The existing link on the word "neighbourhood" points to that
+page but does not signal that the reader needs the convention in order to parse the
+sentence it appears in.
+
+Related, same section: the page writes "N_*(i) = i + N_* for a fixed finite
+neighbourhood shape N_* subset Z^d containing 0", overloading N_* to denote both the
+site-indexed set and the translation shape. lattice-and-graph.md, section
+"Translation-invariant lattice convention", instead fixes the shape as N subset
+Z^d \ {0} and writes N_*(i) = i + (N cup {0}). The two are consistent in content but
+not in notation. Pick one.
+
+
+3. General (site format, not a single entry): formulas should be copy-pasteable
+
+Reading the wiki alongside a chat assistant (Claude app, ChatGPT) is a normal working
+mode, and it requires getting a displayed formula out of the page and into the chat as
+TeX. The current setup makes that awkward on two counts.
+
+(a) Rendering. mkdocs.yml uses pymdownx.arithmatex in generic mode with MathJax 3
+(tex-mml-chtml) from CDN. MathJax renders to CHTML, so selecting a formula in the
+browser and copying it yields the accessibility MathML / reflowed unicode rather than
+the TeX that produced it. MathJax's own right-click menu does have "Show Math As -> TeX
+Commands", which recovers the source, but nothing on the site tells a reader this
+exists. Note that content.code.copy is already enabled in the theme, so code blocks have
+a copy button while mathematics -- the thing readers most need to move -- does not.
+
+(b) Macros. Even once a reader has the TeX, docs/javascripts/mathjax.js defines a
+private macro set that exists nowhere else: \R \Z \N \Q \C \pP \E \Var \Cov \ind \vn
+\eps \cL \cD \cG \cF \cP \supp \Law \Flip. Entry source uses these freely; for instance
+spin-system.md writes \cL f(\eta) = \sum_i c_i(\eta)(f(\eta^i) - f(\eta)). Pasted into
+any other renderer, or into a chat, \cL is undefined -- the reader gets an error or an
+assistant guessing at intent. This is the more damaging of the two problems, because it
+degrades even the ideal copy path.
+
+Possible fixes, roughly in increasing order of effort:
+
+  - Document the MathJax "Show Math As -> TeX Commands" route once, on the notation page
+    or the index, so at least a manual path exists.
+  - Publish the macro preamble as a copy-pasteable block on meta/notation.md, so a
+    reader can prime a chat session once and then paste formulas freely.
+  - Switch the renderer to KaTeX and enable its copy-tex contrib extension, which makes
+    an ordinary browser copy of rendered mathematics produce the underlying $...$ source
+    automatically. This is the option that actually solves (a) with no reader effort.
+  - Reduce or drop the private macros in entry source in favour of literal
+    \mathcal{L}, \mathbb{Z}, and so on. Costs some source brevity, buys portability of
+    every formula on the site.
+
+Also worth noting that the theme's edit_uri already exposes raw Markdown per page on
+GitHub, which is the reliable source-of-truth path today, but it is a page-level
+detour rather than a formula-level copy.
+
+
+4. Entry: pure-noise-spin-system.md -- undefined notation c_i^x, and a superscript
+   collision with interacting-particle-system.md
+
+The page asserts
+
+    "Thus N^r has only empty-neighbour spin-rate coefficients:
+     c_i^0(vn) = r_i,  c_i^1(vn) = 1 - r_i."
+
+Neither c_i^x nor the set-argument form c_i^x(S) is defined on the page, and there is no
+link to where they are defined. The definition lives in
+monomial-duality-for-spin-systems.md: the split
+
+    c_i(eta) = (1 - eta(i)) c_i^0(eta) + eta(i) c_i^1(eta),   c_i^x(eta) = c_i(eta^{i,x}),
+
+followed by the monomial expansion c_i^x(eta) = sum_{S subseteq N(i)} c_i^x(S) chi_S(eta),
+whose S = vn term is the constant term because chi_vn = 1. Without that, the reader has
+no way to know that "empty-neighbour" indexes the empty subset of N(i), rather than
+asserting that the neighbourhood is empty or that the neighbours are vacant. Note also
+that c_i^x(.) is overloaded within that definition: a configuration argument gives the
+half-rate function, a subset argument gives an expansion coefficient.
+
+The sharper problem is that the superscript already means something else in a core
+entry. interacting-particle-system.md, section "Single-site update form", defines
+c_i^a(eta) as the rate for REPLACING the state at site i by a -- the target value.
+monomial-duality-for-spin-systems.md defines c_i^x(eta) = c_i(eta^{i,x}) -- the rate
+given that the site currently holds x, the source value. In the two-state case these are
+exactly swapped: the birth rate 0 -> 1 is c_i^1 in the first convention and c_i^0 in the
+second. So a reader who arrives with the core-entry convention reads
+
+    c_i^0(vn) = r_i
+
+as "the rate of setting site i to 0 is r_i", which is the reverse of the model actually
+defined two lines above by c_i(eta) = (1-r_i) eta(i) + r_i (1 - eta(i)), where r_i is
+the 0 -> 1 rate. The collision is not accidental: with more than two states the target
+label is needed, so the IPS entry indexes by target; with two states the flip is
+determined by the source, so the duality entry indexes by source. Both are reasonable in
+isolation; sharing the symbol c_i^{.} is not.
+
+meta/notation.md registers eta^i, eta^{i,a}, and c_i(eta), but neither c_i^x nor
+c_i^x(S) nor the vn convention.
+
+Ask: at minimum, link to monomial-duality-for-spin-systems.md at first use of c_i^x in
+pure-noise-spin-system.md; better, state the two-line split and the meaning of the
+S = vn coefficient inline, since the page is otherwise self-contained and the reader
+should not have to visit a duality entry to parse a definition entry. Separately,
+register c_i^x and c_i^x(S) in meta/notation.md, and either reconcile the
+target-versus-source superscript with interacting-particle-system.md or flag the
+difference explicitly at both sites.
+
+Addendum to 4: the notation itself is defined well, just elsewhere.
+interacting-particle-system.md, section "Single-site update form", introduces
+eta^{i,a} and c_i^a(eta) clearly. So the fix on pure-noise-spin-system.md is only a
+pointer plus a warning that the superscript there is a source value, not a target value.
+
+Related, same page: the superscript on E collides too. bernoulli-refresh-operator.md
+defines E_i^q with q the VACANCY density, yielding c_i(eta) = q eta(i) + p (1 - eta(i)).
+pure-noise-spin-system.md writes N^r f = sum_i (E_i^r f - f), but its stated flip rate
+c_i(eta) = (1 - r_i) eta(i) + r_i (1 - eta(i)) forces r_i to be the ONE-density. Both
+conventions are documented in the wiki -- bernoulli-product-measure.md, section "KCSM
+convention", records the inversion -- but E_i^{.} carries opposite meanings in the two
+entries with nothing said at the crossing point. Reading E_i^r under the convention of
+the entry that defines E gives the time-reversed target measure.
+
+
+5. General (site organization): the wiki is organized as a reading order, and that
+   loses the structure
+
+Current state. 95 entries, all flat in docs/entries/, with a single hand-maintained nav
+in mkdocs.yml. That one tree is asked to be three things at once -- a taxonomy, a
+reading order, and a table of contents -- and it cannot be all three.
+
+What goes wrong:
+
+  - Taxonomy is lost. interacting-particle-system and spin-system are siblings under
+    "Core entries", ordered by prerequisite. That a spin system IS an interacting
+    particle system is stated only in prose (spin-system.md, "Relation to general IPS";
+    interacting-particle-system.md, "Relation to spin systems") and is not navigable.
+  - Multi-membership is impossible. fa-1f-out-of-equilibrium belongs to both FA-1f and
+    out-of-equilibrium. A tree forces one choice, and the repository has already made
+    two different ones: mkdocs.yml splits KCSM / Models / Out of equilibrium, while
+    docs/index.md lists all thirteen under "KCSM entries". Two hand-maintained copies of
+    the same classification, already inconsistent.
+  - It does not scale. The PDE block is 45 entries in one flat nav list.
+  - Existing metadata is inert. Every entry carries tags: (about 100 distinct values)
+    and status: (38 standard fact, 36 definition, 9 conditional, 6 observation,
+    6 literature). mkdocs.yml has no plugins: key at all, so nothing consumes any of it.
+
+How Wikipedia solves this. Storage is flat -- every article sits at /wiki/Title and the
+path never encodes a parent. Hierarchy is then one of several overlapping access layers,
+none of them canonical:
+
+  - categories: many-to-many, forming a DAG rather than a tree, with auto-generated
+    member listings;
+  - navigation templates ("Part of a series on ..."): curated sibling neighbourhood,
+    transcluded onto every member page;
+  - the lead sentence: the is-a link stated in prose, "X is a Y such that ...";
+  - Outline of / Index of / Portal pages: curated reading orders, kept separate from
+    the categories;
+  - What links here: automatic backlinks, the reverse index;
+  - redirects: many names to one article, surviving renames;
+  - See also and hatnotes: lateral and disambiguating links;
+  - assessment class: quality metadata orthogonal to all of the above.
+
+Note what Wikipedia does NOT have: a sidebar listing every article. The nav here is
+trying to be a structure Wikipedia deliberately avoids.
+
+Proposal, in order of cost:
+
+  (1) Keep the files flat. Do not move entries into docs/entries/kcsm/ and so on; that
+      would freeze one classification into the URLs, which is the mistake to avoid.
+  (2) Turn on the tags plugin -- three lines in mkdocs.yml, plugins: search + tags with
+      tags_file: meta/tags.md. It is built into Material 9, already pinned in
+      requirements.txt, and it converts the existing frontmatter into category pages
+      immediately. Needs a controlled vocabulary (meta/tag-vocabulary.md plus a check in
+      scripts/check_wiki_quality.py), since the present tag set is free-form with many
+      singletons.
+  (3) Encode the relations the nav is faking, in frontmatter: generalizes: (is-a),
+      prerequisites:, see_also:. Then a script over docs/entries/*.md generates what
+      cannot be hand-maintained at 95 pages -- per-page series boxes, backlinks
+      ("what links here", currently absent entirely), an A-Z index, and a dependency
+      graph of the prerequisite DAG. Note that is-a edges are mathematical claims and
+      should be sourced from statements already in the entries, not invented.
+  (4) Shrink the nav to about ten items: Home, one portal per area, reading paths, A-Z,
+      tags, meta. Entries stay reachable by link, search, tag, and portal. In MkDocs 1.6
+      set validation: nav: omitted_files: info so the not-in-nav pages do not warn.
+  (5) Put the hierarchy in portal pages as content -- for instance interacting particle
+      system > spin system > {pure noise, oriented, KCSM > {FA-1f, East, BABP, soft}} --
+      stated once, visibly, instead of implied by list order.
+  (6) Remove the duplicate index. docs/index.md re-lists what nav lists and the two
+      disagree; make it portal-only or generate both from frontmatter.
+  (7) Surface status: as a badge and a filter. The 9 conditional entries are exactly the
+      ones whose logical standing a reader must not mistake, and that is invisible today
+      without opening the file. This is also the natural hook for the claim-registry
+      discipline.
+  (8) Add mkdocs-redirects so entries can be renamed without breaking links.
+
+Steps (2), (4), (6) are configuration-only and fix multi-membership plus the duplicate
+taxonomy immediately. Step (3) needs a script but delivers the backlinks and the is-a
+ladder. Step (7) is a research-hygiene win independent of the rest.
+
+
+6. Notation: c_i^{x}(.) has two different domains, and the wiki never says so
+
+This is a genuine ambiguity, not merely a missing pointer, and it is load-bearing.
+
+Reading A, configuration argument. interacting-particle-system.md, "Single-site update
+form", defines c_i^a(eta) as a RATE, a nonnegative function of a configuration.
+monomial-duality-for-spin-systems.md keeps that domain when it writes
+c_i^x(eta) = c_i(eta^{i,x}).
+
+Reading B, subset argument. The same entry then writes
+
+    c_i^x(eta) = sum_{S subseteq N(i)} c_i^x(S) chi_S(eta),
+
+where c_i^x(S) is an expansion COEFFICIENT, a real number indexed by a subset of N(i).
+Both readings appear in that single displayed line, with no remark.
+
+Reading B is then used, without ever being restated, in at least six entries:
+monomial-duality-for-spin-systems.md, monomial-monotonicity-for-high-density-measures.md,
+patch-contribution.md, patch-critical-density.md, patch-positivity-property.md, and
+pure-noise-spin-system.md.
+
+Why this is not harmless overloading:
+
+  (a) The two domains are not distinguishable by argument type. On {0,1}^Lambda a
+      configuration IS canonically a subset of Lambda, namely its occupied set, and this
+      wiki performs that identification constantly -- monomials chi_A are indexed by
+      sets, and the dual processes are set-valued. So "the argument is a set" does not
+      tell the reader which reading is meant.
+
+  (b) The two readings give different numbers. Writing v_i^x(S) for the value of the
+      half-rate at the configuration whose occupied set inside N(i) is S, and c_i^x(S)
+      for the coefficient, Moebius inversion gives
+
+          v_i^x(S) = sum_{T subseteq S} c_i^x(T),
+          c_i^x(S) = sum_{T subseteq S} (-1)^{|S \ T|} v_i^x(T).
+
+      Concretely, take the contact-process birth rate c_i^0(eta) = lambda sum_{j in N(i)}
+      eta(j) with N(i) = {j,k}. The coefficients are c_i^0({j}) = c_i^0({k}) = lambda and
+      c_i^0({j,k}) = 0, while the rate when both neighbours are occupied is 2 lambda. A
+      reader using reading A gets 2 lambda where the entry means 0.
+
+  (c) The two readings agree exactly at S = vn, since chi_S vanishes at the all-empty
+      configuration unless S = vn. This is why pure-noise-spin-system.md's display
+      c_i^0(vn) = r_i, c_i^1(vn) = 1 - r_i is numerically correct under either reading --
+      and why it is the worst possible place to meet the notation for the first time.
+      The reader is introduced to the symbol at the unique argument where the
+      distinction is invisible.
+
+  (d) The distinction is decisive in the patch entries. patch-positivity-property.md
+      states conditions c_i^0(S) + c_i^1(S) <= 0 and c_i^1(S) <= 0, and
+      patch-critical-density.md uses c_i^0(S) + c_i^1(S) < 0 and ratios built from it.
+      These are only meaningful under reading B: under reading A the quantities are
+      rates, hence nonnegative, so c_i^1(S) <= 0 would force the rate to vanish. A reader
+      carrying reading A forward from the core entry will conclude that the
+      patch-positivity hypotheses are degenerate or contradictory.
+
+Ask: state the coefficient reading explicitly where the monomial expansion is
+introduced, and give it distinct notation -- for instance hat c_i^x(S) or c_i^x[S] for
+the coefficient, reserving c_i^x(eta) for the rate. If the symbols are kept, then at a
+minimum the expansion line in monomial-duality-for-spin-systems.md needs an explicit
+warning that the argument type switches, meta/notation.md needs both forms registered
+(it currently has neither), and every downstream entry using c_i^x(S) needs a pointer
+to the definition. See also item 4 for the separate, orthogonal collision in the
+superscript: target value in interacting-particle-system.md, source value in
+monomial-duality-for-spin-systems.md.
+
+
+7. Entries: lattice-and-graph.md, polynomial-growth-lattice.md, oriented-spin-system.md
+   -- "lattice" is never defined, and "oriented" is used for what is standardly called
+   "acyclic"
+
+7A. "Lattice" is introduced ostensively, not defined.
+
+lattice-and-graph.md opens with "A lattice is the default index set for configurations
+in this wiki. It is denoted by Lambda, and the standard examples are Z and Z^d." That
+gives a role and two examples, not a definition. No axioms, no closure conditions, no
+statement of what must be checked to certify that a given object is a lattice.
+
+The word already carries two established formal meanings in mathematics, neither of
+which is the one intended here:
+
+  - order theory: a partially ordered set in which every pair of elements has a meet and
+    a join (Birkhoff, Lattice Theory; Davey and Priestley, Introduction to Lattices and
+    Order, CUP);
+  - geometry of numbers / group theory: a discrete subgroup of R^d of full rank, or a
+    discrete cocompact subgroup of a Lie group (Cassels, An Introduction to the Geometry
+    of Numbers; Conway and Sloane, Sphere Packings, Lattices and Groups).
+
+The order-theoretic collision is not hypothetical. The section "Reachability and
+orientation" constructs the relation i -> j on Lambda, which is a preorder, and the
+orientation axiom (antisymmetry) is exactly the condition making it a PARTIAL ORDER. So
+the entry builds order structure on an object called a lattice while not meaning the
+order-theoretic lattice. Worse, in both standard examples the resulting poset happens to
+be an order-theoretic lattice as well, for unrelated reasons: for the East model on Z
+with N(i) = {i-1}, reachability is i -> j iff j <= i, a total order; for oriented
+percolation on Z^d with shape N = {e_1, ..., e_d}, reachability is i -> j iff j >= i
+coordinatewise, whose meet is the coordinatewise minimum. A reader arriving from order
+theory receives confirmation of the wrong reading.
+
+What is actually meant is a countable set of sites together with a neighbourhood system
+-- that is, a locally finite countable directed graph. The entry effectively concedes
+this in its own section "Graph description", where the same data is presented as a
+digraph G = (Lambda, E_G) with N(i) = {j : (i,j) in E_G}. Note that Liggett's setup does
+not use the word as a defined term either: the site space there is simply a countable
+set, with the neighbourhood structure carried by the rates.
+
+The one thing "lattice" supplies that "directed graph" does not is the TRANSLATION
+structure. The convention N(i) = i + N with a shape N inside Z^d \ {0} uses the abelian
+group structure of Z^d, and the same is true of translation-invariant rates, interaction
+cones, and the patch constructions. So Lambda is doing two jobs under one word:
+  (a) countable set plus neighbourhood system, for all of the general theory;
+  (b) an abelian group, for everything translation-invariant.
+That conflation is the reason the term resists definition.
+
+7B. Why a definition is needed: the word carries hypotheses.
+
+If "lattice" were informal shorthand for "Z^d, or something similar", leaving it
+undefined would be harmless. It is not. Theorem statements quantify over it. From
+fa-1f-out-of-equilibrium.md: "Let (eta_t) be FA-1f with vacancy density q > 1/2 on an
+infinite connected polynomial-growth lattice with (k,D)-polynomial growth." A reader
+must be able to check that hypothesis, and three of its words are undefined:
+
+  - "lattice or graph". polynomial-growth-lattice.md literally writes "Let Lambda be a
+    connected lattice or graph with finite neighbour sets N(i)". The disjunction
+    concedes that the two are not being distinguished.
+  - d(i,j). The graph distance is used, and used again in the FA-1f vacancy-distance
+    R_i(eta) = inf{d(i,j) : eta(j) = 0}, but never defined. On a DIRECTED neighbourhood
+    system there are at least three candidates -- shortest directed path from i to j,
+    shortest directed path from j to i, and distance in the underlying undirected graph
+    -- and they differ. For the East model on Z the undirected distance is |i - j|,
+    while the directed distance is i - j for j <= i and infinite otherwise. Ball sizes,
+    and hence the growth exponent D, depend on which one is meant.
+  - "connected". For digraphs this is ambiguous between weak and strong connectivity,
+    and strong connectivity is INCOMPATIBLE with orientedness: two distinct mutually
+    reachable sites violate antisymmetry immediately. Under the strong reading no
+    oriented lattice satisfies the hypothesis at all. This is currently latent rather
+    than live -- FA-1f is unoriented, and east-out-of-equilibrium.md does not invoke
+    polynomial growth -- but it is a hypothesis that would empty out silently the first
+    time a growth bound is applied to East.
+
+7C. How to formalize it. The following costs one paragraph and decides no mathematics:
+
+    A lattice is a pair (Lambda, N) in which Lambda is a countable set and N assigns to
+    each i in Lambda a finite set N(i) contained in Lambda \ {i}. Equivalently, a
+    lattice is a locally finite countable directed graph. Write N_*(i) = N(i) cup {i}.
+    The underlying undirected graph is obtained by symmetrizing, j ~ i whenever
+    j in N(i) or i in N(j); graph distance d and connectedness refer to it unless
+    stated otherwise. A translation-invariant lattice is Lambda = Z^d together with a
+    fixed finite shape N inside Z^d \ {0} and N(i) = i + N.
+
+Consequences: local finiteness stops being an ad-hoc side condition repeated per entry;
+d is pinned down, so polynomial growth and R_i are well posed; "connected" means weakly
+connected, which is the reading compatible with acyclic lattices; and the separation
+between (a) and (b) above becomes explicit, so entries can state which of the two they
+need.
+
+One caveat: the choice of WHICH distance the FA-1f out-of-equilibrium estimates actually
+require is a mathematical question belonging to whoever owns that theorem. The comment
+here is only that the current text does not say, and that all three readings are
+available to a reader.
+
+7D. "Oriented" versus "acyclic", and where the terms come from.
+
+Standard graph-theoretic terminology distinguishes three notions:
+
+  - directed graph (digraph): edges are ordered pairs;
+  - ORIENTED GRAPH: a digraph with no 2-cycles, that is, at most one of (u,v) and (v,u)
+    is present; equivalently, an orientation of a simple undirected graph;
+  - ACYCLIC DIGRAPH (DAG): no directed cycles at all.
+
+Every DAG is an oriented graph, but not conversely: the directed triangle
+1 -> 2 -> 3 -> 1 is an oriented graph in the standard sense and has a cycle.
+
+References for that vocabulary: Bang-Jensen and Gutin, Digraphs: Theory, Algorithms and
+Applications, 2nd ed., Springer (2009), which defines an oriented graph as a digraph
+without 2-cycles and treats acyclic digraphs separately; Diestel, Graph Theory, Springer
+GTM 173, for orientations of graphs; Harary, Norman and Cartwright, Structural Models:
+An Introduction to the Theory of Directed Graphs, Wiley (1965), for the older usage;
+Knuth, The Art of Computer Programming vol. 1, section 2.2.3, for topological ordering
+of acyclic relations. For the identification of an antisymmetric reachability preorder
+with a partial order, see Davey and Priestley as above.
+
+The wiki's condition is acyclicity, and the entry itself says so: lattice-and-graph.md,
+"Reachability and orientation", ends with "Equivalently, the directed graph determined
+by the neighbour sets has no directed cycles." So "oriented lattice" here means acyclic
+digraph, which is STRICTLY STRONGER than the standard meaning of "oriented graph". A
+reader importing the graph-theoretic term would admit the directed triangle, which the
+wiki excludes.
+
+The usage is not invented, however. It follows the probabilistic tradition, where
+"oriented" names models whose edges point along a preferred direction:
+
+  - oriented percolation: Durrett, Oriented percolation in two dimensions, Annals of
+    Probability 12 (1984); see also Durrett, Lecture Notes on Particle Systems and
+    Percolation, Wadsworth (1988). The subject descends from Broadbent and Hammersley,
+    Percolation processes, Proc. Cambridge Philos. Soc. 53 (1957), where directed and
+    undirected variants both appear.
+  - the East model, whose constraint is one-sided: Jaeckle and Eisinger, A
+    hierarchically constrained kinetic Ising model, Z. Phys. B 84 (1991). For the
+    kinetically constrained literature that inherited the terminology, see Ritort and
+    Sollich, Glassy dynamics of kinetically constrained models, Advances in Physics 52
+    (2003), and Cancrini, Martinelli, Roberto and Toninelli, Kinetically constrained
+    spin models, Probability Theory and Related Fields 140 (2008).
+
+Note the difference in content. In the percolation tradition "oriented" usually means
+that edges follow a fixed direction, typically given by a linear functional that
+strictly increases along every edge, which implies acyclicity. The wiki instead states
+acyclicity directly. These are not obviously interchangeable conditions in general, and
+the entry asserts only the second.
+
+Ask: rename the condition "acyclic", which is the standard name for exactly what is
+defined, and keep "oriented lattice" at most as a stated synonym with a one-line note
+that the probabilistic literature uses it in this sense while graph theory reserves
+"oriented graph" for the weaker no-2-cycles condition. If the name "oriented" is kept as
+primary, then lattice-and-graph.md and oriented-spin-system.md should both say
+explicitly that it means acyclic, since oriented-spin-system.md currently repeats the
+antisymmetry definition without the acyclicity remark that lattice-and-graph.md
+supplies.
+
+
+8. Entry: kinetically-constrained-spin-model.md, section "Reversibility and convergence
+   questions" -- the reversibility argument is too short to be usable
+
+The entire treatment is one sentence: "Because legal updates refresh from the one-site
+marginal of mu_q, and because c_i does not depend on eta(i), the measure mu_q is
+reversible for the KCSM dynamics." Two hypotheses are named and the conclusion is
+asserted. What the hypotheses DO is never said, on this page or on any other.
+
+What is missing:
+
+  (a) A definition of reversibility. The word is used in six entries --
+      kinetically-constrained-spin-model.md, soft-kcsm.md, babp-model.md,
+      babp-out-of-equilibrium.md, bernoulli-refresh-operator.md, and
+      kcsm-relaxation-and-mixing.md -- and defined in none of them. A reader arrives
+      with the Markov-chain form pi(x) k(x,y) = pi(y) k(y,x), which does not parse on
+      {0,1}^Lambda with Lambda infinite: there are no point masses. The operative
+      definition is the L^2 symmetry
+          integral g (L f) d mu = integral f (L g) d mu   for local f, g,
+      and the wiki never states it. This belongs in invariant-measure.md or its own
+      short entry, with the finite-volume detailed-balance form given as the special
+      case.
+
+  (b) Which Bernoulli measure, and why it is forced. "The one-site marginal of mu_q"
+      encodes the answer but does not flag that it is rigid. The natural reader question
+      -- is any Bernoulli product measure reversible? -- has a sharp answer that takes
+      two lines. Let the refresh sample a 1 with probability p' = 1 - q' while the
+      reference measure is mu_q. Take eta with eta(i) = 0, write m for the product of
+      the one-site weights over j =/= i, and use c_i(eta) = c_i(eta^i) =: a. Detailed
+      balance for the flip eta <-> eta^i reads
+          q m a p' = p m a q',
+      that is q p' = p q', which holds if and only if q' = q. So exactly one parameter
+      works, and the two hypotheses are visibly what makes the cancellation go through:
+      matching parameters cancels the measure weights, and eta(i)-independence of c_i
+      cancels a.
+
+  (c) The actual mechanism, which is one observation. Because mu_q is a PRODUCT measure,
+      E_i^q is the conditional expectation given the spins off i -- this is already
+      written at bernoulli-refresh-operator.md, second display of the section "Refresh
+      operator", but that entry is not cited from the reversibility paragraph. Hence
+      E_i^q is an orthogonal projection on L^2(mu_q): self-adjoint and idempotent. And
+      because c_i does not depend on eta(i), it is measurable for the conditioning
+      sigma-field, so it pulls out: E_i(c_i g) = c_i E_i(g), that is, c_i commutes with
+      E_i as operators. The proof is then three steps:
+          <c_i (E_i - I) f, g> = <(E_i - I) f, c_i g>      (multiplication is self-adjoint)
+                              = <f, (E_i - I)(c_i g)>       (E_i - I is self-adjoint)
+                              = <f, c_i (E_i - I) g>        (pull-out).
+      Sum over i. No enumeration of configurations, and the two hypotheses of the
+      current sentence map one-to-one onto the two properties used.
+
+  (d) The Dirichlet form, which is the same computation reused and which the wiki does
+      not contain at all. With P = E_i a projection commuting with c_i,
+          <c_i (I - P) f, f> = <c_i (I - P)^2 f, f> = <c_i (I - P) f, (I - P) f>
+                             = integral c_i (f - E_i f)^2 d mu_q,
+      and pulling c_i out of E_i once more gives
+          D(f) = sum_i mu_q( c_i Var_i(f) ),   Var_i(f) = E_i(f^2) - (E_i f)^2.
+      This is the standard object of the KCSM literature and it is missing. Its absence
+      is felt downstream: kcsm-relaxation-and-mixing.md defines the spectral gap as "the
+      smallest nonzero eigenvalue of -L in L^2(mu_q)", which presupposes the
+      self-adjointness asserted cryptically here, and then says "Equivalently, T_rel is
+      the best constant in the corresponding variance decay estimate" without ever
+      writing the variational formula gap = inf_f D(f) / Var(f). The two entries are
+      separated by exactly the computation that is being skipped.
+
+  (e) The general pattern. Reversibility here is not a KCSM accident: any generator of
+      heat-bath form L = sum_i a_i (E_i - I), with E_i a pi-conditional expectation and
+      a_i >= 0 measurable for the conditioning field, is reversible for pi. That covers
+      heat-bath Glauber for Gibbs measures as well, and it explains why Metropolis-type
+      rates, which are not of this shape, need a case-by-case verification. One sentence
+      would save a reader from thinking the KCSM case is special.
+
+The one part of the current paragraph that is well done is the caveat that reversibility
+does not imply ergodicity, with blocked classes as the reason. That should stay.
+
+Duplication: the same cryptic assertion is repeated nearly verbatim in babp-model.md
+("The update rate c_i does not depend on eta(i), and the refresh law is the one-site
+marginal of mu_q. Hence mu_q is reversible.") and in soft-kcsm.md ("If the hard
+constraint c_i does not depend on eta(i), then neither does c_i^eps, and the Bernoulli
+product measure mu_q remains reversible."). Three assertions of the same fact, no proof
+in any of them, and no shared pointer.
+
+Ask: expand the section into a short proof -- items (b) and (c) are about eight lines
+together -- add the Dirichlet form as (d) with a link to kcsm-relaxation-and-mixing.md,
+define reversibility once somewhere central per (a), and have babp-model.md and
+soft-kcsm.md cite that argument instead of restating the conclusion.
+
+
+9. General (site-wide): references carry no hyperlinks
+
+Measured state of the wiki:
+
+  - grep for markdown links to external URLs across docs/entries, docs/meta and docs
+    returns ZERO matches. Not one reference anywhere on the site is clickable.
+  - 45 entries carry a "**References.**" line. Of those, 37 contain no arXiv number, no
+    DOI and no journal -- just author names and an italic title.
+  - 11 distinct arXiv identifiers do appear, but as plain text such as arXiv:1701.07660.
+    MkDocs does not autolink these, so they render as unclickable strings and the reader
+    must copy them into a search box.
+  - meta/references.md lists 45 items, of which only 10 carry an arXiv number or a DOI.
+    None is a link.
+
+There is also a large quality split between blocks. Compare
+aronson-nash-gaussian-bounds.md, which gives "Bulletin of the American Mathematical
+Society 73 (1967), 890--896" and two arXiv numbers, with east-model.md, whose entire
+reference line is "Hartarsky and Toninelli, Kinetically constrained models; Cancrini,
+Martinelli, Schonmann, and Toninelli, Facilitated oriented spin models: some non
+equilibrium results; Marêché, Exponential convergence to equilibrium for the
+d-dimensional East model" -- no year, no venue, no identifier. The PDE block was written
+to a visibly higher citation standard than the IPS and KCSM blocks.
+
+Why this matters beyond convenience:
+
+  (a) Verification cost. The wiki operates under a claim-registry discipline in which
+      statements are supposed to be checkable. A citation with no identifier cannot be
+      checked without a literature search per item, which is precisely the friction the
+      registry is meant to remove.
+  (b) Theorem-level pointers rot silently. east-out-of-equilibrium.md cites "Cancrini,
+      Martinelli, Schonmann, and Toninelli, Facilitated oriented spin models: some non
+      equilibrium results, Theorem 3.1" and "Hartarsky and Toninelli, Kinetically
+      constrained models, Theorem 7.6". Theorem numbering routinely differs between
+      arXiv versions and the published version. A numbered pointer with no versioned
+      link is unresolvable the moment the numbering shifts, and the reader cannot even
+      tell which document was meant.
+  (c) The data already exists in this repository. paper/references.bib contains 27
+      entries and EVERY ONE of them carries a doi, eprint or url field; pde-paper/
+      references.bib is a second such file. So the wiki is hand-maintaining a linkless
+      parallel bibliography alongside a complete linked one that was produced for the
+      manuscript. meta/references.md even says "A structured BibTeX file can be added
+      later if citation automation becomes useful" -- it exists already, twice.
+
+Ask:
+
+  - Give every reference a resolvable identifier rendered as an actual link: DOI
+    (https://doi.org/10....) for published work, arXiv (https://arxiv.org/abs/....) for
+    preprints, both when both exist.
+  - Generate meta/references.md from paper/references.bib and pde-paper/references.bib
+    rather than maintaining a third list by hand. That also removes a class of drift
+    between the manuscript bibliography and the wiki one.
+  - Give each item in meta/references.md an anchor so that entry-level reference lines
+    can deep-link to the exact item instead of to the top of the page, which is what
+    they currently do.
+  - For citations that point at a numbered theorem, pin the version -- either the arXiv
+    version number or the published volume and pages -- since the number is meaningless
+    without it.
+  - Extend scripts/check_wiki_quality.py, which already gates entry metadata in CI, with
+    two mechanical checks: every item named in an entry's References line resolves to an
+    item in meta/references.md, and every item in meta/references.md carries a DOI or an
+    arXiv link. Both are string checks and neither requires any mathematical judgment.
+
+Related to item 5: this is the same pattern as the unused tags: and status: metadata --
+information that exists in the repository but is not wired up to anything the reader
+sees.
+
+
+10. Entries: lattice-and-graph.md, oriented-spin-system.md -- the neighbour sets are
+    never given a semantic gloss, and the graph edges point opposite to influence
+
+What N(i) MEANS is never stated. It is introduced as a set assigned to each site, and
+everything else -- locality, orientation, reachability, the graph encoding -- is built on
+top of it, but no sentence says what membership signifies. The operative meaning, read
+off the generator, is:
+
+    j in N(i) means that the spin value at site j can influence the flip rate at
+    site i.
+
+That is a statement about influence, and as an INFLUENCE GRAPH it is the directed edge
+j -> i, pointing from the site that is read to the site whose rate depends on it.
+
+The wiki encodes the opposite edge. lattice-and-graph.md, section "Graph description",
+sets
+
+    N(i) = { j in Lambda : (i,j) in E_G },
+
+so j in N(i) is recorded as the edge (i,j), from i to j -- from the dependent site to
+the site it depends on. Section "Reachability and orientation" inherits this: i -> j
+means j is reachable by iterating N, that is, j is an ancestor of i in the dependence
+order, not a site that i influences. The translation-invariant convention has the same
+sense, with edges (i, i+u) for u in the shape N.
+
+The wiki's choice is defensible and internally consistent. It is the DEPENDENCE or
+ANCESTRY direction, and it is the direction the dual process actually travels: in
+monomial-duality-for-spin-systems.md the dual replaces i by a subset S of N(i), and
+interaction-cone.md accordingly grows Cone_T by collecting {i} cup S over successful
+interactions (i,t,S). So the dual set process propagates along the wiki's arrows, which
+is exactly right, since duality reverses time and the dual traces influence backwards.
+Nothing here is mathematically wrong, and orientedness is unaffected either way, because
+a digraph is acyclic if and only if its reverse is.
+
+The defect is that this is never said, and the single place where the arrows are given
+an intuitive reading gives them the OPPOSITE one. oriented-spin-system.md states "Thus
+information can follow neighbour sets, but it cannot return to where it started."
+Information does not follow neighbour sets; it follows the reversed edges. Concretely,
+for the East model on Z with N(i) = {i-1}, the wiki's reachability runs leftward,
+i -> i-1 -> i-2 and so on, while the physical propagation of change runs rightward: a
+vacancy at i-1 is what permits site i to move. A reader tracing how orientation enters
+the dynamics will find the direction reversing under them between the two pages.
+
+Ask (item 10): add one sentence to lattice-and-graph.md where N(i) is introduced, saying what
+membership means -- the spin at j can influence the flip rate at i -- and one more where
+the graph encoding is given, saying that the recorded edge (i,j) points from the
+dependent site to the site it depends on, that this is the ancestry direction followed
+by the dual set process, and that influence propagates along the reversed edges. Then
+either reword the sentence in oriented-spin-system.md so that it refers to influence
+travelling against the arrows, or restate it in terms of dependence so that the two
+pages agree.
+
+
+11. General (house style): every process and definition needs a plain mechanism sentence
+    at the top
+
+Neuhauser and Sudbury open the abstract of The biased annihilating branching process
+with a single sentence that conveys the whole model: "In the biased annihilating
+branching process, particles place offspring on empty neighboring sites at rate lambda
+and destroy neighbors at rate 1." A reader knows what the process does before any
+formalism appears.
+
+The wiki does contain that description, but at the wrong place. babp-model.md opens
+taxonomically -- "The biased annihilating branching process, abbreviated BABP, is a
+Bernoulli-refresh spin system in which the update rate at a site equals the number of
+vacant neighbours" -- which is accurate but says nothing about what happens, and does
+not explain the name. The mechanism appears only in the fourth section, "Particle
+convention", after two generator displays and the comparison with FA-1f: "A particle is
+born at an empty site at rate lambda for each neighbouring particle, while a particle is
+removed at rate 1 for each neighbouring particle." That is roughly a hundred lines below
+where the source paper puts it.
+
+Two further obstacles specific to this entry. The wiki works in the complementary
+variables, particles being the vacancies, xi = 1 - eta, and its natural parameter is the
+vacancy density q rather than the branching rate lambda; the translation lambda = q / p
+with the generator rescaled by p^{-1} appears only at that same late section. So a
+reader holding Neuhauser and Sudbury next to the entry has no way to see that these are
+the same object until the end. One sentence in the lead -- this is the BABP of Neuhauser
+and Sudbury, in complementary variables, with lambda = q/p and time scaled by p -- would
+remove the whole difficulty.
+
+The general point. Sampling the opening prose sentence of the definition entries shows
+two patterns, and neither states a mechanism:
+
+  Taxonomic openings, which locate the object in the wiki's hierarchy:
+    interacting-particle-system: "is a continuous-time Markov process on a product
+      configuration space over a countable lattice";
+    spin-system: "is a continuous-time interacting particle system with two possible
+      states at each site";
+    kinetically-constrained-spin-model: "is a spin system whose single-site refreshes are
+      allowed only when a local vacancy constraint is satisfied";
+    babp-model: as quoted above.
+
+  Construction openings, which drop the reader inside a setup with no statement of what
+  the object is or what it is for:
+    patch: "Fix a signed additive set process, its graphical construction, and the full
+      successful-interaction ...";
+    successful-interaction: "Fix a signed additive set process with full interaction set
+      I, constructed as in the graphical construction ...";
+    duality: "Let (eta_t) be a Markov process with generator L, and let (Y_t) be another
+      Markov process with generator D."
+
+The second pattern is the more damaging: an entry that begins "Fix" or "Let" is
+unreadable to anyone who does not already know the answer, which defeats the purpose of
+a wiki entry as opposed to a section of a paper.
+
+The house style can already do this when it chooses. east-model.md's second sentence is
+"A site may refresh only when at least one oriented neighbour is vacant", and
+update-family.md opens with "An update family specifies which local vacancy patterns
+allow a constrained refresh". Both are exactly right. The problem is that it is not
+required.
+
+Ask:
+
+  - Make it a rule that every definition or process entry opens with one sentence in
+    plain language stating the mechanism -- what happens, to what, at what rate -- before
+    any taxonomy, any formalism, and before any "Fix" or "Let". Taxonomic placement is
+    valuable and should stay, but as the second sentence.
+  - For babp-model.md specifically, promote the sentence now at the end of "Particle
+    convention" into the lead, and state the correspondence with the cited paper
+    (complementary variables, lambda = q/p, time scaled by p) at the same place.
+  - Record the rule in meta/entry-template.md and meta/style-decisions.md so that new
+    entries inherit it.
+  - A weak mechanical check is available for scripts/check_wiki_quality.py: flag any
+    entry whose first prose sentence after the H1 begins with "Fix" or "Let". That does
+    not judge prose quality, only that the entry does not open inside a construction.
+
+This is the same discipline as Wikipedia's lead sentence, referred to in item 5: the
+first sentence says what the thing is, in terms someone who does not already know it can
+follow.
+
+
+12. Attractiveness is used as a load-bearing term, is never defined, its consequences are
+    never stated, and the one negative claim about BABP is unargued
+
+babp-model.md, section "Reversibility and absorbing state", ends with "BABP is not
+attractive in the usual product order." Three separate things are missing.
+
+12A. The term is never defined. "Attractive" or "attractiveness" occurs in exactly five
+places -- babp-model.md, front-growth-and-vacancy-density-for-fa-1f.md,
+kcsm-out-of-equilibrium.md, kinetically-constrained-spin-model.md, update-family.md --
+and there is no definition anywhere in the wiki. This is the same failure as item 8 for
+"reversible": a word carrying real weight, used repeatedly, defined never.
+
+The ingredients are already present, which makes the omission cheap to fix.
+bernoulli-product-measure.md, section "Coordinatewise order", already defines the
+product order and stochastic domination with an explicit coupling, and
+monomial-duality-for-spin-systems.md already splits the flip rate into the birth rate
+c_i^0 and the death rate c_i^1. With those in hand the definition is two lines: a spin
+system is attractive if, whenever eta <= zeta coordinatewise,
+
+    c_i^0(eta) <= c_i^0(zeta)     (birth rate increasing)
+    c_i^1(eta) >= c_i^1(zeta)     (death rate decreasing)
+
+that is, more occupied sites make creation easier and destruction harder.
+
+12B. The consequences are never stated, although the wiki depends on their absence. A
+reader cannot tell why non-attractiveness is worth remarking on. What attractiveness
+would supply:
+
+  - a monotone coupling of two copies started from ordered configurations, preserved for
+    all time;
+  - order preservation of the semigroup, nu_0 <=_st nu_1 implies nu_0 P_t <=_st nu_1 P_t;
+  - the limits from the all-zero and all-one configurations, hence extremal invariant
+    measures and the criterion that the invariant measure is unique exactly when the two
+    coincide;
+  - comparison by deletion, which is precisely the move
+    front-growth-and-vacancy-density-for-fa-1f.md reports as unavailable: "The lack of
+    attractiveness prevents obtaining it by deleting all but one vacancy from a denser
+    initial configuration."
+
+This matters beyond bookkeeping. The project's patch-positivity line is an attempt to
+recover a weaker substitute for exactly the second item -- see
+monomial-monotonicity-for-high-density-measures.md, whose conditional conclusion is
+order preservation for centered monomials rather than for configurations, and
+high-density-measure.md, which notes that its order "is not, in general, stochastic
+domination". A reader who does not know what attractiveness gives cannot see what the
+patch programme is substituting for, which is the main motivating idea of the whole
+direction.
+
+12C. No argument is given for BABP. The check appears to be one line, using the rates
+already on the page. In the wiki convention c_i(eta) = sum_{j in N(i)} (1 - eta(j)) is
+the number of vacant neighbours, and the flip rates are c_i(eta) p for 0 -> 1 and
+c_i(eta) q for 1 -> 0. Since c_i is DECREASING in eta, the birth rate p c_i is decreasing
+as well, whereas attractiveness requires it to be increasing. So the condition fails
+whenever p > 0 and N(i) is nonempty, and a single pair exhibits it: fix any j in N(i),
+let eta have eta(i) = eta(j) = 0, and let zeta agree with eta except zeta(j) = 1. Then
+eta <= zeta and eta(i) = zeta(i) = 0, yet the birth rate at i is strictly larger in the
+smaller configuration eta. The death rate condition, by contrast, is satisfied.
+
+In the particle variables of the same page, xi = 1 - eta, the statement is more telling:
+a particle is born at an empty site at rate lambda per neighbouring particle, which is
+increasing and harmless, while a particle is removed at rate 1 per neighbouring particle,
+which is also increasing and is exactly what attractiveness forbids for a death rate. In
+other words the ANNIHILATING half of the name is what destroys attractiveness; the pure
+branching part alone would be attractive, as for the contact process. That observation
+also serves item 11, since it makes the name do explanatory work.
+
+The same computation shows FA-1f non-attractive, its constraint 1 - chi_{N(i)} being
+decreasing in eta, which is the general statement already asserted without proof at
+update-family.md.
+
+Ask: add a short attractiveness entry giving the definition in 12A, the consequences in
+12B, and the KCSM/BABP failure in 12C, and have the five existing mentions link to it
+instead of each asserting non-attractiveness on its own authority. Since the failure is
+generic to KCSM rather than special to BABP, the argument belongs in that shared entry or
+in kinetically-constrained-spin-model.md, with babp-model.md citing it. The concrete
+computation above should be confirmed by whoever owns the entry before it is written in;
+it is offered as the missing argument, not as an audited one.
+
+
+13. Naming: "attractive" versus "(stochastically) monotone"
+
+Both names denote the same property -- the semigroup maps increasing functions to
+increasing functions, equivalently nu_0 <=_st nu_1 implies nu_0 P_t <=_st nu_1 P_t,
+equivalently ordered initial states admit an order-preserving coupling. The wiki should
+fix one as primary, record the other as a synonym, and make both findable by search.
+
+Case for "attractive" as primary:
+
+  - it is the term of the interacting-particle-systems literature, originating with
+    Liggett's books, which are this wiki's own standing references for the IPS layer;
+  - the KCSM papers cited by the model entries state the fact in exactly this phrasing,
+    so a reader arriving from Cancrini, Martinelli, Roberto and Toninelli, or from
+    Hartarsky and Toninelli, is looking for "attractive";
+  - it is unambiguous in this wiki, whereas "monotone" is not.
+
+Case for "(stochastically) monotone" as primary:
+
+  - it is the general Markov-process term, standard in the stochastic-ordering and
+    perfect-simulation literature;
+  - it is self-explanatory, whereas "attractive" is opaque to a reader who has not met
+    it;
+  - it names the property rather than an intuition about it.
+
+The decisive local consideration is collision. "Monotone" and "monotonicity" already
+carry at least four distinct meanings on this site:
+
+  - update-family.md, section "Monotonicity": monotonicity of the CONSTRAINT in the
+    product order -- and that section exists precisely to distinguish this from
+    attractiveness of the dynamics, ending "This monotonicity is a property of the
+    constraint, not of the full dynamics, and KCSM are generally non-attractive";
+  - monomial-monotonicity-for-high-density-measures.md and high-density-measure.md: the
+    centered-moment monotonicity theorem, an order on monomial functionals which
+    high-density-measure.md explicitly notes "is not, in general, stochastic
+    domination";
+  - viscosity-solutions.md: operator monotonicity, that is, degenerate ellipticity;
+  - residual-signed-variation-characterization-for-coarsened-patches.md, section
+    "Monotonicity under further coarsening".
+
+Making "monotone process" the primary name would add a fifth sense to the most
+overloaded word on the site, and would collide most sharply with the one sentence whose
+purpose is to separate constraint monotonicity from dynamical attractiveness.
+
+DECISION (principal, 2026-08-15): "attractive" is the primary term for this wiki.
+"(Stochastically) monotone" is to be recorded as a synonym at the point of definition and
+in meta/notation.md. Item 14 specifies the page.
+
+Recommendation: keep "attractive" as the primary term, state at the point of definition
+that it is also called stochastically monotone or simply monotone in the general
+Markov-process literature, and register both in meta/notation.md so that either search
+term finds the page. If the principal prefers "monotone process" as primary instead,
+then the definition entry must disambiguate against the four uses above explicitly, and
+update-family.md needs rewording so that its two monotonicity notions do not share a
+name.
+
+Either way the substantive requirement is item 12: the property must be defined
+somewhere, once, before it is used in five entries as a load-bearing term.
+
+
+14. New entry needed: attractive-spin-system.md
+
+Item 12 established that the property is undefined; item 13 fixed the name. This item
+specifies the page. Suggested filename attractive-spin-system.md, title "Attractive spin
+system", which matches the existing pattern of oriented-spin-system.md and
+pure-noise-spin-system.md and places it with them in the core block.
+
+Proposed contents, in order.
+
+  (1) Lead sentence, per item 11, stating the mechanism before any formalism: a spin
+      system is attractive if a larger starting configuration stays larger, that is, the
+      dynamics preserves the coordinatewise order. Taxonomic placement second. Record
+      the synonym "stochastically monotone" here.
+
+  (2) The order. Omega = {0,1}^Lambda with the coordinatewise partial order, eta <= zeta
+      iff eta(i) <= zeta(i) for every i. Least element all-zeros, greatest all-ones, most
+      pairs incomparable. State that attractiveness is always relative to a chosen order
+      and that the product order is meant when unqualified. Increasing and decreasing
+      functions, with chi_A as the standard increasing example.
+
+  (3) Stochastic domination. nu_0 <=_st nu_1 iff nu_0(f) <= nu_1(f) for every bounded
+      increasing f, plus Strassen: on this compact space with closed order, equivalent to
+      the existence of a coupling with X <= Y almost surely. bernoulli-product-measure.md,
+      section "Coordinatewise order", already constructs exactly such a coupling for two
+      Bernoulli profiles and should be linked rather than repeated.
+
+  (4) Three equivalent formulations, stated as such:
+        (D1) P_t maps increasing functions to increasing functions, for every t;
+        (D2) eta <= zeta implies delta_eta P_t <=_st delta_zeta P_t, equivalently
+             nu_0 <=_st nu_1 implies nu_0 P_t <=_st nu_1 P_t;
+        (D3) ordered initial states admit a coupling preserving the order for all time.
+      (D1) and (D2) are the same statement read two ways; (D3) implies (D2) by Strassen;
+      the converse needs the construction in (5). Say which implications are free and
+      which are not.
+
+  (5) The checkable criterion, in the half-rate notation c_i^x(eta) = c_i(eta^{i,x})
+      already used by monomial-duality-for-spin-systems.md: attractive iff for every i
+      and every eta <= zeta,
+            c_i^0(eta) <= c_i^0(zeta)      birth rate increasing,
+            c_i^1(eta) >= c_i^1(zeta)      death rate decreasing,
+      that is, a larger environment makes creation easier and destruction harder. Give
+      the basic-coupling proof, which is three short cases at a clock ring at site i:
+      both configurations 0 at i, where the order breaks only if the lower one flips up
+      alone, excluded by the birth condition; both 1 at i, symmetric, excluded by the
+      death condition; and 0 below with 1 above, where no single flip can break the
+      order. This makes visible that the two inequalities are exactly what the coupling
+      needs, and it delivers (D3).
+
+  (6) Consequences, which is what item 12B found missing: order preservation of the
+      semigroup; the monotone limits delta_0 P_t increasing and delta_1 P_t decreasing in
+      <=_st, hence extremal invariant measures; every invariant measure lying between
+      them, hence uniqueness exactly when the two coincide; and comparison by deletion,
+      the move that front-growth-and-vacancy-density-for-fa-1f.md reports as unavailable
+      for FA-1f.
+
+  (7) Examples. Contact process: birth rate proportional to the number of occupied
+      neighbours, constant death rate, attractive. Glauber dynamics for the Ising model:
+      attractive exactly in the ferromagnetic case, since the birth and death rates carry
+      opposite signs of tanh(2 beta J); the antiferromagnetic case fails both conditions.
+      These give the reader a positive instance before the negative one.
+
+  (8) Non-examples, and the general obstruction. For a Bernoulli-refresh spin system the
+      two half-rates are c_i^0 = c_i p and c_i^1 = c_i q, the SAME refresh rate driving
+      both directions, so for p and q both in (0,1) the criterion forces c_i to be
+      simultaneously increasing and decreasing, hence constant. Consequently such a system
+      is attractive if and only if its refresh rate does not depend on the configuration,
+      which is the pure-noise case of pure-noise-spin-system.md. This covers FA-1f, East
+      and BABP in one statement and supersedes the model-by-model assertions now sitting
+      in five entries. Add the remark that a global relabelling 0 <-> 1 cannot repair
+      this, because the flip reverses the order and exchanges the birth and death
+      conditions with each other, leaving their conjunction invariant; the conclusion
+      "c_i is constant" is itself relabelling-invariant.
+
+  (9) Cautions. Attractiveness is a property of the dynamics, not of an invariant measure.
+      Attractive is not the same as having a monotone constraint: update-family.md's
+      constraints are monotone while the dynamics is not attractive, and that sentence
+      should link here. Attractive and reversible are independent: KCSM are reversible and
+      not attractive.
+
+Once the page exists, the five current mentions -- babp-model.md,
+front-growth-and-vacancy-density-for-fa-1f.md, kcsm-out-of-equilibrium.md,
+kinetically-constrained-spin-model.md, update-family.md -- should link to it instead of
+each asserting non-attractiveness on its own authority.
+
+Status metadata (item 14): the definition, the criterion and the consequences are standard facts
+and should carry the corresponding status with a Liggett citation. Two items are NOT
+standard textbook material as stated here and should be verified before being written in
+as proved: the Bernoulli-refresh characterization in (8), and the flip-invariance remark.
+Both were worked out in conversation, not read from a source. They look routine, but the
+page should not present them as audited until someone with the authority to do so checks
+them.
+
+
+15. Entry: monomial-duality-for-spin-systems.md is not readable
+
+This page is the algebraic hinge of the entire dual programme. Equation (1) feeds the
+signed additive set process, the patch representation, patch positivity, the critical
+density, and every comparison result downstream. It is also the least readable page on
+the site.
+
+Two things it does well and which should be preserved: it separates the unconditional
+algebra, equation (1), from the conditional semigroup identity (3), and it lists the
+analytic hypotheses for that passage explicitly rather than hiding them. The problem is
+exposition, not honesty.
+
+Partial correction, see item 16: several of the explanations asked for below are not
+absent from the wiki, they are on signed-additive-set-process.md, which the suggested
+reading order places AFTER this page. That applies to the explicit dual generator
+(15E), the reading of delta and beta as death, split and birth (15A(v)), the meaning of
+the sign labels (15A(iv)), and the reason for the beta_i(vn) = 0 convention (15D). The
+remaining complaints stand wherever the reader starts.
+
+15A. Implicit conventions.
+
+  (i) The argument of c_i^x switches between a configuration and a subset within a single
+      display. Item 6 covers this; not repeated here.
+
+  (ii) "Monomial expansion" is never defined, although the operation is simple and one
+       sentence would say it: the monomials form a BASIS of the relevant function space,
+       and the expansion is just the function rewritten in that basis. That is the whole
+       content. Once it is stated, the coefficients c_i^x(S) are visibly coordinates, and
+       the notation stops looking like a private device.
+
+       The wiki never says it. The phrase occurs exactly twice, both on this page, at
+       lines 35 and 80. monomials.md, the natural home, gives chi_A, the empty-product
+       convention, the product identity chi_A chi_B = chi_{A union B}, single-site
+       replacement and the Bernoulli refresh identity, but never states that the
+       monomials span or that they are linearly independent. local-functions.md states
+       only that a local function depends on finitely many coordinates.
+
+       Ask: a short section in monomials.md, "Monomials as a basis", saying that
+
+         - the relevant space is the functions on {0,1}^V for a finite V, of dimension
+           2^{|V|};
+         - there are 2^{|V|} monomials chi_S with S subseteq V, and they are linearly
+           independent, because chi_S evaluated at the configuration equal to 1 exactly
+           on T is 1 when S subseteq T and 0 otherwise, so in point-evaluation
+           coordinates they form a unitriangular matrix;
+         - hence they are a basis, and every such f has a unique expansion
+           f = sum_{S subseteq V} fhat(S) chi_S -- this IS the monomial expansion; and
+         - the coordinates are recovered by Moebius inversion over the subset lattice,
+           fhat(S) = sum_{T subseteq S} (-1)^{|S \ T|} f(configuration that is 1 exactly
+           on T).
+
+       Then this entry cites that section in a clause instead of assuming it.
+
+       Uniqueness is what makes the downstream theory well posed:
+       patch-positivity-property.md and patch-critical-density.md impose inequalities on
+       the numbers c_i^x(S), which presupposes that the rate determines them.
+
+       Notation gap, same ask: stating the evaluation rule needs a symbol for the
+       configuration that is 1 exactly on T, and the wiki has none. eta_T is not
+       available, since lattice-and-graph.md already uses eta_A for the RESTRICTION of
+       eta to A, and bold 1 already carries the all-one configuration, the constant-one
+       profile, and event indicators. monomials.md should introduce and register one
+       symbol for it. This is the same silent identification of subsets with
+       configurations that produces the ambiguity in item 6.
+
+  (iii) The basis fact is never applied to c_i^x on the page. Two steps are skipped.
+
+        First, that c_i^x is a function on {0,1}^{N(i)} at all. Line 35 poses this as a
+        hypothesis -- "Assume c_i^0 and c_i^1 depend only on the finite neighbour set
+        N(i)" -- when it follows from locality: c_i reads eta on N_*(i), and
+        c_i^x(eta) = c_i(eta^{i,x}) pins the i-coordinate, leaving N(i). As written it
+        looks like an extra restriction on the model class.
+
+        Second, the application itself: the basis fact with V = N(i) gives the display at
+        line 38. One clause.
+
+        A worked instance would make both concrete, and the wiki supplies one. FA-1f has
+        c_i(eta) = 1 - chi_{N(i)}(eta), independent of eta(i), so c_i^0 = c_i^1 =
+        1 - chi_{N(i)}, already written in the basis: c_i^x(vn) = 1, c_i^x(N(i)) = -1,
+        every other coefficient zero. It also exhibits a NEGATIVE coefficient in two
+        lines, which is the obstruction motivating the absolute values, the signs and V
+        later on the page, so it serves 15B and 15C too. Short, but worth checking by the
+        entry owner before it is written in.
+
+  (iv) sgn_pm is used at lines 55 and 63 and defined nowhere, including
+        meta/notation.md. From the use it must take values in {+,-} rather than in
+        {+1,0,-1}, which is why line 66 has to add "Signs at zero rates are arbitrary" --
+        but the reader is left to reconstruct that from the remark rather than being told
+        the convention.
+
+  (v) The superscripts delta and beta are never glossed. They are evidently death and
+      branching, matching the two transition types in (1): the first family sends A to
+      (A \ {i}) union S, removing i, and the second sends A to A union S, adding without
+      removing. One word each at the point of definition would make (1) legible.
+
+  (vi) The page introduces roughly ten symbols -- c_i^x, c_i^x(S), a_i^delta, a_i^beta,
+      delta_i, beta_i, sigma_i^delta, sigma_i^beta, V, V_i, and the dual generator D_Y --
+      and not one of them appears in meta/notation.md, which does register the related
+      pair (A_t, sigma_t).
+
+15B. The repair is presented before the defect it repairs.
+
+Lines 50 to 66 take absolute values and extract signs before the reader has seen equation
+(1). At that point there is no way to know what problem is being solved, so the
+definitions look arbitrary. The natural order is: derive (1); observe that its right-hand
+side has the SHAPE of a jump generator in the set variable; observe that this reading is
+licensed only if the coefficients are nonnegative rates; observe that a_i^delta and
+a_i^beta can be negative; and only then introduce |a|, sigma, and V as the repair. This
+is the same structural complaint as item 2.
+
+15C. The decisive interpretive sentence is missing altogether.
+
+After (1) the page says only "Equation (1) is the algebraic input for the signed additive
+dual." Nowhere does it say HOW to read (1). The missing content is: freeze eta and regard
+B -> chi_B(eta) as a function on finite subsets; then the right-hand side is a difference
+operator in A, of the form sum over targets of coefficient times (value at target minus
+value at A); the two families of terms are the two transition types; and set-valued
+targets identify sites automatically because chi_S chi_B = chi_{S union B}, which is the
+idempotency eta^2 = eta. That single paragraph is what turns the display from an
+algebraic identity into a process. Compare the voter model, where the same reading is
+immediate precisely because the coefficients there really are rates.
+
+15D. V is a formula with no derivation.
+
+Lines 106 to 113 give V_i = sum_S delta_i(S) + sum_{S =/= vn} beta_i(S) + a_i^beta(vn).
+Two different things are happening and neither is stated. The first two sums are the
+diagonal compensation incurred by declaring |a| to be jump rates, since a generator
+subtracts the total jump rate on the diagonal. The last term is diagonal from the start:
+the S = vn term of the beta sum in (1) is a_i^beta(vn) chi_{A union vn} = a_i^beta(vn)
+chi_A, a self-transition rather than a jump. That is exactly why line 66 sets
+beta_i(vn) = 0 while a_i^beta(vn) enters V_i directly, neither signed nor absolute-valued.
+A reader cannot reconstruct this from what is written.
+
+15E. The dual generator is never written down.
+
+Equation (2) asserts L_eta H = D_Y H + V(A) H, with D_Y described only as "the signed
+additive set process with the rates and signs above", that is, by pointer to another
+entry. The page's central identity is therefore asserted rather than derived from (1),
+which sits four lines above it. Since the passage from (1) to (2) is pure bookkeeping --
+collect the |a| as rates, the sigma as sign flips, the diagonal as V -- it should be
+carried out on the page.
+
+15F. The sign-carrying duality function is unmotivated.
+
+H(Y,eta) = sigma chi_A(eta) appears without the one sentence that explains it: a Markov
+process cannot have negative jump rates, so the sign is promoted from the coefficients to
+an extra coordinate of the dual state, and the duality function reads it off.
+
+Ask: restructure as (1) the expansion, with existence, uniqueness and Moebius inversion;
+(2) the generator calculation; (3) how to read the result as a set-valued jump operator,
+including the chi_S chi_B = chi_{S union B} remark; (4) the obstruction, that the
+coefficients are not rates; (5) the repair, with the diagonal accounting spelled out;
+(6) D_Y written explicitly and (2) derived; (7) the conditional semigroup identity with
+its hypothesis list, which is already good. Register the symbols in meta/notation.md. Add
+one worked instance where no signs and no V are needed -- the voter model, or the
+pure-noise system of pure-noise-spin-system.md, whose dual is a pure death process and
+can be checked independently by hand -- so that the reader meets the general machinery
+against a case they can verify.
+
+
+16. Reading order: monomial duality is placed before the process it depends on
+
+monomial-duality-for-spin-systems.md needs signed-additive-set-process.md. Its section
+"Conditional Feynman-Kac formula" opens with "Let Y = (A,sigma) and let (Y_t) =
+(A_t,sigma_t) be the signed additive set process with the rates and signs above", and
+neither equation (2) nor equation (3) can be read without the dual generator, which that
+other page supplies. But both suggested orders put the dependency last: mkdocs.yml lists
+a Duality block (duality, monomial duality, duality noise lemma) and only then a Signed
+additive set processes block, and docs/index.md repeats the same sequence.
+
+The dependency is one-directional, so the fix is a swap rather than a reshuffle.
+signed-additive-set-process.md is self-contained with respect to the duality entry: it
+defines its process from abstract nonnegative rates delta_i(S), beta_i(S) and sign labels
+sigma_i^delta(S), sigma_i^beta(S), with no input from the duality calculation. Its only
+mention of monomial duality is a motivating sentence in the lead, not a logical
+prerequisite. Nothing becomes circular if the two blocks are exchanged.
+
+The gain is larger than ordering hygiene, and it revises part of item 15. Several things
+that item asks the duality entry to supply already exist on the later page:
+
+  - the dual generator is written out explicitly in its "Generator" section, which is
+    exactly what item 15E reports as missing;
+  - delta and beta are glossed there as death, split and birth, with the update maps
+    D_{i,S} and B_{i,S} given, which is item 15A(v);
+  - the sign labels are declared to take values in {+,-}, which is most of item 15A(iv);
+  - the convention beta_i(vn) = 0 is explained there as removing the empty birth, which
+    is part of item 15D, whereas the duality page states the convention with no reason.
+
+So a reader following the wiki's own order meets all of this AFTER the page that needs
+it. Some of what looked like missing exposition is misordering. What still stands
+regardless of order: the passage from (1) to (2) is asserted rather than derived, and the
+monomial expansion is undefined wherever one starts.
+
+Wider pattern. Comparing link targets against the nav order across the 96 nav pages gives
+228 forward references. Most are benign and should not be "fixed": index.md alone
+accounts for 51 and pde-reading-path.md for 23, since hub pages necessarily point
+forward, and a definition page pointing ahead to its applications is a see-also, not a
+prerequisite. The distinction that matters is exactly prerequisite versus see-also, and a
+linear nav cannot express it -- which is item 5's point, that a single ordered list is
+being asked to encode a dependency DAG.
+
+Ask: swap the Duality and Signed additive set processes blocks in both mkdocs.yml and
+docs/index.md. Better, adopt the frontmatter prerequisites proposed in item 5 and
+generate the reading order from them, so that a prerequisite pointing forward becomes a
+CI failure rather than something a reader discovers. Minimally, and independently of
+either, monomial-duality-for-spin-systems.md should link to the dual generator at the
+point where Y and D first appear, so that a reader who does follow the order is told
+where to look.
