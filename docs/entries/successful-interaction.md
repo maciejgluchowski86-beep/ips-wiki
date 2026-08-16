@@ -10,73 +10,49 @@ tags:
 
 # Successful interaction
 
-Fix a [signed additive set process](signed-additive-set-process.md) with full interaction set $I$, constructed as in the [graphical construction](graphical-construction-of-signed-additive-set-process.md). Its deterministic initial interaction
-
-$$
-(\infty,0,\mathsf{init},A_0;\sigma_0)
-$$
-
-is declared successful, with successful-interaction skeleton
+Fix a [signed additive set process](signed-additive-set-process.md) with marked Poisson interaction set $I^{\mathrm P}$ from its [graphical construction](graphical-construction-of-signed-additive-set-process.md). The deterministic initial interaction is declared successful and has record
 
 $$
 (\infty,0,A_0).
 $$
 
-For $i\in\Lambda$ and $S\ne\vn$, an ordinary type-$S$ successful interaction is a source-time-target skeleton $(i,t,S)$ such that
+An ordinary interaction $(i,t,\alpha,S)\in I^{\mathrm P}$ is **successful** when
 
 $$
-(i,t,\alpha,S)\in I
-\quad\text{for some }\alpha\in\{\delta,\beta\},
-\qquad
+S\ne\vn
+\qquad\text{and}\qquad
 i\in A_{t-}.
 $$
 
-An ordinary successful-interaction skeleton records the interaction source and target, but not whether the interaction is a split or a birth. The marked initial interaction also carries the prescribed sign $\sigma_0$. Its source-time-target skeleton is $(\infty,0,A_0)$, and there is no hidden split-or-birth choice at time zero.
-
-For a time horizon $T<\infty$ and nonempty $S$, let
+Its successful-interaction **record** is the triple
 
 $$
-\mathcal I_T^S
-=
-\left\{
-(i,t,S):
-i\in\Lambda,
-\ 0<t\le T,
-\ i\in A_{t-},
-\ (i,t,\alpha,S)\in I
-\text{ for some }\alpha\in\{\delta,\beta\}
-\right\}.
+(i,t,S).
 $$
 
-The set of all successful-interaction skeletons through time $T$ is
+Thus a record retains the source, time, and nonempty target of an interaction that acts on the dual process, but it does not retain whether the interaction is a split or a birth.
+
+For $T<\infty$, the **successful-interaction skeleton** is
 
 $$
 \mathcal I_T
 =
 \{(\infty,0,A_0)\}
 \cup
-\bigcup_{\substack{S\Subset\Lambda\\S\ne\vn}}
-\mathcal I_T^S.
+\left\{
+(i,t,S):0<t\le T
+\text{ and }(i,t,\alpha,S)\text{ is successful for some }\alpha\in\{\delta,\beta\}
+\right\}.
 $$
 
-The full successful-interaction set is
+Set
 
 $$
-\mathcal I
-=
-\bigcup_{T<\infty}\mathcal I_T,
+\mathcal I=\bigcup_{T<\infty}\mathcal I_T,
+\qquad
+\mathcal G_T=\sigma(Y_0,\mathcal I_T).
 $$
 
-and $\mathcal I_\infty=\mathcal I$.
+The skeleton omits all death clocks, all rings at inactive sources, and the split/birth kind of each ordinary successful interaction. In the finite-range bounded-rate setting, $\mathcal I_T$ is finite almost surely for every finite $T$.
 
-Thus $I$ contains the marked deterministic initial interaction and every marked Poisson interaction, while $\mathcal I_T$ contains the initial skeleton and every ordinary successful-interaction skeleton through time $T$. Deaths have empty target and are not successful interactions.
-
-For $T<\infty$, the successful-interaction sigma algebra is
-
-$$
-\cG_T
-=
-\sigma\left(Y_0,\mathcal I_T\right).
-$$
-
-It reveals the initial interaction and every ordinary successful interaction through time $T$, but it does not reveal whether an ordinary outgoing successful interaction is a split or a birth. The resulting boundary data define [patches](patch.md), and the lattice sites they touch form the [interaction cone](interaction-cone.md).
+The records in $\mathcal I$ determine the incoming and outgoing boundaries of [patches](patch.md). Conditioning on $\mathcal G_T$ leaves exactly the patch-interior randomness averaged by the [patch factorization theorem](patch-factorization.md).

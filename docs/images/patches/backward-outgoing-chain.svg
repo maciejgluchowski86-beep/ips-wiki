@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title desc">
+<title id="title">Backward chain of outgoing-terminal patches</title><desc id="desc">A chain of IO and OO patches spans from time zero to a successful interaction at time u.</desc>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#111"/></marker></defs><rect width="800" height="360" fill="white"/>
+<path d="M120 320 L180 270 L240 230 L300 190 L360 150 L420 115 L480 85 L540 60 L600 45 L680 35 L680 320 Z" fill="#eee"/>
+<g fill="#666" stroke="#333"><rect x="150" y="255" width="90" height="50"/><rect x="240" y="205" width="95" height="50"/><rect x="335" y="155" width="95" height="50"/><rect x="430" y="105" width="95" height="50"/><rect x="525" y="55" width="95" height="50"/></g>
+<g stroke="#111" stroke-width="2.5" marker-end="url(#a)"><line x1="235" y1="255" x2="270" y2="230"/><line x1="330" y1="205" x2="365" y2="180"/><line x1="425" y1="155" x2="460" y2="130"/><line x1="520" y1="105" x2="555" y2="80"/><line x1="615" y1="55" x2="665" y2="35"/></g>
+<g font-family="sans-serif" font-size="16" fill="#111"><text x="184" y="285">IO</text><text x="274" y="235">OO</text><text x="369" y="185">IO</text><text x="464" y="135">OO</text><text x="559" y="85">IO</text><text x="94" y="333">0</text><text x="675" y="30">u</text><text x="280" y="340">patch lifetimes add to u</text></g>
+</svg>

@@ -1,21 +1,27 @@
 ---
-title: Patch critical density
-status: definition
+title: Patch threshold profile
+status: proved here
 audit: current
 tags:
   - patch
   - patch positivity
-  - critical density
+  - threshold profile
   - spin systems
 ---
 
-# Patch critical density
+# Patch threshold profile
 
-The patch critical density is a threshold defined from end-patch contributions. The definition below is retained independently of whether the current project formulas for those contributions are correct.
+For a patch-positive spin system, the **patch threshold profile**
+
+$$
+\mathbf p^\star=(p_i^\star)_{i\in\Lambda}
+$$
+
+records the calm-state density above which every end-patch contribution is nonnegative. It is not an ergodicity threshold or a phase-transition critical density.
 
 ## Definition
 
-For a site $i$, define
+For each site $i$,
 
 $$
 p_i^\star
@@ -23,23 +29,16 @@ p_i^\star
 \inf\left\{
 p\in[0,1]:
 C(p,P)\ge0
-\text{ for every possible end patch }P\text{ based at }i
+\text{ for every end patch based at }i
 \right\}.
+\tag{1}
 $$
 
-The patch critical density profile is
+Incoming end patches are nonnegative for every $p\in[0,1]$. The restriction comes from outgoing end patches.
 
-$$
-\mathbf p^\star=(p_i^\star)_{i\in\Lambda}.
-$$
+## Coefficient formula
 
-For a translation-invariant model, when this profile is constant, denote its common value by $p^\star$.
-
-This definition uses the end-patch contribution from [patch contribution](patch-contribution.md). Any explicit evaluation of the threshold inherits the unresolved status of the contribution formulas.
-
-## Conditional coefficient formula
-
-Assume the closed-form contribution identities in [patch contribution](patch-contribution.md) and the conditional [patch positivity property](patch-positivity-property.md). Under those assumptions, the current project calculation gives
+Under [patch positivity](patch-positivity-property.md),
 
 $$
 p_i^\star
@@ -50,37 +49,30 @@ p_i^\star
 \vn\ne S\subseteq N(i)\\
 c_i^0(S)+c_i^1(S)<0
 }}
-\frac{c_i^0(S)}
-{c_i^0(S)+c_i^1(S)}
+\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
 \right\}.
-\tag{1}
-$$
-
-The inner supremum is interpreted as $0$ when its index set is empty. Formula (1) is not currently a verified project result.
-
-## Empty-neighbour bound
-
-Assume the same unverified contribution and positivity identities as above, and suppose
-
-$$
-r_i=c_i^0(\vn)+c_i^1(\vn)>0,
-\qquad
-q_i=\frac{c_i^0(\vn)}{r_i}.
-$$
-
-Then the current project calculation gives, conditionally,
-
-$$
-p_i^\star\le q_i.
 \tag{2}
 $$
 
-Indeed, for every nonempty $S\subseteq N(i)$ with $c_i^0(S)+c_i^1(S)<0$, the determinant inequality appearing in the conditional patch-positivity criterion is equivalent to
+If the index set in the supremum is empty, the supremum contributes no positive restriction. At a site with $c_i^0(\vn)+c_i^1(\vn)=0$, patch positivity forces $c_i\equiv0$ and hence $p_i^\star=0$.
+
+## Empty-neighbour bound
+
+If
 
 $$
-\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
+r_i=c_i^0(\vn)+c_i^1(\vn)>0,
+$$
+
+then
+
+$$
+p_i^\star
 \le
 \frac{c_i^0(\vn)}{c_i^0(\vn)+c_i^1(\vn)}.
+\tag{3}
 $$
 
-Thus (2) follows from the conditional coefficient formula (1). Both statements remain conditional until the contribution and positivity calculations are independently verified.
+Indeed, for every nonempty $S$ with $c_i^0(S)+c_i^1(S)<0$, the determinant inequality in the patch-positivity criterion is equivalent to the corresponding ratio in (2) being at most the right-hand side of (3).
+
+The profile $\mathbf p^\star$ is the centering profile for the [centered-moment cones](high-density-measure.md).

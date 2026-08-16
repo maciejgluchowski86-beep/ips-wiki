@@ -4,6 +4,8 @@ This is a public-facing mathematical wiki for interacting particle systems, spin
 
 Each article is a separate page with rendered TeX math and ordinary links to neighboring entries. The source files are Markdown under `docs/`.
 
+For the patch theory, the canonical source is the repository manuscript *Patch representations and convergence for facilitated spin systems*. The wiki pages below present that paper's current definitions and proved results; older development-stage conditional warnings have been removed.
+
 ## Core entries
 
 A minimal dependency order is:
@@ -23,7 +25,7 @@ A minimal dependency order is:
 ## Duality entries
 
 1. [Duality](entries/duality.md)
-2. [Monomial duality for spin systems](entries/monomial-duality-for-spin-systems.md)
+2. [Monomial Feynman-Kac duality for spin systems](entries/monomial-duality-for-spin-systems.md)
 3. [Duality noise lemma](entries/duality-noise-lemma.md)
 
 ## Signed additive set processes
@@ -36,23 +38,23 @@ A minimal dependency order is:
 
 1. [Patch](entries/patch.md)
 2. [Interaction cone](entries/interaction-cone.md)
-3. [Patch consistency event](entries/patch-consistency-event.md)
+3. [Consistent patch law](entries/patch-consistency-event.md)
 4. [Patch factorization](entries/patch-factorization.md)
 5. [Patch contribution](entries/patch-contribution.md)
 6. [Patch positivity property](entries/patch-positivity-property.md)
-7. [Patch critical density](entries/patch-critical-density.md)
-8. [High-density measure](entries/high-density-measure.md)
+7. [Patch threshold profile](entries/patch-critical-density.md)
+8. [Centered-moment order and cones](entries/high-density-measure.md)
 9. [Patch representation of spin systems](entries/patch-representation-of-spin-systems.md)
-10. [Undoing duality under confined interactions](entries/undoing-duality-under-confined-interactions.md)
-11. [Finite propagation for zero-boundary restrictions](entries/finite-propagation-for-zero-boundary-restrictions.md)
-12. [Exponential relaxation under confined late interactions](entries/exponential-relaxation-under-confined-late-interactions.md)
-13. [Monomial monotonicity for high-density measures](entries/monomial-monotonicity-for-high-density-measures.md)
-14. [Pure-death comparison under patch positivity](entries/pure-death-comparison-under-patch-positivity.md)
+10. [Centered-moment order preservation](entries/monomial-monotonicity-for-high-density-measures.md)
+11. [Pure-death comparison under patch positivity](entries/pure-death-comparison-under-patch-positivity.md)
+12. [Spatial confinement of patch weights](entries/undoing-duality-under-confined-interactions.md)
+13. [Finite propagation for zero-boundary restrictions](entries/finite-propagation-for-zero-boundary-restrictions.md)
+14. [Late interactions and no-late relaxation](entries/exponential-relaxation-under-confined-late-interactions.md)
 15. [Common invariant limit under uniform pure deaths](entries/common-invariant-limit-under-uniform-pure-deaths.md)
 
 ## KCSM entries
 
-The KCSM block uses the standard convention that `0` is the facilitating state. The vacancy density is \(q\), and \(p=1-q\) is the density of occupied sites.
+The KCSM block uses the standard convention that `0` is the facilitating state. The vacancy density is $q$, and $p=1-q$ is the density of occupied sites.
 
 1. [Bernoulli refresh operator](entries/bernoulli-refresh-operator.md)
 2. [Update family](entries/update-family.md)
@@ -76,6 +78,7 @@ Start with [Probabilistic representations for nonlinear PDEs](pde-branching-repr
 
 - [Notation](meta/notation.md)
 - [Style decisions](meta/style-decisions.md)
+- [Wiki quality and pruning](meta/wiki-quality-and-pruning.md)
 - [Entry template](meta/entry-template.md)
 - [References](meta/references.md)
 

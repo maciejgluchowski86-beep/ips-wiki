@@ -1,83 +1,119 @@
 ---
-title: Exponential relaxation under confined late interactions
-status: conditional
+title: Late interactions and no-late relaxation
+status: proved here
 audit: current
 tags:
   - patch
   - ergodicity
   - spin systems
-  - convergence to equilibrium
+  - convergence
+  - pure deaths
 ---
 
-# Exponential relaxation under confined late interactions
+# Late interactions and no-late relaxation
 
-This page records a conditional convergence statement for the modified system from [undoing duality under confined interactions](undoing-duality-under-confined-interactions.md). Its probabilistic identification with a patch term depends on the unverified confined-interaction identity.
+This entry records the two temporal estimates used with [spatial confinement](undoing-duality-under-confined-interactions.md) in the canonical paper's convergence proof. It replaces the older wiki statement based on an assumed uniform mixing theorem for finite-volume modified processes.
 
-## Assumptions
-
-Assume the original spin system is uniformly bounded and finite range and that $\Lambda$ has [polynomial growth](polynomial-growth-lattice.md).
-
-For every $R\Subset\Lambda$, assume the zero-boundary semigroup $P_t^{R,0}$ has a unique invariant measure $\nu_R$ and there is a rate $\gamma_1>0$, independent of $R$, such that for every bounded $f$ on $\{0,1\}^R$,
+Suppose the spin system is patch positive and contains a pure-death component of rate $\varepsilon>0$. Removing that component gives a comparison system with patch contributions $C^\varepsilon$. For every patch with outgoing terminal boundary,
 
 $$
-\sup_{\eta\in\{0,1\}^R}
-\left|P_t^{R,0}f(\eta)-\nu_R(f)\right|
-\le C_R^0e^{-\gamma_1t}\|f\|_\infty
-$$
-
-for some $C_R^0<\infty$.
-
-For exterior sites, define
-
-$$
-\gamma_2
+C(P)
 =
-\inf_{i\in\Lambda}
-\left(c_i^0(\mathbf0)+c_i^1(\mathbf0)\right)
-$$
-
-and assume $\gamma_2>0$. Put $\gamma=\min(\gamma_1,\gamma_2)$. The modified generator $\cL_R$ then has the product invariant measure
-
-$$
-\mu_R
-=
-\nu_R\otimes
-\bigotimes_{i\notin R}
-\operatorname{Ber}\left(
-\frac{c_i^0(\mathbf0)}{c_i^0(\mathbf0)+c_i^1(\mathbf0)}
-\right).
-$$
-
-Assume also the local finite-propagation approximation used in the project: for each finite $A$, fixed $T$, and every $a>0$, there are local approximants $g_s$ to $g=P_T\chi_A$, supported in balls of radius $O(1+s)$, such that
-
-$$
-\|g-g_s\|_\infty\le C_{A,T,a}e^{-as}.
+e^{-\varepsilon(e(P)-s(P))}C^\varepsilon(P).
 \tag{1}
 $$
 
-Finally, assume the conditional confined-interaction identity
+Let $L_{T,t}$ be the event that no successful interaction occurs in $(T,t]$, and let $L_T$ be the event that no successful interaction occurs after $T$.
+
+![Backward ancestry chain of outgoing-terminal patches.](../images/patches/backward-outgoing-chain.svg)
+
+## Backward chain of outgoing patches
+
+If $(i,u,S)$ is a successful-interaction record with $u>0$, there are distinct patches $P_1,\ldots,P_n$, each with outgoing terminal boundary, such that
 
 $$
-\mathbb E_A\left[W_t^\xi\ind(E_{T,t}^R)\right]
-=
-\left(P_{t-T}^RP_T\chi_A\right)(\xi).
+s(P_1)=0,
+\qquad
+e(P_n)=u,
+$$
+
+$$
+e(P_k)=s(P_{k+1}),
+\qquad
+i(P_{k+1})\in N_*(i(P_k)),
+$$
+
+and hence
+
+$$
+\sum_{k=1}^n(e(P_k)-s(P_k))=u.
 \tag{2}
 $$
 
-## Conditional lemma
+Multiplying (1) along this chain gives the exact survival factor $e^{-\varepsilon u}$.
 
-Under these assumptions, for every $A\Subset\Lambda$, $T<\infty$, $R\Subset\Lambda$, and $0<\gamma'<\gamma$, there is $C_{A,R,T,\gamma'}<\infty$ such that, for $t\ge T$,
+## Late-interaction bound
+
+For $\mu\in\mathcal M_*$ and $A\subseteq R\Subset\Lambda$,
 
 $$
-\sup_{\xi\in\{0,1\}^\Lambda}
-\left|
-\mathbb E_A\left[W_t^\xi\ind(E_{T,t}^R)\right]
--
-\mu_R(P_T\chi_A)
-\right|
+0
 \le
-C_{A,R,T,\gamma'}e^{-\gamma'(t-T)}.
+\mathbb E_A\left[
+W_t^\mu\mathbf1_{E_T^R\cap L_{T,t}^c}
+\right]
+\le
+e^{-\varepsilon T},
 \tag{3}
 $$
 
-The analytic part of the current argument combines the product relaxation of the modified process, polynomial volume growth, and (1), then uses (2) to identify the result with the patch term. Equation (3) is therefore conditional on both the stated analytic hypotheses and the unresolved confined-interaction identity.
+and
+
+$$
+0
+\le
+\mathbb E_A\left[
+W\mathbf1_{E_T^R\cap L_T^c}
+\right]
+\le
+e^{-\varepsilon T}.
+\tag{4}
+$$
+
+![End patches when no successful interaction occurs after $T$.](../images/patches/no-late-end-patches.svg)
+
+## No-late-interaction relaxation
+
+On $L_{T,t}$ the bulk factors are already fixed at time $T$. Every end patch at horizon $t$ contains the full interval $[T,t]$. The dependence of each affine end contribution on its terminal spin therefore relaxes at rate at least $\varepsilon$. Confinement bounds the number of end patches by $|R|$.
+
+Consequently,
+
+$$
+\left|
+\mathbb E_A\left[
+W_t^\mu\mathbf1_{E_T^R\cap L_{T,t}}
+\right]
+-
+\mathbb E_A\left[
+W\mathbf1_{E_T^R\cap L_T}
+\right]
+\right|
+\le
+(1+|R|)e^{-\varepsilon(t-T)}.
+\tag{5}
+$$
+
+Together, spatial confinement, (3)-(4), and (5) give
+
+$$
+\left|
+(\mu P_t)(\chi_A)-\mathbb E_A[W]
+\right|
+\le
+2\rho_A(T,R)
++2e^{-\varepsilon T}
++(1+|R|)e^{-\varepsilon(t-T)}.
+\tag{6}
+$$
+
+Taking $R$ to be a linearly growing confinement ball and $T=t/2$ yields the exponential-polynomial rate in the [common invariant-limit theorem](common-invariant-limit-under-uniform-pure-deaths.md).

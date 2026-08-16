@@ -1,6 +1,6 @@
 ---
 title: Common invariant limit under uniform pure deaths
-status: conditional
+status: proved here
 audit: current
 tags:
   - spin systems
@@ -12,77 +12,96 @@ tags:
 
 # Common invariant limit under uniform pure deaths
 
-This page records the project common-limit theorem only as a **conditional statement**. The theorem has not completed the current verification protocol, and several of its patch prerequisites remain unverified.
+This is Theorem C of the canonical paper *Patch representations and convergence for facilitated spin systems*.
 
-## Assumptions
+Let $\Lambda$ have polynomial growth of exponent $D$. Suppose the spin system is [patch positive](patch-positivity-property.md) and contains an environment-independent pure-death component of rate $\varepsilon>0$.
 
-Let $\Lambda$ be a [polynomial-growth lattice](polynomial-growth-lattice.md) with exponent $D$, and let $\cL$ be the generator of a uniformly bounded finite-range spin system. Assume that there is $\varepsilon>0$ such that
+## Theorem
+
+There is an invariant probability measure $\pi$ such that, for every local function $f$, there is $K_f<\infty$ with
 
 $$
-c_i^1(\xi)\ge\varepsilon
-\qquad
-\text{for every }i\in\Lambda
-\text{ and }\xi\in\{0,1\}^{\Lambda}.
+\sup_{\mu\in\mathcal M_{-,K}}
+\left|
+(\mu P_t)(f)-\pi(f)
+\right|
+\le
+(1+2K)K_f(1+t)^D e^{-\varepsilon t/2}
 \tag{1}
 $$
 
-In addition to the standard existence assumptions for the spin-system semigroup, assume all of the following project-specific prerequisites:
-
-1. the conditional Feynman--Kac duality in [monomial duality for spin systems](monomial-duality-for-spin-systems.md) is valid with the required nonexplosion and integrability;
-2. the conditional [patch factorization](patch-factorization.md), [patch contribution](patch-contribution.md) identities, and [patch representation of spin systems](patch-representation-of-spin-systems.md) are valid;
-3. the conditional [patch positivity property](patch-positivity-property.md) and the associated critical profile $\mathbf p^\star$ are valid for the contribution formulas being used;
-4. after removing a uniform pure-death rate $\varepsilon$, the coefficientwise bulk and end contribution comparisons required by [pure-death comparison under patch positivity](pure-death-comparison-under-patch-positivity.md) hold, including the project identity that a terminal-$\mathsf O$ patch of lifetime $\Delta$ gains the factor $e^{-\varepsilon\Delta}$;
-5. the conditional [undoing duality under confined interactions](undoing-duality-under-confined-interactions.md) identity and the finite-propagation estimate used to control confinement errors are valid; and
-6. the full-patch limiting argument used by the project is justified, including local finiteness, integrability of the relevant nonnegative comparison weights, and the limiting/Fatou steps.
-
-These prerequisites are named here because they are not currently verified project theorems.
-
-## Conditional theorem
-
-Under (1) and prerequisites 1--6, the current project argument gives an [invariant probability measure](invariant-measure.md) $\pi$ such that for every local function $f$ there is $K_f<\infty$ with
+for every $K\ge0$ and $t\ge0$. Consequently,
 
 $$
-\sup_{\nu\in\mathcal M_-}
-\left|
-\nu(P_tf)-\pi(f)
-\right|
-\le
-K_f(1+t)^D e^{-\varepsilon t/2}.
-\tag{2}
+\mu P_t\Rightarrow\pi
 $$
 
-Consequently, conditionally on the same prerequisites, $\nu P_t$ converges weakly to $\pi$ for every $\nu\in\mathcal M_-$. In particular this applies to $\mathcal M_\star\subseteq\mathcal M_-$ whenever the corresponding high-density classes are defined from the same valid critical profile.
+for every $\mu\in\mathcal M_- = \bigcup_{K\ge0}\mathcal M_{-,K}$.
 
-The project identifies the limiting monomial moments by
+The dependence on $K$ in (1) is essential to the statement. The older wiki version incorrectly wrote a uniform supremum over the whole union $\mathcal M_-$.
+
+The limiting monomial moments are
 
 $$
 \pi(\chi_A)
 =
 \mathbb E_A\left[
-\prod_{P\in\mathcal P}C(P)\,
-\ind\left(|\mathcal P|<\infty\right)
-\right],
-\qquad A\Subset\Lambda,
-\tag{3}
+\prod_{P\in\mathcal P}C(P)
+\mathbf1_{\{|\mathcal P|<\infty\}}
+\right]
+\qquad
+(A\Subset\Lambda).
+\tag{2}
 $$
 
-with the integrand set to zero on $\{|\mathcal P|=\infty\}$. Formula (3) is part of the same unverified full-patch limiting argument and is not asserted independently.
+## Proof mechanism
 
-## Conditional uniqueness corollary
+For $\mu\in\mathcal M_*$, the patch representation gives a nonnegative finite-horizon weight $W_t^\mu$ and limiting full-patch weight $W$. Three estimates control their difference:
 
-If the same prerequisites hold and
+1. [spatial confinement](undoing-duality-under-confined-interactions.md) bounds skeletons leaving a finite region by the zero-boundary finite-propagation error;
+2. [late successful interactions](exponential-relaxation-under-confined-late-interactions.md) cost at most $e^{-\varepsilon T}$ because an outgoing-patch ancestry chain spans the full time to the interaction; and
+3. on the event of no successful interaction after $T$, the end factors relax at rate $e^{-\varepsilon(t-T)}$.
+
+For a suitable ball $R_T$,
+
+$$
+\left|
+(\mu P_t)(\chi_A)-\mathbb E_A[W]
+\right|
+\le
+2\rho_A(T,R_T)
++2e^{-\varepsilon T}
++(1+|R_T|)e^{-\varepsilon(t-T)}.
+$$
+
+Finite propagation gives $\rho_A(T,R_T)\le C_Ae^{-\varepsilon T}$ and polynomial growth gives $|R_T|\le C_A(1+T)^D$. Taking $T=t/2$ yields the rate in (1) for $\mathcal M_*$.
+
+For $\mu\in\mathcal M_{-,K}$, set
+
+$$
+\overline\mu
+=
+\frac{\mu+K\mu_{\mathbf1}}{1+K}
+\in\mathcal M_*.
+$$
+
+Since $\mu=(1+K)\overline\mu-K\mu_{\mathbf1}$, the $\mathcal M_*$ estimate gives the factor $1+2K$.
+
+## Uniform exponential ergodicity
+
+If
 
 $$
 \mathbf p^\star\le\frac12\mathbf1,
 $$
 
-so that the project high-density calculation gives every probability measure in $\mathcal M_-$, then (2) yields, conditionally,
+then every probability measure belongs to $\mathcal M_{-,1}$. Hence $\pi$ is the unique invariant measure and
 
 $$
-\sup_{\xi\in\{0,1\}^{\Lambda}}
-\left|P_tf(\xi)-\pi(f)\right|
+\sup_{\eta\in\{0,1\}^\Lambda}
+|P_tf(\eta)-\pi(f)|
 \le
 K_f(1+t)^D e^{-\varepsilon t/2}
 $$
 
-for every local $f$, and hence uniqueness of the invariant measure. This corollary inherits every unresolved prerequisite listed above.
+for every local $f$.

@@ -1,6 +1,6 @@
 ---
 title: Patch positivity property
-status: conditional
+status: proved here
 audit: current
 tags:
   - duality
@@ -11,42 +11,58 @@ tags:
 
 # Patch positivity property
 
-This page records the project coefficient criterion for nonnegativity of bulk patch contributions. It is **conditional on the closed-form contribution identities** in [patch contribution](patch-contribution.md), which have not completed the current independent verification protocol.
-
-## Conditional criterion
-
-Assume the contribution formulas on the patch-contribution page are correct. Then all bulk patch contributions at source site $i$ are nonnegative for every patch length and every initial interaction target if and only if, for every nonempty $S\subseteq N(i)$,
+A spin system is **patch positive** when
 
 $$
-\begin{cases}
+C(P)\ge0
+$$
+
+for every possible full patch shape $P$. The canonical paper gives an exact coefficient criterion.
+
+Put
+
+$$
+r_i=c_i^0(\vn)+c_i^1(\vn).
+$$
+
+## Coefficient criterion
+
+At a site $i$ with $r_i=0$, patch positivity holds exactly when
+
+$$
+c_i\equiv0.
+$$
+
+At a site with $r_i>0$, patch positivity holds exactly when, for every nonempty $S\subseteq N(i)$,
+
+$$
 c_i^0(S)+c_i^1(S)\le0,
-\qquad
-c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)\ge0,
-&c_i^0(\vn)+c_i^1(\vn)>0,\\[0.6em]
-c_i^0(S)+c_i^1(S)\le0,
-\qquad
-c_i^1(S)\le0,
-&c_i^0(\vn)+c_i^1(\vn)=0.
-\end{cases}
 \tag{1}
 $$
 
-The second line is the degenerate case. Since $c_i^0(\vn)$ and $c_i^1(\vn)$ are nonnegative rates, $c_i^0(\vn)+c_i^1(\vn)=0$ means that both empty-neighbour flip rates vanish.
-
-## Dependence on the contribution identities
-
-Under the current formulas, the $\mathsf{II}$ and $\mathsf{IO}$ bulk rows are automatically nonnegative. The $\mathsf{OO}$ row gives
+and
 
 $$
-c_i^0(S)+c_i^1(S)\le0.
+c_i^1(\vn)c_i^0(S)
+\ge
+c_i^0(\vn)c_i^1(S).
+\tag{2}
 $$
 
-For the $\mathsf{OI}$ row, the current formula has numerator
+The first inequality is forced by $\mathsf{OO}$ patches. For $\mathsf{OI}$ and $\mathsf{OE}$ patches, the relevant numerator is
 
 $$
-c_i^0(S)-\left(c_i^0(S)+c_i^1(S)\right)\psi_i(\Delta,1).
+c_i^0(S)
+-
+\bigl(c_i^0(S)+c_i^1(S)\bigr)\psi_i(\Delta,1).
 $$
 
-Using the current empty-neighbour relaxation formula for $\psi_i$ yields the determinant condition in the first line of (1), or $c_i^1(S)\le0$ in the degenerate case. Because this derivation depends on the unaudited contribution formulas, (1) remains conditional.
+Under (1), this is minimized in the long-patch limit, where nonnegativity is exactly (2). Incoming-initial patch contributions are automatically nonnegative.
 
-The [patch critical density](patch-critical-density.md), [patch representation of spin systems](patch-representation-of-spin-systems.md), and later comparison pages must therefore name this prerequisite explicitly rather than treat patch positivity as a verified theorem.
+## Consequence for local rates
+
+Patch positivity implies that $c_i^1$ and $c_i^0+c_i^1$ are coordinatewise nonincreasing as $1$'s are added to the neighbourhood of $i$. This is weaker than patch positivity: coordinatewise monotonicity alone does not imply (1)-(2).
+
+For a fixed neighbourhood configuration with positive total flip intensity, the local rates can be viewed as a Bernoulli refresh. Replacing $0$-neighbours by $1$-neighbours cannot increase either the refresh intensity or the $1\to0$ transition rate. The full flip rate $c_i^0$ itself need not be monotone.
+
+Patch positivity controls full-patch factors. Nonnegativity of end factors additionally depends on the terminal calm-state density and is encoded by the [patch threshold profile](patch-critical-density.md).

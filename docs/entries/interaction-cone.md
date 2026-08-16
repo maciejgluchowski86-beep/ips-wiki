@@ -1,6 +1,7 @@
 ---
 title: Interaction cone
 status: definition
+audit: current
 tags:
   - signed additive set process
   - successful interaction
@@ -10,22 +11,22 @@ tags:
 
 # Interaction cone
 
-Fix a [signed additive set process](signed-additive-set-process.md) started from \(A_0\Subset\Lambda\). For \(T\le\infty\), its interaction cone is
+Fix a signed additive set process started from $A_0\Subset\Lambda$. For $T<\infty$, its interaction cone is
 
 $$
 \mathbf{Cone}_T
 =
 \bigcup_{(i,t,S)\in\mathcal I_T}
-\{i\}\cup S \setminus \{\infty\},
+(\{i\}\cup S)\setminus\{\infty\},
 $$
 
-where \(\mathcal I_T\) is the [successful-interaction](successful-interaction.md) set and \(\mathcal I_\infty=\mathcal I\). The initial skeleton \((\infty,0,A_0)\) contributes its target \(A_0\) but not its formal source. Thus \(\mathbf{Cone}_T\subseteq\Lambda\) is the set of lattice sites reached by time \(T\), and
+where $\mathcal I_T$ is the [successful-interaction](successful-interaction.md) skeleton. Thus $\mathbf{Cone}_T$ is the set of lattice sites reached by the skeleton by time $T$, and
 
 $$
 \mathbf{Cone}_0=A_0.
 $$
 
-The cones are increasing in time, and
+The cones are increasing in $T$. The all-time reached set is
 
 $$
 \mathbf{Cone}_\infty
@@ -33,12 +34,18 @@ $$
 \bigcup_{T<\infty}\mathbf{Cone}_T.
 $$
 
-If \(A_0\subseteq R\), then \(\{\mathbf{Cone}_T\subseteq R\}\) is the event \(E_T^R\) that the successful interactions up to time \(T\) are [confined to \(R\)](undoing-duality-under-confined-interactions.md#confined-interactions).
+For $A_0\subseteq R\Subset\Lambda$, the event
 
-At every fixed finite horizon \(T\ge0\), almost surely, sending an end [patch](patch.md) to its site is a bijection from \(\mathcal E_T\) to \(\mathbf{Cone}_T\). At time zero, \(\mathcal E_0\) consists of the zero-length \(\mathsf{IE}\) patches based at the sites of \(A_0\). In particular,
+$$
+E_T^R=\{\mathbf{Cone}_T\subseteq R\}
+$$
+
+is the confinement event used in the [spatial-confinement estimate](undoing-duality-under-confined-interactions.md).
+
+At every fixed finite horizon $T$, distinct end [patches](patch.md) have distinct sites, and each site reached by the skeleton carries exactly one end patch. Hence, almost surely,
 
 $$
 |\mathcal E_T|=|\mathbf{Cone}_T|.
 $$
 
-If no ordinary successful interaction occurs after time \(T\), then \(\mathbf{Cone}_t=\mathbf{Cone}_T\) for every \(t\ge T\). Each site in this common cone then carries one infinite patch \(P\), whose truncation \(P^{\downarrow t}\) is the corresponding element of \(\mathcal E_t\).
+If no ordinary successful interaction occurs after time $T$, then the cone no longer grows. Each site in the common cone carries one full patch extending to infinity, whose truncation at time $t\ge T$ is the corresponding end patch at horizon $t$.

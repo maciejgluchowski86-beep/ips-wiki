@@ -1,6 +1,6 @@
 ---
 title: Patch contribution
-status: definition
+status: proved here
 audit: current
 tags:
   - signed additive set process
@@ -11,112 +11,137 @@ tags:
 
 # Patch contribution
 
-Fix a labeled [patch](patch.md) $P$ and write
+Fix a labeled [patch](patch.md) $P$ based at $i=i(P)$. Let $X^P$ be its one-site active process under the [consistent patch law](patch-consistency-event.md). If $\mathsf X(P)=\mathsf O$, let $\alpha(P)\in\{\delta,\beta\}$ be the kind of its initial outgoing interaction.
+
+The sign attached to the initial boundary is
 
 $$
-i=i(P),\qquad s=s(P),\qquad e=e(P),\qquad S=S(P).
-$$
-
-Let $(X_u^P)_{s\le u<e}$ be the local active indicator under the [reference patch measure](patch-consistency-event.md#reference-patch-measure). If $\mathsf X(P)=\mathsf O$, let $\alpha_P\in\{\delta,\beta\}$ be the kind of its initial interaction. Define
-
-$$
-\sigma_P
+\sigma(P)
 =
 \begin{cases}
-1,&\mathsf X(P)=\mathsf I,\\
-\sigma_i^{\alpha_P}(S),&\mathsf X(P)=\mathsf O.
++,&\mathsf X(P)=\mathsf I,\\
+\sigma_i^{\alpha(P)}(S(P)),&\mathsf X(P)=\mathsf O.
 \end{cases}
 $$
-
-When a patch is evaluated at $q\in[s,e]$, use
-
-$$
-X_q^P=
-\begin{cases}
-X_s^P,&q=s,\\
-X_{q-}^P,&q>s.
-\end{cases}
-$$
-
-## Definition
 
 For a full patch $P\in\mathcal P$, define
 
 $$
 F(P)
 =
-\sigma_P\exp\left(V_i\int_s^eX_u^P\,du\right),
-\qquad
-C(P)=\mathbb E_P^{\mathrm{con}}[F(P)],
+\sigma(P)
+\exp\left(
+V_i\int_{s(P)}^{e(P)}X_u^P\,du
+\right),
 $$
 
-where an infinite endpoint is interpreted by the corresponding increasing-endpoint limit whenever that limit exists.
+$$
+C(P)=\mathbb E_P^{\mathrm{con}}[F(P)].
+$$
 
-For $s\le t\le e$, $t<\infty$, and $z\in[0,1]$, define
+When $e(P)=\infty$, the exponential and expectation are interpreted by the finite-endpoint limit.
+
+For an end patch $P\in\mathcal E_t$ and $z\in[0,1]$, define
 
 $$
-F_t(z,P)
+F(z,P)
 =
-\sigma_P\exp\left(V_i\int_s^tX_u^P\,du\right)z^{X_t^P},
-\qquad
-C_t(z,P)=\mathbb E_P^{\mathrm{con}}[F_t(z,P)].
+\sigma(P)
+\exp\left(
+V_i\int_{s(P)}^tX_u^P\,du
+\right)
+z^{X_t^P},
 $$
 
-For an end patch $P\in\mathcal E_t$, write $C(z,P)=C_t(z,P)$. For a configuration $\xi$ and a one-density profile $\mathbf p=(p_j)$, use
-
 $$
-C_t(\xi,P)=C_t(\xi(i),P),
-\qquad
-C_t(\mathbf p,P)=C_t(p_i,P),
+C(z,P)=\mathbb E_P^{\mathrm{con}}[F(z,P)].
 $$
 
-and analogously for $C$.
+Every end contribution is affine in $z$.
 
-These are definitions. Their use in a representation theorem additionally requires the conditional [patch factorization](patch-factorization.md).
+## Closed formulas
 
-## Conditional closed-form identities
-
-The project contains explicit formulas for the quantities above in terms of the dual rates. Those formulas depend on the unaudited patch calculations and are therefore recorded only conditionally.
-
-Define
+Set
 
 $$
-\begin{aligned}
 \alpha_i
-&=
+=
 \sum_{R\subseteq N(i)}\delta_i(R)
 +
-\sum_{\vn\ne R\subseteq N(i)}\beta_i(R),\\
-V_i&=\alpha_i+a_i^\beta(\vn),\\
+\sum_{\substack{R\subseteq N(i)\\R\ne\vn}}\beta_i(R),
+$$
+
+so $V_i=\alpha_i+a_i^\beta(\vn)$. For $\Delta\in[0,\infty]$ and $z\in[0,1]$, define
+
+$$
 \varphi_i(\Delta)
-&=e^{-\alpha_i\Delta}
-+\delta_i(\vn)\int_0^\Delta e^{-\alpha_i w}\,dw,\\
-\psi_i(\Delta_-,\Delta_+,z)
-&=\delta_i(\vn)\int_0^{\Delta_-}e^{a_i^\beta(\vn)w}\,dw
-+z e^{a_i^\beta(\vn)\Delta_-}\varphi_i(\Delta_+).
-\end{aligned}
+=
+e^{-\alpha_i\Delta}
++
+\delta_i(\vn)
+\int_0^\Delta e^{-\alpha_i u}\,du,
 $$
 
-Assuming the current patch calculation is correct, with $\Delta_-=t-s$, $\Delta_+=e-t$, and $\Delta=e-s$,
+$$
+\psi_i(\Delta,z)
+=
+\delta_i(\vn)
+\int_0^\Delta e^{a_i^\beta(\vn)u}\,du
++
+z e^{a_i^\beta(\vn)\Delta}.
+$$
+
+For an end patch of length $\Delta=e(P)-s(P)$,
 
 $$
-C_t(z,P)
+C(z,P)
 =
 \begin{cases}
-\dfrac{\psi_i(\Delta_-,\Delta_+,z)}{\varphi_i(\Delta)},
-&\mathsf X(P)=\mathsf I,\ \mathsf Y(P)\in\{\mathsf I,\mathsf E\},\\[1.2em]
-z e^{V_i\Delta_-},
-&(\mathsf X(P),\mathsf Y(P))=(\mathsf I,\mathsf O),\\[1.2em]
-\dfrac{\delta_i(S)\sigma_i^\delta(S)+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta_-,\Delta_+,z)}
-{\delta_i(S)+\beta_i(S)\varphi_i(\Delta)},
-&\mathsf X(P)=\mathsf O,\ \mathsf Y(P)\in\{\mathsf I,\mathsf E\},\\[1.5em]
-\sigma_i^\beta(S)z e^{V_i\Delta_-},
-&(\mathsf X(P),\mathsf Y(P))=(\mathsf O,\mathsf O).
+\displaystyle
+\frac{\psi_i(\Delta,z)}{\varphi_i(\Delta)},
+&\mathsf X(P)=\mathsf I,\\[1.2em]
+\displaystyle
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,z)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+},
+&\mathsf X(P)=\mathsf O.
 \end{cases}
 \tag{1}
 $$
 
-The corresponding spin-system coefficient form follows from
+For a full patch of length $\Delta=e(P)-s(P)$,
+
+$$
+C(P)
+=
+\begin{cases}
+\displaystyle
+\frac{\psi_i(\Delta,1)}{\varphi_i(\Delta)},
+&\mathsf X(P)\mathsf Y(P)\in\{\mathsf{II},\mathsf{IE}\},\\[1.2em]
+e^{V_i\Delta},
+&\mathsf X(P)\mathsf Y(P)=\mathsf{IO},\\[0.8em]
+\displaystyle
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,1)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+},
+&\mathsf X(P)\mathsf Y(P)\in\{\mathsf{OI},\mathsf{OE}\},\\[1.2em]
+\sigma_i^\beta(S)e^{V_i\Delta},
+&\mathsf X(P)\mathsf Y(P)=\mathsf{OO}.
+\end{cases}
+\tag{2}
+$$
+
+A denominator can vanish only for a labeled patch having zero probability of occurring; every realized patch has positive normalizer.
+
+The dual-to-spin substitutions are
 
 $$
 \delta_i(S)\sigma_i^\delta(S)=c_i^0(S),
@@ -124,43 +149,23 @@ $$
 \beta_i(S)\sigma_i^\beta(S)=-c_i^0(S)-c_i^1(S).
 $$
 
-No closed-form identity on this page is currently promoted beyond this conditional status.
-
-## No-interaction continuation
-
-Let $Q$ be an end patch based at $i$, and let $u\ge e(Q)$. Write $Q^{\uparrow u}$ for the continuation of $Q$ through time $u$ without an intervening successful interaction. Define its contribution, including the conditional probability of the continuation, by
-
-$$
-C(z,Q^{\uparrow u})
-:=
-C\left(\psi_i(u-e(Q),z),Q\right).
-$$
-
-This is the project convention for no-interaction continuation. If
+In particular, if
 
 $$
 r_i=c_i^0(\vn)+c_i^1(\vn)>0,
 \qquad
-q_i=\frac{c_i^0(\vn)}{r_i},
+p_i^\circ=\frac{c_i^0(\vn)}{r_i},
 $$
 
-then the current unaudited closed-form calculation gives
+then
 
 $$
-\psi_i(v,z)=q_i+(z-q_i)e^{-r_i v}
+\psi_i(u,z)=p_i^\circ+(z-p_i^\circ)e^{-r_i u}.
+\tag{3}
 $$
 
-and consequently, conditionally on that calculation,
+## Extension versus continuation probability
 
-$$
-\partial_z C(z,Q^{\uparrow u})
-=e^{-r_i(u-e(Q))}\,\partial_zC(z,Q),
-$$
+For an end patch $P$ and $u\ge e(P)$, the geometric extension $P^{\uparrow u}$ is defined on the [patch](patch.md) page. Its ordinary contribution is obtained from (1) using the extended length $u-s(P)$.
 
-and
-
-$$
-C(Q^{\uparrow\infty})
-:=\lim_{u\to\infty}C(z,Q^{\uparrow u})
-=C(q_i,Q).
-$$
+It is important that $C(z,P^{\uparrow u})$ is normalized only by the consistency probability of the **extended patch**. It does not contain the probability that the realized skeleton has no successful interaction during $[e(P),u)$. Probability-weighted continuation identities belong to the [late-interaction and relaxation](exponential-relaxation-under-confined-late-interactions.md) estimates.

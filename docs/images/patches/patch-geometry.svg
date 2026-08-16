@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+<title id="title">Successful-interaction skeleton and patch decomposition</title>
+<desc id="desc">A spacetime schematic with site lines, successful interactions, active regions, and patch boundaries separating bulk and end patches.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#111"/></marker><pattern id="stripe" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#a92b32" stroke-width="3"/></pattern></defs>
+<rect width="900" height="430" fill="white"/>
+<text x="225" y="28" text-anchor="middle" font-family="sans-serif" font-size="20">signed dual</text><text x="675" y="28" text-anchor="middle" font-family="sans-serif" font-size="20">patch decomposition</text>
+<g stroke="#333" stroke-width="1.2"> <line x1="70" y1="370" x2="70" y2="55"/><line x1="130" y1="370" x2="130" y2="55"/><line x1="190" y1="370" x2="190" y2="55"/><line x1="250" y1="370" x2="250" y2="55"/><line x1="310" y1="370" x2="310" y2="55"/><line x1="370" y1="370" x2="370" y2="55"/></g>
+<g fill="#ddd"><rect x="60" y="300" width="20" height="70"/><rect x="120" y="220" width="20" height="150"/><rect x="180" y="300" width="20" height="70"/><rect x="240" y="150" width="20" height="220"/><rect x="300" y="210" width="20" height="160"/><rect x="360" y="95" width="20" height="275"/></g>
+<g stroke="#111" stroke-width="2" marker-end="url(#arrow)"><line x1="130" y1="285" x2="70" y2="285"/><line x1="130" y1="285" x2="190" y2="285"/><line x1="250" y1="205" x2="190" y2="205"/><line x1="250" y1="205" x2="310" y2="205"/><line x1="370" y1="145" x2="310" y2="145"/></g>
+<g fill="#111"><circle cx="130" cy="285" r="4"/><circle cx="250" cy="205" r="4"/><circle cx="370" cy="145" r="4"/></g><g font-family="sans-serif" font-size="14"><text x="55" y="395">sites</text><text x="16" y="70">time</text></g>
+<g stroke="#333" stroke-width="1.2"><line x1="520" y1="370" x2="520" y2="55"/><line x1="580" y1="370" x2="580" y2="55"/><line x1="640" y1="370" x2="640" y2="55"/><line x1="700" y1="370" x2="700" y2="55"/><line x1="760" y1="370" x2="760" y2="55"/><line x1="820" y1="370" x2="820" y2="55"/></g>
+<g fill="#ddd"><rect x="510" y="300" width="20" height="70"/><rect x="570" y="220" width="20" height="150"/><rect x="630" y="300" width="20" height="70"/><rect x="690" y="150" width="20" height="220"/><rect x="750" y="210" width="20" height="160"/><rect x="810" y="95" width="20" height="275"/></g>
+<g fill="url(#stripe)" opacity="0.9"><rect x="503" y="278" width="34" height="14"/><rect x="563" y="278" width="34" height="14"/><rect x="623" y="198" width="34" height="14"/><rect x="683" y="198" width="34" height="14"/><rect x="743" y="138" width="34" height="14"/></g>
+<polyline points="495,120 555,120 555,185 615,185 615,245 675,245 675,305 735,305 735,330 845,330" fill="none" stroke="#a92b32" stroke-width="6"/>
+<g font-family="sans-serif" font-size="14" fill="#111"><text x="518" y="270">II</text><text x="578" y="270">IO</text><text x="638" y="190">OI</text><text x="698" y="190">OO</text><text x="778" y="86">IE/OE</text><text x="685" y="353">bulk patches</text><text x="760" y="112">end patches</text></g>
+</svg>

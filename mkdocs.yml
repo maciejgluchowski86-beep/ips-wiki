@@ -33,7 +33,7 @@ nav:
       - Ergodicity: entries/ergodicity.md
   - Duality:
       - Duality: entries/duality.md
-      - Monomial duality for spin systems: entries/monomial-duality-for-spin-systems.md
+      - Monomial Feynman-Kac duality for spin systems: entries/monomial-duality-for-spin-systems.md
       - Duality noise lemma: entries/duality-noise-lemma.md
   - Signed additive set processes:
       - Signed additive set process: entries/signed-additive-set-process.md
@@ -42,18 +42,18 @@ nav:
   - Patches:
       - Patch: entries/patch.md
       - Interaction cone: entries/interaction-cone.md
-      - Patch consistency event: entries/patch-consistency-event.md
+      - Consistent patch law: entries/patch-consistency-event.md
       - Patch factorization: entries/patch-factorization.md
       - Patch contribution: entries/patch-contribution.md
       - Patch positivity property: entries/patch-positivity-property.md
-      - Patch critical density: entries/patch-critical-density.md
-      - High-density measure: entries/high-density-measure.md
+      - Patch threshold profile: entries/patch-critical-density.md
+      - Centered-moment order and cones: entries/high-density-measure.md
       - Patch representation of spin systems: entries/patch-representation-of-spin-systems.md
-      - Undoing duality under confined interactions: entries/undoing-duality-under-confined-interactions.md
-      - Finite propagation for zero-boundary restrictions: entries/finite-propagation-for-zero-boundary-restrictions.md
-      - Exponential relaxation under confined late interactions: entries/exponential-relaxation-under-confined-late-interactions.md
-      - Monomial monotonicity for high-density measures: entries/monomial-monotonicity-for-high-density-measures.md
+      - Centered-moment order preservation: entries/monomial-monotonicity-for-high-density-measures.md
       - Pure-death comparison under patch positivity: entries/pure-death-comparison-under-patch-positivity.md
+      - Spatial confinement of patch weights: entries/undoing-duality-under-confined-interactions.md
+      - Finite propagation for zero-boundary restrictions: entries/finite-propagation-for-zero-boundary-restrictions.md
+      - Late interactions and no-late relaxation: entries/exponential-relaxation-under-confined-late-interactions.md
       - Common invariant limit under uniform pure deaths: entries/common-invariant-limit-under-uniform-pure-deaths.md
   - KCSM:
       - Bernoulli refresh operator: entries/bernoulli-refresh-operator.md

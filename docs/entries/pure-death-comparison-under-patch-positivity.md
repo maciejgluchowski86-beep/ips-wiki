@@ -1,6 +1,6 @@
 ---
 title: Pure-death comparison under patch positivity
-status: conditional
+status: proved here
 audit: current
 tags:
   - patch positivity
@@ -11,73 +11,56 @@ tags:
 
 # Pure-death comparison under patch positivity
 
-This page records the project pure-death comparison as a **conditional statement**. The comparison depends on the unverified patch representation and on a coefficientwise comparison of patch contributions; neither prerequisite is currently a verified project theorem.
-
-Let $\cL$ and $\cL'$ be uniformly bounded finite-range [spin-system](spin-system.md) generators such that
+Let $\cL$ and $\cL'$ be spin-system generators with semigroups $P_t$ and $P_t'$. Suppose $\cL$ is [patch positive](patch-positivity-property.md) and
 
 $$
-\cL=\cL'+\mathcal D_{\mathbf a},
-$$
-
-where
-
-$$
-\mathcal D_{\mathbf a}f(\eta)
+\cL f(\eta)
 =
-\sum_{i\in\Lambda}a_i\left(f(\eta^{i,0})-f(\eta)\right),
-\qquad a_i\ge0.
+\cL'f(\eta)
++
+\sum_{i\in\Lambda}d_i
+\bigl(f(\eta^{i,0})-f(\eta)\bigr),
+\qquad d_i\ge0.
+\tag{1}
 $$
 
-Let $P_t$ and $P_t'$ be their semigroups.
+Thus $\cL'$ is obtained by removing an environment-independent mechanism creating the facilitating state $0$.
 
-## Required patch hypotheses
+## Corollary
 
-Assume all of the following for the two systems:
-
-1. the conditional [patch representation of spin systems](patch-representation-of-spin-systems.md) is valid for the monomials under consideration;
-2. the two representations use the same successful-interaction skeleton and a common centering profile $\mathbf p^\star$;
-3. for every bulk patch $P$, the contribution comparison
-   $$
-   0\le C(P)\le C'(P)
-   \tag{1}
-   $$
-   holds; and
-4. every end contribution has the affine forms
-   $$
-   \begin{aligned}
-   C(z,P)&=C(p_i^\star,P)+b(P)(z-p_i^\star),\\
-   C'(z,P)&=C'(p_i^\star,P)+b'(P)(z-p_i^\star),
-   \end{aligned}
-   $$
-   with
-   $$
-   0\le C(p_i^\star,P)\le C'(p_i^\star,P),
-   \qquad
-   0\le b(P)\le b'(P).
-   \tag{2}
-   $$
-
-The current project patch calculations claim (1)--(2) for removal of pure deaths under the conditional patch-positivity criterion, but that claim has not completed independent verification. This page therefore takes (1)--(2) as explicit prerequisites.
-
-## Conditional comparison
-
-Under the hypotheses above, for every $\nu\in\mathcal M_\star$, every $A\Subset\Lambda$, and every $t\ge0$, the coefficientwise end-factor expansion in the patch representation gives
+The generator $\cL'$ is patch positive with the same [patch threshold profile](patch-critical-density.md) $\mathbf p^\star$. For every $\mu\in\mathcal M_*$, every $A\Subset\Lambda$, and every $t\ge0$,
 
 $$
-\nu(P_t\chi_A)\le\nu(P_t'\chi_A).
-\tag{3}
+(\mu P_t)(\chi_A)
+\le
+(\mu P_t')(\chi_A).
+\tag{2}
 $$
 
-The reason is purely coefficientwise once the patch representation and (1)--(2) are assumed: every centered moment of $\nu\in\mathcal M_\star$ entering the end-factor expansion is nonnegative, and each bulk or end coefficient is bounded above by its primed counterpart.
+This is a comparison of joint occupation moments, not a stochastic-domination assertion.
 
-## Conditional invariant-measure comparison
+## Patch comparison
 
-If, in addition, the two systems have unique invariant measures $\pi$ and $\pi'$ and the usual Cesàro limiting argument applies, then (3) gives
+The two systems have the same dual interaction rates, successful-interaction skeleton, and reference patch laws. Only the Feynman-Kac potential changes. The contribution formulas give
+
+$$
+0\le C(P)\le C'(P)
+$$
+
+for every full patch. For an end patch based at $i$,
+
+$$
+0\le C(p_i^\star,P)\le C'(p_i^\star,P),
+$$
+
+and the slope of the affine end contribution also increases.
+
+Expanding the end factors around $\mathbf p^\star$ expresses each skeleton weight as a nonnegative linear combination of centered moments of $\mu\in\mathcal M_*$. The primed coefficient of every term dominates the unprimed one, so the [patch representation](patch-representation-of-spin-systems.md) gives (2) skeleton by skeleton and hence after expectation.
+
+If the two systems have unique invariant measures $\pi$ and $\pi'$, the Cesaro argument gives
 
 $$
 \pi(\chi_A)\le\pi'(\chi_A)
-\qquad\text{for every }A\Subset\Lambda.
-\tag{4}
 $$
 
-Equation (4) compares joint occupation moments. It does not by itself assert stochastic domination.
+for every finite $A$.

@@ -1,212 +1,131 @@
 ---
-title: High-density measure
+title: Centered-moment order and cones
 status: definition
+audit: current
 tags:
   - centered moments
-  - patch critical density
+  - patch threshold profile
   - invariant class
+  - moment order
 ---
 
-# High-density measure
+# Centered-moment order and cones
 
-For a [spin system](spin-system.md) with the [patch positivity property](patch-positivity-property.md), high density is expressed by nonnegativity of all joint moments centered at the [patch critical density](patch-critical-density.md). This class contains, but is generally larger than, mixtures of [Bernoulli product measures](bernoulli-product-measure.md) with profiles above the critical profile.
-
-**References.** None yet.
-
-## Definition
-
-Let
+Fix a patch-positive spin system with [patch threshold profile](patch-critical-density.md)
 
 $$
-\mathbf p^\star=(p_i^\star)_{i\in\Lambda}
+\mathbf p^\star=(p_i^\star)_{i\in\Lambda}.
 $$
 
-be the patch critical density profile. For \(A\Subset\Lambda\), define the centered monomial
+For $A\Subset\Lambda$, define
 
 $$
-\chi_A^\star(\eta)
+\chi_A^*(\eta)
 =
-\prod_{i\in A}\left(\eta(i)-p_i^\star\right),
+\prod_{i\in A}(\eta(i)-p_i^\star),
 \qquad
-\chi_\vn^\star=1.
+\chi_\vn^*=1.
 $$
 
-A probability measure \(\mu\) on \(\{0,1\}^\Lambda\) is **high-density** if
+## Centered-moment order
+
+For probability measures $\mu$ and $\nu$, write
 
 $$
-\mu\left(\chi_A^\star\right)\ge0
+\mu\preceq_*\nu
+$$
+
+when
+
+$$
+\mu(\chi_A^*)\le\nu(\chi_A^*)
 \qquad
 \text{for every }A\Subset\Lambda.
+\tag{1}
 $$
 
-The family of high-density measures is
+This is an order of centered joint moments. On the full space of probability measures it need not have a largest or smallest element, so it is kept distinct from ordinary stochastic order.
+
+## The cone $\mathcal M_*$
+
+Define
 
 $$
-\mathcal M_\star
+\mathcal M_*
 =
 \left\{
 \mu:
-\mu\left(\chi_A^\star\right)\ge0
+\mu(\chi_A^*)\ge0
 \text{ for every }A\Subset\Lambda
 \right\}.
+\tag{2}
 $$
 
 Equivalently,
 
 $$
-\mu\left(
-\prod_{i\in A}(\eta(i)-q_i)
-\right)\ge0
-\qquad
-\text{for every }A\Subset\Lambda
-\text{ and every }\mathbf q\in[0,1]^\Lambda
-\text{ with }\mathbf q\le\mathbf p^\star.
-\tag{1}
-$$
-
-Indeed, expanding around \(\mathbf p^\star\) gives
-
-$$
-\prod_{i\in A}(\eta(i)-q_i)
+\mathcal M_*
 =
-\sum_{B\subseteq A}
-\left(
-\prod_{i\in A\setminus B}(p_i^\star-q_i)
-\right)
-\chi_B^\star.
+\{\mu:\mu_{\mathbf p^\star}\preceq_*\mu\}.
 $$
 
-Taking \(\mathbf q=\mathbf p^\star\) gives the converse implication.
+The class is convex and weakly closed. For a Bernoulli product measure $\mu_{\mathbf p}$,
 
-The accompanying lower class is
+$$
+\mu_{\mathbf p}(\chi_A^*)
+=
+\prod_{i\in A}(p_i-p_i^\star),
+$$
+
+hence
+
+$$
+\mu_{\mathbf p}\in\mathcal M_*
+\quad\Longleftrightarrow\quad
+\mathbf p\ge\mathbf p^\star.
+\tag{3}
+$$
+
+The class is generally larger than mixtures of product measures above $\mathbf p^\star$.
+
+## The affine classes $\mathcal M_{-,K}$
+
+For $K\ge0$, define
+
+$$
+\mathcal M_{-,K}
+=
+\left\{
+\mu:
+\frac{\mu+K\mu_{\mathbf1}}{1+K}
+\in\mathcal M_*
+\right\},
+$$
+
+and
 
 $$
 \mathcal M_-
 =
-\left\{
-\mu:
-\mu\left(\chi_A^\star\right)
-\ge
--\chi_A^\star(\mathbf1)
-\text{ for every }A\Subset\Lambda
-\right\}.
-$$
-
-Equivalently,
-
-$$
-\mu\in\mathcal M_-
-\quad\Longleftrightarrow\quad
-\frac{\mu+\mu_{\mathbf1}}2\in\mathcal M_\star,
-\tag{2}
-$$
-
-where \(\mu_{\mathbf1}\) is the point mass at the all-one configuration.
-
-## Basic properties
-
-Both \(\mathcal M_\star\) and \(\mathcal M_-\) are convex and weakly closed, and
-
-$$
-\mathcal M_\star\subseteq\mathcal M_-.
-$$
-
-Weak closedness follows because every \(\chi_A^\star\) is a bounded cylinder function. The [centered-moment monotonicity theorem](monomial-monotonicity-for-high-density-measures.md) also shows that the high-density class is preserved by the semigroup of every uniformly bounded finite-range patch-positive spin system:
-
-$$
-\mu\in\mathcal M_\star
-\quad\Longrightarrow\quad
-\mu P_t\in\mathcal M_\star
-\qquad(t\ge0).
-\tag{3}
-$$
-
-The class is nonempty because \(\mu_{\mathbf p^\star}\in\mathcal M_\star\). Under the usual Feller hypotheses, its convexity, weak closedness, and preservation imply that it contains an [invariant probability measure](invariant-measure.md).
-
-Expanding an ordinary [monomial](monomials.md) around \(\mathbf p^\star\) gives
-
-$$
-\chi_A
-=
-\sum_{B\subseteq A}
-\left(\prod_{i\in A\setminus B}p_i^\star\right)
-\chi_B^\star.
-$$
-
-Consequently every \(\mu\in\mathcal M_\star\) satisfies
-
-$$
-\mu(\chi_A)
-\ge
-\mu_{\mathbf p^\star}(\chi_A)
-\qquad(A\Subset\Lambda).
-$$
-
-This is an order of joint occupation moments; it is not, in general, stochastic domination.
-
-## Bernoulli product measures
-
-For a one-density profile \(\mathbf p\), independence gives
-
-$$
-\mu_{\mathbf p}\left(\chi_A^\star\right)
-=
-\prod_{i\in A}\left(p_i-p_i^\star\right).
-$$
-
-It follows that
-
-$$
-\mu_{\mathbf p}\in\mathcal M_\star
-\quad\Longleftrightarrow\quad
-\mathbf p\ge\mathbf p^\star.
+\bigcup_{K\ge0}\mathcal M_{-,K}.
 \tag{4}
 $$
 
-Similarly, set
+Thus $\mathcal M_{-,0}=\mathcal M_*$. The older wiki convention identified $\mathcal M_-$ with the single class $\mathcal M_{-,1}$; (4) is the definition used in the canonical paper and in the common-limit theorem.
+
+Set
 
 $$
-\mathbf p^-=(p_i^-)_{i\in\Lambda},
-\qquad
-p_i^-
-=
-\left(2p_i^\star-1\right)\vee0.
+p_i^-=(2p_i^\star-1)\vee0.
 $$
 
-Then
+Then a product measure belongs to $\mathcal M_{-,1}$ exactly when
 
 $$
-\mu_{\mathbf p}\in\mathcal M_-
-\quad\Longleftrightarrow\quad
 \mathbf p\ge\mathbf p^-.
 \tag{5}
 $$
 
-Indeed, the singleton inequalities in the definition of \(\mathcal M_-\) give the necessity in (5). When \(p_i^\star<1\), division by \(1-p_i^\star\) reduces the remaining inequalities to the fact that a finite product of numbers in \([-1,1]\) is at least \(-1\). The case \(p_i^\star=1\) follows directly from the singleton inequality.
+If $\mathbf p^\star\le\frac12\mathbf1$, every probability measure belongs to $\mathcal M_{-,1}$ and hence to $\mathcal M_-$.
 
-By convexity, mixtures of product measures with profiles above \(\mathbf p^\star\), respectively \(\mathbf p^-\), belong to \(\mathcal M_\star\), respectively \(\mathcal M_-\). These sufficient mixture descriptions do not characterize either class. For example, on a two-site lattice with \(p_1^\star=p_2^\star=1/2\),
-
-$$
-\frac12\mu_{\mathbf0}+\frac12\mu_{\mathbf1}
-\in\mathcal M_\star,
-$$
-
-since its centered moments are zero on singletons and \(1/4\) on the pair. It is not a mixture of product measures with profiles above \(\mathbf p^\star\): its one-site marginals equal \(1/2\), so any such mixing profile would have to equal \(\mathbf p^\star\) almost surely.
-
-For the lower class, fix \(1/2<s<1\) on a two-site lattice and set
-
-$$
-p_1^\star=p_2^\star=s,
-\qquad
-\nu=2(1-s)\mu_{\mathbf0}+(2s-1)\mu_{\mathbf1}.
-$$
-
-The singleton inequalities defining \(\mathcal M_-\) hold with equality, while the two-site centered moment is nonnegative, so \(\nu\in\mathcal M_-\). It is not a mixture of product measures with profiles above \(\mathbf p^-=(2s-1)\mathbf1\): its one-site marginals equal \(\mathbf p^-\), which would again force the mixing profile to be constant.
-
-If
-
-$$
-\mathbf p^\star\le\frac12\mathbf1,
-$$
-
-then every probability measure belongs to \(\mathcal M_-\), since the defining inequality holds pointwise after normalization by \(\chi_A^\star(\mathbf1)\).
+The semigroup preservation of $\preceq_*$ and $\mathcal M_*$ is stated on [centered-moment order preservation](monomial-monotonicity-for-high-density-measures.md).

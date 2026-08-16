@@ -10,6 +10,8 @@ The wiki is article-first. Each entry is a separate Markdown page under `docs/en
 
 The facilitated-spin-system manuscript lives under `paper/`. The repository-level `main.tex` is its Overleaf entry point and loads `paper/main.tex`; the EJP/ECP class is supplied by the repository-level `ejpecp.cls`. Shared macros and theorem environments for that manuscript live in `paper/preamble.tex`, and its bibliography is `paper/references.bib`. `STYLE.md` records its typography and prose conventions.
 
+For the patch construction, patch factorization, patch contributions, patch positivity, centered-moment comparisons, pure-death comparison, and the common invariant-limit theorem, the manuscript *Patch representations and convergence for facilitated spin systems* is the canonical source. The corresponding wiki pages are an expository layer synchronized to that manuscript; older conditional-status warnings from the pre-paper development have been removed.
+
 A separate nonlinear-PDE manuscript lives under `pde-paper/`. Its entry point is `pde-paper/main.tex`, with an independent preamble, bibliography, and section tree. This manuscript studies cancellation before absolute values in branching representations with derivative weights. It does not modify or replace the facilitated-spin-system paper.
 
 ## Reading target
@@ -41,7 +43,7 @@ GitHub Actions contains a `Build wiki site` workflow. It checks live-wiki curati
 ## Current duality entries
 
 - Duality: `docs/entries/duality.md`
-- Monomial duality for spin systems: `docs/entries/monomial-duality-for-spin-systems.md`
+- Monomial Feynman-Kac duality for spin systems: `docs/entries/monomial-duality-for-spin-systems.md`
 - Duality noise lemma: `docs/entries/duality-noise-lemma.md`
 
 ## Current signed additive set process entries
@@ -54,17 +56,17 @@ GitHub Actions contains a `Build wiki site` workflow. It checks live-wiki curati
 
 - Patch: `docs/entries/patch.md`
 - Interaction cone: `docs/entries/interaction-cone.md`
-- Patch consistency event: `docs/entries/patch-consistency-event.md`
+- Consistent patch law: `docs/entries/patch-consistency-event.md`
 - Patch factorization: `docs/entries/patch-factorization.md`
 - Patch contribution: `docs/entries/patch-contribution.md`
 - Patch positivity property: `docs/entries/patch-positivity-property.md`
-- Patch critical density: `docs/entries/patch-critical-density.md`
-- High-density measure: `docs/entries/high-density-measure.md`
+- Patch threshold profile: `docs/entries/patch-critical-density.md`
+- Centered-moment order and cones: `docs/entries/high-density-measure.md`
 - Patch representation of spin systems: `docs/entries/patch-representation-of-spin-systems.md`
-- Undoing duality under confined interactions: `docs/entries/undoing-duality-under-confined-interactions.md`
+- Spatial confinement of patch weights: `docs/entries/undoing-duality-under-confined-interactions.md`
 - Finite propagation for zero-boundary restrictions: `docs/entries/finite-propagation-for-zero-boundary-restrictions.md`
-- Exponential relaxation under confined late interactions: `docs/entries/exponential-relaxation-under-confined-late-interactions.md`
-- Monomial monotonicity for high-density measures: `docs/entries/monomial-monotonicity-for-high-density-measures.md`
+- Late interactions and no-late relaxation: `docs/entries/exponential-relaxation-under-confined-late-interactions.md`
+- Centered-moment order preservation: `docs/entries/monomial-monotonicity-for-high-density-measures.md`
 - Pure-death comparison under patch positivity: `docs/entries/pure-death-comparison-under-patch-positivity.md`
 - Common invariant limit under uniform pure deaths: `docs/entries/common-invariant-limit-under-uniform-pure-deaths.md`
 
@@ -123,6 +125,6 @@ Allowed status labels are:
 - `heuristic`
 - `open`
 
-`proved here` is reserved for a project-specific theorem that is `verified` under the current autonomous verification protocol. A legacy `proved here` label does not itself establish verification.
+`proved here` is reserved for project-specific mathematics established in the canonical project record. For the patch block, `paper/` is explicitly designated as authoritative by `CHATGPT.md`; wiki pages labeled `proved here` in that block must match the paper's proved statements.
 
 `obsolete` may occur only as legacy migration metadata. Once identified, obsolete material should be deleted from `docs/`; Git history preserves it.

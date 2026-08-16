@@ -1,6 +1,7 @@
 ---
 title: Patch
 status: definition
+audit: current
 tags:
   - signed additive set process
   - graphical construction
@@ -10,67 +11,40 @@ tags:
 
 # Patch
 
-Fix a [signed additive set process](signed-additive-set-process.md), its [graphical construction](graphical-construction-of-signed-additive-set-process.md), and the full [successful-interaction](successful-interaction.md) set \(\mathcal I\). The graphical construction includes the deterministic initial interaction skeleton
+Fix the [graphical construction](graphical-construction-of-signed-additive-set-process.md) of a signed additive set process and its all-time [successful-interaction](successful-interaction.md) skeleton $\mathcal I$. The deterministic initial record is $(\infty,0,A_0)$.
+
+A record $(j,t,S)\in\mathcal I$ gives an **incoming** successful interaction at every site in $S$. If $j\ne\infty$, it also gives an **outgoing** successful interaction at its source $j$. Thus the initial record gives only incoming interactions.
+
+![Schematic patch decomposition adapted from the canonical paper figure.](../images/patches/patch-geometry.svg)
+
+For $i\in\Lambda$, put
 
 $$
-(\infty,0,A_0).
-$$
-
-A successful interaction \((i,t,S)\) touches its source \(i\) as an outgoing touch when \(i\in\Lambda\), and every target \(j\in S\) as an incoming touch. The initial interaction has no outgoing touch in \(\Lambda\); it gives an incoming touch at time zero to every site in \(A_0\).
-
-For \(i\in\Lambda\), define
-
-$$
-\begin{aligned}
 \mathcal T^{\mathsf I}(i)
-&=
-\left\{
-t\ge0:
-\text{some }(j,t,S)\in\mathcal I
-\text{ satisfies }i\in S
-\right\},
-\\
+=
+\{t\ge0:(j,t,S)\in\mathcal I\text{ for some }j,S\text{ with }i\in S\},
+$$
+
+$$
 \mathcal T^{\mathsf O}(i)
-&=
-\left\{
-t\ge0:
-\text{some }(i,t,S)\in\mathcal I
-\right\}.
-\end{aligned}
-$$
-
-The possible starting times at \(i\) are
-
-$$
-\mathcal S(i)
 =
-\mathcal T^{\mathsf I}(i)
-\cup\mathcal T^{\mathsf O}(i).
+\{t>0:(i,t,S)\in\mathcal I\text{ for some }S\},
 $$
 
-For \(s\in\mathcal S(i)\), let
+and $\mathcal T(i)=\mathcal T^{\mathsf I}(i)\cup\mathcal T^{\mathsf O}(i)$. For $s\in\mathcal T(i)$ define
 
 $$
-e_i(s)
-=
-\inf\left\{
-u>s:
-u\in\mathcal T^{\mathsf I}(i)\cup\mathcal T^{\mathsf O}(i)
-\right\},
+e_i(s)=\inf\{u>s:u\in\mathcal T(i)\},
+\qquad \inf\vn=\infty.
 $$
 
-with \(\inf\vn=\infty\).
+## Definition
 
-## Patches
-
-The patch beginning at \((i,s)\) is the labeled object
+Let $(j,s,S)\in\mathcal I$ be a record involving $i$, meaning that $i\in S$ or $i=j$. The patch beginning at $(i,s)$ is
 
 $$
-P
-=
-\{i(P)\}\times[s(P),e(P))
-\times
-\left\{\mathsf X(P)\mathsf Y(P)\right\}\times \left\{S(P)\right\},
+P=
+\bigl(i(P),[s(P),e(P)),\mathsf X(P)\mathsf Y(P),S(P)\bigr),
 $$
 
 where
@@ -80,186 +54,84 @@ i(P)=i,
 \qquad
 s(P)=s,
 \qquad
-e(P)=e_i(s).
-$$
-
-In particular,
-
-$$
-i(P)\in\Lambda,
+e(P)=e_i(s),
 \qquad
-0\le s(P)\le e(P)\le\infty.
-$$
-
-The patch begins at a successful-interaction skeleton \((j,s(P),S)\) that touches \(i(P)\), either at its source or in its target. Define its initial target set by
-
-$$
 S(P)=S.
 $$
 
-Thus \(S(P)\Subset\Lambda\) is part of the patch data. In particular, patches starting at time zero have \(S(P)=A_0\).
-
-The initial label is
+Its initial label is
 
 $$
-\mathsf X(P)
-=
+\mathsf X(P)=
 \begin{cases}
-\mathsf I, & i(P)\in S(P),\\
-\mathsf O, & i(P)\notin S(P).
+\mathsf I,&i(P)\in S(P),\\
+\mathsf O,&i(P)\notin S(P),
 \end{cases}
 $$
 
-Indeed, an incoming patch begins at a target of its initial interaction, while an outgoing patch begins at its source. Since the targets of genuine interactions lie in \(N(i(P))\), they do not contain their source. The initial interaction makes every patch starting at time zero an incoming patch.
-
-The terminal label is
+and its terminal label is
 
 $$
-\mathsf Y(P)
-=
+\mathsf Y(P)=
 \begin{cases}
-\mathsf I, & e(P)<\infty
-\text{ and }e(P)\in\mathcal T^{\mathsf I}(i(P)),\\
-\mathsf O, & e(P)<\infty
-\text{ and }e(P)\in\mathcal T^{\mathsf O}(i(P)),\\
-\mathsf E, & e(P)=\infty.
+\mathsf I,&e(P)<\infty\text{ and }e(P)\in\mathcal T^{\mathsf I}(i(P)),\\
+\mathsf O,&e(P)<\infty\text{ and }e(P)\in\mathcal T^{\mathsf O}(i(P)),\\
+\mathsf E,&e(P)=\infty.
 \end{cases}
 $$
 
-Thus
+The six possible boundary types are
 
 $$
-\mathsf X(P)\in\{\mathsf I,\mathsf O\},
+\mathsf{II},\ \mathsf{IO},\ \mathsf{IE},
 \qquad
-\mathsf Y(P)\in\{\mathsf I,\mathsf O,\mathsf E\}.
+\mathsf{OI},\ \mathsf{OO},\ \mathsf{OE}.
 $$
 
-The family of all patches constructed from the all-time successful-interaction set is denoted by \(\mathcal P\). A patch is finite when \(e(P)<\infty\) and infinite when \(e(P)=\infty\). The label \(\mathsf E\) records that the patch has no successful-touch terminal boundary. For \(P\in\mathcal P\), this occurs precisely when \(P\) is infinite. Thus every infinite patch has type \(\mathsf{IE}\) or \(\mathsf{OE}\), and every \(\mathsf{XO}\)-patch is finite. The same label \(\mathsf E\) is assigned below to an end patch, whose terminal boundary is the time horizon rather than a successful interaction.
+Let $\mathcal P$ be the family of all patches. Every patch with terminal label $\mathsf E$ is infinite, and every other full patch is finite.
 
-Every initially active site begins an incoming patch at time zero. Every genuine successful interaction cuts spacetime at its source and target sites, ending the preceding patches and beginning new ones at those sites. Every active spacetime point lies in the spacetime projection of a patch.
+The successful-interaction skeleton fixes the patch boundaries but deliberately omits death clocks, rings at inactive sources, and the split/birth kind of an outgoing successful interaction. Those omitted marks are averaged under the [consistent patch law](patch-consistency-event.md).
 
-Under the local-finiteness assumption, starting from \(A_0\Subset\Lambda\),
+## Finite-horizon truncation
 
-$$
-|\mathcal P|<\infty
-\quad\Longleftrightarrow\quad
-|\mathcal I|<\infty.
-$$
+Fix $t\ge0$. For a patch $P\in\mathcal P$ with $s(P)\le t$, let $P^{\downarrow t}$ be obtained by replacing its endpoint by $\min\{e(P),t\}$ and, when $t<e(P)$, replacing its terminal label by $\mathsf E$.
 
-Indeed, every successful interaction creates patch boundaries. Conversely, finitely many successful interactions touch only finitely many sites and create only finitely many patches, including the final infinite patches.
-
-On the null event of simultaneous successful touches at the same site, use the deterministic ordering fixed in the graphical construction to determine the successive boundary labels.
-
-## Truncation at a time horizon
-
-For \(t\ge0\) and \(P\in\mathcal P\), define
+The bulk and end patch families are
 
 $$
-P^{\downarrow t}=\vn
-\qquad\text{when }t<s(P).
+\mathcal B_t=\{P\in\mathcal P:e(P)\le t\},
 $$
 
-When \(t\ge s(P)\), define
-
 $$
-e^{\downarrow t}(P)=\min\{e(P),t\}
+\mathcal E_t
+=
+\{P^{\downarrow t}:P\in\mathcal P,\ s(P)\le t<e(P)\},
 $$
 
 and
 
 $$
-\mathsf Y^{\downarrow t}(P)
+\mathcal P_t=\mathcal B_t\cup\mathcal E_t.
+$$
+
+The family $\mathcal P_t$ is finite almost surely. Distinct end patches have distinct sites, because the successful-interaction times partition each site line into consecutive intervals.
+
+For compatibility with older notes, one may call
+
+$$
+\mathcal C_t=\{P\in\mathcal P:s(P)\le t<e(P)\}
+$$
+
+the cut patches. Their truncations are exactly the end patches, but the paper's finite-horizon representation is stated directly using $\mathcal B_t$ and $\mathcal E_t$.
+
+## Geometric extension
+
+If $P$ is an end patch and $u\ge e(P)$ is finite, its geometric extension through time $u$ is
+
+$$
+P^{\uparrow u}
 =
-\begin{cases}
-\mathsf Y(P), & e(P)\le t,\\
-\mathsf E, & s(P)\le t<e(P).
-\end{cases}
+\bigl(i(P),[s(P),u),\mathsf X(P)\mathsf E,S(P)\bigr).
 $$
 
-The truncation of \(P\) at time \(t\) is
-
-$$
-P^{\downarrow t}
-=
-\{i(P)\}\times[s(P),e^{\downarrow t}(P))
-\times
-\left\{\bigl(\mathsf X(P)\mathsf Y^{\downarrow t}(P),S(P)\bigr)\right\}.
-$$
-
-Thus truncation preserves the site, start time, initial label, and initial target set. If the time horizon cuts the patch, its terminal label is replaced by \(\mathsf E\). When \(t=s(P)<e(P)\), the truncation is a zero-length end patch. If the patch has already ended, then \(P^{\downarrow t}=P\), including its original terminal label.
-
-The bulk patch family at time \(t\) is
-
-$$
-\mathcal B_t
-=
-\{P\in\mathcal P:P^{\downarrow t}=P\}
-=
-\{P\in\mathcal P:e(P)\le t\}.
-$$
-
-The cut patch family at time \(t\) is
-
-$$
-\begin{aligned}
-\mathcal C_t
-&=
-\left\{
-P\in\mathcal P:
-\vn\ne P^{\downarrow t}\ne P
-\right\}
-\\
-&=
-\left\{
-P\in\mathcal P:
-s(P)\le t<e(P)
-\right\}.
-\end{aligned}
-$$
-
-Their truncations form the end patch family
-
-$$
-\mathcal E_t
-=
-\{P^{\downarrow t}:P\in\mathcal C_t\}.
-$$
-
-The finite-horizon patch family is
-
-$$
-\mathcal P_t
-=
-\mathcal B_t\cup\mathcal E_t.
-$$
-
-Sending a cut patch to its truncation is a bijection
-
-$$
-\mathcal C_t\longrightarrow\mathcal E_t,
-\qquad
-P\longmapsto P^{\downarrow t}.
-$$
-
-Thus a cut patch is the original object \(P\in\mathcal C_t\), while its end patch is the truncated object \(P^{\downarrow t}\in\mathcal E_t\). The former retains its actual end time and terminal label; the latter ends at time \(t\) and has terminal label \(\mathsf E\).
-
-The possible labels in \(\mathcal P_t\) are
-
-$$
-\mathsf{II},\ \mathsf{IO},\ \mathsf{IE},\qquad
-\mathsf{OI},\ \mathsf{OO},\ \mathsf{OE}.
-$$
-
-Every end patch has terminal label \(\mathsf E\), but that label alone does not make a patch an end patch: every infinite patch in \(\mathcal P\) also has terminal label \(\mathsf E\). Membership in \(\mathcal E_t\), rather than the terminal label alone, distinguishes an end patch from its original cut patch in \(\mathcal C_t\).
-
-For every fixed \(t\ge0\), almost surely, sending an end patch to its site is a bijection from \(\mathcal E_t\) to the [interaction cone](interaction-cone.md) \(\mathbf{Cone}_t\). At time zero these are the zero-length \(\mathsf{IE}\) patches based at the sites of \(A_0\). Consequently,
-
-$$
-|\mathcal C_t|
-=
-|\mathcal E_t|
-=
-|\mathbf{Cone}_t|.
-$$
-
-The local laws and factors associated with these labeled objects are defined in [patch consistency event](patch-consistency-event.md) and [patch contribution](patch-contribution.md).
+This changes only the patch shape. It does **not** include the probability that the realized skeleton has no successful interaction in the added interval. Probability-weighted continuation is a separate ingredient in the convergence proof.

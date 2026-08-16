@@ -1,6 +1,6 @@
 ---
 title: Patch representation of spin systems
-status: conditional
+status: proved here
 audit: current
 tags:
   - spin systems
@@ -11,77 +11,72 @@ tags:
 
 # Patch representation of spin systems
 
-This page records the project patch representation as a **conditional statement**. It is not currently a verified theorem.
+The patch representation is Theorem A of the canonical paper *Patch representations and convergence for facilitated spin systems*. It is an exact representation, not a conditional project statement.
 
-## Prerequisites
+Fix $A\Subset\Lambda$ and start the signed monomial dual from $(A,+)$. At time $t$, let $\mathcal B_t$ and $\mathcal E_t$ be the bulk and end [patch](patch.md) families. A bulk patch has contribution $C(P)$ and an end patch based at $i(P)$ has affine terminal contribution $C(z,P)$.
 
-For the time horizon and initial finite set under consideration, assume all of the following:
+## Theorem
 
-1. the conditional Feynman--Kac formula in [monomial duality for spin systems](monomial-duality-for-spin-systems.md), including its nonexplosion and integrability hypotheses;
-2. the unverified conditional [patch factorization](patch-factorization.md); and
-3. the contribution definitions and closed-form identities used from [patch contribution](patch-contribution.md).
-
-Let $(P_t)_{t\ge0}$ be the spin-system semigroup and let the signed dual start from $(A,+)$. Let $\mathcal B_t$ and $\mathcal E_t$ be the bulk and end patch families, and let $C(P)$ and $C(\xi,P)$ denote the corresponding contributions.
-
-## Conditional representation
-
-Under the prerequisites above, the current project argument gives, for every $A\Subset\Lambda$, $\xi\in\{0,1\}^\Lambda$, and $t\ge0$,
+For every $A\Subset\Lambda$, $t\ge0$, and configuration $\eta$,
 
 $$
-P_t(\chi_A)(\xi)
+P_t\chi_A(\eta)
 =
 \mathbb E_A\left[
 \prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal E_t}C(\xi,P)
+\prod_{P\in\mathcal E_t}C(\eta(i(P)),P)
 \right].
 \tag{1}
 $$
 
-Here $\mathbb E_A$ is expectation with respect to the successful-interaction skeleton of the dual started from $(A,+)$.
-
-The project derivation starts from the Feynman--Kac integrand, decomposes its sign, potential integral, and terminal monomial into patch-local factors, and then applies the conditional factorization. Because the factorization and the patch contribution calculation remain unaudited, equation (1) remains conditional.
-
-## Averaging over an initial law
-
-Still under the same prerequisites, integrating (1) against a probability measure $\mu$ gives
+For any initial probability law $\mu$,
 
 $$
-\mu(P_t\chi_A)
+(\mu P_t)(\chi_A)
 =
 \mathbb E_A\left[
-\prod_{P\in\mathcal B_t}C(P)\,
-\mu\left(
+\prod_{P\in\mathcal B_t}C(P)
+\,\mu\left(
 \prod_{P\in\mathcal E_t}C(\eta(i(P)),P)
 \right)
 \right].
 \tag{2}
 $$
 
-If one additionally assumes the conditional [patch positivity property](patch-positivity-property.md), its critical profile $\mathbf p^\star$, and the affine end-contribution decomposition
+For the Bernoulli product law $\mu_{\mathbf p}$, distinct end patches have distinct sites and the end contributions are affine, so
 
 $$
-C(z,P)=C(p_{i(P)}^\star,P)+b(P)(z-p_{i(P)}^\star),
-$$
-
-then the end factor in (2) expands algebraically as
-
-$$
-\begin{aligned}
-\mu\left(
-\prod_{P\in\mathcal E_t}C(\eta(i(P)),P)
-\right)
+(\mu_{\mathbf p}P_t)(\chi_A)
 =
-\sum_{\mathcal Q\subseteq\mathcal E_t}
-&\mu\left(
-\chi_{\{i(P):P\in\mathcal Q\}}^\star
-\right)
-\prod_{P\in\mathcal Q}b(P)
-\\
-&\times
-\prod_{P\in\mathcal E_t\setminus\mathcal Q}
-C(p_{i(P)}^\star,P).
-\end{aligned}
+\mathbb E_A\left[
+\prod_{P\in\mathcal B_t}C(P)
+\prod_{P\in\mathcal E_t}C(p_{i(P)},P)
+\right].
 \tag{3}
 $$
 
-Equation (3) is an algebraic expansion once the affine coefficients are supplied; any sign conclusions drawn from those coefficients inherit the unresolved status of the contribution and positivity calculations.
+## Derivation
+
+The [monomial Feynman-Kac duality](monomial-duality-for-spin-systems.md) has integrand
+
+$$
+\sigma_t
+\exp\left(\int_0^tV(A_u)\,du\right)
+\chi_{A_t}(\eta).
+$$
+
+The patch intervals partition the local active-time contributions. Pathwise,
+
+$$
+\sigma_t
+\exp\left(\int_0^tV(A_u)\,du\right)
+\chi_{A_t}(\eta)
+=
+\prod_{P\in\mathcal B_t}F(P)
+\prod_{P\in\mathcal E_t}F(\eta(i(P)),P).
+\tag{4}
+$$
+
+Conditioning (4) on the successful-interaction sigma algebra $\mathcal G_t$ and applying [patch factorization](patch-factorization.md) replaces each local factor by its consistent patch expectation, giving (1).
+
+The point of the representation is the order of operations: marked interactions between consecutive successful-interaction boundaries are averaged inside $C(P)$ or $C(z,P)$ before global comparison or absolute values are taken. This preserves cancellations that are invisible in the raw signed dual trajectory.
