@@ -8,67 +8,94 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 
 ## Active scientific direction
 
-**Sharp concentration of voter-model discordant edges on random regular graphs.**
+**Corrected sharp concentration of voter-model discordant edges on random regular graphs.**
 
 - Branch: `research/voter-discordant-concentration`.
 - Workspace: `research/active/voter-discordant-concentration/`.
 - Active student: persistent Graduate Student D.
-- Target source: Avena--Baldasso--Hazra--den Hollander--Quattropani, *Discordant edges for the voter model on regular random graphs* (ALEA 2024).
-- Target: resolve the source's proposed sharp concentration regime for the discordant-edge density on the intrinsic `sqrt(t/n)` scale throughout sublinear times, subject to Student D's exact source transcription and very-small-time check.
-- Current first edge: derive the exact semimartingale decomposition, identify the integrated centered-drift covariance estimate carrying the sharp theorem, and determine whether the source's weak-dependence/coalescing-walk method can plausibly prove it.
-- Assignment: `research/active/voter-discordant-concentration/students/student-d/assignment-001.md`.
+- Latest meeting: `research/active/voter-discordant-concentration/meetings/001-sharp-concentration-reduction.md`, `state_narrowed: yes`.
+- Current assignment: `students/student-d/assignment-002.md`.
 
-The first block is deliberately diagnostic. A modest extension of the existing polynomial time window is not a project result. The programme wants the sharp theorem, a structural correction/refutation of its literal formulation, or a precise reason the visible route is not tractable.
+### Source correction
+
+Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), Eq. (1.9), is false literally at very small times. It quantifies over every `t_n=o(n)`, including `t_n->0`, while Bernoulli initial conditions have nondegenerate `n^{-1/2}` fluctuations. The explicit counterexample
+
+$$
+t_n=n^{-3},\qquad C_n=\log n
+$$
+
+leaves the voter configuration unchanged with probability tending to one while the source threshold is `(log n)/n^2=o(n^{-1/2})`.
+
+The active target is therefore
+
+$$
+\mathbf P_u^G\left(
+|\mathcal D_{t_n}^n-\mathbf E_u^G\mathcal D_{t_n}^n|
+>C_n\sqrt{\frac{1+t_n}{n}}
+\right)\xrightarrow{\mathbb P}0
+$$
+
+for fixed `d>=3`, `u in (0,1)`, every `t_n=o(n)`, and every `C_n->infinity`.
+
+This source correction has been independently reconstructed by the Professor but is not yet promoted to a stable project claim. The substantive programme target is the corrected theorem.
+
+### Current mathematical reduction
+
+For normalized discordance `Dcal`, the exact Dynkin martingale satisfies
+
+$$
+\frac d{dt}\langle M\rangle_t\le4/n,
+$$
+
+so its variance is at most `4t/n` on every fixed regular graph.
+
+The remaining drift is a signed spatial average of two-spin observables on edges and length-two wedges. Its covariance is represented exactly by four coalescing ancestral lineages in the generic case. A sufficient integrated-drift estimate is
+
+$$
+\mathbf E\left[
+\left(\int_0^t\widetilde h_s\,ds\right)^2
+\right]=O_{\mathbb P}(t/n).
+$$
+
+The first route now being tested is the variance identity
+
+$$
+\frac d{dt}\operatorname{Var}(\mathcal D_t)
+=2\operatorname{Cov}(\mathcal D_t,L\mathcal D_t)
++\mathbf E\Gamma(\mathcal D)(\eta_t),
+$$
+
+with the second term at most `4/n`. A bound
+
+$$
+\operatorname{Cov}(\mathcal D_t,L\mathcal D_t)\le C/n
+$$
+
+would close the corrected variance scale. At `u=1/2` this is a particularly clean signed simultaneous four-walk sum.
+
+### Published-method obstruction
+
+The source's Section 5 sample-and-discard architecture pays sampling error `K^{-1/2}` and, when interacting dual families are discarded at unit cost, bad-family fraction of natural size `K(t/n)`. Their balance is `(t/n)^{1/3}`, not the desired `(t/n)^{1/2}`. Routine tuning of `K` or the polynomial time window therefore cannot close the sharp target.
+
+This does not rule out a qualitatively different signed use of the same four-walk duality. Assignment 002 tests exactly that cancellation/corrector possibility.
+
+### Opportunity-cost rule
+
+If the next substantial block yields only absolute cross-meeting estimates whose time growth is too large for `O((1+t)/n)`, with no cancellation, corrector, or alternative structural mechanism, the next meeting must reassess continuation rather than incrementally refine Section 5.
 
 ## Most recently closed programme: residual positive-rates / noisy East
 
 The noisy-East finite-wall programme closed at Group Meeting 002 on branch `research/noisy-east-positive-rates`.
 
-The meeting records `state_narrowed: yes` because three material questions were resolved.
-
-### Source correction
-
-On `r11=0`, with
-
-$$
-a=r_{00},\qquad b=r_{01},\qquad c=r_{10},
-$$
-
-the actual unresolved normalized set obtained from the proved 2025/2026 criteria is
+On `r11=0`, with `a=r00`, `b=r01`, `c=r10`, the corrected unresolved normalized set is
 
 $$
 \mathcal R=\left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-The earlier assignment-001 path
+The three-site frozen-exterior one-attack factor has sharp East-boundary supremum `5/6`, but repeated attacks from a persistent exterior disagreement cross every fixed finite block almost surely. The pre-committed dynamic-exterior stop condition was therefore triggered. No length-four rescue is allowed.
 
-$$
-a=\varepsilon,\qquad b=\frac\varepsilon2,\qquad c=1-\varepsilon^2
-$$
-
-is already covered by published Głuchowski--Menz (2025), Corollary 7.2, because `b<a`. Earlier repository labels calling it a genuine residual path were incorrect and have been corrected explicitly on the research branch.
-
-### Exact local characterization on the true residual
-
-For the frozen-exterior three-site one-attack factor,
-
-$$
-\sup_{\bar r\in\partial_E\mathcal R}
-\limsup_{\substack{r\to\bar r\\r\in\mathcal R}}
-R_3^{\rm adv}(r)=\frac56,
-$$
-
-sharply. This is useful diagnostic mathematics, not a registered project contribution.
-
-### Concatenation obstruction and closure
-
-With an exterior disagreement held forever, repeated attacks penetrate every fixed finite agreed block almost surely. Therefore the one-attack `5/6` factor is not an iteratable adversarial block-renewal quantity.
-
-Meeting 001 had pre-committed to close the finite-wall route if a uniform local gap required an uncontrolled stronger dynamic-exterior quantity to concatenate. That condition was met. There will be no length-four rescue.
-
-The broader noisy-East problem remains open. A future return requires a genuinely new mechanism or a separately motivated episode-level theorem with a concrete quantitative closure.
-
-No noisy-East project claim is registered from the finite-state diagnostics.
+The broader noisy-East problem remains open; a future return requires a genuinely new mechanism or a separately motivated episode-level theorem with quantitative closure.
 
 ## Earlier closed programme: BABP finite seed
 
@@ -76,7 +103,7 @@ BABP closed without a new project result under the standing novelty standard. `B
 
 ## Wiki freeze
 
-The principal controls the freeze decision. Professor recommendation remains **keep the live wiki frozen**. No new `proved here` update is warranted from the closed noisy-East programme.
+The principal controls the freeze decision. Professor recommendation remains **keep the live wiki frozen**. No new `proved here` update is warranted.
 
 ## Closed programmes and routes
 
