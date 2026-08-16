@@ -23,20 +23,18 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-Latest meeting: `meetings/017-fixed-boundary-sandwich-and-random-map-stop.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/018-consultation-actual-front-certificate-and-one-occupation-block.md`, `state_narrowed: yes`.
 
 Active work:
 
-- Students F and G: idle. No G008/F013 is authorized.
-- One bounded outside consultation is authorized: `consultants/assignment-001-disagreement-front-survival-review.md`.
+- Student G successor: `students/student-g/assignment-008.md`, one occupation-weighted extension of the retained two-spin actual-front exploration at the hard near-East point.
+- Student F: idle. No F013 is authorized.
 
 ## Closed / stopped mechanisms
 
-Closed: fixed finite walls; cellwise nonnegative scaffold insertion; one-step centered `L^1`; crude scalar `max{c,b-a}Z<1`; G's exposed-only global Foster product; G's full nearest-neighbour scalar edge-product/coboundary Foster class; F's depth-uniform finite linear common-mass mode closure.
+Closed: fixed finite walls; cellwise nonnegative scaffold insertion; one-step centered `L^1`; crude scalar `max{c,b-a}Z<1`; exposed-only global Foster product; full nearest-neighbour scalar edge-product/coboundary Foster class; depth-uniform finite linear common-mass mode closure.
 
-Stopped as a computational implementation after Meeting 017: raw finite-window/HJB certification of the common-uniform Hamming coefficient by simply enlarging `L,R,T` or changing the right-boundary controller.
-
-Do not reopen these by enlarging finite scalar contexts, finite common-mass alphabets, or raw random-map windows.
+Stopped: raw finite-window/HJB certification by simply enlarging `L,R,T` or changing the right-boundary controller. Do not reopen these by larger scalar contexts, finite common-mass alphabets, or raw random-map windows.
 
 ## Global predecessor-trail target
 
@@ -56,144 +54,135 @@ $$
 
 Showing `J_{x,r}->0` with depth is sufficient for the nonempty-exit term. Exact Poisson--Mecke factorization and the no-exit complement remain downstream audits after `J` decay is proved.
 
-## Common-mass side
+## Common-mass / Green interface
 
-The exact insertion decomposition is
-
-$$
-g\mu(h_{p_*}(\eta_y)f)
-=(Br-c)\bar\mu(f)+Br(1-r)(\mu^1-\mu^0)(f).
-$$
-
-Professor-checked strict right-weighted losses remain
+F012 proves, for finite zero-boundary common-uniform couplings,
 
 $$
-|Br_0-c|Z<\frac23,
-\qquad
-\kappa_T=BZ_{\omega+1+b}<1.
+\boxed{
+\Delta_M\le2c\int_0^\infty\beta_{M-1}(t)dt,
+}
 $$
 
-The exact common-mass semigroup has no depth-uniform finite linear mode closure. Assignments 010--011 instead give suffix projectivity, finite-context truncation of the first invariant insertion, and the tail-shift formulation of the zero-frequency response.
-
-For the zero-boundary far-left damage kernel
+where
 
 $$
 \beta_m(t)
 =
-\sup_{n,\eta,i}E\sum_{j\le i-m}D_j(t),
+\sup_{n,\eta,i}E\sum_{j\le i-m}D_j(t).
 $$
 
-F012 proves
+Thus a spatially decaying bound on the time-integrated far-left disagreement occupation directly proves tail-shift localization. A finite-time front bound alone is not enough because it need not be integrable in time.
+
+Professor-checked common-mass damping remains
 
 $$
-\boxed{
-\Delta_M\le2c\int_0^\infty\beta_{M-1}(t)dt.
-}
+|Br_0-c|Z<\frac23,
+\qquad
+BZ_{\omega+1+b}<1,
 $$
 
-If
+but arbitrary duration-resolved signed-profile iteration and `J_{x,r}` decay remain open.
 
-$$
-\alpha_0(t)=\sup_{n,\eta,i}E\sum_jD_j(t),
-$$
-
-then integrability of `alpha_0` implies tail-shift agreement, and one finite-time inequality `alpha_0(T)<1` is sufficient for an explicit exponential `Delta_M` bound. No such strict zero-boundary contraction is proved.
-
-Verifier history: original F012 verifier `3750a53` fails due SymPy's symbolic convergence `Piecewise`; repair `5494008` fixes only that tooling assertion. Meeting 016's theorem ruling is from proof reconstruction.
-
-## Actual common-uniform coupling
+## Actual common-uniform coupling before consultation
 
 For every finite disagreement seed, every fixed site eventually becomes permanently coupled. Survival, if it occurs, is exactly convective escape to `-infinity`.
 
-With
+The full-line Hamming coefficient
 
 $$
-q=1-c+a,
+\alpha(t)=\sup_{\eta,i}E\,d_H(\Phi_t\eta,\Phi_t\eta^i)
 $$
 
-one has
+is submultiplicative. G007 proves a two-sided fixed-boundary finite approximation and an explicit protected-source lower bound
 
 $$
-\mathcal L^{\rm coup}D_i\le-qD_i+cD_{i+1},
+\alpha(t)>1\qquad(0<t\le47)
 $$
 
-hence moving-frame exponential contraction for every `z>c/q`. This does not imply global extinction.
+at the hard point. Raw finite enumeration was stopped after Meeting 017.
 
-Define
+## Meeting 018: retained two-spin actual-front theorem
 
-$$
-\alpha(t)=\sup_{\eta,i}E\,d_H(\Phi_t\eta,\Phi_t\eta^i).
-$$
+Outside consultation 001 recommended `continue-front` and supplied a concrete killed exploration. Meeting 018 independently checked and accepted it.
 
-It is submultiplicative; one `alpha(T)<1` would imply exponential finite-seed extinction.
-
-### Assignment 007: convergent fixed-boundary approximation
-
-For a fixed common boundary spin `e` at `R+1`, let `B_{L,R}^e(T)` be the finite fixed-boundary CTMC value and put
-
-$$
-r_{L,R}(T)=(L+1)P(\operatorname{Pois}(T)\ge R+1),
-$$
-
-$$
-\ell_L(T)=E[(\operatorname{Pois}(T)-L)_+].
-$$
-
-Meeting 017 accepts
-
-$$
-\boxed{
-B_{L,R}^e(T)-r_{L,R}(T)
-\le\alpha(T)
-\le
-B_{L,R}^e(T)+r_{L,R}(T)+\ell_L(T).
-}
-$$
-
-The old adversarial controlled value also satisfies
-
-$$
-0\le A_{L,R}(T)-B_{L,R}^e(T)\le r_{L,R}(T).
-$$
-
-Thus the right controller is not the obstruction and `alpha(T)` has a genuine two-sided finite approximation at every fixed time.
-
-### Long initial expansion
-
-At the strict hard point
+At
 
 $$
 (a,b,c)=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
 $$
 
-G007 constructs a protected-source event giving
+before a fresh site `x` first becomes disagreeing, retain
+
+$$
+Z=(s,t),
+$$
+
+where `s` is the common spin at `x` and `t` the common spin at `x-1`. The right neighbour enters only through mode `D`, `C0`, or `C1`; the exact killed-chain rates are recorded in Meeting 018.
+
+A strict rational superharmonic certificate with
+
+$$
+\lambda=\frac1{20},\qquad \rho=\frac58,
+$$
+
+propagates the next-left spin exactly at absorption and gives
 
 $$
 \boxed{
-\alpha(t)>1\qquad(0<t\le47).
+P(\sigma_m\le T)
+\le\frac{15}{4}e^{T/20}\left(\frac58\right)^m.
 }
 $$
 
-The certified lower value at `T=47` exceeds `1.008204288867933`.
+Hence
 
-At that time, merely requiring each causal truncation error to be below `1%` needs `L>=67`, `R>=74`, with naive state count `2^210`. This is a scale diagnostic, not a universal state-size lower bound, but it rules out larger raw enumeration as a useful next block.
+$$
+\boxed{
+E\sum_{j<-L}D_j(T)
+\le10e^{T/20}\left(\frac58\right)^{L+1}.
+}
+$$
 
-The G007 verifier's decimal output is display-only; assertions use exact rational interval enclosures and exact finite uniformization. It supports the finite arithmetic claims, not any unresolved global alternative.
+This is a genuine actual-front estimate preserving the pre-exposure common-spin history. It substantially improves the causal Poisson cone. A second exact certificate gives
 
-## Current route decision after Meeting 017
+$$
+\limsup_{t\to\infty}\frac{N_t}{t}
+\le\frac{1/100}{\log(100/81)}\approx0.0474561
+$$
 
-The raw finite random-map certificate implementation stops here. G007 is unresolved on contraction versus survival, but the unresolved continuation is no longer a finite-certificate refinement. It requires one of two new structural theorems:
+almost surely for the number of newly discovered left sites.
 
-1. an **actual disagreement-front tail theorem** preserving the common-spin history before first exposure and replacing the causal Poisson cone by the true near-East front scale; or
-2. a **convective-survival theorem** from a finite seed.
+The same front bound replaces the causal errors in the G007 fixed-boundary sandwich by exponentially smaller actual-front errors. This is structural improvement, not permission to resume raw enumeration.
 
-Even a future proof of `alpha(T)<1` would still leave arbitrary signed-profile composition and `J_{x,r}` decay unresolved. The expected value of another internal block devoted only to Hamming contraction has therefore dropped.
+## Current decisive occupation target
 
-No G008 or F013 is issued. One bounded outside consultant now assesses whether the front or survival theorem has a credible structural route and whether it would materially advance `J_{x,r}`. After that report the Professor must either choose one sharply stated new proof-spine edge or abandon the common-uniform global-coalescence interface and return to the signed predecessor-trail problem with a different disagreement representation.
+Define
+
+$$
+G_m
+:=
+\sup_{\text{finite zero-boundary systems},\eta,i}
+\int_0^\infty
+E\sum_{j\le i-m}D_j(t)\,dt.
+$$
+
+Student G Assignment 008 asks for exactly one of:
+
+1. constants `C<infinity`, `theta<1` with
+   $$
+   G_m\le C\theta^m;
+   $$
+   then F012 gives `Delta_M<=2cC theta^(M-1)`;
+2. a precise theorem showing that the retained two-spin exploration is insufficient for zero-frequency occupation control after the actual source-lifetime facts are incorporated.
+
+An immortal adversarial `D` mode by itself is not a valid obstruction to the actual process, because fixed-site permanent coupling is already proved.
+
+If G008 proves the occupation estimate, the first post-insertion stationary mass interface is solved but arbitrary signed-profile iteration still remains. If G008 refutes the two-spin occupation exploration or returns unresolved without a genuinely new occupation mechanism, abandon the common-uniform global-coalescence interface. Do not enlarge the exposure state, restart raw finite windows, or begin generic matrix-product engineering by default.
 
 ## Anti-circularity
 
-Do not integrate duration before the actual absolute-value norm; use `16/21` as a global Foster multiplier; enlarge scalar local correctors mechanically; revive finite common-mass mode closure; replace the signed disagreement channel by unrestricted total variation; import the predecessor-trail reset-height drift into the actual common-uniform process; infer extinction from fixed-site coupling or moving-frame contraction; infer survival from finite-time expansion or failure of an upper certificate; or continue the random-map route by raw larger windows alone.
+Do not integrate duration before the actual absolute-value norm; use `16/21` as a global Foster multiplier; enlarge scalar local correctors mechanically; revive finite common-mass mode closure; replace the signed disagreement channel by unrestricted total variation; import the predecessor-trail reset-height drift into the actual common-uniform process; infer extinction from fixed-site coupling/front speed; infer survival from finite-time Hamming expansion; or turn the new first-discovery theorem into a zero-frequency occupation theorem without controlling repeated disagreement episodes.
 
 ## Wiki
 
