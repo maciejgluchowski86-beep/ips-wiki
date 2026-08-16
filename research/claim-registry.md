@@ -133,3 +133,62 @@ Historical/novelty status: Sudbury (1999), immediately before Theorem 7, states 
 The project's tagged-internal-gap proof is a useful self-contained proof architecture, but no novelty claim is made for that architecture until Neuhauser--Sudbury (1993), Section 5, is inspected. Combining this classical implication with `BABP-EDGE-001` yields mathematically valid convergence at `lambda=1/40`; because the only new input is the larger-window instance of Sudbury's arbitrary-`m` method, that quantitative range extension is **not counted as a project result** under the standing novelty standard.
 
 Claim boundary: no all-parameter theorem, no convergence rate, and no initial laws beyond finite nonempty deterministic sets are claimed.
+
+## Claimed voter-discordance result entering independent audit
+
+### VOTER-CONC-001
+
+Status: `claimed`
+
+Research-contribution status: **qualifies structurally under the standing novelty standard if correctness and closest-prior-work audits survive; novelty is not yet verified**.
+
+Claim: let `G` be any finite simple `d`-regular graph with `n` vertices, let the continuous-time voter model start from i.i.d. Bernoulli(`u`) opinions, and let `Dcal_t` be the fraction of discordant edges. If `pi` is uniform on vertices and `tau_meet` is the meeting time of two independent rate-one continuous-time simple random walks, with walkers started independently from `pi`, then for every `u in (0,1)` and `t>=0`,
+
+$$
+\operatorname{Var}_u^G(\mathcal D_t)
+\le 2\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t).
+$$
+
+For a uniformly random simple `d`-regular graph with fixed `d>=3`, the meeting estimate in Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), equations (5.6)--(5.8), then gives for every deterministic `t_n=o(n)`
+
+$$
+\operatorname{Var}_u^G(\mathcal D_{t_n}^n)
+=O_{\mathbb P}\left(\frac{1+t_n}{n}\right).
+$$
+
+Consequently, for every `C_n->infinity`,
+
+$$
+\mathbf P_u^G\left(
+|\mathcal D_{t_n}^n-\mathbf E_u^G\mathcal D_{t_n}^n|
+>C_n\sqrt{\frac{1+t_n}{n}}
+\right)\xrightarrow{\mathbb P}0.
+$$
+
+If additionally `t_n>=1`, then
+
+$$
+\operatorname{Var}_u^G(\mathcal D_{t_n}^n)=O_{\mathbb P}(t_n/n),
+$$
+
+so the concentration scale `C_n sqrt(t_n/n)` proposed in source Eq. (1.9) holds throughout that regime.
+
+The same project also identified that literal Eq. (1.9) is false when its quantifiers allow arbitrarily small `t_n`: the Bernoulli initial condition has `n^{-1/2}` fluctuations, and `t_n=n^{-3}`, `C_n=log n` is an explicit counterexample.
+
+Source proof:
+
+- commit `e73fd25`;
+- `research/active/voter-discordant-concentration/students/student-d/002-four-walk-cancellation.md`.
+
+Professor reconstruction:
+
+- `research/active/voter-discordant-concentration/notes/professor-assignment-002-verification.md`;
+- Group Meeting 002, `research/active/voter-discordant-concentration/meetings/002-genealogical-variance-claim.md`.
+
+Independent audit status:
+
+- Review A: assigned, pending;
+- Review B: assigned, pending;
+- closest-prior-work / novelty audit: pending after correctness review.
+
+Claim boundary: no uniform-in-time process supremum estimate is claimed; the random-regular result is sequence-wise quenched-in-environment-probability. The source-scale conclusion is asserted for deterministic `t_n>=1`, `t_n=o(n)`, not for arbitrary `t_n->0`.
