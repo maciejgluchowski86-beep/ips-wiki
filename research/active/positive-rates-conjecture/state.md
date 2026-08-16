@@ -14,25 +14,13 @@ Target:
 
 > Every simple one-dimensional homogeneous binary one-sided nearest-neighbour IPS with positive rates is ergodic.
 
-Write
+On the normalized face `r11=0`, write
 
 $$
-r_{xy}=P_0(1\mid xy).
+a=r_{00},\qquad b=r_{01},\qquad c=r_{10},
 $$
 
-Positive rates are
-
-$$
-r_{11}<1,\qquad r_{10}<1,\qquad r_{01}>0,\qquad r_{00}>0.
-$$
-
-On the normalized face `r11=0`, put
-
-$$
-a=r_{00},\qquad b=r_{01},\qquad c=r_{10}.
-$$
-
-The source-corrected unresolved chamber is
+with source-corrected residual chamber
 
 $$
 \mathcal R=
@@ -44,140 +32,129 @@ $$
 \right\}.
 $$
 
-Latest meeting: `meetings/001-density-estimates-and-regional-kernel.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/002-cellwise-insertion-composition-fails.md`, `state_narrowed: yes`.
 
-Active students:
+Active work:
 
-- Student F, next assignment `students/student-f/assignment-002.md`;
-- Student G, next assignment `students/student-g/assignment-002.md`.
+- Student F: `students/student-f/assignment-003.md`, direct live-disagreement/regeneration attack;
+- Student G: still finishing `students/student-g/assignment-002.md`; its independent return will be folded into the next meeting.
 
-## What the first research block established
+## Established reusable mathematics from the first two blocks
 
-Student F reconstructed the principal's last-successful-interaction route far enough to replace the vague "high density" premise by an exact signed insertion problem.
-
-In the complemented canonical spin convention, set
+In complemented canonical spins set
 
 $$
 B=b+c-a,\qquad \rho=\frac cB.
 $$
 
-If a successful rightward dual interaction is revealed but its source-retaining/source-removing type is kept hidden, the signed type average is
+A hidden successful rightward dual interaction has signed type average
 
 $$
 B\eta_i-c=B(\eta_i-\rho).
 $$
 
-After deleting the environment-independent rate-`a` noise, the resulting process `L^-` obeys the Professor-checked conditional lower bound
+For the noise-reduced process `L^-`, uniformly over initial configurations and full right-hand graphical histories,
 
 $$
 \mathbb P^-\!\left(\eta_i(t)=1\mid\mathcal F^+_{i,t}\right)
 \ge
-q(t)=\frac{1-e^{-(1-c)t}}{1+b-a}
+\frac{1-e^{-(1-c)t}}{1+b-a}.
 $$
 
-uniformly over initial configurations and complete graphical histories strictly to the right. Since
+After
 
 $$
 T_\rho=
-\frac1{1-c}\log\frac{B}{(b-a)(1-c)}
+\frac1{1-c}\log\frac{B}{(b-a)(1-c)},
 $$
 
-satisfies `q(t)>=rho` for `t>=T_rho`, every nonnegative right-history-measurable `F` satisfies
+this yields nonnegative insertion against every nonnegative right-history-measurable companion.
 
-$$
-\mathbb E^-[(B\eta_i(t)-c)F]\ge0.
-$$
-
-The density/sign part of the remembered route is therefore an actual finite-time estimate; it is not the present blocker.
-
-F also established two route limitations:
-
-- the raw Duhamel gradient is not right-measurable; already for `f(eta)=eta_{i-1}` it depends on the left spin at first order;
-- on `a>b(1-c)`, sufficiently long OI patches of the original process have negative contribution, so patchwise absolute-value/positivity arguments cannot close the hard subregion.
-
-Student G independently proved transient estimates on the **original** normalized IPS. With
-
-$$
-k=1+b+c,\qquad A=b+c-a,
-$$
-
-the exact one-density identity is
+Student G independently proved on the **original** normalized dynamics the exact transport--dissipation identity
 
 $$
 \frac d{dt}m_i
-=(b+c)-km_i-Aq_i+c(m_i-m_{i+1}),
+=(b+c)-(1+b+c)m_i-(b+c-a)q_i+c(m_i-m_{i+1}),
 $$
 
-where `q_i=P(00)`. Summing over an interval telescopes the transport term and yields, uniformly over initial state and prescribed right-boundary history,
-
-$$
-\frac1L\sum_{i\in I}\mathbb P(\eta_i(t)=0)
-\ge
-\frac{1-e^{-kt}}{k}\left(1-\frac cL\right).
-$$
-
-One-sided finite propagation gives a Poisson-tail boundary error and hence an explicit finite-box high-probability version. G also proved
+and hence a boundary-uniform transient zero-density lower bound, a finite-box high-probability version via one-sided propagation, and
 
 $$
 \frac d{dt}\mathbb P(11)
 \le b-(1+b)\mathbb P(11),
 $$
 
-so near `b=0`, after time `log(1/b)/(1+b)`, every box of length `o(1/b)` is in the no-adjacent-`11` hard-core subshift with probability `1-o(1)`.
+which gives a mesoscopic no-adjacent-`11` regime near the East boundary.
 
-These are genuine original-dynamics estimates and do not assume an invariant law or convergence.
+These remain target-relevant inputs.
 
-## The two density results do not yet compose
+## Closed route: cellwise last-exit/scaffold insertion
 
-Meeting 001 checked this explicitly.
+Meeting 002 resolves the finite question left by Meeting 001.
 
-F needs a conditional/weighted insertion inequality for `L^-`; G gives unweighted spatial density information for `L`. Even ignoring that semigroup and conditioning mismatch, G's asymptotic guaranteed zero-density floor
-
-$$
-\theta_G=\frac1{1+b+c}
-$$
-
-is strictly below F's threshold
+With a predecessor interaction fixed source-retaining, regional integration of the left absence cell gives the positive zero-boundary `L^-` kernel
 
 $$
-\rho=\frac c{b+c-a}
+K_\Delta(z)
+=
+\frac1{1+b-a}
++
+\left(z-\frac1{1+b-a}\right)e^{-(1+b-a)\Delta}.
 $$
 
-throughout `R`, because
+Thus the **one-cell** insertion step works: the raw Duhamel left dependence is removed by regional integration.
+
+But under composition the predecessor interaction is itself hidden. The exact signed transfer becomes
 
 $$
-c(1+b+c)-(b+c-a)=a+c^2-b(1-c)>0.
+\boxed{
+\Psi_\Delta(z)=(b+c-a)K_\Delta(z)-c.
+}
 $$
 
-Likewise the hard-core guarantee of one-half zeros is below `rho`, since `b-a<c` implies `b+c-a<2c`.
-
-Therefore the next block is **not** "combine the density bounds". The missing mathematics is regional cancellation/weighted insertion.
-
-## Current bottleneck: regional insertion positivity
-
-After revealing the minimal last-exit/scaffold geometry around a hidden successful interaction, keeping its type hidden, and integrating all unrevealed marks in the adjacent regions, determine whether the resulting companion kernel `F` satisfies
+At `z=0`, for every residual parameter point,
 
 $$
-\mathbb E^-[\eta_iF]\ge\rho\,\mathbb E^-[F]
+\Psi_\Delta(0)<0
 $$
 
-after the required burn-in.
+for all
 
-Right-history measurability is sufficient but not necessary. A coarser regional cancellation proving the inequality directly would suffice.
+$$
+0<\Delta<
+\tau_*:=
+\frac1{1+b-a}
+\log\frac{b+c-a}{(b-a)(1-c)}.
+$$
 
-This is a finite-region question. The first nontrivial cell must be proved or falsified before any larger scaffold argument. If one-cell positivity holds, it must immediately be tested under two-cell composition.
+Consecutive predecessor gaps have no positive lower bound. Hence nonnegative regional insertion does **not** propagate cell by cell along the scaffold. An explicit strict example is recorded in Student F's report and verifier.
 
-## Closed route retained as negative knowledge
+The following mechanism is therefore closed:
 
-The fixed finite agreed-block / frozen-exterior wall route remains closed. Do not restart it by increasing block length or changing the one-attack statistic.
+> reveal scaffold geometry, hide each successful type, integrate its adjacent region, demand a nonnegative insertion-preserving transfer, and iterate those transfers cell by cell.
 
-The new regional-kernel question is different: it concerns cancellation after hidden interaction types are averaged, not adversarial repeated crossing of a fixed wall.
+Do not continue by adding more cells to the same positivity argument. A hypothetical random-cluster cancellation would require a genuinely new mechanism and is not the automatic next route.
+
+## What survives from the principal's old route
+
+The corrected generator/boundary algebra, hidden-type insertion identity, right-conditioned `L^-` lemma, positive one-cell kernel, and deleted-noise trail factor remain correct technical mathematics. They no longer form a closing proof spine through cellwise composition.
+
+## Current bottleneck: actual live disagreement episodes
+
+The main positive inputs now come from the direct dynamics. The next route attacks the canonical coupling with the exterior disagreement source evolving according to the true process rather than being frozen.
+
+The desired next gain is an episode-level contraction or regeneration estimate: a bound on the probability/lifetime of a disagreement source and its propagation through a block or time slab, potentially using the proved zero-density/no-`11` estimates.
+
+This is distinct from both closed mechanisms:
+
+- no permanently frozen exterior source;
+- no sign required for every successful-interaction cell.
+
+Student F is assigned to this direct problem now. Student G completes its already-running independent bridge attempt before being rerouted.
 
 ## Anti-circularity rule
 
-A substantial block counts only if it proves a new one-way implication, new target-relevant estimate, material obstruction, or finite/local reduction with quantitative error. New dual/profile/finite-box language without a new inequality does not count.
-
-The next meeting must rule on the actual regional kernel or on a genuinely stronger replacement mechanism.
+A new disagreement representation does not count. The next block must prove a quantitative live-source contraction/regeneration estimate or exhibit a concrete obstruction showing why the existing density information cannot provide one.
 
 ## Wiki
 
