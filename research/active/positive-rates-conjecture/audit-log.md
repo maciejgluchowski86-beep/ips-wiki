@@ -66,16 +66,7 @@ Meeting: `meetings/006-one-step-transfer-refuted-block-stack-target.md`.
 
 Durable principal update: `notes/principal-centered-trail-update2.md`.
 
-Professor checks confirm:
-
-1. segmentwise right killing gives `|R|<=C_A prod s_1(u_k)` and direct decay on `max{c,b-a}Z<1`;
-2. near East the exact depth-two absolute-value ratios tend to `3/2` without right killing and `7/5` with it, closing one-step `(T)`;
-3. the correct sufficient quantity is the global right-weighted invariant `J_{x,r}`;
-4. each centered insertion splits into signed mass and positive conditional-law disagreement channels;
-5. unresolved disagreement-stack height has negative drift;
-6. the remaining theorem is a parameter-dependent block contraction preserving disagreement structure.
-
-Student F moved to `assignment-007.md`.
+Professor checks confirmed the segmentwise right-killing formula, the exact near-East `3/2` and `7/5` one-step obstructions, the mass/disagreement decomposition, and negative stack-height drift. Meeting 006 also stated that the crude condition `max{c,b-a}Z<1` gives a residual subregion; Meeting 008 later corrects that statement.
 
 ## Meeting 007: Student G exposure resolvent and restart bottleneck
 
@@ -83,31 +74,46 @@ Meeting: `meetings/007-student-g-exposure-resolvent-and-restart-bottleneck.md`.
 
 `state_narrowed: yes`.
 
-Student G return:
+Student G, commit `c7a33b5`, verifier `e20847a`: every live exposure edge, including non-rightmost disagreements, has an exact killed-chain child probability and weighted `J_i` occupation resolvent. Crude global summation fails near East because repeated exposure re-entry/restart count is uncontrolled. G's local `J_i` is distinct from the global trail quantity `J_{x,r}`.
 
-- commit `c7a33b5`, `students/student-g/002-density-to-regional-control.md`;
-- verifier commit `e20847a`, `students/student-g/002-regional-moment-verifier.py`.
+## Meeting 008: same-parent restart tail and empty crude residual region
 
-Operational correction: G had not actually been working during Meetings 003--006; the session produced only `Completed` with no commits until re-prompted by the principal. The present mathematics was then produced and is assessed independently of that delay.
+Meeting: `meetings/008-restart-tail-and-empty-supnorm-region.md`.
+
+`state_narrowed: yes`.
+
+Student G:
+
+- commit `0ca3fd1`, `students/student-g/003-restart-count-block-bridge.md`;
+- verifier commit `75b700f`, `students/student-g/003-restart-count-verifier.py`.
+
+Student F:
+
+- Phase-A verifier commit `0755d22`, `students/student-f/007-block-mass-disagreement-verifier.py`;
+- completed write-up commit `3cb6ac9`, `students/student-f/007-block-mass-disagreement-contraction.md`.
 
 Professor-checked conclusions:
 
-1. G independently reproduces F's old one-cell positive / two-hidden-cell sign failure. This corroborates the closed scaffold route but does not change it.
-2. For every live exposure edge `D_i=0,D_{i+1}=1`, including non-rightmost disagreements, Meeting 004's universal coalescence hazard gives a killed two-state comparison. The child-before-right-coalescence probability is at most explicit `h_x<1`.
-3. The dangerous local indicator
+1. **Same-parent restart bundle.** If `N` is the number of exposure entries of one fixed parent disagreement before that parent first coalesces, then
    $$
-   J_i=1_{\{D_i=0,D_{i+1}=1,X_i=Y_i=1\}}
+   P(N\ge n\mid\mathcal F)\le h_1^{n-1}.
    $$
-   has an explicit single-exposure resolvent
+   Hence `N` has the explicit exponential pgf bound
    $$
-   E\int J_i\le g_x,
+   E[s^N]\le(1-h_1)s/(1-h_1s)
    $$
-   and the exact child compensator is
+   for `1<=s<h_1^{-1}`.
+2. **Height algebra.** The accepted stack-clearing minorant gives an exponential height factor `phi(lambda)<1` on an explicit interval. Along the near-East path the algebraic choice `lambda=2`, `s=1+eps^2/4` gives `M(s)phi(2)->16/21<1`. This is a coupling-side restart/height stress factor, not a signed multiplier for global `J_{x,r}`.
+3. **Global Foster lift not yet verified.** G's product corrector over all unresolved levels needs an explicit global phase state and transition-by-transition superharmonicity proof, including inactive/exposed/child-alive phases and later new-parent reinfections. The verifier does not check this step.
+4. **F correction.** Throughout the entire residual chamber,
    $$
-   P(\text{child before right coalescence})=E\int[(b-a)+(c-b+a)J_i(t)]dt.
+   cZ>1,
    $$
-4. A crude all-time summation through exposure-entry count is valid but noncontractive near East: `q-(c-d)g_1=-1+O(eps)`. The loss is repeated exposure re-entry/restart, not the one-exposure kernel.
-5. G's local `J_i` is not Meeting 006's global trail quantity `J_{x,r}`. The near-East obstruction does not refute `J_{x,r}->0`; it constrains how the block theorem may be proved.
-6. The exposure-restart issue is the coupling-side manifestation of the same signed branching problem in the mass/disagreement decomposition.
+   and `c>b-a`. Therefore the crude condition `max{c,b-a}Z<1` has no residual solutions. The claim in Meeting 006 that it already proves a residual subregion is removed.
+5. There is no contradiction between `cZ>1` and `16/21<1`: the first is a raw scalar absolute-value multiplier; the second is a restart/height coupling factor after structural decomposition. Neither decides the bounded-height signed branching kernel.
+6. The remaining block theorem splits into two complementary lemmas: a rigorous global restart-corrector Foster reduction (G) and a bounded-height signed mass/disagreement kernel with block spectral radius `<1` or exact obstruction (F).
 
-Student F continues `assignment-007.md`. Student G is assigned `students/student-g/assignment-003.md` to build a restart-count/renewal bridge from the conditional-law disagreement channel to the block contraction, or produce an exact obstruction.
+Next assignments:
+
+- Student F: `students/student-f/assignment-008.md`;
+- Student G: `students/student-g/assignment-004.md`.
