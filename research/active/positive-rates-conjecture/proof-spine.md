@@ -20,77 +20,44 @@ with
 
 $$
 \mathcal R=
-\left\{
-0<a<b,
-\quad \frac12\le c<1,
-\quad c\ge a+b,
-\quad b\ge\sqrt2(1-c)
-\right\}.
+\left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-Closed mechanisms include the frozen-wall route, cellwise nonnegative scaffold transfer, one-step centered `L^1` transfer, the crude scalar criterion `max{c,b-a}Z<1`, G's exposed-only global Foster product, G's full nearest-neighbour scalar edge-product/coboundary Foster class, and F's depth-uniform finite linear common-mass mode closure.
+Closed mechanisms: frozen finite walls; cellwise nonnegative scaffold transfer; one-step centered `L^1`; crude scalar `max{c,b-a}Z<1`; exposed-only global Foster product; complete nearest-neighbour scalar edge-product/coboundary Foster class; depth-uniform finite linear common-mass mode closure.
 
-## E1. Centered predecessor trail
+## E1. Centered predecessor trail and global criterion
 
 Put
 
 $$
-B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a.
+B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a,
+\qquad w(u)=e^{-\omega u}s_1(u).
 $$
 
-The principal's working reduction gives a canonical predecessor trail with selected interactions all births and vertical factor
-
-$$
-e^{-\omega\tau}.
-$$
-
-The exact Poisson--Mecke factorization and no-exit complement remain to be independently audited before a closing proof.
-
-## E2. Segmentwise right killing and global criterion
-
-The right contribution obeys
-
-$$
-|R_{\gamma,t}(\eta)|\le C_A\prod_k s_1(u_k).
-$$
-
-Define
-
-$$
-w(u)=e^{-\omega u}s_1(u),
-\qquad
-Z=\int_0^\infty w(u)du.
-$$
-
-The nonempty-exit term is reduced to
+The working predecessor-trail reduction leaves
 
 $$
 \boxed{
 J_{x,r}
-=B g^{n-1}
-\int_{(0,\infty)^n}
-\left(\prod_k w(u_k)\right)
-|\pi^0_{m,r}(F_{x,u})|du.
+=B g^{n-1}\int\left(\prod_k w(u_k)\right)|\pi^0_{m,r}(F_{x,u})|du.
 }
 $$
 
-Proving `J_{x,r}->0` with depth is sufficient for that term.
+Proving `J_{x,r}->0` with trail depth is sufficient for the nonempty-exit term. Exact Poisson--Mecke factorization and the no-exit complement remain downstream audits after `J` decay is proved.
 
-The crude absolute-value criterion is unusable on the residual chamber: `c>b-a` and `cZ>1` throughout `R`.
-
-## E3. Exact mass/disagreement decomposition
+## E2. Exact signed branching identity
 
 For a law `mu`, rightmost density `r`, left marginal `bar mu`, and conditional left laws `mu^1,mu^0`,
 
 $$
 \boxed{
-g\,\mu(h_{p_*}(\eta_y)f)
+g\mu(h_{p_*}(\eta_y)f)
 =(Br-c)\bar\mu(f)+Br(1-r)(\mu^1-\mu^0)(f).}
 $$
 
-This is the active signed branching identity. The first channel is common signed mass; the second is represented by a coupling of two conditional laws.
+The first channel is signed common mass; the second is a conditional-law disagreement channel.
 
-## E4. One-step and norm-order obstruction
+## E3. Norm-order obstruction
 
 Near East,
 
@@ -98,27 +65,18 @@ $$
 a=\varepsilon^2,\quad b=\varepsilon,\quad c=1-\varepsilon^2,
 $$
 
-the exact depth-two profile changes sign. The normalized absolute-value factors tend to `3/2` without right killing and `7/5` with it. Moreover
+the exact depth-two profile changes sign. The signed duration average gives an apparent normalized `3/5`, but the actual `J`-compatible quantity gives `7/5`:
 
 $$
-\frac g{|m_\varepsilon|}
-\left|\int w(u)A_{2,\varepsilon}(u)du\right|
-\to\frac35<1,
-$$
-
-while
-
-$$
+\frac g{|m_\varepsilon|}\left|\int wA_{2,\varepsilon}\right|\to\frac35,
+\qquad
 \boxed{
-\frac g{|m_\varepsilon|}
-\int w(u)|A_{2,\varepsilon}(u)|du
-\to\frac75>1.
-}
+\frac g{|m_\varepsilon|}\int w|A_{2,\varepsilon}|\to\frac75.}
 $$
 
-Therefore duration integration cannot precede the block absolute-value norm. Pointwise positivity, one-step centered `L^1`, and duration-integrated finite-matrix iteration are closed.
+Therefore duration integration cannot precede the block absolute-value norm. Duration-integrated finite matrices are diagnostic only.
 
-## E5. Common-mass equilibrium and first transient modes contract
+## E4. Common-mass scalar damping
 
 Let
 
@@ -126,29 +84,15 @@ $$
 r_0=\frac1{1+b}.
 $$
 
-Student F proves
+The equilibrium and first transient mass modes satisfy
 
 $$
-\boxed{|Br_0-c|Z<\frac23}
+\boxed{|Br_0-c|Z<\frac23,}
+\qquad
+\boxed{\kappa_T=BZ_{\omega+1+b}<1.}
 $$
 
-throughout the strict residual chamber.
-
-For a signed mass component with total mass `A` and centered rightmost moment `C`, zero-boundary evolution gives
-
-$$
-M_{A,C}(u)=(Br_0-c)A+BCe^{-(1+b)u}.
-$$
-
-The pure transient cost is
-
-$$
-\boxed{
-\kappa_T=B Z_{\omega+1+b}<1.
-}
-$$
-
-Writing `k=1-c`, the exact denominator gap is
+Writing `k=1-c`, the exact transient denominator gap is
 
 $$
 a^2+5ab+ak+7a+4bk+6k>0.
@@ -157,16 +101,14 @@ $$
 Near East,
 
 $$
-\kappa_T
-=1-\frac{13}{3}\varepsilon^2
-+\frac{38}{9}\varepsilon^3+O(\varepsilon^4).
+\kappa_T=1-\frac{13}{3}\varepsilon^2+rac{38}{9}\varepsilon^3+O(\varepsilon^4).
 $$
 
-These are genuine profile-level damping inputs, not a proof of `J->0`.
+These are genuine damping inputs, not a proof of all-depth contraction.
 
-## E6. Exact common-mass transfer is operator-valued
+## E5. Exact common-mass transfer is operator-valued
 
-Slice a signed law by the current rightmost spin, `boldnu=(nu_0,nu_1)`. If `L^0,L^1` are the left-block generators with boundary spin fixed to zero or one, then
+Slice a signed law by the current rightmost spin, `boldnu=(nu_0,nu_1)`. With left generators `L^0,L^1`,
 
 $$
 \frac d{du}\boldsymbol\nu
@@ -177,129 +119,169 @@ bI&L^1-bI
 \end{pmatrix}.
 $$
 
-With
+The centered insertion projection is
 
 $$
 \mathcal S(\nu_0,\nu_1)=-c\nu_0+g\nu_1,
 $$
 
-the one-segment transfer is
+so
 
 $$
-\boxed{
 (\mathfrak T_y\boldsymbol\nu)(u)
-=\mathcal S\bigl(\boldsymbol\nu e^{u\mathbb Q_y}\bigr).
-}
+=\mathcal S(\boldsymbol\nu e^{u\mathbb Q_y}).
 $$
 
-All duration variables must remain visible until the final `L^1(w)` norm.
+All duration variables remain visible until the final `L^1(w)` norm.
 
-## E7. Depth-uniform finite linear common-mass mode closure is impossible
+## E6. Depth-uniform finite linear mode closure is impossible
 
 On an `N`-site zero-boundary interval,
 
 $$
-\boxed{
-c(x,y)(1-2x)=1-cy-(1+b)x+Bxy.}
-$$
-
-The only degree-raising term is `Bxy`. Therefore for `0<=j<N`,
-
-$$
-\boxed{
 L_N^j h_{p_*}(\eta_1)
 =\frac{B^j}{q_*}\eta_1\cdots\eta_{j+1}+R_j,
-\qquad \deg R_j\le j.
-}
+\qquad \deg R_j\le j,
 $$
 
-The vectors `h_1,L_Nh_1,...,L_N^{N-1}h_1` are linearly independent. Any exact semigroup-invariant linear mode space containing `h_1` has dimension at least `N`.
+for `0<=j<N`. Hence the cyclic subspace has dimension at least `N`. Bounded disagreement height does not imply bounded common-mass mode dimension.
 
-**Status:** exact obstruction. Bounded disagreement/restart height does not imply bounded common-mass mode dimension. Student F Assignment 010 attacks profile regeneration/truncation instead.
+**Status:** exact obstruction. Do not enlarge finite common-mass alphabets.
 
-## E8. Coupling inputs that remain valid
+## E7. Assignment 010: exact suffix projectivity
 
-Under the common-uniform coupling every disagreement site has a positive coalescence probability at its own update. For one fixed parent disagreement, repeated exposure re-entry before that parent's first coalescence has a geometric tail and explicit exponential pgf. The principal stack-clearing construction separately gives negative height drift and an exponential height factor.
-
-These are reusable local/renewal facts. They do not automatically compose into a global Foster theorem.
-
-## E9. Exposed-only global Foster product is false
-
-On a reachable all-`01` disagreement stack of height `H`, the Assignment-003 exposed-only product has exact tilted drift
+Let `R_{N,M}` marginalize onto the rightmost `M` sites. One-sidedness gives
 
 $$
-\frac{\mathscr L_sV}{V}
-=(1-a)(s-1)
-+(H-2)(1-a)(s e_0-1)
-+\omega(\lambda^{-1}-1).
+R_{N,M}(\nu P_u^N)=(R_{N,M}\nu)P_u^M,
 $$
 
-For `s>1`, `e_0>=1`, finite `lambda>1`, the positive bulk term grows linearly in `H`. With the old near-East choices the drift tends to `(H-2)/7`.
-
-**Status:** exact refutation of the exposed-only independent-level product. The old `16/21` number remains diagnostic only.
-
-## E10. Full nearest-neighbour scalar product/coboundary Foster class is false
-
-Let
+and insertion/drop commutes with suffix marginalization. Consequently
 
 $$
-\mathcal A=\{00,11,01,10\}
+R_{N,M}\pi_N=\pi_M.
 $$
 
-and consider every positive nearest-neighbour scalar edge product
+A perturbation outside the retained `M`-site suffix is exactly invisible to scalar reverse-trail output for the next `M` transfers.
+
+**Status:** Professor-accepted.
+
+## E8. First invariant insertion is depth-uniformly truncatable
+
+Under the projective half-line invariant law, put
 
 $$
-C_Q(\sigma)=\prod_i q_{\sigma_{i-1},\sigma_i}.
+Y=B\eta_0-c,
+\qquad
+K_M=E[Y\mid\eta_{-M},\ldots,\eta_{-1}].
 $$
 
-At the strict residual point
+Then
 
 $$
-(a,b,c)=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
+K_M\to K_\infty\quad\text{in }L^1,
 $$
 
-Student G gives an exact normalized rational circulation `mu` on the 64 triple phases with:
+and
 
-1. spatial flow conservation;
-2. zero expected exponent change in all 16 edge-weight coordinates;
-3. positive exposure-entry flux `R_mu` and changing-update mass `C_mu`.
+$$
+\varepsilon_M:=\sup_{n\ge M}\|K_n-K_M\|_1\to0.
+$$
 
-For every positive `Q` and every `s>1`, weighted AM--GM yields
+Thus for all finite depths `N>=M+1` and bounded left functions `F`,
 
 $$
 \boxed{
-\sum_e\mu_eG_Q(e)
-\ge
-C_\mu\left(s^{R_\mu/C_\mu}-1\right)>0.
-}
+|\pi_N((B\eta_N-c)F)-\pi_N(K_M^{(N)}F)|
+\le\varepsilon_M\|F\|_\infty.}
 $$
 
-Any coboundary inequality would force the circulation average to be nonpositive. Hence no positive `Q` and potential `psi` can satisfy the 64 bulk inequalities. Equivalently some repeatable spatial cycle has positive mean bulk drift for every `Q,s`.
+This is finite-context approximation, not finite Markov order.
 
-Because this is a repeatable bulk obstruction, finite boundary/height/insertion corrections cannot repair the class.
+## E9. Explicit equilibrium gap localization
 
-**Status:** exact refutation of the entire nearest-neighbour scalar product/coboundary Foster class at one strict residual point. Matrix-product/nonlocal correctors and other finite temporal states are not ruled out.
+If `f` is supported at least `M` sites left of the zero boundary, Assignment 010 proves
 
-## E11. Current common-mass target: profile truncation
+$$
+\boxed{
+\left|\pi_N((B\eta_N-c)f)-(Br_0-c)\pi_N(f)\right|
+\le
+\frac{2Bbc}{(1+b)^3(2+b)^{M-1}}\|f\|_\infty.}
+$$
 
-Student F Assignment 010 seeks a depth-uniform quantitative truncation/ancestry-tail theorem for the operator-valued common-mass profile in the exact `J`-compatible norm. The preferred mechanism is regeneration by environment-independent reset clocks, with constants allowed to deteriorate arbitrarily near East.
+The proof uses a positive resolvent parameter `1+b` and one-sided finite propagation.
 
-A success must show that dependence extending more than `M` sites from the moving boundary has weighted mass `delta_M->0` uniformly in remaining trail depth. A failure should exhibit a non-negligible deep ancestry obstruction.
+Likewise one semigroup segment obeys
 
-## E12. Current coupling target: viability of the common-uniform coupling
+$$
+\boxed{
+\int_0^\infty w(u)\|P_uf-P_u^{(M)}f\|_\infty du
+\le\frac{2}{\omega(1+\omega)^M}\|f\|_\infty.}
+$$
 
-After two structural failures of scalar local global-corrector classes, do not enlarge local scalar phase alphabets mechanically.
+Scalar iteration is unavailable because it reintroduces `cZ>1`.
 
-Student G Assignment 006 asks whether a finite disagreement seed under the common-uniform coupling survives forever with positive probability at a strict near-East residual point.
+## E10. Current common-mass blocker: zero-frequency boundary response
 
-- **If survival is proved:** global coalescence/regeneration of this synchronous coupling is unavailable as a proof mechanism at that point; local coupling identities may still be used inside the signed representation.
-- **If extinction is proved:** the needed theorem must be genuinely nonlocal, bundling interior restart creation before charging the norm.
+After one insertion the mass branch is `bar pi_N`, not `pi_{N-1}`. The exact discrepancy is
 
-This is a structural viability test for the coupling route, not a test of ergodicity itself.
+$$
+\boxed{
+\bar\pi_N(f)-\pi_{N-1}(f)
+=
+\pi_N\left[
+\eta_ND\int_0^\infty
+P_t^{N-1,0}(f-\pi_{N-1}(f))dt
+\right].}
+$$
 
-## E13. Composition target
+This is a zero-frequency resolvent. Finite speed alone is not integrable at long times.
 
-The active route can reach `J_{x,r}->0` only if the common-mass profile hierarchy is quantitatively controlled and the disagreement channel is handled by a mechanism compatible with the outcome of E12. No finite local scalar Foster state or depth-uniform finite common-mass matrix remains available.
+Define, for `M>=2`,
+
+$$
+\Delta_M
+=
+\sup_{N\ge M+1}
+\sup_{\substack{\|f\|_\infty\le1\\
+\operatorname{supp}(f)\subseteq\{1,\ldots,N-M\}}}
+|\bar\pi_N(f)-\pi_{N-1}(f)|.
+$$
+
+**Current question:** does
+
+$$
+\boxed{\Delta_M\to0?}
+$$
+
+Student F Assignment 011 must prove this throughout the strict residual chamber, refute it at one strict residual point, or reduce it to one explicit theorem. If positive, it must be lifted at least to one post-insertion mass-branch truncation estimate.
+
+## E11. Coupling facts that survive
+
+The same-parent geometric restart theorem and separate stack-clearing minorant remain valid. They do not compose into a scalar local global Foster theorem.
+
+G's exposed-only product is refuted by long all-`01` stacks. The complete nearest-neighbour scalar edge-product/coboundary class is refuted at a strict near-East point by an exact balanced circulation with positive restart flux and zero scalar `Q`-energy change.
+
+**Status:** no finite local scalar Foster state remains.
+
+## E12. Current coupling viability test
+
+Student G Assignment 006 asks whether the common-uniform disagreement process survives forever with positive probability from a finite seed at a strict near-East residual point.
+
+- Survival closes any proof requiring global coalescence of this synchronous coupling.
+- Extinction must be accompanied by a genuinely nonlocal quantitative regeneration theorem.
+
+This is a structural viability test, not an ergodicity test.
+
+## E13. Route-level checkpoint
+
+Both active lines now point to nonlocal structure. Do not authorize open-ended matrix-product/nonlocal norm construction until F011 and G006 return.
+
+- If F011 refutes zero-frequency boundary locality, the current profile-truncation implementation closes.
+- If G006 proves finite-seed survival, the current global-coalescence coupling implementation closes.
+- If one or both are positive, use the exact theorem obtained rather than restarting generic norm engineering.
+
+After both returns, hold a route-level expected-value review.
 
 ## E14. Final reconstruction after `J->0`
 
@@ -307,4 +289,4 @@ Only after `J_{x,r}->0` is actually proved should the group audit the exact pred
 
 ## Anti-circularity checkpoint
 
-Do not use `16/21` as a global Foster theorem, enlarge scalar local corrector contexts mechanically, integrate duration before absolute value, revive a depth-uniform finite common-mass mode state, iterate diagnostic duration-integrated matrices as the proof kernel, return to one-step `(T)`, or replace the signed mass/disagreement structure by unrestricted total variation.
+Do not integrate duration before absolute value, use `16/21` as a global Foster theorem, enlarge scalar local coupling products mechanically, revive a finite common-mass mode state, replace the signed structure by unrestricted total variation, or assume the positive rates conjecture / an unproved uniform spectral gap in E10.
