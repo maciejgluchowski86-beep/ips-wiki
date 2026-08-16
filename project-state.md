@@ -13,9 +13,9 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed until changed or stopped by the principal: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/013-equilibrium-profile-truncates-zero-frequency-response-remains.md`, `state_narrowed: yes`.
-- Student F: `students/student-f/assignment-011.md`, zero-frequency boundary-response locality.
-- Student G: `students/student-g/assignment-006.md`, finite-seed survival/extinction test for the common-uniform disagreement process near East.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/014-zero-frequency-response-equals-tail-shift-defect.md`, `state_narrowed: yes`.
+- Student F: `students/student-f/assignment-012.md`, decide tail-shift agreement of the projective half-line invariant law.
+- Student G successor session: `students/student-g/assignment-006.md`, finite-seed survival/extinction test for the common-uniform disagreement process near East. The predecessor session failed before committing Assignment-006 work; no lost mathematics is used.
 
 On `r11=0`, write
 
@@ -50,7 +50,7 @@ $$
 
 Proving `J_{x,r}->0` with depth is sufficient for the nonempty-exit term. Exact Poisson--Mecke factorization and the no-exit complement remain downstream audits after `J` decay is actually proved.
 
-### Common-mass side: new Meeting 013 narrowing
+### Common-mass side: Meeting 014 tail-shift reduction
 
 Professor-checked scalar losses remain
 
@@ -61,50 +61,53 @@ BZ_{\omega+1+b}<1,
 \qquad r_0=\frac1{1+b}.
 $$
 
-F Assignment 010 proves exact suffix intertwining and suffix-projectivity of the zero-boundary invariant laws. The first invariant centered insertion is depth-uniformly finite-context approximable:
+Assignments 010--011 establish exact suffix projectivity, finite-context truncation of the first invariant insertion, and explicit one-segment localization. The zero-frequency post-insertion defect is now exactly identified with a spatial tail-shift variation.
+
+Let `mu=pi_infty^0` be the projective half-line invariant law, `theta` drop the boundary-nearest spin, and
 
 $$
-K_M=E[B\eta_0-c\mid\eta_{-M},\ldots,\eta_{-1}],
+\mathcal F_m=\sigma(X_j:j\ge m),
 \qquad
-\sup_{n\ge M}\|K_n-K_M\|_1\to0.
+\mathcal T=\bigcap_m\mathcal F_m.
 $$
 
-It also gives an explicit separated-gap bound
+Then
 
 $$
-\left|\pi_N((B\eta_N-c)f)-(Br_0-c)\pi_N(f)\right|
-\le
-\frac{2Bbc}{(1+b)^3(2+b)^{M-1}}\|f\|_\infty
+\Delta_M
+=\|\theta\mu-\mu\|_{\mathcal F_{M-1}}
 $$
 
-and one-segment weighted finite-speed tail
+and reverse-martingale convergence gives
 
 $$
-\int_0^\infty w(u)\|P_uf-P_u^{(M)}f\|_\infty du
-\le\frac{2}{\omega(1+\omega)^M}\|f\|_\infty.
+\boxed{
+\lim_{M\to\infty}\Delta_M
+=\|\theta\mu-\mu\|_{\mathcal T}.
+}
 $$
 
-The iterative blocker is sharper: after insertion, the mass branch is `bar pi_N`, not `pi_{N-1}`. Its exact boundary response is
+Thus zero-frequency locality is equivalent to
 
 $$
-\bar\pi_N(f)-\pi_{N-1}(f)
-=
-\pi_N\left[
-\eta_ND\int_0^\infty P_t^{N-1,0}(f-\pi_{N-1}(f))dt
-\right].
+\boxed{
+\mu|_{\mathcal T}=(\theta\mu)|_{\mathcal T}.
+}
 $$
 
-This is a zero-frequency Green response; finite speed alone is nonintegrable at long times. F Assignment 011 asks whether its far-left operator norm tends to zero uniformly in volume. No Assignment-010 verifier is currently committed despite the report mentioning one; Meeting 013's ruling is from direct proof reconstruction.
+Separate tail 0--1 laws are insufficient; the same tail events must receive the same probabilities.
+
+Conditional on this tail-shift theorem, the common-mass branch after one centered insertion already has a `J`-compatible one-next-segment truncation bound. F Assignment 012 is one bounded attempt to prove or refute tail-shift agreement, preferably through finite-window likelihood ratios, entropy, or another explicit boundary-influence identity.
 
 ### Coupling side
 
 G's same-parent restart theorem and separate stack-clearing minorant survive, but both scalar local global-corrector architectures are refuted. Meeting 012's balanced circulation kills the entire nearest-neighbour scalar edge-product/coboundary class at a strict near-East point.
 
-G Assignment 006 tests whether the common-uniform disagreement process itself survives from a finite seed near East. Survival closes any proof requiring global coalescence of that synchronous coupling; extinction would need a genuinely nonlocal quantitative regeneration theorem.
+The replacement G session is redoing Assignment 006 unchanged. Survival of the common-uniform disagreement process from a finite seed would close every route requiring global coalescence of that synchronous coupling; extinction would require a genuinely nonlocal quantitative regeneration theorem.
 
 ### Route-level checkpoint
 
-Both lines now point to nonlocal structure. Do not start open-ended matrix-product engineering yet. After F011 and G006 return, hold a route-level expected-value review before authorizing a general nonlocal/matrix-product construction.
+Both lines have one concrete decision theorem in flight. Do not start open-ended matrix-product/nonlocal norm engineering yet. After F012 and G006 return, hold a route-level expected-value review.
 
 ## Most recently completed programme
 
