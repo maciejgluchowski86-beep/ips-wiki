@@ -23,18 +23,20 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-Latest meeting: `meetings/016-route-review-converges-on-finite-time-damage-contraction.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/017-fixed-boundary-sandwich-and-random-map-stop.md`, `state_narrowed: yes`.
 
 Active work:
 
-- Student G successor: `students/student-g/assignment-007.md`, decide the finite-time full-line random-map Hamming contraction `alpha(T)<1` at the strict near-East rational point, or prove a genuine convective-survival/lower obstruction.
-- Student F: Assignment 012 completed in `students/student-f/012-tail-shift-agreement.md`; no new assignment. F is idle after finishing its current response, pending G007.
+- Students F and G: idle. No G008/F013 is authorized.
+- One bounded outside consultation is authorized: `consultants/assignment-001-disagreement-front-survival-review.md`.
 
-## Closed mechanisms
+## Closed / stopped mechanisms
 
 Closed: fixed finite walls; cellwise nonnegative scaffold insertion; one-step centered `L^1`; crude scalar `max{c,b-a}Z<1`; G's exposed-only global Foster product; G's full nearest-neighbour scalar edge-product/coboundary Foster class; F's depth-uniform finite linear common-mass mode closure.
 
-Do not reopen these by enlarging finite scalar contexts or finite common-mass alphabets.
+Stopped as a computational implementation after Meeting 017: raw finite-window/HJB certification of the common-uniform Hamming coefficient by simply enlarging `L,R,T` or changing the right-boundary controller.
+
+Do not reopen these by enlarging finite scalar contexts, finite common-mass alphabets, or raw random-map windows.
 
 ## Global predecessor-trail target
 
@@ -68,89 +70,40 @@ Professor-checked strict right-weighted losses remain
 $$
 |Br_0-c|Z<\frac23,
 \qquad
-\kappa_T=BZ_{\omega+1+b}<1,
-\qquad r_0=\frac1{1+b}.
+\kappa_T=BZ_{\omega+1+b}<1.
 $$
 
 The exact common-mass semigroup has no depth-uniform finite linear mode closure. Assignments 010--011 instead give suffix projectivity, finite-context truncation of the first invariant insertion, and the tail-shift formulation of the zero-frequency response.
 
-Let `mu=pi_infty^0`, let `theta` drop the boundary-nearest spin, and let
-
-$$
-\mathcal T=\bigcap_m\sigma(X_j:j\ge m).
-$$
-
-Then
-
-$$
-\lim_{M\to\infty}\Delta_M
-=\|\theta\mu-\mu\|_{\mathcal T},
-$$
-
-so tail-shift agreement is equivalent to `Delta_M->0`.
-
-### Assignment 012: damage-susceptibility criterion
-
-For finite zero-boundary chains define the far-left single-flip damage kernel
+For the zero-boundary far-left damage kernel
 
 $$
 \beta_m(t)
 =
-\sup_{n,\eta,i}E\sum_{j\le i-m}D_j(t)
+\sup_{n,\eta,i}E\sum_{j\le i-m}D_j(t),
 $$
 
-and the zero-boundary Hamming amplification
-
-$$
-\alpha_0(t)
-=
-\sup_{n,\eta,i}E\sum_jD_j(t).
-$$
-
-Meeting 016 accepts
+F012 proves
 
 $$
 \boxed{
-\Delta_M
-\le
-2c\int_0^\infty\beta_{M-1}(t)dt.
+\Delta_M\le2c\int_0^\infty\beta_{M-1}(t)dt.
 }
 $$
 
-Finite speed gives
+If
 
 $$
-\beta_m(t)
-\le E[(\operatorname{Pois}(t)-m+1)_+],
-\qquad
-\beta_m(t)\le\alpha_0(t).
+\alpha_0(t)=\sup_{n,\eta,i}E\sum_jD_j(t),
 $$
 
-Hence
+then integrability of `alpha_0` implies tail-shift agreement, and one finite-time inequality `alpha_0(T)<1` is sufficient for an explicit exponential `Delta_M` bound. No such strict zero-boundary contraction is proved.
 
-$$
-\boxed{
-\int_0^\infty\alpha_0(t)dt<\infty
-\Longrightarrow
-\Delta_M\to0.
-}
-$$
+Verifier history: original F012 verifier `3750a53` fails due SymPy's symbolic convergence `Piecewise`; repair `5494008` fixes only that tooling assertion. Meeting 016's theorem ruling is from proof reconstruction.
 
-Moreover `alpha_0` is submultiplicative, so one finite-time inequality
+## Actual common-uniform coupling
 
-$$
-\boxed{\alpha_0(T)<1}
-$$
-
-proves tail-shift agreement with an explicit exponential bound on `Delta_M`. The finite controlled-CTMC hierarchy from G extends to a zero-boundary certificate after finitely many close-boundary geometries are included.
-
-No `alpha_0(T)<1` certificate is currently proved.
-
-Verifier status: F's original verifier commit `3750a53` fails because SymPy retains the symbolic geometric-series convergence condition in `Piecewise` form. It is **not** counted as passing. F's subsequent `5494008` replaces that assertion by an exact rational geometric-series check; this is a tooling repair, not a mathematical change.
-
-## Coupling side
-
-For the actual common-uniform full-line coupling, every finite disagreement seed becomes permanently coupled at each fixed site. Finite-seed survival, if it occurs, is purely convective escape to `-infinity`.
+For every finite disagreement seed, every fixed site eventually becomes permanently coupled. Survival, if it occurs, is exactly convective escape to `-infinity`.
 
 With
 
@@ -164,7 +117,7 @@ $$
 \mathcal L^{\rm coup}D_i\le-qD_i+cD_{i+1},
 $$
 
-hence moving-frame exponential contraction for every `z>c/q`.
+hence moving-frame exponential contraction for every `z>c/q`. This does not imply global extinction.
 
 Define
 
@@ -172,39 +125,75 @@ $$
 \alpha(t)=\sup_{\eta,i}E\,d_H(\Phi_t\eta,\Phi_t\eta^i).
 $$
 
-Meeting 015 accepts submultiplicativity and the implication
+It is submultiplicative; one `alpha(T)<1` would imply exponential finite-seed extinction.
+
+### Assignment 007: convergent fixed-boundary approximation
+
+For a fixed common boundary spin `e` at `R+1`, let `B_{L,R}^e(T)` be the finite fixed-boundary CTMC value and put
+
+$$
+r_{L,R}(T)=(L+1)P(\operatorname{Pois}(T)\ge R+1),
+$$
+
+$$
+\ell_L(T)=E[(\operatorname{Pois}(T)-L)_+].
+$$
+
+Meeting 017 accepts
 
 $$
 \boxed{
-\alpha(T)<1
-\Longrightarrow
-P(\tau>nT)\le\alpha(T)^n|D_0|.
+B_{L,R}^e(T)-r_{L,R}(T)
+\le\alpha(T)
+\le
+B_{L,R}^e(T)+r_{L,R}(T)+\ell_L(T).
 }
 $$
 
-The exact finite controlled-chain hierarchy gives
+The old adversarial controlled value also satisfies
 
 $$
-\alpha(T)
-\le
-A_{L,R}(T)+E[(\operatorname{Pois}(T)-L)_+].
+0\le A_{L,R}(T)-B_{L,R}^e(T)\le r_{L,R}(T).
 $$
 
-G007 is the one currently authorized execution block on this diagnostic.
+Thus the right controller is not the obstruction and `alpha(T)` has a genuine two-sided finite approximation at every fixed time.
 
-## Route-level decision after Meeting 016
+### Long initial expansion
 
-The common-mass and coupling sides have converged on the same **finite-time random-map damage-contraction mechanism**, although the coefficients `alpha_0` and full-line `alpha` are not automatically identical.
+At the strict hard point
 
-Continue only through G007. Do not dispatch F to a duplicate HJB search and do not begin matrix-product/nonlocal-norm engineering.
+$$
+(a,b,c)=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
+$$
 
-Hard stop for this implementation: if G007 returns unresolved and the only proposed continuation is larger `L,R,T` computation, a more elaborate controller, or generic matrix-product engineering without a new convergence theorem, do not issue another variant. Reassess the predecessor-trail route or use a bounded outside consultation.
+G007 constructs a protected-source event giving
 
-If G proves full-line `alpha(T)<1`, next check the finitely many close-zero-boundary cases required to obtain `alpha_0(T)<1`; then formulate a single combined block transfer before arbitrary trail iteration. If G proves convective survival or `alpha(T)>=1` for all times, close every use of eventual global coalescence of this synchronous coupling.
+$$
+\boxed{
+\alpha(t)>1\qquad(0<t\le47).
+}
+$$
+
+The certified lower value at `T=47` exceeds `1.008204288867933`.
+
+At that time, merely requiring each causal truncation error to be below `1%` needs `L>=67`, `R>=74`, with naive state count `2^210`. This is a scale diagnostic, not a universal state-size lower bound, but it rules out larger raw enumeration as a useful next block.
+
+The G007 verifier's decimal output is display-only; assertions use exact rational interval enclosures and exact finite uniformization. It supports the finite arithmetic claims, not any unresolved global alternative.
+
+## Current route decision after Meeting 017
+
+The raw finite random-map certificate implementation stops here. G007 is unresolved on contraction versus survival, but the unresolved continuation is no longer a finite-certificate refinement. It requires one of two new structural theorems:
+
+1. an **actual disagreement-front tail theorem** preserving the common-spin history before first exposure and replacing the causal Poisson cone by the true near-East front scale; or
+2. a **convective-survival theorem** from a finite seed.
+
+Even a future proof of `alpha(T)<1` would still leave arbitrary signed-profile composition and `J_{x,r}` decay unresolved. The expected value of another internal block devoted only to Hamming contraction has therefore dropped.
+
+No G008 or F013 is issued. One bounded outside consultant now assesses whether the front or survival theorem has a credible structural route and whether it would materially advance `J_{x,r}`. After that report the Professor must either choose one sharply stated new proof-spine edge or abandon the common-uniform global-coalescence interface and return to the signed predecessor-trail problem with a different disagreement representation.
 
 ## Anti-circularity
 
-Do not integrate duration before the actual absolute-value norm; use `16/21` as a global Foster multiplier; enlarge scalar local correctors mechanically; revive finite common-mass mode closure; replace the signed disagreement channel by unrestricted total variation; import the predecessor-trail reset-height drift into the actual common-uniform process; infer extinction from fixed-site coupling or moving-frame contraction; infer survival because one finite upper certificate exceeds one; or treat the failed `3750a53` verifier as a valid certificate.
+Do not integrate duration before the actual absolute-value norm; use `16/21` as a global Foster multiplier; enlarge scalar local correctors mechanically; revive finite common-mass mode closure; replace the signed disagreement channel by unrestricted total variation; import the predecessor-trail reset-height drift into the actual common-uniform process; infer extinction from fixed-site coupling or moving-frame contraction; infer survival from finite-time expansion or failure of an upper certificate; or continue the random-map route by raw larger windows alone.
 
 ## Wiki
 
