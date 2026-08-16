@@ -25,6 +25,8 @@ $$
 
 Closed mechanisms: frozen finite walls; cellwise nonnegative scaffold transfer; one-step centered `L^1`; crude scalar `max{c,b-a}Z<1`; exposed-only global Foster product; complete nearest-neighbour scalar edge-product/coboundary Foster class; depth-uniform finite linear common-mass mode closure.
 
+Stopped computational implementation: raw enlargement of finite random-map/HJB windows after G007.
+
 ## E1. Centered predecessor trail and global criterion
 
 Put
@@ -127,29 +129,19 @@ $$
 For the post-insertion boundary-response norm `Delta_M`, Assignment 011 proves
 
 $$
-\boxed{
 \Delta_M=\|\theta\mu-\mu\|_{\mathcal F_{M-1}},
-}
 $$
 
 and
 
 $$
-\boxed{
 \lim_{M\to\infty}\Delta_M
 =\|\theta\mu-\mu\|_{\mathcal T}.
-}
 $$
 
-Thus zero-frequency locality is exactly tail-shift agreement
+Thus zero-frequency locality is exactly tail-shift agreement. Conditional on `Delta_M->0`, the common-mass branch after one insertion has a valid `J`-compatible one-next-segment truncation estimate.
 
-$$
-\mu|_{\mathcal T}=(\theta\mu)|_{\mathcal T}.
-$$
-
-Conditional on `Delta_M->0`, the common-mass branch after one insertion has a valid `J`-compatible one-next-segment truncation estimate.
-
-## E9. Assignment 012: Green response controlled by far-left damage
+## E9. Green response controlled by far-left damage
 
 For finite zero-boundary chains define
 
@@ -159,23 +151,18 @@ $$
 \sup_{n,\eta,i}E\sum_{j\le i-m}D_j(t).
 $$
 
-F proves
+F012 proves
 
 $$
 \boxed{
-\Delta_M
-\le
-2c\int_0^\infty\beta_{M-1}(t)dt.
+\Delta_M\le2c\int_0^\infty\beta_{M-1}(t)dt.
 }
 $$
-
-The boundary generator difference is a single-flip gradient with magnitude at most `c`, and the common graphical map bounds the resulting semigroup gradient by the expected far-left disagreement occupation. The modulus is taken before Green-time integration.
 
 Finite speed gives
 
 $$
-\beta_m(t)
-\le E[(\operatorname{Pois}(t)-m+1)_+].
+\beta_m(t)\le E[(\operatorname{Pois}(t)-m+1)_+].
 $$
 
 ## E10. Zero-boundary Hamming susceptibility criterion
@@ -183,18 +170,10 @@ $$
 Define
 
 $$
-\alpha_0(t)
-=
-\sup_{n,\eta,i}E\sum_jD_j(t)
+\alpha_0(t)=\sup_{n,\eta,i}E\sum_jD_j(t).
 $$
 
-for all finite zero-boundary chains. Then
-
-$$
-\beta_m(t)\le\alpha_0(t),
-$$
-
-so dominated convergence gives
+Then `beta_m(t)<=alpha_0(t)`, so
 
 $$
 \boxed{
@@ -204,44 +183,24 @@ $$
 }
 $$
 
-Moreover `alpha_0` is submultiplicative. Hence
+Moreover `alpha_0` is submultiplicative, hence
 
 $$
 \boxed{
 \alpha_0(T)<1\text{ for one }T
 \Longrightarrow
-\text{tail-shift agreement and exponential decay of }\Delta_M.
-}
+\text{tail-shift agreement and exponential }\Delta_M\text{ decay}.}
 $$
 
-This is a sufficient criterion, not an equivalence.
+This is sufficient, not equivalent.
 
-## E11. Zero-boundary finite certificate
+## E11. Closed scalar coupling architectures
 
-G's controlled finite-window construction extends to `alpha_0`. Besides the full-line controlled problem `A_{L,R}(T)`, include finitely many cases where the fixed zero boundary is within `R` sites of the initial flip. If their maximum is `\widehat A_{L,R}(T)`, then
+The same-parent restart theorem and separate stack-clearing minorant remain valid. The exposed-only product and complete nearest-neighbour scalar edge-product/coboundary class are refuted. No finite local scalar Foster state remains.
 
-$$
-\boxed{
-\alpha_0(T)
-\le
-\widehat A_{L,R}(T)
-+E[(\operatorname{Pois}(T)-L)_+].
-}
-$$
+## E12. Actual common coupling: local erasure and convective alternative
 
-A strict right side below one proves the tail-shift theorem and explicit post-insertion mass truncation.
-
-**Status:** no such strict certificate yet.
-
-Verifier note: original F012 verifier commit `3750a53` fails because a symbolic geometric-series convergence condition remains in SymPy `Piecewise` form. It is not a passing certificate. Commit `5494008` repairs that tooling issue using an exact rational geometric-series check; the analytic theorem is proved in the report.
-
-## E12. Closed scalar coupling architectures
-
-The same-parent geometric restart theorem and separate stack-clearing minorant remain valid. The exposed-only product and the complete nearest-neighbour scalar edge-product/coboundary class are refuted. No finite local scalar Foster state remains.
-
-## E13. Actual common coupling: local erasure and convective survival alternative
-
-For every finite disagreement seed, every fixed site becomes permanently coupled almost surely. Survival is equivalent to unbounded leftward discovery and therefore to convective escape to `-infinity`.
+For every finite disagreement seed, every fixed site becomes permanently coupled almost surely. Survival is equivalent to unbounded leftward discovery and hence convective escape to `-infinity`.
 
 The local drift satisfies
 
@@ -252,7 +211,7 @@ $$
 
 which gives exponential moving-frame contraction for every `z>c/q`. This does not rule out convective survival.
 
-## E14. Full-line finite-time Hamming criterion
+## E13. Full-line finite-time Hamming criterion
 
 Let
 
@@ -260,53 +219,101 @@ $$
 \alpha(t)=\sup_{\eta,i}E\,d_H(\Phi_t\eta,\Phi_t\eta^i).
 $$
 
-G proves
+G proves submultiplicativity. If
 
 $$
-\alpha(t+s)\le\alpha(t)\alpha(s).
+\alpha(T)<1
 $$
 
-If
+for one finite `T`, every finite disagreement seed dies out with an exponential block-time tail.
+
+## E14. G007 fixed-boundary convergence theorem
+
+For the ordinary finite fixed-boundary CTMC on `[-L,R]`, let `B_{L,R}^e(T)` be the maximal expected disagreement count in `[-L,0]` and put
 
 $$
-\boxed{\alpha(T)<1}
+r_{L,R}(T)
+=(L+1)P(\operatorname{Pois}(T)\ge R+1),
 $$
 
-for one finite `T`, then every finite disagreement seed dies out with exponential block-time tail.
+$$
+\ell_L(T)
+=E[(\operatorname{Pois}(T)-L)_+].
+$$
 
-At the hard rational point the worst local geometry has initial Hamming derivative `9997/10000>0`; any contraction must emerge only after nonlocal finite-time clearing.
-
-## E15. Full-line finite controlled-CTMC hierarchy
-
-For the controlled value `A_{L,R}(T)`,
+Meeting 017 accepts
 
 $$
 \boxed{
-\alpha(T)
-\le
-A_{L,R}(T)+E[(\operatorname{Pois}(T)-L)_+].
+B_{L,R}^e(T)-r_{L,R}(T)
+\le\alpha(T)
+\le B_{L,R}^e(T)+r_{L,R}(T)+\ell_L(T).
 }
 $$
 
-One strict finite certificate proves quantitative global extinction. G007 is executing this exact diagnostic and may replace the adversarial right controller by a rigorously convergent finite approximation if necessary.
+Also the old adversarial controlled value satisfies
 
-## E16. Route-level decision after F012
+$$
+0\le A_{L,R}(T)-B_{L,R}^e(T)\le r_{L,R}(T).
+$$
 
-The profile and coupling sides have converged on the same mechanism: **finite-time contraction of complete common-random-map single-flip damage**. The relevant coefficients are different (`alpha_0` for zero-boundary profile locality, full-line `alpha` for global disagreement extinction), so success on one side does not automatically prove the other, but the finite controlled-chain machinery is common.
+Thus the right controller is quantitatively harmless and `alpha(T)` has a genuine two-sided finite approximation for every fixed `T`.
 
-Direction:
+## E15. G007 long initial-expansion theorem
 
-1. Complete G007 unchanged.
-2. F is idle; do not duplicate the HJB search while G007 is running.
-3. Do not start matrix-product/nonlocal-norm engineering.
-4. If G007 proves `alpha(T)<1`, next check the finitely many close-zero-boundary cases needed for `alpha_0(T)<1`, then formulate one combined block-transfer theorem.
-5. If G007 proves convective survival or `alpha(T)>=1` for all `T`, close every route requiring eventual global coalescence of this synchronous coupling.
-6. If G007 is unresolved and the next proposal is only larger finite windows/controllers or generic matrix-product engineering without a new approximation theorem, stop this implementation and reassess the predecessor-trail route or use a bounded outside consultation.
+At
 
-## E17. Final reconstruction after `J->0`
+$$
+(a,b,c)=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
+$$
+
+an explicit protected-source event yields
+
+$$
+\boxed{
+\alpha(t)>1\qquad(0<t\le47).
+}
+$$
+
+The certified lower bound at `T=47` exceeds `1.008204288867933`.
+
+Therefore any Hamming contraction, if it exists, occurs only after a long initial amplification regime.
+
+## E16. Raw finite random-map enumeration is stopped
+
+At `T=47`, even the diagnostic requirement of less than `1%` error on each causal side forces `L>=67`, `R>=74`, with naive state count `2^210`. This is not a universal lower bound on proof complexity, but it shows that the now-rigorous causal sandwich does not make direct full-state enumeration a plausible next proof block.
+
+**Status:** no larger-`L,R,T` G008 variant; no new boundary-controller variant.
+
+## E17. Current structural fork
+
+The only coupling-side continuations that change the proof spine are:
+
+1. **actual-front tail:** prove a tail/front estimate for the true disagreement process which is substantially sharper than the causal Poisson cone and retains pre-exposure common-spin history;
+2. **convective survival:** prove finite-seed survival by a valid block/regeneration comparison preserving the same common-state history.
+
+The predecessor-trail reset-height drift cannot be imported into this actual coupling without circularity.
+
+Even a positive `alpha(T)<1` theorem would still leave arbitrary signed-profile composition and `J_{x,r}` decay. Consequently another internal Hamming-certificate block has low expected payoff.
+
+## E18. Bounded outside consultation
+
+No G008/F013 is issued. The active task is the bounded consultant brief
+
+`consultants/assignment-001-disagreement-front-survival-review.md`.
+
+The consultant must recommend exactly one of:
+
+- `continue-front`;
+- `continue-survival`;
+- `abandon-common-coupling-interface`.
+
+After that consultation the Professor chooses one sharply stated proof-spine edge or abandons global coalescence of this synchronous coupling as the disagreement interface.
+
+## E19. Final reconstruction after `J->0`
 
 Only after `J_{x,r}->0` is actually proved should the group audit the exact predecessor-trail Poisson--Mecke factorization, complementary no-exit term, and final convergence-to-ergodicity implication.
 
 ## Anti-circularity checkpoint
 
-Do not integrate duration before absolute value; use `16/21` as a global Foster theorem; enlarge scalar local coupling products mechanically; revive a finite common-mass mode state; replace the signed structure by unrestricted total variation; assume an unproved uniform spectral gap / positive rates conjecture; infer tail-shift agreement from separate tail triviality; import the predecessor-trail reset-height drift into the actual common-uniform process; infer extinction from fixed-site coalescence or moving-frame contraction; infer survival from failure of a finite upper certificate; or treat verifier commit `3750a53` as passing.
+Do not integrate duration before absolute value; use `16/21` as a global Foster theorem; enlarge scalar local coupling products mechanically; revive a finite common-mass mode state; replace the signed structure by unrestricted total variation; assume an unproved uniform spectral gap / positive rates conjecture; infer tail-shift agreement from separate tail triviality; import the predecessor-trail reset-height drift into the actual common-uniform process; infer extinction from fixed-site coalescence or moving-frame contraction; infer survival from finite-time Hamming expansion; or continue the random-map route by raw larger finite windows alone.
