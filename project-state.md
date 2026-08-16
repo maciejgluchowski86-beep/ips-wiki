@@ -13,9 +13,9 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed by the principal until the principal changes or stops it: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/002-cellwise-insertion-composition-fails.md`, `state_narrowed: yes`.
-- Student F is on `students/student-f/assignment-003.md`, attacking live disagreement/regeneration under the true dynamics.
-- Student G is still finishing `students/student-g/assignment-002.md`; its return will be folded into the next meeting.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/003-live-source-contraction.md`, `state_narrowed: yes`.
+- Student F: `students/student-f/assignment-004.md`, two-generation parent-child live episode including reinfection.
+- Student G: still finishing `students/student-g/assignment-002.md`; its return will be folded into the next meeting.
 
 On the normalized face `r11=0`, with
 
@@ -35,102 +35,101 @@ $$
 \right\}.
 $$
 
-The older fixed-finite-wall / frozen-exterior route remains closed.
+The older frozen-exterior finite-wall route and the cellwise last-exit/scaffold positivity route are closed.
 
-### Reusable estimates
+### Reusable direct estimates
 
-Student F established and the Professor checked the hidden successful-type factor
-
-$$
-B\eta_i-c,
-\qquad
-B=b+c-a,
-\qquad
-\rho=\frac cB,
-$$
-
-and the noise-reduced conditional estimate
-
-$$
-\mathbb P^-\!\left(\eta_i(t)=1\mid\mathcal F^+_{i,t}\right)
-\ge
-\frac{1-e^{-(1-c)t}}{1+b-a}.
-$$
-
-After
-
-$$
-T_\rho=
-\frac1{1-c}\log\frac{b+c-a}{(b-a)(1-c)},
-$$
-
-this is at least `rho`, yielding nonnegative insertion against nonnegative right-history-measurable companions.
-
-Student G independently proved on the original dynamics the transport--dissipation identity
+Student G proved on the original dynamics the transport--dissipation identity
 
 $$
 \frac d{dt}m_i
 =(b+c)-(1+b+c)m_i-(b+c-a)q_i+c(m_i-m_{i+1}),
 $$
 
-plus a boundary-uniform transient zero-density estimate, a finite-box concentration version, and
+plus a boundary-uniform transient zero-density bound, finite-box concentration, and adjacent-`11` suppression
 
 $$
 \frac d{dt}\mathbb P(11)
-\le b-(1+b)\mathbb P(11),
+\le b-(1+b)\mathbb P(11).
 $$
 
-which yields a mesoscopic no-adjacent-`11` regime near the East boundary.
+Student F's earlier hidden-interaction / `L^-` insertion algebra remains correct technical mathematics, but the cellwise scaffold iteration built from it fails at two-cell composition.
 
-### Meeting 002: cellwise scaffold route closes
+### Meeting 003: first true live-source contraction
 
-Student F's Assignment 002 resolves the composition test pre-specified at Meeting 001.
-
-With a predecessor interaction fixed source-retaining, the left regional factor is the positive zero-boundary `L^-` kernel
+Under the actual common-uniform coupling, suppose `j` is a rightmost disagreement, the whole half-line strictly right of `j` is coupled, and `j-1` is still agreed. Let `tau` be source death and `sigma` creation of the first left child. Put
 
 $$
-K_\Delta(z)
-=
-\frac1{1+b-a}
-+
-\left(z-\frac1{1+b-a}\right)e^{-(1+b-a)\Delta}.
+d=b-a,
+\qquad
+q=1-c+a,
+\qquad
+D=(b+q)(1+q)-a(1-c).
 $$
 
-Thus one-cell regional integration really removes the raw Duhamel left dependence.
-
-But when the predecessor interaction is itself hidden for composition, the exact signed transfer is
+Student F proved and the Professor checked that, conditional on every evolving common right-hand history,
 
 $$
 \boxed{
-\Psi_\Delta(z)=(b+c-a)K_\Delta(z)-c.
+\mathbb P(\sigma<\tau\mid\mathcal F)
+\le1-\delta,
+\qquad
+\delta=\frac{q(d+2q)}D>0.
 }
 $$
 
-For `z=0`, every residual parameter point has
+For every `T>0`, a finite-slab regeneration event has probability at least
 
 $$
-\Psi_\Delta(0)<0
+\boxed{
+\delta_T
+=
+\frac{1-c+a}{1+a}(1-e^{-(1+a)T})>0.
+}
 $$
 
-throughout
+This is genuinely different from the frozen-wall statistic: the source runs on its true clock and may disappear.
+
+F also derived the local disagreement drift
 
 $$
-0<\Delta<
-\frac1{1+b-a}
-\log\frac{b+c-a}{(b-a)(1-c)}.
+\boxed{
+\mathcal L^{\rm coup}D_i
+\le
+-(1-c+a)D_i+(b-a)D_{i+1}+(c-b+a)J_i,
+}
 $$
 
-Consecutive predecessor time gaps have no positive lower bound. Therefore nonnegative regional insertion cannot be propagated cell by cell along the last-exit scaffold.
+where `J_i` is the high-risk state with a right disagreement and agreed left spin one. The existing marginal `11` estimate controls `E J_i` only through an additive error, so a weighted/conditional occupation estimate is still missing.
 
-**Closed mechanism:** reveal scaffold geometry, hide each successful type, integrate one adjacent cell, and iterate a nonnegative insertion-preserving transfer cell by cell. The failure occurs already at two-cell composition and throughout the residual chamber.
+### East-boundary diagnostic
 
-The old scaffold algebra, one-cell kernel, insertion lemma, and deleted-noise trail factor remain valid technical mathematics, but they no longer form a closing proof spine. A hypothetical coarser random-cluster cancellation would be a genuinely new mechanism, not the automatic next step.
+Along
+
+$$
+a=\varepsilon^2,\qquad b=\varepsilon,\qquad c=1-\varepsilon^2,
+$$
+
+the one-source childless gap satisfies `delta~2 epsilon^2 -> 0`, and even an all-zero/no-`11` local environment transmits a first child before the simplest competing local changes with probability
+
+$$
+\frac{1-\varepsilon}{1+3\varepsilon}\to1.
+$$
+
+This rules out a **residual-uniform first-generation** contraction based only on zero-rich/no-`11` snapshots. It does not close the live-episode route: the target is pointwise on strict positive-rate parameters, and the post-first-child dynamics includes additional killing/reinfection mechanisms.
 
 ### Current proof direction
 
-Move to an **actual live disagreement/regeneration episode** under the canonical coupling. The exterior source must evolve and be allowed to die, unlike the frozen-wall route; no sign is demanded separately for every successful-interaction cell, unlike the closed scaffold route.
+Analyze the entire two-generation parent-child episode after the first child is born, including every child death and reinfection while the parent survives. Let `sigma_2` be creation of a grandchild at `j-2` and `tau_2` elimination of both parent and child so that the half-line from `j-1` rightward is permanently coupled.
 
-The next accepted progress must be a quantitative contraction/regeneration estimate for the true coupled dynamics, or a concrete obstruction showing why the existing transient density/no-`11` estimates cannot provide one. A new disagreement representation without such an estimate does not count.
+The next desired statement is a parameter-point contraction
+
+$$
+\mathbb P(\sigma_2<\tau_2)\le1-\delta_2(a,b,c),
+\qquad \delta_2>0,
+$$
+
+or an exact obstruction. A positive number alone is insufficient: any surviving route must identify a restart state / finite renewal kernel that makes spatial composition legitimate.
 
 ## Most recently completed programme: random-regular voter discordance concentration
 
