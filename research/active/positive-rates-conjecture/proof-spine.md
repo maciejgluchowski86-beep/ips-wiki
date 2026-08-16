@@ -4,31 +4,19 @@
 
 Prove the positive rates conjecture for simple IPS:
 
-> Every one-dimensional, homogeneous, binary, one-sided nearest-neighbour IPS with positive rates is ergodic.
+> Every one-dimensional homogeneous binary one-sided nearest-neighbour IPS with positive rates is ergodic.
 
-The target is fixed by the principal. The proof spine may change; the target does not.
+The scientific target is fixed by the principal. Proof routes may be abandoned; the target does not change.
 
-## E0. Source reductions already established
+## E0. Source reduction
 
-For a simple IPS write
-
-$$
-r_{xy}=P_0(1\mid xy).
-$$
-
-Positive rates are
+On the normalized face `r11=0`, write
 
 $$
-r_{11}<1,\quad r_{10}<1,\quad r_{01}>0,\quad r_{00}>0.
+a=r_{00},\qquad b=r_{01},\qquad c=r_{10}.
 $$
 
-Time-scaling and state symmetry reduce the unresolved problem to the face `r11=0`. With
-
-$$
-a=r_{00},\qquad b=r_{01},\qquad c=r_{10},
-$$
-
-the currently unproved normalized chamber is
+The source-corrected unresolved chamber is
 
 $$
 \boxed{
@@ -42,101 +30,211 @@ $$
 }
 $$
 
-This is inherited from the source-corrected previous programme. It must be source-checked again before any theorem depending sensitively on a boundary case.
+The previous fixed-wall programme closed only the fixed finite agreed-block / frozen-exterior route. No block-length escalation is allowed.
 
-## E1. Known wall mechanism and its limit
+## E1. Exact hidden-interaction algebra
 
-The 2026 long-lived-state theorem proves ergodicity if, for some state `s`,
+Student F's first report, Professor-checked at Meeting 001, identifies the exact sign in the principal's remembered last-exit construction.
 
-$$
-\delta(s)<\sqrt2\,\beta(s).
-$$
-
-On `R`, the relevant one-site criterion fails. The previous programme then analyzed fixed agreed blocks. Its strongest target-relevant local result was the exact three-site frozen-exterior one-attack bound with East-boundary supremum `5/6`.
-
-However, under a permanently frozen exterior disagreement, repeated attacks cross every fixed finite block almost surely. Therefore the one-attack fixed-wall quantity is not an iteratable renewal parameter.
-
-**Status:** route closed. No block-length escalation.
-
-## E2. Principal's earlier last-successful-interaction route
-
-The principal recalls a different construction in the monomial-duality process. For a finite interval `R`, consider the last successful interaction whose influence exits `R`; reveal that interaction and the active spacetime ancestry trail leading to it, then undo duality for the remaining randomness.
-
-The recollection suggests three pieces:
-
-1. a **late piece** confined to `R` by one-sidedness, contributing a product-function evaluation under a spin system with the exterior of `R` fixed;
-2. an **early piece** represented by the original spin system with a modified boundary rule;
-3. the revealed trail, producing a positive exponential factor.
-
-A Duhamel expansion with naive estimates was remembered as giving a partial implication of the form
+In complemented canonical spins let
 
 $$
-\text{eventual high density of the appropriate state}
+B=b+c-a,\qquad \rho=\frac cB.
+$$
+
+At a successful rightward dual interaction, the source-retaining type has coefficient `+B` and the source-removing type has coefficient `-c`. If location and time are revealed but type is hidden, their signed average is
+
+$$
+\boxed{B\eta_i-c=B(\eta_i-\rho).}
+$$
+
+The old barrier--scaffold note had a local generator derivation typo: the diagonal `-c_{11}H(A)` term was omitted in one displayed line, although the later Feynman--Kac potential was already corrected. Meeting 001 verified the corrected algebra.
+
+**Status:** established intermediate algebra.
+
+## E2. Noise-reduced conditional insertion estimate
+
+Delete the environment-independent rate-`a` noise, obtaining `L^-`. Conditional on the complete graphical history strictly to the right of site `i`, the canonical spin at `i` is a two-state time-inhomogeneous chain. Uniformly over initial configurations,
+
+$$
+\boxed{
+\mathbb P^-\!\left(\eta_i(t)=1\mid\mathcal F^+_{i,t}\right)
+\ge q(t)=\frac{1-e^{-(1-c)t}}{1+b-a}.
+}
+$$
+
+Since
+
+$$
+T_\rho=
+\frac1{1-c}\log\frac{B}{(b-a)(1-c)}
+$$
+
+satisfies `q(t)>=rho` for `t>=T_rho`, one obtains
+
+$$
+\boxed{
+F\ge0,\ F\text{ right-history measurable}
 \Longrightarrow
-\text{ergodicity}.
+\mathbb E^-[(B\eta_i(t)-c)F]\ge0
+}
 $$
 
-The exact note is in `principal-starting-note.md`.
+for `t>=T_rho`.
 
-**Status:** unverified recollection. Do not cite it as a theorem and do not silently choose the spin convention or meaning of "high density".
+This is a finite-time estimate independent of ergodicity or invariant laws. The previously vague high-density sign is therefore no longer an unproved density hypothesis.
 
-## E3. Active edge: reconstruct a genuine one-way reduction
+**Status:** Professor-checked target-relevant lemma; no independent audit yet because it is intermediate rather than a promoted central claim.
 
-Recover E2 from first principles or from surviving committed material. The required output is not another equivalent representation. It must identify an exact statement
+## E3. Original-dynamics finite-box density estimates
+
+Student G independently derived actual transient information for the original normalized IPS.
+
+With
 
 $$
-Q\Longrightarrow\text{ergodicity}
+m_i=\mathbb E\eta_i,\qquad q_i=\mathbb P(00),
+\qquad k=1+b+c,\qquad A=b+c-a,
 $$
 
-with all of the following:
+one has the exact transport--dissipation identity
 
-- a precise definition of `Q`;
-- the exact finite interval/boundary dynamics appearing in the decomposition;
-- a rigorous identity or inequality before absolute values are taken;
-- a quantitative error term in the interval size/time horizon;
-- proof that `Q` is logically and technically weaker than the original convergence statement, not merely a rephrasing;
-- an independently plausible route to proving `Q` in the residual chamber.
+$$
+\boxed{
+\frac d{dt}m_i
+=(b+c)-km_i-Aq_i+c(m_i-m_{i+1}).
+}
+$$
 
-If the remembered Duhamel route fails, record the first false identity or uncontrolled term. That is useful narrowing.
+Summing over an interval telescopes the transport term and gives
 
-## E4. Conditional next edge if E3 survives: prove the qualitative premise
+$$
+\boxed{
+\frac1L\sum_{i\in I}\mathbb P(\eta_i(t)=0)
+\ge
+\frac{1-e^{-kt}}{k}\left(1-\frac cL\right)
+}
+$$
 
-The intended payoff of E3 is to replace exact convergence by a qualitative density statement that can be attacked using finite boxes. Candidate forms include, but are not limited to:
+uniformly over initial states and prescribed right-boundary histories.
 
-- a uniform lower bound on the density of the state that kills the bad Duhamel contributions after some burn-in;
-- a finite-box probability that a macroscopic fraction of sites are in that state, with errors uniform in boundary condition;
-- a one-sided regeneration event whose frequency implies such a density bound;
-- a domination statement that is strictly weaker than convergence to an invariant law.
+One-sided graphical propagation gives boundary error
 
-No particular form is assumed. The student must derive the form from the exact E3 inequality rather than inventing a convenient condition first.
+$$
+H_R(t)=\mathbb P(\operatorname{Pois}(t)\ge R),
+$$
 
-## E5. Alternative structural routes remain allowed
+which yields a high-probability finite-box version by residue-class independence after truncation.
 
-The principal's note is a starting point, not a prescribed proof. A student may replace E2--E4 with a stronger route if it yields an actual new estimate on the residual dynamics. Plausible assets include:
+For adjacent ones,
 
-- one-sided finite propagation;
-- canonical coupling and disagreement geometry;
-- East-model front/regeneration information;
-- finite-volume comparison with controlled boundary errors;
-- signed monomial duality and conditional averaging;
-- the canonical patch representation in `paper/`;
-- perturbation in the positive-rate noise;
-- invariant-measure or density identities that do not presuppose ergodicity.
+$$
+\boxed{
+\frac d{dt}\mathbb P(11)
+\le b-(1+b)\mathbb P(11).
+}
+$$
 
-The requirement is an irreversible mathematical gain, not a new vocabulary.
+Hence at time `log(1/b)/(1+b)`, boxes of length `o(1/b)` contain no adjacent `11` pair with probability `1-o(1)` as `b->0`.
+
+**Status:** Professor-checked target-relevant transient estimates; they do not by themselves imply ergodicity.
+
+## E4. Non-composition of the present density bounds
+
+The F and G estimates concern the same physical density after translating conventions, but they do not presently compose.
+
+F's sign condition is a **conditional weighted insertion statement for `L^-`**. G's bounds are **unweighted spatial-density statements for the original process `L`**.
+
+Even if one ignores this structural mismatch, G's asymptotic guaranteed zero-density floor
+
+$$
+\theta_G=\frac1{1+b+c}
+$$
+
+is strictly below the hidden-type threshold
+
+$$
+\rho=\frac c{b+c-a}
+$$
+
+throughout `R`. Indeed
+
+$$
+c(1+b+c)-(b+c-a)
+=a+c^2-b(1-c)>0.
+$$
+
+Also `rho>1/2`, since `b-a<c`, so the mesoscopic hard-core guarantee of at least one-half zeros is not enough either.
+
+**Status:** checked obstruction to the naive composition "density estimate + hidden interaction sign".
+
+## E5. Raw Duhamel and patchwise positivity are insufficient
+
+The exact comparison generators satisfy
+
+$$
+L^+=L^-+2cC,
+$$
+
+so
+
+$$
+U^-_{s,t}-U^+_{s,t}
+=-2c\int_s^t U^-_{s,u}C_uU^+_{u,t}\,du.
+$$
+
+However, for `f(eta)=eta_{i-1}`,
+
+$$
+D_i(U_t^+f)=t(c+B\eta_{i-1})+O(t^2),
+$$
+
+so the raw companion factor depends on a left spin and E2 cannot simply be inserted.
+
+Separately, long OI patches of the original process have limiting sign
+
+$$
+\frac{b(1-c)-a}{1+b}.
+$$
+
+Thus in the hard subregion
+
+$$
+a>b(1-c)
+$$
+
+patchwise positivity/absolute-value domination fails.
+
+These are route exclusions, not failures of the coarser hidden-type scaffold cancellation.
+
+## E6. Current load-bearing edge: regional insertion positivity
+
+Take the **smallest nontrivial scaffold cell** containing a hidden successful interaction and a left predecessor branch. Reveal only the geometry/no-crossing data needed for the cell, keep the birth-versus-jump type hidden, and integrate all other marks with the corrected dynamic boundary rules.
+
+Let `F` be the resulting companion kernel at the source. Determine whether, after the relevant burn-in,
+
+$$
+\boxed{
+\mathbb E^-[\eta_iF]\ge\rho\,\mathbb E^-[F].
+}
+$$
+
+Right-history measurability plus `F>=0` is sufficient, but not necessary. A coarser regional cancellation proving the displayed inequality directly is enough.
+
+This is deliberately finite-dimensional and falsifiable.
+
+- If the inequality fails on the minimal cell, the principal's old last-exit route is closed in its present form.
+- If it holds on one cell, test two-cell composition immediately. One-cell positivity that does not iterate is not target progress.
+- If two-cell composition works, the next edge is to iterate along the trail and combine it with the exact deleted-noise factor `e^{-a u}`.
+
+Students F and G are both assigned to this composition-or-kill question with broad methodological freedom.
 
 ## Anti-circularity checkpoint
 
-Before promoting any new edge to the spine, answer explicitly:
+The previous bottleneck was a vague high-density premise. It has been replaced by E6, a finite regional inequality with an explicit threshold. That is genuine narrowing.
 
-1. What was the previous unresolved mathematical statement?
-2. What new implication, estimate, or obstruction has been proved?
-3. Why is the new statement strictly easier to verify or strictly narrower?
-4. Could one recover the old statement from the new one by definitions alone? If yes, it is not progress.
-5. What concrete calculation or theorem would falsify the proposed route next?
-
-Equivalent changes of spin convention, dual variables, density profiles, invariant-law language, or finite/infinite-volume notation are not new spine edges.
+Do not add another proof-spine edge unless it proves a new estimate/obstruction or makes E6 strictly easier. Unweighted density improvements, new dual variables, or new finite-box language do not count without a demonstrated interface to E6 or to ergodicity.
 
 ## Current direction
 
-Attack E3 in parallel from two flexible agents. Reassess only proof routes, never the fixed scientific target.
+Attack E6. Preserve the fixed positive-rates target.
