@@ -28,24 +28,23 @@ $$
 \right\}.
 $$
 
-Latest meeting: `meetings/007-student-g-exposure-resolvent-and-restart-bottleneck.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/008-restart-tail-and-empty-supnorm-region.md`, `state_narrowed: yes`.
 
 Active work:
 
-- Student F: `students/student-f/assignment-007.md`, block contraction of the trail-generated mass/disagreement stack;
-- Student G: `students/student-g/assignment-003.md`, coupling-side restart-count bridge for the same block theorem.
-
-Operational note: Student G's session had silently stopped producing work during Meetings 003--006; after re-prompt it completed Assignment 002 at commit `c7a33b5` with verifier `e20847a`. The delay carries no mathematical meaning.
+- Student F: `students/student-f/assignment-008.md`, bounded-height signed mass/disagreement kernel, conditional on the global Foster lift;
+- Student G: `students/student-g/assignment-004.md`, make the global restart-corrector Foster lift rigorous or refute it.
 
 ## Closed proof mechanisms
 
 1. Fixed finite agreed-block / frozen-exterior wall crossing.
-2. Cellwise last-exit/scaffold insertion positivity: one-cell regional integration works, but two-cell hidden transfer changes sign on short cells.
-3. Meeting 005 one-generation centered-transfer contraction `(T)`: exact near-East depth-two ratios tend to `3/2` without right killing and `7/5` with it, so one-step `L^1` contraction is false.
+2. Cellwise last-exit/scaffold insertion positivity.
+3. Meeting 005 one-generation centered-transfer contraction `(T)`: exact near-East depth-two ratios tend to `3/2` without right killing and `7/5` with it.
+4. The claim that the crude right-weighted criterion `max{c,b-a}Z<1` already proves a nonempty part of the residual chamber. Student F proves `cZ>1` throughout `R`, so this condition has no residual solutions.
 
 The canonical predecessor-trail decomposition remains active.
 
-## Canonical trail and current all-depth criterion
+## Canonical trail and global sufficient quantity
 
 Put
 
@@ -59,7 +58,7 @@ $$
 e^{-\omega\tau}.
 $$
 
-The right region has the segmentwise bound
+The right region has segmentwise survival
 
 $$
 |R_{\gamma,t}(\eta)|\le C_A\prod_k s_1(u_k).
@@ -75,16 +74,18 @@ and
 
 $$
 Z=\int_0^\infty w(u)du
-=\frac{\omega+1+B+a}{(\omega+a)(\omega+1+B)-a},
+=\frac{a+b+2}{2ab+3a-bc+b-2c+2},
 $$
 
-direct trail-depth decay is already proved when
+the crude sup-norm sufficient condition would be `max{c,g}Z<1`. However throughout the residual chamber
 
 $$
-\max\{c,g\}Z<1.
+c>g
+\qquad\text{and}\qquad
+\boxed{cZ>1},
 $$
 
-The hard near-East regime remains.
+so this criterion contributes no residual subregion.
 
 The correct global right-weighted invariant quantity is
 
@@ -98,142 +99,81 @@ J_{x,r}
 }
 $$
 
-Showing `J_{x,r}->0` with trail depth is sufficient for the nonempty-exit term. The complementary no-exit term and full Poisson-Mecke factorization still require independent audit before a closing proof.
+Showing `J_{x,r}->0` with trail depth is sufficient for the nonempty-exit term. The full Poisson-Mecke trail factorization and the complementary no-exit term still require independent audit before a closing proof.
 
-## Mass/disagreement decomposition and stack drift
+## Mass/disagreement decomposition
 
-For a law `mu` with rightmost density `r`, left marginal `bar mu`, and conditional left laws `mu^1,mu^0`,
+Each centered insertion splits exactly as
 
 $$
 \boxed{
 g\,\mu(h_{p_*}(\eta_y)f)
-=(Br-c)\bar\mu(f)+Br(1-r)(\mu^1-\mu^0)(f).
-}
+=(Br-c)\bar\mu(f)+Br(1-r)(\mu^1-\mu^0)(f).}
 $$
 
 The first term is a signed mass channel; the second is a positive conditional-law disagreement channel. Near East the equilibrium mass coefficient is order `epsilon^2`, the disagreement coefficient order `epsilon`, and the right-weighted equilibrium mass multiplier tends to `2/5`.
 
-The principal reset coupling gives negative drift for unresolved disagreement-stack height. Student F independently proved the related local fact that every disagreement under the common-uniform coupling has coalescence intensity at least
+The unresolved disagreement-stack height has negative drift under the reset coupling, and Student F proved that every disagreement under the common-uniform coupling has coalescence intensity at least
 
 $$
 q=1-c+a=\omega.
 $$
 
-Stack recurrence alone does not control signed branching.
+## Student G Assignment 003: same-parent restart count
 
-## Student G Assignment 002: exact live-exposure resolvent
+Meeting 007 gave a single-exposure child probability bounded by `h_1<1`, uniformly even for non-rightmost disagreements.
 
-Student G's return gives the missing **single-exposure weighted control** for the high-risk local coupling state
-
-$$
-J_i=1_{\{D_i=0,D_{i+1}=1,X_i=Y_i=1\}}.
-$$
-
-This `J_i` is not the global trail quantity `J_{x,r}` above.
-
-At any stopping time with `D_i=0,D_{i+1}=1`, stop when either `i` becomes a disagreement or `i+1` coalesces. Write
-
-$$
-d=b-a,\qquad k=1-c,\qquad q=1-c+a,
-$$
-
-and
-
-$$
-\mathfrak D=(b+q)(1+q)-a(1-c).
-$$
-
-The exposure is upper dominated by the killed two-state chain
-
-$$
-K\xrightarrow{a}J,\qquad K\xrightarrow{d}\text{child},
-$$
-
-$$
-J\xrightarrow{k}K,\qquad J\xrightarrow{c}\text{child},
-$$
-
-with killing to right coalescence at rate `q`. Consequently
-
-$$
-P(\text{child before right coalescence}\mid\mathcal F)
-\le h_x<1,
-$$
-
-where
-
-$$
-h_0=\frac{d(1+q)+ac}{\mathfrak D},
-\qquad
-h_1=\frac{c(b+q)+(1-c)d}{\mathfrak D}.
-$$
-
-The expected high-risk occupation during one exposure obeys
+G now proves that if `N` is the number of exposure entries of the **same parent disagreement** before that parent first coalesces, then
 
 $$
 \boxed{
-E\left[\int J_i(t)dt\mid\mathcal F\right]
-\le g_x,
-\qquad
-g_0=\frac a{\mathfrak D},
-\quad
-g_1=\frac{b+q}{\mathfrak D}.
+P(N\ge n\mid\mathcal F)\le h_1^{n-1},\qquad n\ge1.
 }
 $$
 
-The exact child compensator on that exposure is
+Hence for `1<=s<h_1^{-1}`,
 
 $$
 \boxed{
-P(\text{child before right coalescence}\mid\mathcal F)
-=E\int\bigl[d+(c-d)J_i(t)\bigr]dt.
-}
+E[s^N\mid\mathcal F]
+\le M(s):=\frac{(1-h_1)s}{1-h_1s}.}
 $$
 
-This holds for non-rightmost disagreements inside arbitrary-depth stacks.
+This is Professor-checked and removes arbitrary same-parent re-entry as an uncontrolled variable.
 
-## Why G's crude global summation is not the block theorem
-
-If `N_i(T)` counts exposure entries, G proves
+The accepted stack-clearing minorant gives
 
 $$
-E\int_0^T J_i(t)dt
-\le
-\frac{b+q}{\mathfrak D}
-\left[
-1+\int_0^T u_i(t)dt+c\int_0^T u_{i+2}(t)dt
-\right].
+\phi(\lambda)
+=\lambda\left(1-\alpha+\frac{\alpha}{2\lambda-1}\right)<1
 $$
 
-Near East,
+for an explicit interval of `lambda>1`. Along the near-East path, the algebraic choice `lambda=2`, `s=1+epsilon^2/4` gives
 
 $$
-q-(c-d)g_1=-1+O(\varepsilon),
+M(s)\phi(2)\to\frac{16}{21}<1.
 $$
 
-so inserting this crude all-time bound into the disagreement drift loses all damping. The failure is caused by **repeated exposure entries/restarts**, not by the one-exposure resolvent.
+This is a **coupling-side restart/height stress factor**, not a multiplier for `J_{x,r}` and not a signed block theorem.
 
-This does not refute `J_{x,r}->0`. It identifies the coupling-side version of the same branching/restart problem left by the mass/disagreement decomposition.
+## What remains unverified in G's Foster lift
 
-## Current bottleneck: block mass/disagreement contraction with restart control
+G proposes a product corrector over all unresolved parent levels and a global Foster inequality. The scalar pgf, height minorant, finite-height algebra, and `16/21` limit check. The missing rigorous step is the global phase bookkeeping: inactive/exposed/child-alive phases and later new-parent reinfections must be represented by an explicit Markov state and shown transition by transition to be superharmonic under the proposed corrector.
 
-The active target remains a parameter-dependent block theorem. Seek a norm on trail-generated signed mass components and coupled disagreement components, weighted by unresolved stack/restart state, and finite constants
+Thus the **same-parent restart bundle is solved**; the global product/phase lift is still an open technical lemma.
 
-$$
-m_0<\infty,\qquad \theta<1
-$$
+## Current bottleneck split
 
-such that
+The block theorem has separated into two complementary tasks.
 
-$$
-\boxed{\|T^{m_0}\nu\|_*\le\theta\|\nu\|_*.}
-$$
+1. **Global restart-corrector lemma (Student G).** Prove a rigorous all-level Foster inequality reducing arbitrary restart/height excursions to a finite bounded-height/phase set, or give an exact obstruction.
+2. **Bounded-height signed kernel (Student F).** Conditional on that reduction, compute or dominate the finite right-weighted mass/disagreement kernel and prove block spectral radius `<1`, or exhibit an exact residual obstruction.
 
-Student F attacks the complete block theorem. Student G attacks the complementary coupling problem: control the exposure-entry/restart count for the conditional-law disagreement channel strongly enough to enter such a block norm, or give an exact obstruction.
+If both succeed, they must be combined to prove `J_{x,r}->0`. Only then should the full trail/no-exit convergence implication be reconstructed.
 
 ## Anti-circularity rule
 
-Do not rescue one-step `(T)`, return to cellwise positivity, globally replace `J_i` by marginal `11`, or enumerate fixed depths. The next accepted progress must control signed branching/restarts structurally, prove `J_{x,r}->0` by another all-depth mechanism, or produce a rigorous obstruction.
+Do not return to the empty crude criterion, rescue one-step `(T)`, replace disagreement by unrestricted total variation, or enumerate fixed scalar depths. The next accepted progress must settle one of the two precise block lemmas above.
 
 ## Wiki
 
