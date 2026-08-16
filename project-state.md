@@ -13,9 +13,9 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed until changed or stopped by the principal: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/020-recombined-zero-mode-survives-light-cone-screening-test.md`, `state_narrowed: yes`.
-- Student F: active on `students/student-f/assignment-014.md`, the bounded light-cone screening test.
-- Student G successor: idle. Common-uniform global-coalescence / zero-frequency occupation is abandoned as the load-bearing disagreement interface.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/021-light-cone-reduces-to-two-step-tail-shift-and-trail-route-stop.md`, `state_narrowed: yes`.
+- Students F and G: idle; no F015/G009 continuation is authorized.
+- Active task: bounded outside route-selection consultation `research/active/positive-rates-conjecture/consultants/assignment-002-post-trail-architecture-review.md`.
 
 On `r11=0`, with
 
@@ -30,106 +30,88 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-### Current predecessor-trail target
+### Route status
 
-Put
+Common-uniform global coalescence / zero-frequency disagreement occupation was abandoned as the load-bearing disagreement interface in Meeting 019.
 
-$$
-B=b+c-a,\qquad g=b-a,\qquad\omega=1-c+a,
-\qquad w(u)=e^{-\omega u}s_1(u).
-$$
+Meeting 021 now records the **current centered predecessor-trail/profile implementation as exhausted**. The predecessor-trail reduction remains valid mathematics, but no further local composition variant is active.
 
-The centered predecessor-trail reduction leaves
+Closed/stopped variants include fixed walls, cellwise nonnegative insertion, one-step centered `L^1`, crude scalar sup bounds, exposed-only and full nearest-neighbour scalar coupling products, depth-uniform finite common-mass mode closure, raw finite-window Hamming enumeration, larger exposure-state ancestry tracking, generic observability/spectral-gap continuation of the current profile route, third-insertion experiments, and default matrix-product engineering.
+
+### Latest mathematical obstruction
+
+The predecessor-trail reduction leaves
 
 $$
 J_{x,r}
-=B g^{n-1}\int\left(\prod_k w(u_k)\right)|\pi^0_{m,r}(F_{x,u})|du.
+=B g^{n-1}\int\left(\prod_k w(u_k)\right)|\pi^0_{m,r}(F_{x,u})|du,
 $$
 
-Proving `J_{x,r}->0` with depth is sufficient for the nonempty-exit term. Every duration must remain visible until the final modulus.
-
-### F013: intrinsic zero mode after signed recombination
-
-With
+with
 
 $$
-r_0=\frac1{1+b},
+B=b+c-a,\qquad g=b-a,\qquad\omega=1-c+a.
+$$
+
+F013 proves that the full unsplit two-insertion transfer retains a genuine zero temporal-frequency projection. F014 then proves that the proposed short-time light-cone mechanism controls all fixed-suffix and causal-propagation terms but leaves an initial two-step spatial boundary law.
+
+For
+
+$$
+H_N=Y_NY_{N-1},
 \qquad
-m_0=\frac{b(1-c)-a}{1+b},
+h_*=\pi_2(H_2),
+\qquad
+\delta_N^{(2)}=\bar{\bar\pi}_N-\pi_{N-2},
 $$
 
-and
+one has exactly
 
 $$
-\rho_N=\mathcal J_N\pi_N-m_0\pi_{N-1},
+E_{N,0}(f)
+=\pi_N[(H_N-h_*)f]
++h_*\delta_N^{(2)}(f).
 $$
 
-F013 proves for the full two-insertion defect
+Centered observables of the fixed two-site suffix localize exponentially. At the strict residual point `(a,b,c)=(1/10,3/10,4/5)`, however,
 
 $$
-E_{N,u}(f)
-=m_0\rho_{N-1}(f)
-+\rho_N(P_u-\Pi)[Y_{N-1}(f-\pi f)].
+h_*=-\frac{34}{8775}\ne0.
 $$
 
-Thus the zero temporal-frequency projection survives **before** any positive mass/disagreement split.
-
-Moreover
+The remote norm of the remaining spatial law is
 
 $$
-\rho_n(f)
-=m_0(\bar\pi_n-\pi_{n-1})(f)
-+B\pi_n[(\eta_n-r_0)f],
+\boxed{
+\Delta_M^{(2)}
+=\|\theta^2\mu-\mu\|_{\mathcal F_M},
+}
 $$
 
-and the covariance term is exponentially localized by F010. Hence off `m_0=0`, the remote zero mode differs from `|m_0|^2 Delta_{M+1}` only by an exponential error. The old zero-frequency obstruction was therefore not an artifact of splitting the signed insertion.
+where `mu` is the projective half-line zero-boundary invariant law.
 
-On the exact surface
-
-$$
-a=b(1-c),
-$$
-
-the zero-boundary invariant law is Bernoulli product, `J_N pi_N=0`, and the two-insertion defect vanishes identically.
-
-### One remaining concrete mechanism
-
-F013 does not decide the actual weighted norm
+For positive time, F014 proves an exponentially accurate no-crossing normal form and consequently
 
 $$
+\boxed{
 \Gamma_M
-=\sup_N\int_0^\infty w(u)\|E_{N,u}\|_{\mathrm{remote},M}du,
-$$
-
-because the transient complement may cancel the zero mode at the same duration.
-
-Meeting 020 rejects generic depth-uniform observability/mixing as another restatement. It isolates one concrete finite-propagation mechanism instead. Since
-
-$$
-0\le w(u)\le e^{-\omega u},
-\qquad
-\|E_{N,u}\|_{TV}\le2c^2,
-$$
-
-late durations `u>=alpha M` already cost at most
-
-$$
-\frac{2c^2}{\omega}e^{-\omega\alpha M}.
-$$
-
-Thus it suffices to prove short-time **light-cone screening**, for example
-
-$$
-\|E_{N,u}\|_{\mathrm{remote},M}
 \le
-C e^{-\gamma M}
-+C P(\operatorname{Pois}(\Lambda u)\ge\delta M),
-\qquad 0\le u\le\alpha M.
+c^2 Z\,\Delta_{\lceil M/2\rceil}^{(2)}
++Ce^{-\gamma M}.
+}
 $$
 
-Assignment 014 first tests the static centered two-site suffix covariance at `u=0`, then the graphical finite-speed extension to positive time.
+Thus the finite-propagation part works; the unresolved object is an additional zero-frequency two-step tail-shift theorem. No independent mechanism for that theorem was found. This was the pre-registered stopping case in Meeting 020.
 
-If this succeeds, `Gamma_M` decays exponentially. If it fails structurally or returns unresolved without a sharper mechanism, the present predecessor-trail/profile implementation is recorded as exhausted rather than continued by generic observability, third insertions, matrix products, or reopened common-uniform occupation.
+### Current decision
+
+Do not issue another predecessor-trail/profile or common-coupling variant by default. Before further internal work, outside consultation 002 must identify a **genuinely different proof architecture** or recommend that no credible route is presently available.
+
+A proposal to prove one- or two-step tail-shift agreement counts as genuinely new only if it supplies an independent structural mechanism specific to the one-sided stationary law rather than assuming or renaming the missing mixing theorem.
+
+Unresolved target-level facts include `Delta_M->0`, `Delta_M^(2)->0`, `Gamma_M->0`, `J_{x,r}->0`, common-uniform extinction versus convective survival, and the positive rates conjecture.
+
+On the exact surface `a=b(1-c)`, the zero-boundary invariant law is Bernoulli product and the signed insertion obstruction vanishes.
 
 ## Most recently completed programme
 
