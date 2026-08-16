@@ -115,7 +115,7 @@ $$
 \boxed{\max\{c,g\}Z<1.}
 $$
 
-**Status:** new proved parameter subregion, conditional on the trail decomposition. It excludes the hard near-East regime.
+**Status:** proved parameter subregion, conditional on the trail decomposition. It excludes the hard near-East regime.
 
 ## E4. Meeting 005 one-step target is false
 
@@ -199,7 +199,7 @@ $$
 
 is sufficient for the nonempty-exit term.
 
-At exact East the invariant expectation itself is zero by the final centered birth factor under Bernoulli product equilibrium. This remains structural evidence, not a strict-positive-rate proof.
+At exact East the invariant expectation itself is zero by the final centered birth factor under Bernoulli product equilibrium.
 
 ## E6. Exact mass/disagreement channel decomposition
 
@@ -229,15 +229,13 @@ $$
 Br_0(1-r_0)=\frac{Bb}{(1+b)^2}.
 $$
 
-Near East, the mass channel is order `epsilon^2`, the disagreement channel order `epsilon`. Moreover
+Near East, the mass channel is order `epsilon^2`, the disagreement channel order `epsilon`, and
 
 $$
 \boxed{|Br_0-c|Z\to\frac25.}
 $$
 
-Thus every genuine regeneration of the disagreement structure creates a strict scalar loss in the mass channel.
-
-**Status:** active structural identity explaining both the depth-two expansion and the possibility of later contraction.
+**Status:** active structural identity explaining both depth-two expansion and possible later contraction.
 
 ## E7. Negative drift of unresolved disagreement-stack height
 
@@ -278,21 +276,127 @@ $$
 }
 $$
 
-Therefore the unweighted stack has an exponential Lyapunov function and geometrically returns to bounded height.
+Therefore the unweighted stack has negative drift and geometrically returns to bounded height.
 
-**Status:** structural bridge to Student F's coupling work. It does not by itself control signed mass branching.
+**Status:** structural bridge to coupling work. It does not by itself control signed mass branching.
 
-## E8. Current load-bearing edge: block mass/disagreement contraction
+## E8. Student G live-exposure resolvent inside arbitrary-depth stacks
 
-Meeting 005's one-step norm is false. The remaining plausible theorem is a **block** contraction on the trail-generated mass/disagreement decomposition.
+Student G Assignment 002 gives an exact coupling estimate at an exposed edge. This uses the local high-risk indicator
 
-Find a norm on decompositions into signed mass components and coupled disagreement pairs, weighted by unresolved stack height, and finite constants
+$$
+J_i=1_{\{D_i=0,D_{i+1}=1,X_i=Y_i=1\}},
+$$
+
+which is **not** the global trail quantity `J_{x,r}` from E5.
+
+At a stopping time with `D_i=0,D_{i+1}=1`, stop when either a left child is created or the right disagreement coalesces. Put
+
+$$
+d=b-a,\qquad k=1-c,\qquad q=1-c+a,
+$$
+
+and
+
+$$
+\mathfrak D=(b+q)(1+q)-ak.
+$$
+
+The common spin at `i` evolves before stopping as
+
+$$
+K\xrightarrow{a}J,
+\quad K\xrightarrow{d}\text{child},
+$$
+
+$$
+J\xrightarrow{k}K,
+\quad J\xrightarrow{c}\text{child},
+$$
+
+while the right disagreement has coalescence intensity at least `q`. Hence
+
+$$
+\boxed{
+P(\text{child before right coalescence}\mid\mathcal F)
+\le h_x<1,
+}
+$$
+
+where
+
+$$
+h_0=\frac{d(1+q)+ac}{\mathfrak D},
+\qquad
+h_1=\frac{c(b+q)+kd}{\mathfrak D}.
+$$
+
+The high-risk occupation has the resolvent bound
+
+$$
+\boxed{
+E\left[\int J_i(t)dt\mid\mathcal F\right]
+\le g_x,
+\qquad
+g_0=\frac a{\mathfrak D},
+\quad
+g_1=\frac{b+q}{\mathfrak D}.
+}
+$$
+
+and the child probability has the exact compensator representation
+
+$$
+\boxed{
+P(\text{child before right coalescence}\mid\mathcal F)
+=E\int[d+(c-d)J_i(t)]dt.
+}
+$$
+
+This is valid even when the right disagreement is non-rightmost and sits inside arbitrary deeper ancestry.
+
+**Status:** Professor-checked single-exposure weighted control.
+
+## E9. Exposure restart count is the coupling-side blocker
+
+If one globally sums E8 by merely counting exposure entries with
+
+$$
+N_i(T)\le1+C_i(T)+B_{i+1}(T),
+$$
+
+then
+
+$$
+E\int_0^T J_i(t)dt
+\le
+\frac{b+q}{\mathfrak D}
+\left[1+\int_0^T u_i(t)dt+c\int_0^T u_{i+2}(t)dt\right].
+$$
+
+Near East,
+
+$$
+q-(c-d)g_1=-1+O(\varepsilon),
+$$
+
+so this crude global substitution cannot close the disagreement drift.
+
+The loss comes from repeated exposure **re-entry/restart count**, not from one-exposure transmission. This is the coupling-side manifestation of the same branching problem in E6.
+
+**Status:** exact obstruction to crude global `J_i` summation; does not refute `J_{x,r}->0`.
+
+## E10. Current load-bearing edge: block mass/disagreement contraction with restart control
+
+The remaining plausible theorem is a parameter-dependent **block** contraction on the trail-generated mass/disagreement decomposition.
+
+Find a norm on decompositions into signed mass components and coupled disagreement pairs, weighted by unresolved stack/restart state, and finite constants
 
 $$
 m_0=m_0(a,b,c),\qquad \theta<1,
 $$
 
-such that the complete right-weighted transfer satisfies
+such that
 
 $$
 \boxed{
@@ -302,16 +406,16 @@ $$
 
 for every trail-generated signed measure.
 
-The unresolved issue is branching under E6: repeated transfers produce both `bar mu` mass components and conditional-law differences `mu^1-mu^0`. Replacing the latter by unrestricted total variation destroys the structure and reproduces the exact `3/2` / `7/5` expansion.
+The unresolved issue is branching under E6 together with repeated exposure entries under E9. Replacing the disagreement channel by unrestricted total variation or replacing restart count by crude disagreement occupation loses the near-East cancellation.
 
-A successful block theorem must imply `J_{x,r}->0` and then be inserted into the full trail convergence proof, including the no-exit term.
+Student F attacks the complete block theorem in `students/student-f/assignment-007.md`. Student G attacks the coupling-side restart-count/renewal bridge in `students/student-g/assignment-003.md`.
 
-Student F Assignment 006 is superseded by `students/student-f/assignment-007.md`. Student G remains on Assignment 002.
+A successful result must imply `J_{x,r}->0` and then enter the full trail convergence proof, including the no-exit term.
 
 ## Anti-circularity checkpoint
 
-The principal update refutes the exact one-step target adopted at Meeting 005 and replaces it by a materially different all-depth mechanism: regeneration-weighted block contraction of a branching mass/disagreement stack. Do not rescue `(T)` by renaming the norm or enumerate fixed depths as a substitute for the block theorem.
+Meeting 007 does not introduce another representation. It proves exact control of the local weighted exposure that had been missing and localizes the remaining loss to restart count. The next accepted progress must control repeated restarts together with signed branching, or refute that block mechanism.
 
 ## Current direction
 
-Attack E8 while preserving the fixed positive-rates target.
+Attack E10 while preserving the fixed positive-rates target.
