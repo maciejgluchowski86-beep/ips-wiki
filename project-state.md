@@ -12,76 +12,72 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 
 - Branch: `research/voter-discordant-concentration`.
 - Workspace: `research/active/voter-discordant-concentration/`.
-- Active student: persistent Graduate Student D.
-- Latest meeting: `research/active/voter-discordant-concentration/meetings/001-sharp-concentration-reduction.md`, `state_narrowed: yes`.
-- Current assignment: `students/student-d/assignment-002.md`.
+- Persistent Graduate Student D: idle while correctness reviews run.
+- Latest meeting: `research/active/voter-discordant-concentration/meetings/002-genealogical-variance-claim.md`, `state_narrowed: yes`.
+- Central claim: `VOTER-CONC-001`, status `claimed`.
+- Two independent correctness reviews are in flight; novelty/closest-prior-work audit follows if correctness survives.
 
-### Source correction
+### Claimed deterministic variance inequality
 
-Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), Eq. (1.9), is false literally at very small times. It quantifies over every `t_n=o(n)`, including `t_n->0`, while Bernoulli initial conditions have nondegenerate `n^{-1/2}` fluctuations. The explicit counterexample
+For every finite simple `d`-regular graph `G`, every `u in (0,1)`, and every `t>=0`, let `Dcal_t` be the voter-model discordant-edge density. If `pi` is uniform on vertices and `tau_meet` is the meeting time of two independent rate-one continuous-time simple random walks, then
 
 $$
-t_n=n^{-3},\qquad C_n=\log n
+\boxed{
+\operatorname{Var}_u^G(\mathcal D_t)
+\le2\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t).
+}
 $$
 
-leaves the voter configuration unchanged with probability tending to one while the source threshold is `(log n)/n^2=o(n^{-1/2})`.
+Student D's proof is in commit `e73fd25`, `students/student-d/002-four-walk-cancellation.md`. The Professor independently reconstructed the argument in `notes/professor-assignment-002-verification.md` and accepts it at `claimed`, not `verified`, status.
 
-The active target is therefore
+The mechanism is genealogical. Conditional on the Harris arrows at observation time, vertices are partitioned into ancestral clusters carrying independent Bernoulli initial labels. The discordant-edge count is a weighted cut statistic on the quotient multigraph. Its conditional variance is controlled by the second moment of cluster sizes, hence by a stationary two-walk meeting probability. The variance of its conditional mean is controlled by cross-interaction of two ancestral edge families and source Eq. (5.6), again reducing to the same two-walk meeting probability.
+
+### Claimed random-regular consequence
+
+Using the meeting estimates in Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), equations (5.7)--(5.8), the claimed deterministic inequality gives, for every deterministic `t_n=o(n)`,
+
+$$
+\operatorname{Var}_u^G(\mathcal D_{t_n}^n)
+=O_{\mathbb P}\left(\frac{1+t_n}{n}\right).
+$$
+
+Hence for every `C_n->infinity`,
 
 $$
 \mathbf P_u^G\left(
 |\mathcal D_{t_n}^n-\mathbf E_u^G\mathcal D_{t_n}^n|
 >C_n\sqrt{\frac{1+t_n}{n}}
-\right)\xrightarrow{\mathbb P}0
+\right)\xrightarrow{\mathbb P}0.
 $$
 
-for fixed `d>=3`, `u in (0,1)`, every `t_n=o(n)`, and every `C_n->infinity`.
+For deterministic `t_n>=1`, `t_n=o(n)`, the stronger variance bound `O_P(t_n/n)` yields the source's proposed `C_n sqrt(t_n/n)` scale.
 
-This source correction has been independently reconstructed by the Professor but is not yet promoted to a stable project claim. The substantive programme target is the corrected theorem.
+### Small-time source correction
 
-### Current mathematical reduction
-
-For normalized discordance `Dcal`, the exact Dynkin martingale satisfies
+Literal source Eq. (1.9) is false because it quantifies over arbitrary `t_n=o(n)`, including `t_n->0`, while the Bernoulli initial condition fluctuates on scale `n^{-1/2}`. The explicit counterexample is
 
 $$
-\frac d{dt}\langle M\rangle_t\le4/n,
+t_n=n^{-3},\qquad C_n=\log n.
 $$
 
-so its variance is at most `4t/n` on every fixed regular graph.
+Thus the corrected all-sublinear scale is `sqrt((1+t_n)/n)`. The claimed theorem recovers the original source scale from time one onward.
 
-The remaining drift is a signed spatial average of two-spin observables on edges and length-two wedges. Its covariance is represented exactly by four coalescing ancestral lineages in the generic case. A sufficient integrated-drift estimate is
+### Verification and novelty status
 
-$$
-\mathbf E\left[
-\left(\int_0^t\widetilde h_s\,ds\right)^2
-\right]=O_{\mathbb P}(t/n).
-$$
+`VOTER-CONC-001` is **not verified**. The two independent hostile review assignments are:
 
-The first route now being tested is the variance identity
+- `research/active/voter-discordant-concentration/audits/assignment-001-review-a.md`;
+- `research/active/voter-discordant-concentration/audits/assignment-002-review-b.md`.
 
-$$
-\frac d{dt}\operatorname{Var}(\mathcal D_t)
-=2\operatorname{Cov}(\mathcal D_t,L\mathcal D_t)
-+\mathbf E\Gamma(\mathcal D)(\eta_t),
-$$
+If both correctness reviews survive, a separate closest-prior-work audit is required before publication-level novelty or contribution claims.
 
-with the second term at most `4/n`. A bound
+Under the principal's standing novelty rule, this theorem is structurally eligible if it survives: it is a deterministic graph inequality and full-regime consequence, not a larger-window or better-constant instantiation.
 
-$$
-\operatorname{Cov}(\mathcal D_t,L\mathcal D_t)\le C/n
-$$
+No uniform-in-time process-supremum concentration theorem is claimed; the random-regular result is sequence-wise quenched-in-environment-probability.
 
-would close the corrected variance scale. At `u=1/2` this is a particularly clean signed simultaneous four-walk sum.
+## Wiki freeze review trigger
 
-### Published-method obstruction
-
-The source's Section 5 sample-and-discard architecture pays sampling error `K^{-1/2}` and, when interacting dual families are discarded at unit cost, bad-family fraction of natural size `K(t/n)`. Their balance is `(t/n)^{1/3}`, not the desired `(t/n)^{1/2}`. Routine tuning of `K` or the polynomial time window therefore cannot close the sharp target.
-
-This does not rule out a qualitatively different signed use of the same four-walk duality. Assignment 002 tests exactly that cancellation/corrector possibility.
-
-### Opportunity-cost rule
-
-If the next substantial block yields only absolute cross-meeting estimates whose time growth is too large for `O((1+t)/n)`, with no cancellation, corrector, or alternative structural mechanism, the next meeting must reassess continuation rather than incrementally refine Section 5.
+The first central theorem of the active programme has entered independent audit, so `CHATGPT.md` requires the Professor to raise the wiki freeze for principal review. Professor recommendation remains **keep the live wiki frozen** until correctness and novelty audits are complete. No `proved here` page is being promoted now.
 
 ## Most recently closed programme: residual positive-rates / noisy East
 
@@ -93,17 +89,13 @@ $$
 \mathcal R=\left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-The three-site frozen-exterior one-attack factor has sharp East-boundary supremum `5/6`, but repeated attacks from a persistent exterior disagreement cross every fixed finite block almost surely. The pre-committed dynamic-exterior stop condition was therefore triggered. No length-four rescue is allowed.
+The three-site frozen-exterior one-attack factor has sharp East-boundary supremum `5/6`, but repeated attacks from a persistent exterior disagreement cross every fixed finite block almost surely. The pre-committed dynamic-exterior stop condition was triggered. No length-four rescue is allowed.
 
 The broader noisy-East problem remains open; a future return requires a genuinely new mechanism or a separately motivated episode-level theorem with quantitative closure.
 
 ## Earlier closed programme: BABP finite seed
 
 BABP closed without a new project result under the standing novelty standard. `BABP-EDGE-001` and `BABP-CONV-001` remain verified technical mathematics with their audit records, but neither is counted as a project contribution.
-
-## Wiki freeze
-
-The principal controls the freeze decision. Professor recommendation remains **keep the live wiki frozen**. No new `proved here` update is warranted.
 
 ## Closed programmes and routes
 
