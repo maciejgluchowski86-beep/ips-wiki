@@ -82,38 +82,46 @@ Meeting: `meetings/008-restart-tail-and-empty-supnorm-region.md`.
 
 `state_narrowed: yes`.
 
-Student G:
+Student G, commit `0ca3fd1`, verifier `75b700f`: same-parent exposure re-entry count has geometric tail and explicit exponential pgf. The scalar height/restart stress factor can be chosen to tend to `16/21<1` near East, but the global product/phase Foster lift remains unverified.
 
-- commit `0ca3fd1`, `students/student-g/003-restart-count-block-bridge.md`;
-- verifier commit `75b700f`, `students/student-g/003-restart-count-verifier.py`.
+Student F, verifier `0755d22`, write-up commit `3cb6ac9`: throughout the residual chamber `cZ>1` and `c>b-a`, so the crude condition `max{c,b-a}Z<1` has no residual solutions. The purported easy residual subregion from Meeting 006 is removed.
+
+The remaining block theorem splits into a global restart/Foster phase lemma (G) and a bounded-height signed mass/disagreement kernel (F).
+
+## Meeting 009: uniform regenerated-mass loss and duration-mode obstruction
+
+Meeting: `meetings/009-regenerated-mass-loss-and-duration-mode-obstruction.md`.
+
+`state_narrowed: yes`.
 
 Student F:
 
-- Phase-A verifier commit `0755d22`, `students/student-f/007-block-mass-disagreement-verifier.py`;
-- completed write-up commit `3cb6ac9`, `students/student-f/007-block-mass-disagreement-contraction.md`.
+- commit `ac7de96`, `students/student-f/008-bounded-signed-kernel.md`;
+- verifier commit `ff3c5d5`, `students/student-f/008-bounded-signed-kernel-verifier.py`.
 
 Professor-checked conclusions:
 
-1. **Same-parent restart bundle.** If `N` is the number of exposure entries of one fixed parent disagreement before that parent first coalesces, then
+1. **Uniform regenerated mass loss.** With `r_0=1/(1+b)`,
    $$
-   P(N\ge n\mid\mathcal F)\le h_1^{n-1}.
+   |Br_0-c|Z<\frac23
    $$
-   Hence `N` has the explicit exponential pgf bound
+   at every strict residual parameter point. This is independent of G's Foster premise and upgrades the near-East `2/5` limit to the full chamber.
+2. **Mass relaxation is a state variable.** A mass branch has rightmost density
    $$
-   E[s^N]\le(1-h_1)s/(1-h_1s)
+   r(u)=r_0+(r-r_0)e^{-(1+b)u},
    $$
-   for `1<=s<h_1^{-1}`.
-2. **Height algebra.** The accepted stack-clearing minorant gives an exponential height factor `phi(lambda)<1` on an explicit interval. Along the near-East path the algebraic choice `lambda=2`, `s=1+eps^2/4` gives `M(s)phi(2)->16/21<1`. This is a coupling-side restart/height stress factor, not a signed multiplier for global `J_{x,r}`.
-3. **Global Foster lift not yet verified.** G's product corrector over all unresolved levels needs an explicit global phase state and transition-by-transition superharmonicity proof, including inactive/exposed/child-alive phases and later new-parent reinfections. The verifier does not check this step.
-4. **F correction.** Throughout the entire residual chamber,
+   so a nontrivial transient mass/reset mode survives between insertions; near East it is order one while the equilibrium centered mode vanishes.
+3. **Norm-order obstruction.** Near East,
    $$
-   cZ>1,
+   \frac g{|m_\varepsilon|}\left|\int w(u)A_{2,\varepsilon}(u)du\right|\to\frac35,
    $$
-   and `c>b-a`. Therefore the crude condition `max{c,b-a}Z<1` has no residual solutions. The claim in Meeting 006 that it already proves a residual subregion is removed.
-5. There is no contradiction between `cZ>1` and `16/21<1`: the first is a raw scalar absolute-value multiplier; the second is a restart/height coupling factor after structural decomposition. Neither decides the bounded-height signed branching kernel.
-6. The remaining block theorem splits into two complementary lemmas: a rigorous global restart-corrector Foster reduction (G) and a bounded-height signed mass/disagreement kernel with block spectral radius `<1` or exact obstruction (F).
+   but the actual `J`-compatible quantity is
+   $$
+   \frac g{|m_\varepsilon|}\int w(u)|A_{2,\varepsilon}(u)|du\to\frac75.
+   $$
+   Hence duration integration cannot precede the block absolute-value norm.
+4. **Height-one signed cancellation is real but diagnostic only.** F's exact fully-regenerated matrix has spectral radius about `0.10325` at `(1/10,3/10,4/5)` and tends to `sqrt(2/5)` near East, but it cannot be iterated as the proof kernel because its duration coordinate has already been integrated.
+5. **Static short-word closure fails.** Exact invariant-law determinants refute first- and second-order spatial Markov closure at `(1/10,3/10,4/5)`. This rules out current-spin / two-spin static closure but not a finite temporal reset-history state.
+6. **Revised bounded target.** The bounded kernel must be a mode-resolved `L^1(w)` operator retaining mass relaxation/reset-history information until the norm is taken. A scalar Foster return statement alone does not determine this signed kernel.
 
-Next assignments:
-
-- Student F: `students/student-f/assignment-008.md`;
-- Student G: `students/student-g/assignment-004.md`.
+Student G continues Assignment 004 unchanged. Student F moves to `students/student-f/assignment-009.md`.
