@@ -23,22 +23,37 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-Latest meeting: `meetings/020-recombined-zero-mode-survives-light-cone-screening-test.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/021-light-cone-reduces-to-two-step-tail-shift-and-trail-route-stop.md`, `state_narrowed: yes`.
 
 Active work:
 
-- Student F: `students/student-f/assignment-014.md`, one bounded light-cone screening test for the recombined two-insertion signed defect.
-- Student G successor: idle. No G009 common-coupling continuation is authorized.
+- Students F and G: idle. No F015/G009 continuation is authorized.
+- One bounded outside route-selection consultation is active: `consultants/assignment-002-post-trail-architecture-review.md`.
 
 ## Closed / stopped mechanisms
 
-Closed: fixed finite walls; cellwise nonnegative scaffold insertion; one-step centered `L^1`; crude scalar `max{c,b-a}Z<1`; exposed-only global Foster product; full nearest-neighbour scalar edge-product/coboundary Foster class; depth-uniform finite linear common-mass mode closure.
+Closed or stopped inside the present programme:
 
-Stopped: raw finite-window/HJB certification by enlarging `L,R,T` or changing the right-boundary controller.
+- fixed finite walls;
+- cellwise nonnegative scaffold insertion;
+- one-step centered `L^1` contraction;
+- crude scalar `max{c,b-a}Z<1`;
+- exposed-only global Foster product;
+- full nearest-neighbour scalar edge-product/coboundary Foster class;
+- depth-uniform finite linear common-mass mode closure;
+- raw finite-window/HJB certification by enlarging `L,R,T` or changing the right-boundary controller.
 
-Abandoned as a load-bearing interface after Meeting 019: common-uniform global coalescence / zero-frequency disagreement occupation. Previously proved common-coupling facts remain valid auxiliary lemmas.
+Abandoned as a load-bearing interface after Meeting 019:
 
-## Global predecessor-trail target
+- common-uniform global coalescence / zero-frequency disagreement occupation.
+
+Recorded as **exhausted after Meeting 021**:
+
+- the current centered predecessor-trail/profile implementation based on composing the present signed insertion through successive zero-boundary segments.
+
+Previously proved lemmas from these routes remain valid auxiliary mathematics.
+
+## Global predecessor-trail reduction retained as mathematics
 
 Put
 
@@ -47,132 +62,141 @@ B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a,
 \qquad w(u)=e^{-\omega u}s_1(u).
 $$
 
-The working reduction leaves
+The centered predecessor-trail reduction leaves
 
 $$
 J_{x,r}
 =B g^{n-1}\int\left(\prod_k w(u_k)\right)|\pi^0_{m,r}(F_{x,u})|du.
 $$
 
-Showing `J_{x,r}->0` with depth is sufficient for the nonempty-exit term. Every duration remains visible until the final modulus.
+Showing `J_{x,r}->0` with depth is sufficient for the nonempty-exit term. The reduction remains correct working mathematics, but the current implementation for proving `J` decay is no longer active.
 
-## F013: zero mode survives full signed recombination
+## Why the common-coupling interface stopped
 
-Define
+For finite disagreement seeds under the common-uniform coupling, every fixed site eventually becomes permanently coupled and survival is exactly convective escape to `-infinity`. G007 gives a convergent fixed-boundary approximation for the Hamming coefficient and proves `alpha(t)>1` for `0<t<=47` at the hard near-East point. Meeting 018 gives a genuine retained-spin first-discovery front theorem.
+
+G008 then shows that after a genuine source coalescence the retained two-spin state forgets residual right-ancestry capacity. The robust projected zero-frequency Bellman closure has contraction-factor supremum one, while the missing all-depth source-return quantity is itself a zero-frequency occupation observable. No independent mechanism controlling that observable was found. Meeting 019 therefore stopped global common-uniform occupation as the disagreement interface.
+
+## Why the signed predecessor-trail/profile implementation stopped
+
+F013 proves that algebraic recombination does not remove the zero temporal-frequency mode. With
 
 $$
-(\mathcal J_N\mu)(f)=\mu((B\eta_N-c)f),
+m_0=\frac{b(1-c)-a}{1+b},
 \qquad
 \rho_N=\mathcal J_N\pi_N-m_0\pi_{N-1},
 $$
 
-with
+the full two-insertion defect satisfies
 
 $$
-r_0=\frac1{1+b},
-\qquad
-m_0=Br_0-c=\frac{b(1-c)-a}{1+b}.
-$$
-
-For the full two-insertion signed defect
-
-$$
-E_{N,u}(f)
-:=\kappa_{N,u}(f)-a(u)\pi_{N-2}(f),
-$$
-
-F013 proves the exact spectral decomposition
-
-$$
-\boxed{
 E_{N,u}(f)
 =m_0\rho_{N-1}(f)
 +\rho_N(P_u^{N-1,0}-\Pi_{N-1})
 \left[Y_{N-1}(f-\pi_{N-2}f)\right].
-}
 $$
 
-Thus the zero temporal-frequency component is intrinsic to the unsplit signed transfer.
+The invariant projection contains the old tail-shift defect up to an exponentially localized covariance.
 
-Also
+Meeting 020 isolated one final concrete possibility: late durations are already killed by `w(u)<=e^{-omega u}`, so perhaps short-time finite propagation screens the recombined defect without a global mixing theorem.
+
+F014 proves the finite-propagation part but finds an initial spatial law that it cannot remove. For
+
+$$
+H_N=Y_NY_{N-1},
+\qquad
+h_*=\pi_2(H_2),
+$$
+
+one has exactly
+
+$$
+E_{N,0}(f)
+=\pi_N[(H_N-h_*)f]
++h_*\,\delta_N^{(2)}(f),
+$$
+
+where
+
+$$
+\delta_N^{(2)}=\bar{\bar\pi}_N-\pi_{N-2}.
+$$
+
+Centered observables of the fixed rightmost two-site suffix localize exponentially. At the standard strict residual point
+
+$$
+(a,b,c)=\left(\frac1{10},\frac3{10},\frac45\right),
+$$
+
+however,
+
+$$
+h_*=-\frac{34}{8775}\ne0.
+$$
+
+The remote norm of the surviving spatial law is exactly
 
 $$
 \boxed{
-\rho_n(f)
-=m_0(\bar\pi_n-\pi_{n-1})(f)
-+B\pi_n[(\eta_n-r_0)f].
+\Delta_M^{(2)}
+=\|\theta^2\mu-\mu\|_{\mathcal F_M},
 }
 $$
 
-The second term is exponentially localized by F010, so away from `m_0=0` the remote norm of `rho_n` is equivalent to `|m_0|Delta_M` up to an exponential error. For the two-insertion zero mode the leading nonlocal term is `|m_0|^2 Delta_{M+1}`.
+for the projective half-line zero-boundary law `mu`.
 
-Therefore the old zero-frequency obstruction was **not** created by splitting signed mass and disagreement pieces.
-
-On the exceptional surface
+F014 also proves the positive-time light-cone normal form. For `u<=M/8`, after a fixed buffer split,
 
 $$
-a=b(1-c),
+E_{N,u}(f)
+=a(u)\delta_N^{(2)}(q)+O(e^{-\gamma M}),
 $$
 
-one has `m_0=0`; the finite zero-boundary invariant law is Bernoulli product of density `1/(1+b)`, `J_N pi_N=0`, and the two-insertion defect vanishes identically.
-
-## Why `Gamma_M` is still not decided
-
-The target is
+with `q` still separated by order `M` from the right suffix. Consequently
 
 $$
+\boxed{
 \Gamma_M
-=
-\sup_N\int_0^\infty w(u)
-\|E_{N,u}\|_{\mathrm{remote},M}du.
-$$
-
-The transient complement may cancel the invariant projection at the **same duration** `u`; this is allowed by the norm order. F013 does not prove or refute `Gamma_M->0`.
-
-A generic depth-uniform observability or mixing theorem is not accepted as a concrete continuation.
-
-## Meeting 020: one final light-cone screening mechanism
-
-Because
-
-$$
-0\le w(u)\le e^{-\omega u}
-$$
-
-and `|Y_j|<=c`,
-
-$$
-\|E_{N,u}\|_{TV}\le2c^2.
-$$
-
-Hence for every `alpha>0`,
-
-$$
-\int_{\alpha M}^\infty
-w(u)\|E_{N,u}\|_{\mathrm{remote},M}du
 \le
-\frac{2c^2}{\omega}e^{-\omega\alpha M}.
+c^2 Z\,\Delta_{\lceil M/2\rceil}^{(2)}
++Ce^{-\gamma M}.
+}
 $$
 
-Therefore `Gamma_M->0` only requires **short-time spatial screening** for `u<=alpha M`. Assignment 014 asks for a bound such as
+Thus the fixed-suffix and causal pieces are controlled; the remaining issue is an additional zero-frequency two-step tail-shift theorem. No independent mechanism for that theorem was produced.
 
-$$
-\|E_{N,u}\|_{\mathrm{remote},M}
-\le
-C e^{-\gamma M}
-+C P(\operatorname{Pois}(\Lambda u)\ge\delta M),
-\qquad 0\le u\le\alpha M,
-$$
+Meeting 020 pre-registered this as the stopping case. Meeting 021 therefore records the current predecessor-trail/profile implementation as exhausted.
 
-or an equivalent light-cone estimate.
+## Current route decision
 
-The required first subproblem is the static centered two-site suffix covariance at `u=0`, followed by a finite-propagation comparison for positive time. No depth-uniform spectral gap is to be assumed.
+Do not issue by default:
 
-If this succeeds, `Gamma_M` decays exponentially and the next question is composability of the localized two-insertion block. If it fails structurally or remains unresolved without a sharper mechanism, the current predecessor-trail/profile implementation is recorded as exhausted; do not default to generic observability, a third insertion, matrix products, or reopening common-uniform occupation.
+- generic full-chain observability or spectral-gap estimates;
+- a third insertion or another local predecessor-trail composition experiment;
+- matrix-product/nonlocal-norm searches;
+- reopened common-uniform global occupation;
+- larger exposure states or ancestry counters;
+- larger raw finite random-map windows.
+
+Students F and G are idle.
+
+Before another substantial internal block, use bounded outside consultation 002 to identify a **genuinely different proof architecture**. A proposal to prove one- or two-step tail-shift agreement counts as new only if it supplies an independent structural mechanism specific to the one-sided stationary law rather than assuming or renaming the missing mixing theorem.
+
+## Unresolved target-level facts
+
+The following remain open:
+
+- `Delta_M->0` and `Delta_M^(2)->0` off the product surface;
+- `Gamma_M->0`;
+- `J_{x,r}->0`;
+- common-uniform extinction versus convective survival;
+- the positive rates conjecture.
+
+On the exact surface `a=b(1-c)`, the zero-boundary invariant law is Bernoulli product, `J_N pi_N=0`, and the signed insertion obstruction vanishes.
 
 ## Anti-circularity
 
-Do not integrate duration before the actual absolute-value norm; revive scalar local coupling products; return to common-uniform global occupation; assume an unproved uniform spectral gap; replace the light-cone test by generic long-time mixing; or infer arbitrary-depth `J` control from two-insertion localization.
+Do not integrate duration before the actual modulus; revive closed scalar Foster classes; infer global extinction from fixed-site coupling or finite front speed; infer survival from finite-time expansion; treat tail-shift localization as proved because fixed suffixes mix; or continue the exhausted predecessor-trail implementation by merely moving the same zero-frequency law into a larger state space.
 
 ## Wiki
 
