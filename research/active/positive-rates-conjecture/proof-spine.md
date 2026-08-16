@@ -89,7 +89,7 @@ These are genuine damping inputs, not an all-depth theorem.
 
 ## E5. Exact common-mass transfer is operator-valued
 
-Slice a signed law by the current rightmost spin. The duration-resolved one-segment transfer has the operator form
+The duration-resolved one-segment transfer has the operator form
 
 $$
 (\mathfrak T_y\boldsymbol\nu)(u)
@@ -153,9 +153,9 @@ $$
 
 Scalar iteration is unavailable because it reintroduces `cZ>1`.
 
-## E9. Zero-frequency boundary response
+## E9. Zero-frequency boundary response and tail-shift reduction
 
-After one insertion the mass branch is `bar pi_N`, not `pi_{N-1}`. Its exact discrepancy is
+After one insertion the mass branch is `bar pi_N`, not `pi_{N-1}`. Its exact discrepancy is the zero-frequency response
 
 $$
 \bar\pi_N(f)-\pi_{N-1}(f)
@@ -166,17 +166,7 @@ P_t^{N-1,0}(f-\pi_{N-1}(f))dt
 \right].
 $$
 
-Finite speed alone is nonintegrable at zero frequency.
-
-## E10. Assignment 011: exact tail-shift reduction
-
-Let `mu=pi_infty^0` be the projective half-line invariant law with boundary-nearest coordinate `X_0`, let
-
-$$
-\theta(x_0,x_1,\ldots)=(x_1,x_2,\ldots),
-$$
-
-and define
+Let `mu=pi_infty^0`, let `theta` drop the boundary-nearest spin, and define
 
 $$
 \mathcal F_m=\sigma(X_j:j\ge m),
@@ -184,26 +174,15 @@ $$
 \mathcal T=\bigcap_m\mathcal F_m.
 $$
 
-For
-
-$$
-\Delta_M
-=
-\sup_{N\ge M+1}
-\sup_{\substack{\|f\|_\infty\le1\\
-\operatorname{supp}(f)\subseteq\{1,\ldots,N-M\}}}
-|\bar\pi_N(f)-\pi_{N-1}(f)|,
-$$
-
-F proves
+For the far-left boundary-response norm `Delta_M`, F proves
 
 $$
 \boxed{
-\Delta_M=\|\theta\mu-\mu\|_{\mathcal F_{M-1}}.
+\Delta_M=\|\theta\mu-\mu\|_{\mathcal F_{M-1}},
 }
 $$
 
-Hence `Delta_M` is nonincreasing. Using the density of `theta mu-mu` relative to `(mu+theta mu)/2` and the reverse martingale theorem,
+and reverse-martingale convergence yields
 
 $$
 \boxed{
@@ -212,7 +191,7 @@ $$
 }
 $$
 
-Therefore the stationary zero-frequency locality question is exactly
+Thus zero-frequency locality is exactly the tail-shift theorem
 
 $$
 \boxed{
@@ -221,13 +200,13 @@ $$
 \tag{TS}
 $$
 
-Separate tail 0--1 laws do not imply `(TS)`; the same tail events must receive the same probabilities.
+Separate tail 0--1 laws do not imply `(TS)`.
 
-**Status:** exact reduction, unresolved. Student F Assignment 012 must prove or refute `(TS)` or produce a genuinely stronger structural criterion, preferably via finite-window likelihood ratios / relative entropy / boundary influence.
+**Status:** exact reduction, unresolved. Student F Assignment 012 decides `(TS)` or produces a genuinely stronger structural criterion.
 
-## E11. Conditional one-next-segment lift
+## E10. Conditional one-next-segment mass lift
 
-Let `m_0=Br_0-c` and `kappa_E=|m_0|Z`. If `Delta_M->0`, then for any `1<=d<M`,
+Let `m_0=Br_0-c` and `kappa_E=|m_0|Z`. If `Delta_M->0`, then for `1<=d<M`,
 
 $$
 \boxed{
@@ -242,36 +221,138 @@ $$
 }
 $$
 
-Choosing `d~M/2` makes this first post-insertion mass-branch truncation error vanish. Arbitrary signed-profile iteration still remains open.
+Choosing `d~M/2` makes the first post-insertion mass-branch truncation error vanish. Arbitrary signed-profile iteration still remains open.
 
-## E12. Coupling facts and closed local Foster classes
+## E11. Closed scalar coupling architectures
 
 The same-parent geometric restart theorem and separate stack-clearing minorant remain valid. The exposed-only product fails on long all-`01` stacks. The entire nearest-neighbour scalar edge-product/coboundary class is refuted at a strict near-East point by the balanced-circulation AM--GM certificate.
 
 No finite local scalar Foster state remains.
 
-## E13. Current coupling viability test
+## E12. Actual common-uniform coupling: local erasure and convective alternative
 
-A successor Student G session is redoing Assignment 006 after the predecessor session failed before committing its work. The task is unchanged: decide whether the common-uniform disagreement process survives forever with positive probability from a finite seed at a strict near-East point.
+For every finite initial disagreement seed, no disagreement can be created to the right of an already coupled right half-line. The current rightmost disagreement coalesces permanently with hazard at least
 
-- Survival closes every proof requiring global coalescence of this synchronous coupling.
-- Extinction must be accompanied by a genuinely nonlocal quantitative regeneration theorem.
+$$
+q=1-c+a.
+$$
 
-No uncommitted predecessor reasoning is treated as evidence.
+Hence every fixed site becomes permanently coupled almost surely.
 
-## E14. Route-level checkpoint
+If `sigma_m` is the first discovery time of the `m`-th new site to the left, then
 
-Both remaining interfaces are now concrete decision theorems rather than generic requests for a nonlocal norm.
+$$
+P(\sigma_m\le t)\le P(\operatorname{Pois}(t)\ge m).
+$$
 
-1. F012: prove or refute tail-shift agreement `(TS)`.
-2. G006: decide finite-seed survival/extinction of the common-uniform coupling near East.
+Therefore
 
-After both return, hold a route-level expected-value review before authorizing broader matrix-product/nonlocal construction.
+$$
+\boxed{
+\{D_t\ne\varnothing\ \forall t\ge0\}
+=
+\{\sigma_m<\infty\ \forall m\ge1\}
+\quad\text{a.s.}
+}
+$$
 
-## E15. Final reconstruction after `J->0`
+Finite-seed survival, if it occurs, is purely convective escape to `-infinity`.
+
+## E13. Moving-frame contraction of actual disagreement
+
+The common-uniform transition table gives
+
+$$
+\boxed{
+\mathcal L^{\rm coup}D_i\le-qD_i+cD_{i+1}.
+}
+$$
+
+Thus for every `z>c/q`,
+
+$$
+\boxed{
+E\sum_i z^iD_i(t)
+\le e^{-(q-c/z)t}\sum_i z^iD_i(0).
+}
+$$
+
+This proves exponential stabilization of every fixed spatial window. It does not rule out a cloud translating left.
+
+At the strict rational point `(a,b,c)=(1/10000,1/100,9999/10000)`, `q=1/5000`; `z=10000` gives rate `10001/100000000`.
+
+## E14. Finite-time random-map Hamming criterion
+
+Let `Phi_t` be one graphical slab and
+
+$$
+\alpha(t)=\sup_{\eta,i}E\,d_H(\Phi_t\eta,\Phi_t\eta^i).
+$$
+
+G proves path extension and
+
+$$
+\boxed{
+\alpha(t+s)\le\alpha(t)\alpha(s).
+}
+$$
+
+If
+
+$$
+\boxed{\alpha(T)<1}
+$$
+
+for one finite `T`, then every finite seed becomes extinct with exponential block-time tail:
+
+$$
+E|D_{nT}|\le\alpha(T)^n|D_0|,
+\qquad
+P(\tau>nT)\le\alpha(T)^n|D_0|.
+$$
+
+This is a genuine nonlocal time-block criterion, not a spatial product corrector.
+
+## E15. Exact finite controlled-CTMC certificate hierarchy
+
+For finite `L,R`, let `A_{L,R}(T)` be the maximal expected disagreement count in `[-L,0]` at time `T` in the finite controlled chain that keeps full pair states on `[-L,0]`, common spins on `[1,R]`, and allows an adversarial predictable common boundary spin at `R+1`.
+
+Then
+
+$$
+\boxed{
+\alpha(T)
+\le
+A_{L,R}(T)+E[(\operatorname{Pois}(T)-L)_+].
+}
+$$
+
+A verified right side below one proves global extinction.
+
+At the hard rational point, the single-seed geometry with an `01` source, common right spin zero, and common left spin one has
+
+$$
+\left.\frac d{dt}E|D_t|\right|_{t=0}
+=c-q=\frac{9997}{10000}>0.
+$$
+
+Thus any eventual Hamming contraction must emerge only after finite-time nonlocal clearing.
+
+**Status:** no certificate below one yet; no survival theorem. Student G Assignment 007 executes this exact finite diagnostic and may tighten the finite hierarchy if the controlled boundary is too pessimistic.
+
+## E16. Route-level checkpoint
+
+The active route is now split into two precise nonlocal decision theorems:
+
+1. F012: prove or refute tail-shift agreement `(TS)` on the common-mass side;
+2. G007: prove `alpha(T)<1` at the hard near-East point, prove genuine convective survival, or sharpen the finite random-map approximation enough to decide which is plausible.
+
+Do not authorize general matrix-product/nonlocal norm construction. The promised route-level expected-value review is due when F012 returns; G007 is allowed in parallel only because it executes the exact diagnostic produced by G006.
+
+## E17. Final reconstruction after `J->0`
 
 Only after `J_{x,r}->0` is actually proved should the group audit the exact predecessor-trail Poisson--Mecke factorization, complementary no-exit term, and final convergence-to-ergodicity implication.
 
 ## Anti-circularity checkpoint
 
-Do not integrate duration before absolute value, use `16/21` as a global Foster theorem, enlarge scalar local coupling products mechanically, revive a finite common-mass mode state, replace the signed structure by unrestricted total variation, assume an unproved uniform spectral gap / positive rates conjecture, infer tail-shift agreement from separate tail triviality, or infer infinite-tail total-variation decay from fixed finite-window convergence without uniformity in window size.
+Do not integrate duration before absolute value; use `16/21` as a global Foster theorem; enlarge scalar local coupling products mechanically; revive a finite common-mass mode state; replace the signed structure by unrestricted total variation; assume an unproved uniform spectral gap / positive rates conjecture; infer tail-shift agreement from separate tail triviality; import the predecessor-trail reset-height drift into the actual common-uniform disagreement process; infer global extinction from fixed-site coalescence or moving-frame contraction; or infer survival from failure of a finite upper certificate.
