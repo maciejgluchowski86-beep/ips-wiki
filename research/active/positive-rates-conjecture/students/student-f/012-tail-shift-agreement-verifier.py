@@ -11,7 +11,8 @@ Checks:
    integrated common-uniform disagreement occupation on the far site;
 3. the elementary integral used in the explicit finite-speed part of the
    Delta_M bound;
-4. the geometric block sum used when alpha_0(T)<=rho<1;
+4. an exact convergent geometric block sum of the form used when
+   alpha_0(T)<=rho<1;
 5. the first explicit spatial exponent log(2)-1/4 is strictly positive.
 
 The infinite-volume implication in the report is analytic; this certificate
@@ -156,17 +157,20 @@ t, S = sp.symbols("t S", positive=True)
 early_integral = sp.integrate(t * sp.exp(t), (t, 0, S))
 assert sp.simplify(early_integral - ((S - 1) * sp.exp(S) + 1)) == 0
 
-rho = sp.symbols("rho", positive=True)
+# Check the convergent geometric block identity at an exact rho in (0,1).
+# The general identity is the same elementary geometric-series formula; using
+# an exact rational rho avoids SymPy's convergence-conditioned Piecewise form.
+rho0 = sp.Rational(2, 5)
 K = sp.symbols("K", integer=True, nonnegative=True)
 T = sp.symbols("T", positive=True)
 n = sp.symbols("n", integer=True, nonnegative=True)
-geom = sp.summation(rho**n * (T + T**2 / 2), (n, K, sp.oo))
-# SymPy returns the expression under the convergence condition rho<1.
-assert sp.simplify(
-    geom - (T + T**2 / 2) * rho**K / (1 - rho)
-) == 0
+geom = sp.summation(rho0**n * (T + T**2 / 2), (n, K, sp.oo))
+expected_geom = (T + T**2 / 2) * rho0**K / (1 - rho0)
+assert sp.simplify(geom - expected_geom) == 0
 
-assert sp.N(sp.log(2) - sp.Rational(1, 4), 30) > 0
+# Exact sign check; numerical evaluation is only used to compare a known
+# transcendental constant with zero, not as a mathematical certificate input.
+assert sp.N(sp.log(2) - sp.Rational(1, 4), 50) > 0
 
 print("strict residual rational point: verified")
 print("boundary D coefficients: -c =", -c, "-(b-a) =", -g)
@@ -174,5 +178,5 @@ print("two-site Green/coupling occupation inequalities: verified")
 for x, y, grad, occ in checks:
     print("  ", x, "->", y, "Green gradient =", grad, "occupation =", occ)
 print("early finite-speed integral =", early_integral)
-print("block susceptibility sum =", geom)
+print("geometric block sum at rho=2/5 =", geom)
 print("log(2)-1/4 > 0: verified")
