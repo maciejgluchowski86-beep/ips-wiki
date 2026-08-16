@@ -124,4 +124,39 @@ Professor-checked conclusions:
 5. **Static short-word closure fails.** Exact invariant-law determinants refute first- and second-order spatial Markov closure at `(1/10,3/10,4/5)`. This rules out current-spin / two-spin static closure but not a finite temporal reset-history state.
 6. **Revised bounded target.** The bounded kernel must be a mode-resolved `L^1(w)` operator retaining mass relaxation/reset-history information until the norm is taken. A scalar Foster return statement alone does not determine this signed kernel.
 
-Student G continues Assignment 004 unchanged. Student F moves to `students/student-f/assignment-009.md`.
+Meeting 009 recorded G as still in flight on Assignment 004; G returned after that meeting. Student F moved to `students/student-f/assignment-009.md`.
+
+## Meeting 010: exposed-only Foster product refuted; 16-phase finite reduction
+
+Meeting: `meetings/010-exposed-product-refuted-and-16-phase-foster-reduction.md`.
+
+`state_narrowed: yes`.
+
+Student G:
+
+- commit `4128cee`, `students/student-g/004-global-restart-corrector.md`;
+- verifier commits `bec4dda` and `4586833`, `students/student-g/004-global-restart-corrector-verifier.py`.
+
+Professor-checked conclusions:
+
+1. **Assignment-003 global product is false.** On the reachable all-`01` stack `sigma_i=01`, the exposed-only product with `V=lambda^H C_old` has exact tilted drift
+   $$
+   \frac{\mathscr L_sV}{V}
+   =(1-a)(s-1)
+   +(H-2)(1-a)(s e_0-1)
+   +\omega(\lambda^{-1}-1).
+   $$
+   For `s>1`, finite `lambda>1`, and `e_0>=1`, the interior coefficient is positive, so the drift is positive for all sufficiently large `H`.
+2. **Near-East old-product failure.** With Assignment-003's choices, the drift tends to `(H-2)/7`; hence the checked scalar `16/21` factor is not a global Foster multiplier.
+3. **Same-parent tail survives.** The geometric same-parent restart theorem and the separate height minorant remain valid. The failure is specifically the independent-level product rule that assigned no credit to child-alive/nonexposed phases.
+4. **Exact stronger local state.** For pair alphabet `A={00,11,01,10}`, a nearest-neighbour edge product `C_Q=prod q_{sigma_{i-1},sigma_i}` yields 64 exact local tilted drift functions `G_Q(alpha,beta,gamma)`.
+5. **Finite no-positive-cycle reduction.** For this nearest-neighbour product/coboundary class, all-height interior control is equivalent to absence of a positive cycle on the 16-vertex de Bruijn graph, equivalently existence of a phase potential `psi` with
+   $$
+   G_Q(\alpha,\beta,\gamma)
+   \le
+   \psi(\alpha,\beta)-\psi(\beta,\gamma)
+   $$
+   for all triples. A complete Foster theorem additionally requires finitely many boundary/height/insertion inequalities.
+6. **Current coupling blocker.** Existence of feasible positive phase weights and boundary parameters throughout the residual chamber is unresolved. Student G moves to `students/student-g/assignment-005.md` to solve or refute this finite feasibility problem.
+
+Student F remains in flight on `students/student-f/assignment-009.md`.
