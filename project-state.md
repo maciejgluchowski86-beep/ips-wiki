@@ -12,14 +12,15 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 
 - Branch: `research/voter-discordant-concentration`.
 - Workspace: `research/active/voter-discordant-concentration/`.
-- Persistent Graduate Student D: idle while correctness reviews run.
-- Latest meeting: `research/active/voter-discordant-concentration/meetings/002-genealogical-variance-claim.md`, `state_narrowed: yes`.
+- Persistent Graduate Student D: idle while novelty review runs.
+- Latest meeting: `research/active/voter-discordant-concentration/meetings/003-correctness-passed-novelty-audit.md`, `state_narrowed: yes`.
 - Central claim: `VOTER-CONC-001`, status `claimed`.
-- Two independent correctness reviews are in flight; novelty/closest-prior-work audit follows if correctness survives.
+- Correctness: Professor reconstruction plus two independent hostile reviews have passed.
+- Remaining gate: dedicated novelty / closest-prior-work audit, `research/active/voter-discordant-concentration/audits/assignment-003-novelty-prior-work.md`.
 
-### Claimed deterministic variance inequality
+### Correctness-reviewed deterministic inequality
 
-For every finite simple `d`-regular graph `G`, every `u in (0,1)`, and every `t>=0`, let `Dcal_t` be the voter-model discordant-edge density. If `pi` is uniform on vertices and `tau_meet` is the meeting time of two independent rate-one continuous-time simple random walks, then
+For every finite simple `d`-regular graph with **`d>=1`**, not necessarily connected, every `u in (0,1)`, and every `t>=0`,
 
 $$
 \boxed{
@@ -28,20 +29,27 @@ $$
 }
 $$
 
-Student D's proof is in commit `e73fd25`, `students/student-d/002-four-walk-cancellation.md`. The Professor independently reconstructed the argument in `notes/professor-assignment-002-verification.md` and accepts it at `claimed`, not `verified`, status.
+The two walks are independent rate-one continuous-time simple random walks started from uniform `pi`. Student D's proof is in commit `e73fd25`; the Professor reconstruction is `notes/professor-assignment-002-verification.md`.
 
-The mechanism is genealogical. Conditional on the Harris arrows at observation time, vertices are partitioned into ancestral clusters carrying independent Bernoulli initial labels. The discordant-edge count is a weighted cut statistic on the quotient multigraph. Its conditional variance is controlled by the second moment of cluster sizes, hence by a stationary two-walk meeting probability. The variance of its conditional mean is controlled by cross-interaction of two ancestral edge families and source Eq. (5.6), again reducing to the same two-walk meeting probability.
+Independent correctness reviews:
 
-### Claimed random-regular consequence
+- Review A: commit `add0681`, `audits/001-genealogy-review-a.md`, `PASS`;
+- Review B: commit `45f960b`, `audits/002-genealogy-review-b.md`, `PASS`, explicitly independent of Review A.
 
-Using the meeting estimates in Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), equations (5.7)--(5.8), the claimed deterministic inequality gives, for every deterministic `t_n=o(n)`,
+Both reviews reconstruct the genealogy conditioning, quotient-cut variance bound, cluster-square/meeting identity, four-family coupling including within-family coalescence, edge orientation normalization, and source interface without finding a mathematical defect.
+
+### Correctness-reviewed random-regular consequence
+
+For uniformly random simple regular graphs keep fixed **`d>=3`**.
+
+Use Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), source **(5.8)** together with the high-probability `Theta(n)` stationary mean meeting time and spectral-gap input used there. Then for every deterministic `t_n=o(n)`,
 
 $$
 \operatorname{Var}_u^G(\mathcal D_{t_n}^n)
-=O_{\mathbb P}\left(\frac{1+t_n}{n}\right).
+=O_{\mathbb P}\left(\frac{1+t_n}{n}\right),
 $$
 
-Hence for every `C_n->infinity`,
+and hence for every `C_n->infinity`,
 
 $$
 \mathbf P_u^G\left(
@@ -50,48 +58,39 @@ $$
 \right)\xrightarrow{\mathbb P}0.
 $$
 
-For deterministic `t_n>=1`, `t_n=o(n)`, the stronger variance bound `O_P(t_n/n)` yields the source's proposed `C_n sqrt(t_n/n)` scale.
+For deterministic `1<=t_n=o(n)`,
+
+$$
+\operatorname{Var}_u^G(\mathcal D_{t_n}^n)=O_{\mathbb P}(t_n/n),
+$$
+
+so the source's proposed `C_n sqrt(t_n/n)` scale holds in that regime.
+
+The bare printed `O(t/n)` wording of source (5.7) is not used uniformly down to zero because `q_0=1/n`; for `t<1`, use source (5.8) or monotonicity from time one.
 
 ### Small-time source correction
 
-Literal source Eq. (1.9) is false because it quantifies over arbitrary `t_n=o(n)`, including `t_n->0`, while the Bernoulli initial condition fluctuates on scale `n^{-1/2}`. The explicit counterexample is
+Literal source Eq. (1.9) is false because its displayed quantifiers allow unrestricted `t_n->0` while Bernoulli initial data already fluctuate on scale `n^{-1/2}`. The independently confirmed counterexample is
 
 $$
 t_n=n^{-3},\qquad C_n=\log n.
 $$
 
-Thus the corrected all-sublinear scale is `sqrt((1+t_n)/n)`. The claimed theorem recovers the original source scale from time one onward.
+Stable scope: the project proves the source scale for deterministic `1<=t_n=o(n)` and the corrected `sqrt((1+t_n)/n)` scale for all deterministic sublinear sequences. No complete classification of every possible subunit sequence under the original scale is claimed.
 
-### Verification and novelty status
+### Promotion status
 
-`VOTER-CONC-001` is **not verified**. The two independent hostile review assignments are:
+`VOTER-CONC-001` deliberately remains `claimed` even though the two correctness reviews passed. Meeting 002 pre-committed to a dedicated closest-prior-work / novelty audit before `verified` promotion or manuscript contribution language.
 
-- `research/active/voter-discordant-concentration/audits/assignment-001-review-a.md`;
-- `research/active/voter-discordant-concentration/audits/assignment-002-review-b.md`.
+This is now the only unresolved issue. The audit must determine whether the deterministic inequality or its genealogy argument is already known, whether the random-regular theorem is an immediate corollary of prior work, and how much novelty attaches to the literal small-time correction. If prior art is found, correctness remains intact but project-result status will be downgraded, as happened in the BABP programme.
 
-If both correctness reviews survive, a separate closest-prior-work audit is required before publication-level novelty or contribution claims.
+## Wiki freeze review
 
-Under the principal's standing novelty rule, this theorem is structurally eligible if it survives: it is a deterministic graph inequality and full-regime consequence, not a larger-window or better-constant instantiation.
-
-No uniform-in-time process-supremum concentration theorem is claimed; the random-regular result is sequence-wise quenched-in-environment-probability.
-
-## Wiki freeze review trigger
-
-The first central theorem of the active programme has entered independent audit, so `CHATGPT.md` requires the Professor to raise the wiki freeze for principal review. Professor recommendation remains **keep the live wiki frozen** until correctness and novelty audits are complete. No `proved here` page is being promoted now.
+Keep the live wiki frozen until novelty/contribution status is settled. No `proved here` promotion is appropriate yet.
 
 ## Most recently closed programme: residual positive-rates / noisy East
 
-The noisy-East finite-wall programme closed at Group Meeting 002 on branch `research/noisy-east-positive-rates`.
-
-On `r11=0`, with `a=r00`, `b=r01`, `c=r10`, the corrected unresolved normalized set is
-
-$$
-\mathcal R=\left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
-$$
-
-The three-site frozen-exterior one-attack factor has sharp East-boundary supremum `5/6`, but repeated attacks from a persistent exterior disagreement cross every fixed finite block almost surely. The pre-committed dynamic-exterior stop condition was triggered. No length-four rescue is allowed.
-
-The broader noisy-East problem remains open; a future return requires a genuinely new mechanism or a separately motivated episode-level theorem with quantitative closure.
+The noisy-East finite-wall programme closed at Group Meeting 002 on branch `research/noisy-east-positive-rates`. Its corrected residual chamber and sharp frozen-exterior three-site factor remain useful diagnostic mathematics, but repeated attacks show the one-attack factor does not concatenate. No length-four rescue is allowed.
 
 ## Earlier closed programme: BABP finite seed
 
