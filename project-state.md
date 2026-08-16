@@ -13,9 +13,9 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed until changed or stopped by the principal: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/016-route-review-converges-on-finite-time-damage-contraction.md`, `state_narrowed: yes`.
-- Student G successor: `students/student-g/assignment-007.md`, finite-time full-line random-map Hamming contraction / convective-survival decision at the strict near-East rational point.
-- Student F: Assignment 012 completed; idle pending G007. No new F assignment is authorized yet.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/017-fixed-boundary-sandwich-and-random-map-stop.md`, `state_narrowed: yes`.
+- Students F and G: idle; no G008/F013 is authorized.
+- Active task: bounded outside consultation `research/active/positive-rates-conjecture/consultants/assignment-001-disagreement-front-survival-review.md`.
 
 On `r11=0`, with
 
@@ -30,7 +30,7 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-Closed mechanisms include fixed finite walls, cellwise nonnegative scaffold insertion, one-step centered `L^1`, the empty crude scalar criterion, G's exposed-only global Foster product, G's full nearest-neighbour scalar edge-product/coboundary Foster class, and F's depth-uniform finite linear common-mass mode closure.
+Closed mechanisms include fixed finite walls, cellwise nonnegative scaffold insertion, one-step centered `L^1`, the empty crude scalar criterion, G's exposed-only global Foster product, G's full nearest-neighbour scalar edge-product/coboundary Foster class, and F's depth-uniform finite linear common-mass mode closure. Raw enlargement of finite random-map/HJB windows is now also stopped as an implementation.
 
 ### Current predecessor-trail target
 
@@ -50,7 +50,7 @@ $$
 
 Proving `J_{x,r}->0` with depth is sufficient for the nonempty-exit term. Exact Poisson--Mecke factorization and the no-exit complement remain downstream audits after `J` decay is proved.
 
-### Common-mass side after F012
+### Common-mass side
 
 Professor-checked losses remain
 
@@ -60,49 +60,17 @@ $$
 BZ_{\omega+1+b}<1.
 $$
 
-The zero-frequency post-insertion defect is the tail-shift variation `Delta_M`. F012 now proves the stronger sufficient estimate
+F012 proves
 
 $$
-\boxed{
-\Delta_M
-\le
-2c\int_0^\infty\beta_{M-1}(t)dt,
-}
+\Delta_M\le2c\int_0^\infty\beta_{M-1}(t)dt,
 $$
 
-where `beta_m(t)` is the maximal expected single-flip disagreement mass at least `m` sites to the left in a finite zero-boundary chain.
+where `beta_m` is far-left single-flip damage for finite zero-boundary chains. Integrable zero-boundary Hamming susceptibility implies tail-shift agreement, and one `alpha_0(T)<1` would give explicit exponential `Delta_M` decay. No such strict zero-boundary contraction is proved.
 
-With
+### Coupling side after G007
 
-$$
-\alpha_0(t)
-=
-\sup_{n,\eta,i}E\sum_jD_j(t),
-$$
-
-finite speed and `beta_m<=alpha_0` imply
-
-$$
-\int_0^\infty\alpha_0(t)dt<\infty
-\Longrightarrow
-\Delta_M\to0.
-$$
-
-Since `alpha_0` is submultiplicative, one finite-time inequality
-
-$$
-\boxed{\alpha_0(T)<1}
-$$
-
-proves tail-shift agreement and gives an explicit exponential `Delta_M` bound. G's finite controlled-CTMC hierarchy extends to a certificate for `alpha_0(T)` after finitely many close-zero-boundary geometries are included.
-
-No such strict zero-boundary certificate is currently proved.
-
-Verifier status: original F012 verifier `3750a53` fails because of SymPy's convergence-conditioned `Piecewise` form for a symbolic geometric sum and is not counted as passing. F subsequently repaired that tooling assertion in commit `5494008`; the mathematical ruling is based on proof reconstruction.
-
-### Coupling side
-
-For the actual full-line common-uniform coupling, every finite seed becomes permanently coupled at each fixed site; possible survival is convective escape to `-infinity`.
+For every finite common-uniform disagreement seed, every fixed site eventually becomes permanently coupled; possible survival is convective escape to `-infinity`.
 
 The full-line Hamming coefficient
 
@@ -110,23 +78,47 @@ $$
 \alpha(t)=\sup_{\eta,i}E\,d_H(\Phi_t\eta,\Phi_t\eta^i)
 $$
 
-is submultiplicative. One strict `alpha(T)<1` gives exponential finite-seed extinction. The exact finite controlled-chain hierarchy is
+is submultiplicative. G007 proves a two-sided convergent ordinary fixed-boundary approximation. For
 
 $$
-\alpha(T)
-\le
-A_{L,R}(T)+E[(\operatorname{Pois}(T)-L)_+].
+r_{L,R}(T)=(L+1)P(\operatorname{Pois}(T)\ge R+1),
+\qquad
+\ell_L(T)=E[(\operatorname{Pois}(T)-L)_+],
 $$
 
-G007 is the one active execution block on this diagnostic.
+and finite fixed-boundary value `B_{L,R}^e(T)`,
 
-### Route-level decision
+$$
+\boxed{
+B_{L,R}^e(T)-r_{L,R}(T)
+\le\alpha(T)
+\le B_{L,R}^e(T)+r_{L,R}(T)+\ell_L(T).
+}
+$$
 
-The profile and coupling sides have converged on one mechanism: finite-time contraction of complete common-random-map single-flip damage. The zero-boundary and full-line coefficients are not automatically identical, but the finite controlled-chain machinery is shared.
+The previous adversarial controller is quantitatively removable.
 
-Continue only through G007. F is idle; do not duplicate the HJB search or start matrix-product/nonlocal-norm engineering.
+At the hard rational point
 
-If G007 proves full-line contraction, next check the finitely many close-zero-boundary cases needed for `alpha_0(T)<1`, then formulate one combined block transfer. If G007 proves convective survival, close every proof mechanism requiring eventual global coalescence of this synchronous coupling. If G007 remains unresolved and only larger finite-window/controller searches remain, stop this implementation and reassess the predecessor-trail route or use a bounded outside consultation.
+$$
+(a,b,c)=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
+$$
+
+an explicit protected-source event gives
+
+$$
+\boxed{\alpha(t)>1\qquad(0<t\le47).}
+$$
+
+At `T=47`, even a diagnostic `1%` causal error on each side requires `L>=67`, `R>=74`, with naive state count `2^210`. The G007 verifier's decimal display is backed by exact rational interval assertions and exact finite uniformization.
+
+### Route decision
+
+The raw finite random-map certificate implementation stops. No larger `L,R,T` or alternate-controller variant is authorized.
+
+A useful continuation now requires a genuinely new structural theorem: either an actual disagreement-front tail retaining pre-exposure common-spin history, or finite-seed convective survival. Even a future Hamming contraction would still leave signed all-depth profile composition and `J_{x,r}` decay.
+
+One bounded outside consultant is therefore assessing whether either front/survival theorem has a credible short route and whether it materially advances `J`. After that consultation the Professor must choose one sharply stated proof-spine edge or abandon the common-uniform global-coalescence interface.
 
 ## Most recently completed programme
 
