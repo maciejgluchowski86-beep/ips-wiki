@@ -38,13 +38,7 @@ Student F:
 - `students/student-f/002-regional-insertion.md`;
 - verifier commit `cfbcaf5`.
 
-Professor-checked conclusions: one-cell regional integration is positive, but the hidden predecessor transfer
-
-$$
-\Psi_\Delta(z)=(b+c-a)K_\Delta(z)-c
-$$
-
-is negative on sufficiently short cells at every residual parameter point. The cellwise last-exit/scaffold positivity route is closed.
+Professor-checked conclusion: one-cell regional integration is positive, but the hidden predecessor transfer is negative on sufficiently short cells at every residual parameter point. The cellwise last-exit/scaffold positivity route is closed.
 
 ## Meeting 003: true rightmost-source contraction
 
@@ -58,19 +52,7 @@ Student F:
 - `students/student-f/003-live-disagreement-episode.md`;
 - verifier commit `f379cd3`.
 
-Professor-checked conclusions:
-
-1. a rightmost disagreement under the true coupling dies before creating its first child with an explicit positive parameter-point probability;
-2. there is an explicit finite-slab childless regeneration event;
-3. the coupling drift satisfies
-   $$
-   \mathcal L^{\rm coup}D_i
-   \le-(1-c+a)D_i+(b-a)D_{i+1}+(c-b+a)J_i;
-   $$
-4. marginal `11` suppression controls `J_i` only additively;
-5. the first-generation contraction degenerates on the East boundary, so zero-rich/no-`11` snapshots cannot yield a residual-uniform first-generation gap.
-
-Next assignment: exact two-generation parent-child episode including reinfection.
+Professor-checked conclusions: a rightmost live disagreement has an explicit positive childless regeneration probability; there is a finite-slab regeneration event; the coupling drift isolates the weighted high-risk state `J_i`; and residual-uniform first-generation contraction from zero-rich/no-`11` snapshots fails at the East boundary.
 
 ## Meeting 004: two-generation regeneration and all-depth obstruction
 
@@ -82,34 +64,75 @@ Student F:
 
 - commit `893700c`;
 - `students/student-f/004-two-generation-episode.md`;
-- verifier commit `5e3c4bc`, `students/student-f/004-two-generation-verifier.py`.
+- verifier commit `5e3c4bc`.
 
 Professor-checked conclusions:
 
-1. **Uniform local coalescence.** Every disagreement site, not only a rightmost one, has predictable coalescence intensity at least
+1. every disagreement site has predictable coalescence intensity at least
    $$
-   q=1-c+a>0.
+   q=1-c+a>0;
    $$
-   This holds for both disagreement orientations and all four pair states at the right neighbour.
-2. **Race lemma.** A disagreeing site coalesces before the next ring immediately to its left with conditional probability at least
+2. after a first child is born, the full parent-child episode clears before grandchild creation with conditional probability at least
    $$
-   p=\frac q{1+q}.
+   \left(\frac{1-c+a}{2-c+a}\right)^2;
    $$
-3. **Two-generation regeneration.** After a rightmost parent has created its first child, with the prospective grandchild site still agreed,
-   $$
-   \mathbb P(\text{parent and child clear before grandchild creation}\mid\mathcal F)
-   \ge p^2
-   =\left(\frac{1-c+a}{2-c+a}\right)^2.
-   $$
-   The full process retains all reinfections; the proof isolates a successful subevent on which the relevant reinfection clocks do not beat the coalescences.
-4. **Near-East diagnostic.** The exact 24-state controlled post-birth chain shows a structured regeneration gap of order `epsilon`, substantially larger than the crude universal `O(epsilon^4)` two-stage event. This is diagnostic rather than load-bearing.
-5. **Finite-depth correction.** F's ordered-clearing `p^m` bound is accepted with `m` interpreted as **active-span depth**, not merely current disagreement count. Internal agreed gaps can themselves be infected.
-6. **Composition obstruction.** The certified depth-dependent gaps `p^m` are summable, so finite-depth clearing alone does not force extinction of a stack whose ancestry depth keeps increasing.
+3. finite-depth ordered clearing is valid with exponent equal to active-span depth;
+4. the resulting depth-dependent gaps are summable and do not give arbitrary-depth extinction.
 
-Ruling: stop finite-depth escalation. The next accepted result must control arbitrary ancestry depth structurally, through a weighted Lyapunov/drift, finite multi-type renewal/branching domination, disagreement-weighted `J_i` estimate, finite summary state, or a rigorous obstruction to such mechanisms.
+Ruling: stop finite-depth escalation and seek an all-depth structural contraction.
 
-Next assignment:
+## Meeting 005: principal centered predecessor-trail reduction
 
-- `students/student-f/assignment-005.md` — all-depth disagreement-stack contraction or obstruction.
+Meeting: `meetings/005-principal-trail-reduction-and-all-depth-transfer.md`.
 
-Student G remains on Assignment 002; its return will be folded into the next meeting.
+`state_narrowed: yes`.
+
+Durable principal exploration note:
+
+`notes/principal-centered-trail-reduction.md`.
+
+Professor-checked / accepted working conclusions:
+
+1. In the residual centered dual,
+   $$
+   B=b+c-a,
+   \quad p_*=c/B,
+   \quad q_*=(b-a)/B,
+   \quad \omega=1-c+a,
+   $$
+   with selected predecessor-trail interactions all births (`beta=B`, `lambda=0`).
+2. The canonical predecessor trail has depth `n=r-x+1`; after conditioning on its decorated geometry the left/trail/right Poisson families factor, and the trail contributes the positive scalar
+   $$
+   e^{-\omega\tau}.
+   $$
+   The complete Poisson-Mecke identity is accepted as a working lemma and is assigned for independent reconstruction before use in a closing proof.
+3. Averaging the final refresh coin before absolute values makes the right-region operator uniformly sup-norm bounded independently of interval length and trail depth.
+4. For fixed interval, zero-boundary finite-volume relaxation plus the positive-rate factor `omega>0` reduces the nonempty-trail term to the invariant all-depth condition
+   $$
+   B(b-a)^{n-1}\int e^{-\omega|u|}|\pi^0_{m,r}(F_{x,u})|\,du\to0.
+   $$
+5. At exact East, the final trail birth inserts a centered character independent of the preceding factor under the Bernoulli zero-boundary invariant law, so the invariant trail expectation is exactly zero.
+6. A sufficient all-depth theorem is a centered signed-measure transfer norm with contraction constant `theta<1` for
+   $$
+   (b-a)\int_0^\infty e^{-\omega u}\mathcal C_{y,u}\,du.
+   $$
+   Total variation on all signed measures is excluded because it loses the centering cancellation.
+7. Along `a=eps^2,b=eps,c=1-eps^2`, the one-site constant-mode factor is
+   $$
+   (1-eps)/(2(1+eps))<1/2.
+   $$
+8. The principal chat reports a two-level scalar sign change as inter-trail time varies, but that latest claim did not come with its exact calculation and is not yet independently verified.
+
+Ruling: pause, but do not close, the all-depth live-disagreement route. The centered predecessor-trail reduction is narrower because the right region and post-exit relaxation are already controlled, leaving one explicit all-depth invariant-transfer target. The common scale
+
+$$
+q=\omega=1-c+a
+$$
+
+is noted but not treated as an automatic bridge.
+
+Student F Assignment 005 is superseded by
+
+`students/student-f/assignment-006.md` — independently audit the trail reduction, verify the no-exit complement and reported two-level sign change, then prove or kill the all-depth centered-transfer criterion.
+
+Student G remains on Assignment 002 and will be folded in when it returns.
