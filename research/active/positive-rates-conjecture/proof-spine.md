@@ -159,11 +159,7 @@ $$
 }
 $$
 
-Finite speed gives
-
-$$
-\beta_m(t)\le E[(\operatorname{Pois}(t)-m+1)_+].
-$$
+This is the load-bearing interface for any coupling-side front theorem.
 
 ## E10. Zero-boundary Hamming susceptibility criterion
 
@@ -173,23 +169,12 @@ $$
 \alpha_0(t)=\sup_{n,\eta,i}E\sum_jD_j(t).
 $$
 
-Then `beta_m(t)<=alpha_0(t)`, so
+Then `beta_m(t)<=alpha_0(t)`, so integrability of `alpha_0` implies `Delta_M->0`. Submultiplicativity further gives
 
 $$
-\boxed{
-\int_0^\infty\alpha_0(t)dt<\infty
-\Longrightarrow
-\Delta_M\to0.
-}
-$$
-
-Moreover `alpha_0` is submultiplicative, hence
-
-$$
-\boxed{
 \alpha_0(T)<1\text{ for one }T
 \Longrightarrow
-\text{tail-shift agreement and exponential }\Delta_M\text{ decay}.}
+\text{tail-shift agreement and exponential }\Delta_M\text{ decay}.
 $$
 
 This is sufficient, not equivalent.
@@ -202,14 +187,7 @@ The same-parent restart theorem and separate stack-clearing minorant remain vali
 
 For every finite disagreement seed, every fixed site becomes permanently coupled almost surely. Survival is equivalent to unbounded leftward discovery and hence convective escape to `-infinity`.
 
-The local drift satisfies
-
-$$
-\mathcal L^{\rm coup}D_i\le-qD_i+cD_{i+1},
-\qquad q=1-c+a,
-$$
-
-which gives exponential moving-frame contraction for every `z>c/q`. This does not rule out convective survival.
+The local drift gives moving-frame exponential contraction, but this does not rule out convective survival.
 
 ## E13. Full-line finite-time Hamming criterion
 
@@ -219,47 +197,21 @@ $$
 \alpha(t)=\sup_{\eta,i}E\,d_H(\Phi_t\eta,\Phi_t\eta^i).
 $$
 
-G proves submultiplicativity. If
-
-$$
-\alpha(T)<1
-$$
-
-for one finite `T`, every finite disagreement seed dies out with an exponential block-time tail.
+G proves submultiplicativity. One `alpha(T)<1` would imply exponential extinction of every finite disagreement seed.
 
 ## E14. G007 fixed-boundary convergence theorem
 
-For the ordinary finite fixed-boundary CTMC on `[-L,R]`, let `B_{L,R}^e(T)` be the maximal expected disagreement count in `[-L,0]` and put
+For the ordinary finite fixed-boundary CTMC, Meeting 017 accepts
 
 $$
-r_{L,R}(T)
-=(L+1)P(\operatorname{Pois}(T)\ge R+1),
-$$
-
-$$
-\ell_L(T)
-=E[(\operatorname{Pois}(T)-L)_+].
-$$
-
-Meeting 017 accepts
-
-$$
-\boxed{
 B_{L,R}^e(T)-r_{L,R}(T)
 \le\alpha(T)
-\le B_{L,R}^e(T)+r_{L,R}(T)+\ell_L(T).
-}
+\le B_{L,R}^e(T)+r_{L,R}(T)+\ell_L(T),
 $$
 
-Also the old adversarial controlled value satisfies
+with explicit causal Poisson errors. Thus the adversarial right controller is not the obstruction and finite fixed-boundary values converge to `alpha(T)` for every fixed `T`.
 
-$$
-0\le A_{L,R}(T)-B_{L,R}^e(T)\le r_{L,R}(T).
-$$
-
-Thus the right controller is quantitatively harmless and `alpha(T)` has a genuine two-sided finite approximation for every fixed `T`.
-
-## E15. G007 long initial-expansion theorem
+## E15. G007 long initial expansion
 
 At
 
@@ -275,45 +227,110 @@ $$
 }
 $$
 
-The certified lower bound at `T=47` exceeds `1.008204288867933`.
-
 Therefore any Hamming contraction, if it exists, occurs only after a long initial amplification regime.
 
 ## E16. Raw finite random-map enumeration is stopped
 
-At `T=47`, even the diagnostic requirement of less than `1%` error on each causal side forces `L>=67`, `R>=74`, with naive state count `2^210`. This is not a universal lower bound on proof complexity, but it shows that the now-rigorous causal sandwich does not make direct full-state enumeration a plausible next proof block.
+At the first times not excluded by E15, the causal sandwich already requires enormous raw windows. Larger `L,R,T` enumeration and another right-boundary controller are stopped as a proof implementation.
 
-**Status:** no larger-`L,R,T` G008 variant; no new boundary-controller variant.
+## E17. Meeting 018: retained two-spin pre-exposure exploration
 
-## E17. Current structural fork
+Outside consultation 001 produced, and the Professor checked, a four-state killed exploration retaining
 
-The only coupling-side continuations that change the proof spine are:
+$$
+Z=(s,t),
+$$
 
-1. **actual-front tail:** prove a tail/front estimate for the true disagreement process which is substantially sharper than the causal Poisson cone and retains pre-exposure common-spin history;
-2. **convective survival:** prove finite-seed survival by a valid block/regeneration comparison preserving the same common-state history.
+where `s` is the common spin of the current fresh target and `t` the common spin one site farther left. The right neighbour enters through mode `D`, `C0`, or `C1`. The transition rates are exact and the next-left spin `t` is propagated without freshening when the current target first becomes disagreeing.
 
-The predecessor-trail reset-height drift cannot be imported into this actual coupling without circularity.
+At the hard point a strict rational superharmonic certificate with
 
-Even a positive `alpha(T)<1` theorem would still leave arbitrary signed-profile composition and `J_{x,r}` decay. Consequently another internal Hamming-certificate block has low expected payoff.
+$$
+\lambda=\frac1{20},\qquad \rho=\frac58
+$$
 
-## E18. Bounded outside consultation
+gives, for first-discovery times `sigma_m`,
 
-No G008/F013 is issued. The active task is the bounded consultant brief
+$$
+\boxed{
+P(\sigma_m\le T)
+\le\frac{15}{4}e^{T/20}\left(\frac58\right)^m.
+}
+\tag{AF}
+$$
 
-`consultants/assignment-001-disagreement-front-survival-review.md`.
+Hence
 
-The consultant must recommend exactly one of:
+$$
+\boxed{
+E\sum_{j<-L}D_j(T)
+\le10e^{T/20}\left(\frac58\right)^{L+1}.
+}
+\tag{AF-tail}
+$$
 
-- `continue-front`;
-- `continue-survival`;
-- `abandon-common-coupling-interface`.
+This is a true disagreement-front estimate which preserves the pre-exposure common-spin history and is strictly sharper than the causal Poisson cone.
 
-After that consultation the Professor chooses one sharply stated proof-spine edge or abandons global coalescence of this synchronous coupling as the disagreement interface.
+A second exact certificate gives
 
-## E19. Final reconstruction after `J->0`
+$$
+\boxed{
+\limsup_{t\to\infty}\frac{N_t}{t}
+\le\frac{1/100}{\log(100/81)}\approx0.0474561
+}
+$$
+
+almost surely for the number of newly discovered left sites.
+
+The G007 fixed-boundary sandwich can replace its causal errors by the corresponding `(AF)` errors. This improves truncation structurally but does not restart raw enumeration.
+
+## E18. First-discovery control is not zero-frequency occupation control
+
+The front estimate `(AF)` behaves as `e^{lambda t}rho^m`; at fixed `m` it is not integrable over time. It therefore does not prove the F012 condition.
+
+Define
+
+$$
+G_m
+:=
+\sup_{\text{finite zero-boundary systems},\eta,i}
+\int_0^\infty
+E\sum_{j\le i-m}D_j(t)\,dt.
+$$
+
+The active load-bearing question is
+
+$$
+\boxed{
+G_m\le C\theta^m
+\quad\text{for some }C<\infty,\ \theta<1.
+}
+\tag{OCC}
+$$
+
+If `(OCC)` holds, then immediately
+
+$$
+\Delta_M\le2cC\theta^{M-1}.
+$$
+
+Unlike first discovery, occupation must control repeated disagreement episodes after exposure. The arbitrary predictable-mode domination used for `(AF)` cannot simply make mode `D` immortal: fixed-site permanent coupling rules that out for the actual process.
+
+## E19. One final common-uniform occupation block
+
+Student G Assignment 008 is the only active block. It must either:
+
+1. prove `(OCC)` by combining the retained two-spin state with actual source-lifetime/re-entry information; or
+2. prove a precise structural obstruction showing that this two-spin state cannot control zero-frequency occupation after the already established actual source-lifetime facts are incorporated.
+
+Failure of an immortal adversarial `D` controller alone is too crude and does not count as the obstruction.
+
+If G008 proves `(OCC)`, the stationary tail-shift / first post-insertion mass interface is solved, but arbitrary duration-resolved signed-profile iteration and `J_{x,r}` remain open. If G008 refutes the two-spin occupation exploration or returns unresolved without a genuinely new occupation mechanism, abandon the common-uniform global-coalescence interface; do not enlarge the exposure state or return to raw finite windows by default.
+
+## E20. Final reconstruction after `J->0`
 
 Only after `J_{x,r}->0` is actually proved should the group audit the exact predecessor-trail Poisson--Mecke factorization, complementary no-exit term, and final convergence-to-ergodicity implication.
 
 ## Anti-circularity checkpoint
 
-Do not integrate duration before absolute value; use `16/21` as a global Foster theorem; enlarge scalar local coupling products mechanically; revive a finite common-mass mode state; replace the signed structure by unrestricted total variation; assume an unproved uniform spectral gap / positive rates conjecture; infer tail-shift agreement from separate tail triviality; import the predecessor-trail reset-height drift into the actual common-uniform process; infer extinction from fixed-site coalescence or moving-frame contraction; infer survival from finite-time Hamming expansion; or continue the random-map route by raw larger finite windows alone.
+Do not integrate duration before absolute value; use `16/21` as a global Foster theorem; enlarge scalar local coupling products mechanically; revive a finite common-mass mode state; replace the signed structure by unrestricted total variation; assume an unproved uniform spectral gap / positive rates conjecture; import the predecessor-trail reset-height drift into the actual common-uniform process; infer extinction from fixed-site coupling/front speed; infer survival from finite-time Hamming expansion; turn `(AF)` into an occupation theorem without controlling repeated episodes; or continue by raw larger finite windows alone.
