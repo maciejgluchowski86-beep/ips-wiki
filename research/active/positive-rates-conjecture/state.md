@@ -23,12 +23,14 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-Latest meeting: `meetings/014-zero-frequency-response-equals-tail-shift-defect.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/015-local-coalescence-convective-escape-and-random-map-test.md`, `state_narrowed: yes`.
 
 Active work:
 
 - Student F: `students/student-f/assignment-012.md`, decide tail-shift agreement of the projective half-line invariant law;
-- Student G successor session: `students/student-g/assignment-006.md`, survival/extinction viability test for the common-uniform disagreement process near East. The predecessor G session failed before committing its Assignment-006 work; no lost mathematics is used.
+- Student G successor: `students/student-g/assignment-007.md`, decide the finite-time random-map Hamming contraction `alpha(T)<1` at the strict near-East rational point, or prove a genuine survival/lower obstruction.
+
+Operational note: the original G session failed before committing Assignment 006. The successor repeated Assignment 006 and committed `78470a1` plus verifier `43f4bb1`. Those commits landed shortly before Meeting 014 and were not seen during its composition; Meeting 015 contains the G ruling. No uncommitted predecessor mathematics is used.
 
 ## Closed mechanisms
 
@@ -42,16 +44,17 @@ Put
 
 $$
 B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a,
+\qquad w(u)=e^{-\omega u}s_1(u).
 $$
 
-and `w(u)=e^{-omega u}s_1(u)`. The working reduction leaves
+The working reduction leaves
 
 $$
 J_{x,r}
 =B g^{n-1}\int\left(\prod_k w(u_k)\right)|\pi^0_{m,r}(F_{x,u})|du.
 $$
 
-Showing `J_{x,r}->0` with depth is sufficient for the nonempty-exit term. Exact Poisson--Mecke factorization and the no-exit complement remain downstream audits after `J` decay is actually proved.
+Showing `J_{x,r}->0` with depth is sufficient for the nonempty-exit term. Exact Poisson--Mecke factorization and the no-exit complement remain downstream audits after `J` decay is proved.
 
 ## Common-mass side
 
@@ -71,26 +74,15 @@ $$
 \qquad r_0=\frac1{1+b}.
 $$
 
-The exact common-mass semigroup has no depth-uniform finite linear mode closure: on an `N`-site interval,
+The exact common-mass semigroup has no depth-uniform finite linear mode closure.
+
+Assignments 010--011 establish exact suffix projectivity, finite-context truncation of the first invariant insertion, explicit one-segment localization, and the exact tail-shift formulation of the zero-frequency boundary response. Let
 
 $$
-L_N^j h_{p_*}(\eta_1)=q_*^{-1}B^j\eta_1\cdots\eta_{j+1}+R_j,
-\qquad \deg R_j\le j,
-$$
-
-so the cyclic mode dimension is at least `N`.
-
-Assignments 010--011 establish positive projective structure: exact suffix intertwining, suffix-projectivity of the finite invariant laws, finite-context truncation of the first invariant insertion, separated-gap localization, and one-segment finite-speed tails.
-
-### Meeting 014: zero-frequency response is exactly a tail-shift defect
-
-Let `mu=pi_infty^0` be the projective half-line invariant law in coordinates `X_0,X_1,...` from the fixed zero boundary into the left half-line, let
-
-$$
+\mu=\pi_\infty^0,
+\qquad
 \theta(x_0,x_1,\ldots)=(x_1,x_2,\ldots),
 $$
-
-and
 
 $$
 \mathcal F_m=\sigma(X_j:j\ge m),
@@ -98,26 +90,14 @@ $$
 \mathcal T=\bigcap_m\mathcal F_m.
 $$
 
-For the zero-frequency boundary response
+Then
 
 $$
 \Delta_M
-=
-\sup_{N\ge M+1}
-\sup_{\substack{\|f\|_\infty\le1\\
-\operatorname{supp}(f)\subseteq\{1,\ldots,N-M\}}}
-|\bar\pi_N(f)-\pi_{N-1}(f)|,
+=\|\theta\mu-\mu\|_{\mathcal F_{M-1}},
 $$
 
-F proves and the Professor checks
-
-$$
-\boxed{
-\Delta_M=\|\theta\mu-\mu\|_{\mathcal F_{M-1}}.
-}
-$$
-
-Hence `Delta_M` is nonincreasing. Writing the signed density of `theta mu-mu` relative to `(mu+theta mu)/2` and applying the reverse martingale theorem gives
+and
 
 $$
 \boxed{
@@ -126,53 +106,97 @@ $$
 }
 $$
 
-Therefore
+Thus zero-frequency boundary locality is equivalent to the tail-shift theorem
 
 $$
 \boxed{
-\Delta_M\to0
-\iff
 \mu|_{\mathcal T}=(\theta\mu)|_{\mathcal T}.
 }
 $$
 
-The needed theorem is tail-shift agreement, not merely separate tail triviality.
+Conditional on this theorem, the mass branch after one centered insertion already has a `J`-compatible one-next-segment truncation bound. Student F Assignment 012 is the final bounded decision block on this theorem before route-level review.
 
-Conditional on `Delta_M->0`, the common-mass branch after one centered insertion already has the `J`-compatible one-next-segment truncation estimate
+## Coupling side: Meeting 015
+
+For the actual common-uniform coupling, every finite disagreement seed becomes permanently coupled at each fixed site. If `R_t=max D_t`, then each current rightmost disagreement coalesces permanently with hazard at least
 
 $$
-\int_0^\infty w(u)
-|m_0(\bar\pi_N-\pi_{N-1})(P_u f)|du
+q=1-c+a.
+$$
+
+Consequently finite-seed survival is equivalent to **convective escape to `-infinity`**; no disagreement can persist in a fixed spatial window.
+
+The exact local drift obeys
+
+$$
+\boxed{
+\mathcal L^{\rm coup}D_i\le-qD_i+cD_{i+1}.
+}
+$$
+
+Hence for every `z>c/q`,
+
+$$
+\boxed{
+E\sum_i z^iD_i(t)
+\le e^{-(q-c/z)t}\sum_i z^iD_i(0).
+}
+$$
+
+This is exponential moving-frame/local contraction, not global extinction.
+
+Define the finite-time single-flip Hamming amplification
+
+$$
+\alpha(t)
+=\sup_{\eta,i}E\,d_H(\Phi_t\eta,\Phi_t\eta^i).
+$$
+
+Meeting 015 accepts
+
+$$
+\alpha(t+s)\le\alpha(t)\alpha(s).
+$$
+
+If `alpha(T)<1` for one finite `T`, then every finite seed dies out with exponential block-time tail.
+
+G also gives the exact finite controlled-CTMC upper hierarchy
+
+$$
+\boxed{
+\alpha(T)
 \le
-\left[
-\kappa_E\Delta_{M-d}
-+
-\frac{4|m_0|}{\omega(1+\omega)^d}
-\right]\|f\|_\infty.
+A_{L,R}(T)+E[(\operatorname{Pois}(T)-L)_+].
+}
 $$
 
-Choosing `d~M/2` makes the error vanish if tail-shift agreement holds.
+At the hard rational point
 
-F Assignment 012 is one bounded decision block on this tail-shift theorem, preferably through finite-window likelihood ratios, relative entropy, or another explicit boundary-influence identity. Do not launch a general nonlocal/matrix-product norm construction yet.
+$$
+(a,b,c)=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
+$$
 
-## Coupling side
+short-time Hamming damage is expansive:
 
-G's same-parent geometric restart theorem and separate stack-clearing minorant survive. Two scalar local global-corrector classes are refuted. Meeting 012 accepts the exact balanced-circulation obstruction to every nearest-neighbour scalar edge-product/coboundary corrector at a strict near-East point.
+$$
+\left.\frac d{dt}E|D_t|\right|_{t=0}
+=c-q=\frac{9997}{10000}>0.
+$$
 
-The original G session failed before Assignment 006 reached the repository. A successor session in the same lineage is redoing Assignment 006 unchanged. Survival of a finite disagreement seed would close every proof mechanism requiring global coalescence of this synchronous coupling; extinction would require a genuinely nonlocal quantitative regeneration theorem.
+Thus any `alpha(T)<1` theorem must bundle genuinely nonlocal clearing after initial expansion. Assignment 007 executes this finite diagnostic; it is not a new scalar local Foster architecture.
 
-## Current route-level checkpoint
+## Route-level checkpoint
 
-Both active lines now point to nonlocal structure, but each has one concrete decision theorem in flight.
+Both sides have now been reduced to concrete nonlocal decision theorems:
 
-- F012: prove or refute tail-shift agreement of the projective half-line invariant law.
-- G006: decide common-uniform finite-seed disagreement survival versus extinction near East.
+1. F012: tail-shift agreement of the projective half-line invariant law;
+2. G007: finite-time random-map Hamming contraction versus genuine convective-survival obstruction.
 
-After both return, hold a route-level expected-value review before any broader nonlocal/matrix-product construction.
+Do not launch open-ended matrix-product/nonlocal norm engineering. The promised route-level expected-value review is due when F012 returns; G007 is allowed in parallel only because it executes the exact finite diagnostic already exposed by G006.
 
 ## Anti-circularity
 
-Do not integrate duration before the actual absolute-value norm; use `16/21` as a global Foster multiplier; enlarge scalar local corrector context mechanically; revive finite common-mass mode closure; replace the signed disagreement channel by unrestricted total variation; assume a uniform spectral gap / the positive rates conjecture; or infer tail-shift agreement from separate tail 0--1 laws or from fixed finite-window convergence without uniform-in-window control.
+Do not integrate duration before the actual absolute-value norm; use `16/21` as a global Foster multiplier; enlarge scalar local correctors mechanically; revive finite common-mass mode closure; replace the signed disagreement channel by unrestricted total variation; import the predecessor-trail reset-height drift into the actual common-uniform disagreement process; infer extinction from fixed-site coupling or `V_z`; or infer survival merely because a finite upper certificate stays above one.
 
 ## Wiki
 
