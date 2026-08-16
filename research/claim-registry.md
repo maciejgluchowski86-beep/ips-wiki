@@ -134,27 +134,31 @@ The project's tagged-internal-gap proof is a useful self-contained proof archite
 
 Claim boundary: no all-parameter theorem, no convergence rate, and no initial laws beyond finite nonempty deterministic sets are claimed.
 
-## Claimed voter-discordance result entering independent audit
+## Claimed voter-discordance result pending novelty audit
 
 ### VOTER-CONC-001
 
 Status: `claimed`
 
-Research-contribution status: **qualifies structurally under the standing novelty standard if correctness and closest-prior-work audits survive; novelty is not yet verified**.
+Correctness status: **Professor reconstruction plus two independent hostile correctness reviews have passed with no mathematical repair requested. `verified` promotion is deliberately withheld pending the closest-prior-work / novelty audit pre-committed in Meeting 002.**
 
-Claim: let `G` be any finite simple `d`-regular graph with `n` vertices, let the continuous-time voter model start from i.i.d. Bernoulli(`u`) opinions, and let `Dcal_t` be the fraction of discordant edges. If `pi` is uniform on vertices and `tau_meet` is the meeting time of two independent rate-one continuous-time simple random walks, with walkers started independently from `pi`, then for every `u in (0,1)` and `t>=0`,
+Research-contribution status: **unresolved pending the dedicated novelty audit**. The theorem is structurally eligible under the standing novelty standard, but priority has not yet been established.
+
+Claim: let `G` be any finite simple `d`-regular graph with **`d>=1`** and `n` vertices; connectedness is not required. Let the rate-one continuous-time voter model start from i.i.d. Bernoulli(`u`) opinions, `u in (0,1)`, and let `Dcal_t` be the fraction of discordant edges. If `pi` is uniform on vertices and `tau_meet` is the meeting time of two independent rate-one continuous-time simple random walks, with walkers started independently from `pi`, then for every `t>=0`,
 
 $$
 \operatorname{Var}_u^G(\mathcal D_t)
 \le 2\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t).
 $$
 
-For a uniformly random simple `d`-regular graph with fixed `d>=3`, the meeting estimate in Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), equations (5.6)--(5.8), then gives for every deterministic `t_n=o(n)`
+For a uniformly random simple `d`-regular graph with fixed **`d>=3`**, source Eq. (5.8) of Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), together with the high-probability `Theta(n)` stationary mean meeting time and spectral-gap input used there, gives for every deterministic `t_n=o(n)`
 
 $$
 \operatorname{Var}_u^G(\mathcal D_{t_n}^n)
 =O_{\mathbb P}\left(\frac{1+t_n}{n}\right).
 $$
+
+For `0<=t_n<1`, the same `O_P(1/n)` conclusion may be obtained by monotonicity from time one. The bare printed `O(t/n)` wording in source (5.7) is not used uniformly down to zero because `q_0=1/n`.
 
 Consequently, for every `C_n->infinity`,
 
@@ -165,15 +169,15 @@ $$
 \right)\xrightarrow{\mathbb P}0.
 $$
 
-If additionally `t_n>=1`, then
+If additionally `1<=t_n=o(n)`, then
 
 $$
 \operatorname{Var}_u^G(\mathcal D_{t_n}^n)=O_{\mathbb P}(t_n/n),
 $$
 
-so the concentration scale `C_n sqrt(t_n/n)` proposed in source Eq. (1.9) holds throughout that regime.
+so the concentration scale `C_n sqrt(t_n/n)` proposed in source Eq. (1.9) holds throughout that deterministic regime.
 
-The same project also identified that literal Eq. (1.9) is false when its quantifiers allow arbitrarily small `t_n`: the Bernoulli initial condition has `n^{-1/2}` fluctuations, and `t_n=n^{-3}`, `C_n=log n` is an explicit counterexample.
+The project also establishes that literal source Eq. (1.9) is false when its displayed quantifiers permit unrestricted very-small times: Bernoulli initial data have `n^{-1/2}` fluctuations and `t_n=n^{-3}`, `C_n=log n` is an explicit counterexample. Stable wording is limited to this theorem-level statement: no complete classification of every possible subunit sequence under the original scale is claimed.
 
 Source proof:
 
@@ -185,10 +189,14 @@ Professor reconstruction:
 - `research/active/voter-discordant-concentration/notes/professor-assignment-002-verification.md`;
 - Group Meeting 002, `research/active/voter-discordant-concentration/meetings/002-genealogical-variance-claim.md`.
 
-Independent audit status:
+Independent correctness reviews:
 
-- Review A: assigned, pending;
-- Review B: assigned, pending;
-- closest-prior-work / novelty audit: pending after correctness review.
+- Review A: commit `add0681`, `research/active/voter-discordant-concentration/audits/001-genealogy-review-a.md`, `PASS`;
+- Review B: commit `45f960b`, `research/active/voter-discordant-concentration/audits/002-genealogy-review-b.md`, `PASS`; Review B explicitly states it did not read Review A.
 
-Claim boundary: no uniform-in-time process supremum estimate is claimed; the random-regular result is sequence-wise quenched-in-environment-probability. The source-scale conclusion is asserted for deterministic `t_n>=1`, `t_n=o(n)`, not for arbitrary `t_n->0`.
+Novelty / closest-prior-work audit:
+
+- assignment: `research/active/voter-discordant-concentration/audits/assignment-003-novelty-prior-work.md`;
+- status: pending.
+
+Claim boundary: no uniform-in-time process supremum estimate is claimed; the random-regular result is sequence-wise quenched-in-environment-probability. The source-scale conclusion is asserted for deterministic `1<=t_n=o(n)`, not for arbitrary `t_n->0`.
