@@ -30,35 +30,33 @@ $$
 }
 $$
 
-The older fixed finite-wall / frozen-exterior route remains closed.
+The fixed-wall route and the cellwise scaffold-positivity route are closed.
 
-## E1. Hidden-interaction algebra and conditional insertion lemma
+## E1. Reusable hidden-interaction algebra
 
-In complemented canonical spins put
-
-$$
-B=b+c-a,\qquad \rho=\frac cB.
-$$
-
-A hidden successful rightward dual interaction has signed type average
+In complemented spins, with
 
 $$
-\boxed{B\eta_i-c=B(\eta_i-\rho).}
+B=b+c-a,\qquad \rho=\frac cB,
 $$
 
-For the noise-reduced process `L^-`, conditional on the full graphical history strictly to the right of `i`,
+a hidden successful rightward dual interaction has signed type average
 
 $$
-\boxed{
-\mathbb P^-\!\left(\eta_i(t)=1\mid\mathcal F^+_{i,t}\right)
-\ge
-\frac{1-e^{-(1-c)t}}{1+b-a}.
-}
+B\eta_i-c=B(\eta_i-\rho).
 $$
 
-After the explicit burn-in `T_rho`, this makes the hidden insertion nonnegative against nonnegative right-history-measurable companions.
+For the noise-reduced process `L^-`, after explicit burn-in the hidden insertion is nonnegative against nonnegative right-history-measurable companions.
 
-**Status:** Professor-checked reusable lemma. It does not close by cellwise scaffold iteration because E5 fails.
+One-cell regional integration removes the raw left-spin Duhamel dependence, but two-cell composition has signed transfer
+
+$$
+\Psi_\Delta(z)=(b+c-a)K_\Delta(z)-c
+$$
+
+and is negative on sufficiently short cells at every residual parameter point.
+
+**Status:** correct reusable mathematics; the cellwise last-exit/scaffold route is closed.
 
 ## E2. Direct transient information on the original dynamics
 
@@ -71,11 +69,7 @@ $$
 }
 $$
 
-where `q_i=P(00)`.
-
-Summing over intervals telescopes the transport term and yields a boundary-uniform transient zero-density lower bound, with a finite-box high-probability version from one-sided propagation.
-
-Also
+with boundary-uniform transient zero-density and finite-box concentration, plus
 
 $$
 \boxed{
@@ -84,100 +78,9 @@ $$
 }
 $$
 
-Hence near `b=0`, after time `log(1/b)/(1+b)`, boxes of length `o(1/b)` are in the no-adjacent-`11` sector with probability `1-o(1)`.
+These are direct dynamical inputs, but marginal density / `11` control does not by itself close disagreement contraction.
 
-**Status:** Professor-checked direct dynamical input.
-
-## E3. Naive density/insertion composition fails
-
-The direct zero-density floor is strictly below the hidden insertion threshold `rho` throughout `R`, and the hard-core half-zero guarantee is also below `rho`. The two statements also concern different semigroups / conditioning.
-
-**Status:** checked obstruction. Do not create a proof edge merely by calling the density estimates compatible.
-
-## E4. One-cell regional insertion works
-
-Fix a predecessor interaction source-retaining. Regional integration gives the positive zero-boundary `L^-` kernel
-
-$$
-\boxed{
-K_\Delta(z)
-=
-\frac1{1+b-a}
-+
-\left(z-\frac1{1+b-a}\right)e^{-(1+b-a)\Delta}.
-}
-$$
-
-This removes the raw Duhamel left-spin obstruction on one cell.
-
-**Status:** Professor-checked reusable local fact.
-
-## E5. Cellwise scaffold composition fails
-
-When the predecessor interaction is itself hidden, the exact transfer is
-
-$$
-\boxed{
-\Psi_\Delta(z)=(b+c-a)K_\Delta(z)-c.
-}
-$$
-
-At `z=0`, every residual parameter point has `Psi_Delta(0)<0` for all sufficiently short positive `Delta`. Consecutive scaffold gaps have no positive lower bound.
-
-**Status:** Professor-checked route obstruction. The cellwise last-exit/scaffold positivity mechanism is closed. A coarser random-cluster cancellation would require genuinely new mathematics and is not an automatic continuation.
-
-## E6. Rightmost live-source contraction under the true coupling
-
-Student F Assignment 003 replaces the frozen-source picture by the actual common-uniform coupling.
-
-Suppose `j` is a rightmost disagreement, the half-line strictly right of `j` is coupled, and `j-1` is still agreed. Let `tau` be death of the source at `j` and `sigma` creation of the first child at `j-1`. Put
-
-$$
-d=b-a>0,
-\qquad
-q=1-c+a>0,
-$$
-
-and
-
-$$
-D=(b+q)(1+q)-a(1-c)>0.
-$$
-
-Conditional on any actual common right-hand history, source death has intensity at least `q`. Before the first child, the agreed left spin is a two-state chain: from zero, child rate `d` and common transition `0->1` rate `a`; from one, child rate `c` and common transition `1->0` rate `1-c`.
-
-Solving the killed chain gives
-
-$$
-\boxed{
-\mathbb P(\sigma<\tau\mid\mathcal F)
-\le1-\delta,
-\qquad
-\delta=\frac{q(d+2q)}D>0.
-}
-$$
-
-The stronger gap when the agreed left spin is zero is
-
-$$
-1-h_0=\frac{q(a+q+1)}D.
-$$
-
-There is also a finite-slab regeneration bound
-
-$$
-\boxed{
-\mathbb P(\tau<\sigma,\ \tau\le T\mid\mathcal F)
-\ge
-\frac{1-c+a}{1+a}(1-e^{-(1+a)T})>0.
-}
-$$
-
-**Status:** Professor-checked target-relevant live-source contraction. This is genuinely different from the frozen-wall statistic because the source evolves and may die.
-
-The estimate is not yet spatially iterable: once the first child exists, it is not rightmost and may die and be reinfected while the parent remains alive.
-
-## E7. Coupling drift and the correct environmental badness variable
+## E3. Coupling drift and high-risk state
 
 For
 
@@ -188,79 +91,152 @@ $$
 and
 
 $$
-J_i=1_{\{D_i=0,\ D_{i+1}=1,\ X_i=Y_i=1\}},
-$$
-
-a complete local case split gives
-
-$$
-\boxed{
-\mathcal L^{\rm coup}D_i
-\le
--qD_i+dD_{i+1}+(c-d)J_i.
-}
-$$
-
-`J_i=1` forces an adjacent `11` in exactly one copy, but substituting the marginal `11` estimate from E2 creates an additive error independent of disagreement density. Thus the next useful density input would have to control `J_i` conditionally / weighted by disagreement, not merely control `P(11)`.
-
-**Status:** Professor-checked bridge and obstruction to the present marginal-density closure.
-
-## E8. East-boundary scaling of the one-source estimate
-
-Along the genuine residual path
-
-$$
-a=\varepsilon^2,
-\qquad
-b=\varepsilon,
-\qquad
-c=1-\varepsilon^2,
+J_i=1_{\{D_i=0,D_{i+1}=1,X_i=Y_i=1\}},
 $$
 
 one has
 
 $$
-d\sim\varepsilon,
-\qquad
-q=2\varepsilon^2,
-\qquad
-\delta\sim2\varepsilon^2\to0.
-$$
-
-Even from an all-zero / no-`11` local environment, a first-child event can beat the simplest competing local changes with probability
-
-$$
-\frac{1-\varepsilon}{1+3\varepsilon}\to1.
-$$
-
-**Ruling:** zero-rich / hard-core snapshots cannot yield a residual-uniform first-generation childless gap. This does not kill the pointwise positive-rate programme: `c=1` is outside the target, and post-birth child killing/reinfection dynamics is not represented in the one-source statistic.
-
-## E9. Current load-bearing edge: two-generation episode with reinfection
-
-After the first child at `j-1` is born, retain the true parent at `j` and include every child death and reinfection cycle until either:
-
-- a grandchild disagreement is created at `j-2`; or
-- both `j` and `j-1` become coupled, after which the half-line from `j-1` rightward is permanently coupled.
-
-The desired finite statement is a parameter-point contraction
-
-$$
 \boxed{
-\mathbb P(\sigma_2<\tau_2)\le1-\delta_2(a,b,c),
-\qquad \delta_2>0,
+\mathcal L^{\rm coup}D_i
+\le
+-(1-c+a)D_i+(b-a)D_{i+1}+(c-b+a)J_i.
 }
 $$
 
-or an exact obstruction showing this is false in the relevant restart states.
+A useful environmental estimate must control `J_i` weighted by disagreement. Substituting only the marginal `11` probability creates an additive error.
 
-A favorable two-generation number is not enough. Any positive result must identify a restart state or finite family of episode states that can plausibly compose spatially. The near-East asymptotic must be computed explicitly, but degeneration of constants at the excluded boundary is not itself failure.
+**Status:** Professor-checked direct bridge and precise missing weighted quantity.
 
-Student F is attacking E9 in `students/student-f/assignment-004.md`. Student G is still completing its independent Assignment 002 and will be folded into the next meeting.
+## E4. Uniform coalescence hazard for every disagreement
+
+Student F Assignment 004 strengthens the rightmost-source observation.
+
+Put
+
+$$
+q:=1-c+a>0.
+$$
+
+At an update of any disagreeing site, the four possible right-neighbour pair states give coalescence probabilities
+
+$$
+1-c+a,\qquad 1-b,\qquad 1-a,\qquad 1-c+b.
+$$
+
+All are at least `q` throughout `R`. Therefore
+
+$$
+\boxed{
+D_i=1
+\Longrightarrow
+\text{predictable coalescence intensity of site }i\ge q,
+}
+$$
+
+without a rightmost hypothesis and without fixing the disagreement orientation.
+
+If `T_i` is the next coalescence of a disagreeing site and `R_{i-1}` the next ring immediately to its left, then
+
+$$
+\boxed{
+\mathbb P(T_i<R_{i-1}\mid\mathcal F)
+\ge
+p:=\frac q{1+q}.
+}
+$$
+
+**Status:** Professor-checked structural live-coupling lemma.
+
+## E5. One-source and two-generation regeneration
+
+For a rightmost source `j` with `j-1` agreed, Meeting 003 proved a positive probability that the source dies before creating its first child.
+
+Assignment 004 now controls the correct post-birth state. After the first child at `j-1` has been created, with `j-2` still agreed, let `sigma_2` be grandchild creation and `tau_2` elimination of both parent and child. The race lemma E4 applied twice yields
+
+$$
+\boxed{
+\mathbb P(\tau_2<\sigma_2\mid\mathcal F)
+\ge
+p^2
+=
+\left(\frac{1-c+a}{2-c+a}\right)^2>0.
+}
+$$
+
+The full process still permits arbitrary child death and reinfection outside this successful clearing subevent. The bound is uniform over the actual common right environment and all post-first-child local states.
+
+**Status:** Professor-checked two-generation live-episode contraction.
+
+## E6. East-boundary stress test
+
+Along
+
+$$
+a=\varepsilon^2,\qquad b=\varepsilon,\qquad c=1-\varepsilon^2,
+$$
+
+the crude universal two-generation clearing event has probability `4 epsilon^4+O(epsilon^6)`. However, F's exact controlled 24-state post-birth calculation on structured states gives much stronger regeneration gaps of order `epsilon` even against a state-feedback right-boundary adversary.
+
+For prospective grandchild spin zero,
+
+$$
+V_*=1-\frac92\varepsilon+O(\varepsilon^2),
+$$
+
+and for prospective grandchild spin one,
+
+$$
+V_*=1-\varepsilon+O(\varepsilon^2).
+$$
+
+**Status:** diagnostic, not load-bearing. It confirms a real post-birth killing mechanism but no uniform East-boundary gap.
+
+## E7. Finite-depth ordered clearing and correction
+
+The ordered-clearing argument extends to arbitrary finite active-span depth.
+
+If the live disagreement episode occupies a span of depth at most `m` between a coupled left boundary and coupled right tail, sequentially require the current leftmost disagreement to coalesce before the next ring at the agreed site immediately to its left. Each successful race has conditional probability at least `p`, and each success permanently advances the coupled prefix by at least one site. Hence
+
+$$
+\boxed{
+\mathbb P(\text{clear a depth-}m\text{ episode before a new disagreement crosses its left boundary}\mid\mathcal F)
+\ge p^m.
+}
+$$
+
+The exponent is **active-span depth**, not merely current disagreement count. Internal agreed gaps can be infected and therefore do not justify counting only currently off-diagonal sites.
+
+Since
+
+$$
+\sum_{m\ge1}p^m<\infty,
+$$
+
+these certified depth-dependent clearing gaps are summable. They do not force extinction when failures increase ancestry depth indefinitely.
+
+**Status:** finite-depth theorem plus explicit obstruction to naive depth-by-depth multiplication.
+
+## E8. Current load-bearing edge: all-depth disagreement-stack contraction
+
+Finite-depth escalation stops here. Do not compute separate depth-three, depth-four, etc. episodes.
+
+The remaining problem is to control arbitrary ancestry depth structurally. A qualifying next edge must be one of:
+
+1. a weighted disagreement-stack Lyapunov/supermartingale with negative drift;
+2. a finite multi-type branching/influence domination with spectral radius `<1`;
+3. a disagreement-weighted `J_i` estimate that closes E3 after summation / Gronwall;
+4. a finite summary or restart kernel dominating arbitrary deeper stacks;
+5. a rigorous obstruction showing that a materially defined class of all-depth contractions cannot work.
+
+The uniform coalescence lemma E4 is the principal new input. The crude contact-process comparison using death `q` and maximal left-birth rate is not expected to suffice near the East boundary unless additional state structure is proved.
+
+Student F is attacking E8 in `students/student-f/assignment-005.md`. Student G is still completing Assignment 002 and may independently provide the weighted `J_i` control.
 
 ## Anti-circularity checkpoint
 
-Meeting 003 proves a new live-source estimate and narrows the remaining difficulty from one source to a specific reinfecting parent-child episode. The next accepted spine change must control that two-generation episode or falsify it. Another first-child probability, marginal density estimate, frozen-source statistic, or representation without a hitting/drift conclusion is not progress.
+Meeting 004 resolves the two-generation reinfection question positively and immediately tests composition far enough to show why finite-depth positive numbers are not a proof. The next accepted spine change must handle arbitrary depth in one structural theorem or eliminate such a theorem. A third-generation hitting probability alone does not count.
 
 ## Current direction
 
-Attack E9 while preserving the fixed positive-rates target.
+Attack E8 while preserving the fixed positive-rates target.
