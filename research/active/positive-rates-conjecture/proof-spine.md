@@ -30,7 +30,7 @@ $$
 }
 $$
 
-The older fixed finite-wall/frozen-exterior route remains closed.
+The older fixed finite-wall / frozen-exterior route remains closed.
 
 ## E1. Hidden-interaction algebra and conditional insertion lemma
 
@@ -56,24 +56,13 @@ $$
 }
 $$
 
-Thus after
+After the explicit burn-in `T_rho`, this makes the hidden insertion nonnegative against nonnegative right-history-measurable companions.
 
-$$
-T_\rho=
-\frac1{1-c}\log\frac{B}{(b-a)(1-c)},
-$$
-
-nonnegative right-history-measurable companions satisfy
-
-$$
-\mathbb E^-[(B\eta_i(t)-c)F]\ge0.
-$$
-
-**Status:** Professor-checked reusable lemma. It no longer closes the proof by cellwise scaffold iteration because E5 below fails.
+**Status:** Professor-checked reusable lemma. It does not close by cellwise scaffold iteration because E5 fails.
 
 ## E2. Direct transient information on the original dynamics
 
-Student G's first report, Professor-checked at Meeting 001, gives
+Student G Assignment 001, Professor-checked at Meeting 001, gives
 
 $$
 \boxed{
@@ -84,9 +73,9 @@ $$
 
 where `q_i=P(00)`.
 
-Summing over an interval telescopes the spatial term and yields a boundary-uniform transient zero-density lower bound. One-sided graphical propagation gives an explicit finite-box concentration version.
+Summing over intervals telescopes the transport term and yields a boundary-uniform transient zero-density lower bound, with a finite-box high-probability version from one-sided propagation.
 
-For adjacent ones,
+Also
 
 $$
 \boxed{
@@ -95,122 +84,183 @@ $$
 }
 $$
 
-Hence near `b=0`, after time `log(1/b)/(1+b)`, boxes of length `o(1/b)` are in the no-adjacent-`11` hard-core sector with probability `1-o(1)`.
+Hence near `b=0`, after time `log(1/b)/(1+b)`, boxes of length `o(1/b)` are in the no-adjacent-`11` sector with probability `1-o(1)`.
 
-**Status:** Professor-checked target-relevant direct dynamics. This is currently the main positive input.
+**Status:** Professor-checked direct dynamical input.
 
-## E3. Naive composition of density with hidden insertion fails
+## E3. Naive density/insertion composition fails
 
-The direct zero-density floor
+The direct zero-density floor is strictly below the hidden insertion threshold `rho` throughout `R`, and the hard-core half-zero guarantee is also below `rho`. The two statements also concern different semigroups / conditioning.
 
-$$
-\frac1{1+b+c}
-$$
-
-is strictly below
-
-$$
-\rho=\frac c{b+c-a}
-$$
-
-throughout `R`, and the hard-core one-half-zero guarantee is also below `rho`. Moreover the direct density estimates concern `L`, whereas E1 is a weighted conditional statement for `L^-`.
-
-Thus no proof edge may be created by merely saying that the two density statements are compatible.
+**Status:** checked obstruction. Do not create a proof edge merely by calling the density estimates compatible.
 
 ## E4. One-cell regional insertion works
 
-Student F Assignment 002 resolves the first half of Meeting 001's finite test.
-
-Fix a predecessor interaction to be source-retaining. The left absence region is exactly a one-site zero-boundary `L^-` evolution. Writing `d=b-a`, its kernel is
+Fix a predecessor interaction source-retaining. Regional integration gives the positive zero-boundary `L^-` kernel
 
 $$
 \boxed{
 K_\Delta(z)
 =
-\frac1{1+d}
-+
-\left(z-\frac1{1+d}\right)e^{-(1+d)\Delta}.
-}
-$$
-
-This factor is nonnegative and separates from the current source/right region. Hence after the E1 burn-in, the current hidden successful interaction has nonnegative one-cell contribution.
-
-**Status:** Professor-checked. This shows regional integration really removes the raw Duhamel left-spin obstruction on one cell.
-
-## E5. Two-cell composition fails: cellwise scaffold route closed
-
-For actual composition, the predecessor interaction is itself hidden. Its source-retaining type contributes `+B K_Delta(z)`; its source-removing type contributes `-c`. Therefore the exact signed transfer between cells is
-
-$$
-\boxed{
-\Psi_\Delta(z)=B K_\Delta(z)-c.
-}
-$$
-
-At `z=0`,
-
-$$
-\Psi_\Delta(0)
-=
-\frac{B}{1+b-a}(1-e^{-(1+b-a)\Delta})-c.
-$$
-
-Since `Psi_0(0)=-c<0` and its long-time limit is
-
-$$
-\frac{(b-a)(1-c)}{1+b-a}>0,
-$$
-
-the sign changes at
-
-$$
-\boxed{
-\tau_*
-=
 \frac1{1+b-a}
-\log\frac{b+c-a}{(b-a)(1-c)}.
++
+\left(z-\frac1{1+b-a}\right)e^{-(1+b-a)\Delta}.
 }
 $$
 
-Hence, for every residual parameter point,
+This removes the raw Duhamel left-spin obstruction on one cell.
+
+**Status:** Professor-checked reusable local fact.
+
+## E5. Cellwise scaffold composition fails
+
+When the predecessor interaction is itself hidden, the exact transfer is
 
 $$
-0<\Delta<\tau_*
-\quad\Longrightarrow\quad
-\Psi_\Delta(0)<0.
+\boxed{
+\Psi_\Delta(z)=(b+c-a)K_\Delta(z)-c.
+}
 $$
 
-Scaffold predecessor gaps can be arbitrarily short. Thus the mechanism
+At `z=0`, every residual parameter point has `Psi_Delta(0)<0` for all sufficiently short positive `Delta`. Consecutive scaffold gaps have no positive lower bound.
 
-> hide each successful type, integrate one adjacent cell, obtain a nonnegative transfer, and iterate cell by cell
+**Status:** Professor-checked route obstruction. The cellwise last-exit/scaffold positivity mechanism is closed. A coarser random-cluster cancellation would require genuinely new mathematics and is not an automatic continuation.
 
-is false already at two-cell composition.
+## E6. Rightmost live-source contraction under the true coupling
 
-**Status:** Professor-checked route obstruction. The cellwise last-exit/scaffold positivity route is closed.
+Student F Assignment 003 replaces the frozen-source picture by the actual common-uniform coupling.
 
-A hypothetical cancellation obtained only after summing random clusters of short cells would be a genuinely new mechanism. It is not an automatic continuation of E5.
+Suppose `j` is a rightmost disagreement, the half-line strictly right of `j` is coupled, and `j-1` is still agreed. Let `tau` be death of the source at `j` and `sigma` creation of the first child at `j-1`. Put
 
-## E6. Current load-bearing edge: live disagreement/regeneration under the true dynamics
+$$
+d=b-a>0,
+\qquad
+q=1-c+a>0,
+$$
 
-The next route works directly with the canonical coupling and the actual lifetime of a disagreement source.
+and
 
-The source must evolve under the true coupled dynamics and be allowed to die. This avoids the frozen-exterior obstruction. No sign is required separately for every dual/scaffold cell, avoiding E5.
+$$
+D=(b+q)(1+q)-a(1-c)>0.
+$$
 
-Target an actual finite-time statement such as:
+Conditional on any actual common right-hand history, source death has intensity at least `q`. Before the first child, the agreed left spin is a two-state chain: from zero, child rate `d` and common transition `0->1` rate `a`; from one, child rate `c` and common transition `1->0` rate `1-c`.
 
-- a contraction probability across a block/time slab before the source episode dies;
-- a regeneration event with a quantitative lower bound;
-- a Lyapunov drift for disagreement plus a local environmental badness variable;
-- a state-dependent influence/branching estimate rendered subcritical by the true environment.
+Solving the killed chain gives
 
-The direct zero-density and no-`11` estimates from E2 may be used, but a new disagreement representation without a contraction estimate is not progress.
+$$
+\boxed{
+\mathbb P(\sigma<\tau\mid\mathcal F)
+\le1-\delta,
+\qquad
+\delta=\frac{q(d+2q)}D>0.
+}
+$$
 
-Student F is attacking E6 in `students/student-f/assignment-003.md`. Student G is still completing the independent Assignment 002 and will be folded in when it returns.
+The stronger gap when the agreed left spin is zero is
+
+$$
+1-h_0=\frac{q(a+q+1)}D.
+$$
+
+There is also a finite-slab regeneration bound
+
+$$
+\boxed{
+\mathbb P(\tau<\sigma,\ \tau\le T\mid\mathcal F)
+\ge
+\frac{1-c+a}{1+a}(1-e^{-(1+a)T})>0.
+}
+$$
+
+**Status:** Professor-checked target-relevant live-source contraction. This is genuinely different from the frozen-wall statistic because the source evolves and may die.
+
+The estimate is not yet spatially iterable: once the first child exists, it is not rightmost and may die and be reinfected while the parent remains alive.
+
+## E7. Coupling drift and the correct environmental badness variable
+
+For
+
+$$
+D_i=1_{\{X_i\ne Y_i\}},
+$$
+
+and
+
+$$
+J_i=1_{\{D_i=0,\ D_{i+1}=1,\ X_i=Y_i=1\}},
+$$
+
+a complete local case split gives
+
+$$
+\boxed{
+\mathcal L^{\rm coup}D_i
+\le
+-qD_i+dD_{i+1}+(c-d)J_i.
+}
+$$
+
+`J_i=1` forces an adjacent `11` in exactly one copy, but substituting the marginal `11` estimate from E2 creates an additive error independent of disagreement density. Thus the next useful density input would have to control `J_i` conditionally / weighted by disagreement, not merely control `P(11)`.
+
+**Status:** Professor-checked bridge and obstruction to the present marginal-density closure.
+
+## E8. East-boundary scaling of the one-source estimate
+
+Along the genuine residual path
+
+$$
+a=\varepsilon^2,
+\qquad
+b=\varepsilon,
+\qquad
+c=1-\varepsilon^2,
+$$
+
+one has
+
+$$
+d\sim\varepsilon,
+\qquad
+q=2\varepsilon^2,
+\qquad
+\delta\sim2\varepsilon^2\to0.
+$$
+
+Even from an all-zero / no-`11` local environment, a first-child event can beat the simplest competing local changes with probability
+
+$$
+\frac{1-\varepsilon}{1+3\varepsilon}\to1.
+$$
+
+**Ruling:** zero-rich / hard-core snapshots cannot yield a residual-uniform first-generation childless gap. This does not kill the pointwise positive-rate programme: `c=1` is outside the target, and post-birth child killing/reinfection dynamics is not represented in the one-source statistic.
+
+## E9. Current load-bearing edge: two-generation episode with reinfection
+
+After the first child at `j-1` is born, retain the true parent at `j` and include every child death and reinfection cycle until either:
+
+- a grandchild disagreement is created at `j-2`; or
+- both `j` and `j-1` become coupled, after which the half-line from `j-1` rightward is permanently coupled.
+
+The desired finite statement is a parameter-point contraction
+
+$$
+\boxed{
+\mathbb P(\sigma_2<\tau_2)\le1-\delta_2(a,b,c),
+\qquad \delta_2>0,
+}
+$$
+
+or an exact obstruction showing this is false in the relevant restart states.
+
+A favorable two-generation number is not enough. Any positive result must identify a restart state or finite family of episode states that can plausibly compose spatially. The near-East asymptotic must be computed explicitly, but degeneration of constants at the excluded boundary is not itself failure.
+
+Student F is attacking E9 in `students/student-f/assignment-004.md`. Student G is still completing its independent Assignment 002 and will be folded into the next meeting.
 
 ## Anti-circularity checkpoint
 
-Meeting 002 eliminates a concrete route rather than renaming its obstruction. Do not return immediately to larger/coarser scaffold cells. The next accepted spine edge must concern a quantitatively different object: a live disagreement episode or another direct dynamical mechanism.
+Meeting 003 proves a new live-source estimate and narrows the remaining difficulty from one source to a specific reinfecting parent-child episode. The next accepted spine change must control that two-generation episode or falsify it. Another first-child probability, marginal density estimate, frozen-source statistic, or representation without a hitting/drift conclusion is not progress.
 
 ## Current direction
 
-Attack E6 while preserving the fixed positive-rates target.
+Attack E9 while preserving the fixed positive-rates target.
