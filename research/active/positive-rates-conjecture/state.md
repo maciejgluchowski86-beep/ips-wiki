@@ -23,18 +23,22 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-Latest meeting: `meetings/018-consultation-actual-front-certificate-and-one-occupation-block.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/019-two-spin-occupation-obstruction-and-common-coupling-stop.md`, `state_narrowed: yes`.
 
 Active work:
 
-- Student G successor: `students/student-g/assignment-008.md`, one occupation-weighted extension of the retained two-spin actual-front exploration at the hard near-East point.
-- Student F: idle. No F013 is authorized.
+- Student F: `students/student-f/assignment-013.md`, one signed two-insertion recombination test on the predecessor-trail/profile side.
+- Student G successor: idle. No G009 common-coupling continuation is authorized.
 
 ## Closed / stopped mechanisms
 
 Closed: fixed finite walls; cellwise nonnegative scaffold insertion; one-step centered `L^1`; crude scalar `max{c,b-a}Z<1`; exposed-only global Foster product; full nearest-neighbour scalar edge-product/coboundary Foster class; depth-uniform finite linear common-mass mode closure.
 
-Stopped: raw finite-window/HJB certification by simply enlarging `L,R,T` or changing the right-boundary controller. Do not reopen these by larger scalar contexts, finite common-mass alphabets, or raw random-map windows.
+Stopped: raw finite-window/HJB certification by enlarging `L,R,T` or changing the right-boundary controller.
+
+**Abandoned as a load-bearing proof interface after Meeting 019:** common-uniform global coalescence / zero-frequency occupation. Do not continue by enlarging the retained exposure state, adding ancestry counters, proving an all-depth episode-count theorem as a default continuation, or restarting raw random-map enumeration.
+
+Previously proved common-coupling facts remain valid auxiliary lemmas.
 
 ## Global predecessor-trail target
 
@@ -54,25 +58,25 @@ $$
 
 Showing `J_{x,r}->0` with depth is sufficient for the nonempty-exit term. Exact Poisson--Mecke factorization and the no-exit complement remain downstream audits after `J` decay is proved.
 
-## Common-mass / Green interface
+All trail durations must remain visible until the final modulus. The Meeting-009 norm-order obstruction remains binding.
 
-F012 proves, for finite zero-boundary common-uniform couplings,
+## Signed insertion structure retained
+
+For a law `mu` with rightmost density `r`, left marginal `bar mu`, and conditional left laws `mu^1,mu^0`,
+
+$$
+g\mu(h_{p_*}(\eta_y)f)
+=(Br-c)\bar\mu(f)+Br(1-r)(\mu^1-\mu^0)(f).
+$$
+
+The second term is intrinsically a signed covariance:
 
 $$
 \boxed{
-\Delta_M\le2c\int_0^\infty\beta_{M-1}(t)dt,
+r(1-r)(\mu^1-\mu^0)(f)
+=\mu[(\eta_y-r)f].
 }
 $$
-
-where
-
-$$
-\beta_m(t)
-=
-\sup_{n,\eta,i}E\sum_{j\le i-m}D_j(t).
-$$
-
-Thus a spatially decaying bound on the time-integrated far-left disagreement occupation directly proves tail-shift localization. A finite-time front bound alone is not enough because it need not be integrable in time.
 
 Professor-checked common-mass damping remains
 
@@ -80,109 +84,149 @@ $$
 |Br_0-c|Z<\frac23,
 \qquad
 BZ_{\omega+1+b}<1,
+\qquad r_0=\frac1{1+b}.
 $$
 
-but arbitrary duration-resolved signed-profile iteration and `J_{x,r}` decay remain open.
-
-## Actual common-uniform coupling before consultation
-
-For every finite disagreement seed, every fixed site eventually becomes permanently coupled. Survival, if it occurs, is exactly convective escape to `-infinity`.
-
-The full-line Hamming coefficient
+At the invariant zero-boundary law, F010 already gives the positive-frequency covariance resolvent
 
 $$
-\alpha(t)=\sup_{\eta,i}E\,d_H(\Phi_t\eta,\Phi_t\eta^i)
+\pi_N\left[\phi_N((1+b)-\bar L)g\right]
+=q_0r_0\pi_N[Dg],
+\qquad
+\phi_N=\eta_N-r_0,
 $$
 
-is submultiplicative. G007 proves a two-sided fixed-boundary finite approximation and an explicit protected-source lower bound
+and the explicit separated-gap bound
 
 $$
-\alpha(t)>1\qquad(0<t\le47)
+|\pi_N(\phi_N f)|
+\le
+\frac{2bc}{(1+b)^3(2+b)^{M-1}}\|f\|_\infty.
 $$
 
-at the hard point. Raw finite enumeration was stopped after Meeting 017.
+This signed structure is now the active alternative to the stopped positive-coupling disagreement bound.
 
-## Meeting 018: retained two-spin actual-front theorem
+## What remains from F010--F012
 
-Outside consultation 001 recommended `continue-front` and supplied a concrete killed exploration. Meeting 018 independently checked and accepted it.
-
-At
+F010 proves exact suffix/projective intertwining and finite-context truncation of the first invariant insertion. F011 identifies the post-split mass defect with tail-shift variation. F012 proves the sufficient common-coupling bound
 
 $$
-(a,b,c)=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
+\Delta_M\le2c\int_0^\infty\beta_{M-1}(t)dt.
 $$
 
-before a fresh site `x` first becomes disagreeing, retain
+These results remain mathematically valid, but Meeting 019 no longer pursues the right side through global common-uniform occupation. Tail-shift agreement itself remains open.
+
+The exact common-mass semigroup has no depth-uniform finite linear mode closure, so the signed route may not be replaced by a fixed finite generator alphabet.
+
+## Common-uniform coupling: retained auxiliary results
+
+For finite disagreement seeds:
+
+- every fixed site eventually becomes permanently coupled;
+- possible survival is convective escape to `-infinity`;
+- moving-frame weighted disagreement contracts;
+- the Hamming coefficient is submultiplicative;
+- G007 proves a two-sided fixed-boundary approximation and `alpha(t)>1` for `0<t<=47` at the hard point;
+- Meeting 018 proves the retained-spin first-discovery tail
+  $$
+  P(\sigma_m\le T)
+  \le\frac{15}{4}e^{T/20}\left(\frac58\right)^m
+  $$
+  and an almost-sure finite discovery-speed bound.
+
+These remain available as auxiliary finite-time statements. They are no longer the required route to `J`.
+
+## Meeting 019: G008 occupation obstruction
+
+G008 does not prove or refute the actual occupation estimate `(OCC)`. It proves a state-sufficiency obstruction for the retained two-spin exploration.
+
+At the hard point the least-killing one-source comparison gives
 
 $$
-Z=(s,t),
+h_0=\frac{1000197}{1020203},
+\qquad
+h_1=\frac{1019997}{1020203}.
 $$
 
-where `s` is the common spin at `x` and `t` the common spin at `x-1`. The right neighbour enters only through mode `D`, `C0`, or `C1`; the exact killed-chain rates are recorded in Meeting 018.
-
-A strict rational superharmonic certificate with
+After a genuine source coalescence to common zero, two reachable histories with the same retained `(s,t,C0)` state can have source-return laws differing by at least
 
 $$
-\lambda=\frac1{20},\qquad \rho=\frac58,
+\boxed{\frac{b-a}{2}=\frac{99}{20000}.}
 $$
 
-propagates the next-left spin exactly at absorption and gives
+Thus the retained state forgets residual right-ancestry capacity. G003 controls re-entry only during one live parent episode; G006 gives only qualitative eventual permanent coupling.
+
+If the missing post-coalescence return capacity is robustly closed on the same projected state using only the currently proved source-lifetime information, the finite-depth Bellman envelope satisfies
 
 $$
-\boxed{
-P(\sigma_m\le T)
-\le\frac{15}{4}e^{T/20}\left(\frac58\right)^m.
-}
+r_0=h_0,
+\qquad
+r_n=\frac{h_0}{1-(1-h_0)r_{n-1}},
 $$
 
-Hence
+with
 
 $$
-\boxed{
-E\sum_{j<-L}D_j(T)
-\le10e^{T/20}\left(\frac58\right)^{L+1}.
-}
+\frac{1-h_0}{h_0}=\frac{20006}{1000197}<\frac1{49},
+\qquad
+\boxed{r_n\uparrow1.}
 $$
 
-This is a genuine actual-front estimate preserving the pre-exposure common-spin history. It substantially improves the causal Poisson cone. A second exact certificate gives
+Hence that robust zero-frequency projected closure has contraction-factor supremum one. This does not refute actual `(OCC)` or every conceivable theorem using the visible spins; it proves that a new quantitative all-depth return mechanism would be required.
+
+The missing episode count is itself a zero-frequency observable:
 
 $$
-\limsup_{t\to\infty}\frac{N_t}{t}
-\le\frac{1/100}{\log(100/81)}\approx0.0474561
+E N_i\le E O_i,
+\qquad
+E N_i\le D_i(0)+cE O_{i+1},
+\qquad
+O_i=\int_0^\infty D_i(t)dt.
 $$
 
-almost surely for the number of newly discovered left sites.
+No such new mechanism was produced. Meeting 018's stopping rule is therefore met.
 
-The same front bound replaces the causal errors in the G007 fixed-boundary sandwich by exponentially smaller actual-front errors. This is structural improvement, not permission to resume raw enumeration.
-
-## Current decisive occupation target
+## Active signed recombination test
 
 Define
 
 $$
-G_m
-:=
-\sup_{\text{finite zero-boundary systems},\eta,i}
-\int_0^\infty
-E\sum_{j\le i-m}D_j(t)\,dt.
+(\mathcal J_N\mu)(f)=\mu((B\eta_N-c)f),
+\qquad
+\nu_N=\mathcal J_N\pi_N.
 $$
 
-Student G Assignment 008 asks for exactly one of:
+Student F Assignment 013 evolves the **full signed** measure `nu_N` for one zero-boundary trail duration and applies the next insertion without first estimating the mass and conditional-law-difference pieces separately:
 
-1. constants `C<infinity`, `theta<1` with
-   $$
-   G_m\le C\theta^m;
-   $$
-   then F012 gives `Delta_M<=2cC theta^(M-1)`;
-2. a precise theorem showing that the retained two-spin exploration is insufficient for zero-frequency occupation control after the actual source-lifetime facts are incorporated.
+$$
+\kappa_{N,u}
+=\mathcal J_{N-1}(\nu_N P_u^{N-1,0}).
+$$
 
-An immortal adversarial `D` mode by itself is not a valid obstruction to the actual process, because fixed-site permanent coupling is already proved.
+With total mass `a_N(u)=kappa_{N,u}(1)`, define the remote defect
 
-If G008 proves the occupation estimate, the first post-insertion stationary mass interface is solved but arbitrary signed-profile iteration still remains. If G008 refutes the two-spin occupation exploration or returns unresolved without a genuinely new occupation mechanism, abandon the common-uniform global-coalescence interface. Do not enlarge the exposure state, restart raw finite windows, or begin generic matrix-product engineering by default.
+$$
+\Gamma_M
+=\sup_{N\ge M+2}
+\int_0^\infty w(u)
+\sup_{\substack{\|f\|_\infty\le1\\
+\operatorname{supp}f\subseteq\{1,\ldots,N-M-2\}}}
+\left|\kappa_{N,u}(f)-a_N(u)\pi_{N-2}(f)\right|du.
+$$
+
+The active question is whether
+
+$$
+\boxed{\Gamma_M\to0}
+$$
+
+with a useful depth-uniform modulus, or whether an unavoidable zero-frequency term survives even after full signed recombination.
+
+This is one bounded test, not an all-depth theorem and not permission for matrix-product/nonlocal-norm engineering.
 
 ## Anti-circularity
 
-Do not integrate duration before the actual absolute-value norm; use `16/21` as a global Foster multiplier; enlarge scalar local correctors mechanically; revive finite common-mass mode closure; replace the signed disagreement channel by unrestricted total variation; import the predecessor-trail reset-height drift into the actual common-uniform process; infer extinction from fixed-site coupling/front speed; infer survival from finite-time Hamming expansion; or turn the new first-discovery theorem into a zero-frequency occupation theorem without controlling repeated disagreement episodes.
+Do not integrate duration before the actual absolute-value norm; use `16/21` as a global Foster multiplier; enlarge scalar local correctors mechanically; revive finite common-mass mode closure; return to global common-uniform occupation or episode counting; import the predecessor-trail reset-height drift into the actual common-uniform process; infer extinction from fixed-site coupling/front speed; infer survival from finite-time Hamming expansion; split the signed insertion into positive branches and bound them independently when Assignment 013 requires recombination; or infer arbitrary-depth control from a two-insertion calculation.
 
 ## Wiki
 
