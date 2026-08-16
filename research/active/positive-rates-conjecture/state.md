@@ -28,19 +28,20 @@ $$
 \right\}.
 $$
 
-Latest meeting: `meetings/009-regenerated-mass-loss-and-duration-mode-obstruction.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/010-exposed-product-refuted-and-16-phase-foster-reduction.md`, `state_narrowed: yes`.
 
 Active work:
 
 - Student F: `students/student-f/assignment-009.md`, mode-resolved `L^1(w)` block operator retaining mass relaxation/reset-history modes;
-- Student G: still in flight on `students/student-g/assignment-004.md`, global restart-corrector Foster lift.
+- Student G: `students/student-g/assignment-005.md`, solve or refute the 16-phase all-height coupling Foster feasibility problem.
 
 ## Closed mechanisms / corrections
 
 1. Fixed finite agreed-block / frozen-exterior wall crossing.
 2. Cellwise last-exit/scaffold insertion positivity.
-3. Meeting 005 one-generation centered-transfer contraction `(T)`: exact near-East depth-two ratios tend to `3/2` without right killing and `7/5` with it.
-4. The crude condition `max{c,b-a}Z<1` contributes no residual subregion: throughout `\mathcal R`, `c>b-a` and `cZ>1`.
+3. Meeting 005 one-generation centered-transfer contraction `(T)`.
+4. The crude condition `max{c,b-a}Z<1` on the residual chamber: throughout `R`, `c>b-a` and `cZ>1`.
+5. Student G Assignment 003's **exposed-only independent-level product Foster lift**. Same-parent restart tails remain valid, but multiplying them by the scalar height factor does not give a global corrector.
 
 The canonical predecessor-trail decomposition remains active.
 
@@ -52,7 +53,7 @@ $$
 B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a,
 $$
 
-and let
+and
 
 $$
 w(u)=e^{-\omega u}s_1(u),
@@ -87,7 +88,7 @@ $$
 
 The first term is signed mass; the second is a positive conditional-law disagreement channel.
 
-## Student G: accepted restart inputs
+## Student G: accepted local restart inputs
 
 For one fixed parent disagreement, the number `N` of exposure re-entries before that parent first coalesces satisfies
 
@@ -95,17 +96,80 @@ $$
 P(N\ge n\mid\mathcal F)\le h_1^{n-1},
 $$
 
-and hence has the explicit exponential pgf bound
+hence
 
 $$
 E[s^N\mid\mathcal F]\le\frac{(1-h_1)s}{1-h_1s}.
 $$
 
-The stack-height minorant gives an exponential height factor `phi(lambda)<1`; near East the scalar restart/height stress factor can be chosen to tend to `16/21<1`.
+The stack-height minorant also gives an exponential height factor `phi(lambda)<1`. Near East the scalar product of these two separately derived factors can tend to `16/21<1`, but Meeting 010 establishes that this is **not** a valid global Foster multiplier.
 
-What remains unverified is G's global product/phase Foster lift over all parent levels. Assignment 004 is still in flight.
+## Meeting 010: exposed-only product Foster lift is false
 
-## Student F Assignment 008: uniform regenerated-mass loss
+Student G Assignment 004, commit `4128cee` with verifier commits `bec4dda` and `4586833`, gives a reachable all-`01` disagreement stack
+
+$$
+\sigma_i=(X_i,Y_i)=01,
+\qquad 0\le i\le H-1,
+$$
+
+for which the Assignment-003 exposed-only product corrector has exact tilted drift
+
+$$
+\boxed{
+\frac{\mathscr L_sV}{V}
+=(1-a)(s-1)
++(H-2)(1-a)(s e_0-1)
++\omega(\lambda^{-1}-1).
+}
+$$
+
+Here `s>1`, `lambda>1`, and the exposed factor `e_0>=1`. Therefore the middle term is positive and grows linearly with `H`, while the right-boundary height gain is `O(1)`. The old global product is positive-drift for sufficiently large height.
+
+With the old near-East choices,
+
+$$
+\frac{\mathscr L_sV}{V}\to\frac{H-2}{7}.
+$$
+
+Thus Assignment 003's product rule is refuted. The same-parent tail itself is unaffected.
+
+## Exact 16-phase coupling reduction
+
+Let
+
+$$
+\mathcal A=\{00,11,01,10\}
+$$
+
+be the coupled pair states and choose positive nearest-neighbour edge weights
+
+$$
+q_{\alpha\beta}>0,
+\qquad (\alpha,\beta)\in\mathcal A^2.
+$$
+
+For
+
+$$
+C_Q(\sigma)=\prod_i q_{\sigma_{i-1},\sigma_i},
+$$
+
+the common-uniform coupling and exposure-entry tilt give an exact local bulk drift `G_Q(alpha,beta,gamma)` for each of the 64 triples.
+
+For this nearest-neighbour product/coboundary class, all-height interior control is equivalent to a finite no-positive-cycle condition on the 16-vertex de Bruijn graph. Equivalently, find a phase potential `psi` satisfying
+
+$$
+G_Q(\alpha,\beta,\gamma)
+\le
+\psi(\alpha,\beta)-\psi(\beta,\gamma)
+$$
+
+for all triples. Full Foster contraction additionally requires finitely many right-boundary height, insertion, left-boundary, and suffix-trimming inequalities.
+
+Existence of such weights throughout the residual chamber is open. Student G Assignment 005 attacks exactly this finite feasibility problem.
+
+## Student F: uniform regenerated-mass loss and mode obstruction
 
 For the one-site zero-boundary equilibrium density
 
@@ -116,67 +180,45 @@ $$
 Student F proves, and the Professor checks,
 
 $$
-\boxed{
-|Br_0-c|Z<\frac23
-}
+\boxed{|Br_0-c|Z<\frac23}
 $$
 
-at every strict residual parameter point.
+at every strict residual point.
 
-Thus a mass component genuinely returned to the equilibrium mode has a uniform right-weighted scalar loss. This is independent of G's Foster premise.
-
-## New structural obstruction: duration modes cannot be integrated before the norm
-
-A mass branch need not be in the equilibrium mode. Its current rightmost density evolves as
+A mass branch nevertheless carries a transient relaxation mode
 
 $$
-r(u)=r_0+(r-r_0)e^{-(1+b)u},
+r(u)=r_0+(r-r_0)e^{-(1+b)u}.
 $$
 
-so it carries a nontrivial mass-relaxation mode.
-
-Near East, for the exact depth-two invariant profile `A_{2,epsilon}(u)`,
+Near East,
 
 $$
-\frac g{|m_\varepsilon|}
-\left|\int_0^\infty w(u)A_{2,\varepsilon}(u)du\right|
-\to\frac35<1,
+\frac g{|m_\varepsilon|}\left|\int w(u)A_{2,\varepsilon}(u)du\right|\to\frac35,
 $$
 
-whereas the quantity actually appearing in `J_{x,r}` obeys
+but the `J`-compatible norm has
 
 $$
 \boxed{
-\frac g{|m_\varepsilon|}
-\int_0^\infty w(u)|A_{2,\varepsilon}(u)|du
-\to\frac75>1.
+\frac g{|m_\varepsilon|}\int w(u)|A_{2,\varepsilon}(u)|du\to\frac75.
 }
 $$
 
-Therefore a proof may use signed cancellation at fixed duration profile, but may not manufacture cancellation by integrating duration before taking the block norm.
-
-F's fully-regenerated height-one signed matrix has strong local cancellation, with spectral radius tending to `sqrt(2/5)` near East, but it is not iterable as the true block kernel because it has already averaged duration.
-
-## Static spin words do not close the bounded state
-
-At `(a,b,c)=(1/10,3/10,4/5)`, F gives exact nonzero conditional-independence determinants proving that the zero-boundary invariant spatial law is neither first- nor second-order Markov. Thus current spin or a short static spin word cannot supply exact bounded-state closure.
-
-This does not rule out a finite temporal reset-history / generator-mode state.
+Therefore duration/reset modes must remain visible until the `L^1(w)` block norm is taken. Short static spin words do not close the invariant law either.
 
 ## Current bottleneck
 
-The block route now has two interfaces.
+The block route now has two explicit interfaces.
 
-1. **G:** prove or refute a global finite restart/Foster phase state for arbitrary disagreement height.
-2. **F:** build the corresponding **mode-resolved `L^1(w)` signed block operator**, retaining mass relaxation/reset-history modes until the norm is taken. The new equilibrium mass loss `<2/3` is the regenerative anchor.
+1. **G:** solve or refute the 16-phase nearest-neighbour product/coboundary Foster feasibility problem, including boundary/height transitions. A success gives a valid all-height coupling return mechanism; a failure closes this corrector class.
+2. **F:** build a mode-resolved `L^1(w)` signed block operator retaining equilibrium mass, transient mass/reset modes, disagreement phases, and duration information until the norm. The uniform equilibrium loss `<2/3` is the regenerative anchor.
 
-A scalar Foster return statement alone is insufficient to determine the signed bounded kernel; the return state must preserve enough mass/reset information to reconstruct the signed profile.
-
-If both interfaces close, combine them to prove `J_{x,r}->0`; only then reconstruct the full trail/no-exit convergence implication.
+G's 16 coupling phases and F's mass-relaxation modes address different state-closure problems. Both are required before one can infer `J_{x,r}->0` by this route.
 
 ## Anti-circularity rule
 
-Do not integrate duration before the absolute-value norm, iterate the diagnostic `K^(1)` matrix as the proof kernel, replace the invariant law by a short static Markov approximation, return to one-step `(T)`, or replace the disagreement channel by unrestricted total variation.
+Do not use `16/21` as a global Foster multiplier, repair only the all-`01` stack without checking all phase cycles, integrate duration before the absolute-value norm, iterate the diagnostic `K^(1)` matrix as the true signed kernel, return to one-step `(T)`, or replace the disagreement channel by unrestricted total variation.
 
 ## Wiki
 
