@@ -5,10 +5,10 @@ Checks the obstruction in 004-global-restart-corrector.md:
 
 1. the exact tilted drift of the reachable all-01 disagreement stack under
    the exposed-only product corrector from Assignment 003;
-2. the near-East limit of that drift, including the old exposed factor
-   e_0 -> 8/7 and drift -> (H-2)/7;
-3. the 16-phase same-orientation local bulk formula and its reduction to
-   the positive old-product self-loop;
+2. the near-East limit of that drift, including e_0 -> 8/7 and
+   drift -> (H-2)/7;
+3. the 16-phase same-orientation local bulk formula, derived from the
+   common-uniform transition law and exposure-entry bookkeeping;
 4. the representative opposite-orientation bulk formula.
 
 No Monte Carlo or floating-point calculation is used.
@@ -18,41 +18,39 @@ import sympy as sp
 
 
 # ---------------------------------------------------------------------------
-# 1. Old exposed-only product on the reachable all-01 stack.
+# Parameters and the old exposed-only stack obstruction.
 # ---------------------------------------------------------------------------
 
-a, c, s, e0, lam = sp.symbols("a c s e0 lam", positive=True)
+a, b, c, s, e0, lam = sp.symbols(
+    "a b c s e0 lam", positive=True
+)
 H = sp.symbols("H", integer=True, positive=True)
 omega = 1 - c + a
 
-# On an all-01 stack:
-# - leftmost 01 with right 01 coalesces to 00 with probability 1-a;
-#   the unique exposure moves right, so C is unchanged but one exposure
-#   entry is counted: tilted ratio s.
-# - each interior 01->00 event (probability 1-a) creates one additional
-#   exposure, so C gains e0 and the tilted ratio is s*e0.
-# - the rightmost 01 with coupled-zero right boundary coalesces with
-#   probability omega, removing one height level: ratio lam^{-1}.
+# Reachable all-01 stack, with coupled-zero bookkeeping boundaries.
+# Leftmost coalescence moves the exposure right: tilted ratio s.
+# An interior coalescence creates a second exposure: tilted ratio s*e0.
+# Rightmost coalescence removes one unresolved height level: ratio lam^-1.
 left = (1 - a) * (s - 1)
 interior = (H - 2) * (1 - a) * (s * e0 - 1)
 right = omega * (1 / lam - 1)
 old_stack_drift = sp.expand(left + interior + right)
 
-target_old_stack_drift = sp.expand(
-    (1 - a) * (s - 1)
-    + (H - 2) * (1 - a) * (s * e0 - 1)
-    + omega * (1 / lam - 1)
-)
-assert sp.simplify(old_stack_drift - target_old_stack_drift) == 0
+assert sp.simplify(
+    old_stack_drift
+    - (
+        (1 - a) * (s - 1)
+        + (H - 2) * (1 - a) * (s * e0 - 1)
+        + omega * (1 / lam - 1)
+    )
+) == 0
 
-# The interior coefficient is strictly positive for the Assignment-003
-# regime s>1, e0>=1. Symbolically we record the exact excess over its
-# lower bound obtained by setting e0=1.
+# For s>1 and e0>=1 the interior coefficient is strictly positive.
 assert sp.factor((s * e0 - 1) - (s - 1)) == s * (e0 - 1)
 
 
 # ---------------------------------------------------------------------------
-# 2. Near-East stress path.
+# Near-East stress path.
 # ---------------------------------------------------------------------------
 
 eps = sp.symbols("eps", positive=True)
@@ -81,15 +79,16 @@ e0_e = sp.simplify(
     s_e * ((1 - h0_e) + h0_e * M_e)
 )
 
-assert sp.limit(M_e, eps, 0, dir="+") == sp.Rational(8, 7)
-assert sp.limit(e0_e, eps, 0, dir="+") == sp.Rational(8, 7)
 assert sp.limit((1 - h0_e) / eps, eps, 0, dir="+") == 2
 assert sp.limit((1 - h1_e) / eps**2, eps, 0, dir="+") == 2
+assert sp.limit(M_e, eps, 0, dir="+") == sp.Rational(8, 7)
+assert sp.limit(e0_e, eps, 0, dir="+") == sp.Rational(8, 7)
 
 near_east_drift = sp.simplify(
     old_stack_drift.subs(
         {
             a: a_e,
+            b: b_e,
             c: c_e,
             s: s_e,
             e0: e0_e,
@@ -104,8 +103,11 @@ assert sp.simplify(
 
 
 # ---------------------------------------------------------------------------
-# 3. Exposure-entry bookkeeping for the finite 16-phase state.
+# Exact finite 16-phase local tilted generator.
 # ---------------------------------------------------------------------------
+
+PAIRS = ("00", "11", "01", "10")
+
 
 def diagonal(pair):
     return pair in ("00", "11")
@@ -120,79 +122,95 @@ def exposure(alpha, beta):
 
 
 def entry_increment(alpha, beta, gamma, beta_new):
+    """Number of newly created exposure edges when beta is updated."""
     return int((not exposure(alpha, beta)) and exposure(alpha, beta_new)) + int(
         (not exposure(beta, gamma)) and exposure(beta_new, gamma)
     )
 
-# Same-orientation bulk triple 01,01,01.
+
+q = {
+    (alpha, beta): sp.symbols(f"q_{alpha}_{beta}", positive=True)
+    for alpha in PAIRS
+    for beta in PAIRS
+}
+
+
+def local_G(alpha, beta, gamma, outcomes):
+    """Exact local tilted drift from a supplied common-uniform outcome law."""
+    denominator = q[(alpha, beta)] * q[(beta, gamma)]
+    value = 0
+    for beta_new, probability in outcomes.items():
+        if beta_new == beta:
+            continue
+        ratio = (
+            q[(alpha, beta_new)] * q[(beta_new, gamma)]
+            / denominator
+        )
+        value += probability * (
+            s ** entry_increment(alpha, beta, gamma, beta_new)
+            * ratio
+            - 1
+        )
+    return sp.simplify(value)
+
+
+# Same-orientation triple (01,01,01).
+# Here p=r_00=a and p~=r_11=0, hence 01->00 with probability 1-a
+# and 01->10 with probability a.
 assert entry_increment("01", "01", "01", "00") == 1
 assert entry_increment("01", "01", "01", "10") == 0
-
-q_0100, q_0001, q_0101, q_0110, q_1001 = sp.symbols(
-    "q_0100 q_0001 q_0101 q_0110 q_1001", positive=True
+same_orientation = local_G(
+    "01", "01", "01", {"00": 1 - a, "10": a}
 )
-
-same_orientation = (
+expected_same = (
     (1 - a)
-    * (s * q_0100 * q_0001 / q_0101**2 - 1)
+    * (
+        s * q[("01", "00")] * q[("00", "01")]
+        / q[("01", "01")] ** 2
+        - 1
+    )
     + a
-    * (q_0110 * q_1001 / q_0101**2 - 1)
-)
-
-target_same_orientation = (
-    (1 - a)
-    * (s * q_0100 * q_0001 / q_0101**2 - 1)
-    + a
-    * (q_0110 * q_1001 / q_0101**2 - 1)
-)
-assert sp.simplify(same_orientation - target_same_orientation) == 0
-
-# Old exposed-only assignment: q_{00,01}=e0, while every other phase
-# in this triple has weight 1.
-old_self_loop = sp.simplify(
-    same_orientation.subs(
-        {
-            q_0100: 1,
-            q_0001: e0,
-            q_0101: 1,
-            q_0110: 1,
-            q_1001: 1,
-        }
+    * (
+        q[("01", "10")] * q[("10", "01")]
+        / q[("01", "01")] ** 2
+        - 1
     )
 )
-assert sp.simplify(old_self_loop - (1 - a) * (s * e0 - 1)) == 0
+assert sp.simplify(same_orientation - expected_same) == 0
+
+# Old exposed-only product: q_{00,01}=e0; every other phase appearing
+# above has weight one. This is the positive bulk self-loop.
+old_subs = {symbol: 1 for symbol in q.values()}
+old_subs[q[("00", "01")]] = e0
+old_subs[q[("00", "10")]] = e0
+old_same = sp.simplify(same_orientation.subs(old_subs))
+assert sp.simplify(old_same - (1 - a) * (s * e0 - 1)) == 0
 
 
-# ---------------------------------------------------------------------------
-# 4. Opposite-orientation bulk triple 01,10,01.
-# ---------------------------------------------------------------------------
-# In the residual chamber c>b. For beta=10, gamma=01 the middle site
-# goes to 11 with probability b, to 00 with probability 1-c, and stays
-# off-diagonal (10) with probability c-b. Both diagonal outcomes create
-# a new exposure to the right.
+# Opposite-orientation triple (01,10,01).
+# Residual c>b. Here p=r_10=c and p~=r_01=b, so the middle pair
+# goes to 11 with probability b, 00 with probability 1-c, and remains
+# 10 with probability c-b. Both diagonal outcomes create an exposure.
 assert entry_increment("01", "10", "01", "11") == 1
 assert entry_increment("01", "10", "01", "00") == 1
-
-b = sp.symbols("b", positive=True)
-q_0111, q_1101, q_0110_b, q_1001_b = sp.symbols(
-    "q_0111 q_1101 q_0110_b q_1001_b", positive=True
+opposite_orientation = local_G(
+    "01", "10", "01", {"11": b, "00": 1 - c, "10": c - b}
 )
-
-opposite_orientation = (
+expected_opposite = (
     b
     * (
-        s * q_0111 * q_1101 / (q_0110_b * q_1001_b)
+        s * q[("01", "11")] * q[("11", "01")]
+        / (q[("01", "10")] * q[("10", "01")])
         - 1
     )
     + (1 - c)
     * (
-        s * q_0100 * q_0001 / (q_0110_b * q_1001_b)
+        s * q[("01", "00")] * q[("00", "01")]
+        / (q[("01", "10")] * q[("10", "01")])
         - 1
     )
 )
-
-target_opposite_orientation = opposite_orientation
-assert sp.simplify(opposite_orientation - target_opposite_orientation) == 0
+assert sp.simplify(opposite_orientation - expected_opposite) == 0
 
 
 print("old exposed-only stack drift: verified")
