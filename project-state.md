@@ -13,9 +13,9 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed by the principal until changed or stopped: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/010-exposed-product-refuted-and-16-phase-foster-reduction.md`, `state_narrowed: yes`.
-- Student F: `students/student-f/assignment-009.md`, mode-resolved `L^1(w)` signed block operator.
-- Student G: `students/student-g/assignment-005.md`, 16-phase all-height coupling Foster feasibility.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/012-balanced-circulation-refutes-16-phase-product-class.md`, `state_narrowed: yes`.
+- Student F: `students/student-f/assignment-010.md`, profile regeneration/truncation for the growing common-mass hierarchy.
+- Student G: `students/student-g/assignment-006.md`, survival/extinction test for the common-uniform disagreement process near East.
 
 On the normalized face `r11=0`, with
 
@@ -35,9 +35,9 @@ $$
 \right\}.
 $$
 
-Closed mechanisms include fixed finite walls, cellwise nonnegative scaffold insertion, one-step centered `L^1` contraction, the crude scalar criterion `max{c,b-a}Z<1` on the residual chamber, and Student G Assignment 003's exposed-only global product Foster lift.
+Closed mechanisms now include fixed finite walls, cellwise nonnegative scaffold insertion, one-step centered `L^1` contraction, the empty crude scalar criterion `max{c,b-a}Z<1`, G's exposed-only global Foster product, G's complete nearest-neighbour scalar edge-product/coboundary Foster class, and F's depth-uniform finite linear common-mass mode closure.
 
-### Current trail reduction
+### Current predecessor-trail target
 
 Put
 
@@ -45,97 +45,71 @@ $$
 B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a.
 $$
 
-The centered predecessor-trail working reduction leaves the global right-weighted invariant target
+The centered predecessor-trail working reduction leaves
 
 $$
 J_{x,r}
 =B g^{n-1}\int\left(\prod_k w(u_k)\right)|\pi^0_{m,r}(F_{x,u})|du,
 $$
 
-with `w(u)=e^{-omega u}s_1(u)`. Proving `J_{x,r}->0` with depth is sufficient for the nonempty-exit term. The exact Poisson--Mecke factorization and no-exit complement still require independent audit before a closing proof.
+with `w(u)=e^{-omega u}s_1(u)`. Proving `J_{x,r}->0` with depth is sufficient for the nonempty-exit term. Exact Poisson--Mecke factorization and the no-exit complement remain downstream audits before a closing proof.
 
-### Mass/disagreement mechanism
+### Common-mass side
 
-Each centered insertion splits exactly as
+The exact mass/disagreement identity is
 
 $$
 g\,\mu(h_{p_*}(\eta_y)f)
 =(Br-c)\bar\mu(f)+Br(1-r)(\mu^1-\mu^0)(f).
 $$
 
-Student G's same-parent geometric restart tail remains Professor-checked. The separate scalar height/restart stress factor can tend to `16/21<1` near East, but Meeting 010 proves that it does **not** lift to Assignment 003's global product corrector.
-
-### Meeting 010: old global Foster product refuted
-
-Student G Assignment 004, commit `4128cee` with verifier commits `bec4dda` and `4586833`, gives a reachable all-`01` disagreement stack for which the exposed-only product has exact tilted drift
+Student F has Professor-checked strict right-weighted losses for the equilibrium and first transient common-mass modes:
 
 $$
-\boxed{
-\frac{\mathscr L_sV}{V}
-=(1-a)(s-1)
-+(H-2)(1-a)(s e_0-1)
-+\omega(\lambda^{-1}-1).
-}
+|Br_0-c|Z<\frac23,
+\qquad
+\kappa_T=BZ_{\omega+1+b}<1.
 $$
 
-For `s>1`, `lambda>1`, `e_0>=1`, the interior term grows positively with height, so the proposed product cannot be superharmonic uniformly in `H`. With the old near-East choices this drift tends to `(H-2)/7`.
-
-The coupling-side replacement is an exact 16-edge-phase nearest-neighbour product/coboundary feasibility problem. Let `A={00,11,01,10}` and choose positive weights `q_{alpha beta}`. For the product `C_Q=prod q_{sigma_{i-1},sigma_i}`, each of the 64 triples has an exact local tilted drift `G_Q(alpha,beta,gamma)`. Uniform all-height interior control is equivalent to finding a phase potential `psi` with
+However the exact common-mass semigroup has no depth-uniform finite linear mode closure. On an `N`-site interval,
 
 $$
-G_Q(\alpha,\beta,\gamma)
-\le
-\psi(\alpha,\beta)-\psi(\beta,\gamma)
+L_N^j h_{p_*}(\eta_1)
+=q_*^{-1}B^j\eta_1\cdots\eta_{j+1}+R_j,
+\qquad \deg R_j\le j,
 $$
 
-for all triples, equivalently no positive cycle on the associated 16-vertex de Bruijn graph. Full Foster contraction additionally requires finitely many boundary/height/insertion inequalities. Student G Assignment 005 attacks this exact finite feasibility problem.
+so the cyclic mode dimension is at least `N`. F is therefore attacking quantitative profile regeneration/truncation in the exact duration-resolved `L^1(w)` norm.
 
-### Student F: regenerated mass and duration modes
+### Coupling side
 
-For the one-site zero-boundary equilibrium density
+G's same-parent geometric restart theorem survives, as does the separate stack-height clearing minorant. But two scalar local global-corrector classes are now refuted.
 
-$$
-r_0=\frac1{1+b},
-$$
-
-Student F proves, and the Professor checks,
+Meeting 012 accepts G's exact balanced-circulation obstruction to the full nearest-neighbour scalar edge-product/coboundary class. At
 
 $$
-\boxed{|Br_0-c|Z<\frac23}
+(a,b,c)=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
 $$
 
-throughout the strict residual chamber.
-
-A mass branch carries a transient relaxation mode
+there is an exact rational spatial circulation `mu` with zero expected exponent change for every scalar edge weight and positive exposure-entry flux. Hence for every positive edge matrix `Q` and every `s>1`,
 
 $$
-r(u)=r_0+(r-r_0)e^{-(1+b)u}.
+\sum_e\mu_eG_Q(e)
+\ge C_\mu\left(s^{R_\mu/C_\mu}-1\right)>0,
 $$
 
-Near East,
+contradicting every coboundary certificate. The obstruction is repeatable in the bulk, so boundary/height corrections cannot rescue the class.
 
-$$
-\frac g{|m_\varepsilon|}\left|\int w(u)A_{2,\varepsilon}(u)du\right|\to\frac35,
-$$
-
-but the quantity compatible with `J_{x,r}` is
-
-$$
-\boxed{
-\frac g{|m_\varepsilon|}\int w(u)|A_{2,\varepsilon}(u)|du\to\frac75.
-}
-$$
-
-Therefore duration cannot be integrated before the block absolute-value norm. Short static spin words also fail to close the invariant law. Student F Assignment 009 seeks the correct mode-resolved `L^1(w)` operator.
+G is now testing the more structural question whether the common-uniform disagreement process itself survives from a finite seed near East. Survival would close any route requiring global coalescence of that synchronous coupling; extinction would need a genuinely nonlocal regeneration theorem.
 
 ### Current proof target
 
-Two interfaces remain:
+The active predecessor-trail route now has two nonlocal interfaces:
 
-1. **G:** prove or refute the 16-phase nearest-neighbour product/coboundary Foster inequalities, including boundary/height transitions;
-2. **F:** prove or refute a mode-resolved `L^1(w)` signed block contraction retaining equilibrium mass, transient mass/reset modes, disagreement phases, and duration information until the norm.
+1. F: quantitative common-mass profile truncation/ancestry tail in the `J`-compatible norm;
+2. G: viability of the common-uniform coupling via finite-seed disagreement survival versus extinction near East.
 
-If both close positively, combine them to prove `J_{x,r}->0`; only then reconstruct the full trail/no-exit convergence argument.
+No finite local scalar Foster state or depth-uniform finite common-mass matrix remains available.
 
 ## Most recently completed programme
 
