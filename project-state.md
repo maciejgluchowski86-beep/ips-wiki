@@ -8,93 +8,81 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 
 ## Active scientific direction
 
-**Corrected sharp concentration of voter-model discordant edges on random regular graphs.**
+**Voter-model discordance on undirected heterogeneous configuration models.**
 
-- Branch: `research/voter-discordant-concentration`.
-- Workspace: `research/active/voter-discordant-concentration/`.
-- Persistent Graduate Student D: idle while novelty review runs.
-- Latest meeting: `research/active/voter-discordant-concentration/meetings/003-correctness-passed-novelty-audit.md`, `state_narrowed: yes`.
-- Central claim: `VOTER-CONC-001`, status `claimed`.
-- Correctness: Professor reconstruction plus two independent hostile reviews have passed.
-- Remaining gate: dedicated novelty / closest-prior-work audit, `research/active/voter-discordant-concentration/audits/assignment-003-novelty-prior-work.md`.
+- Branch: `research/heterogeneous-voter-discordance`.
+- Workspace: `research/active/heterogeneous-voter-discordance/`.
+- Active student: persistent Graduate Student E.
+- Initial bounded ensemble: configuration models whose empirical degree law converges to a fixed law supported on `{3,...,D}` for finite `D`.
+- Source-level target: identify and prove the unequal-degree analogues of the regular-random-graph discordance profile and consensus-scale diffusion constant.
+- Assignment: `research/active/heterogeneous-voter-discordance/students/student-e/assignment-001.md`.
 
-### Correctness-reviewed deterministic inequality
+Frank den Hollander, *Evolution of Discordance* (2025), Section 2.4, explicitly states that extending the regular discordance theorems to configuration models with unequal degrees remains open and that no conjectural analogues of the regular `theta_d` and `f_d(t)` are given there. Student E's first assignment must nevertheless check general finite-voter and configuration-model literature before treating any candidate formula as new.
 
-For every finite simple `d`-regular graph with **`d>=1`**, not necessarily connected, every `u in (0,1)`, and every `t>=0`,
+### First structural edge
+
+For a fixed undirected graph with degrees `d_x`, `m=|E|`, and stationary random-walk weights
 
 $$
-\boxed{
+\pi_x=\frac{d_x}{2m},
+$$
+
+the conserved voter coordinate is
+
+$$
+B^\pi(\eta)=\sum_x\pi_x\eta_x,
+$$
+
+not the unweighted density. If `k_x` is the number of neighbours disagreeing with `x`, then
+
+$$
+\Gamma(B^\pi)(\eta)
+=\frac1{4m^2}\sum_xd_xk_x
+=\frac1{4m^2}
+\sum_{\{x,y\}\in E:\eta_x\ne\eta_y}(d_x+d_y).
+$$
+
+Thus the consensus-scale bracket is driven by a degree-weighted discordant-edge observable. The raw discordant-edge profile and bracket-weighted profile coincide up to a constant only in the regular case. The first assignment must derive the exact local weak rootings, candidate profiles, and meeting-time constant, and determine which parts are already prior art.
+
+## Most recently closed programme: voter discordance sharp concentration on random regular graphs
+
+The regular-graph concentration programme closed at Group Meeting 004 on branch `research/voter-discordant-concentration` after a negative closest-prior-work audit.
+
+`VOTER-CONC-001` is mathematically **verified** but **not a new project result under the standing novelty standard**.
+
+The project proved the sharper deterministic inequality
+
+$$
 \operatorname{Var}_u^G(\mathcal D_t)
-\le2\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t).
-}
+\le2\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t)
 $$
 
-The two walks are independent rate-one continuous-time simple random walks started from uniform `pi`. Student D's proof is in commit `e73fd25`; the Professor reconstruction is `notes/professor-assignment-002-verification.md`.
+for every finite simple positive-degree regular graph. Correctness survived the Professor reconstruction and two independent hostile reviews.
 
-Independent correctness reviews:
-
-- Review A: commit `add0681`, `audits/001-genealogy-review-a.md`, `PASS`;
-- Review B: commit `45f960b`, `audits/002-genealogy-review-b.md`, `PASS`, explicitly independent of Review A.
-
-Both reviews reconstruct the genealogy conditioning, quotient-cut variance bound, cluster-square/meeting identity, four-family coupling including within-family coalescence, edge orientation normalization, and source interface without finding a mathematical defect.
-
-### Correctness-reviewed random-regular consequence
-
-For uniformly random simple regular graphs keep fixed **`d>=3`**.
-
-Use Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), source **(5.8)** together with the high-probability `Theta(n)` stationary mean meeting time and spectral-gap input used there. Then for every deterministic `t_n=o(n)`,
+However, Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), Proposition 4.1 proof (4.2) together with (5.5)--(5.6), already imply the theorem-level bound
 
 $$
-\operatorname{Var}_u^G(\mathcal D_{t_n}^n)
-=O_{\mathbb P}\left(\frac{1+t_n}{n}\right),
+\operatorname{Var}_u^G(\mathcal D_t)
+\le4\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t),
 $$
 
-and hence for every `C_n->infinity`,
+and source (5.8) then yields the same random-regular asymptotic concentration consequences. The project's factor `2` and quotient-genealogy proof are retained as verified technical mathematics, not a contribution claim.
 
-$$
-\mathbf P_u^G\left(
-|\mathcal D_{t_n}^n-\mathbf E_u^G\mathcal D_{t_n}^n|
->C_n\sqrt{\frac{1+t_n}{n}}
-\right)\xrightarrow{\mathbb P}0.
-$$
+Literal source Eq. (1.9) is false for unrestricted very-small times; the project counterexample `t_n=n^{-3}`, `C_n=log n` is verified. Priority of that narrow correction remains unresolved because a relevant Capannoli thesis was inaccessible to the novelty auditor. It is not being pursued as an active programme on opportunity-cost grounds.
 
-For deterministic `1<=t_n=o(n)`,
+Do not reopen the regular concentration programme to optimize the constant or repackage the immediate prior-work corollary.
 
-$$
-\operatorname{Var}_u^G(\mathcal D_{t_n}^n)=O_{\mathbb P}(t_n/n),
-$$
+## Earlier closed programme: residual positive-rates / noisy East
 
-so the source's proposed `C_n sqrt(t_n/n)` scale holds in that regime.
-
-The bare printed `O(t/n)` wording of source (5.7) is not used uniformly down to zero because `q_0=1/n`; for `t<1`, use source (5.8) or monotonicity from time one.
-
-### Small-time source correction
-
-Literal source Eq. (1.9) is false because its displayed quantifiers allow unrestricted `t_n->0` while Bernoulli initial data already fluctuate on scale `n^{-1/2}`. The independently confirmed counterexample is
-
-$$
-t_n=n^{-3},\qquad C_n=\log n.
-$$
-
-Stable scope: the project proves the source scale for deterministic `1<=t_n=o(n)` and the corrected `sqrt((1+t_n)/n)` scale for all deterministic sublinear sequences. No complete classification of every possible subunit sequence under the original scale is claimed.
-
-### Promotion status
-
-`VOTER-CONC-001` deliberately remains `claimed` even though the two correctness reviews passed. Meeting 002 pre-committed to a dedicated closest-prior-work / novelty audit before `verified` promotion or manuscript contribution language.
-
-This is now the only unresolved issue. The audit must determine whether the deterministic inequality or its genealogy argument is already known, whether the random-regular theorem is an immediate corollary of prior work, and how much novelty attaches to the literal small-time correction. If prior art is found, correctness remains intact but project-result status will be downgraded, as happened in the BABP programme.
-
-## Wiki freeze review
-
-Keep the live wiki frozen until novelty/contribution status is settled. No `proved here` promotion is appropriate yet.
-
-## Most recently closed programme: residual positive-rates / noisy East
-
-The noisy-East finite-wall programme closed at Group Meeting 002 on branch `research/noisy-east-positive-rates`. Its corrected residual chamber and sharp frozen-exterior three-site factor remain useful diagnostic mathematics, but repeated attacks show the one-attack factor does not concatenate. No length-four rescue is allowed.
+The noisy-East fixed-finite-wall programme is closed. Its corrected residual chamber and sharp frozen-exterior three-site factor remain useful diagnostic mathematics, but repeated attacks show the one-attack factor does not concatenate. No length-four rescue is allowed.
 
 ## Earlier closed programme: BABP finite seed
 
 BABP closed without a new project result under the standing novelty standard. `BABP-EDGE-001` and `BABP-CONV-001` remain verified technical mathematics with their audit records, but neither is counted as a project contribution.
+
+## Wiki freeze
+
+The live wiki remains frozen. No `proved here` promotion follows from the closed voter-concentration programme because its central verified theorem is non-contributory under the standing novelty standard.
 
 ## Closed programmes and routes
 
@@ -109,6 +97,7 @@ Closed programmes not to be retried by renaming include:
 - Gaussian bridge coarsening;
 - 1D hard FA-1f finite-seed programme based on centered-transform / unnormalized patch-transfer routes;
 - 1D BABP finite-seed programme based on finite-window submartingales and the unresolved invariant-front continuation;
-- residual noisy-East programme based on fixed finite agreed-block walls and frozen-exterior crossing factors.
+- residual noisy-East programme based on fixed finite agreed-block walls and frozen-exterior crossing factors;
+- random-regular voter-discordance sharp-concentration programme based on the variance-to-meeting reduction already implicit in Avena et al. (2024).
 
 Broader mathematical problems may remain open. What is closed is the recorded programme/mechanism at its present expected value.
