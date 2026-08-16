@@ -56,17 +56,7 @@ Meeting: `meetings/005-principal-trail-reduction-and-all-depth-transfer.md`.
 
 Durable note: `notes/principal-centered-trail-reduction.md`.
 
-Working conclusions:
-
-1. the residual centered dual has a canonical predecessor trail with positive factor `e^{-(1-c+a)tau}`;
-2. selected trail interactions are births;
-3. the decorated trail separates left/right Poisson regions;
-4. the right contribution is uniformly bounded if the final coin is averaged before absolute values;
-5. finite zero-boundary mixing after the final trail time reduces the nonempty-exit term to an all-depth invariant expectation;
-6. at exact East the invariant trail expectation is exactly zero;
-7. Meeting 005 proposed a sufficient one-generation centered signed-measure norm contraction `(T)`.
-
-Student F was assigned `assignment-006.md` to audit the trail identity and attack `(T)`.
+Working conclusions: the residual centered dual has a canonical predecessor trail with positive factor `e^{-(1-c+a)tau}`; the right contribution is uniformly bounded after final-coin averaging; finite zero-boundary mixing reduces the nonempty-exit term to an all-depth invariant expectation; exact East cancellation holds. Meeting 005 proposed a one-generation centered signed-measure contraction `(T)`.
 
 ## Meeting 006: exact depth-two obstruction to `(T)`; block mass/disagreement target
 
@@ -76,42 +66,48 @@ Meeting: `meetings/006-one-step-transfer-refuted-block-stack-target.md`.
 
 Durable principal update: `notes/principal-centered-trail-update2.md`.
 
-The principal's continued calculation supersedes the one-step target from Meeting 005. Professor checks confirm the load-bearing asymptotics.
+Professor checks confirm:
 
-1. **Segmentwise right killing.** The right region satisfies
-   $$
-   |R_{\gamma,t}(\eta)|\le C_A\prod_k s_1(u_k),
-   $$
-   where `s_1` is survival of an explicit killed two-state chain. With `w(u)=e^{-omega u}s_1(u)` and
-   $$
-   Z=\int_0^\infty w(u)\,du,
-   $$
-   direct sup-norm decay is proved whenever
-   $$
-   \max\{c,b-a\}Z<1.
-   $$
-   This gives a genuine residual subregion but excludes near East.
-2. **Exact depth-two obstruction.** On `a=eps^2,b=eps,c=1-eps^2`, the exact two-level invariant scalar changes sign and
-   $$
-   \frac{b-a}{|m_\varepsilon|}\int e^{-\omega u}|A_{2,\varepsilon}(u)|\,du\to\frac32,
-   $$
-   while with segmentwise right killing the ratio tends to
-   $$
-   \frac75.
-   $$
-   Thus pointwise regional positivity and Meeting 005's one-step `L^1` transfer contraction are false near East. This is an exact obstruction, not a weak estimate.
-3. **Correct sufficient quantity.** The right-weighted invariant quantity is
-   $$
-   J_{x,r}=B(b-a)^{n-1}\int\left(\prod_k w(u_k)\right)|\pi^0_{m,r}(F_{x,u})|\,du.
-   $$
-   `J_{x,r}->0` with depth is sufficient for the nonempty-exit term.
-4. **Mass/disagreement decomposition.** Each centered insertion splits exactly into a signed mass channel and a positive conditional-law-disagreement channel:
-   $$
-   (b-a)\mu(h_{p_*}(\eta_y)f)
-   =(Br-c)\bar\mu(f)+Br(1-r)(\mu^1-\mu^0)(f).
-   $$
-   Near East the equilibrium mass coefficient is order `eps^2`, the disagreement coefficient order `eps`, and the right-weighted equilibrium mass multiplier tends to `2/5`.
-5. **Stack drift.** The principal reset coupling removes an expected number of unresolved levels strictly larger than one per step, giving strict negative drift of unresolved stack height for large height. This connects directly to Student F's live-coupling technology.
-6. **Revised target.** The surviving theorem is a parameter-dependent block contraction on decompositions into mass and coupled-disagreement components, weighted by unresolved stack height. One-step contraction is closed.
+1. segmentwise right killing gives `|R|<=C_A prod s_1(u_k)` and direct decay on `max{c,b-a}Z<1`;
+2. near East the exact depth-two absolute-value ratios tend to `3/2` without right killing and `7/5` with it, closing one-step `(T)`;
+3. the correct sufficient quantity is the global right-weighted invariant `J_{x,r}`;
+4. each centered insertion splits into signed mass and positive conditional-law disagreement channels;
+5. unresolved disagreement-stack height has negative drift;
+6. the remaining theorem is a parameter-dependent block contraction preserving disagreement structure.
 
-Student F Assignment 006 is superseded immediately by `students/student-f/assignment-007.md`. Student G remains on Assignment 002.
+Student F moved to `assignment-007.md`.
+
+## Meeting 007: Student G exposure resolvent and restart bottleneck
+
+Meeting: `meetings/007-student-g-exposure-resolvent-and-restart-bottleneck.md`.
+
+`state_narrowed: yes`.
+
+Student G return:
+
+- commit `c7a33b5`, `students/student-g/002-density-to-regional-control.md`;
+- verifier commit `e20847a`, `students/student-g/002-regional-moment-verifier.py`.
+
+Operational correction: G had not actually been working during Meetings 003--006; the session produced only `Completed` with no commits until re-prompted by the principal. The present mathematics was then produced and is assessed independently of that delay.
+
+Professor-checked conclusions:
+
+1. G independently reproduces F's old one-cell positive / two-hidden-cell sign failure. This corroborates the closed scaffold route but does not change it.
+2. For every live exposure edge `D_i=0,D_{i+1}=1`, including non-rightmost disagreements, Meeting 004's universal coalescence hazard gives a killed two-state comparison. The child-before-right-coalescence probability is at most explicit `h_x<1`.
+3. The dangerous local indicator
+   $$
+   J_i=1_{\{D_i=0,D_{i+1}=1,X_i=Y_i=1\}}
+   $$
+   has an explicit single-exposure resolvent
+   $$
+   E\int J_i\le g_x,
+   $$
+   and the exact child compensator is
+   $$
+   P(\text{child before right coalescence})=E\int[(b-a)+(c-b+a)J_i(t)]dt.
+   $$
+4. A crude all-time summation through exposure-entry count is valid but noncontractive near East: `q-(c-d)g_1=-1+O(eps)`. The loss is repeated exposure re-entry/restart, not the one-exposure kernel.
+5. G's local `J_i` is not Meeting 006's global trail quantity `J_{x,r}`. The near-East obstruction does not refute `J_{x,r}->0`; it constrains how the block theorem may be proved.
+6. The exposure-restart issue is the coupling-side manifestation of the same signed branching problem in the mass/disagreement decomposition.
+
+Student F continues `assignment-007.md`. Student G is assigned `students/student-g/assignment-003.md` to build a restart-count/renewal bridge from the conditional-law disagreement channel to the block contraction, or produce an exact obstruction.
