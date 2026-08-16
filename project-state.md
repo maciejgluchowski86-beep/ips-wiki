@@ -13,9 +13,9 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed until changed or stopped by the principal: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/015-local-coalescence-convective-escape-and-random-map-test.md`, `state_narrowed: yes`.
-- Student F: `students/student-f/assignment-012.md`, decide tail-shift agreement of the projective half-line invariant law.
-- Student G successor: `students/student-g/assignment-007.md`, finite-time random-map Hamming contraction / convective-survival decision at the strict near-East rational point.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/016-route-review-converges-on-finite-time-damage-contraction.md`, `state_narrowed: yes`.
+- Student G successor: `students/student-g/assignment-007.md`, finite-time full-line random-map Hamming contraction / convective-survival decision at the strict near-East rational point.
+- Student F: Assignment 012 completed; idle pending G007. No new F assignment is authorized yet.
 
 On `r11=0`, with
 
@@ -50,113 +50,83 @@ $$
 
 Proving `J_{x,r}->0` with depth is sufficient for the nonempty-exit term. Exact Poisson--Mecke factorization and the no-exit complement remain downstream audits after `J` decay is proved.
 
-### Common-mass side
+### Common-mass side after F012
 
 Professor-checked losses remain
 
 $$
 |Br_0-c|Z<\frac23,
 \qquad
-BZ_{\omega+1+b}<1,
-\qquad r_0=\frac1{1+b}.
+BZ_{\omega+1+b}<1.
 $$
 
-The exact common-mass semigroup has no depth-uniform finite linear mode closure. Assignments 010--011 instead give suffix projectivity and finite-context truncation of the first invariant insertion.
-
-Let `mu=pi_infty^0` be the projective half-line zero-boundary invariant law, `theta` drop the boundary-nearest spin, and
-
-$$
-\mathcal F_m=\sigma(X_j:j\ge m),
-\qquad
-\mathcal T=\bigcap_m\mathcal F_m.
-$$
-
-The zero-frequency post-insertion defect satisfies
-
-$$
-\Delta_M=\|\theta\mu-\mu\|_{\mathcal F_{M-1}},
-$$
-
-and
+The zero-frequency post-insertion defect is the tail-shift variation `Delta_M`. F012 now proves the stronger sufficient estimate
 
 $$
 \boxed{
-\lim_{M\to\infty}\Delta_M
-=\|\theta\mu-\mu\|_{\mathcal T}.
+\Delta_M
+\le
+2c\int_0^\infty\beta_{M-1}(t)dt,
 }
 $$
 
-Thus zero-frequency locality is exactly tail-shift agreement
-
-$$
-\boxed{
-\mu|_{\mathcal T}=(\theta\mu)|_{\mathcal T}.
-}
-$$
-
-Conditional on this theorem, the common-mass branch after one insertion has a valid `J`-compatible one-next-segment truncation bound. F Assignment 012 is the bounded decision block on this theorem.
-
-### Coupling side: Meeting 015
-
-The replacement G session completed Assignment 006 in commits `78470a1` and `43f4bb1`. These landed shortly before Meeting 014 and were not seen during that meeting; Meeting 015 contains the ruling.
-
-For the actual common-uniform coupling, every finite disagreement seed becomes permanently coupled at each fixed site. Finite-seed survival, if it occurs, is therefore purely convective escape to `-infinity`.
+where `beta_m(t)` is the maximal expected single-flip disagreement mass at least `m` sites to the left in a finite zero-boundary chain.
 
 With
 
 $$
-q=1-c+a,
+\alpha_0(t)
+=
+\sup_{n,\eta,i}E\sum_jD_j(t),
 $$
 
-the exact local drift obeys
+finite speed and `beta_m<=alpha_0` imply
 
 $$
-\mathcal L^{\rm coup}D_i\le-qD_i+cD_{i+1},
+\int_0^\infty\alpha_0(t)dt<\infty
+\Longrightarrow
+\Delta_M\to0.
 $$
 
-so for every `z>c/q`,
+Since `alpha_0` is submultiplicative, one finite-time inequality
 
 $$
-E\sum_i z^iD_i(t)
-\le e^{-(q-c/z)t}\sum_i z^iD_i(0).
+\boxed{\alpha_0(T)<1}
 $$
 
-This gives exponential stabilization of every fixed window but does not imply global extinction.
+proves tail-shift agreement and gives an explicit exponential `Delta_M` bound. G's finite controlled-CTMC hierarchy extends to a certificate for `alpha_0(T)` after finitely many close-zero-boundary geometries are included.
 
-Define the finite-time single-flip Hamming amplification
+No such strict zero-boundary certificate is currently proved.
 
-$$
-\alpha(t)=\sup_{\eta,i}E\,d_H(\Phi_t\eta,\Phi_t\eta^i).
-$$
+Verifier status: original F012 verifier `3750a53` fails because of SymPy's convergence-conditioned `Piecewise` form for a symbolic geometric sum and is not counted as passing. F subsequently repaired that tooling assertion in commit `5494008`; the mathematical ruling is based on proof reconstruction.
 
-G proves submultiplicativity
+### Coupling side
 
-$$
-\alpha(t+s)\le\alpha(t)\alpha(s).
-$$
+For the actual full-line common-uniform coupling, every finite seed becomes permanently coupled at each fixed site; possible survival is convective escape to `-infinity`.
 
-One strict inequality `alpha(T)<1` implies exponential finite-seed extinction. Moreover, with the finite controlled-chain quantity `A_{L,R}(T)`,
+The full-line Hamming coefficient
 
 $$
-\boxed{
+\alpha(t)=\sup_{\eta,i}E\,d_H(\Phi_t\eta,\Phi_t\eta^i)
+$$
+
+is submultiplicative. One strict `alpha(T)<1` gives exponential finite-seed extinction. The exact finite controlled-chain hierarchy is
+
+$$
 \alpha(T)
 \le
 A_{L,R}(T)+E[(\operatorname{Pois}(T)-L)_+].
-}
 $$
 
-At the hard rational point `(1/10000,1/100,9999/10000)`, the worst local geometry is initially expansive with derivative `9997/10000`, so any contraction must arise only after genuinely nonlocal finite-time clearing.
+G007 is the one active execution block on this diagnostic.
 
-Student G Assignment 007 executes this finite random-map diagnostic. Failure of one finite upper certificate is not evidence of survival.
+### Route-level decision
 
-### Route-level checkpoint
+The profile and coupling sides have converged on one mechanism: finite-time contraction of complete common-random-map single-flip damage. The zero-boundary and full-line coefficients are not automatically identical, but the finite controlled-chain machinery is shared.
 
-Both active lines are now concrete nonlocal decision theorems:
+Continue only through G007. F is idle; do not duplicate the HJB search or start matrix-product/nonlocal-norm engineering.
 
-1. F012: tail-shift agreement of the projective half-line invariant law;
-2. G007: `alpha(T)<1` versus a genuine convective-survival/lower obstruction.
-
-Do not begin open-ended matrix-product/nonlocal norm engineering. The promised route-level expected-value review is due when F012 returns; G007 may proceed in parallel because it is the exact diagnostic exposed by G006 rather than a new architecture.
+If G007 proves full-line contraction, next check the finitely many close-zero-boundary cases needed for `alpha_0(T)<1`, then formulate one combined block transfer. If G007 proves convective survival, close every proof mechanism requiring eventual global coalescence of this synchronous coupling. If G007 remains unresolved and only larger finite-window/controller searches remain, stop this implementation and reassess the predecessor-trail route or use a bounded outside consultation.
 
 ## Most recently completed programme
 
