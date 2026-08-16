@@ -30,101 +30,61 @@ $$
 }
 $$
 
-The previous fixed-wall programme closed only the fixed finite agreed-block / frozen-exterior route. No block-length escalation is allowed.
+The older fixed finite-wall/frozen-exterior route remains closed.
 
-## E1. Exact hidden-interaction algebra
+## E1. Hidden-interaction algebra and conditional insertion lemma
 
-Student F's first report, Professor-checked at Meeting 001, identifies the exact sign in the principal's remembered last-exit construction.
-
-In complemented canonical spins let
+In complemented canonical spins put
 
 $$
 B=b+c-a,\qquad \rho=\frac cB.
 $$
 
-At a successful rightward dual interaction, the source-retaining type has coefficient `+B` and the source-removing type has coefficient `-c`. If location and time are revealed but type is hidden, their signed average is
+A hidden successful rightward dual interaction has signed type average
 
 $$
 \boxed{B\eta_i-c=B(\eta_i-\rho).}
 $$
 
-The old barrier--scaffold note had a local generator derivation typo: the diagonal `-c_{11}H(A)` term was omitted in one displayed line, although the later Feynman--Kac potential was already corrected. Meeting 001 verified the corrected algebra.
-
-**Status:** established intermediate algebra.
-
-## E2. Noise-reduced conditional insertion estimate
-
-Delete the environment-independent rate-`a` noise, obtaining `L^-`. Conditional on the complete graphical history strictly to the right of site `i`, the canonical spin at `i` is a two-state time-inhomogeneous chain. Uniformly over initial configurations,
+For the noise-reduced process `L^-`, conditional on the full graphical history strictly to the right of `i`,
 
 $$
 \boxed{
 \mathbb P^-\!\left(\eta_i(t)=1\mid\mathcal F^+_{i,t}\right)
-\ge q(t)=\frac{1-e^{-(1-c)t}}{1+b-a}.
+\ge
+\frac{1-e^{-(1-c)t}}{1+b-a}.
 }
 $$
 
-Since
+Thus after
 
 $$
 T_\rho=
-\frac1{1-c}\log\frac{B}{(b-a)(1-c)}
+\frac1{1-c}\log\frac{B}{(b-a)(1-c)},
 $$
 
-satisfies `q(t)>=rho` for `t>=T_rho`, one obtains
+nonnegative right-history-measurable companions satisfy
 
 $$
-\boxed{
-F\ge0,\ F\text{ right-history measurable}
-\Longrightarrow
-\mathbb E^-[(B\eta_i(t)-c)F]\ge0
-}
+\mathbb E^-[(B\eta_i(t)-c)F]\ge0.
 $$
 
-for `t>=T_rho`.
+**Status:** Professor-checked reusable lemma. It no longer closes the proof by cellwise scaffold iteration because E5 below fails.
 
-This is a finite-time estimate independent of ergodicity or invariant laws. The previously vague high-density sign is therefore no longer an unproved density hypothesis.
+## E2. Direct transient information on the original dynamics
 
-**Status:** Professor-checked target-relevant lemma; no independent audit yet because it is intermediate rather than a promoted central claim.
-
-## E3. Original-dynamics finite-box density estimates
-
-Student G independently derived actual transient information for the original normalized IPS.
-
-With
-
-$$
-m_i=\mathbb E\eta_i,\qquad q_i=\mathbb P(00),
-\qquad k=1+b+c,\qquad A=b+c-a,
-$$
-
-one has the exact transport--dissipation identity
+Student G's first report, Professor-checked at Meeting 001, gives
 
 $$
 \boxed{
 \frac d{dt}m_i
-=(b+c)-km_i-Aq_i+c(m_i-m_{i+1}).
+=(b+c)-(1+b+c)m_i-(b+c-a)q_i+c(m_i-m_{i+1}),
 }
 $$
 
-Summing over an interval telescopes the transport term and gives
+where `q_i=P(00)`.
 
-$$
-\boxed{
-\frac1L\sum_{i\in I}\mathbb P(\eta_i(t)=0)
-\ge
-\frac{1-e^{-kt}}{k}\left(1-\frac cL\right)
-}
-$$
-
-uniformly over initial states and prescribed right-boundary histories.
-
-One-sided graphical propagation gives boundary error
-
-$$
-H_R(t)=\mathbb P(\operatorname{Pois}(t)\ge R),
-$$
-
-which yields a high-probability finite-box version by residue-class independence after truncation.
+Summing over an interval telescopes the spatial term and yields a boundary-uniform transient zero-density lower bound. One-sided graphical propagation gives an explicit finite-box concentration version.
 
 For adjacent ones,
 
@@ -135,106 +95,122 @@ $$
 }
 $$
 
-Hence at time `log(1/b)/(1+b)`, boxes of length `o(1/b)` contain no adjacent `11` pair with probability `1-o(1)` as `b->0`.
+Hence near `b=0`, after time `log(1/b)/(1+b)`, boxes of length `o(1/b)` are in the no-adjacent-`11` hard-core sector with probability `1-o(1)`.
 
-**Status:** Professor-checked target-relevant transient estimates; they do not by themselves imply ergodicity.
+**Status:** Professor-checked target-relevant direct dynamics. This is currently the main positive input.
 
-## E4. Non-composition of the present density bounds
+## E3. Naive composition of density with hidden insertion fails
 
-The F and G estimates concern the same physical density after translating conventions, but they do not presently compose.
-
-F's sign condition is a **conditional weighted insertion statement for `L^-`**. G's bounds are **unweighted spatial-density statements for the original process `L`**.
-
-Even if one ignores this structural mismatch, G's asymptotic guaranteed zero-density floor
+The direct zero-density floor
 
 $$
-\theta_G=\frac1{1+b+c}
+\frac1{1+b+c}
 $$
 
-is strictly below the hidden-type threshold
+is strictly below
 
 $$
 \rho=\frac c{b+c-a}
 $$
 
-throughout `R`. Indeed
+throughout `R`, and the hard-core one-half-zero guarantee is also below `rho`. Moreover the direct density estimates concern `L`, whereas E1 is a weighted conditional statement for `L^-`.
 
-$$
-c(1+b+c)-(b+c-a)
-=a+c^2-b(1-c)>0.
-$$
+Thus no proof edge may be created by merely saying that the two density statements are compatible.
 
-Also `rho>1/2`, since `b-a<c`, so the mesoscopic hard-core guarantee of at least one-half zeros is not enough either.
+## E4. One-cell regional insertion works
 
-**Status:** checked obstruction to the naive composition "density estimate + hidden interaction sign".
+Student F Assignment 002 resolves the first half of Meeting 001's finite test.
 
-## E5. Raw Duhamel and patchwise positivity are insufficient
-
-The exact comparison generators satisfy
-
-$$
-L^+=L^-+2cC,
-$$
-
-so
-
-$$
-U^-_{s,t}-U^+_{s,t}
-=-2c\int_s^t U^-_{s,u}C_uU^+_{u,t}\,du.
-$$
-
-However, for `f(eta)=eta_{i-1}`,
-
-$$
-D_i(U_t^+f)=t(c+B\eta_{i-1})+O(t^2),
-$$
-
-so the raw companion factor depends on a left spin and E2 cannot simply be inserted.
-
-Separately, long OI patches of the original process have limiting sign
-
-$$
-\frac{b(1-c)-a}{1+b}.
-$$
-
-Thus in the hard subregion
-
-$$
-a>b(1-c)
-$$
-
-patchwise positivity/absolute-value domination fails.
-
-These are route exclusions, not failures of the coarser hidden-type scaffold cancellation.
-
-## E6. Current load-bearing edge: regional insertion positivity
-
-Take the **smallest nontrivial scaffold cell** containing a hidden successful interaction and a left predecessor branch. Reveal only the geometry/no-crossing data needed for the cell, keep the birth-versus-jump type hidden, and integrate all other marks with the corrected dynamic boundary rules.
-
-Let `F` be the resulting companion kernel at the source. Determine whether, after the relevant burn-in,
+Fix a predecessor interaction to be source-retaining. The left absence region is exactly a one-site zero-boundary `L^-` evolution. Writing `d=b-a`, its kernel is
 
 $$
 \boxed{
-\mathbb E^-[\eta_iF]\ge\rho\,\mathbb E^-[F].
+K_\Delta(z)
+=
+\frac1{1+d}
++
+\left(z-\frac1{1+d}\right)e^{-(1+d)\Delta}.
 }
 $$
 
-Right-history measurability plus `F>=0` is sufficient, but not necessary. A coarser regional cancellation proving the displayed inequality directly is enough.
+This factor is nonnegative and separates from the current source/right region. Hence after the E1 burn-in, the current hidden successful interaction has nonnegative one-cell contribution.
 
-This is deliberately finite-dimensional and falsifiable.
+**Status:** Professor-checked. This shows regional integration really removes the raw Duhamel left-spin obstruction on one cell.
 
-- If the inequality fails on the minimal cell, the principal's old last-exit route is closed in its present form.
-- If it holds on one cell, test two-cell composition immediately. One-cell positivity that does not iterate is not target progress.
-- If two-cell composition works, the next edge is to iterate along the trail and combine it with the exact deleted-noise factor `e^{-a u}`.
+## E5. Two-cell composition fails: cellwise scaffold route closed
 
-Students F and G are both assigned to this composition-or-kill question with broad methodological freedom.
+For actual composition, the predecessor interaction is itself hidden. Its source-retaining type contributes `+B K_Delta(z)`; its source-removing type contributes `-c`. Therefore the exact signed transfer between cells is
+
+$$
+\boxed{
+\Psi_\Delta(z)=B K_\Delta(z)-c.
+}
+$$
+
+At `z=0`,
+
+$$
+\Psi_\Delta(0)
+=
+\frac{B}{1+b-a}(1-e^{-(1+b-a)\Delta})-c.
+$$
+
+Since `Psi_0(0)=-c<0` and its long-time limit is
+
+$$
+\frac{(b-a)(1-c)}{1+b-a}>0,
+$$
+
+the sign changes at
+
+$$
+\boxed{
+\tau_*
+=
+\frac1{1+b-a}
+\log\frac{b+c-a}{(b-a)(1-c)}.
+}
+$$
+
+Hence, for every residual parameter point,
+
+$$
+0<\Delta<\tau_*
+\quad\Longrightarrow\quad
+\Psi_\Delta(0)<0.
+$$
+
+Scaffold predecessor gaps can be arbitrarily short. Thus the mechanism
+
+> hide each successful type, integrate one adjacent cell, obtain a nonnegative transfer, and iterate cell by cell
+
+is false already at two-cell composition.
+
+**Status:** Professor-checked route obstruction. The cellwise last-exit/scaffold positivity route is closed.
+
+A hypothetical cancellation obtained only after summing random clusters of short cells would be a genuinely new mechanism. It is not an automatic continuation of E5.
+
+## E6. Current load-bearing edge: live disagreement/regeneration under the true dynamics
+
+The next route works directly with the canonical coupling and the actual lifetime of a disagreement source.
+
+The source must evolve under the true coupled dynamics and be allowed to die. This avoids the frozen-exterior obstruction. No sign is required separately for every dual/scaffold cell, avoiding E5.
+
+Target an actual finite-time statement such as:
+
+- a contraction probability across a block/time slab before the source episode dies;
+- a regeneration event with a quantitative lower bound;
+- a Lyapunov drift for disagreement plus a local environmental badness variable;
+- a state-dependent influence/branching estimate rendered subcritical by the true environment.
+
+The direct zero-density and no-`11` estimates from E2 may be used, but a new disagreement representation without a contraction estimate is not progress.
+
+Student F is attacking E6 in `students/student-f/assignment-003.md`. Student G is still completing the independent Assignment 002 and will be folded in when it returns.
 
 ## Anti-circularity checkpoint
 
-The previous bottleneck was a vague high-density premise. It has been replaced by E6, a finite regional inequality with an explicit threshold. That is genuine narrowing.
-
-Do not add another proof-spine edge unless it proves a new estimate/obstruction or makes E6 strictly easier. Unweighted density improvements, new dual variables, or new finite-box language do not count without a demonstrated interface to E6 or to ergodicity.
+Meeting 002 eliminates a concrete route rather than renaming its obstruction. Do not return immediately to larger/coarser scaffold cells. The next accepted spine edge must concern a quantitatively different object: a live disagreement episode or another direct dynamical mechanism.
 
 ## Current direction
 
-Attack E6. Preserve the fixed positive-rates target.
+Attack E6 while preserving the fixed positive-rates target.
