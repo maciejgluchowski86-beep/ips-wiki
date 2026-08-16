@@ -1,56 +1,82 @@
 # Project state
 
-This file is the compact current-state index for the autonomous research programme. Detailed mathematics lives under `research/` and in Git history. `CHATGPT.md` governs the workflow.
+This file is the compact current-state index for the autonomous research programme. Detailed mathematics lives under `research/` and in Git history. `CHATGPT.md` governs the workflow except where the principal has explicitly fixed the present target below.
 
 ## Standing novelty standard
 
 A quantitatively improved instance of an existing arbitrary-size/window/order method does not count as a new project result merely because it improves a numerical constant or range. Qualifying work must add structural mathematics or resolve/correct the target problem.
 
-## Active scientific direction
+## Principal-fixed active scientific direction
 
-**Voter-model discordance on undirected heterogeneous configuration models.**
+**Positive rates conjecture for simple IPS.**
 
-- Branch: `research/heterogeneous-voter-discordance`.
-- Workspace: `research/active/heterogeneous-voter-discordance/`.
-- Active student: persistent Graduate Student E.
-- Initial bounded ensemble: configuration models whose empirical degree law converges to a fixed law supported on `{3,...,D}` for finite `D`.
-- Source-level target: identify and prove the unequal-degree analogues of the regular-random-graph discordance profile and consensus-scale diffusion constant.
-- Assignment: `research/active/heterogeneous-voter-discordance/students/student-e/assignment-001.md`.
+- Branch: `research/positive-rates-conjecture`.
+- Workspace: `research/active/positive-rates-conjecture/`.
+- Target fixed by the principal until the principal changes or stops it: prove that every simple IPS with positive rates is ergodic.
+- Simple means one-dimensional, homogeneous, binary, one-sided nearest-neighbour, in the formulation of Głuchowski--Menz, *Ergodicity Criterion for One-Sided, One-Dimensional IPS with a Long-Lived State*.
+- The Professor continues to direct methods, proof-spine changes, audits, and stopping of individual routes, but does **not** pivot to another scientific target on opportunity-cost grounds.
+- Principal's verbatim starting note: `research/active/positive-rates-conjecture/principal-starting-note.md`.
+- Initial setup meeting: `research/active/positive-rates-conjecture/meetings/000-principal-reset.md`, `state_narrowed: no`.
+- Requested new persistent agents: Students F and G; their first assignments are already committed on the active branch.
 
-Frank den Hollander, *Evolution of Discordance* (2025), Section 2.4, explicitly states that extending the regular discordance theorems to configuration models with unequal degrees remains open and that no conjectural analogues of the regular `theta_d` and `f_d(t)` are given there. Student E's first assignment must nevertheless check general finite-voter and configuration-model literature before treating any candidate formula as new.
-
-### First structural edge
-
-For a fixed undirected graph with degrees `d_x`, `m=|E|`, and stationary random-walk weights
+Write
 
 $$
-\pi_x=\frac{d_x}{2m},
+r_{xy}=P_0(1\mid xy).
 $$
 
-the conserved voter coordinate is
+Positive rates are
 
 $$
-B^\pi(\eta)=\sum_x\pi_x\eta_x,
+r_{11}<1,\qquad r_{10}<1,\qquad r_{01}>0,\qquad r_{00}>0.
 $$
 
-not the unweighted density. If `k_x` is the number of neighbours disagreeing with `x`, then
+After the proved time-scaling/state-symmetry reductions and the 2026 long-lived-state criterion, the source-corrected unresolved normalized chamber on `r11=0`, with
 
 $$
-\Gamma(B^\pi)(\eta)
-=\frac1{4m^2}\sum_xd_xk_x
-=\frac1{4m^2}
-\sum_{\{x,y\}\in E:\eta_x\ne\eta_y}(d_x+d_y).
+a=r_{00},\qquad b=r_{01},\qquad c=r_{10},
 $$
 
-Thus the consensus-scale bracket is driven by a degree-weighted discordant-edge observable. The raw discordant-edge profile and bracket-weighted profile coincide up to a constant only in the regular case. The first assignment must derive the exact local weak rootings, candidate profiles, and meeting-time constant, and determine which parts are already prior art.
+is
 
-## Most recently closed programme: voter discordance sharp concentration on random regular graphs
+$$
+\mathcal R=
+\left\{
+0<a<b,
+\quad \frac12\le c<1,
+\quad c\ge a+b,
+\quad b\ge\sqrt2(1-c)
+\right\}.
+$$
 
-The regular-graph concentration programme closed at Group Meeting 004 on branch `research/voter-discordant-concentration` after a negative closest-prior-work audit.
+This residual chamber is the present working localization, not a substitute for the fixed full target.
+
+### Anti-circularity instruction
+
+The principal identified the expected failure mode as repeated reformulation of the same PRC obstruction in equivalent language. The active `state.md` and `proof-spine.md` therefore require every substantial block to produce a genuinely one-way reduction, a new target-relevant estimate, a material obstruction, or a finite/local reduction with quantitative error. Merely changing spin convention, dual variables, density-profile language, invariant-measure language, or finite/infinite-volume notation does not count as progress. If the Professor cannot state exactly what became strictly easier, narrower, or impossible, the meeting is marked `state_narrowed: no`.
+
+### Starting technical lead
+
+The principal recalls an earlier monomial-duality construction based on the last successful interaction leaving a finite interval, its active spacetime ancestry trail, and undoing duality elsewhere. The recollection suggests an early boundary-modified spin system, a late confined spin system, a positive exponential trail factor, and a Duhamel estimate reducing ergodicity to a qualitative eventual-density premise. This recollection is intentionally preserved verbatim and is **not yet a verified reduction**. Student F is asked to recover/test it; Student G independently attacks the same fixed target, especially the density/finite-box interface.
+
+## Closed route inside the fixed target
+
+The previous branch `research/noisy-east-positive-rates` closed the **fixed finite agreed-block / frozen-exterior wall route**, not the positive-rates conjecture itself.
+
+Inherited negative knowledge:
+
+- the one-site long-lived-state criterion fails in the true residual chamber;
+- the exact three-site frozen-exterior one-attack factor has sharp East-boundary supremum `5/6`;
+- repeated attacks from a permanently frozen exterior disagreement cross every fixed finite agreed block almost surely;
+- therefore one-attack fixed-wall factors do not concatenate into ergodicity.
+
+Do not restart that route by increasing block length or refining the same statistic.
+
+## Most recently completed programme: random-regular voter discordance concentration
 
 `VOTER-CONC-001` is mathematically **verified** but **not a new project result under the standing novelty standard**.
 
-The project proved the sharper deterministic inequality
+The project proved
 
 $$
 \operatorname{Var}_u^G(\mathcal D_t)
@@ -59,22 +85,13 @@ $$
 
 for every finite simple positive-degree regular graph. Correctness survived the Professor reconstruction and two independent hostile reviews.
 
-However, Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), Proposition 4.1 proof (4.2) together with (5.5)--(5.6), already imply the theorem-level bound
+The closest-prior-work audit found that Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), Proposition 4.1 proof (4.2) together with (5.5)--(5.6), already imply the theorem-level bound with constant `4`, and their (5.8) then yields the same random-regular asymptotic concentration consequences. The factor `2` and quotient-genealogy proof are retained as verified technical mathematics, not a contribution claim.
 
-$$
-\operatorname{Var}_u^G(\mathcal D_t)
-\le4\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t),
-$$
+Literal source Eq. (1.9) is false for unrestricted very-small times; the verified counterexample is `t_n=n^{-3}`, `C_n=log n`. Priority of that narrow correction remains unresolved and is not an active task.
 
-and source (5.8) then yields the same random-regular asymptotic concentration consequences. The project's factor `2` and quotient-genealogy proof are retained as verified technical mathematics, not a contribution claim.
+## Superseded unstarted direction
 
-Literal source Eq. (1.9) is false for unrestricted very-small times; the project counterexample `t_n=n^{-3}`, `C_n=log n` is verified. Priority of that narrow correction remains unresolved because a relevant Capannoli thesis was inaccessible to the novelty auditor. It is not being pursued as an active programme on opportunity-cost grounds.
-
-Do not reopen the regular concentration programme to optimize the constant or repackage the immediate prior-work corollary.
-
-## Earlier closed programme: residual positive-rates / noisy East
-
-The noisy-East fixed-finite-wall programme is closed. Its corrected residual chamber and sharp frozen-exterior three-site factor remain useful diagnostic mathematics, but repeated attacks show the one-attack factor does not concatenate. No length-four rescue is allowed.
+The branch `research/heterogeneous-voter-discordance` was initialized after the voter-concentration closure but is **shelved by principal direction before substantive student work**. It is neither a failed theorem programme nor an active reserve that can displace the fixed positive-rates target.
 
 ## Earlier closed programme: BABP finite seed
 
@@ -82,11 +99,11 @@ BABP closed without a new project result under the standing novelty standard. `B
 
 ## Wiki freeze
 
-The live wiki remains frozen. No `proved here` promotion follows from the closed voter-concentration programme because its central verified theorem is non-contributory under the standing novelty standard.
+The live wiki remains frozen during active research. No new `proved here` material is promoted without the usual verification and novelty requirements.
 
 ## Closed programmes and routes
 
-Closed programmes not to be retried by renaming include:
+Closed programmes/routes not to be retried by renaming include:
 
 - quadratic-Hessian;
 - Fresnel integrability;
@@ -97,7 +114,7 @@ Closed programmes not to be retried by renaming include:
 - Gaussian bridge coarsening;
 - 1D hard FA-1f finite-seed programme based on centered-transform / unnormalized patch-transfer routes;
 - 1D BABP finite-seed programme based on finite-window submartingales and the unresolved invariant-front continuation;
-- residual noisy-East programme based on fixed finite agreed-block walls and frozen-exterior crossing factors;
-- random-regular voter-discordance sharp-concentration programme based on the variance-to-meeting reduction already implicit in Avena et al. (2024).
+- the **fixed finite-wall** noisy-East route based on frozen-exterior crossing factors;
+- random-regular voter-discordance sharp concentration based on the variance-to-meeting reduction already implicit in Avena et al. (2024).
 
-Broader mathematical problems may remain open. What is closed is the recorded programme/mechanism at its present expected value.
+The positive-rates conjecture itself is explicitly active despite the closure of the earlier fixed-wall route.
