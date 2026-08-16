@@ -26,9 +26,7 @@ From branch `research/noisy-east-positive-rates`:
 
 ## Meeting 001: exact density/sign information
 
-Meeting:
-
-`meetings/001-density-estimates-and-regional-kernel.md`
+Meeting: `meetings/001-density-estimates-and-regional-kernel.md`.
 
 `state_narrowed: yes`.
 
@@ -38,9 +36,7 @@ Meeting 001 checked that the two density estimates do not compose naively and se
 
 ## Meeting 002: one-cell insertion works, two-cell composition fails
 
-Meeting:
-
-`meetings/002-cellwise-insertion-composition-fails.md`
+Meeting: `meetings/002-cellwise-insertion-composition-fails.md`.
 
 `state_narrowed: yes`.
 
@@ -52,26 +48,59 @@ Student F:
 
 Professor-checked conclusions:
 
-1. With the predecessor successful interaction fixed source-retaining, the left regional factor is the positive zero-boundary `L^-` kernel
-   $$
-   K_\Delta(z)=\frac1{1+b-a}+\left(z-\frac1{1+b-a}\right)e^{-(1+b-a)\Delta},
-   $$
-   so one-cell regional integration really removes the raw Duhamel left-dependence and the current hidden insertion is nonnegative after the previously proved burn-in.
-2. Under two-cell composition the predecessor is itself hidden, giving exact signed transfer
-   $$
-   \Psi_\Delta(z)=(b+c-a)K_\Delta(z)-c.
-   $$
-3. For `z=0`, every residual parameter point has a positive threshold
-   $$
-   \tau_*=(1+b-a)^{-1}\log\frac{b+c-a}{(b-a)(1-c)}
-   $$
-   such that `Psi_Delta(0)<0` for every `0<Delta<tau_*`.
-4. Scaffold predecessor gaps have no positive lower bound, so cellwise nonnegative insertion cannot be iterated.
+1. one-cell regional integration gives a positive zero-boundary `L^-` kernel and removes the raw Duhamel left dependence;
+2. two-cell composition gives signed transfer `Psi_Delta(z)=(b+c-a)K_Delta(z)-c`;
+3. for `z=0`, every residual parameter point has negative transfer on sufficiently short positive cells;
+4. scaffold gaps have no positive lower bound.
 
-Ruling: the cellwise last-exit/scaffold positivity route is closed. A hypothetical coarser random-cluster cancellation would be a new mechanism and is not the automatic next step.
+Ruling: the cellwise last-exit/scaffold positivity route is closed. Student F moved to the true live-disagreement dynamics. Student G remained mid-block on Assignment 002.
 
-Student F next assignment:
+## Meeting 003: true rightmost-source contraction
 
-`students/student-f/assignment-003.md` — direct live-disagreement/regeneration episode under the true dynamics.
+Meeting: `meetings/003-live-source-contraction.md`.
 
-Student G was still mid-block on Assignment 002 when Meeting 002 was held. Its return will be folded into the next meeting rather than delaying this pre-specified route ruling.
+`state_narrowed: yes`.
+
+Student F:
+
+- commit `d0a508c`;
+- `students/student-f/003-live-disagreement-episode.md`;
+- verifier commit `f379cd3`, `students/student-f/003-live-disagreement-verifier.py`.
+
+Professor-checked conclusions:
+
+1. For a rightmost disagreement `j` with `j-1` agreed, under the true common-uniform coupling, put
+   $$
+   d=b-a,\qquad q=1-c+a,
+   $$
+   and
+   $$
+   D=(b+q)(1+q)-a(1-c).
+   $$
+   Conditional on every evolving common right-hand history,
+   $$
+   \mathbb P(\text{first child before source death}\mid\mathcal F)
+   \le1-\delta,
+   \qquad
+   \delta=\frac{q(d+2q)}D>0.
+   $$
+2. A finite-slab childless regeneration event has probability at least
+   $$
+   \delta_T=\frac{1-c+a}{1+a}(1-e^{-(1+a)T})>0.
+   $$
+3. The local coupling generator satisfies
+   $$
+   \mathcal L^{\rm coup}D_i
+   \le-(1-c+a)D_i+(b-a)D_{i+1}+(c-b+a)J_i,
+   $$
+   where `J_i` is the high-risk state `D_i=0,D_{i+1}=1,X_i=Y_i=1`.
+4. Marginal `11` suppression bounds `E J_i` only additively, so it does not close the disagreement drift.
+5. Along `a=eps^2,b=eps,c=1-eps^2`, the childless gap tends to zero and an all-zero/no-`11` local state still transmits a first child with probability tending to one. Thus zero-rich/no-`11` snapshots cannot yield a residual-uniform first-generation contraction.
+
+Ruling: this East degeneration is not route-closing by itself because the target is pointwise on strict positive-rate parameters and the post-first-child dynamics contains additional killing/reinfection effects. The live-disagreement route remains active.
+
+Next assignment:
+
+- `students/student-f/assignment-004.md` — exact two-generation parent-child episode including all child-death and reinfection cycles, with immediate restart/composition test if contraction survives.
+
+Student G remains on Assignment 002; its return will be folded into the next meeting.
