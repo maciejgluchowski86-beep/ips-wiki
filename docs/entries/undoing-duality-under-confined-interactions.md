@@ -13,8 +13,6 @@ tags:
 
 This page records the spatial-confinement estimate used in the canonical paper's proof of the common invariant limit. It replaces the older wiki route through a separate modified-process mixing theorem.
 
-![Spatial escape of the interaction cone before the cut time.](../images/patches/spatial-escape.svg)
-
 Fix $A\Subset\Lambda$. Let
 
 $$

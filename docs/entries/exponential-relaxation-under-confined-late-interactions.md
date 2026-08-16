@@ -25,8 +25,6 @@ $$
 
 Let $L_{T,t}$ be the event that no successful interaction occurs in $(T,t]$, and let $L_T$ be the event that no successful interaction occurs after $T$.
 
-![Backward ancestry chain of outgoing-terminal patches.](../images/patches/backward-outgoing-chain.svg)
-
 ## Backward chain of outgoing patches
 
 If $(i,u,S)$ is a successful-interaction record with $u>0$, there are distinct patches $P_1,\ldots,P_n$, each with outgoing terminal boundary, such that
@@ -79,8 +77,6 @@ W\mathbf1_{E_T^R\cap L_T^c}
 e^{-\varepsilon T}.
 \tag{4}
 $$
-
-![End patches when no successful interaction occurs after $T$.](../images/patches/no-late-end-patches.svg)
 
 ## No-late-interaction relaxation
 

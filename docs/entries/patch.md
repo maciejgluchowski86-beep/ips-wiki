@@ -15,8 +15,6 @@ Fix the [graphical construction](graphical-construction-of-signed-additive-set-p
 
 A record $(j,t,S)\in\mathcal I$ gives an **incoming** successful interaction at every site in $S$. If $j\ne\infty$, it also gives an **outgoing** successful interaction at its source $j$. Thus the initial record gives only incoming interactions.
 
-![Schematic patch decomposition adapted from the canonical paper figure.](../images/patches/patch-geometry.svg)
-
 For $i\in\Lambda$, put
 
 $$
