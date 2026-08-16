@@ -6,14 +6,6 @@ Date: 2026-08-16
 
 The principal fixed the scientific target to the positive rates conjecture for simple IPS and instructed the Professor to prevent circular progress through equivalent reformulations.
 
-Initial durable files:
-
-- `principal-starting-note.md` — verbatim principal note;
-- `state.md` — fixed-target and anti-circularity rules;
-- `proof-spine.md` — current source reductions and active proof edges;
-- `literature.md` — primary sources and inherited project work;
-- `meetings/000-principal-reset.md` — setup meeting.
-
 ## Inherited negative knowledge
 
 From branch `research/noisy-east-positive-rates`:
@@ -44,16 +36,15 @@ Student F:
 
 - commit `d2c6e92`;
 - `students/student-f/002-regional-insertion.md`;
-- verifier commit `cfbcaf5`, `students/student-f/002-regional-insertion-verifier.py`.
+- verifier commit `cfbcaf5`.
 
-Professor-checked conclusions:
+Professor-checked conclusions: one-cell regional integration is positive, but the hidden predecessor transfer
 
-1. one-cell regional integration gives a positive zero-boundary `L^-` kernel and removes the raw Duhamel left dependence;
-2. two-cell composition gives signed transfer `Psi_Delta(z)=(b+c-a)K_Delta(z)-c`;
-3. for `z=0`, every residual parameter point has negative transfer on sufficiently short positive cells;
-4. scaffold gaps have no positive lower bound.
+$$
+\Psi_\Delta(z)=(b+c-a)K_\Delta(z)-c
+$$
 
-Ruling: the cellwise last-exit/scaffold positivity route is closed. Student F moved to the true live-disagreement dynamics. Student G remained mid-block on Assignment 002.
+is negative on sufficiently short cells at every residual parameter point. The cellwise last-exit/scaffold positivity route is closed.
 
 ## Meeting 003: true rightmost-source contraction
 
@@ -65,42 +56,60 @@ Student F:
 
 - commit `d0a508c`;
 - `students/student-f/003-live-disagreement-episode.md`;
-- verifier commit `f379cd3`, `students/student-f/003-live-disagreement-verifier.py`.
+- verifier commit `f379cd3`.
 
 Professor-checked conclusions:
 
-1. For a rightmost disagreement `j` with `j-1` agreed, under the true common-uniform coupling, put
-   $$
-   d=b-a,\qquad q=1-c+a,
-   $$
-   and
-   $$
-   D=(b+q)(1+q)-a(1-c).
-   $$
-   Conditional on every evolving common right-hand history,
-   $$
-   \mathbb P(\text{first child before source death}\mid\mathcal F)
-   \le1-\delta,
-   \qquad
-   \delta=\frac{q(d+2q)}D>0.
-   $$
-2. A finite-slab childless regeneration event has probability at least
-   $$
-   \delta_T=\frac{1-c+a}{1+a}(1-e^{-(1+a)T})>0.
-   $$
-3. The local coupling generator satisfies
+1. a rightmost disagreement under the true coupling dies before creating its first child with an explicit positive parameter-point probability;
+2. there is an explicit finite-slab childless regeneration event;
+3. the coupling drift satisfies
    $$
    \mathcal L^{\rm coup}D_i
-   \le-(1-c+a)D_i+(b-a)D_{i+1}+(c-b+a)J_i,
+   \le-(1-c+a)D_i+(b-a)D_{i+1}+(c-b+a)J_i;
    $$
-   where `J_i` is the high-risk state `D_i=0,D_{i+1}=1,X_i=Y_i=1`.
-4. Marginal `11` suppression bounds `E J_i` only additively, so it does not close the disagreement drift.
-5. Along `a=eps^2,b=eps,c=1-eps^2`, the childless gap tends to zero and an all-zero/no-`11` local state still transmits a first child with probability tending to one. Thus zero-rich/no-`11` snapshots cannot yield a residual-uniform first-generation contraction.
+4. marginal `11` suppression controls `J_i` only additively;
+5. the first-generation contraction degenerates on the East boundary, so zero-rich/no-`11` snapshots cannot yield a residual-uniform first-generation gap.
 
-Ruling: this East degeneration is not route-closing by itself because the target is pointwise on strict positive-rate parameters and the post-first-child dynamics contains additional killing/reinfection effects. The live-disagreement route remains active.
+Next assignment: exact two-generation parent-child episode including reinfection.
+
+## Meeting 004: two-generation regeneration and all-depth obstruction
+
+Meeting: `meetings/004-two-generation-regeneration-and-depth-obstruction.md`.
+
+`state_narrowed: yes`.
+
+Student F:
+
+- commit `893700c`;
+- `students/student-f/004-two-generation-episode.md`;
+- verifier commit `5e3c4bc`, `students/student-f/004-two-generation-verifier.py`.
+
+Professor-checked conclusions:
+
+1. **Uniform local coalescence.** Every disagreement site, not only a rightmost one, has predictable coalescence intensity at least
+   $$
+   q=1-c+a>0.
+   $$
+   This holds for both disagreement orientations and all four pair states at the right neighbour.
+2. **Race lemma.** A disagreeing site coalesces before the next ring immediately to its left with conditional probability at least
+   $$
+   p=\frac q{1+q}.
+   $$
+3. **Two-generation regeneration.** After a rightmost parent has created its first child, with the prospective grandchild site still agreed,
+   $$
+   \mathbb P(\text{parent and child clear before grandchild creation}\mid\mathcal F)
+   \ge p^2
+   =\left(\frac{1-c+a}{2-c+a}\right)^2.
+   $$
+   The full process retains all reinfections; the proof isolates a successful subevent on which the relevant reinfection clocks do not beat the coalescences.
+4. **Near-East diagnostic.** The exact 24-state controlled post-birth chain shows a structured regeneration gap of order `epsilon`, substantially larger than the crude universal `O(epsilon^4)` two-stage event. This is diagnostic rather than load-bearing.
+5. **Finite-depth correction.** F's ordered-clearing `p^m` bound is accepted with `m` interpreted as **active-span depth**, not merely current disagreement count. Internal agreed gaps can themselves be infected.
+6. **Composition obstruction.** The certified depth-dependent gaps `p^m` are summable, so finite-depth clearing alone does not force extinction of a stack whose ancestry depth keeps increasing.
+
+Ruling: stop finite-depth escalation. The next accepted result must control arbitrary ancestry depth structurally, through a weighted Lyapunov/drift, finite multi-type renewal/branching domination, disagreement-weighted `J_i` estimate, finite summary state, or a rigorous obstruction to such mechanisms.
 
 Next assignment:
 
-- `students/student-f/assignment-004.md` — exact two-generation parent-child episode including all child-death and reinfection cycles, with immediate restart/composition test if contraction survives.
+- `students/student-f/assignment-005.md` — all-depth disagreement-stack contraction or obstruction.
 
 Student G remains on Assignment 002; its return will be folded into the next meeting.
