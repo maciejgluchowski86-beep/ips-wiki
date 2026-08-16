@@ -13,10 +13,9 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed by the principal until the principal changes or stops it: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/007-student-g-exposure-resolvent-and-restart-bottleneck.md`, `state_narrowed: yes`.
-- Principal trail notes: `notes/principal-centered-trail-reduction.md` and `notes/principal-centered-trail-update2.md`.
-- Student F: `students/student-f/assignment-007.md`, complete block mass/disagreement contraction.
-- Student G: `students/student-g/assignment-003.md`, coupling-side restart-count/renewal bridge.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/008-restart-tail-and-empty-supnorm-region.md`, `state_narrowed: yes`.
+- Student F: `students/student-f/assignment-008.md`, bounded-height signed mass/disagreement kernel, conditional on the global Foster lift.
+- Student G: `students/student-g/assignment-004.md`, rigorous global restart-corrector Foster lift.
 
 On the normalized face `r11=0`, with
 
@@ -46,28 +45,31 @@ $$
 B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a.
 $$
 
-The canonical centered predecessor trail remains the active reduction. Selected residual trail interactions are births and the trail contributes `e^{-omega tau}`. The right region has segmentwise survival
-
-$$
-|R_{\gamma,t}(\eta)|\le C_A\prod_k s_1(u_k).
-$$
-
-With `w(u)=e^{-omega u}s_1(u)` and `Z=int_0^infty w(u)du`, direct decay is proved on
-
-$$
-\max\{c,g\}Z<1.
-$$
-
-Near East, exact depth-two ratios `3/2` and `7/5` refute one-step absolute-value contraction even with right killing.
-
-The correct global sufficient quantity is
+The canonical centered predecessor trail remains the active reduction. The nonempty-exit term is controlled by the right-weighted invariant quantity
 
 $$
 J_{x,r}
 =B g^{n-1}\int\left(\prod_k w(u_k)\right)|\pi^0_{m,r}(F_{x,u})|du,
 $$
 
-and `J_{x,r}->0` with trail depth would control the nonempty-exit term. The full trail factorization and no-exit complement still require independent audit before a closing proof.
+where `w(u)=e^{-omega u}s_1(u)` includes segmentwise right survival. Showing `J_{x,r}->0` with depth is sufficient for that term. The full Poisson-Mecke factorization and the no-exit complement still require independent audit before a closing proof.
+
+Student F Assignment 007 corrects an earlier claim about the crude scalar criterion. With
+
+$$
+Z=\int_0^\infty w(u)du
+=\frac{a+b+2}{2ab+3a-bc+b-2c+2},
+$$
+
+one has throughout the residual chamber
+
+$$
+c>b-a
+\qquad\text{and}\qquad
+\boxed{cZ>1}.
+$$
+
+Hence `max{c,b-a}Z<1` has **no residual solutions**. Meeting 006's statement that it already proves a residual subregion is corrected.
 
 ### Mass/disagreement block mechanism
 
@@ -78,52 +80,38 @@ g\,\mu(h_{p_*}(\eta_y)f)
 =(Br-c)\bar\mu(f)+Br(1-r)(\mu^1-\mu^0)(f).
 $$
 
-The unresolved stack of conditional-law disagreements has negative drift under the reset coupling, and every disagreement under Student F's common-uniform coupling has coalescence intensity at least
+The first term is signed mass; the second is a positive conditional-law disagreement channel. Near East the equilibrium right-weighted mass multiplier tends to `2/5`, whereas crude one-step absolute values expand (`3/2` and `7/5`).
+
+### Student G same-parent restart theorem
+
+Meeting 007 gives a uniform single-exposure child probability `h_1<1`. Student G Assignment 003 proves that if `N` counts exposure entries of one fixed parent disagreement before that same parent first coalesces, then
 
 $$
-q=1-c+a=\omega.
+\boxed{P(N\ge n\mid\mathcal F)\le h_1^{n-1}.}
 $$
 
-The remaining theorem is a parameter-dependent block contraction on signed mass components and coupled disagreement components, not a one-step norm.
-
-### Student G's new exposure-edge theorem
-
-Student G Assignment 002, commit `c7a33b5` with verifier `e20847a`, adds exact weighted control inside arbitrary-depth disagreement stacks.
-
-At a stopping time with `D_i=0,D_{i+1}=1`, stop when either a left child is created or the right disagreement coalesces. The high-risk local state
+Thus for `1<=s<h_1^{-1}`,
 
 $$
-J_i=1_{\{D_i=0,D_{i+1}=1,X_i=Y_i=1\}}
+\boxed{E[s^N\mid\mathcal F]\le\frac{(1-h_1)s}{1-h_1s}.}
 $$
 
-has an explicit killed-chain resolvent and the exact child compensator
+This is Professor-checked. It removes arbitrary same-parent re-entry as an uncontrolled variable.
+
+The stack-clearing height algebra also gives a candidate near-East restart/height factor tending to
 
 $$
-P(\text{child before right coalescence})
-=E\int[(b-a)+(c-b+a)J_i(t)]dt.
+\frac{16}{21}<1.
 $$
 
-The corresponding child probability is uniformly `<1` even for non-rightmost disagreements.
+This is **not** a multiplier for global `J_{x,r}` and does not conflict with `cZ>1`.
 
-A crude global summation over repeated exposure entries is nevertheless noncontractive near East. Thus the missing coupling quantity is the **exposure-entry/restart count**, not the one-exposure occupation.
+### Remaining two lemmas
 
-This local `J_i` is not the global trail quantity `J_{x,r}`. G's near-East obstruction therefore does not refute `J_{x,r}->0`; it says that crude global `J_i` summation cannot prove the block theorem.
+1. **Global restart-corrector Foster lift.** G's report proposes a product corrector over all unresolved levels, but the global phase bookkeeping is not yet Professor-verified. Inactive/exposed/child-alive phases and later new-parent reinfections must be represented explicitly and checked transition by transition.
+2. **Bounded-height signed kernel.** Conditional on the Foster reduction to finitely many heights/phases, F must prove that the finite right-weighted signed mass/disagreement kernel has block spectral radius `<1`, or give an exact obstruction.
 
-### Current proof target
-
-Find a norm/Lyapunov/renewal scheme on trail-generated signed mass and coupled disagreement components, weighted by unresolved stack/restart state, and finite constants
-
-$$
-m_0<\infty,\qquad \theta<1
-$$
-
-such that
-
-$$
-\|T^{m_0}\nu\|_*\le\theta\|\nu\|_*.
-$$
-
-Student F attacks the complete block theorem. Student G attacks the complementary restart-count bridge from `mu^1-mu^0` to such a block contraction. Replacing the disagreement channel by unrestricted total variation or the restart count by crude disagreement occupation is not acceptable.
+If both succeed, combine them to prove `J_{x,r}->0`; only then reconstruct the full trail/no-exit convergence argument.
 
 ## Most recently completed programme: random-regular voter discordance concentration
 
