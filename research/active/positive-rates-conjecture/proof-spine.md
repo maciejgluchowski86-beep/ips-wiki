@@ -6,7 +6,7 @@ Prove the positive rates conjecture for simple IPS:
 
 > Every one-dimensional homogeneous binary one-sided nearest-neighbour IPS with positive rates is ergodic.
 
-The scientific target is fixed by the principal. Proof routes may be abandoned; the target does not change.
+The scientific target is fixed by the principal.
 
 ## E0. Residual chamber
 
@@ -28,28 +28,19 @@ $$
 \right\}.
 $$
 
-The frozen-wall route, cellwise nonnegative scaffold transfer, and one-step centered `L^1` transfer are closed.
+Closed: frozen-wall route, cellwise nonnegative scaffold transfer, one-step centered `L^1` transfer, and the crude scalar condition `max{c,b-a}Z<1` on the residual chamber.
 
 ## E1. Direct coupling inputs
 
-Every disagreement site under the common-uniform coupling has predictable coalescence intensity at least
+Every disagreement site has predictable coalescence intensity at least
 
 $$
-q:=1-c+a>0.
+q=1-c+a>0.
 $$
 
-The local disagreement drift is
+Student G's exposure resolvent controls one exposed edge exactly; repeated same-parent re-entries have a geometric tail. These are reusable inputs to the trail-generated disagreement channel.
 
-$$
-\mathcal L^{\rm coup}D_i
-\le-qD_i+(b-a)D_{i+1}+(c-b+a)J_i.
-$$
-
-Student G's single-exposure calculation gives exact weighted control of the local high-risk state `J_i`; crude global summation fails near East because of repeated exposure restarts.
-
-**Status:** reusable coupling machinery.
-
-## E2. Centered predecessor-trail reduction
+## E2. Centered predecessor trail
 
 Put
 
@@ -57,28 +48,20 @@ $$
 B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a.
 $$
 
-The principal's centered-dual working reduction gives a canonical predecessor trail of depth `n=r-x+1`, selected residual interactions all births, and vertical factor
+The principal's working reduction gives a canonical predecessor trail with selected interactions all births and vertical factor
 
 $$
-\boxed{e^{-\omega\tau}.}
+e^{-\omega\tau}.
 $$
 
-The exact Poisson-Mecke factorization and the no-exit complementary term still require independent audit before a closing proof.
+The exact Poisson--Mecke factorization and no-exit complement remain to be independently audited before a closing proof.
 
-**Status:** active working reduction.
-
-## E3. Segmentwise right-region killing and correction
+## E3. Segmentwise right killing
 
 The right contribution obeys
 
 $$
-\boxed{|R_{\gamma,t}(\eta)|\le C_A\prod_{k=1}^n s_1(u_k),}
-$$
-
-where `s_1` is survival of the killed two-state chain
-
-$$
-K=\begin{pmatrix}-a&a\\1&-(1+B)\end{pmatrix}.
+|R_{\gamma,t}(\eta)|\le C_A\prod_k s_1(u_k).
 $$
 
 Define
@@ -90,55 +73,35 @@ $$
 and
 
 $$
-\boxed{
 Z=\int_0^\infty w(u)du
-=\frac{a+b+2}{2ab+3a-bc+b-2c+2}.
-}
+=\frac{a+b+2}{a(2b+3)+(1-c)(b+2)}.
 $$
 
-The crude absolute-value criterion would be
+Throughout `\mathcal R`, `c>b-a` and `cZ>1`, so the crude scalar absolute-value criterion is useless on the unresolved chamber.
+
+## E4. Exact one-step obstruction
+
+Near East,
 
 $$
-\max\{c,g\}Z<1.
+a=\varepsilon^2,\quad b=\varepsilon,\quad c=1-\varepsilon^2,
 $$
 
-Student F Assignment 007 proves throughout the residual chamber
+the depth-two profile changes sign and the normalized absolute-value factors tend to
 
 $$
-c>g
-\qquad\text{and}\qquad
-\boxed{cZ>1}.
+\frac32
 $$
 
-Hence the crude criterion has **no residual solutions**. This corrects Meeting 006, which had described it as an already-proved residual subregion.
-
-**Status:** segmentwise right bound valid; crude scalar contraction useless on the unresolved chamber.
-
-## E4. Exact depth-two obstruction to one-step contraction
-
-Along
+without right killing and
 
 $$
-a=\varepsilon^2,\qquad b=\varepsilon,\qquad c=1-\varepsilon^2,
+\frac75
 $$
 
-the exact two-level invariant scalar changes sign and the absolute-value ratios satisfy
+with right killing. Therefore pointwise positivity and one-step centered `L^1` contraction are closed.
 
-$$
-\frac{g}{|m_\varepsilon|}
-\int_0^\infty e^{-\omega u}|A_{2,\varepsilon}(u)|du\to\frac32,
-$$
-
-and with segmentwise right killing
-
-$$
-\frac{g}{|m_\varepsilon|}
-\int_0^\infty w(u)|A_{2,\varepsilon}(u)|du\to\frac75.
-$$
-
-**Status:** exact obstruction. Pointwise regional positivity and one-step centered `L^1` contraction are closed.
-
-## E5. Correct global right-weighted invariant criterion
+## E5. Global right-weighted criterion
 
 The nonempty-exit term is reduced to
 
@@ -152,18 +115,11 @@ J_{x,r}
 }
 $$
 
-The working trail representation gives
-
-$$
-\limsup_{t\to\infty}\sup_\eta |D_R(t,\eta)|
-\le C_A\sum_{x\in A}J_{x,r}.
-$$
-
-Thus `J_{x,r}->0` with depth is sufficient for the nonempty-exit term.
+Proving `J_{x,r}->0` with depth is sufficient for the nonempty-exit term.
 
 ## E6. Exact mass/disagreement decomposition
 
-For a probability law `mu`, rightmost density `r`, left marginal `bar mu`, and conditional left laws `mu^1,mu^0`,
+For a law `mu`, rightmost density `r`, left marginal `bar mu`, and conditional left laws `mu^1,mu^0`,
 
 $$
 \boxed{
@@ -171,110 +127,106 @@ g\,\mu(h_{p_*}(\eta_y)f)
 =(Br-c)\bar\mu(f)+Br(1-r)(\mu^1-\mu^0)(f).}
 $$
 
-This splits each transfer into a signed mass channel and a positive conditional-law disagreement channel. Near East, the equilibrium mass multiplier after right weighting tends to `2/5`, while unrestricted absolute values expand.
+This is the active signed branching identity.
 
-**Status:** active structural identity.
+## E7. Disagreement height and same-parent restarts
 
-## E7. Stack-clearing height drift
-
-The accepted reset-coupling construction gives a clearing variable `K` with
+The accepted stack-clearing minorant gives negative drift and an exponential height factor `phi(lambda)<1` on an explicit interval. Student G proves that the number `N` of exposure re-entries of one fixed parent before its first coalescence satisfies
 
 $$
-P(K\ge j\mid\mathcal F)
-\ge
-\alpha2^{-(j-1)},
-\qquad
-\alpha=\frac{B+\omega}{B+2\omega},
+P(N\ge n\mid\mathcal F)\le h_1^{n-1},
 $$
 
-and one transfer adds at most one unresolved level:
+hence
 
 $$
-H'\le(H-K)_++1.
+E[s^N\mid\mathcal F]\le\frac{(1-h_1)s}{1-h_1s}.
 $$
 
-Consequently the unweighted height has negative drift. The geometric minorant `kappa` gives, for
+Near East the scalar height/restart stress factor can be chosen to tend to `16/21<1`.
+
+**Open:** lift these scalar bounds to a rigorous global finite phase/Foster state for all parent levels. Student G Assignment 004 is in flight.
+
+## E8. Uniform equilibrium-mass contraction
+
+Let
 
 $$
-\phi(\lambda)
-=\lambda\left(1-\alpha+\frac{\alpha}{2\lambda-1}\right),
+r_0=\frac1{1+b}
 $$
 
-an interval of `lambda>1` on which `phi(lambda)<1`.
-
-**Status:** accepted height control; does not itself control signed branching.
-
-## E8. Student G same-parent restart theorem
-
-Let `h=h_1<1` be the worst single-exposure child-before-parent-coalescence probability from Meeting 007. Fix one parent disagreement and let `N` be the number of entries of its left edge into exposure before that same parent first coalesces.
-
-Strong Markov gives
+be the one-site zero-boundary equilibrium density. Student F Assignment 008 proves
 
 $$
-\boxed{P(N\ge n\mid\mathcal F)\le h^{n-1},\qquad n\ge1.}
+\boxed{
+|Br_0-c|Z<\frac23
+}
 $$
 
-Hence for `1<=s<h^{-1}`,
+throughout the strict residual chamber.
+
+This is a genuine all-parameter regenerative loss and is independent of the Foster premise.
+
+## E9. Mass relaxation mode
+
+A mass branch is not automatically at `r_0`. Its rightmost density evolves as
 
 $$
-\boxed{E[s^N\mid\mathcal F]\le M(s):=\frac{(1-h)s}{1-hs}.}
+r(u)=r_0+(r-r_0)e^{-(1+b)u},
 $$
 
-This sums arbitrarily many deaths/reinfections while the same parent remains alive.
-
-Along the near-East path, the algebraic stress choice `lambda=2`, `s=1+epsilon^2/4` gives
+so the mass coefficient has constant and transient pieces
 
 $$
-M(s)\phi(2)\to\frac{16}{21}<1.
+Br(u)-c
+=(Br_0-c)+B(r-r_0)e^{-(1+b)u}.
 $$
 
-**Status:** same-parent geometric tail and pgf Professor-checked. `16/21` is a coupling-side height/restart factor, not a multiplier for `J_{x,r}`.
+Near East the transient centered mass mode is order one while the equilibrium centered mode tends to zero. Therefore the bounded state must retain a mass-relaxation/reset-history coordinate.
 
-## E9. Unverified lift from scalar restart bounds to a global product corrector
+## E10. Norm-order obstruction
 
-Student G proposes a finite local phase corrector `C_s` over all unresolved levels and a global Foster inequality
-
-$$
-E[s^{\Delta R}V_s(\Sigma')\mid\mathcal F]
-\le\theta V_s(\Sigma),
-\qquad
-V_s(\Sigma)=\lambda^{H(\Sigma)}C_s(\Sigma),
-$$
-
-outside a finite height set.
-
-The scalar pgf, height minorant, finite-height correction, and near-East algebra check. The missing proof is the global phase bookkeeping: inactive/exposed/child-alive states and later new-parent reinfections must be explicitly represented, and the proposed corrector must be shown transition by transition to be superharmonic for simultaneous unresolved levels.
-
-**Status:** open technical lemma. Student G Assignment 004 attacks exactly this point.
-
-## E10. Conditional finite bounded-height signed kernel
-
-Assume E9 in the following explicit conditional form:
-
-> arbitrary-height restart/disagreement excursions outside a finite stack-height/phase set return with a strict multiplicative factor.
-
-Then the remaining block problem is finite: on bounded height/phases, combine the signed mass coefficient `Br-c`, disagreement coefficient `Br(1-r)`, and right weight `w(u)` into a finite signed kernel. The target is a finite block/spectral-radius statement
+For the exact near-East depth-two profile,
 
 $$
-\rho(K_{H_0}^{m_0})<1
+\frac g{|m_\varepsilon|}
+\left|\int w(u)A_{2,\varepsilon}(u)du\right|
+\to\frac35<1,
 $$
 
-or an equivalent weighted norm estimate.
-
-The fact `cZ>1` shows that an absolute-value scalar kernel cannot work; the bounded kernel must use the mass/disagreement cancellation.
-
-**Status:** Student F Assignment 008 attacks this finite signed problem conditional on E9.
-
-## E11. Composition to the trail criterion
-
-If E9 and E10 both hold, combine the large-height Foster contraction and bounded-height signed kernel to obtain
+but the actual criterion contains
 
 $$
-J_{x,r}\to0.
+\boxed{
+\frac g{|m_\varepsilon|}
+\int w(u)|A_{2,\varepsilon}(u)|du
+\to\frac75>1.
+}
 $$
 
-Only after that should the full trail factorization and no-exit contribution be reconstructed into an ergodicity proof.
+Hence duration integration cannot precede the block absolute-value norm. A correct proof must preserve signed duration profiles until the `L^1(w)` norm is taken.
+
+F's exact fully-regenerated height-one signed matrix has strong local spectral contraction, including `rho->sqrt(2/5)` near East, but it is only diagnostic because its entries have already integrated duration.
+
+## E11. Static short-word closure fails
+
+At `(1/10,3/10,4/5)`, exact zero-boundary invariant determinants refute first- and second-order spatial Markov closure. Thus current spin or a short present-spin word is not an exact finite state.
+
+This does not rule out finite temporal reset-history / generator-mode closure.
+
+## E12. Current load-bearing split
+
+Two interfaces remain.
+
+1. **Global Foster phase (G).** Produce a rigorous finite restart/disagreement return state for arbitrary height. Its return information must be rich enough to recover the signed mass/reset mode, or explicitly state what it does not retain.
+2. **Mode-resolved `L^1(w)` block operator (F).** On bounded height, retain equilibrium mass, transient mass/reset modes, disagreement phases, and unintegrated duration information until the norm. Use the uniform equilibrium loss `<2/3` as the regenerative anchor and prove a parameter-dependent block contraction, or an exact obstruction.
+
+If both succeed, combine them to prove `J_{x,r}->0`.
+
+## E13. Final reconstruction after `J->0`
+
+Only after E12 closes should the group audit the exact predecessor-trail factorization and complementary no-exit term and turn the resulting convergence estimate into ergodicity.
 
 ## Anti-circularity checkpoint
 
-Meeting 008 eliminates the purported easy residual region and proves that same-parent restart count has a uniform geometric tail. The block theorem is now split into two precise complementary lemmas: the global restart-corrector lift and the bounded-height signed kernel. No further one-step scalar criteria or finite-depth enumeration count as progress.
+Do not integrate duration before absolute value, iterate the diagnostic `K^(1)` matrix as the true kernel, use short static Markov closure, return to one-step `(T)`, or replace the disagreement channel by unrestricted total variation.
