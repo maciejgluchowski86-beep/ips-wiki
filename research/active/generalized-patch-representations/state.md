@@ -17,127 +17,150 @@ Branch-only wiki section:
 
 Nothing from this programme is to be written or merged to `main` without a later principal instruction.
 
-Latest meeting: `meetings/002-weighted-typed-patch-factorization.md`.
+Latest meeting: `meetings/003-explicit-typed-patch-representation.md`.
 
 ## Assignment 001
 
 Status: **`CONTINUE-TYPED-PATCH`**.
 
-For finite `E={0,...,d-1}` with reference state `0`, the indicator tensor basis gives finite typed active configurations and an exact signed local Feynman--Kac dual for general bounded single-site replacement dynamics.
+For finite `E={0,...,d-1}` with reference state `0`, the reference-state indicator tensor basis yields typed active configurations and an exact signed local Feynman--Kac dual for general bounded finite-range single-site replacement dynamics.
 
-For active source type `r`, target `tau`, and source outcome `s`, the branch coefficients are fixed local numbers `a_{i,r}^s(tau)`. Their absolute values are Poisson rates; signs are branch marks; target conflicts affect only the deterministic transition to cemetery.
-
-For nonempty target, the successful record is
+For nonempty target, the successful record
 
 \[
-(i,t,r,\tau),
+(i,t,r,\tau)
 \]
 
-which reveals pre-source type and typed target but hides post-source outcome `s`.
-
-Decisive report/verifier:
-
-- `students/professor/001-finite-state-duality.md`, commit `2f37d6bf`;
-- `001-finite-state-duality-verifier.py`, commit `c8e47458`.
+reveals the pre-source type and typed target while hiding the post-source outcome. The `d=2` specialization is exactly the canonical death/split/birth dual.
 
 ## Assignment 002
 
 Status: **`CONTINUE-TYPED-REPRESENTATION`**.
 
-The one-site typed patch geometry survives, with local state `X^P in E` and new incoming compatibility condition
+One-site typed patch geometry survives, but bare conditional factorization given only the coarse record list fails because incoming typed conflicts can hit cemetery and remove all future no-record constraints.
+
+The exact `d=3` gate gives
 
 \[
-X_{e-}^P\in\{0,a\}
+P(K,B\mid G)=4/17\ne32/289=P(K\mid G)P(B\mid G).
 \]
 
-for an incoming target type `a`.
-
-On an inserted candidate record list `g`, exact noncemetery skeleton consistency is
-
-\[
-\boxed{
-\{\tau_\dagger>T\}\cap\{G_T=g\}
-=
-\bigcap_P\operatorname{Con}(P).}
-\]
-
-### Bare conditional factorization fails
-
-A selected incoming target may conflict, sending the global dual to cemetery and simultaneously removing all future no-record constraints. The exact `d=3` two-record gate gives
-
-\[
-P(K,B\mid G)=\frac4{17}
-\ne
-\frac{32}{289}
-=P(K\mid G)P(B\mid G).
-\]
-
-Thus patch variables are not independent conditional only on the coarse record list.
-
-### Weighted/killed factorization succeeds
-
-Since `H_dagger=0`, cemetery histories have exact Feynman--Kac weight zero. The representation-sufficient theorem is
+Since `H_dagger=0`, the representation-sufficient killed/noncemetery factorization is exact:
 
 \[
 E\left[h(G_T)1_{\{\tau_\dagger>T\}}\prod_Pf_P\right]
 =
-\int h(g)\prod_PE_P[f_P1_{Con(P)}]m_T(dg),
+\int h(g)\prod_PE_P[f_P1_{Con(P)}]m_T(dg).
 \]
 
-where
+Thus
 
 \[
-m_T(dg)=\prod_k\Lambda_{i_k,r_k}(\tau_k)dt_k.
+\nu_T(dg)=P(G_T\in dg,\tau_\dagger>T)
+=\prod_PP_P(Con(P))m_T(dg).
 \]
 
-The noncemetery skeleton submeasure therefore has density
+## Assignment 003
+
+Status: **`CONTINUE-TYPED-POSITIVITY`**.
+
+The explicit local intrinsic weight is
 
 \[
-\nu_T(dg)=\prod_PP_P(Con(P))m_T(dg),
+A_P
+=
+\epsilon_{\rm out}(P)
+\epsilon_{\emptyset}(P)
+\exp\left(
+\int_{b(P)}^{e(P)\wedge T}
+\bar v_{i(P),X_u^P}\,du
+\right),
 \]
 
-and conditional on `G_T=g, tau_dagger>T` the patch variables are independent with laws `P_P^con`.
+with `bar v_{i,0}=0`. The full patch weight is
 
-Equivalently collapse every cemetery history to one outer atom and use the killed successful skeleton.
+\[
+w_P=
+\begin{cases}
+A_P,&P\text{ bulk},\\
+A_Ph_{X_T^P}(\eta_{i(P)}),&P\text{ end}.
+\end{cases}
+\]
+
+On every noncemetery trajectory,
+
+\[
+\sigma_Te^{\int_0^TV(\xi_u)du}H_{\xi_T}(\eta)
+=
+\prod_Pw_P.
+\]
+
+Combining this pathwise identity with Assignment 002 gives the exact killed-skeleton representation
+
+\[
+\boxed{
+P_TH_{\xi_0}(\eta)
+=
+\int
+\left(\prod_{P\in\mathcal B_T(g)}C(P)\right)
+\left(\prod_{P\in\mathcal E_T(g)}C_T(\eta_{i(P)},P)\right)
+\nu_T(dg).}
+\]
+
+Bulk contributions are
+
+\[
+C(P)=E_P^{con}[A_P]
+\]
+
+and are independent of terminal physical data. End contributions have the explicit one-site expansion
+
+\[
+C_T(x,P)
+=B_0(P)+\sum_{a\in E_*}B_a(P)1_{\{x=a\}}.
+\]
+
+The `d=2` reduction is exactly the canonical binary patch weight and representation. Typed conflict disappears there, so the killed skeleton is the ordinary binary successful skeleton.
 
 Decisive files:
 
-- `students/professor/002a-typed-patch-local-consistency.md`, commit `08108e32`;
-- `002b-finite-cemetery-factorization-gate.md`, commit `d8eca517`;
-- `002-typed-factorization-verifier.py`, commit `b9e75b42`;
-- `002c-weighted-typed-patch-factorization.md`, commit `925c8330`;
-- final report `002-typed-patch-factorization.md`, commit `40b93ede`;
-- handoff `002-handoff.md`, commit `1ea088af`.
+- `students/professor/003a-local-typed-patch-weight.md`, commit `992552ca`;
+- verifier `003-typed-representation-verifier.py`, commit `50f28f62`;
+- `003b-pathwise-typed-patch-product.md`, commit `1f58d2f3`;
+- `003c-exact-typed-semigroup-representation.md`, commit `6eebcaa5`;
+- `003d-bulk-end-separation-and-binary-reduction.md`, commit `4f9c250b`;
+- final report `003-typed-patch-representation.md`, commit `ed5492e8`;
+- handoff `003-handoff.md`, commit `b46a63dc`;
+- Meeting 003, commit `7d20767f`.
 
 ## Current proof-spine edge
 
-**Explicit typed patch representation.**
+**Characterize nonnegative bulk typed patch contributions.**
 
-Before any positivity definition, factor the noncemetery Feynman--Kac variable into one local weight per typed patch:
-
-1. outgoing-start hidden-branch sign;
-2. signs of effective empty-target interior marks;
-3. local potential integral;
-4. one-site terminal tensor factor on end patches.
-
-Target formula:
+The object is now unambiguous:
 
 \[
-P_TH_{\xi_0}(\eta)
-=
-\int\prod_PE_P[w_P1_{Con(P)}]m_T(dg)
-=
-\int\prod_PC_P(\eta)\,\nu_T(dg).
+C(P)=E_P^{con}[A_P].
 \]
 
-Bulk contributions should not depend on the physical terminal configuration; end contributions may.
+The next bounded block should derive a finite-dimensional transfer-matrix / killed-CTMC formula for every bulk boundary type and determine what coefficient-level condition is equivalent to, or at least usefully sufficient for,
 
-Patch positivity remains downstream.
+\[
+C(P)\ge0
+\]
 
-## Scope and publication boundary
+for every finite bulk typed patch.
 
-The current construction covers finite-state, bounded finite-range **single-site replacement** dynamics in the reference-state indicator tensor basis. Simultaneous multi-site physical updates remain outside scope.
+No generalized positivity criterion has yet been asserted.
 
-Existing patch pages under `docs/entries/` are source material and are not generalized in place. No programme content is to be published to `main` unless the principal later gives a separate instruction.
+## Scope, novelty and publication boundary
+
+The proved class is finite-state bounded finite-range **single-site replacement** dynamics in the reference-state indicator tensor basis. Simultaneous multi-site physical updates remain outside scope.
+
+No literature novelty claim has yet been made for the generalized representation theorem. A targeted literature audit should occur after the positivity statement is stable enough to identify the theorem actually being claimed.
+
+Existing patch pages under `docs/entries/` are source material and are not generalized in place. Stable current research may be kept only in the designated branch-only generalized-patch wiki section.
+
+**Do not publish or merge any programme content to `main`.**
 
 All previously stopped programmes remain closed at their existing rulings.
