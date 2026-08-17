@@ -8,76 +8,71 @@ Branch: `research/ergodicity-methods-toolbox`
 
 Workspace: `research/active/ergodicity-methods-toolbox/`
 
-The breadth-compilation phase is ending. The principal has ruled that **wave seven is the final collection wave**. After it is audited and integrated, the programme turns to assessing which toolbox methods are most useful for either one-dimensional FA-1f/East out-of-equilibrium convergence or the positive-rates conjecture for simple IPS.
+**Breadth collection is complete.** Wave seven was the final collection wave. The programme is now in the problem-specific applicability phase governed by `assessment-protocol.md`.
 
-Latest meeting: `meetings/016-wave-six-verified-collection-sunset-assessment-phase.md`.
+Latest meeting: `meetings/017-wave-seven-audited-collection-frozen-assessment-dispatched.md`.
 
-Assessment protocol: `assessment-protocol.md`.
+## Frozen inventory and publication status
 
-## Publication status
+There are **74 staged method entries**, all Professor source-audited and accepted, and all 74 have live counterparts under `docs/entries/`.
 
-There are **67 staged entries**, all Professor source-audited and accepted, and all 67 have live counterparts under `docs/entries/`.
-
-The complete 67-page wave-one-through-six layer is now mechanically verified. The principal/orchestrator reports:
+The first 67 pages, through wave six, are mechanically verified by Meeting 016. Before wave-seven Professor integration, the principal/orchestrator reported:
 
 ```text
-Checked 67 entries; 0 failed mechanical validation.
+Checked 74 entries; 0 failed mechanical validation.
 ```
 
-and `mkdocs build --strict` exits 0 with no warnings and no broken internal links. The only INFO output is unchanged legacy material predating this programme.
+and a clean control/format-character scan across all 74 staged entries. Neither wave-seven student touched `docs/` or `mkdocs.yml`.
 
-Completeness is exact: 67 staged entries, 67 promoted pages, 67 hub links, zero unresolved, no orphan in either direction, every promoted page carries `status:` and `audit:`, and all 164 MkDocs `.md` navigation targets resolve. `git diff origin/main..research/ergodicity-methods-toolbox -- docs/` remains additions-only with zero non-additions.
+Meeting 017 source-audited and promoted all seven wave-seven entries. A GitHub comparison from the verified wave-six baseline `cedd415` shows exactly seven added public method pages plus modifications to `docs/ergodicity-methods.md` and `mkdocs.yml`, with no other public `docs/` path changed.
 
-These checks are structural only. Source/claim authority is the Professor audit recorded in Meetings 002--005, 010, 013, and 015.
+The **final post-wave-seven 74-page structural publication gate is pending**. The principal/orchestrator should rerun `validate_entries.py`, `mkdocs build --strict`, 74 staged/live/hub completeness, current-audit metadata, nav-target resolution, additions-only legacy safety, and the control/format-character scan on the integrated tree.
+
+Structural checks do not add mathematical or source authority. Source/claim acceptance is recorded through Meeting 017.
 
 The repository-wide article layout remains unchanged: toolbox pages live in `docs/entries/`. The separate principal-level legacy-directory question remains open and is not a Professor task.
 
+## Wave-seven ruling
+
+All seven staged entries were accepted and promoted:
+
+- asymptotic strong Feller support separation and uniqueness;
+- Hörmander--Malliavin propagation of degenerate noise to asymptotic smoothing;
+- Swendsen--Wang / heat-bath Edwards--Sokal kernel comparison;
+- entropic Ricci curvature from weak-interaction perturbation;
+- Gray's one-dimensional positive-rates edge-coalescence architecture;
+- Toom error-graph expansion for low-noise PCA;
+- essential hitting times plus almost-subadditive regeneration for contact-process growth.
+
+One semantic metadata correction was made: the entropic-Ricci entry now targets `modified-log-sobolev`, not classical `log-sobolev`.
+
+Gray 1986 was not staged because Student G could not inspect the primary full theorem/proof text. This is a **source-access hold**, not a negative taxonomy ruling or merger. It is outside the frozen 74-method inventory unless the principal explicitly reopens it later.
+
 ## Entry hygiene
 
-Meeting 015 exposed a validator blind spot: a TeX backslash had been consumed into a vertical-tab control character in one staging entry. The principal/orchestrator subsequently scanned 230 staged/promoted pages for control and Unicode format characters; the toolbox material is clean. One instance exists only in frozen legacy material and has been reported separately to the principal.
+Meeting 015 exposed a validator blind spot in which a TeX escape became a control character. Entry review now requires both a control/format-character scan and visual/diff inspection of mathematical backslashes.
 
-Future entry review must use both a control/format scan and visual/diff inspection of TeX backslashes. A scan can catch escape collapses such as `\b` or `\v`, but a lost backslash in commands such as `\alpha` or `\mu` may leave no control byte. The research `entry-template.md` now records this rule.
+Professor ruling on the proposed validator extension:
 
-## Wave-six ruling
+- hard-fail actual disallowed control or Unicode format characters in staged entries;
+- preserve ordinary structural whitespace required by Markdown;
+- do not hard-fail heuristic guesses about silently lost TeX backslashes such as `alpha` or `mu`, because they have no reliable mechanical signature.
 
-All ten wave-six entries were accepted and promoted. Two non-substantive corrections were made before publication:
+The frozen legacy control-byte issue reported by the principal/orchestrator is outside this programme and remains untouched.
 
-- a control character in the hierarchical-renormalisation page was repaired to the intended `\varepsilon`;
-- `environment-seen-second-class-particle` was reclassified from `lyapunov-regeneration` to `coupling` because the moving-frame coupling is load-bearing.
+## Active applicability assignments
 
-Repeated generic searches closed by Meeting 015 remain closed absent named new evidence: full-Cheeger positive-spin relaxation, spectral-profile/evolving-set IPS use, fully-unconstrained-refresh KCSM comparison, disagreement-front regeneration, quasi-successful coupling, artificial Nummelin splitting, nonreversible sector/hypocoercive IPS relaxation, boundary-uniform projective graphical coupling, and generic common/basic graphical coupling.
+- Student F: **active** on `students/student-f/assignment-008.md`, the complete FA-1f/East applicability audit.
+- Student G: **active** on `students/student-g/assignment-007.md`, the complete positive-rates applicability audit.
 
-## Workers and final collection wave
+Each student must classify all 74 frozen methods as A/B/C/X/N, return at most six ranked A/B candidates, formulate explicit bridge lemmas, identify the exact obstruction each route avoids, and give cheapest-first falsification tests. No broad new literature search and no public-doc edits are authorized.
 
-- Student F: **active** on `students/student-f/assignment-007.md`.
-- Student G: **active** on `students/student-g/assignment-006.md`.
+After both audits return, the next step is hostile cross-review of the **shortlists only**, followed by Professor synthesis with at most two recommended first proof experiments per problem.
 
-Wave seven is source-led, deliberately small, and explicitly the final breadth wave. Students may return fewer entries rather than pad.
+## Closed collection phase
 
-### Student F
-
-Hairer--Mattingly asymptotic strong Feller uniqueness; Hairer--Mattingly Hörmander/Malliavin propagation if taxonomically separate; Ullrich Swendsen--Wang/FK cluster-dynamics comparison; Erbar--Henderson--Menz--Tetali entropic Ricci curvature if distinct from existing Bochner/Wasserstein methods.
-
-### Student G
-
-Gray's 1982 positive-rates proof architecture; Gray's 1986 attractive-spin-system duality and edge relaxation; Toom graphical contour/error expansions for low-noise PCA; essential hitting times/almost-subadditive contact-process regeneration if sufficiently distinct from existing renewal pages.
-
-No wave eight of generic collection is authorized.
-
-## Post-wave-seven phase
-
-After wave seven lands:
-
-1. Professor source-audits and integrates only passing entries.
-2. The principal/orchestrator runs the final structural publication gate on the frozen inventory.
-3. Breadth collection stops.
-4. Student F receives the **FA-1f/East applicability audit** described in `assessment-protocol.md`.
-5. Student G receives the **positive-rates applicability audit** described there.
-6. The students then hostile-review only each other's shortlists.
-7. The Professor synthesizes ranked method priorities and at most two recommended first proof experiments per problem.
-
-Applicability is judged against exact unresolved objects and exact obstruction records, not thematic similarity. The positive-rates authoritative compact record is `programme-established-results.md` plus final `state.md` on branch `research/positive-rates-conjecture`. The FA-1f assessment uses the one-dimensional chronology/sign reductions, the closed finite-seed programme, and East as a solved screening benchmark.
+There is no wave eight and no further generic gap-filling search under the current principal direction. Earlier negative taxonomy findings remain useful as anti-loop evidence, but the programme no longer maintains an uncovered-method agenda.
 
 ## Next Professor action
 
-Source-audit wave seven when it lands. Do not issue another collection assignment. After integration, freeze the method inventory and issue the two problem-specific applicability audits.
+Receive F008/G007 applicability audits, audit their bridge statements against the exact FA-1f and positive-rates obstruction records, then dispatch hostile cross-review of only the surviving shortlists.
