@@ -8,48 +8,30 @@ Extend the patch representation / patch positivity mechanism beyond binary flip 
 
 1. a tensor basis of local observables;
 2. an exact signed Feynman--Kac dual;
-3. a graphical process with a coarser successful-interaction skeleton;
-4. conditional/weighted factorization into spacetime patches;
+3. a coarse successful-interaction skeleton;
+4. killed/weighted patch factorization;
 5. explicit patch contributions;
-6. an exact local bulk nonnegativity property;
-7. a tractable criterion retaining whatever multi-state transient information is genuinely necessary;
+6. exact typed bulk nonnegativity;
+7. a tractable multi-state positivity criterion retaining genuinely necessary transient information;
 8. only then consequences and applications.
 
 ## E0. Binary benchmark
 
 **Settled by the canonical paper.**
 
-## E1. Canonical finite-state tensor basis
+## E1. Finite-state tensor basis and signed local dual
 
 **Settled in Assignment 001.**
 
-For finite `E={0,...,d-1}` with reference state `0`, the indicator tensor basis gives typed active configurations; conflicts give cemetery `dagger` with zero duality function.
+Reference-state indicator tensors yield typed active configurations. General bounded finite-range single-site replacement rates give fixed local signed branch coefficients and a local Feynman--Kac dual. Successful nonempty records reveal `(i,t,r,tau)` and hide the post-source outcome.
 
-## E2. Exact signed local dual
+## E2. Typed patch factorization
 
-**Settled in Assignment 001.**
+**Settled in Assignment 002 with killed-skeleton modification.**
 
-General bounded finite-range single-site replacement rates yield fixed local signed branch coefficients `a_{i,r}^s(tau)`. Absolute values are Poisson rates and source outcome deletes/preserves/retypes the source. Target conflicts affect only the deterministic merge.
+Bare conditioning fails because typed target conflicts can enter cemetery and suppress future records globally. Since `H_dagger=0`, killed/noncemetery weighted factorization is exact.
 
-## E3. Typed successful record
-
-**Settled in Assignment 001.**
-
-For nonempty target, record
-
-\[
-(i,t,r,\tau)
-\]
-
-and hide post-source outcome `s`.
-
-## E4. Typed patch factorization
-
-**Settled in Assignment 002 with a necessary killed-skeleton modification.**
-
-Bare conditioning on the coarse record list fails because an incoming typed conflict can send the dual to cemetery and remove future no-record constraints. Since `H_dagger=0`, the exact representation uses killed/noncemetery weighted factorization.
-
-## E5. Explicit typed patch representation
+## E3. Explicit typed patch representation
 
 **Settled in Assignment 003.**
 
@@ -59,189 +41,186 @@ Bulk contributions are
 C(P)=E_P^{con}[A_P],
 \]
 
-end contributions are one-site indicator-basis functions, and the exact killed-skeleton semigroup representation is proved. The binary specialization is exact.
+end contributions are one-site indicator-basis functions, and the exact killed-skeleton semigroup representation is proved. Binary reduction is exact.
 
-## E6. Exact typed bulk patch positivity
+## E4. Exact typed bulk positivity transfer
 
-**Settled in Assignment 004 at transfer-matrix level.**
+**Settled in Assignment 004.**
 
-For active local type `r`, the weighted interior transfer has generator
+The signed interior transfer is
 
 \[
 K_i(0,\cdot)=0,
-\qquad
-K_i(r,s)=a_{i,r}^s(\emptyset).
+\qquad K_i(r,s)=a_{i,r}^s(\emptyset).
 \]
 
-For
+Typed bulk patch positivity is exactly the nonnegativity of the four local numerator families built from `e^{tK_i}` for every realizable descriptor and `t>0`.
 
-\[
-f_b^I=e_0^T+e_b^T,
-\qquad
-f_r^O=e_r^T,
-\]
+The `d=2` specialization is exactly the canonical patch-positivity coefficient criterion.
 
-and outgoing row
-
-\[
-\mathbf a_{r,\tau}=(a_{i,r}^s(\tau))_{s\in E},
-\]
-
-typed bulk patch positivity is exactly nonnegativity of
-
-\[
-e_a e^{tK_i}f_b^I,
-\qquad e_a e^{tK_i}f_r^O,
-\]
-
-\[
-\mathbf a_{r,\tau}e^{tK_i}f_b^I,
-\qquad
-\mathbf a_{r,\tau}e^{tK_i}f_{r_e}^O
-\]
-
-for every realizable descriptor and every `t>0`.
-
-The binary specialization recovers exactly the canonical patch-positivity coefficient criterion.
-
-## E7. Boundary-complete three-state reduction
+## E5. Boundary-complete `d=3` structural reduction
 
 **Settled in Assignment 005.**
 
-For `d=3`, boundary completeness forces the empty-target transfer to be Metzler. Writing reference-neighbour physical rates `q_xy`,
+Boundary completeness forces `K` Metzler. Hence incoming-initial families are automatic. For every outgoing row
 
 \[
-K=
-\begin{pmatrix}
-0&0&0\\
-q_{01}&-(q_{01}+q_{10}+q_{12})&q_{21}-q_{01}\\
-q_{02}&q_{12}-q_{02}&-(q_{02}+q_{20}+q_{21})
-\end{pmatrix},
+p=(p_0,p_1,p_2),
 \]
 
-short incoming-to-outgoing descriptors imply
+zero-length conditions force
 
 \[
-q_{21}\ge q_{01},
+p_1,p_2,p_0+p_1,p_0+p_2\ge0,
+\]
+
+which makes all `OO` families automatic. Only `OI` remains, with the physical Markov representation
+
+\[
+p e^{tK}f_b^I=E_b[g(Z_t)],
 \qquad
-q_{12}\ge q_{02}.
+ g=(p_0,p_0+p_1,p_0+p_2).
 \]
 
-Hence `e^{tK}` is entrywise nonnegative.
-
-Consequences:
-
-- every incoming-initial `II/IO` numerator is automatic;
-- for outgoing row `p=(p0,p1,p2)`, zero-length conditions force
-  \[
-  p_1,p_2,p_0+p_1,p_0+p_2\ge0;
-  \]
-- all `OO` families are then automatic;
-- only outgoing-initial/incoming-terminal (`OI`) families remain.
-
-For
-
-\[
-g=(p_0,p_0+p_1,p_0+p_2),
-\]
-
-and the physical reference-neighbour generator `Q`, the exact intertwining gives
-
-\[
-\boxed{p e^{tK}f_b^I=E_b[g(Z_t)].}
-\]
-
-Thus the multi-state sign issue is a local Markov-semigroup transient problem.
-
-## E8. Binary-style endpoint criterion
+## E6. Binary-style endpoint criterion
 
 **Refuted in Assignment 005.**
 
-A genuine one-neighbour physical IPS has
+The exact witness
 
 \[
-Q=
-\begin{pmatrix}
--1/4&0&1/4\\
-7/4&-2&1/4\\
-1/4&1/2&-3/4
-\end{pmatrix},
-\qquad
-K=
-\begin{pmatrix}
-0&0&0\\
-0&-2&1/2\\
-1/4&0&-1
-\end{pmatrix}.
+N(t)=\frac1{128}-\frac{13}{64}e^{-t}+\frac{153}{128}e^{-2t}
 \]
 
-For one boundary-complete outgoing row
-
-\[
-p=(-1/8,9/8,1/4),
-\qquad
- g=(-1/8,1,1/8),
-\]
-
-the required `OI` numerator is
-
-\[
-N(t)=\frac1{128}-\frac{13}{64}e^{-t}+\frac{153}{128}e^{-2t}.
-\]
-
-Both endpoint values are strictly positive:
+has
 
 \[
 N(0)=1,
+\qquad N(\infty)=1/128,
+\]
+
+but
+
+\[
+e^{-t_*}=13/153,
+\qquad N(t_*)=-1/1224.
+\]
+
+Thus zero-length plus long-time inequalities do not characterize boundary-complete `d=3` positivity. This does not affect the exact semigroup property or binary theory.
+
+## E7. Exact finite spectral criterion in boundary-complete `d=3`
+
+**Settled in Assignment 006.**
+
+For each remaining `OI` descriptor, the active `2 x 2` spectrum is real because `K` is Metzler.
+
+### Generic distinct negative active eigenvalues
+
+If
+
+\[
+-\mu,-\nu,
+\qquad0<\mu<\nu,
+\]
+
+then
+
+\[
+N(t)=L+A e^{-\mu t}+B e^{-\nu t}.
+\]
+
+Use
+
+\[
+P_0=\frac{(K+\mu I)(K+\nu I)}{\mu\nu},
+\quad L=uP_0f,
+\quad n_0=uf,
+\quad n_1=uKf,
+\]
+
+\[
+A=\frac{\nu(n_0-L)+n_1}{\nu-\mu},
 \qquad
-N(\infty)=1/128,
+B=\frac{-\mu(n_0-L)-n_1}{\nu-\mu}.
 \]
 
-but at
+There is at most one interior minimum. It occurs exactly when
 
 \[
-e^{-t_*}=13/153
+A<0<B,
+\qquad
+0<R=-\frac{\mu A}{\nu B}<1,
 \]
 
-one has
+and then
 
 \[
-N(t_*)=-1/1224.
+\boxed{
+N(t_*)
+=L+\frac{\nu-\mu}{\nu}
+A R^{\mu/(\nu-\mu)}.}
 \]
 
-All physical one-neighbour rates are nonnegative and all other endpoint conditions in the gate hold.
+Hence zero-length, long-time, and at most one critical-value check are necessary and sufficient.
 
-Therefore the direct binary-style collapse to zero-length and long-time coefficient inequalities is stopped:
+### Degenerate spectra
 
-**`STOP-NO-FINITE-ENDPOINT-CRITERION`.**
+Also settled exactly:
 
-Suppressing type `2` recovers exactly the canonical binary coefficient inequalities and removes the obstruction.
+- one zero active eigenvalue: one decaying mode;
+- repeated negative diagonalizable active block: one decaying mode;
+- repeated negative Jordan block:
+  \[
+  N(t)=L+(A+Bt)e^{-\mu t},
+  \]
+  again with at most one interior minimum;
+- reducible reference-neighbour chains: no new time-dependence class; zero remains semisimple because `K` is similar to a finite-state Markov generator.
 
-Decisive files: `005a`--`005d`, verifier `005-three-state-endpoint-obstruction-verifier.py`, and Meeting 005.
+Thus every boundary-complete `d=3` descriptor is decided by finitely many explicit local evaluations.
 
-## E9. Exact spectral critical-point criterion
+### Mandatory gates
+
+The criterion reproduces the Assignment-005 negative minimum and verifies a separate physically realizable `p_0<0` positive example with
+
+\[
+p=(-1/8,9/8,3/8),
+\]
+
+whose nontrivial minimum is
+
+\[
+e^{-t_*}=5/51,
+\qquad N(t_*)=15/544>0.
+\]
+
+The binary suppression again gives exactly the canonical coefficient inequalities.
+
+Decisive files: `006a`--`006d`, verifier `006-three-state-spectral-verifier.py`, and Meeting 006.
+
+## E8. Natural simplification / structural subclass
 
 **Open and current load-bearing edge.**
 
-The endpoint collapse is false, but the `d=3` reduction is still unusually rigid. Under the Metzler/physical conditions, the two nonzero eigenvalues are real. Generically every remaining `OI` numerator is
+The exact `d=3` criterion is finite but not generally a purely algebraic coefficient cone. Its generic critical inequality contains
 
 \[
-L+A e^{-\mu t}+B e^{-\nu t},
-\qquad 0<\mu<\nu.
+R^{\mu/(\nu-\mu)}.
 \]
 
-Such a function has at most one interior critical point capable of being a negative minimum. Therefore a materially distinct next question is:
+Assignment 005 proves that the interior transient cannot simply be deleted.
 
-> derive a necessary-and-sufficient **finite spectral test** consisting of endpoint conditions plus the exact interior critical-value inequality when that minimum exists, including repeated/degenerate eigenvalue cases and exact binary reduction.
+The next bounded problem is:
 
-This retains the transient information shown necessary by Assignment 005 rather than reviving the refuted endpoint-only criterion.
+> identify a mathematically natural non-binary structural subclass for which the exact critical condition simplifies to algebraic/monotone local inequalities, and prove necessity and sufficiency within that subclass while preserving the exact binary reduction.
 
-## E10. Consequences, applications, and broader updates
+Possible structure must arise from the IPS/transfer algebra rather than be imposed solely to force positivity. A merely sufficient cone is not a replacement for the exact property unless the subclass itself is independently natural.
 
-**Blocked on E9.**
+## E9. Consequences, applications, and broader updates
 
-Do not start applications, convergence, `d>3`, or simultaneous multi-site updates until the spectral criterion is either proved useful or rejected on mathematical grounds.
+**Blocked on E8.**
+
+Do not start applications, convergence, arbitrary `d`, or simultaneous multi-site updates before the simplification/subclass question is materially resolved.
 
 ## Novelty status
 
-No literature novelty claim has yet been made for the generalized representation/positivity theorem. A targeted literature audit remains necessary once the criterion-level theorem is stable enough to compare precisely.
+No literature novelty claim has yet been made. A targeted literature audit remains necessary once the theorem package is stable enough to compare precisely.
