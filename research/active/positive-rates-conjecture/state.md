@@ -23,7 +23,7 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-Latest meeting: `meetings/027-terminal-high-pass-contraction-but-noniterable-connected-renewal-stops.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/028-boundary-resolvent-elimination-sharpens-residual-object-but-does-not-reopen.md`, `state_narrowed: yes`.
 
 Active work:
 
@@ -32,6 +32,8 @@ Active work:
 - No proof architecture is currently active.
 
 Operative proof-architecture status: **`no-credible-route`**, in the precise consultation-002 / Meeting-025 sense. This does not say the conjecture is false or that every conceivable proof architecture is impossible.
+
+Operational overlap: G's `75d0e8a` landed after Meeting 027 because the idle ruling had not yet been relayed. Meeting 028 treats it as an orchestration overlap, not disregard of the stop. It is accepted as exact algebraic sharpening but does not reopen the branch.
 
 ## Stopped / inactive interfaces
 
@@ -42,7 +44,7 @@ Stopped or inactive mechanisms include:
 - global path-space TV/KL contraction of the exact trajectory kernel `Q`;
 - the stationary boundary-control Bellman-corrector concatenation implementation (Meeting 024);
 - G009's singular fixed-depth short/long renewal continuation (Meeting 025);
-- the fixed-filter connected dual-renewal continuation after the bounded Assignment 010 block (Meeting 027).
+- the fixed-filter connected dual-renewal continuation after the bounded Assignment 010 block (Meetings 027--028).
 
 The last stop is an implementation/continuation decision, not a refutation of the fixed dual-renewal witness.
 
@@ -254,7 +256,7 @@ so `R(x_0)=0`. Therefore no uniform reverse comparison on the full positive-freq
 
 This does **not** prove that the finite-volume spectrum contains `x_0`, nor that the actual connected orbit lives near it. It proves only that the one-high-pass functional-calculus iteration is unavailable without additional orbit information or a complementary observable.
 
-## Exact filtered boundary-response interface
+## Boundary response: filtered pairing and exact elimination
 
 Let
 
@@ -269,31 +271,91 @@ and define
 $$
 f_1=Y_1,
 \qquad
-f_N=Y_NQ_{N-1}f_{N-1}.
+f_N=Y_NQ_{N-1}f_{N-1},
+\qquad
+q_N:=Q_Nf_N.
 $$
 
-Then G010 proves exactly
+G010 first proved
 
 $$
-\boxed{
- c_{N+1}=\delta_N(R_NQ_Nf_N).
-}
-\tag{FB}
+ c_{N+1}=\delta_N(R_Nq_N)
 $$
 
-Moreover
+with source equation
 
 $$
-\boxed{
 \delta_NL_N
 =-B A_N(I-L_N)((1+b)I-L_N)^{-1}P_N.
-}
-\tag{SRC}
 $$
 
-Thus the remaining object is a stationary zero-frequency boundary response only after testing against the **special high-pass connected orbit** `R_NQ_Nf_N`.
+The late checkpoint `75d0e8a`, accepted at Meeting 028, eliminates `delta_N` exactly. Put
 
-This is strictly narrower than F013/F014's unrestricted one-/two-step tail-shift norms. No equivalence in either direction is proved.
+$$
+r=1+b,
+\qquad
+S_N=(rI-L_N)^{-1},
+\qquad
+D_N=(I-L_N)S_N.
+$$
+
+Then
+
+$$
+\boxed{
+ c_{N+1}
+ =A_N\!\left[
+ \frac dr q_N
+ +\left(g-\frac dr\right)B
+ D_NP_NS_Nq_N
+ \right].
+}
+\tag{BRE}
+$$
+
+At `P_*`, `d/r=-\varepsilon`, `\varepsilon=9/10000`, and `g_0=g+\varepsilon`, so
+
+$$
+\boxed{
+ c_{N+1}=A_N(\mathfrak B_Nq_N),
+}
+$$
+
+with
+
+$$
+\boxed{
+\mathfrak B_N
+=-\varepsilon I
++g_0B(I-L_N)(rI-L_N)^{-1}
+P_N(rI-L_N)^{-1}.
+}
+\tag{BR}
+$$
+
+Thus no estimate of the unrestricted norm of `delta_N` or bare tail-shift TV is logically required for the connected coefficient. Any future claim that this route is equivalent to F013/F014's bare tail-shift problem must survive `(BRE)`--`(BR)` and requires additional mathematics.
+
+The elementary bound
+
+$$
+|c_{N+1}|
+\le
+\frac{342081}{1718750}\operatorname{osc}(q_N)
+$$
+
+is far too crude and gives no depth decay. The sharp residual problem is now summable/geometric control of
+
+$$
+A_N(\mathfrak B_Nq_N)
+$$
+
+along the actual recursion
+
+$$
+q_N=Q_N(Y_Nq_{N-1}).
+$$
+
+This is a target, not a currently available mechanism.
 
 ## Recentered newest-boundary block
 
@@ -320,18 +382,16 @@ $$
 
 After normalizing `X` by `sqrt(c_0g_0)`, the two off-diagonal interface blocks agree. The scalar recentering branch `Y=X-\varepsilon` is already uniformly contractive, with exact oscillation cost below `0.609`. The unresolved transmission is through the boundary-containing `X` branch and inherited older-volume dynamics.
 
-## Meeting 027 stop decision
+## Meetings 027--028 stop decision
 
-Assignment 010 was a pre-registered bounded block. It produced a real all-depth theorem `(HP)` and a sharper exact residual object `(FB)`, but no proof of `(CT)` and no fixed-rate `rho_J>1` theorem.
+Assignment 010 was a pre-registered bounded block. It produced a real all-depth theorem `(HP)` and then the exact boundary-resolvent elimination `(BRE)`, but no proof of `(CT)` and no fixed-rate `rho_J>1` theorem.
 
-The plausible repairs are:
+The late elimination does not clear Meeting 027's restart bar. A future restart requires either:
 
-- a complementary high-pass observable covering the blind frequency; or
-- an orbit-specific theorem bounding the pairings `(FB)` summably/geometrically.
+- an **explicit complementary high-pass observable/seminorm** with a proved two-component depth-uniform contraction covering the blind frequency; or
+- an **orbit-specific theorem** giving summable/geometric control of `A_N(\mathfrak B_Nq_N)` along the actual connected recursion.
 
-Neither is currently supplied with a concrete second operator and verified contraction matrix, nor with an orbit theorem. Assigning “find another norm” would therefore be a generic new search. No G011 is authorized.
-
-A future restart requires genuinely new input such as an explicit complementary observable with a proved two-component contraction, or a theorem specific to the actual connected orbit. More filter optimization, finite coefficient tables, bare tail-shift, common coupling, generic Bellman search, or generic positive-frequency norm search do not clear the bar.
+Neither currently exists. A generic instruction to prove decay of the new boundary-resolvent expression or to search for another norm is not authorized. No G011.
 
 ## Other retained exact mathematics
 
@@ -344,7 +404,7 @@ The common-uniform fixed-site coupling facts and the exact trajectory-valued spa
 Open:
 
 - `(J-SPEC)` and `(CT)`;
-- the filtered boundary-response pairings `(FB)`;
+- the boundary-resolvent orbit coefficients `(BRE)`--`(BR)`;
 - one-/two-step tail-shift agreement off the product surface;
 - `Gamma_M->0` and general `J_{x,r}->0`;
 - common-uniform extinction versus convective survival;
