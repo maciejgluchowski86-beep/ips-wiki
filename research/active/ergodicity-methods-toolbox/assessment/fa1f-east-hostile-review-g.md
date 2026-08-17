@@ -81,3 +81,25 @@ No exact obstruction in the chronology or finite-seed records identifies adaptiv
 **Cheapest next check**
 
 On a finite space-time slab, compute the exact minimal decision tree for one terminal site under product initial vacancies and graphical marks, allowing short-circuit evaluation of the FA `OR` constraint. Record the distribution of unresolved time-zero leaves after one and two temporal blocks and compare it with the naive branching majorant. If adaptive pruning/merging does not reduce a natural exponential or block reproduction statistic below one in any low-`q` test regime, the architecture should be demoted before attempting a multiscale proof. The statistic must be defined from the actual reveal algorithm, not from the transformed dual particle count.
+
+## 4. Front regeneration / renewal
+
+**RULING:** DEMOTE
+
+**Attack**
+
+The source architecture assumes a distinguished physical front separating an already explored region from genuinely fresh material. That geometry is what makes a restart sigma-field possible: after a successful candidate time, the future beyond the front is built from randomness not contaminated by the pre-regeneration history. A translation-invariant Bernoulli FA quench has no canonical interface of this kind. Vacancies occur throughout both half-lines, and selecting the nearest vacancy to an observation block does not create an explored/fresh decomposition. The selected vacancy's future legality can depend on either side.
+
+The two-front bridge in the primary audit fixes this by requiring left and right renewal fronts that bracket the observation block, prevent exterior information from re-entering, and leave a long fresh interval for equilibration. But once these requirements are imposed, the supposed renewal theorem has become the same mathematical content as Candidate 1's two-sided causal screen: a random bracket, fresh interior future, no exterior re-entry, and a width/time tradeoff compatible with the FA gap. Calling the boundaries "renewal fronts" does not supply an additional mechanism for constructing that screen in the Bernoulli sea.
+
+This also explains the finite-seed distinction. The closed finite-seed programme explicitly records a genuine spatial-front/regeneration theorem as a possible new idea because one physical seed creates distinguished extremal geometry. That does not transfer automatically to the Bernoulli quench, where there are infinitely many vacancies on both sides and no canonical fresh front. The source theorem's conclusion about a moving-frame environment would in any case be too weak: front speed or stationarity can coexist with information leaking back into the observation block.
+
+**Load-bearing reason**
+
+As a Bernoulli-quench architecture, front regeneration currently has no independent regenerative object. The bridge obtains the needed conclusion only by assuming precisely the causal insulation/freshness theorem already isolated by East-style screening. It therefore does not clear the B bar as a distinct route, although regeneration ideas may be how the surviving screen is eventually constructed.
+
+**If DEMOTE:** The strongest remaining auxiliary use is as a construction template inside the East-screening route, and as a substantially more natural primary architecture for the finite-seed problem where a physical vacancy front can actually be distinguished.
+
+**Cheapest next check**
+
+A proposed quench front should be rejected unless its definition specifies a sigma-field at the candidate renewal time whose future evolution on the protected side uses unused marks and whose success/failure can be decided without inspecting that protected future. On a small finite interval, test whether two configurations agreeing on the proposed front data but differing behind/ahead of it can change the next front move or permit later re-entry. If yes, the object is not regenerative; if no, it should be reclassified as an explicit implementation of Candidate 1 rather than a separate route.
