@@ -14,11 +14,10 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Workspace: `research/active/generalized-patch-representations/`.
 - Branch-only wiki hub: `docs/generalized-patch-representations.md`.
 - Branch-only wiki section: `docs/generalized-patch-representations/`.
-- Latest meeting: `meetings/003-explicit-typed-patch-representation.md`.
-- Next bounded assignment: `students/professor/assignment-004-typed-bulk-positivity-transfer.md`, queued and not yet executed.
+- Latest meeting: `meetings/004-typed-bulk-transfer-recovers-binary-positivity.md`.
 - Executor: Professor, because no graduate-student session is currently operational.
 
-The principal asks whether the patch-positivity framework can be extended to more general IPS: more local states, updates beyond binary flips, corresponding signed duals, a successful-interaction analogue which reveals a coarse spacetime skeleton while hiding finite local information, generalized patches/positivity, and applications.
+The principal asks whether the canonical patch-positivity framework extends to more general IPS: more local states, updates beyond binary flips, corresponding signed duals, a successful-interaction analogue hiding finite local information, generalized patches/positivity, and applications.
 
 The core mechanism is conditional averaging of hidden local marks inside spacetime patches before signed contributions are compared.
 
@@ -26,91 +25,29 @@ The core mechanism is conditional averaging of hidden local marks inside spaceti
 
 The manuscript under `paper/`, *Patch representations and convergence for facilitated spin systems*, is authoritative for the binary construction. Existing patch pages under `docs/entries/` remain source/expository material and are not generalized in place.
 
-## Assignment 001: finite-state typed duality
+## Established generalized structure
+
+### Assignment 001: finite-state typed duality
 
 Outcome: **`CONTINUE-TYPED-PATCH`**.
 
-For finite `E={0,...,d-1}` with reference state `0`, the reference-state indicator tensor basis gives typed active configurations and an exact local signed Feynman--Kac dual for general bounded finite-range single-site replacement dynamics.
-
-For nonempty target, the successful record
+For finite `E={0,...,d-1}` with reference state `0`, the indicator tensor basis gives typed active configurations and an exact fixed-local-clock signed Feynman--Kac dual for bounded finite-range single-site replacement IPS. Successful nonempty records are
 
 \[
-(i,t,r,\tau)
+(i,t,r,\tau),
 \]
 
-reveals the pre-interaction source type and typed target while hiding the post-source outcome. The `d=2` specialization is exactly the canonical death/split/birth dual.
+revealing pre-source type and typed target while hiding post-source outcome.
 
-## Assignment 002: typed patch factorization
+### Assignment 002: typed patch factorization
 
 Outcome: **`CONTINUE-TYPED-REPRESENTATION`**.
 
-Typed incoming target conflicts make bare conditional factorization false. The exact `d=3` gate gives
+Bare conditioning fails because incoming typed conflicts can hit cemetery and remove future no-record constraints. Since `H_dagger=0`, the killed/noncemetery weighted factorization is exact and sufficient for the semigroup representation.
 
-\[
-P(K,B\mid G)=4/17\ne32/289=P(K\mid G)P(B\mid G).
-\]
-
-Since `H_dagger=0`, cemetery histories have exact Feynman--Kac weight zero and the killed/noncemetery factorization succeeds:
-
-\[
-E\left[h(G_T)1_{\{\tau_\dagger>T\}}\prod_Pf_P\right]
-=
-\int h(g)\prod_PE_P[f_P1_{Con(P)}]m_T(dg).
-\]
-
-Thus
-
-\[
-\nu_T(dg)=P(G_T\in dg,\tau_\dagger>T)
-=\prod_PP_P(Con(P))m_T(dg).
-\]
-
-## Assignment 003: explicit typed patch representation
+### Assignment 003: explicit typed patch representation
 
 Outcome: **`CONTINUE-TYPED-POSITIVITY`**.
-
-For patch `P`, let
-
-\[
-A_P
-=
-\epsilon_{\rm out}(P)
-\epsilon_{\emptyset}(P)
-\exp\left(
-\int_{b(P)}^{e(P)\wedge T}
-\bar v_{i(P),X_u^P}\,du
-\right),
-\]
-
-with `bar v_{i,0}=0`, and
-
-\[
-w_P=
-\begin{cases}
-A_P,&P\text{ bulk},\\
-A_Ph_{X_T^P}(\eta_{i(P)}),&P\text{ end}.
-\end{cases}
-\]
-
-On every noncemetery path,
-
-\[
-\sigma_Te^{\int_0^TV(\xi_u)du}H_{\xi_T}(\eta)
-=
-\prod_Pw_P.
-\]
-
-The exact semigroup representation is
-
-\[
-\boxed{
-P_TH_{\xi_0}(\eta)
-=
-\int
-\left(\prod_{P\in\mathcal B_T(g)}C(P)\right)
-\left(\prod_{P\in\mathcal E_T(g)}C_T(\eta_{i(P)},P)\right)
-\nu_T(dg).}
-\]
 
 Bulk contributions are
 
@@ -118,49 +55,104 @@ Bulk contributions are
 C(P)=E_P^{con}[A_P]
 \]
 
-and are independent of terminal physical data. End contributions are one-site functions
+and are independent of terminal physical data. End contributions are one-site functions in the same indicator basis. The exact killed-skeleton semigroup representation is proved and specializes exactly to the canonical binary representation.
+
+### Assignment 004: typed bulk transfer and positivity
+
+Outcome: **`CONTINUE-TYPED-POSITIVITY-CRITERION`**.
+
+For active local type `r`, the weighted killed Feynman--Kac interior transfer has the exact finite generator
 
 \[
-C_T(x,P)=B_0(P)+\sum_{a\in E_*}B_a(P)1_{\{x=a\}}.
+\boxed{K_i(0,\cdot)=0,
+\qquad K_i(r,s)=a_{i,r}^s(\emptyset).}
 \]
 
-The `d=2` reduction is exactly the canonical binary patch weight and representation. Typed conflicts disappear in the binary case, so the killed skeleton becomes the ordinary successful skeleton.
+The cancellation producing this matrix is exact: empty-target escape subtraction and nonempty-target no-success killing cancel against the corresponding pieces of the local potential.
 
-Decisive Assignment-003 files:
+The unsigned consistency transfer is
 
-- `students/professor/003a-local-typed-patch-weight.md`, commit `992552ca`;
-- verifier `003-typed-representation-verifier.py`, commit `50f28f62`;
-- `003b-pathwise-typed-patch-product.md`, commit `1f58d2f3`;
-- `003c-exact-typed-semigroup-representation.md`, commit `6eebcaa5`;
-- `003d-bulk-end-separation-and-binary-reduction.md`, commit `4f9c250b`;
-- final report `003-typed-patch-representation.md`, commit `ed5492e8`;
-- handoff `003-handoff.md`, commit `b46a63dc`;
-- Meeting 003, commit `7d20767f`.
+\[
+B_i(r,s)=|a_{i,r}^s(\emptyset)|\quad(s\ne r),
+\]
+
+\[
+B_i(r,r)=
+-\sum_{s\ne r}|a_{i,r}^s(\emptyset)|
+-\sum_{\tau\ne\emptyset}\sum_s|a_{i,r}^s(\tau)|,
+\]
+
+with zero inactive row.
+
+For terminal columns
+
+\[
+f_b^I=e_0^T+e_b^T,
+\qquad f_r^O=e_r^T,
+\]
+
+and outgoing initial signed row
+
+\[
+\mathbf a_{r,\tau}=(a_{i,r}^s(\tau))_{s\in E},
+\]
+
+typed bulk patch positivity is exactly nonnegativity of
+
+\[
+e_a e^{tK_i}f_b^I,
+\qquad
+e_a e^{tK_i}f_r^O,
+\]
+
+\[
+\mathbf a_{r,\tau}e^{tK_i}f_b^I,
+\qquad
+\mathbf a_{r,\tau}e^{tK_i}f_{r_e}^O
+\]
+
+for every realizable descriptor and every `t>0`. The corresponding denominators use `B_i` and are positive on realized descriptors.
+
+This is the exact generalized bulk positivity property; no entrywise-positive-matrix surrogate is imposed.
+
+The binary specialization recovers **exactly** the canonical coefficient criterion
+
+\[
+c_i^0(S)+c_i^1(S)\le0,
+\qquad
+c_i^1(\emptyset)c_i^0(S)
+\ge
+c_i^0(\emptyset)c_i^1(S),
+\]
+
+when `c_i^0(emptyset)+c_i^1(emptyset)>0`, with the exact exceptional clause `c_i\equiv0` when that sum is zero.
+
+Final verifier: `students/professor/004-typed-transfer-verifier.py`, commit `0bbfccd0`. The final `d=3` gate reconstructs all typed coefficient rows from an actual one-neighbour three-state generator with nonnegative physical rates.
+
+Final report: `students/professor/004-typed-bulk-positivity-transfer.md`, commit `be4429bc`.
+
+Meeting 004: commit `b9673290`.
 
 ## Current proof-spine edge
 
-**Typed bulk patch positivity.**
+**Tractable coefficient characterization of typed bulk patch positivity.**
 
-The object is now exact:
+The exact all-length semigroup-positive family is known. The next bounded block should determine whether it admits finite/local coefficient inequalities for a nontrivial multi-state class, or isolate the obstruction to such a reduction.
 
-\[
-C(P)=E_P^{con}[A_P].
-\]
-
-Assignment 004 is pre-registered to derive a finite-dimensional signed transfer matrix and the corresponding unsigned consistency/killing matrix for every bulk boundary orientation, then determine the exact numerator inequalities equivalent to all-patch nonnegativity.
-
-A key candidate cancellation to prove or refute is that the signed interior transfer generator reduces to the matrix of empty-target coefficients after the local potential cancels the ordinary jump-rate subtraction and nonempty-target no-success killing.
-
-No generalized patch-positivity criterion has yet been asserted.
+Applications and convergence remain downstream and are not active.
 
 ## Scope, novelty and publication boundary
 
-The proved class is finite-state bounded finite-range **single-site replacement** dynamics in the reference-state indicator tensor basis. Simultaneous multi-site physical updates remain outside scope.
+Current proved scope: finite-state bounded finite-range **single-site replacement** dynamics in the reference-state indicator tensor basis.
 
-No literature novelty claim has yet been made for the generalized representation theorem. A targeted literature audit should occur after the positivity theorem is stable enough to identify the actual claimed contribution.
+Simultaneous multi-site physical updates remain outside scope.
 
-The research loop may keep stable current results only in the separate branch-only section `docs/generalized-patch-representations/`.
+No literature novelty claim has yet been made for the generalized theorem. A targeted literature audit remains necessary once a coefficient-level statement is stable enough to compare precisely.
+
+Stable current research may be recorded only in the designated branch-only generalized-patch wiki section.
 
 **Do not publish or merge any programme content to `main`.**
 
-All previously stopped programmes remain closed at their existing rulings and are not reopened by this direction.
+Existing `docs/entries/`, `docs/meta/`, and `mkdocs.yml` are outside the active write surface.
+
+All previously stopped programmes remain closed and are not reopened by this direction.
