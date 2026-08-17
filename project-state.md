@@ -14,88 +14,127 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Workspace: `research/active/generalized-patch-representations/`.
 - Branch-only wiki hub: `docs/generalized-patch-representations.md`.
 - Branch-only wiki section: `docs/generalized-patch-representations/`.
-- Latest meeting: `meetings/001-finite-state-typed-duality-opens-patch-factorization.md`.
-- Next bounded assignment: `students/professor/assignment-002-typed-patch-factorization.md`, queued but not yet executed.
+- Latest meeting: `meetings/002-weighted-typed-patch-factorization.md`.
 - Executor: Professor, because no graduate-student session is currently operational.
 
-The principal has superseded the previous direction and asked whether the patch-positivity paper can be extended to more general IPS: more than two local states, updates beyond flips, a corresponding signed dual process, a successful-interaction analogue which reveals a coarse spacetime skeleton while hiding a finite local mark, generalized patches and patch positivity, and applications.
+The principal asks whether the patch-positivity framework can be extended to more general IPS: more local states, updates beyond binary flips, corresponding signed duals, a successful-interaction analogue which reveals a coarse spacetime skeleton while hiding finite local information, generalized patches/positivity, and applications.
 
-The core mechanism to preserve is conditional averaging of hidden local marks inside spacetime patches before signed contributions are compared.
+The core mechanism is conditional averaging of hidden local marks inside spacetime patches before signed contributions are compared.
 
 ## Canonical binary benchmark
 
-For the existing construction, the manuscript under `paper/`, *Patch representations and convergence for facilitated spin systems*, is authoritative. Existing patch wiki pages under `docs/entries/` remain expository source material and are not being generalized in place.
+The manuscript under `paper/`, *Patch representations and convergence for facilitated spin systems*, is authoritative for the binary construction. Existing patch pages under `docs/entries/` remain source/expository material and are not generalized in place.
 
 ## Assignment 001: finite-state typed duality
 
 Outcome: **`CONTINUE-TYPED-PATCH`**.
 
-For finite local state space `E={0,...,d-1}` with reference state `0`, the indicator tensor basis
+For finite `E={0,...,d-1}` with reference state `0`, the indicator tensor basis gives typed active configurations and an exact local signed Feynman--Kac dual for general bounded finite-range single-site replacement dynamics.
 
-$$
-h_0\equiv1,
-\qquad h_a(x)=1_{\{x=a\}},\quad a\ne0,
-$$
+For nonempty target, the successful record
 
-produces typed active configurations and spans every finite cylinder algebra.
+\[
+(i,t,r,\tau)
+\]
 
-For general bounded single-site replacement dynamics, expansion of the neighbour rates gives exact source-outcome coefficients
+reveals the pre-interaction source type and typed target while hiding the post-interaction source outcome. The `d=2` specialization is exactly the canonical death/split/birth dual.
 
-$$
-a_{i,r}^{0}(\tau)=\widehat c_i^{0\to r}(\tau),
-$$
+Decisive report/verifier:
 
-$$
-a_{i,r}^{s}(\tau)=\widehat c_i^{s\to r}(\tau)-\widehat c_i^{0\to r}(\tau),
-\quad s\ne0,r,
-$$
+- `research/active/generalized-patch-representations/students/professor/001-finite-state-duality.md`, commit `2f37d6bf`;
+- `001-finite-state-duality-verifier.py`, commit `c8e47458`.
 
-$$
-a_{i,r}^{r}(\tau)
-=-\widehat c_i^{0\to r}(\tau)-\sum_{y\ne r}\widehat c_i^{r\to y}(\tau).
-$$
+## Assignment 002: typed patch factorization
 
-Their absolute values are fixed local Poisson rates; signs are sign marks. The source outcome deletes, preserves, or retypes the source. Typed target conflicts go to a cemetery/zero state but do not alter clock rates.
+Outcome: **`CONTINUE-TYPED-REPRESENTATION`**.
 
-The empty-target source-survival coefficient is placed in the Feynman--Kac potential, giving an exact local graphical generator duality. The `d=2` specialization is exactly the canonical death/split/birth dual.
+A typed patch carries local state `X^P in E`. The new incoming terminal condition is
 
-For nonempty typed target `tau`, the first successful-interaction record is
+\[
+X_{e-}^P\in\{0,a\}
+\]
 
-$$
-(i,t,r,\tau),
-$$
+for incoming target type `a`; a different active type causes cemetery.
 
-retaining the pre-interaction source type and typed target while hiding the post-interaction source outcome. All hidden outcomes have the same interaction endpoints, so one-site patch geometry passes the first gate.
+For inserted record list `g`, exact noncemetery consistency is patch-local:
+
+\[
+\{\tau_\dagger>T\}\cap\{G_T=g\}
+=
+\bigcap_PCon(P).
+\]
+
+### Bare conditional independence fails
+
+The mandatory `d=3` two-record gate exhibits genuine conflict-induced dependence:
+
+\[
+P(K,B\mid G)=\frac4{17}
+\ne
+\frac{32}{289}
+=P(K\mid G)P(B\mid G).
+\]
+
+A selected incoming target can conflict and send the dual to cemetery, after which every future no-record constraint disappears.
+
+### Killed/noncemetery factorization succeeds exactly
+
+Since `H_dagger=0`, cemetery histories have exact Feynman--Kac weight zero. The weighted Mecke identity is
+
+\[
+E\left[h(G_T)1_{\{\tau_\dagger>T\}}\prod_Pf_P\right]
+=
+\int h(g)\prod_PE_P[f_P1_{Con(P)}]m_T(dg),
+\]
+
+with
+
+\[
+m_T(dg)=\prod_k\Lambda_{i_k,r_k}(\tau_k)dt_k.
+\]
+
+Hence the noncemetery skeleton submeasure satisfies
+
+\[
+\nu_T(dg)=\prod_PP_P(Con(P))m_T(dg),
+\]
+
+and conditional on `G_T=g, tau_dagger>T` the patch variables are independent with normalized consistent laws.
 
 Decisive files:
 
-- `students/professor/001a-typed-generator-action.md`;
-- `students/professor/001b-signed-typed-dual.md`;
-- `students/professor/001c-coarse-typed-skeleton.md`;
-- exact verifier `students/professor/001-finite-state-duality-verifier.py`, final commit `c8e47458`;
-- final report `students/professor/001-finite-state-duality.md`, commit `2f37d6bf`;
-- handoff `students/professor/001-handoff.md`, commit `6bdd26ef`.
-
-The result is not yet literature-audited for novelty.
+- `students/professor/002-typed-factorization-verifier.py`, commit `b9e75b42`;
+- `002c-weighted-typed-patch-factorization.md`, commit `925c8330`;
+- final report `002-typed-patch-factorization.md`, commit `40b93ede`;
+- handoff `002-handoff.md`, commit `1ea088af`;
+- Meeting 002, commit `edabce75`.
 
 ## Current proof-spine edge
 
-**Typed successful-skeleton conditional factorization.**
+**Explicit typed patch representation.**
 
-The next theorem must decide whether conditioning on typed successful records still decomposes hidden marks into independent source--time-strip patch laws.
+Before any positivity definition, factor the noncemetery Feynman--Kac variable into one local weight per typed patch: outgoing hidden-branch sign, effective empty-target signs, local potential integral, and end-patch terminal one-site tensor factor.
 
-The main new issue is incoming typed-target compatibility. If target type `a` arrives at a site whose current local dual type is a different `b`, the merge hits cemetery and the global dual contribution becomes zero. Assignment 002 must decide whether such conflict histories can be represented by local zero factors / weighted factorization, or whether they create genuine cross-patch dependence.
+Target:
 
-Patch positivity is downstream and is not yet defined.
+\[
+P_TH_{\xi_0}(\eta)
+=
+\int\prod_PE_P[w_P1_{Con(P)}]m_T(dg)
+=
+\int\prod_PC_P(\eta)\,\nu_T(dg).
+\]
 
-## Wiki and publication boundary
+Only after this theorem should the programme define typed patch positivity.
 
-The research loop may keep stable notation and constructions in the **separate branch-only wiki section** `docs/generalized-patch-representations/`.
+## Scope, novelty and publication boundary
+
+The proved class is finite-state bounded finite-range **single-site replacement** dynamics in the reference-state indicator tensor basis. Simultaneous multi-site physical updates remain outside scope.
+
+No literature novelty claim has yet been made for the generalized theorem; a targeted literature audit should occur once the representation/positivity statement is stable enough to compare precisely.
+
+The research loop may keep stable notation and constructions in `docs/generalized-patch-representations/` on this branch.
 
 **Do not publish or merge any of this programme to `main`.** Main is outside the active write surface.
 
-## Previous directions
-
-The principal's new direction supersedes the previously active voter-discordance work and every queued publication/merge question.
-
-Previously stopped positive-rates, FA-1f, BABP, noisy-East, voter-concentration, PDE and other recorded programmes remain closed at their existing rulings. This programme does not reopen them by analogy or reuse of terminology.
+Previously stopped programmes remain closed at their existing rulings and are not reopened by this direction.
