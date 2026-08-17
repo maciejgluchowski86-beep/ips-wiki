@@ -23,13 +23,13 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-Latest meeting: `meetings/023-stationary-boundary-control-hierarchy-reopens-one-proof-test.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/024-bellman-slack-feedback-obstruction-stops-current-stationary-screening-test.md`, `state_narrowed: yes`.
 
 Active work:
 
-- Student G: `students/student-g/assignment-009.md`, bounded asymptotic route-decision block on `(J-SPEC)`; mathematical task unchanged, with an intermediate-commit durability addendum after two session freezes.
-- Student F: `students/student-f/assignment-015.md`, bounded feasibility test of stationary boundary-control corrector concatenation.
-- No third route/session is authorized.
+- Student G: `students/student-g/assignment-009.md`, bounded asymptotic route-decision block on `(J-SPEC)`; checkpoint `009a-canonical-j-recursion-checkpoint.md` is durable, but `(J-SPEC)` remains unresolved.
+- Student F: idle. No F016 is authorized.
+- No second proof route is active.
 
 ## Closed / stopped mechanisms
 
@@ -43,15 +43,17 @@ Recorded as exhausted after Meeting 021:
 
 - the current centered predecessor-trail/profile implementation based on composing the present signed insertion through successive zero-boundary segments.
 
-Outside consultation 002 returned `no-credible-route` for the architectures then on the table. Its exact trajectory-valued spatial kernel remains useful, but full path-space TV/KL contraction is impossible because
+Consultation 002 returned `no-credible-route` for the architectures then on the table. Its exact trajectory-valued spatial kernel remains useful, but full path-space TV/KL contraction is impossible because
 
 $$
 Q(\mathbf0,\cdot)\perp Q(\mathbf1,\cdot).
 $$
 
-Meeting 023 records that the principal's later stationary occupation-control hierarchy is **not** the same path-space architecture and is not ruled out by that theorem.
+Recorded as stopped after Meeting 024:
 
-## Route-decision branch: `(J-SPEC)`
+- the **current stationary boundary-control Bellman-corrector concatenation implementation** introduced in Meeting 023. The exact hierarchy remains valid, but no repeatable scale contraction was obtained and the natural additive block-corrector mechanism is refuted by a maximum-principle argument.
+
+## Sole active branch: `(J-SPEC)`
 
 The accepted predecessor-trail reduction gives the sufficient absolute-duration quantity
 
@@ -67,149 +69,176 @@ B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a,
 \qquad w(u)=e^{-\omega u}s_1(u).
 $$
 
-The principal's independent finite-box study suggests that the singleton absolute-duration norm may itself be supercritical at strict residual points. With
+For singleton depth `n`, the principal normalization is
 
 $$
 J_n=\frac gB N_n,
 $$
 
-define
+and
+
+$$
+\rho_J(a,b,c)=\limsup_{n\to\infty}J_n^{1/n}.
+$$
+
+Student G checkpoint `2cb0696` reconstructs the exact reverse-transfer recursion. With
+
+$$
+S_n(u)=\pi_nP_{u_1}^n\mathcal J_nP_{u_2}^{n-1}\mathcal J_{n-1}\cdots P_{u_n}^1\mathcal J_1
+$$
+
+and
+
+$$
+R_n=\int\left(\prod_jw(u_j)\right)|S_n(u)|du,
+$$
+
+one has exactly
+
+$$
+S_n(u)=g^n\pi_n(F_u),
+$$
 
 $$
 \boxed{
-\rho_J(a,b,c)
-=
-\limsup_{n\to\infty}J_n^{1/n}.
+J_n=\frac Bg R_n=\frac gB N_n,
 }
 $$
 
-Student G Assignment 009 must decide asymptotically whether
+so `R_n`, `J_n`, and `N_n` have the same exponential growth rate.
+
+At the primary point
 
 $$
-\rho_J>1
+(a,b,c)=\left(\frac1{1000},\frac1{10},\frac{9999}{10000}\right),
 $$
 
-at the strong-growth point
+the checkpoint verifies
 
 $$
-\left(\frac1{1000},\frac1{10},\frac{9999}{10000}\right),
+\frac Bg=\frac{111}{10},\qquad Z=\frac{19100}{31},
 $$
 
-or prove a genuine opposite theorem. Larger finite-depth values alone do not count.
+$$
+J_1=\frac{190809}{31000},\qquad
+N_1=\frac{21179799}{310000}.
+$$
 
-If G is unresolved without an asymptotic mechanism, stop the `J-SPEC` branch. Meeting 023 supersedes the older instruction that such an outcome automatically stops the whole programme, because F015 now tests genuinely new input.
+These are normalization checks only. G009 must still prove an asymptotic theorem, either `rho_J>1` at a strict residual point or a genuine opposite theorem. Larger finite-depth values do not count.
 
-## New architecture: stationary boundary-control hierarchy
+## Stationary boundary-control hierarchy: exact mathematics retained, active implementation stopped
 
-Durable note:
-
-`notes/principal-stationary-boundary-control-strategy.md`.
-
-Use the complemented spin `xi=1-eta`, so `1` is the East facilitator. For a block `x in {0,1}^N` and fixed right-boundary value `u`, let `L_N^u` be the finite generator and define
+Use complemented spins so `1` is the East facilitator. For a block `x in {0,1}^N` and fixed right-boundary value `u`, let `L_N^u` be the finite generator and define
 
 $$
-\boxed{
 \mathcal K_N
 =
 \left\{
- m(x,u)\ge0:
- \sum_{x,u}m(x,u)=1,
- \quad
- \sum_{x,u}m(x,u)L_N^uF(x)=0
- \ \forall F
+ m(x,u)\ge0:\ \sum m=1,
+ \quad \sum_{x,u}m(x,u)L_N^uF(x)=0\ \forall F
 \right\}.
-}
 $$
 
-Meeting 023 independently checks:
+Meetings 023--024 establish:
 
-1. every infinite-volume invariant law projects to an element of `K_N`;
-2. every `m in K_N` is the stationary occupation measure of a finite chain with a randomized state-dependent boundary controller;
-3. projecting `K_{N+1}` to the first `N` sites with the old `N`th spin as boundary control lands in `K_N`;
-4. therefore the stationary diameter
+1. every infinite-volume invariant law projects into `K_N`;
+2. every `m in K_N` is the stationary occupation measure of a randomized state-dependent boundary controller;
+3. the hierarchy is nested under block projection;
+4. for local `h`,
    $$
    D_N(h)=\sup_{m\in K_N}m(h)-\inf_{m\in K_N}m(h)
    $$
-   is nonincreasing in `N` for fixed local `h`;
-5. finite LP duality gives
-   $$
-   U_N(h)=\inf_F\max_{x,u}(h(x)-L_N^uF(x)),
-   $$
-   $$
-   \ell_N(h)=\sup_F\min_{x,u}(h(x)-L_N^uF(x)),
-   $$
-   with
-   $$
-   D_N(h)=U_N(h)-\ell_N(h).
-   $$
+   is nonincreasing;
+5. exact LP duality gives upper/lower Bellman correctors `U_N,ell_N`, with `D_N=U_N-ell_N`;
+6. `D_N(h)->0` for every local `h` would prove uniqueness of the invariant measure.
 
-Hence
-
-$$
-\boxed{D_N(h)\to0\text{ for every local }h}
-\tag{S}
-$$
-
-would prove uniqueness of the invariant measure without assuming spatial translation invariance.
-
-This static theorem would not yet prove convergence from arbitrary initial states.
-
-## Proposed multiscale target
-
-The principal proposes a scale recursion such as
+F015 sharpens scale extension. If `s_N^+` and `s_N^-` are optimal upper/lower Bellman slacks, then for every `M>N`,
 
 $$
 \boxed{
-D_{2N}(h)
-\le
-(1-\rho)D_N(h)+Ce^{-\gamma N}
+D_M(h)=D_N(h)
+-\inf_{m\in K_M}m(s_N^+)
+-\inf_{m\in K_M}m(s_N^-).
 }
-\tag{R}
 $$
 
-for fixed residual rates and all large `N`.
-
-The suggested mechanism is that neighbour-independent soft resets create facilitators and hard-East relaxation then screens a macroscopic left block from the far-right boundary.
-
-The Professor checked the cited KCM-book inputs:
-
-- East Theorem 7.6 gives exponential convergence of local observables once a facilitator is present in the oriented future;
-- East Theorem 7.8 gives linear finite-volume mixing time with empty or ergodic boundary.
-
-These do **not** directly prove `(R)` for the noisy process under arbitrary state-dependent boundary control. The missing theorem is a robustness/concatenation statement which uses the actual soft resets rather than conditioning them away.
-
-Student F Assignment 015 must determine whether finite Bellman/Poisson correctors concatenate into a repeatable scale theorem, or identify a precise obstruction. Smaller numerical `D_N` values or larger finite LP certificates without repeatability do not count.
-
-## Later dynamic upgrade
-
-If static screening `(S)` is proved, a later step would need uniform distributional screening of far-right perturbations, schematically
+Each slack is a weighted adaptive tracking error:
 
 $$
-S_N(h)
-\le
-C_h\left(D_{\lfloor N/2\rfloor}(h)+e^{-\gamma N}\right).
-\tag{ZF}
+\boxed{
+s_F(x,u)=w_F(x)1_{\{u\ne\pi_F(x)\}},}
 $$
 
-Combined with finite-seed local coupling, this would give convergence from arbitrary initial laws. `(ZF)` is not active until the static route is established.
+where
 
-## Other unresolved facts
+$$
+w_F(x)=d(x_{N-1})|F(x^{N-1})-F(x)|,
+\qquad d(0)=b-a,\ d(1)=c.
+$$
 
-Still open:
+There is a controller-uniform **unweighted** mismatch theorem. With
+
+$$
+r_*=\min\{a,1-c\},
+$$
+
+for every Boolean target `pi` and every stationary controlled extension with physical interface spin `V=X_N`,
+
+$$
+\boxed{
+P(V\ne\pi(X))\ge\frac{r_*}{N+1+r_*}.
+}
+$$
+
+This does not control the weighted slack because mismatch may concentrate where `w_F` is small.
+
+F015 also proves that no additive concatenation
+
+$$
+H(x,z)=F_N(x)+G(z)
+$$
+
+with arbitrary independently constructed appended-block corrector `G` can strictly improve either Bellman endpoint. Strict scale improvement requires genuinely joint cross-block dependence.
+
+The exact remaining multiscale target is a weighted occupation theorem such as
+
+$$
+\inf_{K_{2N}}m(s_N^+)+\inf_{K_{2N}}m(s_N^-)
+\ge \rho D_N(h)-Ce^{-\gamma N}.
+$$
+
+No independent mechanism for this estimate was obtained. The cited hard-East fixed/ergodic-boundary relaxation does not control the adaptive weighted feedback. Therefore no larger-`N`, wider-interface, or generic joint-corrector search is active.
+
+This stop does **not** refute `D_N(h)->0` or every possible stationary-screening theorem.
+
+## Current decision
+
+G009 is the sole active block. F is idle.
+
+If G proves `rho_J>1` at one strict residual point, the absolute-duration `J` domination is refuted there; the exact predecessor-trail identity survives, and any future use must retain right-region/duration cancellation.
+
+If G proves `rho_J<1` on a genuine residual region, record the partial route theorem, but do not revive the exhausted profile implementation automatically.
+
+If G returns unresolved without a genuine asymptotic mechanism, return to the Meeting-022 / consultation-002 state: **no presently identified proof architecture clears the continuation bar**, unless genuinely new external or principal input has arrived.
+
+## Unresolved target-level facts
+
+Open:
 
 - `(J-SPEC)`;
-- the stationary screening recursion `(R)`;
+- `D_N(h)->0` for the stationary occupation hierarchy;
+- the weighted Bellman-slack occupation theorem;
 - one- and two-step tail-shift agreement off the product surface;
 - `Gamma_M->0` and general `J_{x,r}->0`;
 - common-uniform extinction versus convective survival;
 - weak ergodicity of the reachable trajectory kernel `Q`;
 - full ergodicity in the residual chamber.
 
-On the exact surface `a=b(1-c)`, the zero-boundary invariant law is Bernoulli product and the signed insertion obstruction vanishes.
+On `a=b(1-c)`, the zero-boundary invariant law is Bernoulli product and the signed insertion obstruction vanishes.
 
 ## Anti-circularity
 
-Do not infer asymptotic `J` growth from finite depths; treat shrinking finite `D_N` values as a multiscale theorem; invoke hard-East relaxation without proving robustness to the soft controlled dynamics; revive predecessor-trail/profile composition, global common-uniform occupation, or path-space `Q` contraction; or treat static uniqueness as full convergence.
+Do not infer asymptotic `J` growth from finite depths; infer multiscale screening from shrinking finite LP widths; replace weighted Bellman mismatch by the proved unweighted mismatch bound; search larger LPs or additive block correctors after the Meeting-024 stop; invoke hard-East relaxation as if it controlled adaptive feedback; revive predecessor-trail/profile composition, global common-uniform occupation, or path-space `Q` contraction; or treat static uniqueness as full convergence.
 
 ## Wiki
 
