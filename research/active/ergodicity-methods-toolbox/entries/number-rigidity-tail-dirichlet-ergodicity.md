@@ -1,7 +1,7 @@
 ---
 method_id: number-rigidity-tail-dirichlet-ergodicity
 title: Number rigidity and tail triviality imply Dirichlet-form ergodicity
-category: functional-inequality
+category: other
 targets:
   - convergence
 model_scope: Infinite interacting diffusion systems on configuration spaces, especially logarithmic determinantal point-process dynamics
