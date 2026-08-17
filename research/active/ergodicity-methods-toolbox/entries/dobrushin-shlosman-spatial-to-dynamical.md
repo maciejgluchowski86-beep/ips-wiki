@@ -12,9 +12,9 @@ source_status: primary-checked
 primary_source: Daniel W. Stroock and Boguslaw Zegarlinski, The equivalence of the logarithmic Sobolev inequality and the Dobrushin-Shlosman mixing condition, Communications in Mathematical Physics 144 (1992), 303-323.
 primary_pinpoint: Theorem 1.2 for uniform LSI versus Dobrushin-Shlosman mixing; Theorems 3.2 and 3.6 for uniform Glauber relaxation
 primary_url: https://doi.org/10.1007/BF02101094
-application_source: Daniel W. Stroock and Boguslaw Zegarlinski, The logarithmic Sobolev inequality for discrete spin systems on a lattice, Communications in Mathematical Physics 149 (1992), 175-193.
-application_pinpoint: Main theorem described in the abstract and finite-spin development; Dobrushin-Shlosman mixing gives LSI for the unique Gibbs state and consequences for Glauber ergodicity
-application_url: https://doi.org/10.1007/BF02096629
+application_source: Daniel W. Stroock and Boguslaw Zegarlinski, The equivalence of the logarithmic Sobolev inequality and the Dobrushin-Shlosman mixing condition, Communications in Mathematical Physics 144 (1992), 303-323.
+application_pinpoint: Theorems 3.2 and 3.6 on uniform convergence rates for the associated Glauber dynamics
+application_url: https://doi.org/10.1007/BF02101094
 wiki_candidate: yes
 ---
 
@@ -32,9 +32,9 @@ Once the uniform LSI is available, the usual semigroup consequences give hyperco
 
 ## Representative IPS use
 
-The method is formulated precisely for stochastic Glauber dynamics of lattice spin systems. Stroock--Zegarlinski's companion paper on discrete spin systems treats finite spin space and states that the Dobrushin--Shlosman mixing condition is equivalent to an LSI for the associated unique Gibbs state, with consequences for ergodic properties of the Glauber dynamics. The archetypal application is high-temperature/one-phase Ising-type dynamics: establish strong decay of boundary influence for the Gibbs specification, then inherit a volume-uniform functional inequality and rapid dynamical relaxation.
+The method is formulated precisely for stochastic Glauber dynamics of lattice spin systems. Stroock--Zegarlinski's Theorems 3.2 and 3.6 turn the Dobrushin--Shlosman spatial criterion into a uniform convergence rate for the associated Glauber dynamics. The archetypal use is a high-temperature or otherwise strongly mixing Ising-type system: first establish uniform decay of boundary influence for the Gibbs specification, then inherit a volume-uniform functional inequality and rapid dynamical relaxation.
 
-This route is conceptually distinct from the elementary single-site Dobrushin contraction criterion. Dobrushin--Shlosman conditions are block/spatial mixing conditions and can hold in parameter regimes where a simple one-site influence matrix is too crude.
+A companion paper by the same authors treats finite spin spaces explicitly. This route is conceptually distinct from the elementary single-site Dobrushin contraction criterion. Dobrushin--Shlosman conditions are block/spatial mixing conditions and can hold in parameter regimes where a simple one-site influence matrix is too crude.
 
 ## Limitations
 
