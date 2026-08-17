@@ -17,67 +17,127 @@ Branch-only wiki section:
 
 Nothing from this programme is to be written or merged to `main` without a later principal instruction.
 
-Latest meeting: `meetings/001-finite-state-typed-duality-opens-patch-factorization.md`.
+Latest meeting: `meetings/002-weighted-typed-patch-factorization.md`.
 
-## Assignment 001 result
+## Assignment 001
 
 Status: **`CONTINUE-TYPED-PATCH`**.
 
-Final report: `students/professor/001-finite-state-duality.md`, commit `2f37d6bf`.
+For finite `E={0,...,d-1}` with reference state `0`, the indicator tensor basis gives finite typed active configurations and an exact signed local Feynman--Kac dual for general bounded single-site replacement dynamics.
 
-Handoff: `students/professor/001-handoff.md`, commit `6bdd26ef`.
+For active source type `r`, target `tau`, and source outcome `s`, the branch coefficients are fixed local numbers `a_{i,r}^s(tau)`. Their absolute values are Poisson rates; signs are branch marks; target conflicts affect only the deterministic transition to cemetery.
 
-Verifier: `students/professor/001-finite-state-duality-verifier.py`, final commit `c8e47458`.
-
-For finite `E={0,...,d-1}` with reference state `0`, the indicator tensor basis gives typed active configurations. Compatible typed overlaps merge; conflicts go to a cemetery/zero state.
-
-For active source type `r`, source outcome `s`, and typed target `tau`, the exact local branch coefficients are
+For nonempty target, the successful record is
 
 \[
-a_{i,r}^{0}(\tau)=\widehat c_i^{0\to r}(\tau),
+(i,t,r,\tau),
 \]
+
+which reveals pre-source type and typed target but hides post-source outcome `s`.
+
+Decisive report/verifier:
+
+- `students/professor/001-finite-state-duality.md`, commit `2f37d6bf`;
+- `001-finite-state-duality-verifier.py`, commit `c8e47458`.
+
+## Assignment 002
+
+Status: **`CONTINUE-TYPED-REPRESENTATION`**.
+
+The one-site typed patch geometry survives, with local state `X^P in E` and new incoming compatibility condition
 
 \[
-a_{i,r}^{s}(\tau)=\widehat c_i^{s\to r}(\tau)-\widehat c_i^{0\to r}(\tau),
-\quad s\ne0,r,
+X_{e-}^P\in\{0,a\}
 \]
+
+for an incoming target type `a`.
+
+On an inserted candidate record list `g`, exact noncemetery skeleton consistency is
 
 \[
-a_{i,r}^{r}(\tau)
-=-\widehat c_i^{0\to r}(\tau)-\sum_{y\ne r}\widehat c_i^{r\to y}(\tau).
+\boxed{
+\{\tau_\dagger>T\}\cap\{G_T=g\}
+=
+\bigcap_P\operatorname{Con}(P).}
 \]
 
-Absolute coefficients are fixed local Poisson rates, signs are sign marks, and the empty-target source-survival coefficient goes into the Feynman--Kac potential. The binary specialization is exactly the paper's death/split/birth dual.
+### Bare conditional factorization fails
 
-For nonempty target `tau`, the successful record
+A selected incoming target may conflict, sending the global dual to cemetery and simultaneously removing all future no-record constraints. The exact `d=3` two-record gate gives
 
 \[
-(i,t,r,\tau)
+P(K,B\mid G)=\frac4{17}
+\ne
+\frac{32}{289}
+=P(K\mid G)P(B\mid G).
 \]
 
-retains the pre-interaction source type and typed target while hiding the post-interaction source outcome `s` (delete/survive/retype). Hidden outcomes have identical interaction endpoints, so the first geometry gate passes.
+Thus patch variables are not independent conditional only on the coarse record list.
+
+### Weighted/killed factorization succeeds
+
+Since `H_dagger=0`, cemetery histories have exact Feynman--Kac weight zero. The representation-sufficient theorem is
+
+\[
+E\left[h(G_T)1_{\{\tau_\dagger>T\}}\prod_Pf_P\right]
+=
+\int h(g)\prod_PE_P[f_P1_{Con(P)}]m_T(dg),
+\]
+
+where
+
+\[
+m_T(dg)=\prod_k\Lambda_{i_k,r_k}(\tau_k)dt_k.
+\]
+
+The noncemetery skeleton submeasure therefore has density
+
+\[
+\nu_T(dg)=\prod_PP_P(Con(P))m_T(dg),
+\]
+
+and conditional on `G_T=g, tau_dagger>T` the patch variables are independent with laws `P_P^con`.
+
+Equivalently collapse every cemetery history to one outer atom and use the killed successful skeleton.
+
+Decisive files:
+
+- `students/professor/002a-typed-patch-local-consistency.md`, commit `08108e32`;
+- `002b-finite-cemetery-factorization-gate.md`, commit `d8eca517`;
+- `002-typed-factorization-verifier.py`, commit `b9e75b42`;
+- `002c-weighted-typed-patch-factorization.md`, commit `925c8330`;
+- final report `002-typed-patch-factorization.md`, commit `40b93ede`;
+- handoff `002-handoff.md`, commit `1ea088af`.
 
 ## Current proof-spine edge
 
-**Typed successful-skeleton conditional factorization.**
+**Explicit typed patch representation.**
 
-The next theorem must decide whether conditioning on typed successful records still decomposes the hidden marks into independent source--time-strip laws.
+Before any positivity definition, factor the noncemetery Feynman--Kac variable into one local weight per typed patch:
 
-New issues relative to binary:
+1. outgoing-start hidden-branch sign;
+2. signs of effective empty-target interior marks;
+3. local potential integral;
+4. one-site terminal tensor factor on end patches.
 
-1. outgoing records require a specific pre-source type `r`;
-2. an incoming target label `a` is compatible only when the preceding local type is inactive/reference `0` or already `a`;
-3. a different active type causes the merge to hit the cemetery state;
-4. the hidden outgoing source outcome `s` initializes the next source patch with one of `d` local states.
+Target formula:
 
-Patch positivity is downstream and is not yet defined.
+\[
+P_TH_{\xi_0}(\eta)
+=
+\int\prod_PE_P[w_P1_{Con(P)}]m_T(dg)
+=
+\int\prod_PC_P(\eta)\,\nu_T(dg).
+\]
 
-## Canonical source and publication boundary
+Bulk contributions should not depend on the physical terminal configuration; end contributions may.
 
-The binary paper under `paper/` remains authoritative. Existing patch pages under `docs/entries/` are source material and are not generalized in place.
+Patch positivity remains downstream.
 
-No programme content is to be published to `main` unless the principal later gives a separate instruction.
+## Scope and publication boundary
 
-## Previous programmes
+The current construction covers finite-state, bounded finite-range **single-site replacement** dynamics in the reference-state indicator tensor basis. Simultaneous multi-site physical updates remain outside scope.
 
-All previously stopped programmes remain closed at their existing rulings. This new direction does not reopen them.
+Existing patch pages under `docs/entries/` are source material and are not generalized in place. No programme content is to be published to `main` unless the principal later gives a separate instruction.
+
+All previously stopped programmes remain closed at their existing rulings.
