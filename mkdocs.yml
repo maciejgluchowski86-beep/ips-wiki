@@ -37,6 +37,9 @@ nav:
           - Attractive monotone coupling: entries/attractive-monotone-coupling-extremal-laws.md
           - Dobrushin influence contraction: entries/dobrushin-influence-contraction.md
           - Path coupling: entries/path-coupling-glauber-dynamics.md
+          - Coupling with stationarity: entries/coupling-with-stationarity-local-uniformity.md
+          - Censoring inequalities: entries/censoring-monotone-glauber-dynamics.md
+          - Dynamical disagreement percolation: entries/dynamical-disagreement-space-time-percolation.md
       - Spatial mixing and local-to-global transfer:
           - Disagreement percolation: entries/disagreement-percolation-gibbs-uniqueness.md
           - Dobrushin-Shlosman spatial mixing: entries/dobrushin-shlosman-spatial-to-dynamical.md
@@ -45,14 +48,23 @@ nav:
       - Functional inequalities and coercivity:
           - Poincare and spectral gap: entries/poincare-spectral-gap.md
           - Log-Sobolev and modified log-Sobolev: entries/log-sobolev-modified-log-sobolev.md
+          - Discrete Bochner entropy method: entries/bochner-bakry-emery-discrete-entropy.md
           - Dirichlet-form and canonical-path comparison: entries/dirichlet-form-canonical-path-comparison.md
           - Block dynamics and bisection: entries/block-dynamics-bisection-variance.md
           - Lu-Yau martingale recursion: entries/lu-yau-martingale-conditional-variance.md
+          - Two-scale conservative coercivity: entries/two-scale-coarse-graining-conservative-lsi.md
           - Block factorization of entropy: entries/block-factorization-entropy.md
           - Holley-Stroock perturbation: entries/holley-stroock-bounded-perturbation.md
           - Moving-particle long-jump comparison: entries/moving-particle-long-jump-exclusion.md
-      - Graphical ancestry and regeneration:
+          - Aldous interchange gap reduction: entries/aldous-interchange-exclusion-gap.md
+          - Liggett-Nash polynomial relaxation: entries/liggett-nash-polynomial-relaxation.md
+          - Large-set conductance: entries/large-set-conductance-warm-start.md
+          - KCLG renormalized Glauber comparison: entries/kclg-renormalized-glauber-comparison.md
+      - Graphical ancestry, duality, and exact sampling:
           - Finite-ancestor duality and extinction: entries/duality-extinction-finite-ancestor-process.md
+          - Voter coalescing-walk duality: entries/voter-coalescing-random-walk-duality.md
+          - Coupling from the past: entries/coupling-from-the-past.md
+          - Clan-of-ancestors perfect simulation: entries/clan-of-ancestors-perfect-simulation.md
           - Information percolation: entries/information-percolation-backward-histories.md
           - East distinguished-zero screening: entries/east-distinguished-zero-screening.md
   - Duality:
