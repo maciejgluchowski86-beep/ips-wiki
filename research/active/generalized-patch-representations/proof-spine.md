@@ -12,7 +12,8 @@ Extend the patch representation / patch positivity mechanism beyond binary flip 
 4. conditional/weighted factorization into spacetime patches;
 5. explicit patch contributions;
 6. an exact local bulk nonnegativity property;
-7. tractable coefficient criteria and then applications/consequences.
+7. a tractable criterion retaining whatever multi-state transient information is genuinely necessary;
+8. only then consequences and applications.
 
 ## E0. Binary benchmark
 
@@ -22,22 +23,13 @@ Extend the patch representation / patch positivity mechanism beyond binary flip 
 
 **Settled in Assignment 001.**
 
-For finite `E={0,...,d-1}` with reference state `0`, use
-
-\[
-h_0\equiv1,
-\qquad h_a(x)=1_{\{x=a\}},\quad a\ne0.
-\]
-
-Tensor observables are indexed by finite typed partial maps; conflicting labels give cemetery `dagger` with zero duality function.
+For finite `E={0,...,d-1}` with reference state `0`, the indicator tensor basis gives typed active configurations; conflicts give cemetery `dagger` with zero duality function.
 
 ## E2. Exact signed local dual
 
 **Settled in Assignment 001.**
 
-General bounded finite-range single-site replacement rates yield fixed local signed branch coefficients `a_{i,r}^s(tau)`. Absolute values are Poisson rates, signs are marks, source outcome deletes/preserves/retypes the source, and target conflicts only affect the deterministic merge.
-
-The empty-target source-survival coefficient is diagonal and enters the Feynman--Kac potential. The binary specialization is exactly death/split/birth.
+General bounded finite-range single-site replacement rates yield fixed local signed branch coefficients `a_{i,r}^s(tau)`. Absolute values are Poisson rates and source outcome deletes/preserves/retypes the source. Target conflicts affect only the deterministic merge.
 
 ## E3. Typed successful record
 
@@ -55,32 +47,11 @@ and hide post-source outcome `s`.
 
 **Settled in Assignment 002 with a necessary killed-skeleton modification.**
 
-Bare conditioning on the coarse record list fails because an incoming typed conflict can send the dual to cemetery and remove all future no-record constraints. The exact finite gate gives
-
-\[
-P(K,B\mid G)=4/17\ne32/289=P(K\mid G)P(B\mid G).
-\]
-
-Since `H_dagger=0`, the exact replacement is the killed/noncemetery factorization
-
-\[
-E\left[h(G_T)1_{\{\tau_\dagger>T\}}\prod_Pf_P\right]
-=
-\int h(g)\prod_PE_P[f_P1_{Con(P)}]m_T(dg).
-\]
+Bare conditioning on the coarse record list fails because an incoming typed conflict can send the dual to cemetery and remove future no-record constraints. Since `H_dagger=0`, the exact representation uses killed/noncemetery weighted factorization.
 
 ## E5. Explicit typed patch representation
 
 **Settled in Assignment 003.**
-
-For each patch,
-
-\[
-A_P
-=
-\epsilon_{\rm out}(P)\epsilon_{\emptyset}(P)
-\exp\left(\int\bar v_{i(P),X_u^P}\,du\right).
-\]
 
 Bulk contributions are
 
@@ -88,54 +59,21 @@ Bulk contributions are
 C(P)=E_P^{con}[A_P],
 \]
 
-and end contributions are one-site functions in the same indicator basis. The exact semigroup representation is
-
-\[
-P_TH_{\xi_0}(\eta)
-=
-\int
-\prod_{P\in\mathcal B_T}C(P)
-\prod_{P\in\mathcal E_T}C_T(\eta_{i(P)},P)
-\,\nu_T(dg).
-\]
-
-The binary specialization is exact.
+end contributions are one-site indicator-basis functions, and the exact killed-skeleton semigroup representation is proved. The binary specialization is exact.
 
 ## E6. Exact typed bulk patch positivity
 
-**Settled in Assignment 004 at the transfer-matrix level.**
+**Settled in Assignment 004 at transfer-matrix level.**
 
-For active local type `r`, define
+For active local type `r`, the weighted interior transfer has generator
 
 \[
-\rho_{i,r}=\sum_{s\ne r}|a_{i,r}^s(\emptyset)|,
+K_i(0,\cdot)=0,
 \qquad
-\kappa_{i,r}=\sum_{\tau\ne\emptyset}\sum_s|a_{i,r}^s(\tau)|.
+K_i(r,s)=a_{i,r}^s(\emptyset).
 \]
 
-The weighted killed Feynman--Kac transfer has generator
-
-\[
-\boxed{K_i(0,\cdot)=0,
-\qquad K_i(r,s)=a_{i,r}^s(\emptyset).}
-\]
-
-The cancellation producing this matrix is exact: empty-target escape subtraction and nonempty-target no-success killing cancel against the corresponding pieces of the local potential.
-
-The unsigned consistency transfer is
-
-\[
-B_i(r,s)=|a_{i,r}^s(\emptyset)|\quad(s\ne r),
-\]
-
-\[
-B_i(r,r)=
--\sum_{s\ne r}|a_{i,r}^s(\emptyset)|-\kappa_{i,r},
-\]
-
-with zero inactive row.
-
-For terminal columns
+For
 
 \[
 f_b^I=e_0^T+e_b^T,
@@ -143,88 +81,167 @@ f_b^I=e_0^T+e_b^T,
 f_r^O=e_r^T,
 \]
 
-and outgoing initial signed row
+and outgoing row
 
 \[
 \mathbf a_{r,\tau}=(a_{i,r}^s(\tau))_{s\in E},
 \]
 
-the four bulk contributions are ratios of the following signed numerators by positive killed-reference denominators:
+typed bulk patch positivity is exactly nonnegativity of
 
 \[
 e_a e^{tK_i}f_b^I,
-\qquad
-e_a e^{tK_i}f_r^O,
+\qquad e_a e^{tK_i}f_r^O,
 \]
 
 \[
 \mathbf a_{r,\tau}e^{tK_i}f_b^I,
 \qquad
-\mathbf a_{r,\tau}e^{tK_i}f_{r_e}^O.
+\mathbf a_{r,\tau}e^{tK_i}f_{r_e}^O
 \]
 
-Therefore **typed bulk patch positivity** is exactly nonnegativity of these four numerator families for every realizable descriptor and every `t>0`.
+for every realizable descriptor and every `t>0`.
 
-This is not replaced by entrywise nonnegativity of `K_i`.
+The binary specialization recovers exactly the canonical patch-positivity coefficient criterion.
 
-### Binary benchmark
+## E7. Boundary-complete three-state reduction
 
-For `d=2`, the four transfer formulas reduce exactly to the canonical full-patch formulas. All-length positivity is equivalent to
+**Settled in Assignment 005.**
+
+For `d=3`, boundary completeness forces the empty-target transfer to be Metzler. Writing reference-neighbour physical rates `q_xy`,
 
 \[
-c_i^0(S)+c_i^1(S)\le0,
+K=
+\begin{pmatrix}
+0&0&0\\
+q_{01}&-(q_{01}+q_{10}+q_{12})&q_{21}-q_{01}\\
+q_{02}&q_{12}-q_{02}&-(q_{02}+q_{20}+q_{21})
+\end{pmatrix},
 \]
+
+short incoming-to-outgoing descriptors imply
 
 \[
-c_i^1(\emptyset)c_i^0(S)
-\ge
-c_i^0(\emptyset)c_i^1(S)
+q_{21}\ge q_{01},
+\qquad
+q_{12}\ge q_{02}.
 \]
 
-when `c_i^0(emptyset)+c_i^1(emptyset)>0`, and to `c_i\equiv0` in the degenerate case. Thus the generalized property exactly recovers the paper's patch positivity criterion.
+Hence `e^{tK}` is entrywise nonnegative.
 
-### New multi-state necessary constraints
+Consequences:
 
-Short-time expansions force, on realizable descriptors,
+- every incoming-initial `II/IO` numerator is automatic;
+- for outgoing row `p=(p0,p1,p2)`, zero-length conditions force
+  \[
+  p_1,p_2,p_0+p_1,p_0+p_2\ge0;
+  \]
+- all `OO` families are then automatic;
+- only outgoing-initial/incoming-terminal (`OI`) families remain.
+
+For
 
 \[
-a_{i,a}^{r}(\emptyset)\ge0
-\quad(a\ne r)
+g=(p_0,p_0+p_1,p_0+p_2),
 \]
 
-from `IO` patches and
+and the physical reference-neighbour generator `Q`, the exact intertwining gives
 
 \[
-a_{i,r}^{r_e}(\tau)\ge0
+\boxed{p e^{tK}f_b^I=E_b[g(Z_t)].}
 \]
 
-from zero-length `OO` limits, with further derivative constraints recorded in `004d-small-time-necessary-conditions.md`.
+Thus the multi-state sign issue is a local Markov-semigroup transient problem.
 
-Decisive files: `004a`--`004e`, final verifier `004-typed-transfer-verifier.py` at `0bbfccd0`, and Meeting 004.
+## E8. Binary-style endpoint criterion
 
-## E7. Tractable coefficient characterization
+**Refuted in Assignment 005.**
+
+A genuine one-neighbour physical IPS has
+
+\[
+Q=
+\begin{pmatrix}
+-1/4&0&1/4\\
+7/4&-2&1/4\\
+1/4&1/2&-3/4
+\end{pmatrix},
+\qquad
+K=
+\begin{pmatrix}
+0&0&0\\
+0&-2&1/2\\
+1/4&0&-1
+\end{pmatrix}.
+\]
+
+For one boundary-complete outgoing row
+
+\[
+p=(-1/8,9/8,1/4),
+\qquad
+ g=(-1/8,1,1/8),
+\]
+
+the required `OI` numerator is
+
+\[
+N(t)=\frac1{128}-\frac{13}{64}e^{-t}+\frac{153}{128}e^{-2t}.
+\]
+
+Both endpoint values are strictly positive:
+
+\[
+N(0)=1,
+\qquad
+N(\infty)=1/128,
+\]
+
+but at
+
+\[
+e^{-t_*}=13/153
+\]
+
+one has
+
+\[
+N(t_*)=-1/1224.
+\]
+
+All physical one-neighbour rates are nonnegative and all other endpoint conditions in the gate hold.
+
+Therefore the direct binary-style collapse to zero-length and long-time coefficient inequalities is stopped:
+
+**`STOP-NO-FINITE-ENDPOINT-CRITERION`.**
+
+Suppressing type `2` recovers exactly the canonical binary coefficient inequalities and removes the obstruction.
+
+Decisive files: `005a`--`005d`, verifier `005-three-state-endpoint-obstruction-verifier.py`, and Meeting 005.
+
+## E9. Exact spectral critical-point criterion
 
 **Open and current load-bearing edge.**
 
-The exact all-length positivity property is now known, but it is an infinite semigroup family. The next bounded problem is:
+The endpoint collapse is false, but the `d=3` reduction is still unusually rigid. Under the Metzler/physical conditions, the two nonzero eigenvalues are real. Generically every remaining `OI` numerator is
 
-> characterize this family by tractable local coefficient inequalities for a nontrivial multi-state class, or determine precisely why no finite binary-style coefficient criterion exists without additional structure.
+\[
+L+A e^{-\mu t}+B e^{-\nu t},
+\qquad 0<\mu<\nu.
+\]
 
-Acceptable progress includes:
+Such a function has at most one interior critical point capable of being a negative minimum. Therefore a materially distinct next question is:
 
-- an exact finite coefficient criterion for a natural class of `K_i` / boundary vectors;
-- a necessary-and-sufficient spectral or cone criterion that is genuinely checkable;
-- a sharp obstruction showing that arbitrary `d>=3` positivity cannot collapse to finitely many first-order inequalities;
-- a natural structural subclass preserving exact binary equivalence and admitting a closed criterion.
+> derive a necessary-and-sufficient **finite spectral test** consisting of endpoint conditions plus the exact interior critical-value inequality when that minimum exists, including repeated/degenerate eigenvalue cases and exact binary reduction.
 
-Do not start applications or convergence before this edge is materially narrowed.
+This retains the transient information shown necessary by Assignment 005 rather than reviving the refuted endpoint-only criterion.
 
-## E8. Consequences, applications, and broader updates
+## E10. Consequences, applications, and broader updates
 
-**Blocked on E7 except for reconnaissance.**
+**Blocked on E9.**
 
-Only after a usable positivity criterion exists should the programme study order preservation, comparison, convergence, genuinely non-binary models, or simultaneous multi-site physical updates.
+Do not start applications, convergence, `d>3`, or simultaneous multi-site updates until the spectral criterion is either proved useful or rejected on mathematical grounds.
 
 ## Novelty status
 
-No literature novelty claim has yet been made for the generalized representation/positivity theorem. A targeted literature audit remains necessary once the coefficient-level theorem is stable enough to compare precisely.
+No literature novelty claim has yet been made for the generalized representation/positivity theorem. A targeted literature audit remains necessary once the criterion-level theorem is stable enough to compare precisely.
