@@ -12,24 +12,25 @@ Principal target: compile a broad, concise, self-contained literature toolbox of
 
 This is a literature-compilation direction. Breadth is intentional and model-specific methods are in scope.
 
-Latest meeting: `meetings/004-f-wave-two-source-audit-and-analytic-wave-three.md`.
+Latest meeting: `meetings/005-g-wave-two-f-wave-three-source-audit-and-integration-gate.md`.
 
 ## Publication target and wiki status
 
 The live wiki is reopened for this toolbox section only. Unrelated legacy/deprecated IPS pages remain frozen unless separately audited.
 
-Research entries are staged under this workspace. Source-audited entries are later promoted as ordinary `status: literature`, `audit: current` pages under a new top-level MkDocs section `Ergodicity methods`:
+Research entries are staged under this workspace. Source-audited entries are promoted as ordinary `status: literature`, `audit: current` pages under a new top-level MkDocs section `Ergodicity methods`:
 
 - `docs/ergodicity-methods.md` hub;
 - `docs/entries/<method-slug>.md` concept pages;
 - `mkdocs.yml` top-level navigation.
 
-The principal reports that `docs/` and `mkdocs.yml` remain byte-identical to `origin/main` after F Assignment 002. No live promotion has yet occurred.
+No live promotion has yet occurred. The next Professor action is a bounded integration pass for the first 18 accepted entries before another student wave is dispatched.
 
-## Workers and current assignments
+## Workers
 
-- Student F: active on `students/student-f/assignment-003.md`, analytic breadth wave three.
-- Student G: active on `students/student-g/assignment-002.md`, coupling/graphical breadth wave two. Do not interrupt or retask before handoff.
+- Student F: idle after Assignment 003 and handoff `students/student-f/003-handoff.md` (`9c214623`).
+- Student G: idle after Assignment 002 and handoff `students/student-g/handoff-002.md` (`7d5e739`).
+- No new assignment is issued until the first live integration pass is complete and mechanically checked.
 
 Every finished method entry is committed immediately as its own artifact. A rendering/session failure should cost at most the current unfinished entry.
 
@@ -41,46 +42,44 @@ Every staged entry must cite at least one inspected primary source with an exact
 
 `validate_entries.py` checks metadata, headings, source-pinpoint/URL presence, and length only; it does not certify attribution or mathematical correctness.
 
-## Accepted staged entries
+## Accepted inventory
 
-Meetings 002--004 source-audited and accepted **eighteen** staged entries.
+Meetings 002--005 have source-audited and accepted **30 staged entries**.
 
-### Coupling and local influence
+The first 18 are the already-taxonomized live-integration batch. The twelve accepted in Meeting 005 are:
 
-- `attractive-monotone-coupling-extremal-laws.md`;
-- `dobrushin-influence-contraction.md`;
-- `path-coupling-glauber-dynamics.md`.
+### Coupling, graphical ancestry, and model-specific duality
 
-### Spatial mixing and local-to-global influence
+- `clan-of-ancestors-perfect-simulation.md`;
+- `censoring-monotone-glauber-dynamics.md`;
+- `coupling-with-stationarity-local-uniformity.md`;
+- `coupling-from-the-past.md`;
+- `voter-coalescing-random-walk-duality.md`;
+- `dynamical-disagreement-space-time-percolation.md`.
 
-- `disagreement-percolation-gibbs-uniqueness.md`;
-- `dobrushin-shlosman-spatial-to-dynamical.md`;
-- `spectral-independence-local-to-global.md`;
-- `finite-size-strong-mixing-criterion.md`.
+The voter entry was corrected at `1761b47` to remove `targets: uniqueness`; its checked conclusions are clustering/convergence and coupling agreement, while the consensus states remain distinct invariant laws.
 
-### Functional inequalities, comparison, and multiscale coercivity
+### Analytic, conservative, and slow-relaxation methods
 
-- `poincare-spectral-gap.md`;
-- `log-sobolev-modified-log-sobolev.md`;
-- `dirichlet-form-canonical-path-comparison.md`;
-- `block-dynamics-bisection-variance.md`;
-- `lu-yau-martingale-conditional-variance.md`;
-- `block-factorization-entropy.md`;
-- `holley-stroock-bounded-perturbation.md`;
-- `moving-particle-long-jump-exclusion.md`.
+- `bochner-bakry-emery-discrete-entropy.md`;
+- `two-scale-coarse-graining-conservative-lsi.md`;
+- `aldous-interchange-exclusion-gap.md`;
+- `liggett-nash-polynomial-relaxation.md`;
+- `kclg-renormalized-glauber-comparison.md`;
+- `large-set-conductance-warm-start.md`.
 
-### Graphical ancestry, duality, and regeneration
+The KCLG entry is the authorized substitution for the attempted nonreversible sector/hypocoercive slot; no clean primary IPS source was located in which that latter machinery itself proves the desired relaxation statement.
 
-- `duality-extinction-finite-ancestor-process.md`;
-- `information-percolation-backward-histories.md`;
-- `east-distinguished-zero-screening.md`.
+## Mechanical status
 
-All eighteen are source-audited staged material. The first twelve remain the first live-integration batch. The six F-wave-two entries are queued behind them.
+The principal's last validator run covered 28 entries and passed all 28. Two further F entries were already committed before Meeting 005 was composed. Rerun
 
-## Current work
+```bash
+python research/active/ergodicity-methods-toolbox/validate_entries.py
+```
 
-F Assignment 003 targets Bakry--Emery/Bochner Gamma methods, two-scale coarse-graining, the Aldous/interchange spectral-gap reduction, Nash/spectral-profile smoothing with an IPS application, nonreversible coercivity with an IPS application, and conductance/Cheeger methods for spin chains; source-supported substitutions are allowed for the last three if necessary.
+on the current branch; the expected count is 30.
 
-G Assignment 002 continues unchanged: dynamical disagreement domination, CFTP, clan-of-ancestors/perfect simulation, censoring, block/local/maximal coupling, and coalescing-walk voter duality.
+## Next coverage after integration
 
-Live integration is deferred until no student is actively committing a staging batch.
+High-priority uncovered families include literal block/maximal local coupling, complete-convergence/oriented-percolation block constructions, interface/front regeneration, weighted/Wasserstein coupling, graphical finite-to-infinite transfer, Foster--Lyapunov/Harris recurrence, weak/super-Poincare and spectral-profile methods, dedicated finite-to-infinite coercivity transfer, additional KCSM comparison mechanisms, and model-specific branching/annihilating duals.
