@@ -3,7 +3,7 @@ method_id: entropic-ricci-weak-interaction-perturbation
 title: Entropic Ricci curvature from weak-interaction perturbation
 category: functional-inequality
 targets:
-  - log-sobolev
+  - modified-log-sobolev
   - spectral-gap
 model_scope: Finite reversible interacting Markov chains with a mapping representation, including high-temperature Ising, Curie-Weiss, and hard-core Glauber dynamics.
 source_status: primary-checked
