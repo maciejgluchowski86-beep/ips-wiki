@@ -14,46 +14,43 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Workspace: `research/active/generalized-patch-representations/`.
 - Branch-only wiki hub: `docs/generalized-patch-representations.md`.
 - Branch-only wiki section: `docs/generalized-patch-representations/`.
-- Latest meeting: `meetings/007-natural-three-state-subclass.md`.
+- Latest meeting: `meetings/008-novelty-audit-keeps-killed-typed-factorization.md`.
 - Executor: Professor, because no graduate-student session is currently operational.
 
-The principal asks whether the canonical binary patch-positivity framework extends to more general IPS: more local states, updates beyond binary flips, corresponding signed duals, a successful-interaction analogue hiding finite local information, generalized patches/positivity, and applications.
+The principal asks whether the canonical binary patch framework extends to more general IPS: more local states, updates beyond binary flips, corresponding signed duals, a successful-interaction analogue hiding finite local information, generalized patches/positivity, and applications.
 
-## Established generalized structure
+## Established mathematical framework
 
-Assignments 001--004 establish for arbitrary finite-state bounded finite-range **single-site replacement** dynamics in the reference-state indicator tensor basis:
+Assignments 001--004 prove, for arbitrary finite-state bounded finite-range **single-site replacement** dynamics in the reference-state indicator tensor basis:
 
 1. an exact typed signed Feynman--Kac dual;
-2. a successful record `(i,t,r,tau)` hiding post-source outcome;
-3. exact killed/noncemetery patch factorization despite typed target conflicts;
-4. an explicit typed patch representation with bulk/end separation;
-5. exact local transfer
+2. a successful record `(i,t,r,tau)` revealing source/time/pre-source type/typed target while hiding post-source outcome;
+3. one-site typed spacetime patches;
+4. an exact killed/noncemetery weighted factorization despite typed target conflicts;
+5. an explicit bulk/end patch representation;
+6. the exact signed local transfer
    \[
    K_i(0,\cdot)=0,
    \qquad K_i(r,s)=a_{i,r}^s(\emptyset);
    \]
-6. typed bulk patch positivity as exact nonnegativity of local semigroup numerator families;
-7. exact reduction at `d=2` to canonical binary patch positivity.
+7. typed bulk patch positivity as exact nonnegativity of local matrix-semigroup boundary responses;
+8. exact specialization at `d=2` to canonical binary patch positivity.
 
-## Three-state criterion programme
+The crucial multi-state modification is that bare conditioning on the coarse record list is false: an incoming typed-target conflict can enter cemetery and remove future no-record constraints. Since the duality function vanishes at cemetery, multiplying by the noncemetery indicator restores an exact weighted product of local consistency factors.
 
-### Assignment 005
+## Controlled three-state analysis
 
-Outcome: **`STOP-NO-FINITE-ENDPOINT-CRITERION`**.
+Assignment 005 proved a genuine structural difference from binary theory. A physically realizable `d=3` model has
 
-A genuine `d=3` physical IPS has a required `OI` numerator with positive zero/long endpoints but exact negative interior minimum `-1/1224`. Thus binary-style endpoint inequalities do not characterize general three-state positivity.
+\[
+N(t)=\frac1{128}-\frac{13}{64}e^{-t}+\frac{153}{128}e^{-2t}
+\]
 
-### Assignment 006
+with positive endpoints but exact interior minimum `-1/1224`; zero/long endpoint inequalities therefore do not characterize general three-state positivity.
 
-Outcome: **`CONTINUE-EXACT-THREE-STATE-SPECTRAL-CRITERION`**.
+Assignment 006 gave a correct finite necessary-and-sufficient spectral test for the remaining boundary-complete `d=3` responses, including all degenerate spectra.
 
-Boundary-complete `d=3` typed bulk patch positivity has a finite necessary-and-sufficient spectral test. Every remaining `OI` numerator requires zero-length, long-time, and at most one explicitly computed interior critical-value check. Zero-eigenvalue, repeated, Jordan, and reducible cases are all handled exactly. Binary suppression is exactly canonical.
-
-### Assignment 007
-
-Outcome: **`CONTINUE-NATURAL-THREE-STATE-SUBCLASS`**.
-
-For active-label exchange-symmetric reference-neighbour dynamics
+Assignment 007 gave a genuinely nonbinary exchange-symmetric exact subclass. For
 
 \[
 Q=
@@ -61,78 +58,111 @@ Q=
 -2a&a&a\\
 b&-(b+c)&c\\
 b&c&-(b+c)
-\end{pmatrix},
+\end{pmatrix}
 \]
 
-with exchange-symmetric nonempty-target coefficient family, boundary completeness gives the necessary Metzler condition
+with exchange-symmetric nonempty-target coefficients, boundary-complete typed patch positivity is equivalent to
 
 \[
-\boxed{c\ge a.}
+c\ge a,
 \]
 
-Then typed bulk patch positivity is equivalent to the algebraic conditions, for every outgoing row `p=(p0,p1,p2)`,
+and, for every outgoing row `p=(p_0,p_1,p_2)`,
 
 \[
-\boxed{
-p_1,p_2,p_0+p_1,p_0+p_2\ge0,}
+p_1,p_2,p_0+p_1,p_0+p_2\ge0,
+\qquad
+(b+2a)p_0+a(p_1+p_2)\ge0.
 \]
+
+These mathematical results remain established. Assignment 008 changes their **contribution status**, not their correctness.
+
+## Assignment 008: novelty and closest-prior-work audit
+
+Outcome: **`CONTINUE-TO-APPLICATIONS`**.
+
+The audit gives a mixed item-by-item verdict rather than a global novelty claim.
+
+### Component statuses
+
+1. finite-state typed signed duality: **`known ingredients, assembly plausibly new`**;
+2. killed typed patch factorization / representation: **`plausibly new theorem/mechanism`**;
+3. transfer-matrix bulk positivity formulation: **`known ingredients, assembly plausibly new`**;
+4. exact boundary-complete `d=3` finite spectral criterion: **`known / directly subsumed`**;
+5. exchange-symmetric exact algebraic criterion: **`known ingredients, assembly plausibly new`**;
+6. combined generalized patch framework: **`plausibly new theorem/mechanism`**.
+
+### Negative novelty findings that constrain future framing
+
+The literature already contains:
+
+- classical and modern finite-state/product graphical IPS dualities;
+- explicit signed finite-type Feynman--Kac duality;
+- marked-Poisson ancestor and information-percolation constructions which reveal spacetime dependency geometry before all update randomness is processed;
+- Metzler/internal positivity and scalar external positivity `C e^{tA}B>=0`;
+- exact third-order real-pole external-positivity / nonnegative-impulse criteria.
+
+In particular the Assignment-006 scalar `d=3` theorem is **directly subsumed** by third-order SISO external-positivity theory: multiplying `p e^{tK}f` by `e^{-dt}` preserves its sign and gives a stable third-order impulse response. It must not be presented as an independent novelty theorem.
+
+### Strongest surviving novelty candidate
+
+No equivalent source was found for the full interface
 
 \[
-\boxed{(b+2a)p_0+a(p_1+p_2)\ge0.}
+\text{arbitrary finite-state replacement IPS}
+\to
+\text{signed typed FK dual}
+\to
+\text{coarse successful record hiding source outcome}
 \]
 
-This is necessary and sufficient inside the subclass.
+followed by one-site signed patch averaging in the presence of typed target conflicts, where cemetery makes bare skeleton conditioning nonfactorizable and the exact representation is restored only through the killed/noncemetery weighted product identity.
 
-The simplification is genuinely non-binary: the exact gate has `p_1!=p_2`, distinct active-state `OI` values, positive physical `1<->2` transitions, and target-dependent perturbations distinguishing active labels. The mechanism is ordered symmetric/antisymmetric decay, not quotienting.
+This mechanism is the primary plausible contribution. Historical priority is **plausible**, not established.
 
-Other Assignment-007 findings:
+Decisive audit files:
 
-- lumpable dynamics plus lumped observables is exact but observably binary-reducible;
-- one-way active retyping remains genuinely spectral;
-- destination-rate refresh chains give a repeated-spectrum sibling subclass with exact one-mode criterion.
-
-Decisive files:
-
-- `research/active/generalized-patch-representations/students/professor/007a-lumpability-classification.md`, commit `6c41149d`;
-- corrected `007b-symmetry-and-refresh-subclass.md`, commit `52e9e7ac`;
-- `007c-triangular-still-spectral.md`, commit `c692967d`;
-- verifier `007-natural-subclass-verifier.py`, commit `3a12ba34`;
-- `007d-exact-subclass-criterion-and-binary-reduction.md`, commit `06199715`;
-- final report `007-natural-spectral-simplification.md`, commit `5f9b4b8b`;
-- handoff `007-handoff.md`, commit `d465af1d`;
-- Meeting 007, commit `a22c87e4`.
+- `research/active/generalized-patch-representations/students/professor/008a-classical-duality-and-graphical-predecessors.md`, commit `e2966ae0`;
+- `008b-feynman-kac-and-multistate-duality-comparison.md`, commit `02350f42`;
+- `008c-signed-fk-and-hidden-skeleton-factorization.md`, commit `f139fde3`;
+- `008d-external-positivity-overlap.md`, commit `41994e79`;
+- `008e-component-status-and-chronology.md`, commit `0c91fe66`;
+- final report `008-novelty-and-prior-work-audit.md`, commit `6db1efa8`;
+- handoff `008-handoff.md`, commit `4524207b`;
+- Meeting 008, commit `42719a83`.
 
 ## Current proof-spine edge
 
-**Targeted novelty/closest-prior-work audit.**
+**Applications of the surviving generalized patch mechanism.**
 
-The theorem stack is now stable enough to compare precisely with prior literature. No novelty claim is authorized until this audit is complete.
+Per the ordering fixed in Meeting 007 and enforced by Assignment 008, the next active mathematical block must start from a natural genuinely nonbinary finite-state single-site replacement IPS from the literature rather than a tuned coefficient example.
 
-The audit should cover the arbitrary-finite-state typed dual and killed patch factorization, the exact transfer positivity formulation, the `d=3` finite spectral theorem, and the exchange-symmetric / refresh exact subclasses, including alternate terminology.
+The application block should determine:
 
-## Planned ordering after the audit
+1. whether the typed dual/successful-skeleton construction specializes naturally;
+2. whether bulk patch positivity actually holds;
+3. whether the patch representation yields a useful consequence or structural viewpoint beyond a re-expression of already-known duality;
+4. whether that application-specific consequence is new after its own prior-work comparison.
 
-If the literature audit does not show that the generalized mechanism or criterion is already subsumed by prior work, **applications become the next active mathematical block immediately**.
+A negative patch-positivity finding is an acceptable outcome if it identifies a real structural obstruction.
 
-The first application should be a genuinely non-binary finite-state single-site replacement IPS checked against either the symmetric/refresh algebraic criterion or the exact `d=3` spectral criterion.
+## `d>3` ordering
 
-A generic `d>3` tractable-positivity block is not next by default. The representation already covers arbitrary finite `d`. Further `d>3` criterion work should be activated only if:
+A generic `d>3` tractable-positivity block is **not** next by default. The representation already holds for arbitrary finite `d`, whereas higher-dimensional matrix-response positivity overlaps the established external-positivity problem.
 
-- a concrete application naturally needs more than three local states; or
-- the literature audit shows that the arbitrary-`d` criterion itself is the distinctive theorem worth developing.
+Reopen generic `d>3` criterion work only if:
 
-This ordering is intended to prevent the principal's application question from receding indefinitely.
+- a natural application requires more than three local states; or
+- a later structured-class opportunity gives independent mathematical value.
 
 ## Scope and publication boundary
 
-Current proved general scope: arbitrary finite-state bounded finite-range single-site replacement dynamics in the reference-state indicator tensor basis. Tractable coefficient-level positivity is strongest in boundary-complete `d=3` and the exchange-symmetric / refresh subclasses.
+Current proved mathematical scope: arbitrary finite-state bounded finite-range **single-site replacement** dynamics in the reference-state indicator tensor basis. Simultaneous multi-site physical updates remain outside scope.
 
-Simultaneous multi-site physical updates remain outside scope.
+Stable current research may be recorded only in the designated branch-only generalized-patch section.
 
-Stable current research may be recorded only in the designated branch-only generalized-patch wiki section.
+**Do not publish or merge programme content to `main`.**
 
-**Do not publish or merge any programme content to `main`.**
-
-Existing `docs/entries/`, `docs/meta/`, and `mkdocs.yml` are outside the active write surface.
+Existing `docs/entries/`, `docs/meta/`, and `mkdocs.yml` remain outside the active write surface.
 
 All previously stopped programmes remain closed.
