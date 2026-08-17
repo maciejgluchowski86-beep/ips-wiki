@@ -21,23 +21,24 @@ The generalization programme keeps the same structural order:
 - [Finite-state typed tensor duality](generalized-patch-representations/finite-state-typed-duality.md): canonical reference-state indicator basis, typed active configurations, exact local signed dual for general single-site replacement rates, and the first successful-interaction record.
 - [Typed successful-skeleton factorization](generalized-patch-representations/typed-patch-factorization.md): one-site typed patches, the incoming target-conflict obstruction to bare conditional independence, and the exact killed/noncemetery weighted factorization which repairs it.
 - [Explicit typed patch representation](generalized-patch-representations/typed-patch-representation.md): local Feynman--Kac patch weight, pathwise product identity, exact killed-skeleton semigroup representation, bulk/end separation, and exact binary reduction.
+- [Typed bulk patch positivity via transfer matrices](generalized-patch-representations/typed-patch-positivity-transfer.md): exact signed and unsigned local transfer matrices, four bulk boundary formulas, short-time multi-state constraints, and exact equivalence with canonical binary patch positivity.
 
 ## Current bottleneck
 
-The representation layer is now complete for finite-state bounded finite-range **single-site replacement** dynamics in the reference-state indicator basis.
+For finite-state bounded finite-range **single-site replacement** dynamics, the representation and the exact generalized bulk positivity property are now explicit.
 
-For a bulk typed patch,
-
-\[
-C(P)=E_P^{con}[A_P]
-\]
-
-is a scalar depending only on local typed boundary data, interval length, source site, and local dual coefficients. The current research question is to characterize or find useful coefficient-level sufficient conditions for
+The signed interior transfer matrix is
 
 \[
-C(P)\ge0
+K_i(0,\cdot)=0,
+\qquad
+K_i(r,s)=a_{i,r}^s(\emptyset),
 \]
 
-for every finite bulk typed patch.
+and typed bulk patch positivity is exactly nonnegativity of four boundary numerator families built from `e^{tK_i}` for every realizable descriptor and every `t>0`.
 
-The next step is to rewrite these contributions as finite-dimensional transfer-matrix / killed-CTMC expressions before proposing a generalized patch-positivity criterion.
+The `d=2` specialization is exactly equivalent to the coefficient inequalities in the canonical patch paper.
+
+The current research question is narrower: determine whether this all-length semigroup-positive family has a tractable finite/local coefficient characterization for a nontrivial multi-state class, or identify the structural obstruction to a binary-style finite criterion.
+
+Applications and convergence remain downstream of that question.
