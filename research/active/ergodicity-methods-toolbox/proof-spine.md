@@ -1,207 +1,341 @@
 # Proof spine
 
-This file is now the current proof spine for the post-toolbox **FA-1f Bernoulli-quench** research direction. The 74-method inventory itself remains frozen and source-audited; its detailed coverage map is preserved in Git history and the live method pages. No breadth collection is active.
+This file is the **live problem-specific research spine** after completion of the 74-method toolbox assessment. It is no longer the frozen 74-method coverage map. The toolbox inventory itself remains frozen and auditable through the live method pages, assessment files, validator, and earlier meeting history.
 
 ## Main target
 
-For one-dimensional hard FA-1f, with equilibrium vacancy density
+For one-dimensional hard FA-1f with equilibrium vacancy density
 
 $$
 q\in(0,1),
 $$
 
-and homogeneous Bernoulli initial vacancy density
+and nondegenerate homogeneous Bernoulli initial vacancy density
 
 $$
 q_0>0,
 $$
 
-prove for every local function `f`
+prove local convergence
 
 $$
-\mu_{q_0}P_t(f)\longrightarrow\mu_q(f).
+\mu_{q_0}P_t(f)\longrightarrow\mu_q(f)
 $$
 
-The high-vacancy nonequilibrium theorem and positive equilibrium spectral gap are background; the present target is the unresolved all-density Bernoulli quench. The all-ones configuration is absorbing, so no proof may require convergence from every initial state.
+for every local function `f`.
+
+The all-ones configuration is absorbing, so no route may require worst-case convergence over the full state space.
 
 ## E0. Current architecture status
 
-The hostile toolbox review retained exactly two independent FA architectures:
+The hostile toolbox review retained exactly two independent A/B architectures for this target:
 
-1. **FA-SCREEN** — an East-inspired two-sided physical causal screen;
-2. **FA-INFO** — a quench-specific state-adaptive causal information history.
+1. `FA-SCREEN` — a two-sided East-inspired causal screen;
+2. `FA-INFO` — a quench-specific state-adaptive causal-information history.
 
-`FA-SCREEN-001` has now stopped as `STOP-SCALING-OBSTRUCTION` for the registered fixed-final-interval vacancy-boundary implementation. `FA-INFO` is the queued next bounded experiment. No full proof architecture is presently reopened.
+Both have now failed their pre-registered first bounded gates.
+
+- Meeting 024: `FA-SCREEN-001` ends `STOP-SCALING-OBSTRUCTION` for the registered fixed-final-interval exterior-measurable vacancy-boundary implementation.
+- Meeting 025: `FA-INFO-002` ends `STOP-NO-ITERABLE-STATE` for the registered bounded adaptive likelihood/pair implementation.
+
+Therefore there is presently **no credible active FA proof architecture for the group**. This is an expected-value judgment, not an impossibility theorem for the target.
+
+Do not automatically enlarge either stopped state space.
 
 ## E1. Downstream equilibrium relaxation is not the blocker
 
-For every `q>0`, one-dimensional FA-1f has positive finite-volume/infinite-volume equilibrium coercivity in the relevant ergodic component. The toolbox audit therefore treats the spectral gap as **downstream**.
+One-dimensional FA-1f has positive equilibrium coercivity for every `q>0` in the relevant ergodic component. A successful causal localization theorem could therefore use the known gap downstream.
 
-A screen with a final protected interval `I_t`, relaxation time `s_t`, fresh interior marks, and conditional density cost at most `exp(C_q|I_t|)` would lead schematically to
+Neither stopped bounded route reaches that stage. The obstruction remains nonequilibrium memory erasure.
 
-$$
-\exp(C_q|I_t|-\gamma(q)s_t),
-$$
+## E2. FA-SCREEN local leakage theorem
 
-so `|I_t|=o(s_t)` would suffice once the causal screen exists.
-
-The missing theorem is memory erasure/screening, not a stronger gap.
-
-## E2. Exact local failure of the East distinguished vacancy
-
-At a proposed right boundary, let the protected neighbour be `l`, the boundary spin `x`, its exterior neighbour `r`, and the refresh coin `z`. A boundary ring gives
+At a proposed right boundary, let the protected neighbour be `l`, the boundary spin `x`, its exterior neighbour `r`, and the refresh coin `z`. The ring output is
 
 $$
 U(l,x,r;z)=
 \begin{cases}
-z,&l=0\text{ or }r=0,\\
-x,&l=r=1.
-\end{cases}
+z,&l=0\text{ or }r=0,\\ x,&l=r=1.\end{cases}
 $$
 
-The output depends on the protected side exactly when
+Protected-side dependence occurs exactly when
 
 $$
-\boxed{r=1,\quad z\ne x.}
+\boxed{r=1,\qquad z\ne x.}
 $$
 
-For example
+Thus a literal East distinguished vacancy is not measurable from the unscreened side in FA-1f.
+
+## E3. FA-SCREEN width-three age obstruction
+
+For every active exterior-measurable vacancy/dimer boundary state of width at most three, an exterior-only four-unit event forces protected-future dependence with probability at least
 
 $$
-U(0,0,1;1)=1,
-\qquad
-U(1,0,1;1)=0.
+\boxed{\delta_3(q)=e^{-12}q^2(1-q)^2>0.}
 $$
 
-Thus the literal East marker path is not measurable from the unscreened side. This is the exact local defect caused by two-sided facilitation.
-
-Checkpoint: `students/professor/001a-fa-screen-local-leakage.md`.
-
-## E3. Dimer gives only a killed local screen
-
-An adjacent exterior vacancy dimer `00` can become `01` when the outer vacancy refreshes to `1`; this transition is legal without consulting the protected side. The next inner refresh-to-1 is the dangerous context above.
-
-Therefore a dimer cannot be an exact failure-free regeneration boundary. It can remain **faithful** only by declaring failure before/at a dangerous mark. This passes the local leakage gate as a killed primitive, so the remaining question was lifetime/scaling.
-
-## E4. Width-three vacancy-screen age obstruction
-
-The decisive theorem is
-
-`students/professor/001c-fa-screen-width3-scaling-obstruction.md`.
-
-A width-at-most-three exterior-measurable screen state is active if it certifies at least one vacancy among its first three exterior sites. There are seven states. From every one, a four-unit event using only those exterior sites has the following properties:
-
-1. by the end of phase 3 the first two exterior spins are `(0,1)`;
-2. the adjacent exterior site has remained vacant throughout phase 3, so the protected endpoint is legal throughout that phase;
-3. hidden protected refresh marks therefore leave positive conditional probability for either protected endpoint value;
-4. a phase-4 boundary refresh-to-1 has different output for those two hidden protected values.
-
-The forcing probability is uniformly at least
+Hence a fixed endpoint has
 
 $$
-\boxed{
-\delta_3(q)=e^{-12}q^2(1-q)^2>0.
-}
-$$
-
-Hence any faithful fixed active endpoint has age tail
-
-$$
-\boxed{
 P(T>4n)\le(1-\delta_3(q))^n.
-}
 $$
 
-The exact width-three verifier checks all seven states. At `q=1/10`,
+At `q=1/10`, the exact verifier gives
 
 $$
 \delta_3(1/10)>\frac{81}{2000000000}.
 $$
 
-The explicit constant is only a certificate of strict positivity.
+The registered final protected interval needs an endpoint of age at least `s_t`; even `O(s_t)` candidates cannot beat the exponential tail. Therefore the fixed-final-interval screen cannot have success probability tending to one while `s_t->infinity` and final width is sublinear.
 
-## E5. Why the registered FA-SCREEN cannot scale
+This stops the registered marker implementation before any spectral-gap argument.
 
-The registered bridge fixes a final interval `I_t` and a time `tau_t<=t-s_t`, and requires the screen event/data to be determined without revealing future marks in
+Decisive pointer: `students/professor/001c-fa-screen-width3-scaling-obstruction.md` and Meeting 024.
 
-$$
-I_t\times(\tau_t,t].
-$$
+## E4. Exact adaptive transcript likelihood
 
-Searches and handoffs may occur before `tau_t`. But a post-`tau_t` handoff triggered by a mark at a site later absorbed into final `I_t` consumes a mark that the freshness condition requires to remain protected. An endpoint change also means a fixed-volume gap stage of length `s_t` can begin only after the final change.
-
-Thus the selected endpoint must have valid age at least `s_t`.
-
-Even allowing `C s_t` possible endpoints,
+FA-INFO uses an actual value-adaptive decision tree. At a ring with old-site value `X`, neighbours `L,R`, and refresh coin `z`,
 
 $$
-P(\exists\text{ valid endpoint of age }s_t)
-\le
-C s_t(1-\delta_3(q))^{\lfloor s_t/4\rfloor}
-\to0.
+F_z(X,L,R)=
+\begin{cases}
+z,&L=0\text{ or }R=0,\\ X,&L=R=1.\end{cases}
 $$
 
-Therefore the fixed-final-interval screen built from exterior-measurable single-vacancy/dimer finite boundary automata cannot satisfy simultaneously:
+An exact evaluator may stop after revealing a vacancy in one neighbour, or immediately when `X=z`. Repeated time-zero coordinates are cached.
 
-- `s_t->infinity`;
-- exact protected-future freshness;
-- sublinear final width;
-- screen probability tending to one.
-
-This is `STOP-SCALING-OBSTRUCTION`. The positive spectral gap is never reached.
-
-## E6. Scope of the FA-SCREEN stop
-
-The theorem does **not** rule out:
-
-1. a materially different relaxation theorem for a genuinely moving/adaptive boundary whose conditioning does not reveal marks later declared protected;
-2. a causal-information proof which reveals protected information selectively rather than constructing a long-lived exterior boundary.
-
-The first would require a new upstream bridge; do not obtain it by merely increasing marker width/phases. The second is exactly `FA-INFO`.
-
-## E7. Next bounded edge: FA-INFO adaptive reveal
-
-The remaining PASS architecture uses the actual Bernoulli quench rather than worst-case initial states.
-
-At a legal-ring decision, the FA constraint is the OR
+For transcript
 
 $$
-1_{\{\eta_{i-1}=0\text{ or }\eta_{i+1}=0\}}.
+Q=(i_1,b_1,\ldots,i_K,b_K),
 $$
 
-A causal reveal procedure may inspect one neighbour first. If it is vacant, legality is certified and the second neighbour need not be revealed. If it is occupied, the second neighbour must be inspected. Histories may merge, and once a legal refresh coin fixes the new spin the old-site history may be discarded.
+with predictable next-index choice,
 
-This is different from:
+$$
+\boxed{
+L(Q)=
+\prod_{j=1}^{K}
+\left(\frac{q_0}{q}\right)^{1-b_j}
+\left(\frac{1-q_0}{1-q}\right)^{b_j}.}
+$$
 
-- the mark-only support process, which must retain all globally essential parents;
-- the conservative centered/harmonic dual, whose coefficient mass is exactly preserved;
-- a worst-case ancestor-extinction proof, which the hard all-ones trap forbids.
+Value-dependent querying therefore does **not** break the product likelihood ratio. But it does break any formula depending only on the final random query set: set membership is value-biased.
 
-### Required first theorem/test
+For one terminal output `Y`, the sharp exact two-copy identity is
 
-Before any multiscale argument:
+$$
+1+\chi^2(\Law_{q_0}(Y),\Law_q(Y))
+=E\left[
+L(Q)L(Q')\frac{\mathbf1_{\{Y=Y'\}}}{P_q(Y)}
+\right].
+$$
 
-1. define an exact adaptive decision/reveal algorithm on the smallest one/two-block space-time slab;
-2. derive the law of its residual time-zero information under `mu_{q0}` without using the desired mixing conclusion;
-3. derive a **pair-level** likelihood/intersection statistic sufficient for a local total-variation or chi-square comparison, rather than using only expected leaf count;
-4. test whether adaptive short-circuiting/merging creates a strict finite-block contraction or another iterable inequality at low-`q` stress values.
+This exact likelihood theorem is retained independent of the stop decision.
 
-A merely smaller first moment than the naive branching tree is evidence only, not a continuation criterion.
+## E5. Adaptive pruning is real but raw likelihood expands
 
-## E8. Anti-circularity and stopped routes
+At the registered stress density
 
-Do not:
+$$
+q=\frac1{10},
+$$
 
-- strengthen equilibrium gap/entropy estimates instead of proving memory erasure;
-- freeze or exogenize FA boundary facilitation;
-- enlarge the stopped vacancy screen through arbitrary marker phases;
-- identify the adaptive reveal object with the conservative transformed dual;
-- quote the Ising Miller--Peres estimate without deriving the needed conditional independence/likelihood identity for the actual FA reveal rule;
-- use product-background disagreement transmission as an iteratable bound after conditioning on a surviving path;
-- demand worst-case convergence from the absorbing all-ones state.
+a fixed-coin one-ring map has three globally essential predecessors, while the optimal adaptive evaluator uses only
 
-The earlier FA positive-dual/patch-transfer and finite-seed programmes remain closed at their recorded conservative-transfer obstructions.
+$$
+\boxed{\frac{671}{500}}
+$$
 
-## Frozen toolbox note
+queries on average.
 
-The source-audited method inventory remains frozen at 74 live entries. The current proof spine changes only the problem-specific research state; it does not reopen collection or alter the public wiki.
+Let
+
+$$
+\mathcal C_0=\frac{(q_0-q)^2}{q(1-q)}.
+$$
+
+Nevertheless the optimal exact raw transcript second moment gives
+
+$$
+\frac{\mathcal C_1}{\mathcal C_0}
+=\frac{807341}{648000}>1
+\quad(q_0=1/20),
+$$
+
+and
+
+$$
+\frac{\mathcal C_1}{\mathcal C_0}
+=\frac{17594}{10125}>1
+\quad(q_0=1/5).
+$$
+
+So the positive transcript likelihood is directly compositional but noncontractive.
+
+## E6. Fully averaged output cancellation exists
+
+With vacancy indicators `V_j`, one equilibrium-coin ring satisfies
+
+$$
+\boxed{
+E[V_0'\mid V_{-1},V_0,V_1]
+=q+(V_0-q)(1-V_{-1})(1-V_1).}
+$$
+
+For product input `q_0`, the terminal one-site chi-square contracts by exactly
+
+$$
+\boxed{(1-q_0)^4.}
+$$
+
+Thus the FA channel genuinely forgets more information than the raw adaptive transcript bound detects.
+
+However the next constrained update needs a three-site centered statistic, so the scalar output state is not closed.
+
+## E7. First adjacent composition breaks scalar iteration
+
+For S2, a ring at site `1` precedes the terminal ring at site `0`.
+
+At both registered stress quenches, the exact terminal output chi-square remains below the original one-bit baseline but **increases relative to S1**:
+
+$$
+\frac{\mathcal X_2}{\mathcal X_1}
+=\frac{15689521}{14440000}>1
+\quad(q_0=1/20),
+$$
+
+$$
+\frac{\mathcal X_2}{\mathcal X_1}
+=\frac{58081}{40000}>1
+\quad(q_0=1/5).
+$$
+
+Therefore the one-ring cancellation is not an iterable scalar block coefficient.
+
+## E8. Shared-graphical-history pair state fails
+
+Let
+
+$$
+\phi(Y)=\frac{\mathbf1_{\{Y=0\}}-q}{\sqrt{q(1-q)}}
+$$
+
+and condition on the block graphical marks `W`. Define
+
+$$
+\mathcal B
+=E_W\left[
+\left(E_{q_0}[\phi(Y)\mid W]-E_q[\phi(Y)\mid W]\right)^2
+\right].
+$$
+
+Equivalently, for two independent reference initial fields driven by the same `W`,
+
+$$
+\mathcal B
+=E[(L(Q)-1)(L(Q')-1)\phi(Y)\phi(Y')].
+$$
+
+This is the natural exact shared-history pair object for the adaptive evaluator.
+
+At `q_0=1/20`, already
+
+$$
+\frac{\mathcal B_1}{\mathcal C_0}
+=\frac{35921}{32000}>1.
+$$
+
+And adjacent composition increases it at both registered quenches:
+
+$$
+\frac{\mathcal B_2}{\mathcal B_1}
+=\frac{31388053}{28736800}>1,
+$$
+
+$$
+\frac{\mathcal B_2}{\mathcal B_1}
+=\frac{1631729}{1339400}>1.
+$$
+
+Thus conditioning on enough graphical information for local pair composition loses the cancellation recovered only after full averaging.
+
+## E9. Universal chi-square channel compression also fails the predecessor cost
+
+The exact chi-square strong-data-processing coefficients are
+
+$$
+\eta_1=(1-q)^2,
+\qquad
+\eta_2=(1-q)^3(1+q^2).
+$$
+
+At `q=1/10`, both are strictly below one. But they act on the full predecessor-vector divergence. For the product perturbations used in the bounded test, the resulting S1 and S2 bounds are all larger than the one-bit baseline.
+
+Thus neither the adaptive transcript nor the strongest universal one-output chi-square coefficient yields the missing bounded state.
+
+## E10. Exact growing-correlation theorem
+
+For a right-to-left staircase of `m` adjacent equilibrium-coin rings at sites
+
+$$
+m-1,m-2,\ldots,0,
+$$
+
+let
+
+$$
+M_m=V_m,
+$$
+
+$$
+M_k=q+(V_k-q)(1-V_{k-1})(1-M_{k+1}).
+$$
+
+Then the coefficient of the full centered monomial
+
+$$
+\prod_{j=-1}^{m}(V_j-q)
+$$
+
+in `M_0-q` is exactly
+
+$$
+\boxed{(-q)^{m-1}\ne0.}
+$$
+
+Hence exact adjacent composition creates genuinely new correlation order at every step.
+
+At S2, two positive four-site laws can have identical every proper marginal but different terminal output. Therefore even the full collection of lower-order local marginals does not close the next output.
+
+This is the structural reason `FA-INFO-002` returns `STOP-NO-ITERABLE-STATE` rather than `UNRESOLVED-BOUNDED`.
+
+## E11. Current stop rules
+
+Do not restart FA by:
+
+- enlarging the stopped vacancy-marker automaton;
+- running S3/S4 adaptive blocks after the registered S1/S2 closure failure;
+- carrying the full growing transcript/correlation hierarchy;
+- replacing memory erasure by stronger equilibrium gap/entropy work;
+- reverting to mark-only information percolation or the conservative centered dual;
+- treating product-background disagreement probabilities as iterable under path conditioning without a new decoupling theorem.
+
+A future FA restart requires a materially new upstream theorem or bounded architecture not equivalent to FA-SCREEN or FA-INFO.
+
+## E12. Positive-rates status retained
+
+The positive-rates branch is independently at `no-credible-route` after its bounded toolbox-derived tests:
+
+- uniform negative additive-Hamming drift is impossible for every Markovian coupling at the hard point;
+- mark-only Boolean-map information percolation has a pair obstruction;
+- ordinary and checkerboard Gray scalar splice closure fail;
+- the principal's zero-boundary distinguished-zero transfer reduces to tail shift.
+
+Meeting 030's signed boundary-transmission restart bar remains unchanged.
+
+## Next action
+
+There is no automatic continuation assignment from either stopped target. The next research action should be a **target-selection/opportunity-cost review**, not a larger instance of a stopped architecture.
+
+No public `docs/` or `mkdocs.yml` edits are authorized by this proof spine.
