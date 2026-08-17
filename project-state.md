@@ -10,58 +10,33 @@ This file is the compact current-state index for the autonomous research program
 - Workspace: `research/active/ergodicity-methods-toolbox/`.
 - Principal target: compile a broad, concise, self-contained, source-checked toolbox of rigorous methods used to prove ergodicity/uniqueness, convergence to equilibrium, coupling agreement, positive spectral gap, log-Sobolev inequalities, quantitative mixing, or closely related relaxation statements in spin systems, IPS, KCSM, Glauber-type and adjacent interacting models.
 - Breadth is intentional; model-specific methods are in scope.
-- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/011-wave-four-live-integration.md`.
-- Student F: idle after Assignment 004.
-- Student G: idle after Assignment 003.
+- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/012-wave-four-verified-wave-five-opened.md`.
+- Student F: active on Assignment 005.
+- Student G: active on Assignment 004.
 
 ## Coverage and publication status
 
-There are now **44 source-audited staged entries and 44 live toolbox pages**. The first thirty passed two earlier integration checks. Meeting 010 accepted fourteen further wave-four entries after source/taxonomy corrections, and commit `84feb506` promoted all fourteen atomically.
+There are **44 source-audited staged entries and 44 live toolbox pages**, and the complete 44-page public layer has passed its structural verification:
 
-The public layer consists of:
+- `validate_entries.py`: `Checked 44 entries; 0 failed mechanical validation.`;
+- `mkdocs build --strict`: clean exit, with only the upstream Material-for-MkDocs advisory banner and unchanged pre-existing INFO conditions;
+- staged and promoted slug sets are identical;
+- the hub links exactly the 44 staged methods and every link resolves;
+- every live toolbox page has `status: literature` and `audit: current`;
+- no legacy/deprecated page was modified or deleted by the toolbox integration;
+- every MkDocs navigation target resolves.
 
-- `docs/ergodicity-methods.md` as the proof-interface hub;
-- forty-four `status: literature`, `audit: current` method pages under `docs/entries/`;
-- a top-level `Ergodicity methods` section in `mkdocs.yml`.
+`validate_entries.py` remains structural only. Source/claim acceptance is the Professor audit recorded in Meetings 002--010.
 
-Relative to pre-integration audit head `8a167424`, commit `84feb506` adds exactly fourteen method pages and modifies only the hub and MkDocs navigation. No unrelated `docs/` page was changed in that integration commit.
+The directory question is closed for this programme. Toolbox pages remain in the repository-wide article namespace `docs/entries/`, consistent with `README.md`. Reader separation from legacy review debt is supplied by the dedicated hub/navigation and current-audit metadata. Any future filesystem migration should be wiki-wide rather than a toolbox-specific exception.
 
-The repository-wide article layout remains deliberate. Toolbox pages stay in `docs/entries/`; reader separation from legacy review debt is supplied by the dedicated hub/navigation and current-audit metadata.
+## Active breadth wave
 
-## Wave-four audit notes
+Student F Assignment 005 covers bootstrap-percolation-to-KCM ergodicity/relaxation transfer, long-range constrained Poincare/good-path inequalities, nested Matryoshka-style renormalisation, CBSEP auxiliary-process comparison, artificial Nummelin splitting if a genuine interacting-process source exists, projective/compactness invariant-law arguments, and super-Poincare or a source-supported analytic substitute.
 
-- Völlering's weak-Poincare entry had stale theorem numbering despite passing mechanical validation. It was corrected to Theorem 3.2, Corollary 3.3 and Proposition 4.7 at `fa48b2c` before promotion.
-- Gobron--Saada refined discrepancy coupling is scoped to invariant-law classification, not bare uniqueness across conserved densities (`44e36ac`).
-- Suzuki number-rigidity and potential-theoretic capacity were removed from the generic functional-inequality category (`d7865e0`, `6ce981f`).
-- Sturm--Swart parity duality records invariant-law classification plus convergence, not unqualified uniqueness (`1f9f115`).
-- The generic common/basic graphical-coupling page remains unwritten because the inspected literature did not expose a proof interface distinct from existing live pages.
+Student G Assignment 004 covers successful coupling of finite dual particle systems, second-class/shock coupling, maximal local coupling for nonmonotone spins, disagreement/competition-interface regeneration, contact/multitype complete-convergence restart/block constructions, boundary-uniform projective graphical transfer, and nonmonotone Wasserstein/reflection/jump coupling.
 
-`validate_entries.py` remains structural only and must not be described as mathematical or attribution verification.
-
-## Immediate integration check
-
-Before another student wave, run:
-
-```bash
-python research/active/ergodicity-methods-toolbox/validate_entries.py
-mkdocs build --strict
-```
-
-Expected structural result:
-
-```text
-Checked 44 entries; 0 failed mechanical validation.
-```
-
-Also verify all 44 staged slugs are live, hub links resolve and cover exactly the staged set, all 44 live pages have `status: literature` and `audit: current`, no non-toolbox legacy page was modified or deleted, and every MkDocs target resolves. The exact public batch diff is:
-
-```bash
-git diff --name-status 8a167424..84feb506 -- docs mkdocs.yml
-```
-
-## Remaining coverage
-
-High-value gaps include spectral-profile/evolving-set methods with a genuinely load-bearing interacting-process application; full-Cheeger positive mixing/gap methods for a spin system distinct from canonical paths and large-set conductance; artificial Nummelin splitting in a concrete interacting process; super-Poincare methods distinct from current weak-Poincare/Nash entries; projective/compactness invariant-law arguments; further genuinely infinite-lattice Harris/Lyapunov mechanisms; and additional model-specific coupling, duality, KCSM, regeneration and finite-to-infinite interfaces as the primary literature exposes them.
+The anti-padding rule remains binding. A target that collapses into an existing proof interface is recorded as a negative taxonomy result and substituted rather than manufactured into a page. The generic common/basic graphical-coupling page remains unwarranted by current source evidence, and the generic nonreversible sector/hypocoercive search is not being repeated.
 
 ## Previous scientific direction
 
