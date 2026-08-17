@@ -11,10 +11,11 @@ The generalization programme keeps the same structural order:
 1. choose a tensor basis for local observables;
 2. derive a local signed Feynman--Kac dual;
 3. identify a coarse successful-interaction skeleton that hides a finite local mark;
-4. prove conditional or representation-sufficient weighted factorization into generalized patches;
+4. prove representation-sufficient killed/weighted factorization into generalized patches;
 5. define explicit patch contributions;
 6. characterize nonnegative bulk patch contributions;
-7. only then derive comparison/convergence consequences and test concrete models.
+7. audit novelty and closest prior work;
+8. then test applications and consequences.
 
 ## Current pages
 
@@ -24,19 +25,26 @@ The generalization programme keeps the same structural order:
 - [Typed bulk patch positivity via transfer matrices](generalized-patch-representations/typed-patch-positivity-transfer.md): exact signed and unsigned local transfer matrices, four bulk boundary formulas, short-time multi-state constraints, and exact equivalence with canonical binary patch positivity.
 - [Three-state endpoint obstruction](generalized-patch-representations/three-state-endpoint-obstruction.md): boundary completeness forces a Metzler interior transfer, but a physically realizable two-mode `OI` numerator is negative at an interior time despite strictly positive zero-length and long-time endpoints.
 - [Exact three-state spectral positivity criterion](generalized-patch-representations/three-state-spectral-criterion.md): necessary-and-sufficient boundary-complete `d=3` test using endpoint values and at most one explicit interior critical value, including degenerate spectra and exact binary reduction.
+- [Natural three-state positivity subclass](generalized-patch-representations/natural-three-state-subclass.md): exchange-symmetric non-binary systems where the necessary Metzler ordering makes the signed active-type mode decay faster, giving an exact algebraic endpoint criterion; includes the refresh boundary case.
 
-## Current bottleneck
+## Current status
 
-For finite-state bounded finite-range **single-site replacement** dynamics, the typed representation and exact generalized bulk positivity property are explicit.
+For arbitrary finite-state bounded finite-range **single-site replacement** dynamics, the typed dual, killed patch factorization, exact patch representation, and transfer-semigroup definition of bulk positivity are established on this research branch.
 
-In boundary-complete `d=3`, the all-time positivity problem is now finite. After the Metzler and zero-length reductions, each remaining `OI` numerator requires its long-time value and at most one explicitly computable interior critical value. All repeated, zero-eigenvalue, and reducible spectral cases are also finite.
-
-The criterion is not generally a purely algebraic coefficient cone: the generic critical value retains the spectral quantity
+For boundary-complete `d=3`, the generic positivity problem has an exact finite spectral criterion. Assignment 007 additionally identifies a genuinely non-binary exchange-symmetric subclass with an exact algebraic criterion:
 
 \[
-R^{\mu/(\nu-\mu)}.
+c\ge a,
 \]
 
-The next research question is whether a mathematically natural non-binary subclass makes this exact critical inequality algebraic, monotone, or otherwise transparent while preserving necessity and sufficiency and the exact binary reduction.
+and, for every outgoing row `p=(p_0,p_1,p_2)`,
 
-Applications and convergence remain downstream of that structural question.
+\[
+p_1,p_2,p_0+p_1,p_0+p_2\ge0,
+\]
+
+\[
+(b+2a)p_0+a(p_1+p_2)\ge0.
+\]
+
+The next programme block is a targeted literature/novelty audit. If the mechanism is not already subsumed by prior work, applications are planned immediately afterward. A generic `d>3` positivity-criterion block is deferred unless an application or the literature makes it necessary.
