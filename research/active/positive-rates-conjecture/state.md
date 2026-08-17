@@ -23,17 +23,15 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-Latest meeting: `meetings/028-boundary-resolvent-elimination-sharpens-residual-object-but-does-not-reopen.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/029-fresh-insertion-sobolev-gain-narrows-route-but-current-generation-may-finish.md`, `state_narrowed: yes`.
 
-Active work:
+Formal work status:
 
-- Student G: idle; no G011.
+- Student G: idle; no G011. One response was already in flight before the idle ruling could be relayed; Meeting 029 instructs the principal not to destroy that response by clicking stop, but this is not formal reactivation. Do not prompt G again after the current response returns.
 - Student F: idle; no F016.
-- No proof architecture is currently active.
+- No proof architecture is formally active.
 
-Operative proof-architecture status: **`no-credible-route`**, in the precise consultation-002 / Meeting-025 sense. This does not say the conjecture is false or that every conceivable proof architecture is impossible.
-
-Operational overlap: G's `75d0e8a` landed after Meeting 027 because the idle ruling had not yet been relayed. Meeting 028 treats it as an orchestration overlap, not disregard of the stop. It is accepted as exact algebraic sharpening but does not reopen the branch.
+Operative proof-architecture status remains **`no-credible-route`** in the consultation-002 / Meeting-025 sense, unless the already-running G response produces a theorem clearing the explicit restart bar.
 
 ## Stopped / inactive interfaces
 
@@ -46,9 +44,9 @@ Stopped or inactive mechanisms include:
 - G009's singular fixed-depth short/long renewal continuation (Meeting 025);
 - the fixed-filter connected dual-renewal continuation after the bounded Assignment 010 block (Meetings 027--028).
 
-The last stop is an implementation/continuation decision, not a refutation of the fixed dual-renewal witness.
+Operational overlaps after the stop are not treated as student disregard. Late checkpoints are retained and reviewed, but do not automatically reopen work.
 
-## Canonical `J` quantity and `(J-SPEC)`
+## Canonical `J` quantity and exact fixed-filter renewal
 
 For singleton depth `n`,
 
@@ -59,40 +57,13 @@ J_n=\frac BgR_n=\frac gBN_n,
 \qquad B=b+c-a,\quad g=b-a,
 $$
 
-so `R_n`, `J_n`, and `N_n` have the same exponential growth rate
+so
 
 $$
-\rho_J(a,b,c)=\limsup_{n\to\infty}J_n^{1/n}.
+\rho_J(a,b,c)=\limsup_{n\to\infty}J_n^{1/n}
 $$
 
-`(J-SPEC)` remains open: neither `rho_J>1` at a fixed strict residual point nor a useful opposite theorem has been proved.
-
-## G009 singular fixed-depth theorem retained
-
-Along
-
-$$
-a=\varepsilon,\qquad b=\frac1{10},\qquad 1-c=\frac\varepsilon{10},
-$$
-
-G009 proves for every fixed `n`
-
-$$
-\lim_{\varepsilon\downarrow0}
-\frac{I_n(\varepsilon)}{|m_0(\varepsilon)|}
-=
-\left(\frac{499}{341}\right)^{n-1},
-$$
-
-with
-
-$$
-\frac{499}{341}=\frac{10}{11}+\frac{189}{341}>1.
-$$
-
-The `10/11` short channel is an all-depth East Green identity. The `189/341` long channel is only a fixed-volume reset; making it uniform in depth recreates the stopped spatial-memory problem. Therefore this does not imply fixed-rate `rho_J>1`.
-
-## Exact fixed-filter dual renewal
+is also the root growth rate of `R_n` and `N_n`. `(J-SPEC)` remains open.
 
 At
 
@@ -100,311 +71,291 @@ $$
 P_*=(1/1000,1/10,9999/10000),
 $$
 
-fix
+with fixed filter
 
 $$
-\sigma(u)=1-2e^{-(4/125)u}.
+\sigma(u)=1-2e^{-(4/125)u},
 $$
 
-Define
+the invariant projections can be extracted exactly as renewal separators. The fixed signed witness obeys
 
 $$
-H_N^\sigma=\int_0^\infty w(u)\sigma(u)P_u^N\,du,
-\qquad
-z_\sigma=\int_0^\infty w(u)\sigma(u)\,du,
-$$
-
-$$
-Q_N^\sigma=H_N^\sigma-z_\sigma\Pi_N.
-$$
-
-Then
-
-$$
-Q_N^\sigma\mathbf1=0,
-\qquad
-\pi_NQ_N^\sigma=0.
-$$
-
-For connected coefficients
-
-$$
-c_1=m_0,
-$$
-
-$$
-c_k^\sigma
-=\pi_kJ_kQ_{k-1}^\sigma J_{k-1}\cdots Q_1^\sigma J_1,
-\qquad k\ge2,
-$$
-
-expanding each `H=zPi+Q` extracts invariant projections exactly as renewal separators. With
-
-$$
-a_k=z_\sigma c_k^\sigma,
-\qquad
-\lambda_k=(-1)^ka_k,
-$$
-
-the fixed-filter witness obeys
-
-$$
-\boxed{
 V_n=\sum_{k=1}^n\lambda_kV_{n-k},
 \qquad V_0=1.
-}
 $$
 
-The signed witness is dominated by the canonical absolute-duration norm, so supercritical growth of `V_n` would prove `rho_J(P_*)>1`.
-
-Commit `e4452de` exactly verifies the first seven rational renewal coefficients. In particular
+Commit `e4452de` exactly verifies the first seven rational coefficients, with
 
 $$
 \lambda_1,\ldots,\lambda_5>0,
 \qquad
 \lambda_6,\lambda_7<0,
-$$
-
-and
-
-$$
+\qquad
 \sum_{k=1}^7\lambda_k>1.
 $$
 
-Numerically this partial sum is about `1.04715575732980380`. Thus
+The sufficient tail target
 
 $$
-\delta_7:=\sum_{k=1}^7\lambda_k-1>0
-$$
-
-is exactly certified. The sufficient tail target
-
-$$
-\sum_{k\ge8}|\lambda_k|<\delta_7
+\sum_{k\ge8}|\lambda_k|
+<
+\delta_7,
+\qquad
+\delta_7:=\sum_{k=1}^7\lambda_k-1>0,
 \tag{CT}
 $$
 
 remains open.
 
-## G010 exact terminal high-pass theorem
+## G010 terminal high-pass theorem
 
-Student G's Assignment 010 derives the stationary boundary functional identity
+Assignment 010 derives
 
 $$
-\boxed{
-C_N=A_NR_N,
-\qquad
 R_N=(dI-gL_N)((1+b)I-L_N)^{-1}.
-}
 $$
 
-For the actual fixed filter, modulo constants,
+For the actual fixed `P_*` duration weight and filter, repaired verifier `ce77c9c` proves
 
 $$
-R_NQ_N=\int_0^\infty\kappa(t)P_t^N\,dt
-$$
-
-with a depth-independent signed kernel. The repaired exact verifier `010e-terminal-kernel-verifier.py` at `ce77c9c` proves
-
-$$
-\boxed{
 \|\kappa\|_1\le\Theta_\sharp,
 \qquad
-\Theta_\sharp\approx0.8924718201406568,
-}
+B\Theta_\sharp<1,
 $$
 
-and exactly
+with `B Theta_sharp` about `0.98073728315`. Hence
 
 $$
-\boxed{B\Theta_\sharp<1.}
-$$
-
-Hence for every centered input whose range contains zero,
-
-$$
-\boxed{
-\operatorname{osc}
-\left(
+\operatorname{osc}\left(
 R_{N+1}Q_{N+1}(Y_{N+1}f)
 \right)
 \le q_\sharp\operatorname{osc}(f),
 \qquad q_\sharp=B\Theta_\sharp<1.
-}
 \tag{HP}
 $$
 
-This is a genuine depth-uniform, sign-sensitive positive-frequency contraction for the actual `P_*` generators and actual duration weight.
-
-The earlier 010d reversible comparison is retained only with its correction `d4632e0`: preserving `B` and `omega` does **not** preserve the canonical duration weight because the one-particle survival factor depends separately on `a`. The reversible point is therefore only a frozen-weight generator/insertion reference.
-
-## Why the high-pass theorem does not iterate
-
-On a mode with `L_N=-x`,
+The single multiplier
 
 $$
-R(x)=\frac{d+gx}{1+b+x}.
+R(x)=\frac{d+gx}{1+b+x}
 $$
 
-At `P_*`,
+vanishes at `x=|d|/g=1/100`, so this one-high-pass seminorm cannot be generically inverted.
+
+## Exact boundary-resolvent elimination
+
+Late checkpoint `75d0e8a`, accepted in Meeting 028, eliminates the stationary marginal-discrepancy functional from the connected coefficient. With
 
 $$
-\boxed{x_0=\frac{|d|}{g}=\frac1{100},}
-$$
-
-so `R(x_0)=0`. Therefore no uniform reverse comparison on the full positive-frequency space follows by inverting this one high-pass factor.
-
-This does **not** prove that the finite-volume spectrum contains `x_0`, nor that the actual connected orbit lives near it. It proves only that the one-high-pass functional-calculus iteration is unavailable without additional orbit information or a complementary observable.
-
-## Boundary response: filtered pairing and exact elimination
-
-Let
-
-$$
-A_N(f)=\pi_{N+1}(f),
-\qquad
-\delta_N=A_N-\pi_N,
-$$
-
-and define
-
-$$
-f_1=Y_1,
+q_N=Q_Nf_N,
 \qquad
 f_N=Y_NQ_{N-1}f_{N-1},
-\qquad
-q_N:=Q_Nf_N.
 $$
-
-G010 first proved
-
-$$
- c_{N+1}=\delta_N(R_Nq_N)
-$$
-
-with source equation
-
-$$
-\delta_NL_N
-=-B A_N(I-L_N)((1+b)I-L_N)^{-1}P_N.
-$$
-
-The late checkpoint `75d0e8a`, accepted at Meeting 028, eliminates `delta_N` exactly. Put
 
 $$
 r=1+b,
 \qquad
 S_N=(rI-L_N)^{-1},
 \qquad
-D_N=(I-L_N)S_N.
+D_N=(I-L_N)S_N,
 $$
 
-Then
+one has exactly
 
 $$
-\boxed{
  c_{N+1}
  =A_N\!\left[
  \frac dr q_N
  +\left(g-\frac dr\right)B
  D_NP_NS_Nq_N
  \right].
-}
 \tag{BRE}
 $$
 
-At `P_*`, `d/r=-\varepsilon`, `\varepsilon=9/10000`, and `g_0=g+\varepsilon`, so
+At `P_*`,
 
 $$
-\boxed{
  c_{N+1}=A_N(\mathfrak B_Nq_N),
-}
 $$
 
-with
+where
 
 $$
-\boxed{
 \mathfrak B_N
 =-\varepsilon I
 +g_0B(I-L_N)(rI-L_N)^{-1}
 P_N(rI-L_N)^{-1}.
+$$
+
+Thus bare tail-shift TV is not logically required for the connected coefficient. The elementary supnorm bound from `75d0e8a` gives no depth decay.
+
+## New complementary high-pass split
+
+Late corrected checkpoint `010h-recentered-boundary-channel-checkpoint.md` at `81a836c` decomposes
+
+$$
+\boxed{
+R_N=m_0I+g_0(I-K_N),
+\qquad
+K_N=r(rI-L_N)^{-1}.
 }
-\tag{BR}
+\tag{CH}
 $$
 
-Thus no estimate of the unrestricted norm of `delta_N` or bare tail-shift TV is logically required for the connected coefficient. Any future claim that this route is equivalent to F013/F014's bare tail-shift problem must survive `(BRE)`--`(BR)` and requires additional mathematics.
+The blind frequency of `R_N` is therefore cancellation between a small scalar channel and a genuine high-pass channel; `I-K_N` itself vanishes only at frequency zero.
 
-The elementary bound
-
-$$
-|c_{N+1}|
-\le
-\frac{342081}{1718750}\operatorname{osc}(q_N)
-$$
-
-is far too crude and gives no depth decay. The sharp residual problem is now summable/geometric control of
+For the fixed filter, uniformly in depth,
 
 $$
-A_N(\mathfrak B_Nq_N)
+\operatorname{osc}\bigl(g_0(I-K_N)Q_Nf\bigr)
+\le\frac{999}{2750}\operatorname{osc}(f),
 $$
 
-along the actual recursion
+and
 
 $$
-q_N=Q_N(Y_Nq_{N-1}).
+\operatorname{osc}(m_0Q_Nf)
+<\frac{660971283}{1210937500}\operatorname{osc}(f).
 $$
 
-This is a target, not a currently available mechanism.
-
-## Recentered newest-boundary block
-
-With
+After one ordinary insertion the channelwise triangle estimate is strictly below one:
 
 $$
-X_i=Y_i+\varepsilon,
-\qquad
-c_0=999/1000,
-\qquad
-g_0=999/10000,
+B\left(
+\frac{999}{2750}
++
+\frac{660971283}{1210937500}
+\right)
+<
+\frac{12097480772637}{12109375000000}
+<1.
+\tag{CHC}
 $$
 
-the newest-coordinate block is
+This is not yet an iterative two-component contraction: no depth-uniform frame/reverse estimate recovers the next raw connected input from the two outputs.
+
+The correction at `81a836c` is load-bearing. Recentring removes the scalar `I` off-diagonal, but the old `Y`-coefficient projection becomes a small non-orthogonal tilt in the product-centered `X` geometry,
 
 $$
-L_{N+1}
+\beta=-\frac{\sqrt{10}}{1110},
+\qquad |\beta|<1/300,
+$$
+
+rather than an orthogonal projection.
+
+## Exact fresh-coordinate intertwining
+
+The recentered insertion obeys
+
+$$
+\boxed{
+A_NM_{X_N}
 =
-\begin{pmatrix}
-L_N+c_0P_N & g_0c_0P_N\\
-P_N & L_N-(1+b)I+g_0P_N
-\end{pmatrix}.
+M_{X_N}(A_{N-1}+r)
+-g_0B M_{\eta_N}P_{N-1},
+\qquad A_N=-L_N.
+}
+\tag{INT}
 $$
 
-After normalizing `X` by `sqrt(c_0g_0)`, the two off-diagonal interface blocks agree. The scalar recentering branch `Y=X-\varepsilon` is already uniformly contractive, with exact oscillation cost below `0.609`. The unresolved transmission is through the boundary-containing `X` branch and inherited older-volume dynamics.
+Thus a fresh `X` insertion shifts temporal frequency by the fixed amount `r=11/10`; the only failure of exact intertwining is transmission through the old right-boundary projection. The Duhamel form separates the raw `Y` insertion into a fresh shifted branch, a small scalar branch, and this boundary-transmission branch.
 
-## Meetings 027--028 stop decision
+## New reversible fresh-insertion Sobolev theorem
 
-Assignment 010 was a pre-registered bounded block. It produced a real all-depth theorem `(HP)` and then the exact boundary-resolvent elimination `(BRE)`, but no proof of `(CT)` and no fixed-rate `rho_J>1` theorem.
+At the corrected reversible reference point
 
-The late elimination does not clear Meeting 027's restart bar. A future restart requires either:
+$$
+P_0=(1/10000,1/10,999/1000),
+$$
 
-- an **explicit complementary high-pass observable/seminorm** with a proved two-component depth-uniform contraction covering the blind frequency; or
-- an **orbit-specific theorem** giving summable/geometric control of `A_N(\mathfrak B_Nq_N)` along the actual connected recursion.
+keep the **actual `P_*` duration weight and filter frozen externally**. Let
 
-Neither currently exists. A generic instruction to prove decay of the new boundary-resolvent expression or to search for another norm is not authorized. No G011.
+$$
+A_{0,N}=-L_{0,N}
+$$
+
+in the product reversible space and define
+
+$$
+q(x)=Z_{\omega+x}-2Z_{\omega+\tau+x}.
+$$
+
+Commit `56d47cb` exactly verifies the rational multiplier and
+
+$$
+\boxed{|xq(x)|<1\qquad(x>0).}
+\tag{SQ1}
+$$
+
+For the fresh product-centered insertion `M_Xf=X_Nf`, the site-`N` Dirichlet form gives the dimension-free variational estimate
+
+$$
+\boxed{
+M_X^*A_{0,N}^{-1}M_X
+\le
+\frac{c_0g_0}{r}I
+=
+\frac{998001}{11000000}I.
+}
+\tag{SQ2}
+$$
+
+Therefore
+
+$$
+\boxed{
+\|A_{0,N}^{1/2}\widetilde Q_{0,N}^\sigma M_Xf\|_2
+\le
+\sqrt{\frac{998001}{11000000}}\,\|f\|_2.
+}
+\tag{SQ3}
+$$
+
+For the actual insertion `Y=X+m_0`, the same frozen-weight reference transfer satisfies
+
+$$
+\boxed{
+\|A_{0,N}^{1/2}\widetilde Q_{0,N}^\sigma(Y_Nf)\|_2
+\le
+\left(
+\sqrt{\frac{998001}{11000000}}
++
+\frac9{400}
+\right)\|f\|_2
+<\|f\|_2.
+}
+\tag{SQ4}
+$$
+
+This is accepted as a genuine all-depth fresh-insertion positive-frequency theorem for the reversible reference model. It is not yet an estimate on the actual `P_*` connected orbit.
+
+## Current blocker and restart bar
+
+The new checkpoints materially improve the local mechanism:
+
+- the blind frequency is split into explicit complementary channels with strict channelwise one-step bounds;
+- the only failure of exact fresh-coordinate frequency shift is the old-boundary transmission term;
+- the reversible fresh insertion gains one half derivative, and the fixed filter converts it into an `H^1` output with a large exact margin.
+
+But the restart bar is not yet cleared. What remains is either:
+
+1. a depth-uniform two-seminorm/energy inequality propagating `(SQ4)` through the **actual** nonreversible defect `L_*-L_0` and the explicit boundary tilt/transmission term; or
+2. an orbit-specific theorem giving summable/geometric decay of the connected coefficients.
+
+A naive use of the reference spectral gap to convert the `H^1` output back to `L^2` loses the margin. No acceptable actual-orbit iteration theorem is yet supplied.
+
+Meeting 029 therefore does not formally reactivate G. The principal should let the response already in flight finish rather than destroy it, then route the result and send no further prompt before a new ruling.
 
 ## Other retained exact mathematics
 
-The stationary occupation-control hierarchy `K_N`, monotone diameters `D_N`, Bellman scale-extension identity, and controller-uniform unweighted mismatch theorem remain correct but inactive after Meeting 024.
-
-The common-uniform fixed-site coupling facts and the exact trajectory-valued spatial kernel remain correct but inactive.
+The stationary occupation-control hierarchy, common-coupling facts, exact trajectory kernel, and earlier profile reductions remain correct but inactive as recorded in previous meetings.
 
 ## Unresolved target-level facts
 
 Open:
 
 - `(J-SPEC)` and `(CT)`;
-- the boundary-resolvent orbit coefficients `(BRE)`--`(BR)`;
+- an actual-`P_*` propagation/iteration theorem for `(CH)`--`(SQ4)`;
 - one-/two-step tail-shift agreement off the product surface;
 - `Gamma_M->0` and general `J_{x,r}->0`;
 - common-uniform extinction versus convective survival;
