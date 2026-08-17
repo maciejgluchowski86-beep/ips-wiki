@@ -33,7 +33,7 @@ The proof uses only a width-one recursion. No truncation boundary is introduced.
 Write
 
 $$
-u=d+j.
+u:=d+j.
 $$
 
 The exact polytope `(P)` in `012a-random-map-polytope.md` gives
