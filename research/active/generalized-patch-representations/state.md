@@ -17,46 +17,67 @@ Branch-only wiki section:
 
 Nothing from this programme is to be written or merged to `main` without a later principal instruction.
 
-## Principal questions
+Latest meeting: `meetings/001-finite-state-typed-duality-opens-patch-factorization.md`.
 
-The programme should determine, as far as possible:
+## Assignment 001 result
 
-1. what replaces binary monomials for larger local state spaces;
-2. what class of local IPS updates still admits a useful signed dual;
-3. what the dual state and graphical interaction are;
-4. what should be revealed in a generalized successful-interaction skeleton and what mark should remain hidden;
-5. what the resulting patches are;
-6. what generalized patch contributions and patch positivity mean;
-7. what preservation/comparison/convergence statements follow;
-8. which concrete non-binary or non-flip models satisfy the resulting criterion.
+Status: **`CONTINUE-TYPED-PATCH`**.
 
-The core mechanism to preserve is conditional averaging before taking signs/absolute values, not any particular binary notation.
+Final report: `students/professor/001-finite-state-duality.md`, commit `2f37d6bf`.
 
-## Canonical source
+Handoff: `students/professor/001-handoff.md`, commit `6bdd26ef`.
 
-For the existing binary construction, the paper `Patch representations and convergence for facilitated spin systems` under `paper/` is authoritative.
+Verifier: `students/professor/001-finite-state-duality-verifier.py`, final commit `c8e47458`.
 
-Key source files for the first block:
+For finite `E={0,...,d-1}` with reference state `0`, the indicator tensor basis gives typed active configurations. Compatible typed overlaps merge; conflicts go to a cemetery/zero state.
 
-- `paper/sections/spin-systems.tex`;
-- `paper/sections/signed-dual.tex`;
-- `paper/sections/patches-body.tex`;
-- `paper/sections/representation.tex`;
-- `paper/sections/patch-positivity.tex`;
-- `paper/appendices/monomial-dual.tex`.
+For active source type `r`, source outcome `s`, and typed target `tau`, the exact local branch coefficients are
 
-Existing main-wiki patch pages are expository source material and should not be silently generalized in place.
+\[
+a_{i,r}^{0}(\tau)=\widehat c_i^{0\to r}(\tau),
+\]
 
-## First bounded block
+\[
+a_{i,r}^{s}(\tau)=\widehat c_i^{s\to r}(\tau)-\widehat c_i^{0\to r}(\tau),
+\quad s\ne0,r,
+\]
 
-Assignment: `students/professor/assignment-001-finite-state-duality.md`.
+\[
+a_{i,r}^{r}(\tau)
+=-\widehat c_i^{0\to r}(\tau)-\sum_{y\ne r}\widehat c_i^{r\to y}(\tau).
+\]
 
-Scope: finite local state space with a distinguished reference state and general bounded single-site replacement rates depending on a finite neighbourhood.
+Absolute coefficients are fixed local Poisson rates, signs are sign marks, and the empty-target source-survival coefficient goes into the Feynman--Kac potential. The binary specialization is exactly the paper's death/split/birth dual.
 
-The first task is to fix a canonical tensor basis and decide whether it gives a fixed local signed Feynman--Kac graphical dual on finite typed active configurations, with an exact reduction to the binary paper.
+For nonempty target `tau`, the successful record
 
-Simultaneous multi-site updates, generalized patch factorization, positivity inequalities, and applications are downstream and are not to be attacked before this algebraic layer is settled.
+\[
+(i,t,r,\tau)
+\]
+
+retains the pre-interaction source type and typed target while hiding the post-interaction source outcome `s` (delete/survive/retype). Hidden outcomes have identical interaction endpoints, so the first geometry gate passes.
+
+## Current proof-spine edge
+
+**Typed successful-skeleton conditional factorization.**
+
+The next theorem must decide whether conditioning on typed successful records still decomposes the hidden marks into independent source--time-strip laws.
+
+New issues relative to binary:
+
+1. outgoing records require a specific pre-source type `r`;
+2. an incoming target label `a` is compatible only when the preceding local type is inactive/reference `0` or already `a`;
+3. a different active type causes the merge to hit the cemetery state;
+4. the hidden outgoing source outcome `s` initializes the next source patch with one of `d` local states.
+
+Patch positivity is downstream and is not yet defined.
+
+## Canonical source and publication boundary
+
+The binary paper under `paper/` remains authoritative. Existing patch pages under `docs/entries/` are source material and are not generalized in place.
+
+No programme content is to be published to `main` unless the principal later gives a separate instruction.
 
 ## Previous programmes
 
-The stopped positive-rates and FA-1f programmes remain closed exactly as previously recorded. This new direction does not reopen them.
+All previously stopped programmes remain closed at their existing rulings. This new direction does not reopen them.
