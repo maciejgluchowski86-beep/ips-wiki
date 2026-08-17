@@ -13,10 +13,10 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed until changed or stopped by the principal: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/025-fixed-depth-j-renewal-is-supercritical-but-nonuniform-j-spec-stops.md`, `state_narrowed: yes`.
-- Student G: idle; no G010.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/026-dual-renewal-connected-tail-reopens-one-bounded-j-spec-block.md`, `state_narrowed: yes`.
+- Student G: active on `students/student-g/assignment-010.md`, one bounded connected dual-renewal tail certificate at `P_*`.
 - Student F: idle; no F016.
-- No proof architecture is currently active.
+- No second route is authorized.
 
 On `r11=0`, with
 
@@ -31,117 +31,125 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-### Operative route status
+### Route status
 
-Consultation 002's `RECOMMENDATION: no-credible-route` is again the operative **proof-architecture** assessment. Meetings 024--025 add exact structural information supporting that stop. This is not a claim that the conjecture is false or that all conceivable approaches are impossible.
+Meetings 019, 021, and 024 stop respectively the common-uniform zero-frequency occupation interface, the repeated-equilibrium predecessor-profile implementation, and the stationary Bellman concatenation implementation. Consultation 002 rules out global path-space TV/KL contraction of the exact trajectory kernel. Meeting 025 stops G009's singular fixed-depth short/long renewal continuation because its long reset is nonuniform in depth.
 
-Stopped/abandoned interfaces include:
+A late G checkpoint, `394b7e3`, landed after Meeting 025 because the idle ruling had not yet been relayed. Meeting 026 evaluates it as new post-stop input and reopens **one bounded exception**. This is an orchestration overlap, not disregard of the stop.
 
-- common-uniform global coalescence / zero-frequency disagreement occupation (Meeting 019);
-- the current centered predecessor-trail/profile composition, which terminates at one-/two-step spatial tail memory (Meeting 021);
-- global path-space contraction of the exact trajectory kernel `Q`, since
-  $$
-  Q(\mathbf0,\cdot)\perp Q(\mathbf1,\cdot);
-  $$
-- the current stationary boundary-control Bellman-corrector concatenation implementation (Meeting 024);
-- the internal `(J-SPEC)` route-decision branch (Meeting 025).
+### Exact dual-renewal mechanism
 
-### G009: fixed-depth singular `J` renewal
-
-For singleton depth `n`, G's exact normalization is
+For a fixed admissible duration filter `sigma`, define
 
 $$
-J_n=\frac BgR_n=\frac gBN_n,
-\qquad B=b+c-a,\quad g=b-a,
+H_N^\sigma=\int w(u)\sigma(u)P_u^Ndu,
+\qquad
+Q_N^\sigma=H_N^\sigma-z_\sigma\Pi_N,
 $$
 
-so `R_n`, `J_n`, and `N_n` have the same exponential growth rate
+where
 
 $$
-\rho_J(a,b,c)=\limsup_{n\to\infty}J_n^{1/n}.
+z_\sigma=\int w(u)\sigma(u)du.
 $$
 
-`(J-SPEC)` remains open: neither `rho_J>1` at a strict residual point nor `rho_J<1` on a genuine residual region has been proved.
-
-Along
+Then
 
 $$
-a=\varepsilon,
-\qquad b=\frac1{10},
-\qquad 1-c=\frac\varepsilon{10},
+Q_N^\sigma\mathbf1=0,
+\qquad
+\pi_NQ_N^\sigma=0.
 $$
 
-G009 proves for every fixed depth `n`
+Writing `J_N` for the centered insertion/drop map, define connected coefficients
 
 $$
-\lim_{\varepsilon\downarrow0}
-\frac{I_n(\varepsilon)}{|m_0(\varepsilon)|}
-=
-\left(\frac{499}{341}\right)^{n-1},
+c_1=m_0,
 $$
 
-hence
-
 $$
-\lim_{\varepsilon\downarrow0}J_n(\varepsilon)
-=
-\frac{2079}{341}
-\left(\frac{499}{341}\right)^{n-1}.
+c_k^\sigma
+=\pi_kJ_kQ_{k-1}^\sigma J_{k-1}\cdots Q_1^\sigma J_1.
 $$
 
-The supercritical fixed-depth base decomposes as
+Expanding every `H=zPi+Q`, the invariant projections are extracted **exactly** as renewal separators. The fixed-filter signed witness therefore obeys an exact scalar recurrence
 
 $$
-\frac{499}{341}
-=
-\frac{10}{11}+\frac{189}{341}>1.
+V_n=\sum_{k=1}^n\lambda_kV_{n-k},
+\qquad V_0=1,
 $$
 
-The `10/11` short multiplier comes from an all-depth East Green extraction identity. The `189/341` long multiplier comes from a finite-volume regenerated-mass reset. Repeating that long channel uniformly at fixed positive `epsilon` requires the same all-depth spatial reset/tail-shift control isolated by F014. Therefore the singular fixed-depth theorem does **not** imply `rho_J>1`.
-
-G also proves that invertible suffix-compatible factorized resolvents cannot possess a nonzero exact finite-cylinder reproduction cycle. This rules out that finite-memory Perron--Frobenius implementation, not `(J+)` itself.
-
-### Recurrent zero-frequency bottleneck
-
-The same all-depth spatial reset/tail-shift information has now appeared from three distinct reductions:
-
-- F013's unsplit two-insertion invariant projection;
-- F014's short-time light-cone normal form;
-- G009's attempt to repeat the long regenerated renewal channel uniformly in depth.
-
-No further local representation-level variant is authorized without genuinely new input.
-
-### Stationary occupation-control hierarchy retained
-
-Meetings 023--024 establish an exact nested occupation hierarchy `K_N` for one-time stationary marginals under arbitrary state-dependent right-boundary control. For local `h`,
+with
 
 $$
-D_N(h)=\sup_{K_N}m(h)-\inf_{K_N}m(h)
+\lambda_k=(-1)^kz_\sigma c_k^\sigma.
 $$
 
-is nonincreasing, and `D_N(h)->0` for every local `h` would prove uniqueness of the invariant measure.
+The witness is dominated by the canonical absolute-duration norm, so supercritical growth of `V_n` proves `rho_J>1`.
 
-F015 proves the exact scale-extension formula
+### Fixed filter and active target
 
-$$
-D_M=D_N-\inf_{K_M}m(s_N^+)-\inf_{K_M}m(s_N^-),
-$$
-
-with Bellman slack
+At
 
 $$
-s_F(x,u)=w_F(x)1_{\{u\ne\pi_F(x)\}}.
+P_*=(1/1000,1/10,9999/10000),
 $$
 
-A controller-uniform unweighted mismatch bound is available, but no theorem controls the Bellman weight. Additive independently constructed appended-block correctors cannot strictly improve the Bellman endpoints. Hence the present implementation is stopped; no larger controlled LP or generic joint-corrector search is active.
+fix
 
-### Current decision
+$$
+\sigma(u)=1-2e^{-(4/125)u}.
+$$
 
-The positive-rates conjecture remains the scientific target, but **no presently identified proof architecture clears the continuation bar for another substantial internal block**.
+Then
 
-Do not restart larger-depth `J` calculations, bare tail-shift, common-coupling occupation, generic trajectory-kernel exactness/metric searches, generic joint Bellman-corrector searches, or `(ML)/(JT)/(MR)` solely from the existing sampled signed-resolvent evidence.
+$$
+z_\sigma=\frac{114559900}{205809}.
+$$
 
-Work resumes only after genuinely new principal, external, or literature input supplies a concrete rate-level mechanism that is not a restatement of the stopped bottlenecks.
+G009b reports, and the Professor independently reconstructed numerically,
+
+$$
+\sum_{k=1}^7\lambda_k\approx1.047155757329804.
+$$
+
+The first five coefficients are positive and the sixth and seventh negative, so naive positive truncation is invalid. No verifier accompanied the late checkpoint; Assignment 010 must first commit exact rational verification of the finite prefix.
+
+Put
+
+$$
+\delta_7=\sum_{k=1}^7\lambda_k-1.
+$$
+
+The active theorem is
+
+$$
+\boxed{
+\sum_{k\ge8}|\lambda_k|<\delta_7.
+}
+$$
+
+This would imply `sum_k lambda_k>1`, hence a renewal singularity inside the unit disk and
+
+$$
+\boxed{\rho_J(P_*)>1.}
+$$
+
+### Why Meeting 026 treats this as genuinely new
+
+F013/F014 failed because replacing a long segment by its invariant projection left a shifted invariant-law zero-frequency error. In the new recurrence every invariant projection is separated exactly before the connected coefficients are defined. The active operator
+
+$$
+Q_N^\sigma J_N
+$$
+
+contains no exact invariant spectral projection internally.
+
+This does **not** make it automatically contractive: slow nonzero modes may still survive. That depth-uniform connected-tail question is precisely Assignment 010.
+
+### Stopping rule
+
+Do not count a larger coefficient table, optimize the filter, posit finite-dimensional mode closure, or restart tail-shift/common-coupling/Bellman searches. Assignment 010 must produce an all-depth connected-tail theorem or a structural obstruction sharper than the already known growing-mode fact. Otherwise the programme returns to Meeting 025's `no-credible-route` state.
 
 ## Most recently completed programme
 
