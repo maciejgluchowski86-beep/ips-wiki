@@ -14,7 +14,7 @@ The generalization programme keeps the same structural order:
 4. prove conditional or representation-sufficient weighted factorization into generalized patches;
 5. define explicit patch contributions;
 6. characterize nonnegative bulk patch contributions;
-7. derive comparison/convergence consequences and test concrete models.
+7. only then derive comparison/convergence consequences and test concrete models.
 
 ## Current pages
 
@@ -22,23 +22,24 @@ The generalization programme keeps the same structural order:
 - [Typed successful-skeleton factorization](generalized-patch-representations/typed-patch-factorization.md): one-site typed patches, the incoming target-conflict obstruction to bare conditional independence, and the exact killed/noncemetery weighted factorization which repairs it.
 - [Explicit typed patch representation](generalized-patch-representations/typed-patch-representation.md): local Feynman--Kac patch weight, pathwise product identity, exact killed-skeleton semigroup representation, bulk/end separation, and exact binary reduction.
 - [Typed bulk patch positivity via transfer matrices](generalized-patch-representations/typed-patch-positivity-transfer.md): exact signed and unsigned local transfer matrices, four bulk boundary formulas, short-time multi-state constraints, and exact equivalence with canonical binary patch positivity.
+- [Three-state endpoint obstruction](generalized-patch-representations/three-state-endpoint-obstruction.md): boundary completeness forces a Metzler interior transfer, but a physically realizable two-mode `OI` numerator is negative at an interior time despite strictly positive zero-length and long-time endpoints.
 
 ## Current bottleneck
 
-For finite-state bounded finite-range **single-site replacement** dynamics, the representation and the exact generalized bulk positivity property are now explicit.
+For finite-state bounded finite-range **single-site replacement** dynamics, the representation and exact generalized bulk positivity property are explicit.
 
-The signed interior transfer matrix is
+In boundary-complete `d=3`, the sign problem reduces sharply:
+
+- the interior transfer is forced Metzler;
+- incoming-initial and outgoing-outgoing families become automatic after their local endpoint constraints;
+- the remaining outgoing-initial/incoming-terminal numerator is a physical three-state Markov-semigroup expectation.
+
+A genuine one-neighbour example shows that zero-length and long-time coefficient inequalities do **not** control all patch lengths: a required numerator with two real decay modes has positive endpoint values but a negative interior minimum.
+
+Thus the direct binary-style endpoint criterion is stopped. The next possible criterion must retain the interior critical point, for example through an exact finite spectral test for
 
 \[
-K_i(0,\cdot)=0,
-\qquad
-K_i(r,s)=a_{i,r}^s(\emptyset),
+L+A e^{-\mu t}+B e^{-\nu t}.
 \]
 
-and typed bulk patch positivity is exactly nonnegativity of four boundary numerator families built from `e^{tK_i}` for every realizable descriptor and every `t>0`.
-
-The `d=2` specialization is exactly equivalent to the coefficient inequalities in the canonical patch paper.
-
-The current research question is narrower: determine whether this all-length semigroup-positive family has a tractable finite/local coefficient characterization for a nontrivial multi-state class, or identify the structural obstruction to a binary-style finite criterion.
-
-Applications and convergence remain downstream of that question.
+Applications and convergence remain downstream of that criterion question.
