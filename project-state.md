@@ -14,7 +14,8 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Workspace: `research/active/generalized-patch-representations/`.
 - Branch-only wiki hub: `docs/generalized-patch-representations.md`.
 - Branch-only wiki section: `docs/generalized-patch-representations/`.
-- Current bounded assignment: `research/active/generalized-patch-representations/students/professor/assignment-001-finite-state-duality.md`.
+- Latest meeting: `meetings/001-finite-state-typed-duality-opens-patch-factorization.md`.
+- Next bounded assignment: `students/professor/assignment-002-typed-patch-factorization.md`, queued but not yet executed.
 - Executor: Professor, because no graduate-student session is currently operational.
 
 The principal has superseded the previous direction and asked whether the patch-positivity paper can be extended to more general IPS: more than two local states, updates beyond flips, a corresponding signed dual process, a successful-interaction analogue which reveals a coarse spacetime skeleton while hiding a finite local mark, generalized patches and patch positivity, and applications.
@@ -23,50 +24,75 @@ The core mechanism to preserve is conditional averaging of hidden local marks in
 
 ## Canonical binary benchmark
 
-For the existing construction, the manuscript under `paper/`, *Patch representations and convergence for facilitated spin systems*, is authoritative.
+For the existing construction, the manuscript under `paper/`, *Patch representations and convergence for facilitated spin systems*, is authoritative. Existing patch wiki pages under `docs/entries/` remain expository source material and are not being generalized in place.
 
-The first block uses especially:
+## Assignment 001: finite-state typed duality
 
-- `paper/sections/spin-systems.tex`;
-- `paper/sections/signed-dual.tex`;
-- `paper/sections/patches-body.tex`;
-- `paper/sections/representation.tex`;
-- `paper/sections/patch-positivity.tex`;
-- `paper/appendices/monomial-dual.tex`.
+Outcome: **`CONTINUE-TYPED-PATCH`**.
 
-The existing patch wiki pages under `docs/entries/` remain source/expository material. They are not being rewritten in place.
-
-## First proof-spine edge
-
-For a finite local state space `E={0,...,d-1}` with reference state `0`, test the one-site basis
+For finite local state space `E={0,...,d-1}` with reference state `0`, the indicator tensor basis
 
 $$
 h_0\equiv1,
-\qquad
-h_a(x)=1_{\{x=a\}},\quad a\ne0,
+\qquad h_a(x)=1_{\{x=a\}},\quad a\ne0,
 $$
 
-and the tensor observables indexed by finite typed active configurations.
+produces typed active configurations and spans every finite cylinder algebra.
 
-For general bounded single-site replacement dynamics
+For general bounded single-site replacement dynamics, expansion of the neighbour rates gives exact source-outcome coefficients
 
 $$
-L f(\eta)
-=\sum_i\sum_{x\ne y}1_{\{\eta_i=x\}}c_i^{x\to y}(\eta_{N(i)})
-\bigl[f(\eta^{i,y})-f(\eta)\bigr],
+a_{i,r}^{0}(\tau)=\widehat c_i^{0\to r}(\tau),
 $$
 
-the first question is whether expansion of the neighbour rates in this tensor basis gives a **fixed local signed Feynman--Kac graphical dual** on typed active configurations. The locality standard is stronger than abstract finite-dimensional duality: Poisson clock rates must depend only on local event data, not on the rest of the current dual configuration.
+$$
+a_{i,r}^{s}(\tau)=\widehat c_i^{s\to r}(\tau)-\widehat c_i^{0\to r}(\tau),
+\quad s\ne0,r,
+$$
 
-The mandatory bounded stress test is `d=3` with one neighbour, including compatible and conflicting typed overlaps, together with an exact `d=2` specialization back to the paper.
+$$
+a_{i,r}^{r}(\tau)
+=-\widehat c_i^{0\to r}(\tau)-\sum_{y\ne r}\widehat c_i^{r\to y}(\tau).
+$$
 
-Only after this layer is settled may the programme define a generalized successful-interaction skeleton or patch positivity.
+Their absolute values are fixed local Poisson rates; signs are sign marks. The source outcome deletes, preserves, or retypes the source. Typed target conflicts go to a cemetery/zero state but do not alter clock rates.
+
+The empty-target source-survival coefficient is placed in the Feynman--Kac potential, giving an exact local graphical generator duality. The `d=2` specialization is exactly the canonical death/split/birth dual.
+
+For nonempty typed target `tau`, the first successful-interaction record is
+
+$$
+(i,t,r,\tau),
+$$
+
+retaining the pre-interaction source type and typed target while hiding the post-interaction source outcome. All hidden outcomes have the same interaction endpoints, so one-site patch geometry passes the first gate.
+
+Decisive files:
+
+- `students/professor/001a-typed-generator-action.md`;
+- `students/professor/001b-signed-typed-dual.md`;
+- `students/professor/001c-coarse-typed-skeleton.md`;
+- exact verifier `students/professor/001-finite-state-duality-verifier.py`, final commit `c8e47458`;
+- final report `students/professor/001-finite-state-duality.md`, commit `2f37d6bf`;
+- handoff `students/professor/001-handoff.md`, commit `6bdd26ef`.
+
+The result is not yet literature-audited for novelty.
+
+## Current proof-spine edge
+
+**Typed successful-skeleton conditional factorization.**
+
+The next theorem must decide whether conditioning on typed successful records still decomposes hidden marks into independent source--time-strip patch laws.
+
+The main new issue is incoming typed-target compatibility. If target type `a` arrives at a site whose current local dual type is a different `b`, the merge hits cemetery and the global dual contribution becomes zero. Assignment 002 must decide whether such conflict histories can be represented by local zero factors / weighted factorization, or whether they create genuine cross-patch dependence.
+
+Patch positivity is downstream and is not yet defined.
 
 ## Wiki and publication boundary
 
-The principal explicitly permits the research loop to keep and refine results in a **separate wiki section on the research branch**. Raw mathematics remains under the research workspace; stable notation/constructions may be copied into `docs/generalized-patch-representations/` on this branch.
+The research loop may keep stable notation and constructions in the **separate branch-only wiki section** `docs/generalized-patch-representations/`.
 
-**Do not publish or merge any of this programme to `main`.** Main was deliberately restored by the principal to the pre-research-loop tree and is outside the active write surface.
+**Do not publish or merge any of this programme to `main`.** Main is outside the active write surface.
 
 ## Previous directions
 
