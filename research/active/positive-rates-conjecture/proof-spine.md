@@ -21,17 +21,20 @@ $$
 
 ## E0. Current route status
 
-One bounded proof-architecture test is active after Meeting 026:
+There is presently **no active proof architecture**.
 
-- Student G Assignment 010: connected dual-renewal tail bound for a fixed signed duration filter at `P_*`.
+Student G is idle after Meeting 027; no G011. Student F is idle; no F016.
 
-Student F is idle.
+Stopped/inactive mechanisms include:
 
-The following remain stopped: common-uniform zero-frequency occupation, the repeated-equilibrium predecessor-profile implementation, global path-space contraction of the trajectory kernel, the stationary Bellman concatenation implementation, and the singular fixed-depth short/long renewal continuation.
+- common-uniform zero-frequency disagreement occupation;
+- the repeated-equilibrium predecessor-trail/profile implementation;
+- global path-space TV/KL contraction of the trajectory kernel;
+- the stationary Bellman-corrector concatenation implementation;
+- G009's singular fixed-depth short/long renewal continuation;
+- the fixed-filter connected dual-renewal continuation after bounded Assignment 010.
 
-Meeting 026 reopens only the exact connected/separator renewal because it removes invariant projections algebraically rather than approximating them.
-
-Operational overlap correction: exact verifier commit `e4452de` landed while Meeting 026 was being composed and before the meeting committed. It already satisfies Assignment 010's finite-prefix verification checkpoint. G proceeds directly to the all-depth connected-tail theorem.
+The operative architecture assessment is consultation 002 / Meeting 025: **no presently identified route clears the continuation bar**. Meeting 027 adds reusable positive-frequency mathematics but does not provide a complete route.
 
 ## E1. Canonical predecessor-trail `J` quantity
 
@@ -44,7 +47,7 @@ B=b+c-a,
 \qquad w(u)=e^{-\omega u}s_1(u).
 $$
 
-The accepted sufficient singleton quantity has exact normalizations
+For singleton depth `n`,
 
 $$
 \boxed{
@@ -62,7 +65,7 @@ is also the root growth rate of `R_n` and `N_n`.
 
 `(J-SPEC)` remains open.
 
-## E2. Previous singular renewal theorem
+## E2. G009 singular fixed-depth theorem
 
 Along
 
@@ -72,7 +75,7 @@ a=\varepsilon,
 \qquad 1-c=\varepsilon/10,
 $$
 
-G009 proves for fixed depth `n`
+G009 proves for every fixed depth `n`
 
 $$
 \lim_{\varepsilon\downarrow0}
@@ -81,55 +84,37 @@ $$
 \left(\frac{499}{341}\right)^{n-1}.
 $$
 
-The short multiplier `10/11` is an all-depth East Green identity. The long multiplier `189/341` uses finite-volume relaxation and is not uniform in depth. That route stops because making the long reset repeat at fixed `epsilon` recreates the F014 spatial reset/tail-shift problem.
-
-## E3. Fixed-filter `L^1` dual witness
-
-For any fixed measurable
+The base splits as
 
 $$
-\sigma:[0,\infty)\to[-1,1],
+\frac{499}{341}=\frac{10}{11}+\frac{189}{341}>1.
 $$
 
-define the signed duration witness `W_n^sigma` by inserting `sigma(u_j)` in every nontrivial duration integral. Pointwise `|sigma|<=1` gives
+The `10/11` short channel is an all-depth East Green identity. The long channel is only fixed-volume and cannot be repeated uniformly without the stopped spatial-memory theorem. This does not imply fixed-rate `rho_J>1`.
+
+## E3. Fixed-filter `L^1` dual witness and exact renewal
+
+At
 
 $$
-\boxed{R_n\ge |W_n^\sigma|.}
-\tag{DW}
+P_*=(1/1000,1/10,9999/10000),
 $$
 
-Therefore
+fix
 
 $$
-\limsup_n|W_n^\sigma|^{1/n}>1
+\sigma(u)=1-2e^{-(4/125)u}.
 $$
 
-implies `rho_J>1` at the same fixed rates.
-
-This is the route-level reason the new reduction can decide `(J-SPEC)`.
-
-## E4. Exact separator/connected decomposition
-
-Define
+For
 
 $$
-H_N^\sigma
-=\int_0^\infty w(u)\sigma(u)P_u^N\,du,
+H_N^\sigma=\int w(u)\sigma(u)P_u^Ndu,
 \qquad
-z_\sigma
-=\int_0^\infty w(u)\sigma(u)\,du,
+Q_N^\sigma=H_N^\sigma-z_\sigma\Pi_N,
 $$
 
-and
-
-$$
-\boxed{
-Q_N^\sigma=H_N^\sigma-z_\sigma\Pi_N.
-}
-\tag{CQ}
-$$
-
-Then
+one has
 
 $$
 Q_N^\sigma\mathbf1=0,
@@ -137,7 +122,7 @@ Q_N^\sigma\mathbf1=0,
 \pi_NQ_N^\sigma=0.
 $$
 
-Let `J_N` be the centered insertion/drop map and set
+Define
 
 $$
 c_1=m_0,
@@ -145,48 +130,19 @@ $$
 
 $$
 \boxed{
- c_k^\sigma
+c_k^\sigma
 =\pi_kJ_kQ_{k-1}^\sigma J_{k-1}\cdots Q_1^\sigma J_1,
 \qquad k\ge2.
 }
-\tag{CC}
 $$
 
-Expanding each
-
-$$
-H_j^\sigma=z_\sigma\Pi_j+Q_j^\sigma
-$$
-
-and using suffix projectivity, every `Pi_j` becomes an exact renewal separator. Thus the fixed-filter witness has an exact ordered-composition expansion.
-
-## E5. Exact scalar renewal recurrence
-
-Put
+Expanding every `H=zPi+Q` gives an exact renewal decomposition. With
 
 $$
 a_k=z_\sigma c_k^\sigma,
 \qquad
-v_0=1,
-$$
-
-and let `v_n` be the separator-expanded witness coefficient. Then
-
-$$
-\boxed{
-v_n=\sum_{k=1}^na_kv_{n-k}.
-}
-$$
-
-With
-
-$$
-V_n=(-1)^nv_n,
-\qquad
 \lambda_k=(-1)^ka_k,
 $$
-
-one obtains
 
 $$
 \boxed{
@@ -196,33 +152,11 @@ V_n=\sum_{k=1}^n\lambda_kV_{n-k},
 \tag{REN}
 $$
 
-This is exact at every depth and uses one fixed filter.
+The fixed signed witness satisfies `R_n>=|W_n^sigma|`, so supercritical root growth of `V_n` proves `rho_J(P_*)>1`.
 
-## E6. Fixed rational filter and verified finite prefix
+## E4. Verified finite renewal prefix
 
-At
-
-$$
-P_*=(1/1000,1/10,9999/10000),
-$$
-
-Meeting 026 fixes
-
-$$
-\boxed{
-\sigma(u)=1-2e^{-(4/125)u}.
-}
-\tag{SIG}
-$$
-
-The phase-type resolvent formula makes all finite coefficients rational, with
-
-$$
-\boxed{
-z_\sigma=\frac{114559900}{205809}.}
-$$
-
-Commit `e4452de`, `009b-dual-renewal-verifier.py`, reconstructs the finite generators and resolvents in exact rational arithmetic and verifies exact rational `lambda_1,...,lambda_7` with
+Commit `e4452de` reconstructs the finite generators and rational resolvents exactly. It verifies exact rational `lambda_1,...,lambda_7`, with
 
 $$
 \lambda_1,\ldots,\lambda_5>0,
@@ -230,127 +164,231 @@ $$
 \lambda_6,\lambda_7<0,
 $$
 
-and exact
+and
 
 $$
-\sum_{k=1}^3\lambda_k>1,
-\qquad
 \sum_{k=1}^7\lambda_k>1.
 $$
 
 Numerically,
 
 $$
-\sum_{k=1}^7\lambda_k
-\approx1.04715575732980380.
+\sum_{k=1}^7\lambda_k\approx1.04715575732980380.
 $$
 
-Therefore
+Thus
 
 $$
-\boxed{
 \delta_7:=\sum_{k=1}^7\lambda_k-1>0
-}
 $$
 
-is exactly certified. The verifier does not need to print the huge rational numerator and denominator of `delta_7`: `sum7` itself is exact rational arithmetic and `delta_7=sum7-1`.
+is exactly certified.
 
-The negative signs at lengths six and seven rule out the naive positive-renewal truncation.
-
-## E7. Active tail target
-
-The current load-bearing theorem is
+The sufficient connected-tail theorem
 
 $$
 \boxed{
-\sum_{k\ge8}|\lambda_k|<\delta_7.
+\sum_{k\ge8}|\lambda_k|<\delta_7
 }
 \tag{CT}
 $$
 
-If `(CT)` holds, then
+would imply `rho_J(P_*)>1`, but remains open.
+
+## E5. Exact stationary high-pass identity
+
+Let
 
 $$
-\sum_{k\ge1}\lambda_k>1.
+A_N(f)=\pi_{N+1}(f),
+\qquad
+C_N(f)=\pi_{N+1}(Y_{N+1}f).
 $$
 
-The renewal generating function
-
-$$
-\sum_{n\ge0}V_nz^n
-=
-\frac1{1-\sum_{k\ge1}\lambda_kz^k}
-$$
-
-then has a singularity at some `z<1`, hence
-
-$$
-\limsup_n|V_n|^{1/n}>1.
-$$
-
-By `(DW)`, this proves
-
-$$
-\boxed{\rho_J(P_*)>1.}
-$$
-
-Thus `(CT)` would rigorously refute the absolute-duration `J` domination at a strict residual point.
-
-## E8. Why the connected tail is new
-
-The connected operator is
+G010's last-coordinate stationarity elimination gives
 
 $$
 \boxed{
-\mathcal K_N^\sigma=Q_N^\sigma J_N.
+C_N=A_NR_N,
+\qquad
+R_N=(dI-gL_N)((1+b)I-L_N)^{-1}.
 }
-\tag{KO}
+\tag{HP1}
 $$
 
-F013--F014 encountered an invariant projection and then needed to control the shifted invariant-law error after replacing a long segment by equilibrium. Here invariant projections are extracted exactly as renewal separators before the connected coefficients are defined. Each internal connected block contains only `Q_N^sigma` factors, with the exact invariant spectral projection removed.
+At `P_*`, with `r=1+b`, `epsilon=9/10000`, and `g_0=g+epsilon`,
 
-Therefore `(CT)` is not algebraically the same as proving one-/two-step tail-shift agreement.
+$$
+R_N=gI-g_0r(rI-L_N)^{-1}.
+$$
 
-However projection removal alone is not a contraction theorem. Slow nonzero modes can still survive inside `Q_N^sigma`. Assignment 010 must control the actual growing connected orbit uniformly in depth.
+This is an exact stationary boundary high-pass identity.
 
-## E9. Existing obstructions
+## E6. Depth-independent connected terminal kernel
 
-F009: exact finite-dimensional mode closure fails because the cyclic mode dimension grows with depth.
+For the actual fixed duration weight and filter, modulo constants,
 
-G009 Proposition 6.1: invertible suffix-compatible factorized resolvents have no nonzero exact finite-cylinder reproduction cycle.
+$$
+R_NQ_N=\int_0^\infty\kappa(t)P_t^Ndt,
+$$
 
-These do not refute connected coefficient decay. They prohibit two obvious implementations.
+where
 
-## E10. Acceptable mechanisms for Assignment 010
+$$
+\kappa=gh-g_0(k_r*h),
+\qquad
+k_r(t)=re^{-rt}.
+$$
 
-A positive solution may use:
+The repaired exact algebraic verifier `010e-terminal-kernel-verifier.py` at `ce77c9c` proves
 
-- a depth-uniform seminorm contraction on the actual connected orbit;
-- an exact centered resolvent/Poisson identity producing geometric decay;
-- a connected cluster/finite-propagation expansion with a uniform exponential tail;
-- a multi-step contraction or finite-prefix plus rigorous geometric remainder;
-- another theorem directly implying `(CT)` or supercritical root growth for `(REN)`.
+$$
+\boxed{
+\|\kappa\|_1\le\Theta_\sharp,
+\qquad
+\Theta_\sharp\approx0.8924718201406568,
+}
+$$
 
-A longer finite coefficient table is not sufficient.
+and exactly
 
-## E11. Other retained exact mathematics
+$$
+\boxed{B\Theta_\sharp<1.}
+\tag{HP2}
+$$
 
-The stationary occupation-control hierarchy `K_N`, its monotone diameters `D_N`, the Bellman scale-extension identity, and the unweighted mismatch theorem remain correct but inactive after Meeting 024.
+The previous verifier failure was only a SymPy structural-equality issue; `ce77c9c` repairs it with exact `simplify(lhs-rhs)==0` checks.
 
-Common-uniform fixed-site coalescence/front facts and the exact trajectory-valued spatial kernel also remain correct but inactive.
+The corrected 010d reversible comparison preserves only the generator/insertion reference after freezing the actual `P_*` weight externally; preserving `B` and `omega` does not preserve the canonical duration law.
 
-## E12. Current stopping rule
+## E7. Sandwiched positive-frequency contraction
 
-Student G is active only on Assignment 010. Student F is idle.
+For every `pi_N`-centered input `f`, multiplication by the next insertion costs at most `B` in oscillation. Therefore
 
-The finite-prefix verifier checkpoint is complete. G should spend the block on the all-depth connected-tail theorem, not duplicate `e4452de`.
+$$
+\boxed{
+\operatorname{osc}
+\left(
+R_{N+1}Q_{N+1}(Y_{N+1}f)
+\right)
+\le q_\sharp\operatorname{osc}(f),
+\qquad
+q_\sharp=B\Theta_\sharp<1.
+}
+\tag{HP3}
+$$
 
-If Assignment 010 proves an all-depth connected-tail theorem, `(J-SPEC)` is decided positively at `P_*` and the proof spine must then reassess the exact ergodicity target beyond the refuted absolute-duration bound.
+This is a genuine depth-uniform sign-sensitive contraction on the actual connected dynamics. It is not a finite-dimensional mode closure and does not use tail-shift agreement.
 
-If it produces a rigorous structural obstruction to the connected positive-frequency mechanism, record it and stop this branch.
+## E8. Exact blind frequency
 
-If it returns only more finite coefficients or a generic request for a better norm, return to Meeting 025's `no-credible-route` state. No automatic filter optimization or another profile/coupling/Bellman variant follows.
+On a mode with `L_N=-x`,
+
+$$
+R(x)=\frac{d+gx}{1+b+x}.
+$$
+
+At `P_*`,
+
+$$
+\boxed{x_0=\frac{|d|}{g}=\frac1{100},}
+\tag{BZ}
+$$
+
+and `R(x_0)=0`.
+
+Therefore the one-high-pass norm in `(HP3)` cannot be uniformly inverted over the entire positive-frequency space. This does **not** prove that `x_0` belongs to the finite-volume spectrum or that the actual orbit concentrates there; it rules out only the naive one-seminorm functional-calculus iteration without extra orbit information.
+
+## E9. Exact filtered boundary-response pairing
+
+Let
+
+$$
+\delta_N=A_N-\pi_N,
+$$
+
+and define
+
+$$
+f_1=Y_1,
+\qquad
+f_N=Y_NQ_{N-1}f_{N-1}.
+$$
+
+G010 proves
+
+$$
+\boxed{
+ c_{N+1}=\delta_N(R_NQ_Nf_N).
+}
+\tag{FB}
+$$
+
+The discrepancy itself satisfies
+
+$$
+\boxed{
+\delta_NL_N
+=-B A_N(I-L_N)((1+b)I-L_N)^{-1}P_N.
+}
+\tag{SRC}
+$$
+
+Thus the remaining connected coefficient is a zero-frequency boundary response tested only against the **special positive-frequency high-pass orbit** `R_NQ_Nf_N`.
+
+This is narrower than F013/F014's unrestricted tail-shift norms. Neither direction of equivalence is proved.
+
+## E10. Recentered newest-boundary block
+
+With
+
+$$
+X_i=Y_i+\varepsilon,
+\qquad
+c_0=999/1000,
+\qquad
+g_0=999/10000,
+$$
+
+the newest-coordinate block becomes
+
+$$
+\boxed{
+L_{N+1}
+=
+\begin{pmatrix}
+L_N+c_0P_N & g_0c_0P_N\\
+P_N & L_N-(1+b)I+g_0P_N
+\end{pmatrix}.
+}
+\tag{XB}
+$$
+
+After normalizing the new coordinate by `sqrt(c_0g_0)`, the two off-diagonal interface blocks are equal. The scalar recentering branch `Y=X-epsilon` has uniform oscillation cost below `0.609`; the unresolved transmission is through the boundary-containing `X` branch and inherited older-volume dynamics.
+
+## E11. Current blocker and stop rule
+
+The connected route is now blocked at a precise point:
+
+- `(HP3)` contracts a full insertion only after measuring the output through `R_N`;
+- `(BZ)` prevents generic recovery of the unfiltered connected norm from that one high-pass quantity;
+- the coefficient needed for `(CT)` is exactly the special pairing `(FB)`.
+
+A plausible future repair would require either:
+
+1. an **explicit complementary observable/seminorm** with a proved two-component depth-uniform contraction that covers the blind frequency; or
+2. an **orbit-specific theorem** that bounds `(FB)` summably/geometrically.
+
+No such object or theorem is currently supplied. “Find another norm” is therefore not an active assignment.
+
+Meeting 027 applies Assignment 010's bounded-block stop: no G011, no F016, both students idle, and the programme returns to the consultation-002 / Meeting-025 `no-credible-route` architecture state.
+
+## E12. Other retained exact mathematics
+
+The stationary occupation-control hierarchy `K_N`, monotone diameters `D_N`, Bellman scale-extension identity, and controller-uniform unweighted mismatch theorem remain correct but inactive after Meeting 024.
+
+Common-uniform fixed-site coalescence/front facts and the exact trajectory-valued spatial kernel remain correct but inactive.
 
 ## Anti-circularity checkpoint
 
-Do not infer the connected tail from its first few tiny coefficients; use `Q Pi=0` as if it implied contraction; posit fixed finite mode closure; revive the old long-reset/tail-shift theorem; or treat a proof `rho_J>1` as a proof of nonergodicity. It would refute only the sufficient absolute-duration domination.
+Do not infer `(CT)` from the finite prefix; treat `R_NQ_N` contraction as an iterable norm without covering `(BZ)`; assert that `(FB)` is equivalent to bare tail shift without a theorem; import the nearby reversible model's canonical duration law; optimize the filter or compute longer prefixes as a substitute for an all-depth theorem; or treat `rho_J>1`, if later proved, as nonergodicity. It would refute only the sufficient absolute-duration route.
