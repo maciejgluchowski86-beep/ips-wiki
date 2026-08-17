@@ -8,7 +8,9 @@ Branch: `research/positive-rates-conjecture`
 
 Workspace: `research/active/positive-rates-conjecture/`
 
-Principal ruling: **the scientific target is fixed until the principal changes or stops it.** Proof routes may be closed or redirected; the target does not change.
+The scientific target remains fixed:
+
+> Prove the positive rates conjecture for one-dimensional homogeneous binary one-sided nearest-neighbour simple IPS.
 
 On `r11=0`, write
 
@@ -23,278 +25,121 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-Latest meeting: `meetings/030-signed-boundary-transmission-is-final-g010-blocker-no-restart.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/031-distinguished-zero-transfer-reopens-one-bounded-screening-test.md`, `state_narrowed: yes`.
 
-Active work:
+## Active work
 
-- Student G: idle; no G011.
-- Student F: idle; no F016.
-- No proof architecture is currently active.
+Student G is active on
 
-Operative proof-architecture status: **`no-credible-route`**, in the consultation-002 / Meeting-025 sense. This does not say the conjecture is false or that every conceivable proof architecture is impossible.
+`students/student-g/assignment-011.md`
 
-Assignment 010 is complete unresolved after substantive work. The out-of-order / in-flight checkpoints are treated as orchestration overlaps, not student disregard of the stop.
+at commit `6efcf60ab43782cf48058484f86f2faca3a7f093`.
 
-## Canonical `J` quantity and fixed-filter renewal
+Assignment 011 is a bounded test of a new principal-directed architecture: whether an East-style distinguished-zero screening argument can be transferred to the residual positive-rates problem by replacing the known Bernoulli equilibrium behind the East marker with the finite zero-boundary invariant family `pi_N`.
 
-For singleton depth `n`,
+Student F remains idle. No F016 is active.
 
-$$
-J_n=\frac BgR_n=\frac gBN_n,
-\qquad
-B=b+c-a,\quad g=b-a,
-$$
+This is **not** a general reopening of the proof programme. The connected-renewal, common-coupling occupation, Bellman, scalar Foster, generic coupling/norm, and long coefficient-table routes remain stopped at their recorded obstructions.
 
-so
+## Distinguished-zero transfer test
+
+For the `N`-site chain with fixed zero boundary at `N+1`, let `pi_N` be its unique invariant law. One-sidedness gives the accepted right-suffix projectivity
 
 $$
-\rho_J(a,b,c)=\limsup_{n\to\infty}J_n^{1/n}
+R_{N,M}\pi_N=\pi_M.
 $$
 
-is also the root growth rate of `R_n` and `N_n`. `(J-SPEC)` remains open.
+The old profile work also identified the left-prefix defect
 
-At
+$$
+\delta_{N+1}=\bar\pi_{N+1}-\pi_N.
+$$
+
+Far from the boundary, its uniform magnitude is the tail-shift quantity `Delta_M`; on the projective half-line law `mu=pi_infty^0`,
+
+$$
+\Delta_M
+=\|\theta\mu-\mu\|_{\mathcal F_{M-1}},
+$$
+
+and
+
+$$
+\lim_M\Delta_M
+=\|\theta\mu-\mu\|_{\mathcal T}.
+$$
+
+Therefore merely naming the zero-boundary invariant marginals does not automatically reproduce East's conditional-equilibrium induction. If a distinguished marker moves one site right using only marker/right-side history and leaves the old protected `N`-site block untouched, exact post-move law `pi_{N+1}` requires
+
+$$
+\bar\pi_{N+1}=\pi_N.
+$$
+
+Assignment 011 first tests this finite compatibility exactly at the hard point
+
+$$
+P_h=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
+$$
+
+and symbolically if feasible. It then tests whether a buffered or regenerative release of a finite boundary layer yields a genuinely new screening object or merely assumes tail-shift agreement upstream.
+
+Permitted final statuses are:
+
+- `STOP-EQUIVALENT`;
+- `STOP-LOCAL-OBSTRUCTION`;
+- `CONTINUE-NEW-BRIDGE`.
+
+The pre-registered stop rule is strict: do not enlarge marker states if every repair requires as an input `Delta_M->0`, the abandoned common-uniform all-depth occupation theorem, Meeting 030's signed boundary-transmission estimate, or another already-stopped generic contraction object.
+
+Continue only if the distinguished-zero construction produces a new graphical/invariant-family quantity strictly upstream of those blockers, with an explicit implication chain to local forgetting and one bounded next test.
+
+## Previous connected-renewal route remains stopped
+
+Assignment 010 is complete unresolved. At
 
 $$
 P_*=(1/1000,1/10,9999/10000),
 $$
 
-with fixed filter
+the accepted fixed-filter renewal, positive-frequency terminal contraction, complementary channel split, reversible-reference Sobolev estimates, and fresh-coordinate intertwining remain valid.
+
+The sharp residual object of that route is still the signed boundary-transmission Volterra operator
 
 $$
-\sigma(u)=1-2e^{-(4/125)u},
-$$
-
-the invariant projections can be extracted exactly as renewal separators. The fixed signed witness obeys
-
-$$
-V_n=\sum_{k=1}^n\lambda_kV_{n-k},
-\qquad V_0=1.
-$$
-
-Commit `e4452de` exactly verifies the first seven rational coefficients, with
-
-$$
-\lambda_1,\ldots,\lambda_5>0,
-\qquad
-\lambda_6,\lambda_7<0,
-\qquad
-\sum_{k=1}^7\lambda_k>1.
-$$
-
-The sufficient connected-tail target
-
-$$
-\sum_{k\ge8}|\lambda_k|<\delta_7,
-\qquad
-\delta_7:=\sum_{k=1}^7\lambda_k-1>0,
-\tag{CT}
-$$
-
-remains open.
-
-## Accepted G010 positive-frequency mathematics
-
-The stationary terminal factor is
-
-$$
-R_N=(dI-gL_N)((1+b)I-L_N)^{-1}.
-$$
-
-The repaired verifier `ce77c9c` proves a depth-independent signed kernel bound with
-
-$$
-B\Theta_\sharp<1,
-$$
-
-hence
-
-$$
-\operatorname{osc}\left(
-R_{N+1}Q_{N+1}(Y_{N+1}f)
-\right)
-\le q_\sharp\operatorname{osc}(f),
-\qquad q_\sharp<1.
-\tag{HP}
-$$
-
-The scalar multiplier of `R_N` vanishes at positive frequency `x=1/100`, so this one high-pass seminorm cannot be generically inverted.
-
-Late checkpoint `75d0e8a`, accepted in Meeting 028, eliminates the stationary marginal-discrepancy / bare tail-shift functional from the connected coefficient. Thus unrestricted tail-shift TV is not logically required for the connected fixed-filter coefficient.
-
-The corrected complementary split is
-
-$$
-R_N=m_0I+g_0(I-K_N),
-\qquad
-K_N=(1+b)((1+b)I-L_N)^{-1}.
-\tag{CH}
-$$
-
-The positive-frequency zero is cancellation between these two channels. The genuine high-pass `I-K_N` has only the zero-frequency kernel. Each channel has a depth-uniform one-step estimate and their post-insertion channelwise triangle bound is strictly below one, but no frame/reverse estimate makes this an iterable two-component norm.
-
-## Fresh-coordinate recentering and exact transmission branch
-
-Put
-
-$$
-r=1+b=11/10,
-\qquad
-\varepsilon=9/10000,
-\qquad
-X_N=Y_N+\varepsilon,
-\qquad
-g_0=999/10000.
-$$
-
-With `A_N=-L_N`, the fresh recentered insertion satisfies
-
-$$
-\boxed{
-A_NM_{X_N}
-=
-M_{X_N}(A_{N-1}+r)
--g_0B M_{\eta_N}P_{N-1}.
-}
-\tag{INT}
-$$
-
-Thus the only failure of exact fresh frequency shift is transmission through the old right-boundary projection. After regrouping `Y=X-\varepsilon`, the exact semigroup identity is
-
-$$
-\boxed{
-\begin{aligned}
-e^{tL_N}M_{Y_N}
-={}&e^{-rt}M_{X_N}e^{tL_{N-1}}
--\varepsilon I_Ne^{tL_{N-1}}\\
-&+B\int_0^t e^{(t-s)L_N}M_{\eta_N}P_{N-1}
-\bigl(g_0e^{-rs}-\varepsilon\bigr)e^{sL_{N-1}}\,ds.
-\end{aligned}
-}
-\tag{TRI}
-$$
-
-The fresh shifted branch and scalar branch are individually subcritical under safe absolute-value bounds:
-
-$$
-BZ_{\omega+r}
-=\frac{1065933}{1068400}<1,
-\qquad
-\varepsilon Z
-=\frac{1719}{3100}<1.
-\tag{SUB}
-$$
-
-Verifier `010k-boundary-reduction-verifier.py` at `adf50d9` exactly checks these scalar identities and the other quoted rational inequalities in the late G010 reductions.
-
-The only uncontrolled branch in `(TRI)` is therefore the signed boundary-transmission Volterra operator
-
-$$
-\boxed{
-\begin{aligned}
 \mathcal V_N f
-:={}&B\int_0^\infty h(t)\int_0^t
- e^{(t-s)L_N}M_{\eta_N}P_{N-1}\\
-&\hspace{26mm}\times
+=B\int_0^\infty h(t)\int_0^t
+ e^{(t-s)L_N}M_{\eta_N}P_{N-1}
 \bigl(g_0e^{-rs}-\varepsilon\bigr)e^{sL_{N-1}}f
-\,ds\,dt,
-\end{aligned}
-}
-\tag{V}
+\,ds\,dt.
 $$
 
-where `h(t)=w_*(t)\sigma(t)` is the fixed signed filter kernel. Both the inner coefficient and `h` change sign. No depth-uniform estimate retaining this two-time cancellation was proved.
+No depth-uniform actual-orbit estimate retaining its two-time cancellation has been proved. Meeting 030's restart bar remains operative for that architecture.
 
-This is now the sharpest residual formulation of the connected-renewal route: control `\mathcal V_N` on the **actual connected orbit** strongly enough to make the renewal coefficients summable/geometric.
+The exact Bellman/stationary-control hierarchy, common-coupling fixed-site/local-erasure results, actual-front first-discovery theorem, projective zero-boundary invariant law, trajectory-valued spatial kernel, and G009/G010 renewal mathematics remain retained background. Their stopped implementations are not automatically reopened by Assignment 011.
 
-## Reversible reference results retained
+## Toolbox synthesis interface
 
-At the corrected reversible reference point
+The completed ergodicity-methods applicability assessment had recommended two bounded positive-rates feasibility experiments:
 
-$$
-P_0=(1/10000,1/10,999/1000),
-$$
+1. an exact non-diagonal coupled-rate/Gray LP;
+2. an optimized information-percolation pair-support calculation.
 
-with the actual `P_*` duration weight and filter frozen externally, verifier `56d47cb` proves
+Meeting 031 **defers, but does not kill**, those experiments while the principal-directed distinguished-zero test runs. The screening question has higher immediate value because it directly probes whether the accepted zero-boundary invariant family supplies a new spatial memory-erasure architecture.
 
-$$
-|xq(x)|<1\qquad(x>0),
-$$
-
-and the fresh centered insertion satisfies the dimension-free variational estimate
-
-$$
-M_X^*A_{0,N}^{-1}M_X
-\le
-\frac{998001}{11000000}I.
-$$
-
-Hence the frozen-reference transfer has a strict fresh-insertion Sobolev bound
-
-$$
-\|A_{0,N}^{1/2}\widetilde Q_{0,N}^\sigma(Y_Nf)\|_2
-\le
-\left(
-\sqrt{\frac{998001}{11000000}}+\frac9{400}
-\right)\|f\|_2
-<\|f\|_2.
-$$
-
-Commit `c444db5` further gives an exact orthogonal left-slice decomposition
-
-$$
-L_{0,N}=L_{0,N-1}\oplus G_{N-1},
-$$
-
-and hence
-
-$$
-T_{0,N}=T_{0,N-1}\oplus H^\sigma(G_{N-1})J_{N-1}.
-$$
-
-Thus the entire frozen-reference transfer norm reduces to a single killed self-adjoint channel family. This does not transport automatically to the actual nonreversible `P_*` orbit.
-
-## Raw one-step coefficient obstruction strengthened
-
-Commit `d9c477e` proves that no norm
-
-$$
-\|f\|_{\theta,\phi}
-=
-\sum_{A\ne\varnothing}
-\theta^{|A|}\phi^{\kappa(A)}|x_A|
-$$
-
-with `theta,phi>0` makes the actual nonconstant raw coefficient semigroup uniformly nonexpansive in depth. Long blocks, separated dimers, and separated singletons give incompatible necessary inequalities. The scalar contradiction is checked in `adf50d9`.
-
-Therefore a multiplicative component-count weight does not repair the 010a one-step Lyapunov route. Filter/resolvent-level cancellation remains load-bearing.
-
-## Current blocker and restart bar
-
-Assignment 010 is closed. The restart bar is now specific:
-
-> New input must control the signed boundary-transmission operator `(V)` on the actual connected orbit, retaining its two-time cancellation strongly enough to yield summable/geometric connected coefficients, or supply a materially different proof architecture.
-
-A generic search for another norm, another reversible comparison, another filter, larger finite coefficient tables, bare tail-shift agreement, common-coupling occupation, or Bellman/joint-corrector variants does not clear the bar.
-
-No G011; no F016; both students idle; no active proof architecture. Consultation 002 / Meeting 025 `no-credible-route` is operative pending genuinely new principal, external, or literature input.
-
-## Other retained exact mathematics
-
-The stationary occupation-control hierarchy, common-coupling fixed-site facts, exact trajectory-valued spatial kernel, previous predecessor-profile reductions, and G009 singular fixed-depth theorem remain correct but inactive as recorded in earlier meetings.
+The separate FA `FA-SCREEN` theorem remains an authorized programme direction and is not canceled; the two problems now share a screening/sigma-field theme.
 
 ## Unresolved target-level facts
 
 Open:
 
-- `(J-SPEC)` and `(CT)`;
-- the actual-orbit signed boundary-transmission estimate `(V)`;
+- whether the distinguished-zero/zero-boundary invariant-family transfer gives a new screening bridge;
 - one-/two-step tail-shift agreement off the product surface;
-- `Gamma_M->0` and general `J_{x,r}->0`;
+- `(J-SPEC)` and connected-tail `(CT)`;
+- the actual-orbit signed boundary-transmission estimate `(V)`;
 - common-uniform extinction versus convective survival;
 - stationary diameter collapse `D_N(h)->0`;
 - full ergodicity in the residual chamber.
 
 ## Wiki
 
-Keep the live wiki frozen during research.
+Keep the live wiki frozen during research. No `docs/` or `mkdocs.yml` edits are authorized by this reopening.
