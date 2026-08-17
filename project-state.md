@@ -10,28 +10,28 @@ This file is the compact current-state index for the autonomous research program
 - Workspace: `research/active/ergodicity-methods-toolbox/`.
 - Principal target: compile a broad, concise, self-contained, source-checked toolbox of rigorous methods used to prove ergodicity/uniqueness, convergence to equilibrium, coupling agreement, positive spectral gap, log-Sobolev inequalities, quantitative mixing, or equivalent forgetting/extinction statements in spin systems, IPS, KCSM, and Glauber-type models.
 - Breadth is intentional; model-specific methods are in scope.
-- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/003-g-wave-one-source-audit-and-joint-taxonomy.md`.
-- Student F: active on analytic/functional Assignment 002.
+- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/004-f-wave-two-source-audit-and-analytic-wave-three.md`.
+- Student F: active on analytic breadth Assignment 003.
 - Student G: active on coupling/graphical Assignment 002.
 
 ## Accepted staged coverage
 
-Meetings 002--003 have source-audited and accepted twelve first-wave method entries. The live-wiki taxonomy is by load-bearing proof interface:
+Meetings 002--004 have source-audited and accepted **18** method entries. The principal reports all eighteen pass `validate_entries.py`.
 
-1. **Coupling and local influence:** attractive monotone coupling; Dobrushin influence contraction; path coupling.
-2. **Spatial mixing and boundary influence:** disagreement percolation for Gibbs uniqueness; Dobrushin--Shlosman spatial-to-dynamical relaxation.
-3. **Functional inequalities and comparison:** Poincare/spectral gap; LSI/mLSI; Dirichlet-form/canonical-path comparison; block-dynamics/bisection variance.
-4. **Graphical ancestry, duality, and regeneration:** finite-ancestor duality/extinction; information percolation; East distinguished-zero screening.
+Accepted coverage now includes:
 
-All twelve are mathematically and taxonomically cleared for live-wiki promotion. Shared primary sources are not duplicate-entry evidence when the proof interfaces differ. Meeting 003 fixes the cross-linking rules.
+- coupling/local influence: attractiveness, Dobrushin contraction, path coupling;
+- spatial/local-to-global methods: disagreement percolation, Dobrushin--Shlosman, spectral independence, finite-size strong-mixing bootstrap;
+- functional/comparison methods: Poincare, LSI/mLSI, Dirichlet/canonical paths, block bisection, Lu--Yau martingale recursion, entropy block factorization, Holley--Stroock perturbation, moving-particle/effective-resistance comparison;
+- graphical ancestry/regeneration: finite-dual extinction, information percolation, East distinguished-zero screening.
 
-Promotion is deferred only to the next quiet integration window while both students commit wave-two staging files.
+The first twelve remain the first live-integration batch; F's six wave-two entries are queued behind them. Shared primary sources do not imply duplicate methods when the proof interfaces differ.
 
-## Current second wave
+## Current assignments
 
-F Assignment 002 targets Lu--Yau/martingale recursion, spectral independence, block/approximate entropy factorization, bounded-perturbation transfer, moving-particle comparison, and finite-size relaxation criteria.
+F Assignment 003 targets Bakry--Emery/Bochner Gamma methods, two-scale/coarse-graining coercivity, Aldous/interchange spectral-gap reduction, Nash/spectral-profile smoothing with an IPS application, nonreversible coercivity with an IPS application, and conductance/Cheeger methods for spin chains, with source-supported substitutions allowed for weak targets.
 
-G Assignment 002 targets dynamical disagreement domination, coupling from the past, clan-of-ancestors perfect simulation, censoring inequalities, block/local/maximal coupling, and coalescing-random-walk voter duality.
+G Assignment 002 continues on dynamical disagreement domination, CFTP, clan-of-ancestors perfect simulation, censoring, block/local/maximal coupling, and coalescing-random-walk voter duality.
 
 The durability rule remains mandatory: every finished method entry is committed immediately as its own artifact.
 
@@ -45,7 +45,7 @@ Accepted material will be promoted to:
 - one `status: literature`, `audit: current` method page under `docs/entries/`;
 - a top-level `Ergodicity methods` section in `mkdocs.yml`.
 
-The current live-wiki admission gate remains in force. Every staged entry needs an inspected primary source with an exact pinpoint; `validate_entries.py` checks structure only, while Professor review decides mathematical/source acceptance.
+`docs/` and `mkdocs.yml` are still untouched by the toolbox branch. Live integration is deferred until no student is actively committing a staging batch.
 
 ## Previous scientific direction
 
