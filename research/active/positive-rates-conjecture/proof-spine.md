@@ -8,242 +8,233 @@ Prove the positive rates conjecture for simple IPS:
 
 On `r11=0`, write
 
-$$
+\[
 a=r_{00},\qquad b=r_{01},\qquad c=r_{10},
-$$
+\]
 
 with residual chamber
 
-$$
-\mathcal R=
-\left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
-$$
+\[
+\mathcal R=\{0<a<b,\ 1/2\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\}.
+\]
 
 ## E0. Current route status
 
-There is still **no reopened full proof architecture**.
+There is **no active proof architecture**.
 
-Student G is executing Assignment 013, one final bounded test of the only toolbox PASS mechanism not yet attacked on its own observable: Gray's nonadditive scalar/two-type splice-edge geometry. Student F is idle.
+Meeting 034 completes the last bounded toolbox-derived PASS test. Its outcome is `STOP-SCALAR-EDGE-OBSTRUCTION`. Together with Meetings 032--033 and G011, the current group has no positive structural signal warranting another positive-rates proof block.
 
-Recent bounded tests have narrowed sharply:
+The conjecture remains open. The present status is `no-credible-route`, not a mathematical impossibility theorem.
 
-- G011: `pi_N`-based distinguished-zero transfer is `STOP-EQUIVALENT` to tail shift off the product surface;
-- Meeting 032: uniform negative additive-Hamming drift is impossible for every Markovian coupling at `P_h`;
-- G012: optimized mark-only deterministic-Boolean information-percolation support pairs are `STOP-PAIR-OBSTRUCTION` at `P_h`.
+Do not enlarge a stopped mechanism merely by increasing its state space or renaming its missing theorem.
 
-If G013 stops negatively, no toolbox-derived positive-rates bridge remains at A/B level. Do not automatically escalate to larger edge-state hierarchies, state-adaptive histories, generic coupling/norm engineering, or previously stopped routes.
+## E1. Sharp connected-renewal blocker retained
 
-## E1. Connected predecessor-trail route and final blocker
+For singleton depth `n`, the canonical predecessor-trail quantity satisfies
 
-For singleton depth `n`, the canonical absolute-duration quantity satisfies
-
-$$
+\[
 J_n=\frac BgR_n=\frac gBN_n,
 \qquad B=b+c-a,\quad g=b-a.
-$$
+\]
 
 At
 
-$$
+\[
 P_*=(1/1000,1/10,9999/10000),
-$$
+\]
 
-the fixed signed-filter witness obeys the exact renewal recurrence
+the fixed signed-filter witness has an exact renewal recurrence with a verified supercritical seven-coefficient prefix. The sufficient all-depth connected-tail bound remains open.
 
-$$
-V_n=\sum_{k=1}^n\lambda_kV_{n-k},
-\qquad V_0=1,
-$$
+After the G010 recentering, all straightforward fresh/scalar branches are subcritical. The sole uncontrolled branch is
 
-with the first seven coefficients exactly verified and
-
-$$
-\sum_{k=1}^7\lambda_k>1.
-$$
-
-The sufficient connected-tail theorem
-
-$$
-\sum_{k\ge8}|\lambda_k|<\delta_7
-$$
-
-remains open.
-
-The exact recentered semigroup decomposition makes the fresh shifted and scalar branches individually subcritical. The only uncontrolled branch is the signed boundary-transmission operator
-
-$$
+\[
 \boxed{
-\begin{aligned}
 \mathcal V_N f
-:={}&B\int_0^\infty h(t)\int_0^t
- e^{(t-s)L_N}M_{\eta_N}P_{N-1}\\
-&\hspace{26mm}\times
-\bigl(g_0e^{-rs}-\varepsilon\bigr)e^{sL_{N-1}}f
-\,ds\,dt.
-\end{aligned}
+=B\int_0^\infty h(t)\int_0^t
+ e^{(t-s)L_N}M_{\eta_N}P_{N-1}
+(g_0e^{-rs}-\varepsilon)e^{sL_{N-1}}f\,ds\,dt.
 }
-$$
+\]
 
-Both temporal factors change sign. No depth-uniform estimate on the actual connected orbit preserving that two-time cancellation is known. This remains the restart bar for the connected-renewal architecture.
+Both temporal factors change sign. No depth-uniform estimate on the actual connected orbit preserving that two-time cancellation is known.
 
-## E2. Zero-boundary invariant family and failed East transfer
+A future restart of this architecture requires new input controlling this operator strongly enough to imply summable/geometric connected coefficients. Bare tail shift, another norm, reversible comparison, filter optimization or longer finite coefficient tables do not clear the bar.
 
-Let `pi_N` be the unique invariant law in the `N`-site chain with fixed zero boundary. One-sidedness gives right-suffix projectivity
+## E2. Zero-boundary invariant family / distinguished-zero transfer
 
-$$
-R_{N,M}\pi_N=\pi_M.
-$$
+Let `pi_N` be the unique invariant law in the `N`-site chain with fixed zero boundary. One-sidedness gives right-suffix projectivity, while the incompatible left-prefix defect is measured far from the boundary by `Delta_M`.
 
-For the projective half-line law `mu=pi_\infty^0`, the boundary mismatch is
+G011 proves that an East-style marker which enlarges the protected interval while leaving the old block untouched requires
 
-$$
-\Delta_M
-=\|\theta\mu-\mu\|_{\mathcal F_{M-1}},
-$$
-
-and its limit is the remote-left tail-shift variation.
-
-G011 proves that an East marker which grows the protected interval in the opposite direction would require
-
-$$
+\[
 \bar\pi_{N+1}=\pi_N.
-$$
+\]
 
-At `N=1 -> 2`,
+Already at `N=1 -> 2`, compatibility holds exactly on
 
-$$
-\bar\pi_2(1)-\pi_1(1)
-=-\frac{2a\,[a-b(1-c)]}
-{(a+1-c)\,[2ab-ac+3a-bc+b+c^2-3c+2]}.
-$$
-
-Thus exact compatibility holds precisely on
-
-$$
+\[
 a=b(1-c),
-$$
+\]
 
-the product/reversible surface where
+the product surface where
 
-$$
+\[
 \pi_N=\operatorname{Ber}\!\left(\frac b{1+b}\right)^{\otimes N}.
-$$
+\]
 
-A width-`m` buffered repair has exact error `Delta_{m+1}`; a finite release kernel cannot alter the protected prefix. Therefore the `pi_N` distinguished-zero transfer is closed as `STOP-EQUIVALENT`.
+A width-`m` buffered repair has exact error `Delta_{m+1}` and a finite release kernel cannot change the untouched prefix. Therefore the `pi_N` distinguished-zero transfer is `STOP-EQUIVALENT` off the product surface.
 
-## E3. Coupling obstructions
+## E3. Common-uniform and additive-Hamming coupling routes
 
-For common-uniform coupling, every fixed site eventually couples permanently and finite-seed survival is equivalent to convective escape to `-infinity`, but at `P_h`
+For the common-uniform coupling, every fixed site eventually couples permanently; finite-seed survival is equivalent to convective escape to `-infinity`. At the hard point
 
-$$
+\[
+P_h=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
+\]
+
+one nevertheless has
+
+\[
 \alpha(t)>1\qquad(0<t\le47).
-$$
+\]
 
-The later occupation closure fails because the visible front state forgets hidden right-ancestry capacity. The global-coalescence/occupation route remains stopped.
+The later occupation/front closure fails because the visible front state forgets hidden right-ancestry capacity. The global-coalescence/occupation route remains stopped.
 
-More generally, for additive Hamming distance
+More generally, cross-site pairings cannot improve additive Hamming drift for any Markovian coupling. A one-disagreement hard-point configuration has best possible instantaneous drift
 
-$$
-H(x,y)=\sum_i\mathbf1_{\{x_i\ne y_i\}},
-$$
-
-cross-site joint flips cannot improve instantaneous drift under any Markovian coupling. The optimal drift is
-
-$$
-\boxed{
-\inf_{\text{couplings}}\bar L H
-=
-\sum_{i:x_i=y_i}|\lambda_i(x)-\lambda_i(y)|
--
-\sum_{i:x_i\ne y_i}(\lambda_i(x)+\lambda_i(y)).
-}
-$$
-
-At `P_h`, a one-disagreement pattern has optimal drift
-
-$$
+\[
 \frac{9997}{10000}>0.
-$$
+\]
 
-Hence the refined-coupling bridge requiring uniform negative additive-Hamming drift is impossible for every Markovian coupling.
+Thus a uniform `\bar L H\le-\kappa H` bridge is impossible for every Markovian coupling.
 
-This does **not** decide Gray's nonadditive edge observable.
+## E4. Mark-only information-percolation obstruction
 
-## E4. G012 mark-only information-percolation obstruction
+For any exact deterministic Boolean random-map decomposition at `P_h`, aggregate ancestry death/right-jump/two-parent rates satisfy
 
-Classify an exact deterministic Boolean update map by essential backward parent set and aggregate rates `(d,s,j,r)` for death, self-only, right-only and two-parent maps.
-
-At `P_h`, direct flip-budget inequalities give
-
-$$
-\boxed{d+j\le\frac1{5000}},
+\[
+d+j\le\frac1{5000},
 \qquad
-\boxed{r\ge\frac{4999}{5000}}.
-$$
+r\ge\frac{4999}{5000}.
+\]
 
-For two independent mark-only backward supports, G012 constructs a width-one block event of duration `8` which maps one common ancestor to two adjacent common ancestors. Uniformly over every exact Boolean-map decomposition, the bad-cell probability is less than `1/128`.
+G012 constructs a width-one two-copy oriented lower cluster in the support intersection. Its bad-cell probability is uniformly below `1/128`, yielding positive survival probability and hence
 
-The resulting good-cell field is one-dependent in space and independent between time layers. A simple minimal bad-cut Peierls estimate yields a positive-probability infinite oriented common-ancestor cluster. Therefore
-
-$$
+\[
 \boxed{
-\inf_{n\ge0}
-E\left[2^{|A_{8n}\cap A'_{8n}|}-1\right]>0.
+\inf_{n\ge0}E[2^{|A_{8n}\cap A'_{8n}|}-1]>0.
 }
-$$
+\]
 
-Thus the mark-only deterministic-Boolean minimal-support Miller--Peres bridge is impossible at the hard point for **every** exact local random-map decomposition.
+So no exact deterministic-Boolean **mark-only essential-parent support** decomposition can satisfy the desired Miller--Peres pair-intersection decay at `P_h`.
 
-This is a pair-history obstruction, not a first-moment argument. It does not rule out state-adaptive reveal trees which use discovered spin values to prune a globally essential parent. No such adaptive bridge is presently specified noncircularly.
+This does not rule out state-adaptive value-reveal trees, but no independent noncircular adaptive bridge is currently specified. Do not promote that possibility merely because the mark-only architecture failed.
 
-## E5. Active final bounded test: Gray scalar splice edges
+## E5. G013 Gray scalar-edge obstruction
 
-Gray's actual proof uses nonadditive one-dimensional edge geometry: exact hybrid identities, scalar edge closure, protected regions, no crossing and permanent coalescence. Attraction/repulsion supplies these in the source theorem.
+Assignment 013 tests Gray's nonadditive edge observable directly, rather than Hamming distance.
 
-Assignment 013 asks whether those local identities admit a **direct scalar/two-type replacement** at `P_h` under an exact local grand coupling, without a hidden spin order.
+Condition on one common local event type in a grand random-map construction. Let
 
-The test must first pass attractive/repulsive sanity checks, then either:
+\[
+F:\{0,1\}^2\to\{0,1\}
+\]
 
-1. derive a symbolic rate obstruction;
-2. give an exact rational local infeasibility certificate; or
-3. exhibit an explicit locally feasible scalar-edge grand coupling and state the remaining global bridge.
+be its deterministic local update rule. Using only the two extremal source copies and the two orientations of one half-line splice, exact scalar hybrid closure at the first splice-boundary event requires
 
-No escalation to larger edge-state spaces is allowed if scalar/two-type closure fails.
+\[
+\boxed{F(0,1),F(1,0)\in\{F(0,0),F(1,1)\}.}
+\tag{SC}
+\]
 
-Permitted statuses:
+For event flip indicators `v_xy`, `(SC)` implies
 
-- `STOP-SCALAR-EDGE-OBSTRUCTION`;
-- `STOP-NO-FAITHFUL-LOCALIZATION`;
-- `CONTINUE-GRAY-BRIDGE`.
+\[
+\boxed{v_{11}\le v_{00}+v_{10}},
+\qquad
+\boxed{v_{00}\le v_{01}+v_{11}}.
+\tag{G}
+\]
 
-## E6. Other stopped interfaces retained
+These inequalities survive arbitrary nonnegative mixing of local event types.
 
-The stationary boundary-control/Bellman hierarchy remains stopped at the weighted adaptive mismatch estimate; additive correctors do not improve endpoints.
+### Ordinary gauge
 
-The trajectory-valued spatial kernel has total-variation coefficient one, blocking ordinary path-space Dobrushin contraction.
+The hard-point rate vector is
 
-The reversible reference Sobolev gains and left-slice reduction remain valid but do not transport through the actual nonreversible boundary defect.
+\[
+(a,b,1-c,1),
+\]
 
-No degree/component multiplicative `ell^1` weight repairs the raw coefficient route.
+so `(G)` requires
 
-## E7. Restart rules
+\[
+1\le a+(1-c)=\frac1{5000},
+\]
+
+impossible.
+
+### Checkerboard gauge
+
+After alternating labels the two site types have rate vectors
+
+\[
+(b,a,1,1-c),
+\qquad
+(1-c,1,a,b).
+\]
+
+The same scalar-closure inequalities require
+
+\[
+b\le a+(1-c),
+\]
+
+but at `P_h`
+
+\[
+\frac1{100}>\frac1{5000}.
+\]
+
+Thus both ordinary and repulsive/checkerboard scalar Gray splices fail **before** no-crossing, protection or permanent coalescence enter.
+
+The definition passes representative attractive/repulsive sanity checks and does not impose arbitrary-source splice closure. Exact verifier: commit `f5a104d1`.
+
+Therefore G013 is `STOP-SCALAR-EDGE-OBSTRUCTION`. Assignment 013 forbids escalation to larger interface-state hierarchies after this failure.
+
+## E6. Other retained stopped interfaces
+
+- Stationary boundary-control/Bellman hierarchy: valid, stopped at the weighted adaptive mismatch theorem.
+- Trajectory-valued spatial kernel: full path-space TV coefficient is one.
+- Reversible reference Sobolev/left-slice structure: valid, no transport through actual nonreversible defect.
+- Raw coefficient Lyapunov families: known local/product/component-weight versions fail.
+- Tail shift: still open as a statement, but not a restart architecture by itself.
+
+## E7. Current restart rule
+
+The bounded toolbox-derived positive-rates opportunity set is exhausted.
 
 Do not restart on:
 
-- bare tail shift or another `pi_N` distinguished-zero buffer;
-- common-coupling occupation/global extinction;
-- uniform additive-Hamming coupling;
-- mark-only Boolean support information percolation;
-- scalar Foster/Bellman corrector variants;
-- reversible perturbation or another filter/norm search;
-- longer coefficient tables.
+- larger/multiphase Gray edge states;
+- unspecified adaptive information histories;
+- generic nonlocal couplings or norms;
+- common-uniform occupation/extinction;
+- bare tail shift;
+- Bellman/Foster variants;
+- reversible/filter/long-coefficient searches.
 
-A future restart requires either:
+A future positive-rates restart requires either:
 
-- actual control of the signed boundary-transmission operator on the connected orbit;
-- a successful G013 scalar Gray bridge;
-- or a materially new architecture with its own explicit bounded falsification test.
+1. new mathematics controlling the signed boundary-transmission operator on the actual connected orbit while retaining its cancellation; or
+2. a materially different architecture with a concrete upstream object, implication to ergodicity, and bounded falsification test not equivalent to an existing blocker.
+
+## E8. Next programme-level direction
+
+The completed toolbox synthesis separately recommends FA-1f Bernoulli-quench **FA-SCREEN**: a two-sided causal-screen theorem whose first gate is a finite graphical leakage/measurability test.
+
+With G013 negative, that is the queued next active research direction. The positive-rates programme remains as retained mathematical background rather than active execution.
 
 ## Anti-circularity checkpoint
 
-Do not infer connected-tail control from the finite renewal prefix; treat one-step high-pass/channel bounds as iterable without a frame theorem; transfer the reversible reference result through depth-growing perturbation; identify connected renewal with bare tail shift despite exact elimination; infer marker geometry can repair G011's prefix mismatch; use supercritical mean ancestor count in place of G012's pair theorem; or promote unspecified state-adaptive histories merely because mark-only histories failed.
+Do not infer connected-tail control from finite renewal coefficients; iterate one-step positive-frequency bounds without a frame theorem; identify connected renewal with bare tail shift; infer that marker geometry repairs the G011 prefix mismatch; replace G012's pair obstruction by a first-moment statement; reinterpret G013 as a theorem against every possible interface state; or reopen a stopped method merely by enlarging its state description.
