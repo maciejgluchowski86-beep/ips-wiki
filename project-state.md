@@ -10,37 +10,48 @@ This file is the compact current-state index for the autonomous research program
 - Workspace: `research/active/ergodicity-methods-toolbox/`.
 - Principal target: compile a broad, concise, self-contained, source-checked toolbox of rigorous methods used to prove ergodicity/uniqueness, convergence to equilibrium, coupling agreement, positive spectral gap, log-Sobolev inequalities, quantitative mixing, or closely related relaxation statements in spin systems, IPS, KCSM, Glauber-type and adjacent interacting models.
 - Breadth is intentional; model-specific methods are in scope.
-- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/014-wave-five-structural-verification.md`.
-- Student F: active on Assignment 006.
-- Student G: active on Assignment 005.
+- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/015-wave-six-audited-integrated-wave-seven-opened.md`.
+- Student F: active on Assignment 007.
+- Student G: active on Assignment 006.
 
 ## Coverage and publication status
 
-There are **57 source-audited staged entries and 57 live toolbox pages**, and the complete wave-one-through-five public layer has passed structural verification.
+There are **67 source-audited staged entries and 67 live toolbox pages**.
 
-On the integrated tree at `aa28743`, the principal/orchestrator reports:
+The first 57 pages, through wave five, are mechanically verified by Meeting 014. Before wave-six Professor integration, the principal/orchestrator reported:
 
 ```text
-Checked 57 entries; 0 failed mechanical validation.
+Checked 67 entries; 0 failed mechanical validation.
 ```
 
-`mkdocs build --strict` exits 0 with no warnings and no broken internal links. The only INFO output consists of seven pre-existing legacy pages absent from navigation and one pre-existing legacy absolute-link note on the coarsened-patches page.
+Meeting 015 source-audited all ten wave-six entries and promoted all ten. A direct comparison from verified wave-five head `aa28743` shows exactly ten added method pages under `docs/entries/`, plus modifications to `docs/ergodicity-methods.md` and `mkdocs.yml`, with no other `docs/` path changed.
 
-Completeness is exact: 57 staged entries, 57 promoted pages, 57 hub links, zero unresolved links, no promoted page missing from the hub, and no hub link without a page. Every promoted toolbox page contains `status:` and `audit:` metadata. All 154 MkDocs `.md` navigation targets resolve to real files.
+The **post-wave-six structural publication gate is pending**. The principal/orchestrator should rerun:
 
-Legacy safety passes: `git diff origin/main..research/ergodicity-methods-toolbox -- docs/` is additions-only with zero non-additions. The wave-five public layer consists of thirteen added method pages plus modifications confined to `docs/ergodicity-methods.md` and `mkdocs.yml`.
+```bash
+python research/active/ergodicity-methods-toolbox/validate_entries.py
+mkdocs build --strict
+```
 
-These are structural publication checks only. Source/claim acceptance is the Professor audit recorded in Meetings 002--005, 010, and 013.
+and verify exact 67 staged/live/hub completeness, `status:`/`audit:` metadata, MkDocs target resolution, and additions-only legacy safety.
 
-The directory question remains a principal-level wiki-curation issue and is not reopened here. Toolbox pages continue to live in `docs/entries/` alongside frozen legacy material, with reader separation supplied by the dedicated hub/navigation and audit metadata.
+These are structural checks only. Source/claim acceptance is the Professor audit recorded in Meetings 002--005, 010, 013, and 015.
+
+The directory question remains a principal-level wiki-curation issue and is not reopened here. Toolbox pages continue to live in `docs/entries/` alongside frozen legacy material, separated for readers by the dedicated hub/navigation and audit metadata.
+
+## Wave-six additions and closed searches
+
+Wave six added infinite-dimensional Harris recurrence, hierarchical renormalised Brascamp--Lieb gap recursion, exact projective-consistency equilibrium construction, relative-entropy Gibbs-attractor arguments, stochastic localization for Ising Glauber gaps, coupling independence, sticky McKean--Vlasov coupling, particle-number-uniform componentwise reflection, survival-conditioned contact renewal, and the moving-frame TASEP environment seen from a second-class particle.
+
+Repeated generic searches are now closed absent named new evidence: full-Cheeger positive-spin relaxation, spectral-profile/evolving-set IPS use, fully-unconstrained-refresh KCSM comparison, disagreement-front regeneration, quasi-successful coupling, artificial Nummelin splitting, nonreversible sector/hypocoercive IPS relaxation, boundary-uniform projective graphical coupling, and generic common/basic graphical coupling.
 
 ## Active breadth wave
 
-Student F Assignment 006 covers a full Cheeger/conductance positive-relaxation spin theorem, one bounded spectral-profile/evolving-set search, infinite-system Harris/Lyapunov ergodicity, exact projective-consistency invariant-law construction, hierarchical renormalisation-group spectral-gap recursion, and constrained-to-unconstrained refresh comparison or a source-supported substitute.
+Wave seven is source-led and deliberately smaller. Students may return fewer entries rather than pad.
 
-Student G Assignment 005 covers coupling independence, sticky coupling, particle-number-uniform componentwise reflection coupling, essential-hitting/restart complete convergence, moving-frame invariant laws seen from second-class particles, and actual disagreement-front regeneration, with a structured-finite-dual or other source-supported graphical substitution if needed.
+Student F Assignment 007 covers Hairer--Mattingly asymptotic strong Feller uniqueness, Hairer--Mattingly Hörmander/Malliavin propagation if distinct, Ullrich Swendsen--Wang/FK cluster-dynamics comparison, and Erbar--Henderson--Menz--Tetali entropic Ricci curvature if distinct from existing Bochner/Wasserstein pages.
 
-Closed generic searches are not repeated absent named new evidence: artificial Nummelin splitting in interacting systems, generic nonreversible sector/hypocoercive IPS relaxation, generic boundary-uniform dynamic projective coupling, and generic common/basic graphical coupling.
+Student G Assignment 006 covers Gray's 1982 one-dimensional positive-rates proof architecture, Gray's 1986 duality for general attractive spin systems, Toom graphical contour/error expansions for low-noise PCA, and essential hitting times/almost-subadditive contact-process regeneration if sufficiently distinct from existing renewal methods.
 
 ## Previous scientific direction
 
