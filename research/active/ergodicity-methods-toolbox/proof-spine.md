@@ -1,6 +1,6 @@
 # Coverage spine
 
-This is the coverage map for the ergodicity-methods literature compilation. **Live** means source-audited by the Professor and admitted to the public wiki; **uncovered** means still to be sourced. All forty-four accepted entries are live. No new student wave is active until the wave-four integration passes its structural publication check.
+This is the coverage map for the ergodicity-methods literature compilation. **Live** means source-audited by the Professor and admitted to the public wiki; **assigned** means an active student wave is searching the primary literature for a genuinely distinct proof interface; **uncovered** means still to be sourced. All forty-four accepted entries are live and mechanically verified in the rendered wiki.
 
 ## A. Coupling and influence
 
@@ -17,8 +17,9 @@ This is the coverage map for the ergodicity-methods literature compilation. **Li
 - literal block coupling by joint conditional resampling — **live**;
 - weighted Wasserstein contraction on an infinite state space — **live**;
 - refined non-diagonal discrepancy coupling for general exclusion — **live**;
-- generic basic/common graphical coupling as a dedicated page — **not currently warranted**: the wave-three search did not expose a proof interface distinct from existing attractiveness/path/disagreement pages;
-- literal maximal local coupling for nonmonotone spin systems beyond the live block method — **uncovered**.
+- literal maximal local coupling for nonmonotone spin systems beyond the live block method — **assigned to G004**;
+- nonmonotone Wasserstein/reflection/jump coupling distinct from the live weighted synchronous contraction — **assigned to G004**;
+- generic basic/common graphical coupling as a dedicated page — **not currently warranted**: the prior search did not expose a proof interface distinct from existing attractiveness/path/disagreement pages.
 
 ## B. Duality, ancestry, percolation, and regeneration
 
@@ -30,9 +31,11 @@ This is the coverage map for the ergodicity-methods literature compilation. **Li
 - supercritical block construction plus complete convergence — **live**;
 - front regeneration / renewal times — **live**;
 - exact regeneration at a recurrent particle-collapse atom — **live**;
-- artificial Nummelin splitting / manufactured atom with a concrete interacting-process application — **uncovered**;
-- successful coupling of finite dual particle systems as the invariant-law interface — **uncovered**;
-- second-class-particle or shock coupling as a dedicated ergodic interface — **uncovered**;
+- artificial Nummelin splitting / manufactured atom with a concrete interacting-process application — **assigned to F005, conditional on a clean source**;
+- successful coupling of finite dual particle systems as the invariant-law interface — **assigned to G004**;
+- second-class-particle or shock coupling as a dedicated ergodic interface — **assigned to G004**;
+- regeneration of a disagreement/competition interface distinct from the live physical-front example — **assigned to G004**;
+- contact/multitype complete-convergence restart/block constructions distinct from the live parity-duality example — **assigned to G004**;
 - further branching/annihilating/coalescing dual mechanisms beyond current examples — **uncovered as distinct mechanisms appear**.
 
 ## C. Functional inequalities and coercivity
@@ -53,9 +56,10 @@ This is the coverage map for the ergodicity-methods literature compilation. **Li
 - large-set conductance / warm-start mixing — **live**;
 - KCLG renormalized good-block plus long-range Glauber comparison — **live**;
 - KCSM pointwise constraint domination by a slower reference process — **live**;
-- full Cheeger/conductance spectral-gap or rapid-mixing method with a positive spin-system application — **uncovered**;
-- super-Poincare relaxation with a distinct interacting-process application — **uncovered**;
-- spectral-profile/evolving-set methods with a load-bearing spin/IPS application — **uncovered**;
+- long-range constrained Poincare / good-path inequalities as a dedicated KCM method — **assigned to F005**;
+- super-Poincare relaxation with a distinct interacting-process application — **assigned to F005**;
+- full Cheeger/conductance spectral-gap or rapid-mixing method with a positive spin-system application — **uncovered after one targeted search failed to find a distinct source**;
+- spectral-profile/evolving-set methods with a load-bearing spin/IPS application — **uncovered after one targeted search failed to find a distinct source**;
 - genuinely relaxation-oriented nonreversible sector/hypocoercive coercivity with IPS use — **uncovered; one serious search found no clean source**.
 
 ## D. Spatial mixing and local-to-global transfer
@@ -73,17 +77,20 @@ This is the coverage map for the ergodicity-methods literature compilation. **Li
 - exact renewal regeneration at a physical atom — **live**;
 - moving-front regeneration — **live**;
 - number rigidity + tail triviality + conditional Dirichlet irreducibility — **live**;
-- artificial Nummelin splitting — **uncovered**;
-- Harris/Lyapunov criteria for genuinely infinite translation-invariant lattice IPS — **uncovered**;
-- projective/compactness arguments for invariant laws as a dedicated method — **uncovered**.
+- artificial Nummelin splitting — **assigned to F005, conditional on a clean interacting-process source**;
+- projective/compactness invariant-law arguments — **assigned to F005**;
+- Harris/Lyapunov criteria for genuinely infinite translation-invariant lattice IPS — **fallback target in F005 if super-Poincare or Nummelin does not survive source inspection**.
 
 ## F. KCSM/KCLG and model-specific mechanisms
 
 - distinguished zero / oriented vacancy — **live**;
 - block renormalization and bisection — **live**;
-- bootstrap-percolation-assisted positive-gap criteria — represented inside live Poincare/block entries;
+- bootstrap-percolation-assisted positive-gap criteria — partly represented inside existing pages; a dedicated deterministic-closure/legal-path transfer criterion is **assigned to F005**;
 - renormalized good-block dynamics plus auxiliary long-range Glauber comparison for Kob--Andersen — **live**;
 - direct pointwise constraint domination by an oriented East reference process for FA-1f — **live**;
+- long-range constrained Poincare / good-path dynamics — **assigned to F005**;
+- Matryoshka-doll / nested multiscale renormalisation — **assigned to F005**;
+- CBSEP/generalised-CBSEP auxiliary-process comparison — **assigned to F005**;
 - comparison with independent/unconstrained refresh dynamics where a valid lower-bound interface exists — **uncovered beyond the current one-sided constraint-domination examples**;
 - persistence/defect-particle/interface methods beyond East — partly represented by front regeneration; further distinct mechanisms **uncovered**.
 
@@ -97,7 +104,8 @@ This is the coverage map for the ergodicity-methods literature compilation. **Li
 - finite-size strong-mixing to uniform large-volume Glauber relaxation — **live**;
 - finite-volume LSI/Beckner coercivity + semigroup exhaustion + Gibbs compactness — **live**;
 - graphical finite-speed transfer from growing finite volumes — **live**;
-- projective finite-volume coupling uniform in boundary conditions yielding infinite-volume uniqueness — **uncovered as a dedicated theorem**.
+- boundary-uniform projective graphical transfer from finite-volume coupling to infinite-volume uniqueness/convergence — **assigned to G004**;
+- projective/compactness invariant-law construction as a law-level rather than semigroup-level limiting method — **assigned to F005**.
 
 ## H. Potential theory and adjacent relaxation
 
@@ -108,11 +116,11 @@ The capacity entry is deliberately adjacent to, rather than synonymous with, the
 
 ## I. Publication state
 
-Meetings 002--005 source-audited the initial thirty entries; Meetings 006 and 008 promoted them. Meeting 010 source-audited the fourteen wave-four entries after four source/taxonomy corrections and one target tightening. Commit `84feb506` promotes all fourteen in one public-layer batch. There are now **44 live toolbox method pages**.
+Meetings 002--005 source-audited the initial thirty entries; Meetings 006 and 008 promoted them. Meeting 010 source-audited the fourteen wave-four entries and Meeting 011 promoted them. Meeting 012 records that the full 44-page integration passed the staging validator, strict MkDocs build, staged/live completeness, hub coverage, current-audit metadata, legacy-safety, and navigation-resolution checks.
 
-The wave-four structural check is pending. It must verify all 44 staged/live slugs, all hub links and coverage, `status: literature` / `audit: current`, legacy safety, MkDocs target resolution, and the exact integration diff from `8a167424` to `84feb506`.
+There are now **44 live, source-audited, mechanically verified toolbox method pages**.
 
-The repository-wide article convention is retained: toolbox pages stay in `docs/entries/`, with separation supplied by the hub/navigation and audit metadata.
+The repository-wide article convention is retained: toolbox pages stay in `docs/entries/`, with separation supplied by the hub/navigation and audit metadata. This directory ruling is closed for the toolbox programme.
 
 ## J. Coverage discipline
 
