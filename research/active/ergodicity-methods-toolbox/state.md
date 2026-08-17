@@ -12,49 +12,65 @@ Principal target: compile a broad, concise, self-contained literature toolbox of
 
 Breadth is intentional and model-specific methods are in scope.
 
-Latest meeting: `meetings/012-wave-four-verified-wave-five-opened.md`.
+Latest meeting: `meetings/013-wave-five-audited-integrated-wave-six-opened.md`.
 
 ## Publication status
 
-All **44** source-audited method entries from waves one through four are live and have passed the full structural publication check:
+All **57** staged entries have now passed Professor source audit and all 57 have live counterparts under `docs/entries/`.
 
-- `validate_entries.py`: `Checked 44 entries; 0 failed mechanical validation.`;
-- `mkdocs build --strict`: clean exit, with only the upstream Material-for-MkDocs advisory banner and unchanged pre-existing INFO conditions;
-- all 44 staged slugs are live;
-- the hub links exactly those 44 pages and all links resolve;
-- every toolbox method page has `status: literature` and `audit: current`;
-- no legacy/deprecated `docs/` page was modified or deleted by the toolbox integration;
-- every MkDocs navigation target resolves.
+The principal's pre-audit structural snapshot reported:
 
-The repository-wide article layout is final for this programme: toolbox pages remain in `docs/entries/`. Reader separation from legacy review debt is supplied by the dedicated hub/navigation and audit metadata. A future filesystem migration, if any, is a wiki-wide curation decision rather than a toolbox-specific exception.
+```text
+Checked 57 entries; 0 failed mechanical validation.
+```
 
-`validate_entries.py` checks structure only. Source/claim acceptance remains the Professor audit recorded in Meetings 002--010.
+Wave five added thirteen live pages, preserving staged slugs, and extended only the toolbox hub and existing MkDocs navigation in the public layer. A GitHub comparison from the wave-four integration head `84feb506` confirms thirteen `docs/entries/` additions and no other `docs/` path beyond the hub modification.
+
+The **post-wave-five strict MkDocs/build/link check is still pending**. The repository workflow builds automatically only on `main`, and Meeting 013 did not claim a branch build result. The principal/orchestrator should rerun `validate_entries.py` and `mkdocs build --strict` against the final 57-page branch before declaring the new public layer mechanically verified.
+
+`validate_entries.py` checks structure only. Source/claim acceptance is the Professor audit recorded in Meetings 002--005, 010, and 013.
+
+The repository-wide article layout remains unchanged for this programme: toolbox pages live in `docs/entries/`. The separate principal-level directory question is not reopened by the Professor.
+
+## Wave-five ruling
+
+All thirteen wave-five entries were accepted. Two semantic target corrections were made before publication:
+
+- successful finite-dual coupling now targets `invariant-law-classification`, not global uniqueness/convergence;
+- second-class product-shock coupling now targets `shock-dynamics` and `interface-stability`, not coupling agreement.
+
+Both anti-padding substitutions were accepted:
+
+- F did not manufacture an artificial-Nummelin page after a second failed targeted search; the accepted substitute is the super-Poincare reaction/diffusion decomposition;
+- G did not manufacture a boundary-uniform dynamic projective-coupling page; the accepted substitute is Hairer's asymptotic binding coupling.
+
+Those two failed generic targets are closed absent a concrete named source that changes the evidence.
 
 ## Workers
 
-- Student F: **active** on `students/student-f/assignment-005.md`.
-- Student G: **active** on `students/student-g/assignment-004.md`.
+- Student F: **active** on `students/student-f/assignment-006.md`.
+- Student G: **active** on `students/student-g/assignment-005.md`.
 
 Every finished method entry is committed immediately as its own artifact. Students stage under this research workspace and do not edit `docs/` or `mkdocs.yml`.
 
-## Wave-five targets
+## Wave-six targets
 
 ### Student F
 
-Bootstrap-percolation closure/legal-path transfer to KCM ergodicity or exponential relaxation; long-range constrained Poincare/good-path inequalities; Matryoshka-doll/nested multiscale renormalisation; CBSEP/generalised-CBSEP auxiliary-process comparison; artificial Nummelin splitting if a genuine interacting-process application exists; projective/compactness invariant-law arguments; and super-Poincare relaxation, with a genuinely infinite-lattice Harris/Lyapunov or other uncovered analytic substitution if needed.
+Full Cheeger/conductance positive relaxation in a spin system; one bounded spectral-profile/evolving-set search; genuinely infinite-system Harris/Lyapunov ergodicity; exact projective-consistency invariant-law construction; renormalisation-group spectral-gap recursion for hierarchical spin models; and direct constrained-to-unconstrained refresh comparison or a source-supported substitute.
+
+Artificial Nummelin and generic nonreversible sector/hypocoercive searches are not reopened absent named new evidence.
 
 ### Student G
 
-Successful coupling of finite dual particle systems; second-class-particle/shock coupling; literal maximal local coupling for nonmonotone spins; disagreement/competition-interface regeneration; contact/multitype complete convergence using restart/block constructions; boundary-uniform projective graphical transfer; and nonmonotone Wasserstein/reflection/jump coupling in an infinite interacting system.
+Coupling independence/coarse-grained local-to-global coupling for spin systems; sticky coupling for McKean--Vlasov/weakly interacting particle systems; componentwise reflection with particle-number-uniform estimates; essential-hitting/restart complete convergence; moving-frame invariant laws seen from a second-class particle; and regeneration of an actual disagreement front, with a structured-finite-dual or other graphical substitution if the bounded search fails.
 
-The anti-padding rule remains binding. A target that collapses into an existing live proof interface or lacks a clean primary interacting-process application is recorded as a negative taxonomy result and replaced by another uncovered source-supported method.
-
-The generic basic/common graphical-coupling page remains unwarranted by current evidence. The generic nonreversible sector/hypocoercive search is not reopened absent new primary evidence.
+Generic boundary-uniform projective coupling and generic common/basic coupling remain closed absent named new evidence.
 
 ## Current live coverage
 
-Forty-four methods are live across coupling/local influence, spatial mixing/local-to-global transfer, functional inequalities/comparison/coercivity, recurrence/regeneration, graphical ancestry/duality, finite-to-infinite transfer, KCSM/KCLG model-specific methods, qualitative Dirichlet ergodicity, and potential-theoretic metastable relaxation.
+Fifty-seven source-audited methods are live. Wave five added bootstrap/legal-path KCSM transfer, long-range good-path Poincare, nested mobile-droplet renormalisation, CBSEP auxiliary comparison, super-Poincare reaction/diffusion decomposition, tightness/compactness construction of infinite-particle dynamics, successful coupling of fixed-size finite duals, second-class microscopic shocks, maximal local Potts coupling, competition-interface regeneration, two-level contact restart complete convergence, asymptotic binding coupling, and asymptotic reflection coupling.
 
 ## Next Professor action
 
-Source-audit each completed wave-five handoff before issuing another assignment on that lane. No live promotion occurs until accepted new entries accumulate and the branch is quiet enough for another bounded integration batch.
+Source-audit the next completed wave-six handoff. Do not promote a wave-six entry before its primary theorem chain and proof-interface distinctness have been checked. Separately, the principal/orchestrator should close the pending 57-page structural build gate.
