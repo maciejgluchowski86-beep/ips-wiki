@@ -57,3 +57,27 @@ The missing object is a locally specified chronology-switch dynamics whose state
 **Cheapest next check**
 
 Choose a specific finite switch-state description (interface location plus the smallest neighboring spin/mark data claimed to be sufficient). Enumerate every possible next graphical ring and coin in both replicas. Require that the switch state updates within the same finite class, reconstructed histories remain legal, and the permutation is predictable and bijective on equal-rate Poisson/coin marks. Failure of closure on a single adjacent-update pattern kills that proposed switch class immediately. A global endpoint injection without this local closure check should not be counted as progress.
+
+## 3. Information percolation / backward histories
+
+**RULING:** PASS
+
+**Attack**
+
+The Lubetzky--Sly mechanism cannot be imported literally. In their Glauber setting an update can be genuinely oblivious: after the graphical mark is fixed, the new spin may no longer depend on any previous spin. Hard FA has no state-independent oblivious update of that kind. If a graphical rule set a site independently of its neighbors with positive probability, it would move the all-ones configuration, contradicting the hard trap. Hence any update support defined solely from the Poisson/coin marks and required to determine the output for **all** possible initial states cannot have the high-temperature dying-history behavior used in the source.
+
+The Professor's bridge survives only because it explicitly changes the object. The proposed history is state-adaptive and quench-specific. At a ring, proving that one neighboring history is vacant certifies legality and can short-circuit the other neighboring branch; an effective dependency may also disappear after repeated refreshes or merge with another branch. Conversely, to certify an illegal ring one may have to know both neighbors are occupied and retain the old site's history. The naive branching estimate is therefore indeed supercritical-looking (`1+p+p^2>1` in the primary audit), but it is not an exact reproduction number for the minimal adaptive reveal process.
+
+This adaptive object is not the closed positive finite-set dual. The transformed dual is a linear/algebraic Markov chain whose complete `h`-weighted coefficient transfer is stochastic and conservative. A minimal causal reveal tree can delete nominal branches when their values become logically irrelevant, can merge branches, and is conditioned on actual vacancy discoveries under the Bernoulli start. Conservation of the linear dual mass therefore does not imply conservation of adaptive causal information.
+
+There is one necessary correction to the source analogy. The red/blue/green Miller--Peres estimate from Lubetzky--Sly relies on a history construction with special conditional independence properties and cannot simply be quoted for this state-dependent reveal process. The bridge should instead be judged by its direct target statement: with the same graphical marks, the pushforwards of `mu_{q0}` and `mu_q` to a fixed observation block have total-variation distance tending to zero, or an explicitly dominated reveal event implies that statement. That conclusion is exactly strong enough for the infinite-volume Bernoulli quench and does not assert convergence from the trapped all-ones state.
+
+**Load-bearing reason**
+
+No exact obstruction in the chronology or finite-seed records identifies adaptive minimal causal support with the conservative transformed dual. The hard-trap obstruction kills uniform mark-only ancestor extinction, but it does not kill a law-dependent reveal process that exploits actual vacancies and only has to forget a Bernoulli initial condition. The remaining task is a genuine probabilistic theorem about adaptive history sparsity, not a known-false coefficient contraction.
+
+**If PASS:** The bridge remains genuinely open because quench-specific adaptive causal histories can exploit logical short-circuiting and mergers that are absent from the conservative linear dual, while their vanishing influence would directly compare the Bernoulli quench to the stationary Bernoulli start without requiring worst-case history extinction.
+
+**Cheapest next check**
+
+On a finite space-time slab, compute the exact minimal decision tree for one terminal site under product initial vacancies and graphical marks, allowing short-circuit evaluation of the FA `OR` constraint. Record the distribution of unresolved time-zero leaves after one and two temporal blocks and compare it with the naive branching majorant. If adaptive pruning/merging does not reduce a natural exponential or block reproduction statistic below one in any low-`q` test regime, the architecture should be demoted before attempting a multiscale proof. The statistic must be defined from the actual reveal algorithm, not from the transformed dual particle count.
