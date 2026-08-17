@@ -3,8 +3,7 @@ method_id: successful-coupling-finite-dual-particles
 title: Successful coupling of finite dual particle systems
 category: graphical-duality
 targets:
-  - uniqueness
-  - convergence
+  - invariant-law-classification
 model_scope: Duality-based conservative particle systems whose finite dual preserves particle number
 source_status: primary-checked
 primary_source: Frank Redig and Hidde van Wiechen, Ergodic Theory of Multi-layer Interacting Particle Systems, Journal of Statistical Physics 190 (2023), Article 88
