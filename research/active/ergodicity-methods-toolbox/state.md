@@ -8,49 +8,57 @@ Branch: `research/ergodicity-methods-toolbox`
 
 Workspace: `research/active/ergodicity-methods-toolbox/`
 
-**Breadth collection is complete.** The programme is in the hostile cross-review stage of the problem-specific applicability phase governed by `assessment-protocol.md`.
+**Breadth collection and problem-specific applicability assessment are complete.**
 
-Latest meeting: `meetings/021-professor-positive-rates-hostile-review-complete-awaiting-g.md`.
+Latest meeting: `meetings/022-cross-reviews-complete-final-priorities-and-restart-ruling.md`.
+
+Final synthesis: `assessment/final-method-priorities.md`, commit `2dc1d230737d8985b6ff3d5e09af26ce9d7b33c5`.
+
+The next action is a principal decision, not another autonomous collection or assessment block.
 
 ## Frozen inventory and publication status
 
 The final inventory contains **74 staged method entries**, all Professor source-audited and accepted, with 74 live counterparts under `docs/entries/`.
 
-Meeting 018 records the complete final structural publication gate: 74 staged/promoted/hub-linked methods, zero unresolved orphans, `status:`/`audit:` on every promoted page, all 171 MkDocs `.md` targets resolving, `validate_entries.py` 74 checked with 0 failures, strict MkDocs exit 0, additions-only `docs/` diff against main, and a clean control/format-character scan.
+Meeting 018 records the complete final structural publication gate: 74 staged/promoted/hub-linked methods, zero unresolved orphans, metadata on every promoted page, all 171 MkDocs `.md` targets resolving, validator 74 checked with 0 failures, strict MkDocs exit 0, additions-only `docs/` diff against main, and a clean control/format-character scan.
 
-The orchestrator has additionally verified both completed primary audits structurally: exactly 74 rated rows in each, ratings confined to A/B/C/X/N, every A/B candidate carrying the required bridge fields, frozen inventory still 74, and no `docs/` or `mkdocs.yml` changes. These checks are structural only.
+The orchestrator reports that throughout both primary audits and both hostile reviews the inventory remained 74 and the public-doc additions-only gate remained at zero non-additions. These are structural checks only; source/claim authority remains the Professor audit recorded through Meeting 017.
 
-Source/claim authority remains the Professor source audit recorded through Meeting 017. The frozen **74-method toolbox is source-audited, live, and mechanically verified**.
+No public taxonomy/navigation change follows automatically from applicability rankings.
 
-No public-doc restructuring is authorized during assessment.
-
-## Primary audits complete
+## Completed primary audits
 
 ### FA-1f / East
 
-Professor primary audit: `assessment/fa1f-east-method-audit.md`, completion commit `baea166c62105caf9084a4859c4ac4af29190d04`.
+Professor primary audit: `assessment/fa1f-east-method-audit.md`, commit `baea166c62105caf9084a4859c4ac4af29190d04`.
 
 Dispositions: A=1, B=4, C=24, X=21, N=24.
 
-Shortlist under independent G hostile review:
-
-1. East distinguished-zero screening — A;
-2. refined non-diagonal discrepancy coupling — B;
-3. information percolation/backward histories — B;
-4. front regeneration/renewal — B;
-5. state-dependent dynamical disagreement percolation — B.
-
-The central FA synthesis remains: equilibrium coercivity is already available; the missing mathematics is local loss of exterior/time-zero information or a direct weak chronology-sign theorem.
-
 ### Positive rates
 
-Student G primary audit: `assessment/positive-rates-method-audit.md`, completion commit `cd7497650cc8778ee508444699ec38baf713ce56`; bridge detail `assessment/positive-rates-shortlist.md`, commit `cfc7dcc2fe11f65d9a356b415d7fd28295048d9b`.
+Student G primary audit: `assessment/positive-rates-method-audit.md`, commit `cd7497650cc8778ee508444699ec38baf713ce56`.
+
+Bridge detail: `assessment/positive-rates-shortlist.md`, commit `cfc7dcc2fe11f65d9a356b415d7fd28295048d9b`.
 
 Dispositions: A=1, B=4, C=25, X=10, N=34.
 
-No A/B method directly attacks PR1, the signed two-time boundary-transmission operator.
+## Completed hostile cross-reviews
 
-## Professor positive-rates hostile review complete
+### FA shortlist, independently reviewed by Student G
+
+Review: `assessment/fa1f-east-hostile-review-g.md`, final commit `0cbf083110a29465f1266a77f700095fa6b9732e`.
+
+Handoff: `students/student-g/008-handoff.md`.
+
+Rulings:
+
+1. East distinguished-zero screening — **PASS**;
+2. refined non-diagonal discrepancy coupling — **DEMOTE**;
+3. information percolation / adaptive backward histories — **PASS**;
+4. front regeneration / renewal — **DEMOTE**;
+5. state-dependent dynamical disagreement percolation — **KILL**.
+
+### Positive-rates shortlist, reviewed by Professor
 
 Review: `assessment/positive-rates-hostile-review-professor.md`, commit `1786d60d5caa4a0c4149556db0dbedb5b4646394`.
 
@@ -60,41 +68,55 @@ Rulings:
 2. refined non-diagonal discrepancy coupling — **PASS**;
 3. information percolation — **PASS**;
 4. block coupling / joint-block stationary control — **DEMOTE**;
-5. physical-front regeneration adapted to disagreement — **DEMOTE**.
+5. disagreement-front regeneration — **DEMOTE**.
 
-The positive-rates survivors collapse to two research families:
+## Final FA-1f / East priority
 
-- **nonbasic one-dimensional coupling:** refined non-diagonal coupling is the concrete first test; Gray edge geometry is the structural target if local coupled-rate feasibility survives;
-- **information percolation:** a genuinely different backward-history bypass.
+**Recommend reopening the Bernoulli-quench proof programme narrowly on a two-sided causal-screen theorem.**
 
-The Bellman block bridge is demoted because its displayed inequality is, via the exact scale-extension identity, essentially the desired diameter contraction without an independent joint-block estimate. The disagreement-front regeneration bridge is demoted because it returns to the stopped common-uniform global-coalescence/occupation interface without identifying a fresh regeneration sigma-field that defeats the Meeting-019 hidden-ancestry obstruction.
+The exact target is `FA-SCREEN` from `assessment/final-method-priorities.md`: construct a high-probability random bracket around a fixed observation interval whose success can be determined without revealing the protected future marks, whose protected width is sublinear in the available relaxation time, and whose exterior influence is causally screened so the known positive finite-volume FA gap can erase the remaining conditional initial-law cost.
 
-Provisional first positive-rates experiments:
+First gate: a finite 5--7-site leakage/measurability test of the proposed screen rule. If the screen conditioning reveals protected marks or exterior continuations can change interior legality, reject that rule before any tail work.
 
-1. exact rational non-diagonal coupled-rate LP at `P_h`, then add Gray no-crossing/protection constraints on the same variables;
-2. finite-depth optimized random-map pair-support/intersection calculation for information percolation, using a red-intersection criterion rather than naive ancestor branching.
+**Reserve architecture:** quench-specific adaptive information histories. The target is an exact second-moment/pair-intersection estimate for residual causal information, not the conservative transformed-dual particle count.
 
-No positive-rates proof programme is reopened by this review.
+Do not reopen separate full programmes on front regeneration, state-dependent disagreement percolation, or chronology switching without the missing local object identified in the hostile review.
 
-## Active hostile cross-review
+## Final positive-rates priority
 
-Student G is active on `students/student-g/assignment-008.md`, independently reviewing only the five FA candidates and returning PASS / DEMOTE / KILL for each.
+**Recommend no proof-programme reopening yet.**
 
-Student F remains unavailable because of the conversation-length/session limit.
+The surviving methods reduce to two families:
 
-The Professor has no remaining cross-review work until G returns.
+1. **nonbasic one-dimensional coupling:** exact non-diagonal coupled rates first; Gray edge geometry only after local feasibility survives;
+2. **information percolation:** sparse pair-intersection of minimal backward histories under an optimized positive-rates random-map decomposition.
 
-## Next phase
+The two bounded pre-restart experiments are:
 
-After G's FA hostile review is committed, the Professor produces `assessment/final-method-priorities.md` containing:
+1. exact rational non-diagonal coupled-rate LP at `P_h=(1/10000,1/100,9999/10000)`, followed on the same variables by Gray no-crossing/protection/coalescence constraints;
+2. finite-depth optimized pair-support/intersection transfer for information percolation, with a kill criterion tied to red-pair intersection rather than naive first-moment branching.
 
-- ranked survivors for both problems;
-- strongest surviving bridge lemmas;
-- informative kills/demotions;
-- at most two recommended first proof experiments per problem;
-- recommendation whether either proof programme should be reopened, and on exactly which bridge.
+A positive structural signal from either is required before a new infinite-volume proof block. Meeting 030's signed boundary-transmission blocker and `no-credible-route` status otherwise remain operative.
 
-No breadth collection, toolbox expansion, proof-programme restart, or public-doc restructuring is authorized before that synthesis.
+## Anti-loop conclusions
+
+- FA equilibrium coercivity is downstream of screening; stronger gap/entropy estimates do not solve the singular Bernoulli quench.
+- FA disagreement percolation cannot treat the endogenous vacancy field as exogenous typical disorder.
+- A global chronology injection without a closed predictable local switch rule restates the sign target.
+- Positive-rates Bellman block contraction cannot be reopened by renaming the missing weighted cross-block theorem.
+- Positive-rates disagreement-front regeneration needs an explicit fresh sigma-field defeating the Meeting-019 hidden-ancestry example before it can return to A/B status.
+- No frozen method supplied a new cancellation-preserving PR1 boundary-transmission estimate.
+
+## Personnel and next action
+
+Student G is idle. Student F remains unavailable because of the conversation-length/session limit.
+
+No new assignment is active.
+
+The applicability phase ends here. Await the principal's decision on:
+
+- the recommended narrow FA-SCREEN reopening;
+- whether to authorize either or both bounded positive-rates feasibility experiments.
 
 ## Entry hygiene
 
