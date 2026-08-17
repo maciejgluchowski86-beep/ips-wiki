@@ -8,95 +8,86 @@ Branch: `research/ergodicity-methods-toolbox`
 
 Workspace: `research/active/ergodicity-methods-toolbox/`
 
-**Breadth collection and problem-specific applicability assessment are complete.**
+**Breadth collection and problem-specific applicability assessment are complete.** The research loop has resumed on a principal-directed positive-rates screening test.
 
-Latest meeting: `meetings/022-cross-reviews-complete-final-priorities-and-restart-ruling.md`.
+Latest meeting: `meetings/023-principal-distinguished-zero-direction-resumes-research-loop.md`.
 
-Final synthesis: `assessment/final-method-priorities.md`, commit `2dc1d230737d8985b6ff3d5e09af26ce9d7b33c5`.
-
-The next action is a principal decision, not another autonomous collection or assessment block.
+Final applicability synthesis: `assessment/final-method-priorities.md`, commit `2dc1d230737d8985b6ff3d5e09af26ce9d7b33c5`.
 
 ## Frozen inventory and publication status
 
-The final inventory contains **74 staged method entries**, all Professor source-audited and accepted, with 74 live counterparts under `docs/entries/`.
+The inventory remains frozen at **74 source-audited live methods**. Meeting 018 records the complete structural gate: 74 staged/promoted/hub-linked methods, zero unresolved orphans, metadata on every promoted page, all 171 MkDocs `.md` targets resolving, validator 74/0, strict build exit 0, additions-only `docs/` diff against main, and a clean control/format-character scan.
 
-Meeting 018 records the complete final structural publication gate: 74 staged/promoted/hub-linked methods, zero unresolved orphans, metadata on every promoted page, all 171 MkDocs `.md` targets resolving, validator 74 checked with 0 failures, strict MkDocs exit 0, additions-only `docs/` diff against main, and a clean control/format-character scan.
+Both primary applicability audits and both hostile shortlist reviews are complete. No public taxonomy/navigation change follows automatically from their rankings.
 
-The orchestrator reports that throughout both primary audits and both hostile reviews the inventory remained 74 and the public-doc additions-only gate remained at zero non-additions. These are structural checks only; source/claim authority remains the Professor audit recorded through Meeting 017.
+No toolbox entry, `docs/` page, or `mkdocs.yml` change is authorized by the resumed research loop.
 
-No public taxonomy/navigation change follows automatically from applicability rankings.
-
-## Completed primary audits
+## Final applicability rulings retained
 
 ### FA-1f / East
 
-Professor primary audit: `assessment/fa1f-east-method-audit.md`, commit `baea166c62105caf9084a4859c4ac4af29190d04`.
+Hostile-review survivors:
 
-Dispositions: A=1, B=4, C=24, X=21, N=24.
+1. East-style two-sided causal screening — **PASS**;
+2. quench-specific adaptive information histories — **PASS**.
+
+Final ruling: **reopen narrowly on `FA-SCREEN`**, beginning with the finite leakage/measurability gate. Adaptive information histories remain the reserve architecture.
 
 ### Positive rates
 
-Student G primary audit: `assessment/positive-rates-method-audit.md`, commit `cd7497650cc8778ee508444699ec38baf713ce56`.
+Hostile-review survivors reduce to two families:
 
-Bridge detail: `assessment/positive-rates-shortlist.md`, commit `cfc7dcc2fe11f65d9a356b415d7fd28295048d9b`.
+1. nonbasic one-dimensional coupling / Gray geometry;
+2. information percolation.
 
-Dispositions: A=1, B=4, C=25, X=10, N=34.
+The final toolbox synthesis had recommended no full positive-rates reopening until bounded structural feasibility evidence appeared.
 
-## Completed hostile cross-reviews
+## New principal-directed positive-rates test
 
-### FA shortlist, independently reviewed by Student G
+The principal has now supplied a distinct targeted direction: investigate whether an East distinguished-zero argument can be transferred to the remaining positive-rates region by using the finite invariant marginals with a fixed zero boundary even though the infinite-volume invariant law is unknown.
 
-Review: `assessment/fa1f-east-hostile-review-g.md`, final commit `0cbf083110a29465f1266a77f700095fa6b9732e`.
+This is not one of the two generic feasibility experiments from the final synthesis. It directly probes whether the already-established projective zero-boundary invariant family yields a new screening architecture.
 
-Handoff: `students/student-g/008-handoff.md`.
+Student G has therefore moved to branch `research/positive-rates-conjecture` and is active on:
 
-Rulings:
+`research/active/positive-rates-conjecture/students/student-g/assignment-011.md`
 
-1. East distinguished-zero screening — **PASS**;
-2. refined non-diagonal discrepancy coupling — **DEMOTE**;
-3. information percolation / adaptive backward histories — **PASS**;
-4. front regeneration / renewal — **DEMOTE**;
-5. state-dependent dynamical disagreement percolation — **KILL**.
+commit `6efcf60ab43782cf48058484f86f2faca3a7f093`.
 
-### Positive-rates shortlist, reviewed by Professor
+Direct-programme Meeting 031 records the stop rule.
 
-Review: `assessment/positive-rates-hostile-review-professor.md`, commit `1786d60d5caa4a0c4149556db0dbedb5b4646394`.
+The exact first issue is that one-sided suffix projectivity
 
-Rulings:
+`R_{N,M} pi_N = pi_M`
 
-1. Gray one-dimensional edge coalescence — **PASS**;
-2. refined non-diagonal discrepancy coupling — **PASS**;
-3. information percolation — **PASS**;
-4. block coupling / joint-block stationary control — **DEMOTE**;
-5. disagreement-front regeneration — **DEMOTE**.
+does not imply the prefix compatibility needed when a distinguished boundary moves. The old programme isolated
 
-## Final FA-1f / East priority
+`bar pi_{N+1}-pi_N`,
 
-**Recommend reopening the Bernoulli-quench proof programme narrowly on a two-sided causal-screen theorem.**
+whose remote-left size is the tail-shift quantity `Delta_M`. G011 must decide whether distinguished-zero geometry provides new leverage on this defect or merely renames the stopped tail-shift problem.
 
-The exact target is `FA-SCREEN` from `assessment/final-method-priorities.md`: construct a high-probability random bracket around a fixed observation interval whose success can be determined without revealing the protected future marks, whose protected width is sublinear in the available relaxation time, and whose exterior influence is causally screened so the known positive finite-volume FA gap can erase the remaining conditional initial-law cost.
+Permitted final statuses are:
 
-First gate: a finite 5--7-site leakage/measurability test of the proposed screen rule. If the screen conditioning reveals protected marks or exterior continuations can change interior legality, reject that rule before any tail work.
+- `STOP-EQUIVALENT`;
+- `STOP-LOCAL-OBSTRUCTION`;
+- `CONTINUE-NEW-BRIDGE`.
 
-**Reserve architecture:** quench-specific adaptive information histories. The target is an exact second-moment/pair-intersection estimate for residual causal information, not the conservative transformed-dual particle count.
+The pre-registered stop rule forbids escalation to larger marker states if every repair requires tail-shift agreement, the abandoned common-uniform all-depth occupation theorem, Meeting 030's signed boundary-transmission estimate, or another already-stopped generic contraction object.
 
-Do not reopen separate full programmes on front regeneration, state-dependent disagreement percolation, or chronology switching without the missing local object identified in the hostile review.
+## Deferred experiments
 
-## Final positive-rates priority
+The two bounded positive-rates feasibility experiments from the final toolbox synthesis are **deferred, not killed**, while the principal-directed distinguished-zero test runs:
 
-**Recommend no proof-programme reopening yet.**
+1. exact non-diagonal coupled-rate / Gray LP at the hard point;
+2. optimized information-percolation pair-support/intersection calculation.
 
-The surviving methods reduce to two families:
+## Personnel
 
-1. **nonbasic one-dimensional coupling:** exact non-diagonal coupled rates first; Gray edge geometry only after local feasibility survives;
-2. **information percolation:** sparse pair-intersection of minimal backward histories under an optimized positive-rates random-map decomposition.
+Student G: active on positive-rates G011.
 
-The two bounded pre-restart experiments are:
+Student F: unavailable because its conversation reached the maximum-length/session limit.
 
-1. exact rational non-diagonal coupled-rate LP at `P_h=(1/10000,1/100,9999/10000)`, followed on the same variables by Gray no-crossing/protection/coalescence constraints;
-2. finite-depth optimized pair-support/intersection transfer for information percolation, with a kill criterion tied to red-pair intersection rather than naive first-moment branching.
-
-A positive structural signal from either is required before a new infinite-volume proof block. Meeting 030's signed boundary-transmission blocker and `no-credible-route` status otherwise remain operative.
+Professor: research-direction authority remains delegated; no principal approval checkpoint is required after a mathematically justified ruling. The separate FA `FA-SCREEN` reopening remains authorized and is not canceled by G011.
 
 ## Anti-loop conclusions
 
@@ -106,17 +97,6 @@ A positive structural signal from either is required before a new infinite-volum
 - Positive-rates Bellman block contraction cannot be reopened by renaming the missing weighted cross-block theorem.
 - Positive-rates disagreement-front regeneration needs an explicit fresh sigma-field defeating the Meeting-019 hidden-ancestry example before it can return to A/B status.
 - No frozen method supplied a new cancellation-preserving PR1 boundary-transmission estimate.
-
-## Personnel and next action
-
-Student G is idle. Student F remains unavailable because of the conversation-length/session limit.
-
-No new assignment is active.
-
-The applicability phase ends here. Await the principal's decision on:
-
-- the recommended narrow FA-SCREEN reopening;
-- whether to authorize either or both bounded positive-rates feasibility experiments.
 
 ## Entry hygiene
 
