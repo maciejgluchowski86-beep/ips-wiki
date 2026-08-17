@@ -39,12 +39,16 @@ nav:
           - Path coupling: entries/path-coupling-glauber-dynamics.md
           - Coupling with stationarity: entries/coupling-with-stationarity-local-uniformity.md
           - Block coupling: entries/block-coupling-joint-resampling.md
+          - Coupling independence: entries/coupling-independence-coarse-grained-comparison.md
           - Weighted Wasserstein contraction: entries/weighted-wasserstein-contraction-infinite-ips.md
+          - Sticky McKean-Vlasov coupling: entries/sticky-coupling-mckean-vlasov.md
+          - Particle-uniform componentwise reflection: entries/componentwise-reflection-uniform-mean-field.md
           - Maximal local nonmonotone coupling: entries/maximal-local-coupling-nonmonotone-potts.md
           - Asymptotic coupling for SPDEs: entries/asymptotic-coupling-infinite-dimensional-spde.md
           - Asymptotic reflection coupling: entries/asymptotic-reflection-coupling-monotone-spde.md
           - Refined discrepancy coupling: entries/refined-discrepancy-coupling-general-exclusion.md
           - Second-class particle shock coupling: entries/second-class-particle-shock-random-walk.md
+          - Environment seen from second-class particle: entries/environment-seen-second-class-particle.md
           - Censoring inequalities: entries/censoring-monotone-glauber-dynamics.md
           - Dynamical disagreement percolation: entries/dynamical-disagreement-space-time-percolation.md
       - Spatial mixing and local-to-global transfer:
@@ -56,10 +60,12 @@ nav:
           - Poincare and spectral gap: entries/poincare-spectral-gap.md
           - Log-Sobolev and modified log-Sobolev: entries/log-sobolev-modified-log-sobolev.md
           - Discrete Bochner entropy method: entries/bochner-bakry-emery-discrete-entropy.md
+          - Stochastic localization for Ising gaps: entries/stochastic-localization-ising-glauber-gap.md
           - Dirichlet-form and canonical-path comparison: entries/dirichlet-form-canonical-path-comparison.md
           - Block dynamics and bisection: entries/block-dynamics-bisection-variance.md
           - Lu-Yau martingale recursion: entries/lu-yau-martingale-conditional-variance.md
           - Two-scale conservative coercivity: entries/two-scale-coarse-graining-conservative-lsi.md
+          - Hierarchical renormalisation gap recursion: entries/hierarchical-renormalisation-spectral-gap-recursion.md
           - Block factorization of entropy: entries/block-factorization-entropy.md
           - Holley-Stroock perturbation: entries/holley-stroock-bounded-perturbation.md
           - Moving-particle long-jump comparison: entries/moving-particle-long-jump-exclusion.md
@@ -76,14 +82,18 @@ nav:
           - CBSEP auxiliary-process comparison: entries/cbsep-auxiliary-process-comparison.md
       - Recurrence and regeneration:
           - Foster-Lyapunov and Harris recurrence: entries/foster-lyapunov-harris-geometric-ergodicity.md
+          - Infinite-dimensional Harris ergodicity: entries/infinite-dimensional-harris-levy-spde.md
           - Particle-collapse regeneration: entries/particle-collapse-regeneration.md
           - Front regeneration and renewal: entries/front-regeneration-renewal-times.md
           - Competition-interface regeneration: entries/competition-interface-regeneration.md
+          - Survival-conditioned contact renewal: entries/survival-conditioned-renewal-multitype-contact.md
       - Finite-to-infinite transfer and qualitative ergodicity:
           - Finite-volume coercivity exhaustion: entries/finite-volume-coercivity-exhaustion-uniqueness.md
           - Finite-speed finite-volume transfer: entries/finite-speed-finite-volume-transfer.md
           - Tightness and compactness infinite-particle limit: entries/tightness-compactness-infinite-particle-dynamics.md
+          - Projective consistency Gibbs construction: entries/projective-consistency-splitting-gibbs-equilibrium.md
           - Number-rigidity Dirichlet ergodicity: entries/number-rigidity-tail-dirichlet-ergodicity.md
+          - Relative-entropy Gibbs attractor: entries/relative-entropy-loss-gibbs-attractor.md
       - Graphical ancestry, duality, and exact sampling:
           - Finite-ancestor duality and extinction: entries/duality-extinction-finite-ancestor-process.md
           - Successful coupling of finite duals: entries/successful-coupling-finite-dual-particles.md
