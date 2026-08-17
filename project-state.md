@@ -1,81 +1,108 @@
 # Project state
 
-This file is the compact current-state index for the autonomous research programme. Detailed mathematics and literature work live under `research/`; `CHATGPT.md` governs the workflow.
+This file is the compact current-state index for the autonomous research programme. `CHATGPT.md` governs workflow; detailed mathematics lives under `research/active/` and in Git history.
 
 ## Active scientific direction
 
-**The toolbox assessment is complete; the research loop has resumed on a principal-directed distinguished-zero transfer test for positive rates.**
+**One-dimensional hard FA-1f Bernoulli-quench convergence.**
 
-- Toolbox branch: `research/ergodicity-methods-toolbox`.
-- Latest toolbox meeting: `research/active/ergodicity-methods-toolbox/meetings/023-principal-distinguished-zero-direction-resumes-research-loop.md`.
-- Final applicability synthesis: `research/active/ergodicity-methods-toolbox/assessment/final-method-priorities.md`, commit `2dc1d230737d8985b6ff3d5e09af26ce9d7b33c5`.
-- Direct positive-rates branch: `research/positive-rates-conjecture`.
-- Positive-rates latest meeting: `research/active/positive-rates-conjecture/meetings/031-distinguished-zero-transfer-reopens-one-bounded-screening-test.md`.
-- Student G: active on positive-rates Assignment 011.
-- Student F: unavailable because its conversation reached the maximum-length/session limit.
+- Branch: `research/ergodicity-methods-toolbox`.
+- Workspace: `research/active/ergodicity-methods-toolbox/`.
+- Latest meeting: `meetings/024-fa-screen-vacancy-boundary-scaling-obstruction.md`, `state_narrowed: yes`.
+- Current proof spine: `research/active/ergodicity-methods-toolbox/proof-spine.md`.
+- Professor is the only operational executing session. Student G is unavailable for input; Student F's old assignment remains unexecuted/unavailable.
 
-The principal's standing delegation is that research-direction decisions are made by the Professor; the programme is not parked for routine principal approval checkpoints.
+The scientific target is local convergence of 1D hard FA-1f from every nondegenerate homogeneous Bernoulli product initial law to the Bernoulli equilibrium law, for every equilibrium vacancy density `q in (0,1)`.
 
 ## Frozen toolbox status
 
-Breadth collection is finished. The frozen inventory contains **74 source-audited, live, mechanically verified method pages**. Both 74-method primary applicability audits and both hostile shortlist reviews are complete. No wave eight or generic gap-filling search is authorized.
+The ergodicity-method inventory remains frozen at **74 source-audited live methods**. Collection and the 74-by-74 problem-specific applicability audits are complete. No wave eight or generic method search is authorized.
 
-The live wiki remains untouched by applicability/research work. No public taxonomy/navigation change follows automatically from the rankings.
+Public-wiki hygiene remains unchanged: no research block here edits `docs/` or `mkdocs.yml`.
 
-## Retained applicability conclusions
+## Positive-rates direction: no active architecture
 
-### FA-1f / East
+The direct branch `research/positive-rates-conjecture` ended its bounded toolbox-derived tests in Meeting 034. The following direct forms are now stopped:
 
-Independent hostile-review survivors:
+1. uniform negative additive-Hamming drift: impossible at the hard point for every Markovian coupling;
+2. mark-only deterministic-Boolean information percolation: pair-intersection obstruction uniform over all exact decompositions;
+3. Gray scalar/two-type splice geometry: ordinary and checkerboard scalar hybrid closure both locally obstructed;
+4. the principal-directed zero-boundary-invariant distinguished-zero transfer: reduces to the old tail-shift defect off the product surface.
 
-1. East-style two-sided causal screening — PASS;
-2. quench-specific adaptive information histories — PASS.
+Meeting 030's signed boundary-transmission restart bar stands. The positive-rates conjecture remains open, but no proof architecture is active for the present group.
 
-The direct recommendation remains a narrow `FA-SCREEN` reopening beginning with the finite leakage/measurability gate. Adaptive information histories are the reserve architecture.
+## FA-SCREEN-001 result
 
-### Positive rates
+The first post-toolbox FA block was pre-registered at
 
-The toolbox hostile-review survivors reduce to:
+`research/active/ergodicity-methods-toolbox/students/professor/assignment-001-fa-screen.md`, commit `64535479`.
 
-1. nonbasic one-dimensional coupling / Gray geometry;
-2. information percolation.
+It ended **`STOP-SCALING-OBSTRUCTION`**.
 
-The two bounded feasibility experiments from that synthesis are deferred while the new distinguished-zero test runs; they are not killed.
+### Local leakage
 
-## Principal-directed distinguished-zero transfer test
+A literal East distinguished vacancy is not a causal FA boundary: a boundary ring with occupied exterior neighbour and refresh coin different from the boundary spin has output depending on the protected neighbour.
 
-The principal asked whether an East-style distinguished-zero argument can work for the remaining positive-rates region even though the infinite-volume invariant law is unknown, by using the finite invariant marginals with a fixed zero boundary.
+An adjacent vacancy dimer can postpone this leak but reaches the same dangerous state; it is faithful only as a killed screen which declares failure before protected-side legality is needed.
 
-Student G is executing on branch `research/positive-rates-conjecture`:
+### Width-three hazard
 
-`research/active/positive-rates-conjecture/students/student-g/assignment-011.md`
+For every active exterior-measurable width-at-most-three vacancy/dimer boundary state, an exterior-only four-unit event forces the adjacent boundary trajectory to depend on an unrevealed protected future refresh mark. Its probability is at least
 
-commit `6efcf60ab43782cf48058484f86f2faca3a7f093`.
+$$
+\delta_3(q)=e^{-12}q^2(1-q)^2>0.
+$$
 
-The key exact issue is already identified. For zero-boundary invariant laws `pi_N`, one-sidedness gives right-suffix projectivity
+Therefore a fixed active endpoint has
 
-`R_{N,M} pi_N = pi_M`,
+$$
+P(T>4n)\le(1-\delta_3(q))^n.
+$$
 
-but an East marker moving right needs compatibility of the **left prefix**. The old programme isolated the defect
+At `q=1/10`, the exact verifier gives
 
-`bar pi_{N+1}-pi_N`,
+$$
+\delta_3(1/10)>81/2000000000.
+$$
 
-whose remote-left magnitude is the tail-shift quantity `Delta_M`.
+Decisive theorem:
 
-Assignment 011 first tests exact one-move compatibility at the hard point and then asks whether a buffered/regenerative release construction gives a genuinely new screening object or merely assumes an already-stopped tail-shift/common-coupling/PR1 theorem.
+`students/professor/001c-fa-screen-width3-scaling-obstruction.md`, commit `8076b527`.
 
-Permitted outcomes are `STOP-EQUIVALENT`, `STOP-LOCAL-OBSTRUCTION`, or `CONTINUE-NEW-BRIDGE`. The pre-registered stop rule forbids escalation to larger marker states if no strictly upstream new quantity appears.
+Decisive verifier:
 
-## Positive-rates old routes remain stopped
+`students/professor/001b2-fa-screen-width3-hazard-verifier.py`, commit `71bef127`.
 
-The connected-renewal route remains blocked at Meeting 030's signed boundary-transmission operator on the actual connected orbit. Common-uniform global occupation/coalescence, Bellman concatenation, scalar Foster/coboundary, generic norm engineering, and larger coefficient-table searches remain stopped at their recorded obstructions.
+Final report/handoff:
 
-The distinguished-zero assignment is a bounded test of a materially different spatial-screening architecture, not a reopening of those lines.
+- `students/professor/001-fa-screen.md`, commit `f3650cd5`;
+- `students/professor/001-fa-screen-handoff.md`, commit `a271ea7e`.
 
-## Publication and hygiene
+### Scaling consequence
 
-The frozen toolbox remains at 74 methods. Meeting 018 records the full structural publication gate: 74 staged, 74 promoted, 74 hub links, zero unresolved/orphans, metadata on every promoted page, all 171 MkDocs `.md` targets resolving, validator 74/0, strict build exit 0, additions-only `docs/` diff, and clean control/format scan.
+The registered `FA-SCREEN` bridge requires a final protected interval and an `s_t`-long period after the last endpoint change in which all protected marks remain unrevealed. Earlier handoffs may search for a candidate, but the chosen endpoint must have valid age at least `s_t`.
 
-No `docs/` or `mkdocs.yml` edit is authorized by the current research block.
+Even `O(s_t)` possible endpoints cannot beat the exponential age tail. Thus this fixed-final-interval vacancy-boundary implementation cannot have success probability tending to one while `s_t->infinity` and final width is `o(s_t)`.
 
-The validator patch remains held pending the separate authorization applicable to that write.
+The positive FA spectral gap is never used; the obstruction is causal and upstream.
+
+Scope: this is not a theorem against every possible moving/adaptive FA screen.
+
+## Queued next bounded experiment: FA-INFO
+
+The only independent FA architecture still carrying a hostile-review PASS is the **quench-specific state-adaptive information-history** route.
+
+It may exploit the logical OR in the FA constraint: after one neighbour is actually revealed vacant, the other need not be revealed merely to certify legality. This causal information object can prune and merge in ways unavailable to the conservative centered dual or to a mark-only ancestor support.
+
+The next permitted work is only the bounded first experiment from the final toolbox synthesis: exact one/two-block adaptive decision trees plus a pair-level likelihood/intersection statistic. A smaller expected leaf count alone is not sufficient to reopen a proof programme.
+
+A durable assignment with a pre-registered stop/continue rule must precede execution.
+
+## Standing anti-loop rules
+
+- No stronger equilibrium gap/entropy work in place of quench memory erasure.
+- No exogenous/frozen FA boundary process substituted for the actual constraint.
+- No larger vacancy-marker hierarchy as a continuation of stopped `FA-SCREEN-001`.
+- No identification of adaptive histories with the conservative transformed dual without proof.
+- No worst-case mixing theorem contradicting the all-ones trap.
+- No public `docs/` or `mkdocs.yml` edits from active research.
