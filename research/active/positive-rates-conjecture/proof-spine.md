@@ -21,11 +21,11 @@ $$
 
 ## E0. Current route status
 
-No proof architecture is formally active. Student G is idle after Meetings 027--029; no G011. Student F is idle; no F016.
+There is presently **no active proof architecture**.
 
-One G response was already generating before the idle ruling could be relayed. Meeting 029 instructs the principal not to destroy that in-flight response by clicking stop, but to send no further prompt after it returns. This is work-preservation, not formal reactivation.
+Student G is idle after Meeting 030; no G011. Student F is idle; no F016.
 
-The operative architecture assessment remains consultation 002 / Meeting 025: **no presently identified route clears the continuation bar**, unless the already-running G artifact supplies the actual-orbit theorem specified below.
+The operative architecture assessment is consultation 002 / Meeting 025: **no presently identified route clears the continuation bar**. The late G010 material materially narrows the connected-renewal blocker but does not prove the required all-depth actual-orbit estimate.
 
 ## E1. Canonical predecessor-trail `J` quantity
 
@@ -41,9 +41,7 @@ $$
 For singleton depth `n`,
 
 $$
-\boxed{
 J_n=\frac BgR_n=\frac gBN_n.
-}
 $$
 
 Hence
@@ -84,53 +82,36 @@ Q_N^\sigma\mathbf1=0,
 \pi_NQ_N^\sigma=0.
 $$
 
-Define
-
-$$
-c_1=m_0,
-$$
-
-$$
-c_k^\sigma
-=\pi_kJ_kQ_{k-1}^\sigma J_{k-1}\cdots Q_1^\sigma J_1.
-$$
-
 Expanding every `H=zPi+Q` gives the exact recurrence
 
 $$
-\boxed{
 V_n=\sum_{k=1}^n\lambda_kV_{n-k},
 \qquad V_0=1.
-}
 \tag{REN}
 $$
 
-The fixed signed witness is dominated by the canonical absolute-duration norm, so supercritical growth of `V_n` proves `rho_J(P_*)>1`.
+The fixed signed witness is dominated by the canonical absolute-duration norm, so supercritical root growth of `V_n` proves `rho_J(P_*)>1`.
 
 Commit `e4452de` exactly verifies the first seven rational coefficients with
 
 $$
-\lambda_1,\ldots,\lambda_5>0,
-\qquad
-\lambda_6,\lambda_7<0,
-\qquad
 \sum_{k=1}^7\lambda_k>1.
 $$
 
-The sufficient target
+The sufficient connected-tail theorem
 
 $$
 \boxed{
 \sum_{k\ge8}|\lambda_k|<\delta_7,
 \qquad
-\delta_7:=\sum_{k=1}^7\lambda_k-1>0,
+\delta_7:=\sum_{k=1}^7\lambda_k-1>0
 }
 \tag{CT}
 $$
 
 remains open.
 
-## E3. Exact terminal high-pass contraction
+## E3. Terminal high-pass contraction
 
 G010 derives
 
@@ -138,143 +119,62 @@ $$
 R_N=(dI-gL_N)((1+b)I-L_N)^{-1}.
 $$
 
-For the actual fixed duration weight and filter, repaired verifier `ce77c9c` proves a depth-independent signed kernel bound with
+The repaired exact verifier `ce77c9c` proves a depth-independent signed kernel estimate with
 
 $$
-B\Theta_\sharp<1.
+B\Theta_\sharp<1,
 $$
 
-Hence
+hence
 
 $$
-\boxed{
 \operatorname{osc}
 \left(
 R_{N+1}Q_{N+1}(Y_{N+1}f)
 \right)
 \le q_\sharp\operatorname{osc}(f),
 \qquad q_\sharp<1.
-}
 \tag{HP}
 $$
 
-The scalar multiplier
+The scalar multiplier of `R_N` vanishes at `x=1/100`, blocking generic inversion of this one seminorm.
+
+## E4. Boundary-resolvent elimination
+
+Late checkpoint `75d0e8a` eliminates the stationary discrepancy functional from the actual connected coefficient. Thus bare one-/two-step tail-shift TV is not logically required for the fixed-filter connected route.
+
+The residual coefficient is an explicit boundary-resolvent expectation on the actual connected orbit. Any future claim of equivalence with the old F013/F014 tail-shift problem must survive this exact elimination.
+
+## E5. Complementary channel split
+
+The corrected recentered boundary-channel checkpoint gives
 
 $$
-R(x)=\frac{d+gx}{1+b+x}
-$$
-
-vanishes at `x=|d|/g=1/100`, blocking generic inversion of this one seminorm.
-
-## E4. Exact boundary-resolvent elimination
-
-Let
-
-$$
-q_N=Q_Nf_N,
-\qquad
-f_N=Y_NQ_{N-1}f_{N-1},
-$$
-
-and put
-
-$$
-r=1+b,
-\qquad
-S_N=(rI-L_N)^{-1},
-\qquad
-D_N=(I-L_N)S_N.
-$$
-
-Late checkpoint `75d0e8a`, accepted in Meeting 028, proves
-
-$$
-\boxed{
- c_{N+1}
- =A_N\!\left[
- \frac dr q_N
- +\left(g-\frac dr\right)B
- D_NP_NS_Nq_N
- \right].
-}
-\tag{BRE}
-$$
-
-At `P_*`,
-
-$$
- c_{N+1}=A_N(\mathfrak B_Nq_N),
-$$
-
-where
-
-$$
-\mathfrak B_N
-=-\varepsilon I
-+g_0B(I-L_N)(rI-L_N)^{-1}
-P_N(rI-L_N)^{-1}.
-$$
-
-Thus unrestricted tail-shift TV is not logically required for the connected coefficient. The residual problem is orbit-specific.
-
-## E5. Complementary high-pass decomposition
-
-Corrected late checkpoint `010h-recentered-boundary-channel-checkpoint.md` at `81a836c` gives
-
-$$
-\boxed{
 R_N=m_0I+g_0(I-K_N),
-\qquad K_N=r(rI-L_N)^{-1}.
-}
+\qquad
+K_N=(1+b)((1+b)I-L_N)^{-1}.
 \tag{CH}
 $$
 
-The `x=1/100` blind frequency is cancellation between these two channels. The genuine high-pass `I-K_N` has only the zero-frequency kernel.
+Thus the `x=1/100` zero is cancellation between a small scalar channel and a genuine high-pass channel; `I-K_N` itself vanishes only at temporal frequency zero.
 
-For the actual fixed filter,
+Both channels satisfy depth-uniform one-step bounds, and after one ordinary insertion their channelwise triangle estimate is strictly below one. This is not an iterative vector norm because no depth-uniform frame/reverse estimate controls the next raw connected input from these two outputs.
 
-$$
-\operatorname{osc}\bigl(g_0(I-K_N)Q_Nf\bigr)
-\le\frac{999}{2750}\operatorname{osc}(f),
-\tag{CH1}
-$$
+## E6. Exact recentered insertion intertwining
 
-and
+Put
 
 $$
-\operatorname{osc}(m_0Q_Nf)
-<\frac{660971283}{1210937500}\operatorname{osc}(f).
-\tag{CH2}
+r=1+b=11/10,
+\qquad
+\varepsilon=9/10000,
+\qquad
+X_N=Y_N+\varepsilon,
+\qquad
+g_0=999/10000,
 $$
 
-After one ordinary insertion,
-
-$$
-\boxed{
-B\left(
-\frac{999}{2750}
-+
-\frac{660971283}{1210937500}
-\right)
-<1.
-}
-\tag{CH3}
-$$
-
-This is a strict **channelwise one-step** bound, not an iterative two-component norm: no frame/reverse estimate yet converts the two outputs into control of the next raw input.
-
-Recentring at the autonomous boundary mean removes the scalar `I` off-diagonal but does not make the old boundary projection orthogonal. In product-centered coordinates,
-
-$$
-\beta=-\frac{\sqrt{10}}{1110},
-\qquad |\beta|<1/300
-$$
-
-is the explicit local non-orthogonal tilt.
-
-## E6. Exact fresh-coordinate intertwining
-
-With `A_N=-L_N` and the product-centered fresh coordinate `X_N`, G proves
+and `A_N=-L_N`. Then
 
 $$
 \boxed{
@@ -286,9 +186,57 @@ M_{X_N}(A_{N-1}+r)
 \tag{INT}
 $$
 
-Thus a fresh insertion shifts temporal frequency by the fixed amount `r=11/10`; the sole failure of exact intertwining is the old-boundary transmission term. The semigroup/Duhamel version separates the raw `Y` insertion into a fresh shifted branch, a small scalar branch, and this boundary-transmission branch.
+So a fresh recentered insertion shifts frequency by `r`; the sole failure of exact intertwining is the old right-boundary projection.
 
-## E7. Reversible fresh-insertion Sobolev theorem
+After regrouping `Y=X-\varepsilon`,
+
+$$
+\boxed{
+\begin{aligned}
+e^{tL_N}M_{Y_N}
+={}&e^{-rt}M_{X_N}e^{tL_{N-1}}
+-\varepsilon I_Ne^{tL_{N-1}}\\
+&+B\int_0^t e^{(t-s)L_N}M_{\eta_N}P_{N-1}
+\bigl(g_0e^{-rs}-\varepsilon\bigr)e^{sL_{N-1}}\,ds.
+\end{aligned}
+}
+\tag{TRI}
+$$
+
+The first two branches are individually subcritical under safe absolute-value estimates:
+
+$$
+BZ_{\omega+r}=\frac{1065933}{1068400}<1,
+\qquad
+\varepsilon Z=\frac{1719}{3100}<1.
+\tag{SUB}
+$$
+
+Verifier `adf50d9` checks these and the other scalar inequalities exactly.
+
+## E7. Final G010 blocker: signed boundary transmission
+
+Integrating the third branch of `(TRI)` against the fixed signed kernel `h(t)=w_*(t)\sigma(t)` gives
+
+$$
+\boxed{
+\begin{aligned}
+\mathcal V_N f
+:={}&B\int_0^\infty h(t)\int_0^t
+ e^{(t-s)L_N}M_{\eta_N}P_{N-1}\\
+&\hspace{26mm}\times
+\bigl(g_0e^{-rs}-\varepsilon\bigr)e^{sL_{N-1}}f
+\,ds\,dt.
+\end{aligned}
+}
+\tag{V}
+$$
+
+For Assignment 010 the input is the actual connected orbit. Both the inner coefficient and the outer filter kernel change sign, so taking absolute values before the two integrations destroys the remaining cancellation.
+
+No depth-uniform estimate for `\mathcal V_N` on the actual connected orbit was proved. This is now the sharpest residual object of the fixed-filter connected-renewal route.
+
+## E8. Reversible reference Sobolev theorem
 
 At the corrected reversible reference point
 
@@ -296,88 +244,108 @@ $$
 P_0=(1/10000,1/10,999/1000),
 $$
 
-keep the actual `P_*` duration weight and fixed filter frozen externally. Let
-
-$$
-A_{0,N}=-L_{0,N}
-$$
-
-in `L^2(mu_0)` and
+keep the actual `P_*` duration weight and filter frozen externally. Let `A_{0,N}=-L_{0,N}` and
 
 $$
 q(x)=Z_{\omega+x}-2Z_{\omega+\tau+x}.
 $$
 
-Commit `56d47cb` exactly verifies
+Verifier `56d47cb` proves
 
 $$
-\boxed{|xq(x)|<1\qquad(x>0).}
-\tag{SQ1}
+|xq(x)|<1\qquad(x>0).
 $$
 
-For the fresh product-centered insertion `M_Xf=X_Nf`, the site-`N` Dirichlet contribution gives
+The fresh centered insertion satisfies
 
 $$
-\boxed{
 M_X^*A_{0,N}^{-1}M_X
 \le
-\frac{c_0g_0}{r}I
-=
-\frac{998001}{11000000}I.
-}
-\tag{SQ2}
+\frac{998001}{11000000}I,
 $$
 
-Therefore
+hence
 
 $$
-\boxed{
-\|A_{0,N}^{1/2}\widetilde Q_{0,N}^\sigma M_Xf\|_2
-\le
-\sqrt{\frac{998001}{11000000}}\,\|f\|_2.
-}
-\tag{SQ3}
-$$
-
-For the actual insertion `Y=X+m_0`, still under the frozen-weight reversible reference transfer,
-
-$$
-\boxed{
 \|A_{0,N}^{1/2}\widetilde Q_{0,N}^\sigma(Y_Nf)\|_2
 \le
 \left(
-\sqrt{\frac{998001}{11000000}}
-+
-\frac9{400}
+\sqrt{\frac{998001}{11000000}}+\frac9{400}
 \right)\|f\|_2
 <\|f\|_2.
-}
-\tag{SQ4}
+\tag{SQ}
 $$
 
-This is a genuine dimension-free positive-frequency theorem, but it is not yet a theorem on the actual `P_*` connected orbit.
+This is a genuine all-depth positive-frequency theorem for the frozen-weight reversible reference transfer, not for the actual `P_*` orbit.
 
-## E8. Current blocker / restart rule
+## E9. Reversible left-slice reduction
 
-The live mathematical bottleneck is no longer simply “find another high-pass” or “prove tail shift.” The local ingredients are explicit:
+Commit `c444db5` gives the exact orthogonal recursion
 
-- complementary channels `(CH)` with strict one-step margin `(CH3)`;
-- fresh-coordinate frequency shift with only the explicit boundary-transmission defect `(INT)`;
-- a dimension-free fresh-insertion negative-Sobolev gain and filtered `H^1` output `(SQ2)`--`(SQ4)`.
+$$
+L_{0,N}=L_{0,N-1}\oplus G_{N-1}
+$$
 
-What is still missing is an **actual-orbit iteration theorem**. A qualifying restart requires either:
+in the product Hilbert space and therefore
 
-1. a depth-uniform two-seminorm/energy inequality propagating `(SQ4)` through the actual nonreversible defect `L_*-L_0` and the explicit boundary tilt/transmission term; or
-2. an orbit-specific theorem giving summable/geometric decay of the connected coefficients.
+$$
+T_{0,N}=T_{0,N-1}\oplus S_{N-1},
+\qquad
+S_n=H^\sigma(G_n)J_n.
+$$
 
-A naive use of the reference spectral gap to return from `H^1` to `L^2` loses the margin. The current checkpoints do not yet supply the required frame/energy closure.
+Thus
 
-Meeting 029 therefore does not issue G011. The already-running G response may finish without destructive interruption; after it returns, no further prompt is sent before Professor review.
+$$
+\sup_N\|T_{0,N}\|_{2\to2}<1
+$$
 
-## E9. Other retained exact mathematics
+reduces exactly to a uniform bound on the single killed channel family `S_n`. The killed family has a self-adjoint two-component recursion. This removes the growing reference mode space from the norm question but does not transport the result through the actual nonreversible defect.
 
-The stationary occupation-control hierarchy, common-coupling facts, exact trajectory kernel, previous profile reductions, and G009 singular fixed-depth theorem remain correct but inactive as recorded in earlier meetings.
+## E10. Raw coefficient Lyapunov obstruction strengthened
+
+Commit `d9c477e` tests the two-parameter degree/component norm
+
+$$
+\|f\|_{\theta,\phi}
+=
+\sum_{A\ne\varnothing}
+\theta^{|A|}\phi^{\kappa(A)}|x_A|.
+$$
+
+Uniform nonexpansiveness of the actual nonconstant raw semigroup would require
+
+$$
+(c-\alpha)\frac\phi\theta\le c+\omega,
+$$
+
+$$
+g\theta+\frac c\theta\le c+g+2\omega,
+$$
+
+$$
+g\theta+\frac{\alpha}{\theta\phi}\le g+\omega,
+\qquad \alpha=1/100.
+$$
+
+The dimer inequality forces `theta>99/100`; the long-block inequality then makes the singleton inequality impossible. Verifier `adf50d9` checks the decisive scalar inequalities exactly.
+
+Hence multiplicative component-count weighting does not repair the 010a one-step coefficient Lyapunov route. Filter-level cancellation is load-bearing.
+
+## E11. Stop rule / future restart
+
+Assignment 010 is complete unresolved after substantive work. Meeting 030 issues no G011 and leaves both students idle.
+
+A future restart of the connected-renewal branch requires **new input specifically controlling `(V)` on the actual connected orbit**, retaining its two-time cancellation strongly enough to give summable/geometric connected coefficients, or a materially different proof architecture.
+
+Do not reactivate on generic requests to find another norm, extend the reversible comparison, optimize the filter, compute longer coefficient tables, prove bare tail shift, revisit common-coupling occupation, or search generic Bellman/joint correctors.
+
+Consultation 002 / Meeting 025 `no-credible-route` is operative.
+
+## E12. Other retained exact mathematics
+
+The stationary occupation-control hierarchy, common-coupling fixed-site facts, exact trajectory-valued spatial kernel, previous predecessor-profile reductions, and G009 singular fixed-depth theorem remain correct but inactive as recorded in earlier meetings.
 
 ## Anti-circularity checkpoint
 
-Do not treat `(CH3)` as an iterable vector contraction without a frame estimate; do not transfer `(SQ4)` from `P_0` to `P_*` by a depth-growing perturbation norm; do not import the reversible point's canonical duration weight; do not infer `(CT)` from finite coefficients; and do not identify the connected route with bare tail shift despite `(BRE)` without additional mathematics.
+Do not infer `(CT)` from the finite renewal prefix; treat `(HP)` or the channelwise bounds as iterable without a frame/actual-orbit theorem; transfer `(SQ)` from `P_0` to `P_*` with a depth-growing perturbation norm; import the reversible point's canonical duration law; identify the connected route with bare tail shift despite the exact elimination; or treat `rho_J>1`, if later proved, as nonergodicity. It would refute only the sufficient absolute-duration route.
