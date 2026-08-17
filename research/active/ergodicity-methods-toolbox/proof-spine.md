@@ -1,6 +1,6 @@
 # Coverage spine
 
-This is the coverage map for the ergodicity-methods literature compilation. **Live** means source-audited by the Professor and admitted to the public wiki; **assigned** means an active student wave is searching the primary literature for a genuinely distinct proof interface; **uncovered** means still to be sourced. There are now 57 source-audited live pages, and the full wave-one-through-five public layer has passed strict structural verification.
+This is the coverage map for the ergodicity-methods literature compilation. **Live** means source-audited by the Professor and admitted to the public wiki; **assigned** means an active student wave is inspecting named primary sources for a genuinely distinct proof interface; **uncovered** means still to be sourced. There are now 67 source-audited live pages. The wave-one-through-five 57-page layer is mechanically verified; the post-wave-six 67-page build/link check is pending.
 
 ## A. Coupling and influence
 
@@ -15,16 +15,20 @@ This is the coverage map for the ergodicity-methods literature compilation. **Li
 - clan-of-ancestors perfect simulation — **live**;
 - information percolation — **live**;
 - literal block coupling by joint conditional resampling — **live**;
+- coupling independence / pinned-law coarse-grained comparison — **live**;
 - weighted synchronous Wasserstein contraction on a countable-site continuous-spin system — **live**;
 - refined non-diagonal discrepancy coupling for general exclusion — **live**;
 - literal maximal local coupling for nonmonotone Potts dynamics plus aggregate paths — **live**;
 - asymptotic binding under an absolutely continuous noise change — **live**;
 - regularized asymptotic reflection coupling for nonlinear SPDEs — **live**;
-- coupling independence / coarse-grained local-to-global coupling for spin systems — **assigned to G005**;
-- sticky coupling for McKean--Vlasov / weakly interacting particles — **assigned to G005**;
-- componentwise reflection with convergence estimates uniform in particle number — **assigned to G005**;
-- actual disagreement-front regeneration between coupled copies — **assigned to G005, bounded search**;
-- generic basic/common graphical coupling as a dedicated page — **not currently warranted**: repeated searches have not exposed an interface distinct from attractiveness/path/disagreement pages.
+- sticky nonlinear coupling for McKean--Vlasov systems — **live**;
+- componentwise reflection with particle-number-uniform mean-field contraction — **live**;
+- moving-frame coupling for the environment seen from a second-class particle — **live**;
+- asymptotic strong Feller plus weak irreducibility — **assigned to F007**;
+- Hörmander/Malliavin verification of asymptotic smoothing — **assigned to F007, only if distinct from the ASF criterion**;
+- generic disagreement-front regeneration between coupled copies — **closed absent named new evidence**;
+- generic quasi-successful coupling — **closed absent a concrete interacting-process theorem**;
+- generic basic/common graphical coupling as a dedicated page — **not currently warranted** after repeated negative searches.
 
 ## B. Duality, ancestry, percolation, marked discrepancies, and regeneration
 
@@ -36,25 +40,29 @@ This is the coverage map for the ergodicity-methods literature compilation. **Li
 - East distinguished-zero regeneration/screening — **live**;
 - supercritical block construction plus complete convergence in the parity-dual setting — **live**;
 - two-level contact block restart plus forward/backward dual intersection — **live**;
+- survival-conditioned ancestor renewal plus steering for multitype contact complete convergence — **live**;
 - physical-front regeneration / renewal times — **live**;
 - competition-interface regeneration by translated Heaviside restart — **live**;
 - exact regeneration at a recurrent particle-collapse atom — **live**;
 - second-class-particle product-shock closure and random-walk interface motion — **live**;
-- essential-hitting/restart complete convergence distinct from the two-level forward/backward-intersection proof — **assigned to G005**;
-- invariant/ergodic environment seen from a second-class particle or moving discrepancy — **assigned to G005**;
-- successful coupling for a structurally different finite dual — **fallback in G005 if a distinct theorem appears**;
-- artificial Nummelin splitting / manufactured atom in a concrete interacting process — **closed absent a named source** after two targeted searches found no qualifying application;
+- environment seen from a second-class particle — **live**;
+- Gray 1986 monotonicity-based duality for general attractive spin systems and edge relaxation — **assigned to G006**, subject to distinctness from existing dual pages;
+- Gray 1982 positive-rates one-dimensional proof architecture — **assigned to G006**, with generic attractiveness explicitly insufficient;
+- essential hitting times / almost-subadditive survival-conditioned regeneration for contact-process growth — **assigned to G006**, only if distinct enough from the live complete-convergence renewal method;
+- artificial Nummelin splitting / manufactured atom in a concrete interacting process — **closed absent a named source** after two targeted searches;
 - further branching/annihilating/coalescing dual mechanisms — **uncovered as distinct mechanisms appear**.
 
-## C. Functional inequalities, comparison, and coercivity
+## C. Functional inequalities, comparison, curvature, and coercivity
 
 - Poincare/spectral gap — **live**;
 - LSI/mLSI — **live**;
 - discrete Bochner--Bakry--Emery entropy method — **live**;
+- stochastic localization / needle decomposition for Ising Glauber gaps — **live**;
 - Dirichlet-form/canonical-path comparison — **live**;
 - block dynamics / bisection variance — **live**;
 - Lu--Yau martingale conditional-variance recursion — **live**;
 - two-scale/coarse-graining coercivity for conservative spins — **live**;
+- hierarchical renormalised Brascamp--Lieb gap recursion — **live**;
 - block/approximate entropy factorization — **live**;
 - Holley--Stroock bounded perturbation — **live**;
 - moving-particle / effective-resistance long-jump comparison — **live**;
@@ -66,31 +74,35 @@ This is the coverage map for the ergodicity-methods literature compilation. **Li
 - KCLG renormalized good-block plus long-range Glauber comparison — **live**;
 - KCSM pointwise constraint domination by a slower constrained reference process — **live**;
 - long-range constrained Poincare / good-path inequalities — **live**;
-- full Cheeger/conductance positive-gap or worst-case rapid-mixing spin application — **assigned to F006 for one renewed bounded source search**;
-- spectral-profile/evolving-set methods with a load-bearing spin/IPS application — **assigned to F006 for one bounded source search**;
-- renormalisation-group recursion for hierarchical spin-system spectral gaps — **assigned to F006**;
-- direct comparison to genuinely unconstrained refresh/noise in constrained spin dynamics — **assigned to F006**;
-- genuinely relaxation-oriented nonreversible sector/hypocoercive coercivity with IPS use — **closed absent a named source** after a serious generic search found no clean theorem.
+- Swendsen--Wang/FK cluster-dynamics spectral comparison — **assigned to F007**;
+- entropic Ricci curvature perturbation for interacting spin/particle chains — **assigned to F007**, only if distinct from live Bochner and Wasserstein methods;
+- full Cheeger/conductance positive-gap or worst-case rapid-mixing spin application — **closed absent named new evidence** after two bounded searches;
+- spectral-profile/evolving-set methods with a load-bearing spin/IPS application — **closed absent named new evidence** after two bounded searches;
+- genuinely relaxation-oriented nonreversible sector/hypocoercive coercivity with IPS use — **closed absent named new evidence** after a serious generic search.
 
 ## D. Spatial mixing and local-to-global transfer
 
 - Dobrushin--Shlosman spatial mixing to uniform LSI/Glauber relaxation — **live**;
 - spectral independence / high-dimensional local-to-global influence — **live**;
+- coupling independence / coarse-grained local-to-global coupling — **live**;
 - finite-size strong-mixing bootstrap by block decimation — **live**;
 - static disagreement percolation — **live**;
 - large-set RFIM expansion obtained from weak spatial mixing — represented by the live large-set-conductance entry;
-- coupling independence / coarse-grained local-to-global coupling — **assigned to G005**, subject to distinctness from spectral independence and block coupling;
-- broader strong/weak spatial-mixing criteria on distinct geometries — partly represented; additional mechanisms **uncovered**.
+- broader strong/weak spatial-mixing criteria on distinct geometries — partly represented; additional source-led mechanisms remain **uncovered**.
 
-## E. Recurrence, Lyapunov, and qualitative ergodicity
+## E. Recurrence, Lyapunov, smoothing, and qualitative ergodicity
 
 - Foster--Lyapunov drift plus Harris small-set recurrence in an interacting finite-dimensional system — **live**;
+- Harris/Lyapunov plus compact regularisation and strong Feller for an infinite-dimensional Levy-driven system — **live**;
 - exact renewal regeneration at a physical atom — **live**;
 - moving physical-front regeneration — **live**;
 - competition-interface regeneration — **live**;
+- survival-conditioned ancestor renewal — **live**;
 - number rigidity + tail triviality + conditional Dirichlet irreducibility — **live**;
+- relative-entropy-loss Gibbs-attractor principle — **live**;
 - Hairer Lyapunov returns plus repeated asymptotic binding attempts — **live** in the coupling section;
-- Harris/Lyapunov ergodicity for a genuinely infinite lattice/countable-site/infinite-dimensional interacting system — **assigned to F006**;
+- asymptotic strong Feller uniqueness — **assigned to F007**;
+- Hörmander/Malliavin noise propagation — **assigned to F007 if taxonomically separable**;
 - artificial Nummelin splitting — **closed absent named new evidence**.
 
 ## F. KCSM/KCLG and model-specific mechanisms
@@ -103,8 +115,8 @@ This is the coverage map for the ergodicity-methods literature compilation. **Li
 - long-range constrained Poincare / good-path dynamics — **live**;
 - nested super-good mobile-droplet renormalisation — **live**;
 - CBSEP/generalized-CBSEP auxiliary-process comparison — **live**;
-- direct comparison with fully independent/unconstrained refresh dynamics where that reference is genuinely load-bearing — **assigned to F006**;
-- persistence/defect-particle/interface methods beyond East — partly represented by second-class shocks and front regeneration; further distinct mechanisms **uncovered**.
+- direct comparison with fully independent/unconstrained refresh dynamics — **closed as a generic search absent a named distinct source**;
+- persistence/defect-particle/interface methods beyond East — represented by shock markers, moving frames and front/competition renewal; further distinct mechanisms **uncovered**.
 
 ## G. Finite-to-infinite transfer and invariant-law construction
 
@@ -117,25 +129,24 @@ This is the coverage map for the ergodicity-methods literature compilation. **Li
 - finite-volume LSI/Beckner coercivity + semigroup exhaustion + Gibbs compactness — **live**;
 - graphical finite-speed transfer from growing finite volumes — **live**;
 - N/V tightness of stationary path laws + martingale-problem and Gibbs accumulation-point identification — **live**;
-- exact projective-consistency/Kolmogorov-extension construction of an interacting invariant law — **assigned to F006**;
-- boundary-uniform dynamic graphical projective transfer from finite boxes — **not currently warranted**: G004 found only already-live boundary screening or analytic exhaustion mechanisms; closed absent a concrete named source with a different limiting object.
+- exact projective consistency / extension of splitting Gibbs marginals to a reversible loss-network equilibrium — **live**;
+- boundary-uniform dynamic graphical projective transfer from finite boxes — **closed absent a named source**: the prior search found only already-live screening or analytic exhaustion mechanisms.
 
-## H. Potential theory and adjacent relaxation
+## H. PCA, potential theory, and adjacent long-time methods
 
-- potential-theoretic capacity / Dirichlet and flow variational principles for metastable Glauber crossover — **live**;
-- infinite-volume capacity methods for IPS global ergodicity/relaxation — **uncovered**;
-- hierarchical renormalisation-group spectral-gap recursion — **assigned to F006** if primary inspection confirms a distinct reusable interface.
-
-The capacity entry is deliberately adjacent to, rather than synonymous with, the main ergodicity targets: it proves sharp metastable transition laws, not rapid global mixing or a positive spectral gap.
+- potential-theoretic capacity / Dirichlet and flow principles for metastable Glauber crossover — **live**;
+- Toom graphical error/contour expansions for low-noise PCA convergence and correlation decay — **assigned to G006**;
+- essential hitting-time shape/growth theory for contact processes — **assigned to G006**, explicitly adjacent rather than automatically an ergodicity method;
+- infinite-volume capacity methods for IPS global ergodicity/relaxation — **uncovered**.
 
 ## I. Publication state
 
-Meetings 002--005 source-audited the initial thirty entries; Meetings 006 and 008 promoted them. Meeting 010 source-audited the fourteen wave-four entries and Meeting 011 promoted them; Meeting 012 records their complete mechanical verification. Meeting 013 source-audited all thirteen wave-five entries, made two target-scope corrections, accepted both anti-padding substitutions, promoted the thirteen pages, and opened wave six. Meeting 014 records the principal/orchestrator's successful post-wave-five structural publication check.
+Meetings 002--005 source-audited the initial thirty entries; Meetings 006 and 008 promoted them. Meeting 010 source-audited the fourteen wave-four entries and Meeting 011 promoted them; Meeting 012 records their mechanical verification. Meeting 013 source-audited and promoted thirteen wave-five entries; Meeting 014 records the clean 57-page structural check. Meeting 015 source-audited and promoted all ten wave-six entries and opened source-led wave seven.
 
-There are now **57 live, source-audited, mechanically verified toolbox method pages**. On the integrated tree at `aa28743`, `validate_entries.py` reports 57 entries and 0 failures; `mkdocs build --strict` exits 0 with no warnings or broken internal links; staged/live/hub completeness is exactly 57/57/57; all 154 MkDocs `.md` targets resolve; every promoted page carries `status:` and `audit:`; and the `docs/` diff against `origin/main` remains additions-only. The only build INFO conditions are unchanged legacy conditions predating this programme.
+There are now **67 live, source-audited toolbox method pages**. The principal's pre-audit staging snapshot reported `Checked 67 entries; 0 failed mechanical validation.` A direct compare from verified head `aa28743` confirms wave six adds exactly ten method pages and modifies only the toolbox hub and `mkdocs.yml` in the public layer. The final 67-page strict build/link/completeness check is pending and must not be inferred from source audit.
 
-The repository-wide article convention remains unchanged for this programme: toolbox pages stay in `docs/entries/`. The separate principal-level legacy-directory question is not a Professor task.
+The repository-wide article convention remains unchanged: toolbox pages stay in `docs/entries/`. The separate principal-level legacy-directory question is not a Professor task.
 
 ## J. Coverage discipline
 
-The toolbox is an inventory, not a ranking. Breadth and model-specific tools are desired, but each entry must expose a distinct rigorous proof interface and a concrete interacting-process use. Shared sources do not imply duplicate methods. When a source search shows that an assigned family collapses into an existing interface, record that negative taxonomy result rather than manufacture a page. Repeated failed generic searches are closed until a named source gives a reason to reopen them.
+The toolbox is an inventory, not a ranking. Breadth and model-specific tools are desired, but each entry must expose a distinct rigorous proof interface and a concrete interacting-process use. Shared sources do not imply duplicate methods. At this stage new waves are source-led: named primary theorem families are preferred to generic gap labels. Failed generic searches remain closed until a concrete source gives a reason to reopen them.
