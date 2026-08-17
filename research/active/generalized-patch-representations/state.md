@@ -4,7 +4,7 @@ Date: 2026-08-17
 
 ## Active direction
 
-Generalize the patch-representation / patch-positivity framework of the canonical paper `paper/` beyond binary flip spin systems.
+Generalize the canonical patch-representation / patch-positivity framework beyond binary flip spin systems.
 
 Branch: `research/generalized-patch-representations`.
 
@@ -17,150 +17,171 @@ Branch-only wiki section:
 
 Nothing from this programme is to be written or merged to `main` without a later principal instruction.
 
-Latest meeting: `meetings/003-explicit-typed-patch-representation.md`.
+Latest meeting: `meetings/004-typed-bulk-transfer-recovers-binary-positivity.md`.
 
 ## Assignment 001
 
 Status: **`CONTINUE-TYPED-PATCH`**.
 
-For finite `E={0,...,d-1}` with reference state `0`, the reference-state indicator tensor basis yields typed active configurations and an exact signed local Feynman--Kac dual for general bounded finite-range single-site replacement dynamics.
-
-For nonempty target, the successful record
+The reference-state indicator tensor basis gives typed active configurations and an exact fixed-local-clock signed Feynman--Kac dual for finite-state bounded finite-range single-site replacement IPS. Nonempty successful records are
 
 \[
-(i,t,r,\tau)
+(i,t,r,\tau),
 \]
 
-reveals the pre-source type and typed target while hiding the post-source outcome. The `d=2` specialization is exactly the canonical death/split/birth dual.
+revealing the pre-source type and typed target while hiding post-source outcome.
 
 ## Assignment 002
 
 Status: **`CONTINUE-TYPED-REPRESENTATION`**.
 
-One-site typed patch geometry survives, but bare conditional factorization given only the coarse record list fails because incoming typed conflicts can hit cemetery and remove all future no-record constraints.
-
-The exact `d=3` gate gives
-
-\[
-P(K,B\mid G)=4/17\ne32/289=P(K\mid G)P(B\mid G).
-\]
-
-Since `H_dagger=0`, the representation-sufficient killed/noncemetery factorization is exact:
-
-\[
-E\left[h(G_T)1_{\{\tau_\dagger>T\}}\prod_Pf_P\right]
-=
-\int h(g)\prod_PE_P[f_P1_{Con(P)}]m_T(dg).
-\]
-
-Thus
-
-\[
-\nu_T(dg)=P(G_T\in dg,\tau_\dagger>T)
-=\prod_PP_P(Con(P))m_T(dg).
-\]
+Bare conditional factorization fails because incoming typed conflicts can hit cemetery and remove all future no-record constraints. The exact replacement is killed/noncemetery weighted factorization, valid because `H_dagger=0`.
 
 ## Assignment 003
 
 Status: **`CONTINUE-TYPED-POSITIVITY`**.
 
-The explicit local intrinsic weight is
-
-\[
-A_P
-=
-\epsilon_{\rm out}(P)
-\epsilon_{\emptyset}(P)
-\exp\left(
-\int_{b(P)}^{e(P)\wedge T}
-\bar v_{i(P),X_u^P}\,du
-\right),
-\]
-
-with `bar v_{i,0}=0`. The full patch weight is
-
-\[
-w_P=
-\begin{cases}
-A_P,&P\text{ bulk},\\
-A_Ph_{X_T^P}(\eta_{i(P)}),&P\text{ end}.
-\end{cases}
-\]
-
-On every noncemetery trajectory,
-
-\[
-\sigma_Te^{\int_0^TV(\xi_u)du}H_{\xi_T}(\eta)
-=
-\prod_Pw_P.
-\]
-
-Combining this pathwise identity with Assignment 002 gives the exact killed-skeleton representation
-
-\[
-\boxed{
-P_TH_{\xi_0}(\eta)
-=
-\int
-\left(\prod_{P\in\mathcal B_T(g)}C(P)\right)
-\left(\prod_{P\in\mathcal E_T(g)}C_T(\eta_{i(P)},P)\right)
-\nu_T(dg).}
-\]
-
-Bulk contributions are
+The exact typed patch representation is proved. Bulk contributions are
 
 \[
 C(P)=E_P^{con}[A_P]
 \]
 
-and are independent of terminal physical data. End contributions have the explicit one-site expansion
+and are independent of terminal physical data; end contributions are one-site indicator-basis functions.
+
+## Assignment 004
+
+Status: **`CONTINUE-TYPED-POSITIVITY-CRITERION`**.
+
+### Signed interior transfer
+
+For active local type `r`, the weighted killed Feynman--Kac transfer has generator
 
 \[
-C_T(x,P)
-=B_0(P)+\sum_{a\in E_*}B_a(P)1_{\{x=a\}}.
+\boxed{K_i(0,\cdot)=0,
+\qquad K_i(r,s)=a_{i,r}^s(\emptyset).}
 \]
 
-The `d=2` reduction is exactly the canonical binary patch weight and representation. Typed conflict disappears there, so the killed skeleton is the ordinary binary successful skeleton.
+This follows by exact cancellation of empty-target escape subtraction, nonempty-target no-success killing, and the local potential.
+
+### Unsigned consistency transfer
+
+\[
+B_i(r,s)=|a_{i,r}^s(\emptyset)|\quad(s\ne r),
+\]
+
+\[
+B_i(r,r)=
+-\sum_{s\ne r}|a_{i,r}^s(\emptyset)|
+-\sum_{\tau\ne\emptyset}\sum_s|a_{i,r}^s(\tau)|,
+\]
+
+with zero inactive row.
+
+### Four exact bulk numerator families
+
+For
+
+\[
+f_b^I=e_0^T+e_b^T,
+\qquad f_r^O=e_r^T,
+\]
+
+and outgoing initial signed row
+
+\[
+\mathbf a_{r,\tau}=(a_{i,r}^s(\tau))_{s\in E},
+\]
+
+the four bulk contributions are ratios whose numerators are
+
+\[
+e_a e^{tK_i}f_b^I,
+\qquad
+e_a e^{tK_i}f_r^O,
+\]
+
+\[
+\mathbf a_{r,\tau}e^{tK_i}f_b^I,
+\qquad
+\mathbf a_{r,\tau}e^{tK_i}f_{r_e}^O.
+\]
+
+The denominators use `e^{tB_i}` and absolute outgoing rows and are positive on realizable descriptors.
+
+Therefore typed bulk patch positivity is **exactly** nonnegativity of these four numerator families for every realizable descriptor and every `t>0`.
+
+### Small-time multi-state constraints
+
+Among the immediate necessary conditions are
+
+\[
+a_{i,a}^{r}(\emptyset)\ge0
+\quad(a\ne r)
+\]
+
+for realizable direct retyping `IO` patches, and
+
+\[
+a_{i,r}^{r_e}(\tau)\ge0
+\]
+
+for realizable zero-length `OO` limits.
+
+### Binary acceptance test
+
+The `d=2` transfer formulas reduce exactly to the canonical paper's patch formulas. All-length positivity is equivalent to
+
+\[
+c_i^0(S)+c_i^1(S)\le0,
+\]
+
+\[
+c_i^1(\emptyset)c_i^0(S)
+\ge
+c_i^0(\emptyset)c_i^1(S)
+\]
+
+when `c_i^0(emptyset)+c_i^1(emptyset)>0`, and to `c_i\equiv0` in the degenerate case.
+
+Thus there is no binary positivity mismatch.
+
+### Final verifier
+
+`students/professor/004-typed-transfer-verifier.py`, final commit `0bbfccd0`.
+
+The final `d=3` gate reconstructs all typed data from a genuine one-neighbour three-state physical generator and checks physical-rate nonnegativity before transfer identities.
 
 Decisive files:
 
-- `students/professor/003a-local-typed-patch-weight.md`, commit `992552ca`;
-- verifier `003-typed-representation-verifier.py`, commit `50f28f62`;
-- `003b-pathwise-typed-patch-product.md`, commit `1f58d2f3`;
-- `003c-exact-typed-semigroup-representation.md`, commit `6eebcaa5`;
-- `003d-bulk-end-separation-and-binary-reduction.md`, commit `4f9c250b`;
-- final report `003-typed-patch-representation.md`, commit `ed5492e8`;
-- handoff `003-handoff.md`, commit `b46a63dc`;
-- Meeting 003, commit `7d20767f`.
+- `004a-signed-interior-transfer.md`, commit `6248cc68`;
+- `004b-unsigned-consistency-transfer.md`, commit `96197d46`;
+- `004c-four-orientation-transfer-formulas.md`, commit `6f996224`;
+- `004d-small-time-necessary-conditions.md`, commit `c24554c2`;
+- `004e-binary-equivalence.md`, commit `f6485b2c`;
+- verifier final commit `0bbfccd0`;
+- final report `004-typed-bulk-positivity-transfer.md`, commit `be4429bc`;
+- handoff `004-handoff.md`, commit `62b9a9fa`;
+- Meeting 004, commit `b9673290`.
 
 ## Current proof-spine edge
 
-**Characterize nonnegative bulk typed patch contributions.**
+**Tractable coefficient characterization of typed bulk patch positivity.**
 
-The object is now unambiguous:
+The exact all-length semigroup-positive family is known. The next bounded block should determine whether it admits a finite/local coefficient criterion for a nontrivial multi-state class, or isolate the precise obstruction to such a criterion.
 
-\[
-C(P)=E_P^{con}[A_P].
-\]
-
-The next bounded block should derive a finite-dimensional transfer-matrix / killed-CTMC formula for every bulk boundary type and determine what coefficient-level condition is equivalent to, or at least usefully sufficient for,
-
-\[
-C(P)\ge0
-\]
-
-for every finite bulk typed patch.
-
-No generalized positivity criterion has yet been asserted.
+Do not move to applications or convergence yet.
 
 ## Scope, novelty and publication boundary
 
-The proved class is finite-state bounded finite-range **single-site replacement** dynamics in the reference-state indicator tensor basis. Simultaneous multi-site physical updates remain outside scope.
+Current proved scope: finite-state bounded finite-range **single-site replacement** dynamics in the reference-state indicator tensor basis.
 
-No literature novelty claim has yet been made for the generalized representation theorem. A targeted literature audit should occur after the positivity statement is stable enough to identify the theorem actually being claimed.
+Simultaneous multi-site physical updates remain outside scope.
 
-Existing patch pages under `docs/entries/` are source material and are not generalized in place. Stable current research may be kept only in the designated branch-only generalized-patch wiki section.
+No novelty claim has yet been made for the generalized theorem. Literature audit remains downstream of a stable coefficient-level statement.
+
+Existing `docs/entries/`, `docs/meta/`, and `mkdocs.yml` are not to be modified by this programme. Stable current research may be recorded only in the designated branch-only generalized-patch section.
 
 **Do not publish or merge any programme content to `main`.**
 
-All previously stopped programmes remain closed at their existing rulings.
+All previously stopped programmes remain closed.
