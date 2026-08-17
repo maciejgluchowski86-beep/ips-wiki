@@ -4,55 +4,67 @@ This file is the compact current-state index for the autonomous research program
 
 ## Active scientific direction
 
-**Ergodicity methods toolbox for spin systems and IPS.**
+**Ergodicity methods toolbox for spin systems and IPS, transitioning to problem-specific applicability assessment.**
 
 - Branch: `research/ergodicity-methods-toolbox`.
 - Workspace: `research/active/ergodicity-methods-toolbox/`.
-- Principal target: compile a broad, concise, self-contained, source-checked toolbox of rigorous methods used to prove ergodicity/uniqueness, convergence to equilibrium, coupling agreement, positive spectral gap, log-Sobolev inequalities, quantitative mixing, or closely related relaxation statements in spin systems, IPS, KCSM, Glauber-type and adjacent interacting models.
-- Breadth is intentional; model-specific methods are in scope.
-- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/015-wave-six-audited-integrated-wave-seven-opened.md`.
+- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/016-wave-six-verified-collection-sunset-assessment-phase.md`.
+- Assessment protocol: `research/active/ergodicity-methods-toolbox/assessment-protocol.md`.
 - Student F: active on Assignment 007.
 - Student G: active on Assignment 006.
 
+The principal has ruled that the toolbox is broad enough. **Wave seven is the final literature-collection wave.** After it is audited and integrated, breadth collection stops. The programme then assesses which frozen toolbox methods are most useful for either:
+
+1. one-dimensional FA-1f / East out-of-equilibrium convergence; or
+2. the positive-rates conjecture for simple IPS.
+
 ## Coverage and publication status
 
-There are **67 source-audited staged entries and 67 live toolbox pages**.
+There are **67 source-audited staged entries and 67 live toolbox pages**, and the complete wave-one-through-six public layer has passed structural verification.
 
-The first 57 pages, through wave five, are mechanically verified by Meeting 014. Before wave-six Professor integration, the principal/orchestrator reported:
+The principal/orchestrator reports:
 
 ```text
 Checked 67 entries; 0 failed mechanical validation.
 ```
 
-Meeting 015 source-audited all ten wave-six entries and promoted all ten. A direct comparison from verified wave-five head `aa28743` shows exactly ten added method pages under `docs/entries/`, plus modifications to `docs/ergodicity-methods.md` and `mkdocs.yml`, with no other `docs/` path changed.
+`mkdocs build --strict` exits 0 with no warnings and no broken internal links. The only INFO output consists of unchanged legacy conditions predating this programme.
 
-The **post-wave-six structural publication gate is pending**. The principal/orchestrator should rerun:
-
-```bash
-python research/active/ergodicity-methods-toolbox/validate_entries.py
-mkdocs build --strict
-```
-
-and verify exact 67 staged/live/hub completeness, `status:`/`audit:` metadata, MkDocs target resolution, and additions-only legacy safety.
+Completeness is exact: 67 staged entries, 67 promoted pages, 67 hub links, zero unresolved links, no orphan in either direction, every promoted page carries `status:` and `audit:`, and all 164 MkDocs `.md` navigation targets resolve. `git diff origin/main..research/ergodicity-methods-toolbox -- docs/` remains additions-only with zero non-additions.
 
 These are structural checks only. Source/claim acceptance is the Professor audit recorded in Meetings 002--005, 010, 013, and 015.
 
-The directory question remains a principal-level wiki-curation issue and is not reopened here. Toolbox pages continue to live in `docs/entries/` alongside frozen legacy material, separated for readers by the dedicated hub/navigation and audit metadata.
+The directory question remains a principal-level wiki-curation issue and is not reopened here. No public-doc restructuring is authorized during the applicability assessment.
 
-## Wave-six additions and closed searches
+## Entry hygiene
 
-Wave six added infinite-dimensional Harris recurrence, hierarchical renormalised Brascamp--Lieb gap recursion, exact projective-consistency equilibrium construction, relative-entropy Gibbs-attractor arguments, stochastic localization for Ising Glauber gaps, coupling independence, sticky McKean--Vlasov coupling, particle-number-uniform componentwise reflection, survival-conditioned contact renewal, and the moving-frame TASEP environment seen from a second-class particle.
+Meeting 015 exposed a structural-validator blind spot: a TeX backslash in one staged entry had been consumed into a control character. The principal/orchestrator subsequently scanned 230 staged/promoted pages for control and Unicode format characters; the toolbox material is clean. A single instance outside this programme remains in frozen legacy material and has been reported separately to the principal.
 
-Repeated generic searches are now closed absent named new evidence: full-Cheeger positive-spin relaxation, spectral-profile/evolving-set IPS use, fully-unconstrained-refresh KCSM comparison, disagreement-front regeneration, quasi-successful coupling, artificial Nummelin splitting, nonreversible sector/hypocoercive IPS relaxation, boundary-uniform projective graphical coupling, and generic common/basic graphical coupling.
+Future method-entry review uses both a control/format-character scan and visual/diff inspection of TeX backslashes. Control scans cannot detect every lost backslash, for example a silently mangled `\alpha` or `\mu`.
 
-## Active breadth wave
+## Final collection wave
 
-Wave seven is source-led and deliberately smaller. Students may return fewer entries rather than pad.
+Student F Assignment 007 is source-led: asymptotic strong Feller uniqueness; Hörmander/Malliavin propagation if distinct; Swendsen--Wang/FK spectral comparison; entropic Ricci curvature if distinct.
 
-Student F Assignment 007 covers Hairer--Mattingly asymptotic strong Feller uniqueness, Hairer--Mattingly Hörmander/Malliavin propagation if distinct, Ullrich Swendsen--Wang/FK cluster-dynamics comparison, and Erbar--Henderson--Menz--Tetali entropic Ricci curvature if distinct from existing Bochner/Wasserstein pages.
+Student G Assignment 006 is source-led: Gray 1982 positive-rates proof architecture; Gray 1986 attractive-spin duality; Toom error/contour expansions; essential hitting times/almost-subadditive contact-process regeneration if distinct.
 
-Student G Assignment 006 covers Gray's 1982 one-dimensional positive-rates proof architecture, Gray's 1986 duality for general attractive spin systems, Toom graphical contour/error expansions for low-noise PCA, and essential hitting times/almost-subadditive contact-process regeneration if sufficiently distinct from existing renewal methods.
+Returning fewer entries is acceptable. No wave eight of generic collection will be issued.
+
+## Post-wave-seven assessment
+
+After the wave-seven handoffs are source-audited, integrated, and structurally verified, freeze the inventory and issue:
+
+- Student F: complete **FA-1f/East applicability audit** of every frozen toolbox method;
+- Student G: complete **positive-rates applicability audit** of every frozen toolbox method;
+- hostile cross-review of only the two shortlists;
+- Professor synthesis with ranked method priorities and at most two recommended first proof experiments per problem.
+
+The assessment standard is exact-interface matching, not thematic relevance. An actionable method must produce a concrete bridge lemma to a live unresolved object and survive the existing obstruction record.
+
+For positive rates, the authoritative compact obstruction/target record is `research/active/positive-rates-conjecture/programme-established-results.md` and final `state.md` on branch `research/positive-rates-conjecture`. The sharp connected-renewal blocker is the signed two-time boundary-transmission operator on the actual connected orbit; convective disagreement escape, stationary diameter collapse, and shift/tail decay remain alternative live interfaces.
+
+For FA-1f, the assessment uses the unresolved one-dimensional Bernoulli-quench sign/chronology reductions, the closed finite-seed programme, and East's distinguished-vacancy screening as a solved structural benchmark.
 
 ## Previous scientific direction
 
-The positive-rates conjecture proof loop has been stopped by the principal. Its archive remains on branch `research/positive-rates-conjecture`; `research/active/positive-rates-conjecture/programme-established-results.md` is the concise established-results summary there. The conjecture itself remains open.
+The direct positive-rates proof loop is stopped and archived on branch `research/positive-rates-conjecture`. Its exact obstruction record is now input to the applicability assessment, not an invitation to restart an exhausted architecture under a new name.
