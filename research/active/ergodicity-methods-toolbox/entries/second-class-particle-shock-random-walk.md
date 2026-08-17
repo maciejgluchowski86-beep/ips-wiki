@@ -3,8 +3,8 @@ method_id: second-class-particle-shock-random-walk
 title: Second-class particle coupling for microscopic shocks
 category: coupling
 targets:
-  - convergence
-  - coupling-agreement
+  - shock-dynamics
+  - interface-stability
 model_scope: One-dimensional conservative particle systems with product shock measures and a single coupled discrepancy
 source_status: primary-checked
 primary_source: Márton Balázs, György Farkas, Péter Kovács and Attila Rákos, Random walk of second class particles in product shock measures, Journal of Statistical Physics 139 (2010), 252–279
