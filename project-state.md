@@ -8,96 +8,68 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 
 ## Active scientific direction
 
-**Voter-model discordance on undirected heterogeneous configuration models.**
+**Generalized patch representations and patch positivity for interacting particle systems.**
 
-- Branch: `research/heterogeneous-voter-discordance`.
-- Workspace: `research/active/heterogeneous-voter-discordance/`.
-- Active student: persistent Graduate Student E.
-- Initial bounded ensemble: configuration models whose empirical degree law converges to a fixed law supported on `{3,...,D}` for finite `D`.
-- Source-level target: identify and prove the unequal-degree analogues of the regular-random-graph discordance profile and consensus-scale diffusion constant.
-- Assignment: `research/active/heterogeneous-voter-discordance/students/student-e/assignment-001.md`.
+- Branch: `research/generalized-patch-representations`.
+- Workspace: `research/active/generalized-patch-representations/`.
+- Branch-only wiki hub: `docs/generalized-patch-representations.md`.
+- Branch-only wiki section: `docs/generalized-patch-representations/`.
+- Current bounded assignment: `research/active/generalized-patch-representations/students/professor/assignment-001-finite-state-duality.md`.
+- Executor: Professor, because no graduate-student session is currently operational.
 
-Frank den Hollander, *Evolution of Discordance* (2025), Section 2.4, explicitly states that extending the regular discordance theorems to configuration models with unequal degrees remains open and that no conjectural analogues of the regular `theta_d` and `f_d(t)` are given there. Student E's first assignment must nevertheless check general finite-voter and configuration-model literature before treating any candidate formula as new.
+The principal has superseded the previous direction and asked whether the patch-positivity paper can be extended to more general IPS: more than two local states, updates beyond flips, a corresponding signed dual process, a successful-interaction analogue which reveals a coarse spacetime skeleton while hiding a finite local mark, generalized patches and patch positivity, and applications.
 
-### First structural edge
+The core mechanism to preserve is conditional averaging of hidden local marks inside spacetime patches before signed contributions are compared.
 
-For a fixed undirected graph with degrees `d_x`, `m=|E|`, and stationary random-walk weights
+## Canonical binary benchmark
 
-$$
-\pi_x=\frac{d_x}{2m},
-$$
+For the existing construction, the manuscript under `paper/`, *Patch representations and convergence for facilitated spin systems*, is authoritative.
 
-the conserved voter coordinate is
+The first block uses especially:
 
-$$
-B^\pi(\eta)=\sum_x\pi_x\eta_x,
-$$
+- `paper/sections/spin-systems.tex`;
+- `paper/sections/signed-dual.tex`;
+- `paper/sections/patches-body.tex`;
+- `paper/sections/representation.tex`;
+- `paper/sections/patch-positivity.tex`;
+- `paper/appendices/monomial-dual.tex`.
 
-not the unweighted density. If `k_x` is the number of neighbours disagreeing with `x`, then
+The existing patch wiki pages under `docs/entries/` remain source/expository material. They are not being rewritten in place.
 
-$$
-\Gamma(B^\pi)(\eta)
-=\frac1{4m^2}\sum_xd_xk_x
-=\frac1{4m^2}
-\sum_{\{x,y\}\in E:\eta_x\ne\eta_y}(d_x+d_y).
-$$
+## First proof-spine edge
 
-Thus the consensus-scale bracket is driven by a degree-weighted discordant-edge observable. The raw discordant-edge profile and bracket-weighted profile coincide up to a constant only in the regular case. The first assignment must derive the exact local weak rootings, candidate profiles, and meeting-time constant, and determine which parts are already prior art.
-
-## Most recently closed programme: voter discordance sharp concentration on random regular graphs
-
-The regular-graph concentration programme closed at Group Meeting 004 on branch `research/voter-discordant-concentration` after a negative closest-prior-work audit.
-
-`VOTER-CONC-001` is mathematically **verified** but **not a new project result under the standing novelty standard**.
-
-The project proved the sharper deterministic inequality
+For a finite local state space `E={0,...,d-1}` with reference state `0`, test the one-site basis
 
 $$
-\operatorname{Var}_u^G(\mathcal D_t)
-\le2\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t)
+h_0\equiv1,
+\qquad
+h_a(x)=1_{\{x=a\}},\quad a\ne0,
 $$
 
-for every finite simple positive-degree regular graph. Correctness survived the Professor reconstruction and two independent hostile reviews.
+and the tensor observables indexed by finite typed active configurations.
 
-However, Avena--Baldasso--Hazra--den Hollander--Quattropani (2024), Proposition 4.1 proof (4.2) together with (5.5)--(5.6), already imply the theorem-level bound
+For general bounded single-site replacement dynamics
 
 $$
-\operatorname{Var}_u^G(\mathcal D_t)
-\le4\mathbf P_{\pi\otimes\pi}^G(\tau_{\rm meet}\le t),
+L f(\eta)
+=\sum_i\sum_{x\ne y}1_{\{\eta_i=x\}}c_i^{x\to y}(\eta_{N(i)})
+\bigl[f(\eta^{i,y})-f(\eta)\bigr],
 $$
 
-and source (5.8) then yields the same random-regular asymptotic concentration consequences. The project's factor `2` and quotient-genealogy proof are retained as verified technical mathematics, not a contribution claim.
+the first question is whether expansion of the neighbour rates in this tensor basis gives a **fixed local signed Feynman--Kac graphical dual** on typed active configurations. The locality standard is stronger than abstract finite-dimensional duality: Poisson clock rates must depend only on local event data, not on the rest of the current dual configuration.
 
-Literal source Eq. (1.9) is false for unrestricted very-small times; the project counterexample `t_n=n^{-3}`, `C_n=log n` is verified. Priority of that narrow correction remains unresolved because a relevant Capannoli thesis was inaccessible to the novelty auditor. It is not being pursued as an active programme on opportunity-cost grounds.
+The mandatory bounded stress test is `d=3` with one neighbour, including compatible and conflicting typed overlaps, together with an exact `d=2` specialization back to the paper.
 
-Do not reopen the regular concentration programme to optimize the constant or repackage the immediate prior-work corollary.
+Only after this layer is settled may the programme define a generalized successful-interaction skeleton or patch positivity.
 
-## Earlier closed programme: residual positive-rates / noisy East
+## Wiki and publication boundary
 
-The noisy-East fixed-finite-wall programme is closed. Its corrected residual chamber and sharp frozen-exterior three-site factor remain useful diagnostic mathematics, but repeated attacks show the one-attack factor does not concatenate. No length-four rescue is allowed.
+The principal explicitly permits the research loop to keep and refine results in a **separate wiki section on the research branch**. Raw mathematics remains under the research workspace; stable notation/constructions may be copied into `docs/generalized-patch-representations/` on this branch.
 
-## Earlier closed programme: BABP finite seed
+**Do not publish or merge any of this programme to `main`.** Main was deliberately restored by the principal to the pre-research-loop tree and is outside the active write surface.
 
-BABP closed without a new project result under the standing novelty standard. `BABP-EDGE-001` and `BABP-CONV-001` remain verified technical mathematics with their audit records, but neither is counted as a project contribution.
+## Previous directions
 
-## Wiki freeze
+The principal's new direction supersedes the previously active voter-discordance work and every queued publication/merge question.
 
-The live wiki remains frozen. No `proved here` promotion follows from the closed voter-concentration programme because its central verified theorem is non-contributory under the standing novelty standard.
-
-## Closed programmes and routes
-
-Closed programmes not to be retried by renaming include:
-
-- quadratic-Hessian;
-- Fresnel integrability;
-- Navier--Stokes stochastic cascade;
-- Strong-KPP uniqueness;
-- supercritical dissipative SQG;
-- long-maturity marked branching;
-- Gaussian bridge coarsening;
-- 1D hard FA-1f finite-seed programme based on centered-transform / unnormalized patch-transfer routes;
-- 1D BABP finite-seed programme based on finite-window submartingales and the unresolved invariant-front continuation;
-- residual noisy-East programme based on fixed finite agreed-block walls and frozen-exterior crossing factors;
-- random-regular voter-discordance sharp-concentration programme based on the variance-to-meeting reduction already implicit in Avena et al. (2024).
-
-Broader mathematical problems may remain open. What is closed is the recorded programme/mechanism at its present expected value.
+Previously stopped positive-rates, FA-1f, BABP, noisy-East, voter-concentration, PDE and other recorded programmes remain closed at their existing rulings. This programme does not reopen them by analogy or reuse of terminology.
