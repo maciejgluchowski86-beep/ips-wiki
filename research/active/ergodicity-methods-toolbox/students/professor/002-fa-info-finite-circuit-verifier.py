@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exact finite decision-tree checks for FA-INFO-002.
 
-Spin 0 is vacancy.  All arithmetic is Fraction; there is no Monte Carlo.
+Spin 0 is vacancy. All arithmetic is Fraction; there is no Monte Carlo.
 """
 from fractions import Fraction as Q
 from functools import lru_cache
@@ -100,6 +100,40 @@ def output_vacancy_probability(func, nvars, input_q):
     return total
 
 
+def conditional_output_vacancy_s1(bits, q):
+    total = Q(0)
+    for z in (0, 1):
+        if s1(bits, z) == 0:
+            total += bit_prob(z, q)
+    return total
+
+
+def conditional_output_vacancy_s2(bits, q):
+    total = Q(0)
+    for z1, z0 in product((0, 1), repeat=2):
+        if s2(bits, z1, z0) == 0:
+            total += bit_prob(z1, q) * bit_prob(z0, q)
+    return total
+
+
+def chi2_channel_coefficient(hfunc, nvars, q):
+    """Squared maximal correlation for product-q input and binary output.
+
+    For binary equilibrium output with vacancy probability q, the exact chi^2
+    strong-data-processing coefficient is Var_q(P(Y=0|X))/(q(1-q)).
+    """
+    mean = second = Q(0)
+    for a in product((0, 1), repeat=nvars):
+        pa = Q(1)
+        for bit in a:
+            pa *= bit_prob(bit, q)
+        h = hfunc(a, q)
+        mean += pa * h
+        second += pa * h * h
+    assert mean == q
+    return (second - mean * mean) / (q * (1 - q))
+
+
 def average_s1(q, q0):
     l2 = count = out_q0 = out_q = Q(0)
     for z in (0, 1):
@@ -131,11 +165,7 @@ def centered_top_coefficient_s2(q):
     for bits_vac in product((0, 1), repeat=4):
         # Convert vacancy indicators V=1 to spin bits x=0.
         spin_bits = tuple(0 if v else 1 for v in bits_vac)
-        h = Q(0)
-        for z1, z0 in product((0, 1), repeat=2):
-            wz = bit_prob(z1, q) * bit_prob(z0, q)
-            if s2(spin_bits, z1, z0) == 0:
-                h += wz
+        h = conditional_output_vacancy_s2(spin_bits, q)
         prob = Q(1)
         phi = Q(1)
         for v in bits_vac:
@@ -165,6 +195,12 @@ for coins, expected in expected_s2_essential.items():
 # The centered four-body coefficient is nonzero and equals -q.
 assert centered_top_coefficient_s2(q) == -q
 
+# Exact chi^2 strong-data-processing coefficients of the two local channels.
+eta1 = chi2_channel_coefficient(conditional_output_vacancy_s1, 3, q)
+eta2 = chi2_channel_coefficient(conditional_output_vacancy_s2, 4, q)
+assert eta1 == p * p == Q(81, 100)
+assert eta2 == p ** 3 * (1 + q * q) == Q(73629, 100000)
+
 for q0 in (Q(1, 20), Q(1, 5)):
     l2_1, count_1, r1, req1 = average_s1(q, q0)
     l2_2, count_2, r2, req2 = average_s2(q, q0)
@@ -181,42 +217,57 @@ for q0 in (Q(1, 20), Q(1, 5)):
     assert x1 < c0 and x2 < c0
     assert x2 > x1
 
+    # The universal channel-coefficient route acts on the full predecessor
+    # vector. For product input its chi^2 is (1+C0)^n-1, which is already too
+    # expensive at the registered stress points.
+    full1 = eta1 * ((1 + c0) ** 3 - 1)
+    full2 = eta2 * ((1 + c0) ** 4 - 1)
+    assert full1 > c0 and full2 > c0
+
     if q0 == Q(1, 20):
         assert c0 == Q(1, 36)
         assert l2_1 == Q(24135341, 23328000)
         assert c1 / c0 == Q(807341, 648000)
         assert r1 == Q(439, 8000)
         assert x1 / c0 == Q(130321, 160000)
+        assert full1 / c0 == Q(3997, 1600)
 
         assert l2_2 == Q(86648193941, 83980800000)
         assert c2 / c0 == Q(2667393941, 2332800000)
         assert r2 == Q(84741, 1600000)
         assert x2 / c0 == Q(5663917081, 6400000000)
         assert x2 / x1 == Q(15689521, 14440000)
+        assert full2 / c0 == Q(3929809, 1280000)
     else:
         assert c0 == Q(1, 9)
         assert l2_1 == Q(108719, 91125)
         assert c1 / c0 == Q(17594, 10125)
         assert r1 == Q(41, 250)
         assert x1 / c0 == Q(256, 625)
+        assert full1 / c0 == Q(271, 100)
 
         assert l2_2 == Q(94564781, 82012500)
         assert c2 / c0 == Q(12552281, 9112500)
         assert r2 == Q(1107, 6250)
         assert x2 / c0 == Q(232324, 390625)
         assert x2 / x1 == Q(58081, 40000)
+        assert full2 / c0 == Q(347339, 100000)
 
     print("q0 =", q0)
     print("  baseline chi2 C0 =", c0)
     print("  S1 optimal expected queries =", count_1)
     print("  S1 raw transcript excess / C0 =", c1 / c0)
     print("  S1 exact output chi2 / C0 =", x1 / c0)
+    print("  S1 full-predecessor SDPI bound / C0 =", full1 / c0)
     print("  S2 optimal expected queries =", count_2)
     print("  S2 raw transcript excess / C0 =", c2 / c0)
     print("  S2 exact output chi2 / C0 =", x2 / c0)
     print("  S2 output chi2 / S1 output chi2 =", x2 / x1)
+    print("  S2 full-predecessor SDPI bound / C0 =", full2 / c0)
 
 print("S1 mark-only support: all 3 predecessor bits for each fixed coin")
 print("S2 essential sets by coin pair:", expected_s2_essential)
+print("S1 chi2 channel coefficient =", eta1)
+print("S2 chi2 channel coefficient =", eta2)
 print("S2 normalized four-body centered coefficient =", centered_top_coefficient_s2(q))
 print("all exact FA-INFO finite-circuit checks passed")
