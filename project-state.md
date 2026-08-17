@@ -4,7 +4,7 @@ This file is the compact current-state index for the autonomous research program
 
 ## Standing novelty standard
 
-A quantitatively improved instance of an existing arbitrary-size/window/order method does not count as a new project result merely because the computation is exact, the witness is larger, or the constant is better. Qualifying work must add structural mathematics or resolve/correct the target problem.
+A quantitatively improved instance of an existing arbitrary-size/window/order method does not count as a new project result merely because the computation is exact or the constant is better. Qualifying work must add structural mathematics or resolve/correct the target problem.
 
 ## Principal-fixed active scientific direction
 
@@ -12,110 +12,108 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
-- Target fixed until changed or stopped by the principal: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/030-signed-boundary-transmission-is-final-g010-blocker-no-restart.md`, `state_narrowed: yes`.
-- Student G: idle; no G011.
+- Target fixed until changed or stopped by the principal: prove that every one-dimensional homogeneous binary one-sided nearest-neighbour simple IPS with positive rates is ergodic.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/032-distinguished-zero-transfer-stops-and-hamming-coupling-killed.md`, `state_narrowed: yes`.
+- Student G: active on Assignment 012, optimized information-percolation pair-history test.
 - Student F: idle; no F016.
-- No proof architecture is active.
+- No full proof architecture is reopened. Assignment 012 is a bounded pre-restart experiment.
 
-Consultation 002 / Meeting 025's **`no-credible-route`** assessment is again operative. Assignment 010 is complete unresolved after substantive work.
+## Most recent principal-directed result: distinguished-zero transfer
 
-### Exact dual-renewal status
+Student G Assignment 011 is accepted as **`STOP-EQUIVALENT`**.
+
+The proposed transfer of East distinguished-zero screening by substituting the finite zero-boundary invariant family `pi_N` for Bernoulli equilibrium fails off the product surface.
+
+If a right-measurable marker move leaves the old protected `N`-site block untouched and exact enlarged law is required to be `pi_{N+1}`, then necessarily
+
+$$
+\bar\pi_{N+1}=\pi_N.
+$$
+
+At the first nontrivial depth,
+
+$$
+\bar\pi_2(1)-\pi_1(1)
+=-\frac{2a\,[a-b(1-c)]}
+{(a+1-c)\,[2ab-ac+3a-bc+b+c^2-3c+2]}.
+$$
+
+Thus exact compatibility holds precisely on
+
+$$
+a=b(1-c),
+$$
+
+the product/reversible surface where
+
+$$
+\pi_N=\operatorname{Ber}\!\left(\frac b{1+b}\right)^{\otimes N}.
+$$
+
+At the hard point the defect equals `-4950/15151` exactly. The principal reran G's verifier successfully; the Professor independently recomputed the symbolic factorization.
+
+Allowing a contaminated boundary buffer gives exactly the old tail-shift defect `Delta_M`; an arbitrary fresh finite release kernel cannot change the untouched-prefix marginal, so exact release requires a finite tail-shift identity and approximate release is bounded below by the same discrepancy.
+
+Therefore marker-existence Part D is closed as moot **for this architecture**. This is a clean negative transfer theorem for the proposed `pi_N`-based East induction, not a universal theorem against every future screening idea.
+
+## New exact coupling obstruction
+
+Meeting 032 also proves that cross-site pairing cannot improve instantaneous drift of additive Hamming distance under any Markovian coupling of spin-flip chains. The optimal Hamming drift is
+
+$$
+\inf_{\text{couplings}}\bar L H
+=
+\sum_{i:x_i=y_i}|\lambda_i(x)-\lambda_i(y)|
+-
+\sum_{i:x_i\ne y_i}(\lambda_i(x)+\lambda_i(y)).
+$$
 
 At
 
 $$
-P_*=(1/1000,1/10,9999/10000),
+P_h=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
 $$
 
-with fixed filter
+a one-disagreement local pattern has best possible drift
 
 $$
-\sigma(u)=1-2e^{-(4/125)u},
+\frac{9997}{10000}>0.
 $$
 
-the invariant projections are extracted exactly as renewal separators and the fixed signed witness obeys
+Hence the toolbox refined-coupling bridge requiring uniform negative additive-Hamming drift is false for **every** Markovian coupling at the hard point. Its proposed non-diagonal Hamming LP is canceled as redundant. This does not refute a nonadditive Gray splice-edge geometry.
+
+## Active bounded experiment
+
+Student G Assignment 012, commit `be3d4e0ba6a81a6019de42d86a15858d47cefcb2`, tests the remaining independent toolbox candidate: information percolation / minimal backward histories.
+
+The task derives the exact deterministic Boolean-map decomposition polytope of the residual generator, translates it into ancestry death/jump/branch rates, and studies **two independent backward support processes** through
 
 $$
-V_n=\sum_{k=1}^n\lambda_kV_{n-k},
-\qquad V_0=1.
+\Psi(A,A')=2^{|A\cap A'|}-1.
 $$
 
-Commit `e4452de` exactly verifies the first seven rational coefficients with
+Naive supercritical expected ancestor count is not a kill criterion. Computation is capped at relative width `W<=8` unless a structural recursion is discovered. A full proof block may reopen only if G finds a concrete pair-level contraction/obstruction theorem or another genuinely iterable Miller--Peres-type state.
+
+## Connected-renewal route remains stopped
+
+The sharp blocker remains the signed boundary-transmission Volterra operator on the actual connected orbit,
 
 $$
-\sum_{k=1}^7\lambda_k>1,
-$$
-
-but the sufficient all-depth tail theorem
-
-$$
-\sum_{k\ge8}|\lambda_k|<\delta_7,
-\qquad
-\delta_7:=\sum_{k=1}^7\lambda_k-1,
-$$
-
-remains open. Therefore `(J-SPEC)` and `rho_J(P_*)>1` remain open.
-
-### Accepted G010 structure
-
-The fixed-filter connected route now has the following exact structure.
-
-1. The stationary marginal-discrepancy / bare tail-shift functional can be eliminated exactly from the connected coefficient, so this route is not presently equivalent to F013/F014's unrestricted tail-shift problem.
-2. The terminal high-pass factor admits the complementary split
-   $$
-   R_N=m_0I+g_0(I-K_N),
-   $$
-   with strict depth-uniform one-step bounds on both channels, but no frame estimate making them iterable.
-3. Recentring the fresh insertion with `X_N=Y_N+9/10000` gives
-   $$
-   A_NM_{X_N}
-   =M_{X_N}(A_{N-1}+11/10)-g_0B M_{\eta_N}P_{N-1}.
-   $$
-   Thus the only failure of exact fresh frequency shift is the old right-boundary transmission term.
-4. After exact regrouping `Y=X-9/10000`, the fresh shifted and scalar branches are individually subcritical:
-   $$
-   BZ_{\omega+11/10}=\frac{1065933}{1068400}<1,
-   \qquad
-   \frac9{10000}Z=\frac{1719}{3100}<1.
-   $$
-   Verifier `adf50d9` checks these and the other late scalar inequalities exactly.
-
-The sole uncontrolled branch in this decomposition is the signed boundary-transmission Volterra operator
-
-$$
-\boxed{
-\begin{aligned}
 \mathcal V_N f
-:={}&B\int_0^\infty h(t)\int_0^t
- e^{(t-s)L_N}M_{\eta_N}P_{N-1}\\
-&\hspace{26mm}\times
+=B\int_0^\infty h(t)\int_0^t
+ e^{(t-s)L_N}M_{\eta_N}P_{N-1}
 \bigl(g_0e^{-rs}-\varepsilon\bigr)e^{sL_{N-1}}f
-\,ds\,dt,
-\end{aligned}
-}
+\,ds\,dt.
 $$
 
-with `h(t)=w_*(t)\sigma(t)`, `r=11/10`, and `epsilon=9/10000`. Both the inner coefficient and the outer filter kernel change sign. No depth-uniform estimate retaining this two-time cancellation on the actual connected orbit was proved.
+Both temporal factors change sign. No depth-uniform estimate preserving the two-time cancellation has been proved.
 
-### Reversible reference results retained
+Bare tail shift, another `pi_N` distinguished-zero buffer, common-coupling all-depth occupation, Bellman/scalar Foster variants, reversible perturbation, generic norm searches, and longer coefficient tables remain stopped.
 
-At the corrected reversible reference point, with the actual `P_*` duration weight and filter frozen externally, G proves a dimension-free fresh-insertion Sobolev gain and reduces the full frozen-reference transfer norm exactly to a single killed self-adjoint channel family by a left-slice direct sum. These are genuine structural results but do not transport automatically through the actual nonreversible boundary defect.
+## Retained mathematics
 
-### Raw coefficient route remains closed
-
-Commit `d9c477e` proves that adding a multiplicative connected-component weight to the 010a degree-weighted `ell^1` norm still cannot make the actual nonconstant raw coefficient semigroup uniformly nonexpansive. Thus filter/resolvent-level cancellation remains load-bearing.
-
-### Restart bar
-
-A future restart of this branch requires **new input specifically controlling the signed boundary-transmission operator above on the actual connected orbit**, strongly enough to imply summable/geometric renewal coefficients, or a materially different proof architecture.
-
-Another norm search, reversible comparison, filter optimization, finite coefficient table, bare tail-shift route, common-coupling occupation route, or generic Bellman/joint-corrector search does not clear the bar.
-
-## Most recently completed programme
-
-`VOTER-CONC-001` is mathematically verified but not a new project result under the standing novelty standard.
+The predecessor-trail reduction and canonical `J` quantity, projective zero-boundary invariant family and exact tail-shift identity, common-coupling fixed-site/local-erasure and actual-front results, stationary boundary-control hierarchy, exact trajectory-valued spatial kernel obstruction, G009 singular fixed-depth theorem, and G010 positive-frequency/renewal structure remain retained background.
 
 ## Wiki freeze
 
-The live wiki remains frozen during active research.
+The live wiki remains frozen during active research. No `docs/` or `mkdocs.yml` edits are authorized by the current work.
