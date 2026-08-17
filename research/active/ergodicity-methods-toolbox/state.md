@@ -10,7 +10,7 @@ Workspace: `research/active/ergodicity-methods-toolbox/`
 
 **Breadth collection is complete.** The programme is in the hostile cross-review stage of the problem-specific applicability phase governed by `assessment-protocol.md`.
 
-Latest meeting: `meetings/020-both-primary-audits-complete-hostile-cross-review-dispatched.md`.
+Latest meeting: `meetings/021-professor-positive-rates-hostile-review-complete-awaiting-g.md`.
 
 ## Frozen inventory and publication status
 
@@ -22,25 +22,17 @@ The orchestrator has additionally verified both completed primary audits structu
 
 Source/claim authority remains the Professor source audit recorded through Meeting 017. The frozen **74-method toolbox is source-audited, live, and mechanically verified**.
 
-The repository-wide article layout remains unchanged. The principal-level directory question remains open and no public-doc restructuring is authorized during assessment.
+No public-doc restructuring is authorized during assessment.
 
-## FA-1f / East primary audit
+## Primary audits complete
 
-The Professor directly completed the durable F008 task because Student F's session could no longer receive turns.
+### FA-1f / East
 
-Primary audit: `assessment/fa1f-east-method-audit.md`, completion commit `baea166c62105caf9084a4859c4ac4af29190d04`.
+Professor primary audit: `assessment/fa1f-east-method-audit.md`, completion commit `baea166c62105caf9084a4859c4ac4af29190d04`.
 
-Professor handoff: `assessment/fa1f-east-professor-handoff.md`, commit `f60b9eb412ac2097afe854d2781ebf18783840a3`.
+Dispositions: A=1, B=4, C=24, X=21, N=24.
 
-All 74 methods were classified:
-
-- A: 1;
-- B: 4;
-- C: 24;
-- X: 21;
-- N: 24.
-
-The five-method shortlist under hostile review is:
+Shortlist under independent G hostile review:
 
 1. East distinguished-zero screening — A;
 2. refined non-diagonal discrepancy coupling — B;
@@ -48,55 +40,57 @@ The five-method shortlist under hostile review is:
 4. front regeneration/renewal — B;
 5. state-dependent dynamical disagreement percolation — B.
 
-The central synthesis is that **equilibrium coercivity is not the missing FA mathematics**: positive equilibrium gap is already known for every vacancy density. The surviving methods all address local loss of exterior/time-zero information, except the chronology-switch route, which targets the weakest known three-site sign inequality directly.
+The central FA synthesis remains: equilibrium coercivity is already available; the missing mathematics is local loss of exterior/time-zero information or a direct weak chronology-sign theorem.
 
-A primary-source check killed a tempting shortcut: the Jahnel--Koppl relative-entropy Gibbs-attractor theorem requires irreducibility R6, which hard FA violates at the all-ones trap.
+### Positive rates
 
-The Professor ran a finite-cycle numerical falsification test of the exact three-site cross-product/adjacent-repulsion target; no violation appeared in the tested periodic cycles/parameters. This is numerical evidence only.
+Student G primary audit: `assessment/positive-rates-method-audit.md`, completion commit `cd7497650cc8778ee508444699ec38baf713ce56`; bridge detail `assessment/positive-rates-shortlist.md`, commit `cfc7dcc2fe11f65d9a356b415d7fd28295048d9b`.
 
-## Positive-rates primary audit
+Dispositions: A=1, B=4, C=25, X=10, N=34.
 
-Student G Assignment 007 is complete.
+No A/B method directly attacks PR1, the signed two-time boundary-transmission operator.
 
-- handoff: `students/student-g/007-handoff.md`, commit `927febe`;
-- primary audit: `assessment/positive-rates-method-audit.md`, commit `cd7497650cc8778ee508444699ec38baf713ce56`;
-- A/B bridge detail: `assessment/positive-rates-shortlist.md`, commit `cfc7dcc2fe11f65d9a356b415d7fd28295048d9b`.
+## Professor positive-rates hostile review complete
 
-All 74 methods were classified:
+Review: `assessment/positive-rates-hostile-review-professor.md`, commit `1786d60d5caa4a0c4149556db0dbedb5b4646394`.
 
-- A: 1;
-- B: 4;
-- C: 25;
-- X: 10;
-- N: 34.
+Rulings:
 
-The five-method shortlist under Professor hostile review is:
+1. Gray one-dimensional edge coalescence — **PASS**;
+2. refined non-diagonal discrepancy coupling — **PASS**;
+3. information percolation — **PASS**;
+4. block coupling / joint-block stationary control — **DEMOTE**;
+5. physical-front regeneration adapted to disagreement — **DEMOTE**.
 
-1. Gray one-dimensional edge coalescence — A;
-2. refined non-diagonal discrepancy coupling — B;
-3. information percolation — B;
-4. block coupling / joint-block stationary control — B;
-5. physical-front regeneration adapted to the disagreement front — B.
+The positive-rates survivors collapse to two research families:
 
-No A/B method directly attacks PR1, the signed two-time boundary-transmission operator. The positive-rates shortlist instead targets PR2, PR3, or a bypass architecture.
+- **nonbasic one-dimensional coupling:** refined non-diagonal coupling is the concrete first test; Gray edge geometry is the structural target if local coupled-rate feasibility survives;
+- **information percolation:** a genuinely different backward-history bypass.
+
+The Bellman block bridge is demoted because its displayed inequality is, via the exact scale-extension identity, essentially the desired diameter contraction without an independent joint-block estimate. The disagreement-front regeneration bridge is demoted because it returns to the stopped common-uniform global-coalescence/occupation interface without identifying a fresh regeneration sigma-field that defeats the Meeting-019 hidden-ancestry obstruction.
+
+Provisional first positive-rates experiments:
+
+1. exact rational non-diagonal coupled-rate LP at `P_h`, then add Gray no-crossing/protection constraints on the same variables;
+2. finite-depth optimized random-map pair-support/intersection calculation for information percolation, using a red-intersection criterion rather than naive ancestor branching.
+
+No positive-rates proof programme is reopened by this review.
 
 ## Active hostile cross-review
 
-Student G is now active on `students/student-g/assignment-008.md`, committed at `1dc7060b47b9edf1d857cb7df6d7bc027160c66b`.
+Student G is active on `students/student-g/assignment-008.md`, independently reviewing only the five FA candidates and returning PASS / DEMOTE / KILL for each.
 
-G reviews **only** the five FA A/B candidates and must return PASS / DEMOTE / KILL for each. G did not perform the FA primary audit, so this review is genuinely independent of that lane.
+Student F remains unavailable because of the conversation-length/session limit.
 
-The Professor owns the symmetric hostile review of G's five positive-rates A/B candidates. This is explicitly a Professor cross-review of G's work, not an independent F/student review.
-
-Student F remains unavailable because of the conversation-length/session limit. No additional worker is needed for the currently dispatched FA review.
+The Professor has no remaining cross-review work until G returns.
 
 ## Next phase
 
-After both hostile reviews exist, the Professor produces `assessment/final-method-priorities.md` containing:
+After G's FA hostile review is committed, the Professor produces `assessment/final-method-priorities.md` containing:
 
 - ranked survivors for both problems;
 - strongest surviving bridge lemmas;
-- informative killed methods;
+- informative kills/demotions;
 - at most two recommended first proof experiments per problem;
 - recommendation whether either proof programme should be reopened, and on exactly which bridge.
 
