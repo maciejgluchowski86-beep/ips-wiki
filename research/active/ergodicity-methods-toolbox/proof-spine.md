@@ -1,6 +1,6 @@
 # Coverage spine
 
-This is the coverage map for the ergodicity-methods literature compilation. **Live** means source-audited by the Professor and admitted to the public wiki; **assigned** means an active student wave is inspecting named primary sources for a genuinely distinct proof interface; **uncovered** means still to be sourced. There are now 67 source-audited live pages. The wave-one-through-five 57-page layer is mechanically verified; the post-wave-six 67-page build/link check is pending.
+This is the coverage map for the ergodicity-methods literature compilation. **Live** means source-audited by the Professor and admitted to the public wiki; **assigned** means the final source-led wave is inspecting named primary sources for a genuinely distinct proof interface. There are now 67 source-audited live pages, and the complete wave-one-through-six layer is mechanically verified. **Wave seven is the final collection wave.** After it is audited and integrated, this spine stops being a gap-filling agenda and the programme moves to problem-specific applicability assessment under `assessment-protocol.md`.
 
 ## A. Coupling and influence
 
@@ -50,7 +50,7 @@ This is the coverage map for the ergodicity-methods literature compilation. **Li
 - Gray 1982 positive-rates one-dimensional proof architecture — **assigned to G006**, with generic attractiveness explicitly insufficient;
 - essential hitting times / almost-subadditive survival-conditioned regeneration for contact-process growth — **assigned to G006**, only if distinct enough from the live complete-convergence renewal method;
 - artificial Nummelin splitting / manufactured atom in a concrete interacting process — **closed absent a named source** after two targeted searches;
-- further branching/annihilating/coalescing dual mechanisms — **uncovered as distinct mechanisms appear**.
+- further branching/annihilating/coalescing dual mechanisms — not pursued by another generic collection wave after G006.
 
 ## C. Functional inequalities, comparison, curvature, and coercivity
 
@@ -88,7 +88,7 @@ This is the coverage map for the ergodicity-methods literature compilation. **Li
 - finite-size strong-mixing bootstrap by block decimation — **live**;
 - static disagreement percolation — **live**;
 - large-set RFIM expansion obtained from weak spatial mixing — represented by the live large-set-conductance entry;
-- broader strong/weak spatial-mixing criteria on distinct geometries — partly represented; additional source-led mechanisms remain **uncovered**.
+- broader strong/weak spatial-mixing criteria on distinct geometries — not pursued by another generic collection wave after wave seven.
 
 ## E. Recurrence, Lyapunov, smoothing, and qualitative ergodicity
 
@@ -116,7 +116,7 @@ This is the coverage map for the ergodicity-methods literature compilation. **Li
 - nested super-good mobile-droplet renormalisation — **live**;
 - CBSEP/generalized-CBSEP auxiliary-process comparison — **live**;
 - direct comparison with fully independent/unconstrained refresh dynamics — **closed as a generic search absent a named distinct source**;
-- persistence/defect-particle/interface methods beyond East — represented by shock markers, moving frames and front/competition renewal; further distinct mechanisms **uncovered**.
+- persistence/defect-particle/interface methods beyond East — represented by shock markers, moving frames and front/competition renewal; further breadth collection ends after wave seven.
 
 ## G. Finite-to-infinite transfer and invariant-law construction
 
@@ -137,16 +137,25 @@ This is the coverage map for the ergodicity-methods literature compilation. **Li
 - potential-theoretic capacity / Dirichlet and flow principles for metastable Glauber crossover — **live**;
 - Toom graphical error/contour expansions for low-noise PCA convergence and correlation decay — **assigned to G006**;
 - essential hitting-time shape/growth theory for contact processes — **assigned to G006**, explicitly adjacent rather than automatically an ergodicity method;
-- infinite-volume capacity methods for IPS global ergodicity/relaxation — **uncovered**.
+- infinite-volume capacity methods for IPS global ergodicity/relaxation — not pursued by another generic collection wave after wave seven.
 
 ## I. Publication state
 
-Meetings 002--005 source-audited the initial thirty entries; Meetings 006 and 008 promoted them. Meeting 010 source-audited the fourteen wave-four entries and Meeting 011 promoted them; Meeting 012 records their mechanical verification. Meeting 013 source-audited and promoted thirteen wave-five entries; Meeting 014 records the clean 57-page structural check. Meeting 015 source-audited and promoted all ten wave-six entries and opened source-led wave seven.
+Meetings 002--005 source-audited the initial thirty entries; Meetings 006 and 008 promoted them. Meeting 010 source-audited the fourteen wave-four entries and Meeting 011 promoted them; Meeting 012 records their mechanical verification. Meeting 013 source-audited and promoted thirteen wave-five entries; Meeting 014 records the clean 57-page structural check. Meeting 015 source-audited and promoted all ten wave-six entries and opened source-led wave seven. Meeting 016 records the principal/orchestrator's clean **67-page** structural check and the principal's phase change.
 
-There are now **67 live, source-audited toolbox method pages**. The principal's pre-audit staging snapshot reported `Checked 67 entries; 0 failed mechanical validation.` A direct compare from verified head `aa28743` confirms wave six adds exactly ten method pages and modifies only the toolbox hub and `mkdocs.yml` in the public layer. The final 67-page strict build/link/completeness check is pending and must not be inferred from source audit.
+There are now **67 live, source-audited, mechanically verified toolbox method pages**. `validate_entries.py` reports 67 entries and zero failures; `mkdocs build --strict` exits 0 with no warnings or broken internal links; staged/live/hub completeness is exactly 67/67/67; all 164 MkDocs `.md` targets resolve; every promoted page carries `status:` and `audit:`; and the `docs/` diff against `origin/main` remains additions-only. The only build INFO conditions are unchanged legacy conditions predating this programme.
+
+The principal/orchestrator also added an independent control/format-character scan after Meeting 015 exposed a TeX escape corruption that the older validator did not catch. The toolbox pages are clean. Entry hygiene now requires both that scan and visual/diff inspection of mathematical backslashes.
 
 The repository-wide article convention remains unchanged: toolbox pages stay in `docs/entries/`. The separate principal-level legacy-directory question is not a Professor task.
 
-## J. Coverage discipline
+## J. Collection sunset and assessment discipline
 
-The toolbox is an inventory, not a ranking. Breadth and model-specific tools are desired, but each entry must expose a distinct rigorous proof interface and a concrete interacting-process use. Shared sources do not imply duplicate methods. At this stage new waves are source-led: named primary theorem families are preferred to generic gap labels. Failed generic searches remain closed until a concrete source gives a reason to reopen them.
+The toolbox is an inventory, not a ranking. Breadth and model-specific tools were intentionally collected by proof interface. The principal has now ruled that the inventory is sufficient: **wave seven is the last collection wave**.
+
+After wave seven, the programme no longer asks what proof interfaces are missing. It asks which frozen methods have the best mathematically specific bridge to either:
+
+1. one-dimensional FA-1f/East out-of-equilibrium convergence; or
+2. the positive-rates conjecture for simple IPS.
+
+The governing protocol is `assessment-protocol.md`. Applicability requires contact with an exact unresolved object and must be screened against the exact obstruction record. The first post-wave-seven dispatch is F on FA-1f/East and G on positive rates, followed by hostile cross-review and Professor synthesis. No public-doc reorganization is part of that phase.
