@@ -11,14 +11,18 @@ The generalization programme keeps the same structural order:
 1. choose a tensor basis for local observables;
 2. derive a local signed Feynman--Kac dual;
 3. identify a coarse successful-interaction skeleton that hides a finite local mark;
-4. prove conditional factorization into generalized patches;
-5. define patch contributions and a nonnegativity criterion;
-6. derive comparison/convergence consequences and test concrete models.
+4. prove conditional or representation-sufficient weighted factorization into generalized patches;
+5. define explicit patch contributions;
+6. define a nonnegativity criterion;
+7. derive comparison/convergence consequences and test concrete models.
 
 ## Current pages
 
 - [Finite-state typed tensor duality](generalized-patch-representations/finite-state-typed-duality.md): canonical reference-state indicator basis, typed active configurations, exact local signed dual for general single-site replacement rates, and the first successful-interaction record.
+- [Typed successful-skeleton factorization](generalized-patch-representations/typed-patch-factorization.md): one-site typed patches, the incoming target-conflict obstruction to bare conditional independence, and the exact killed/noncemetery weighted factorization which repairs it.
 
 ## Current bottleneck
 
-The next theorem is conditional factorization for the typed successful skeleton. The main new issue is that an incoming typed target can conflict with a different active type at the target site, while an outgoing record now carries an explicit pre-interaction source type. The programme must determine whether these constraints still decompose into one source--time-strip consistency event per patch.
+The next theorem is the **explicit typed patch representation**. On noncemetery paths, the global signed Feynman--Kac weight should factor into one local multiplicative weight per typed patch, using the outgoing hidden-branch sign, effective empty-target signs, the local additive-potential integral, and the terminal one-site tensor factor on end patches.
+
+Patch positivity is not yet defined. It is downstream of this representation theorem.
