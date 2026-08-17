@@ -1,8 +1,8 @@
-# Student G 010d checkpoint: `P_*` as an exact perturbation of a nearby reversible product point
+# Student G 010d checkpoint: exact nearby reversible generator and frozen-weight comparison
 
-**Status:** intermediate durable checkpoint for Assignment 010. This does **not** yet prove `(T)`, but it replaces the informal phrase “soft East perturbation” by an exact fixed-filter comparison with a genuine reversible spin system.
+**Status:** intermediate durable checkpoint for Assignment 010. This does **not** yet prove `(T)`.  A correction made immediately after the first version is incorporated here: preserving `B` and `omega` does **not** preserve the canonical duration weight, because the one-particle survival factor depends on `a` separately.  The reversible point below is therefore a reference for the finite-volume generator and insertion algebra, while the actual `P_*` duration weight must be kept frozen externally.
 
-## 1. A nearby point preserving all duration data
+## 1. A nearby point preserving `B` and `omega`, but not `w`
 
 At the primary point
 
@@ -42,15 +42,45 @@ and
 \tag{3}
 \]
 
-Therefore the scalar right-survival weight `w(u)`, the functions `Z_alpha`, the fixed filter
+However the canonical survival transform is
 
 \[
-\sigma(u)=1-2e^{-(4/125)u},
+Z_\alpha(a)
+=\frac{\alpha+1+B+a}{(\alpha+a)(\alpha+1+B)-a},
+\tag{4}
 \]
 
-and the scalar `z_sigma` are **identical** at `P_0` and `P_*`.
+so changing `a` changes `s_1(u)` and hence changes the canonical weight
 
-The difference is entirely in the finite-volume spin semigroup and in the centered insertion.
+\[
+w(u)=e^{-\omega u}s_1(u).
+\]
+
+Thus the canonical `P_0` duration weight and `z_sigma` are **not** the ones used in Assignment 010.  No argument below identifies them.
+
+For comparison with the actual connected operator, keep instead the actual weight
+
+\[
+w_*(u):=w_{P_*}(u)
+\]
+
+fixed and define the auxiliary reversible-semigroup operator
+
+\[
+\widetilde H_{0,N}^\sigma
+:=\int_0^\infty w_*(u)\sigma(u)e^{uL_{0,N}}\,du,
+\tag{5}
+\]
+
+\[
+\widetilde Q_{0,N}^\sigma
+:=\widetilde H_{0,N}^\sigma-z_*\Pi_{0,N},
+\qquad
+z_*:=\int_0^\infty w_*(u)\sigma(u)\,du.
+\tag{6}
+\]
+
+This is not the canonical dual operator of the model `P_0`; it is an auxiliary comparison operator using the **actual Assignment-010 weight** and the reversible reference semigroup.  With this convention, the difference between `H_*` and `\widetilde H_0` comes only from the finite-volume semigroups.
 
 ## 2. `P_0` is exactly on the product-reversible surface
 
@@ -66,7 +96,7 @@ Hence
 
 \[
 \boxed{b(1-c_0)-a_0=0.}
-\tag{4}
+\tag{7}
 \]
 
 The flip-rate ratio is independent of the right neighbour:
@@ -80,7 +110,7 @@ Thus the Bernoulli product measure of density
 
 \[
 \boxed{p_0=\frac1{1+b}=\frac{10}{11}}
-\tag{5}
+\tag{8}
 \]
 
 is reversible for every zero-boundary finite volume at `P_0`.
@@ -109,7 +139,7 @@ Indeed
 
 \[
 c_0g_0=\frac{998001}{10000000}.
-\tag{6}
+\tag{9}
 \]
 
 The `X_A` are therefore the product-orthogonal monomials for the genuine invariant law of `P_0`.
@@ -127,7 +157,7 @@ Thus
 
 \[
 \boxed{Y_i=X_i-\varepsilon.}
-\tag{7}
+\tag{10}
 \]
 
 This is exactly the recentering hidden in 010c: there `m_0=d/(1+b)=-9/10000=-\varepsilon`, so `X=Y-m_0=Y+\varepsilon`.
@@ -135,13 +165,9 @@ This is exactly the recentering hidden in 010c: there `m_0=d/(1+b)=-9/10000=-\va
 In particular, the insertion at `P_*` splits into
 
 \[
-\boxed{
-M_Y=M_X-\varepsilon I,
-}
-\tag{8}
+\boxed{M_Y=M_X-\varepsilon I.}
+\tag{11}
 \]
-
-where `M_X` is multiplication by the normalized product-centered character of the reversible point.
 
 ## 4. The actual generator is a single signed local defect of size `epsilon`
 
@@ -168,8 +194,10 @@ P_*:\quad r_{01}=\frac1{10000},\quad r_{11}=\frac1{1000}.
 Consequently
 
 \[
+\boxed{
 L_*=L_0+\varepsilon\sum_{i<N}\mathcal A_i,
-\tag{9}
+}
+\tag{12}
 \]
 
 with no perturbation at the right boundary and
@@ -180,12 +208,12 @@ with no perturbation at the right boundary and
 ={\bf1}_{\{\eta_{i+1}=1\}}(2\eta_i-1)
 \bigl[f(\eta^i)-f(\eta)\bigr].
 }
-\tag{10}
+\tag{13}
 \]
 
 The perturbation is signed: at right-neighbour state `1`, it decreases the `0->1` rate by `epsilon` and increases the `1->0` rate by `epsilon`.
 
-On the single centered coordinate, `(10)` is equivalently
+On the single centered coordinate, `(13)` is equivalently
 
 \[
 \boxed{
@@ -193,14 +221,14 @@ On the single centered coordinate, `(10)` is equivalently
 =-\varepsilon X_{i+1}-\varepsilon c_0,
 \qquad i<N.
 }
-\tag{11}
+\tag{14}
 \]
 
 The rightmost coordinate is untouched by the perturbation, and therefore
 
 \[
 L_*X_N=-(1+b)X_N
-\tag{12}
+\tag{15}
 \]
 
 exactly in every volume.
@@ -215,7 +243,7 @@ c+m_0=c-\varepsilon=c_0=\frac{999}{1000},
 
 \[
 g-m_0=g+\varepsilon=g_0=\frac{999}{10000}.
-\tag{13}
+\tag{16}
 \]
 
 Moreover
@@ -223,17 +251,17 @@ Moreover
 \[
 (c+m_0)(g-m_0)=c_0g_0
 =B^2\frac{b}{(1+b)^2},
-\tag{14}
+\tag{17}
 \]
 
 so normalizing `X_i` by `sqrt(c_0g_0)` is exactly normalization in `L^2(mu_0)`, not an artificial coefficient scaling.
 
-Finally, at `P_0` the generator can be written as a product-reversible constrained refresh generator.  If `E_{p_0,i}` refreshes site `i` from Bernoulli(`p_0`), then
+At `P_0` the generator can be written as a product-reversible constrained refresh generator.  If `E_{p_0,i}` refreshes site `i` from Bernoulli(`p_0`), then
 
 \[
 L_0
 =\sum_i R(\eta_{i+1})\bigl(E_{p_0,i}-I\bigr),
-\tag{15}
+\tag{18}
 \]
 
 with
@@ -242,23 +270,23 @@ with
 R(0)=1+b=\frac{11}{10},
 \qquad
 R(1)=\omega=\frac{11}{10000}.
-\tag{16}
+\tag{19}
 \]
 
 Hence `L_0` is self-adjoint in `L^2(mu_0)` and its Dirichlet form dominates `omega` times the independent-refresh Dirichlet form.  This recovers the number-operator coercivity of 010b from a genuine reversible Markov generator.
 
+Because the auxiliary operator `(5)` is a real scalar function of the self-adjoint `L_0`, `\widetilde H_{0,N}^sigma` and `\widetilde Q_{0,N}^sigma` are also self-adjoint in `L^2(mu_0)`; the scalar function is determined by the **actual** weight `w_*`, not by the canonical weight of `P_0`.
+
 ## 6. Consequence for the connected-tail problem
 
-The fixed-filter connected problem may now be expanded around a reference model with all of the following properties simultaneously:
+The exact comparison now has the following valid form.
 
-1. the duration weight and filter are exactly the same as at `P_*`;
-2. the invariant law is an explicit product law;
-3. the reference generator is reversible;
-4. the reference insertion `X` is exactly centered;
-5. the actual insertion differs by the scalar `-epsilon`;
-6. the actual dynamics differs by the local signed defect `(10)`, also of size `epsilon`;
-7. the fresh right-boundary mode is completely unperturbed.
+- The finite-volume dynamics at `P_*` is the reversible product dynamics `L_0` plus the local signed defect `(13)`.
+- The actual insertion is the product-centered `X` insertion plus the scalar defect `-epsilon`.
+- The actual Assignment-010 duration weight `w_*` and fixed filter `sigma` are held fixed throughout; they are **not** replaced by the canonical `P_0` duration law.
+- With this frozen weight, the reference propagation `(5)` remains self-adjoint because only the semigroup is replaced by the reversible `P_0` semigroup.
+- The fresh right-boundary mode is unperturbed by `(12)`.
 
-This is stronger than treating `dD` by absolute operator norm.  In particular, every loss of reversibility is now tagged by an explicit local `epsilon` defect, while the reference propagation can be handled before absolute values are taken.
+Thus a Duhamel/cluster expansion of the actual fixed-filter connected operator around `(5)` is legitimate and tags every dynamical loss of reversibility by an explicit local factor `epsilon`, without changing the witness weight.  What is not legitimate is to import the canonical `P_0` survival transform or its `z_sigma` as though it were equal to the one at `P_*`.
 
-The next viable target is therefore a connected/cluster estimate for the fixed filter in which the `P_0` propagation is summed exactly and only the defect insertions `(8)` and `(10)` are counted.  A crude global perturbation bound is not sufficient, since `epsilon/omega=9/11`; locality and the fresh-boundary high-frequency channel must be retained.
+A crude global perturbation bound is still insufficient, since `epsilon/omega=9/11`; locality and the fresh-boundary high-frequency channel must be retained.
