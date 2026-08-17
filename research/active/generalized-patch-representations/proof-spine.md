@@ -15,65 +15,108 @@ Extend the patch representation / patch positivity mechanism beyond binary flip 
 
 ## E0. Binary benchmark
 
-Established by the canonical paper.
+**Settled by the canonical paper.**
 
-For binary spins, monomials `chi_A` form a cylinder-function basis. The generator sends each monomial to a signed linear combination of monomials. Absolute coefficients become rates of a signed additive set process; a diagonal mismatch becomes a Feynman--Kac potential. Nonempty-target interactions at active sources define the successful skeleton, which records source/time/target but hides whether the source survives (birth versus split). Conditioning on that skeleton decomposes site lines into one-site patches and factorizes the hidden marks.
+Binary monomials yield the signed death/split/birth set process. The successful skeleton records source/time/target but hides split versus birth. Conditioning on that skeleton yields independent one-site patch laws.
 
-Any generalization must specialize exactly to this construction, not merely produce some abstract finite-state duality.
+Any generalization must reduce exactly to this construction.
 
 ## E1. Canonical local basis for a finite state space
 
-Open.
+**Settled in Assignment 001.**
 
-Candidate: for a finite state space `E` with distinguished reference state `0`, use the one-site basis
+For finite `E={0,...,d-1}` with reference state `0`, use
 
-- `h_0 = 1`;
-- `h_a(x)=1{x=a}` for `a in E\{0}`.
+\[
+h_0\equiv1,
+\qquad h_a(x)=1_{\{x=a\}},\quad a\ne0.
+\]
 
-A finite typed active configuration is a finite partial map `xi: Lambda -> E\{0}` and
+Tensor observables are indexed by finite typed partial maps `xi:Lambda -> E\{0}` and form a basis of every finite cylinder algebra.
 
-`H_xi(eta)=prod_{i in supp xi} h_{xi(i)}(eta(i))`.
+Typed products merge equal labels and give zero on conflicting labels. The zero product is represented by a cemetery state `dagger`.
 
-This is a basis for every finite cylinder algebra. Products are idempotent on equal types and vanish on conflicting types. The resulting compatible-union/cemetery algebra is the first object to test.
+Decisive file: `students/professor/001a-typed-generator-action.md`.
 
 ## E2. Exact signed dual for single-site replacement dynamics
 
-Open and first load-bearing edge.
+**Settled in Assignment 001.**
 
-Consider bounded rates
+For general bounded single-site replacement rates, expansion in the typed tensor basis gives fixed local branch coefficients
 
-`c_i^{x->y}(eta_{N(i)})`, `x != y`,
+\[
+a_{i,r}^{0}(\tau)=\widehat c_i^{0\to r}(\tau),
+\]
 
-with generator
+\[
+a_{i,r}^{s}(\tau)=\widehat c_i^{s\to r}(\tau)-\widehat c_i^{0\to r}(\tau),
+\quad s\ne0,r,
+\]
 
-`L f(eta) = sum_i sum_{x != y} 1{eta_i=x} c_i^{x->y}(eta_N) [f(eta^{i,y})-f(eta)]`.
+\[
+a_{i,r}^{r}(\tau)
+=-\widehat c_i^{0\to r}(\tau)-\sum_{y\ne r}\widehat c_i^{r\to y}(\tau).
+\]
 
-Question: after expanding each neighbour-rate function in the typed tensor basis, can `L H_xi` be represented by fixed local signed interaction clocks whose rates depend only on `(i, source type, local typed target/branch mark)`, with a Feynman--Kac potential for identity terms?
+Their absolute values are local Poisson rates; signs are sign marks. The source outcome `s` deletes, preserves, or retypes the active source. Typed target conflicts affect only the deterministic transition to `dagger`, not the clock rate.
 
-A merely formal matrix dual on the full finite cylinder space is not enough. The transition structure must be local and graphical enough to support a later skeleton/patch construction.
+The empty-target source-survival coefficient is inserted into the Feynman--Kac potential, giving an exact generator duality. Under the same type of FK integrability hypothesis as the binary paper, this yields semigroup duality.
+
+The `d=2` specialization is exactly the paper's death/split/birth process.
+
+Decisive files: `001b-signed-typed-dual.md` and `001-finite-state-duality-verifier.py`.
 
 ## E3. Hidden mark / successful interaction analogue
 
-Blocked on E2.
+**Settled at the geometric level in Assignment 001.**
 
-If E2 succeeds, determine whether nonempty typed-target interactions can be superposed into records `(source, time, typed target)` while hiding a finite branch mark controlling source deletion/retyping/survival, exactly as binary records hide birth versus split.
+For nonempty typed target `tau`, superpose the clocks over source outcome `s` at fixed `(i,r,tau)` and record
 
-Potential obstruction: incompatible typed targets can send the observable to zero, and source retyping may carry information not reconstructible from the coarse skeleton. This must be resolved before patch geometry is defined.
+\[
+(i,t,r,\tau).
+\]
 
-## E4. Generalized patch factorization
+The pre-interaction source type `r` is revealed. The post-interaction source outcome `s` is hidden.
 
-Blocked on E3.
+Every branch has one outgoing endpoint at `i` and incoming endpoints at `supp tau`, so deletion/survival/retyping does not change patch geometry.
 
-Need a skeleton-measurable decomposition for which hidden marks in distinct patches are conditionally independent. The binary one-site vertical patch geometry may or may not survive unchanged.
+The source type `r` should normally be retained because the aggregate record intensity and outgoing consistency condition depend on it.
+
+Decisive file: `001c-coarse-typed-skeleton.md`.
+
+## E4. Generalized typed patch factorization
+
+**Open and current load-bearing edge.**
+
+The natural local patch state is now type-valued:
+
+\[
+X_u^P\in E,
+\]
+
+with `0` interpreted as dual-inactive and `a in E_*` as active with type `a`.
+
+Expected boundary conditions:
+
+- incoming start carrying type `a`: the new patch begins with local type `a`;
+- outgoing start with record `(i,s,r,tau)`: the hidden source outcome chooses the post-interaction local type;
+- outgoing terminal with source type `r'`: consistency requires `X_{e-}^P=r'`;
+- incoming terminal carrying type `a'`: compatibility requires `X_{e-}^P in {0,a'}`; a different active type is a cemetery conflict.
+
+The first question is whether these consistency constraints still factor into disjoint source--time-strip events under the Poisson reference law.
+
+The serious new issue is the cemetery path. A conflicting incoming target can kill the entire typed dual, after which all future successful records disappear globally. The programme must determine whether conflict skeletons can be discarded as zero-weight histories or represented by local zero factors without losing the factorization needed for the semigroup representation.
+
+Do not move to positivity until this is settled.
 
 ## E5. Generalized patch positivity
 
-Blocked on E4.
+**Blocked on E4.**
 
-Need a local criterion ensuring every bulk patch contribution is nonnegative. It should reduce to the paper's multilinear coefficient inequalities in the binary case.
+Need a local criterion ensuring every bulk typed patch contribution is nonnegative. It must reduce to the binary multilinear coefficient inequalities.
 
 ## E6. Applications
 
-Blocked on E5, except for reconnaissance.
+**Blocked on E5, except for reconnaissance.**
 
-Priority examples should genuinely use more than two local states or a non-flip replacement mechanism and should not be contrived encodings of binary spin systems.
+Priority examples should genuinely use more than two local states or a non-flip replacement mechanism and should not be contrived binary encodings.
