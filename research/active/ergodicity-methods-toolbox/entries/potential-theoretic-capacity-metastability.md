@@ -1,7 +1,7 @@
 ---
 method_id: potential-theoretic-capacity-metastability
 title: Potential-theoretic capacity for metastable spin relaxation
-category: functional-inequality
+category: other
 targets:
   - metastable-relaxation
 model_scope: Reversible Glauber/Metropolis spin systems with metastable and stable valleys, illustrated by a disordered Curie-Weiss model
