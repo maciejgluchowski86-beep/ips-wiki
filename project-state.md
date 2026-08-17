@@ -13,47 +13,14 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed until changed or stopped by the principal: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/028-boundary-resolvent-elimination-sharpens-residual-object-but-does-not-reopen.md`, `state_narrowed: yes`.
-- Student G: idle; no G011.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/029-fresh-insertion-sobolev-gain-narrows-route-but-current-generation-may-finish.md`, `state_narrowed: yes`.
+- Student G: formally idle; no G011. One response was already generating before the idle ruling reached the session. Do not forcibly interrupt it; do not prompt again after it returns.
 - Student F: idle; no F016.
-- No proof architecture is currently active.
+- No proof architecture is formally active.
 
-On `r11=0`, with
+Consultation 002 / Meeting 025's **`no-credible-route`** assessment remains operative unless the already-running G artifact supplies the explicit actual-orbit theorem required by Meetings 028--029.
 
-$$
-a=r_{00},\qquad b=r_{01},\qquad c=r_{10},
-$$
-
-the residual chamber is
-
-$$
-\mathcal R=
-\left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
-$$
-
-### Operative route status
-
-Consultation 002 / Meeting 025's **`no-credible-route`** proof-architecture assessment remains operative after Meetings 027--028. This is not a claim that the conjecture is false or that all conceivable approaches are impossible.
-
-Stopped/inactive interfaces include common-uniform zero-frequency occupation, the repeated-equilibrium predecessor-trail/profile implementation, global path-space TV/KL contraction, the stationary Bellman-corrector concatenation implementation, G009's singular fixed-depth renewal continuation, and the fixed-filter connected dual-renewal continuation after bounded G010.
-
-Operational overlap: G's `75d0e8a` landed after Meeting 027 because the idle ruling had not yet been relayed. Meeting 028 treats it as an orchestration overlap, not student disregard of the stop. The checkpoint is retained but does not reopen work.
-
-### Canonical `J` and exact dual renewal
-
-For singleton depth `n`,
-
-$$
-J_n=\frac BgR_n=\frac gBN_n,
-$$
-
-so
-
-$$
-\rho_J(a,b,c)=\limsup_{n\to\infty}J_n^{1/n}
-$$
-
-is also the root growth rate of `R_n` and `N_n`. `(J-SPEC)` remains open.
+### Exact dual-renewal status
 
 At
 
@@ -67,155 +34,122 @@ $$
 \sigma(u)=1-2e^{-(4/125)u},
 $$
 
-the invariant projections can be extracted exactly as renewal separators. The fixed signed witness obeys
+the invariant projections are extracted exactly as renewal separators and the fixed signed witness obeys
 
 $$
 V_n=\sum_{k=1}^n\lambda_kV_{n-k},
 \qquad V_0=1.
 $$
 
-Commit `e4452de` exactly verifies the first seven rational coefficients, with
+Commit `e4452de` exactly verifies the first seven rational coefficients with
 
 $$
-\lambda_1,\ldots,\lambda_5>0,
-\qquad
-\lambda_6,\lambda_7<0,
-\qquad
-\sum_{k=1}^7\lambda_k>1.
+\sum_{k=1}^7\lambda_k>1,
 $$
 
-The sufficient tail target
+but the sufficient all-depth tail theorem
 
 $$
-\sum_{k\ge8}|\lambda_k|
-<
-\delta_7,
+\sum_{k\ge8}|\lambda_k|<\delta_7,
 \qquad
-\delta_7:=\sum_{k=1}^7\lambda_k-1>0,
+\delta_7:=\sum_{k=1}^7\lambda_k-1,
 $$
 
 remains open.
 
-### G010 high-pass theorem
+### Accepted G010 positive-frequency mathematics
 
-Assignment 010 derives
-
-$$
-R_N=(dI-gL_N)((1+b)I-L_N)^{-1}.
-$$
-
-For the actual fixed `P_*` duration weight and filter, repaired verifier `ce77c9c` proves
+The terminal high-pass factor
 
 $$
-\|\kappa\|_1\le\Theta_\sharp,
-\qquad
-\Theta_\sharp\approx0.8924718201406568,
+R_N=(dI-gL_N)((1+b)I-L_N)^{-1}
 $$
 
-with exact
-
-$$
-B\Theta_\sharp<1.
-$$
-
-Hence
+satisfies the exact depth-uniform sandwiched contraction from repaired verifier `ce77c9c`:
 
 $$
 \operatorname{osc}\left(
 R_{N+1}Q_{N+1}(Y_{N+1}f)
 \right)
 \le q_\sharp\operatorname{osc}(f),
-\qquad q_\sharp=B\Theta_\sharp<1.
+\qquad q_\sharp<1.
 $$
 
-This is a genuine depth-uniform sign-sensitive contraction, but the multiplier
+Late checkpoint `75d0e8a` eliminates the old marginal-discrepancy/tail-shift functional from the connected coefficient and writes it as an explicit boundary-resolvent expectation on the actual connected orbit.
+
+The later corrected complementary-channel checkpoint gives
 
 $$
-R(x)=\frac{d+gx}{1+b+x}
+R_N=m_0I+g_0(I-K_N),
+\qquad K_N=(1+b)((1+b)I-L_N)^{-1},
 $$
 
-vanishes at the exact positive frequency
+so the old positive-frequency zero is cancellation between two explicit channels, not a zero of the genuine high-pass channel. Each channel has a depth-uniform one-step bound, and after one insertion their channelwise triangle estimate is strictly below one. This is not yet iterable because no frame/reverse estimate controls the next raw connected input.
+
+Recentring the fresh coordinate gives the exact intertwining
 
 $$
-x=|d|/g=1/100,
+A_NM_{X_N}
+=
+M_{X_N}(A_{N-1}+1+b)
+-g_0B M_{\eta_N}P_{N-1},
 $$
 
-so the one-high-pass seminorm cannot be generically inverted.
+isolating the sole failure of exact fresh frequency shift as the old-boundary transmission term. The old boundary projection is a small non-orthogonal tilt in product-centered coordinates, with magnitude below `1/300`.
 
-### Exact boundary-resolvent elimination
+### New reversible fresh-insertion Sobolev theorem
 
-G010 first reduced the connected coefficient to a filtered boundary-response pairing. Late checkpoint `75d0e8a`, accepted in Meeting 028, eliminates the marginal-discrepancy functional entirely.
-
-Let
+At the corrected reversible reference point
 
 $$
-q_N=Q_Nf_N,
-\qquad
-f_N=Y_NQ_{N-1}f_{N-1},
+P_0=(1/10000,1/10,999/1000),
 $$
 
-$$
-r=1+b,
-\qquad
-S_N=(rI-L_N)^{-1},
-\qquad
-D_N=(I-L_N)S_N.
-$$
-
-Then exactly
+using the **actual `P_*` duration weight and filter frozen externally**, define `A_{0,N}=-L_{0,N}` and
 
 $$
-\boxed{
- c_{N+1}
- =A_N\!\left[
- \frac dr q_N
- +\left(g-\frac dr\right)B
- D_NP_NS_Nq_N
- \right].
-}
+q(x)=Z_{\omega+x}-2Z_{\omega+\tau+x}.
 $$
 
-At `P_*`, with `d/r=-epsilon`, `epsilon=9/10000`, and `g_0=g+epsilon`,
+Verifier `56d47cb` exactly proves
 
 $$
-\boxed{
- c_{N+1}=A_N(\mathfrak B_Nq_N),
-}
+|xq(x)|<1\qquad(x>0).
 $$
 
-where
+For the fresh product-centered insertion,
 
 $$
-\boxed{
-\mathfrak B_N
-=-\varepsilon I
-+g_0B(I-L_N)(rI-L_N)^{-1}
-P_N(rI-L_N)^{-1}.
-}
+M_X^*A_{0,N}^{-1}M_X
+\le
+\frac{998001}{11000000}I,
 $$
 
-Thus bare tail-shift TV is not logically required for the connected coefficient. Any future equivalence with the stopped F013/F014 tail-shift object would need new mathematics that survives this elimination.
-
-The elementary estimate in `75d0e8a` gives no depth decay and is far too crude for the renewal tail. The sharp residual target is summable/geometric control of
+and hence
 
 $$
-A_N(\mathfrak B_Nq_N)
+\|A_{0,N}^{1/2}\widetilde Q_{0,N}^\sigma(Y_Nf)\|_2
+\le
+\left(
+\sqrt{\frac{998001}{11000000}}
++
+\frac9{400}
+\right)\|f\|_2
+<\|f\|_2.
 $$
 
-along the actual recursion
+This is a genuine dimension-free positive-frequency theorem for the frozen-weight reversible reference transfer. It is **not yet** a theorem on the actual `P_*` connected orbit.
 
-$$
-q_N=Q_N(Y_Nq_{N-1}).
-$$
+### Restart bar and current overlap handling
 
-### Restart bar
+A qualifying continuation now requires either:
 
-Meeting 028 does **not** reopen the branch. A future restart requires either:
+- a depth-uniform two-seminorm/energy inequality propagating the fresh-coordinate Sobolev gain through the actual nonreversible defect and explicit boundary transmission/tilt; or
+- an orbit-specific theorem giving summable/geometric decay of the connected coefficients.
 
-- an explicit complementary high-pass observable/seminorm with a proved two-component depth-uniform contraction covering the blind frequency; or
-- an orbit-specific theorem giving summable/geometric control of `A_N(\mathfrak B_Nq_N)`.
+The present checkpoints identify concrete local ingredients but do not prove that actual-orbit iteration. Therefore no G011 is issued.
 
-The exact elimination alone is a reformulation/sharpening, not such a theorem. A generic instruction to prove decay of the new expression, search for another norm, optimize the filter, or compute longer coefficients does not clear the bar.
+Because a G response was already in flight before the idle ruling could be relayed, Meeting 029 instructs the principal **not to click stop and destroy it**. Let that response finish, preserve any commits, route them immediately, and send G no further prompt until a new Professor ruling.
 
 ## Most recently completed programme
 
