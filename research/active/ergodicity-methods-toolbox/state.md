@@ -10,56 +10,65 @@ Workspace: `research/active/ergodicity-methods-toolbox/`
 
 **Breadth collection is complete.** The programme is in the problem-specific applicability phase governed by `assessment-protocol.md`.
 
-Latest meeting: `meetings/018-final-74-verified-professor-takes-fa-lane.md`.
+Latest meeting: `meetings/019-fa1f-east-primary-audit-complete.md`.
 
 ## Frozen inventory and publication status
 
 The final inventory contains **74 staged method entries**, all Professor source-audited and accepted, with 74 live counterparts under `docs/entries/`.
 
-Meeting 018 records the complete final structural publication gate:
+Meeting 018 records the complete final structural publication gate: 74 staged/promoted/hub-linked methods, zero unresolved orphans, `status:`/`audit:` on every promoted page, all 171 MkDocs `.md` targets resolving, `validate_entries.py` 74 checked with 0 failures, strict MkDocs exit 0, additions-only `docs/` diff against main, and a clean control/format-character scan.
 
-```text
-Checked 74 entries; 0 failed mechanical validation.
-```
+These checks are structural only. Source/claim authority is the Professor audit recorded through Meeting 017. The frozen **74-method toolbox is source-audited, live, and mechanically verified**.
 
-`mkdocs build --strict` exits 0 with no warnings and no broken internal links. Completeness is exact: 74 staged entries, 74 promoted pages, 74 hub links, zero unresolved, no orphan in either direction, every promoted page carries `status:` and `audit:`, and all 171 MkDocs `.md` navigation targets resolve. The `docs/` diff against `origin/main` remains additions-only with zero non-additions. The control/format-character scan is clean across all 74 staged entries.
+The repository-wide article layout remains unchanged. The principal-level directory question remains open and no public-doc restructuring is authorized during assessment.
 
-These checks are structural only. Source/claim authority is the Professor audit recorded through Meeting 017.
+## FA-1f / East primary audit
 
-Therefore the frozen **74-method toolbox is source-audited, live, and mechanically verified**. No collection-phase publication gate remains open.
+The Professor directly completed the durable F008 task because Student F's session could no longer receive turns.
 
-The repository-wide article layout remains unchanged. The separate principal-level legacy-directory question remains open and no public-doc restructuring is authorized during assessment.
+Primary audit: `assessment/fa1f-east-method-audit.md`, completion commit `baea166c62105caf9084a4859c4ac4af29190d04`.
 
-## Final collection ruling
+Professor handoff: `assessment/fa1f-east-professor-handoff.md`, commit `f60b9eb412ac2097afe854d2781ebf18783840a3`.
 
-Wave seven added seven accepted interfaces: asymptotic strong Feller support uniqueness; Hörmander--Malliavin propagation to asymptotic smoothing; Swendsen--Wang / heat-bath Edwards--Sokal kernel comparison; entropic Ricci weak-interaction perturbation; Gray's one-dimensional edge-coalescence positive-rates architecture; Toom error-graph expansion; and essential hitting times plus almost-subadditive regeneration.
+All 74 methods were classified:
 
-The entropic-Ricci target was narrowed to `modified-log-sobolev`. Gray 1986 remains outside the frozen inventory on a source-access hold because primary full theorem/proof text was not inspected; this is not a negative taxonomy ruling.
+- A: 1;
+- B: 4;
+- C: 24;
+- X: 21;
+- N: 24.
 
-## Entry hygiene
+The five-method shortlist for hostile review is:
 
-Entry review requires both a control/format-character scan and visual/diff inspection of mathematical backslashes. The Professor authorizes a bounded `validate_entries.py` extension that hard-fails actual disallowed control or Unicode format characters while preserving ordinary Markdown whitespace and avoiding unreliable missing-backslash heuristics.
+1. East distinguished-zero screening — A;
+2. refined non-diagonal discrepancy coupling — B;
+3. information percolation/backward histories — B;
+4. front regeneration/renewal — B;
+5. state-dependent dynamical disagreement percolation — B.
+
+The central synthesis is that **equilibrium coercivity is not the missing FA mathematics**: positive equilibrium gap is already known for every vacancy density. The surviving methods all address local loss of exterior/time-zero information.
+
+A primary-source check also killed a tempting shortcut: the Jahnel--Koppl relative-entropy Gibbs-attractor theorem requires irreducibility R6, which hard FA violates at the all-ones trap.
+
+The Professor ran a finite-cycle numerical falsification test of the exact three-site cross-product/adjacent-repulsion target; no violation appeared in the tested periodic cycles/parameters. This is numerical evidence only.
 
 ## Active applicability work
 
-Student G is **active** on `students/student-g/assignment-007.md`, the complete positive-rates applicability audit. Delivery is confirmed.
+Student G remains **active** on `students/student-g/assignment-007.md`, the complete positive-rates applicability audit. Delivery was confirmed before the FA audit began.
 
-Student F cannot receive `students/student-f/assignment-008.md` because its conversation has reached the maximum-length limit; attempts to reuse dormant F conversations also fail to register new turns. F008 is durable but **not running**. This is an operational limitation, not a mathematical withdrawal.
+Student F remains unavailable because of the conversation-length/session limit. F008 is a durable but unexecuted student assignment record; the Professor-owned audit above operationally replaces it.
 
-Professor allocation from Meeting 018:
+## Next phase
 
-- G continues positive rates unchanged;
-- the **Professor performs the FA-1f/East applicability audit directly** under the same `assessment-protocol.md` standard;
-- F008 remains an unexecuted durable record and is operationally superseded.
+Once G's positive-rates primary audit is complete:
 
-Each primary audit classifies all 74 frozen methods A/B/C/X/N, returns at most six ranked A/B candidates, states explicit bridge lemmas, identifies the exact obstruction each avoids, and supplies cheapest-first falsification tests. No broad new literature search and no public-doc edits are authorized.
+- G should hostile-review **only** the five-method FA shortlist;
+- the positive-rates shortlist should be hostile-reviewed by a fresh independent worker if the principal opens a new project conversation;
+- absent a new worker, the Professor will design an explicitly asymmetric substitute rather than mislabel it as independent F review;
+- the Professor then synthesizes at most two recommended first proof experiments per problem.
 
-After both primary audits are available, the next step is hostile cross-review of the **shortlists only**, followed by Professor synthesis with at most two recommended first proof experiments per problem. If a new worker session becomes available, use it to restore independent cross-review capacity.
+No breadth collection or public-doc restructuring is reopened.
 
-## Closed collection phase
+## Entry hygiene
 
-There is no wave eight and no further generic gap-filling search under the current principal direction. Earlier negative taxonomy findings remain anti-loop evidence rather than active collection targets.
-
-## Next Professor action
-
-Complete the FA-1f/East applicability audit while G completes the positive-rates audit; then audit both shortlists against the exact obstruction records and dispatch or perform the hostile cross-review stage.
+The Professor's validator ruling remains: hard-fail actual disallowed control or Unicode format characters in staged entries, preserve ordinary Markdown whitespace, and do not hard-fail unreliable guesses about silently lost TeX backslashes. The orchestrator's tested patch remains subject to direct principal authorization before repository write.
