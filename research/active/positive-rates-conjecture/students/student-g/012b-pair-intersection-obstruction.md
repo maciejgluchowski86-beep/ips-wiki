@@ -22,7 +22,7 @@ $$
 
 for every `n`.
 
-A crude explicit choice from the proof is `epsilon>1/7`.
+A crude explicit choice from the proof is `epsilon>1/121`.
 
 This is a pair-history obstruction, not a first-moment argument. It rules out decay of the exact Assignment-012 pair observable for **all** ancestry points in the random-map polytope, including decompositions that sacrifice oblivious death or replace the canonical OR mark.
 
@@ -33,7 +33,7 @@ The proof uses only a width-one recursion. No truncation boundary is introduced.
 Write
 
 $$
-u:=d+j.
+u=d+j.
 $$
 
 The exact polytope `(P)` in `012a-random-map-polytope.md` gives
@@ -139,13 +139,13 @@ $$
 Also
 
 $$
-rT\ge\frac{4999}{625}>7.
+rT\ge\frac{4999}{625}>\frac{31}{4}.
 $$
 
-Since the first twelve terms of the positive Taylor series for `e^7` already exceed `1000`,
+The first twelve positive Taylor terms for `e^{31/4}` already exceed `2000`, so
 
 $$
-e^{-rT}<\frac1{1000}.
+e^{-rT}<\frac1{2000}.
 $$
 
 Therefore
@@ -154,9 +154,9 @@ $$
 \boxed{
 \mathbb P(G_{i,n})
 >
-\frac{621}{625}\left(\frac{999}{1000}\right)^2
+\frac{621}{625}\left(\frac{1999}{2000}\right)^2
 =
-\frac{619758621}{625000000}.
+\frac{2481516621}{2500000000}.
 }
 \tag{6}
 $$
@@ -165,7 +165,7 @@ If `q` denotes the bad-cell probability, then
 
 $$
 \boxed{
-q<\frac{5241379}{625000000}<\frac1{100}.
+q<\frac{18483379}{2500000000}<\frac1{128}.
 }
 \tag{7}
 $$
@@ -206,7 +206,7 @@ for every `n`.
 
 It remains only to show that the high-density one-dependent oriented process `(8)` survives with positive probability.
 
-## 4. Elementary Peierls lemma
+## 4. Elementary Peierls cutset lemma
 
 ### Lemma
 
@@ -216,44 +216,49 @@ $$
 (i,n)\to(i,n+1),\qquad(i,n)\to(i+1,n+1).
 $$
 
-Suppose site variables are independent between time layers, one-dependent within each layer, and each site is bad with probability at most `q<1/100`. If a good reached site opens both outgoing edges, then the open cluster of `(0,0)` has positive probability to be infinite. In fact the crude contour estimate below gives survival probability greater than `1/7`.
+Suppose site variables are independent between time layers, one-dependent within each layer, and each site is bad with probability at most `q<1/128`. If a good reached site opens both outgoing edges, then the open cluster of `(0,0)` has positive probability to be infinite. The crude bounds below give survival probability greater than `1/121`.
 
 ### Proof
 
-If the reached good cluster is finite, its outer oriented vertex boundary contains a finite connected bad cut contour separating the root from arbitrarily high time levels. This is the standard planar boundary of a finite cluster in the two-child oriented lattice: every boundary vertex which could be entered from the reached cluster must be bad, otherwise it would itself be reached.
+If the reached good cluster is finite, then in a sufficiently high finite oriented strip there is a finite vertex cut of bad cells separating the root from the top of the strip. By planar duality for the two-child oriented lattice, a minimal such cut can be followed as a connected non-backtracking cut contour. Every cell on the cut is bad: if a cut cell reachable from below were good, its outgoing edges would continue the reached cluster through the cut.
 
-A contour of length `m` has at most two possible initial orientations and, after the first step, at most three non-backtracking choices at each step. Hence the number of length-`m` candidate contours is at most
+A length-`m` contour which separates the root must meet one of the two boundary rays of the forward cone within graph distance `m` of the root. There are therefore at most `2m` possible anchored starting positions, and after the start there are at most three non-backtracking choices per contour step. Thus the number of candidate length-`m` cut contours is at most
 
 $$
-2\,3^m.
+2m\,3^m.
 $$
 
-Within the bad vertices of one fixed contour, dependence can occur only between horizontally adjacent vertices in the same time layer. The corresponding dependency graph is a union of one-dimensional paths, so it has an independent set containing at least half of the contour vertices. The selected bad-cell events use disjoint site sets within a layer, and different layers are independent. Therefore
+Within the bad cells of one fixed contour, dependence can occur only between horizontally adjacent cells in the same time layer. The corresponding dependency graph is a union of one-dimensional paths, so it has an independent set containing at least half of the contour cells. The selected bad-cell events use disjoint site sets within a layer, and different layers are independent. Therefore
 
 $$
 \mathbb P(\text{a fixed length-}m\text{ contour is bad})
 \le q^{m/2}.
 $$
 
+Since
+
+$$
+q<\frac1{128}<\left(\frac4{45}\right)^2,
+$$
+
+we have
+
+$$
+3\sqrt q<\frac4{15}.
+$$
+
 A union bound gives
 
 $$
-\mathbb P(\text{some finite bad contour})
-\le
-2\sum_{m\ge1}(3\sqrt q)^m.
+\begin{aligned}
+\mathbb P(\text{some finite bad cut contour})
+&\le 2\sum_{m\ge1}m(3\sqrt q)^m\\
+&<2\sum_{m\ge1}m\left(\frac4{15}\right)^m\\
+&=\frac{120}{121}<1.
+\end{aligned}
 $$
 
-By `q<1/100`, `3\sqrt q<3/10`, and hence
-
-$$
-2\sum_{m\ge1}(3\sqrt q)^m
-<
-2\sum_{m\ge1}\left(\frac3{10}\right)^m
-=
-\frac67<1.
-$$
-
-Thus with probability greater than `1/7` there is no finite bad cut contour, so by local finiteness/Konig's lemma there is an infinite reached oriented path. `square`
+Thus with probability greater than `1/121` there is no finite bad cut. By local finiteness and Konig's lemma, the reached oriented cluster then contains an infinite path. `square`
 
 The constants are intentionally crude; their only role is to make the conclusion uniform over the entire ancestry polytope.
 
@@ -271,7 +276,7 @@ $$
 2^{|A_{8n}\cap A'_{8n}|}-1\ge1
 $$
 
-on an event of probability greater than `1/7`, proving `(1)`.
+on an event of probability greater than `1/121`, proving `(1)`.
 
 This directly concerns the pair-history object requested by Assignment 012. It is not inferred from positive drift of `|A_t|`, supercritical expected offspring, common-coupling disagreement survival, tail-shift agreement, or the signed boundary-transmission operator.
 
