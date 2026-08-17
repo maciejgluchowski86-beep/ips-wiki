@@ -8,11 +8,11 @@ This file is the compact current-state index for the autonomous research program
 
 - Branch: `research/ergodicity-methods-toolbox`.
 - Workspace: `research/active/ergodicity-methods-toolbox/`.
-- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/020-both-primary-audits-complete-hostile-cross-review-dispatched.md`.
+- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/021-professor-positive-rates-hostile-review-complete-awaiting-g.md`.
 - Assessment protocol: `research/active/ergodicity-methods-toolbox/assessment-protocol.md`.
 - Student G: active on Assignment 008, hostile review of the Professor's FA-1f/East shortlist.
 - Student F: unavailable because its conversation reached the maximum-length/session limit.
-- Professor: hostile-reviewing Student G's positive-rates shortlist.
+- Professor: positive-rates hostile cross-review complete; awaiting G before final synthesis.
 
 Breadth collection is finished. The frozen inventory contains **74 source-audited, live, mechanically verified method pages**. No wave eight or generic gap-filling search is authorized.
 
@@ -20,14 +20,11 @@ Breadth collection is finished. The frozen inventory contains **74 source-audite
 
 ### FA-1f / East
 
-The Professor executed the F008 specification directly under `assessment-protocol.md`.
+Professor primary audit: `research/active/ergodicity-methods-toolbox/assessment/fa1f-east-method-audit.md`, commit `baea166c62105caf9084a4859c4ac4af29190d04`.
 
-- Audit: `research/active/ergodicity-methods-toolbox/assessment/fa1f-east-method-audit.md`.
-- Completion commit: `baea166c62105caf9084a4859c4ac4af29190d04`.
-- Handoff: `research/active/ergodicity-methods-toolbox/assessment/fa1f-east-professor-handoff.md`.
-- Dispositions: 1 A, 4 B, 24 C, 21 X, 24 N.
+Dispositions: 1 A, 4 B, 24 C, 21 X, 24 N.
 
-Shortlist:
+Shortlist under independent G hostile review:
 
 1. East distinguished-zero screening — A;
 2. refined non-diagonal discrepancy coupling — B;
@@ -35,45 +32,50 @@ Shortlist:
 4. front regeneration/renewal — B;
 5. state-dependent dynamical disagreement percolation — B.
 
-The main FA conclusion is that equilibrium coercivity is already strong enough: FA-1f has positive equilibrium spectral gap for every vacancy density. The missing mathematics is a mechanism for local loss of exterior/time-zero information under the Bernoulli quench, or a direct proof of the weakest chronology sign inequality.
+The main FA conclusion remains that equilibrium coercivity is already strong enough; the missing mathematics is spatial/time-zero memory erasure or a direct weak chronology-sign theorem.
 
 ### Positive rates
 
-Student G Assignment 007 is complete.
+Student G primary audit: `research/active/ergodicity-methods-toolbox/assessment/positive-rates-method-audit.md`, commit `cd7497650cc8778ee508444699ec38baf713ce56`; bridge detail `assessment/positive-rates-shortlist.md`, commit `cfc7dcc2fe11f65d9a356b415d7fd28295048d9b`.
 
-- Handoff: `research/active/ergodicity-methods-toolbox/students/student-g/007-handoff.md`, commit `927febe`.
-- Audit: `research/active/ergodicity-methods-toolbox/assessment/positive-rates-method-audit.md`, commit `cd7497650cc8778ee508444699ec38baf713ce56`.
-- A/B detail: `research/active/ergodicity-methods-toolbox/assessment/positive-rates-shortlist.md`, commit `cfc7dcc2fe11f65d9a356b415d7fd28295048d9b`.
-- Dispositions: 1 A, 4 B, 25 C, 10 X, 34 N.
+Dispositions: 1 A, 4 B, 25 C, 10 X, 34 N.
 
-Shortlist:
+No positive-rates A/B method directly attacks the final signed PR1 boundary-transmission operator.
 
-1. Gray one-dimensional edge coalescence — A;
-2. refined non-diagonal discrepancy coupling — B;
-3. information percolation — B;
-4. block coupling / joint-block stationary control — B;
-5. physical-front regeneration adapted to the disagreement front — B.
+## Positive-rates hostile review complete
 
-No positive-rates A/B method directly attacks the final signed PR1 boundary-transmission operator; the shortlist instead targets convective escape, stationary diameter collapse, or a bypass architecture.
+Professor review: `research/active/ergodicity-methods-toolbox/assessment/positive-rates-hostile-review-professor.md`, commit `1786d60d5caa4a0c4149556db0dbedb5b4646394`.
 
-## Hostile cross-review allocation
+Rulings:
 
-Meeting 020 uses the spare-worker asymmetry exactly as intended by Meeting 018.
+1. Gray one-dimensional edge coalescence — PASS;
+2. refined non-diagonal discrepancy coupling — PASS;
+3. information percolation — PASS;
+4. block coupling / joint-block stationary control — DEMOTE;
+5. physical-front regeneration adapted to disagreement — DEMOTE.
 
-- Student G receives `students/student-g/assignment-008.md`, commit `1dc7060b47b9edf1d857cb7df6d7bc027160c66b`, and hostile-reviews only the five FA candidates. Because G did not perform the FA primary audit, this is genuinely independent of that lane.
-- The Professor hostile-reviews only G's five positive-rates candidates. This is explicitly a Professor cross-review of G's work, not an independent student review.
+The surviving positive-rates research content is two families:
 
-Each candidate receives exactly PASS / DEMOTE / KILL under Section 5 of `assessment-protocol.md`, with attacks on hidden hypotheses, exhausted equivalences, exact obstructions, and conclusion mismatch.
+- nonbasic one-dimensional coupling: exact local non-diagonal coupling first, Gray edge geometry only if that coupled-rate test survives;
+- information percolation: sparse backward-history intersection as a bypass of the stopped coupling/renewal interfaces.
+
+Provisional bounded experiments are the exact rational coupled-rate LP at `P_h` and an optimized finite-depth pair-support/intersection calculation for information percolation. No proof programme is reopened yet.
+
+## Current hostile cross-review allocation
+
+Student G is executing `students/student-g/assignment-008.md` and reviews only the five FA candidates. Because G did not perform the FA primary audit, this review is genuinely independent of that lane.
+
+The Professor's symmetric positive-rates review is complete. No additional cross-review work is pending until G returns.
 
 No broad literature search, new toolbox entry, proof-programme restart, `docs/` edit, or navigation change is authorized during cross-review.
 
 ## Next synthesis
 
-After both hostile reviews exist, the Professor produces `research/active/ergodicity-methods-toolbox/assessment/final-method-priorities.md` with:
+After G's hostile review exists, the Professor produces `research/active/ergodicity-methods-toolbox/assessment/final-method-priorities.md` with:
 
 - ranked survivors for each problem;
 - strongest surviving bridge lemmas;
-- informative killed methods;
+- informative killed/demoted methods;
 - at most two recommended first proof experiments per problem;
 - recommendation whether either proof programme should reopen, and on exactly which bridge.
 
