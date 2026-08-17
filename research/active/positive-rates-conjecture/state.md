@@ -27,11 +27,14 @@ Latest meeting: `meetings/026-dual-renewal-connected-tail-reopens-one-bounded-j-
 
 Active work:
 
-- Student G: `students/student-g/assignment-010.md`, one bounded connected dual-renewal tail block at `P_*`.
+- Student G: `students/student-g/assignment-010.md`, one bounded connected dual-renewal tail block at `P_*`; its finite-prefix exact verifier checkpoint is already complete in `e4452de`.
 - Student F: idle; no F016.
 - No second proof route is active.
 
-Operational overlap: G's `394b7e3` landed after Meeting 025 because the idle ruling had not yet been relayed. Meeting 026 treats it as new post-stop input, not disregard of the stop.
+Operational overlaps:
+
+- G's `394b7e3` landed after Meeting 025 because the idle ruling had not yet been relayed. Meeting 026 treats it as new post-stop input, not disregard of the stop.
+- G's exact verifier `e4452de` landed at 03:01:50 while Meeting 026 was being composed and before Meeting 026 committed at 03:06:13. Meeting 026's statements that the verifier was still missing are corrected in its post-composition note. Assignment 010 Section 2 is already satisfied.
 
 ## Route status
 
@@ -145,7 +148,7 @@ $$
 
 The associated witness satisfies `R_n>=|W_n^sigma|`, so exponential growth of `V_n` proves `rho_J>1`.
 
-## Fixed filter for Assignment 010
+## Fixed filter and verified finite margin
 
 At
 
@@ -167,7 +170,7 @@ $$
 z_\sigma=\frac{114559900}{205809}.
 $$
 
-G009b reports, and the Professor independently reconstructed numerically, that
+Commit `e4452de`, `009b-dual-renewal-verifier.py`, reconstructs the finite generators and rational resolvents exactly and verifies exact rational `lambda_1,...,lambda_7`, with
 
 $$
 \lambda_1,\ldots,\lambda_5>0,
@@ -175,17 +178,31 @@ $$
 \lambda_6,\lambda_7<0,
 $$
 
-and
+and exact
 
 $$
-\sum_{k=1}^7\lambda_k\approx1.047155757329804.
+\sum_{k=1}^3\lambda_k>1,
+\qquad
+\sum_{k=1}^7\lambda_k>1.
 $$
 
-No verifier accompanied `394b7e3`. Assignment 010 must first commit the exact rational verifier and exact
+Numerically,
 
 $$
-\delta_7:=\sum_{k=1}^7\lambda_k-1>0.
+\sum_{k=1}^7\lambda_k\approx1.04715575732980380.
 $$
+
+Thus
+
+$$
+\boxed{
+\delta_7:=\sum_{k=1}^7\lambda_k-1>0
+}
+$$
+
+is exactly certified. The script need not separately print the very large rational numerator and denominator of `delta_7`; `sum7` is an exact rational object and `delta_7=sum7-1`.
+
+The negative signs at lengths six and seven rule out the naive positive-renewal truncation.
 
 ## Active sufficient target
 
@@ -218,7 +235,7 @@ The invariant projection is extracted exactly as a renewal separator, so `(CT)` 
 
 Do not count a longer table of `lambda_k` as progress. Do not optimize `sigma`, posit finite-dimensional mode closure, seek an exact finite-cylinder eigenprofile, or return to bare tail-shift/common-coupling/Bellman searches.
 
-A positive outcome requires a genuine all-depth connected-tail theorem. A substantive negative outcome must identify a structural obstruction sharper than the already known growing mode hierarchy. If Assignment 010 returns only more finite coefficients or a generic request for a better norm, this branch stops and the programme returns to Meeting 025's `no-credible-route` state.
+Assignment 010 starts directly from the all-depth target `(CT)`; its finite-prefix verification checkpoint is already complete. A positive outcome requires a genuine all-depth connected-tail theorem. A substantive negative outcome must identify a structural obstruction sharper than the already known growing mode hierarchy. If Assignment 010 returns only more finite coefficients or a generic request for a better norm, this branch stops and the programme returns to Meeting 025's `no-credible-route` state.
 
 ## Unresolved target-level facts
 
