@@ -14,7 +14,7 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed until changed or stopped by the principal: prove that every simple IPS with positive rates is ergodic.
 - Latest meeting: `research/active/positive-rates-conjecture/meetings/026-dual-renewal-connected-tail-reopens-one-bounded-j-spec-block.md`, `state_narrowed: yes`.
-- Student G: active on `students/student-g/assignment-010.md`, one bounded connected dual-renewal tail certificate at `P_*`.
+- Student G: active on `students/student-g/assignment-010.md`, one bounded connected dual-renewal tail certificate at `P_*`; exact finite-prefix verifier checkpoint `e4452de` already complete.
 - Student F: idle; no F016.
 - No second route is authorized.
 
@@ -36,6 +36,8 @@ $$
 Meetings 019, 021, and 024 stop respectively the common-uniform zero-frequency occupation interface, the repeated-equilibrium predecessor-profile implementation, and the stationary Bellman concatenation implementation. Consultation 002 rules out global path-space TV/KL contraction of the exact trajectory kernel. Meeting 025 stops G009's singular fixed-depth short/long renewal continuation because its long reset is nonuniform in depth.
 
 A late G checkpoint, `394b7e3`, landed after Meeting 025 because the idle ruling had not yet been relayed. Meeting 026 evaluates it as new post-stop input and reopens **one bounded exception**. This is an orchestration overlap, not disregard of the stop.
+
+A second overlap occurred during Meeting 026 composition: exact verifier commit `e4452de` landed at 03:01:50 before Meeting 026 committed at 03:06:13. The meeting's post-composition correction records that the verifier was already present and satisfies Assignment 010's finite-prefix checkpoint.
 
 ### Exact dual-renewal mechanism
 
@@ -87,7 +89,7 @@ $$
 
 The witness is dominated by the canonical absolute-duration norm, so supercritical growth of `V_n` proves `rho_J>1`.
 
-### Fixed filter and active target
+### Fixed filter, verified finite prefix, and active target
 
 At
 
@@ -107,19 +109,35 @@ $$
 z_\sigma=\frac{114559900}{205809}.
 $$
 
-G009b reports, and the Professor independently reconstructed numerically,
+Commit `e4452de` reconstructs the finite generators and rational resolvents exactly and verifies exact rational `lambda_1,...,lambda_7`, with
 
 $$
-\sum_{k=1}^7\lambda_k\approx1.047155757329804.
+\lambda_1,\ldots,\lambda_5>0,
+\qquad
+\lambda_6,\lambda_7<0,
 $$
 
-The first five coefficients are positive and the sixth and seventh negative, so naive positive truncation is invalid. No verifier accompanied the late checkpoint; Assignment 010 must first commit exact rational verification of the finite prefix.
-
-Put
+and exact
 
 $$
-\delta_7=\sum_{k=1}^7\lambda_k-1.
+\sum_{k=1}^3\lambda_k>1,
+\qquad
+\sum_{k=1}^7\lambda_k>1.
 $$
+
+Numerically,
+
+$$
+\sum_{k=1}^7\lambda_k\approx1.04715575732980380.
+$$
+
+Thus
+
+$$
+\delta_7=\sum_{k=1}^7\lambda_k-1>0
+$$
+
+is exactly certified. The sixth and seventh coefficients are negative, so naive positive truncation is invalid.
 
 The active theorem is
 
@@ -149,7 +167,7 @@ This does **not** make it automatically contractive: slow nonzero modes may stil
 
 ### Stopping rule
 
-Do not count a larger coefficient table, optimize the filter, posit finite-dimensional mode closure, or restart tail-shift/common-coupling/Bellman searches. Assignment 010 must produce an all-depth connected-tail theorem or a structural obstruction sharper than the already known growing-mode fact. Otherwise the programme returns to Meeting 025's `no-credible-route` state.
+Assignment 010 starts directly from the all-depth connected-tail target; its finite-prefix verification checkpoint is already complete. Do not count a larger coefficient table, optimize the filter, posit finite-dimensional mode closure, or restart tail-shift/common-coupling/Bellman searches. Assignment 010 must produce an all-depth connected-tail theorem or a structural obstruction sharper than the already known growing-mode fact. Otherwise the programme returns to Meeting 025's `no-credible-route` state.
 
 ## Most recently completed programme
 
