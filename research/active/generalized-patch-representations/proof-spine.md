@@ -2,9 +2,11 @@
 
 Date: 2026-08-17
 
-## Target
+## Programme status
 
-Extend the binary patch-representation mechanism to finite-state single-site replacement IPS, identify which parts are genuinely new, and determine whether the generalized representation has useful nonbinary consequences.
+**CLOSED deliberately after Assignment 011.**
+
+The programme achieved an arbitrary-finite-state killed typed patch representation and several structural corollaries, but did not produce a new natural-model theorem strong enough to justify further autonomous work. There is no active proof-spine edge and no Assignment 012.
 
 ## E0. Binary benchmark
 
@@ -16,7 +18,7 @@ Extend the binary patch-representation mechanism to finite-state single-site rep
 
 Reference-state indicator tensors give an exact signed Feynman--Kac dual for arbitrary bounded finite-range single-site replacement IPS. Successful nonempty records reveal `(i,t,r,tau)` and hide the post-source outcome.
 
-Novelty status: **known ingredients, assembly plausibly new**.
+Novelty status: `known ingredients, assembly plausibly new`.
 
 ## E2. Killed typed patch factorization
 
@@ -24,7 +26,7 @@ Novelty status: **known ingredients, assembly plausibly new**.
 
 Typed incoming target conflicts make bare skeleton conditioning false because cemetery entry deletes future no-record constraints. Since the duality function vanishes at cemetery, the killed/noncemetery weighted identity restores exact local factorization.
 
-Novelty status: **plausibly new theorem/mechanism** after the bounded Assignment-008 audit.
+Novelty status after Assignment 008: **`plausibly new theorem/mechanism`**.
 
 ## E3. Exact typed patch representation
 
@@ -41,168 +43,195 @@ K_i(0,\cdot)=0,
 \qquad K_i(r,s)=a_{i,r}^s(\emptyset).
 \]
 
-Typed bulk patch positivity is exact nonnegativity of local semigroup boundary responses. The `d=2` specialization is canonical binary patch positivity.
+Typed bulk patch positivity is exact nonnegativity of realized local semigroup boundary responses. At `d=2` this is canonical binary patch positivity.
 
-## E5. Three-state positivity differs structurally from binary
+## E5. Three-state endpoint obstruction
 
 **Settled in Assignment 005.**
 
-Boundary-complete `d=3` can have a two-mode `OI` response with positive zero/long endpoints and a negative interior minimum. Thus the binary endpoint collapse does not survive automatically.
+A physically realizable response
 
-## E6. Exact `d=3` scalar spectral test
+\[
+\frac1{128}-\frac{13}{64}e^{-t}+\frac{153}{128}e^{-2t}
+\]
 
-**Mathematically settled in Assignment 006; novelty removed in Assignment 008.**
+has positive endpoints and exact interior minimum `-1/1224`. Thus the binary endpoint collapse fails in `d=3`.
 
-Every boundary-complete `d=3` scalar response is decided by finitely many endpoint/critical evaluations.
+## E6. Exact `d=3` spectral test
 
-Novelty status: **known / directly subsumed** by third-order SISO external-positivity theory. Do not use this as a contribution claim.
+**Correct, but novelty removed in Assignment 008.**
 
-## E7. Natural exact nonbinary algebraic subclass
+Assignment 006 gives a finite endpoint/critical-point criterion, including degenerate spectra.
+
+Contribution status: **`known / directly subsumed`** by third-order SISO external-positivity theory. It is not part of the contribution claim.
+
+## E7. Natural nonbinary algebraic subclass
 
 **Settled in Assignment 007.**
 
-Exchange-symmetric reference dynamics yields an exact algebraic criterion after the necessary Metzler ordering. This is genuinely nonbinary but is a structured external-positivity consequence, not the primary novelty anchor.
+The exchange-symmetric subclass has an exact algebraic criterion. Its scalar content is structured external positivity, so it remains a useful calculation rather than a primary novelty claim.
 
 ## E8. Novelty audit
 
-**Settled in Assignment 008. Outcome `CONTINUE-TO-APPLICATIONS`.**
+**Settled in Assignment 008.**
 
-Broad ingredients are known: finite-state/product duality, signed finite-type FK duality, ancestor/history constructions and external positivity. No equivalent source was found for the precise hidden-successful-record plus typed-cemetery killed factorization interface.
-
-The plausible contribution remains
+The strongest surviving plausible contribution is the interface
 
 \[
 \text{signed typed dual}
 \to
 \text{hidden successful skeleton}
 \to
-\text{cemetery-aware killed patch factorization}
+\text{typed cemetery obstruction}
+\to
+\text{killed/noncemetery factorization}
 \to
 \text{exact finite-state patch representation}.
 \]
 
-## E9. First natural application: two-stage contact process / SIRS
+Finite-state duality, signed FK duality, partial graphical revelation and external positivity themselves are established ingredients.
+
+## E9. First natural application
 
 **Settled negatively in Assignment 009. Outcome `STOP-APPLICATION-POSITIVITY-FAILS`.**
 
-The literature-selected two-stage contact process genuinely realizes hidden outcomes and cemetery conflicts, but a realized repeated-source `OO` patch is negative throughout its interacting birth range. Spatial SIRS has the same obstruction.
+Krone's two-stage contact process genuinely activates hidden outcomes and typed cemetery conflicts but has a negative repeated-source `OO` patch throughout the interacting birth range. Spatial SIRS has the same obstruction.
 
-### Catalytic-birth no-go
+Exact gate:
 
-If a positive nonempty target mode appears in `0->r` but not in active-source transitions into `r`, then the relevant outgoing hidden coefficient is negative; if the source record can repeat after that hidden outcome, a realized arbitrarily short `OO` patch is negative.
+\[
+N_{OO}=-5/16,
+\qquad D_{OO}=5/16,
+\qquad C_{OO}=-1.
+\]
 
-## E10. Structurally distinct application: Potts Metropolis
+## E10. Structurally distinct natural application
 
 **Settled negatively in Assignment 010. Outcome `STOP-SECOND-APPLICATION-POSITIVITY-FAILS`.**
 
-The model was selected before positivity calculation: three-state zero-field ferromagnetic Potts with single-spin Metropolis Glauber dynamics.
+Three-state Potts Metropolis has all states active, direct active-to-active retyping, nondeterministic hidden outcomes and realizable cemetery conflicts, yet a short realized `OO` patch is negative throughout the interacting finite-temperature regime.
 
-For
-
-\[
-z=e^{-\beta J},
-\]
-
-and common proposal rate `q`,
+Exact gate:
 
 \[
-c^{x\to y}=qz^{(n_x-n_y)_+}.
+N_{OO}\left((8/3)\log(5/4)\right)=-3884/390625.
 \]
 
-The exact empty-target transfer is
+### General short-`OO` contrast obstruction
+
+The two application failures are unified by:
 
 \[
-K=q
-\begin{pmatrix}
-0&0&0\\
-z^4&-(z^4+2)&1-z^4\\
-z^4&1-z^4&-(z^4+2)
-\end{pmatrix}.
+a_r^s(\tau)
+=\widehat c^{s\to r}(\tau)-\widehat c^{0\to r}(\tau)<0,
 \]
 
-A source-type-1 singleton target-type-1 successful record has outgoing row
+plus a realizable hidden outcome `s` that can feed a subsequent source-`s` successful record. Then a realized arbitrarily short `OO` patch is negative.
+
+This substantially lowers the value of further positivity-driven application search.
+
+## E11. Killed patch-variation majorant
+
+**Settled in Assignment 011.**
+
+The final bounded continuation dropped pointwise bulk positivity and tested delayed absolute values directly.
+
+For finite-volume exact signed FK kernel `Q_t`, raw absolute-FK kernel `A_t`, and killed patch-variation kernel `R_t`,
 
 \[
-\mathbf a_{1;1,0}
-=
-\left(
-qz^2(1-z^2),
-q(z-1)(z^3+z^2-1),
--qz^2(1-z^2)
-\right).
+\boxed{|Q_t|\le R_t\le A_t}
 \]
 
-Thus for every `0<z<1`, hidden outcomes are genuinely nondeterministic and
+entrywise.
+
+The inequality can be strict in the verified Potts model. At the exact positive-length gate,
 
 \[
-a_1^2=-qz^2(1-z^2)<0.
+\frac{10178204}{38671875}
+<
+\frac{17919551}{38671875}.
 \]
 
-A source-type-2 successful record can follow, so a realized short `OO` patch is negative. Therefore Potts Metropolis is not typed patch positive at any interacting finite-temperature point.
+This strict gain comes from averaging hidden outcomes before taking absolute values.
 
-This is nondegenerate with respect to the novelty anchor: hidden marks and typed cemetery conflicts are genuinely realized.
+## E12. Composability of the cancellation envelope
 
-At the exact gate
+**Settled positively in Assignment 011.**
+
+Deterministic time-cut refinement gives
 
 \[
-z=1/2,
-\qquad q=1,
-\qquad t_*=(8/3)\log(5/4),
+\boxed{R_{t+s}\le R_tR_s}
 \]
+
+entrywise. The intermediate typed dual configuration is sufficient boundary memory.
+
+Thus `R_t` is a genuine positive submultiplicative kernel family, not merely a one-horizon inequality.
+
+Contribution status: **plausibly new corollary/extension** of the killed typed factorization, historical priority not established.
+
+## E13. Renewal/oscillation consequence
+
+**Settled mathematically; insufficient for continuation.**
+
+Support weight and collision-free domination produce a finite multitype renewal kernel with source-line responses
 
 \[
-N_{OO}(t_*)=-3884/390625<0.
+|b_u e^{tK}e_r|.
 \]
 
-### General short-`OO` contrast lemma
+A subcritical exponentially tilted next-generation kernel yields volume-uniform exponential site-oscillation decay.
 
-Assignment 010 identifies the broader local obstruction:
+The criterion can be strictly stronger than the raw absolute-FK first-moment criterion. An exact one-neighbour Potts interpolation has
 
-> if active types `r!=s` and a nonempty target `tau` satisfy
-> \[
-> a_r^s(\tau)=\widehat c^{s\to r}(\tau)-\widehat c^{0\to r}(\tau)<0,
-> \]
-> the hidden outcome `s` is realizable, and a positive-hazard source-`s` successful record can follow, then a realized arbitrarily short `OO` patch is negative.
+\[
+\rho(G)=17/6,
+\qquad
+\rho(\bar G)=3,
+\]
 
-Assignment 009's catalytic-birth obstruction is a special case. Potts shows the same sign obstruction with all states active, every directed physical replacement positive, and direct active-to-active retyping.
+and after scaling nonempty target modes by `17/50`,
 
-## E11. Multistate bulk positivity as an application engine
+\[
+\boxed{289/300<1<51/50.}
+\]
 
-**Evidence now negative. No automatic third application search.**
+However, the downstream contraction/ergodicity implication is established Dobrushin/representational-seminorm territory, and the multitype renewal step is standard machinery. The exact separating family is a structural gate rather than a new theorem for a natural difficult model.
 
-Two materially different natural architectures have genuinely activated the killed typed geometry and nevertheless failed bulk positivity by local short-`OO` signs:
+## E14. Final value ruling
 
-1. contact/epidemic birth plus local stage/recovery conversion;
-2. symmetric active-to-active Metropolis retyping.
+**Assignment 011 outcome: `STOP-CANCELLATION-NO-QUALITATIVE-GAIN`.**
 
-This is enough to lower the expected value of further model search based on hoping for patch positivity. The programme should not continue by testing cosmetic model variants.
+The final block proved more than local cancellation but did not produce a sufficiently independent natural-model or model-independent consequence to justify another research block.
 
-## E12. Representation-only consequences
+Accordingly the programme stops rather than moving to:
 
-**Open only as an opportunity-cost question, not yet an assigned block.**
+- another positivity-driven application;
+- generic `d>3` external-positivity algebra;
+- another cancellation-envelope variant.
 
-The representation theorem survives both negative applications. The next scientifically distinct question, if the programme continues, is:
+## E15. Multi-site physical updates
 
-> Can the cemetery-aware killed typed patch representation yield a useful cancellation identity, norm estimate, finite-volume formula, or comparison that does **not** require every bulk contribution to be nonnegative?
+**Unstudied and outside the closed programme's proved scope.**
 
-A positive answer would use the actual surviving novelty anchor rather than the increasingly restrictive positivity property.
+Simultaneous multi-site physical updates remain outside the single-site replacement representation theorem. This is not an active edge.
 
-No Assignment 011 is queued. Independent verification of Assignment 010 and an explicit Professor opportunity-cost decision should precede any continuation.
+## Final retained contribution framing
 
-## E13. Generic `d>3` tractable positivity
+Verified mathematics retained:
 
-**Deferred.**
+1. arbitrary finite-state typed signed FK representation for single-site replacement IPS;
+2. exact failure of bare successful-skeleton factorization;
+3. cemetery-aware killed patch factorization;
+4. exact finite-state bulk/end patch representation;
+5. local transfer formulas;
+6. general short-`OO` contrast obstruction;
+7. patch-variation majorant
+   \[
+   |Q_t|\le R_t\le A_t,
+   \qquad R_{t+s}\le R_tR_s.
+   \]
 
-The representation already holds for arbitrary finite `d`, while higher-order scalar response positivity overlaps established external-positivity theory. Do not activate generic `d>3` algebra by default.
+Plausible contribution anchor: the **killed typed patch interface**, supplemented by the patch-variation majorant. The `d=3` spectral criterion is explicitly outside the contribution claim.
 
-## E14. Multi-site physical updates
-
-**Downstream/outside current scope.**
-
-Simultaneous multi-site physical updates remain outside the proved representation class.
-
-## Current novelty framing
-
-Do not claim novelty for finite-state duality, signed FK duality, partial Poisson revelation, Metzler semigroups or scalar external positivity individually.
-
-The plausible contribution remains the killed typed patch **interface**. Assignments 009--010 show both that this interface occurs naturally and that bulk positivity is much more restrictive than the representation itself.
+There is no active scientific edge on this branch.
