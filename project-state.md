@@ -8,52 +8,59 @@ This file is the compact current-state index for the autonomous research program
 
 - Branch: `research/ergodicity-methods-toolbox`.
 - Workspace: `research/active/ergodicity-methods-toolbox/`.
-- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/018-final-74-verified-professor-takes-fa-lane.md`.
+- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/019-fa1f-east-primary-audit-complete.md`.
 - Assessment protocol: `research/active/ergodicity-methods-toolbox/assessment-protocol.md`.
 - Student G: active on Assignment 007, positive-rates applicability audit.
 - Student F: unavailable because its conversation reached the maximum-length/session limit; Assignment 008 is durable but not running.
-- Professor: owns the FA-1f/East applicability audit directly.
+- Professor: FA-1f/East primary applicability audit complete.
 
-Breadth collection is finished. The final frozen inventory contains **74 source-audited method pages**. No wave eight or generic gap-filling search is authorized.
+Breadth collection is finished. The frozen inventory contains **74 source-audited, live, mechanically verified method pages**. No wave eight or generic gap-filling search is authorized.
 
-The programme now asks which frozen methods are most useful for either:
+## FA-1f / East primary audit complete
 
-1. one-dimensional FA-1f / East out-of-equilibrium convergence; or
-2. the positive-rates conjecture for simple IPS.
+The Professor executed the F008 specification directly under `assessment-protocol.md`.
+
+- Audit: `research/active/ergodicity-methods-toolbox/assessment/fa1f-east-method-audit.md`.
+- Completion commit: `baea166c62105caf9084a4859c4ac4af29190d04`.
+- Handoff: `research/active/ergodicity-methods-toolbox/assessment/fa1f-east-professor-handoff.md`.
+
+All 74 methods were classified: 1 A, 4 B, 24 C, 21 X, 24 N.
+
+Shortlist for hostile review:
+
+1. East distinguished-zero screening — A;
+2. refined non-diagonal discrepancy coupling — B;
+3. information percolation/backward histories — B;
+4. front regeneration/renewal — B;
+5. state-dependent dynamical disagreement percolation — B.
+
+The main conclusion is that equilibrium coercivity is already strong enough: FA-1f has positive equilibrium spectral gap for every vacancy density. The missing mathematics is a mechanism for local loss of exterior/time-zero information under the Bernoulli quench. The five shortlisted methods are all variants of that interface, except the exact chronology-switch route, which targets the weakest known three-site sign inequality directly.
+
+A tempting relative-entropy shortcut was checked and rejected: the Jahnel--Koppl Gibbs-attractor theorem assumes irreducibility R6, which hard FA violates at the all-ones absorbing configuration.
+
+The Professor also ran a finite-cycle numerical falsification check of the three-site cross-product/adjacent-repulsion target; no violation was found in the tested regime. This is not a proof.
+
+## Positive-rates audit still active
+
+Student G is running `students/student-g/assignment-007.md`, the complete positive-rates applicability audit of the same 74-method inventory against the exact stopped-programme obstruction record.
+
+After G completes:
+
+- G should hostile-review only the five-method FA shortlist;
+- the positive-rates shortlist should receive an independent hostile review from a new worker session if the principal opens one;
+- the Professor then synthesizes at most two recommended first proof experiments per problem.
+
+If no new worker becomes available, any substitute review of the positive-rates shortlist must be explicitly described as asymmetric rather than independent F review.
 
 ## Coverage and publication status
 
-All **74 staged method entries are Professor source-audited and accepted**, and all 74 have live counterparts under `docs/entries/`.
-
-Meeting 018 records the final post-integration structural gate:
-
-```text
-Checked 74 entries; 0 failed mechanical validation.
-```
-
-`mkdocs build --strict` exits 0 with no warnings and no broken internal links. Completeness is exact: 74 staged entries, 74 promoted pages, 74 hub links, zero unresolved, no orphan in either direction, every promoted page carries `status:` and `audit:`, and all 171 MkDocs `.md` navigation targets resolve. The `docs/` diff against `origin/main` remains additions-only with zero non-additions, and the control/format-character scan is clean across all 74 staged entries.
-
-These checks are structural only. Source/claim acceptance is the Professor audit recorded through Meeting 017.
-
-Therefore the final **74-method toolbox is source-audited, live, and mechanically verified**. No collection-phase publication gate remains open.
+Meeting 018 records the final structural publication gate: 74 staged, 74 promoted, 74 hub links, zero unresolved/orphans, metadata on every promoted page, all 171 MkDocs `.md` targets resolving, strict build exit 0, validator 74/0, additions-only `docs/` diff, and clean control/format scan. Structural checks do not add source authority; source acceptance is recorded through Meeting 017.
 
 The principal-level directory question remains open. No public-doc restructuring is part of the applicability phase.
 
 ## Entry hygiene
 
-A TeX-escape corruption found during wave-six source audit showed that required-field validation alone is insufficient. The entry template requires a control/format-character scan plus visual/diff inspection of mathematical backslashes.
-
-Professor ruling for the offered validator extension: hard-fail actual disallowed control or Unicode format characters in staged entries, preserve ordinary Markdown whitespace, and do not add unreliable heuristics for silently lost TeX backslashes such as `alpha` or `mu`. Frozen legacy corruption remains outside this programme.
-
-## Active applicability phase
-
-Student G is running the positive-rates audit under `students/student-g/assignment-007.md`.
-
-Student F cannot receive the FA-1f/East assignment because its conversation is no longer accepting turns. Attempts to use dormant earlier F conversations also fail. The Professor therefore takes the FA-1f/East audit directly rather than serializing both primary audits through G or waiting for a replacement worker.
-
-Both primary audits use the same `assessment-protocol.md` standard: classify all 74 methods A/B/C/X/N, return at most six ranked A/B candidates, state explicit bridge lemmas, identify exact obstruction avoidance, and give cheap falsification tests.
-
-After both audits are available, hostile cross-review is performed on the shortlists only, followed by Professor synthesis with at most two recommended first proof experiments per problem. A new worker session, if the principal opens one, should be used first to restore independent cross-review capacity rather than to restart breadth collection.
+The Professor's bounded validator ruling remains: hard-fail actual disallowed control or Unicode format characters in staged entries, preserve ordinary Markdown whitespace, and do not add unreliable heuristics for silently lost TeX backslashes. The orchestrator's tested implementation is awaiting direct principal authorization before repository write.
 
 ## Previous scientific direction
 
