@@ -3,7 +3,7 @@ method_id: refined-discrepancy-coupling-general-exclusion
 title: Refined discrepancy coupling beyond basic exclusion coupling
 category: coupling
 targets:
-  - uniqueness
+  - invariant-law-classification
 model_scope: Conservative exclusion processes with configuration-dependent jump rates for which ordinary basic coupling is not attractive
 source_status: primary-checked
 primary_source: Thierry Gobron and Ellen Saada, "Couplings and attractiveness for general exclusion processes," Ensaios Matemáticos 38 (2023), 263--313
