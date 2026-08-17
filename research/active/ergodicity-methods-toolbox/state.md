@@ -28,10 +28,15 @@ This keeps the new section cleanly separate from deprecated material while respe
 
 ## Workers
 
-Student F and Student G are reused for the first literature wave. Their prior mathematical context is useful for recognizing method families and avoiding accidental rediscovery, but repository/project claims are not literature authority. Every entry must be grounded in actual external sources.
+Student F and Student G are reused. Their prior mathematical context is useful for recognizing method families and avoiding accidental rediscovery, but repository/project claims are not literature authority. Every entry must be grounded in actual external sources.
 
 - Student F: analytic, functional-inequality, variational, block-dynamics, and KCSM relaxation methods.
 - Student G: coupling, graphical, disagreement, influence, duality, and backward-history methods.
+
+Current assignments:
+
+- Student F: active on `students/student-f/assignment-002.md` after Meeting 002 accepted all six wave-one entries.
+- Student G: in flight on `students/student-g/assignment-001.md`; do not interrupt or retask before its handoff.
 
 At most two sessions remain in flight.
 
@@ -55,7 +60,7 @@ Model-specific techniques are explicitly included. General Markov-chain methods 
 
 Every staged entry must cite at least one inspected primary source with a precise theorem/proposition/lemma/section/page pinpoint and a stable URL/DOI/arXiv identifier. If the method's canonical origin is a general Markov-chain source, also cite a concrete IPS/spin-system application. Secondary surveys and books may be added, but do not substitute for primary attribution when the primary source is available.
 
-Only entries marked `source_status: primary-checked` are eligible for later live-wiki promotion.
+Only entries marked `source_status: primary-checked` and accepted in a Professor source-audit meeting are eligible for later live-wiki promotion.
 
 ## Entry size and format
 
@@ -65,11 +70,23 @@ Staged entries use `entry-template.md`. Target length is 400–900 words; hard c
 
 `validate_entries.py` checks required metadata, headings, source pinpoints/URLs, and length. Passing it certifies only structure, not mathematical correctness or attribution. The Professor remains responsible for source audit before promotion.
 
+## Accepted staged entries
+
+Meeting 002 source-audited and accepted Student F's complete first wave:
+
+- `poincare-spectral-gap.md`;
+- `log-sobolev-modified-log-sobolev.md`;
+- `dirichlet-form-canonical-path-comparison.md`;
+- `block-dynamics-bisection-variance.md`;
+- `dobrushin-shlosman-spatial-to-dynamical.md`;
+- `east-distinguished-zero-screening.md`.
+
+They remain staged until G's first wave is reviewed and a joint taxonomy/deduplication pass determines cross-links and live-wiki ordering.
+
 ## Current work
 
-Opening assignments:
+Latest meeting: `meetings/002-f-wave-one-source-audit-and-second-wave.md`.
 
-- `students/student-f/assignment-001.md`
-- `students/student-g/assignment-001.md`
-
-Latest meeting: `meetings/001-opening-taxonomy-source-standard-and-first-wave.md`.
+- F Assignment 002 fills analytic gaps: Lu--Yau/martingale recursion, spectral independence, block entropy factorization, bounded perturbation, moving-particle comparison, and finite-size relaxation criteria.
+- G Assignment 001 continues unchanged until handoff.
+- No staged entry is promoted to `docs/` before joint first-wave integration review.
