@@ -2,102 +2,139 @@
 
 ## Direction
 
-Title: ergodicity methods toolbox for spin systems and IPS
+Title: FA-1f Bernoulli-quench method tests after the frozen ergodicity toolbox audit
 
 Branch: `research/ergodicity-methods-toolbox`
 
 Workspace: `research/active/ergodicity-methods-toolbox/`
 
-**Breadth collection and problem-specific applicability assessment are complete.** The research loop has resumed on a principal-directed positive-rates screening test.
+The 74-method toolbox collection and applicability assessment remain complete and frozen. The research loop is now using the two FA-1f architectures which survived hostile review.
 
-Latest meeting: `meetings/023-principal-distinguished-zero-direction-resumes-research-loop.md`.
+Latest meeting: `meetings/024-fa-screen-vacancy-boundary-scaling-obstruction.md`, `state_narrowed: yes`.
 
-Final applicability synthesis: `assessment/final-method-priorities.md`, commit `2dc1d230737d8985b6ff3d5e09af26ce9d7b33c5`.
+No public toolbox entry, `docs/` file, or `mkdocs.yml` change is authorized by this research work.
 
-## Frozen inventory and publication status
+## Frozen inventory
 
-The inventory remains frozen at **74 source-audited live methods**. Meeting 018 records the complete structural gate: 74 staged/promoted/hub-linked methods, zero unresolved orphans, metadata on every promoted page, all 171 MkDocs `.md` targets resolving, validator 74/0, strict build exit 0, additions-only `docs/` diff against main, and a clean control/format-character scan.
+The inventory remains **74 source-audited live methods**. The previously verified structural/publication gates remain unchanged: validator 74/74 with zero failures, strict site build clean, public-doc additions-only gate clean, and control/format scan clean as reported by the orchestrator.
 
-Both primary applicability audits and both hostile shortlist reviews are complete. No public taxonomy/navigation change follows automatically from their rankings.
+No further breadth collection or taxonomy work is active.
 
-No toolbox entry, `docs/` page, or `mkdocs.yml` change is authorized by the resumed research loop.
+## Positive-rates bounded set: closed
 
-## Final applicability rulings retained
+The direct positive-rates branch `research/positive-rates-conjecture` has returned to `no-credible-route` for the present group. Meeting 034 there records that all bounded toolbox-derived PASS tests failed in their registered direct forms:
 
-### FA-1f / East
+1. uniform negative additive-Hamming drift is impossible at the hard point for **every** Markovian coupling;
+2. optimized mark-only Boolean-map information percolation has a decomposition-independent nondecaying pair-intersection lower bound;
+3. both ordinary and checkerboard Gray scalar/two-type splice closures are locally incompatible with the hard-point rates;
+4. the principal-directed `pi_N` distinguished-zero transfer stopped at the old tail-shift defect.
 
-Hostile-review survivors:
+Meeting 030's signed boundary-transmission restart bar remains in force. No positive-rates proof architecture is active, and larger edge states, state-adaptive positive-rates histories, generic coupling/norm engineering, common-coupling occupation, tail shift, Bellman/Foster, reversible/filter variants and longer coefficient searches are not automatically reopened.
 
-1. East-style two-sided causal screening — **PASS**;
-2. quench-specific adaptive information histories — **PASS**.
+## FA-1f target
 
-Final ruling: **reopen narrowly on `FA-SCREEN`**, beginning with the finite leakage/measurability gate. Adaptive information histories remain the reserve architecture.
+Current scientific target:
 
-### Positive rates
+> For one-dimensional hard FA-1f with equilibrium vacancy density `q in (0,1)`, prove local convergence from every nondegenerate homogeneous Bernoulli initial law `mu_{q0}`, `q0>0`, to the Bernoulli equilibrium law `mu_q`.
 
-Hostile-review survivors reduce to two families:
+The earlier published high-vacancy theorem and known positive equilibrium gap are background. The unresolved regime is the all-density Bernoulli quench. Worst-case convergence is impossible because all ones is absorbing.
 
-1. nonbasic one-dimensional coupling / Gray geometry;
-2. information percolation.
+The hostile review retained two independent architectures:
 
-The final toolbox synthesis had recommended no full positive-rates reopening until bounded structural feasibility evidence appeared.
+1. `FA-SCREEN`: an East-inspired two-sided physical causal screen;
+2. `FA-INFO`: a quench-specific state-adaptive causal information history.
 
-## New principal-directed positive-rates test
+## FA-SCREEN-001: stopped as `STOP-SCALING-OBSTRUCTION`
 
-The principal has now supplied a distinct targeted direction: investigate whether an East distinguished-zero argument can be transferred to the remaining positive-rates region by using the finite invariant marginals with a fixed zero boundary even though the infinite-volume invariant law is unknown.
+Assignment:
 
-This is not one of the two generic feasibility experiments from the final synthesis. It directly probes whether the already-established projective zero-boundary invariant family yields a new screening architecture.
+`students/professor/assignment-001-fa-screen.md`, commit `64535479`.
 
-Student G has therefore moved to branch `research/positive-rates-conjecture` and is active on:
+Final report:
 
-`research/active/positive-rates-conjecture/students/student-g/assignment-011.md`
+`students/professor/001-fa-screen.md`, commit `f3650cd5`.
 
-commit `6efcf60ab43782cf48058484f86f2faca3a7f093`.
+Handoff:
 
-Direct-programme Meeting 031 records the stop rule.
+`students/professor/001-fa-screen-handoff.md`, commit `a271ea7e`.
 
-The exact first issue is that one-sided suffix projectivity
+### Local leakage
 
-`R_{N,M} pi_N = pi_M`
+A literal distinguished vacancy fails in one ring. If site `0` is protected and site `1` is the proposed boundary, a site-1 ring depends on the protected neighbour exactly when its right neighbour is occupied and the refresh coin differs from the current boundary spin.
 
-does not imply the prefix compatibility needed when a distinguished boundary moves. The old programme isolated
+An adjacent `00` dimer can postpone this: an exterior refresh sends `00 -> 01` without protected information. The next inner refresh-to-1 is dangerous. Thus a dimer is faithful only as a **killed** boundary primitive which declares failure before protected-side legality is needed.
 
-`bar pi_{N+1}-pi_N`,
+### Width-three hazard theorem
 
-whose remote-left size is the tail-shift quantity `Delta_M`. G011 must decide whether distinguished-zero geometry provides new leverage on this defect or merely renames the stopped tail-shift problem.
+The decisive checkpoint is
 
-Permitted final statuses are:
+`students/professor/001c-fa-screen-width3-scaling-obstruction.md`, commit `8076b527`,
 
-- `STOP-EQUIVALENT`;
-- `STOP-LOCAL-OBSTRUCTION`;
-- `CONTINUE-NEW-BRIDGE`.
+with exact finite verifier
 
-The pre-registered stop rule forbids escalation to larger marker states if every repair requires tail-shift agreement, the abandoned common-uniform all-depth occupation theorem, Meeting 030's signed boundary-transmission estimate, or another already-stopped generic contraction object.
+`001b2-fa-screen-width3-hazard-verifier.py`, commit `71bef127`.
 
-## Deferred experiments
+For every active width-at-most-three exterior-measurable vacancy state, there is a four-unit event using only the first three exterior sites which first holds the adjacent boundary site vacant for a whole phase, allowing hidden protected refreshes to make the protected endpoint take either spin value, and then applies a dangerous boundary refresh. Its probability is at least
 
-The two bounded positive-rates feasibility experiments from the final toolbox synthesis are **deferred, not killed**, while the principal-directed distinguished-zero test runs:
+$$
+\delta_3(q)=e^{-12}q^2(1-q)^2>0.
+$$
 
-1. exact non-diagonal coupled-rate / Gray LP at the hard point;
-2. optimized information-percolation pair-support/intersection calculation.
+Therefore a fixed active endpoint has exponential age tail
 
-## Personnel
+$$
+P(T>4n)\le(1-\delta_3(q))^n.
+$$
 
-Student G: active on positive-rates G011.
+At `q=1/10`, the verifier gives the exact rational lower bound
 
-Student F: unavailable because its conversation reached the maximum-length/session limit.
+$$
+\delta_3(1/10)>\frac{81}{2000000000}.
+$$
 
-Professor: research-direction authority remains delegated; no principal approval checkpoint is required after a mathematically justified ruling. The separate FA `FA-SCREEN` reopening remains authorized and is not canceled by G011.
+### Scaling consequence
+
+The registered `FA-SCREEN` bridge fixes a final interval `I_t` and demands that all marks in `I_t x (tau_t,t]` remain unrevealed by the screen while `t-tau_t>=s_t`. Searches/handoffs may occur before `tau_t`, but the chosen final endpoint must have valid age at least `s_t`.
+
+Even allowing `C s_t` candidate endpoints,
+
+$$
+P(\exists\text{ valid endpoint of age }s_t)
+\le C s_t(1-\delta_3(q))^{\lfloor s_t/4\rfloor}
+\to0.
+$$
+
+Hence the fixed-final-interval screen built from exterior-measurable single-vacancy/dimer finite boundary automata cannot simultaneously have `s_t->infinity`, sublinear width, exact protected-future freshness, and success probability tending to one.
+
+The positive FA spectral gap is never reached; the obstruction is upstream.
+
+### Scope boundary
+
+Not ruled out:
+
+- every imaginable FA causal screen;
+- a materially different moving/adaptive-boundary relaxation theorem whose conditioning does not consume marks later declared protected;
+- `FA-INFO`.
+
+Do not respond by merely enlarging the vacancy-marker automaton to more sites/phases.
+
+## Queued next architecture: FA-INFO
+
+`FA-INFO` is the only independent PASS architecture remaining from the FA hostile review. It tracks the **minimal causal information revealed under the Bernoulli quench**, allowing short-circuit evaluation of the facilitation OR: once one neighbour is revealed vacant, the other neighbour need not be revealed merely to establish legality.
+
+It is not the conservative centered dual and is not a mark-only ancestor process. A Miller--Peres/Ising theorem cannot simply be quoted; the required second-moment or likelihood comparison must be derived for the actual adaptive reveal rule.
+
+Meeting 024 authorizes only the already-specified bounded first experiment: an exact one/two-block adaptive decision-tree test with a pair-level information statistic and an anti-circularity check. This is not yet a full proof-program reopening.
+
+## Personnel and durability
+
+The Professor is currently the only operational executing session. Student G's session is unavailable for input; Student F's prior assignment remains unexecuted/unavailable. Durable assignments/checkpoints are therefore mandatory before and during substantial work.
 
 ## Anti-loop conclusions
 
-- FA equilibrium coercivity is downstream of screening; stronger gap/entropy estimates do not solve the singular Bernoulli quench.
-- FA disagreement percolation cannot treat the endogenous vacancy field as exogenous typical disorder.
-- A global chronology injection without a closed predictable local switch rule restates the sign target.
-- Positive-rates Bellman block contraction cannot be reopened by renaming the missing weighted cross-block theorem.
-- Positive-rates disagreement-front regeneration needs an explicit fresh sigma-field defeating the Meeting-019 hidden-ancestry example before it can return to A/B status.
-- No frozen method supplied a new cancellation-preserving PR1 boundary-transmission estimate.
-
-## Entry hygiene
-
-The Professor's validator ruling remains: hard-fail actual disallowed control or Unicode format characters in staged entries, preserve ordinary Markdown whitespace, and do not hard-fail unreliable guesses about silently lost TeX backslashes. The orchestrator's tested patch remains subject to direct principal authorization before repository write.
+- equilibrium gap/entropy work is downstream and must not replace a quench-memory theorem;
+- no exogenous boundary facilitation signal may substitute for the actual FA boundary;
+- no wider vacancy-marker hierarchy follows automatically from `FA-SCREEN-001`;
+- state-adaptive histories must be proved for their actual reveal algorithm, not identified with the conservative transformed dual;
+- product-background disagreement probabilities are not iteratable under path conditioning without an independent screen/reveal theorem;
+- the all-ones trap forbids any claimed full-state worst-case mixing theorem.
