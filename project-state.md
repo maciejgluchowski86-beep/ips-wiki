@@ -10,33 +10,42 @@ This file is the compact current-state index for the autonomous research program
 - Workspace: `research/active/ergodicity-methods-toolbox/`.
 - Principal target: compile a broad, concise, self-contained, source-checked toolbox of rigorous methods used to prove ergodicity/uniqueness, convergence to equilibrium, coupling agreement, positive spectral gap, log-Sobolev inequalities, quantitative mixing, or closely related relaxation statements in spin systems, IPS, KCSM, Glauber-type and adjacent interacting models.
 - Breadth is intentional; model-specific methods are in scope.
-- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/012-wave-four-verified-wave-five-opened.md`.
-- Student F: active on Assignment 005.
-- Student G: active on Assignment 004.
+- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/013-wave-five-audited-integrated-wave-six-opened.md`.
+- Student F: active on Assignment 006.
+- Student G: active on Assignment 005.
 
 ## Coverage and publication status
 
-There are **44 source-audited staged entries and 44 live toolbox pages**, and the complete 44-page public layer has passed its structural verification:
+There are **57 source-audited staged entries and 57 live toolbox pages**.
 
-- `validate_entries.py`: `Checked 44 entries; 0 failed mechanical validation.`;
-- `mkdocs build --strict`: clean exit, with only the upstream Material-for-MkDocs advisory banner and unchanged pre-existing INFO conditions;
-- staged and promoted slug sets are identical;
-- the hub links exactly the 44 staged methods and every link resolves;
-- every live toolbox page has `status: literature` and `audit: current`;
-- no legacy/deprecated page was modified or deleted by the toolbox integration;
-- every MkDocs navigation target resolves.
+Before the wave-five Professor audit, the principal reported:
 
-`validate_entries.py` remains structural only. Source/claim acceptance is the Professor audit recorded in Meetings 002--010.
+```text
+Checked 57 entries; 0 failed mechanical validation.
+```
 
-The directory question is closed for this programme. Toolbox pages remain in the repository-wide article namespace `docs/entries/`, consistent with `README.md`. Reader separation from legacy review debt is supplied by the dedicated hub/navigation and current-audit metadata. Any future filesystem migration should be wiki-wide rather than a toolbox-specific exception.
+Meeting 013 source-audited all thirteen wave-five entries, corrected two overbroad target labels, accepted both anti-padding substitutions, and promoted all thirteen. A GitHub comparison from the wave-four integration head `84feb506` shows exactly thirteen new public method pages, plus modifications to `docs/ergodicity-methods.md` and `mkdocs.yml`, with no other `docs/` path changed.
+
+The **post-wave-five strict MkDocs/build/link verification is still pending**. The branch's GitHub Actions build is automatic only on `main`, so Meeting 013 does not claim a branch build pass. The principal/orchestrator should rerun:
+
+```bash
+python research/active/ergodicity-methods-toolbox/validate_entries.py
+mkdocs build --strict
+```
+
+and check 57 staged/live slugs, hub coverage, current-audit metadata, navigation resolution, and legacy safety.
+
+`validate_entries.py` remains structural only. Source/claim acceptance is the Professor audit recorded in Meetings 002--005, 010, and 013.
+
+The directory question remains a principal-level wiki-curation issue and is not reopened here. Toolbox pages continue to live in `docs/entries/` alongside frozen legacy material, with reader separation supplied by the dedicated hub/navigation and audit metadata.
 
 ## Active breadth wave
 
-Student F Assignment 005 covers bootstrap-percolation-to-KCM ergodicity/relaxation transfer, long-range constrained Poincare/good-path inequalities, nested Matryoshka-style renormalisation, CBSEP auxiliary-process comparison, artificial Nummelin splitting if a genuine interacting-process source exists, projective/compactness invariant-law arguments, and super-Poincare or a source-supported analytic substitute.
+Student F Assignment 006 covers a full Cheeger/conductance positive-relaxation spin theorem, one bounded spectral-profile/evolving-set search, infinite-system Harris/Lyapunov ergodicity, exact projective-consistency invariant-law construction, hierarchical renormalisation-group spectral-gap recursion, and constrained-to-unconstrained refresh comparison or a source-supported substitute.
 
-Student G Assignment 004 covers successful coupling of finite dual particle systems, second-class/shock coupling, maximal local coupling for nonmonotone spins, disagreement/competition-interface regeneration, contact/multitype complete-convergence restart/block constructions, boundary-uniform projective graphical transfer, and nonmonotone Wasserstein/reflection/jump coupling.
+Student G Assignment 005 covers coupling independence, sticky coupling, particle-number-uniform componentwise reflection coupling, essential-hitting/restart complete convergence, moving-frame invariant laws seen from second-class particles, and actual disagreement-front regeneration, with a structured-finite-dual or other source-supported graphical substitution if needed.
 
-The anti-padding rule remains binding. A target that collapses into an existing proof interface is recorded as a negative taxonomy result and substituted rather than manufactured into a page. The generic common/basic graphical-coupling page remains unwarranted by current source evidence, and the generic nonreversible sector/hypocoercive search is not being repeated.
+Closed generic searches are not repeated absent named new evidence: artificial Nummelin splitting in interacting systems, generic nonreversible sector/hypocoercive IPS relaxation, generic boundary-uniform dynamic projective coupling, and generic common/basic graphical coupling.
 
 ## Previous scientific direction
 
