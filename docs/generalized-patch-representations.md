@@ -23,23 +23,20 @@ The generalization programme keeps the same structural order:
 - [Explicit typed patch representation](generalized-patch-representations/typed-patch-representation.md): local Feynman--Kac patch weight, pathwise product identity, exact killed-skeleton semigroup representation, bulk/end separation, and exact binary reduction.
 - [Typed bulk patch positivity via transfer matrices](generalized-patch-representations/typed-patch-positivity-transfer.md): exact signed and unsigned local transfer matrices, four bulk boundary formulas, short-time multi-state constraints, and exact equivalence with canonical binary patch positivity.
 - [Three-state endpoint obstruction](generalized-patch-representations/three-state-endpoint-obstruction.md): boundary completeness forces a Metzler interior transfer, but a physically realizable two-mode `OI` numerator is negative at an interior time despite strictly positive zero-length and long-time endpoints.
+- [Exact three-state spectral positivity criterion](generalized-patch-representations/three-state-spectral-criterion.md): necessary-and-sufficient boundary-complete `d=3` test using endpoint values and at most one explicit interior critical value, including degenerate spectra and exact binary reduction.
 
 ## Current bottleneck
 
-For finite-state bounded finite-range **single-site replacement** dynamics, the representation and exact generalized bulk positivity property are explicit.
+For finite-state bounded finite-range **single-site replacement** dynamics, the typed representation and exact generalized bulk positivity property are explicit.
 
-In boundary-complete `d=3`, the sign problem reduces sharply:
+In boundary-complete `d=3`, the all-time positivity problem is now finite. After the Metzler and zero-length reductions, each remaining `OI` numerator requires its long-time value and at most one explicitly computable interior critical value. All repeated, zero-eigenvalue, and reducible spectral cases are also finite.
 
-- the interior transfer is forced Metzler;
-- incoming-initial and outgoing-outgoing families become automatic after their local endpoint constraints;
-- the remaining outgoing-initial/incoming-terminal numerator is a physical three-state Markov-semigroup expectation.
-
-A genuine one-neighbour example shows that zero-length and long-time coefficient inequalities do **not** control all patch lengths: a required numerator with two real decay modes has positive endpoint values but a negative interior minimum.
-
-Thus the direct binary-style endpoint criterion is stopped. The next possible criterion must retain the interior critical point, for example through an exact finite spectral test for
+The criterion is not generally a purely algebraic coefficient cone: the generic critical value retains the spectral quantity
 
 \[
-L+A e^{-\mu t}+B e^{-\nu t}.
+R^{\mu/(\nu-\mu)}.
 \]
 
-Applications and convergence remain downstream of that criterion question.
+The next research question is whether a mathematically natural non-binary subclass makes this exact critical inequality algebraic, monotone, or otherwise transparent while preserving necessity and sufficiency and the exact binary reduction.
+
+Applications and convergence remain downstream of that structural question.
