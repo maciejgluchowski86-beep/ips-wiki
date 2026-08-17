@@ -4,93 +4,83 @@ This file is the compact current-state index for the autonomous research program
 
 ## Active scientific direction
 
-**Hostile cross-review of the two completed applicability audits for the frozen ergodicity-methods toolbox.**
+**The ergodicity-methods toolbox applicability assessment is complete and awaits a principal decision.**
 
 - Branch: `research/ergodicity-methods-toolbox`.
 - Workspace: `research/active/ergodicity-methods-toolbox/`.
-- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/021-professor-positive-rates-hostile-review-complete-awaiting-g.md`.
-- Assessment protocol: `research/active/ergodicity-methods-toolbox/assessment-protocol.md`.
-- Student G: active on Assignment 008, hostile review of the Professor's FA-1f/East shortlist.
+- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/022-cross-reviews-complete-final-priorities-and-restart-ruling.md`.
+- Final synthesis: `research/active/ergodicity-methods-toolbox/assessment/final-method-priorities.md`, commit `2dc1d230737d8985b6ff3d5e09af26ce9d7b33c5`.
+- Student G: idle after completing the independent FA hostile review.
 - Student F: unavailable because its conversation reached the maximum-length/session limit.
-- Professor: positive-rates hostile cross-review complete; awaiting G before final synthesis.
+- Professor: assessment synthesis complete; no new assignment active.
 
 Breadth collection is finished. The frozen inventory contains **74 source-audited, live, mechanically verified method pages**. No wave eight or generic gap-filling search is authorized.
 
-## Both primary audits complete
+## Completed assessment
+
+Both targets received complete 74-method primary audits and hostile review of only their A/B shortlists by the party that did not produce the primary shortlist.
 
 ### FA-1f / East
 
-Professor primary audit: `research/active/ergodicity-methods-toolbox/assessment/fa1f-east-method-audit.md`, commit `baea166c62105caf9084a4859c4ac4af29190d04`.
+Professor primary audit: `assessment/fa1f-east-method-audit.md`, commit `baea166c62105caf9084a4859c4ac4af29190d04`.
 
 Dispositions: 1 A, 4 B, 24 C, 21 X, 24 N.
 
-Shortlist under independent G hostile review:
+Independent Student G hostile review: `assessment/fa1f-east-hostile-review-g.md`, final commit `0cbf083110a29465f1266a77f700095fa6b9732e`.
 
-1. East distinguished-zero screening — A;
-2. refined non-diagonal discrepancy coupling — B;
-3. information percolation/backward histories — B;
-4. front regeneration/renewal — B;
-5. state-dependent dynamical disagreement percolation — B.
+Final rulings on the five primary candidates:
 
-The main FA conclusion remains that equilibrium coercivity is already strong enough; the missing mathematics is spatial/time-zero memory erasure or a direct weak chronology-sign theorem.
+1. East distinguished-zero screening — PASS;
+2. refined non-diagonal discrepancy coupling — DEMOTE;
+3. information percolation / adaptive histories — PASS;
+4. front regeneration / renewal — DEMOTE;
+5. state-dependent dynamical disagreement percolation — KILL.
+
+**Final recommendation:** reopen the Bernoulli-quench proof programme narrowly on the `FA-SCREEN` two-sided causal-screen theorem. The first gate is a finite graphical leakage/measurability test. Adaptive information histories are the reserve architecture.
 
 ### Positive rates
 
-Student G primary audit: `research/active/ergodicity-methods-toolbox/assessment/positive-rates-method-audit.md`, commit `cd7497650cc8778ee508444699ec38baf713ce56`; bridge detail `assessment/positive-rates-shortlist.md`, commit `cfc7dcc2fe11f65d9a356b415d7fd28295048d9b`.
+Student G primary audit: `assessment/positive-rates-method-audit.md`, commit `cd7497650cc8778ee508444699ec38baf713ce56`; bridge detail `assessment/positive-rates-shortlist.md`, commit `cfc7dcc2fe11f65d9a356b415d7fd28295048d9b`.
 
 Dispositions: 1 A, 4 B, 25 C, 10 X, 34 N.
 
-No positive-rates A/B method directly attacks the final signed PR1 boundary-transmission operator.
+Professor hostile review: `assessment/positive-rates-hostile-review-professor.md`, commit `1786d60d5caa4a0c4149556db0dbedb5b4646394`.
 
-## Positive-rates hostile review complete
-
-Professor review: `research/active/ergodicity-methods-toolbox/assessment/positive-rates-hostile-review-professor.md`, commit `1786d60d5caa4a0c4149556db0dbedb5b4646394`.
-
-Rulings:
+Final rulings:
 
 1. Gray one-dimensional edge coalescence — PASS;
 2. refined non-diagonal discrepancy coupling — PASS;
 3. information percolation — PASS;
 4. block coupling / joint-block stationary control — DEMOTE;
-5. physical-front regeneration adapted to disagreement — DEMOTE.
+5. disagreement-front regeneration — DEMOTE.
 
-The surviving positive-rates research content is two families:
+The three PASS candidates reduce to two research families: nonbasic one-dimensional coupling/Gray geometry, and information percolation.
 
-- nonbasic one-dimensional coupling: exact local non-diagonal coupling first, Gray edge geometry only if that coupled-rate test survives;
-- information percolation: sparse backward-history intersection as a bypass of the stopped coupling/renewal interfaces.
+**Final recommendation:** do not reopen the positive-rates proof programme yet. The only recommended next work is bounded pre-restart feasibility testing: an exact rational non-diagonal coupled-rate/Gray LP at the hard point, and an optimized finite-depth backward-history pair-intersection calculation. A positive structural signal from one is required before a new infinite-volume proof block.
 
-Provisional bounded experiments are the exact rational coupled-rate LP at `P_h` and an optimized finite-depth pair-support/intersection calculation for information percolation. No proof programme is reopened yet.
+## Publication and structural status
 
-## Current hostile cross-review allocation
+The frozen toolbox remains at 74 methods. Meeting 018 records the full structural publication gate: 74 staged, 74 promoted, 74 hub links, zero unresolved/orphans, metadata on every promoted page, all 171 MkDocs `.md` targets resolving, validator 74/0, strict build exit 0, additions-only `docs/` diff, and clean control/format scan.
 
-Student G is executing `students/student-g/assignment-008.md` and reviews only the five FA candidates. Because G did not perform the FA primary audit, this review is genuinely independent of that lane.
+The orchestrator reports that both primary audits and both hostile reviews left the live wiki untouched and the docs additions-only gate at zero non-additions. These are structural checks only; source authority remains the Professor audit through Meeting 017.
 
-The Professor's symmetric positive-rates review is complete. No additional cross-review work is pending until G returns.
+No public taxonomy/navigation change follows from the applicability rankings.
 
-No broad literature search, new toolbox entry, proof-programme restart, `docs/` edit, or navigation change is authorized during cross-review.
+## Anti-loop record
 
-## Next synthesis
+- FA equilibrium coercivity is not the missing quench mechanism; it belongs downstream of a spatial/time-zero screen.
+- FA endogenous vacancy environments cannot be used as exogenous typical backgrounds in disagreement percolation.
+- A chronology injection without a closed predictable local switch state is not a proof architecture.
+- Positive-rates Bellman block contraction cannot be reopened by restating the missing weighted cross-block theorem.
+- Positive-rates disagreement-front regeneration cannot return without a fresh sigma-field resolving the Meeting-019 hidden-ancestry obstruction.
+- Positive-rates PR1 remains blocked at the signed two-time boundary-transmission operator from Meeting 030.
 
-After G's hostile review exists, the Professor produces `research/active/ergodicity-methods-toolbox/assessment/final-method-priorities.md` with:
+## Next principal decision
 
-- ranked survivors for each problem;
-- strongest surviving bridge lemmas;
-- informative killed/demoted methods;
-- at most two recommended first proof experiments per problem;
-- recommendation whether either proof programme should reopen, and on exactly which bridge.
+No new autonomous task is active. The principal must decide whether to:
 
-The assessment phase then awaits principal decision.
+1. authorize the recommended narrow FA-SCREEN reopening;
+2. authorize either or both bounded positive-rates feasibility experiments;
+3. leave one or both proof programmes stopped.
 
-## Coverage and publication status
-
-Meeting 018 records the final structural publication gate: 74 staged, 74 promoted, 74 hub links, zero unresolved/orphans, metadata on every promoted page, all 171 MkDocs `.md` targets resolving, strict build exit 0, validator 74/0, additions-only `docs/` diff, and clean control/format scan. The orchestrator separately reports both primary-audit matrices structurally complete. Structural checks do not add source authority; source acceptance is recorded through Meeting 017.
-
-The principal-level directory question remains open. No public-doc restructuring is part of the applicability phase.
-
-## Entry hygiene
-
-The Professor's bounded validator ruling remains: hard-fail actual disallowed control or Unicode format characters in staged entries, preserve ordinary Markdown whitespace, and do not add unreliable heuristics for silently lost TeX backslashes. The orchestrator's tested implementation is awaiting direct principal authorization before repository write.
-
-## Previous scientific direction
-
-The direct positive-rates proof loop is stopped and archived on branch `research/positive-rates-conjecture`. Its exact obstruction record is input to the present assessment, not an invitation to restart an exhausted architecture under a new name.
+The separate principal-level public-directory question and the validator patch authorization remain outside this assessment decision.
