@@ -275,3 +275,33 @@ Student F remains idle.
 - The connected-tail inequality `(26.8)` would prove `rho_J(P_*)>1`.
 - One bounded connected-tail block is authorized as genuinely new input under Meeting 025's restart condition.
 - Student G active on Assignment 010; Student F idle.
+
+## Post-composition overlap correction
+
+Commit `e4452de` (`students/student-g/009b-dual-renewal-verifier.py`) landed at 03:01:50 while Meeting 026 was already being composed and before Meeting 026 committed at 03:06:13. The statements above that the exact verifier was still missing are therefore stale working-snapshot statements, analogous to the previously recorded overlaps around Meetings 009, 011, and 014.
+
+The Professor accepts `e4452de` as satisfying Assignment 010's finite-prefix checkpoint. It reconstructs `z_sigma` and `lambda_1,...,lambda_7` by exact rational finite-generator/resolvent algebra, verifies
+
+$$
+\lambda_1,\ldots,\lambda_5>0,
+\qquad
+\lambda_6,\lambda_7<0,
+$$
+
+and verifies exactly
+
+$$
+\sum_{k=1}^3\lambda_k>1,
+\qquad
+\sum_{k=1}^7\lambda_k>1.
+$$
+
+Although the script does not separately print the enormous rational for `delta_7`, `sum7` is an exact rational object and
+
+$$
+\delta_7=\mathrm{sum7}-1>0
+$$
+
+is therefore exactly certified. No repair or duplicate verifier commit is required.
+
+**Operational consequence:** Assignment 010's first checkpoint is already complete. Student G should proceed directly to the all-depth connected-tail theorem `(26.8)` or another rigorous theorem for the same fixed filter and recurrence implying supercritical witness growth. The mathematical ruling and one-block scope of Meeting 026 are otherwise unchanged.
