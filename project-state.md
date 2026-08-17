@@ -4,83 +4,78 @@ This file is the compact current-state index for the autonomous research program
 
 ## Active scientific direction
 
-**The ergodicity-methods toolbox applicability assessment is complete and awaits a principal decision.**
+**The toolbox assessment is complete; the research loop has resumed on a principal-directed distinguished-zero transfer test for positive rates.**
 
-- Branch: `research/ergodicity-methods-toolbox`.
-- Workspace: `research/active/ergodicity-methods-toolbox/`.
-- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/022-cross-reviews-complete-final-priorities-and-restart-ruling.md`.
-- Final synthesis: `research/active/ergodicity-methods-toolbox/assessment/final-method-priorities.md`, commit `2dc1d230737d8985b6ff3d5e09af26ce9d7b33c5`.
-- Student G: idle after completing the independent FA hostile review.
+- Toolbox branch: `research/ergodicity-methods-toolbox`.
+- Latest toolbox meeting: `research/active/ergodicity-methods-toolbox/meetings/023-principal-distinguished-zero-direction-resumes-research-loop.md`.
+- Final applicability synthesis: `research/active/ergodicity-methods-toolbox/assessment/final-method-priorities.md`, commit `2dc1d230737d8985b6ff3d5e09af26ce9d7b33c5`.
+- Direct positive-rates branch: `research/positive-rates-conjecture`.
+- Positive-rates latest meeting: `research/active/positive-rates-conjecture/meetings/031-distinguished-zero-transfer-reopens-one-bounded-screening-test.md`.
+- Student G: active on positive-rates Assignment 011.
 - Student F: unavailable because its conversation reached the maximum-length/session limit.
-- Professor: assessment synthesis complete; no new assignment active.
 
-Breadth collection is finished. The frozen inventory contains **74 source-audited, live, mechanically verified method pages**. No wave eight or generic gap-filling search is authorized.
+The principal's standing delegation is that research-direction decisions are made by the Professor; the programme is not parked for routine principal approval checkpoints.
 
-## Completed assessment
+## Frozen toolbox status
 
-Both targets received complete 74-method primary audits and hostile review of only their A/B shortlists by the party that did not produce the primary shortlist.
+Breadth collection is finished. The frozen inventory contains **74 source-audited, live, mechanically verified method pages**. Both 74-method primary applicability audits and both hostile shortlist reviews are complete. No wave eight or generic gap-filling search is authorized.
+
+The live wiki remains untouched by applicability/research work. No public taxonomy/navigation change follows automatically from the rankings.
+
+## Retained applicability conclusions
 
 ### FA-1f / East
 
-Professor primary audit: `assessment/fa1f-east-method-audit.md`, commit `baea166c62105caf9084a4859c4ac4af29190d04`.
+Independent hostile-review survivors:
 
-Dispositions: 1 A, 4 B, 24 C, 21 X, 24 N.
+1. East-style two-sided causal screening — PASS;
+2. quench-specific adaptive information histories — PASS.
 
-Independent Student G hostile review: `assessment/fa1f-east-hostile-review-g.md`, final commit `0cbf083110a29465f1266a77f700095fa6b9732e`.
-
-Final rulings on the five primary candidates:
-
-1. East distinguished-zero screening — PASS;
-2. refined non-diagonal discrepancy coupling — DEMOTE;
-3. information percolation / adaptive histories — PASS;
-4. front regeneration / renewal — DEMOTE;
-5. state-dependent dynamical disagreement percolation — KILL.
-
-**Final recommendation:** reopen the Bernoulli-quench proof programme narrowly on the `FA-SCREEN` two-sided causal-screen theorem. The first gate is a finite graphical leakage/measurability test. Adaptive information histories are the reserve architecture.
+The direct recommendation remains a narrow `FA-SCREEN` reopening beginning with the finite leakage/measurability gate. Adaptive information histories are the reserve architecture.
 
 ### Positive rates
 
-Student G primary audit: `assessment/positive-rates-method-audit.md`, commit `cd7497650cc8778ee508444699ec38baf713ce56`; bridge detail `assessment/positive-rates-shortlist.md`, commit `cfc7dcc2fe11f65d9a356b415d7fd28295048d9b`.
+The toolbox hostile-review survivors reduce to:
 
-Dispositions: 1 A, 4 B, 25 C, 10 X, 34 N.
+1. nonbasic one-dimensional coupling / Gray geometry;
+2. information percolation.
 
-Professor hostile review: `assessment/positive-rates-hostile-review-professor.md`, commit `1786d60d5caa4a0c4149556db0dbedb5b4646394`.
+The two bounded feasibility experiments from that synthesis are deferred while the new distinguished-zero test runs; they are not killed.
 
-Final rulings:
+## Principal-directed distinguished-zero transfer test
 
-1. Gray one-dimensional edge coalescence — PASS;
-2. refined non-diagonal discrepancy coupling — PASS;
-3. information percolation — PASS;
-4. block coupling / joint-block stationary control — DEMOTE;
-5. disagreement-front regeneration — DEMOTE.
+The principal asked whether an East-style distinguished-zero argument can work for the remaining positive-rates region even though the infinite-volume invariant law is unknown, by using the finite invariant marginals with a fixed zero boundary.
 
-The three PASS candidates reduce to two research families: nonbasic one-dimensional coupling/Gray geometry, and information percolation.
+Student G is executing on branch `research/positive-rates-conjecture`:
 
-**Final recommendation:** do not reopen the positive-rates proof programme yet. The only recommended next work is bounded pre-restart feasibility testing: an exact rational non-diagonal coupled-rate/Gray LP at the hard point, and an optimized finite-depth backward-history pair-intersection calculation. A positive structural signal from one is required before a new infinite-volume proof block.
+`research/active/positive-rates-conjecture/students/student-g/assignment-011.md`
 
-## Publication and structural status
+commit `6efcf60ab43782cf48058484f86f2faca3a7f093`.
+
+The key exact issue is already identified. For zero-boundary invariant laws `pi_N`, one-sidedness gives right-suffix projectivity
+
+`R_{N,M} pi_N = pi_M`,
+
+but an East marker moving right needs compatibility of the **left prefix**. The old programme isolated the defect
+
+`bar pi_{N+1}-pi_N`,
+
+whose remote-left magnitude is the tail-shift quantity `Delta_M`.
+
+Assignment 011 first tests exact one-move compatibility at the hard point and then asks whether a buffered/regenerative release construction gives a genuinely new screening object or merely assumes an already-stopped tail-shift/common-coupling/PR1 theorem.
+
+Permitted outcomes are `STOP-EQUIVALENT`, `STOP-LOCAL-OBSTRUCTION`, or `CONTINUE-NEW-BRIDGE`. The pre-registered stop rule forbids escalation to larger marker states if no strictly upstream new quantity appears.
+
+## Positive-rates old routes remain stopped
+
+The connected-renewal route remains blocked at Meeting 030's signed boundary-transmission operator on the actual connected orbit. Common-uniform global occupation/coalescence, Bellman concatenation, scalar Foster/coboundary, generic norm engineering, and larger coefficient-table searches remain stopped at their recorded obstructions.
+
+The distinguished-zero assignment is a bounded test of a materially different spatial-screening architecture, not a reopening of those lines.
+
+## Publication and hygiene
 
 The frozen toolbox remains at 74 methods. Meeting 018 records the full structural publication gate: 74 staged, 74 promoted, 74 hub links, zero unresolved/orphans, metadata on every promoted page, all 171 MkDocs `.md` targets resolving, validator 74/0, strict build exit 0, additions-only `docs/` diff, and clean control/format scan.
 
-The orchestrator reports that both primary audits and both hostile reviews left the live wiki untouched and the docs additions-only gate at zero non-additions. These are structural checks only; source authority remains the Professor audit through Meeting 017.
+No `docs/` or `mkdocs.yml` edit is authorized by the current research block.
 
-No public taxonomy/navigation change follows from the applicability rankings.
-
-## Anti-loop record
-
-- FA equilibrium coercivity is not the missing quench mechanism; it belongs downstream of a spatial/time-zero screen.
-- FA endogenous vacancy environments cannot be used as exogenous typical backgrounds in disagreement percolation.
-- A chronology injection without a closed predictable local switch state is not a proof architecture.
-- Positive-rates Bellman block contraction cannot be reopened by restating the missing weighted cross-block theorem.
-- Positive-rates disagreement-front regeneration cannot return without a fresh sigma-field resolving the Meeting-019 hidden-ancestry obstruction.
-- Positive-rates PR1 remains blocked at the signed two-time boundary-transmission operator from Meeting 030.
-
-## Next principal decision
-
-No new autonomous task is active. The principal must decide whether to:
-
-1. authorize the recommended narrow FA-SCREEN reopening;
-2. authorize either or both bounded positive-rates feasibility experiments;
-3. leave one or both proof programmes stopped.
-
-The separate principal-level public-directory question and the validator patch authorization remain outside this assessment decision.
+The validator patch remains held pending the separate authorization applicable to that write.
