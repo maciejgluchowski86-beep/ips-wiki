@@ -13,10 +13,9 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed until changed or stopped by the principal: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/023-stationary-boundary-control-hierarchy-reopens-one-proof-test.md`, `state_narrowed: yes`.
-- Student G: active on `students/student-g/assignment-009.md`, asymptotic `(J-SPEC)` route decision; mathematical task unchanged, with an intermediate-commit durability addendum after two session freezes.
-- Student F: active on `students/student-f/assignment-015.md`, stationary boundary-control corrector-concatenation feasibility test.
-- No third route/session is authorized.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/024-bellman-slack-feedback-obstruction-stops-current-stationary-screening-test.md`, `state_narrowed: yes`.
+- Student G: sole active student, on `students/student-g/assignment-009.md`, the asymptotic `(J-SPEC)` route decision. Durable checkpoint `009a-canonical-j-recursion-checkpoint.md` fixes the exact recursion/normalization but does not decide `(J-SPEC)`.
+- Student F: idle; no F016.
 
 On `r11=0`, with
 
@@ -31,7 +30,7 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-### Stopped routes
+### Route status
 
 Meeting 019 abandons common-uniform global coalescence / zero-frequency disagreement occupation as the load-bearing proof interface.
 
@@ -43,11 +42,13 @@ $$
 Q(\mathbf0,\cdot)\perp Q(\mathbf1,\cdot),
 $$
 
-so global path-space TV/KL contraction is unavailable. Meeting 023 records that the new occupation-control hierarchy acts on one-time stationary marginals and is not this path-space architecture.
+so global path-space TV/KL contraction is unavailable.
 
-### Active route-decision question `(J-SPEC)`
+Meeting 024 stops the **current stationary boundary-control Bellman-corrector concatenation implementation**. The exact occupation hierarchy remains valid, but F015 obtained no repeatable scale theorem and proved that independently constructed additive block correctors cannot improve the Bellman endpoints.
 
-For singleton depth `n`, the canonical absolute-duration predecessor-trail quantity satisfies
+### Sole active route-decision question `(J-SPEC)`
+
+For singleton depth `n`, the canonical predecessor-trail absolute-duration quantity satisfies
 
 $$
 J_n=\frac gB N_n,
@@ -60,66 +61,78 @@ $$
 \rho_J(a,b,c)=\limsup_{n\to\infty}J_n^{1/n}.
 $$
 
-Principal finite-box evidence suggests apparent growth at
+G checkpoint `2cb0696` reconstructs an exact reverse-transfer scalar `R_n` with
+
+$$
+\boxed{J_n=\frac BgR_n=\frac gBN_n,}
+$$
+
+so `R_n`, `J_n`, and `N_n` have the same exponential growth rate. At
 
 $$
 (a,b,c)=\left(\frac1{1000},\frac1{10},\frac{9999}{10000}\right),
 $$
 
-but this is not an asymptotic theorem. G009 must prove `rho_J>1` by a repeatable embedded mechanism, or prove a genuine opposite theorem. Larger finite-depth numerics alone do not count.
+the checkpoint verifies `B/g=111/10`, `Z=19100/31`, `J_1=190809/31000`, and `N_1=21179799/310000`; these are normalization checks only.
 
-If G009 is unresolved without a new asymptotic mechanism, the `J-SPEC` branch stops. It no longer stops the whole programme automatically while F015 is active.
+G009 must still prove an asymptotic theorem: `rho_J>1` at a strict residual point or a genuine opposite theorem. Larger finite-depth numerics do not count.
 
-### New stationary boundary-control hierarchy
+If G009 is unresolved without a new asymptotic mechanism, the programme returns to consultation 002's `no-credible-route` state unless genuinely new principal/external input arrives.
 
-Durable principal note:
+### Stationary occupation-control hierarchy retained as exact mathematics
 
-`research/active/positive-rates-conjecture/notes/principal-stationary-boundary-control-strategy.md`.
-
-In complemented spins, let `L_N^u` be the `N`-site generator with fixed right-boundary control `u in {0,1}` and define
+In complemented spins, let `L_N^u` be the `N`-site generator with right-boundary control `u in {0,1}` and define
 
 $$
 \mathcal K_N
 =
 \left\{
- m(x,u)\ge0:
- \sum m=1,
- \quad
- \sum_{x,u}m(x,u)L_N^uF(x)=0\ \forall F
+ m(x,u)\ge0:\ \sum m=1,
+ \quad \sum_{x,u}m(x,u)L_N^uF(x)=0\ \forall F
 \right\}.
 $$
 
-Meeting 023 independently verifies:
+Meetings 023--024 establish:
 
 - every infinite invariant law projects into `K_N`;
 - every `m in K_N` is realized by a finite chain with a randomized state-dependent boundary controller;
-- the hierarchy is nested under block projection;
-- for local `h`,
+- the hierarchy is nested, so for local `h`,
   $$
-  D_N(h)=\sup_{m\in K_N}m(h)-\inf_{m\in K_N}m(h)
+  D_N(h)=\sup_{K_N}m(h)-\inf_{K_N}m(h)
   $$
-  is nonincreasing in `N`;
-- exact LP duality gives upper/lower Bellman--Poisson correctors with `D_N=U_N-ell_N`.
+  is nonincreasing;
+- exact LP duality gives Bellman endpoints `U_N,ell_N` with `D_N=U_N-ell_N`;
+- `D_N(h)->0` for every local `h` would prove uniqueness of the invariant measure.
 
-Hence
-
-$$
-D_N(h)\to0\quad\text{for every local }h
-$$
-
-would prove uniqueness of the invariant measure without assuming translation invariance.
-
-The proposed load-bearing multiscale theorem is a recursion such as
+F015 proves the exact scale-extension identity
 
 $$
-D_{2N}(h)\le(1-\rho)D_N(h)+Ce^{-\gamma N}.
+\boxed{
+D_M=D_N-\inf_{K_M}m(s_N^+)-\inf_{K_M}m(s_N^-),
+}
 $$
 
-F015 must determine whether finite dual correctors **concatenate** into such a repeatable theorem, or identify a precise obstruction. Smaller finite LP widths or larger single-scale certificates do not count.
+where each Bellman slack is a weighted adaptive boundary-action mismatch
 
-The cited KCM-book East results support pure-East relaxation behind a facilitator, but they do not directly handle the noisy process with arbitrary state-dependent boundary control. Robustness to the soft resets/controller is an unresolved load-bearing step.
+$$
+\boxed{
+s_F(x,u)=w_F(x)1_{\{u\ne\pi_F(x)\}}.}
+$$
 
-Static collapse would prove uniqueness only. A later dynamic screening theorem would still be needed for convergence from arbitrary initial laws.
+It also proves a controller-uniform unweighted mismatch bound
+
+$$
+P(X_N\ne\pi(X))\ge
+\frac{\min(a,1-c)}{N+1+\min(a,1-c)},
+$$
+
+but no theorem prevents the mismatch from concentrating where the Bellman weight `w_F` is small.
+
+Further, for arbitrary appended-block `G`, a corrector `F_N(x)+G(z)` gives no strict Bellman endpoint improvement by a maximum-principle argument. Any successful scale contraction therefore requires genuinely joint cross-block dependence.
+
+The cited hard-East fixed/ergodic-boundary relaxation does not control this adaptive weighted feedback. No larger-`N`, wider-interface, or generic joint-corrector continuation is active.
+
+This stop does not refute `D_N(h)->0` or every possible stationary-screening theorem.
 
 ## Most recently completed programme
 
