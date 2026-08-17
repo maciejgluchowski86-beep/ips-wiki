@@ -1,8 +1,8 @@
-# 007b: active-type symmetry and the genuine refresh subclass
+# 007b: active-type symmetry gives an exact non-binary subclass
 
 Date: 2026-08-17
 
-This note executes Part B of Assignment 007 and identifies the surviving genuinely non-binary subclass.
+This note executes Part B of Assignment 007 and corrects an initial over-hasty symmetry classification. The correction is substantive: once the already-necessary Metzler inequalities from Assignment 005 are imposed, exchange symmetry does simplify the exact spectral criterion.
 
 ## 1. Exchange-symmetric reference chain
 
@@ -18,7 +18,7 @@ b&c&-(b+c)
 \tag{1.1}
 \]
 
-The active-block partition is lumpable. The three spectral modes are:
+The three spectral modes are:
 
 - constants, eigenvalue `0`;
 - the symmetric `0` versus active-block contrast, decay rate
@@ -47,7 +47,7 @@ L=\frac{b g_0+2a m}{b+2a}
 \tag{1.2}
 \]
 
-when `b+2a>0`. Direct projection onto the symmetric and antisymmetric eigenspaces gives
+when `b+2a>0`. Direct projection gives
 
 \[
 \boxed{
@@ -61,216 +61,252 @@ N_2(t)=L+(m-L)e^{-(2a+b)t}-d e^{-(b+2c)t}.}
 \tag{1.4}
 \]
 
-Thus active-type symmetry alone does **not** remove the two-mode critical comparison. It removes it in the observable-lumpable case `d=0`, but that is exactly the binary-reducible case `p_1=p_2` from `007a`.
+The modes separate, but an admissible row need not kill the antisymmetric mode: `d` may be nonzero.
 
-## 2. Exact symmetric counterexample
+## 2. The Assignment-005 Metzler condition changes the sign geometry
+
+For the symmetric chain, the typed empty-target transfer has
+
+\[
+K(1,2)=K(2,1)=c-a.
+\tag{2.1}
+\]
+
+Boundary completeness plus typed patch positivity therefore forces
+
+\[
+\boxed{c\ge a.}
+\tag{2.2}
+\]
+
+This is exactly the short-`IO` Metzler condition. Consequently
+
+\[
+\lambda_a=b+2c\ge b+2a=\lambda_s.
+\tag{2.3}
+\]
+
+Thus the antisymmetric mode is never slower than the symmetric mode.
+
+The first draft of this note used `c<a` to produce an interior dip. That example violates (2.2) and therefore cannot test the candidate positivity class. It is discarded rather than used as evidence.
+
+## 3. Exact endpoint criterion under symmetry
+
+Assume now the zero-length outgoing inequalities from Assignment 005:
+
+\[
+p_1,p_2,g_1,g_2\ge0.
+\tag{3.1}
+\]
+
+If `p_0=g_0>=0`, then `g>=0` and every `OI` numerator is automatic by Markov positivity.
+
+Suppose `g_0<0`. Then `m>=0` and
+
+\[
+\boxed{
+m-L=\frac{b}{b+2a}(m-g_0)\ge0.}
+\tag{3.2}
+\]
+
+Assume also the long-time condition
+
+\[
+L\ge0.
+\tag{3.3}
+\]
+
+We prove `N_1,N_2>=0` for all time.
+
+Consider `N_1`. If `d>=0`, every term in (1.3) is nonnegative. If `d<0`, then by (2.3)
+
+\[
+e^{-\lambda_a t}\le e^{-\lambda_s t},
+\]
+
+and multiplication by the negative number `d` reverses the inequality:
+
+\[
+d e^{-\lambda_a t}\ge d e^{-\lambda_s t}.
+\]
+
+Hence
+
+\[
+N_1(t)
+\ge L+(m-L+d)e^{-\lambda_s t}
+=L+(g_1-L)e^{-\lambda_s t}.
+\tag{3.4}
+\]
+
+The right side is a convex interpolation between `g_1>=0` and `L>=0`, so it is nonnegative. The proof for `N_2` is identical after replacing `d` by `-d`.
+
+Therefore, inside the boundary-complete exchange-symmetric class, typed bulk patch positivity is equivalent to:
+
+1. the Metzler inequality `c>=a`;
+2. for every outgoing row,
+   \[
+   p_1,p_2,p_0+p_1,p_0+p_2\ge0;
+   \]
+3. the single long-time inequality
+   \[
+   \boxed{L=\frac{b p_0+a(p_0+p_1)+a(p_0+p_2)}{b+2a}\ge0.}
+   \tag{3.5}
+   \]
+
+Equivalently, when `b+2a>0`,
+
+\[
+\boxed{(b+2a)p_0+a(p_1+p_2)\ge0.}
+\tag{3.6}
+\]
+
+These conditions are **necessary and sufficient** within the subclass. No interior spectral evaluation remains.
+
+## 4. This is genuinely non-binary
+
+The simplification does not require `p_1=p_2`. The antisymmetric coefficient `d` may be nonzero, and then
+
+\[
+N_1(0)=g_1\ne g_2=N_2(0).
+\]
+
+Thus the tested observable does not factor through the quotient `{0},{1,2}`. The active-type distinction remains visible.
+
+The mechanism is instead spectral ordering: the only potentially signed antisymmetric contribution decays at least as fast as the nonnegative symmetric contribution.
+
+## 5. Exact non-binary positive gate
 
 Take
 
 \[
 a=1,
 \qquad b=2,
-\qquad c=0,
-\]
-
-so
-
-\[
-Q=
-\begin{pmatrix}
--2&1&1\\
-2&-2&0\\
-2&0&-2
-\end{pmatrix}.
-\tag{2.1}
-\]
-
-The two decay rates are `4` and `2`. Choose the target-type-1 outgoing rows
-
-\[
-p^{1,1}=(0,1/4,0),
-\qquad
-p^{2,1}=(-4/5,17/20,11/4).
-\tag{2.2}
-\]
-
-The corresponding indicator-basis rate perturbation, in transition order
-`01,02,10,12,20,21`, is
-
-\[
-(0,-4/5,-3/10,1/20,-39/20,0).
-\tag{2.3}
-\]
-
-Adding this to the reference rates `(1,1,2,0,2,0)` gives
-
-\[
-(1,1/5,17/10,1/20,1/20,0),
-\tag{2.4}
-\]
-
-so every physical rate remains nonnegative.
-
-For target type `2`, take the exact image of (2.3) under the exchange `1<->2`. The full one-neighbour coefficient family is therefore exchange-symmetric. Both source types and both target labels have positive coarse nonempty-target rate, so the local test is boundary-complete.
-
-For the row `p^{2,1}`, the value function is
-
-\[
-g=(-4/5,1/20,39/20).
-\]
-
-Equation (1.3) gives
-
-\[
-N_1(t)=\frac1{10}-\frac{19}{20}e^{-2t}+\frac9{10}e^{-4t}.
-\tag{2.5}
-\]
-
-Its endpoints are positive, but at `e^{-2t}=19/36`,
-
-\[
-N_1(t)=-217/1440<0.
-\tag{2.6}
-\]
-
-Hence even full exchange symmetry of the reference dynamics and nonempty-target coefficient family does not by itself simplify Assignment 006.
-
-## 3. Spectral coincidence inside the symmetric class
-
-The two decay rates coincide exactly when
-
-\[
-2a+b=b+2c
-\iff
-\boxed{c=a.}
-\tag{3.1}
-\]
-
-In that case every off-diagonal rate is determined only by the destination:
-
-\[
-q_{x0}=b\quad(x\ne0),
-\qquad
-q_{x1}=a\quad(x\ne1),
-\qquad
-q_{x2}=a\quad(x\ne2).
-\tag{3.2}
-\]
-
-Thus the reference chain is a three-state refresh chain: at rate `b+2a`, refresh the state from
-
-\[
-\pi=(b,a,a)/(b+2a).
-\]
-
-The antisymmetric mode is not killed. Rather, it has the **same** decay rate as the symmetric mode. This distinction is important for the non-binary honesty check.
-
-## 4. General refresh subclass
-
-The symmetry assumption is unnecessary for this mechanism. Let
-
-\[
-\rho_0,\rho_1,\rho_2\ge0,
-\qquad
-R=\rho_0+\rho_1+\rho_2,
-\]
-
-and assume
-
-\[
-\boxed{q_{xy}=\rho_y\quad\text{for every }x\ne y.}
-\tag{4.1}
+\qquad c=2.
 \]
 
 Then
 
 \[
-Q=R(\mathbf 1\pi-I),
-\qquad
-\pi=(\rho_0,\rho_1,\rho_2)/R,
-\tag{4.2}
+Q=
+\begin{pmatrix}
+-2&1&1\\
+2&-4&2\\
+2&2&-4
+\end{pmatrix},
+\tag{5.1}
 \]
 
-when `R>0`, and hence
-
-\[
-\boxed{
-e^{tQ}g
-=\pi(g)\mathbf1+e^{-Rt}(g-\pi(g)\mathbf1).}
-\tag{4.3}
-\]
-
-Equivalently, the typed transfer is
+with decay rates `4` and `6`, and
 
 \[
 K=
 \begin{pmatrix}
 0&0&0\\
-\rho_1&-R&0\\
-\rho_2&0&-R
+1&-5&1\\
+1&1&-5
 \end{pmatrix}.
-\tag{4.4}
-\]
-
-The two active decay modes are genuinely two-dimensional but spectrally degenerate.
-
-## 5. Exact patch-positivity criterion in the refresh subclass
-
-Under boundary completeness, Assignment 005 already makes incoming-initial and `OO` families automatic after the zero-length conditions. For every outgoing row
-
-\[
-p=(p_0,p_1,p_2),
-\qquad
-g=(p_0,p_0+p_1,p_0+p_2),
-\]
-
-require
-
-\[
-p_1,p_2,p_0+p_1,p_0+p_2\ge0.
-\tag{5.1}
-\]
-
-For either incoming terminal type `b`, (4.3) gives
-
-\[
-N_b(t)
-=L_p+(g_b-L_p)e^{-Rt},
 \tag{5.2}
 \]
 
-with
+For target type `1`, choose outgoing rows
 
 \[
-\boxed{
-L_p=\pi(g)
-=p_0+\frac{\rho_1p_1+\rho_2p_2}{R}.}
+p^{1,1}=(0,1/4,1/4),
+\qquad
+p^{2,1}=(-1/2,3/2,1).
 \tag{5.3}
 \]
 
-Therefore, when `R>0`, typed bulk patch positivity in the boundary-complete refresh subclass is **equivalent** to the finite algebraic conditions
+The corresponding indicator-basis rate perturbation in transition order
+`01,02,10,12,20,21` is
 
 \[
-\boxed{
-\begin{aligned}
-p_1&\ge0,\\
-p_2&\ge0,\\
-p_0+p_1&\ge0,\\
-p_0+p_2&\ge0,\\
-R p_0+\rho_1p_1+\rho_2p_2&\ge0
-\end{aligned}}
-\quad\text{for every outgoing row }p.}
+(0,-1/2,-5/4,1,-3/4,1/4).
 \tag{5.4}
 \]
 
-Necessity is given by zero-length and long-time patch limits. Sufficiency follows from the one-mode interpolation (5.2). No sufficient subcone is being substituted.
+Adding (5.4) to the reference rates `(1,1,2,2,2,2)` gives
 
-If `R=0`, the reference chain is frozen and the criterion reduces to the corresponding zero-length conditions, with the realizability restrictions inherited from the physical coefficient system.
+\[
+(1,1/2,3/4,3,5/4,9/4),
+\tag{5.5}
+\]
 
-## 6. Non-binary honesty
+all strictly positive. For target type `2`, take the exact image under `1<->2`; the full one-neighbour system is exchange-symmetric and all 18 physical rates are nonnegative.
 
-The refresh subclass is not a binary quotient. A row may have `p_1 != p_2`, hence `g_1 != g_2`, and (5.2) then gives distinct `N_1(0)` and `N_2(0)`. No observable on the quotient `{0},{1,2}` can reproduce both values.
+For the distinguished row,
 
-The one-mode form comes instead from the repeated nonzero eigenvalue of the genuine three-state refresh generator.
+\[
+g=(-1/2,1,1/2),
+\qquad
+m=3/4,
+\qquad
+d=1/4,
+\qquad
+L=1/8.
+\]
 
-The mandatory gate will use `rho=(2,1,1)` and a row with `p_1 != p_2`, positive internal physical transitions `1<->2`, and target-dependent rate perturbations which distinguish the active labels. Thus both active physical states remain present and observable.
+Hence
+
+\[
+N_1(t)=\frac18+\frac58e^{-4t}+\frac14e^{-6t},
+\tag{5.6}
+\]
+
+\[
+N_2(t)=\frac18+\frac58e^{-4t}-\frac14e^{-6t}.
+\tag{5.7}
+\]
+
+Both are nonnegative for every `t>=0`, and `N_1(0)=1`, `N_2(0)=1/2` prove that the observable does not factor through a binary active block.
+
+Both active physical states occur with positive stationary probability, the physical chain has positive transitions `1<->2`, and the target-type perturbations are swapped rather than identical. The model is therefore genuinely three-state under the honesty test.
+
+## 6. Nonvacuity inside the same subclass
+
+The same reference chain admits physically realizable outgoing rows satisfying all zero-length inequalities but violating the long-time condition. For example
+
+\[
+p=(-1/2,1,1/2)
+\]
+
+gives
+
+\[
+g=(-1/2,1/2,0),
+\qquad
+L=-1/8<0.
+\]
+
+It can be realized by pairing it with `p^{1,1}=(0,1/4,1/4)`; the resulting target-mode rate perturbation is
+
+\[
+(0,-1/2,-3/4,1/2,-1/4,1/4),
+\]
+
+which remains physical after adding the reference rates. Thus (3.6) is a genuine necessary condition, not an automatically satisfied consequence of realizability.
+
+## 7. Refresh chains as a boundary case and broader one-mode subclass
+
+When `c=a`, the two decay rates coincide. The symmetric chain becomes a three-state refresh chain with destination rates `(b,a,a)`.
+
+More generally, if
+
+\[
+q_{xy}=\rho_y\quad(x\ne y),
+\]
+
+then the reference chain is a possibly asymmetric three-state refresh chain. Writing `R=sum_y rho_y` and `pi_y=rho_y/R`,
+
+\[
+e^{tQ}g=\pi(g)\mathbf1+e^{-Rt}(g-\pi(g)\mathbf1).
+\]
+
+Therefore all `OI` numerators are one-mode, even for `p_1!=p_2`. The exact criterion is the zero-length inequalities plus
+
+\[
+R p_0+\rho_1p_1+\rho_2p_2\ge0.
+\]
+
+This is another genuinely three-state exact subclass. It is a special repeated-spectrum mechanism, while the larger symmetric class with `c>a` works by ordered decay rates.
