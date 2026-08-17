@@ -21,9 +21,8 @@ A PASS requires one sentence explaining why the bridge survives the attack. A KI
 On branch `research/ergodicity-methods-toolbox`:
 
 - `research/active/ergodicity-methods-toolbox/assessment-protocol.md`, especially Sections 3 and 5;
-- `research/active/ergodicity-methods-toolbox/assessment/fa1f-east-method-audit.md`;
-- `research/active/ergodicity-methods-toolbox/assessment/fa1f-east-shortlist.md`;
-- `research/active/ergodicity-methods-toolbox/meetings/019-fa-primary-audit-complete-cross-review-pending.md` if present under that or the actual Meeting 019 filename;
+- `research/active/ergodicity-methods-toolbox/assessment/fa1f-east-method-audit.md`, especially its final shortlist and bridge-lemma section;
+- `research/active/ergodicity-methods-toolbox/meetings/019-fa1f-east-primary-audit-complete.md`;
 - the five live toolbox pages named below.
 
 Target/obstruction material:
