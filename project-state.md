@@ -10,51 +10,43 @@ This file is the compact current-state index for the autonomous research program
 - Workspace: `research/active/ergodicity-methods-toolbox/`.
 - Principal target: compile a broad, concise, self-contained, source-checked toolbox of rigorous methods used to prove ergodicity/uniqueness, convergence to equilibrium, coupling agreement, positive spectral gap, log-Sobolev inequalities, quantitative mixing, or equivalent forgetting/extinction statements in spin systems, IPS, KCSM, and Glauber-type models.
 - Breadth is intentional; model-specific methods are in scope.
-- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/002-f-wave-one-source-audit-and-second-wave.md`.
-- Student F: active on analytic/functional Assignment 002 after all six first-wave entries passed Professor source audit.
-- Student G: in flight on coupling/graphical/duality Assignment 001; do not interrupt or retask before handoff.
+- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/003-g-wave-one-source-audit-and-joint-taxonomy.md`.
+- Student F: active on analytic/functional Assignment 002.
+- Student G: active on coupling/graphical Assignment 002.
 
 ## Accepted staged coverage
 
-Meeting 002 accepts, for later live-wiki integration:
+Meetings 002--003 have source-audited and accepted twelve first-wave method entries. The live-wiki taxonomy is by load-bearing proof interface:
 
-- Poincare inequality / spectral gap;
-- logarithmic Sobolev and modified logarithmic Sobolev methods;
-- Dirichlet-form / canonical-path comparison;
-- block dynamics / bisection variance decomposition;
-- Dobrushin--Shlosman spatial-to-dynamical relaxation;
-- East distinguished-zero screening.
+1. **Coupling and local influence:** attractive monotone coupling; Dobrushin influence contraction; path coupling.
+2. **Spatial mixing and boundary influence:** disagreement percolation for Gibbs uniqueness; Dobrushin--Shlosman spatial-to-dynamical relaxation.
+3. **Functional inequalities and comparison:** Poincare/spectral gap; LSI/mLSI; Dirichlet-form/canonical-path comparison; block-dynamics/bisection variance.
+4. **Graphical ancestry, duality, and regeneration:** finite-ancestor duality/extinction; information percolation; East distinguished-zero screening.
 
-They remain under `research/active/ergodicity-methods-toolbox/entries/` until G's first wave is reviewed and a joint taxonomy/deduplication pass fixes cross-links and navigation. Shared primary sources do not imply duplicate methods when the proof interfaces differ.
+All twelve are mathematically and taxonomically cleared for live-wiki promotion. Shared primary sources are not duplicate-entry evidence when the proof interfaces differ. Meeting 003 fixes the cross-linking rules.
+
+Promotion is deferred only to the next quiet integration window while both students commit wave-two staging files.
+
+## Current second wave
 
 F Assignment 002 targets Lu--Yau/martingale recursion, spectral independence, block/approximate entropy factorization, bounded-perturbation transfer, moving-particle comparison, and finite-size relaxation criteria.
 
+G Assignment 002 targets dynamical disagreement domination, coupling from the past, clan-of-ancestors perfect simulation, censoring inequalities, block/local/maximal coupling, and coalescing-random-walk voter duality.
+
+The durability rule remains mandatory: every finished method entry is committed immediately as its own artifact.
+
 ## Wiki publication rule
 
-The principal's new instruction reopens the live wiki **for this toolbox section**. Unrelated legacy/deprecated IPS pages remain frozen unless separately audited.
+The principal's instruction reopens the live wiki **for this toolbox section**. Unrelated legacy/deprecated IPS pages remain frozen unless separately audited.
 
-Draft method entries are staged outside `docs/` under the active workspace. After source and Professor review, accepted material will be promoted to a new top-level live-wiki section:
+Accepted material will be promoted to:
 
 - `docs/ergodicity-methods.md` hub;
-- one audited literature page per method under `docs/entries/`;
-- `Ergodicity methods` navigation in `mkdocs.yml`.
+- one `status: literature`, `audit: current` method page under `docs/entries/`;
+- a top-level `Ergodicity methods` section in `mkdocs.yml`.
 
-The current live-wiki admission gate remains in force: new public entries must be source-checked and carry `audit: current` when promoted.
-
-## Literature inclusion and source standard
-
-Include a method if it has a rigorous criterion/theorem or reusable proof architecture, at least one IPS/spin/KCSM/Glauber-type use, and a self-contained statement of hypotheses, mechanism, conclusion, and limitations. General Markov-chain methods require a concrete IPS/spin application. Model-specific methods are explicitly welcome.
-
-Every staged entry must inspect and pinpoint at least one primary source. Citation existence alone is not verification; Professor review checks that the source actually supports the claim.
-
-## Durability and mechanical checks
-
-Every finished method entry is committed immediately as its own durable artifact. Do not batch whole surveys. `research/active/ergodicity-methods-toolbox/validate_entries.py` checks required metadata, headings, URL/pinpoint presence, and length; it does not certify mathematical correctness or attribution.
+The current live-wiki admission gate remains in force. Every staged entry needs an inspected primary source with an exact pinpoint; `validate_entries.py` checks structure only, while Professor review decides mathematical/source acceptance.
 
 ## Previous scientific direction
 
-The positive-rates conjecture proof loop has been stopped by the principal. Its archive remains on branch `research/positive-rates-conjecture` under `research/active/positive-rates-conjecture/`. A concise established-results summary is `research/active/positive-rates-conjecture/programme-established-results.md` on that branch. No proof architecture or student assignment remains active there.
-
-## Most recently completed theorem-search status
-
-The positive-rates conjecture itself remains open. The previous loop ended with no currently credible proof architecture; that status is archival and does not constrain the present literature toolbox except as a source of search vocabulary.
+The positive-rates conjecture proof loop has been stopped by the principal. Its archive remains on branch `research/positive-rates-conjecture`; `research/active/positive-rates-conjecture/programme-established-results.md` is the concise established-results summary there. The conjecture itself remains open.
