@@ -8,71 +8,58 @@ Branch: `research/ergodicity-methods-toolbox`
 
 Workspace: `research/active/ergodicity-methods-toolbox/`
 
-**Breadth collection is complete.** Wave seven was the final collection wave. The programme is now in the problem-specific applicability phase governed by `assessment-protocol.md`.
+**Breadth collection is complete.** The programme is in the problem-specific applicability phase governed by `assessment-protocol.md`.
 
-Latest meeting: `meetings/017-wave-seven-audited-collection-frozen-assessment-dispatched.md`.
+Latest meeting: `meetings/018-final-74-verified-professor-takes-fa-lane.md`.
 
 ## Frozen inventory and publication status
 
-There are **74 staged method entries**, all Professor source-audited and accepted, and all 74 have live counterparts under `docs/entries/`.
+The final inventory contains **74 staged method entries**, all Professor source-audited and accepted, with 74 live counterparts under `docs/entries/`.
 
-The first 67 pages, through wave six, are mechanically verified by Meeting 016. Before wave-seven Professor integration, the principal/orchestrator reported:
+Meeting 018 records the complete final structural publication gate:
 
 ```text
 Checked 74 entries; 0 failed mechanical validation.
 ```
 
-and a clean control/format-character scan across all 74 staged entries. Neither wave-seven student touched `docs/` or `mkdocs.yml`.
+`mkdocs build --strict` exits 0 with no warnings and no broken internal links. Completeness is exact: 74 staged entries, 74 promoted pages, 74 hub links, zero unresolved, no orphan in either direction, every promoted page carries `status:` and `audit:`, and all 171 MkDocs `.md` navigation targets resolve. The `docs/` diff against `origin/main` remains additions-only with zero non-additions. The control/format-character scan is clean across all 74 staged entries.
 
-Meeting 017 source-audited and promoted all seven wave-seven entries. A GitHub comparison from the verified wave-six baseline `cedd415` shows exactly seven added public method pages plus modifications to `docs/ergodicity-methods.md` and `mkdocs.yml`, with no other public `docs/` path changed.
+These checks are structural only. Source/claim authority is the Professor audit recorded through Meeting 017.
 
-The **final post-wave-seven 74-page structural publication gate is pending**. The principal/orchestrator should rerun `validate_entries.py`, `mkdocs build --strict`, 74 staged/live/hub completeness, current-audit metadata, nav-target resolution, additions-only legacy safety, and the control/format-character scan on the integrated tree.
+Therefore the frozen **74-method toolbox is source-audited, live, and mechanically verified**. No collection-phase publication gate remains open.
 
-Structural checks do not add mathematical or source authority. Source/claim acceptance is recorded through Meeting 017.
+The repository-wide article layout remains unchanged. The separate principal-level legacy-directory question remains open and no public-doc restructuring is authorized during assessment.
 
-The repository-wide article layout remains unchanged: toolbox pages live in `docs/entries/`. The separate principal-level legacy-directory question remains open and is not a Professor task.
+## Final collection ruling
 
-## Wave-seven ruling
+Wave seven added seven accepted interfaces: asymptotic strong Feller support uniqueness; Hörmander--Malliavin propagation to asymptotic smoothing; Swendsen--Wang / heat-bath Edwards--Sokal kernel comparison; entropic Ricci weak-interaction perturbation; Gray's one-dimensional edge-coalescence positive-rates architecture; Toom error-graph expansion; and essential hitting times plus almost-subadditive regeneration.
 
-All seven staged entries were accepted and promoted:
-
-- asymptotic strong Feller support separation and uniqueness;
-- Hörmander--Malliavin propagation of degenerate noise to asymptotic smoothing;
-- Swendsen--Wang / heat-bath Edwards--Sokal kernel comparison;
-- entropic Ricci curvature from weak-interaction perturbation;
-- Gray's one-dimensional positive-rates edge-coalescence architecture;
-- Toom error-graph expansion for low-noise PCA;
-- essential hitting times plus almost-subadditive regeneration for contact-process growth.
-
-One semantic metadata correction was made: the entropic-Ricci entry now targets `modified-log-sobolev`, not classical `log-sobolev`.
-
-Gray 1986 was not staged because Student G could not inspect the primary full theorem/proof text. This is a **source-access hold**, not a negative taxonomy ruling or merger. It is outside the frozen 74-method inventory unless the principal explicitly reopens it later.
+The entropic-Ricci target was narrowed to `modified-log-sobolev`. Gray 1986 remains outside the frozen inventory on a source-access hold because primary full theorem/proof text was not inspected; this is not a negative taxonomy ruling.
 
 ## Entry hygiene
 
-Meeting 015 exposed a validator blind spot in which a TeX escape became a control character. Entry review now requires both a control/format-character scan and visual/diff inspection of mathematical backslashes.
+Entry review requires both a control/format-character scan and visual/diff inspection of mathematical backslashes. The Professor authorizes a bounded `validate_entries.py` extension that hard-fails actual disallowed control or Unicode format characters while preserving ordinary Markdown whitespace and avoiding unreliable missing-backslash heuristics.
 
-Professor ruling on the proposed validator extension:
+## Active applicability work
 
-- hard-fail actual disallowed control or Unicode format characters in staged entries;
-- preserve ordinary structural whitespace required by Markdown;
-- do not hard-fail heuristic guesses about silently lost TeX backslashes such as `alpha` or `mu`, because they have no reliable mechanical signature.
+Student G is **active** on `students/student-g/assignment-007.md`, the complete positive-rates applicability audit. Delivery is confirmed.
 
-The frozen legacy control-byte issue reported by the principal/orchestrator is outside this programme and remains untouched.
+Student F cannot receive `students/student-f/assignment-008.md` because its conversation has reached the maximum-length limit; attempts to reuse dormant F conversations also fail to register new turns. F008 is durable but **not running**. This is an operational limitation, not a mathematical withdrawal.
 
-## Active applicability assignments
+Professor allocation from Meeting 018:
 
-- Student F: **active** on `students/student-f/assignment-008.md`, the complete FA-1f/East applicability audit.
-- Student G: **active** on `students/student-g/assignment-007.md`, the complete positive-rates applicability audit.
+- G continues positive rates unchanged;
+- the **Professor performs the FA-1f/East applicability audit directly** under the same `assessment-protocol.md` standard;
+- F008 remains an unexecuted durable record and is operationally superseded.
 
-Each student must classify all 74 frozen methods as A/B/C/X/N, return at most six ranked A/B candidates, formulate explicit bridge lemmas, identify the exact obstruction each route avoids, and give cheapest-first falsification tests. No broad new literature search and no public-doc edits are authorized.
+Each primary audit classifies all 74 frozen methods A/B/C/X/N, returns at most six ranked A/B candidates, states explicit bridge lemmas, identifies the exact obstruction each avoids, and supplies cheapest-first falsification tests. No broad new literature search and no public-doc edits are authorized.
 
-After both audits return, the next step is hostile cross-review of the **shortlists only**, followed by Professor synthesis with at most two recommended first proof experiments per problem.
+After both primary audits are available, the next step is hostile cross-review of the **shortlists only**, followed by Professor synthesis with at most two recommended first proof experiments per problem. If a new worker session becomes available, use it to restore independent cross-review capacity.
 
 ## Closed collection phase
 
-There is no wave eight and no further generic gap-filling search under the current principal direction. Earlier negative taxonomy findings remain useful as anti-loop evidence, but the programme no longer maintains an uncovered-method agenda.
+There is no wave eight and no further generic gap-filling search under the current principal direction. Earlier negative taxonomy findings remain anti-loop evidence rather than active collection targets.
 
 ## Next Professor action
 
-Receive F008/G007 applicability audits, audit their bridge statements against the exact FA-1f and positive-rates obstruction records, then dispatch hostile cross-review of only the surviving shortlists.
+Complete the FA-1f/East applicability audit while G completes the positive-rates audit; then audit both shortlists against the exact obstruction records and dispatch or perform the hostile cross-review stage.
