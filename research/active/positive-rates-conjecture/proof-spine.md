@@ -21,11 +21,13 @@ $$
 
 ## E0. Current route status
 
-There is presently **no active proof architecture**.
+There is still **no reopened full proof architecture**.
 
-Student G is idle after Meeting 030; no G011. Student F is idle; no F016.
+Student G is executing one bounded pre-restart experiment, Assignment 012, on optimized information-percolation pair histories. Student F is idle.
 
-The operative architecture assessment is consultation 002 / Meeting 025: **no presently identified route clears the continuation bar**. The late G010 material materially narrows the connected-renewal blocker but does not prove the required all-depth actual-orbit estimate.
+Meeting 032 closes the principal-directed `pi_N`-based distinguished-zero transfer as `STOP-EQUIVALENT` and analytically kills the uniform additive-Hamming non-diagonal coupling bridge. The operative connected-renewal restart bar from Meeting 030 remains unchanged.
+
+A new proof block is justified only by a genuinely new mechanism, not by another reformulation of tail shift, common-coupling occupation, scalar Foster/Bellman, reversible comparison, or the signed boundary-transmission problem.
 
 ## E1. Canonical predecessor-trail `J` quantity
 
@@ -34,8 +36,7 @@ Put
 $$
 B=b+c-a,
 \qquad g=b-a,
-\qquad \omega=1-c+a,
-\qquad w(u)=e^{-\omega u}s_1(u).
+\qquad \omega=1-c+a.
 $$
 
 For singleton depth `n`,
@@ -44,15 +45,7 @@ $$
 J_n=\frac BgR_n=\frac gBN_n.
 $$
 
-Hence
-
-$$
-\rho_J(a,b,c)=\limsup_{n\to\infty}J_n^{1/n}
-$$
-
-is also the root growth rate of `R_n` and `N_n`. `(J-SPEC)` remains open.
-
-## E2. Exact fixed-filter renewal witness
+Thus `(J-SPEC)` is the all-depth growth question for the canonical absolute-duration predecessor-trail norm.
 
 At
 
@@ -60,39 +53,14 @@ $$
 P_*=(1/1000,1/10,9999/10000),
 $$
 
-fix
-
-$$
-\sigma(u)=1-2e^{-(4/125)u}.
-$$
-
-For
-
-$$
-H_N^\sigma=\int w(u)\sigma(u)P_u^Ndu,
-\qquad
-Q_N^\sigma=H_N^\sigma-z_\sigma\Pi_N,
-$$
-
-one has
-
-$$
-Q_N^\sigma\mathbf1=0,
-\qquad
-\pi_NQ_N^\sigma=0.
-$$
-
-Expanding every `H=zPi+Q` gives the exact recurrence
+the fixed signed-filter witness gives the exact renewal recurrence
 
 $$
 V_n=\sum_{k=1}^n\lambda_kV_{n-k},
-\qquad V_0=1.
-\tag{REN}
+\qquad V_0=1,
 $$
 
-The fixed signed witness is dominated by the canonical absolute-duration norm, so supercritical root growth of `V_n` proves `rho_J(P_*)>1`.
-
-Commit `e4452de` exactly verifies the first seven rational coefficients with
+with the first seven coefficients exactly verified and
 
 $$
 \sum_{k=1}^7\lambda_k>1.
@@ -101,31 +69,14 @@ $$
 The sufficient connected-tail theorem
 
 $$
-\boxed{
-\sum_{k\ge8}|\lambda_k|<\delta_7,
-\qquad
-\delta_7:=\sum_{k=1}^7\lambda_k-1>0
-}
-\tag{CT}
+\sum_{k\ge8}|\lambda_k|<\delta_7
 $$
 
 remains open.
 
-## E3. Terminal high-pass contraction
+## E2. Positive-frequency structure and final connected-renewal blocker
 
-G010 derives
-
-$$
-R_N=(dI-gL_N)((1+b)I-L_N)^{-1}.
-$$
-
-The repaired exact verifier `ce77c9c` proves a depth-independent signed kernel estimate with
-
-$$
-B\Theta_\sharp<1,
-$$
-
-hence
+The terminal factor admits the depth-uniform high-pass contraction
 
 $$
 \operatorname{osc}
@@ -134,89 +85,28 @@ R_{N+1}Q_{N+1}(Y_{N+1}f)
 \right)
 \le q_\sharp\operatorname{osc}(f),
 \qquad q_\sharp<1.
-\tag{HP}
 $$
 
-The scalar multiplier of `R_N` vanishes at `x=1/100`, blocking generic inversion of this one seminorm.
-
-## E4. Boundary-resolvent elimination
-
-Late checkpoint `75d0e8a` eliminates the stationary discrepancy functional from the actual connected coefficient. Thus bare one-/two-step tail-shift TV is not logically required for the fixed-filter connected route.
-
-The residual coefficient is an explicit boundary-resolvent expectation on the actual connected orbit. Any future claim of equivalence with the old F013/F014 tail-shift problem must survive this exact elimination.
-
-## E5. Complementary channel split
-
-The corrected recentered boundary-channel checkpoint gives
+The complementary split is
 
 $$
 R_N=m_0I+g_0(I-K_N),
 \qquad
 K_N=(1+b)((1+b)I-L_N)^{-1}.
-\tag{CH}
 $$
 
-Thus the `x=1/100` zero is cancellation between a small scalar channel and a genuine high-pass channel; `I-K_N` itself vanishes only at temporal frequency zero.
+Each channel has a depth-uniform one-step estimate, but no frame/reverse estimate makes the pair iterable on the actual connected orbit.
 
-Both channels satisfy depth-uniform one-step bounds, and after one ordinary insertion their channelwise triangle estimate is strictly below one. This is not an iterative vector norm because no depth-uniform frame/reverse estimate controls the next raw connected input from these two outputs.
-
-## E6. Exact recentered insertion intertwining
-
-Put
+Recentring the fresh insertion yields
 
 $$
-r=1+b=11/10,
-\qquad
-\varepsilon=9/10000,
-\qquad
-X_N=Y_N+\varepsilon,
-\qquad
-g_0=999/10000,
-$$
-
-and `A_N=-L_N`. Then
-
-$$
-\boxed{
 A_NM_{X_N}
 =
 M_{X_N}(A_{N-1}+r)
--g_0B M_{\eta_N}P_{N-1}.
-}
-\tag{INT}
+-g_0B M_{\eta_N}P_{N-1},
 $$
 
-So a fresh recentered insertion shifts frequency by `r`; the sole failure of exact intertwining is the old right-boundary projection.
-
-After regrouping `Y=X-\varepsilon`,
-
-$$
-\boxed{
-\begin{aligned}
-e^{tL_N}M_{Y_N}
-={}&e^{-rt}M_{X_N}e^{tL_{N-1}}
--\varepsilon I_Ne^{tL_{N-1}}\\
-&+B\int_0^t e^{(t-s)L_N}M_{\eta_N}P_{N-1}
-\bigl(g_0e^{-rs}-\varepsilon\bigr)e^{sL_{N-1}}\,ds.
-\end{aligned}
-}
-\tag{TRI}
-$$
-
-The first two branches are individually subcritical under safe absolute-value estimates:
-
-$$
-BZ_{\omega+r}=\frac{1065933}{1068400}<1,
-\qquad
-\varepsilon Z=\frac{1719}{3100}<1.
-\tag{SUB}
-$$
-
-Verifier `adf50d9` checks these and the other scalar inequalities exactly.
-
-## E7. Final G010 blocker: signed boundary transmission
-
-Integrating the third branch of `(TRI)` against the fixed signed kernel `h(t)=w_*(t)\sigma(t)` gives
+and the first two exact semigroup branches are individually subcritical. The only uncontrolled branch is the signed boundary-transmission operator
 
 $$
 \boxed{
@@ -229,123 +119,193 @@ $$
 \,ds\,dt.
 \end{aligned}
 }
-\tag{V}
 $$
 
-For Assignment 010 the input is the actual connected orbit. Both the inner coefficient and the outer filter kernel change sign, so taking absolute values before the two integrations destroys the remaining cancellation.
+Both temporal factors change sign. No depth-uniform estimate on the actual connected orbit retaining this two-time cancellation is known.
 
-No depth-uniform estimate for `\mathcal V_N` on the actual connected orbit was proved. This is now the sharpest residual object of the fixed-filter connected-renewal route.
+This remains the sharp blocker for the connected-renewal architecture.
 
-## E8. Reversible reference Sobolev theorem
+## E3. Zero-boundary invariant family and tail shift
 
-At the corrected reversible reference point
-
-$$
-P_0=(1/10000,1/10,999/1000),
-$$
-
-keep the actual `P_*` duration weight and filter frozen externally. Let `A_{0,N}=-L_{0,N}` and
+Let `pi_N` be the unique invariant law in the `N`-site chain with fixed zero boundary. One-sidedness gives **right-suffix** projectivity
 
 $$
-q(x)=Z_{\omega+x}-2Z_{\omega+\tau+x}.
+R_{N,M}\pi_N=\pi_M.
 $$
 
-Verifier `56d47cb` proves
+For the projective half-line law `mu=pi_\infty^0`, the boundary mismatch is exactly
 
 $$
-|xq(x)|<1\qquad(x>0).
+\Delta_M
+=\|\theta\mu-\mu\|_{\mathcal F_{M-1}},
 $$
 
-The fresh centered insertion satisfies
+with
 
 $$
-M_X^*A_{0,N}^{-1}M_X
-\le
-\frac{998001}{11000000}I,
+\lim_M\Delta_M
+=\|\theta\mu-\mu\|_{\mathcal T}.
 $$
 
-hence
+The connected-renewal coefficient can eliminate this bare discrepancy algebraically, so tail-shift agreement is **not** logically required for that fixed-filter route. Tail shift remains a separate stopped stationary/profile architecture.
+
+## E4. G011: exact failure of `pi_N`-based East distinguished-zero transfer
+
+An East marker grows the protected interval in the opposite direction from suffix projectivity. If a right-measurable marker move leaves the old protected `N` coordinates untouched and exact post-move law is `pi_{N+1}`, then necessarily
 
 $$
-\|A_{0,N}^{1/2}\widetilde Q_{0,N}^\sigma(Y_Nf)\|_2
-\le
-\left(
-\sqrt{\frac{998001}{11000000}}+\frac9{400}
-\right)\|f\|_2
-<\|f\|_2.
-\tag{SQ}
+\bar\pi_{N+1}=\pi_N.
 $$
 
-This is a genuine all-depth positive-frequency theorem for the frozen-weight reversible reference transfer, not for the actual `P_*` orbit.
-
-## E9. Reversible left-slice reduction
-
-Commit `c444db5` gives the exact orthogonal recursion
+Already at `N=1 -> 2`,
 
 $$
-L_{0,N}=L_{0,N-1}\oplus G_{N-1}
+\boxed{
+\bar\pi_2(1)-\pi_1(1)
+=-\frac{2a\,[a-b(1-c)]}
+{(a+1-c)\,[2ab-ac+3a-bc+b+c^2-3c+2]}.
+}
 $$
 
-in the product Hilbert space and therefore
+Thus exact compatibility holds precisely on
 
 $$
-T_{0,N}=T_{0,N-1}\oplus S_{N-1},
-\qquad
-S_n=H^\sigma(G_n)J_n.
+\boxed{a=b(1-c).}
 $$
 
-Thus
+With `rho=b/(1+b)`, this is the product/reversible surface and
 
 $$
-\sup_N\|T_{0,N}\|_{2\to2}<1
+\pi_N=\operatorname{Ber}(\rho)^{\otimes N}
 $$
 
-reduces exactly to a uniform bound on the single killed channel family `S_n`. The killed family has a self-adjoint two-component recursion. This removes the growing reference mode space from the norm question but does not transport the result through the actual nonreversible defect.
+for every `N`.
 
-## E10. Raw coefficient Lyapunov obstruction strengthened
-
-Commit `d9c477e` tests the two-parameter degree/component norm
+Off this surface the literal East induction fails locally. Allowing a contaminated buffer of width `m` gives exactly
 
 $$
-\|f\|_{\theta,\phi}
+S_m=\Delta_{m+1}.
+$$
+
+An arbitrary fresh finite release kernel that cannot inspect/modify the protected prefix requires `Delta_{m+1}=0` for exact output and has approximate error bounded below by the same prefix discrepancy.
+
+Therefore G011 is `STOP-EQUIVALENT`. Marker-existence analysis is moot for this architecture. A future screening idea would need a genuinely new dynamical boundary-defect erasure theorem rather than the same `pi_N` induction.
+
+## E5. Common-uniform coupling facts retained but global-coalescence route stopped
+
+For finite disagreement seeds under the common-uniform coupling:
+
+- no spontaneous disagreement appears to the right;
+- every fixed site eventually couples permanently;
+- survival is equivalent to convective escape to `-infinity`;
+- a moving-frame weighted disagreement contracts;
+- at `P_h`, the finite-time Hamming amplification satisfies
+  $$
+  \alpha(t)>1\qquad(0<t\le47).
+  $$
+
+The two-spin occupation closure later failed because the visible front state forgets post-coalescence right-ancestry capacity. The global-coalescence/occupation interface remains stopped.
+
+## E6. New universal obstruction to uniform additive-Hamming coupling
+
+Let
+
+$$
+H(x,y)=\sum_i\mathbf1_{\{x_i\ne y_i\}}.
+$$
+
+For any Markovian coupling of two spin-flip chains, pairing a flip at site `i` in one copy with a flip at a **different** site `j` in the other cannot change the Hamming drift beyond the fixed marginal contributions, because the Hamming increment is additive across distinct coordinates.
+
+Optimizing the same-site coupling gives
+
+$$
+\boxed{
+\inf_{\text{couplings}}\bar L H
 =
-\sum_{A\ne\varnothing}
-\theta^{|A|}\phi^{\kappa(A)}|x_A|.
+\sum_{i:x_i=y_i}|\lambda_i(x)-\lambda_i(y)|
+-
+\sum_{i:x_i\ne y_i}(\lambda_i(x)+\lambda_i(y)).
+}
 $$
 
-Uniform nonexpansiveness of the actual nonconstant raw semigroup would require
+At `P_h`, for one disagreement at site zero with common right spin zero and common left spin one,
 
 $$
-(c-\alpha)\frac\phi\theta\le c+\omega,
+\boxed{
+\inf_{\text{couplings}}\bar L H
+=c-(a+1-c)
+=\frac{9997}{10000}>0.
+}
 $$
 
-$$
-g\theta+\frac c\theta\le c+g+2\omega,
-$$
+Hence no Markovian coupling can satisfy a uniform drift
 
 $$
-g\theta+\frac{\alpha}{\theta\phi}\le g+\omega,
-\qquad \alpha=1/100.
+\bar L H\le-\kappa H
 $$
 
-The dimer inequality forces `theta>99/100`; the long-block inequality then makes the singleton inequality impossible. Verifier `adf50d9` checks the decisive scalar inequalities exactly.
+throughout the residual target. This kills the toolbox refined-coupling Bridge R as stated and cancels its proposed Hamming LP.
 
-Hence multiplicative component-count weighting does not repair the 010a one-step coefficient Lyapunov route. Filter-level cancellation is load-bearing.
+It does **not** kill a nonadditive Gray splice-edge architecture.
 
-## E11. Stop rule / future restart
+## E7. Stationary boundary-control hierarchy remains stopped at weighted mismatch
 
-Assignment 010 is complete unresolved after substantive work. Meeting 030 issues no G011 and leaves both students idle.
+The exact hierarchy of stationary controlled boundary occupation measures and Bellman endpoints remains valid. Its scale-extension identity expresses improvement through occupation of weighted adaptive boundary-action slacks.
 
-A future restart of the connected-renewal branch requires **new input specifically controlling `(V)` on the actual connected orbit**, retaining its two-time cancellation strongly enough to give summable/geometric connected coefficients, or a materially different proof architecture.
+The controller-uniform unweighted mismatch theorem is insufficient, additive block correctors cannot improve endpoints, and no independent theorem controls the required weighted cross-block mismatch. The Bellman route remains stopped.
 
-Do not reactivate on generic requests to find another norm, extend the reversible comparison, optimize the filter, compute longer coefficient tables, prove bare tail shift, revisit common-coupling occupation, or search generic Bellman/joint correctors.
+## E8. Exact trajectory-valued spatial kernel obstruction retained
 
-Consultation 002 / Meeting 025 `no-credible-route` is operative.
+The zero-boundary stationary trajectory field is a spatial Markov chain on one-site path space. The transition laws corresponding to the two constant right-neighbour trajectories are mutually singular, so the path-space Dobrushin TV coefficient equals one.
 
-## E12. Other retained exact mathematics
+This blocks ordinary trajectory-kernel contraction but does not itself decide information percolation, which tracks minimal backward information under a chosen random-map representation rather than full conditional path-law TV.
 
-The stationary occupation-control hierarchy, common-coupling fixed-site facts, exact trajectory-valued spatial kernel, previous predecessor-profile reductions, and G009 singular fixed-depth theorem remain correct but inactive as recorded in earlier meetings.
+## E9. Active bounded test: information-percolation pair histories
+
+Assignment 012 is the only active experiment.
+
+For an exact Poisson random-map decomposition of the local generator, classify deterministic Boolean maps by essential backward parent set:
+
+- constant: history death;
+- self-only;
+- right-only;
+- self+right: branching.
+
+First derive the exact attainable ancestry-rate polytope. Then run two independent minimal support processes and study
+
+$$
+\Psi(A,A')=2^{|A\cap A'|}-1,
+$$
+
+not merely `E|A|`.
+
+The experiment is bounded to relative widths `W<=8` unless a structural recursion is discovered.
+
+A viable positive signal must produce a pair-level state/inequality with strict contraction or another Miller--Peres-type intersection estimate that is plausibly iterable without assuming ergodicity, common-coupling extinction, tail shift, or `(V)`.
+
+A merely supercritical first-moment ancestor count is not a negative theorem.
+
+## E10. Reversible reference and raw coefficient lessons retained
+
+At the corrected reversible/product reference point there is a dimension-free fresh-insertion Sobolev gain and an exact left-slice reduction to a killed self-adjoint channel family. These do not transport automatically through the actual nonreversible boundary defect.
+
+No degree/component multiplicative `ell^1` weight makes the actual nonconstant raw coefficient semigroup uniformly nonexpansive. Filter/resolvent-level cancellation remains load-bearing for the predecessor-trail route.
+
+## E11. Restart rules
+
+The connected-renewal branch may restart only with new input controlling `(V)` on the actual connected orbit while retaining its two-time cancellation, or with a materially different proof architecture.
+
+Do not restart on:
+
+- bare tail shift or another `pi_N` distinguished-zero buffer;
+- common-coupling occupation/global extinction;
+- uniform additive-Hamming coupling;
+- scalar Foster/Bellman corrector variants;
+- reversible perturbation or another filter/norm search;
+- longer finite coefficient tables.
+
+The information-percolation experiment is permitted precisely because it is a different backward-information architecture. Its output must be reviewed before any full proof block is opened.
 
 ## Anti-circularity checkpoint
 
-Do not infer `(CT)` from the finite renewal prefix; treat `(HP)` or the channelwise bounds as iterable without a frame/actual-orbit theorem; transfer `(SQ)` from `P_0` to `P_*` with a depth-growing perturbation norm; import the reversible point's canonical duration law; identify the connected route with bare tail shift despite the exact elimination; or treat `rho_J>1`, if later proved, as nonergodicity. It would refute only the sufficient absolute-duration route.
+Do not infer the connected-tail theorem from the finite renewal prefix; treat one-step high-pass/channel bounds as iterable without a frame theorem; transfer the reversible reference result through a depth-growing perturbation norm; identify the connected route with bare tail shift despite the exact elimination; infer that marker existence can repair the G011 prefix mismatch; or use supercritical mean ancestor growth as a proof that information-percolation pair intersections cannot decay.
