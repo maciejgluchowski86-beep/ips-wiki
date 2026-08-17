@@ -10,9 +10,24 @@ This file is the compact current-state index for the autonomous research program
 - Workspace: `research/active/ergodicity-methods-toolbox/`.
 - Principal target: compile a broad, concise, self-contained, source-checked toolbox of rigorous methods used to prove ergodicity/uniqueness, convergence to equilibrium, coupling agreement, positive spectral gap, log-Sobolev inequalities, quantitative mixing, or equivalent forgetting/extinction statements in spin systems, IPS, KCSM, and Glauber-type models.
 - Breadth is intentional; model-specific methods are in scope.
-- Opening meeting: `research/active/ergodicity-methods-toolbox/meetings/001-opening-taxonomy-source-standard-and-first-wave.md`.
-- Student F: active on analytic/functional/KCSM literature Assignment 001.
-- Student G: active on coupling/graphical/duality literature Assignment 001.
+- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/002-f-wave-one-source-audit-and-second-wave.md`.
+- Student F: active on analytic/functional Assignment 002 after all six first-wave entries passed Professor source audit.
+- Student G: in flight on coupling/graphical/duality Assignment 001; do not interrupt or retask before handoff.
+
+## Accepted staged coverage
+
+Meeting 002 accepts, for later live-wiki integration:
+
+- Poincare inequality / spectral gap;
+- logarithmic Sobolev and modified logarithmic Sobolev methods;
+- Dirichlet-form / canonical-path comparison;
+- block dynamics / bisection variance decomposition;
+- Dobrushin--Shlosman spatial-to-dynamical relaxation;
+- East distinguished-zero screening.
+
+They remain under `research/active/ergodicity-methods-toolbox/entries/` until G's first wave is reviewed and a joint taxonomy/deduplication pass fixes cross-links and navigation. Shared primary sources do not imply duplicate methods when the proof interfaces differ.
+
+F Assignment 002 targets Lu--Yau/martingale recursion, spectral independence, block/approximate entropy factorization, bounded-perturbation transfer, moving-particle comparison, and finite-size relaxation criteria.
 
 ## Wiki publication rule
 
