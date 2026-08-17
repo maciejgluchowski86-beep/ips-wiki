@@ -133,8 +133,79 @@ Counts after inspecting all 74 live method pages: **A 1, B 4, C 25, X 10, N 34**
 
 ## Ranked A/B shortlist
 
-_To be filled after the complete disposition table is fixed._
+### 1. A — Gray one-dimensional edge coalescence — PR2
+
+**Bridge G (nonmonotone splice-edge coupling).** For every strict residual rate triple, construct a translation-covariant finite-range grand coupling of the finite-cone random maps such that single-site changes in initial data have scalar ordered influence edges; edges do not cross, coalesce permanently when they meet, and protect the random-map value on intervals lying between a left/right edge pair. Neighboring eternal edges must have a history-uniform positive chance to coalesce in a bounded local episode, so a positive spatial density of distinct edges is impossible by the same stationary-density logic as Gray.
+
+**Implication.** Coalescence of all influence edges reaching a fixed observation interval makes the finite-cone random map constant over every initial assignment in its base. Finite propagation removes the cone truncation. Hence local transition probabilities forget the initial configuration, giving uniqueness and convergence.
+
+**Obstruction avoided.** Attractiveness is replaced by an engineered edge coupling. No common-uniform Hamming contraction, positive coefficient norm, or scalar Foster corrector is used.
+
+**Cheapest test.** At `P_h=(1/10000,1/100,9999/10000)` and `P_*=(1/1000,1/10,9999/10000)`, solve a finite rational LP for joint event rates on a three-/four-site two-edge window, imposing exact marginal rates, protected-region constraints, no crossing, and permanent coalescence. One infeasible required local pattern kills the direct Gray extension.
+
+### 2. B — refined non-diagonal discrepancy coupling — PR2
+
+**Bridge R (discrepancy-nonincreasing coupled rates).** For every residual rate triple, construct a translation-covariant finite-range Markovian coupling, allowed to pair a flip at one site in one marginal with a different-site flip in the other, such that for every finite disagreement set `D`,
+
+`bar L |D| <= -kappa |D|`
+
+with `kappa>0` independent of the surrounding configuration and `|D|`. A pathwise nonincrease of `|D|` plus uniform strict-removal hazard would also suffice.
+
+**Implication.** `E|D_t| <= exp(-kappa t)|D_0|`. Finite propagation reduces a fixed time-`t` observation to `O(t)` initial sites, giving local disagreement `O(t)exp(-kappa t)` and hence uniqueness/convergence.
+
+**Obstruction avoided.** The exact `alpha(t)>1` obstruction is for the common-uniform coupling. Bridge R changes the coupled generator itself, which is the Gobron--Saada lesson. If a proposal collapses to a scalar phase/Foster correction on the old coupling, the prior refutation applies.
+
+**Cheapest test, and the audit's recommended first experiment.** Solve the exact local coupled-rate LP at `P_h`, maximizing `kappa` subject to marginal-rate constraints and no increase of Hamming discrepancies. A certified optimum `kappa<=0` in one required local pattern kills R. Adding Gray no-crossing/coalescence constraints to the same LP simultaneously probes Bridge G.
+
+### 3. B — information percolation — PR5
+
+**Bridge IP (sparse red histories).** Use positivity to decompose the generator into state-independent reset-to-zero/reset-to-one marks plus residual local maps. For the minimal backward support of a finite top set, prove a Lubetzky--Sly/Miller--Peres red-intersection bound, uniformly over finite-volume truncations and exterior initial states, of the form
+
+`E[2^{|R_t intersect R'_t|} | green histories] - 1 <= C_A exp(-gamma t)`.
+
+**Implication.** The local law at time `t` loses all dependence on its initial assignment even if some histories reach time zero. This gives local mixing, uniqueness and convergence directly.
+
+**Obstruction avoided.** No disagreement extinction, no all-history extinction, no signed boundary-transmission estimate and no positive raw norm are required. It is strictly weaker than CFTP/clan finiteness.
+
+**Cheapest test.** At `P_h` and `P_*`, optimize the finite deterministic-map decomposition for backward-support sparsity and build the exact pair-support transfer operator for the intersection weight. A certified volume-uniform lower bound preventing decay for every admissible local decomposition kills the simple IP bridge. A supercritical first-moment branching number alone does not kill it.
+
+### 4. B — block coupling / joint-block stationary control — PR3
+
+**Bridge BC (uniform cross-block Bellman mismatch).** For some fixed block length `ell` and `delta>0`, uniformly in `N` and every nonconstant local `h`, prove
+
+`inf_{m in K_{N+ell}} m(s_N^+) + inf_{m in K_{N+ell}} m(s_N^-) >= delta D_N(h)`,
+
+where `s_N^+` and `s_N^-` are the established Bellman endpoint slacks. The estimate must use a genuinely joint `ell`-site boundary-block coupling/control, not additive one-block correctors.
+
+**Implication.** The exact scale-extension identity gives `D_{N+ell}(h) <= (1-delta)D_N(h)`. Iteration forces `D_N(h)->0` for every local `h`, hence invariant-law uniqueness.
+
+**Obstruction avoided.** The additive Bellman obstruction leaves cross-block dependence open. BC is not the already-known unweighted mismatch bound, whose scale is only order `1/N`.
+
+**Cheapest test.** Use the exact stationary LP at `P_h` and `P_*` for `ell=2`, then `ell=3`, and small `N`. If for some local `h` with `D_N(h)>0` the two exact infimum slacks sum to zero, a uniform positive `delta` of this form is false.
+
+### 5. B — physical-front regeneration adapted to disagreements — PR2
+
+**Bridge FR (regenerative disagreement front with terminal hazard).** For the common coupling from a finite disagreement set, build translated regeneration times for the rightmost disagreement cluster such that the next regeneration has a uniformly controlled tail, the translated post-regeneration interface belongs to a fixed finite/compact class and has fresh future randomness, and each cycle has a uniform probability `p>0` of complete extinction before the next regeneration. The cycle estimates must be uniform enough in the initial finite set to beat the `O(t)` base size of a finite-propagation cone.
+
+**Implication.** Repeated fresh trials give an exponentially small survival probability over regeneration cycles; the cycle-time estimate converts this to a quantitative finite-disagreement extinction bound. Finite propagation then yields local coupling for arbitrary starts and invariant-law uniqueness.
+
+**Obstruction avoided.** Fixed-site permanent coupling is already known and insufficient. FR requires a genuine restart sigma-field plus a terminal hazard; front speed, occupation, or a stationary moving-frame law alone does not qualify.
+
+**Cheapest test.** At `P_h`, exactly uniformize the common-coupling process in a frame at the rightmost disagreement with interface width truncated at `W=2,3,...`. Measure the worst-case probability of extinction before another `W`-site left shift and return to a fixed small interface class. Collapse of the extinction probability toward zero or escape of interface mass from every fixed class kills the finite-state regeneration version.
+
+The collection phase found no concrete primary theorem for actual disagreement-front regeneration. That negative search is why FR is ranked fifth and `B`, not `A`.
 
 ## Repackaging warnings and cheapest-first tests
 
-_To be filled with the shortlist._
+- **Gray and refined coupling are linked.** Run the non-diagonal coupled-rate LP first. Do not fund two parallel blocks before this local feasibility test.
+- **Do not test a new coupling only by the old common-coupling Hamming drift.** Conversely, if the proposed coupling is merely a scalar phase/Foster correction on the old coupling, it is already refuted.
+- **Information percolation must remain information percolation.** Replacing red-history intersection by total ancestor extinction, a Dobrushin row sum, or early absolute values turns it into a stronger method already known to be inadequate.
+- **Block coupling must be cross-block.** If it decomposes into additive Bellman correctors, the exact endpoint obstruction applies.
+- **Front regeneration needs renewal, not kinematics.** Essential-hitting-time speed, fixed-site coupling, or a stationary environment seen from the front can coexist with convective survival.
+- **No shortlisted method attacks PR1 directly.** Reversible comparison, curvature/coercivity, Toom positive error weights, Nash positive seminorms, and ordinary norm contraction all erase the two-time sign cancellation that Meeting 030 leaves open.
+
+### Single cheapest experiment recommended first
+
+Run the exact rational **non-diagonal coupled-rate LP at `P_h`**. First maximize a uniform Hamming-removal rate `kappa` under exact marginal constraints. Then, using the same variables, add Gray no-crossing/protected-edge/coalescence constraints. This one small finite-state computation can cheaply kill or materially strengthen the two highest-ranked methods before any infinite-volume argument is attempted.
+
+Extended bridge details are also checkpointed in `research/active/ergodicity-methods-toolbox/assessment/positive-rates-shortlist.md`.
