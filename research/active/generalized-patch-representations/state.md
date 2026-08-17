@@ -17,159 +17,198 @@ Branch-only wiki section:
 
 Nothing from this programme is to be written or merged to `main` without a later principal instruction.
 
-Latest meeting: `meetings/008-novelty-audit-keeps-killed-typed-factorization.md`.
+Latest meeting: `meetings/009-natural-contact-and-sirs-applications-fail-positivity.md`.
 
-## Mathematical theorem stack
+## Stable mathematical stack
 
-### Assignments 001--003: arbitrary finite-state typed representation
+Assignments 001--004 establish for arbitrary finite-state bounded finite-range **single-site replacement** IPS in the reference-state indicator tensor basis:
 
-Outcomes:
+1. an exact typed signed Feynman--Kac dual;
+2. successful records `(i,t,r,tau)` hiding post-source outcome;
+3. exact killed/noncemetery patch factorization despite typed target conflicts;
+4. an explicit typed patch representation with bulk/end separation;
+5. exact local transfer
+   \[
+   K_i(0,\cdot)=0,
+   \qquad K_i(r,s)=a_{i,r}^s(\emptyset);
+   \]
+6. typed bulk patch positivity as exact nonnegativity of local semigroup boundary responses;
+7. exact binary reduction to canonical patch positivity.
 
-- 001 `CONTINUE-TYPED-PATCH`;
-- 002 `CONTINUE-TYPED-REPRESENTATION`;
-- 003 `CONTINUE-TYPED-POSITIVITY`.
+Assignments 005--007 analyze controlled `d=3` positivity. Their mathematics remains correct, but Assignment 008 removed the generic scalar spectral theorem from the novelty claim because third-order external positivity is direct prior art.
 
-For arbitrary finite local state space with reference state `0`, bounded finite-range **single-site replacement** IPS admit the project's reference-indicator signed Feynman--Kac dual. A nonempty successful record
-
-\[
-(i,t,r,\tau)
-\]
-
-reveals source/time/pre-source type/typed target while hiding the post-source outcome.
-
-One-site typed patches factor the signed FK weight only after a necessary multi-state modification. Incoming typed target conflicts can enter cemetery and thereby remove future no-record constraints, so bare conditioning on the coarse record list is false. Since the duality function vanishes at cemetery, the exact replacement is a killed/noncemetery weighted factorization. This yields the bulk/end patch representation
-
-\[
-P_TH_{\xi_0}(\eta)
-=
-\int
-\prod_{P\in\mathcal B_T}C(P)
-\prod_{P\in\mathcal E_T}C_T(\eta_{i(P)},P)
-\,\nu_T(dg).
-\]
-
-### Assignment 004: exact local transfer
-
-Outcome: `CONTINUE-TYPED-POSITIVITY-CRITERION`.
-
-For active type `r`, the signed weighted interior transfer is exactly
-
-\[
-K_i(0,\cdot)=0,
-\qquad K_i(r,s)=a_{i,r}^s(\emptyset).
-\]
-
-Typed bulk patch positivity is exact nonnegativity of four local matrix-semigroup numerator families over realizable boundary descriptors. The `d=2` specialization is exactly the canonical binary patch-positivity property.
-
-### Assignments 005--007: controlled `d=3` analysis
-
-Assignment 005 proved that zero-length and long-time endpoint inequalities do **not** characterize three-state positivity: the exact physically realizable witness
-
-\[
-N(t)=\frac1{128}-\frac{13}{64}e^{-t}+\frac{153}{128}e^{-2t}
-\]
-
-has positive endpoints but minimum `-1/1224`.
-
-Assignment 006 gave an exact finite critical-point test for every boundary-complete `d=3` `OI` numerator. Assignment 007 identified a genuinely nonbinary exchange-symmetric subclass with exact algebraic criterion
-
-\[
-c\ge a,
-\]
-
-and, for every outgoing row `p=(p_0,p_1,p_2)`,
-
-\[
-p_1,p_2,p_0+p_1,p_0+p_2\ge0,
-\]
-
-\[
-(b+2a)p_0+a(p_1+p_2)\ge0.
-\]
-
-These results remain correct. Assignment 008 changes their **research-contribution status**, not their mathematics.
-
-## Assignment 008: novelty and closest-prior-work audit
+## Assignment 008 novelty ruling
 
 Outcome: **`CONTINUE-TO-APPLICATIONS`**.
 
-The audit is deliberately mixed.
-
-### Fixed component statuses
-
-1. finite-state typed signed duality: **`known ingredients, assembly plausibly new`**;
-2. killed typed patch factorization / representation: **`plausibly new theorem/mechanism`**;
-3. transfer-matrix bulk positivity formulation: **`known ingredients, assembly plausibly new`**;
-4. exact boundary-complete `d=3` finite spectral criterion: **`known / directly subsumed`**;
-5. exchange-symmetric exact algebraic criterion: **`known ingredients, assembly plausibly new`**;
-6. combined generalized patch framework: **`plausibly new theorem/mechanism`**.
-
-### Important negative novelty findings
-
-The audit found that:
-
-- finite-state graphical/product duality is established in Lloyd--Sudbury/Sudbury, Sturm--Swart and Latz--Swart type theories;
-- Dawson--Greven already have explicit finite-type **signed Feynman--Kac duality**;
-- Fernández--Ferrari--Garcia ancestor clans and Lubetzky--Sly information percolation are predecessors for revealing relevant spacetime/Poisson dependency geometry before all local randomness is processed;
-- Metzler/internal positivity and `C e^{tA}B` external positivity are standard positive-systems theory;
-- the Assignment-006 scalar `d=3` theorem is **directly subsumed** by third-order SISO external-positivity literature. Multiplying `p e^{tK}f` by `e^{-dt}` preserves its sign and gives a stable third-order impulse response. Lin--Fang (1997) and Weller--Martin (2020) already provide exact third-order nonnegative-impulse / monotone-response characterizations.
-
-Thus none of these ingredients or the `d=3` spectral calculation should be framed as new.
-
-### Strongest surviving novelty candidate
-
-No equivalent source was found for the full interface
+Primary plausible novelty anchor:
 
 \[
-\text{arbitrary finite-state replacement IPS}
+\text{signed typed dual}
 \to
-\text{signed typed FK dual}
+\text{hidden successful skeleton}
 \to
-\text{coarse successful record hiding source outcome}
+\text{typed cemetery obstruction}
+\to
+\text{killed/noncemetery patch factorization}
+\to
+\text{exact finite-state patch representation}.
 \]
 
-followed by one-site signed patch averaging in the presence of typed target conflicts, where cemetery makes bare skeleton conditioning fail and the exact representation is restored through the killed/noncemetery weighted product identity.
+Finite-state duality, signed FK duality, partial graphical revelation, matrix external positivity, and the generic third-order spectral criterion are not novelty claims.
 
-This is the primary plausible novelty anchor. The claim is **plausibly new**, not established historical priority.
+## Assignment 009: first natural applications
+
+Outcome: **`STOP-APPLICATION-POSITIVITY-FAILS`**.
+
+### Literature-driven selection
+
+Krone's **two-stage contact process** was selected before any positivity calculation from a bounded set containing spatial SIRS and Neuhauser's multitype contact process.
+
+States:
+
+\[
+0=\text{vacant},\qquad1=\text{juvenile},\qquad2=\text{adult}.
+\]
+
+Physical rates:
+
+\[
+0\to1\text{ at }\lambda n_2(x),
+\qquad1\to2\text{ at }\gamma,
+\]
+
+\[
+1\to0\text{ at }1+\delta,
+\qquad2\to0\text{ at }1.
+\]
+
+Selection used naturality, genuine three-state structure, single-site replacement, nontrivial graphical geometry, and strong prior duality literature. Patch positivity and irreducibility were not selection criteria.
+
+### Exact typed specialization
+
+For each adult-neighbour target `tau_j={j->2}`,
+
+\[
+\boxed{\mathbf a_{1,\tau_j}=(\lambda,-\lambda,-\lambda).}
+\]
+
+Empty-target rows are
+
+\[
+\mathbf a_{1,\emptyset}=(0,-(1+\delta+\gamma),0),
+\]
+
+\[
+\mathbf a_{2,\emptyset}=(0,\gamma,-1),
+\]
+
+so
+
+\[
+K=
+\begin{pmatrix}
+0&0&0\\
+0&-(1+\delta+\gamma)&0\\
+0&\gamma&-1
+\end{pmatrix}.
+\]
+
+Every successful record has source type `1`, target type `2`, and hides post-source outcome `0,1,2` with signs `+,-,-`. Incoming target type `2` can conflict with a type-1 active label, so typed cemetery and the killed-factorization repair are genuinely realized in this natural model.
+
+### Exact positivity failure
+
+A selected record can choose hidden outcome `1`, and the next successful record at the same source again requires pre-source type `1`. Thus a same-source `OO` descriptor is realized.
+
+For `a=1+delta+gamma`, its numerator is
+
+\[
+N_{OO}(t)
+=-\lambda\left[
+e^{-at}+\gamma\frac{e^{-t}-e^{-at}}{a-1}
+\right]
+\]
+
+when `a>1`, with the degenerate form `-lambda e^{-t}` when `a=1`.
+
+Hence
+
+\[
+\boxed{N_{OO}(t)<0\quad\text{for all finite }t\ge0\text{ whenever }\lambda>0.}
+\]
+
+The killed-reference denominator is strictly positive. Therefore the published two-stage contact process is **not typed patch positive anywhere in its interacting birth range**.
+
+Exact gate at
+
+\[
+\lambda=\gamma=\delta=1,
+\qquad e^{-t}=1/2
+\]
+
+gives
+
+\[
+N_{OO}=-5/16,
+\qquad D_{OO}=5/16,
+\qquad C_{OO}=-1.
+\]
+
+Verifier: `students/professor/009-two-stage-application-verifier.py`, commit `d2576053`.
+
+### Bounded second candidate
+
+Spatial SIRS, with
+
+\[
+S\to I\text{ at }\lambda n_I,
+\qquad I\to R,
+\qquad R\to S,
+\]
+
+has the same nonempty outgoing row `(lambda,-lambda,-lambda)` and therefore the same realized negative repeated-source `OO` patch. No third candidate was opened.
+
+### Catalytic-birth no-go
+
+A reusable obstruction emerges:
+
+> if a positive nonempty target mode appears in `0->r` but not in any active-source transition into `r`, then `a_r^r(tau)<0`; if the same source-`r` successful record can repeat after hidden outcome `r`, a realized arbitrarily short `OO` patch is negative.
+
+This explains both the two-stage and SIRS failures and rules out a broad class of contact/epidemic growth models before any spectral calculation.
+
+### Application-specific prior work
+
+Krone already constructed the two-stage multitype dual; Foxall simplified it, proved further results and complete convergence in a general additive multitype growth framework; Sturm--Swart subsume Krone's duality in general pathwise duality.
+
+The killed typed representation is genuinely different at the representation level and its cemetery mechanism is active here, but bulk positivity fails before it can yield a new model-specific comparison or convergence theorem.
 
 Decisive files:
 
-- `students/professor/008a-classical-duality-and-graphical-predecessors.md`, commit `e2966ae0`;
-- `008b-feynman-kac-and-multistate-duality-comparison.md`, commit `02350f42`;
-- `008c-signed-fk-and-hidden-skeleton-factorization.md`, commit `f139fde3`;
-- `008d-external-positivity-overlap.md`, commit `41994e79`;
-- `008e-component-status-and-chronology.md`, commit `0c91fe66`;
-- final report `008-novelty-and-prior-work-audit.md`, commit `6db1efa8`;
-- handoff `008-handoff.md`, commit `4524207b`;
-- Meeting 008, commit `42719a83`.
+- `009a-literature-driven-model-selection.md`, `56ba8390`;
+- `009b-two-stage-typed-specialization.md`, `232fe276`;
+- `009c-two-stage-patch-positivity-obstruction.md`, `0174a59b`;
+- verifier `009-two-stage-application-verifier.py`, `d2576053`;
+- `009d-second-candidate-sirs-check.md`, `db0746f7`;
+- `009e-two-stage-prior-work-and-application-value.md`, `423bee8e`;
+- final report `009-natural-nonbinary-application.md`, `3d092827`;
+- handoff `009-handoff.md`, `8d5305ed`;
+- Meeting 009, `d9e8923b`.
 
 ## Current proof-spine edge
 
-**Applications of the surviving generalized patch mechanism.**
+**One structurally distinct non-catalytic application class, if the programme continues.**
 
-Per the sequencing ruling fixed in Meeting 007 and enforced by Assignment 008, applications are now the next active mathematical block.
+Repeating contact/SIRS-style catalytic birth models is now low-value because the no-go lemma decides them locally.
 
-The next block must start from a **natural genuinely nonbinary finite-state single-site replacement IPS from the literature**, not a coefficient table designed to satisfy the criterion. It should test:
+A next application block should therefore be literature-driven and select a natural three-state single-site replacement IPS where neighbour interactions can retype already-active states or otherwise contain compensating active-source target modes. Model selection must again be committed before any positivity calculation.
 
-1. whether the typed dual/successful-skeleton representation specializes naturally;
-2. whether bulk patch positivity actually holds, using the exchange-symmetric/refresh criterion or the general finite-dimensional external-positivity formulation as appropriate;
-3. whether the representation proves or clarifies something useful that is not already standard for that model;
-4. application-specific prior work before claiming a contribution.
+This is not permission to design a rate table to satisfy the criterion.
 
-A failed positivity test is an acceptable and informative result.
-
-## `d>3` ordering
-
-Do **not** insert a generic `d>3` positivity-algebra block before applications.
-
-The arbitrary finite-state representation is already proved, while the positivity problem at higher dimension overlaps the established external-positivity problem for higher-order linear systems. Reopen generic `d>3` tractable criteria only if:
-
-- a concrete application naturally requires more than three local states; or
-- later literature evidence identifies a particular higher-dimensional structured class with independent value.
+Generic `d>3` positivity algebra remains deferred. The arbitrary finite-state representation is already proved, and Assignment 009 gives no reason to insert higher-dimensional abstraction before one genuinely different application architecture is tested.
 
 ## Scope and publication boundary
 
-Current proved mathematical scope: arbitrary finite-state bounded finite-range **single-site replacement** dynamics in the reference-state indicator tensor basis. Simultaneous multi-site physical updates remain outside scope.
+Current proved mathematical scope: arbitrary finite-state bounded finite-range single-site replacement dynamics in the reference-state indicator tensor basis. Simultaneous multi-site physical updates remain outside scope.
 
 No content is to be promoted to `main` without later principal instruction. Existing `docs/entries/`, `docs/meta/`, and `mkdocs.yml` are outside the active write surface.
 
