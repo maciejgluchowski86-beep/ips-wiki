@@ -23,17 +23,17 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-Latest meeting: `meetings/022-no-credible-proof-architecture-but-j-route-decision-reopened.md`, `state_narrowed: yes`.
+Latest meeting: `meetings/023-stationary-boundary-control-hierarchy-reopens-one-proof-test.md`, `state_narrowed: yes`.
 
 Active work:
 
-- Student G: `students/student-g/assignment-009.md`, one bounded asymptotic route-decision block on `(J-SPEC)`.
-- Student F: idle.
-- No other proof architecture is active.
+- Student G: `students/student-g/assignment-009.md`, bounded asymptotic route-decision block on `(J-SPEC)`; mathematical task unchanged, with an intermediate-commit durability addendum after two session freezes.
+- Student F: `students/student-f/assignment-015.md`, bounded feasibility test of stationary boundary-control corrector concatenation.
+- No third route/session is authorized.
 
-## Route status
+## Closed / stopped mechanisms
 
-Closed/stopped mechanisms include fixed finite walls, cellwise nonnegative insertion, one-step centered `L^1`, crude scalar sup criteria, exposed-only and full nearest-neighbour scalar coupling products, depth-uniform finite common-mass mode closure, raw finite-window Hamming enumeration, and larger exposure-state ancestry tracking.
+Closed or stopped mechanisms include fixed finite walls, cellwise nonnegative insertion, one-step centered `L^1`, crude scalar sup criteria, exposed-only and full nearest-neighbour scalar coupling products, depth-uniform finite common-mass mode closure, raw finite-window Hamming enumeration, and larger exposure-state ancestry tracking.
 
 Abandoned as a load-bearing interface after Meeting 019:
 
@@ -43,186 +43,173 @@ Recorded as exhausted after Meeting 021:
 
 - the current centered predecessor-trail/profile implementation based on composing the present signed insertion through successive zero-boundary segments.
 
-Outside consultation 002 returns `no-credible-route`: no presently identified direct-spatial, alternative-coupling, or alternative-transform architecture clears the continuation bar as a proof programme.
-
-Meeting 022 does **not** reverse those stops. It authorizes only a route-decision theorem testing whether the absolute-duration `J` criterion itself is false.
-
-## Exact trajectory-valued spatial transfer from consultation 002
-
-Let
-
-$$
-\mathscr X=D(\mathbb R,\{0,1\}).
-$$
-
-Given a complete right-neighbour trajectory `y`, define the left-site trajectory from independent graphical marks:
-
-- rate `1-c`: set to `1`;
-- rate `a`: set to `0`;
-- rate `B=b+c-a`: if `y=0`, refresh to Bernoulli `c/B`; if `y=1`, do nothing.
-
-Because
-
-$$
-\omega=a+1-c>0,
-$$
-
-there is almost surely a last neighbour-independent reset before every finite time. This defines a bi-infinite trajectory kernel
-
-$$
-Q(y,dx).
-$$
-
-Finite zero-boundary stationary trajectory fields are exactly Markov in space with transition `Q`, started from the constant-zero boundary trajectory; their time-zero projections are the invariant laws `pi_N`.
-
-The natural full path-space contractions are exactly unavailable. For constant input trajectories `bold0,bold1`,
+Outside consultation 002 returned `no-credible-route` for the architectures then on the table. Its exact trajectory-valued spatial kernel remains useful, but full path-space TV/KL contraction is impossible because
 
 $$
 Q(\mathbf0,\cdot)\perp Q(\mathbf1,\cdot).
 $$
 
-The singularity follows from different asymptotic occupation fractions except on `a=b(1-c)`, and from different jump frequencies on that surface. Hence the Dobrushin coefficient of `Q` is one. For
+Meeting 023 records that the principal's later stationary occupation-control hierarchy is **not** the same path-space architecture and is not ruled out by that theorem.
+
+## Route-decision branch: `(J-SPEC)`
+
+The accepted predecessor-trail reduction gives the sufficient absolute-duration quantity
 
 $$
-\lambda_p=p\delta_{\mathbf0}+(1-p)\delta_{\mathbf1},
+J_{x,r}
+=B g^{n-1}\int\left(\prod_k w(u_k)\right)|\pi^0_{m,r}(F_{x,u})|du,
 $$
 
-one has exact TV and KL isometry:
-
-$$
-\|\lambda_pQ-\lambda_qQ\|_{TV}=|p-q|,
-$$
-
-and
-
-$$
-D(\lambda_pQ\|\lambda_qQ)
-=D(\lambda_p\|\lambda_q).
-$$
-
-This does not refute weak ergodicity of the reachable zero-boundary orbit, but no independent rate-level mechanism for that restricted theorem is currently known. Do not launch generic `Q`-exactness, `g`-measure variation, `bar d`, Hellinger, or block-maximal-coupling searches by default.
-
-## Canonical predecessor-trail quantity
-
-Put
+where
 
 $$
 B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a,
 \qquad w(u)=e^{-\omega u}s_1(u).
 $$
 
-The accepted predecessor-trail reduction gives the sufficient absolute-duration quantity
+The principal's independent finite-box study suggests that the singleton absolute-duration norm may itself be supercritical at strict residual points. With
 
 $$
-J_{x,r}
-=B g^{n-1}\int\left(\prod_k w(u_k)\right)|\pi^0_{m,r}(F_{x,u})|du.
+J_n=\frac gB N_n,
 $$
 
-Previously the programme tried to prove `J->0`. Meeting 021 stopped the available implementation for doing so.
-
-The principal's independent target study now raises a stronger possibility: `J->0` itself may fail at strict residual points.
-
-## Principal finite-box evidence and the new route-decision target
-
-Durable note:
-
-`notes/principal-target-hierarchy-and-j-norm-evidence.md`.
-
-The principal's separate computation used singleton depth-`n` absolute-duration values `N_n` with
-
-$$
-J_n=\frac gB N_n.
-$$
-
-Define
+define
 
 $$
 \boxed{
 \rho_J(a,b,c)
-:=
-\limsup_{n\to\infty}J_n^{1/n}
 =
-\limsup_{n\to\infty}N_n^{1/n}.
+\limsup_{n\to\infty}J_n^{1/n}.
 }
 $$
 
-The immediate route-decision problem is
+Student G Assignment 009 must decide asymptotically whether
+
+$$
+\rho_J>1
+$$
+
+at the strong-growth point
+
+$$
+\left(\frac1{1000},\frac1{10},\frac{9999}{10000}\right),
+$$
+
+or prove a genuine opposite theorem. Larger finite-depth values alone do not count.
+
+If G is unresolved without an asymptotic mechanism, stop the `J-SPEC` branch. Meeting 023 supersedes the older instruction that such an outcome automatically stops the whole programme, because F015 now tests genuinely new input.
+
+## New architecture: stationary boundary-control hierarchy
+
+Durable note:
+
+`notes/principal-stationary-boundary-control-strategy.md`.
+
+Use the complemented spin `xi=1-eta`, so `1` is the East facilitator. For a block `x in {0,1}^N` and fixed right-boundary value `u`, let `L_N^u` be the finite generator and define
 
 $$
 \boxed{
-\text{either prove }\rho_J<1\text{ throughout the residual chamber,
- or prove }\rho_J>1\text{ at one strict residual point.}
+\mathcal K_N
+=
+\left\{
+ m(x,u)\ge0:
+ \sum_{x,u}m(x,u)=1,
+ \quad
+ \sum_{x,u}m(x,u)L_N^uF(x)=0
+ \ \forall F
+\right\}.
 }
-\tag{J-SPEC}
 $$
 
-The principal's finite-box evidence, not yet independently verified asymptotically, reports apparent growth at
+Meeting 023 independently checks:
+
+1. every infinite-volume invariant law projects to an element of `K_N`;
+2. every `m in K_N` is the stationary occupation measure of a finite chain with a randomized state-dependent boundary controller;
+3. projecting `K_{N+1}` to the first `N` sites with the old `N`th spin as boundary control lands in `K_N`;
+4. therefore the stationary diameter
+   $$
+   D_N(h)=\sup_{m\in K_N}m(h)-\inf_{m\in K_N}m(h)
+   $$
+   is nonincreasing in `N` for fixed local `h`;
+5. finite LP duality gives
+   $$
+   U_N(h)=\inf_F\max_{x,u}(h(x)-L_N^uF(x)),
+   $$
+   $$
+   \ell_N(h)=\sup_F\min_{x,u}(h(x)-L_N^uF(x)),
+   $$
+   with
+   $$
+   D_N(h)=U_N(h)-\ell_N(h).
+   $$
+
+Hence
 
 $$
-(a,b,c)=\left(\frac1{1000},\frac1{10},\frac{9999}{10000}\right)
+\boxed{D_N(h)\to0\text{ for every local }h}
+\tag{S}
 $$
 
-with
+would prove uniqueness of the invariant measure without assuming spatial translation invariance.
+
+This static theorem would not yet prove convergence from arbitrary initial states.
+
+## Proposed multiscale target
+
+The principal proposes a scale recursion such as
 
 $$
-N_{10}\approx2.3975,
-\qquad
-\left(\frac{N_{10}}{N_7}\right)^{1/3}\approx1.153.
+\boxed{
+D_{2N}(h)
+\le
+(1-\rho)D_N(h)+Ce^{-\gamma N}
+}
+\tag{R}
 $$
 
-A second strict point `(1/500,1/10,9999/10000)` has reported three-depth ratio about `1.070`.
+for fixed residual rates and all large `N`.
 
-Finite-depth growth alone is not a proof of `rho_J>1`. Student G Assignment 009 must produce an asymptotic block/minorization/Perron--Frobenius or comparable certificate, or an opposite theorem `rho_J<1` on a genuine region.
+The suggested mechanism is that neighbour-independent soft resets create facilitators and hard-East relaxation then screens a macroscopic left block from the far-right boundary.
 
-Do not continue by simply computing larger depths.
+The Professor checked the cited KCM-book inputs:
 
-## Signed cancellation evidence is recorded but not active
+- East Theorem 7.6 gives exponential convergence of local observables once a facilitator is present in the oriented future;
+- East Theorem 7.8 gives linear finite-volume mixing time with empty or ergodic boundary.
 
-The same principal study reports very strong cancellation in signed multivariate duration-resolvent pairings. At the strong-growth point, the reported depth-ten comparison is roughly
+These do **not** directly prove `(R)` for the noisy process under arbitrary state-dependent boundary control. The missing theorem is a robustness/concatenation statement which uses the actual soft resets rather than conditioning them away.
+
+Student F Assignment 015 must determine whether finite Bellman/Poisson correctors concatenate into a repeatable scale theorem, or identify a precise obstruction. Smaller numerical `D_N` values or larger finite LP certificates without repeatability do not count.
+
+## Later dynamic upgrade
+
+If static screening `(S)` is proved, a later step would need uniform distributional screening of far-right perturbations, schematically
 
 $$
-N_{10}=2.3975
-\qquad\text{versus}\qquad
-|L_{10}(0)|=0.00325.
+S_N(h)
+\le
+C_h\left(D_{\lfloor N/2\rfloor}(h)+e^{-\gamma N}\right).
+\tag{ZF}
 $$
 
-This suggests that replacing the exact right-region factor by its absolute survival bound may destroy decisive cancellation.
+Combined with finite-seed local coupling, this would give convergence from arbitrary initial laws. `(ZF)` is not active until the static route is established.
 
-Possible later targets are:
+## Other unresolved facts
 
-- scalar signed resolvent decay `(ML)`;
-- the actual full right-region signed target `(JT)`;
-- a matrix-resolvent formulation `(MR)` if the exact right-region recursion closes appropriately.
-
-These are **not active assignments**. `(ML)` is only a proxy until the exact duration-dependent right-region class is reconstructed and linked to the ergodicity integral.
-
-## Current decision
-
-Only `(J-SPEC)` is active.
-
-If G proves `rho_J>1` at one strict residual point, record the absolute-duration `J` strategy as refuted there. The exact predecessor-trail identity remains valid, but any future use must retain additional right-region/duration cancellation rather than dominate it away.
-
-If G proves `rho_J<1` on a genuine residual region, the absolute-duration target survives there, though the exhausted proof implementation still needs replacement.
-
-If G returns unresolved with only deeper finite-depth evidence and no asymptotic mechanism, return to consultation 002's `no-credible-route` state and keep both students idle until genuinely new input arrives.
-
-## Unresolved target-level facts
-
-Open:
+Still open:
 
 - `(J-SPEC)`;
+- the stationary screening recursion `(R)`;
 - one- and two-step tail-shift agreement off the product surface;
-- `Gamma_M->0`;
-- `J_{x,r}->0` in general;
+- `Gamma_M->0` and general `J_{x,r}->0`;
 - common-uniform extinction versus convective survival;
 - weak ergodicity of the reachable trajectory kernel `Q`;
-- the positive rates conjecture.
+- full ergodicity in the residual chamber.
 
 On the exact surface `a=b(1-c)`, the zero-boundary invariant law is Bernoulli product and the signed insertion obstruction vanishes.
 
 ## Anti-circularity
 
-Do not integrate duration before the required modulus; infer asymptotic `J` growth from finite depths alone; revive closed scalar/coupling architectures; turn `Q`-exactness into a renamed tail theorem; infer ergodicity from sampled signed resolvents; or start `(ML)/(JT)/(MR)` before `(J-SPEC)` and the exact right-region recursion justify them.
+Do not infer asymptotic `J` growth from finite depths; treat shrinking finite `D_N` values as a multiscale theorem; invoke hard-East relaxation without proving robustness to the soft controlled dynamics; revive predecessor-trail/profile composition, global common-uniform occupation, or path-space `Q` contraction; or treat static uniqueness as full convergence.
 
 ## Wiki
 
