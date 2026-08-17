@@ -150,11 +150,27 @@ End with exactly one of:
 - `J-SPEC supports absolute-duration route: rho_J <= ... < 1 on ...`;
 - `unresolved after substantive work; asymptotic J blocker: ...`.
 
-If the third outcome contains only deeper finite-depth evidence and no new asymptotic mechanism, do not propose another larger-`n` assignment. The Professor will return to the `no-credible-route` state and keep the students idle until genuinely new input arrives.
+If the third outcome contains only deeper finite-depth evidence and no new asymptotic mechanism, do not propose another larger-`n` assignment.
 
-## 9. Durable output
+**Meeting 023 routing update:** the mathematical assignment above is unchanged, but a genuinely new stationary boundary-control architecture is now being tested independently by Student F. Therefore an unresolved G009 stops the `J-SPEC` branch only; it no longer by itself returns the entire programme to `no-credible-route` while F015 is in flight.
 
-Commit to
+## 9. Workflow durability addendum
+
+Your Assignment 009 session has twice been lost during long uninterrupted reasoning runs before a final report could be committed. To avoid losing another substantive block, commit intermediate results whenever they become mathematically durable, even if the final `(J-SPEC)` decision is not yet reached.
+
+Good checkpoint material includes:
+
+- an exact reconstruction of the canonical depth recursion;
+- a proved lower-sector invariance lemma;
+- a candidate embedded positive operator with exact entries;
+- a rigorous obstruction showing why a proposed repeatable sector cannot close;
+- verifier code for any exact finite algebra used later.
+
+Use clearly labelled intermediate files or commits; do not overstate them as the final Assignment 009 conclusion.
+
+## 10. Durable output
+
+Commit the final report to
 
 `research/active/positive-rates-conjecture/students/student-g/009-j-norm-growth-route-decision.md`
 
