@@ -1,8 +1,8 @@
 # Coverage spine
 
-This is the frozen coverage map for the ergodicity-methods toolbox. **Live** means source-audited by the Professor and admitted to the public wiki. Breadth collection ended with wave seven. There are now **74 source-audited live method pages**. The first 67 are mechanically verified; the final 74-page post-integration structural gate is pending.
+This is the frozen coverage map for the ergodicity-methods toolbox. **Live** means source-audited by the Professor and admitted to the public wiki. Breadth collection ended with wave seven. There are **74 source-audited live method pages**, and Meeting 018 records the clean final 74-page structural publication gate.
 
-This file is no longer an uncovered-method agenda. Problem-specific applicability is governed by `assessment-protocol.md`.
+This file is no longer an uncovered-method agenda. The problem-specific applicability phase governed by `assessment-protocol.md` is also complete. Final priorities and restart rulings are in `assessment/final-method-priorities.md` and Meeting 022.
 
 ## A. Coupling, influence, and smoothing
 
@@ -51,7 +51,7 @@ Generic disagreement-front regeneration, quasi-successful coupling without a con
 - essential hitting times plus almost-subadditive survival-conditioned regeneration for contact-process growth — **live**;
 - Toom error-history graphs inside backward influence expansions — **live**.
 
-Gray 1986 general attractive-spin duality is **not in the frozen inventory**: wave seven reached official metadata/abstract but not the primary full theorem text required for `primary-checked`. This is a source-access hold, not a negative taxonomy ruling.
+Gray 1986 general attractive-spin duality is **not in the frozen inventory**: wave seven reached official metadata/abstract but not the primary full theorem text required for `primary-checked`. This remains a source-access hold, not a negative taxonomy ruling.
 
 ## C. Functional inequalities, comparison, curvature, and coercivity
 
@@ -141,12 +141,38 @@ Boundary-uniform dynamic graphical projective transfer was closed as a generic s
 
 Meetings 002--005 source-audited the first thirty entries; Meetings 006 and 008 promoted them. Meeting 010 source-audited the fourteen wave-four entries and Meeting 011 promoted them; Meeting 012 records their mechanical verification. Meeting 013 source-audited/promoted thirteen wave-five entries and Meeting 014 records the clean 57-page structural check. Meeting 015 source-audited/promoted ten wave-six entries and Meeting 016 records the clean 67-page structural check plus the collection-sunset ruling. Meeting 017 source-audited/promoted all seven final wave-seven entries and froze the inventory at 74.
 
-The final 74-page structural publication gate remains pending. Before Professor integration, the principal/orchestrator reported 74 staged entries with zero validator failures and a clean control/format-character scan. The public wave-seven diff from verified baseline `cedd415` is exactly seven added method pages plus modifications to the toolbox hub and `mkdocs.yml`.
+Meeting 018 records the **complete final 74-page structural publication gate**: 74 staged, 74 promoted, 74 hub-linked methods; zero unresolved/orphans; metadata on every promoted page; all 171 MkDocs `.md` targets resolving; validator 74 checked with zero failures; strict MkDocs exit 0; additions-only `docs/` diff against main; and clean control/format-character scan.
 
-The repository-wide article convention remains unchanged: toolbox pages stay in `docs/entries/`. The separate principal-level directory question remains outside the Professor remit.
+The repository-wide article convention remains unchanged: toolbox pages stay in `docs/entries/`. No public taxonomy/navigation change was made during the applicability phase.
 
-## J. Applicability phase
+## J. Applicability assessment: complete
 
-The toolbox is now a frozen inventory, not a ranking. Student F is auditing all 74 methods against the exact one-dimensional FA-1f/East out-of-equilibrium interfaces; Student G is auditing all 74 against the exact positive-rates residual objects and no-go record. The governing protocol is `assessment-protocol.md`.
+Both 74-method primary audits and both hostile cross-reviews are complete. The final synthesis is `assessment/final-method-priorities.md`.
 
-Every high-ranking candidate must state an explicit bridge lemma, show which existing obstruction it avoids, and offer a cheap falsification test. After those two audits, only the shortlists are cross-reviewed. The Professor then synthesizes at most two recommended first proof experiments per problem. No further breadth collection or public-doc reorganization is part of this phase.
+### FA-1f / East
+
+Final hostile rulings on the five primary candidates:
+
+- East distinguished-zero screening — **PASS**;
+- refined non-diagonal discrepancy coupling — **DEMOTE**;
+- information percolation / adaptive histories — **PASS**;
+- front regeneration / renewal — **DEMOTE**;
+- state-dependent dynamical disagreement percolation — **KILL**.
+
+**Recommendation:** reopen the Bernoulli-quench proof programme narrowly on the two-sided `FA-SCREEN` causal-screen theorem. The first gate is a finite graphical leakage/measurability test. Adaptive information histories are the reserve architecture.
+
+### Positive rates
+
+Final hostile rulings:
+
+- Gray one-dimensional edge coalescence — **PASS**;
+- refined non-diagonal discrepancy coupling — **PASS**;
+- information percolation — **PASS**;
+- block coupling / joint-block stationary control — **DEMOTE**;
+- disagreement-front regeneration — **DEMOTE**.
+
+The three PASS candidates reduce to two families: nonbasic one-dimensional coupling/Gray geometry and information percolation.
+
+**Recommendation:** do not reopen the positive-rates proof programme yet. First run, if authorized by the principal, the exact rational non-diagonal coupled-rate/Gray LP at the hard point and the optimized finite-depth backward-history pair-intersection calculation. A positive structural signal from one is required before a new infinite-volume block.
+
+The assessment phase is closed. Student G is idle; Student F remains unavailable. The next step is a principal decision, not another breadth or assessment assignment.
