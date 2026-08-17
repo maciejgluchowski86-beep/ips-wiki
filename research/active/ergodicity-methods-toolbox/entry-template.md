@@ -53,3 +53,5 @@ Give the primary source first, with the exact pinpoint used above. Add an origin
 - For a general Markov-chain theorem, a concrete IPS/spin application is required.
 - `primary-checked` means the worker actually opened and read the primary source at the stated pinpoint.
 - Repository research notes may suggest search terms but are not sources for a literature entry.
+- Before committing, scan the file for embedded control and Unicode format characters. Ordinary line breaks are not the issue; TeX commands must not have been converted into host-language escape characters.
+- When Markdown has passed through Python/JSON/API/programming-language string literals, inspect the diff of every mathematical block for literal TeX backslashes. A control-character scan catches failures such as a consumed `\\b` or `\\v`, but cannot detect every lost backslash: commands such as `\\alpha` or `\\mu` can be silently mangled without leaving a control byte.
