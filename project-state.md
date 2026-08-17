@@ -13,9 +13,10 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed until changed or stopped by the principal: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/024-bellman-slack-feedback-obstruction-stops-current-stationary-screening-test.md`, `state_narrowed: yes`.
-- Student G: sole active student, on `students/student-g/assignment-009.md`, the asymptotic `(J-SPEC)` route decision. Durable checkpoint `009a-canonical-j-recursion-checkpoint.md` fixes the exact recursion/normalization but does not decide `(J-SPEC)`.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/025-fixed-depth-j-renewal-is-supercritical-but-nonuniform-j-spec-stops.md`, `state_narrowed: yes`.
+- Student G: idle; no G010.
 - Student F: idle; no F016.
+- No proof architecture is currently active.
 
 On `r11=0`, with
 
@@ -30,109 +31,117 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-### Route status
+### Operative route status
 
-Meeting 019 abandons common-uniform global coalescence / zero-frequency disagreement occupation as the load-bearing proof interface.
+Consultation 002's `RECOMMENDATION: no-credible-route` is again the operative **proof-architecture** assessment. Meetings 024--025 add exact structural information supporting that stop. This is not a claim that the conjecture is false or that all conceivable approaches are impossible.
 
-Meeting 021 records the current centered predecessor-trail/profile implementation as exhausted after recombination and finite propagation both reduce to one-/two-step spatial tail memory.
+Stopped/abandoned interfaces include:
 
-Consultation 002 constructs an exact trajectory-valued spatial kernel `Q` but proves
+- common-uniform global coalescence / zero-frequency disagreement occupation (Meeting 019);
+- the current centered predecessor-trail/profile composition, which terminates at one-/two-step spatial tail memory (Meeting 021);
+- global path-space contraction of the exact trajectory kernel `Q`, since
+  $$
+  Q(\mathbf0,\cdot)\perp Q(\mathbf1,\cdot);
+  $$
+- the current stationary boundary-control Bellman-corrector concatenation implementation (Meeting 024);
+- the internal `(J-SPEC)` route-decision branch (Meeting 025).
+
+### G009: fixed-depth singular `J` renewal
+
+For singleton depth `n`, G's exact normalization is
 
 $$
-Q(\mathbf0,\cdot)\perp Q(\mathbf1,\cdot),
-$$
-
-so global path-space TV/KL contraction is unavailable.
-
-Meeting 024 stops the **current stationary boundary-control Bellman-corrector concatenation implementation**. The exact occupation hierarchy remains valid, but F015 obtained no repeatable scale theorem and proved that independently constructed additive block correctors cannot improve the Bellman endpoints.
-
-### Sole active route-decision question `(J-SPEC)`
-
-For singleton depth `n`, the canonical predecessor-trail absolute-duration quantity satisfies
-
-$$
-J_n=\frac gB N_n,
+J_n=\frac BgR_n=\frac gBN_n,
 \qquad B=b+c-a,\quad g=b-a,
 $$
 
-and
+so `R_n`, `J_n`, and `N_n` have the same exponential growth rate
 
 $$
 \rho_J(a,b,c)=\limsup_{n\to\infty}J_n^{1/n}.
 $$
 
-G checkpoint `2cb0696` reconstructs an exact reverse-transfer scalar `R_n` with
+`(J-SPEC)` remains open: neither `rho_J>1` at a strict residual point nor `rho_J<1` on a genuine residual region has been proved.
+
+Along
 
 $$
-\boxed{J_n=\frac BgR_n=\frac gBN_n,}
+a=\varepsilon,
+\qquad b=\frac1{10},
+\qquad 1-c=\frac\varepsilon{10},
 $$
 
-so `R_n`, `J_n`, and `N_n` have the same exponential growth rate. At
+G009 proves for every fixed depth `n`
 
 $$
-(a,b,c)=\left(\frac1{1000},\frac1{10},\frac{9999}{10000}\right),
-$$
-
-the checkpoint verifies `B/g=111/10`, `Z=19100/31`, `J_1=190809/31000`, and `N_1=21179799/310000`; these are normalization checks only.
-
-G009 must still prove an asymptotic theorem: `rho_J>1` at a strict residual point or a genuine opposite theorem. Larger finite-depth numerics do not count.
-
-If G009 is unresolved without a new asymptotic mechanism, the programme returns to consultation 002's `no-credible-route` state unless genuinely new principal/external input arrives.
-
-### Stationary occupation-control hierarchy retained as exact mathematics
-
-In complemented spins, let `L_N^u` be the `N`-site generator with right-boundary control `u in {0,1}` and define
-
-$$
-\mathcal K_N
+\lim_{\varepsilon\downarrow0}
+\frac{I_n(\varepsilon)}{|m_0(\varepsilon)|}
 =
-\left\{
- m(x,u)\ge0:\ \sum m=1,
- \quad \sum_{x,u}m(x,u)L_N^uF(x)=0\ \forall F
-\right\}.
+\left(\frac{499}{341}\right)^{n-1},
 $$
 
-Meetings 023--024 establish:
-
-- every infinite invariant law projects into `K_N`;
-- every `m in K_N` is realized by a finite chain with a randomized state-dependent boundary controller;
-- the hierarchy is nested, so for local `h`,
-  $$
-  D_N(h)=\sup_{K_N}m(h)-\inf_{K_N}m(h)
-  $$
-  is nonincreasing;
-- exact LP duality gives Bellman endpoints `U_N,ell_N` with `D_N=U_N-ell_N`;
-- `D_N(h)->0` for every local `h` would prove uniqueness of the invariant measure.
-
-F015 proves the exact scale-extension identity
+hence
 
 $$
-\boxed{
+\lim_{\varepsilon\downarrow0}J_n(\varepsilon)
+=
+\frac{2079}{341}
+\left(\frac{499}{341}\right)^{n-1}.
+$$
+
+The supercritical fixed-depth base decomposes as
+
+$$
+\frac{499}{341}
+=
+\frac{10}{11}+\frac{189}{341}>1.
+$$
+
+The `10/11` short multiplier comes from an all-depth East Green extraction identity. The `189/341` long multiplier comes from a finite-volume regenerated-mass reset. Repeating that long channel uniformly at fixed positive `epsilon` requires the same all-depth spatial reset/tail-shift control isolated by F014. Therefore the singular fixed-depth theorem does **not** imply `rho_J>1`.
+
+G also proves that invertible suffix-compatible factorized resolvents cannot possess a nonzero exact finite-cylinder reproduction cycle. This rules out that finite-memory Perron--Frobenius implementation, not `(J+)` itself.
+
+### Recurrent zero-frequency bottleneck
+
+The same all-depth spatial reset/tail-shift information has now appeared from three distinct reductions:
+
+- F013's unsplit two-insertion invariant projection;
+- F014's short-time light-cone normal form;
+- G009's attempt to repeat the long regenerated renewal channel uniformly in depth.
+
+No further local representation-level variant is authorized without genuinely new input.
+
+### Stationary occupation-control hierarchy retained
+
+Meetings 023--024 establish an exact nested occupation hierarchy `K_N` for one-time stationary marginals under arbitrary state-dependent right-boundary control. For local `h`,
+
+$$
+D_N(h)=\sup_{K_N}m(h)-\inf_{K_N}m(h)
+$$
+
+is nonincreasing, and `D_N(h)->0` for every local `h` would prove uniqueness of the invariant measure.
+
+F015 proves the exact scale-extension formula
+
+$$
 D_M=D_N-\inf_{K_M}m(s_N^+)-\inf_{K_M}m(s_N^-),
-}
 $$
 
-where each Bellman slack is a weighted adaptive boundary-action mismatch
+with Bellman slack
 
 $$
-\boxed{
-s_F(x,u)=w_F(x)1_{\{u\ne\pi_F(x)\}}.}
+s_F(x,u)=w_F(x)1_{\{u\ne\pi_F(x)\}}.
 $$
 
-It also proves a controller-uniform unweighted mismatch bound
+A controller-uniform unweighted mismatch bound is available, but no theorem controls the Bellman weight. Additive independently constructed appended-block correctors cannot strictly improve the Bellman endpoints. Hence the present implementation is stopped; no larger controlled LP or generic joint-corrector search is active.
 
-$$
-P(X_N\ne\pi(X))\ge
-\frac{\min(a,1-c)}{N+1+\min(a,1-c)},
-$$
+### Current decision
 
-but no theorem prevents the mismatch from concentrating where the Bellman weight `w_F` is small.
+The positive-rates conjecture remains the scientific target, but **no presently identified proof architecture clears the continuation bar for another substantial internal block**.
 
-Further, for arbitrary appended-block `G`, a corrector `F_N(x)+G(z)` gives no strict Bellman endpoint improvement by a maximum-principle argument. Any successful scale contraction therefore requires genuinely joint cross-block dependence.
+Do not restart larger-depth `J` calculations, bare tail-shift, common-coupling occupation, generic trajectory-kernel exactness/metric searches, generic joint Bellman-corrector searches, or `(ML)/(JT)/(MR)` solely from the existing sampled signed-resolvent evidence.
 
-The cited hard-East fixed/ergodic-boundary relaxation does not control this adaptive weighted feedback. No larger-`N`, wider-interface, or generic joint-corrector continuation is active.
-
-This stop does not refute `D_N(h)->0` or every possible stationary-screening theorem.
+Work resumes only after genuinely new principal, external, or literature input supplies a concrete rate-level mechanism that is not a restatement of the stopped bottlenecks.
 
 ## Most recently completed programme
 
