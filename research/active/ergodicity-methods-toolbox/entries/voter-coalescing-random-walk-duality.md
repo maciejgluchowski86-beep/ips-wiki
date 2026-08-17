@@ -5,7 +5,6 @@ category: graphical-duality
 targets:
   - convergence
   - coupling-agreement
-  - uniqueness
 model_scope: Classical voter models on locally finite graphs, with invariant-law classification governed by collisions of the dual random walks.
 source_status: primary-checked
 primary_source: Jhon Astoquillca, "On the Stationary Measures of Two Variants of the Voter Model," Journal of Theoretical Probability 39 (2026), Article 34.
