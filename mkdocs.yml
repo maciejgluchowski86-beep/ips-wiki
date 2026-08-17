@@ -31,6 +31,30 @@ nav:
       - Oriented spin system: entries/oriented-spin-system.md
       - Invariant measure: entries/invariant-measure.md
       - Ergodicity: entries/ergodicity.md
+  - Ergodicity methods:
+      - Overview: ergodicity-methods.md
+      - Coupling and local influence:
+          - Attractive monotone coupling: entries/attractive-monotone-coupling-extremal-laws.md
+          - Dobrushin influence contraction: entries/dobrushin-influence-contraction.md
+          - Path coupling: entries/path-coupling-glauber-dynamics.md
+      - Spatial mixing and local-to-global transfer:
+          - Disagreement percolation: entries/disagreement-percolation-gibbs-uniqueness.md
+          - Dobrushin-Shlosman spatial mixing: entries/dobrushin-shlosman-spatial-to-dynamical.md
+          - Spectral independence: entries/spectral-independence-local-to-global.md
+          - Finite-size strong-mixing criterion: entries/finite-size-strong-mixing-criterion.md
+      - Functional inequalities and coercivity:
+          - Poincare and spectral gap: entries/poincare-spectral-gap.md
+          - Log-Sobolev and modified log-Sobolev: entries/log-sobolev-modified-log-sobolev.md
+          - Dirichlet-form and canonical-path comparison: entries/dirichlet-form-canonical-path-comparison.md
+          - Block dynamics and bisection: entries/block-dynamics-bisection-variance.md
+          - Lu-Yau martingale recursion: entries/lu-yau-martingale-conditional-variance.md
+          - Block factorization of entropy: entries/block-factorization-entropy.md
+          - Holley-Stroock perturbation: entries/holley-stroock-bounded-perturbation.md
+          - Moving-particle long-jump comparison: entries/moving-particle-long-jump-exclusion.md
+      - Graphical ancestry and regeneration:
+          - Finite-ancestor duality and extinction: entries/duality-extinction-finite-ancestor-process.md
+          - Information percolation: entries/information-percolation-backward-histories.md
+          - East distinguished-zero screening: entries/east-distinguished-zero-screening.md
   - Duality:
       - Duality: entries/duality.md
       - Monomial Feynman-Kac duality for spin systems: entries/monomial-duality-for-spin-systems.md
