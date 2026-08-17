@@ -6,35 +6,39 @@ This file is the compact current-state index for the autonomous research program
 
 A quantitatively improved instance of an established method does not count as a new project result merely because the calculation is exact or improves a constant. Qualifying work must add structural mathematics or resolve/correct the target problem.
 
-## Active scientific direction
+## Scientific direction status
 
-**Generalized patch representations for finite-state interacting particle systems.**
+**No active scientific direction.**
 
-- Branch: `research/generalized-patch-representations`.
-- Workspace: `research/active/generalized-patch-representations/`.
-- Branch-only wiki hub: `docs/generalized-patch-representations.md`.
-- Branch-only wiki section: `docs/generalized-patch-representations/`.
-- Latest meeting: `meetings/010-potts-metropolis-activates-killed-geometry-but-fails-positivity.md`.
-- Executor: Professor, because no graduate-student session is currently operational.
+The generalized finite-state patch-representation programme on branch `research/generalized-patch-representations` is **closed deliberately on opportunity-cost grounds** after verified Assignment 010 and the final bounded Assignment 011 cancellation block.
 
-## Stable generalized representation
+Workspace: `research/active/generalized-patch-representations/`.
+
+Latest meeting: `research/active/generalized-patch-representations/meetings/011-killed-cancellation-majorant-works-but-programme-stops.md`.
+
+No Assignment 012 is queued.
+
+Nothing from this programme is to be written or merged to `main` without later principal instruction.
+
+## Generalized finite-state representation: verified mathematical output
 
 Assignments 001--004 establish for arbitrary finite-state bounded finite-range **single-site replacement** IPS in a reference-state indicator tensor basis:
 
 1. an exact typed signed Feynman--Kac dual;
-2. successful records `(i,t,r,tau)` hiding post-source outcome;
+2. successful records `(i,t,r,tau)` hiding the post-source outcome;
 3. one-site typed spacetime patches;
-4. a necessary cemetery-aware killed/noncemetery weighted factorization, because bare conditioning on the coarse skeleton is false;
-5. an exact bulk/end patch representation;
-6. the signed local transfer
+4. an exact counterexample showing bare conditioning on the coarse successful skeleton need not factor;
+5. an exact cemetery-aware killed/noncemetery weighted factorization;
+6. an exact bulk/end patch representation;
+7. the signed local transfer
    \[
    K_i(0,\cdot)=0,
    \qquad K_i(r,s)=a_{i,r}^s(\emptyset);
    \]
-7. typed bulk patch positivity as exact nonnegativity of local matrix-semigroup boundary responses;
-8. exact binary reduction to the canonical patch construction.
+8. typed bulk patch positivity as nonnegativity of realized local matrix-semigroup boundary responses;
+9. exact binary reduction to the canonical patch construction.
 
-The strongest project-specific mechanism is not finite-state duality itself. It is the interface
+The strongest project-specific mechanism is the interface
 
 \[
 \text{signed typed dual}
@@ -48,117 +52,69 @@ The strongest project-specific mechanism is not finite-state duality itself. It 
 \text{exact finite-state patch representation}.
 \]
 
-## Novelty audit
+## Novelty status
 
-Assignment 008 ended **`CONTINUE-TO-APPLICATIONS`** with mixed component statuses:
+Assignment 008's bounded closest-prior-work audit remains controlling:
 
 1. finite-state typed signed duality: `known ingredients, assembly plausibly new`;
-2. killed typed patch factorization / representation: `plausibly new theorem/mechanism`;
+2. killed typed patch factorization / representation: **`plausibly new theorem/mechanism`**;
 3. transfer-matrix bulk positivity: `known ingredients, assembly plausibly new`;
-4. exact boundary-complete `d=3` scalar spectral criterion: `known / directly subsumed` by third-order external positivity;
+4. exact boundary-complete `d=3` scalar spectral criterion: **`known / directly subsumed`** by third-order SISO external positivity;
 5. exchange-symmetric exact algebraic criterion: `known ingredients, assembly plausibly new`;
-6. combined generalized framework: `plausibly new theorem/mechanism`.
+6. combined generalized framework: **`plausibly new theorem/mechanism`**.
 
-Do not claim novelty for finite-state duality, signed FK duality, partial graphical revelation, Metzler semigroups or scalar external positivity individually.
+Do not claim novelty for finite-state duality, signed FK duality, partial graphical revelation, Metzler semigroups, scalar external positivity, or the Assignment-006 `d=3` spectral theorem individually.
 
-## Assignment 009: two-stage contact / SIRS application
+Historical priority of the killed typed factorization remains plausible rather than exhaustively established.
 
-Outcome: **`STOP-APPLICATION-POSITIVITY-FAILS`**.
+## Natural application results
 
-Krone's two-stage contact process was selected from the literature before any positivity calculation. Its successful record genuinely hides three post-source outcomes and realizes typed cemetery conflicts, but for each adult-neighbor target the source-type-1 outgoing row is
+### Assignment 009: two-stage contact / SIRS
 
-\[
-(\lambda,-\lambda,-\lambda).
-\]
+Outcome: `STOP-APPLICATION-POSITIVITY-FAILS`.
 
-A realized repeated-source `OO` patch is negative throughout the interacting birth range. Spatial SIRS has the same obstruction.
-
-This yields the catalytic-birth no-go: a positive target mode in `0->r` with no matching active-source target-mode response into `r` creates a negative hidden coefficient which, if it can feed the next outgoing record, forces a negative short patch.
-
-## Assignment 010: structurally distinct Potts application
-
-Outcome: **`STOP-SECOND-APPLICATION-POSITIVITY-FAILS`**.
-
-The second model was again selected before positivity calculation: the **three-state zero-field ferromagnetic Potts model with single-spin Metropolis Glauber dynamics**.
-
-For source color `x`, target `y!=x`, and neighbor counts `n_a`, set
+Krone's two-stage contact process was selected before positivity calculation and genuinely activates hidden outcomes and typed cemetery conflicts. Nevertheless, its adult-neighbour successful record has row
 
 \[
-z=e^{-\beta J},
-\qquad q>0.
+(\lambda,-\lambda,-\lambda),
 \]
 
-The Poissonized continuous-time local rates are
+and a realized repeated-source `OO` patch is negative throughout the interacting birth range.
+
+Exact verified gate:
 
 \[
-\boxed{c^{x\to y}=qz^{(n_x-n_y)_+}.}
+N_{OO}=-5/16,
+\qquad D_{OO}=5/16,
+\qquad C_{OO}=-1.
 \]
 
-This is a materially different architecture from Assignment 009: every state is active, every directed color replacement has positive physical rate at finite temperature, and active colors retype each other directly.
+Spatial SIRS has the same obstruction.
 
-### Exact hidden geometry
+### Assignment 010: three-state Potts Metropolis
 
-For source dual type `1` and one target-neighbor of type `1`,
+Outcome: `STOP-SECOND-APPLICATION-POSITIVITY-FAILS`.
+
+This structurally distinct model has all states active, direct active-to-active retyping, nondeterministic hidden outcomes and realizable cemetery conflicts. Yet
 
 \[
-\boxed{
-\mathbf a_{1;1,0}
-=
-\left(
-qz^2(1-z^2),
-q(z-1)(z^3+z^2-1),
--qz^2(1-z^2)
-\right).}
+a_1^2(\tau)=-qz^2(1-z^2)<0
 \]
 
-Thus every `0<z<1` has genuinely nondeterministic hidden outcomes. Typed target conflicts are also realizable, so the cemetery-aware killed factorization is genuinely operative. This is not a deterministic voter/cyclic-copy degeneration.
+for every interacting finite-temperature point `q>0`, `0<z<1`, producing a negative realized short `OO` patch.
 
-The empty-target transfer is
+Exact verified gate:
 
 \[
-K=q
-\begin{pmatrix}
-0&0&0\\
-z^4&-(z^4+2)&1-z^4\\
-z^4&1-z^4&-(z^4+2)
-\end{pmatrix}.
+N_{OO}\left((8/3)\log(5/4)\right)
+=-3884/390625.
 \]
 
-### Exact positivity failure
+The independent verifier passed 1,485 exact checks with zero float literals.
 
-For the same singleton target,
+### General short-`OO` contrast obstruction
 
-\[
-a_1^2(\tau)
-=\widehat c^{2\to1}(\tau)-\widehat c^{0\to1}(\tau)
-=-qz^2(1-z^2)<0.
-\]
-
-The physical reason is Metropolis saturation: the `0->1` rate responds positively to the extra color-1 neighbor, while `2->1` is already at full acceptance and has zero target-mode increment.
-
-Hidden outcome `2` can be followed by a positive-hazard source-type-2 record. Hence a realized same-source `OO` patch is negative for all sufficiently short positive lengths, and
-
-\[
-\boxed{\text{Potts Metropolis is not typed patch positive for any }q>0,\ 0<z<1.}
-\]
-
-At the exact gate
-
-\[
-z=1/2,
-\qquad q=1,
-\qquad t_*=(8/3)\log(5/4),
-\]
-
-\[
-N_{OO}(t_*)=-3884/390625<0.
-\]
-
-Verifier: `research/active/generalized-patch-representations/students/professor/010-potts-metropolis-verifier.py`, commit `34afe2d4`; designed for 1,485 exact checks and zero float literals.
-
-### General short-OO contrast lemma
-
-The Potts calculation broadens Assignment 009's obstruction:
+The two failures are unified by:
 
 > if active types `r!=s` and nonempty target `tau` satisfy
 > \[
@@ -166,39 +122,125 @@ The Potts calculation broadens Assignment 009's obstruction:
 > \]
 > hidden outcome `s` is realizable, and a source-`s` successful record can follow, then a realized arbitrarily short `OO` patch is negative.
 
-This can occur even with no vacancy state and with every directed physical replacement positive.
+This substantially lowers the value of further positivity-driven multistate model search.
 
-Decisive Assignment-010 commits:
+## Final bounded continuation: Assignment 011
 
-- selection `b56c10d4`;
-- typed specialization `b1b2a995`;
-- positivity obstruction `b4b5eca6`;
-- verifier `34afe2d4`;
-- prior-work/application ruling `5ffd0c89`;
-- final report `436ce4cf`;
-- handoff `39253aba`;
-- Meeting 010 `939b30e1`.
+After independent verification of Assignment 010, the Professor chose one final bounded continuation on the surviving representation/cancellation mechanism rather than generic `d>3` positivity or another model search.
 
-## Current proof-spine edge
+Assignment 011 ended
 
-**No third positivity-driven application is active.**
+**`STOP-CANCELLATION-NO-QUALITATIVE-GAIN`.**
 
-Assignments 009 and 010 tested two materially different natural three-state architectures. Both genuinely activate hidden marks and cemetery conflicts; both fail typed bulk positivity through realized short `OO` signs. This lowers the expected value of another model search based on hoping to satisfy the positivity property.
+### Killed patch-variation kernel
 
-Generic `d>3` positivity algebra also remains deferred.
+In finite volume, let `Q_t` be the exact signed FK kernel and `A_t` the raw absolute-FK kernel. The killed successful-skeleton representation defines a positive kernel `R_t` by taking absolute values only after each hidden killed-patch expectation. Exactly,
 
-If the programme continues after independent verification of Assignment 010, the next scientifically distinct question is whether the **killed typed patch representation itself** yields a useful cancellation identity, norm estimate, finite-volume formula, or comparison **without** assuming all bulk patches are nonnegative.
+\[
+\boxed{|Q_t|\le R_t\le A_t}
+\]
 
-No Assignment 011 is queued. Continuation now requires an explicit opportunity-cost decision rather than automatic model search.
+entrywise.
+
+The improvement is strict on the verified Potts model. At the exact positive-length gate,
+
+\[
+\boxed{
+\frac{10178204}{38671875}
+<
+\frac{17919551}{38671875}.}
+\]
+
+### Composability
+
+Deterministic time-cut refinement gives
+
+\[
+\boxed{R_{t+s}\le R_tR_s}
+\]
+
+entrywise. Thus the delayed hidden-mark cancellation survives concatenation in a finite-memory positive kernel family.
+
+### Renewal/oscillation consequence and exact separation
+
+Support-weight domination gives a finite multitype renewal criterion for volume-uniform exponential oscillation decay. It can be strictly stronger than the corresponding raw absolute-FK first-moment criterion.
+
+For an exact one-neighbour Potts structural gate,
+
+\[
+\rho(G)=17/6,
+\qquad
+\rho(\bar G)=3.
+\]
+
+Scaling nonempty neighbour-dependent tensor modes by
+
+\[
+\varepsilon=17/50
+\]
+
+gives
+
+\[
+\boxed{289/300<1<51/50.}
+\]
+
+So the patch-cancelled majorant can cross a contraction threshold that raw absolute FK does not.
+
+### Why this still stops
+
+The specific intermediate majorant `R_t` and its submultiplicativity remain a **plausibly new corollary/extension** of the killed typed patch mechanism; no equivalent source was identified in the bounded audit.
+
+However, the downstream oscillation/contraction implication is established Dobrushin/representational-seminorm territory, and the multitype renewal spectral-radius argument is standard. The exact separating family is a structural interpolation rather than a new difficult natural-model theorem.
+
+Under the pre-registered Assignment-011 continuation rule, this is insufficient to justify another block.
+
+Decisive final files:
+
+- Assignment 011: `research/active/generalized-patch-representations/students/professor/assignment-011-killed-patch-cancellation-envelope.md`, `c4299330`;
+- envelope theorem `011a`, `59115cb7`;
+- strict cancellation `011b`, `4df18585`;
+- submultiplicativity `011c`, `070598bc`;
+- renewal/oscillation theorem `011d`, `85b8145b`;
+- prior-work/value ruling `011e`, `f07a8c15`;
+- exact verifiers `6dab532c` and `c1ffaafb`;
+- final report `78e725f7`;
+- handoff `d8489a9b`;
+- closing Meeting 011 `4d608d20`.
+
+## Final programme ruling
+
+The generalized-patch programme is **closed deliberately**, not exhausted.
+
+Retain as verified mathematics:
+
+- arbitrary-finite-state typed signed FK duality for single-site replacement IPS;
+- exact failure of bare successful-skeleton factorization;
+- cemetery-aware killed factorization and exact finite-state patch representation;
+- finite-state transfer formulas;
+- the short-`OO` contrast obstruction;
+- the patch-variation majorant
+  \[
+  |Q_t|\le R_t\le A_t,
+  \qquad R_{t+s}\le R_tR_s.
+  \]
+
+Do not queue or reopen by default:
+
+- another positivity-driven application search;
+- generic `d>3` external-positivity algebra;
+- another cancellation-envelope variant.
+
+A later principal decision may reuse or promote mature material, but autonomous work on this direction has stopped.
 
 ## Scope and publication boundary
 
-Current proved general scope: arbitrary finite-state bounded finite-range single-site replacement dynamics in the reference-state indicator tensor basis. Simultaneous multi-site physical updates remain outside scope.
+Proved general scope: arbitrary finite-state bounded finite-range **single-site replacement** dynamics in the reference-state indicator tensor basis. Simultaneous multi-site physical updates remain outside scope.
 
-Stable research may be recorded only in the designated branch-only generalized-patch section.
+The branch-only generalized-patch documentation remains research material.
 
 **Do not publish or merge programme content to `main`.**
 
 Existing `docs/entries/`, `docs/meta/`, and `mkdocs.yml` remain outside the active write surface.
 
-All previously stopped programmes remain closed.
+All other previously stopped programmes remain closed.
