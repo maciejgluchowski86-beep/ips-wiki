@@ -1,6 +1,6 @@
 # Coverage spine
 
-This is the coverage map for the ergodicity-methods literature compilation. **Live** means source-audited by the Professor and admitted to the public wiki; **assigned** means an active student wave is searching the primary literature for a genuinely distinct proof interface; **uncovered** means still to be sourced. There are now 57 source-audited live pages. The final post-wave-five strict MkDocs/build check is still pending the principal/orchestrator rerun; source acceptance is independent of that structural gate.
+This is the coverage map for the ergodicity-methods literature compilation. **Live** means source-audited by the Professor and admitted to the public wiki; **assigned** means an active student wave is searching the primary literature for a genuinely distinct proof interface; **uncovered** means still to be sourced. There are now 57 source-audited live pages, and the full wave-one-through-five public layer has passed strict structural verification.
 
 ## A. Coupling and influence
 
@@ -130,9 +130,9 @@ The capacity entry is deliberately adjacent to, rather than synonymous with, the
 
 ## I. Publication state
 
-Meetings 002--005 source-audited the initial thirty entries; Meetings 006 and 008 promoted them. Meeting 010 source-audited the fourteen wave-four entries and Meeting 011 promoted them; Meeting 012 records their complete mechanical verification. Meeting 013 source-audited all thirteen wave-five entries, made two target-scope corrections, accepted both anti-padding substitutions, promoted the thirteen pages, and opened wave six.
+Meetings 002--005 source-audited the initial thirty entries; Meetings 006 and 008 promoted them. Meeting 010 source-audited the fourteen wave-four entries and Meeting 011 promoted them; Meeting 012 records their complete mechanical verification. Meeting 013 source-audited all thirteen wave-five entries, made two target-scope corrections, accepted both anti-padding substitutions, promoted the thirteen pages, and opened wave six. Meeting 014 records the principal/orchestrator's successful post-wave-five structural publication check.
 
-There are now **57 live source-audited toolbox method pages**. The principal's pre-audit staging snapshot reported `Checked 57 entries; 0 failed mechanical validation.` The final post-wave-five `mkdocs build --strict`, hub/link coverage, and navigation-resolution check remains pending and must not be silently inferred from source audit or GitHub comparison.
+There are now **57 live, source-audited, mechanically verified toolbox method pages**. On the integrated tree at `aa28743`, `validate_entries.py` reports 57 entries and 0 failures; `mkdocs build --strict` exits 0 with no warnings or broken internal links; staged/live/hub completeness is exactly 57/57/57; all 154 MkDocs `.md` targets resolve; every promoted page carries `status:` and `audit:`; and the `docs/` diff against `origin/main` remains additions-only. The only build INFO conditions are unchanged legacy conditions predating this programme.
 
 The repository-wide article convention remains unchanged for this programme: toolbox pages stay in `docs/entries/`. The separate principal-level legacy-directory question is not a Professor task.
 
