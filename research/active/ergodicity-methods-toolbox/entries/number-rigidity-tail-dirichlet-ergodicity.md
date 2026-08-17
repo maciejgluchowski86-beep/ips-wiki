@@ -1,0 +1,70 @@
+---
+method_id: number-rigidity-tail-dirichlet-ergodicity
+title: Number rigidity and tail triviality imply Dirichlet-form ergodicity
+category: functional-inequality
+targets:
+  - convergence
+model_scope: Infinite interacting diffusion systems on configuration spaces, especially logarithmic determinantal point-process dynamics
+source_status: primary-checked
+primary_source: Kohei Suzuki, On the ergodicity of interacting particle systems under number rigidity, Probability Theory and Related Fields 188 (2024), 583-623.
+primary_pinpoint: Theorem 4.3(ii) and Corollary 4.4 (tail triviality plus number rigidity and local conditional irreducibility imply global Dirichlet-form irreducibility and L2 semigroup ergodicity); Section 6, Examples 6.1-6.4 for sine_2, Airy_2, Bessel and Ginibre applications
+primary_url: https://doi.org/10.1007/s00440-023-01243-3
+application_source: Kohei Suzuki, On the ergodicity of interacting particle systems under number rigidity, Probability Theory and Related Fields 188 (2024), 583-623.
+application_pinpoint: Section 6 together with Corollary 4.4; the applications include the unlabelled infinite Dyson Brownian motion
+application_url: https://arxiv.org/abs/2203.15750
+wiki_candidate: yes
+---
+
+# Number rigidity and tail triviality imply Dirichlet-form ergodicity
+
+## Criterion
+
+For an infinite interacting diffusion described by a symmetric Dirichlet form on a configuration space, one can prove ergodicity without a spectral-gap estimate by proving that the only zero-energy functions are constants. Suzuki gives a spatial criterion for this irreducibility.
+
+Let \(\mu\) be a probability law on the configuration space \(\boldsymbol\Upsilon\) of locally finite point configurations, and let
+\[
+(\mathcal E^{\boldsymbol\Upsilon,\mu},\mathcal F^{\boldsymbol\Upsilon,\mu})
+\]
+be a closed local \(\mu\)-symmetric Dirichlet form. Theorem 4.3(ii), under the paper's conditional absolute-continuity/closability, conditional local irreducibility, and quasi-regularity hypotheses, proves
+\[
+\boxed{
+\text{tail triviality of }\mu
++\text{ number rigidity of }\mu
+\Longrightarrow
+\mathcal E\text{ is irreducible}.}
+\]
+Number rigidity means that, for every bounded region \(B\), the particle number inside \(B\) is determined almost surely by the outside configuration. Corollary 4.4 identifies irreducibility with semigroup ergodicity:
+\[
+\int_{\boldsymbol\Upsilon}
+\left(S_tu-\int u\,d\mu\right)^2d\mu
+\longrightarrow0,
+\qquad u\in L^2(\mu).
+\]
+Equivalently, the only generator-harmonic \(L^2\) functions are constants.
+
+## Mechanism
+
+A zero-energy function is locally constant along every conditional diffusion inside a bounded region, by the assumed irreducibility of the finite-particle conditional Dirichlet forms. The difficulty is to promote these local constants to one global constant when infinitely many particles are present.
+
+Number rigidity supplies the compatibility needed for that promotion. If two configurations agree outside a large box, rigidity forces them to contain the same number of particles inside, so they lie in the same finite-particle conditional component. Local irreducibility therefore identifies the value of a zero-energy function across such finite modifications. Tail triviality then removes the remaining obstruction: a function invariant under all finite modifications is tail measurable, and a tail-trivial reference law admits no nonconstant such observable.
+
+The source also formulates this mechanism through a configuration-space transportation-type distance. Theorem 4.6 shows that under number rigidity, tail triviality forces positive-measure sets to lie at finite transportation distance; this geometric connectedness feeds back into irreducibility of the Dirichlet form. The resulting method is qualitative coercivity: it proves convergence to equilibrium without producing a positive gap or rate.
+
+## Representative IPS use
+
+Section 6 checks the hypotheses for infinite logarithmically interacting diffusions whose invariant point fields are \(\mathrm{sine}_2\), \(\mathrm{Airy}_2\), \(\mathrm{Bessel}_{\alpha,2}\) for \(\alpha\ge1\), and Ginibre. These determinantal processes are tail trivial and number rigid, while the local conditional forms satisfy the required closability and irreducibility properties. Corollary 4.4 therefore yields \(L^2\) convergence of the associated infinite-particle semigroups to equilibrium. In particular, the construction covers the unlabelled infinite Dyson Brownian motion.
+
+This is a genuinely infinite-particle application: no finite-volume uniform spectral-gap estimate is inserted and no finite-dimensional minorization is available.
+
+## Limitations
+
+Number rigidity is a strong spatial property and is not necessary for ergodicity. Poisson point processes, for example, are not number rigid but can have ergodic configuration-space diffusions by other arguments. Tail triviality must also be known independently; it is not generated by the dynamics in this theorem.
+
+The conclusion is \(L^2(\mu)\) ergodicity relative to the specified invariant law. It does not provide a convergence rate, a Poincare inequality, or uniqueness among every conceivable invariant law outside the Dirichlet-form framework. Verifying conditional closability, quasi-regularity, and local irreducibility can itself require substantial model-specific analysis.
+
+This method is distinct from spectral-profile/evolving-set smoothing: it uses the **zero-energy structure and spatial tail sigma-field** rather than an isoperimetric profile of a finite Markov chain. It is also distinct from finite-volume coercivity exhaustion, because no volume-uniform relaxation bound is passed to the limit.
+
+## Sources
+
+- Suzuki, *On the ergodicity of interacting particle systems under number rigidity*, Theorem 4.3(ii), Corollary 4.4, Theorem 4.6, and Section 6, https://doi.org/10.1007/s00440-023-01243-3.
+- Open preprint: https://arxiv.org/abs/2203.15750.
