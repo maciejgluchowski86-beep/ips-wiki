@@ -8,8 +8,7 @@ At `P_*`, retain
 
 \[
 r:=1+b=\frac{11}{10},\qquad
-\varepsilon:=\frac9{10000},\qquad
-d=-\varepsilon r,
+\varepsilon:=\frac9{10000},\qquad d=-\varepsilon r,
 \]
 
 and put
@@ -147,24 +146,29 @@ h(t):=w_*(t)\sigma(t),
 H_N=\int_0^\infty h(t)e^{tL_N}\,dt.
 \]
 
-For the fresh branch in `(8)`, the time kernel is `h(t)e^{-rt}`.  Since the new centered variable `X_N` takes the values `-c_0,g_0`, multiplication by `X_N` has oscillation cost at most `B`.  The exact singleton calculation already made in 010c gives
+For the fresh branch in `(8)`, the time kernel is `h(t)e^{-rt}`.  Since the new centered variable `X_N` takes the values `-c_0,g_0`, multiplication by `X_N` has oscillation cost at most `B`.  The completely safe bound `|sigma|<=1` gives
 
 \[
 \int_0^\infty |h(t)|e^{-rt}\,dt
-=|F(r)|
-=\frac{5240305525}{6117276447}
-\approx0.8566402991,
+\le Z_{\omega+r}
+=\frac{2425}{2671}.
 \tag{10}
 \]
 
-(the equality with the absolute integral holds because the filter sign-change occurs so late that the corresponding exponentially shifted scalar expression has the displayed sign; alternatively only the numerical interpretation of the last equality may be omitted and the rational `F(r)` retained).  In particular
+Consequently
 
 \[
-B|F(r)|\approx0.94136<1.
+\boxed{
+BZ_{\omega+r}
+=\frac{1065903}{1068400}
+\approx0.997662<1.
+}
 \tag{11}
 \]
 
-For the unshifted scalar branch, the completely crude admissibility bound `|sigma|<=1` already gives
+(The signed scalar value is sharper: `F(r)=-5240305525/6117276447`, but it is **not** substituted for the absolute integral.)
+
+For the unshifted scalar branch, the same admissibility bound gives
 
 \[
 \varepsilon\int_0^\infty w_*(t)|\sigma(t)|\,dt
