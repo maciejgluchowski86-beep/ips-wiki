@@ -8,72 +8,60 @@ Extend the patch representation / patch positivity mechanism beyond binary flip 
 
 1. a tensor basis of local observables;
 2. an exact signed Feynman--Kac dual;
-3. a graphical interaction process with a coarser successful-interaction skeleton;
+3. a graphical process with a coarser successful-interaction skeleton;
 4. conditional/weighted factorization into spacetime patches;
 5. explicit patch contributions;
-6. a local nonnegativity criterion on bulk patch contributions;
-7. comparison/convergence consequences and concrete applications.
+6. an exact local bulk nonnegativity property;
+7. tractable coefficient criteria and then applications/consequences.
 
 ## E0. Binary benchmark
 
 **Settled by the canonical paper.**
 
-Binary monomials yield the signed death/split/birth set process. The successful skeleton records source/time/target but hides split versus birth. Conditioning on that skeleton yields independent one-site patch laws and an exact patch representation.
-
 ## E1. Canonical finite-state tensor basis
 
 **Settled in Assignment 001.**
 
-For `E={0,...,d-1}` with reference state `0`, use
+For finite `E={0,...,d-1}` with reference state `0`, use
 
 \[
 h_0\equiv1,
 \qquad h_a(x)=1_{\{x=a\}},\quad a\ne0.
 \]
 
-Tensor observables are indexed by finite typed partial maps. Compatible overlaps merge; conflicting labels give cemetery `dagger` with zero duality function.
+Tensor observables are indexed by finite typed partial maps; conflicting labels give cemetery `dagger` with zero duality function.
 
 ## E2. Exact signed local dual
 
 **Settled in Assignment 001.**
 
-For general bounded single-site replacement rates, expansion in the typed tensor basis gives fixed local branch coefficients `a_{i,r}^s(tau)`. Absolute values are local Poisson rates; signs are sign marks. Source outcome `s=0` deletes, `s=r` preserves, and other `s` retype the source. Target conflicts change only the deterministic result, never the clock rate.
+General bounded finite-range single-site replacement rates yield fixed local signed branch coefficients `a_{i,r}^s(tau)`. Absolute values are Poisson rates, signs are marks, source outcome deletes/preserves/retypes the source, and target conflicts only affect the deterministic merge.
 
-The empty-target source-survival coefficient is diagonal and enters the additive Feynman--Kac potential. The `d=2` specialization is exactly the paper's death/split/birth dual.
+The empty-target source-survival coefficient is diagonal and enters the Feynman--Kac potential. The binary specialization is exactly death/split/birth.
 
 ## E3. Typed successful record
 
 **Settled in Assignment 001.**
 
-For nonempty target, superpose source-outcome clocks at fixed `(i,r,tau)` and record
+For nonempty target, record
 
 \[
-(i,t,r,\tau).
+(i,t,r,\tau)
 \]
 
-The record reveals the pre-source type and typed target but hides post-source outcome `s`. All hidden outcomes have the same source/target endpoints.
+and hide post-source outcome `s`.
 
 ## E4. Typed patch factorization
 
-**Settled in Assignment 002, with a necessary killed-skeleton modification.**
+**Settled in Assignment 002 with a necessary killed-skeleton modification.**
 
-The local patch state is `X^P in E`. Noncemetery consistency consists of:
-
-- no interior unrecorded matching nonempty-target clock;
-- correct revealed source type at an outgoing terminal;
-- incoming compatibility
-  \[
-  X_{e-}^P\in\{0,a\}
-  \]
-  for incoming target type `a`.
-
-Bare conditioning on the record list does not factor in general. A selected incoming target can conflict after the record is selected, hit cemetery, and simultaneously remove all future no-record constraints. The exact `d=3` gate gives
+Bare conditioning on the coarse record list fails because an incoming typed conflict can send the dual to cemetery and remove all future no-record constraints. The exact finite gate gives
 
 \[
 P(K,B\mid G)=4/17\ne32/289=P(K\mid G)P(B\mid G).
 \]
 
-Because `H_dagger=0`, the representation-sufficient identity is instead
+Since `H_dagger=0`, the exact replacement is the killed/noncemetery factorization
 
 \[
 E\left[h(G_T)1_{\{\tau_\dagger>T\}}\prod_Pf_P\right]
@@ -81,124 +69,162 @@ E\left[h(G_T)1_{\{\tau_\dagger>T\}}\prod_Pf_P\right]
 \int h(g)\prod_PE_P[f_P1_{Con(P)}]m_T(dg).
 \]
 
-Thus
-
-\[
-\nu_T(dg)=P(G_T\in dg,\tau_\dagger>T)
-=
-\prod_PP_P(Con(P))m_T(dg),
-\]
-
-and patch variables are conditionally independent given an ordinary value of the killed/noncemetery skeleton.
-
 ## E5. Explicit typed patch representation
 
 **Settled in Assignment 003.**
 
-For each patch define
+For each patch,
 
 \[
 A_P
 =
-\epsilon_{\rm out}(P)
-\epsilon_{\emptyset}(P)
-\exp\left(
-\int_{b(P)}^{e(P)\wedge T}
-\bar v_{i(P),X_u^P}\,du
-\right),
+\epsilon_{\rm out}(P)\epsilon_{\emptyset}(P)
+\exp\left(\int\bar v_{i(P),X_u^P}\,du\right).
 \]
 
-where `bar v_{i,0}=0`. Then
+Bulk contributions are
 
 \[
-w_P=
-\begin{cases}
-A_P,&P\text{ bulk},\\
-A_Ph_{X_T^P}(\eta_{i(P)}),&P\text{ end}.
-\end{cases}
+C(P)=E_P^{con}[A_P],
 \]
 
-On every noncemetery realization,
+and end contributions are one-site functions in the same indicator basis. The exact semigroup representation is
 
 \[
-\boxed{
-\sigma_Te^{\int_0^TV(\xi_u)du}H_{\xi_T}(\eta)
-=
-\prod_Pw_P.}
-\]
-
-Applying the killed weighted factorization gives
-
-\[
-\boxed{
 P_TH_{\xi_0}(\eta)
 =
 \int
-\left(\prod_{P\in\mathcal B_T(g)}C(P)\right)
-\left(\prod_{P\in\mathcal E_T(g)}C_T(\eta_{i(P)},P)\right)
-\nu_T(dg),}
+\prod_{P\in\mathcal B_T}C(P)
+\prod_{P\in\mathcal E_T}C_T(\eta_{i(P)},P)
+\,\nu_T(dg).
 \]
 
-with
+The binary specialization is exact.
+
+## E6. Exact typed bulk patch positivity
+
+**Settled in Assignment 004 at the transfer-matrix level.**
+
+For active local type `r`, define
 
 \[
-C(P)=E_P^{con}[A_P]
+\rho_{i,r}=\sum_{s\ne r}|a_{i,r}^s(\emptyset)|,
+\qquad
+\kappa_{i,r}=\sum_{\tau\ne\emptyset}\sum_s|a_{i,r}^s(\tau)|.
 \]
 
-for bulk patches and
+The weighted killed Feynman--Kac transfer has generator
 
 \[
-C_T(x,P)
-=B_0(P)+\sum_{a\in E_*}B_a(P)1_{\{x=a\}}
+\boxed{K_i(0,\cdot)=0,
+\qquad K_i(r,s)=a_{i,r}^s(\emptyset).}
 \]
 
-for end patches.
+The cancellation producing this matrix is exact: empty-target escape subtraction and nonempty-target no-success killing cancel against the corresponding pieces of the local potential.
 
-Thus bulk contributions are independent of terminal physical data; end contributions are one-site functions in the same indicator basis.
+The unsigned consistency transfer is
 
-The `d=2` specialization is exactly the canonical binary patch representation. In the binary case typed conflicts are impossible, so the killed skeleton reduces to the ordinary successful skeleton.
+\[
+B_i(r,s)=|a_{i,r}^s(\emptyset)|\quad(s\ne r),
+\]
 
-Decisive files: `003a`, `003b`, `003c`, `003d`, and `003-typed-representation-verifier.py`.
+\[
+B_i(r,r)=
+-\sum_{s\ne r}|a_{i,r}^s(\emptyset)|-\kappa_{i,r},
+\]
 
-## E6. Generalized typed patch positivity
+with zero inactive row.
+
+For terminal columns
+
+\[
+f_b^I=e_0^T+e_b^T,
+\qquad
+f_r^O=e_r^T,
+\]
+
+and outgoing initial signed row
+
+\[
+\mathbf a_{r,\tau}=(a_{i,r}^s(\tau))_{s\in E},
+\]
+
+the four bulk contributions are ratios of the following signed numerators by positive killed-reference denominators:
+
+\[
+e_a e^{tK_i}f_b^I,
+\qquad
+e_a e^{tK_i}f_r^O,
+\]
+
+\[
+\mathbf a_{r,\tau}e^{tK_i}f_b^I,
+\qquad
+\mathbf a_{r,\tau}e^{tK_i}f_{r_e}^O.
+\]
+
+Therefore **typed bulk patch positivity** is exactly nonnegativity of these four numerator families for every realizable descriptor and every `t>0`.
+
+This is not replaced by entrywise nonnegativity of `K_i`.
+
+### Binary benchmark
+
+For `d=2`, the four transfer formulas reduce exactly to the canonical full-patch formulas. All-length positivity is equivalent to
+
+\[
+c_i^0(S)+c_i^1(S)\le0,
+\]
+
+\[
+c_i^1(\emptyset)c_i^0(S)
+\ge
+c_i^0(\emptyset)c_i^1(S)
+\]
+
+when `c_i^0(emptyset)+c_i^1(emptyset)>0`, and to `c_i\equiv0` in the degenerate case. Thus the generalized property exactly recovers the paper's patch positivity criterion.
+
+### New multi-state necessary constraints
+
+Short-time expansions force, on realizable descriptors,
+
+\[
+a_{i,a}^{r}(\emptyset)\ge0
+\quad(a\ne r)
+\]
+
+from `IO` patches and
+
+\[
+a_{i,r}^{r_e}(\tau)\ge0
+\]
+
+from zero-length `OO` limits, with further derivative constraints recorded in `004d-small-time-necessary-conditions.md`.
+
+Decisive files: `004a`--`004e`, final verifier `004-typed-transfer-verifier.py` at `0bbfccd0`, and Meeting 004.
+
+## E7. Tractable coefficient characterization
 
 **Open and current load-bearing edge.**
 
-The positivity object is now precise:
+The exact all-length positivity property is now known, but it is an infinite semigroup family. The next bounded problem is:
 
-\[
-\boxed{C(P)=E_P^{con}[A_P].}
-\]
+> characterize this family by tractable local coefficient inequalities for a nontrivial multi-state class, or determine precisely why no finite binary-style coefficient criterion exists without additional structure.
 
-Question:
+Acceptable progress includes:
 
-> For which finite-state single-site replacement coefficients is
-> \[
-> C(P)\ge0
-> \]
-> for every finite bulk typed patch shape and typed boundary label?
+- an exact finite coefficient criterion for a natural class of `K_i` / boundary vectors;
+- a necessary-and-sufficient spectral or cone criterion that is genuinely checkable;
+- a sharp obstruction showing that arbitrary `d>=3` positivity cannot collapse to finitely many first-order inequalities;
+- a natural structural subclass preserving exact binary equivalence and admitting a closed criterion.
 
-The first subproblem is to eliminate the path-space notation and write `C(P)` as a finite-dimensional transfer-matrix / killed-CTMC expression on local type space `E` for every boundary orientation.
+Do not start applications or convergence before this edge is materially narrowed.
 
-That formula should expose:
+## E8. Consequences, applications, and broader updates
 
-1. how the hidden outgoing source-outcome distribution enters the initial vector;
-2. how effective empty-target signed transitions and the local potential enter the interior semigroup;
-3. how suppression of matching nonempty-target clocks enters the killing rates;
-4. how incoming-terminal compatibility or outgoing-terminal source type enters the terminal functional.
+**Blocked on E7 except for reconnaissance.**
 
-Only after this exact matrix representation is derived should the programme search for coefficient-level necessary/sufficient inequalities or a useful sufficient cone.
-
-The binary specialization must recover the paper's patch-positivity inequalities, not merely some stronger unrelated sufficient condition.
-
-## E7. Consequences and applications
-
-**Blocked on E6 except for reconnaissance.**
-
-After a useful positivity condition exists, determine what order-preservation/comparison/convergence statements survive in the multi-state setting and identify genuinely non-binary models satisfying the condition.
-
-Simultaneous multi-site physical updates remain outside the proved class and should be reconsidered only after the single-site theory reveals which algebraic interfaces are essential.
+Only after a usable positivity criterion exists should the programme study order preservation, comparison, convergence, genuinely non-binary models, or simultaneous multi-site physical updates.
 
 ## Novelty status
 
-No literature novelty claim has yet been made for the generalized representation theorem. A targeted literature audit should occur once the positivity theorem is stable enough to define the actual contribution precisely.
+No literature novelty claim has yet been made for the generalized representation/positivity theorem. A targeted literature audit remains necessary once the coefficient-level theorem is stable enough to compare precisely.
