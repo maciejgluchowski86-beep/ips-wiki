@@ -42,8 +42,8 @@ rho_minus = sp.factor((C - sqrt_disc) / 2)
 rho_plus = sp.factor((C + sqrt_disc) / 2)
 assert rho_minus > 0
 assert rho_plus > rho_minus
-assert sp.factor(rho_minus + rho_plus) == C
-assert sp.factor(rho_minus * rho_plus) == a * B
+assert sp.simplify(rho_minus + rho_plus - C) == 0
+assert sp.simplify(rho_minus * rho_plus - a * B) == 0
 
 u_minus = sp.factor(rho_plus / (rho_plus - rho_minus))
 u_plus = sp.factor(-rho_minus / (rho_plus - rho_minus))
