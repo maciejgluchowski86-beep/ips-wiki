@@ -39,13 +39,11 @@ Tensor observables are indexed by finite typed partial maps. Compatible overlaps
 
 For general bounded single-site replacement rates, expansion in the typed tensor basis gives fixed local branch coefficients `a_{i,r}^s(tau)`. Absolute values are local Poisson rates; signs are sign marks. Source outcome `s=0` deletes, `s=r` preserves, and other `s` retype the source. Target conflicts change only the deterministic result, never the clock rate.
 
-The empty-target source-survival coefficient is diagonal and enters the additive Feynman--Kac potential.
-
-The `d=2` specialization is exactly the paper's death/split/birth dual.
+The empty-target source-survival coefficient is diagonal and enters the additive Feynman--Kac potential. The `d=2` specialization is exactly the paper's death/split/birth dual.
 
 ## E3. Typed successful record
 
-**Settled geometrically in Assignment 001.**
+**Settled in Assignment 001.**
 
 For nonempty target, superpose source-outcome clocks at fixed `(i,r,tau)` and record
 
@@ -69,100 +67,138 @@ The local patch state is `X^P in E`. Noncemetery consistency consists of:
   \]
   for incoming target type `a`.
 
-For an inserted candidate record list `g`,
-
-\[
-\{\tau_\dagger>T\}\cap\{G_T=g\}
-=
-\bigcap_PCon(P).
-\]
-
-### Bare conditioning obstruction
-
-Unlike the binary case, conditioning only on `G_T=g` does not generally factor. A selected incoming target can conflict after the record is selected; cemetery then removes every future no-record constraint globally.
-
-The exact `d=3` gate gives
+Bare conditioning on the record list does not factor in general. A selected incoming target can conflict after the record is selected, hit cemetery, and simultaneously remove all future no-record constraints. The exact `d=3` gate gives
 
 \[
 P(K,B\mid G)=4/17\ne32/289=P(K\mid G)P(B\mid G).
 \]
 
-This failure must remain visible in every later theorem statement.
-
-### Representation-sufficient repair
-
-Because `H_dagger=0`, cemetery paths have zero Feynman--Kac weight. The weighted Mecke theorem is
+Because `H_dagger=0`, the representation-sufficient identity is instead
 
 \[
 E\left[h(G_T)1_{\{\tau_\dagger>T\}}\prod_Pf_P\right]
 =
-\int h(g)\prod_PE_P[f_P1_{Con(P)}]m_T(dg),
-\]
-
-with
-
-\[
-m_T(dg)=\prod_k\Lambda_{i_k,r_k}(\tau_k)dt_k.
+\int h(g)\prod_PE_P[f_P1_{Con(P)}]m_T(dg).
 \]
 
 Thus
 
 \[
-\nu_T(dg):=P(G_T\in dg,\tau_\dagger>T)
+\nu_T(dg)=P(G_T\in dg,\tau_\dagger>T)
 =
 \prod_PP_P(Con(P))m_T(dg),
 \]
 
-and conditional on `G_T=g, tau_dagger>T` the patch variables are independent with normalized consistent laws.
-
-Equivalently use a killed skeleton which collapses all cemetery paths to one zero-weight atom.
-
-Decisive files: `002a`, `002b`, `002c`, and `002-typed-factorization-verifier.py`.
+and patch variables are conditionally independent given an ordinary value of the killed/noncemetery skeleton.
 
 ## E5. Explicit typed patch representation
 
-**Open and current load-bearing edge.**
+**Settled in Assignment 003.**
 
-On a noncemetery trajectory the global Feynman--Kac weight should factor over typed one-site patches because:
-
-- the potential is additive over active typed sites;
-- every effective empty-target sign belongs to one source strip;
-- every selected outgoing hidden-branch sign belongs to its outgoing-start patch;
-- the terminal tensor observable is a product of one-site factors carried by end patches.
-
-For a patch `P`, the expected local weight should contain:
-
-1. outgoing-start hidden-branch sign when applicable;
-2. signs of effective empty-target interior marks;
-3. local potential factor
-   \[
-   \exp\left(\int_{s(P)}^{e(P)\wedge T}
-   1_{\{X_u^P\ne0\}}v_{i(P),X_u^P}\,du\right);
-   \]
-4. end factor `h_{X_T^P}(eta_i)` at the terminal horizon.
-
-The target representation is
+For each patch define
 
 \[
-P_TH_{\xi_0}(\eta)
+A_P
 =
-\int\prod_PE_P[w_P1_{Con(P)}]m_T(dg)
-=
-\int\prod_PC_P(\eta)\,\nu_T(dg),
+\epsilon_{\rm out}(P)
+\epsilon_{\emptyset}(P)
+\exp\left(
+\int_{b(P)}^{e(P)\wedge T}
+\bar v_{i(P),X_u^P}\,du
+\right),
 \]
 
-with `C_P=E_P^con[w_P]`.
+where `bar v_{i,0}=0`. Then
 
-Bulk contributions must be independent of the terminal physical configuration; end contributions may depend on its one-site spin.
+\[
+w_P=
+\begin{cases}
+A_P,&P\text{ bulk},\\
+A_Ph_{X_T^P}(\eta_{i(P)}),&P\text{ end}.
+\end{cases}
+\]
 
-## E6. Generalized patch positivity
+On every noncemetery realization,
 
-**Blocked on E5.**
+\[
+\boxed{
+\sigma_Te^{\int_0^TV(\xi_u)du}H_{\xi_T}(\eta)
+=
+\prod_Pw_P.}
+\]
 
-Once the explicit bulk contribution is proved, determine what local coefficient condition ensures every bulk typed patch contribution is nonnegative. It must reduce exactly to the binary patch-positivity inequalities.
+Applying the killed weighted factorization gives
 
-## E7. Applications and broader updates
+\[
+\boxed{
+P_TH_{\xi_0}(\eta)
+=
+\int
+\left(\prod_{P\in\mathcal B_T(g)}C(P)\right)
+\left(\prod_{P\in\mathcal E_T(g)}C_T(\eta_{i(P)},P)\right)
+\nu_T(dg),}
+\]
+
+with
+
+\[
+C(P)=E_P^{con}[A_P]
+\]
+
+for bulk patches and
+
+\[
+C_T(x,P)
+=B_0(P)+\sum_{a\in E_*}B_a(P)1_{\{x=a\}}
+\]
+
+for end patches.
+
+Thus bulk contributions are independent of terminal physical data; end contributions are one-site functions in the same indicator basis.
+
+The `d=2` specialization is exactly the canonical binary patch representation. In the binary case typed conflicts are impossible, so the killed skeleton reduces to the ordinary successful skeleton.
+
+Decisive files: `003a`, `003b`, `003c`, `003d`, and `003-typed-representation-verifier.py`.
+
+## E6. Generalized typed patch positivity
+
+**Open and current load-bearing edge.**
+
+The positivity object is now precise:
+
+\[
+\boxed{C(P)=E_P^{con}[A_P].}
+\]
+
+Question:
+
+> For which finite-state single-site replacement coefficients is
+> \[
+> C(P)\ge0
+> \]
+> for every finite bulk typed patch shape and typed boundary label?
+
+The first subproblem is to eliminate the path-space notation and write `C(P)` as a finite-dimensional transfer-matrix / killed-CTMC expression on local type space `E` for every boundary orientation.
+
+That formula should expose:
+
+1. how the hidden outgoing source-outcome distribution enters the initial vector;
+2. how effective empty-target signed transitions and the local potential enter the interior semigroup;
+3. how suppression of matching nonempty-target clocks enters the killing rates;
+4. how incoming-terminal compatibility or outgoing-terminal source type enters the terminal functional.
+
+Only after this exact matrix representation is derived should the programme search for coefficient-level necessary/sufficient inequalities or a useful sufficient cone.
+
+The binary specialization must recover the paper's patch-positivity inequalities, not merely some stronger unrelated sufficient condition.
+
+## E7. Consequences and applications
 
 **Blocked on E6 except for reconnaissance.**
 
-Priority examples should genuinely require more than two local states or non-flip replacement dynamics. Simultaneous multi-site physical updates remain outside the proved class and should be treated only after the single-site theory is complete enough to show which algebraic features matter.
+After a useful positivity condition exists, determine what order-preservation/comparison/convergence statements survive in the multi-state setting and identify genuinely non-binary models satisfying the condition.
+
+Simultaneous multi-site physical updates remain outside the proved class and should be reconsidered only after the single-site theory reveals which algebraic interfaces are essential.
+
+## Novelty status
+
+No literature novelty claim has yet been made for the generalized representation theorem. A targeted literature audit should occur once the positivity theorem is stable enough to define the actual contribution precisely.
