@@ -3,7 +3,7 @@ method_id: parity-duality-branching-annihilating
 title: Parity duality with branching-annihilating particles
 category: graphical-duality
 targets:
-  - uniqueness
+  - invariant-law-classification
   - convergence
 model_scope: Cancellative voter-type spin systems whose finite-particle dual is a parity-preserving branching-annihilating process
 source_status: primary-checked
