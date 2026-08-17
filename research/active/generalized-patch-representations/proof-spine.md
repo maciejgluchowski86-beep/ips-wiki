@@ -12,76 +12,52 @@ Extend the binary patch-representation mechanism to finite-state single-site rep
 
 ## E1. Arbitrary finite-state typed signed dual
 
-**Mathematically settled in Assignment 001. Contribution status narrowed by Assignment 008.**
+**Mathematically settled in Assignment 001; novelty narrowed in Assignment 008.**
 
 Reference-state indicator tensors give an exact signed Feynman--Kac dual for arbitrary bounded finite-range single-site replacement IPS, with successful records `(i,t,r,tau)` hiding post-source outcome.
 
-Novelty status: **known ingredients, assembly plausibly new**. Finite-state/product duality, multistate graphical duality, and signed finite-type FK duality all have direct predecessors.
+Novelty status: **known ingredients, assembly plausibly new**.
 
 ## E2. Killed typed patch factorization
 
-**Mathematically settled in Assignment 002. Primary plausible novelty anchor after Assignment 008.**
+**Settled in Assignment 002. Primary plausible novelty anchor.**
 
-Typed incoming target conflicts make bare skeleton conditioning false: cemetery entry deletes future no-record constraints. Because the duality function vanishes at cemetery, the exact killed/noncemetery weighted identity restores local factorization.
+Typed incoming target conflicts make bare skeleton conditioning false because cemetery entry deletes future no-record constraints. Since the duality function vanishes at cemetery, the killed/noncemetery weighted identity restores local factorization.
 
-No equivalent combination was found in the ancestor-clan, information-percolation, signed-FK, or multistate-duality literatures.
-
-Novelty status: **plausibly new theorem/mechanism**.
+Novelty status after Assignment 008: **plausibly new theorem/mechanism**.
 
 ## E3. Exact typed patch representation
 
 **Settled in Assignment 003.**
 
-The killed factorization yields the exact bulk/end patch representation for arbitrary finite local state space. This is part of the surviving generalized mechanism.
+The killed factorization yields the exact bulk/end patch representation for arbitrary finite local state space.
 
 ## E4. Exact finite-state bulk transfer
 
 **Settled in Assignment 004.**
-
-The signed interior transfer is
 
 \[
 K_i(0,\cdot)=0,
 \qquad K_i(r,s)=a_{i,r}^s(\emptyset).
 \]
 
-The cancellation of empty-target escape and no-success killing against the FK potential gives the exact local realization. Typed bulk patch positivity becomes nonnegativity of finitely parameterized matrix-semigroup boundary responses.
+Typed bulk patch positivity is exact nonnegativity of local semigroup boundary responses. The `d=2` specialization is exactly canonical binary patch positivity.
 
-Novelty status: **known ingredients, assembly plausibly new**. The IPS-to-transfer dictionary appears project-specific; positivity of matrix responses is standard positive-systems theory.
-
-## E5. Binary specialization
-
-**Settled exactly.**
-
-At `d=2` the generalized representation and positivity property recover the canonical binary patch construction and its coefficient inequalities, with no stronger surrogate condition.
-
-## E6. Boundary-complete `d=3` reduction and endpoint obstruction
+## E5. Boundary-complete `d=3` reduction
 
 **Settled in Assignment 005.**
 
-Boundary completeness forces `K` Metzler, leaving only `OI` scalar responses. A genuine IPS gives an exact positive-endpoint/negative-interior witness, proving that the binary endpoint collapse fails in three states.
+Boundary completeness forces `K` Metzler, leaving only `OI` scalar responses. A genuine IPS has positive zero/long endpoints but a negative interior response, proving that the binary endpoint collapse fails in three states.
 
-This remains a genuine structural difference between binary and multistate patch positivity.
-
-## E7. Exact `d=3` spectral test
+## E6. Exact `d=3` spectral test
 
 **Mathematically settled in Assignment 006; novelty removed in Assignment 008.**
 
-Every remaining response is decided by endpoints plus at most one critical value, with all degenerate cases handled.
+Every remaining response is decided by endpoints plus at most one critical value, including degenerate cases.
 
-Novelty status: **known / directly subsumed**. For any `d_0>0`,
+Novelty status: **known / directly subsumed** by third-order SISO external-positivity theory. Do not use this as a contribution claim.
 
-\[
-p e^{tK}f\ge0
-\iff
-p e^{t(K-d_0I)}f\ge0,
-\]
-
-so the problem is external positivity of a stable third-order SISO realization. Exact real-pole third-order criteria predate this project (Lin--Fang 1997; Weller--Martin 2020).
-
-Do not use Assignment 006 as a novelty claim.
-
-## E8. Natural exact nonbinary subclass
+## E7. Natural exact nonbinary algebraic subclass
 
 **Settled in Assignment 007.**
 
@@ -102,7 +78,7 @@ boundary-complete typed patch positivity is exactly
 c\ge a,
 \]
 
-and, for every outgoing row `p=(p_0,p_1,p_2)`,
+plus, for every outgoing row `p=(p_0,p_1,p_2)`,
 
 \[
 p_1,p_2,p_0+p_1,p_0+p_2\ge0,
@@ -112,69 +88,15 @@ p_1,p_2,p_0+p_1,p_0+p_2\ge0,
 (b+2a)p_0+a(p_1+p_2)\ge0.
 \]
 
-The class is genuinely nonbinary, but its scalar analytic content is a structured external-positivity consequence.
+The class is genuinely nonbinary, but its scalar analytic content is structured external positivity rather than the main novelty anchor.
 
-Novelty status: **known ingredients, assembly plausibly new**. Treat it as an application-ready exact gate, not the primary contribution.
-
-## E9. Novelty audit
+## E8. Novelty audit
 
 **Settled in Assignment 008. Outcome `CONTINUE-TO-APPLICATIONS`.**
 
-Closest predecessor families reconstructed:
+Broad ingredients are known: finite-state/product duality, signed finite-type FK duality, ancestor clans, information percolation, and external positivity. No equivalent source was found for the exact hidden-successful-record plus typed-cemetery killed patch factorization.
 
-- Lloyd--Sudbury/Sudbury product IPS dualities;
-- Sturm--Swart and Latz--Swart finite-state/multistate graphical dualities;
-- Dawson--Greven signed finite-type FK duality;
-- Fernández--Ferrari--Garcia clans of ancestors;
-- Lubetzky--Sly information percolation;
-- classical/modern positive-systems and external-positivity theory;
-- recent multistate epidemic dualities.
-
-The broad ingredients are known. The exact killed typed patch factorization/representation was not found in equivalent form and remains the load-bearing plausible novelty.
-
-## E10. Natural application
-
-**Open and current load-bearing edge.**
-
-The next question is no longer another abstract coefficient theorem. It is:
-
-> Does the surviving generalized patch mechanism specialize naturally to a genuinely nonbinary finite-state IPS from the literature, and does it yield a useful statement beyond rephrasing known duality?
-
-The application block must:
-
-1. start from a natural published model, not tune rates to the criterion;
-2. write its physical generator in the exact single-site replacement form;
-3. derive the typed coefficients and successful skeleton;
-4. test patch positivity honestly;
-5. if positive, identify a concrete consequence or representation benefit;
-6. compare that consequence with application-specific prior work before claiming value.
-
-A negative positivity finding is acceptable if it identifies a structural obstruction.
-
-Likely search classes include genuinely multistate contact/epidemic or stage-structured models, but model selection is part of the application assignment and must be literature-driven.
-
-## E11. Generic `d>3` tractable positivity
-
-**Deferred.**
-
-The representation already holds for arbitrary finite `d`. Higher-order coefficient characterization overlaps the established external-positivity problem and is not next by default.
-
-Activate it only if:
-
-- a concrete application naturally requires more than three states; or
-- a later structured-class opportunity gives independent mathematical value.
-
-## E12. Comparison/convergence and multi-site physical updates
-
-**Downstream.**
-
-Do not generalize the binary comparison/convergence theorems automatically. First learn from applications which positivity/order object is actually useful. Simultaneous multi-site physical updates remain outside the proved representation class.
-
-## Current novelty framing
-
-The project must not claim novelty for finite-state duality, signed FK duality, partial Poisson revelation, Metzler semigroups, or third-order external positivity individually.
-
-The plausible contribution is the **interface**:
+The plausible contribution remains the interface
 
 \[
 \text{signed typed dual}
@@ -186,4 +108,108 @@ The plausible contribution is the **interface**:
 \text{exact finite-state patch representation}.
 \]
 
-Historical priority remains plausible rather than established.
+## E9. First natural application: two-stage contact process
+
+**Settled negatively in Assignment 009. Outcome `STOP-APPLICATION-POSITIVITY-FAILS`.**
+
+The model was selected from the literature before positivity calculation:
+
+\[
+0=\text{vacant},\quad1=\text{juvenile},\quad2=\text{adult},
+\]
+
+\[
+0\to1\text{ at }\lambda n_2,
+\quad1\to2\text{ at }\gamma,
+\quad1\to0\text{ at }1+\delta,
+\quad2\to0\text{ at }1.
+\]
+
+For every adult-neighbour target `tau`,
+
+\[
+\boxed{\mathbf a_{1,\tau}=(\lambda,-\lambda,-\lambda).}
+\]
+
+The successful record hides three outcomes `0,1,2`, and typed cemetery conflicts are genuinely realizable, so the distinctive killed-patch representation is active in this model.
+
+However, the repeated-source `OO` descriptor is realized and has
+
+\[
+N_{OO}(0)=-\lambda<0.
+\]
+
+More strongly, with
+
+\[
+K=
+\begin{pmatrix}
+0&0&0\\
+0&-(1+\delta+\gamma)&0\\
+0&\gamma&-1
+\end{pmatrix},
+\]
+
+one has
+
+\[
+N_{OO}(t)<0
+\]
+
+for every finite `t>=0` whenever `lambda>0`, while the reference denominator is positive.
+
+At the exact gate `lambda=gamma=delta=1`, `e^{-t}=1/2`,
+
+\[
+N_{OO}=-5/16,
+\qquad D_{OO}=5/16,
+\qquad C_{OO}=-1.
+\]
+
+A bounded second candidate, spatial SIRS, has the same obstruction.
+
+### Catalytic-birth no-go
+
+Assignment 009 isolates the general mechanism:
+
+> If a positive nonempty target mode appears in `0->r` but not in any active-source transition into `r`, then `a_r^r(tau)<0`. If the same source-`r` successful record can repeat after hidden outcome `r`, a realized arbitrarily short `OO` patch is negative.
+
+This rules out a broad family of contact/epidemic catalytic-birth applications before any spectral work.
+
+The two-stage model already has strong Krone/Foxall/Sturm--Swart duality theory, so no new model-level duality or convergence theorem is claimed. The killed typed representation is genuinely different but fails its positivity layer here.
+
+Decisive files: `009a`--`009e`, verifier `009-two-stage-application-verifier.py`, final report, handoff, and Meeting 009.
+
+## E10. Structurally distinct application architecture
+
+**Open and current load-bearing edge if the programme continues.**
+
+Repeating contact/SIRS-style catalytic birth models is low-value because E9's no-go decides them locally.
+
+The next bounded application question should be:
+
+> Is there a natural published genuinely three-state single-site replacement IPS in which neighbour interactions retype already-active states, or otherwise contain compensating active-source target modes, so the catalytic-birth no-go does not determine positivity in advance?
+
+Model selection must again be literature-driven and committed before any positivity calculation. The model must not be chosen because its coefficients flatter the criterion.
+
+A good candidate family would have genuinely interacting active labels, not a passive color or a deterministic voter-copying system whose duality is already entirely standard.
+
+## E11. Generic `d>3` tractable positivity
+
+**Deferred.**
+
+The representation already holds for arbitrary finite `d`. Higher-order coefficient characterization overlaps established external-positivity theory and is not next by default.
+
+Activate only if a concrete application needs more than three states or a structured higher-dimensional class has independent value.
+
+## E12. Comparison/convergence and multi-site physical updates
+
+**Downstream.**
+
+Do not transplant binary comparison/convergence automatically. Simultaneous multi-site physical updates remain outside the proved representation class.
+
+## Current novelty framing
+
+Do not claim novelty for finite-state duality, signed FK duality, partial Poisson revelation, Metzler semigroups, or scalar external positivity individually.
+
+The plausible contribution is the killed typed patch **interface**. Assignment 009 shows that this interface can occur naturally even when patch positivity fails, and supplies a structural no-go that should guide any further application search.
