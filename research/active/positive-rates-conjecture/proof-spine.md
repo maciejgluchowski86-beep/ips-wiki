@@ -35,9 +35,11 @@ $$
 
 so global path-space TV/KL contraction is unavailable.
 
-Meeting 023 adds a genuinely different architecture: a finite-dimensional stationary occupation-control hierarchy on one-time marginals.
+Meeting 023 opens a genuinely different stationary occupation-control architecture. Meeting 024 keeps its exact hierarchy but stops the current Bellman-corrector concatenation implementation after F015 identifies the weighted adaptive-feedback bottleneck and refutes additive block concatenation.
 
-## E1. Predecessor-trail route-decision object retained
+Student G Assignment 009 is now the sole active block.
+
+## E1. Predecessor-trail route-decision object
 
 Put
 
@@ -50,10 +52,10 @@ The accepted predecessor-trail reduction gives the sufficient absolute-duration 
 
 $$
 J_{x,r}
-=B g^{n-1}\int\left(\prod_k w(u_k)\right)|\pi^0_{m,r}(F_{x,u})|du.
+=B g^{n-1}\int\left(\prod_kw(u_k)\right)|\pi^0_{m,r}(F_{x,u})|du.
 $$
 
-For singleton depth `n`, write
+For singleton depth `n`, the principal normalization is
 
 $$
 J_n=\frac gB N_n,
@@ -65,7 +67,7 @@ $$
 \rho_J(a,b,c)=\limsup_{n\to\infty}J_n^{1/n}.
 $$
 
-Student G Assignment 009 decides the route-level alternative
+Student G Assignment 009 decides
 
 $$
 \boxed{
@@ -78,13 +80,77 @@ $$
 
 Finite-depth growth alone is not decisive.
 
-A proof `rho_J>1` refutes the **absolute-duration domination** at that point, not the exact predecessor-trail identity or ergodicity.
+## E2. G009 checkpoint: exact reverse-transfer normalization
 
-## E2. Exhausted signed-profile interface
+Define the insertion/drop map on signed measures by
+
+$$
+(\mathcal J_N\nu)(f)=\nu((B\eta_N-c)f).
+$$
+
+G checkpoint `2cb0696` reconstructs the exact scalar reverse transfer
+
+$$
+S_n(u_1,\ldots,u_n)
+=
+\pi_nP_{u_1}^n\mathcal J_nP_{u_2}^{n-1}\mathcal J_{n-1}\cdots P_{u_n}^1\mathcal J_1
+$$
+
+and proves
+
+$$
+\boxed{S_n(u)=g^n\pi_n(F_u).}
+$$
+
+Let
+
+$$
+R_n=\int\left(\prod_jw(u_j)\right)|S_n(u)|du.
+$$
+
+Then exactly
+
+$$
+\boxed{
+J_n=\frac BgR_n=\frac gBN_n,
+}
+$$
+
+hence
+
+$$
+\limsup R_n^{1/n}
+=
+\limsup J_n^{1/n}
+=
+\limsup N_n^{1/n}.
+$$
+
+At
+
+$$
+P_*=(1/1000,1/10,9999/10000),
+$$
+
+the checkpoint verifies
+
+$$
+B/g=111/10,\qquad Z=19100/31,
+$$
+
+$$
+J_1=190809/31000,
+\qquad
+N_1=21179799/310000.
+$$
+
+These values only calibrate the exact normalization; they do not decide `(J-SPEC)`.
+
+## E3. Exhausted signed-profile interface
 
 The old profile implementation established strict one-segment damping, exact operator-valued transfer, suffix projectivity, fixed-suffix positive-frequency localization, and exact two-insertion formulas.
 
-F013 proves that the unsplit two-insertion transfer retains a genuine zero temporal-frequency projection. F014 proves that fixed-suffix mixing and finite propagation leave the two-step tail-shift law
+F013 proves that the unsplit two-insertion transfer retains a genuine zero temporal-frequency projection. F014 proves that fixed-suffix mixing and finite propagation leave
 
 $$
 \Delta_M^{(2)}
@@ -101,13 +167,13 @@ $$
 
 No independent theorem controls this law. Further local profile composition is stopped.
 
-## E3. Exhausted common-uniform occupation interface
+## E4. Exhausted common-uniform occupation interface
 
 For finite common-uniform disagreement seeds, every fixed site eventually couples permanently and possible survival is convective escape. The retained first-exposure exploration has an explicit front tail, but G008 proves that the projected state forgets post-coalescence ancestry and robust zero-frequency closure loses every strict contraction factor.
 
 The missing all-depth return variable is itself a disagreement occupation quantity. Global common-uniform occupation is stopped as the proof interface.
 
-## E4. Trajectory-valued spatial kernel is exact but not contractive globally
+## E5. Trajectory-valued spatial kernel
 
 The one-sided stationary trajectory field is Markov in space on
 
@@ -119,11 +185,11 @@ with kernel `Q` defined by the local graphical construction.
 
 However constant-zero and constant-one inputs produce mutually singular stationary output path laws. Hence the full path-space Dobrushin coefficient is one and TV/KL may be transmitted isometrically.
 
-Weak ergodicity of the reachable zero-boundary orbit remains open, but no independent rate-level mechanism is currently known.
+Weak ergodicity of the reachable zero-boundary orbit remains open, but no independent rate-level mechanism is known.
 
-## E5. New exact stationary occupation-control hierarchy
+## E6. Exact stationary occupation-control hierarchy retained
 
-Use the complemented spin `xi=1-eta`, so `1` is the East facilitator. Let `L_N^u` be the generator on `N` sites with right-boundary control `u in {0,1}`.
+Use complemented spins so `1` is the East facilitator. Let `L_N^u` be the generator on `N` sites with right-boundary action `u in {0,1}`.
 
 Define
 
@@ -132,152 +198,211 @@ $$
 \mathcal K_N
 =
 \left\{
- m(x,u)\ge0:
- \sum_{x,u}m(x,u)=1,
- \quad
- \sum_{x,u}m(x,u)L_N^uF(x)=0
- \ \forall F
+ m(x,u)\ge0:\ \sum m=1,
+ \quad \sum_{x,u}m(x,u)L_N^uF(x)=0\ \forall F
 \right\}.
 }
 \tag{K}
 $$
 
-Meeting 023 proves:
+Meetings 023--024 establish:
 
-1. every infinite-volume invariant law projects into `K_N`;
+1. every infinite invariant law projects into `K_N`;
 2. every `m in K_N` is realized by a finite chain with a randomized state-dependent boundary controller;
-3. the projection of `K_{N+1}` using the old boundary spin as the new control lies in `K_N`.
+3. `K_{N+1}` projects into `K_N` by using the old interface spin as the new action.
 
-For local `h`, define
+For local `h`,
 
 $$
 D_N(h)
 =
-\sup_{m\in\mathcal K_N}m(h)
--
-\inf_{m\in\mathcal K_N}m(h).
+\sup_{m\in K_N}m(h)-\inf_{m\in K_N}m(h)
 $$
 
-Then
+satisfies
 
 $$
 \boxed{D_{N+1}(h)\le D_N(h).}
 $$
 
-If
+If `D_N(h)->0` for every local `h`, the IPS has a unique invariant measure.
 
-$$
-D_N(h)\to0
-$$
+This remains an exact static reduction, not an active proof route after Meeting 024.
 
-for every local `h`, the infinite IPS has a unique invariant measure.
-
-## E6. Exact Bellman/Poisson dual
+## E7. Exact Bellman dual and scale-extension formula
 
 Finite LP duality gives
 
 $$
+U_N(h)=\inf_F\max_{x,u}(h-L_N^uF),
+$$
+
+$$
+\ell_N(h)=\sup_F\min_{x,u}(h-L_N^uF),
+$$
+
+$$
+D_N(h)=U_N(h)-\ell_N(h).
+$$
+
+For optimal correctors define
+
+$$
+s_N^+(x,u)=U_N-h(x)+L_N^uF_N^+(x),
+$$
+
+$$
+s_N^-(x,u)=h(x)-L_N^uF_N^-(x)-\ell_N.
+$$
+
+F015 proves for every `M>N`
+
+$$
 \boxed{
-U_N(h)
-=
-\inf_F\max_{x,u}\bigl(h(x)-L_N^uF(x)\bigr),
+U_N-U_M=\inf_{m\in K_M}m(s_N^+),
 }
 $$
 
 $$
 \boxed{
-\ell_N(h)
-=
-\sup_F\min_{x,u}\bigl(h(x)-L_N^uF(x)\bigr),
+\ell_M-\ell_N=\inf_{m\in K_M}m(s_N^-),
 }
 $$
 
-and
-
-$$
-\boxed{D_N(h)=U_N(h)-\ell_N(h).}
-$$
-
-Thus static screening can be proved by correctors valid simultaneously for both boundary controls at every state.
-
-This is structurally different from trajectory-kernel contraction: it controls one-time stationary local marginals under an adversarial boundary-control relaxation.
-
-## E7. Active static multiscale target
-
-The principal proposes
+and therefore
 
 $$
 \boxed{
-D_{2N}(h)
-\le
-(1-\rho)D_N(h)+Ce^{-\gamma N}
+D_M=D_N
+-\inf_{m\in K_M}m(s_N^+)
+-\inf_{m\in K_M}m(s_N^-).
 }
-\tag{R}
+\tag{BSE}
 $$
 
-for fixed residual rates and all large `N`, or another scale-recursive theorem forcing `D_N(h)->0`.
+Thus scale contraction is exactly unavoidable stationary occupation of old Bellman slack after the physical controller is moved farther right.
 
-Student F Assignment 015 must decide whether finite Bellman/Poisson correctors **concatenate** into such a repeatable theorem.
+## E8. Bellman slack is weighted adaptive tracking
 
-Larger finite LPs, smaller numerical diameters, or exact single-scale certificates without a repeatability theorem do not establish `(R)`.
-
-## E8. Hard-East ingredient and missing robustness
-
-In the complemented convention,
+Complementary slackness gives a tight action `pi_F(x)` at every old block state. Since the two actions differ only through the flip rate at the old rightmost site,
 
 $$
-0\to1\text{ at rate }a+(b-a)\xi_{i+1},
+\boxed{
+s_F(x,u)=w_F(x)1_{\{u\ne\pi_F(x)\}},}
+\tag{WT}
+$$
+
+with
+
+$$
+w_F(x)=d(x_{N-1})|F(x^{N-1})-F(x)|,
+\qquad d(0)=b-a,\quad d(1)=c.
+$$
+
+Put
+
+$$
+r_*=\min\{a,1-c\}>0.
+$$
+
+F015 proves, uniformly over arbitrary state-dependent controls and Boolean targets `pi`,
+
+$$
+\boxed{
+P(X_N\ne\pi(X_0,\ldots,X_{N-1}))
+\ge\frac{r_*}{N+1+r_*}.
+}
+\tag{UM}
+$$
+
+This is only an **unweighted** mismatch theorem. `(BSE)` requires occupation of `w_F` on mismatch states. No theorem prevents the controller from placing unavoidable mismatch where `w_F` is small.
+
+The exact missing weighted theorem is schematically
+
+$$
+\boxed{
+\inf_{K_{2N}}m(s_N^+)+\inf_{K_{2N}}m(s_N^-)
+\ge \rho D_N(h)-Ce^{-\gamma N}.
+}
+\tag{WB}
+$$
+
+No independent mechanism for `(WB)` is known.
+
+## E9. Additive block correctors are refuted
+
+F015 proves that both boundary actions are tight somewhere for every optimal upper/lower corrector. Therefore for any appended right block and arbitrary function `G` on that block,
+
+$$
+H(x,z)=F_N(x)+G(z)
+$$
+
+cannot strictly improve either Bellman endpoint. At a maximum/minimum of `G`, the appended generator has the wrong sign for improvement and one chooses an old state where the realized interface action is tight.
+
+Hence independently solved block correctors **do not concatenate**. Any strict improvement must use genuinely joint cross-block dependence.
+
+At `(a,b,c)=(1/10,3/10,4/5)`, exact `N=2` correctors also satisfy both-action tightness in each one-spin interface cylinder, so the same obstruction kills an arbitrary correction depending on that single old interface spin plus the appended block.
+
+This does not refute all joint correctors of growing interface width, but it kills the natural repeatable mechanism tested by Assignment 015.
+
+## E10. Hard-East input does not control adaptive feedback
+
+At one controlled spin,
+
+$$
+U_1=\frac{b}{b+1-c},
 \qquad
-1\to0\text{ at rate }(1-c)+c\xi_{i+1}.
+\ell_1=\frac{a}{a+1},
 $$
 
-The principal's intended mechanism is that neighbour-independent soft resets create facilitators, after which hard-East relaxation screens a macroscopic subblock.
-
-The KCM-book inputs checked by the Professor are:
-
-- East Theorem 7.6: exponential convergence of local observables once a facilitator is present in the oriented future;
-- East Theorem 7.8: linear finite-volume mixing time with empty or ergodic boundary.
-
-These pure-East theorems do not directly imply `(R)` in the controlled noisy chain. The load-bearing missing statement is a robustness/censoring or Bellman concatenation theorem which survives all soft reset marks and every state-dependent boundary controller.
-
-Conditioning on the absence of soft noise over an `O(N)` spacetime block cannot provide the fixed screening probability required by `(R)`.
-
-## E9. Static-to-dynamic gap
-
-Even if `(R)` proves
+whereas fixed-boundary stationary densities are
 
 $$
-D_N(h)\to0,
+p_0=\frac{a}{a+1-c},
+\qquad
+p_1=\frac{b}{1+b}.
 $$
 
-this yields uniqueness of the invariant measure, not yet convergence from every initial law.
-
-A later target would be uniform distributional screening of far-right perturbations, schematically
+At `(1/10,3/10,4/5)`,
 
 $$
-S_N(h)
-\le
-C_h\left(D_{\lfloor N/2\rfloor}(h)+e^{-\gamma N}\right).
-\tag{ZF}
+U_1=3/5,\quad \ell_1=1/11,
+\quad p_0=1/3,\quad p_1=3/13.
 $$
 
-Together with the already proved local disappearance of finite disagreement seeds, `(ZF)` would imply convergence by a splice argument.
+Thus adaptive state-dependent feedback is substantially stronger than either fixed boundary. The cited hard-East relaxation theorems with fixed or exogenous ergodic boundaries do not imply `(WB)`.
 
-`(ZF)` is not active until the static screening mechanism is established.
+A future stationary-screening theorem would require a new robustness principle specifically controlling weighted adaptive feedback.
 
-## E10. Current decision tree
+## E11. Meeting-024 stop decision
 
-Two tasks are active and logically independent:
+Meeting 023 authorized one feasibility block and required a repeatable theorem for continuation. F015 returns exact structural progress but no recursion forcing `D_N(h)->0`.
 
-1. **G009 / `(J-SPEC)`**: determine whether the old absolute-duration predecessor-trail norm is asymptotically supercritical. If unresolved without a new asymptotic mechanism, stop that branch.
-2. **F015 / stationary screening**: determine whether the controlled stationary LP correctors admit a repeatable multiscale contraction. If unresolved with only finite-box shrinkage, stop that route rather than enlarge `N`.
+Decision:
 
-No third route is authorized.
+- retain `(K)`, monotonicity, the Bellman dual, `(BSE)`, `(WT)`, and `(UM)` as reusable mathematics;
+- stop the current stationary boundary-control corrector-concatenation implementation;
+- no larger-`N` LP continuation;
+- no generic search over wider joint interface correctors;
+- no F016;
+- Student F idle.
 
-If F015 succeeds on a genuine residual region, continue the static stationary-law route and only then address the dynamic upgrade.
+This is an expected-value stop, not a theorem that `D_N(h)->0` is false.
 
-If both tasks fail to produce a structural theorem, return to the `no-credible-route` state.
+## E12. Current decision tree
+
+Only G009 is active.
+
+If G proves `rho_J>1` at a strict residual point, close the absolute-duration `J` domination there and retain the exact predecessor-trail identity only with additional signed right-region/duration cancellation.
+
+If G proves `rho_J<1` on a genuine region, record the partial theorem but do not revive the exhausted profile implementation automatically.
+
+If G returns unresolved without an asymptotic mechanism, the programme returns to consultation 002's `no-credible-route` state unless genuinely new principal/external input has arrived.
+
+## E13. Static-to-dynamic gap
+
+Even a future proof `D_N(h)->0` would establish uniqueness, not convergence from arbitrary initial laws. A separate uniform distributional-screening theorem would still be required before using the finite-seed local-coupling result to prove ergodicity.
 
 ## Anti-circularity checkpoint
 
-Do not infer asymptotic `J` growth from finite depths; infer multiscale screening from shrinking finite LP widths; invoke pure-East mixing as if it already controlled the noisy state-dependent boundary process; treat uniqueness as convergence; revive stopped predecessor-trail/common-coupling architectures; or use path-space `Q` contraction, which is exactly false globally.
+Do not infer asymptotic `J` growth from finite depths; infer stationary screening from shrinking finite LP widths; replace weighted Bellman occupation by unweighted mismatch; continue by larger LPs/additive correctors/wider interface search without a new mechanism; invoke pure-East fixed-boundary mixing as if it controlled adaptive feedback; treat uniqueness as convergence; or revive stopped predecessor-trail/common-coupling/path-space contraction routes.
