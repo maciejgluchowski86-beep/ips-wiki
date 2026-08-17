@@ -23,7 +23,7 @@ $$
 
 There is presently **no active proof architecture**.
 
-Student G is idle after Meeting 027; no G011. Student F is idle; no F016.
+Student G is idle after Meetings 027--028; no G011. Student F is idle; no F016.
 
 Stopped/inactive mechanisms include:
 
@@ -34,7 +34,7 @@ Stopped/inactive mechanisms include:
 - G009's singular fixed-depth short/long renewal continuation;
 - the fixed-filter connected dual-renewal continuation after bounded Assignment 010.
 
-The operative architecture assessment is consultation 002 / Meeting 025: **no presently identified route clears the continuation bar**. Meeting 027 adds reusable positive-frequency mathematics but does not provide a complete route.
+The operative architecture assessment is consultation 002 / Meeting 025: **no presently identified route clears the continuation bar**. Meeting 027 adds reusable positive-frequency mathematics; Meeting 028 accepts a further exact boundary-resolvent elimination but does not reopen the branch.
 
 ## E1. Canonical predecessor-trail `J` quantity
 
@@ -299,7 +299,7 @@ and `R(x_0)=0`.
 
 Therefore the one-high-pass norm in `(HP3)` cannot be uniformly inverted over the entire positive-frequency space. This does **not** prove that `x_0` belongs to the finite-volume spectrum or that the actual orbit concentrates there; it rules out only the naive one-seminorm functional-calculus iteration without extra orbit information.
 
-## E9. Exact filtered boundary-response pairing
+## E9. Filtered boundary-response representation
 
 Let
 
@@ -312,33 +312,93 @@ and define
 $$
 f_1=Y_1,
 \qquad
-f_N=Y_NQ_{N-1}f_{N-1}.
+f_N=Y_NQ_{N-1}f_{N-1},
+\qquad
+q_N:=Q_Nf_N.
 $$
 
 G010 proves
 
 $$
-\boxed{
- c_{N+1}=\delta_N(R_NQ_Nf_N).
-}
-\tag{FB}
+ c_{N+1}=\delta_N(R_Nq_N)
 $$
 
-The discrepancy itself satisfies
+and
 
 $$
-\boxed{
 \delta_NL_N
 =-B A_N(I-L_N)((1+b)I-L_N)^{-1}P_N.
-}
 \tag{SRC}
 $$
 
-Thus the remaining connected coefficient is a zero-frequency boundary response tested only against the **special positive-frequency high-pass orbit** `R_NQ_Nf_N`.
+This already restricts the old spatial-memory object to one special connected high-pass orbit and is narrower than F013/F014's unrestricted tail-shift norms.
 
-This is narrower than F013/F014's unrestricted tail-shift norms. Neither direction of equivalence is proved.
+## E10. Exact boundary-resolvent elimination
 
-## E10. Recentered newest-boundary block
+Late checkpoint `75d0e8a`, accepted at Meeting 028 as an orchestration-overlap artifact, eliminates `delta_N` entirely from the coefficient.
+
+Put
+
+$$
+r=1+b,
+\qquad
+S_N=(rI-L_N)^{-1},
+\qquad
+D_N=(I-L_N)S_N.
+$$
+
+Using `(SRC)`, `(rI-L_N)S_Nq_N=q_N`, and `pi_N(q_N)=0`, one obtains
+
+$$
+\boxed{
+ c_{N+1}
+ =A_N\!\left[
+ \frac dr q_N
+ +\left(g-\frac dr\right)B
+ D_NP_NS_Nq_N
+ \right].
+}
+\tag{BRE}
+$$
+
+At `P_*`, with `d/r=-epsilon` and `g_0=g+epsilon`,
+
+$$
+\boxed{
+ c_{N+1}=A_N(\mathfrak B_Nq_N),
+}
+\tag{BC}
+$$
+
+where
+
+$$
+\boxed{
+\mathfrak B_N
+=-\varepsilon I
++g_0B(I-L_N)(rI-L_N)^{-1}
+P_N(rI-L_N)^{-1}.
+}
+\tag{BO}
+$$
+
+Consequences:
+
+1. no estimate of the unrestricted norm of `delta_N` or bare tail-shift TV is logically required for the connected coefficient;
+2. any future negative equivalence with the F013/F014 tail-shift problem must survive `(BRE)` and requires additional mathematics;
+3. the residual all-depth target is now an orbit-specific boundary-resolvent estimate for `A_N(\mathfrak B_Nq_N)`.
+
+The elementary bound
+
+$$
+|c_{N+1}|
+\le
+\frac{342081}{1718750}\operatorname{osc}(q_N)
+$$
+
+has no depth decay and is far too crude for `(CT)`. Thus `(BRE)` is a sharpening of the residual object, not an all-depth mechanism.
+
+## E11. Recentered newest-boundary block
 
 With
 
@@ -366,24 +426,27 @@ $$
 
 After normalizing the new coordinate by `sqrt(c_0g_0)`, the two off-diagonal interface blocks are equal. The scalar recentering branch `Y=X-epsilon` has uniform oscillation cost below `0.609`; the unresolved transmission is through the boundary-containing `X` branch and inherited older-volume dynamics.
 
-## E11. Current blocker and stop rule
+## E12. Current blocker and restart rule
 
 The connected route is now blocked at a precise point:
 
 - `(HP3)` contracts a full insertion only after measuring the output through `R_N`;
 - `(BZ)` prevents generic recovery of the unfiltered connected norm from that one high-pass quantity;
-- the coefficient needed for `(CT)` is exactly the special pairing `(FB)`.
+- `(BRE)`--`(BO)` show that the needed coefficient is an explicit boundary-resolvent expectation on the actual connected orbit, with no bare tail-shift norm left in the formula.
 
-A plausible future repair would require either:
+A future restart requires either:
 
-1. an **explicit complementary observable/seminorm** with a proved two-component depth-uniform contraction that covers the blind frequency; or
-2. an **orbit-specific theorem** that bounds `(FB)` summably/geometrically.
+1. an **explicit complementary observable/seminorm** with a proved two-component depth-uniform contraction covering the blind frequency; or
+2. an **orbit-specific theorem** that bounds `A_N(\mathfrak B_Nq_N)` summably/geometrically along
+   $$
+   q_N=Q_N(Y_Nq_{N-1}).
+   $$
 
-No such object or theorem is currently supplied. “Find another norm” is therefore not an active assignment.
+Commit `75d0e8a` supplies neither; it only identifies the explicit operator to be controlled. Therefore Meeting 028 does not reopen the branch. “Prove decay of `(BC)`” or “find another norm” is not an active assignment.
 
-Meeting 027 applies Assignment 010's bounded-block stop: no G011, no F016, both students idle, and the programme returns to the consultation-002 / Meeting-025 `no-credible-route` architecture state.
+No G011, no F016, both students idle, and the programme remains in the consultation-002 / Meeting-025 `no-credible-route` architecture state.
 
-## E12. Other retained exact mathematics
+## E13. Other retained exact mathematics
 
 The stationary occupation-control hierarchy `K_N`, monotone diameters `D_N`, Bellman scale-extension identity, and controller-uniform unweighted mismatch theorem remain correct but inactive after Meeting 024.
 
@@ -391,4 +454,4 @@ Common-uniform fixed-site coalescence/front facts and the exact trajectory-value
 
 ## Anti-circularity checkpoint
 
-Do not infer `(CT)` from the finite prefix; treat `R_NQ_N` contraction as an iterable norm without covering `(BZ)`; assert that `(FB)` is equivalent to bare tail shift without a theorem; import the nearby reversible model's canonical duration law; optimize the filter or compute longer prefixes as a substitute for an all-depth theorem; or treat `rho_J>1`, if later proved, as nonergodicity. It would refute only the sufficient absolute-duration route.
+Do not infer `(CT)` from the finite prefix; treat `R_NQ_N` contraction as an iterable norm without covering `(BZ)`; assert that the connected route is equivalent to bare tail shift despite `(BRE)` without a new theorem; import the nearby reversible model's canonical duration law; optimize the filter or compute longer prefixes as a substitute for an all-depth theorem; or treat `rho_J>1`, if later proved, as nonergodicity. It would refute only the sufficient absolute-duration route.
