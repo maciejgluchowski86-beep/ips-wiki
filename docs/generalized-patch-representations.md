@@ -6,16 +6,7 @@ This section develops extensions of the patch representation from binary flip sp
 
 The binary benchmark is the canonical manuscript *Patch representations and convergence for facilitated spin systems* under `paper/`, together with the existing [patch](entries/patch.md), [successful interaction](entries/successful-interaction.md), [monomial duality](entries/monomial-duality-for-spin-systems.md), [patch representation](entries/patch-representation-of-spin-systems.md), and [patch positivity](entries/patch-positivity-property.md) entries.
 
-The generalization programme keeps the same structural order:
-
-1. choose a tensor basis for local observables;
-2. derive a local signed Feynman--Kac dual;
-3. identify a coarse successful-interaction skeleton that hides a finite local mark;
-4. prove representation-sufficient killed/weighted factorization into generalized patches;
-5. define explicit patch contributions;
-6. characterize nonnegative bulk patch contributions;
-7. audit novelty and closest prior work;
-8. then test applications and consequences.
+The programme proceeds through finite-state duality, killed patch factorization, explicit representation, positivity analysis, novelty audit, and applications.
 
 ## Current pages
 
@@ -24,27 +15,46 @@ The generalization programme keeps the same structural order:
 - [Explicit typed patch representation](generalized-patch-representations/typed-patch-representation.md): local Feynman--Kac patch weight, pathwise product identity, exact killed-skeleton semigroup representation, bulk/end separation, and exact binary reduction.
 - [Typed bulk patch positivity via transfer matrices](generalized-patch-representations/typed-patch-positivity-transfer.md): exact signed and unsigned local transfer matrices, four bulk boundary formulas, short-time multi-state constraints, and exact equivalence with canonical binary patch positivity.
 - [Three-state endpoint obstruction](generalized-patch-representations/three-state-endpoint-obstruction.md): boundary completeness forces a Metzler interior transfer, but a physically realizable two-mode `OI` numerator is negative at an interior time despite strictly positive zero-length and long-time endpoints.
-- [Exact three-state spectral positivity criterion](generalized-patch-representations/three-state-spectral-criterion.md): necessary-and-sufficient boundary-complete `d=3` test using endpoint values and at most one explicit interior critical value, including degenerate spectra and exact binary reduction.
-- [Natural three-state positivity subclass](generalized-patch-representations/natural-three-state-subclass.md): exchange-symmetric non-binary systems where the necessary Metzler ordering makes the signed active-type mode decay faster, giving an exact algebraic endpoint criterion; includes the refresh boundary case.
+- [Exact three-state spectral positivity criterion](generalized-patch-representations/three-state-spectral-criterion.md): mathematically correct exact `d=3` spectral test. The later novelty audit found this scalar theorem directly subsumed by third-order SISO external-positivity theory, so it is not a project novelty claim.
+- [Natural three-state positivity subclass](generalized-patch-representations/natural-three-state-subclass.md): exchange-symmetric genuinely nonbinary systems with an exact algebraic endpoint criterion; useful as a structured application gate, but not the primary novelty anchor.
+- [Two-stage contact application obstruction](generalized-patch-representations/two-stage-contact-application-obstruction.md): literature-selected genuine three-state contact process where the killed typed representation is nonvacuous but a realized `OO` patch is strictly negative throughout the interacting range, yielding a catalytic-birth no-go.
 
-## Current status
+## Novelty status
 
-For arbitrary finite-state bounded finite-range **single-site replacement** dynamics, the typed dual, killed patch factorization, exact patch representation, and transfer-semigroup definition of bulk positivity are established on this research branch.
+A dedicated closest-prior-work audit found substantial predecessor theory for finite-state graphical duality, signed finite-type Feynman--Kac duality, partial graphical revelation, and matrix external positivity.
 
-For boundary-complete `d=3`, the generic positivity problem has an exact finite spectral criterion. Assignment 007 additionally identifies a genuinely non-binary exchange-symmetric subclass with an exact algebraic criterion:
-
-\[
-c\ge a,
-\]
-
-and, for every outgoing row `p=(p_0,p_1,p_2)`,
+The strongest surviving plausible novelty candidate is the **combined interface**
 
 \[
-p_1,p_2,p_0+p_1,p_0+p_2\ge0,
+\text{signed typed dual}
+\to
+\text{successful skeleton hiding source outcome}
+\to
+\text{typed cemetery obstruction}
+\to
+\text{killed/noncemetery patch factorization}
+\to
+\text{exact finite-state patch representation}.
 \]
+
+Historical priority is plausible rather than established.
+
+## Application status
+
+The first natural application was Krone's two-stage contact process, selected before any positivity calculation. Its successful interaction has hidden signed row
 
 \[
-(b+2a)p_0+a(p_1+p_2)\ge0.
+(\lambda,-\lambda,-\lambda),
 \]
 
-The next programme block is a targeted literature/novelty audit. If the mechanism is not already subsumed by prior work, applications are planned immediately afterward. A generic `d>3` positivity-criterion block is deferred unless an application or the literature makes it necessary.
+and typed cemetery conflicts are genuinely realizable, so the new representation mechanism is active.
+
+Nevertheless a realized same-source `OO` bulk patch has negative numerator for every finite patch length whenever `lambda>0`. A spatial SIRS process has the same obstruction.
+
+This yields a structural catalytic-birth filter:
+
+> a positive neighbour-dependent `0->r` target mode with no compensating active-source transition into `r` forces a negative source-preserving hidden coefficient; if the source-`r` record can repeat, typed patch positivity fails locally.
+
+Thus ordinary contact/SIRS catalytic-birth models are poor candidates for positive applications of this particular indicator-basis patch positivity mechanism.
+
+The next useful application test, if continued, should come from a structurally distinct published three-state replacement model with genuinely interacting active labels. Generic `d>3` positivity algebra remains deferred.
