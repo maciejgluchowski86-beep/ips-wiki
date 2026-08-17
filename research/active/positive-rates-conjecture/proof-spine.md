@@ -19,63 +19,79 @@ $$
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-## E0. Current route status
+## E0. Route status
 
-Closed/stopped mechanisms include fixed finite walls, cellwise nonnegative insertion, one-step centered `L^1`, crude scalar sup criteria, exposed-only and full nearest-neighbour scalar coupling products, depth-uniform finite common-mass mode closure, raw finite-window Hamming enumeration, and larger exposure-state ancestry tracking.
+Closed/stopped mechanisms include fixed walls, cellwise nonnegative insertion, one-step centered `L^1`, crude scalar sup criteria, exposed-only and full nearest-neighbour scalar coupling products, depth-uniform finite common-mass mode closure, raw finite-window Hamming enumeration, and larger exposure-state ancestry tracking.
 
-Meeting 019 abandons common-uniform global coalescence / zero-frequency disagreement occupation as the load-bearing disagreement interface.
+Meeting 019 abandons common-uniform global coalescence / zero-frequency disagreement occupation as the load-bearing interface.
 
-Meeting 021 records the current centered predecessor-trail/profile implementation as exhausted after both signed recombination and short-time light-cone screening reduce to unresolved spatial tail-shift memory.
+Meeting 021 records the current centered predecessor-trail/profile implementation as exhausted after recombination and finite propagation both terminate at zero-frequency spatial tail memory.
 
-Outside consultation 002 returns `no-credible-route`: no currently identified direct-spatial, alternative-coupling, or alternative-transform architecture supplies a new rate-level proof mechanism.
+Consultation 002 proves the exact trajectory-valued spatial kernel `Q` but also
 
-Meeting 022 does not reopen any of those implementations. It opens one logically prior **route-decision** question: whether the absolute-duration `J` target itself is false at a strict residual point.
+$$
+Q(\mathbf0,\cdot)\perp Q(\mathbf1,\cdot),
+$$
 
-## E1. Exact predecessor-trail sufficient quantity
+so global path-space TV/KL contraction is unavailable.
+
+Meeting 023 adds a genuinely different architecture: a finite-dimensional stationary occupation-control hierarchy on one-time marginals.
+
+## E1. Predecessor-trail route-decision object retained
 
 Put
 
 $$
-B=b+c-a,\qquad g=b-a,\qquad\omega=1-c+a,
+B=b+c-a,\qquad g=b-a,\qquad \omega=1-c+a,
 \qquad w(u)=e^{-\omega u}s_1(u).
 $$
 
-The accepted predecessor-trail reduction gives
+The accepted predecessor-trail reduction gives the sufficient absolute-duration quantity
+
+$$
+J_{x,r}
+=B g^{n-1}\int\left(\prod_k w(u_k)\right)|\pi^0_{m,r}(F_{x,u})|du.
+$$
+
+For singleton depth `n`, write
+
+$$
+J_n=\frac gB N_n,
+$$
+
+and
+
+$$
+\rho_J(a,b,c)=\limsup_{n\to\infty}J_n^{1/n}.
+$$
+
+Student G Assignment 009 decides the route-level alternative
 
 $$
 \boxed{
-J_{x,r}
-=B g^{n-1}\int\left(\prod_k w(u_k)\right)
-|\pi^0_{m,r}(F_{x,u})|du.
+\rho_J>1\text{ at a strict residual point}
+\quad\text{or}\quad
+\rho_J<1\text{ on a genuine residual region.}
 }
+\tag{J-SPEC}
 $$
 
-Decay of `J_{x,r}` with depth is sufficient for the nonempty-exit term after the exact right-region contribution is bounded by a uniform absolute survival constant.
+Finite-depth growth alone is not decisive.
 
-This is a **sufficient bound**, not the exact final ergodicity integral.
+A proof `rho_J>1` refutes the **absolute-duration domination** at that point, not the exact predecessor-trail identity or ergodicity.
 
-Every duration remains inside the modulus at this stage; the Meeting-009 norm-order obstruction forbids cancellation between different duration values after absolute values have been taken.
+## E2. Exhausted signed-profile interface
 
-## E2. Why the previous proof implementation is exhausted
+The old profile implementation established strict one-segment damping, exact operator-valued transfer, suffix projectivity, fixed-suffix positive-frequency localization, and exact two-insertion formulas.
 
-The profile route established:
-
-- strict one-segment regenerated-mass and first-transient damping;
-- exact operator-valued signed transfer;
-- impossibility of fixed depth-uniform finite linear mode closure;
-- suffix projectivity;
-- positive-frequency localization of fixed one- and two-site suffix observables;
-- exact unsplit two-insertion spectral decomposition;
-- a short-time light-cone normal form.
-
-But the unsplit transfer contains a genuine zero temporal-frequency projection. At two insertions the static and short-time defects retain
+F013 proves that the unsplit two-insertion transfer retains a genuine zero temporal-frequency projection. F014 proves that fixed-suffix mixing and finite propagation leave the two-step tail-shift law
 
 $$
 \Delta_M^{(2)}
 =\|\theta^2\mu-\mu\|_{\mathcal F_M},
 $$
 
-and F014 proves only the conditional estimate
+with
 
 $$
 \Gamma_M
@@ -83,167 +99,185 @@ $$
 c^2Z\Delta_{\lceil M/2\rceil}^{(2)}+Ce^{-\gamma M}.
 $$
 
-No independent mechanism for the one-/two-step tail-shift theorem is known. Further third-insertion, generic observability, spectral-gap, or matrix-norm variants are stopped.
+No independent theorem controls this law. Further local profile composition is stopped.
 
-## E3. Why the common-coupling implementation is exhausted
+## E3. Exhausted common-uniform occupation interface
 
-For finite common-uniform disagreement seeds:
+For finite common-uniform disagreement seeds, every fixed site eventually couples permanently and possible survival is convective escape. The retained first-exposure exploration has an explicit front tail, but G008 proves that the projected state forgets post-coalescence ancestry and robust zero-frequency closure loses every strict contraction factor.
 
-- every fixed site eventually couples permanently;
-- possible survival is convective escape to `-infinity`;
-- first-discovery fronts have explicit exponential finite-time tails;
-- the full Hamming coefficient has a convergent fixed-boundary approximation and is `>1` for `0<t<=47` at the hard point.
+The missing all-depth return variable is itself a disagreement occupation quantity. Global common-uniform occupation is stopped as the proof interface.
 
-The retained two-spin exploration is not Markov across distinct source episodes. Robust zero-frequency closure over hidden right ancestry loses every strict contraction factor, and the missing all-depth source-return variable is itself an occupation observable. Global common-uniform occupation is therefore no longer pursued as a proof interface.
+## E4. Trajectory-valued spatial kernel is exact but not contractive globally
 
-## E4. Exact trajectory-valued spatial representation
-
-Consultation 002 identifies a genuinely different exact object.
-
-Let
+The one-sided stationary trajectory field is Markov in space on
 
 $$
-\mathscr X=D(\mathbb R,\{0,1\}).
+D(\mathbb R,\{0,1\})
 $$
 
-Given a complete right-neighbour trajectory `y`, use the local graphical decomposition to define the entire trajectory of the site to its left. Since neighbour-independent resets occur at rate
+with kernel `Q` defined by the local graphical construction.
 
-$$
-\omega=a+1-c>0,
-$$
+However constant-zero and constant-one inputs produce mutually singular stationary output path laws. Hence the full path-space Dobrushin coefficient is one and TV/KL may be transmitted isometrically.
 
-the output is determined from `y` and the site marks on the whole time line. This defines a spatial trajectory kernel
+Weak ergodicity of the reachable zero-boundary orbit remains open, but no independent rate-level mechanism is currently known.
 
-$$
-Q(y,dx).
-$$
+## E5. New exact stationary occupation-control hierarchy
 
-Finite zero-boundary stationary trajectory fields are exactly Markov in space with transition `Q`; their time-zero projections are `pi_N`.
-
-However
-
-$$
-\boxed{Q(\mathbf0,\cdot)\perp Q(\mathbf1,\cdot).}
-$$
-
-The asymptotic occupation fractions separate these laws except on `a=b(1-c)`; the asymptotic jump frequencies separate them on that surface. Therefore the Dobrushin coefficient of `Q` is one, and on mixtures of the two constant inputs both TV and relative entropy are transmitted isometrically.
-
-**Status:** exact direct-spatial representation, but the natural full path-space contraction principle is false. Weak ergodicity of the reachable zero-boundary orbit remains open and presently has no independent rate-level mechanism.
-
-## E5. Principal finite-box evidence changes the target hierarchy
-
-Durable note:
-
-`notes/principal-target-hierarchy-and-j-norm-evidence.md`.
-
-For singleton depth `n`, let `J_n` be the canonical absolute-duration quantity. The principal's separate computation uses a normalization `N_n` with
-
-$$
-J_n=\frac gB N_n.
-$$
+Use the complemented spin `xi=1-eta`, so `1` is the East facilitator. Let `L_N^u` be the generator on `N` sites with right-boundary control `u in {0,1}`.
 
 Define
 
 $$
 \boxed{
-\rho_J(a,b,c)
-:=
-\limsup_{n\to\infty}J_n^{1/n}
+\mathcal K_N
 =
-\limsup_{n\to\infty}N_n^{1/n}.
+\left\{
+ m(x,u)\ge0:
+ \sum_{x,u}m(x,u)=1,
+ \quad
+ \sum_{x,u}m(x,u)L_N^uF(x)=0
+ \ \forall F
+\right\}.
 }
+\tag{K}
 $$
 
-The principal reports finite-depth growth at strict residual points, most strongly at
+Meeting 023 proves:
+
+1. every infinite-volume invariant law projects into `K_N`;
+2. every `m in K_N` is realized by a finite chain with a randomized state-dependent boundary controller;
+3. the projection of `K_{N+1}` using the old boundary spin as the new control lies in `K_N`.
+
+For local `h`, define
 
 $$
-P_*
-=\left(\frac1{1000},\frac1{10},\frac{9999}{10000}\right),
+D_N(h)
+=
+\sup_{m\in\mathcal K_N}m(h)
+-
+\inf_{m\in\mathcal K_N}m(h).
 $$
 
-where
+Then
 
 $$
-N_{10}\approx2.3975,
-\qquad
-\left(\frac{N_{10}}{N_7}\right)^{1/3}\approx1.153.
+\boxed{D_{N+1}(h)\le D_N(h).}
 $$
 
-This evidence is not an asymptotic theorem. It is strong enough to make the truth of `J_n->0` itself the immediate route-decision question.
+If
 
-## E6. Active target `(J-SPEC)`
+$$
+D_N(h)\to0
+$$
 
-The active problem is
+for every local `h`, the infinite IPS has a unique invariant measure.
+
+## E6. Exact Bellman/Poisson dual
+
+Finite LP duality gives
 
 $$
 \boxed{
-\text{either prove }\rho_J<1\text{ throughout the residual chamber,
- or prove }\rho_J>1\text{ at one strict residual point.}
+U_N(h)
+=
+\inf_F\max_{x,u}\bigl(h(x)-L_N^uF(x)\bigr),
 }
-\tag{J-SPEC}
 $$
 
-Student G Assignment 009 attacks the second alternative at `P_*` first.
+$$
+\boxed{
+\ell_N(h)
+=
+\sup_F\min_{x,u}\bigl(h(x)-L_N^uF(x)\bigr),
+}
+$$
 
-A valid proof of
+and
 
 $$
-\rho_J(P_*)>1
+\boxed{D_N(h)=U_N(h)-\ell_N(h).}
 $$
 
-must contain an asymptotic mechanism: block regeneration/minorization, an embedded positive operator with spectral radius above one, a repeatable sign/duration sector, or another theorem implying exponential lower growth. Larger finite-depth numerical values alone do not decide `(J-SPEC)`.
+Thus static screening can be proved by correctors valid simultaneously for both boundary controls at every state.
 
-If `rho_J>1` is proved at one strict residual point, then the present absolute-duration `J` strategy is **refuted there**. The exact predecessor-trail identity survives; what fails is the step which dominates the exact right-region contribution by its absolute survival bound and thereby discards duration/right-region cancellation.
+This is structurally different from trajectory-kernel contraction: it controls one-time stationary local marginals under an adversarial boundary-control relaxation.
 
-If `rho_J<1` is proved on a genuine residual region, the absolute-duration criterion survives there, though the exhausted implementation for proving it still needs replacement.
+## E7. Active static multiscale target
 
-If Assignment 009 returns unresolved with only deeper finite-box evidence and no asymptotic mechanism, revert to consultation 002's `no-credible-route` state and keep both students idle.
-
-## E7. Signed resolvent cancellation is a later possibility, not an active theorem
-
-The principal's finite-box study reports that signed duration-resolvent pairings are orders of magnitude smaller than the absolute-duration norm at the apparent growth points. At `P_*`, the reported depth-ten comparison is approximately
+The principal proposes
 
 $$
-N_{10}=2.3975,
+\boxed{
+D_{2N}(h)
+\le
+(1-\rho)D_N(h)+Ce^{-\gamma N}
+}
+\tag{R}
+$$
+
+for fixed residual rates and all large `N`, or another scale-recursive theorem forcing `D_N(h)->0`.
+
+Student F Assignment 015 must decide whether finite Bellman/Poisson correctors **concatenate** into such a repeatable theorem.
+
+Larger finite LPs, smaller numerical diameters, or exact single-scale certificates without a repeatability theorem do not establish `(R)`.
+
+## E8. Hard-East ingredient and missing robustness
+
+In the complemented convention,
+
+$$
+0\to1\text{ at rate }a+(b-a)\xi_{i+1},
 \qquad
-|L_{10}(0)|=0.00325.
+1\to0\text{ at rate }(1-c)+c\xi_{i+1}.
 $$
 
-This suggests essential cancellation discarded by `J`, but the evidence is numerical.
+The principal's intended mechanism is that neighbour-independent soft resets create facilitators, after which hard-East relaxation screens a macroscopic subblock.
 
-Possible later targets are:
+The KCM-book inputs checked by the Professor are:
 
-1. `(ML)`: scalar multivariate Laplace/resolvent decay;
-2. `(JT)`: decay of the **actual** signed predecessor-trail integral with the exact duration-dependent right-region contribution retained;
-3. `(MR)`: a matrix/operator resolvent theorem if the exact right-region class closes under a finite family of segment operators.
+- East Theorem 7.6: exponential convergence of local observables once a facilitator is present in the oriented future;
+- East Theorem 7.8: linear finite-volume mixing time with empty or ergodic boundary.
 
-Do not start `(ML)` merely because sampled resolvent values are small. It becomes relevant to ergodicity only after the exact right-region recursion is reconstructed and shown to admit the needed representation.
+These pure-East theorems do not directly imply `(R)` in the controlled noisy chain. The load-bearing missing statement is a robustness/censoring or Bellman concatenation theorem which survives all soft reset marks and every state-dependent boundary controller.
 
-## E8. Decision tree after Assignment 009
+Conditioning on the absence of soft noise over an `O(N)` spacetime block cannot provide the fixed screening probability required by `(R)`.
 
-If `rho_J>1` is proved:
+## E9. Static-to-dynamic gap
 
-1. close the absolute-duration `J` strategy at that parameter point;
-2. do not infer nonergodicity;
-3. reconstruct the exact right-region class `R_{n,u}` from the predecessor-trail identity before proposing a signed resolvent norm;
-4. require any new continuation to retain the cancellation which the absolute survival bound erased.
+Even if `(R)` proves
 
-If `rho_J<1` is proved on a genuine region:
+$$
+D_N(h)\to0,
+$$
 
-1. record a partial route theorem;
-2. do not revive the exhausted profile implementation automatically;
-3. ask what new mechanism proves the absolute norm contraction asymptotically.
+this yields uniqueness of the invariant measure, not yet convergence from every initial law.
 
-If unresolved without a new asymptotic mechanism:
+A later target would be uniform distributional screening of far-right perturbations, schematically
 
-1. no larger-`n` continuation;
-2. no new proof architecture is presently credible;
-3. students idle until genuinely new input arrives.
+$$
+S_N(h)
+\le
+C_h\left(D_{\lfloor N/2\rfloor}(h)+e^{-\gamma N}\right).
+\tag{ZF}
+$$
 
-## E9. Final reconstruction only after a valid all-depth decay theorem
+Together with the already proved local disappearance of finite disagreement seeds, `(ZF)` would imply convergence by a splice argument.
 
-Only after some future architecture proves the relevant exact predecessor-trail contribution decays should the group audit Poisson--Mecke factorization, the no-exit complement, and the final convergence-to-ergodicity implication.
+`(ZF)` is not active until the static screening mechanism is established.
+
+## E10. Current decision tree
+
+Two tasks are active and logically independent:
+
+1. **G009 / `(J-SPEC)`**: determine whether the old absolute-duration predecessor-trail norm is asymptotically supercritical. If unresolved without a new asymptotic mechanism, stop that branch.
+2. **F015 / stationary screening**: determine whether the controlled stationary LP correctors admit a repeatable multiscale contraction. If unresolved with only finite-box shrinkage, stop that route rather than enlarge `N`.
+
+No third route is authorized.
+
+If F015 succeeds on a genuine residual region, continue the static stationary-law route and only then address the dynamic upgrade.
+
+If both tasks fail to produce a structural theorem, return to the `no-credible-route` state.
 
 ## Anti-circularity checkpoint
 
-Do not infer asymptotic `J` growth from finite depths; integrate duration before the required modulus; revive closed scalar/coupling architectures; rename trajectory weak ergodicity as a solution; treat sampled signed resolvents as certified; or begin `(ML)/(JT)/(MR)` before `(J-SPEC)` and the exact right-region recursion justify them.
+Do not infer asymptotic `J` growth from finite depths; infer multiscale screening from shrinking finite LP widths; invoke pure-East mixing as if it already controlled the noisy state-dependent boundary process; treat uniqueness as convergence; revive stopped predecessor-trail/common-coupling architectures; or use path-space `Q` contraction, which is exactly false globally.
