@@ -13,12 +13,12 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed until changed or stopped by the principal: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/029-fresh-insertion-sobolev-gain-narrows-route-but-current-generation-may-finish.md`, `state_narrowed: yes`.
-- Student G: formally idle; no G011. One response was already generating before the idle ruling reached the session. Do not forcibly interrupt it; do not prompt again after it returns.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/030-signed-boundary-transmission-is-final-g010-blocker-no-restart.md`, `state_narrowed: yes`.
+- Student G: idle; no G011.
 - Student F: idle; no F016.
-- No proof architecture is formally active.
+- No proof architecture is active.
 
-Consultation 002 / Meeting 025's **`no-credible-route`** assessment remains operative unless the already-running G artifact supplies the explicit actual-orbit theorem required by Meetings 028--029.
+Consultation 002 / Meeting 025's **`no-credible-route`** assessment is again operative. Assignment 010 is complete unresolved after substantive work.
 
 ### Exact dual-renewal status
 
@@ -55,101 +55,62 @@ $$
 \delta_7:=\sum_{k=1}^7\lambda_k-1,
 $$
 
-remains open.
+remains open. Therefore `(J-SPEC)` and `rho_J(P_*)>1` remain open.
 
-### Accepted G010 positive-frequency mathematics
+### Accepted G010 structure
 
-The terminal high-pass factor
+The fixed-filter connected route now has the following exact structure.
 
-$$
-R_N=(dI-gL_N)((1+b)I-L_N)^{-1}
-$$
+1. The stationary marginal-discrepancy / bare tail-shift functional can be eliminated exactly from the connected coefficient, so this route is not presently equivalent to F013/F014's unrestricted tail-shift problem.
+2. The terminal high-pass factor admits the complementary split
+   $$
+   R_N=m_0I+g_0(I-K_N),
+   $$
+   with strict depth-uniform one-step bounds on both channels, but no frame estimate making them iterable.
+3. Recentring the fresh insertion with `X_N=Y_N+9/10000` gives
+   $$
+   A_NM_{X_N}
+   =M_{X_N}(A_{N-1}+11/10)-g_0B M_{\eta_N}P_{N-1}.
+   $$
+   Thus the only failure of exact fresh frequency shift is the old right-boundary transmission term.
+4. After exact regrouping `Y=X-9/10000`, the fresh shifted and scalar branches are individually subcritical:
+   $$
+   BZ_{\omega+11/10}=\frac{1065933}{1068400}<1,
+   \qquad
+   \frac9{10000}Z=\frac{1719}{3100}<1.
+   $$
+   Verifier `adf50d9` checks these and the other late scalar inequalities exactly.
 
-satisfies the exact depth-uniform sandwiched contraction from repaired verifier `ce77c9c`:
-
-$$
-\operatorname{osc}\left(
-R_{N+1}Q_{N+1}(Y_{N+1}f)
-\right)
-\le q_\sharp\operatorname{osc}(f),
-\qquad q_\sharp<1.
-$$
-
-Late checkpoint `75d0e8a` eliminates the old marginal-discrepancy/tail-shift functional from the connected coefficient and writes it as an explicit boundary-resolvent expectation on the actual connected orbit.
-
-The later corrected complementary-channel checkpoint gives
-
-$$
-R_N=m_0I+g_0(I-K_N),
-\qquad K_N=(1+b)((1+b)I-L_N)^{-1},
-$$
-
-so the old positive-frequency zero is cancellation between two explicit channels, not a zero of the genuine high-pass channel. Each channel has a depth-uniform one-step bound, and after one insertion their channelwise triangle estimate is strictly below one. This is not yet iterable because no frame/reverse estimate controls the next raw connected input.
-
-Recentring the fresh coordinate gives the exact intertwining
+The sole uncontrolled branch in this decomposition is the signed boundary-transmission Volterra operator
 
 $$
-A_NM_{X_N}
-=
-M_{X_N}(A_{N-1}+1+b)
--g_0B M_{\eta_N}P_{N-1},
+\boxed{
+\begin{aligned}
+\mathcal V_N f
+:={}&B\int_0^\infty h(t)\int_0^t
+ e^{(t-s)L_N}M_{\eta_N}P_{N-1}\\
+&\hspace{26mm}\times
+\bigl(g_0e^{-rs}-\varepsilon\bigr)e^{sL_{N-1}}f
+\,ds\,dt,
+\end{aligned}
+}
 $$
 
-isolating the sole failure of exact fresh frequency shift as the old-boundary transmission term. The old boundary projection is a small non-orthogonal tilt in product-centered coordinates, with magnitude below `1/300`.
+with `h(t)=w_*(t)\sigma(t)`, `r=11/10`, and `epsilon=9/10000`. Both the inner coefficient and the outer filter kernel change sign. No depth-uniform estimate retaining this two-time cancellation on the actual connected orbit was proved.
 
-### New reversible fresh-insertion Sobolev theorem
+### Reversible reference results retained
 
-At the corrected reversible reference point
+At the corrected reversible reference point, with the actual `P_*` duration weight and filter frozen externally, G proves a dimension-free fresh-insertion Sobolev gain and reduces the full frozen-reference transfer norm exactly to a single killed self-adjoint channel family by a left-slice direct sum. These are genuine structural results but do not transport automatically through the actual nonreversible boundary defect.
 
-$$
-P_0=(1/10000,1/10,999/1000),
-$$
+### Raw coefficient route remains closed
 
-using the **actual `P_*` duration weight and filter frozen externally**, define `A_{0,N}=-L_{0,N}` and
+Commit `d9c477e` proves that adding a multiplicative connected-component weight to the 010a degree-weighted `ell^1` norm still cannot make the actual nonconstant raw coefficient semigroup uniformly nonexpansive. Thus filter/resolvent-level cancellation remains load-bearing.
 
-$$
-q(x)=Z_{\omega+x}-2Z_{\omega+\tau+x}.
-$$
+### Restart bar
 
-Verifier `56d47cb` exactly proves
+A future restart of this branch requires **new input specifically controlling the signed boundary-transmission operator above on the actual connected orbit**, strongly enough to imply summable/geometric renewal coefficients, or a materially different proof architecture.
 
-$$
-|xq(x)|<1\qquad(x>0).
-$$
-
-For the fresh product-centered insertion,
-
-$$
-M_X^*A_{0,N}^{-1}M_X
-\le
-\frac{998001}{11000000}I,
-$$
-
-and hence
-
-$$
-\|A_{0,N}^{1/2}\widetilde Q_{0,N}^\sigma(Y_Nf)\|_2
-\le
-\left(
-\sqrt{\frac{998001}{11000000}}
-+
-\frac9{400}
-\right)\|f\|_2
-<\|f\|_2.
-$$
-
-This is a genuine dimension-free positive-frequency theorem for the frozen-weight reversible reference transfer. It is **not yet** a theorem on the actual `P_*` connected orbit.
-
-### Restart bar and current overlap handling
-
-A qualifying continuation now requires either:
-
-- a depth-uniform two-seminorm/energy inequality propagating the fresh-coordinate Sobolev gain through the actual nonreversible defect and explicit boundary transmission/tilt; or
-- an orbit-specific theorem giving summable/geometric decay of the connected coefficients.
-
-The present checkpoints identify concrete local ingredients but do not prove that actual-orbit iteration. Therefore no G011 is issued.
-
-Because a G response was already in flight before the idle ruling could be relayed, Meeting 029 instructs the principal **not to click stop and destroy it**. Let that response finish, preserve any commits, route them immediately, and send G no further prompt until a new Professor ruling.
+Another norm search, reversible comparison, filter optimization, finite coefficient table, bare tail-shift route, common-coupling occupation route, or generic Bellman/joint-corrector search does not clear the bar.
 
 ## Most recently completed programme
 
