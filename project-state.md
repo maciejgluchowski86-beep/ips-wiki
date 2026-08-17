@@ -4,7 +4,7 @@ This file is the compact current-state index for the autonomous research program
 
 ## Standing novelty standard
 
-A quantitatively improved instance of an existing arbitrary-size/window/order method does not count as a new project result merely because it improves a numerical constant or range. Qualifying work must add structural mathematics or resolve/correct the target problem.
+A quantitatively improved instance of an existing arbitrary-size/window/order method does not count as a new project result merely because the computation is exact, the witness is larger, or the constant is better. Qualifying work must add structural mathematics or resolve/correct the target problem.
 
 ## Principal-fixed active scientific direction
 
@@ -13,9 +13,10 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed until changed or stopped by the principal: prove that every simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/022-no-credible-proof-architecture-but-j-route-decision-reopened.md`, `state_narrowed: yes`.
-- Student G: active on `students/student-g/assignment-009.md`, one bounded asymptotic route-decision block on `(J-SPEC)`.
-- Student F: idle.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/023-stationary-boundary-control-hierarchy-reopens-one-proof-test.md`, `state_narrowed: yes`.
+- Student G: active on `students/student-g/assignment-009.md`, asymptotic `(J-SPEC)` route decision; mathematical task unchanged, with an intermediate-commit durability addendum after two session freezes.
+- Student F: active on `students/student-f/assignment-015.md`, stationary boundary-control corrector-concatenation feasibility test.
+- No third route/session is authorized.
 
 On `r11=0`, with
 
@@ -23,89 +24,102 @@ $$
 a=r_{00},\qquad b=r_{01},\qquad c=r_{10},
 $$
 
-the unresolved residual chamber is
+the residual chamber is
 
 $$
 \mathcal R=
 \left\{0<a<b,\ \frac12\le c<1,\ c\ge a+b,\ b\ge\sqrt2(1-c)\right\}.
 $$
 
-### Route status
+### Stopped routes
 
-Meeting 019 abandons common-uniform global coalescence / zero-frequency disagreement occupation as the load-bearing disagreement interface.
+Meeting 019 abandons common-uniform global coalescence / zero-frequency disagreement occupation as the load-bearing proof interface.
 
-Meeting 021 records the current centered predecessor-trail/profile implementation as exhausted after signed recombination and light-cone screening both reduce to unresolved one-/two-step tail-shift memory.
+Meeting 021 records the current centered predecessor-trail/profile implementation as exhausted after recombination and finite propagation both reduce to one-/two-step spatial tail memory.
 
-Outside consultation 002 returns `RECOMMENDATION: no-credible-route`. It constructs an exact trajectory-valued spatial kernel `Q` for the stationary system, but proves
+Consultation 002 constructs an exact trajectory-valued spatial kernel `Q` but proves
 
 $$
 Q(\mathbf0,\cdot)\perp Q(\mathbf1,\cdot),
 $$
 
-so full path-space Dobrushin/TV and KL contraction are unavailable. No independent mechanism was found for weak ergodicity of the reachable `Q`-orbit, an alternative coupling, or a new transform.
+so global path-space TV/KL contraction is unavailable. Meeting 023 records that the new occupation-control hierarchy acts on one-time stationary marginals and is not this path-space architecture.
 
-The consultant's `no-credible-route` judgment is accepted as the current **proof-architecture** assessment.
+### Active route-decision question `(J-SPEC)`
 
-### New principal target hierarchy
-
-The principal independently ran finite-box calculations on the canonical singleton predecessor-trail absolute-duration norm. Durable note:
-
-`research/active/positive-rates-conjecture/notes/principal-target-hierarchy-and-j-norm-evidence.md`.
-
-For singleton depth `n`, normalize the canonical absolute-duration quantity as
+For singleton depth `n`, the canonical absolute-duration predecessor-trail quantity satisfies
 
 $$
 J_n=\frac gB N_n,
-\qquad
-B=b+c-a,
-\qquad g=b-a,
+\qquad B=b+c-a,\quad g=b-a,
 $$
 
-and define
+and
 
 $$
-\boxed{
-\rho_J(a,b,c)
-:=
-\limsup_{n\to\infty}J_n^{1/n}
+\rho_J(a,b,c)=\limsup_{n\to\infty}J_n^{1/n}.
+$$
+
+Principal finite-box evidence suggests apparent growth at
+
+$$
+(a,b,c)=\left(\frac1{1000},\frac1{10},\frac{9999}{10000}\right),
+$$
+
+but this is not an asymptotic theorem. G009 must prove `rho_J>1` by a repeatable embedded mechanism, or prove a genuine opposite theorem. Larger finite-depth numerics alone do not count.
+
+If G009 is unresolved without a new asymptotic mechanism, the `J-SPEC` branch stops. It no longer stops the whole programme automatically while F015 is active.
+
+### New stationary boundary-control hierarchy
+
+Durable principal note:
+
+`research/active/positive-rates-conjecture/notes/principal-stationary-boundary-control-strategy.md`.
+
+In complemented spins, let `L_N^u` be the `N`-site generator with fixed right-boundary control `u in {0,1}` and define
+
+$$
+\mathcal K_N
 =
-\limsup_{n\to\infty}N_n^{1/n}.
-}
+\left\{
+ m(x,u)\ge0:
+ \sum m=1,
+ \quad
+ \sum_{x,u}m(x,u)L_N^uF(x)=0\ \forall F
+\right\}.
 $$
 
-The immediate route-decision target is
+Meeting 023 independently verifies:
+
+- every infinite invariant law projects into `K_N`;
+- every `m in K_N` is realized by a finite chain with a randomized state-dependent boundary controller;
+- the hierarchy is nested under block projection;
+- for local `h`,
+  $$
+  D_N(h)=\sup_{m\in K_N}m(h)-\inf_{m\in K_N}m(h)
+  $$
+  is nonincreasing in `N`;
+- exact LP duality gives upper/lower Bellman--Poisson correctors with `D_N=U_N-ell_N`.
+
+Hence
 
 $$
-\boxed{
-\text{either prove }\rho_J<1\text{ throughout the residual chamber,
- or prove }\rho_J>1\text{ at one strict residual point.}
-}
-\tag{J-SPEC}
+D_N(h)\to0\quad\text{for every local }h
 $$
 
-The principal's numerical evidence is not yet independently verified asymptotically, but it reports apparent growth at
+would prove uniqueness of the invariant measure without assuming translation invariance.
+
+The proposed load-bearing multiscale theorem is a recursion such as
 
 $$
-(a,b,c)=\left(\frac1{1000},\frac1{10},\frac{9999}{10000}\right)
+D_{2N}(h)\le(1-\rho)D_N(h)+Ce^{-\gamma N}.
 $$
 
-with `N_10≈2.3975` and three-depth ratio about `1.153`.
+F015 must determine whether finite dual correctors **concatenate** into such a repeatable theorem, or identify a precise obstruction. Smaller finite LP widths or larger single-scale certificates do not count.
 
-Student G Assignment 009 must decide this by an asymptotic certificate, not by larger finite-depth Monte Carlo.
+The cited KCM-book East results support pure-East relaxation behind a facilitator, but they do not directly handle the noisy process with arbitrary state-dependent boundary control. Robustness to the soft resets/controller is an unresolved load-bearing step.
 
-### Why `(J-SPEC)` is allowed after the route stop
-
-Meeting 021 stopped attempts to **prove** `J->0` by the existing profile implementation. `(J-SPEC)` asks whether `J->0` itself is false. This is a logically prior route-killing question justified by new principal evidence and does not reopen third insertions, generic observability, common-coupling occupation, trajectory-kernel exactness, or matrix-product engineering.
-
-If `rho_J>1` is proved at one strict residual point, the absolute-duration `J` strategy is refuted there. The exact predecessor-trail identity remains valid; future work would have to retain signed right-region/duration cancellation which the uniform absolute survival bound discards.
-
-If Assignment 009 returns unresolved with only deeper finite-depth evidence and no asymptotic mechanism, return to consultation 002's `no-credible-route` state and keep both students idle until genuinely new input arrives.
-
-### Later signed-resolvent ideas are not active
-
-The principal's study reports very strong cancellation in signed duration-resolvent pairings at the apparent growth points and proposes later targets `(ML)`, `(JT)`, and possibly `(MR)`.
-
-These are not active tasks. The scalar resolvent target is only a proxy until the exact duration-dependent right-region class is reconstructed and linked to the ergodicity integral.
+Static collapse would prove uniqueness only. A later dynamic screening theorem would still be needed for convergence from arbitrary initial laws.
 
 ## Most recently completed programme
 
