@@ -12,23 +12,25 @@ Principal target: compile a broad, concise, self-contained literature toolbox of
 
 Breadth is intentional and model-specific methods are in scope.
 
-Latest meeting: `meetings/013-wave-five-audited-integrated-wave-six-opened.md`.
+Latest meeting: `meetings/014-wave-five-structural-verification.md`.
 
 ## Publication status
 
-All **57** staged entries have now passed Professor source audit and all 57 have live counterparts under `docs/entries/`.
+All **57** staged entries have passed Professor source audit, all 57 have live counterparts under `docs/entries/`, and the full wave-one-through-five public layer has now passed structural verification.
 
-The principal's pre-audit structural snapshot reported:
+The principal/orchestrator reports on the integrated tree at `aa28743`:
 
 ```text
 Checked 57 entries; 0 failed mechanical validation.
 ```
 
-Wave five added thirteen live pages, preserving staged slugs, and extended only the toolbox hub and existing MkDocs navigation in the public layer. A GitHub comparison from the wave-four integration head `84feb506` confirms thirteen `docs/entries/` additions and no other `docs/` path beyond the hub modification.
+and `mkdocs build --strict` exits 0 with no warnings and no broken internal links. The only INFO output is unchanged legacy material: seven pre-existing pages absent from navigation and one pre-existing absolute-link note on the coarsened-patches page.
 
-The **post-wave-five strict MkDocs/build/link check is still pending**. The repository workflow builds automatically only on `main`, and Meeting 013 did not claim a branch build result. The principal/orchestrator should rerun `validate_entries.py` and `mkdocs build --strict` against the final 57-page branch before declaring the new public layer mechanically verified.
+Completeness is exact: 57 staged entries, 57 promoted pages, 57 hub links, zero unresolved links, no promoted page missing from the hub, and no hub link without a page. Every promoted toolbox page contains `status:` and `audit:` metadata, and all 154 MkDocs `.md` navigation targets resolve to real files.
 
-`validate_entries.py` checks structure only. Source/claim acceptance is the Professor audit recorded in Meetings 002--005, 010, and 013.
+Legacy safety also passes. `git diff origin/main..research/ergodicity-methods-toolbox -- docs/` remains additions-only with zero non-additions. Wave five has exactly thirteen added method pages plus modifications confined to `docs/ergodicity-methods.md` and `mkdocs.yml`.
+
+`validate_entries.py` and the MkDocs checks are structural only. Source/claim acceptance is the Professor audit recorded in Meetings 002--005, 010, and 013.
 
 The repository-wide article layout remains unchanged for this programme: toolbox pages live in `docs/entries/`. The separate principal-level directory question is not reopened by the Professor.
 
@@ -69,8 +71,8 @@ Generic boundary-uniform projective coupling and generic common/basic coupling r
 
 ## Current live coverage
 
-Fifty-seven source-audited methods are live. Wave five added bootstrap/legal-path KCSM transfer, long-range good-path Poincare, nested mobile-droplet renormalisation, CBSEP auxiliary comparison, super-Poincare reaction/diffusion decomposition, tightness/compactness construction of infinite-particle dynamics, successful coupling of fixed-size finite duals, second-class microscopic shocks, maximal local Potts coupling, competition-interface regeneration, two-level contact restart complete convergence, asymptotic binding coupling, and asymptotic reflection coupling.
+Fifty-seven source-audited and mechanically verified methods are live. Wave five added bootstrap/legal-path KCSM transfer, long-range good-path Poincare, nested mobile-droplet renormalisation, CBSEP auxiliary comparison, super-Poincare reaction/diffusion decomposition, tightness/compactness construction of infinite-particle dynamics, successful coupling of fixed-size finite duals, second-class microscopic shocks, maximal local Potts coupling, competition-interface regeneration, two-level contact restart complete convergence, asymptotic binding coupling, and asymptotic reflection coupling.
 
 ## Next Professor action
 
-Source-audit the next completed wave-six handoff. Do not promote a wave-six entry before its primary theorem chain and proof-interface distinctness have been checked. Separately, the principal/orchestrator should close the pending 57-page structural build gate.
+Source-audit the next completed wave-six handoff. Do not promote a wave-six entry before its primary theorem chain and proof-interface distinctness have been checked.
