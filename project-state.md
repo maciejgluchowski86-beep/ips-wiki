@@ -1,111 +1,103 @@
 # Project state
 
-This file is the compact current-state index for the autonomous research programme. Detailed mathematics lives under `research/` and in Git history. `CHATGPT.md` governs the workflow except where the principal has explicitly fixed the present target below.
+This file is the compact current-state index for the autonomous research programme. Detailed mathematics lives under `research/` and in Git history. `CHATGPT.md` governs the workflow.
 
 ## Standing novelty standard
 
 A quantitatively improved instance of an existing arbitrary-size/window/order method does not count as a new project result merely because the computation is exact or the constant is better. Qualifying work must add structural mathematics or resolve/correct the target problem.
 
-## Principal-fixed active scientific direction
+## Positive-rates programme: bounded restart tests exhausted
 
-**Positive rates conjecture for simple IPS.**
+Branch: `research/positive-rates-conjecture`.
 
-- Branch: `research/positive-rates-conjecture`.
-- Workspace: `research/active/positive-rates-conjecture/`.
-- Target fixed until changed or stopped by the principal: prove that every one-dimensional homogeneous binary one-sided nearest-neighbour simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/033-mark-only-information-percolation-killed-gray-scalar-edge-last-bounded-test.md`, `state_narrowed: yes`.
-- Student G: active on Assignment 013, scalar Gray splice-edge feasibility.
-- Student F: idle; no F016.
-- No full proof architecture is reopened. G013 is one final bounded structural test of the last untested toolbox PASS mechanism.
+Workspace: `research/active/positive-rates-conjecture/`.
 
-## Most recent result: mark-only information percolation is pair-obstructed
+Target remains unresolved:
 
-Student G Assignment 012 is accepted as **`STOP-PAIR-OBSTRUCTION`**.
+> Every one-dimensional homogeneous binary one-sided nearest-neighbour simple IPS with positive rates is ergodic.
+
+Latest meeting: `research/active/positive-rates-conjecture/meetings/034-gray-scalar-edge-obstructed-toolbox-positive-rates-set-exhausted.md`, `state_narrowed: yes`.
+
+There is **no active positive-rates proof architecture**. The present group-level status is `no-credible-route` after all bounded toolbox-derived PASS tests failed in their direct forms.
+
+### G013: direct Gray scalar edge is locally obstructed
 
 At
 
-$$
+\[
 P_h=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
-$$
+\]
 
-every exact deterministic-Boolean random-map decomposition has aggregate mark-only ancestry rates satisfying
+a common local graphical event represented by a deterministic Boolean rule `F` can preserve the two extremal half-line hybrids as a single scalar splice only if
 
-$$
-d+j\le\frac1{5000},
+\[
+F(0,1),F(1,0)\in\{F(0,0),F(1,1)\}.
+\]
+
+This implies eventwise flip-indicator inequalities
+
+\[
+v_{11}\le v_{00}+v_{10},
 \qquad
-r\ge\frac{4999}{5000},
-$$
+v_{00}\le v_{01}+v_{11}.
+\]
 
-where `d,j,r` are death, right-only and genuine two-parent rates.
+After arbitrary nonnegative mixing of event types, the ordinary gauge would require
 
-For two independent backward supports, a width-one `T=8` good-cell event maps one common ancestor to two adjacent common ancestors. Uniformly over the whole decomposition polytope, the bad-cell probability is less than `1/128`. The good-cell field is independent between time layers and one-dependent in space; a simple minimal bad-cut contour argument yields positive survival probability of an oriented common-ancestor lower cluster. Hence
+\[
+1\le a+(1-c)=\frac1{5000},
+\]
 
-$$
-\inf_{n\ge0}
-E\left[2^{|A_{8n}\cap A'_{8n}|}-1\right]>0.
-$$
+and the alternating/checkerboard gauge would require
 
-This kills the **mark-only deterministic-Boolean minimal-support** information-percolation bridge at the hard point for every exact local decomposition. It is a pair-history obstruction, not a first-moment argument.
+\[
+b\le a+(1-c),
+\]
 
-A state-adaptive value-reveal history is not ruled out, but no such bridge is presently specified noncircularly and it is not automatically promoted after the failure of the mark-only route.
+where at `P_h`, `1/100>1/5000`. Thus neither ordinary nor checkerboard scalar Gray closure is feasible even at the first splice-boundary event.
 
-The final G012 constants were audited: an initial contour count missing an anchoring factor was replaced by the safe `2m 3^m` bound; the cell estimate was tightened from `q<1/100` to `q<1/128`; the displayed survival lower bound therefore became weaker (`1/121` rather than `1/7`). This is intentional.
+Assignment 013 is therefore `STOP-SCALAR-EDGE-OBSTRUCTION`. Full report: `students/student-g/013-gray-scalar-edge-feasibility.md`, commit `0744788e`; exact verifier final commit `f5a104d1`.
 
-## Earlier principal-directed result: distinguished-zero transfer
+The obstruction is specific to the direct scalar/two-type Gray interface. It does not prove that every larger interface state is impossible, but the pre-registered experiment forbids escalating to such larger edge-state hierarchies after scalar failure.
 
-Student G Assignment 011 remains accepted as **`STOP-EQUIVALENT`**.
+### Other bounded PASS tests
 
-The proposed transfer of East distinguished-zero screening by substituting the finite zero-boundary invariant family `pi_N` for Bernoulli equilibrium fails off the product surface. Exact one-step prefix compatibility holds precisely on
+- **Uniform additive-Hamming nonbasic coupling:** Meeting 032 proves the required negative drift impossible for every Markovian coupling at `P_h`.
+- **Optimized mark-only information percolation:** G012/Meeting 033 prove a decomposition-independent nondecaying two-copy support intersection at `P_h`.
+- **`pi_N` distinguished-zero transfer:** G011 proves exact transfer only on the product surface `a=b(1-c)`; buffered repairs are exactly the old tail-shift defect.
 
-$$
-a=b(1-c),
-$$
+No positive structural signal remains from the bounded restart tests.
 
-where
+### Connected-renewal restart bar retained
 
-$$
-\pi_N=\operatorname{Ber}\!\left(\frac b{1+b}\right)^{\otimes N}.
-$$
+The sharp residual object remains the signed boundary-transmission operator on the actual connected orbit,
 
-Off that surface, buffered screening is exactly the old tail-shift defect and finite release kernels cannot repair the untouched protected prefix. Marker-existence analysis is moot for that architecture.
-
-## Universal additive-Hamming coupling obstruction
-
-Meeting 032 proves that cross-site pairing cannot improve instantaneous drift of additive Hamming distance under any Markovian coupling. At `P_h`, a one-disagreement local pattern has best possible drift
-
-$$
-\frac{9997}{10000}>0.
-$$
-
-Thus the refined-coupling bridge requiring uniform negative additive-Hamming drift is false for every Markovian coupling. This does not refute Gray's nonadditive edge geometry.
-
-## Active bounded experiment: Gray scalar splice edges
-
-Assignment 013, commit `190ec3d158353eae45a7639b19c651cca6752641`, reconstructs Gray's load-bearing hybrid identities and tests whether a direct scalar/two-type nonmonotone replacement can close locally at `P_h`.
-
-The local definition must first accept representative attractive/repulsive cases. It must then impose exact grand-coupling marginals, scalar hybrid closure, protected regions, no crossing and permanent coalescence. G must return an analytic rate obstruction, exact local infeasibility certificate, or an explicit feasible scalar-edge mechanism.
-
-If scalar/two-type closure fails, the assignment forbids escalation to larger edge-state hierarchies. A negative G013 return exhausts the toolbox-derived A/B positive-rates opportunity set; there is no automatic restart on adaptive histories or generic coupling/norm searches.
-
-## Connected-renewal route remains stopped
-
-The sharp blocker remains the signed boundary-transmission Volterra operator on the actual connected orbit,
-
-$$
+\[
 \mathcal V_N f
 =B\int_0^\infty h(t)\int_0^t
  e^{(t-s)L_N}M_{\eta_N}P_{N-1}
-\bigl(g_0e^{-rs}-\varepsilon\bigr)e^{sL_{N-1}}f
-\,ds\,dt.
-$$
+(g_0e^{-rs}-\varepsilon)e^{sL_{N-1}}f\,ds\,dt.
+\]
 
-Both temporal factors change sign. No depth-uniform estimate preserving the two-time cancellation has been proved.
+No depth-uniform estimate retaining the two-time cancellation is known. A future positive-rates restart needs new input on this object or a materially different architecture with an explicit upstream mechanism and bounded falsification test.
 
-Bare tail shift, another `pi_N` distinguished-zero buffer, common-coupling all-depth occupation, uniform additive-Hamming coupling, mark-only Boolean support information percolation, Bellman/scalar Foster variants, reversible perturbation, generic norm searches, and longer coefficient tables remain stopped.
+Do not automatically restart larger Gray states, adaptive information histories, generic coupling/norm engineering, common-coupling occupation, tail shift, Bellman/Foster variants, reversible/filter searches or longer coefficient tables.
+
+## Next active direction: FA-1f Bernoulli quench / FA-SCREEN
+
+The completed 74-method toolbox assessment independently recommended a narrow reopening of the FA-1f Bernoulli-quench problem on **FA-SCREEN**, a two-sided causal-screen theorem inspired by East distinguished-zero screening.
+
+The first gate is a finite 5--7-site graphical leakage/measurability test of a concrete left/right screen rule. A viable screen must be determined without revealing the protected future interior marks, must block exterior influence on the protected interval except through admissible boundary data, and leave enough relaxation time relative to screen size for the known positive finite-volume FA gap to erase the conditional initial law.
+
+This direction had been deferred while the available execution capacity was used on the principal-directed positive-rates distinguished-zero question and the subsequent bounded positive-rates tests. With G013 negative, **FA-SCREEN is now the queued next active research direction; it is not withdrawn.**
+
+Student G is currently unavailable due to an operational session failure. No other student is executing. The Professor session is the available execution session.
 
 ## Retained mathematics
 
-Retained background includes the predecessor-trail reduction and canonical `J` quantity, projective zero-boundary invariant family and exact tail-shift identity, common-coupling fixed-site/local-erasure and actual-front results, stationary boundary-control hierarchy, exact trajectory-valued spatial kernel obstruction, G009/G010 positive-frequency/renewal structure, G011's product-surface distinguished-zero obstruction, the universal additive-Hamming coupling theorem, and G012's exact random-map ancestry/pair-history obstruction.
+The positive-rates predecessor-trail reduction, projective zero-boundary invariant family, exact tail-shift identity, common-coupling local-erasure/front results, stationary boundary-control hierarchy, trajectory-valued spatial-kernel obstruction, G009/G010 renewal/positive-frequency structure, G011 product-surface transfer obstruction, universal Hamming-coupling obstruction, G012 ancestry/pair obstruction, and G013 Gray scalar-edge obstruction remain retained background.
+
+The frozen ergodicity-method toolbox contains 74 live/source-audited methods; no public taxonomy/navigation changes follow from the private applicability rankings.
 
 ## Wiki freeze
 
