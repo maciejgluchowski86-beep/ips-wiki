@@ -121,9 +121,24 @@ e^{tL_N}M_{Y_N}
 \tag{8}
 \]
 
-This separates every connected extension into three exact pieces:
+For estimates it is cleaner to regroup the first line using `M_Y=M_X-epsilon I`:
 
-1. a fresh high-frequency branch carrying `e^{-rt}`;
+\[
+\boxed{
+\begin{aligned}
+e^{tL_N}M_{Y_N}
+={}&e^{-rt}M_{X_N}e^{tL_{N-1}}
+-\varepsilon I_Ne^{tL_{N-1}}\\
+&+B\int_0^t e^{(t-s)L_N}M_{\eta_N}P_{N-1}
+\bigl(g_0e^{-rs}-\varepsilon\bigr)e^{sL_{N-1}}\,ds.
+\end{aligned}
+}
+\tag{8'}
+\]
+
+Thus every connected extension separates into three exact pieces:
+
+1. a fresh recentered high-frequency branch carrying `e^{-rt}`;
 2. a non-shifted scalar branch carrying the small coefficient `epsilon`;
 3. a boundary-transmission branch, and **only** that branch, containing `P_{N-1}`.
 
@@ -146,7 +161,7 @@ h(t):=w_*(t)\sigma(t),
 H_N=\int_0^\infty h(t)e^{tL_N}\,dt.
 \]
 
-For the fresh branch in `(8)`, the time kernel is `h(t)e^{-rt}`.  Since the new centered variable `X_N` takes the values `-c_0,g_0`, multiplication by `X_N` has oscillation cost at most `B`.  The completely safe bound `|sigma|<=1` gives
+For the fresh branch in `(8')`, the time kernel is `h(t)e^{-rt}`.  Since the new centered variable `X_N` takes the values `-c_0,g_0`, multiplication by `X_N` has oscillation cost at most `B`.  The completely safe bound `|sigma|<=1` gives
 
 \[
 \int_0^\infty |h(t)|e^{-rt}\,dt
@@ -168,7 +183,7 @@ BZ_{\omega+r}
 
 (The signed scalar value is sharper: `F(r)=-5240305525/6117276447`, but it is **not** substituted for the absolute integral.)
 
-For the unshifted scalar branch, the same admissibility bound gives
+For the unshifted scalar branch in `(8')`, the same admissibility bound gives
 
 \[
 \varepsilon\int_0^\infty w_*(t)|\sigma(t)|\,dt
@@ -180,7 +195,7 @@ For the unshifted scalar branch, the same admissibility bound gives
 
 Hence neither the fresh shifted channel nor the scalar `Y=X-epsilon` defect is by itself supercritical in a depth-uniform oscillation estimate.
 
-The unresolved term is precisely the last line of `(8)`: long-time boundary transmission through
+The unresolved term is precisely the last line of `(8')`: long-time boundary transmission through
 
 \[
 M_{\eta_N}P_{N-1}.
@@ -237,7 +252,7 @@ Thus the `L^2` cost of a fresh insertion is itself a positive Markov-resolvent e
 
 Equations `(4)`--`(9)` rule out a vague attribution of the difficulty to the entire non-reversible hierarchy.  The exact remaining obstruction is the boundary-transmission branch.  A sufficient continuation would be either
 
-- a two-component depth-uniform seminorm controlling both the connected profile and `P_N` of that profile, with strict contraction after integrating `(8)` against the fixed `h`; or
+- a two-component depth-uniform seminorm controlling both the connected profile and `P_N` of that profile, with strict contraction after integrating `(8')` against the fixed `h`; or
 - an `L^2` comparison which combines `(14)` with the centered resolvent and closes uniformly in `N`.
 
 No larger coefficient table or filter change is involved.
