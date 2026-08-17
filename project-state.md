@@ -13,60 +13,14 @@ A quantitatively improved instance of an existing arbitrary-size/window/order me
 - Branch: `research/positive-rates-conjecture`.
 - Workspace: `research/active/positive-rates-conjecture/`.
 - Target fixed until changed or stopped by the principal: prove that every one-dimensional homogeneous binary one-sided nearest-neighbour simple IPS with positive rates is ergodic.
-- Latest meeting: `research/active/positive-rates-conjecture/meetings/032-distinguished-zero-transfer-stops-and-hamming-coupling-killed.md`, `state_narrowed: yes`.
-- Student G: active on Assignment 012, optimized information-percolation pair-history test.
+- Latest meeting: `research/active/positive-rates-conjecture/meetings/033-mark-only-information-percolation-killed-gray-scalar-edge-last-bounded-test.md`, `state_narrowed: yes`.
+- Student G: active on Assignment 013, scalar Gray splice-edge feasibility.
 - Student F: idle; no F016.
-- No full proof architecture is reopened. Assignment 012 is a bounded pre-restart experiment.
+- No full proof architecture is reopened. G013 is one final bounded structural test of the last untested toolbox PASS mechanism.
 
-## Most recent principal-directed result: distinguished-zero transfer
+## Most recent result: mark-only information percolation is pair-obstructed
 
-Student G Assignment 011 is accepted as **`STOP-EQUIVALENT`**.
-
-The proposed transfer of East distinguished-zero screening by substituting the finite zero-boundary invariant family `pi_N` for Bernoulli equilibrium fails off the product surface.
-
-If a right-measurable marker move leaves the old protected `N`-site block untouched and exact enlarged law is required to be `pi_{N+1}`, then necessarily
-
-$$
-\bar\pi_{N+1}=\pi_N.
-$$
-
-At the first nontrivial depth,
-
-$$
-\bar\pi_2(1)-\pi_1(1)
-=-\frac{2a\,[a-b(1-c)]}
-{(a+1-c)\,[2ab-ac+3a-bc+b+c^2-3c+2]}.
-$$
-
-Thus exact compatibility holds precisely on
-
-$$
-a=b(1-c),
-$$
-
-the product/reversible surface where
-
-$$
-\pi_N=\operatorname{Ber}\!\left(\frac b{1+b}\right)^{\otimes N}.
-$$
-
-At the hard point the defect equals `-4950/15151` exactly. The principal reran G's verifier successfully; the Professor independently recomputed the symbolic factorization.
-
-Allowing a contaminated boundary buffer gives exactly the old tail-shift defect `Delta_M`; an arbitrary fresh finite release kernel cannot change the untouched-prefix marginal, so exact release requires a finite tail-shift identity and approximate release is bounded below by the same discrepancy.
-
-Therefore marker-existence Part D is closed as moot **for this architecture**. This is a clean negative transfer theorem for the proposed `pi_N`-based East induction, not a universal theorem against every future screening idea.
-
-## New exact coupling obstruction
-
-Meeting 032 also proves that cross-site pairing cannot improve instantaneous drift of additive Hamming distance under any Markovian coupling of spin-flip chains. The optimal Hamming drift is
-
-$$
-\inf_{\text{couplings}}\bar L H
-=
-\sum_{i:x_i=y_i}|\lambda_i(x)-\lambda_i(y)|
--
-\sum_{i:x_i\ne y_i}(\lambda_i(x)+\lambda_i(y)).
-$$
+Student G Assignment 012 is accepted as **`STOP-PAIR-OBSTRUCTION`**.
 
 At
 
@@ -74,25 +28,64 @@ $$
 P_h=\left(\frac1{10000},\frac1{100},\frac{9999}{10000}\right),
 $$
 
-a one-disagreement local pattern has best possible drift
+every exact deterministic-Boolean random-map decomposition has aggregate mark-only ancestry rates satisfying
+
+$$
+d+j\le\frac1{5000},
+\qquad
+r\ge\frac{4999}{5000},
+$$
+
+where `d,j,r` are death, right-only and genuine two-parent rates.
+
+For two independent backward supports, a width-one `T=8` good-cell event maps one common ancestor to two adjacent common ancestors. Uniformly over the whole decomposition polytope, the bad-cell probability is less than `1/128`. The good-cell field is independent between time layers and one-dependent in space; a simple minimal bad-cut contour argument yields positive survival probability of an oriented common-ancestor lower cluster. Hence
+
+$$
+\inf_{n\ge0}
+E\left[2^{|A_{8n}\cap A'_{8n}|}-1\right]>0.
+$$
+
+This kills the **mark-only deterministic-Boolean minimal-support** information-percolation bridge at the hard point for every exact local decomposition. It is a pair-history obstruction, not a first-moment argument.
+
+A state-adaptive value-reveal history is not ruled out, but no such bridge is presently specified noncircularly and it is not automatically promoted after the failure of the mark-only route.
+
+The final G012 constants were audited: an initial contour count missing an anchoring factor was replaced by the safe `2m 3^m` bound; the cell estimate was tightened from `q<1/100` to `q<1/128`; the displayed survival lower bound therefore became weaker (`1/121` rather than `1/7`). This is intentional.
+
+## Earlier principal-directed result: distinguished-zero transfer
+
+Student G Assignment 011 remains accepted as **`STOP-EQUIVALENT`**.
+
+The proposed transfer of East distinguished-zero screening by substituting the finite zero-boundary invariant family `pi_N` for Bernoulli equilibrium fails off the product surface. Exact one-step prefix compatibility holds precisely on
+
+$$
+a=b(1-c),
+$$
+
+where
+
+$$
+\pi_N=\operatorname{Ber}\!\left(\frac b{1+b}\right)^{\otimes N}.
+$$
+
+Off that surface, buffered screening is exactly the old tail-shift defect and finite release kernels cannot repair the untouched protected prefix. Marker-existence analysis is moot for that architecture.
+
+## Universal additive-Hamming coupling obstruction
+
+Meeting 032 proves that cross-site pairing cannot improve instantaneous drift of additive Hamming distance under any Markovian coupling. At `P_h`, a one-disagreement local pattern has best possible drift
 
 $$
 \frac{9997}{10000}>0.
 $$
 
-Hence the toolbox refined-coupling bridge requiring uniform negative additive-Hamming drift is false for **every** Markovian coupling at the hard point. Its proposed non-diagonal Hamming LP is canceled as redundant. This does not refute a nonadditive Gray splice-edge geometry.
+Thus the refined-coupling bridge requiring uniform negative additive-Hamming drift is false for every Markovian coupling. This does not refute Gray's nonadditive edge geometry.
 
-## Active bounded experiment
+## Active bounded experiment: Gray scalar splice edges
 
-Student G Assignment 012, commit `be3d4e0ba6a81a6019de42d86a15858d47cefcb2`, tests the remaining independent toolbox candidate: information percolation / minimal backward histories.
+Assignment 013, commit `190ec3d158353eae45a7639b19c651cca6752641`, reconstructs Gray's load-bearing hybrid identities and tests whether a direct scalar/two-type nonmonotone replacement can close locally at `P_h`.
 
-The task derives the exact deterministic Boolean-map decomposition polytope of the residual generator, translates it into ancestry death/jump/branch rates, and studies **two independent backward support processes** through
+The local definition must first accept representative attractive/repulsive cases. It must then impose exact grand-coupling marginals, scalar hybrid closure, protected regions, no crossing and permanent coalescence. G must return an analytic rate obstruction, exact local infeasibility certificate, or an explicit feasible scalar-edge mechanism.
 
-$$
-\Psi(A,A')=2^{|A\cap A'|}-1.
-$$
-
-Naive supercritical expected ancestor count is not a kill criterion. Computation is capped at relative width `W<=8` unless a structural recursion is discovered. A full proof block may reopen only if G finds a concrete pair-level contraction/obstruction theorem or another genuinely iterable Miller--Peres-type state.
+If scalar/two-type closure fails, the assignment forbids escalation to larger edge-state hierarchies. A negative G013 return exhausts the toolbox-derived A/B positive-rates opportunity set; there is no automatic restart on adaptive histories or generic coupling/norm searches.
 
 ## Connected-renewal route remains stopped
 
@@ -108,11 +101,11 @@ $$
 
 Both temporal factors change sign. No depth-uniform estimate preserving the two-time cancellation has been proved.
 
-Bare tail shift, another `pi_N` distinguished-zero buffer, common-coupling all-depth occupation, Bellman/scalar Foster variants, reversible perturbation, generic norm searches, and longer coefficient tables remain stopped.
+Bare tail shift, another `pi_N` distinguished-zero buffer, common-coupling all-depth occupation, uniform additive-Hamming coupling, mark-only Boolean support information percolation, Bellman/scalar Foster variants, reversible perturbation, generic norm searches, and longer coefficient tables remain stopped.
 
 ## Retained mathematics
 
-The predecessor-trail reduction and canonical `J` quantity, projective zero-boundary invariant family and exact tail-shift identity, common-coupling fixed-site/local-erasure and actual-front results, stationary boundary-control hierarchy, exact trajectory-valued spatial kernel obstruction, G009 singular fixed-depth theorem, and G010 positive-frequency/renewal structure remain retained background.
+Retained background includes the predecessor-trail reduction and canonical `J` quantity, projective zero-boundary invariant family and exact tail-shift identity, common-coupling fixed-site/local-erasure and actual-front results, stationary boundary-control hierarchy, exact trajectory-valued spatial kernel obstruction, G009/G010 positive-frequency/renewal structure, G011's product-surface distinguished-zero obstruction, the universal additive-Hamming coupling theorem, and G012's exact random-map ancestry/pair-history obstruction.
 
 ## Wiki freeze
 
