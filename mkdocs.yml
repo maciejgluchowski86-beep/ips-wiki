@@ -38,6 +38,9 @@ nav:
           - Dobrushin influence contraction: entries/dobrushin-influence-contraction.md
           - Path coupling: entries/path-coupling-glauber-dynamics.md
           - Coupling with stationarity: entries/coupling-with-stationarity-local-uniformity.md
+          - Block coupling: entries/block-coupling-joint-resampling.md
+          - Weighted Wasserstein contraction: entries/weighted-wasserstein-contraction-infinite-ips.md
+          - Refined discrepancy coupling: entries/refined-discrepancy-coupling-general-exclusion.md
           - Censoring inequalities: entries/censoring-monotone-glauber-dynamics.md
           - Dynamical disagreement percolation: entries/dynamical-disagreement-space-time-percolation.md
       - Spatial mixing and local-to-global transfer:
@@ -58,15 +61,29 @@ nav:
           - Moving-particle long-jump comparison: entries/moving-particle-long-jump-exclusion.md
           - Aldous interchange gap reduction: entries/aldous-interchange-exclusion-gap.md
           - Liggett-Nash polynomial relaxation: entries/liggett-nash-polynomial-relaxation.md
+          - Weak Poincare relaxation: entries/weak-poincare-glauber-relaxation.md
           - Large-set conductance: entries/large-set-conductance-warm-start.md
           - KCLG renormalized Glauber comparison: entries/kclg-renormalized-glauber-comparison.md
+          - KCSM constraint domination: entries/kcsm-constraint-domination-reference-process.md
+      - Recurrence and regeneration:
+          - Foster-Lyapunov and Harris recurrence: entries/foster-lyapunov-harris-geometric-ergodicity.md
+          - Particle-collapse regeneration: entries/particle-collapse-regeneration.md
+          - Front regeneration and renewal: entries/front-regeneration-renewal-times.md
+      - Finite-to-infinite transfer and qualitative ergodicity:
+          - Finite-volume coercivity exhaustion: entries/finite-volume-coercivity-exhaustion-uniqueness.md
+          - Finite-speed finite-volume transfer: entries/finite-speed-finite-volume-transfer.md
+          - Number-rigidity Dirichlet ergodicity: entries/number-rigidity-tail-dirichlet-ergodicity.md
       - Graphical ancestry, duality, and exact sampling:
           - Finite-ancestor duality and extinction: entries/duality-extinction-finite-ancestor-process.md
           - Voter coalescing-walk duality: entries/voter-coalescing-random-walk-duality.md
+          - Parity branching-annihilating duality: entries/parity-duality-branching-annihilating.md
+          - Supercritical block construction: entries/supercritical-block-construction-complete-convergence.md
           - Coupling from the past: entries/coupling-from-the-past.md
           - Clan-of-ancestors perfect simulation: entries/clan-of-ancestors-perfect-simulation.md
           - Information percolation: entries/information-percolation-backward-histories.md
           - East distinguished-zero screening: entries/east-distinguished-zero-screening.md
+      - Potential theory and metastable relaxation:
+          - Potential-theoretic capacity: entries/potential-theoretic-capacity-metastability.md
   - Duality:
       - Duality: entries/duality.md
       - Monomial Feynman-Kac duality for spin systems: entries/monomial-duality-for-spin-systems.md
