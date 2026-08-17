@@ -4,44 +4,62 @@ Date: 2026-08-17
 
 ## Active direction
 
-Generalize the canonical binary patch-representation / patch-positivity framework beyond binary flip spin systems.
+Generalized finite-state patch representations for single-site replacement IPS.
 
 Branch: `research/generalized-patch-representations`.
 
 Workspace: `research/active/generalized-patch-representations/`.
+
+Latest meeting: `meetings/010-potts-metropolis-activates-killed-geometry-but-fails-positivity.md`.
 
 Branch-only wiki section:
 
 - `docs/generalized-patch-representations.md`;
 - `docs/generalized-patch-representations/`.
 
-Nothing from this programme is to be written or merged to `main` without a later principal instruction.
+Nothing from this programme is to be written or merged to `main` without later principal instruction.
 
-Latest meeting: `meetings/009-natural-contact-and-sirs-applications-fail-positivity.md`.
+## Stable representation theorem stack
 
-## Stable mathematical stack
-
-Assignments 001--004 establish for arbitrary finite-state bounded finite-range **single-site replacement** IPS in the reference-state indicator tensor basis:
+Assignments 001--004 establish for arbitrary finite-state bounded finite-range **single-site replacement** IPS in the reference-state indicator basis:
 
 1. an exact typed signed Feynman--Kac dual;
-2. successful records `(i,t,r,tau)` hiding post-source outcome;
-3. exact killed/noncemetery patch factorization despite typed target conflicts;
-4. an explicit typed patch representation with bulk/end separation;
-5. exact local transfer
+2. successful records `(i,t,r,tau)` revealing source/time/pre-source type/typed target while hiding post-source outcome;
+3. one-site typed patches;
+4. an exact killed/noncemetery weighted factorization despite typed target conflicts;
+5. an exact bulk/end patch representation;
+6. the exact signed local transfer
    \[
    K_i(0,\cdot)=0,
    \qquad K_i(r,s)=a_{i,r}^s(\emptyset);
    \]
-6. typed bulk patch positivity as exact nonnegativity of local semigroup boundary responses;
-7. exact binary reduction to canonical patch positivity.
+7. typed bulk patch positivity as exact nonnegativity of local matrix-semigroup boundary responses;
+8. exact reduction at `d=2` to canonical binary patch positivity.
 
-Assignments 005--007 analyze controlled `d=3` positivity. Their mathematics remains correct, but Assignment 008 removed the generic scalar spectral theorem from the novelty claim because third-order external positivity is direct prior art.
+The essential multistate modification is the cemetery repair: bare conditioning on the coarse record list is false because an incoming incompatible typed target can kill the dual and thereby remove all future no-record constraints. Since the duality function vanishes at cemetery, multiplying by the noncemetery indicator restores an exact weighted product of local consistency factors.
 
-## Assignment 008 novelty ruling
+## Three-state positivity analysis
+
+Assignment 005 proves that binary-style zero/long endpoint inequalities do not characterize general `d=3` positivity: a physically realizable response has positive endpoints but exact interior minimum `-1/1224`.
+
+Assignment 006 gives a correct finite necessary-and-sufficient `d=3` spectral test, but Assignment 008 later removes this from the novelty claim because third-order SISO external positivity is direct prior art.
+
+Assignment 007 identifies a genuinely nonbinary exchange-symmetric exact subclass. These results remain mathematical tools but are not the primary contribution claim.
+
+## Assignment 008: novelty ruling
 
 Outcome: **`CONTINUE-TO-APPLICATIONS`**.
 
-Primary plausible novelty anchor:
+Component statuses remain:
+
+1. finite-state typed signed duality: `known ingredients, assembly plausibly new`;
+2. killed typed patch factorization / representation: `plausibly new theorem/mechanism`;
+3. transfer-matrix bulk positivity formulation: `known ingredients, assembly plausibly new`;
+4. exact boundary-complete `d=3` spectral criterion: `known / directly subsumed`;
+5. exchange-symmetric exact algebraic criterion: `known ingredients, assembly plausibly new`;
+6. combined generalized patch framework: `plausibly new theorem/mechanism`.
+
+The strongest surviving novelty candidate is the interface
 
 \[
 \text{signed typed dual}
@@ -50,166 +68,191 @@ Primary plausible novelty anchor:
 \to
 \text{typed cemetery obstruction}
 \to
-\text{killed/noncemetery patch factorization}
+\text{killed/noncemetery factorization}
 \to
 \text{exact finite-state patch representation}.
 \]
 
-Finite-state duality, signed FK duality, partial graphical revelation, matrix external positivity, and the generic third-order spectral criterion are not novelty claims.
+Historical priority remains plausible rather than established.
 
-## Assignment 009: first natural applications
+## Assignment 009: first natural application
 
 Outcome: **`STOP-APPLICATION-POSITIVITY-FAILS`**.
 
+Krone's two-stage contact process was selected from the literature before any positivity calculation. It genuinely realizes three hidden post-source outcomes and typed cemetery conflicts, but for each adult-neighbor target its source-type-1 outgoing row is
+
+\[
+(\lambda,-\lambda,-\lambda).
+\]
+
+A realized repeated-source `OO` patch has negative numerator for every finite patch length whenever `lambda>0`. Spatial SIRS gives the same obstruction.
+
+The resulting catalytic-birth no-go is:
+
+> if a positive target mode appears in `0->r` but not in active-source target-mode transitions into `r`, then `a_r^r(tau)<0`; if the source-`r` successful record can repeat after hidden outcome `r`, a realized arbitrarily short `OO` patch is negative.
+
+## Assignment 010: structurally distinct Potts application
+
+Outcome: **`STOP-SECOND-APPLICATION-POSITIVITY-FAILS`**.
+
 ### Literature-driven selection
 
-Krone's **two-stage contact process** was selected before any positivity calculation from a bounded set containing spatial SIRS and Neuhauser's multitype contact process.
+Before any positivity calculation, the programme selected the **three-state zero-field ferromagnetic Potts model with single-spin Metropolis Glauber dynamics** over a three-color cyclic particle system.
 
-States:
+The selection used naturality, genuine three-state structure, exact single-site replacement, active-to-active neighbor-sensitive retyping, and the fact that the Metropolis rule is not a deterministic invasion/copy arrow. Irreducibility was not used.
 
-\[
-0=\text{vacant},\qquad1=\text{juvenile},\qquad2=\text{adult}.
-\]
-
-Physical rates:
+For source color `x`, target color `y!=x`, and neighbor counts `n_a`, write
 
 \[
-0\to1\text{ at }\lambda n_2(x),
-\qquad1\to2\text{ at }\gamma,
+z=e^{-\beta J},
+\qquad q>0.
 \]
+
+The continuous-time Poissonized local rates are
 
 \[
-1\to0\text{ at }1+\delta,
-\qquad2\to0\text{ at }1.
+\boxed{c^{x\to y}=qz^{(n_x-n_y)_+}.}
 \]
-
-Selection used naturality, genuine three-state structure, single-site replacement, nontrivial graphical geometry, and strong prior duality literature. Patch positivity and irreducibility were not selection criteria.
 
 ### Exact typed specialization
 
-For each adult-neighbour target `tau_j={j->2}`,
+For a typed target with `k_1` color-1 and `k_2` color-2 sites,
 
 \[
-\boxed{\mathbf a_{1,\tau_j}=(\lambda,-\lambda,-\lambda).}
+\widehat c^{x\to y}_{k_1,k_2}
+=
+\sum_{i=0}^{k_1}\sum_{j=0}^{k_2}
+(-1)^{k_1-i+k_2-j}
+\binom{k_1}{i}\binom{k_2}{j}
+qz^{(n_x(i,j)-n_y(i,j))_+}.
 \]
 
-Empty-target rows are
+The complete target-count table is in `010b-potts-metropolis-typed-specialization.md`.
+
+The empty-target signed transfer is
 
 \[
-\mathbf a_{1,\emptyset}=(0,-(1+\delta+\gamma),0),
-\]
-
-\[
-\mathbf a_{2,\emptyset}=(0,\gamma,-1),
-\]
-
-so
-
-\[
-K=
+K=q
 \begin{pmatrix}
 0&0&0\\
-0&-(1+\delta+\gamma)&0\\
-0&\gamma&-1
+z^4&-(z^4+2)&1-z^4\\
+z^4&1-z^4&-(z^4+2)
 \end{pmatrix}.
 \]
 
-Every successful record has source type `1`, target type `2`, and hides post-source outcome `0,1,2` with signs `+,-,-`. Incoming target type `2` can conflict with a type-1 active label, so typed cemetery and the killed-factorization repair are genuinely realized in this natural model.
+For pre-source type `1` and a singleton target-neighbor of color `1`,
+
+\[
+\boxed{
+\mathbf a_{1;1,0}
+=
+\left(
+qz^2(1-z^2),
+q(z-1)(z^3+z^2-1),
+-qz^2(1-z^2)
+\right).}
+\]
+
+Thus every `0<z<1` has genuinely nondeterministic hidden outcomes: at least outcomes `0` and `2` carry positive absolute mass. Typed target conflicts are also genuinely realizable, so the killed/noncemetery mechanism is active rather than decorative.
 
 ### Exact positivity failure
 
-A selected record can choose hidden outcome `1`, and the next successful record at the same source again requires pre-source type `1`. Thus a same-source `OO` descriptor is realized.
-
-For `a=1+delta+gamma`, its numerator is
+For the same singleton target,
 
 \[
-N_{OO}(t)
-=-\lambda\left[
-e^{-at}+\gamma\frac{e^{-t}-e^{-at}}{a-1}
-\right]
+a_1^2(\tau)
+=
+\widehat c^{2\to1}(\tau)-\widehat c^{0\to1}(\tau)
+=-qz^2(1-z^2)<0.
 \]
 
-when `a>1`, with the degenerate form `-lambda e^{-t}` when `a=1`.
-
-Hence
+The physical mechanism is Metropolis saturation:
 
 \[
-\boxed{N_{OO}(t)<0\quad\text{for all finite }t\ge0\text{ whenever }\lambda>0.}
+\widehat c^{0\to1}(\tau)=qz^2(1-z^2)>0,
+\qquad
+\widehat c^{2\to1}(\tau)=0.
 \]
 
-The killed-reference denominator is strictly positive. Therefore the published two-stage contact process is **not typed patch positive anywhere in its interacting birth range**.
+Hidden outcome `2` can be followed by a positive-hazard source-type-2 successful record, so a realized same-source `OO` patch has negative zero-length limit and is negative for all sufficiently short positive lengths.
 
-Exact gate at
+Therefore
 
 \[
-\lambda=\gamma=\delta=1,
-\qquad e^{-t}=1/2
+\boxed{
+\text{Potts Metropolis is not typed patch positive for any }q>0,\ 0<z<1.}
+\]
+
+At `z=1` all nonempty target coefficients vanish; that is neighborhood-independent pure refresh, not an interacting positive regime.
+
+Exact finite gate at
+
+\[
+z=1/2,
+\qquad q=1,
+\qquad t_*=(8/3)\log(5/4)
 \]
 
 gives
 
 \[
-N_{OO}=-5/16,
-\qquad D_{OO}=5/16,
-\qquad C_{OO}=-1.
+p=(3/16,5/16,-3/16),
 \]
-
-Verifier: `students/professor/009-two-stage-application-verifier.py`, commit `d2576053`.
-
-### Bounded second candidate
-
-Spatial SIRS, with
 
 \[
-S\to I\text{ at }\lambda n_I,
-\qquad I\to R,
-\qquad R\to S,
+N_{OO}(t_*)=-3884/390625<0.
 \]
 
-has the same nonempty outgoing row `(lambda,-lambda,-lambda)` and therefore the same realized negative repeated-source `OO` patch. No third candidate was opened.
+Verifier: `students/professor/010-potts-metropolis-verifier.py`, commit `34afe2d4`. It is designed for 1,485 exact checks and contains no float literals.
 
-### Catalytic-birth no-go
+### General short-OO contrast lemma
 
-A reusable obstruction emerges:
+Assignment 010 broadens the Assignment-009 obstruction.
 
-> if a positive nonempty target mode appears in `0->r` but not in any active-source transition into `r`, then `a_r^r(tau)<0`; if the same source-`r` successful record can repeat after hidden outcome `r`, a realized arbitrarily short `OO` patch is negative.
+If active types `r!=s` and a nonempty target `tau` satisfy
 
-This explains both the two-stage and SIRS failures and rules out a broad class of contact/epidemic growth models before any spectral calculation.
+\[
+\boxed{
+a_r^s(\tau)
+=\widehat c^{s\to r}(\tau)-\widehat c^{0\to r}(\tau)<0,}
+\]
 
-### Application-specific prior work
+and hidden outcome `s` is realizable and can feed a subsequent source-`s` successful record at the same site, then a realized arbitrarily short `OO` patch is negative.
 
-Krone already constructed the two-stage multitype dual; Foxall simplified it, proved further results and complete convergence in a general additive multitype growth framework; Sturm--Swart subsume Krone's duality in general pathwise duality.
+This can occur even when every physical state is active and every directed physical replacement has positive rate. Unequal target-mode sensitivity among active source states is enough.
 
-The killed typed representation is genuinely different at the representation level and its cemetery mechanism is active here, but bulk positivity fails before it can yield a new model-specific comparison or convergence theorem.
+Decisive Assignment-010 files:
 
-Decisive files:
+- `010a-literature-driven-structural-selection.md`, commit `b56c10d4`;
+- `010b-potts-metropolis-typed-specialization.md`, commit `b1b2a995`;
+- `010c-potts-metropolis-patch-positivity-obstruction.md`, commit `b4b5eca6`;
+- verifier `010-potts-metropolis-verifier.py`, commit `34afe2d4`;
+- `010d-potts-prior-work-and-application-value.md`, commit `5ffd0c89`;
+- final report `010-structurally-distinct-application.md`, commit `436ce4cf`;
+- handoff `010-handoff.md`, commit `39253aba`;
+- Meeting 010, commit `939b30e1`.
 
-- `009a-literature-driven-model-selection.md`, `56ba8390`;
-- `009b-two-stage-typed-specialization.md`, `232fe276`;
-- `009c-two-stage-patch-positivity-obstruction.md`, `0174a59b`;
-- verifier `009-two-stage-application-verifier.py`, `d2576053`;
-- `009d-second-candidate-sirs-check.md`, `db0746f7`;
-- `009e-two-stage-prior-work-and-application-value.md`, `423bee8e`;
-- final report `009-natural-nonbinary-application.md`, `3d092827`;
-- handoff `009-handoff.md`, `8d5305ed`;
-- Meeting 009, `d9e8923b`.
+## Current programme edge
 
-## Current proof-spine edge
+**Opportunity-cost decision: representation-only consequences or close.**
 
-**One structurally distinct non-catalytic application class, if the programme continues.**
+Two materially different natural three-state application architectures have now genuinely activated hidden marks and cemetery conflicts and nevertheless failed typed bulk patch positivity through local realized short-`OO` signs:
 
-Repeating contact/SIRS-style catalytic birth models is now low-value because the no-go lemma decides them locally.
+1. contact/epidemic birth plus stage/recovery dynamics;
+2. fully active symmetric Metropolis retyping.
 
-A next application block should therefore be literature-driven and select a natural three-state single-site replacement IPS where neighbour interactions can retype already-active states or otherwise contain compensating active-source target modes. Model selection must again be committed before any positivity calculation.
+This substantially lowers the expected value of another search for a natural patch-positive multistate model. No third application search is active.
 
-This is not permission to design a rate table to satisfy the criterion.
+Generic `d>3` positivity algebra also remains deferred.
 
-Generic `d>3` positivity algebra remains deferred. The arbitrary finite-state representation is already proved, and Assignment 009 gives no reason to insert higher-dimensional abstraction before one genuinely different application architecture is tested.
+If the programme continues after independent verification of Assignment 010, the next scientifically distinct question is whether the killed typed patch **representation itself**, without a bulk-positivity assumption, yields a useful cancellation identity, norm bound, comparison, or other model-independent consequence unavailable from standard graphical/duality methods.
+
+No Assignment 011 is queued. This next step requires an explicit opportunity-cost judgment rather than automatic continuation.
 
 ## Scope and publication boundary
 
-Current proved mathematical scope: arbitrary finite-state bounded finite-range single-site replacement dynamics in the reference-state indicator tensor basis. Simultaneous multi-site physical updates remain outside scope.
+Current proved mathematical scope: arbitrary finite-state bounded finite-range **single-site replacement** dynamics in the reference-state indicator tensor basis. Simultaneous multi-site physical updates remain outside scope.
 
-No content is to be promoted to `main` without later principal instruction. Existing `docs/entries/`, `docs/meta/`, and `mkdocs.yml` are outside the active write surface.
+No programme content is to be promoted to `main` without later principal instruction. Existing `docs/entries/`, `docs/meta/`, and `mkdocs.yml` remain outside the active write surface.
 
 All previously stopped programmes remain closed.
