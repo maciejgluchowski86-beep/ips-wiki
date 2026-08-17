@@ -2,7 +2,7 @@
 
 Date: 2026-08-17
 
-**Queued, not yet executed.**
+**Active bounded experiment. Stop rule frozen before mathematics.**
 
 This is the independent reserve architecture retained by the hostile FA review after `FA-SCREEN-001` stopped at its fixed-boundary scaling obstruction. It is a bounded feasibility experiment, not a full proof-program reopening.
 
@@ -37,13 +37,12 @@ $$
 1_{\{\eta_{i-1}=0\text{ or }\eta_{i+1}=0\}}.
 $$
 
-A valid adaptive evaluator may choose one neighbour to inspect first.
+A valid adaptive evaluator may query any currently unresolved predecessor value whose value can logically short-circuit the output. In particular it may exploit both of the exact Boolean simplifications:
 
-- If the first revealed neighbour is vacant, legality is certified and the second neighbour need not be queried merely for legality.
-- If the first is occupied, the second neighbour must be evaluated.
-- If the ring is legal, the post-ring spin equals the refresh coin and the older history of site `i` is discarded.
-- If the ring is illegal, the old-site history remains necessary.
-- Recursive queries may merge when they ask for the same space-time value.
+- if a queried neighbour is vacant, legality is certified and the other neighbour need not be queried merely for legality;
+- if the old-site value equals the refresh coin, the output equals that common value regardless of legality, so the legality branches need not be queried.
+
+If legality is certified and the old-site value has not already short-circuited the decision, the post-ring spin equals the refresh coin and the older history of site `i` is discarded. If illegality is certified, the old-site history remains necessary. Recursive queries may merge when they ask for the same space-time value.
 
 The reveal order may depend predictably on already revealed graphical marks and spin values, but not on unrevealed time-zero spins.
 
@@ -61,36 +60,82 @@ Let `Q` denote the full adaptive query transcript under the stationary product i
 
 Derive `L(Q)` directly from product independence and the predictable query rule. In particular, show exactly when it is legitimate to write it as the product of one-site likelihood ratios over the queried time-zero bits despite the query set being value-dependent.
 
-Then derive an exact second-moment/chi-square upper bound for the terminal-spin law or for the full finite terminal block. The bound must expose a **two-copy overlap/information object**. If the usual simple `2^{|R cap R'|}` form fails because the query set is value-dependent, derive the correct weighted replacement rather than forcing the Ising formula.
+Then derive an exact second-moment/chi-square upper bound for the terminal-spin law or for the full finite terminal block. The bound must expose a **two-copy overlap/information object** if a sharper statistic than the raw transcript is used. If the usual simple `2^{|R cap R'|}` form fails because the query set is value-dependent, derive the correct weighted replacement rather than forcing the Ising formula.
 
 This likelihood identity is load-bearing. A first-moment leaf count is diagnostic only.
 
-## Part C. Smallest exact one/two-block experiment
+## Part C. Frozen finite-block falsifier
 
-Work on one terminal site and the smallest space-time slab that contains a genuine two-sided constrained decision. Use exact enumeration/rational integration over a bounded graphical event class or exact uniformization; no Monte Carlo.
+The first mathematical test is fixed in advance. Do not replace it by a friendlier block after seeing the answer.
 
-At minimum compare:
+### Circuit S1: one constrained ring
 
-1. the mark-only support which retains both neighbours whenever the update map is globally two-parent;
-2. the adaptive reveal tree which short-circuits the second neighbour after an actual vacancy is found;
-3. both natural left-first/right-first reveal orders and any genuinely different predictable order justified by the local state.
+Condition on one ring at site `0`, with known refresh coin `z`. Let the three predecessor bits immediately below the ring be
 
-Then compose **two temporal blocks** using the same state variable. The question is not whether one block has fewer expected leaves, but whether the exact pair/likelihood state is closed enough to iterate.
+$$
+(X,L,R)=(\eta_0,\eta_{-1},\eta_1).
+$$
 
-Stress at a low equilibrium vacancy density, e.g. `q=1/10`, and at more than one nondegenerate `q0` if the likelihood weight depends materially on `q0`.
+The output is
 
-Computational cap: keep the terminal spatial radius at most 4 and at most two temporal blocks unless an exact structural recursion is discovered. Do not enlarge merely because the first calculation is inconclusive.
+$$
+F_z(X,L,R)=
+\begin{cases}
+z,&L=0\text{ or }R=0,\\ X,&L=R=1.\end{cases}
+$$
 
-## Part D. Required implication chain for a positive signal
+Enumerate **all exact predictable decision trees** for this Boolean function, not only left-first/right-first trees. For each `z`, and after averaging over the equilibrium refresh coin, compute exactly:
 
-A finite calculation counts as `CONTINUE` only if it identifies an object `Phi` such that:
+1. the mark-only globally essential predecessor set;
+2. the minimum expected number of queried predecessors under `mu_q` (diagnostic only);
+3. the minimum raw transcript likelihood cost
+   $$
+   \boxed{\mathcal C_1(q,q_0):=\inf_A\left(E_{\mu_q}[L_A(Q)^2]-1\right),}
+   $$
+   where the infimum is over exact predictable evaluators `A`;
+4. the exact output chi-square
+   $$
+   \boxed{\mathcal X_1(q,q_0):=\chi^2(\Law_{\mu_{q0}}(F_Z),\Ber(q)).}
+   $$
 
-1. `Phi` is defined from the actual adaptive reveal transcript/pair, not from the conservative dual;
-2. a block composition rule for `Phi` is exact or has a rigorously controlled remainder;
-3. there is a strict contraction or another decay inequality at the low-`q` stress point;
-4. iterating that inequality would imply a chi-square/total-variation bound for a fixed observation block without assuming the desired ergodicity.
+Stress at
 
-A one-block numerical advantage with no compositional state is evidence only.
+$$
+q=\frac1{10},\qquad q_0\in\left\{\frac1{20},\frac15\right\}.
+$$
+
+### Circuit S2: the first adjacent composition
+
+Use two chronologically ordered rings: first at site `1`, then at site `0`, with known refresh coins `z_1,z_0`. No other ring is inserted into this frozen circuit. This is the smallest composition in which the right-neighbour query at the terminal ring is itself the output of a constrained ring and shares predecessor variables with the terminal old-site branch.
+
+The bottom variables lie in radius `2`. Compose the exact Boolean maps and again enumerate all exact predictable decision trees. Compute the analogues `C_2` and `X_2`, with exact averaging over `(z_1,z_0)`.
+
+This circuit is a **local closure gate**, not a claim that conditioning on this skeleton represents the full continuous-time process. A positive result must later control all skeletons/remainders; a closure failure already visible here is admissible negative evidence because every exact block composition must handle this circuit.
+
+### Candidate state and non-negotiable closure test
+
+The starting candidate state is the smallest information state actually justified by Part B:
+
+- raw adaptive transcript likelihood if it contracts; otherwise
+- the smallest explicitly derived weighted pair/overlap state which still upper-bounds terminal chi-square.
+
+A scalar output chi-square is **not** considered closed merely because `X_1<X_0`: S2 must admit an exact update of the same state without importing extra lower-layer correlations or a larger decision-tree history.
+
+The radius/depth cap remains radius `4`, two temporal blocks. No third block and no larger state hierarchy is authorized inside this assignment.
+
+## Pre-registered decision rule
+
+The following rule is frozen before computing S1/S2.
+
+1. If every exact S1 evaluator has `C_1 >= C_0`, where
+   $$
+   C_0=\chi^2(\Ber(q_0),\Ber(q)),
+   $$
+   while the exact output nevertheless has `X_1<C_0`, then the **raw transcript likelihood is rejected as the iterable state**. Continue only to S2 to test whether the Part-B weighted pair state repairs this loss; do not optimize larger trees.
+2. If S1 has a contracting transcript/pair state, S2 must update that same state exactly (or with a proved remainder) and retain a strict contraction at both registered `q0` stress values. Otherwise stop.
+3. If S1 output contracts but S2 requires new correlation/history coordinates not present in the S1 state, and the only repair is to carry the larger composed decision tree or enlarge radius/depth, return `STOP-NO-ITERABLE-STATE`.
+4. `CONTINUE-ADAPTIVE-BRIDGE` requires a single bounded state `Phi` surviving both S1 and S2, with a strict exact contraction at both stress values and a stated route to averaging arbitrary graphical skeletons without assuming quench mixing.
+5. A smaller expected leaf count, one favorable reveal order, or contraction of the exact output law on S1 alone can never trigger continuation.
 
 ## Pre-registered outcomes
 
@@ -102,7 +147,7 @@ Prove an exact pair/likelihood lower bound, valid for every allowed local reveal
 
 ### `STOP-NO-ITERABLE-STATE`
 
-Adaptive short-circuiting is real, but after exact one/two-block composition the residual information cannot be represented by the same bounded state without retaining additional history whose only proposed continuation is an enlarging hierarchy. State the precise closure failure and stop; do not increase radius/depth.
+Adaptive short-circuiting is real, but after exact S1/S2 composition the residual information cannot be represented by the same bounded state without retaining additional history whose only proposed continuation is an enlarging hierarchy. State the precise closure failure and stop; do not increase radius/depth.
 
 ### `UNRESOLVED-BOUNDED`
 
@@ -131,7 +176,7 @@ Commit immediately after any of the following becomes durable:
 - exact adaptive evaluator/decision-tree definition;
 - exact transcript likelihood-ratio identity;
 - exact two-copy pair statistic;
-- one/two-block contraction or obstruction;
+- S1/S2 contraction or obstruction;
 - a finite-state closure failure.
 
 Final report:
