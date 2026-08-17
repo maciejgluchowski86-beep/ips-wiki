@@ -10,87 +10,77 @@ Workspace: `research/active/ergodicity-methods-toolbox/`
 
 Principal target: compile a broad, concise, self-contained literature toolbox of rigorous methods used to prove ergodicity, uniqueness/convergence to equilibrium, coupling agreement, positive spectral gap, logarithmic Sobolev inequalities, mixing, or closely related relaxation statements for spin systems, interacting particle systems, KCSM, and closely adjacent Glauber-type models.
 
-This is a literature-compilation direction, not a continuation of the positive-rates proof loop. Breadth is intentional: model-specific methods are in scope.
+This is a literature-compilation direction. Breadth is intentional and model-specific methods are in scope.
 
-Latest meeting: `meetings/003-g-wave-one-source-audit-and-joint-taxonomy.md`.
+Latest meeting: `meetings/004-f-wave-two-source-audit-and-analytic-wave-three.md`.
 
 ## Publication target and wiki status
 
-The principal's new instruction explicitly reopens the live wiki **for this toolbox section only**. The previous freeze remains in force for unrelated legacy/deprecated IPS pages unless a separate current audit is requested.
+The live wiki is reopened for this toolbox section only. Unrelated legacy/deprecated IPS pages remain frozen unless separately audited.
 
-Research drafts are staged under this workspace. Entries accepted by Professor source audit are later promoted to ordinary audited literature entries under a new top-level MkDocs section `Ergodicity methods`:
+Research entries are staged under this workspace. Source-audited entries are later promoted as ordinary `status: literature`, `audit: current` pages under a new top-level MkDocs section `Ergodicity methods`:
 
-- `docs/ergodicity-methods.md` — compact toolbox map;
-- `docs/entries/<method-slug>.md` — one concept page per method;
-- `mkdocs.yml` — top-level `Ergodicity methods` navigation.
+- `docs/ergodicity-methods.md` hub;
+- `docs/entries/<method-slug>.md` concept pages;
+- `mkdocs.yml` top-level navigation.
 
-All twelve first-wave entries are now mathematically and taxonomically cleared for promotion. Promotion is deferred only to the next quiet integration window while both students are actively committing wave-two staging files.
+The principal reports that `docs/` and `mkdocs.yml` remain byte-identical to `origin/main` after F Assignment 002. No live promotion has yet occurred.
 
 ## Workers and current assignments
 
-Student F and Student G are reused. Repository/project claims are not literature authority; every entry must be grounded in actual external sources.
+- Student F: active on `students/student-f/assignment-003.md`, analytic breadth wave three.
+- Student G: active on `students/student-g/assignment-002.md`, coupling/graphical breadth wave two. Do not interrupt or retask before handoff.
 
-- Student F: active on `students/student-f/assignment-002.md` — Lu--Yau/martingale recursion, spectral independence, block/approximate entropy factorization, bounded perturbation, moving-particle comparison, finite-size relaxation criteria.
-- Student G: active on `students/student-g/assignment-002.md` — dynamical disagreement domination, coupling from the past, clan-of-ancestors perfect simulation, censoring, block/local/maximal coupling, coalescing-walk voter duality.
-
-At most two sessions remain in flight.
-
-## Durability rule
-
-Every finished method entry is committed immediately as its own durable artifact. Do not batch a survey into one final response. A session freeze should cost at most the current unfinished entry.
+Every finished method entry is committed immediately as its own artifact. A rendering/session failure should cost at most the current unfinished entry.
 
 ## Inclusion and source standard
 
-Include a method when:
+Include a method when it has a rigorous theorem/criterion/reusable proof architecture, a spin-system/IPS/KCSM/Glauber application or formulation, and a self-contained statement of hypotheses, mechanism, conclusion, and limitations. General Markov-chain methods require a concrete IPS/spin application. Mere heuristics and numerical diagnostics are excluded.
 
-1. there is a rigorous theorem, criterion, or reusable proof architecture in the literature;
-2. it proves or is explicitly used to prove ergodicity/uniqueness, convergence, coupling agreement/coalescence, spectral gap/Poincare, LSI/mLSI, quantitative mixing, or equivalent forgetting/extinction;
-3. it has a spin-system/IPS/KCSM/Glauber-type application or is formulated for such models;
-4. hypotheses, mechanism, conclusion, and limitations can be stated self-containedly;
-5. at least one primary source has been inspected and pinpointed.
+Every staged entry must cite at least one inspected primary source with an exact theorem/proposition/lemma/section/page pinpoint and a stable URL/DOI/arXiv identifier. Only `source_status: primary-checked` entries accepted in a Professor source-audit meeting are eligible for live promotion.
 
-General Markov-chain methods require a concrete IPS/spin application. Model-specific techniques are explicitly welcome. Mere heuristics and numerical diagnostics are excluded.
+`validate_entries.py` checks metadata, headings, source-pinpoint/URL presence, and length only; it does not certify attribution or mathematical correctness.
 
-Every staged entry must cite at least one inspected primary source with exact theorem/proposition/lemma/section/page pinpoint and a stable URL/DOI/arXiv identifier. Only entries marked `source_status: primary-checked` and accepted in a Professor source-audit meeting are eligible for live promotion.
+## Accepted staged entries
 
-## Entry size and mechanical checking
+Meetings 002--004 source-audited and accepted **eighteen** staged entries.
 
-Staged entries use `entry-template.md`. Target length is 400–900 words; hard ceiling 1200 words excluding front matter and references. Each entry contains a mathematical criterion/theorem-level statement.
-
-`validate_entries.py` checks required metadata, headings, source pinpoints/URLs, and length. Passing it certifies structure only, not mathematical correctness or attribution.
-
-## Accepted first-wave entries
-
-Meetings 002--003 source-audited and accepted twelve staged entries. The joint taxonomy is by load-bearing proof interface.
-
-### A. Coupling and local influence
+### Coupling and local influence
 
 - `attractive-monotone-coupling-extremal-laws.md`;
 - `dobrushin-influence-contraction.md`;
 - `path-coupling-glauber-dynamics.md`.
 
-### B. Spatial mixing and boundary influence
+### Spatial mixing and local-to-global influence
 
 - `disagreement-percolation-gibbs-uniqueness.md`;
-- `dobrushin-shlosman-spatial-to-dynamical.md`.
+- `dobrushin-shlosman-spatial-to-dynamical.md`;
+- `spectral-independence-local-to-global.md`;
+- `finite-size-strong-mixing-criterion.md`.
 
-### C. Functional inequalities and comparison
+### Functional inequalities, comparison, and multiscale coercivity
 
 - `poincare-spectral-gap.md`;
 - `log-sobolev-modified-log-sobolev.md`;
 - `dirichlet-form-canonical-path-comparison.md`;
-- `block-dynamics-bisection-variance.md`.
+- `block-dynamics-bisection-variance.md`;
+- `lu-yau-martingale-conditional-variance.md`;
+- `block-factorization-entropy.md`;
+- `holley-stroock-bounded-perturbation.md`;
+- `moving-particle-long-jump-exclusion.md`.
 
-### D. Graphical ancestry, duality, and regeneration
+### Graphical ancestry, duality, and regeneration
 
 - `duality-extinction-finite-ancestor-process.md`;
 - `information-percolation-backward-histories.md`;
 - `east-distinguished-zero-screening.md`.
 
-Shared primary sources do not imply duplicate entries when the proof interfaces differ. Meeting 003 records the required cross-links and deduplication rules for promotion.
+All eighteen are source-audited staged material. The first twelve remain the first live-integration batch. The six F-wave-two entries are queued behind them.
 
 ## Current work
 
-- F Assignment 002 active.
-- G Assignment 002 active.
-- Twelve first-wave entries accepted and queued for the next quiet live-wiki integration window.
+F Assignment 003 targets Bakry--Emery/Bochner Gamma methods, two-scale coarse-graining, the Aldous/interchange spectral-gap reduction, Nash/spectral-profile smoothing with an IPS application, nonreversible coercivity with an IPS application, and conductance/Cheeger methods for spin chains; source-supported substitutions are allowed for the last three if necessary.
+
+G Assignment 002 continues unchanged: dynamical disagreement domination, CFTP, clan-of-ancestors/perfect simulation, censoring, block/local/maximal coupling, and coalescing-walk voter duality.
+
+Live integration is deferred until no student is actively committing a staging batch.
