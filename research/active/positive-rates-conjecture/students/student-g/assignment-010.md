@@ -208,3 +208,15 @@ If the third outcome contains only more finite coefficients or a generic request
 ## 10. Durability
 
 Because this student lineage has repeatedly suffered session freezes, commit nontrivial intermediate theorems/certificates as soon as they are stable. In particular the missing exact verifier is the first checkpoint, not something to defer until the final report.
+
+## Post-issuance overlap correction
+
+Commit `e4452de` (`009b-dual-renewal-verifier.py`) had already landed before Meeting 026 committed. It satisfies Section 2: the finite generators and rational resolvents are reconstructed exactly, `z_sigma` and `lambda_1,...,lambda_7` are exact rationals, the sign pattern is certified, and the exact rational object `sum7` satisfies `sum7>1`. Hence
+
+$$
+\delta_7=\mathrm{sum7}-1>0
+$$
+
+is exactly certified as well. The verifier need not separately print the huge rational numerator and denominator of `delta_7` for the checkpoint to be complete.
+
+**Do not redo Section 2. Proceed directly to Section 3.** All other scope restrictions and the stopping rule are unchanged.
