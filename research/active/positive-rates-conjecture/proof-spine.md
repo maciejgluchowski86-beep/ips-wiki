@@ -23,29 +23,24 @@ $$
 
 There is still **no reopened full proof architecture**.
 
-Student G is executing one bounded pre-restart experiment, Assignment 012, on optimized information-percolation pair histories. Student F is idle.
+Student G is executing Assignment 013, one final bounded test of the only toolbox PASS mechanism not yet attacked on its own observable: Gray's nonadditive scalar/two-type splice-edge geometry. Student F is idle.
 
-Meeting 032 closes the principal-directed `pi_N`-based distinguished-zero transfer as `STOP-EQUIVALENT` and analytically kills the uniform additive-Hamming non-diagonal coupling bridge. The operative connected-renewal restart bar from Meeting 030 remains unchanged.
+Recent bounded tests have narrowed sharply:
 
-A new proof block is justified only by a genuinely new mechanism, not by another reformulation of tail shift, common-coupling occupation, scalar Foster/Bellman, reversible comparison, or the signed boundary-transmission problem.
+- G011: `pi_N`-based distinguished-zero transfer is `STOP-EQUIVALENT` to tail shift off the product surface;
+- Meeting 032: uniform negative additive-Hamming drift is impossible for every Markovian coupling at `P_h`;
+- G012: optimized mark-only deterministic-Boolean information-percolation support pairs are `STOP-PAIR-OBSTRUCTION` at `P_h`.
 
-## E1. Canonical predecessor-trail `J` quantity
+If G013 stops negatively, no toolbox-derived positive-rates bridge remains at A/B level. Do not automatically escalate to larger edge-state hierarchies, state-adaptive histories, generic coupling/norm engineering, or previously stopped routes.
 
-Put
+## E1. Connected predecessor-trail route and final blocker
 
-$$
-B=b+c-a,
-\qquad g=b-a,
-\qquad \omega=1-c+a.
-$$
-
-For singleton depth `n`,
+For singleton depth `n`, the canonical absolute-duration quantity satisfies
 
 $$
-J_n=\frac BgR_n=\frac gBN_n.
+J_n=\frac BgR_n=\frac gBN_n,
+\qquad B=b+c-a,\quad g=b-a.
 $$
-
-Thus `(J-SPEC)` is the all-depth growth question for the canonical absolute-duration predecessor-trail norm.
 
 At
 
@@ -53,7 +48,7 @@ $$
 P_*=(1/1000,1/10,9999/10000),
 $$
 
-the fixed signed-filter witness gives the exact renewal recurrence
+the fixed signed-filter witness obeys the exact renewal recurrence
 
 $$
 V_n=\sum_{k=1}^n\lambda_kV_{n-k},
@@ -74,39 +69,7 @@ $$
 
 remains open.
 
-## E2. Positive-frequency structure and final connected-renewal blocker
-
-The terminal factor admits the depth-uniform high-pass contraction
-
-$$
-\operatorname{osc}
-\left(
-R_{N+1}Q_{N+1}(Y_{N+1}f)
-\right)
-\le q_\sharp\operatorname{osc}(f),
-\qquad q_\sharp<1.
-$$
-
-The complementary split is
-
-$$
-R_N=m_0I+g_0(I-K_N),
-\qquad
-K_N=(1+b)((1+b)I-L_N)^{-1}.
-$$
-
-Each channel has a depth-uniform one-step estimate, but no frame/reverse estimate makes the pair iterable on the actual connected orbit.
-
-Recentring the fresh insertion yields
-
-$$
-A_NM_{X_N}
-=
-M_{X_N}(A_{N-1}+r)
--g_0B M_{\eta_N}P_{N-1},
-$$
-
-and the first two exact semigroup branches are individually subcritical. The only uncontrolled branch is the signed boundary-transmission operator
+The exact recentered semigroup decomposition makes the fresh shifted and scalar branches individually subcritical. The only uncontrolled branch is the signed boundary-transmission operator
 
 $$
 \boxed{
@@ -121,102 +84,70 @@ $$
 }
 $$
 
-Both temporal factors change sign. No depth-uniform estimate on the actual connected orbit retaining this two-time cancellation is known.
+Both temporal factors change sign. No depth-uniform estimate on the actual connected orbit preserving that two-time cancellation is known. This remains the restart bar for the connected-renewal architecture.
 
-This remains the sharp blocker for the connected-renewal architecture.
+## E2. Zero-boundary invariant family and failed East transfer
 
-## E3. Zero-boundary invariant family and tail shift
-
-Let `pi_N` be the unique invariant law in the `N`-site chain with fixed zero boundary. One-sidedness gives **right-suffix** projectivity
+Let `pi_N` be the unique invariant law in the `N`-site chain with fixed zero boundary. One-sidedness gives right-suffix projectivity
 
 $$
 R_{N,M}\pi_N=\pi_M.
 $$
 
-For the projective half-line law `mu=pi_\infty^0`, the boundary mismatch is exactly
+For the projective half-line law `mu=pi_\infty^0`, the boundary mismatch is
 
 $$
 \Delta_M
 =\|\theta\mu-\mu\|_{\mathcal F_{M-1}},
 $$
 
-with
+and its limit is the remote-left tail-shift variation.
 
-$$
-\lim_M\Delta_M
-=\|\theta\mu-\mu\|_{\mathcal T}.
-$$
-
-The connected-renewal coefficient can eliminate this bare discrepancy algebraically, so tail-shift agreement is **not** logically required for that fixed-filter route. Tail shift remains a separate stopped stationary/profile architecture.
-
-## E4. G011: exact failure of `pi_N`-based East distinguished-zero transfer
-
-An East marker grows the protected interval in the opposite direction from suffix projectivity. If a right-measurable marker move leaves the old protected `N` coordinates untouched and exact post-move law is `pi_{N+1}`, then necessarily
+G011 proves that an East marker which grows the protected interval in the opposite direction would require
 
 $$
 \bar\pi_{N+1}=\pi_N.
 $$
 
-Already at `N=1 -> 2`,
+At `N=1 -> 2`,
 
 $$
-\boxed{
 \bar\pi_2(1)-\pi_1(1)
 =-\frac{2a\,[a-b(1-c)]}
 {(a+1-c)\,[2ab-ac+3a-bc+b+c^2-3c+2]}.
-}
 $$
 
 Thus exact compatibility holds precisely on
 
 $$
-\boxed{a=b(1-c).}
+a=b(1-c),
 $$
 
-With `rho=b/(1+b)`, this is the product/reversible surface and
+the product/reversible surface where
 
 $$
-\pi_N=\operatorname{Ber}(\rho)^{\otimes N}
+\pi_N=\operatorname{Ber}\!\left(\frac b{1+b}\right)^{\otimes N}.
 $$
 
-for every `N`.
+A width-`m` buffered repair has exact error `Delta_{m+1}`; a finite release kernel cannot alter the protected prefix. Therefore the `pi_N` distinguished-zero transfer is closed as `STOP-EQUIVALENT`.
 
-Off this surface the literal East induction fails locally. Allowing a contaminated buffer of width `m` gives exactly
+## E3. Coupling obstructions
 
-$$
-S_m=\Delta_{m+1}.
-$$
-
-An arbitrary fresh finite release kernel that cannot inspect/modify the protected prefix requires `Delta_{m+1}=0` for exact output and has approximate error bounded below by the same prefix discrepancy.
-
-Therefore G011 is `STOP-EQUIVALENT`. Marker-existence analysis is moot for this architecture. A future screening idea would need a genuinely new dynamical boundary-defect erasure theorem rather than the same `pi_N` induction.
-
-## E5. Common-uniform coupling facts retained but global-coalescence route stopped
-
-For finite disagreement seeds under the common-uniform coupling:
-
-- no spontaneous disagreement appears to the right;
-- every fixed site eventually couples permanently;
-- survival is equivalent to convective escape to `-infinity`;
-- a moving-frame weighted disagreement contracts;
-- at `P_h`, the finite-time Hamming amplification satisfies
-  $$
-  \alpha(t)>1\qquad(0<t\le47).
-  $$
-
-The two-spin occupation closure later failed because the visible front state forgets post-coalescence right-ancestry capacity. The global-coalescence/occupation interface remains stopped.
-
-## E6. New universal obstruction to uniform additive-Hamming coupling
-
-Let
+For common-uniform coupling, every fixed site eventually couples permanently and finite-seed survival is equivalent to convective escape to `-infinity`, but at `P_h`
 
 $$
-H(x,y)=\sum_i\mathbf1_{\{x_i\ne y_i\}}.
+\alpha(t)>1\qquad(0<t\le47).
 $$
 
-For any Markovian coupling of two spin-flip chains, pairing a flip at site `i` in one copy with a flip at a **different** site `j` in the other cannot change the Hamming drift beyond the fixed marginal contributions, because the Hamming increment is additive across distinct coordinates.
+The later occupation closure fails because the visible front state forgets hidden right-ancestry capacity. The global-coalescence/occupation route remains stopped.
 
-Optimizing the same-site coupling gives
+More generally, for additive Hamming distance
+
+$$
+H(x,y)=\sum_i\mathbf1_{\{x_i\ne y_i\}},
+$$
+
+cross-site joint flips cannot improve instantaneous drift under any Markovian coupling. The optimal drift is
 
 $$
 \boxed{
@@ -228,84 +159,91 @@ $$
 }
 $$
 
-At `P_h`, for one disagreement at site zero with common right spin zero and common left spin one,
+At `P_h`, a one-disagreement pattern has optimal drift
+
+$$
+\frac{9997}{10000}>0.
+$$
+
+Hence the refined-coupling bridge requiring uniform negative additive-Hamming drift is impossible for every Markovian coupling.
+
+This does **not** decide Gray's nonadditive edge observable.
+
+## E4. G012 mark-only information-percolation obstruction
+
+Classify an exact deterministic Boolean update map by essential backward parent set and aggregate rates `(d,s,j,r)` for death, self-only, right-only and two-parent maps.
+
+At `P_h`, direct flip-budget inequalities give
+
+$$
+\boxed{d+j\le\frac1{5000}},
+\qquad
+\boxed{r\ge\frac{4999}{5000}}.
+$$
+
+For two independent mark-only backward supports, G012 constructs a width-one block event of duration `8` which maps one common ancestor to two adjacent common ancestors. Uniformly over every exact Boolean-map decomposition, the bad-cell probability is less than `1/128`.
+
+The resulting good-cell field is one-dependent in space and independent between time layers. A simple minimal bad-cut Peierls estimate yields a positive-probability infinite oriented common-ancestor cluster. Therefore
 
 $$
 \boxed{
-\inf_{\text{couplings}}\bar L H
-=c-(a+1-c)
-=\frac{9997}{10000}>0.
+\inf_{n\ge0}
+E\left[2^{|A_{8n}\cap A'_{8n}|}-1\right]>0.
 }
 $$
 
-Hence no Markovian coupling can satisfy a uniform drift
+Thus the mark-only deterministic-Boolean minimal-support Miller--Peres bridge is impossible at the hard point for **every** exact local random-map decomposition.
 
-$$
-\bar L H\le-\kappa H
-$$
+This is a pair-history obstruction, not a first-moment argument. It does not rule out state-adaptive reveal trees which use discovered spin values to prune a globally essential parent. No such adaptive bridge is presently specified noncircularly.
 
-throughout the residual target. This kills the toolbox refined-coupling Bridge R as stated and cancels its proposed Hamming LP.
+## E5. Active final bounded test: Gray scalar splice edges
 
-It does **not** kill a nonadditive Gray splice-edge architecture.
+Gray's actual proof uses nonadditive one-dimensional edge geometry: exact hybrid identities, scalar edge closure, protected regions, no crossing and permanent coalescence. Attraction/repulsion supplies these in the source theorem.
 
-## E7. Stationary boundary-control hierarchy remains stopped at weighted mismatch
+Assignment 013 asks whether those local identities admit a **direct scalar/two-type replacement** at `P_h` under an exact local grand coupling, without a hidden spin order.
 
-The exact hierarchy of stationary controlled boundary occupation measures and Bellman endpoints remains valid. Its scale-extension identity expresses improvement through occupation of weighted adaptive boundary-action slacks.
+The test must first pass attractive/repulsive sanity checks, then either:
 
-The controller-uniform unweighted mismatch theorem is insufficient, additive block correctors cannot improve endpoints, and no independent theorem controls the required weighted cross-block mismatch. The Bellman route remains stopped.
+1. derive a symbolic rate obstruction;
+2. give an exact rational local infeasibility certificate; or
+3. exhibit an explicit locally feasible scalar-edge grand coupling and state the remaining global bridge.
 
-## E8. Exact trajectory-valued spatial kernel obstruction retained
+No escalation to larger edge-state spaces is allowed if scalar/two-type closure fails.
 
-The zero-boundary stationary trajectory field is a spatial Markov chain on one-site path space. The transition laws corresponding to the two constant right-neighbour trajectories are mutually singular, so the path-space Dobrushin TV coefficient equals one.
+Permitted statuses:
 
-This blocks ordinary trajectory-kernel contraction but does not itself decide information percolation, which tracks minimal backward information under a chosen random-map representation rather than full conditional path-law TV.
+- `STOP-SCALAR-EDGE-OBSTRUCTION`;
+- `STOP-NO-FAITHFUL-LOCALIZATION`;
+- `CONTINUE-GRAY-BRIDGE`.
 
-## E9. Active bounded test: information-percolation pair histories
+## E6. Other stopped interfaces retained
 
-Assignment 012 is the only active experiment.
+The stationary boundary-control/Bellman hierarchy remains stopped at the weighted adaptive mismatch estimate; additive correctors do not improve endpoints.
 
-For an exact Poisson random-map decomposition of the local generator, classify deterministic Boolean maps by essential backward parent set:
+The trajectory-valued spatial kernel has total-variation coefficient one, blocking ordinary path-space Dobrushin contraction.
 
-- constant: history death;
-- self-only;
-- right-only;
-- self+right: branching.
+The reversible reference Sobolev gains and left-slice reduction remain valid but do not transport through the actual nonreversible boundary defect.
 
-First derive the exact attainable ancestry-rate polytope. Then run two independent minimal support processes and study
+No degree/component multiplicative `ell^1` weight repairs the raw coefficient route.
 
-$$
-\Psi(A,A')=2^{|A\cap A'|}-1,
-$$
-
-not merely `E|A|`.
-
-The experiment is bounded to relative widths `W<=8` unless a structural recursion is discovered.
-
-A viable positive signal must produce a pair-level state/inequality with strict contraction or another Miller--Peres-type intersection estimate that is plausibly iterable without assuming ergodicity, common-coupling extinction, tail shift, or `(V)`.
-
-A merely supercritical first-moment ancestor count is not a negative theorem.
-
-## E10. Reversible reference and raw coefficient lessons retained
-
-At the corrected reversible/product reference point there is a dimension-free fresh-insertion Sobolev gain and an exact left-slice reduction to a killed self-adjoint channel family. These do not transport automatically through the actual nonreversible boundary defect.
-
-No degree/component multiplicative `ell^1` weight makes the actual nonconstant raw coefficient semigroup uniformly nonexpansive. Filter/resolvent-level cancellation remains load-bearing for the predecessor-trail route.
-
-## E11. Restart rules
-
-The connected-renewal branch may restart only with new input controlling `(V)` on the actual connected orbit while retaining its two-time cancellation, or with a materially different proof architecture.
+## E7. Restart rules
 
 Do not restart on:
 
 - bare tail shift or another `pi_N` distinguished-zero buffer;
 - common-coupling occupation/global extinction;
 - uniform additive-Hamming coupling;
+- mark-only Boolean support information percolation;
 - scalar Foster/Bellman corrector variants;
 - reversible perturbation or another filter/norm search;
-- longer finite coefficient tables.
+- longer coefficient tables.
 
-The information-percolation experiment is permitted precisely because it is a different backward-information architecture. Its output must be reviewed before any full proof block is opened.
+A future restart requires either:
+
+- actual control of the signed boundary-transmission operator on the connected orbit;
+- a successful G013 scalar Gray bridge;
+- or a materially new architecture with its own explicit bounded falsification test.
 
 ## Anti-circularity checkpoint
 
-Do not infer the connected-tail theorem from the finite renewal prefix; treat one-step high-pass/channel bounds as iterable without a frame theorem; transfer the reversible reference result through a depth-growing perturbation norm; identify the connected route with bare tail shift despite the exact elimination; infer that marker existence can repair the G011 prefix mismatch; or use supercritical mean ancestor growth as a proof that information-percolation pair intersections cannot decay.
+Do not infer connected-tail control from the finite renewal prefix; treat one-step high-pass/channel bounds as iterable without a frame theorem; transfer the reversible reference result through depth-growing perturbation; identify connected renewal with bare tail shift despite exact elimination; infer marker geometry can repair G011's prefix mismatch; use supercritical mean ancestor count in place of G012's pair theorem; or promote unspecified state-adaptive histories merely because mark-only histories failed.
