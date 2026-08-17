@@ -310,3 +310,27 @@ $$
 $$
 
 Student G Assignment 009 receives one bounded asymptotic certificate block at the strong-growth point `(1/1000,1/10,9999/10000)`. Larger finite-depth numerics alone do not count. Student F remains idle. If G returns unresolved without an asymptotic mechanism, revert to the consultant's `no-credible-route` state.
+
+## Meeting 023: stationary boundary-control hierarchy opens one new proof test
+
+Meeting: `meetings/023-stationary-boundary-control-hierarchy-reopens-one-proof-test.md`. `state_narrowed: yes`.
+
+A new principal proof-strategy input proposes a finite-dimensional stationary occupation polytope over arbitrary state-dependent right-boundary control. The Professor independently checks that:
+
+- every infinite-volume invariant law projects into the polytope `K_N`;
+- every feasible occupation measure is realized by a randomized state-dependent controlled finite chain;
+- the hierarchy is nested under block projection, hence `D_{N+1}(h)<=D_N(h)` for fixed local `h`;
+- exact LP duality expresses `D_N` through upper/lower Bellman--Poisson correctors;
+- `D_N(h)->0` for all local `h` would imply uniqueness of the invariant measure.
+
+This architecture concerns one-time stationary local marginals and is not refuted by consultation 002's singularity theorem for whole trajectory laws.
+
+The Professor checks the cited hard-East inputs in the attached KCM book: Theorem 7.6 gives exponential local convergence once a facilitator is present in the oriented future; Theorem 7.8 gives linear finite-volume East mixing with empty or ergodic boundary. Neither theorem directly supplies the needed noisy controlled block contraction. Robustness to soft resets and arbitrary state-dependent boundary control is the load-bearing missing step.
+
+Student F Assignment 015 is issued to test whether finite LP correctors concatenate into a repeatable multiscale screening inequality such as
+
+$$
+D_{2N}(h)\le(1-\rho)D_N(h)+Ce^{-\gamma N}.
+$$
+
+Larger finite LPs with no repeatability theorem do not count. G009 continues unchanged mathematically, with a workflow addendum requiring durable intermediate commits after two session freezes. If G is unresolved, only the `J-SPEC` branch stops while F015 remains active.
