@@ -4,32 +4,23 @@ Date: 2026-08-17
 
 ## Target
 
-Extend the patch representation / patch positivity mechanism beyond binary flip spin systems while preserving:
-
-1. a tensor basis of local observables;
-2. an exact signed Feynman--Kac dual;
-3. a coarse successful-interaction skeleton;
-4. killed/weighted patch factorization;
-5. explicit patch contributions;
-6. exact typed bulk nonnegativity;
-7. a tractable multi-state positivity criterion retaining genuinely necessary transient information;
-8. only then consequences and applications.
+Extend the binary patch-representation / patch-positivity mechanism to finite-state single-site replacement IPS, identify an exact multi-state positivity property, determine usable non-binary criteria, establish novelty, and then test applications.
 
 ## E0. Binary benchmark
 
 **Settled by the canonical paper.**
 
-## E1. Finite-state tensor basis and signed local dual
+## E1. Arbitrary finite-state tensor basis and signed local dual
 
 **Settled in Assignment 001.**
 
-Reference-state indicator tensors yield typed active configurations. General bounded finite-range single-site replacement rates give fixed local signed branch coefficients and a local Feynman--Kac dual. Successful nonempty records reveal `(i,t,r,tau)` and hide the post-source outcome.
+Reference-state indicator tensors yield typed active configurations. General bounded finite-range single-site replacement rates give fixed local signed branch coefficients and an exact Feynman--Kac dual. Successful nonempty records reveal `(i,t,r,tau)` and hide post-source outcome.
 
 ## E2. Typed patch factorization
 
 **Settled in Assignment 002 with killed-skeleton modification.**
 
-Bare conditioning fails because typed target conflicts can enter cemetery and suppress future records globally. Since `H_dagger=0`, killed/noncemetery weighted factorization is exact.
+Bare conditioning fails because typed target conflicts can enter cemetery and suppress future records globally. Since the duality function vanishes at cemetery, killed/noncemetery weighted factorization is exact and representation-sufficient.
 
 ## E3. Explicit typed patch representation
 
@@ -43,9 +34,9 @@ C(P)=E_P^{con}[A_P],
 
 end contributions are one-site indicator-basis functions, and the exact killed-skeleton semigroup representation is proved. Binary reduction is exact.
 
-## E4. Exact typed bulk positivity transfer
+## E4. Exact finite-state bulk positivity transfer
 
-**Settled in Assignment 004.**
+**Settled in Assignment 004 for arbitrary finite local state space.**
 
 The signed interior transfer is
 
@@ -54,27 +45,21 @@ K_i(0,\cdot)=0,
 \qquad K_i(r,s)=a_{i,r}^s(\emptyset).
 \]
 
-Typed bulk patch positivity is exactly the nonnegativity of the four local numerator families built from `e^{tK_i}` for every realizable descriptor and `t>0`.
+Typed bulk patch positivity is exactly nonnegativity of four local numerator families built from `e^{tK_i}` for every realizable descriptor and patch length.
 
-The `d=2` specialization is exactly the canonical patch-positivity coefficient criterion.
+The `d=2` specialization is exactly canonical binary patch positivity.
 
-## E5. Boundary-complete `d=3` structural reduction
+## E5. Boundary-complete `d=3` reduction
 
 **Settled in Assignment 005.**
 
-Boundary completeness forces `K` Metzler. Hence incoming-initial families are automatic. For every outgoing row
-
-\[
-p=(p_0,p_1,p_2),
-\]
-
-zero-length conditions force
+Boundary completeness forces `K` Metzler. Incoming-initial families become automatic. Zero-length outgoing conditions force
 
 \[
 p_1,p_2,p_0+p_1,p_0+p_2\ge0,
 \]
 
-which makes all `OO` families automatic. Only `OI` remains, with the physical Markov representation
+which makes all `OO` families automatic. Only `OI` remains, with physical Markov representation
 
 \[
 p e^{tK}f_b^I=E_b[g(Z_t)],
@@ -82,145 +67,140 @@ p e^{tK}f_b^I=E_b[g(Z_t)],
  g=(p_0,p_0+p_1,p_0+p_2).
 \]
 
-## E6. Binary-style endpoint criterion
+## E6. Binary-style endpoint collapse
 
 **Refuted in Assignment 005.**
 
-The exact witness
+The exact physically realizable witness
 
 \[
 N(t)=\frac1{128}-\frac{13}{64}e^{-t}+\frac{153}{128}e^{-2t}
 \]
 
-has
-
-\[
-N(0)=1,
-\qquad N(\infty)=1/128,
-\]
-
-but
-
-\[
-e^{-t_*}=13/153,
-\qquad N(t_*)=-1/1224.
-\]
-
-Thus zero-length plus long-time inequalities do not characterize boundary-complete `d=3` positivity. This does not affect the exact semigroup property or binary theory.
+has positive zero/long endpoints but interior minimum `-1/1224`. Multi-state transients therefore contain genuine information absent from the binary theorem.
 
 ## E7. Exact finite spectral criterion in boundary-complete `d=3`
 
 **Settled in Assignment 006.**
 
-For each remaining `OI` descriptor, the active `2 x 2` spectrum is real because `K` is Metzler.
-
-### Generic distinct negative active eigenvalues
-
-If
+Every remaining `OI` function is decided by finitely many explicit evaluations. Generically
 
 \[
--\mu,-\nu,
+N(t)=L+A e^{-\mu t}+B e^{-\nu t},
 \qquad0<\mu<\nu,
 \]
 
-then
+and there is at most one possible interior minimum. Zero-eigenvalue, repeated diagonalizable, Jordan, and reducible cases are also exact and finite.
+
+Thus boundary-complete `d=3` positivity is no longer an all-time scan problem.
+
+## E8. Natural exact non-binary algebraic subclass
+
+**Settled in Assignment 007.**
+
+Assume active-label exchange symmetry at the reference-neighbour level and in the nonempty-target coefficient family:
 
 \[
-N(t)=L+A e^{-\mu t}+B e^{-\nu t}.
+Q=
+\begin{pmatrix}
+-2a&a&a\\
+b&-(b+c)&c\\
+b&c&-(b+c)
+\end{pmatrix}.
 \]
 
-Use
+Boundary completeness gives
 
 \[
-P_0=\frac{(K+\mu I)(K+\nu I)}{\mu\nu},
-\quad L=uP_0f,
-\quad n_0=uf,
-\quad n_1=uKf,
+K(1,2)=K(2,1)=c-a,
 \]
+
+so typed positivity forces
 
 \[
-A=\frac{\nu(n_0-L)+n_1}{\nu-\mu},
-\qquad
-B=\frac{-\mu(n_0-L)-n_1}{\nu-\mu}.
+\boxed{c\ge a.}
 \]
 
-There is at most one interior minimum. It occurs exactly when
+The symmetric and antisymmetric decay rates are
 
 \[
-A<0<B,
-\qquad
-0<R=-\frac{\mu A}{\nu B}<1,
+2a+b,
+\qquad b+2c.
 \]
 
-and then
+Hence the antisymmetric signed mode is never slower than the symmetric mode.
+
+For every outgoing row `p=(p0,p1,p2)`, typed bulk patch positivity is exactly equivalent to
 
 \[
 \boxed{
-N(t_*)
-=L+\frac{\nu-\mu}{\nu}
-A R^{\mu/(\nu-\mu)}.}
+p_1,p_2,p_0+p_1,p_0+p_2\ge0,}
 \]
 
-Hence zero-length, long-time, and at most one critical-value check are necessary and sufficient.
-
-### Degenerate spectra
-
-Also settled exactly:
-
-- one zero active eigenvalue: one decaying mode;
-- repeated negative diagonalizable active block: one decaying mode;
-- repeated negative Jordan block:
-  \[
-  N(t)=L+(A+Bt)e^{-\mu t},
-  \]
-  again with at most one interior minimum;
-- reducible reference-neighbour chains: no new time-dependence class; zero remains semisimple because `K` is similar to a finite-state Markov generator.
-
-Thus every boundary-complete `d=3` descriptor is decided by finitely many explicit local evaluations.
-
-### Mandatory gates
-
-The criterion reproduces the Assignment-005 negative minimum and verifies a separate physically realizable `p_0<0` positive example with
+and
 
 \[
-p=(-1/8,9/8,3/8),
+\boxed{(b+2a)p_0+a(p_1+p_2)\ge0.}
 \]
 
-whose nontrivial minimum is
+This is necessary and sufficient inside the subclass. It is genuinely non-binary: the exact gate allows `p_1!=p_2`, so the active labels remain observable.
 
-\[
-e^{-t_*}=5/51,
-\qquad N(t_*)=15/544>0.
-\]
+### Other natural structures classified in Assignment 007
 
-The binary suppression again gives exactly the canonical coefficient inequalities.
+- active-block lumpability plus `p_1=p_2`: exact but observably binary-reducible;
+- one-way active retyping: still genuinely two-mode; Assignment-005 obstruction already lies in this class;
+- destination-rate refresh chains: repeated-spectrum sibling subclass with exact one-mode criterion.
 
-Decisive files: `006a`--`006d`, verifier `006-three-state-spectral-verifier.py`, and Meeting 006.
+The binary suppression remains exactly canonical.
 
-## E8. Natural simplification / structural subclass
+Decisive files: `007a`--`007d`, verifier `007-natural-subclass-verifier.py`, final report, and Meeting 007.
+
+## E9. Novelty and closest-prior-work audit
 
 **Open and current load-bearing edge.**
 
-The exact `d=3` criterion is finite but not generally a purely algebraic coefficient cone. Its generic critical inequality contains
+The mathematical package is now stable enough to compare precisely with the literature. Before further abstraction or applications, determine whether prior work already contains any of the following in equivalent language:
 
-\[
-R^{\mu/(\nu-\mu)}.
-\]
+1. the arbitrary-finite-state indicator-tensor signed dual for single-site replacement IPS;
+2. a coarse successful-record skeleton hiding post-source outcome;
+3. the killed/noncemetery patch-factorization repair for typed target conflicts;
+4. the exact patch representation obtained by local averaging before taking signs/absolute values;
+5. the transfer-matrix characterization of typed bulk positivity;
+6. the exact boundary-complete `d=3` spectral criterion;
+7. the exchange-symmetric / refresh exact subclasses.
 
-Assignment 005 proves that the interior transient cannot simply be deleted.
+The audit must separate standard ingredients from genuinely new assembly/theorems and must search alternate terminology.
 
-The next bounded problem is:
+No novelty claim is authorized before E9 is resolved.
 
-> identify a mathematically natural non-binary structural subclass for which the exact critical condition simplifies to algebraic/monotone local inequalities, and prove necessity and sufficiency within that subclass while preserving the exact binary reduction.
+## E10. Applications
 
-Possible structure must arise from the IPS/transfer algebra rather than be imposed solely to force positivity. A merely sufficient cone is not a replacement for the exact property unless the subclass itself is independently natural.
+**Next active mathematical edge if E9 does not subsume the contribution.**
 
-## E9. Consequences, applications, and broader updates
+Applications should begin immediately after the literature audit if the generalized mechanism remains nontrivial in novelty status.
 
-**Blocked on E8.**
+The first application block should seek a genuinely non-binary finite-state single-site replacement IPS whose typed coefficients can be checked against either:
 
-Do not start applications, convergence, arbitrary `d`, or simultaneous multi-site updates before the simplification/subclass question is materially resolved.
+- the exchange-symmetric / refresh algebraic criterion; or
+- the exact general boundary-complete `d=3` spectral criterion.
 
-## Novelty status
+The application should not be a relabelled binary spin system.
 
-No literature novelty claim has yet been made. A targeted literature audit remains necessary once the theorem package is stable enough to compare precisely.
+## E11. `d>3` tractable positivity
+
+**Deferred, not abandoned.**
+
+The representation and exact transfer property already hold for arbitrary finite `d`. What is not yet generalized beyond `d=3` is a tractable coefficient/spectral characterization.
+
+Do not activate a generic `d>3` criterion block before applications unless:
+
+- a concrete application naturally requires more than three local states; or
+- the literature audit shows that the arbitrary-`d` criterion itself is the distinctive research contribution worth developing.
+
+This ordering prevents additional algebraic generalization from indefinitely postponing the principal's application question.
+
+## E12. Convergence/comparison and multi-site updates
+
+**Downstream.**
+
+Comparison/convergence consequences and simultaneous multi-site physical updates remain outside the proved package and should be revisited only after novelty and applications clarify which extension matters.
