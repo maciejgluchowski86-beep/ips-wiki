@@ -31,6 +31,8 @@ The following remain stopped: common-uniform zero-frequency occupation, the repe
 
 Meeting 026 reopens only the exact connected/separator renewal because it removes invariant projections algebraically rather than approximating them.
 
+Operational overlap correction: exact verifier commit `e4452de` landed while Meeting 026 was being composed and before the meeting committed. It already satisfies Assignment 010's finite-prefix verification checkpoint. G proceeds directly to the all-depth connected-tail theorem.
+
 ## E1. Canonical predecessor-trail `J` quantity
 
 Put
@@ -196,7 +198,7 @@ $$
 
 This is exact at every depth and uses one fixed filter.
 
-## E6. Fixed rational filter and finite prefix
+## E6. Fixed rational filter and verified finite prefix
 
 At
 
@@ -220,7 +222,7 @@ $$
 z_\sigma=\frac{114559900}{205809}.}
 $$
 
-G009b reports, and the Professor independently reconstructs numerically,
+Commit `e4452de`, `009b-dual-renewal-verifier.py`, reconstructs the finite generators and resolvents in exact rational arithmetic and verifies exact rational `lambda_1,...,lambda_7` with
 
 $$
 \lambda_1,\ldots,\lambda_5>0,
@@ -228,18 +230,30 @@ $$
 \lambda_6,\lambda_7<0,
 $$
 
-and
+and exact
+
+$$
+\sum_{k=1}^3\lambda_k>1,
+\qquad
+\sum_{k=1}^7\lambda_k>1.
+$$
+
+Numerically,
 
 $$
 \sum_{k=1}^7\lambda_k
-\approx1.047155757329804.
+\approx1.04715575732980380.
 $$
 
-Assignment 010 must first bank exact rational verification of these values and of
+Therefore
 
 $$
-\delta_7:=\sum_{k=1}^7\lambda_k-1>0.
+\boxed{
+\delta_7:=\sum_{k=1}^7\lambda_k-1>0
+}
 $$
+
+is exactly certified. The verifier does not need to print the huge rational numerator and denominator of `delta_7`: `sum7` itself is exact rational arithmetic and `delta_7=sum7-1`.
 
 The negative signs at lengths six and seven rule out the naive positive-renewal truncation.
 
@@ -328,6 +342,8 @@ Common-uniform fixed-site coalescence/front facts and the exact trajectory-value
 ## E12. Current stopping rule
 
 Student G is active only on Assignment 010. Student F is idle.
+
+The finite-prefix verifier checkpoint is complete. G should spend the block on the all-depth connected-tail theorem, not duplicate `e4452de`.
 
 If Assignment 010 proves an all-depth connected-tail theorem, `(J-SPEC)` is decided positively at `P_*` and the proof spine must then reassess the exact ergodicity target beyond the refuted absolute-duration bound.
 
