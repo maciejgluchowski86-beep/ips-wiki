@@ -1,178 +1,207 @@
-# Coverage spine
+# Proof spine
 
-This is the frozen coverage map for the ergodicity-methods toolbox. **Live** means source-audited by the Professor and admitted to the public wiki. Breadth collection ended with wave seven. There are **74 source-audited live method pages**, and Meeting 018 records the clean final 74-page structural publication gate.
+This file is now the current proof spine for the post-toolbox **FA-1f Bernoulli-quench** research direction. The 74-method inventory itself remains frozen and source-audited; its detailed coverage map is preserved in Git history and the live method pages. No breadth collection is active.
 
-This file is no longer an uncovered-method agenda. The problem-specific applicability phase governed by `assessment-protocol.md` is also complete. Final priorities and restart rulings are in `assessment/final-method-priorities.md` and Meeting 022.
+## Main target
 
-## A. Coupling, influence, and smoothing
+For one-dimensional hard FA-1f, with equilibrium vacancy density
 
-- attractive/monotone coupling and extremal invariant measures — **live**;
-- Dobrushin influence contraction — **live**;
-- path coupling / local metric contraction — **live**;
-- coupling with stationarity / equilibrium typicality — **live**;
-- censoring inequalities — **live**;
-- dynamical disagreement domination by space-time percolation — **live**;
-- static disagreement percolation for Gibbs uniqueness — **live**;
-- coupling from the past — **live**;
-- clan-of-ancestors perfect simulation — **live**;
-- information percolation — **live**;
-- literal block coupling by joint conditional resampling — **live**;
-- coupling independence / pinned-law coarse comparison — **live**;
-- weighted synchronous Wasserstein contraction on countable-site continuous-spin systems — **live**;
-- refined non-diagonal discrepancy coupling for general exclusion — **live**;
-- maximal local coupling for nonmonotone Potts dynamics plus aggregate paths — **live**;
-- asymptotic binding under an absolutely continuous noise change — **live**;
-- regularized asymptotic reflection coupling for nonlinear SPDEs — **live**;
-- sticky nonlinear coupling for McKean--Vlasov systems — **live**;
-- componentwise reflection with particle-number-uniform mean-field contraction — **live**;
-- moving-frame coupling for the environment seen from a second-class particle — **live**;
-- asymptotic strong Feller support separation plus a common accessible support point — **live**;
-- Hörmander/Malliavin projected-noise propagation plus high-mode dissipation to verify asymptotic smoothing — **live**;
-- Gray's ordered one-dimensional edge coalescence plus local positive-rate repair — **live**.
+$$
+q\in(0,1),
+$$
 
-Generic disagreement-front regeneration, quasi-successful coupling without a concrete model theorem, boundary-uniform projective coupling, and generic common/basic graphical coupling were closed as collection searches before the sunset. They remain anti-loop evidence, not active gaps.
+and homogeneous Bernoulli initial vacancy density
 
-## B. Duality, ancestry, marked discrepancies, and regeneration
+$$
+q_0>0,
+$$
 
-- finite-set duality plus extinction — **live**;
-- coalescing-random-walk duality for voter clustering — **live**;
-- parity branching-annihilating duality and invariant-law classification — **live**;
-- successful coupling of fixed-size finite dual systems to classify invariant laws — **live**;
-- ancestor-cluster finiteness / finite-clan reconstruction — **live**;
-- East distinguished-zero regeneration/screening — **live**;
-- supercritical block construction plus complete convergence — **live**;
-- two-level contact block restart plus forward/backward dual intersection — **live**;
-- survival-conditioned ancestor renewal plus steering for multitype contact complete convergence — **live**;
-- physical-front regeneration / renewal times — **live**;
-- competition-interface regeneration by translated Heaviside restart — **live**;
-- exact regeneration at a recurrent particle-collapse atom — **live**;
-- second-class-particle product-shock closure and random-walk interface motion — **live**;
-- environment seen from a second-class particle — **live**;
-- essential hitting times plus almost-subadditive survival-conditioned regeneration for contact-process growth — **live**;
-- Toom error-history graphs inside backward influence expansions — **live**.
+prove for every local function `f`
 
-Gray 1986 general attractive-spin duality is **not in the frozen inventory**: wave seven reached official metadata/abstract but not the primary full theorem text required for `primary-checked`. This remains a source-access hold, not a negative taxonomy ruling.
+$$
+\mu_{q_0}P_t(f)\longrightarrow\mu_q(f).
+$$
 
-## C. Functional inequalities, comparison, curvature, and coercivity
+The high-vacancy nonequilibrium theorem and positive equilibrium spectral gap are background; the present target is the unresolved all-density Bernoulli quench. The all-ones configuration is absorbing, so no proof may require convergence from every initial state.
 
-- Poincare/spectral gap — **live**;
-- logarithmic and modified logarithmic Sobolev inequalities — **live**;
-- discrete Bochner--Bakry--Emery entropy method — **live**;
-- entropic Ricci curvature with weak-interaction defect control — **live**;
-- stochastic localization / needle decomposition for Ising Glauber gaps — **live**;
-- Dirichlet-form/canonical-path comparison — **live**;
-- Swendsen--Wang / heat-bath comparison through Edwards--Sokal kernels and operator sandwich — **live**;
-- block dynamics / bisection variance — **live**;
-- Lu--Yau martingale conditional-variance recursion — **live**;
-- two-scale/coarse-graining coercivity for conservative spins — **live**;
-- hierarchical renormalised Brascamp--Lieb gap recursion — **live**;
-- block/approximate entropy factorization — **live**;
-- Holley--Stroock bounded perturbation — **live**;
-- moving-particle / effective-resistance long-jump comparison — **live**;
-- Aldous/interchange exact spectral-gap reduction — **live**;
-- Liggett--Nash polynomial relaxation — **live**;
-- weak-Poincare relaxation from nonuniform Glauber influence — **live**;
-- super-Poincare reaction/diffusion decomposition — **live**;
-- large-set conductance / warm-start mixing — **live**;
-- KCLG renormalized good-block plus long-range Glauber comparison — **live**;
-- KCSM pointwise constraint domination by a slower constrained reference process — **live**;
-- long-range constrained Poincare / good-path inequalities — **live**;
-- deterministic bootstrap closure/legal emptying to a positive KCSM gap — **live**;
-- nested super-good mobile-droplet renormalisation — **live**;
-- CBSEP/generalized-CBSEP auxiliary-process comparison — **live**.
+## E0. Current architecture status
 
-Repeated generic searches for full-Cheeger positive-spin relaxation, load-bearing spectral-profile/evolving-set IPS use, fully-unconstrained-refresh KCSM comparison, and nonreversible sector/hypocoercive IPS relaxation were closed before collection ended.
+The hostile toolbox review retained exactly two independent FA architectures:
 
-## D. Spatial mixing and local-to-global transfer
+1. **FA-SCREEN** — an East-inspired two-sided physical causal screen;
+2. **FA-INFO** — a quench-specific state-adaptive causal information history.
 
-- Dobrushin--Shlosman spatial mixing to uniform functional inequalities — **live**;
-- spectral independence / local-to-global influence — **live**;
-- coupling independence / coarse-grained local-to-global transfer — **live**;
-- finite-size strong-mixing bootstrap by block decimation — **live**;
-- static disagreement percolation — **live**;
-- large-set RFIM expansion obtained from weak spatial mixing — represented by the live large-set-conductance page.
+`FA-SCREEN-001` has now stopped as `STOP-SCALING-OBSTRUCTION` for the registered fixed-final-interval vacancy-boundary implementation. `FA-INFO` is the queued next bounded experiment. No full proof architecture is presently reopened.
 
-## E. Recurrence, Lyapunov, and qualitative ergodicity
+## E1. Downstream equilibrium relaxation is not the blocker
 
-- Foster--Lyapunov drift plus Harris small-set recurrence — **live**;
-- infinite-dimensional Harris/Lyapunov plus compact regularisation, strong Feller, and irreducibility — **live**;
-- exact renewal regeneration at a physical atom — **live**;
-- moving physical-front regeneration — **live**;
-- competition-interface regeneration — **live**;
-- survival-conditioned ancestor renewal — **live**;
-- essential-hitting-time regeneration plus almost subadditivity — **live**;
-- number rigidity + tail triviality + conditional Dirichlet irreducibility — **live**;
-- relative-entropy-loss Gibbs-attractor principle — **live**;
-- asymptotic strong Feller uniqueness and its Hörmander/Malliavin verification architecture — **live**, separately represented.
+For every `q>0`, one-dimensional FA-1f has positive finite-volume/infinite-volume equilibrium coercivity in the relevant ergodic component. The toolbox audit therefore treats the spectral gap as **downstream**.
 
-Artificial Nummelin splitting in a concrete interacting process was closed absent a named source after repeated searches.
+A screen with a final protected interval `I_t`, relaxation time `s_t`, fresh interior marks, and conditional density cost at most `exp(C_q|I_t|)` would lead schematically to
 
-## F. KCSM/KCLG and model-specific mechanisms
+$$
+\exp(C_q|I_t|-\gamma(q)s_t),
+$$
 
-- East distinguished zero / oriented vacancy screening — **live**;
-- block renormalization and bisection — **live**;
-- bootstrap closure/legal emptying to positive stochastic gap — **live**;
-- Kob--Andersen good-block auxiliary dynamics plus long-range comparison — **live**;
-- pointwise constraint domination by an oriented East reference process for FA-1f — **live**;
-- long-range constrained Poincare / good-path dynamics — **live**;
-- nested super-good mobile-droplet renormalisation — **live**;
-- CBSEP/generalized-CBSEP auxiliary comparison — **live**.
+so `|I_t|=o(s_t)` would suffice once the causal screen exists.
 
-The collection phase is closed; no further generic KCSM gap search is active.
+The missing theorem is memory erasure/screening, not a stronger gap.
 
-## G. Finite-to-infinite transfer and invariant-law construction
+## E2. Exact local failure of the East distinguished vacancy
 
-- finite-volume coercivity + semigroup exhaustion + Gibbs compactness — **live**;
-- graphical finite-speed transfer from growing finite volumes — **live**;
-- N/V tightness of finite stationary path laws + martingale-problem/Gibbs limit identification — **live**;
-- exact projective consistency / extension of splitting Gibbs marginals to a reversible loss-network equilibrium — **live**;
-- number-rigidity/tail Dirichlet ergodicity — **live**;
-- relative-entropy Gibbs attractor — **live**.
+At a proposed right boundary, let the protected neighbour be `l`, the boundary spin `x`, its exterior neighbour `r`, and the refresh coin `z`. A boundary ring gives
 
-Boundary-uniform dynamic graphical projective transfer was closed as a generic search after only already-live screening/exhaustion mechanisms appeared.
+$$
+U(l,x,r;z)=
+\begin{cases}
+z,&l=0\text{ or }r=0,\\
+x,&l=r=1.
+\end{cases}
+$$
 
-## H. Potential theory and adjacent long-time methods
+The output depends on the protected side exactly when
 
-- potential-theoretic capacity / Dirichlet and flow variational principles for metastable Glauber crossover — **live**;
-- Toom error-graph expansion for phase-specific low-noise PCA convergence — **live**;
-- essential hitting-time shape/growth theory for survival-conditioned contact processes — **live**, explicitly adjacent rather than invariant-law convergence.
+$$
+\boxed{r=1,\quad z\ne x.}
+$$
 
-## I. Publication state
+For example
 
-Meetings 002--005 source-audited the first thirty entries; Meetings 006 and 008 promoted them. Meeting 010 source-audited the fourteen wave-four entries and Meeting 011 promoted them; Meeting 012 records their mechanical verification. Meeting 013 source-audited/promoted thirteen wave-five entries and Meeting 014 records the clean 57-page structural check. Meeting 015 source-audited/promoted ten wave-six entries and Meeting 016 records the clean 67-page structural check plus the collection-sunset ruling. Meeting 017 source-audited/promoted all seven final wave-seven entries and froze the inventory at 74.
+$$
+U(0,0,1;1)=1,
+\qquad
+U(1,0,1;1)=0.
+$$
 
-Meeting 018 records the **complete final 74-page structural publication gate**: 74 staged, 74 promoted, 74 hub-linked methods; zero unresolved/orphans; metadata on every promoted page; all 171 MkDocs `.md` targets resolving; validator 74 checked with zero failures; strict MkDocs exit 0; additions-only `docs/` diff against main; and clean control/format-character scan.
+Thus the literal East marker path is not measurable from the unscreened side. This is the exact local defect caused by two-sided facilitation.
 
-The repository-wide article convention remains unchanged: toolbox pages stay in `docs/entries/`. No public taxonomy/navigation change was made during the applicability phase.
+Checkpoint: `students/professor/001a-fa-screen-local-leakage.md`.
 
-## J. Applicability assessment: complete
+## E3. Dimer gives only a killed local screen
 
-Both 74-method primary audits and both hostile cross-reviews are complete. The final synthesis is `assessment/final-method-priorities.md`.
+An adjacent exterior vacancy dimer `00` can become `01` when the outer vacancy refreshes to `1`; this transition is legal without consulting the protected side. The next inner refresh-to-1 is the dangerous context above.
 
-### FA-1f / East
+Therefore a dimer cannot be an exact failure-free regeneration boundary. It can remain **faithful** only by declaring failure before/at a dangerous mark. This passes the local leakage gate as a killed primitive, so the remaining question was lifetime/scaling.
 
-Final hostile rulings on the five primary candidates:
+## E4. Width-three vacancy-screen age obstruction
 
-- East distinguished-zero screening — **PASS**;
-- refined non-diagonal discrepancy coupling — **DEMOTE**;
-- information percolation / adaptive histories — **PASS**;
-- front regeneration / renewal — **DEMOTE**;
-- state-dependent dynamical disagreement percolation — **KILL**.
+The decisive theorem is
 
-**Recommendation:** reopen the Bernoulli-quench proof programme narrowly on the two-sided `FA-SCREEN` causal-screen theorem. The first gate is a finite graphical leakage/measurability test. Adaptive information histories are the reserve architecture.
+`students/professor/001c-fa-screen-width3-scaling-obstruction.md`.
 
-### Positive rates
+A width-at-most-three exterior-measurable screen state is active if it certifies at least one vacancy among its first three exterior sites. There are seven states. From every one, a four-unit event using only those exterior sites has the following properties:
 
-Final hostile rulings:
+1. by the end of phase 3 the first two exterior spins are `(0,1)`;
+2. the adjacent exterior site has remained vacant throughout phase 3, so the protected endpoint is legal throughout that phase;
+3. hidden protected refresh marks therefore leave positive conditional probability for either protected endpoint value;
+4. a phase-4 boundary refresh-to-1 has different output for those two hidden protected values.
 
-- Gray one-dimensional edge coalescence — **PASS**;
-- refined non-diagonal discrepancy coupling — **PASS**;
-- information percolation — **PASS**;
-- block coupling / joint-block stationary control — **DEMOTE**;
-- disagreement-front regeneration — **DEMOTE**.
+The forcing probability is uniformly at least
 
-The three PASS candidates reduce to two families: nonbasic one-dimensional coupling/Gray geometry and information percolation.
+$$
+\boxed{
+\delta_3(q)=e^{-12}q^2(1-q)^2>0.
+}
+$$
 
-**Recommendation:** do not reopen the positive-rates proof programme yet. First run, if authorized by the principal, the exact rational non-diagonal coupled-rate/Gray LP at the hard point and the optimized finite-depth backward-history pair-intersection calculation. A positive structural signal from one is required before a new infinite-volume block.
+Hence any faithful fixed active endpoint has age tail
 
-The assessment phase is closed. Student G is idle; Student F remains unavailable. The next step is a principal decision, not another breadth or assessment assignment.
+$$
+\boxed{
+P(T>4n)\le(1-\delta_3(q))^n.
+}
+$$
+
+The exact width-three verifier checks all seven states. At `q=1/10`,
+
+$$
+\delta_3(1/10)>\frac{81}{2000000000}.
+$$
+
+The explicit constant is only a certificate of strict positivity.
+
+## E5. Why the registered FA-SCREEN cannot scale
+
+The registered bridge fixes a final interval `I_t` and a time `tau_t<=t-s_t`, and requires the screen event/data to be determined without revealing future marks in
+
+$$
+I_t\times(\tau_t,t].
+$$
+
+Searches and handoffs may occur before `tau_t`. But a post-`tau_t` handoff triggered by a mark at a site later absorbed into final `I_t` consumes a mark that the freshness condition requires to remain protected. An endpoint change also means a fixed-volume gap stage of length `s_t` can begin only after the final change.
+
+Thus the selected endpoint must have valid age at least `s_t`.
+
+Even allowing `C s_t` possible endpoints,
+
+$$
+P(\exists\text{ valid endpoint of age }s_t)
+\le
+C s_t(1-\delta_3(q))^{\lfloor s_t/4\rfloor}
+\to0.
+$$
+
+Therefore the fixed-final-interval screen built from exterior-measurable single-vacancy/dimer finite boundary automata cannot satisfy simultaneously:
+
+- `s_t->infinity`;
+- exact protected-future freshness;
+- sublinear final width;
+- screen probability tending to one.
+
+This is `STOP-SCALING-OBSTRUCTION`. The positive spectral gap is never reached.
+
+## E6. Scope of the FA-SCREEN stop
+
+The theorem does **not** rule out:
+
+1. a materially different relaxation theorem for a genuinely moving/adaptive boundary whose conditioning does not reveal marks later declared protected;
+2. a causal-information proof which reveals protected information selectively rather than constructing a long-lived exterior boundary.
+
+The first would require a new upstream bridge; do not obtain it by merely increasing marker width/phases. The second is exactly `FA-INFO`.
+
+## E7. Next bounded edge: FA-INFO adaptive reveal
+
+The remaining PASS architecture uses the actual Bernoulli quench rather than worst-case initial states.
+
+At a legal-ring decision, the FA constraint is the OR
+
+$$
+1_{\{\eta_{i-1}=0\text{ or }\eta_{i+1}=0\}}.
+$$
+
+A causal reveal procedure may inspect one neighbour first. If it is vacant, legality is certified and the second neighbour need not be revealed. If it is occupied, the second neighbour must be inspected. Histories may merge, and once a legal refresh coin fixes the new spin the old-site history may be discarded.
+
+This is different from:
+
+- the mark-only support process, which must retain all globally essential parents;
+- the conservative centered/harmonic dual, whose coefficient mass is exactly preserved;
+- a worst-case ancestor-extinction proof, which the hard all-ones trap forbids.
+
+### Required first theorem/test
+
+Before any multiscale argument:
+
+1. define an exact adaptive decision/reveal algorithm on the smallest one/two-block space-time slab;
+2. derive the law of its residual time-zero information under `mu_{q0}` without using the desired mixing conclusion;
+3. derive a **pair-level** likelihood/intersection statistic sufficient for a local total-variation or chi-square comparison, rather than using only expected leaf count;
+4. test whether adaptive short-circuiting/merging creates a strict finite-block contraction or another iterable inequality at low-`q` stress values.
+
+A merely smaller first moment than the naive branching tree is evidence only, not a continuation criterion.
+
+## E8. Anti-circularity and stopped routes
+
+Do not:
+
+- strengthen equilibrium gap/entropy estimates instead of proving memory erasure;
+- freeze or exogenize FA boundary facilitation;
+- enlarge the stopped vacancy screen through arbitrary marker phases;
+- identify the adaptive reveal object with the conservative transformed dual;
+- quote the Ising Miller--Peres estimate without deriving the needed conditional independence/likelihood identity for the actual FA reveal rule;
+- use product-background disagreement transmission as an iteratable bound after conditioning on a surviving path;
+- demand worst-case convergence from the absorbing all-ones state.
+
+The earlier FA positive-dual/patch-transfer and finite-seed programmes remain closed at their recorded conservative-transfer obstructions.
+
+## Frozen toolbox note
+
+The source-audited method inventory remains frozen at 74 live entries. The current proof spine changes only the problem-specific research state; it does not reopen collection or alter the public wiki.
