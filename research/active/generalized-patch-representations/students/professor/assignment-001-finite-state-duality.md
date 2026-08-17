@@ -121,17 +121,16 @@ If the reduction needs a nontrivial regrouping of clocks, state it exactly.
 
 Only after Parts A--D succeed, ask the smallest patch-facing question.
 
-Can nonempty-target local clocks be superposed into a coarser successful record which retains
+The binary source type is trivial; for `d>2` it is not. Test the two natural coarsenings in order:
 
-- source site;
-- time;
-- typed target;
+1. minimal record `(source site, time, typed target)`;
+2. if necessary, typed-source record `(source site, time, pre-interaction source type r, typed target)`.
 
-while hiding a **finite branch mark** describing source deletion/retyping/survival, so that the hidden branch can in principle be averaged inside a later patch?
+In either case the post-interaction **source outcome** must remain hidden. This finite branch mark may describe source deletion, survival, or retyping.
 
 Do not prove patch factorization yet.
 
-The test is whether the coarse record and the current typed dual state determine which site-lines are involved without revealing the hidden branch. If source retyping or target conflicts make even the geometry branch-dependent, isolate the exact obstruction.
+The test is whether the retained record determines which site-lines are geometrically involved without revealing the source outcome. Revealing the pre-interaction source type is allowed; revealing the post-interaction source outcome is not. If source retyping or target conflicts make the geometry depend on the hidden outcome even after `r` is retained, isolate the exact obstruction.
 
 ## Mandatory finite verifier
 
@@ -155,7 +154,7 @@ Return exactly one of the following.
 
 ### `CONTINUE-TYPED-PATCH`
 
-Parts A--D yield a fixed local signed graphical dual, the finite verifier passes, and Part E identifies a finite hidden branch mark whose omission does not already destroy the successful-interaction geometry. State the precise next bridge: generalized skeleton/factorization, not positivity yet.
+Parts A--D yield a fixed local signed graphical dual, the finite verifier passes, and Part E identifies a finite hidden source-outcome mark whose omission does not already destroy the successful-interaction geometry (allowing the pre-interaction source type `r` to be retained if needed). State the precise next bridge: generalized skeleton/factorization, not positivity yet.
 
 ### `STOP-NO-LOCAL-GRAPHICAL-DUAL`
 
@@ -163,7 +162,7 @@ The canonical indicator tensor basis gives an exact linear duality but no repres
 
 ### `STOP-NO-COARSE-SKELETON`
 
-A fixed local signed graphical dual exists and passes the binary reduction, but the branch mark cannot be hidden while retaining branch-independent successful-interaction geometry even in the bounded `d=3` test. State the exact counterexample and stop before patch factorization.
+A fixed local signed graphical dual exists and passes the binary reduction, but even after allowing the record to retain the pre-interaction source type `r`, the post-interaction source outcome cannot be hidden while retaining branch-independent successful-interaction geometry in the bounded `d=3` test. State the exact counterexample and stop before patch factorization.
 
 ### `UNRESOLVED-BOUNDED`
 
