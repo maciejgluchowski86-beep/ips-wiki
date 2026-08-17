@@ -10,30 +10,34 @@ This file is the compact current-state index for the autonomous research program
 - Workspace: `research/active/ergodicity-methods-toolbox/`.
 - Principal target: compile a broad, concise, self-contained, source-checked toolbox of rigorous methods used to prove ergodicity/uniqueness, convergence to equilibrium, coupling agreement, positive spectral gap, log-Sobolev inequalities, quantitative mixing, or equivalent forgetting/extinction statements in spin systems, IPS, KCSM, and Glauber-type models.
 - Breadth is intentional; model-specific methods are in scope.
-- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/004-f-wave-two-source-audit-and-analytic-wave-three.md`.
-- Student F: active on analytic breadth Assignment 003.
-- Student G: active on coupling/graphical Assignment 002.
+- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/005-g-wave-two-f-wave-three-source-audit-and-integration-gate.md`.
+- Student F: idle after Assignment 003.
+- Student G: idle after Assignment 002.
 
 ## Accepted staged coverage
 
-Meetings 002--004 have source-audited and accepted **18** method entries. The principal reports all eighteen pass `validate_entries.py`.
+Meetings 002--005 have source-audited and accepted **30 staged method entries**. The branch advanced beyond the principal's 28-entry validator snapshot: F completed Assignment 003 with two additional entries and a handoff before Meeting 005 was composed.
 
-Accepted coverage now includes:
+The newest accepted coverage includes:
 
-- coupling/local influence: attractiveness, Dobrushin contraction, path coupling;
-- spatial/local-to-global methods: disagreement percolation, Dobrushin--Shlosman, spectral independence, finite-size strong-mixing bootstrap;
-- functional/comparison methods: Poincare, LSI/mLSI, Dirichlet/canonical paths, block bisection, Lu--Yau martingale recursion, entropy block factorization, Holley--Stroock perturbation, moving-particle/effective-resistance comparison;
-- graphical ancestry/regeneration: finite-dual extinction, information percolation, East distinguished-zero screening.
+- graphical/coupling: clan-of-ancestors perfect simulation, censoring, coupling with stationarity/local uniformity, CFTP, voter coalescing-walk duality, dynamical space-time disagreement percolation;
+- analytic/conservative: discrete Bochner entropy, two-scale conservative LSI, Aldous interchange/exclusion gap reduction, Liggett--Nash polynomial relaxation, KCLG renormalized long-range Glauber comparison, and large-set conductance/warm-start mixing.
 
-The first twelve remain the first live-integration batch; F's six wave-two entries are queued behind them. Shared primary sources do not imply duplicate methods when the proof interfaces differ.
+The voter-duality entry was corrected at `1761b47` to remove an overstrong `uniqueness` target; the recurrent voter model clusters but retains the two consensus invariant states.
 
-## Current assignments
+The first 18 accepted entries are next in the bounded live-integration queue. The 12 accepted in Meeting 005 remain staged behind them.
 
-F Assignment 003 targets Bakry--Emery/Bochner Gamma methods, two-scale/coarse-graining coercivity, Aldous/interchange spectral-gap reduction, Nash/spectral-profile smoothing with an IPS application, nonreversible coercivity with an IPS application, and conductance/Cheeger methods for spin chains, with source-supported substitutions allowed for weak targets.
+## Immediate integration gate
 
-G Assignment 002 continues on dynamical disagreement domination, CFTP, clan-of-ancestors perfect simulation, censoring, block/local/maximal coupling, and coalescing-random-walk voter duality.
+No new F or G assignment is issued until the first live-wiki integration pass is completed and mechanically checked. This is a curation checkpoint, not a stop of the literature programme.
 
-The durability rule remains mandatory: every finished method entry is committed immediately as its own artifact.
+Before integration rerun:
+
+```bash
+python research/active/ergodicity-methods-toolbox/validate_entries.py
+```
+
+The expected current count is 30. Mechanical validation checks structure only; Professor source audit is separate.
 
 ## Wiki publication rule
 
@@ -45,7 +49,11 @@ Accepted material will be promoted to:
 - one `status: literature`, `audit: current` method page under `docs/entries/`;
 - a top-level `Ergodicity methods` section in `mkdocs.yml`.
 
-`docs/` and `mkdocs.yml` are still untouched by the toolbox branch. Live integration is deferred until no student is actively committing a staging batch.
+No toolbox page has yet been promoted to `docs/`; the first 18-entry integration is the next Professor maintenance action.
+
+## Next uncovered families
+
+After integration, priority gaps include literal block/maximal coupling, complete-convergence/oriented-percolation block constructions, interface/front regeneration, weighted/Wasserstein coupling, Foster--Lyapunov/Harris recurrence, weak/super-Poincare and spectral-profile methods, finite-to-infinite graphical/coercive transfer, further KCSM comparison mechanisms, and model-specific branching/annihilating duals.
 
 ## Previous scientific direction
 
