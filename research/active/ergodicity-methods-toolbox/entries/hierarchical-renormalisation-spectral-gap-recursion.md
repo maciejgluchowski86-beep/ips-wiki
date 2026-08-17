@@ -19,7 +19,7 @@ wiki_candidate: yes
 
 ## Criterion
 
-Suppose a spin measure at scale \(j\) decomposes into a coarse block-spin field with renormalised law \(\mu_+\) and a conditional fluctuation field. Bauerschmidt--Bodineau assume their scale-\(j\) hypotheses (A1)--(A3): most importantly, the conditional fluctuation measure has a Brascamp--Lieb bound with a controlled defect \(arepsilon<1\), together with compatibility of the hierarchical covariance and coarse projection. If the next-scale law satisfies
+Suppose a spin measure at scale \(j\) decomposes into a coarse block-spin field with renormalised law \(\mu_+\) and a conditional fluctuation field. Bauerschmidt--Bodineau assume their scale-\(j\) hypotheses (A1)--(A3): most importantly, the conditional fluctuation measure has a Brascamp--Lieb bound with a controlled defect \(\varepsilon<1\), together with compatibility of the hierarchical covariance and coarse projection. If the next-scale law satisfies
 
 \[
 \operatorname{Var}_{\mu_+}(F)
