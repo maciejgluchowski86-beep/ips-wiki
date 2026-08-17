@@ -1,7 +1,7 @@
 ---
 method_id: environment-seen-second-class-particle
 title: Environment seen from a second-class particle
-category: lyapunov-regeneration
+category: coupling
 targets:
   - convergence
 model_scope: One-dimensional TASEP with a single second-class particle and stationary density rho background
