@@ -160,8 +160,8 @@ Consequently
 \[
 \boxed{
 BZ_{\omega+r}
-=\frac{1065903}{1068400}
-\approx0.997662<1.
+=\frac{1065933}{1068400}
+\approx0.997691<1.
 }
 \tag{11}
 \]
