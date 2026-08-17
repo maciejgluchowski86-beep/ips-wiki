@@ -158,6 +158,29 @@ def average_s2(q, q0):
     return l2, count, out_q0, out_q
 
 
+def shared_mark_pair_s1(q, q0):
+    """E_W[(P_q0(Y=0|W)-P_q(Y=0|W))^2/(q(1-q))]."""
+    total = Q(0)
+    for z in (0, 1):
+        wz = bit_prob(z, q)
+        func = lambda a, z=z: s1(a, z)
+        r0 = output_vacancy_probability(func, 3, q0)
+        r = output_vacancy_probability(func, 3, q)
+        total += wz * (r0 - r) ** 2 / (q * (1 - q))
+    return total
+
+
+def shared_mark_pair_s2(q, q0):
+    total = Q(0)
+    for z1, z0 in product((0, 1), repeat=2):
+        wz = bit_prob(z1, q) * bit_prob(z0, q)
+        func = lambda a, z1=z1, z0=z0: s2(a, z1, z0)
+        r0 = output_vacancy_probability(func, 4, q0)
+        r = output_vacancy_probability(func, 4, q)
+        total += wz * (r0 - r) ** 2 / (q * (1 - q))
+    return total
+
+
 def centered_top_coefficient_s2(q):
     """Return E_q[h_2 * prod(V_i-q)] / (q(1-q))^4 exactly."""
     p = 1 - q
@@ -209,6 +232,8 @@ for q0 in (Q(1, 20), Q(1, 5)):
     c2 = l2_2 - 1
     x1 = (r1 - q) ** 2 / (q * p)
     x2 = (r2 - q) ** 2 / (q * p)
+    b1 = shared_mark_pair_s1(q, q0)
+    b2 = shared_mark_pair_s2(q, q0)
 
     assert req1 == q and req2 == q
     assert count_1 == Q(671, 500)
@@ -216,6 +241,8 @@ for q0 in (Q(1, 20), Q(1, 5)):
     assert c1 > c0 and c2 > c0
     assert x1 < c0 and x2 < c0
     assert x2 > x1
+    assert b2 > b1
+    assert x1 <= b1 and x2 <= b2
 
     # The universal channel-coefficient route acts on the full predecessor
     # vector. For product input its chi^2 is (1+C0)^n-1, which is already too
@@ -230,6 +257,7 @@ for q0 in (Q(1, 20), Q(1, 5)):
         assert c1 / c0 == Q(807341, 648000)
         assert r1 == Q(439, 8000)
         assert x1 / c0 == Q(130321, 160000)
+        assert b1 / c0 == Q(35921, 32000)
         assert full1 / c0 == Q(3997, 1600)
 
         assert l2_2 == Q(86648193941, 83980800000)
@@ -237,6 +265,8 @@ for q0 in (Q(1, 20), Q(1, 5)):
         assert r2 == Q(84741, 1600000)
         assert x2 / c0 == Q(5663917081, 6400000000)
         assert x2 / x1 == Q(15689521, 14440000)
+        assert b2 / c0 == Q(31388053, 25600000)
+        assert b2 / b1 == Q(31388053, 28736800)
         assert full2 / c0 == Q(3929809, 1280000)
     else:
         assert c0 == Q(1, 9)
@@ -244,6 +274,7 @@ for q0 in (Q(1, 20), Q(1, 5)):
         assert c1 / c0 == Q(17594, 10125)
         assert r1 == Q(41, 250)
         assert x1 / c0 == Q(256, 625)
+        assert b1 / c0 == Q(6697, 10000)
         assert full1 / c0 == Q(271, 100)
 
         assert l2_2 == Q(94564781, 82012500)
@@ -251,18 +282,23 @@ for q0 in (Q(1, 20), Q(1, 5)):
         assert r2 == Q(1107, 6250)
         assert x2 / c0 == Q(232324, 390625)
         assert x2 / x1 == Q(58081, 40000)
+        assert b2 / c0 == Q(1631729, 2000000)
+        assert b2 / b1 == Q(1631729, 1339400)
         assert full2 / c0 == Q(347339, 100000)
 
     print("q0 =", q0)
     print("  baseline chi2 C0 =", c0)
     print("  S1 optimal expected queries =", count_1)
     print("  S1 raw transcript excess / C0 =", c1 / c0)
+    print("  S1 shared-mark pair / C0 =", b1 / c0)
     print("  S1 exact output chi2 / C0 =", x1 / c0)
     print("  S1 full-predecessor SDPI bound / C0 =", full1 / c0)
     print("  S2 optimal expected queries =", count_2)
     print("  S2 raw transcript excess / C0 =", c2 / c0)
+    print("  S2 shared-mark pair / C0 =", b2 / c0)
     print("  S2 exact output chi2 / C0 =", x2 / c0)
     print("  S2 output chi2 / S1 output chi2 =", x2 / x1)
+    print("  S2 shared-mark pair / S1 shared-mark pair =", b2 / b1)
     print("  S2 full-predecessor SDPI bound / C0 =", full2 / c0)
 
 print("S1 mark-only support: all 3 predecessor bits for each fixed coin")
