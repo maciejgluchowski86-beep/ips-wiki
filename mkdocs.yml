@@ -51,6 +51,7 @@ nav:
           - Environment seen from second-class particle: entries/environment-seen-second-class-particle.md
           - Censoring inequalities: entries/censoring-monotone-glauber-dynamics.md
           - Dynamical disagreement percolation: entries/dynamical-disagreement-space-time-percolation.md
+          - One-dimensional edge coalescence: entries/one-dimensional-edge-coalescence-positive-rates.md
       - Spatial mixing and local-to-global transfer:
           - Disagreement percolation: entries/disagreement-percolation-gibbs-uniqueness.md
           - Dobrushin-Shlosman spatial mixing: entries/dobrushin-shlosman-spatial-to-dynamical.md
@@ -60,8 +61,10 @@ nav:
           - Poincare and spectral gap: entries/poincare-spectral-gap.md
           - Log-Sobolev and modified log-Sobolev: entries/log-sobolev-modified-log-sobolev.md
           - Discrete Bochner entropy method: entries/bochner-bakry-emery-discrete-entropy.md
+          - Entropic Ricci curvature: entries/entropic-ricci-weak-interaction-perturbation.md
           - Stochastic localization for Ising gaps: entries/stochastic-localization-ising-glauber-gap.md
           - Dirichlet-form and canonical-path comparison: entries/dirichlet-form-canonical-path-comparison.md
+          - Swendsen-Wang kernel comparison: entries/swendsen-wang-heat-bath-kernel-comparison.md
           - Block dynamics and bisection: entries/block-dynamics-bisection-variance.md
           - Lu-Yau martingale recursion: entries/lu-yau-martingale-conditional-variance.md
           - Two-scale conservative coercivity: entries/two-scale-coarse-graining-conservative-lsi.md
@@ -87,6 +90,7 @@ nav:
           - Front regeneration and renewal: entries/front-regeneration-renewal-times.md
           - Competition-interface regeneration: entries/competition-interface-regeneration.md
           - Survival-conditioned contact renewal: entries/survival-conditioned-renewal-multitype-contact.md
+          - Essential hitting-time regeneration: entries/essential-hitting-time-almost-subadditive-growth.md
       - Finite-to-infinite transfer and qualitative ergodicity:
           - Finite-volume coercivity exhaustion: entries/finite-volume-coercivity-exhaustion-uniqueness.md
           - Finite-speed finite-volume transfer: entries/finite-speed-finite-volume-transfer.md
@@ -94,6 +98,8 @@ nav:
           - Projective consistency Gibbs construction: entries/projective-consistency-splitting-gibbs-equilibrium.md
           - Number-rigidity Dirichlet ergodicity: entries/number-rigidity-tail-dirichlet-ergodicity.md
           - Relative-entropy Gibbs attractor: entries/relative-entropy-loss-gibbs-attractor.md
+          - Asymptotic strong Feller uniqueness: entries/asymptotic-strong-feller-support-uniqueness.md
+          - Hormander-Malliavin asymptotic smoothing: entries/hormander-malliavin-asf-semilinear-spde.md
       - Graphical ancestry, duality, and exact sampling:
           - Finite-ancestor duality and extinction: entries/duality-extinction-finite-ancestor-process.md
           - Successful coupling of finite duals: entries/successful-coupling-finite-dual-particles.md
@@ -101,6 +107,7 @@ nav:
           - Parity branching-annihilating duality: entries/parity-duality-branching-annihilating.md
           - Supercritical block construction: entries/supercritical-block-construction-complete-convergence.md
           - Two-level contact block-and-restart: entries/two-level-contact-block-restart-complete-convergence.md
+          - Toom error-graph expansion: entries/toom-error-graph-expansion-pca.md
           - Coupling from the past: entries/coupling-from-the-past.md
           - Clan-of-ancestors perfect simulation: entries/clan-of-ancestors-perfect-simulation.md
           - Information percolation: entries/information-percolation-backward-histories.md
