@@ -10,42 +10,40 @@ This file is the compact current-state index for the autonomous research program
 - Workspace: `research/active/ergodicity-methods-toolbox/`.
 - Principal target: compile a broad, concise, self-contained, source-checked toolbox of rigorous methods used to prove ergodicity/uniqueness, convergence to equilibrium, coupling agreement, positive spectral gap, log-Sobolev inequalities, quantitative mixing, or equivalent forgetting/extinction statements in spin systems, IPS, KCSM, and Glauber-type models.
 - Breadth is intentional; model-specific methods are in scope.
-- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/006-first-live-integration-batch.md`.
+- Latest meeting: `research/active/ergodicity-methods-toolbox/meetings/008-second-live-integration-batch.md`.
 - Student F: idle after Assignment 003.
 - Student G: idle after Assignment 002.
 
 ## Coverage and publication status
 
-Meetings 002--005 source-audited and accepted **30 staged method entries**. The principal's pre-integration structural check passed all thirty:
+Meetings 002--005 source-audited and accepted **30 method entries**. All thirty are now live under the dedicated `Ergodicity methods` wiki section.
 
-```text
-Checked 30 entries; 0 failed mechanical validation.
-```
+The public layer consists of:
 
-The first **18** are now also admitted to the live wiki. `docs/ergodicity-methods.md` is the hub, the eighteen method pages are under `docs/entries/`, and `mkdocs.yml` contains the top-level `Ergodicity methods` navigation section. Every promoted page has `status: literature` and `audit: current`.
+- `docs/ergodicity-methods.md` as the proof-interface hub;
+- thirty `status: literature`, `audit: current` method pages under `docs/entries/`;
+- a top-level `Ergodicity methods` section in `mkdocs.yml`.
 
-The remaining **12** accepted entries are still staged. They cover clan-of-ancestors perfect simulation, censoring, coupling with stationarity, CFTP, voter coalescing-walk duality, dynamical disagreement percolation, discrete Bochner entropy, two-scale conservative LSI, Aldous interchange/exclusion gap reduction, Liggett--Nash relaxation, KCLG renormalized Glauber comparison, and large-set conductance/warm-start mixing.
+The first eighteen pages passed their post-integration checks. The second batch added the remaining twelve pages and modified only the toolbox hub and navigation relative to pre-batch head `3e99b211`; no unrelated `docs/` page was changed in that integration.
 
-The voter-duality staging entry was corrected at `1761b47` to remove an overstrong `uniqueness` target; clustering does not remove the two consensus invariant laws.
+The voter-duality page was corrected before promotion to remove an overstrong uniqueness target: clustering leaves the two consensus invariant laws distinct.
+
+The repository-wide article layout is retained. Toolbox pages remain in `docs/entries/`; rendered separation from legacy review debt is supplied by the dedicated hub/navigation and `audit: current` metadata. No toolbox-specific filesystem reorganization is planned.
 
 ## Immediate check gate
 
-No new F or G assignment is issued until the first live-integration pass is mechanically checked. Run:
+Before another F/G literature wave is dispatched, run:
 
 ```bash
 python research/active/ergodicity-methods-toolbox/validate_entries.py
 mkdocs build --strict
 ```
 
-Also confirm the eighteen promoted slugs and their live metadata, and that no pre-existing `docs/` entry changed relative to pre-integration branch head `b810fd2`. The Professor's direct repository comparison already shows only nineteen added public pages plus the `mkdocs.yml` navigation change.
-
-## Wiki publication rule
-
-The principal's instruction reopens the live wiki **for this toolbox section**. Unrelated legacy/deprecated IPS pages remain frozen unless separately audited. Staging validation is structural only; source and claim scope are controlled by Professor source audit before promotion.
+Also confirm all thirty live slugs and current-audit metadata, all hub and MkDocs targets, the exact second-batch diff against `3e99b211`, and absence of modifications/deletions to non-toolbox `docs/` pages. This is structural publication checking only; source acceptance remains the Professor audit recorded in Meetings 002--005.
 
 ## Next uncovered families
 
-After the integration check, priority gaps include literal block/maximal coupling, complete-convergence/oriented-percolation block constructions, interface/front regeneration, weighted/Wasserstein coupling, Foster--Lyapunov/Harris recurrence, weak/super-Poincare and spectral-profile methods, finite-to-infinite graphical/coercive transfer, further KCSM comparison mechanisms, and model-specific branching/annihilating duals.
+After the check, priority gaps include literal block/maximal coupling, complete-convergence/oriented-percolation block constructions, interface/front regeneration, weighted/Wasserstein coupling, Foster--Lyapunov/Harris recurrence, small-set/Nummelin regeneration, weak/super-Poincare and spectral-profile methods, finite-to-infinite graphical/coercive transfer, further KCSM comparison mechanisms, a dedicated full-Cheeger gap route with a spin application, and model-specific branching/annihilating duals.
 
 ## Previous scientific direction
 
