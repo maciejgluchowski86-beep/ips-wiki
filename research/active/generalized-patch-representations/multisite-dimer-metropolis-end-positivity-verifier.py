@@ -41,10 +41,14 @@ for r in range(len(VARS) + 1):
         if value != 0:
             coeff[S] = value
 
-assert sp.factor(coeff[frozenset({0})]) == 1 - rho
-assert sp.factor(coeff[frozenset({0, 1})]) == -2 * (1 - rho)
-assert sp.factor(coeff[frozenset({0, 2})]) == -(1 - rho)
-assert sp.factor(coeff[frozenset({0, 1, 2})]) == 2 * (1 - rho)
+expected_coeff = {
+    frozenset({0}): 1 - rho,
+    frozenset({0, 1}): -2 * (1 - rho),
+    frozenset({0, 2}): -(1 - rho),
+    frozenset({0, 1, 2}): 2 * (1 - rho),
+}
+for S, expected in expected_coeff.items():
+    assert sp.simplify(coeff[S] - expected) == 0
 
 
 def theta(D, J):
@@ -71,12 +75,14 @@ for S, c in coeff.items():
                 R = frozenset(J | S_Q)
                 row[R] = sp.expand(row.get(R, 0) + c * theta(D, J))
 
-row = {R: sp.factor(a) for R, a in row.items() if sp.expand(a) != 0}
-
-assert row == {
+row = {R: sp.expand(a) for R, a in row.items() if sp.expand(a) != 0}
+expected_row = {
     frozenset(): 1 - rho,
     frozenset({2}): -(1 - rho),
 }
+assert row.keys() == expected_row.keys()
+for R, expected in expected_row.items():
+    assert sp.simplify(row[R] - expected) == 0
 
 # Exact rational gate rho=1/2.
 gate = {R: sp.simplify(a.subs(rho, sp.Rational(1, 2))) for R, a in row.items()}
@@ -102,6 +108,6 @@ assert sp.diff(C, u1) == 0
 assert all(sp.simplify(a.subs(rho, 1)) == 0 for a in row.values())
 
 print("dimer Metropolis block-end positivity obstruction verified")
-print("row:", row)
+print("row:", {R: sp.factor(a) for R, a in row.items()})
 print("normalized end factor:", C)
 print("centered singleton coefficient kappa_{2} =", sp.diff(C, u2))
