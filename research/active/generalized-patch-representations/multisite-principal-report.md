@@ -215,6 +215,102 @@ The sharp retention summary is therefore
 \boxed{\text{the positivity characterization, centered-order package, pure-death comparison and convergence package are not retained.}}
 \]
 
+### Correction after exact centered-basis check (2026-08-19)
+
+The preceding table and summary record the status before a generator-level check of the same dimer Metropolis model. The sentence in the centered-order row that **“semigroup preservation is not retained”** is too pessimistic as a statement about the whole multi-site class. It remains correct that centered order is not implied by block-patch positivity or by terminal block-end positivity. However, there is now an independently checkable multi-site example in which the centered-order theorem itself does survive through a different mechanism.
+
+For the same ferromagnetic dimer Metropolis dynamics, set
+
+\[
+x_i=\eta_i-\frac12.
+\]
+
+The exact half-centered expansion of the dimer rate is
+
+\[
+ c_Q(x)
+=\frac{3+\rho}{4}
++(\rho-1)x_0x_1
++(\rho-1)x_2x_3
++4(\rho-1)x_0x_1x_2x_3.
+\]
+
+A simultaneous flip of the dimer sends `x_1,x_2` to their negatives. Thus for a centered monomial `x_A`,
+
+\[
+L_Qx_A=0
+\quad\text{if }|A\cap Q|\text{ is even},
+\]
+
+whereas for odd overlap
+
+\[
+L_Qx_A=-2c_Q(x)x_A.
+\]
+
+Using `x_i^2=1/4`, every nonconstant centered rate mode `E` contributes to the centered-basis matrix entry from `A` to `A triangle E` by
+
+\[
+-2\widehat c_Q(E)4^{-|A\cap E|}.
+\]
+
+All three nonconstant coefficients of the interacting dimer satisfy `\widehat c_Q(E)<0`. Hence every off-diagonal centered-basis matrix entry is nonnegative. The exact verifier checks the full `16 x 16` local action and finds exactly 24 nonzero off-diagonal entries, all positive rational multiples of `1-rho`. A second exact symbolic check shows that for `0<rho<1` the local Metzler property forces the centering profile uniquely to
+
+\[
+\boxed{p_i^*=\frac12.}
+\]
+
+Therefore, for this genuine interacting multi-site model, the finite-volume generator is Metzler in the centered-monomial basis and the same matrix-exponential/finite-propagation argument as in the binary paper gives
+
+\[
+\boxed{
+\mu\preceq_*\nu
+\Longrightarrow
+\mu P_t\preceq_*\nu P_t,
+\qquad p_i^*=\frac12,
+}
+\]
+
+as well as preservation of `M_*`. The ordinary monomial comparisons and product-profile comparisons that are purely downstream of `\preceq_*` also return.
+
+This is compatible with the negative terminal-patch calculation above. The same model has
+
+\[
+C_Q(u_1,u_2)=\frac{1-u_2}{2},
+\qquad
+\kappa_{\{2\}}=-\frac12,
+\]
+
+so individual successful-skeleton weights need not be nonnegative in the centered expansion. The Metzler result shows that the **sum over skeletons** can nevertheless preserve the centered cone. Thus the correct structural conclusion is
+
+\[
+\boxed{
+\text{centered end-patch positivity may fail while centered semigroup positivity holds}.}
+\]
+
+There is also a small exact class behind the example. For a single full-block flip term centered at `1/2`,
+
+\[
+L_Qf(\eta)=c_Q(\eta)(f(\eta^Q)-f(\eta)),
+\qquad
+c_Q(x)=\widehat c_Q(\varnothing)+\sum_{E\ne\varnothing}\widehat c_Q(E)x_E,
+\]
+
+the local centered-basis generator is Metzler if and only if
+
+\[
+\boxed{\widehat c_Q(E)\le0\quad\text{for every nonempty }E.}
+\]
+
+This criterion is algebraically established for the full-block-flip form. Constant-rate block flips are the degenerate case; the dimer Metropolis dynamics is a nonconstant interacting example. What is **not** established is any implication from block/hyperpatch positivity to this Metzler criterion, nor a comparable criterion for general overlapping multi-site dynamics. Thus centered-order preservation is now an established phenomenon in a genuine multi-site class and an independent generator-level route worth testing model by model, not a retained consequence of the proposed patch positivity theory.
+
+Nothing in this correction restores the pure-death comparison or the convergence layer. Those rows of the table remain unchanged. Pure-death comparison still requires monotonicity between two different generators under the hidden-history death tilt, while the common invariant-limit proof still requires the exact outgoing-patch death factor along a late-interaction ancestry chain. Metzler positivity of one semigroup supplies neither ingredient. Consequently the common invariant-limit theorem, its exponential rate, and uniform unique ergodicity remain unretained.
+
+Exact supporting files:
+
+- `multisite-dimer-metropolis-metzler.md`;
+- `multisite-dimer-metropolis-metzler-verifier.py`.
+
 ## 3. New applications opened by multi-site updates
 
 The single-site-flip restriction excludes several standard IPS whose elementary physical move changes more than one occupation variable. The multi-site extension brings these models into the algebraic scope of the signed monomial dual immediately. Whether they obtain a patch **representation theorem** depends on completing the block/hyperpatch factorization proofs above. None of the applications below currently inherits the paper's positivity, comparison or convergence conclusions.
