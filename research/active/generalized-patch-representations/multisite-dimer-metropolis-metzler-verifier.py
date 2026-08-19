@@ -59,12 +59,15 @@ rate_coeff = {
 }
 rate_coeff = {B: c for B, c in rate_coeff.items() if c != 0}
 
-assert rate_coeff == {
+expected_rate_coeff = {
     frozenset(): (rho + 3) / 4,
     frozenset({0, 1}): rho - 1,
     frozenset({2, 3}): rho - 1,
     frozenset({0, 1, 2, 3}): 4 * (rho - 1),
 }
+assert set(rate_coeff) == set(expected_rate_coeff)
+for B, expected in expected_rate_coeff.items():
+    assert sp.simplify(rate_coeff[B] - expected) == 0
 
 
 # Full 16 x 16 local generator matrix in the half-centered monomial basis.
