@@ -1,89 +1,170 @@
 \section{Introduction}
 \label{sec:introduction}
 
-\subsection{Facilitation and persistence}
+\subsection{Kinetic constraints}
 
-We consider spin systems in which one state facilitates updates at neighbouring
-sites. Following the terminology for kinetically constrained spin models
-(KCSM)~\cite{CancriniEtAl2008,HartarskyToninelli2025}, we call it the
-\emph{facilitating} state. We use \emph{calm} descriptively for the other
-state. Depending on the model, a facilitating state may infect a neighbour,
-permit a constrained refresh, or cause a neighbouring spin to flip. In the
-facilitating part of the dynamics, a region containing only calm states has no
-internal source of constrained updates and therefore tends to remain calm,
-whereas an update enabled by a facilitating state may create further
-facilitating states. This suggests a comparison based on the different roles
-of the two states. It does not imply monotonicity: a refresh or flip may create
-or remove a facilitating state, and ordered configurations need not remain
-ordered.
+% Reader question: What kind of mathematical problem is this?
+\paragraph{Spin systems.}
+Spin systems describe stochastic dynamics in which the state at a site changes
+at rates determined by the configuration in a local neighbourhood. A basic
+problem is to understand how these local rules determine collective behaviour,
+in particular how the law at later times depends on the initial state and
+whether the system approaches an invariant distribution.
 
-We ask whether this asymmetry yields a comparison of monomial moments and
-whether independent creation of facilitating states erases their dependence on
-the initial law. The main examples do not preserve the product order on
-configurations, and an independent perturbation need not preserve a reversible
-measure. We therefore seek an argument based on the graphical construction
-which neither orders trajectories nor requires the limiting measure to be
-known.
+% Reader question: What structural property normally helps answer these questions?
+\paragraph{Monotonicity.}
+One of the most useful structures in the study of spin systems is monotonicity.
+When ordered initial configurations can be coupled so that their order is
+preserved by the dynamics, comparisons at the microscopic level propagate to
+comparisons between probability laws at later times. This can provide
+substantial information about invariant measures and long-time behaviour.
 
-The effect of a facilitating update need not persist until it is transmitted to
-another site. If no information leaves a site between two local updates, a
-second birth is redundant, a later refresh overwrites the earlier refresh, and
-two flips cancel. For the monomial observables studied here, the signed
-Feynman--Kac dual follows their dependence backward through the graphical
-construction. Its signs record cancellations among local updates. Taking
-absolute values after each dual update loses these cancellations. The local
-updates should instead be averaged until the next interaction which transmits
-dependence between sites.
+% Reader question: Where does this paper sit within spin systems?
+\paragraph{Kinetically constrained spin models.}
+Kinetically constrained spin models (KCSMs) form an important class in which
+the local environment determines whether a site is allowed to update. In their
+usual binary form, a vacancy acts as a facilitating state: suitable nearby
+vacancies permit an update, whereas configurations without the required
+facilitation suppress it. Once an update is allowed, the site is refreshed from
+a fixed Bernoulli distribution. Canonical examples include the East model and
+FA-1f. Although the equilibrium measures of the basic KCSMs are simple, their
+constraints can make relaxation and out-of-equilibrium behaviour difficult to
+analyse; see~\cite{CancriniEtAl2008,HartarskyToninelli2025}.
 
-\subsection{Patches and main results}
+% Reader question: If facilitation has a monotone direction, why is the dynamics not monotone?
+\paragraph{Monotone constraints and non-monotone dynamics.}
+Many standard KCSM constraints have an evident monotone direction: replacing
+facilitating states by calm states can only inhibit updates. The resulting
+stochastic dynamics, however, need not preserve the configuration order. An
+update may be allowed in the configuration containing more facilitating states
+and forbidden in an ordered configuration containing fewer; if the allowed
+refresh removes a facilitating state, the original order can be destroyed.
+Thus the facilitating mechanism can have a monotone direction even when the
+spin system itself is not monotone.
 
-Starting the dual from~$A$, we retain the times, sources, and target sets of the
-interactions which occur at active sources and have nonempty target. Their
-records form the successful-interaction skeleton. The skeleton partitions each
-site line into intervals, called patches, between successive incoming or
-outgoing successful interactions. Conditional on the skeleton, the remaining
-marked interactions in distinct patches are independent. Averaging the signed
-Feynman--Kac factor on each patch gives the exact semigroup representation in
-Theorem~\ref{thm:patch-representation}. In this representation, consecutive
-local updates are averaged before their contributions are compared.
+% Reader question: Is the monotone structure of facilitation completely lost?
+\paragraph{The question.}
+This raises the first question of the paper: can the constraining asymmetry of a
+KCSM still give rise to a useful dynamical comparison when configuration order
+is not preserved? We ask more generally whether this mechanism persists for
+spin systems in which the neighbourhood may affect not only whether a site
+updates, but also the relative rates of its possible transitions.
 
-The contribution of a completed~$P$ is denoted by~$C(P)$. Patch
-positivity is the condition~$C(P)\geq0$ for every patch shape.
-Theorem~\ref{thm:patch-positivity-order} characterizes this condition by
-inequalities for the multilinear coefficients of the two flip rates. The same
-coefficients determine the smallest terminal calm-state density
-profile~$\mb p^\star$ for which every end-patch contribution is nonnegative.
-This is a threshold for the sign argument, not a phase transition or an
-ergodicity threshold.
+\subsection{Centered-moment monotonicity}
 
-Products of calm-state indicators centered at~$\mb p^\star$ define an
-order~$\preceq_*$ on probability measures. This centered-moment order is the
-form in which the qualitative comparison suggested above survives: it compares
-laws rather than configurations. Theorem~\ref{thm:patch-positivity-order} shows
-that the semigroup of a patch-positive system preserves this order.
-Corollary~\ref{cor:pure-death-comparison} compares the system with the dynamics
-obtained by removing an environment-independent mechanism creating
-facilitating states.
+% Reader question: What exactly is being generalized from KCSMs?
+\paragraph{Beyond constrained refresh dynamics.}
+In a standard KCSM, the neighbourhood controls the rate at which an update is
+performed, while the state produced by an allowed update is sampled from a
+fixed distribution. We consider a broader situation in which the neighbourhood
+may also change the bias of the update. The restriction retained from the KCSM
+picture is that calm surroundings act in the constraining direction rather
+than creating additional activity.
 
-Suppose now that the interaction graph has polynomial growth of exponent~$D$
-and that the dynamics independently creates facilitating states at
-rate~$\varepsilon>0$. Theorem~\ref{thm:common-invariant-limit} shows that every
-initial law in the class~$\mathcal M_-$ converges to the same invariant measure,
-with local convergence rate
+% Reader question: What does the constraining direction mean for these broader dynamics?
+\paragraph{Constraining local rates.}
+For the binary systems considered here, our coefficient condition forces two
+basic monotonicity properties: adding calm spins to the neighbourhood cannot
+increase either the total update intensity or the rate at which a facilitating
+state is created. The defining condition is slightly stronger than these two
+coordinatewise statements. It also relates how strongly the facilitating-state
+creation channel is suppressed to how strongly the total activity is
+suppressed. This additional relation is what makes the comparison argument
+possible.
 
+% Reader question: Can the class be recognized directly from the generator?
+\paragraph{Coefficient criterion.}
+The class has an explicit local characterization. Expanding the two flip rates
+as multilinear functions of the neighbouring calm-state indicators, the
+condition becomes a pair of inequalities between their coefficients. In
+particular, the nonconstant coefficients of the total update rate and of the
+facilitating-state creation rate are nonpositive, so all-calm patterns enter
+these rates as suppressive corrections; the second inequality controls their
+relative strength. The criterion involves only the local rates and is therefore
+directly checkable from the generator. For an ordinary KCSM, where the
+neighbourhood merely rescales a fixed Bernoulli refresh, one of the two
+inequalities is saturated and the other reduces to a sign condition on the
+multilinear coefficients of the kinetic constraint. The East model and FA-1f
+satisfy this condition, although arbitrary KCSM constraints need not.
+
+% Reader question: What does this class gain dynamically?
+\paragraph{Centered-moment order.}
+The main structural consequence is a monotonicity property at the level of
+probability laws. The coefficient criterion singles out a reference calm-state
+density profile~$\mb p^\star$. For a finite set~$A$, consider the centered
+product
 \begin{equation*}
-O\bb{(1+t)^D e^{-\varepsilon t/2}}.
+\prod_{i\in A}\bb{\eta(i)-p_i^\star}.
 \end{equation*}
+We write~$\mu\preceq_*\nu$ when every such centered moment under~$\mu$ is no
+larger than the corresponding centered moment under~$\nu$. Theorem~\ref{thm:patch-positivity-order}
+shows that the dynamics preserves this order:
+\begin{equation*}
+\mu\preceq_*\nu
+\quad\Longrightarrow\quad
+\mu P_t\preceq_*\nu P_t,
+\qquad t\geq0.
+\end{equation*}
+This is an order on laws rather than configurations and does not produce a
+monotone pathwise coupling. Nevertheless, it recovers a dynamical comparison
+principle from the same directional asymmetry that underlies kinetic
+constraints. The monotonicity visible in the facilitating mechanism, but lost
+at the level of configurations, reappears at the level of centered
+correlations.
 
-The class~$\mathcal M_-$ is an affine extension of the measures with
-nonnegative centered moments. If~$\mb p^\star\leq\mbs{\tfrac12}$, it contains
-every probability measure, so the invariant measure is unique and convergence
-is uniform over initial configurations. The proof cuts the dual construction
-at an intermediate time. Finite propagation controls the event that the
-earlier skeleton leaves a linearly growing directed ball; the independent
-creation of facilitating states controls both successful interactions after the
-cut and the remaining dependence of the end patches on the terminal
-configuration.
+% Reader question: Is this weaker monotonicity useful?
+\paragraph{Comparison and convergence.}
+The centered-moment order yields comparisons between non-monotone evolutions.
+In particular, Corollary~\ref{cor:pure-death-comparison} compares the original
+dynamics with the system obtained by removing an environment-independent
+mechanism which creates facilitating states. The same structure also gives a
+route to ergodicity which does not begin by identifying the invariant measure.
+When facilitating states are created independently at a uniformly positive
+rate, Theorem~\ref{thm:common-invariant-limit} gives convergence, under a mild
+growth assumption, to a common invariant law from a class of initial measures
+defined by centered moments. In a favourable range of the reference profile,
+the conclusion is uniform over all initial configurations.
+
+% Reader question: Why should a non-monotone process preserve this order?
+\paragraph{Signed duality and cancellations.}
+The preservation of the centered-moment order is not visible from individual
+updates of the spin system. When monomial observables are traced backward
+through the graphical construction, the resulting Feynman--Kac dual
+representation contains terms of both signs. These signs encode cancellations
+between successive local updates, and comparing the terms one update at a time
+can destroy the cancellation responsible for positivity.
+
+% Reader question: How are these cancellations retained?
+\paragraph{Patches.}
+We therefore average consecutive local evolution before making a sign
+comparison. Tracing dependence backward, we retain the interactions which
+transmit dependence between sites and group the intervening one-site evolution
+into spacetime regions which we call patches. Conditional on the retained
+interactions, the internal randomness of distinct patches is independent, and
+the dual representation factorizes exactly into averaged patch contributions.
+The local coefficient inequalities above are precisely the conditions under
+which every bulk patch has nonnegative contribution. We call this property
+\emph{patch positivity}. Thus
+\begin{equation*}
+\text{coefficient criterion}
+\quad\Longleftrightarrow\quad
+\text{patch positivity}
+\quad\Longrightarrow\quad
+\text{centered-moment monotonicity}.
+\end{equation*}
+The patch representation is therefore the mechanism which turns the local
+constraining structure into a comparison principle for the full dynamics.
+
+% Reader question: Which familiar models does the framework cover?
+\paragraph{Examples and scope.}
+The criterion applies to several familiar facilitated systems. It includes
+canonical KCSM examples such as FA-1f and the East model and also applies to the
+biased annihilating branching process, whose local rule is not simply a
+kinetically constrained Bernoulli refresh. The contact process provides a
+benchmark where the criterion holds but ordinary configuration monotonicity
+already gives stronger comparison tools. The framework is therefore intended
+to extend the constrained mechanism present in important KCSMs rather than to
+characterize every possible kinetically constrained spin model.
 
 \subsection{Relation to previous work}
 
@@ -104,16 +185,17 @@ with the identity. The construction was motivated by the wall-type one-sided
 spin systems studied in~\cite{GluchowskiMenz2026}; many of their rate functions
 satisfy the coefficient criterion below.
 
-Classical correlation inequalities for spin systems are tied to attractiveness
-and association~\cite{Harris1977,Liggett2006}; duality can also yield moment
-inequalities in particular models~\cite{GiardinaRedigVafayi2010}. The order
-considered here uses products centered at~$\mb p^\star$ and applies to
-non-attractive systems. To our knowledge, preservation of this centered-moment
-order has not previously been obtained from a local coefficient condition of
-the present form. The convergence theorem is also distinct from classical
-positive-rates results such as Gray~\cite{Gray1982}: it assumes patch positivity
-and a specified independent component and proves convergence from the
-class~$\mathcal M_-$.
+Classical correlation inequalities for monotone spin systems, traditionally
+called attractive systems in the IPS literature, are tied to order-preserving
+couplings and association~\cite{Harris1977,Liggett2006}; duality can also yield
+moment inequalities in particular models~\cite{GiardinaRedigVafayi2010}. The
+order considered here uses products centered at~$\mb p^\star$ and applies to
+systems which are not monotone in configuration order. To our knowledge,
+preservation of this centered-moment order has not previously been obtained
+from a local coefficient condition of the present form. The convergence
+theorem is also distinct from classical positive-rates results such as
+Gray~\cite{Gray1982}: it assumes patch positivity and a specified independent
+component and proves convergence from the class~$\mathcal M_-$.
 
 The examples come from two lines of work. FA-1f originates
 in~\cite{FredricksonAndersen1984} and is placed in the KCSM framework
