@@ -75,15 +75,14 @@ dependence on the initial condition, invariant measures and convergence.
 % ============================================================================
 
 Kinetically constrained spin models (KCSMs) are spin systems constructed so
-that their equilibrium measure is a Bernoulli product measure, while the
-dynamics is interacting through local kinetic constraints. At an update
+that their equilibrium measure is a Bernoulli product measure, with all spins independent, while the
+dynamics is interacting through local constraints. At an update
 attempt, the spin at a site is refreshed from the one-site Bernoulli equilibrium
 law only if a constraint determined by neighbouring spins is satisfied. We use
-the standard convention that~$0$ is a vacancy, or facilitating state. The
+the standard convention that vacancy, denoted~$0$, is a facilitating state. The
 constraint is monotone with respect to vacancies: adding vacancies can make an
 update legal but cannot make a legal update illegal. These constraints can make
-relaxation very slow and lead to glassy dynamics despite the simple equilibrium
-law~\cite{CancriniEtAl2008,HartarskyToninelli2025}. The East and FA-1f models
+relaxation very slow and lead to glassy dynamics~\cite{CancriniEtAl2008,HartarskyToninelli2025}. The East and FA-1f models
 are standard examples.
 
 % ============================================================================
@@ -133,8 +132,7 @@ the constraint does not give the usual order-preserving coupling.
 This leaves a natural question: can the monotone structure of the constraint
 still yield a useful comparison principle, even though the process is not
 monotone in configuration order? More generally, can one identify a broader
-class of spin systems in which neighbouring~$1$'s act in a constraining
-direction and a similar comparison principle survives?
+class of spin systems in which neighbouring~$1$'s constrain updates and a similar comparison principle survives?
 
 % ============================================================================
 % BLURB F. What is being generalized from a KCSM?
