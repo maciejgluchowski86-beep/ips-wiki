@@ -101,13 +101,15 @@ FA-1f models are standard examples.
 %   monotonicity fails to capture.
 % ============================================================================
 
-KCSM constraints have a one-sided structure: changing neighbouring~$1$'s to
-$0$'s can only relax a constraint. This concerns only whether an update is
-allowed. Monotonicity of the spin system is a different property: it asks
-whether the coordinatewise order between two configurations can be preserved
-by a coupling of their evolutions. KCSMs generally fail this. If~$\eta\leq\xi$,
-an update may be allowed at a site in~$\eta$ but blocked at the same site in
-$\xi$; a refresh from~$0$ to~$1$ in~$\eta$ can then break the order.
+In KCSMs, facilitating states can only remove restrictions on updates:
+replacing nearby~$1$'s by~$0$'s may allow an update that was previously blocked,
+but cannot block one that was already allowed. This does not imply monotonicity
+of the spin system in the sense above. Indeed, if~$\eta\leq\xi$, an update may
+be allowed in~$\eta$ because it contains more facilitating states, while the
+same site is blocked in~$\xi$. If that update changes the spin in~$\eta$ from
+$0$ to~$1$, the coordinatewise order can be lost. Thus the facilitating
+structure of the constraint does not lead to the usual order-preserving
+coupling.
 
 % ============================================================================
 % BLURB E. Motivating question
