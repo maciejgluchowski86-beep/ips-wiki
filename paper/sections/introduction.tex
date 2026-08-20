@@ -289,38 +289,56 @@ in advance.
 % BLURB L. Signed duality and patches
 %
 % Reader question:
-%   What representation reveals the structure behind the new order?
+%   How does the patch representation capture the cancellations in the signed
+%   dual?
 %
 % Job:
 %   Start from the standard signed Feynman--Kac duality for monomial
-%   observables, then explain the new graphical regrouping: consecutive local
-%   interactions are collected into patches and their combined effect is
-%   averaged, retaining the cancellations carried by the sign.
+%   observables. Explain the graphical construction concretely: retain the
+%   interactions that transmit dependence between sites, and average the
+%   intervening one-site evolution. These pieces are patches, and the averaging
+%   combines positive and negative dual contributions before the next retained
+%   interaction.
 % ============================================================================
 
-We start from the standard Feynman--Kac duality for monomial observables. The
-dual is a signed set-valued process. We then introduce a graphical construction
-that groups successive interactions into patches and averages over the
-interactions within each patch. This averaging captures cancellations between
-positive and negative contributions and gives the patch representation.
+We start from the standard Feynman--Kac duality for monomial observables. Its
+dual is a signed set-valued process: the set records the sites on which the
+monomial depends, while the sign records the sign of the corresponding term.
+In a graphical construction, we retain the interactions that pass this
+dependence from one site to neighbouring sites. Between two such interactions,
+the evolution is local to a single site, so we average over all intervening
+one-site updates. We call these pieces patches. Since the sign may change during
+the intervening updates, this averaging combines positive and negative
+contributions and captures cancellations that are invisible if the interactions
+are treated separately.
 
 % ============================================================================
 % BLURB N. Patch positivity closes the loop
 %
 % Reader question:
-%   Why are the coefficient inequalities the right structural condition?
+%   What does patch positivity mean in this representation, and how does it
+%   lead back to the centered-moment order?
 %
 % Job:
-%   State the conceptual equivalence:
-%       coefficient criterion <=> nonnegative completed/bulk patch
-%       contributions (patch positivity),
-%   and then the consequence:
-%       patch positivity => centered-moment order preservation.
-%   Explain in words that averaging within patches turns the local constraining
-%   structure into positivity for the full dynamics.
-%
-% WRITE BLURB N HERE.
+%   Explain patch positivity without unexplained "bulk patch" terminology.
+%   Completed patches have reached their next retained interaction; patches
+%   still open at the terminal time are treated separately. Patch positivity
+%   means every completed patch has a nonnegative averaged contribution. The
+%   open patches determine p^star. Then connect the equivalent local coefficient
+%   criterion to positivity in the centered-monomial basis and order
+%   preservation.
 % ============================================================================
+
+We call the system patch positive when every completed patch has a nonnegative
+averaged contribution. Here completed means that the patch has reached its next
+retained interaction; patches still open at the terminal time are treated
+separately. Thus patch positivity says that all sign cancellations needed for
+positivity have been captured before a patch closes. The open patches give
+affine functions of the terminal spin, and their nonnegativity determines the
+reference density~$p^\star$. We show that patch positivity is equivalent to
+explicit local inequalities on the flip-rate coefficients. The same inequalities
+make the evolution positive in the centered-monomial basis and yield
+preservation of the centered-moment order.
 
 % ============================================================================
 % BLURB O. Examples and scope
