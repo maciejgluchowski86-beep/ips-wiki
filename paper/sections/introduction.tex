@@ -75,19 +75,16 @@ system.
 % ============================================================================
 
 Kinetically constrained spin models (KCSMs) were introduced as simple models
-of glassy dynamics, in which slow relaxation comes from constraints on local
-updates {\color{red} this reads like word salad, what complicated equilibrium interactions are you even talking about? comes out of nowhere, its not known what this even references} rather than complicated equilibrium interactions~\cite{CancriniEtAl2008,HartarskyToninelli2025}.
-In the usual {\color{red} two state} binary models, vacancies facilitate updates: whether a site can
-update is determined by the vacancies around it, and when an update is allowed
-the site is resampled from a fixed Bernoulli law {\color{red} Convoluted. Its simpler: if a constraint is satisfied then site refreshes its state at some rate, else it stays fixed. Also the state one is the constraining one.}. In the East model one
-prescribed neighbour must be vacant, while in FA-1f at least one neighbour must
-be vacant. The biased annihilating branching process (BABP) has the same basic
-mechanism, but each vacant neighbour {\color{red} the rate increases with each vacant neighbor} adds to the update rate, so the constraint
-becomes weaker as more vacancies are present~\cite{NeuhauserSudbury1993}.
-These models have simple product invariant measures, but their dynamics are
-generally not monotone in the configuration order above. As a result, the
-comparison tools described above are not available for controlling their
-dependence on the initial condition.{\color{red} simpler field language}
+of glassy dynamics, where local constraints can produce very slow
+relaxation~\cite{CancriniEtAl2008,HartarskyToninelli2025}. In the usual
+two-state models, state~$1$ is constraining and state~$0$ is facilitating. A
+site refreshes its state at a fixed rate when a local constraint is satisfied,
+and otherwise it stays fixed. In the East model a prescribed neighbour must be
+in state~$0$, while in FA-1f at least one neighbour must be in state~$0$. The
+biased annihilating branching process (BABP) has a related mechanism: its
+update rate increases with the number of neighbouring sites in state~$0$~\cite{NeuhauserSudbury1993}.
+These systems can have simple product invariant measures while their relaxation
+and dependence on the initial condition remain difficult to analyse.
 
 % ============================================================================
 % BLURB D. Monotone constraints do not imply monotone dynamics
