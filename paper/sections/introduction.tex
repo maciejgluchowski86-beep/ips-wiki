@@ -101,13 +101,13 @@ FA-1f models are standard examples.
 %   monotonicity fails to capture.
 % ============================================================================
 
-The kinetic constraints have a natural monotone direction: replacing nearby
-$1$'s by~$0$'s can only relax a constraint. The dynamics itself, however, is
-not monotone. If~$\eta\leq\xi$, a constraint may be satisfied at a site in
-$\eta$ but not in~$\xi$. The process started from~$\eta$ may then refresh that
-site from~$0$ to~$1$, while the process started from~$\xi$ leaves it at~$0$,
-breaking the order. Thus monotonicity of the constraint does not give the
-order-preserving coupling described above.
+KCSM constraints have a one-sided structure: changing neighbouring~$1$'s to
+$0$'s can only relax a constraint. This concerns only whether an update is
+allowed. Monotonicity of the spin system is a different property: it asks
+whether the coordinatewise order between two configurations can be preserved
+by a coupling of their evolutions. KCSMs generally fail this. If~$\eta\leq\xi$,
+an update may be allowed at a site in~$\eta$ but blocked at the same site in
+$\xi$; a refresh from~$0$ to~$1$ in~$\eta$ can then break the order.
 
 % ============================================================================
 % BLURB E. Motivating question
