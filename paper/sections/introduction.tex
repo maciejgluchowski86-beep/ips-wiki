@@ -101,12 +101,12 @@ FA-1f models are standard examples.
 %   monotonicity fails to capture.
 % ============================================================================
 
-The kinetic constraint itself has a simple monotone direction: changing a
-nearby spin from~$1$ to~$0$ can only make updates easier. This does not make the
-spin system monotone. In FA-1f, vacancies facilitate neighbouring updates, so
-two adjacent vacancies can allow one another to update and one may be filled,
-whereas an isolated vacancy is frozen. Thus replacing one vacancy by a~$1$ can
-preserve the other vacancy, and the coordinatewise order need not be preserved.
+The kinetic constraint has a simple monotone direction: changing a nearby spin
+from~$1$ to~$0$ can only relax the constraint. This does not make the dynamics
+monotone. In FA-1f, two adjacent vacancies allow each other to update, so one
+of them may be filled. If one vacancy is instead replaced by a~$1$, the other
+may become frozen and remain vacant. Thus adding a~$1$ can preserve a vacancy,
+so the coordinatewise order need not be preserved.
 
 % ============================================================================
 % BLURB E. Motivating question
