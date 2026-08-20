@@ -145,25 +145,19 @@ class of spin systems in which neighbouring~$1$'s constrain updates and a simila
 %   Explain the bridge from KCSMs to the class studied here:
 %     - in a standard KCSM, the neighbourhood controls whether/how often an
 %       update occurs while an allowed update uses a fixed Bernoulli refresh;
-%     - here the neighbourhood may also affect the bias of the update;
+%     - here the neighbourhood may affect the flip rate more generally;
 %     - the retained principle is that nonfacilitating surroundings act in the
 %       constraining direction.
 %
-% Important scope point:
-%   We are extending the constrained-update mechanism present in canonical
-%   KCSMs, not claiming a literal superclass containing every KCSM.
-%
+% Leave model examples and the exact scope of the class to Blurb O.
 % ============================================================================
 
 We consider a broader class of spin systems motivated by this KCSM structure.
 In a KCSM, the neighbouring spins determine whether an update is allowed, while
 an allowed update uses a fixed Bernoulli refresh. We allow the neighbouring
 spins to affect the flip rate more generally, without requiring it to arise
-from a kinetic constraint followed by a fixed refresh. This includes standard
-KCSMs such as East and FA-1f, as well as models outside the KCSM framework, such
-as the biased annihilating branching process (BABP), although not every KCSM is
-covered. The comparison principle developed in this paper holds under a
-condition arising from our graphical representation, which we call \emph{patch
+from a kinetic constraint followed by a fixed refresh. The condition defining
+the class arises from our graphical representation and is called \emph{patch
 positivity}.
 
 % ============================================================================
@@ -174,27 +168,43 @@ positivity}.
 %
 % Job:
 %   Give the intuitive rate-level content before any coefficient formulas.
-%   Explain that adding calm/nonfacilitating spins cannot increase total local
-%   activity and cannot increase the rate of creating the facilitating state.
-%   Also indicate that the actual condition is slightly stronger: it relates
-%   the suppression of facilitating-state creation to the suppression of total
-%   activity.
+%   The exact local criterion belongs later, after the patch representation has
+%   been explained.
 %
 % Mathematical caution:
-%   Coordinatewise monotonicity of these two rates is a consequence of the
+%   Coordinatewise monotonicity of the relevant rates is a consequence of the
 %   paper's criterion, but is weaker than the criterion and should not be
 %   presented as an equivalent definition.
-%
 % ============================================================================
 
 A useful way to think about patch positivity is that neighbouring~$1$'s continue
 to act as constraints even when the dynamics no longer has the KCSM form.
-Adding such neighbours should suppress, rather than enhance, local activity. The
-exact condition is an explicit local criterion on the flip rate, stated
-precisely in Section~\ref{sec:main-results}, whose inequalities can be viewed as
-a quantitative version of this constraining behaviour. In the KCSM examples
-above, this agrees with the familiar effect that additional~$1$'s can only
-suppress legal updates.
+Adding such neighbours should suppress, rather than enhance, local activity.
+Patch positivity is a quantitative version of this constraining behaviour.
+
+% ============================================================================
+% BLURB O. Examples and scope
+%
+% Reader question:
+%   Which familiar systems does this cover, and what is the intended scope?
+%
+% Job:
+%   Anchor the framework in examples:
+%     - East / FA-1f as canonical KCSM examples;
+%     - FA-jf, j>=2, as KCSMs outside the patch-positive class;
+%     - BABP as an example beyond literal constrained Bernoulli refresh;
+%     - contact process as a benchmark where ordinary configuration
+%       monotonicity is already stronger.
+% ============================================================================
+
+The examples place patch positivity relative to familiar spin systems. East
+and FA-1f are patch positive, so the class contains standard KCSMs. It is not,
+however, a class of all KCSMs: cooperative models, like FA-jf, for~$j\geq 2$, in which a site can update only when at
+least~$j$ neighbours are vacant, are not patch positive. The framework also
+extends beyond KCSMs. BABP and the contact process are also patch positive, although the latter is also monotone in the
+usual configuration order, where the standard monotone coupling gives stronger
+comparisons. Thus patch positivity picks out a rate structure shared by some
+KCSMs and by spin systems outside the KCSM class.
 
 % ============================================================================
 % BLURB I. Headline result: recovered monotonicity
@@ -208,7 +218,6 @@ suppress legal updates.
 %   probability laws defined through centered moments.
 %
 % This is the headline of the introduction. Give it rhetorical weight.
-%
 % ============================================================================
 
 The comparison principle takes the form of a new order on probability laws,
@@ -239,7 +248,6 @@ level reappears at the level of laws.
 %   The paper proves
 %       coefficient criterion <=> patch positivity => order preservation.
 %   Do not claim that order preservation is equivalent to patch positivity.
-%
 % ============================================================================
 
 Each patch-positive system has an associated density~$p^\star$, or a
@@ -257,10 +265,10 @@ reference density. It is an order on laws, not a pointwise order on
 configurations.
 
 % ============================================================================
-% BLURB K. Why the order matters
+% BLURB K. Consequences
 %
 % Reader question:
-%   Is this weaker monotonicity useful beyond being a formal property?
+%   What do the comparison principle and patch representation give us?
 %
 % Job:
 %   Preview the two main payoffs without theorem-level technicalities:
@@ -273,17 +281,16 @@ configurations.
 % Keep out for now:
 %   M_-; polynomial-growth exponent D; explicit convergence-rate formula;
 %   proof details.
-%
 % ============================================================================
 
-The centered-moment order has two main uses here. First, it gives comparisons
-between non-monotone dynamics; in particular, we can compare a system with the
-dynamics obtained by removing pure deaths, meaning environment-independent
-transitions from~$1$ to~$0$. Second, when pure deaths occur at a uniform
-positive rate, the patch representation yields convergence to a common
-invariant law for a broad class of initial laws. The convergence argument does
-not assume reversibility and does not require the invariant law to be identified
-in advance.
+These results have two main consequences. First, the centered-moment order gives
+comparisons between non-monotone dynamics; in particular, we can compare a
+system with the dynamics obtained by removing pure deaths, meaning
+environment-independent transitions from~$1$ to~$0$. Second, when pure deaths
+occur at a uniform positive rate, the patch representation yields convergence
+to a common invariant law for a broad class of initial laws. The convergence
+argument does not assume reversibility and does not require the invariant law to
+be identified in advance.
 
 % ============================================================================
 % BLURB L. Signed duality and patches
@@ -322,8 +329,8 @@ averaged within each one. The resulting patch factorization captures cancellatio
 % Job:
 %   Use only the language introduced in L. State the sign condition on patches
 %   lying entirely before the observation time, explain the terminal patches in
-%   one sentence, and connect the local rate criterion to the comparison
-%   principle.
+%   one sentence, and then state the correct logical route through the local
+%   rate condition to preservation of the centered-moment order.
 % ============================================================================
 
 Patch positivity means that the averaged contribution of every patch lying
@@ -333,34 +340,8 @@ combined to recover~$P_t\chi_A$. Patches that reach the observation time leave
 factors depending on the terminal spins; the density~$p^\star$
 introduced above is chosen so that these factors are compatible with the
 centered-moment order. We show that patch positivity is equivalent to an
-explicit local condition on the flip rates, and this local positivity yields
-the comparison principle.
-
-% ============================================================================
-% BLURB O. Examples and scope
-%
-% Reader question:
-%   Which familiar systems does this cover, and what is the intended scope?
-%
-% Job:
-%   Anchor the framework in examples:
-%     - East / FA-1f as canonical KCSM examples;
-%     - BABP as an example beyond literal constrained Bernoulli refresh;
-%     - contact process as a benchmark where ordinary configuration
-%       monotonicity is already stronger.
-%   State carefully that the framework extends a KCSM-type constrained
-%   mechanism rather than characterizing all KCSMs.
-%
-% ============================================================================
-
-The examples place patch positivity relative to familiar spin systems. East
-and FA-1f are patch positive, so the class contains standard KCSMs. It is not,
-however, a class of all KCSMs: cooperative models, like FA-jf, for~$j\geq 2$, in which a site can update only when at
-least~$j$ neighbours are vacant, are not patch positive. The framework also
-extends beyond KCSMs. BABP and the contact process are also patch positive, although the latter is also monotone in the
-usual configuration order, where the standard monotone coupling gives stronger
-comparisons. Thus patch positivity picks out a rate structure shared by some
-KCSMs and by spin systems outside the KCSM class.
+explicit local condition on the flip rates. The same condition implies
+preservation of the centered-moment order.
 
 \paragraph{Relation to previous work.}
 Set-valued graphical constructions and additive dual processes go back to
@@ -368,17 +349,15 @@ Harris~\cite{Harris1974,Harris1978}; see also
 Griffeath~\cite{Griffeath1979}, Holley--Stroock~\cite{HolleyStroock1979}, and
 Gray~\cite{Gray1986}. We use the signed monomial Feynman--Kac duality; Jansen
 and Kurt~\cite{JansenKurt2014} give a general account of Markov-process
-duality.
-Conditioning on the successful skeleton gives the one-site factorization over
-patches which is not present in the standard duality. Information percolation
-also retains updates which carry information~\cite{LubetzkySly2016}, but its
-clusters and oblivious updates are used for a different decomposition. The
-patch factorization retains cancellations among local updates. It is also
-different from the time-scaling observation
+duality. Conditioning on the coarse interaction record described above gives a
+one-site factorization which is not present in the standard duality.
+Information percolation also retains updates which carry information
+\cite{LubetzkySly2016}, but uses them for a different decomposition. Our
+construction is also different from the time-scaling observation
 in~\cite{GluchowskiMenz2025}, where each local update transition matrix is mixed
-with the identity. The construction was motivated by the wall-type one-sided
-spin systems studied in~\cite{GluchowskiMenz2026}; many of their rate functions
-satisfy the coefficient criterion below.
+with the identity. It was motivated by the wall-type one-sided spin systems
+studied in~\cite{GluchowskiMenz2026}; many of their rate functions satisfy the
+coefficient criterion below.
 
 Classical correlation inequalities for monotone spin systems, traditionally
 called attractive systems in the IPS literature, are tied to order-preserving
@@ -389,21 +368,20 @@ systems which are not monotone in configuration order. To our knowledge,
 preservation of this centered-moment order has not previously been obtained
 from a local coefficient condition of the present form. The convergence
 theorem is also distinct from classical positive-rates results such as
-Gray~\cite{Gray1982}: it assumes patch positivity and a specified independent
-component and proves convergence from the class~$\mathcal M_-$.
+Gray~\cite{Gray1982}: under patch positivity and a uniform pure-death component
+it proves convergence from a broad class of initial laws without first
+identifying the invariant law.
 
-The examples come from two lines of work. FA-1f originates
-in~\cite{FredricksonAndersen1984} and is placed in the KCSM framework
-in~\cite{CancriniEtAl2008,HartarskyToninelli2025}. Its out-of-equilibrium
-theory, and that of related KCSMs such as East, is developed
+FA-1f originates in~\cite{FredricksonAndersen1984} and is placed in the KCSM
+framework in~\cite{CancriniEtAl2008,HartarskyToninelli2025}. Its
+out-of-equilibrium theory, and that of related KCSMs such as East, is developed
 in~\cite{CancriniEtAl2010,BlondelEtAl2013,MountfordValle2019,Mareche2019,
 HartarskyToninelli2024}. BABP was introduced by Neuhauser and
 Sudbury~\cite{NeuhauserSudbury1993}; its qualitative convergence and
 quasi-duality theory are due in part to Sudbury and
 Lloyd--Sudbury~\cite{Sudbury1997,LloydSudbury1997}. The product-law estimates
 in~\cite{MartinelliShapiraToninelli2025} provide the endpoints for the
-centered-moment corollary proved here. These examples show how the same
-coefficient criterion applies to different facilitation rules.
+centered-moment corollary proved here.
 
 \paragraph{Organization.}
 Section~\ref{sec:setup} fixes the notation, and
@@ -414,6 +392,7 @@ Section~\ref{sec:patch-positivity} proves the coefficient criterion and the
 centered-moment comparisons in Theorem~\ref{thm:patch-positivity-order}, as
 well as Corollary~\ref{cor:pure-death-comparison}.
 Section~\ref{sec:convergence} proves the common invariant-limit result, Theorem~\ref{thm:common-invariant-limit}.
-The FA-1f and BABP calculations are collected in
-Section~\ref{sec:applications}. Generator calculations, one-site formulas, and
-propagation estimates are deferred to the appendices.
+Section~\ref{sec:applications} treats the contact process, FA-1f and BABP and
+gives the resulting comparison and convergence consequences. Generator
+calculations, one-site formulas, and propagation estimates are deferred to the
+appendices.
