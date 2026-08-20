@@ -286,45 +286,24 @@ not assume reversibility and does not require the invariant law to be identified
 in advance.
 
 % ============================================================================
-% BLURB L. Why should such an order exist?
+% BLURB L. Signed duality and patches
 %
 % Reader question:
 %   What representation reveals the structure behind the new order?
 %
 % Job:
-%   Introduce the signed Feynman--Kac duality for monomial observables and its
-%   backward dependence interpretation. Leave the patch mechanism itself for
-%   the next paragraph.
-%
+%   Start from the standard signed Feynman--Kac duality for monomial
+%   observables, then explain the new graphical regrouping: consecutive local
+%   interactions are collected into patches and their combined effect is
+%   averaged, retaining the cancellations carried by the sign.
 % ============================================================================
 
-The proof starts from a Feynman--Kac duality for monomial observables. When the
-generator acts on a monomial, the resulting terms can be represented by a
-signed stochastic process that traces backward the set of sites on which the
-observable depends. The sign records how local updates contribute to the
-observable. This signed dual is the starting point for the patch
-representation.
-
-% ============================================================================
-% BLURB M. Patches: preserve cancellation before comparison
-%
-% Reader question:
-%   How are the local cancellations retained?
-%
-% Job:
-%   Explain only the conceptual patch idea:
-%     - trace dependence backward;
-%     - retain interactions that transmit dependence between sites;
-%     - average the intervening one-site evolution before comparing signs;
-%     - these spacetime pieces are patches;
-%     - conditional on the retained interactions, different patches factorize.
-%
-% Keep out:
-%   Successful-interaction skeleton notation; patch type taxonomy; explicit
-%   formulas for C(P).
-%
-% WRITE BLURB M HERE.
-% ============================================================================
+The proof begins with a standard Feynman--Kac duality for monomial observables.
+The dual is a set-valued process carrying a sign. Our main new ingredient is a
+graphical construction that groups consecutive interactions along the dual
+history into patches and averages their combined effect. This retains the
+cancellations encoded by the sign and factorizes the representation into local
+patch contributions.
 
 % ============================================================================
 % BLURB N. Patch positivity closes the loop
