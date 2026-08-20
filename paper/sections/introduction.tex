@@ -289,18 +289,21 @@ in advance.
 % BLURB L. Why should such an order exist?
 %
 % Reader question:
-%   What mechanism can create positivity in a non-monotone process?
+%   What representation reveals the structure behind the new order?
 %
 % Job:
-%   Introduce the proof problem, not all the machinery. Monomial observables
-%   have a signed Feynman--Kac dual; successive local updates produce terms of
-%   both signs; comparing update-by-update loses cancellations that may be
-%   essential.
+%   Introduce the signed Feynman--Kac duality for monomial observables and its
+%   backward dependence interpretation. Leave the patch mechanism itself for
+%   the next paragraph.
 %
-% Reader should now have a reason to care about the signs.
-%
-% WRITE BLURB L HERE.
 % ============================================================================
+
+The proof starts from a Feynman--Kac duality for monomial observables. When the
+generator acts on a monomial, the resulting terms can be represented by a
+signed stochastic process that traces backward the set of sites on which the
+observable depends. The sign records how local updates contribute to the
+observable. This signed dual is the starting point for the patch
+representation.
 
 % ============================================================================
 % BLURB M. Patches: preserve cancellation before comparison
