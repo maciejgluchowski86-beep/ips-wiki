@@ -289,43 +289,55 @@ in advance.
 % BLURB L. Signed duality and patches
 %
 % Reader question:
-%   Where do the signs and cancellations occur, and what does a patch average?
+%   What is the new idea in the representation, and where do the cancellations
+%   occur?
 %
 % Job:
-%   Make the object explicit: the Feynman--Kac formula represents P_t chi_A as
-%   an expectation of a signed weight. Condition on the interactions that move
-%   dependence between sites and average over the intervening one-site updates.
-%   These conditional averages are the patch contributions.
+%   Begin with a finite product of spins and its standard signed Feynman--Kac
+%   dual. Then explain the coarser graphical construction without importing
+%   later terminology: keep only which interactions actually act on the dual,
+%   when they occur, and which neighbouring sites they involve. Consecutive
+%   retained interactions cut each site line into patches. A patch contribution
+%   is the average signed dual weight over all graphical marks not retained in
+%   this coarse record.
 % ============================================================================
 
-We start from the standard Feynman--Kac duality for a monomial~$\chi_A$, which
-writes~$P_t\chi_A$ as the expectation of a signed dual weight. The signs come
-from the local terms in the generator, so different dual evolutions can enter
-this expectation with different signs. In the graphical construction we keep
-the interactions between different sites fixed and average over the one-site
-updates between them. Each such piece is a patch, and its contribution is this
-local average. The point is that positive and negative dual terms can then
-cancel inside a patch before the patch contributions are multiplied together.
+To see the idea behind the method, start with a product of spins over finitely
+many sites. Standard Feynman--Kac duality represents its expected value at a
+later time using a process of finite sets carrying a sign. Because of this sign,
+different graphical realizations can contribute with opposite signs. We keep
+only a coarse record of the interactions that actually act on this dual process:
+which site interacts, when, and which neighbouring sites are involved. At each
+site, consecutive retained interactions cut time into pieces, which we call
+\emph{patches}. For a fixed patch, we then average the signed dual weight over
+all the graphical marks that were not retained. This average is the patch
+contribution. In this way cancellations between different detailed realizations
+are collected into a local quantity before the different patches are combined.
 
 % ============================================================================
 % BLURB N. Patch positivity closes the loop
 %
 % Reader question:
-%   What does patch positivity mean for the representation of P_t chi_A, and
-%   why does it give monotonicity?
+%   What does patch positivity mean in this representation, and how does it
+%   connect back to the centered-moment order?
 %
 % Job:
-%   State the conceptual condition on the conditional patch averages, then
-%   connect it to the local rate criterion and centered-moment order without
-%   introducing the patch taxonomy.
+%   State patch positivity using only the language just introduced. Distinguish
+%   patches ending at another retained interaction from patches that reach the
+%   observation time. Explain the role of p^star in the latter without giving
+%   the later boundary taxonomy or contribution formulas.
 % ============================================================================
 
-Patch positivity means that whenever such a patch is finished, its averaged
-contribution is nonnegative. Thus the cancellations in the signed dual have
-already produced a nonnegative local factor in the representation of
-$P_t\chi_A$. We show that this is equivalent to an explicit local condition on
-the flip rates. Under this condition, the patch representation gives the
-positivity needed for preservation of the centered-moment order.
+Patch positivity requires the averaged contribution of every patch that ends
+at another retained interaction to be nonnegative. Thus, once the local
+cancellations have been carried out, the parts of the dual representation lying
+strictly before the observation time contribute with the right sign. A patch
+that reaches the observation time still depends on the spin at that site at
+that time; the reference density~$p^\star$ introduced above is the level used
+to control this remaining dependence in the centered-moment comparison. We show
+that patch positivity is equivalent to an explicit local condition on the flip
+rates. Together, these facts turn the signed dual representation into the
+positivity needed to preserve the centered-moment order.
 
 % ============================================================================
 % BLURB O. Examples and scope
