@@ -305,15 +305,12 @@ Write~$P_t$ for the Markov semigroup and, for a finite set~$A$, let
 \end{equation*}
 Thus~$P_t\chi_A(\eta)$ is the expected value of~$\chi_A$ at time~$t$ when the
 process starts from~$\eta$. Standard Feynman--Kac duality represents
-$P_t\chi_A$ using a finite set of sites carrying a sign; the set records the
-sites on which the observable depends, while the sign allows different
-realizations to contribute with opposite signs. Our graphical construction
+$P_t\chi_A$ using a stochastic process on finite sets of sites and carrying a sign; the set records the
+sites on which the observable depends. Our graphical construction
 keeps only the events that pass this dependence between sites, recording when
-they occur and which sites they connect. These events divide each site line
-into pieces, which we call \emph{patches}. Once this coarser graphical structure
+they occur and which sites they connect. These events divide spacetime into single-site regions which we call \emph{patches}. Once this coarser graphical structure
 is fixed, the remaining randomness separates between patches and can be
-averaged within each one. The resulting patch contribution therefore already
-includes cancellations between terms of opposite sign.
+averaged within each one. The resulting patch factorization captures cancellations in the dual representation of~$P_t\chi_A(\eta)$.
 
 % ============================================================================
 % BLURB N. Patch positivity closes the loop
@@ -333,7 +330,7 @@ Patch positivity means that the averaged contribution of every patch lying
 entirely before the observation time is nonnegative. Thus the cancellations in
 the signed dual are performed locally, before the patch contributions are
 combined to recover~$P_t\chi_A$. Patches that reach the observation time leave
-factors depending on the terminal spins; the reference density~$p^\star$
+factors depending on the terminal spins; the density~$p^\star$
 introduced above is chosen so that these factors are compatible with the
 centered-moment order. We show that patch positivity is equivalent to an
 explicit local condition on the flip rates, and this local positivity yields
