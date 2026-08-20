@@ -289,43 +289,46 @@ in advance.
 % BLURB L. Signed duality and patches
 %
 % Reader question:
-%   What is the main idea of the patch representation?
+%   Where do the signs and cancellations occur, and what does a patch average?
 %
 % Job:
-%   Start from the standard signed Feynman--Kac duality, then explain the new
-%   step: rather than treating successive interactions separately, average the
-%   local evolution between them. This performs the relevant cancellations
-%   locally and produces the patch representation.
+%   Make the object explicit: the Feynman--Kac formula represents P_t chi_A as
+%   an expectation of a signed weight. Condition on the interactions that move
+%   dependence between sites and average over the intervening one-site updates.
+%   These conditional averages are the patch contributions.
 % ============================================================================
 
-We start from the standard Feynman--Kac duality for monomial observables. In
-our setting the dual is signed, so local interactions can contribute with
-opposite signs. The new step is to organize the graphical representation so
-that successive interactions are not treated separately. We group the local
-evolution between them into patches and average over it. In this way the
-positive and negative terms cancel within each patch, before the contributions
-of different patches are combined.
+We start from the standard Feynman--Kac duality for a monomial~$\chi_A$. It
+expresses the evolved observable~$P_t\chi_A$ as an expectation over a signed
+set-valued dual, so different realizations of the dual can contribute with
+opposite signs to the same quantity. Our graphical construction conditions on
+the interactions that transmit dependence between sites and averages over the
+one-site updates occurring between them. These local spacetime pieces are the
+patches, and the corresponding conditional averages are their contributions.
+Thus the cancellation takes place in the signed Feynman--Kac weight itself,
+inside each patch, before the patch contributions are combined.
 
 % ============================================================================
 % BLURB N. Patch positivity closes the loop
 %
 % Reader question:
-%   What does patch positivity mean, and why does it give monotonicity?
+%   What does patch positivity mean for the representation of P_t chi_A, and
+%   why does it give monotonicity?
 %
 % Job:
-%   State the conceptual condition: after the local averaging above, each patch
-%   contributes nonnegatively. This means the patch decomposition captures the
-%   cancellations needed to turn the signed dual into a positive
-%   representation. Then state the local coefficient criterion and the
-%   centered-moment consequence, without proof-level mechanics.
+%   State the conceptual condition on the conditional patch averages, then
+%   connect it to the local rate criterion and centered-moment order without
+%   introducing the patch taxonomy.
 % ============================================================================
 
-Patch positivity is the condition that, after this averaging, each completed
-patch has a nonnegative contribution. In this sense the patch decomposition
-captures the cancellations needed to turn the signed dual into a positive
-representation. We show that patch positivity is equivalent to an explicit
-local condition on the flip rates. This is what turns the constraining effect
-of neighbouring~$1$'s into preservation of the centered-moment order.
+Patch positivity is the condition that every completed patch has a
+nonnegative conditional average. In other words, the local averaging has
+already absorbed the positive and negative contributions of the signed dual
+before the different patches are put together in the representation of
+$P_t\chi_A$. We show that this property is equivalent to an explicit local
+condition on the flip rates. It is the positivity mechanism behind the
+centered-moment comparison principle and turns the constraining effect of
+neighbouring~$1$'s into preservation of the centered-moment order.
 
 % ============================================================================
 % BLURB O. Examples and scope
