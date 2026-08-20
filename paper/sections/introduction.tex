@@ -14,13 +14,13 @@
 %   law and long-time behaviour, without making ergodicity the whole story.
 % ============================================================================
 
-Interacting particle systems are mathematically tractable models of {\color{red} Wtf is a spatially interacting system?? You took my instruction too literally and made a terrible sentence here.} spatially
-interacting systems that can nevertheless exhibit complicated collective
-behaviour. In this paper, we study spin systems: continuous-time Markov
-processes on~$\{0,1\}^{\Lambda}$, where~$\Lambda$ is the set of sites
-representing space and updates flip one site at a time. The flip rate at a site
-may depend on nearby spins, which is how the sites interact. We are interested
-in how these local rules determine the dependence of the long-time behaviour of the system on the initial conditions.
+Interacting particle systems are stochastic models in which many local random
+updates combine to produce nontrivial collective behaviour. In this paper, we
+study spin systems: continuous-time Markov processes on~$\{0,1\}^{\Lambda}$,
+where~$\Lambda$ is the set of sites representing space and updates flip one
+site at a time. The flip rate at a site may depend on nearby spins, which is how
+the sites interact. We are interested in how these local rules determine the
+dependence of the long-time behaviour of the system on the initial conditions.
 
 % ============================================================================
 % BLURB B. Why monotonicity matters
@@ -43,14 +43,15 @@ in how these local rules determine the dependence of the long-time behaviour of 
 %   literature history.
 % ============================================================================
 
-A particularly useful property of a spin system is monotonicity. If two initial
-configurations are ordered {\color{red} how??}, a monotone system admits a coupling in which this
-order is preserved for all times. This lets one compare the laws of the system
-started from different initial conditions, and similar couplings can often be
-used to compare different choices of rates. Such comparisons are useful for
-studying dependence on the initial condition, invariant measures and
-convergence. Monotonicity is therefore one of the first structures one looks
-for when studying a spin system.
+The configuration space has the usual coordinatewise order: $\eta\leq\xi$ if
+$\eta(i)\leq\xi(i)$ at every site. A spin system is monotone if processes
+started from~$\eta\leq\xi$ can be coupled so that the same order holds at all
+later times. This gives direct comparisons between different initial
+conditions. The same idea can often also be used to compare different choices
+of rates or parameters. Such comparisons are basic tools for studying
+dependence on the initial condition, invariant measures and convergence, which
+is why monotonicity is one of the first properties one looks for in a spin
+system.
 
 % ============================================================================
 % BLURB C. KCSMs as the motivating research class
