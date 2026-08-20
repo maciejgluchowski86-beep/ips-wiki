@@ -1,8 +1,6 @@
 \section{Introduction}
 \label{sec:introduction}
 
-\subsection{Kinetic constraints}
-
 % ============================================================================
 % BLURB A. Broad entry: spin systems
 %
@@ -11,16 +9,17 @@
 %
 % Job:
 %   Give a reader who is not an IPS specialist enough context to enter the
-%   paper. Say, in a sentence or two, what a spin system is and what kinds of
-%   questions motivate their study (dependence on initial condition, invariant
-%   laws, long-time behaviour).
-%
-% Keep out for now:
-%   Generator notation; binary-state conventions; graphical constructions;
-%   duality; KCSMs.
-%
-% WRITE BLURB A HERE.
+%   paper. Motivate IPS broadly, then fix our narrower use of "spin system" as
+%   a binary IPS with single-site flips. Foreshadow dependence on the initial
+%   law and long-time behaviour, without making ergodicity the whole story.
 % ============================================================================
+
+Interacting particle systems are simple stochastic models of locally interacting
+components that can nevertheless exhibit rich collective behaviour. Throughout
+this paper, by a spin system we mean a binary interacting particle system in
+which each transition flips a single site. We are interested in how the local
+transition rules control dependence on the initial law and the long-time
+behaviour of the process, including its invariant measures.
 
 % ============================================================================
 % BLURB B. Why monotonicity matters
@@ -109,8 +108,6 @@
 %
 % WRITE BLURB E HERE.
 % ============================================================================
-
-\subsection{Centered-moment monotonicity}
 
 % ============================================================================
 % BLURB F. What is being generalized from a KCSM?
@@ -318,8 +315,7 @@
 % WRITE BLURB O HERE.
 % ============================================================================
 
-\subsection{Relation to previous work}
-
+\paragraph{Relation to previous work.}
 Set-valued graphical constructions and additive dual processes go back to
 Harris~\cite{Harris1974,Harris1978}; see also
 Griffeath~\cite{Griffeath1979}, Holley--Stroock~\cite{HolleyStroock1979}, and
@@ -362,8 +358,7 @@ in~\cite{MartinelliShapiraToninelli2025} provide the endpoints for the
 centered-moment corollary proved here. These examples show how the same
 coefficient criterion applies to different facilitation rules.
 
-\subsection{Organization}
-
+\paragraph{Organization.}
 Section~\ref{sec:setup} fixes the notation, and
 Section~\ref{sec:main-results} states the three principal theorems.
 Section~\ref{sec:signed-dual} constructs the successful skeleton and proves the
