@@ -298,15 +298,14 @@ in advance.
 %   These conditional averages are the patch contributions.
 % ============================================================================
 
-We start from the standard Feynman--Kac duality for a monomial~$\chi_A$. It
-expresses the evolved observable~$P_t\chi_A$ as an expectation over a signed
-set-valued dual, so different realizations of the dual can contribute with
-opposite signs to the same quantity. Our graphical construction conditions on
-the interactions that transmit dependence between sites and averages over the
-one-site updates occurring between them. These local spacetime pieces are the
-patches, and the corresponding conditional averages are their contributions.
-Thus the cancellation takes place in the signed Feynman--Kac weight itself,
-inside each patch, before the patch contributions are combined.
+We start from the standard Feynman--Kac duality for a monomial~$\chi_A$, which
+writes~$P_t\chi_A$ as the expectation of a signed dual weight. The signs come
+from the local terms in the generator, so different dual evolutions can enter
+this expectation with different signs. In the graphical construction we keep
+the interactions between different sites fixed and average over the one-site
+updates between them. Each such piece is a patch, and its contribution is this
+local average. The point is that positive and negative dual terms can then
+cancel inside a patch before the patch contributions are multiplied together.
 
 % ============================================================================
 % BLURB N. Patch positivity closes the loop
@@ -321,14 +320,12 @@ inside each patch, before the patch contributions are combined.
 %   introducing the patch taxonomy.
 % ============================================================================
 
-Patch positivity is the condition that every completed patch has a
-nonnegative conditional average. In other words, the local averaging has
-already absorbed the positive and negative contributions of the signed dual
-before the different patches are put together in the representation of
-$P_t\chi_A$. We show that this property is equivalent to an explicit local
-condition on the flip rates. It is the positivity mechanism behind the
-centered-moment comparison principle and turns the constraining effect of
-neighbouring~$1$'s into preservation of the centered-moment order.
+Patch positivity means that whenever such a patch is finished, its averaged
+contribution is nonnegative. Thus the cancellations in the signed dual have
+already produced a nonnegative local factor in the representation of
+$P_t\chi_A$. We show that this is equivalent to an explicit local condition on
+the flip rates. Under this condition, the patch representation gives the
+positivity needed for preservation of the centered-moment order.
 
 % ============================================================================
 % BLURB O. Examples and scope
