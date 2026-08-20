@@ -43,14 +43,14 @@ dependence of the long-time behaviour of the system on the initial conditions.
 %   literature history.
 % ============================================================================
 
-The configuration space has the usual coordinatewise order: $\eta\leq\xi$ if
+One of the main tools for such questions is monotonicity. The configuration
+space has the usual coordinatewise order: $\eta\leq\xi$ if
 $\eta(i)\leq\xi(i)$ at every site. A spin system is monotone if processes
 started from~$\eta\leq\xi$ can be coupled so that the same order holds at all
 later times. This gives direct comparisons between different initial
-conditions. The same idea can often also be used to compare systems with different transition rules. Such comparisons are basic tools for studying
-dependence on the initial condition, invariant measures and convergence, which
-is why monotonicity is one of the first properties one looks for in a spin
-system.
+conditions. The same idea can often also be used to compare systems with
+different transition rules. Such comparisons are basic tools for studying
+dependence on the initial condition, invariant measures and convergence.
 
 % ============================================================================
 % BLURB C. KCSMs as the motivating research class
@@ -75,9 +75,10 @@ system.
 % ============================================================================
 
 Kinetically constrained spin models (KCSMs) are spin systems constructed so
-that their equilibrium measure is a Bernoulli product measure, but the site interactions still produce intricate dynamics. At equilibrium the spins are independent, but
-a site's ability to update depends on nearby spins. These kinetic constraints
-can make relaxation very slow and lead to glassy dynamics, despite the simple
+that their equilibrium measure is a Bernoulli product measure, so the spins are
+independent at equilibrium, while the dynamics is interacting because a site's
+ability to update depends on nearby spins. These kinetic constraints can make
+relaxation very slow and lead to glassy dynamics, despite the simple
 equilibrium law~\cite{CancriniEtAl2008,HartarskyToninelli2025}. The East and
 FA-1f models are standard examples.
 
@@ -101,15 +102,14 @@ FA-1f models are standard examples.
 %   monotonicity fails to capture.
 % ============================================================================
 
-In KCSMs, facilitating states can only remove restrictions on updates:
-replacing nearby~$1$'s by~$0$'s may allow an update that was previously blocked,
-but cannot block one that was already allowed. This does not imply monotonicity
-of the spin system in the sense above. Indeed, if~$\eta\leq\xi$, an update may
-be allowed in~$\eta$ because it contains more facilitating states, while the
-same site is blocked in~$\xi$. If that update changes the spin in~$\eta$ from
-$0$ to~$1$, the coordinatewise order can be lost. Thus the facilitating
-structure of the constraint does not lead to the usual order-preserving
-coupling.
+In KCSMs, we take~$0$ to be the facilitating state. Replacing nearby~$1$'s by
+$0$'s may allow an update that was previously blocked, but cannot block one
+that was already allowed. This does not imply monotonicity of the spin system
+in the sense above. Indeed, if~$\eta\leq\xi$, an update may be allowed in
+$\eta$ because it contains more facilitating states, while the same site is
+blocked in~$\xi$. If that update changes the spin in~$\eta$ from~$0$ to~$1$,
+the coordinatewise order can be lost. Thus the facilitating structure of the
+constraint does not lead to the usual order-preserving coupling.
 
 % ============================================================================
 % BLURB E. Motivating question
@@ -131,8 +131,8 @@ coupling.
 This leaves a natural question: does the facilitating structure of these models
 still imply some useful form of monotonicity, even though the configuration
 order is not preserved? More generally, can one identify a broader class of
-spin systems in which the local constraining mechanism gives rise to a
-comparison principle for the evolution?
+spin systems in which this facilitating structure gives rise to a comparison
+principle for the evolution?
 
 % ============================================================================
 % BLURB F. What is being generalized from a KCSM?
