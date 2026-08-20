@@ -75,12 +75,16 @@ dependence on the initial condition, invariant measures and convergence.
 % ============================================================================
 
 Kinetically constrained spin models (KCSMs) are spin systems constructed so
-that their equilibrium measure is a Bernoulli product measure, so the spins are
-independent at equilibrium, while the dynamics is interacting because a site's
-ability to update depends on nearby spins. These kinetic constraints can make
-relaxation very slow and lead to glassy dynamics, despite the simple
-equilibrium law~\cite{CancriniEtAl2008,HartarskyToninelli2025}. The East and
-FA-1f models are standard examples.
+that their equilibrium measure is a Bernoulli product measure, while the
+dynamics is interacting through local kinetic constraints. At an update
+attempt, the spin at a site is refreshed from the one-site Bernoulli equilibrium
+law only if a constraint determined by neighbouring spins is satisfied. We use
+the standard convention that~$0$ is a vacancy, or facilitating state. The
+constraint is monotone with respect to vacancies: adding vacancies can make an
+update legal but cannot make a legal update illegal. These constraints can make
+relaxation very slow and lead to glassy dynamics despite the simple equilibrium
+law~\cite{CancriniEtAl2008,HartarskyToninelli2025}. The East and FA-1f models
+are standard examples.
 
 % ============================================================================
 % BLURB D. Monotone constraints do not imply monotone dynamics
@@ -102,14 +106,12 @@ FA-1f models are standard examples.
 %   monotonicity fails to capture.
 % ============================================================================
 
-In KCSMs, we take~$0$ to be the {\color{red} Up to this point the dynamic was never described, reader doesnt know what facilitating state means} facilitating state. {\color{red} It should be stated that for KCSMs the constraint is monotone in the constrained neighboring sites, and immediately remarked that this does not make the spin system monotone. Right now the mechanism that makes constraint monotone is explained but it comes out of nowhere, the reader doesnt know whats happening.} Replacing nearby~$1$'s by
-$0$'s may allow an update that was previously blocked, but cannot block one
-that was already allowed. This does not imply monotonicity of the spin system
-in the sense above. Indeed, if~$\eta\leq\xi$, an update may be allowed in
-$\eta$ because it contains more facilitating states, while the same site is
-blocked in~$\xi$. If that update changes the spin in~$\eta$ from~$0$ to~$1$,
-the coordinatewise order can be lost. Thus the facilitating structure of the
-constraint does not lead to the usual order-preserving coupling.
+This monotonicity of the constraint does not make the spin system monotone in
+the configuration order. Indeed, if~$\eta\leq\xi$, an update may be legal in
+$\eta$ because it has more vacancies, while the same update is blocked in
+$\xi$. If the legal refresh changes~$\eta(i)$ from~$0$ to~$1$ while~$\xi(i)$
+remains~$0$, the coordinatewise order is lost. Thus the monotone structure of
+the constraint does not give the usual order-preserving coupling.
 
 % ============================================================================
 % BLURB E. Motivating question
@@ -128,11 +130,11 @@ constraint does not lead to the usual order-preserving coupling.
 %   Coefficient inequalities; p^star; centered moments; patches; duality.
 % ============================================================================
 
-This leaves a natural question: does the facilitating structure of these models
-still imply some useful form of monotonicity, even though the configuration
-order is not preserved? More generally, can one identify a broader class of
-spin systems in which this facilitating structure gives rise to a comparison
-principle for the evolution?
+This leaves a natural question: can the monotone structure of the constraint
+still yield a useful comparison principle, even though the process is not
+monotone in configuration order? More generally, can one identify a broader
+class of spin systems in which neighbouring~$1$'s act in a constraining
+direction and a similar comparison principle survives?
 
 % ============================================================================
 % BLURB F. What is being generalized from a KCSM?
