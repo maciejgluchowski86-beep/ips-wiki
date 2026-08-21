@@ -52,8 +52,8 @@ C(p,P)\geq0
 }.
 \end{equation*}
 
-This profile is a calm-state density threshold for nonnegativity of the
-terminal factors; it is not an ergodicity or phase-transition threshold. Define
+This profile records the terminal reference levels required for nonnegativity
+of the end factors; it is not an ergodicity or phase-transition threshold. Define
 
 \begin{equation*}
 \chi_A^*(\eta)
@@ -94,7 +94,7 @@ $\mb p\geq\mb p^\star$.
 \label{thm:patch-positivity-order}
 \leavevmode
 \begin{enumerate}[label=\textup{(\roman*)}]
-\item Put~$r_i=c_i^0(\vn)+c_i^1(\vn)$. The spin system is patch positive if and
+\item Put~$r_i=c_i^0(\vn)+c_i^1(\vn)$. The spin system is patch-positive if and
 only if, at every site~$i$ with~$r_i=0$, one has~$c_i\equiv0$, while at every
 site with~$r_i>0$, the inequalities
 
@@ -154,7 +154,7 @@ whenever~$\mu\preceq_*\nu$. In particular, for every~$\mu\in\mathcal M_*$,
 \begin{corollary}[Pure-death comparison]
 \label{cor:pure-death-comparison}
 Let~$\Lcal$ and~$\Lcal'$ be spin-system generators. Suppose that~$\Lcal$ is
-patch positive and that
+patch-positive and that
 
 \begin{equation}
 \label{eq:pure-death-decomposition}
@@ -167,8 +167,8 @@ patch positive and that
 \qquad d_i\geq0.
 \end{equation}
 
-Thus~$\Lcal'$ is obtained by removing an environment-independent mechanism
-creating the facilitating state. The generator~$\Lcal'$ is patch positive with
+Thus~$\Lcal'$ is obtained by removing the environment-independent~$1\to0$
+transitions with rates~$d_i$. The generator~$\Lcal'$ is patch-positive with
 the same profile~$\mb p^\star$, and its semigroup~$P_t'$ satisfies
 
 \begin{equation}
@@ -206,7 +206,7 @@ $\mb p\geq\mb p^-$.
 \begin{maintheorem}[Common invariant limit]
 \label{thm:common-invariant-limit}
 Suppose that~$\Lambda$ has polynomial growth of exponent~$D$, the spin system
-is patch positive, and it contains a pure-death component of
+is patch-positive, and it contains a pure-death component of
 rate~$\varepsilon>0$. Then there is an invariant probability measure~$\pi$ such
 that, for every local function~$f$, there is~$K_f<\infty$ satisfying
 
@@ -235,7 +235,7 @@ $\mu P_t\Rightarrow\pi$ for every~$\mu\in\mathcal M_-$. Moreover,
 \end{maintheorem}
 
 Under the hypotheses of Theorem~\ref{thm:common-invariant-limit}, every point
-mass on a configuration with finitely many facilitating states belongs
+mass on a configuration with finitely many sites in state~$0$ belongs
 to~$\mathcal M_-$. Indeed,
 
 \begin{equation*}
@@ -246,7 +246,7 @@ p_i^\star
 \end{equation*}
 
 For a configuration~$\eta$ with finite set
-$F=\cb{i:\eta(i)=0}$ of facilitating sites, it is enough in
+$F=\cb{i:\eta(i)=0}$ of sites in state~$0$, it is enough in
 \eqref{eq:m-minus-affine-characterization} to take~$K$ satisfying
 
 \begin{equation*}
