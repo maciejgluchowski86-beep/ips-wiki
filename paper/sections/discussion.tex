@@ -3,23 +3,25 @@
 
 \subsection{Scope of patch positivity}
 
-Patch positivity concerns the combined contribution of the dual updates within
-one patch, not the sign of each update. Consecutive updates in the unaveraged
-Feynman--Kac dual may have different signs. Averaging the remaining marks in a
-patch gives~$C(P)$, and the coefficient criterion determines when these patch
-contributions are nonnegative.
+Patch positivity concerns the conditional contribution of the dual updates
+within one patch, not the sign of each update separately. Consecutive updates
+in the unaveraged Feynman--Kac dual may have different signs. After
+conditioning on the successful-interaction skeleton, the remaining local marks
+are averaged inside each patch to give~$C(P)$. The coefficient criterion
+determines exactly when these patch contributions are nonnegative.
 
-The condition is neither attractiveness nor positivity of every coefficient in
-the signed dual. When~$\mb p^\star=\mb 0$, the centered monomials are ordinary
-monomials and~$\preceq_*$ is the upper-orthant, or monomial-moment, order.
-Stochastic order implies this order, but the converse fails. For the contact
-process, attractiveness therefore gives stronger comparisons for all
-increasing observables. The centered-moment comparison applies to FA-1f and
-BABP, whose dynamics do not preserve the configuration order.
+The condition is neither configuration monotonicity nor positivity of every
+coefficient in the signed dual. When~$\mb p^\star=\mb 0$, the centered
+monomials are ordinary monomials and~$\preceq_*$ is the upper-orthant, or
+monomial-moment, order. Stochastic order implies this order, but the converse
+fails. For the contact process, monotonicity in configuration order therefore
+gives stronger comparisons for all increasing observables. The centered-moment
+comparison also applies to FA-1f and BABP, whose dynamics do not preserve the
+configuration order.
 
-The profile~$\mb p^\star$ is the smallest terminal calm-state density profile for
-which every end-patch contribution is nonnegative. It records where the sign
-argument applies. The lower profile
+The profile~$\mb p^\star$ is the smallest terminal reference profile for which
+every end-patch contribution is nonnegative. It records where the sign argument
+applies. The lower profile
 $\mb p^-=(\max\cb{2p_i^\star-1,0})_{i\in\Lambda}$ arises only from the affine
 extension of~$\mathcal M_*$ to~$\mathcal M_-$. Neither profile is asserted to
 mark a change in the qualitative dynamics.
