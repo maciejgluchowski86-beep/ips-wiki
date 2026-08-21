@@ -75,15 +75,16 @@ dependence on the initial condition, invariant measures and convergence.
 % ============================================================================
 
 Kinetically constrained spin models (KCSMs) are spin systems constructed so
-that their equilibrium measure is a Bernoulli product measure, with all spins independent, while the
-dynamics is interacting through local constraints. At an update
-attempt, the spin at a site is refreshed from the one-site Bernoulli equilibrium
-law only if a constraint determined by neighbouring spins is satisfied. We use
-the standard convention that vacancy, denoted~$0$, is a facilitating state. The
-constraint is monotone with respect to vacancies: adding vacancies can make an
-update legal but cannot make a legal update illegal. These constraints can make
-relaxation very slow and lead to glassy dynamics~\cite{CancriniEtAl2008,HartarskyToninelli2025}. The East and FA-1f models
-are standard examples.
+that their equilibrium measure is a Bernoulli product measure, with all spins
+independent, while the dynamics is interacting through local constraints. At
+an update attempt, the spin at a site is refreshed from the one-site Bernoulli
+equilibrium law only if a constraint determined by neighbouring spins is
+satisfied. We use the standard convention that vacancy, denoted~$0$, is a
+facilitating state. The constraint is monotone with respect to vacancies:
+adding vacancies can make an update legal but cannot make a legal update
+illegal. These constraints can make relaxation very slow and lead to glassy
+dynamics~\cite{CancriniEtAl2008,HartarskyToninelli2025}. The East and FA-1f
+models are standard examples.
 
 % ============================================================================
 % BLURB D. Monotone constraints do not imply monotone dynamics
@@ -112,234 +113,83 @@ $\xi$. If the legal refresh changes~$\eta(i)$ from~$0$ to~$1$ while~$\xi(i)$
 remains~$0$, the coordinatewise order is lost. Thus the monotone structure of
 the constraint does not give the usual order-preserving coupling.
 
-% ============================================================================
-% BLURB E. Motivating question
-%
-% Reader question:
-%   Is the monotone structure of facilitation completely lost when
-%   configuration monotonicity fails?
-%
-% Job:
-%   State the conceptual question of the paper. Ask whether the constraining
-%   asymmetry of KCSM-type dynamics can still produce a useful comparison
-%   principle, and whether there is a broader class of spin systems in which
-%   such a weaker monotonicity survives.
-%
-% Keep out for now:
-%   Coefficient inequalities; p^star; centered moments; patches; duality.
-% ============================================================================
+The failure of configuration monotonicity makes it important to keep track of
+cancellations between successive updates. Write~$P_t$ for the Markov semigroup
+and, for a finite set of sites~$A$, let
+\begin{equation*}
+\chi_A(\eta)=\prod_{i\in A}\eta(i).
+\end{equation*}
+The action of the generator on these monomials gives a signed Feynman--Kac dual
+on finite sets: the set records the sites on which the observable depends,
+while a sign records the signs of the coefficients arising from the generator.
+Estimating this representation update by update can lose cancellations,
+because dependence created by one interaction may later be overwritten or
+cancelled by subsequent local updates.
 
-This leaves a natural question: can the monotone structure of the constraint
-still yield a useful comparison principle, even though the process is not
-monotone in configuration order? More generally, can one identify a broader
-class of spin systems in which neighbouring~$1$'s constrain updates and a similar comparison principle survives?
+Our main construction retains only the interactions that transmit this
+dependence between sites. We condition on the times, sources and targets of
+these interactions, but not on the remaining local graphical randomness. Once
+this coarser record is fixed, the remaining randomness separates into one-site
+spacetime regions between consecutive recorded interactions. We call these
+regions \emph{patches}. Averaging the signed Feynman--Kac factor over the
+remaining randomness inside each patch gives an exact factorization of
+$P_t\chi_A$. In this way the local cancellations are performed before the
+patch contributions are combined.
 
-% ============================================================================
-% BLURB F. What is being generalized from a KCSM?
-%
-% Reader question:
-%   What feature of a standard KCSM are we keeping, and what freedom are we
-%   adding?
-%
-% Job:
-%   Explain the bridge from KCSMs to the class studied here:
-%     - in a standard KCSM, the neighbourhood controls whether/how often an
-%       update occurs while an allowed update uses a fixed Bernoulli refresh;
-%     - here the neighbourhood may affect the flip rate more generally;
-%     - the retained principle is that nonfacilitating surroundings act in the
-%       constraining direction.
-%
-% Leave model examples and the exact scope of the class to Blurb O.
-% ============================================================================
+This representation leads to the class studied in this paper. We call a spin
+system \emph{patch-positive} when the averaged contribution of every patch
+lying entirely before the observation time is nonnegative. We show that patch
+positivity is equivalent to explicit local inequalities for the multilinear
+coefficients of the flip-rate function. The condition is motivated by KCSMs but
+allows more general dependence on the neighbourhood: rather than requiring a
+kinetic constraint followed by a fixed Bernoulli refresh, we allow the
+neighbouring spins to affect the flip rate directly. Patch positivity implies
+that adding neighbouring~$1$'s cannot increase either the local update
+intensity or the~$1\to0$ rate, although this coordinatewise monotonicity is
+strictly weaker than patch positivity.
 
-We consider a broader class of spin systems motivated by this KCSM structure.
-In a KCSM, the neighbouring spins determine whether an update is allowed, while
-an allowed update uses a fixed Bernoulli refresh. We allow the neighbouring
-spins to affect the flip rate more generally, without requiring it to arise
-from a kinetic constraint followed by a fixed refresh. The condition defining
-the class arises from our graphical representation and is called \emph{patch
-positivity}.
-
-% ============================================================================
-% BLURB G. Dynamic interpretation of the new class
-%
-% Reader question:
-%   What does "constraining direction" mean for the broader spin systems?
-%
-% Job:
-%   Give the intuitive rate-level content before any coefficient formulas.
-%   The exact local criterion belongs later, after the patch representation has
-%   been explained.
-%
-% Mathematical caution:
-%   Coordinatewise monotonicity of the relevant rates is a consequence of the
-%   paper's criterion, but is weaker than the criterion and should not be
-%   presented as an equivalent definition.
-% ============================================================================
-
-A useful way to think about patch positivity is that neighbouring~$1$'s continue
-to act as constraints even when the dynamics no longer has the KCSM form.
-Adding such neighbours should suppress, rather than enhance, local activity.
-Patch positivity is a quantitative version of this constraining behaviour.
-
-% ============================================================================
-% BLURB O. Examples and scope
-%
-% Reader question:
-%   Which familiar systems does this cover, and what is the intended scope?
-%
-% Job:
-%   Anchor the framework in examples:
-%     - East / FA-1f as canonical KCSM examples;
-%     - FA-jf, j>=2, as KCSMs outside the patch-positive class;
-%     - BABP as an example beyond literal constrained Bernoulli refresh;
-%     - contact process as a benchmark where ordinary configuration
-%       monotonicity is already stronger.
-% ============================================================================
-
-The examples place patch positivity relative to familiar spin systems. East
-and FA-1f are patch positive, so the class contains standard KCSMs. It is not,
-however, a class of all KCSMs: cooperative models, like FA-jf, for~$j\geq 2$, in which a site can update only when at
-least~$j$ neighbours are vacant, are not patch positive. The framework also
-extends beyond KCSMs. BABP and the contact process are also patch positive, although the latter is also monotone in the
-usual configuration order, where the standard monotone coupling gives stronger
-comparisons. Thus patch positivity picks out a rate structure shared by some
-KCSMs and by spin systems outside the KCSM class.
-
-% ============================================================================
-% BLURB I. Headline result: recovered monotonicity
-%
-% Reader question:
-%   What is special about this class dynamically?
-%
-% Job:
-%   Introduce the main conceptual result before the proof mechanism: although
-%   configuration order is not preserved, the semigroup preserves an order on
-%   probability laws defined through centered moments.
-%
-% This is the headline of the introduction. Give it rhetorical weight.
-% ============================================================================
-
-The comparison principle takes the form of a new order on probability laws,
-which we call the \emph{centered-moment order}. Our main structural result is
-that the semigroup of every patch-positive spin system preserves this order for
-arbitrary initial laws. Thus a form of monotonicity lost at the configuration
-level reappears at the level of laws.
-
-% ============================================================================
-% BLURB J. What is the centered-moment order?
-%
-% Reader question:
-%   What is being centered, and how are two laws compared?
-%
-% Job:
-%   Introduce the reference profile p^star and the observables
-%       prod_{i in A} (eta(i)-p_i^star),
-%   then define mu \preceq_* nu by comparison of all such finite moments.
-%   State the preservation implication
-%       mu \preceq_* nu => mu P_t \preceq_* nu P_t.
-%
-% Interpretation to include:
-%   This is an order on laws, not configurations; it does not produce a
-%   monotone pathwise coupling. The point is that a monotone direction lost at
-%   the trajectory level reappears at the level of centered correlations.
-%
-% Mathematical caution:
-%   The paper proves
-%       coefficient criterion <=> patch positivity => order preservation.
-%   Do not claim that order preservation is equivalent to patch positivity.
-% ============================================================================
-
-Each patch-positive system has an associated density~$p^\star$, or a
-site-dependent profile~$\mb p^\star$ in the general setting, determined by its
-local rates. For each finite set of sites~$A$, consider
+Patches reaching the observation time leave affine factors depending on the
+terminal spins. Their nonnegativity determines a \emph{patch threshold
+profile}~$\mb p^\star$, which is fixed by the local rates and is not an
+ergodicity or phase-transition threshold. For~$A\Subset\Lambda$, define
 \begin{equation*}
 \chi_A^*(\eta)
 =
 \prod_{i\in A}\bb{\eta(i)-p_i^\star}.
 \end{equation*}
-For probability laws~$\mu$ and~$\nu$, we write~$\mu\preceq_*\nu$ when
-$\mu(\chi_A^*)\leq\nu(\chi_A^*)$ for every finite~$A$. In other words, the
-order compares all finite products of spins centered at density inherent to the system.
-
-% ============================================================================
-% BLURB K. Consequences
-%
-% Reader question:
-%   What do the comparison principle and patch representation give us?
-%
-% Job:
-%   Preview the two main payoffs without theorem-level technicalities:
-%     1. comparison of non-monotone evolutions, especially comparison after
-%        removing an environment-independent mechanism creating facilitating
-%        states;
-%     2. ergodic analysis/convergence when facilitating states are created
-%        uniformly, without first identifying the invariant law.
-%
-% Keep out for now:
-%   M_-; polynomial-growth exponent D; explicit convergence-rate formula;
-%   proof details.
-% ============================================================================
-
-These results have two main consequences. First, the centered-moment order gives
-comparisons between non-monotone dynamics; in particular, we can compare a
-system with the dynamics obtained by removing pure deaths, meaning
-environment-independent transitions from~$1$ to~$0$. Second, when pure deaths
-occur at a uniform positive rate, the patch representation yields convergence
-to a common invariant law for a broad class of initial laws, and in fact exponential ergodicity if additional condition~$\mb{p}^*\leq \mbs{\frac{1}{2}}$ is satisfied. The convergence
-argument does not assume reversibility and does not require the invariant law to
-be identified in advance.
-
-% ============================================================================
-% BLURB L. Signed duality and patches
-%
-% Reader question:
-%   What is the new idea in the representation, and where do the cancellations
-%   occur?
-%
-% Job:
-%   Define P_t and chi_A at first use. Explain the standard signed
-%   Feynman--Kac dual, then the coarser graphical construction: retain only the
-%   events that pass dependence between sites. Once this record is fixed, the
-%   remaining randomness separates between patches and can be averaged locally.
-% ============================================================================
-
-The method is as follows: write~$P_t$ for the Markov semigroup and, for a finite set~$A$, let
+For probability laws~$\mu$ and~$\nu$, write~$\mu\preceq_*\nu$ when
+$\mu(\chi_A^*)\leq\nu(\chi_A^*)$ for every finite~$A$. The same coefficient
+inequalities that characterize patch positivity imply
 \begin{equation*}
-\chi_A(\eta)=\prod_{i\in A}\eta(i).
+\mu\preceq_*\nu
+\quad\Longrightarrow\quad
+\mu P_t\preceq_*\nu P_t
+\qquad (t\geq0).
 \end{equation*}
-Thus~$P_t\chi_A(\eta)$ is the expected value of~$\chi_A$ at time~$t$ when the
-process starts from~$\eta$. Standard Feynman--Kac duality represents
-$P_t\chi_A$ using a stochastic process on finite sets of sites and carrying a sign; the set records the
-sites on which the observable depends. Our graphical construction
-keeps only the events that pass this dependence between sites, recording when
-they occur and which sites they connect. These events divide spacetime into single-site regions which we call \emph{patches}. Once this coarser graphical structure
-is fixed, the remaining randomness separates between patches and can be
-averaged within each one. The resulting patch factorization captures cancellations in the dual representation of~$P_t\chi_A(\eta)$.
+Thus the configuration order need not be preserved, but a monotone direction
+reappears at the level of centered moments of probability laws.
 
-% ============================================================================
-% BLURB N. Patch positivity closes the loop
-%
-% Reader question:
-%   What does patch positivity mean in this representation, and how does it
-%   connect back to the centered-moment order?
-%
-% Job:
-%   Use only the language introduced in L. State the sign condition on patches
-%   lying entirely before the observation time, explain the terminal patches in
-%   one sentence, and then state the correct logical route through the local
-%   rate condition to preservation of the centered-moment order.
-% ============================================================================
+The representation also gives comparisons between different non-monotone
+dynamics. In particular, a patch-positive system can be compared with the
+system obtained by removing environment-independent~$1\to0$ transitions, which
+we call \emph{pure deaths}. More importantly, these transitions provide a
+long-time convergence mechanism. On interaction graphs of polynomial growth,
+if a patch-positive system contains a pure-death component of uniform positive
+rate~$\varepsilon$, then a broad explicit class of initial laws defined through
+centered moments converges to a common invariant law. For each fixed class in
+the theorem, local observables converge at rate
+$O\bb{(1+t)^D e^{-\varepsilon t/2}}$. The invariant law need not be identified
+in advance, and no reversibility assumption is used. If
+$\mb p^\star\leq\mbs{\tfrac12}$, the initial-law restriction disappears: the
+invariant measure is unique and convergence is uniform over all initial
+configurations.
 
-Patch positivity means that the averaged contribution of every patch lying
-entirely before the observation time is nonnegative. Thus the cancellations in
-the signed dual are performed locally, before the patch contributions are
-combined to recover~$P_t\chi_A$. Patches that reach the observation time leave
-factors depending on the terminal spins; the density~$p^\star$
-introduced above is chosen so that these factors are compatible with the
-centered-moment order. We show that patch positivity is equivalent to an
-explicit local condition on the flip rates. The same condition implies
-preservation of the centered-moment order.
+The examples show both the scope and the limitations of the condition. East
+and FA-1f are patch-positive, but patch positivity does not contain all KCSMs:
+cooperative FA-$j$f models with~$j\geq2$ are not patch-positive. The biased
+annihilating branching process is patch-positive despite not having the KCSM
+form. The contact process is also patch-positive, but in that case ordinary
+configuration monotonicity is available and gives stronger comparisons.
 
 \paragraph{Relation to previous work.}
 Set-valued graphical constructions and additive dual processes go back to
@@ -384,12 +234,13 @@ centered-moment corollary proved here.
 \paragraph{Organization.}
 Section~\ref{sec:setup} fixes the notation, and
 Section~\ref{sec:main-results} states the three principal theorems.
-Section~\ref{sec:signed-dual} constructs the successful skeleton and proves the
-patch representation, Theorem~\ref{thm:patch-representation}.
+Section~\ref{sec:signed-dual} constructs the successful-interaction skeleton
+and proves the patch representation, Theorem~\ref{thm:patch-representation}.
 Section~\ref{sec:patch-positivity} proves the coefficient criterion and the
 centered-moment comparisons in Theorem~\ref{thm:patch-positivity-order}, as
 well as Corollary~\ref{cor:pure-death-comparison}.
-Section~\ref{sec:convergence} proves the common invariant-limit result, Theorem~\ref{thm:common-invariant-limit}.
+Section~\ref{sec:convergence} proves the common invariant-limit result,
+Theorem~\ref{thm:common-invariant-limit}.
 Section~\ref{sec:applications} treats the contact process, FA-1f and BABP and
 gives the resulting comparison and convergence consequences. Generator
 calculations, one-site formulas, and propagation estimates are deferred to the
