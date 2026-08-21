@@ -198,10 +198,10 @@ Patch positivity is a quantitative version of this constraining behaviour.
 % ============================================================================
 
 The examples place patch positivity relative to familiar spin systems. East
-and FA-1f are patch positive, so the class contains standard KCSMs. It is not,
+and FA-1f are patch-positive, so the class contains standard KCSMs. It is not,
 however, a class of all KCSMs: cooperative models, like FA-jf, for~$j\geq 2$, in which a site can update only when at
-least~$j$ neighbours are vacant, are not patch positive. The framework also
-extends beyond KCSMs. BABP and the contact process are also patch positive, although the latter is also monotone in the
+least~$j$ neighbours are vacant, are not patch-positive. The framework also
+extends beyond KCSMs. BABP and the contact process are also patch-positive, although the latter is also monotone in the
 usual configuration order, where the standard monotone coupling gives stronger
 comparisons. Thus patch positivity picks out a rate structure shared by some
 KCSMs and by spin systems outside the KCSM class.
@@ -250,9 +250,9 @@ level reappears at the level of laws.
 %   Do not claim that order preservation is equivalent to patch positivity.
 % ============================================================================
 
-Each patch-positive system has an associated density~$p^\star$, or a
-site-dependent profile~$\mb p^\star$ in the general setting, determined by its
-local rates. For each finite set of sites~$A$, consider
+Each patch-positive system has an associated patch threshold~$p^\star$, or a
+site-dependent patch threshold profile~$\mb p^\star$ in the general setting,
+determined by its local rates. For each finite set of sites~$A$, consider
 \begin{equation*}
 \chi_A^*(\eta)
 =
@@ -260,7 +260,8 @@ local rates. For each finite set of sites~$A$, consider
 \end{equation*}
 For probability laws~$\mu$ and~$\nu$, we write~$\mu\preceq_*\nu$ when
 $\mu(\chi_A^*)\leq\nu(\chi_A^*)$ for every finite~$A$. In other words, the
-order compares all finite products of spins centered at density inherent to the system.
+order compares all finite products of spins centered at this rate-determined
+reference profile.
 
 % ============================================================================
 % BLURB K. Consequences
@@ -286,9 +287,11 @@ comparisons between non-monotone dynamics; in particular, we can compare a
 system with the dynamics obtained by removing pure deaths, meaning
 environment-independent transitions from~$1$ to~$0$. Second, when pure deaths
 occur at a uniform positive rate, the patch representation yields convergence
-to a common invariant law for a broad class of initial laws, and in fact exponential ergodicity if additional condition~$\mb{p}^*\leq \mbs{\frac{1}{2}}$ is satisfied. The convergence
-argument does not assume reversibility and does not require the invariant law to
-be identified in advance.
+to a common invariant law for a broad class of initial laws. If the additional
+condition~$\mb p^\star\leq \mbs{\frac{1}{2}}$ holds, the invariant law is unique
+and convergence is exponential, uniformly over all initial configurations. The
+convergence argument does not assume reversibility and does not require the
+invariant law to be identified in advance.
 
 % ============================================================================
 % BLURB L. Signed duality and patches
@@ -335,11 +338,11 @@ Patch positivity means that the averaged contribution of every patch lying
 entirely before the observation time is nonnegative. Thus the cancellations in
 the signed dual are performed locally, before the patch contributions are
 combined to recover~$P_t\chi_A$. Patches that reach the observation time leave
-factors depending on the terminal spins; the density~$p^\star$
-introduced above is chosen so that these factors are compatible with the
-centered-moment order. We show that patch positivity is equivalent to an
-explicit local condition on the flip rates. The same condition implies
-preservation of the centered-moment order.
+factors depending on the terminal spins; the patch threshold
+profile~$\mb p^\star$ introduced above is chosen so that these factors are
+compatible with the centered-moment order. We show that patch positivity is
+equivalent to an explicit local condition on the flip rates. The same condition
+implies preservation of the centered-moment order.
 
 \paragraph{Relation to previous work.}
 Set-valued graphical constructions and additive dual processes go back to
