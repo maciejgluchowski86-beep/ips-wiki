@@ -15,16 +15,20 @@ This file records the writing and LaTeX conventions for the paper under `paper/`
 
 ## Terminology
 
-- In the abstract, introduction, and conceptual discussion, call the two states `facilitating` and `calm`. `Facilitating` is standard KCSM terminology; `calm` is a descriptive name used in this paper, not a literature term or a new technical notion.
-- In the formal setup, state the KCSM convention that the facilitating state is `0` and the calm state is `1`. Use `0` and `1` in formulas and technical calculations.
-- Use the established model-specific term when one exists: infected/healthy for the contact process, vacant/occupied for KCSM, and particle/empty site for particle systems.
-- Do not build further terminology from `calm`: avoid phrases such as `calm order`, `calm measure`, `calm dynamics`, or `calm phase`. The formal notions remain centered-moment order, patch threshold profile, and `\mathcal M_*`.
-- `Activity` is not a technical state variable. It may be used in the introduction as an umbrella term for births, refreshes, flips, and similar updates, but not as a formal synonym for the facilitating state.
+- In the generic theory, call the two spin values `0` and `1`. Do not assign them universal physical names. In particular, do not use `calm` anywhere in the paper.
+- Use `facilitating` only in model-specific contexts where it is standard or useful, especially for KCSMs. In the KCSM convention used here, `0` is vacant and facilitating and `1` is occupied.
+- Use the established model-specific terms when they exist: infected/healthy for the contact process, vacant/occupied for KCSMs, and particle/empty site for particle systems. If a model is written in complemented variables, state the relabeling explicitly rather than imposing generic state names.
+- For a Bernoulli product measure~$\mu_{\mb p}$, describe~$p_i$ as the probability, density, or mean of state~$1$ at site~$i$, according to context. Do not call it a calm-state density.
+- A spin system has one flip-rate function~$c_i$. The functions~$c_i^0$ and~$c_i^1$ are its restrictions according to whether the current spin is~$0$ or~$1$; equivalently, they give the~$0\to1$ and~$1\to0$ rates. Do not call them two separate flip rates.
+- `Pure deaths` means environment-independent~$1\to0$ transitions in the spin system; the name comes from the signed dual. Use this terminology once it has been defined rather than rephrasing the transitions through a generic facilitating-state interpretation.
+- In conceptual exposition, use `monotone`, `configuration monotonicity`, or `monotone coupling`. Use the traditional term `attractive` only when discussing the historical IPS terminology or quoting/comparing with literature that uses it.
+- `Activity` is not a technical state variable. It may be used in the introduction as an umbrella term for births, refreshes, flips, and similar updates, but not as a formal synonym for either spin value.
 - `Active set` and `active source` are formal terminology for the signed dual. Write `dual-active` when the distinction from the spin states matters.
 - A single successful interaction has a `record`; the family of records is the `successful-interaction skeleton`.
 - Describe patch boundaries through incoming and outgoing successful interactions. Do not use `touch` as a technical term.
 - Use `bulk patch`, never `closed patch`.
 - Describe the comparison results as centered-moment or monomial-moment comparisons, not stochastic domination.
+- Write `patch-positive` with a hyphen when it modifies a noun, as in `patch-positive spin system`.
 
 ## Prose and paragraphs
 
