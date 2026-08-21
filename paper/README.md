@@ -26,18 +26,34 @@ latexmk -pdf main.tex
   author's earlier papers when several terms are available.
 - A spin system already has two states and single-site flips; do not call it a
   binary spin system.
+- In the generic theory, refer to the spin values simply as states `0` and `1`.
+  Do not assign universal physical names to the two states, and do not use
+  `calm` anywhere in the manuscript.
+- Use `facilitating` only when it is standard and model-specific. In the KCSM
+  examples, state `0` is vacant and facilitating and state `1` is occupied.
+  Outside such examples, use `0` and `1` unless the model has established
+  terminology.
+- For Bernoulli product laws, a parameter `p` or profile `p_i` denotes the
+  probability of state `1`, unless a model-specific convention is stated
+  explicitly.
+- The functions `c_i^0` and `c_i^1` are the restrictions of the single flip-rate
+  function `c_i` according to whether the current spin is `0` or `1`. They may
+  equivalently be described as the `0 -> 1` and `1 -> 0` transition rates. Do
+  not call them two separate flip rates.
+- `Pure deaths` are environment-independent `1 -> 0` transitions; the name
+  refers to the signed dual. In generic statements, use this formulation
+  rather than saying that they create a named spin state.
+- In conceptual exposition, use `monotone`, `configuration monotonicity`, and
+  `monotone coupling`. Use the traditional term `attractive` only in historical
+  or literature discussion where that terminology itself matters.
+- Use established model-specific terms when they exist: infected/healthy for
+  the contact process, vacant/occupied for KCSMs, and particle/empty site for
+  particle systems.
 - Refer to realizations or trajectories of the graphical or dual process. Use
   remaining Poisson marks or omitted marks, rather than introducing new terms
   for unrevealed randomness.
-- Use `facilitating` and `calm` for interpretation in the abstract,
-  introduction, and conceptual discussion. `Facilitating` is standard KCSM
-  terminology; `calm` is descriptive rather than a literature term or a new
-  technical notion. In the formal setup and calculations, use the convention
-  that the facilitating state is `0` and the calm state is `1`.
-- Use established model-specific terms (infected/healthy, vacant/occupied,
-  particle/empty site) in the examples. Do not derive new formal terminology
-  from the word `calm`.
 - Reserve new terms for objects defined in the paper, such as patches and the
-  successful-interaction skeleton. Avoid unnecessary adjectives and adverbs.
+  successful-interaction skeleton. Use `patch-positive` as the adjective and
+  `patch positivity` for the property.
 - State model-specific mechanisms as such; do not attribute them to all
-  non-attractive spin systems.
+  non-monotone spin systems.
