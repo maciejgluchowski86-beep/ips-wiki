@@ -11,7 +11,6 @@ $C(z,P)$ which is affine in the terminal value~$z\in[0,1]$.
 \begin{maintheorem}[Patch representation]
 \label{thm:patch-representation}
 For every~$A\Subset\Lambda$,~$t\geq0$, and~$\eta\in\Omega$,
-
 \begin{equation}
 \label{eq:patch-representation}
 P_t\chi_A(\eta)
@@ -21,9 +20,7 @@ P_t\chi_A(\eta)
 \prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
 }.
 \end{equation}
-
 For any initial law~$\mu$,
-
 \begin{equation}
 \label{eq:patch-representation-general-law}
 (\mu P_t)(\chi_A)
@@ -41,7 +38,6 @@ Patch positivity is the condition~$C(P)\geq0$ for every patch shape. End
 contributions also depend on the terminal spin. For a patch-positive system,
 define the \emph{patch threshold profile}
 $\mb p^\star=(p_i^\star)_{i\in\Lambda}$ by
-
 \begin{equation*}
 p_i^\star
 =
@@ -51,10 +47,8 @@ C(p,P)\geq0
 \text{ for every end patch based at }i
 }.
 \end{equation*}
-
 This profile records the terminal reference levels required for nonnegativity
 of the end factors; it is not an ergodicity or phase-transition threshold. Define
-
 \begin{equation*}
 \chi_A^*(\eta)
 =
@@ -62,21 +56,17 @@ of the end factors; it is not an ergodicity or phase-transition threshold. Defin
 \qquad
 \chi_\vn^*=1,
 \end{equation*}
-
 and, for probability measures~$\mu$ and~$\nu$, write~$\mu\preceq_*\nu$ when
-
 \begin{equation*}
 \mu\bb{\chi_A^*}\leq\nu\bb{\chi_A^*}
 \qquad
 \text{for every }A\Subset\Lambda.
 \end{equation*}
-
 On the full space of probability measures,~$\preceq_*$ need not have a largest
 or smallest element; we therefore keep it distinct from ordinary stochastic
 order.
 
 The nonnegative centered-moment cone is
-
 \begin{equation}
 \label{eq:m-star-definition}
 \mathcal M_*
@@ -86,7 +76,6 @@ The nonnegative centered-moment cone is
 \text{ for every }A\Subset\Lambda
 }.
 \end{equation}
-
 In particular,~$\mu_{\mb p}\in\mathcal M_*$ exactly when
 $\mb p\geq\mb p^\star$.
 
@@ -97,20 +86,15 @@ $\mb p\geq\mb p^\star$.
 \item Put~$r_i=c_i^0(\vn)+c_i^1(\vn)$. The spin system is patch-positive if and
 only if, at every site~$i$ with~$r_i=0$, one has~$c_i\equiv0$, while at every
 site with~$r_i>0$, the inequalities
-
 \begin{equation}
-\label{eq:principal-coefficient-criterion}
-c_i^0(S)+c_i^1(S)\leq0,
+\label{eq:principal-coefficient-criterion}c_i^0(S)+c_i^1(S)\leq0,
 \qquad
 c_i^1(\vn)c_i^0(S)\geq c_i^0(\vn)c_i^1(S)
 \end{equation}
-
 hold for every nonempty~$S\subseteq N(i)$. When these conditions hold, the patch
 threshold profile is
-
 \begin{equation}
-\label{eq:principal-threshold-profile}
-p_i^\star
+\label{eq:principal-threshold-profile}p_i^\star
 =
 \max\cb{
 0,
@@ -123,7 +107,6 @@ c_i^0(S)+c_i^1(S)<0
 \end{equation}
 
 \item The semigroup preserves the centered-moment order:
-
 \begin{equation}
 \label{eq:principal-centered-order}
 \mu\preceq_*\nu
@@ -132,17 +115,13 @@ c_i^0(S)+c_i^1(S)<0
 \qquad
 \text{for every }t\geq0.
 \end{equation}
-
 No assumption that~$\mu$ or~$\nu$ belongs to~$\mathcal M_*$ is required in
 \eqref{eq:principal-centered-order}. The semigroup also preserves
 $\mathcal M_*$, and
-
 \begin{equation*}
 (\mu P_t)(\chi_A)\leq(\nu P_t)(\chi_A)
 \end{equation*}
-
 whenever~$\mu\preceq_*\nu$. In particular, for every~$\mu\in\mathcal M_*$,
-
 \begin{equation*}
 (\mu_{\mb p^\star}P_t)(\chi_A)
 \leq
@@ -155,7 +134,6 @@ whenever~$\mu\preceq_*\nu$. In particular, for every~$\mu\in\mathcal M_*$,
 \label{cor:pure-death-comparison}
 Let~$\Lcal$ and~$\Lcal'$ be spin-system generators. Suppose that~$\Lcal$ is
 patch-positive and that
-
 \begin{equation}
 \label{eq:pure-death-decomposition}
 \Lcal f(\eta)
@@ -166,11 +144,9 @@ patch-positive and that
 \bb{f\bb{\eta^{i,0}}-f(\eta)},
 \qquad d_i\geq0.
 \end{equation}
-
 Thus~$\Lcal'$ is obtained by removing the environment-independent~$1\to0$
 transitions with rates~$d_i$. The generator~$\Lcal'$ is patch-positive with
 the same profile~$\mb p^\star$, and its semigroup~$P_t'$ satisfies
-
 \begin{equation}
 \label{eq:principal-pure-death-comparison}
 (\mu P_t)(\chi_A)
@@ -183,7 +159,6 @@ the same profile~$\mb p^\star$, and its semigroup~$P_t'$ satisfies
 
 The class used in the convergence theorem is the following affine extension of
 $\mathcal M_*$. For~$K\geq0$, set
-
 \begin{equation}
 \label{eq:m-minus-affine-characterization}
 \mathcal M_{-,K}
@@ -197,7 +172,6 @@ $\mathcal M_*$. For~$K\geq0$, set
 =
 \bigcup_{K\geq0}\mathcal M_{-,K}.
 \end{equation}
-
 Thus~$\mathcal M_{-,0}=\mathcal M_*$. If
 $p_i^-=\max\cb{2p_i^\star-1,0}$, then a Bernoulli product measure
 $\mu_{\mb p}$ belongs to~$\mathcal M_{-,1}$ exactly when
@@ -209,7 +183,6 @@ Suppose that~$\Lambda$ has polynomial growth of exponent~$D$, the spin system
 is patch-positive, and it contains a pure-death component of
 rate~$\varepsilon>0$. Then there is an invariant probability measure~$\pi$ such
 that, for every local function~$f$, there is~$K_f<\infty$ satisfying
-
 \begin{equation}
 \label{eq:uniform-m-minus-convergence}
 \sup_{\mu\in\mathcal M_{-,K}}
@@ -217,10 +190,8 @@ that, for every local function~$f$, there is~$K_f<\infty$ satisfying
 \leq
 (1+2K)K_f(1+t)^D e^{-\varepsilon t/2}
 \end{equation}
-
 for every~$K\geq0$ and~$t\geq0$. Consequently,
 $\mu P_t\Rightarrow\pi$ for every~$\mu\in\mathcal M_-$. Moreover,
-
 \begin{equation}
 \label{eq:full-patch-limit-moments}
 \pi(\chi_A)
@@ -237,18 +208,15 @@ $\mu P_t\Rightarrow\pi$ for every~$\mu\in\mathcal M_-$. Moreover,
 Under the hypotheses of Theorem~\ref{thm:common-invariant-limit}, every point
 mass on a configuration with finitely many sites in state~$0$ belongs
 to~$\mathcal M_-$. Indeed,
-
 \begin{equation*}
 p_i^\star
 \leq
 \frac{c_i^0(\vn)}{c_i^0(\vn)+c_i^1(\vn)}
 <1.
 \end{equation*}
-
 For a configuration~$\eta$ with finite set
 $F=\cb{i:\eta(i)=0}$ of sites in state~$0$, it is enough in
 \eqref{eq:m-minus-affine-characterization} to take~$K$ satisfying
-
 \begin{equation*}
 K
 \geq
@@ -261,7 +229,6 @@ K
 Under the hypotheses of Theorem~\ref{thm:common-invariant-limit}, suppose also
 that~$\mb p^\star\leq\mbs{\tfrac12}$. Then~$\pi$ is the unique invariant
 measure and, for every local~$f$,
-
 \begin{equation}
 \label{eq:uniform-pointwise-convergence}
 \sup_{\eta\in\Omega}
