@@ -3,7 +3,7 @@
 
 This section fixes the basic setting and notation used throughout the paper. We
 also record the assumptions on the interaction graph and introduce an
-elementary way of adding independent single-site updates.
+elementary way of adding independent single-site noise.
 
 Let~$\Lambda$ be a countable site set. For each~$i\in\Lambda$, fix a finite
 neighbourhood~$N(i)\subseteq\Lambda\setminus\cb{i}$ and assume
@@ -19,9 +19,7 @@ B(A,0)=A,
 \qquad
 B(A,n+1)=N_*\bb{B(A,n)}.
 \end{equation*}
-Thus~$B(A,n)$ is the directed ball reached from~$A$ in at most~$n$ steps.
-
-The polynomial-growth assumption is that, for some~$K,D<\infty$,
+Thus~$B(A,n)$ is the directed ball reached from~$A$ in at most~$n$ steps. The polynomial-growth assumption is that, for some~$K,D<\infty$,
 \begin{equation}
 \label{eq:polynomial-growth}
 \abs{B(i,n)}\leq K(1+n)^D
