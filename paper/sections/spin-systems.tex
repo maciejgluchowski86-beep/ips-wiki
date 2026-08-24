@@ -1,6 +1,10 @@
 \section{Spin systems}
 \label{sec:setup}
 
+This section fixes the basic setting and notation used throughout the paper. We
+also record the assumptions on the interaction graph and introduce an
+elementary way of adding independent single-site updates.
+
 Let~$\Lambda$ be a countable site set. For each~$i\in\Lambda$, fix a finite
 neighbourhood~$N(i)\subseteq\Lambda\setminus\cb{i}$ and assume
 \begin{equation*}
@@ -73,10 +77,13 @@ construction gives a Feller process with finite speed of
 information~\cite{Harris1978,Liggett1985}. Its semigroup is~$(P_t)_{t\geq0}$,
 and for an initial law~$\mu$ we write~$(\mu P_t)(f)=\mu(P_tf)$.
 
-Throughout, we impose the following condition on every spin-system generator
-considered, including comparison generators. For the signed monomial dual
-$(A_t,\sigma_t)$ and potential~$V$ introduced in
-Section~\ref{sec:signed-dual},
+Later we represent the evolution of each monomial~$\chi_A$ by a signed
+set-valued process~$(A_t,\sigma_t)$, called the signed monomial dual. Starting
+from~$A$, the set~$A_t$ records the sites on which the dual monomial depends,
+while~$\sigma_t$ records the accumulated sign; a potential~$V(A_t)$ supplies
+the Feynman--Kac correction. The process and potential are constructed in
+Section~\ref{sec:signed-dual}. Writing~$\E_A$ for expectation for this process
+started from~$(A,+)$, we impose throughout the absolute-integrability condition
 \begin{equation}
 \tag{FK}
 \label{eq:fk-integrability}
@@ -89,7 +96,8 @@ integrability}. Since~$\abs{\sigma_t\chi_{A_t}(\eta)}\leq1$, it is precisely
 the absolute-integrability condition for the Feynman--Kac correction; see
 \cite[p.~62]{JansenKurt2014}.
 
-For~$p\in[0,1]$, write~$q=1-p$. The Bernoulli refresh operator at~$i$ is
+We will also use independent Bernoulli refreshes to perturb the dynamics. For
+$p\in[0,1]$, write~$q=1-p$. The Bernoulli refresh operator at~$i$ is
 \begin{align*}
 E_{i,p}f(\eta)
 &=
