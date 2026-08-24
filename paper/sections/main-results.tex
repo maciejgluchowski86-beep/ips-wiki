@@ -1,16 +1,17 @@
-\section{Main    results}
+\section{Main results}
 \label{sec:main-results}
 
-The first theorem uses the signed monomial dual introduced informally in
-Section~\ref{sec:setup} and constructed in Section~\ref{sec:signed-dual}.
-Starting from~$A$, its graphical realization records the interactions that pass
-dependence from one site to others. These interactions divide the one-site
-histories into patches, defined formally in Section~\ref{sec:patches}. At
-time~$t$, let~$\mathcal B_t$ be the finite family of patches completed by
-time~$t$ and~$\mathcal E_t$ the finite family of patches reaching time~$t$. A
-completed patch~$P$ has an averaged contribution~$C(P)$. An end patch based
-at~$i(P)$ has a contribution~$C(z,P)$ which is affine in the terminal
-value~$z\in[0,1]$.
+The first theorem is formulated using the signed monomial dual constructed in
+Section~\ref{sec:signed-dual}. Starting from a finite set~$A$, the dual tracks
+the sites on which the monomial~$\chi_A$ depends. Its graphical construction
+records the interactions through which this dependence propagates between
+sites. For each site, consecutive such interactions delimit time intervals;
+these intervals, together with their boundary data, are the patches defined in
+Section~\ref{sec:patches}. At time~$t$, let~$\mathcal B_t$ be the finite family
+of bulk patches ending by time~$t$ and~$\mathcal E_t$ the finite family of
+patches extending to time~$t$. A bulk patch~$P$ has contribution~$C(P)$. An end
+patch based at~$i(P)$ has a contribution~$C(z,P)$ which is affine in
+$z\in[0,1]$.
 
 \begin{maintheorem}[Patch representation]
 \label{thm:patch-representation}
@@ -38,9 +39,9 @@ For any initial law~$\mu$,
 \end{equation}
 \end{maintheorem}
 
-Patch positivity is the condition~$C(P)\geq0$ for every patch shape. End
-contributions also depend on the terminal spin. For a patch-positive system,
-define the \emph{patch threshold profile}
+A spin system is patch-positive when~$C(P)\geq0$ for every possible bulk
+patch~$P$. End-patch contributions also depend on the terminal spin. For a
+patch-positive system, define the \emph{patch threshold profile}
 $\mb p^\star=(p_i^\star)_{i\in\Lambda}$ by
 \begin{equation*}
 p_i^\star
@@ -51,8 +52,9 @@ C(p,P)\geq0
 \text{ for every end patch based at }i
 }.
 \end{equation*}
-This profile records the terminal reference levels required for nonnegativity
-of the end factors; it is not an ergodicity or phase-transition threshold. Define
+Thus~$p_i^\star$ is the smallest terminal value for which every end-patch
+contribution based at~$i$ is nonnegative. It is not an ergodicity or
+phase-transition threshold. Define
 \begin{equation*}
 \chi_A^*(\eta)
 =
@@ -70,7 +72,8 @@ On the full space of probability measures,~$\preceq_*$ need not have a largest
 or smallest element; we therefore keep it distinct from ordinary stochastic
 order.
 
-The nonnegative centered-moment cone is
+We also use the class of probability measures whose centered moments are
+nonnegative:
 \begin{equation}
 \label{eq:m-star-definition}
 \mathcal M_*
@@ -152,7 +155,8 @@ patch-positive and that
 \end{equation}
 Thus~$\Lcal'$ is obtained by removing the environment-independent~$1\to0$
 transitions with rates~$d_i$. The generator~$\Lcal'$ is patch-positive with
-the same profile~$\mb p^\star$, and its semigroup~$P_t'$ satisfies
+the same patch threshold profile~$\mb p^\star$, and its semigroup~$P_t'$
+satisfies
 \begin{equation}
 \label{eq:principal-pure-death-comparison}
 (\mu P_t)(\chi_A)
@@ -163,8 +167,9 @@ the same profile~$\mb p^\star$, and its semigroup~$P_t'$ satisfies
 \end{equation}
 \end{corollary}
 
-The class used in the convergence theorem is the following affine extension of
-$\mathcal M_*$. For~$K\geq0$, set
+The convergence estimate is first proved uniformly for initial laws in
+$\mathcal M_*$. By linearity in the initial law, it extends to measures that
+belong to~$\mathcal M_*$ after mixing with~$\mu_{\mb 1}$. For~$K\geq0$, set
 \begin{equation}
 \label{eq:m-minus-affine-characterization}
 \mathcal M_{-,K}
@@ -213,22 +218,8 @@ $\mu P_t\Rightarrow\pi$ for every~$\mu\in\mathcal M_-$. Moreover,
 
 Under the hypotheses of Theorem~\ref{thm:common-invariant-limit}, every point
 mass on a configuration with finitely many sites in state~$0$ belongs
-to~$\mathcal M_-$. Indeed,
-\begin{equation*}
-p_i^\star
-\leq
-\frac{c_i^0(\vn)}{c_i^0(\vn)+c_i^1(\vn)}
-<1.
-\end{equation*}
-For a configuration~$\eta$ with finite set
-$F=\cb{i:\eta(i)=0}$ of sites in state~$0$, it is enough in
-\eqref{eq:m-minus-affine-characterization} to take~$K$ satisfying
-\begin{equation*}
-K
-\geq
-\prod_{i\in F}
-\max\cb{1,\frac{p_i^\star}{1-p_i^\star}}.
-\end{equation*}
+to~$\mathcal M_-$. Hence the theorem gives convergence from every such
+configuration.
 
 \begin{corollary}[Uniform exponential ergodicity]
 \label{cor:uniform-ergodicity}
