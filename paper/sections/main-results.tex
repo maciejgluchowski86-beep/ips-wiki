@@ -4,13 +4,17 @@
 The first theorem is formulated using the signed monomial dual constructed in
 Section~\ref{sec:signed-dual}. Starting from a finite set~$A$, the dual tracks
 the sites on which the monomial~$\chi_A$ depends. Its graphical construction
-records the interactions between sites. For each site, such consecutive 
-interactions cut spacetime into single-site time intervals. These intervals, together with their
-boundary data, are the patches defined in Section~\ref{sec:patches}. At
-time~$t$, let~$\mathcal B_t$ be the finite family of bulk patches ending by
-time~$t$ and~$\mathcal E_t$ the finite family of patches that reach time~$t$.
-A bulk patch~$P$ has contribution~$C(P)$ in the representation of the spin system. An end patch based at~$i(P)$ has a
-contribution~$C(z,P)$ which is affine in~$z\in[0,1]$.
+records the interactions between sites. For each site, consecutive such
+interactions cut spacetime into single-site time intervals. These intervals,
+together with their boundary data, are the patches defined in
+Section~\ref{sec:patches}. At time~$t$, let~$\mathcal B_t$ be the finite family
+of bulk patches ending by time~$t$ and~$\mathcal E_t$ the finite family of
+patches that reach time~$t$. Conditional on the recorded interactions, the
+remaining randomness inside distinct patches can be averaged locally. For a
+bulk patch~$P$,~$C(P)$ is its resulting averaged contribution to the signed
+dual weight. For an end patch based at~$i(P)$,~$C(z,P)$ leaves the terminal
+spin~$z$ unaveraged and is affine in~$z\in[0,1]$. Thus the expectation below is
+over the recorded interactions, and hence over the random patch families.
 
 \begin{maintheorem}[Patch representation]
 \label{thm:patch-representation}
@@ -51,7 +55,7 @@ C(p,P)\geq0
 \text{ for every end patch based at }i
 }.
 \end{equation*}
-Thus~$p_i^\star$ is the smallest terminal value for which every end-patch
+Thus~$p_i^\star$ is the smallest reference value for which every end-patch
 contribution based at~$i$ is nonnegative. It is not an ergodicity or
 phase-transition threshold. Define
 \begin{equation*}
@@ -110,6 +114,8 @@ c_i^0(S)+c_i^1(S)<0
 \frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
 }.
 \end{equation}
+Thus a condition defined through all possible bulk patches reduces to a local
+check on the multilinear coefficients of the flip rates.
 
 \item The semigroup preserves the centered-moment order:
 \begin{equation}
@@ -165,7 +171,9 @@ satisfies
 
 The convergence estimate that follows is first proved uniformly for initial laws in
 $\mathcal M_*$. By linearity in the initial law, it extends to measures that
-belong to~$\mathcal M_*$ after mixing with~$\mu_{\mb 1}$. For~$K\geq0$, set
+belong to~$\mathcal M_*$ after mixing with~$\mu_{\mb 1}$. Indeed, if
+$\nu=(\mu+K\mu_{\mb 1})/(1+K)\in\mathcal M_*$, then
+$\mu=(1+K)\nu-K\mu_{\mb 1}$. For~$K\geq0$, set
 \begin{equation}
 \label{eq:m-minus-affine-characterization}
 \mathcal M_{-,K}
@@ -183,6 +191,8 @@ Thus~$\mathcal M_{-,0}=\mathcal M_*$. If
 $p_i^-=\max\cb{2p_i^\star-1,0}$, then a Bernoulli product measure
 $\mu_{\mb p}$ belongs to~$\mathcal M_{-,1}$ exactly when
 $\mb p\geq\mb p^-$.
+
+Let~$\mathcal P$ denote the full family of patches generated over all times.
 
 \begin{maintheorem}[Common invariant limit]
 \label{thm:common-invariant-limit}
