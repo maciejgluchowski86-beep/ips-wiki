@@ -53,9 +53,7 @@ finite almost surely.
 \label{subsec:patch-geometry}
 
 A record~$(j,t,S)\in\mathcal I$ gives an incoming successful interaction at
-each site in~$S$. If~$j\neq\infty$, it also gives an outgoing successful
-interaction at its source~$j$. Thus the initial record gives only incoming
-interactions, whereas every ordinary record gives one outgoing interaction and
+each site in~$S$. Thus every record gives one outgoing interaction and
 one incoming interaction at each target site. For~$i\in\Lambda$, write
 \begin{align*}
 \mathcal T^{\mathsf I}(i)
@@ -113,14 +111,13 @@ and
 \centering
 \resizebox{\linewidth}{!}{\input{paper/figures/patch-geometry}}
 \caption{A realization of the signed dual (left) and its patch decomposition
-(right). Light gray regions mark the times at which a site is dual-active.
+(right). Light gray regions mark the times at which a site is active.
 Black arrows are successful interactions, with a black dot at the source; gray
-arrows are rings at inactive sources, and crosses are deaths. The initial
+arrows are unsuccessful interactions, i.e. ones that happen at inactive sources, and crosses are deaths. The initial
 interaction at time~$0$ activates the sites in~$A_0$. On the right, marks
-omitted from the successful-interaction skeleton are not shown, and only the
-active state forced by an outgoing terminal boundary is shaded. Red striped
+omitted from the successful-interaction skeleton are not shown. The~$\mathsf{XO}$ type patches are active throughout, and are hence shaded. Red striped
 bands mark patch boundaries, and the labels give the initial and terminal
-boundary types. The thick red staircase separates bulk patches below from end
+boundary types. The thick red line separates bulk patches below from end
 patches above.}
 \label{fig:patch-geometry}
 \end{figure}
@@ -141,10 +138,7 @@ terminal & $\mathsf E$ & there is no later successful interaction involving~$i(P
 \hline
 \end{tabularx}
 \end{center}
-For an interaction,~$S(P)\subseteq N\bb{i(P)}$ on the outgoing side,
-so the initial label is determined by~$i(P)$ and~$S(P)$. We retain the label
-because the four finite boundary types enter the contribution formulas
-symmetrically. Let~$\mathcal P$ denote the family of all patches. Every patch
+Let~$\mathcal P$ denote the family of all patches. Every patch
 with terminal label~$\mathsf E$ is infinite, and every other patch is finite.
 
 \paragraph{Finite-horizon truncation.}
@@ -188,13 +182,11 @@ Figure~\ref{fig:patch-geometry} shows a realization and the induced
 finite-horizon patch decomposition.
 
 If~$P$ is an end patch and~$t\geq e(P)$ is finite, its \emph{extension} through
-time~$t$ is the geometric patch
+time~$t$ is
 \begin{equation}
 \label{eq:geometric-patch-extension}
 P^{\uparrow t}
 =
 \bb{i(P),[s(P),t),\mathsf X(P)\mathsf E,S(P)}.
 \end{equation}
-Thus~$P^{\uparrow e(P)}=P$. The notation changes only the patch shape; it does
-not assert that the extension occurs in the realized skeleton and does not
-include the probability that no successful interaction interrupts it.
+Thus~$P^{\uparrow e(P)}=P$.

@@ -26,9 +26,8 @@ Under the reference law, the type-$(\delta,R)$ and type-$(\beta,R)$ points in
 this interval are independent Poisson processes with the rates from
 Section~\ref{subsec:signed-set-process}.
 
-If~$\mathsf X(P)=\mathsf I$, the initial interaction of~$P$ is incoming from
-another source, and we set~$\Sigma_P=\Sigma_P^\circ$. Let~$\pP_P$ be the
-corresponding product Poisson law. If~$\mathsf X(P)=\mathsf O$, the initial
+If~$\mathsf X(P)=\mathsf I$, the initial interaction of~$P$ is incoming from source different than~$i$, and we set~$\Sigma_P=\Sigma_P^\circ$. Let~$\pP_P$ be the
+corresponding product Poisson law of~$\Sigma_P$. If~$\mathsf X(P)=\mathsf O$, the initial
 interaction is outgoing from~$i$, with target~$S$, but the skeleton does not
 record its kind. Let~$\alpha(P)\in\cb{\delta,\beta}$ denote this kind,
 independent of~$\Sigma_P^\circ$, with
@@ -49,11 +48,14 @@ In this case,
 \Sigma_P^\circ\cup\cb{(i,s,\alpha(P),S)},
 \end{equation*}
 and~$\pP_P$ is the product of the law in
-\eqref{eq:patch-initial-kind-law} and the interior Poisson law.
+\eqref{eq:patch-initial-kind-law} and the interior Poisson law of~$\Sigma_P^{\circ}$.
 Write~$\E_P$ for expectation under~$\pP_P$.
 
 For a realization of the graphical construction, the local active indicator is
-$X_u^P=\ind\cb{i(P)\in A_u}$ for~$s(P)\leq u<e(P)$. Under the reference patch
+\begin{equation*}
+    X_u^P=\ind\cb{i(P)\in A_u} \quad\text{for}\quad s(P)\leq u<e(P). 
+\end{equation*}
+Under the reference patch
 law, we reconstruct the candidate process~$X^P$ from~$\Sigma_P$ by the same
 local update rules. Its initial value is
 \begin{equation*}
@@ -68,8 +70,8 @@ an inactive source is ignored. Between marks,~$X^P$ is constant. For a finite
 patch with terminal label~$\mathsf E$, we also set~$X_e^P=X_{e-}^P$.
 
 The candidate process is \emph{consistent} with the prescribed skeleton
-when it produces no additional successful interaction in the patch and, if the
-patch ends with an outgoing interaction, makes that interaction successful.
+when it produces no successful interaction inside the patch and, if the
+patch ends with an outgoing interaction, makes that interaction successful by surviving till the patch end.
 Thus
 \begin{equation*}
 \operatorname{Con}(P)
@@ -85,8 +87,7 @@ X_{u-}^P=0
 \pw{\cb{X_{e-}^P=1}}{\mathsf Y(P)=\mathsf O}
 {\Omega_P}{\mathsf Y(P)\in\cb{\mathsf I,\mathsf E}},
 \end{equation*}
-where~$\Omega_P$ is the reference sample space. For every realized patch,
-$\pP_P\bb{\operatorname{Con}(P)}>0$. The consistent patch law is
+where~$\Omega_P$ is the sample space. The patches for which the consistency event has probability zero almost surely do not occur, so~$\pP_P\bb{\operatorname{Con}(P)}>0$ for all~$P\in\mathcal{P}$ almost surely. The consistent patch law is
 \begin{equation*}
 \pP_P^{\mathrm{con}}(\cdot)
 =
@@ -99,7 +100,7 @@ and~$\E_P^{\mathrm{con}}$ denotes its expectation.
 
 The successful skeleton fixes the patch boundaries but not the marked
 interactions within them. Conditioning on the skeleton imposes one consistency
-event on each disjoint source--time strip.
+event on each patch.
 
 \begin{theorem}[Patch factorization]
 \label{thm:patch-factorization}
@@ -131,8 +132,6 @@ g=\bb{(i_k,t_k,S_k)}_{k=1}^n,
 where~$\varnothing\neq S_k\subseteq N(i_k)$ and
 $i_k\in A\cup\bigcup_{\ell<k}S_\ell$.
 The list space and the finite marked-configuration spaces are standard Borel.
-After fixing an enumeration of~$\Lambda$, the patch construction and the
-consistency tests are Borel, since they use only finite sorting and recursion.
 
 On the component with fixed discrete records~$((i_k,S_k))_{k=1}^n$, set
 \begin{equation*}
