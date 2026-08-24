@@ -1,12 +1,19 @@
 \section{Main results}
 \label{sec:main-results}
 
+The main results proceed from the patch representation to a comparison principle
+for patch-positive systems and then to convergence under a uniform pure-death
+component.
+
 Our first result expresses the evolution of the monomials~$\chi_A$ through the
-patch decomposition associated with the signed monomial dual. At time~$t$, let
+patch decomposition associated with the signed monomial dual. Informally, a
+patch is the portion of one site line between consecutive recorded interactions
+of the dual;~$i(P)$ denotes the site of a patch~$P$. At time~$t$, let
 $\mathcal B_t$ be the finite family of bulk patches ending by time~$t$ and
 $\mathcal E_t$ the finite family of patches that reach time~$t$, as defined in
-Section~\ref{sec:patches}. Their contributions are denoted by~$C(P)$ and
-$C(z,P)$, respectively, with~$C(z,P)$ affine in~$z\in[0,1]$.
+Section~\ref{sec:patches}. Their averaged signed contributions are denoted by
+$C(P)$ for a bulk patch and~$C(z,P)$ for an end patch, where~$z$ represents the
+terminal spin at~$i(P)$;~$C(z,P)$ is affine in~$z\in[0,1]$.
 
 \begin{maintheorem}[Patch representation]
 \label{thm:patch-representation}
@@ -173,7 +180,8 @@ For the convergence result we use the larger classes, for~$K\geq0$,
 =
 \bigcup_{K\geq0}\mathcal M_{-,K}.
 \end{equation}
-Thus~$\mathcal M_{-,0}=\mathcal M_*$. If
+Thus~$\mathcal M_-$ consists of measures that enter~$\mathcal M_*$ after mixing
+with the all-$1$ point mass, and~$\mathcal M_{-,0}=\mathcal M_*$. If
 $p_i^-=\max\cb{2p_i^\star-1,0}$, then a Bernoulli product measure
 $\mu_{\mb p}$ belongs to~$\mathcal M_{-,1}$ exactly when
 $\mb p\geq\mb p^-$.
