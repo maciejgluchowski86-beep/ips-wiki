@@ -4,12 +4,12 @@
 The first theorem is formulated using the signed monomial dual constructed in
 Section~\ref{sec:signed-dual}. Starting from a finite set~$A$, the dual tracks
 the sites on which the monomial~$\chi_A$ depends. Its graphical construction
-records the interactions between sites. For each site, consecutive such
-interactions delimit time intervals; these intervals, together with their
+records the interactions between sites. For each site, such consecutive 
+interactions cut spacetime into single-site time intervals. These intervals, together with their
 boundary data, are the patches defined in Section~\ref{sec:patches}. At
 time~$t$, let~$\mathcal B_t$ be the finite family of bulk patches ending by
-time~$t$ and~$\mathcal E_t$ the finite family of patches extending to time~$t$.
-A bulk patch~$P$ has contribution~$C(P)$. An end patch based at~$i(P)$ has a
+time~$t$ and~$\mathcal E_t$ the finite family of patches that reach time~$t$.
+A bulk patch~$P$ has contribution~$C(P)$ in the representation of the spin system. An end patch based at~$i(P)$ has a
 contribution~$C(z,P)$ which is affine in~$z\in[0,1]$.
 
 \begin{maintheorem}[Patch representation]
@@ -68,10 +68,7 @@ and, for probability measures~$\mu$ and~$\nu$, write~$\mu\preceq_*\nu$ when
 \text{for every }A\Subset\Lambda.
 \end{equation*}
 On the full space of probability measures,~$\preceq_*$ need not have a largest
-or smallest element; we therefore keep it distinct from ordinary stochastic
-order.
-
-We also use the class of probability measures whose centered moments are
+or smallest element. We also use the class of probability measures whose centered moments are
 nonnegative:
 \begin{equation}
 \label{eq:m-star-definition}
@@ -125,7 +122,7 @@ c_i^0(S)+c_i^1(S)<0
 \end{equation}
 No assumption that~$\mu$ or~$\nu$ belongs to~$\mathcal M_*$ is required in
 \eqref{eq:principal-centered-order}. The semigroup also preserves
-$\mathcal M_*$, and
+$\mathcal M_*$, and order for monomials
 \begin{equation*}
 (\mu P_t)(\chi_A)\leq(\nu P_t)(\chi_A)
 \end{equation*}
@@ -166,7 +163,7 @@ satisfies
 \end{equation}
 \end{corollary}
 
-The convergence estimate is first proved uniformly for initial laws in
+The convergence estimate that follows is first proved uniformly for initial laws in
 $\mathcal M_*$. By linearity in the initial law, it extends to measures that
 belong to~$\mathcal M_*$ after mixing with~$\mu_{\mb 1}$. For~$K\geq0$, set
 \begin{equation}
