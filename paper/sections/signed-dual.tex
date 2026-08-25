@@ -212,6 +212,57 @@ Appendix~\ref{app:generator-action}.
 %   The phrase "empty-target birth". Nothing jumps in that case.
 % ============================================================================
 
+For~$r\in\R$, let~$\operatorname{sgn}_{\pm}(r)$ be~$+$ for~$r\geq0$ and~$-$
+for~$r<0$. We realize each non-diagonal coefficient in
+\eqref{eq:signed-dual-generator-expansion} as a jump rate together with a sign:
+\begin{equation}
+\label{eq:death-split-data}
+\delta_i(S)=\abs{a_i^\delta(S)},
+\qquad
+\sigma_i^\delta(S)=\operatorname{sgn}_{\pm}\bb{a_i^\delta(S)},
+\qquad S\subseteq N(i),
+\end{equation}
+and
+\begin{equation}
+\label{eq:birth-data}
+\beta_i(S)=\abs{a_i^\beta(S)},
+\qquad
+\sigma_i^\beta(S)=\operatorname{sgn}_{\pm}\bb{a_i^\beta(S)},
+\qquad \varnothing\neq S\subseteq N(i).
+\end{equation}
+Thus rate times sign recovers the corresponding coefficient. The remaining
+coefficient~$a_i^\beta(\varnothing)$ is diagonal and is not represented by a
+jump.
+
+The Markov generator~$\Dcal$ also subtracts the total jump rate from the
+current state. The Feynman--Kac potential adds these terms back and includes the
+diagonal coefficient above. We therefore set
+\begin{equation}
+\label{eq:dual-potential}
+V(A)=\sum_{i\in A}V_i,
+\qquad
+V_i=
+\sum_{S\subseteq N(i)}\delta_i(S)
++
+\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}\beta_i(S)
++
+a_i^\beta(\varnothing).
+\end{equation}
+The standing bounds on the neighbourhood sizes and flip rates imply
+\begin{equation*}
+\sup_{i\in\Lambda}
+\bb{
+\sum_{S\subseteq N(i)}\delta_i(S)
++
+\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}\beta_i(S)
++
+\abs{V_i}
+}
+<\infty.
+\end{equation*}
+In particular, the dual has uniformly bounded jump rate per active site, and
+each jump activates at most~$\sup_i\abs{N(i)}$ new sites.
+
 % ============================================================================
 % BLURB E. Feynman--Kac representation
 %
