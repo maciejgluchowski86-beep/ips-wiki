@@ -80,6 +80,74 @@ process and the potential in~\eqref{eq:monomial-feynman-kac-duality-preview}.
 %   notation from the literature.
 % ============================================================================
 
+We use the following parametrization of a signed additive set-valued process. A
+state is
+\begin{equation*}
+Y=(A,\sigma)
+\in
+\cb{A:A\Subset\Lambda}\times\cb{+,-},
+\end{equation*}
+where~$A$ is the active set and~$\sigma$ is the accumulated sign. We identify
+$+$ and~$-$ with~$+1$ and~$-1$. For now, fix arbitrary rates and sign labels
+\begin{equation*}
+\delta_i(S)\geq0,
+\qquad
+\sigma_i^\delta(S)\in\cb{+,-},
+\qquad
+S\subseteq N(i),
+\end{equation*}
+and
+\begin{equation*}
+\beta_i(S)\geq0,
+\qquad
+\sigma_i^\beta(S)\in\cb{+,-},
+\qquad
+\varnothing\neq S\subseteq N(i).
+\end{equation*}
+We put~$\beta_i(\varnothing)=0$. For~$i\in A$, define
+\begin{align*}
+D_{i,S}(A,\sigma)
+&=
+\bb{\bb{A\setminus\cb{i}}\cup S,
+\sigma\sigma_i^\delta(S)},
+\\
+B_{i,S}(A,\sigma)
+&=
+\bb{A\cup S,
+\sigma\sigma_i^\beta(S)}.
+\end{align*}
+On the active set, these updates are
+\begin{align*}
+D_{i,\varnothing}:&\quad A\longmapsto A\setminus\cb{i}
+&&\text{death},
+\\
+D_{i,S}:&\quad A\longmapsto \bb{A\setminus\cb{i}}\cup S
+&&\text{split},\qquad S\neq\varnothing,
+\\
+B_{i,S}:&\quad A\longmapsto A\cup S
+&&\text{birth},\qquad S\neq\varnothing.
+\end{align*}
+After forgetting the sign coordinate, the corresponding graphical update maps
+preserve unions. This is the standard additivity property for set-valued
+particle systems~\cite{Harris1978,Griffeath1979,Gray1986}. The death, split,
+and birth notation is the parametrization we use for the patch construction.
+The generator is
+\begin{align*}
+\Dcal g(A,\sigma)
+={}&
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+\delta_i(S)
+\bb{g\bb{D_{i,S}(A,\sigma)}-g(A,\sigma)}
+\\
+&+
+\sum_{i\in A}
+\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}
+\beta_i(S)
+\bb{g\bb{B_{i,S}(A,\sigma)}-g(A,\sigma)}.
+\end{align*}
+At this stage the rates and sign labels are arbitrary. We next choose them from
+$\Lcal$.
+
 % ============================================================================
 % BLURB C. Generator action and the dual coefficients
 %
