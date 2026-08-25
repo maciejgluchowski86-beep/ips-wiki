@@ -240,7 +240,7 @@ m_T(dg)
 \,dt_1\cdots dt_n.
 \end{equation}
 Thus~$m_T$ is the Poisson intensity measure for a proposed list of
-nonempty-target interaction records, with the split and birth kinds suppressed hidden.
+nonempty-target interaction records, with the split and birth kinds suppressed.
 
 Fix such a record list~$g$, and let~$\mathcal P_T(g)$ be the patch family it
 defines. The interactions in~$g$ are exactly the successful interactions up to
@@ -430,29 +430,8 @@ Theorem~\ref{thm:patch-factorization} gives
 \prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}.
 \end{equation*}
 Taking expectation and using Theorem~\ref{thm:monomial-duality} yields
-\eqref{eq:patch-representation}. The assertion for a general initial law is
-derived below.{\color{red} Weird artifact of edge between blurbs}
-\end{proof}
-
-% ============================================================================
-% BLURB F. Initial laws and retained cancellation
-%
-% Reader question:
-%   What does the representation become after averaging over the initial
-%   configuration, and where is the signed cancellation retained?
-%
-% Job:
-%   Derive the general-initial-law assertion of
-%   Theorem~\ref{thm:patch-representation}. Then specialize to Bernoulli product
-%   measures using the distinct end-patch sites and the affinity of C(z,P).
-%   Finish by stating precisely that C(P) and C(z,P) average the signed local
-%   factors over all compatible realizations of the omitted marks before any
-%   later absolute-value estimate is made.
-% ============================================================================
-
-It remains to average the representation over the initial configuration. For
-any probability measure~$\mu$, integrating~\eqref{eq:patch-representation}
-with respect to~$\mu$ gives
+\eqref{eq:patch-representation}. Integrating this identity with respect to an
+arbitrary initial law~$\mu$ gives
 \begin{equation*}
 (\mu P_t)(\chi_A)
 =
@@ -461,12 +440,29 @@ with respect to~$\mu$ gives
 \mu\bb{
 \prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
 }
-}.
+},
 \end{equation*}
-This is~\eqref{eq:patch-representation-general-law} and completes the proof of
-Theorem~\ref{thm:patch-representation}.
+which is~\eqref{eq:patch-representation-general-law}. This proves both
+assertions of Theorem~\ref{thm:patch-representation}.
+\end{proof}
 
-For the Bernoulli product measure~$\mu_{\mb p}$ with
+% ============================================================================
+% BLURB F. Product initial laws and the role of patch averaging
+%
+% Reader question:
+%   How does the general representation simplify for product initial laws, and
+%   what has the patch averaging accomplished before patch positivity is imposed?
+%
+% Job:
+%   Specialize the general-initial-law formula to Bernoulli product measures
+%   using the distinct end-patch sites and affinity of C(z,P). Then explain the
+%   structural payoff: for a fixed skeleton, C(P) and C(z,P) are signed averages
+%   over the compatible realizations of the omitted local marks. The positivity
+%   condition in the next section is imposed on these averaged patch
+%   contributions, not on every compatible local realization separately.
+% ============================================================================
+
+For a Bernoulli product measure~$\mu_{\mb p}$ with
 $\mu_{\mb p}\bb{\eta(i)=1}=p_i$, the sites~$i(P)$,
 $P\in\mathcal E_t$, are distinct. Hence independence of the spins at these
 sites and affinity of~$z\mapsto C(z,P)$ give
@@ -488,16 +484,14 @@ Therefore
 \prod_{P\in\mathcal E_t}C\bb{p_{i(P)},P}
 }.
 \end{equation}
-{\color{red} Shouldnt this be part of the proof that supposedly concluded before this equation?}
-The coarse conditioning on the successful-interaction skeleton performs a
-local signed average before any absolute values are introduced {\color{red} What absolute values?? Total hallucination}. For a fixed
-skeleton,~$C(P)$ averages~$F(P)$ over all realizations of the omitted marks on
-$P$ that are compatible with its prescribed boundaries, and~$C(z,P)$ does the
-same for an end patch. These realizations may differ in their death marks and,
-for an outgoing initial boundary, in the hidden split or birth kind. Whenever
-the corresponding local factors have opposite signs, they cancel inside the
-patch contribution. Thus later estimates act on the already averaged
-quantities~$C(P)$ and~$C(z,P)$ rather than on the individual graphical
-realizations.{\color{red} The goal of this whole paragraph is unclear.}
+
+The role of the patch averaging is now visible. For a fixed skeleton,
+$C(P)$ is the signed average of~$F(P)$ over the realizations of the omitted
+local marks compatible with the prescribed patch boundaries, and~$C(z,P)$ is
+the analogous average for an end patch. Different compatible realizations can
+therefore cancel inside a single patch contribution. In the next section,
+patch positivity asks whether these averaged bulk contributions~$C(P)$ are
+nonnegative; it does not require the individual compatible realizations to
+have the same sign.
 
 \FloatBarrier
