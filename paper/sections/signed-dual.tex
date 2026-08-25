@@ -167,7 +167,23 @@ $\Lcal$.
 % ============================================================================
 
 \label{subsec:rates-to-dual}
-For~$i\in A$, the contribution of the flip at~$i$ to~$\Lcal\chi_A$ is
+For~$i\in A$,
+\begin{equation*}
+\chi_A(\eta)
+=
+\eta(i)\chi_{A\setminus\cb{i}}(\eta),
+\qquad
+\chi_A(\eta^i)
+=
+\bb{1-\eta(i)}\chi_{A\setminus\cb{i}}(\eta).
+\end{equation*}
+Together with
+\begin{equation*}
+c_i(\eta)
+=
+\bb{1-\eta(i)}c_i^0(\eta)+\eta(i)c_i^1(\eta),
+\end{equation*}
+this gives the contribution of the flip at~$i$ to~$\Lcal\chi_A$:
 \begin{align*}
 c_i(\eta)\bb{\chi_A(\eta^i)-\chi_A(\eta)}
 ={}&
