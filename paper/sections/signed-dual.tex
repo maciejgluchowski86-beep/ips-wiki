@@ -233,8 +233,8 @@ Feynman--Kac weight.
 %   of a successful interaction.
 % ============================================================================
 
-We realize the signed dual from independent Poisson marks so that the individual
-interactions are recorded for the patch construction. For every~$i\in\Lambda$
+{\color{red} Bad intro. It should say that the definition of patches is based on the graphical construction of dual process. The graphical construction is standard, again we just define notation convenient for our use.} We realize the signed dual from independent Poisson marks so that the individual
+interactions are recorded for the patch construction {\color{red} This statement is opaque for a new reader}. For every~$i\in\Lambda$
 and~$S\subseteq N(i)$, let~$I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson
 point process of rate~$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let
 $I_{i,S}^\beta\subseteq(0,\infty)$ be a Poisson point process of
@@ -310,9 +310,8 @@ deterministic initial interaction
 =
 (\infty,0,\mathsf{init},A_0;\sigma_0),
 \end{equation}
-where~$\infty\notin\Lambda$ is a formal source. This is bookkeeping rather than
-a stochastic jump. It records the activation of~$A_0$ with sign~$\sigma_0$ at
-time~$0$, so that these initial activations can later be treated as incoming
+where~$\infty\notin\Lambda$ is a formal source. It records the activation of~$A_0$ with sign~$\sigma_0$ at
+time~$0$, so that these initial activations can later be treated as
 patch boundaries. We set
 \begin{equation*}
 I=\cb{\iota_0}\cup I^{\mathrm P}.
@@ -344,7 +343,7 @@ Y_0=(A_0,\sigma_0).
 The total rate of marks whose source is active is bounded by~$C\abs{A_t}$ for
 some finite~$C$, uniformly in the state. Moreover, one such mark can add at most
 \begin{equation*}
-\sup_{i\in\Lambda}\abs{N(i)}
+\sup_{i\in\Lambda}\abs{N(i)}<\infty
 \end{equation*}
 new active sites. Hence~$\abs{A_t}$ is dominated by a nonexplosive
 continuous-time branching process. In particular, starting from a finite active
