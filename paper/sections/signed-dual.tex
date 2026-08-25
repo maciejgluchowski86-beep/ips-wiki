@@ -9,10 +9,12 @@ patches. The process measure, conditional on their, record factorizes by patches
 \subsection{Signed monomial dual}
 \label{subsec:signed-set-process}
 
-For a monomial~$\chi_A$, a set-valued dual tracks the finite set indexing the
-current monomial {\color{red} Terrible sentence for a new reader, completely opaque}. We first define a general signed version of this process. The
-death, split, and birth notation below is convenient for the patch construction {\color{red} Maybe a reference to standard literature, that this is the same duality, with a note we just use more convenient notation for us}.
-Its rates and signs will {\color{red} Use present tense in paper always} be chosen from the generator~$\Lcal$ afterward.
+For~$A\Subset\Lambda$, $P_t\chi_A(\eta)$ is the expected product of the spins
+in~$A$ at time~$t$ when the process starts from~$\eta$. The dual runs backward
+from~$A$ and records the sites at earlier times through which these spins depend
+on the past. We first define a general signed version of this set-valued process.
+The death, split, and birth notation below is convenient for the patch construction {\color{red} Maybe a reference to standard literature, that this is the same duality, with a note we just use more convenient notation for us}.
+We then choose its rates and signs from the generator~$\Lcal$.
 
 A signed active set is a pair
 \begin{equation*}
@@ -20,8 +22,9 @@ Y=(A,\sigma)
 \in
 \cb{A:A\Subset\Lambda}\times\cb{+,-}.
 \end{equation*}
-We call~$A$ the active set, while~$\sigma$ records the sign multiplying the
-monomial~$\chi_A$ {\color{red} You keep writing as if the monomial itself was evolving, this is weird and misleading. I would never write that. What is true is that the dual process allows to represent~$P_t(\chi_A)(\eta) = \E_\eta[\chi_A(\eta_t)]$ and it's evolution corresponds to the dependence of~$\eta_t$ on sites in the past. There is no "monomial evolution".}. Signs are multiplied in the usual way and act on real
+We call~$A$ the active set. Along the dual, it records the sites reached by
+tracing the dependence backward, while~$\sigma$ records the accumulated sign.
+Signs are multiplied in the usual way and act on real
 numbers by~$+x=x$ and~$-x=-x$. Fix, for now, rates and sign labels
 \begin{equation*}
 \delta_i(S),\ \beta_i(S)\geq0,
