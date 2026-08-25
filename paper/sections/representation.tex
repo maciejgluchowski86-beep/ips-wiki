@@ -37,6 +37,19 @@
 %   administrative roadmap language.
 % ============================================================================
 
+Conditioning on~$\mathcal G_T$ fixes every successful interaction, and hence
+every patch boundary, up to time~$T$, while leaving the rest of the graphical
+construction unobserved. The omitted randomness is local to individual patches:
+it consists of the Poisson marks on the patch site between its boundaries and,
+when the patch begins with an outgoing interaction, the interaction kind that
+the skeleton deliberately omitted. These local pieces arise from independent
+Poisson processes on disjoint patch intervals. The fixed skeleton imposes only
+local restrictions on them: the omitted marks must not create additional
+successful interactions inside a patch, and an outgoing terminal boundary must
+occur while its source is active. Consequently, the conditional law is obtained
+by conditioning the original one-patch graphical law on this local
+compatibility condition, independently for each patch.
+
 % ============================================================================
 % BLURB B. Reference law on one patch
 %
