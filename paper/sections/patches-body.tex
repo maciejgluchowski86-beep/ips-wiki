@@ -208,36 +208,67 @@ Let~$\mathcal P$ be the family of all patches. For this infinite-horizon family,
 a patch with terminal label~$\mathsf E$ is infinite, while a patch with terminal
 label~$\mathsf I$ or~$\mathsf O$ is finite.
 
-% ============================================================================
-% BLURB D. Finite-horizon patches and the figure
-%
-% Reader question:
-%   At a finite observation time t, which patches are complete, which are cut by
-%   the horizon, and how should the reader see the whole construction?
-%
-% Job:
-%   Motivate the truncation from the finite-time Feynman--Kac representation.
-%   For patches already ended by t, keep the completed patch. For the unique
-%   open interval on each relevant site line, cut it at t and give it terminal
-%   label E. Define P^{downarrow t}, B_t, E_t, and P_t. State finiteness and the
-%   fact that distinct end patches have distinct sites.
-%
-%   Only after these objects are defined, insert Figure~\ref{fig:patch-geometry}.
-%   The figure should compare:
-%       left: the full graphical realization;
-%       right: the induced finite-horizon patch decomposition.
-%   The surrounding prose should already have defined bulk/end patches and the
-%   I/O/E labels, so the caption can be substantially shorter. Decode only the
-%   genuinely visual conventions: active shading, successful versus omitted
-%   marks, patch sides/boundaries, and the bulk/end separator. Avoid the phrase
-%   "XO type patches".
-%
-%   Keep \FloatBarrier after the figure. Finish with the extension notation
-%   P^{uparrow t} if it is still needed here; introduce it in one sentence that
-%   says it extends an end patch to a later time without changing its initial
-%   data.
-%
-% Figure source:
-%   Do not modify paper/figures/patch-geometry.tex during the prose rewrite
-%   unless the rendered figure itself later proves misleading.
-% ============================================================================
+For the representation at a finite time~$t$, patches which continue beyond~$t$
+must be cut at the observation time. For~$P\in\mathcal P$ with~$s(P)\leq t$,
+let~$P^{\downarrow t}$ be obtained by replacing its endpoint by
+$\min\cb{e(P),t}$ and, when~$t<e(P)$, replacing its terminal label by
+$\mathsf E$. Thus
+\begin{equation*}
+P^{\downarrow t}
+=
+\bb{
+ i(P),
+ [s(P),\min\cb{e(P),t}),
+ \mathsf X(P)\mathsf Y^{\downarrow t}(P),
+ S(P)
+},
+\end{equation*}
+where
+\begin{equation*}
+\mathsf Y^{\downarrow t}(P)
+=
+\pw{\mathsf Y(P)}{e(P)\leq t}{\mathsf E}{t<e(P)}.
+\end{equation*}
+The patches completed by time~$t$ form the bulk family
+\begin{equation*}
+\mathcal B_t=\cb{P\in\mathcal P:e(P)\leq t},
+\end{equation*}
+while the patches crossing the observation time are truncated at~$t$ and form
+the end family
+\begin{equation*}
+\mathcal E_t
+=
+\cb{P^{\downarrow t}:P\in\mathcal P,\ s(P)\leq t<e(P)}.
+\end{equation*}
+The finite-horizon patch family is
+\begin{equation*}
+\mathcal P_t=\mathcal B_t\cup\mathcal E_t.
+\end{equation*}
+It is finite almost surely. Distinct end patches have distinct sites, since the
+successful-interaction times divide each site line into consecutive intervals.
+
+Figure~\ref{fig:patch-geometry} shows the full graphical realization and the
+finite-horizon patch family induced by its successful-interaction skeleton.
+\begin{figure}[htbp]
+\centering
+\resizebox{\linewidth}{!}{\input{paper/figures/patch-geometry}}
+\caption{A realization of the graphical construction (left) and the induced
+finite-horizon patch family at time~$t$ (right). Light gray marks active
+periods. Black arrows are successful interactions; gray arrows and crosses are
+marks omitted from the skeleton. On the right, red striped sides delimit
+patches, the labels give their initial and terminal boundary types, and the
+thick red line separates bulk patches from end patches.}
+\label{fig:patch-geometry}
+\end{figure}
+\FloatBarrier
+
+For later comparisons, it is useful to extend a finite end patch to a later
+time without changing its initial data. If~$P$ is an end patch and
+$u\geq e(P)$ is finite, define its extension through time~$u$ by
+\begin{equation}
+\label{eq:geometric-patch-extension}
+P^{\uparrow u}
+=
+\bb{i(P),[s(P),u),\mathsf X(P)\mathsf E,S(P)}.
+\end{equation}
+Thus~$P^{\uparrow e(P)}=P$.
