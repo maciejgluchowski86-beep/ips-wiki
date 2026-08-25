@@ -1,36 +1,6 @@
 \subsection{Successful-interaction skeleton and patches}
 \label{sec:patches}
 
-% Previous version preserved in
-% paper/revision-reference/section-4-3-successful-interaction-skeleton-and-patches.tex.
-%
-% The figure source paper/figures/patch-geometry.tex is unchanged. In the
-% rewrite, the figure should appear only after the finite-horizon patch family
-% has been defined.
-
-% ============================================================================
-% BLURB A. Why retain a successful-interaction skeleton
-%
-% Reader question:
-%   What information from the full graphical construction should we condition
-%   on so that all interactions between sites are fixed while local randomness
-%   remains available to average?
-%
-% Job:
-%   Motivate the skeleton as coarse conditioning information. Explain that an
-%   actual interaction between distinct sites occurs exactly when a nonempty-
-%   target mark rings at an active source. To determine such an interaction it
-%   is enough to retain its source, time, and target. Deliberately forget its
-%   kind: for fixed source/time/target, birth and split involve the same sites
-%   and differ only in the resulting state of the source. Also omit deaths and
-%   inactive-source rings. Once these records are fixed, their times divide each
-%   site line into intervals within which the omitted randomness is local.
-%
-% Keep out:
-%   The formal definition of I_T, the patch labels, and the finite-horizon
-%   truncation. Do not claim a formal minimality theorem for the sigma-algebra.
-% ============================================================================
-
 We now choose a coarse~$\sigma$-algebra for the graphical construction on which
 to condition. It should determine every interaction between distinct sites
 while leaving local randomness unobserved. An interaction between sites occurs
@@ -45,30 +15,6 @@ times divide each site line into consecutive intervals, called patches. The
 omitted deaths and inactive-source rings occur within individual site lines
 between these interaction times, while the omitted kind of a retained
 interaction affects only its source line.
-
-% ============================================================================
-% BLURB B. Successful interactions, skeleton, and conditioning information
-%
-% Reader question:
-%   Exactly which marks are retained, what does the skeleton remember and
-%   forget, and what coarse information is encoded by G_T?
-%
-% Job:
-%   Define a successful interaction in I^P by
-%       S != empty and i in A_{t-}.
-%   Declare the deterministic initial interaction successful as well. Define its
-%   record and the record (i,t,S) of a successful interaction. Emphasize that
-%   the record deliberately forgets alpha: it remembers source, time, and
-%   target, but not whether the mark was a split or a birth. Deaths and
-%   inactive-source rings are also omitted.
-%
-%   Define I_T, I, and G_T = sigma(Y_0,I_T). Say that G_T records the initial
-%   state and this coarse interaction information up to time T. Use the local
-%   finiteness from the graphical construction to note that I_T is finite a.s.
-%
-% Formatting:
-%   No paragraph heading is needed.
-% ============================================================================
 
 \begin{definition}[Successful interaction and its record]
 \label{def:successful-interaction}
@@ -109,42 +55,11 @@ skeleton up to time~$T$. The local-finiteness statement in
 Section~\ref{subsec:dual-graphical-construction} implies that~$\mathcal I_T$ is
 finite almost surely.
 
-% ============================================================================
-% BLURB C. Patch geometry and boundary labels
-%
-% Reader question:
-%   Given the successful-interaction skeleton, what is a patch geometrically,
-%   and what do the I/O/E labels mean?
-%
-% Job:
-%   Give the geometric picture first: on each site line, successful interactions
-%   cut time into consecutive intervals. Each interval starts at an incoming or
-%   outgoing successful interaction and ends at the next successful interaction
-%   involving that site, if one exists.
-%
-%   Use one convention for all records: a record (j,t,S) is incoming at every
-%   site in S and, when j is a site of Lambda, outgoing at j. This automatically
-%   treats the initial record as supplying incoming time-zero boundaries at A_0.
-%
-%   Then define T^I(i), T^O(i), T(i), and e_i(s). Define a patch P and its data
-%   i(P), [s(P),e(P)), S(P), and boundary labels X(P),Y(P). Explain in prose
-%   before or immediately after the formulas:
-%       I = incoming interaction,
-%       O = outgoing interaction,
-%       E = no later successful interaction on that site line.
-%   Define the full family P and state that an E-terminal patch in the infinite
-%   family is infinite, while I/O-terminal patches are finite.
-%
-% Formatting:
-%   Keep the formal patch definition environment. A compact table may be kept
-%   as a glossary if it still improves readability, but it should not merely
-%   duplicate unexplained formulas. Do not use a \paragraph heading.
-% ============================================================================
-
-We regard a record~$(j,t,S)\in\mathcal I$ as incoming at every site in~$S$ and as outgoing at~$j$. On each site line in spacetime, these interactions
-divide time into consecutive intervals. Each interval begins with an incoming
-or outgoing interaction and ends at the next successful interaction involving
-that site, if there is one.
+We regard a record~$(j,t,S)\in\mathcal I$ as incoming at every site in~$S$ and
+as outgoing at its source. On each site line, these interactions divide time
+into consecutive intervals. Each interval begins with an incoming or outgoing
+interaction and ends at the next successful interaction involving that site, if
+there is one.
 
 For~$i\in\Lambda$, let
 \begin{align*}
@@ -156,11 +71,11 @@ For~$i\in\Lambda$, let
 \mathcal T^{\mathsf O}(i)
 &=
 \cb{t>0:(i,t,S)\in\mathcal I\text{ for some }S},
+\\
+\mathcal T(i)
+&=
+\mathcal T^{\mathsf I}(i)\cup\mathcal T^{\mathsf O}(i).
 \end{align*}
-and set
-\begin{equation*}
-\mathcal T(i)=\mathcal T^{\mathsf I}(i)\cup\mathcal T^{\mathsf O}(i).
-\end{equation*}
 For~$s\in\mathcal T(i)$, the next successful interaction involving~$i$ occurs
 at
 \begin{equation*}
@@ -229,23 +144,25 @@ where
 =
 \pw{\mathsf Y(P)}{e(P)\leq t}{\mathsf E}{t<e(P)}.
 \end{equation*}
-The patches completed by time~$t$ form the bulk family
-\begin{equation*}
-\mathcal B_t=\cb{P\in\mathcal P:e(P)\leq t},
-\end{equation*}
-while the patches crossing the observation time are truncated at~$t$ and form
-the end family
-\begin{equation*}
+The families of bulk patches, end patches, and all finite-horizon patches are
+\begin{align*}
+\mathcal B_t
+&=
+\cb{P\in\mathcal P:e(P)\leq t},
+\\
 \mathcal E_t
-=
-\cb{P^{\downarrow t}:P\in\mathcal P,\ s(P)\leq t<e(P)}.
-\end{equation*}
-The finite-horizon patch family is
-\begin{equation*}
-\mathcal P_t=\mathcal B_t\cup\mathcal E_t.
-\end{equation*}
-It is finite almost surely. Distinct end patches have distinct sites, since the
-successful-interaction times divide each site line into consecutive intervals.
+&=
+\cb{P^{\downarrow t}:P\in\mathcal P,\ s(P)\leq t<e(P)},
+\\
+\mathcal P_t
+&=
+\mathcal B_t\cup\mathcal E_t.
+\end{align*}
+Thus the bulk patches are completed by time~$t$, while the end patches are the
+patches crossing~$t$, truncated at the observation time. The family~$\mathcal
+P_t$ is finite almost surely. Distinct end patches have distinct sites, since
+the successful-interaction times divide each site line into consecutive
+intervals.
 
 Figure~\ref{fig:patch-geometry} shows the full graphical realization and the
 finite-horizon patch family induced by its successful-interaction skeleton.
@@ -253,21 +170,23 @@ finite-horizon patch family induced by its successful-interaction skeleton.
 \centering
 \resizebox{\linewidth}{!}{\input{paper/figures/patch-geometry}}
 \caption{A realization of the graphical construction (left) and the induced
-finite-horizon patch family at time~$t$ (right). Gray shading means the site is active. Black arrows are successful interactions; gray arrows and crosses are
-marks omitted from the skeleton. On the right, red striped sides delimit
-patches, the labels give their initial and terminal boundary types, and the
-thick red line separates bulk patches from end patches.}
+finite-horizon patch family at time~$t$ (right). On the left, gray shading marks
+times when a site is active, black arrows are successful interactions, gray
+arrows are rings at inactive sources, and crosses are deaths. On the right,
+gray shading highlights patches with outgoing terminal boundary, which remain
+active throughout. Red striped sides delimit patches, the labels give their
+initial and terminal boundary types, and the thick red line separates bulk
+patches from end patches.}
 \label{fig:patch-geometry}
 \end{figure}
 \FloatBarrier
 
-For later comparisons, it is useful to extend a finite end patch to a later
-time without changing its initial data. If~$P$ is an end patch and
-$u\geq e(P)$ is finite, define its extension through time~$u$ by
+If~$P\in\mathcal E_t$ and~$u\geq t$ is finite, define its extension through
+time~$u$ by
 \begin{equation}
 \label{eq:geometric-patch-extension}
 P^{\uparrow u}
 =
 \bb{i(P),[s(P),u),\mathsf X(P)\mathsf E,S(P)}.
 \end{equation}
-Thus~$P^{\uparrow e(P)}=P$.
+Thus~$P^{\uparrow t}=P$.
