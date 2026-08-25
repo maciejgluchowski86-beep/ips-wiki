@@ -269,6 +269,20 @@ active when the mark occurs.
 %   "successful interaction" yet; that is the next subsection.
 % ============================================================================
 
+At a mark~$(i,t,\delta,S)\in I^{\mathrm P}$ with~$i\in A_{t-}$, set
+\begin{equation*}
+Y_t=D_{i,S}(Y_{t-}),
+\end{equation*}
+and at a mark~$(i,t,\beta,S)$ with~$i\in A_{t-}$, set
+\begin{equation*}
+Y_t=B_{i,S}(Y_{t-}).
+\end{equation*}
+If~$i\notin A_{t-}$, the mark does not change the state. Thus, at an active
+source, a~$(\delta,\varnothing)$ mark is a death, a~$(\delta,S)$ mark with
+$S\neq\varnothing$ is a split, and a~$(\beta,S)$ mark is a birth. The process
+is constant between marks that change its state. Marks at inactive sources
+remain in~$I^{\mathrm P}$ even though they do not affect the dual path.
+
 % ============================================================================
 % BLURB C. Initial interaction and the full interaction record
 %
