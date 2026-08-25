@@ -31,41 +31,42 @@
 %   truncation. Do not claim a formal minimality theorem for the sigma-algebra.
 % ============================================================================
 
-We now choose coarse~$\sigma$-algebra for the graphical construction on which to
-condition. It should determine every interaction between distinct sites while
-leaving local randomness unobserved. An interaction between sites
-occurs exactly when a mark with nonempty target rings at an active source. To
-specify such an interaction, it is enough to retain its source, time, and
-target. We do not retain its kind~$\alpha$: for fixed~$(i,t,S)$, a birth and a
-split involve the same source and target sites and differ only in the resulting
-state of the source. We also omit deaths, whose target is empty, and rings at
-inactive sources, which do not change the process at all. The retained records forms
-the successful-interaction skeleton. Once this skeleton is fixed, its
-interaction times divide each site line in spacetime into consecutive intervals, called
-patches, within which the omitted randomness is local.
+We now choose a coarse~$\sigma$-algebra for the graphical construction on which
+to condition. It should determine every interaction between distinct sites
+while leaving local randomness unobserved. An interaction between sites occurs
+exactly when a mark with nonempty target rings at an active source. To specify
+such an interaction, it is enough to retain its source, time, and target. We do
+not retain its kind~$\alpha$: for fixed~$(i,t,S)$, a birth and a split involve
+the same source and target sites and differ only in the resulting state of the
+source. We also omit deaths, whose target is empty, and rings at inactive
+sources, which do not change the process at all. The retained records form the
+successful-interaction skeleton. Once this skeleton is fixed, its interaction
+times divide each site line into consecutive intervals, called patches. The
+omitted deaths and inactive-source rings occur within individual site lines
+between these interaction times, while the omitted kind of a retained
+interaction affects only its source line.
 
 % ============================================================================
 % BLURB B. Successful interactions, skeleton, and conditioning information
 %
 % Reader question:
 %   Exactly which marks are retained, what does the skeleton remember and
-%   forget, and what information will be conditioned on later?
+%   forget, and what coarse information is encoded by G_T?
 %
 % Job:
-%   Define a successful positive-time interaction as
+%   Define a successful interaction in I^P by
 %       S != empty and i in A_{t-}.
 %   Declare the deterministic initial interaction successful as well. Define its
-%   record and the record (i,t,S) of a positive-time successful interaction.
-%   Emphasize that the record deliberately forgets alpha: it remembers source,
-%   time, and target, but not whether the mark was a split or a birth. Deaths
-%   and inactive-source rings are also omitted.
+%   record and the record (i,t,S) of a successful interaction. Emphasize that
+%   the record deliberately forgets alpha: it remembers source, time, and
+%   target, but not whether the mark was a split or a birth. Deaths and
+%   inactive-source rings are also omitted.
 %
-%   Define I_T, I, and G_T = sigma(Y_0,I_T). State explicitly that G_T is the
-%   information on which we condition in the next subsection. Use the local
+%   Define I_T, I, and G_T = sigma(Y_0,I_T). Say that G_T records the initial
+%   state and this coarse interaction information up to time T. Use the local
 %   finiteness from the graphical construction to note that I_T is finite a.s.
 %
-% Language:
-%   Use "positive-time successful interactions", not "ordinary" interactions.
+% Formatting:
 %   No paragraph heading is needed.
 % ============================================================================
 
@@ -97,15 +98,14 @@ time~$T$:
 \cb{(i,t,S):t\leq T\text{ and, for some }\alpha\in\cb{\beta,\delta},
 (i,t,\alpha,S)\text{ is successful}}.
 \end{equation*}
-Thus~$\mathcal I_T$ omits deaths and rings at inactive sources, as well as the
-kind of each retained interaction. Set
+Thus~$\mathcal I_T$ contains exactly the retained records described above. Set
 \begin{equation*}
 \mathcal I=\bigcup_{T<\infty}\mathcal I_T,
 \qquad
 \mathcal G_T=\sigma\bb{Y_0,\mathcal I_T}.
 \end{equation*}
-The~$\sigma$-algebra~$\mathcal G_T$ is the information on which we condition in
-the next subsection{\color{red} Not very meaningful to the reader right now}. The local-finiteness statement in
+Thus~$\mathcal G_T$ records the initial state and the successful-interaction
+skeleton up to time~$T$. The local-finiteness statement in
 Section~\ref{subsec:dual-graphical-construction} implies that~$\mathcal I_T$ is
 finite almost surely.
 
@@ -122,9 +122,9 @@ finite almost surely.
 %   outgoing successful interaction and ends at the next successful interaction
 %   involving that site, if one exists.
 %
-%   Distinguish positive-time records from the initial record: a positive-time
-%   record is outgoing at its source and incoming at every target; the initial
-%   record supplies only the incoming time-zero boundaries at sites in A_0.
+%   Use one convention for all records: a record (j,t,S) is incoming at every
+%   site in S and, when j is a site of Lambda, outgoing at j. This automatically
+%   treats the initial record as supplying incoming time-zero boundaries at A_0.
 %
 %   Then define T^I(i), T^O(i), T(i), and e_i(s). Define a patch P and its data
 %   i(P), [s(P),e(P)), S(P), and boundary labels X(P),Y(P). Explain in prose
@@ -141,13 +141,11 @@ finite almost surely.
 %   duplicate unexplained formulas. Do not use a \paragraph heading.
 % ============================================================================
 
-A positive-time {\color{red} stop writing this, the initial interaction exception is not that important to clutter the rest of the prose} record~$(j,t,S)\in\mathcal I$ is outgoing at its source~$j$
-and incoming at every site in~$S$. The initial record~$(\infty,0,A_0)$ has no
-site as its source and supplies an incoming interaction at time~$0$ for each
-site in~$A_0$. Thus, on each site line, the successful interactions divide time
-into consecutive intervals. Each such interval begins with an incoming or
-outgoing interaction and ends at the next successful interaction involving that
-site, if there is one.
+We regard a record~$(j,t,S)\in\mathcal I$ as incoming at every site in~$S$ and,
+when~$j\in\Lambda$, as outgoing at~$j$. On each site line, these interactions
+divide time into consecutive intervals. Each interval begins with an incoming
+or outgoing interaction and ends at the next successful interaction involving
+that site, if there is one.
 
 For~$i\in\Lambda$, let
 \begin{align*}
