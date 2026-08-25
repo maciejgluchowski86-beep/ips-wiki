@@ -240,21 +240,13 @@ m_T(dg)
 \,dt_1\cdots dt_n.
 \end{equation}
 Thus~$m_T$ is the Poisson intensity measure for a proposed list of
-nonempty-target interaction records, with the split and birth kinds suppressed.
+nonempty-target interaction records, with the split and birth kinds suppressed hidden.
 
 Fix such a record list~$g$, and let~$\mathcal P_T(g)$ be the patch family it
 defines. The interactions in~$g$ are exactly the successful interactions up to
 time~$T$ if and only if every~$P\in\mathcal P_T(g)$ satisfies
-$\operatorname{Con}(P)$. Indeed, suppose first that every patch is consistent
-and read the records chronologically. The initial incoming patches give the
-active set~$A$. Between successive records, deaths change the corresponding
-local and global active indicators in the same way, while consistency makes
-every unrecorded nonempty-target mark unsuccessful. At a record in~$g$, the
-source patch ends with an outgoing boundary and consistency makes its source
-active; the interaction kind determines the new state of that source, and the
-targets start the incoming patches. Hence no successful interaction is missing
-from~$g$ and every record in~$g$ is successful. Conversely, if~$g$ is the
-successful-interaction record, each~$X^P$ is the restriction of the global
+$\operatorname{Con}(P)$. Indeed, suppose first that every patch is consistent. Then there are no successful interactions that originate from interior of a patch, and every interaction with record in~$g$ is successful because the consistency event for its source patch ensures it happens at an active site. Thus~$g$ is exactly the list of records of successful interactions. Conversely, if~$g$ is the
+successful-interaction record, then each~$X^P$ is the restriction of the global
 active indicator to its patch, so every patch is consistent.
 
 We can now compute the joint law. For nonnegative measurable~$h$ and~$f_P$, the
