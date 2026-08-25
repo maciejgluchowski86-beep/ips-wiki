@@ -163,41 +163,42 @@ and~$\E_P^{\mathrm{con}}$ denotes expectation under this law.
 % BLURB D. Conditional factorization
 %
 % Reader question:
-%   Why do the consistent one-patch laws describe the actual graphical
-%   construction independently once G_T is fixed?
+%   Do the one-patch laws above actually give the conditional law of the
+%   graphical construction once the successful-interaction skeleton is fixed?
 %
 % Job:
-%   State the mechanism before the theorem. Conditioning on G_T fixes the patch
-%   boundaries. Before compatibility is imposed, the omitted Poisson marks live
-%   on disjoint patch intervals and are independent, with the reference laws
-%   from Blurb B. The event that the prescribed skeleton occurs is exactly the
-%   intersection of the patchwise consistency events from Blurb C. Therefore
-%   conditioning replaces each reference law by its consistent law without
-%   coupling different patches.
+%   State the answer directly before the theorem: conditional on G_T, different
+%   patches are independent and each has the consistent one-patch law. Explain
+%   why this is the useful output of the preceding construction: conditional
+%   expectations of products of patch-local quantities reduce to products of
+%   one-patch expectations.
 %
-%   State Theorem [Patch factorization] and equation (patch-factorization), then
-%   prove the conditional law in full using the Poisson disintegration at fixed
-%   successful-interaction records.
+%   State Theorem [Patch factorization] and equation (patch-factorization).
+%
+% Proof organization:
+%   State the calculation before introducing its notation. Compute the joint law
+%   of the skeleton record and the patch variables relative to a reference
+%   measure on possible record lists; set the patch test functions to one to get
+%   the marginal law of the skeleton; divide the two densities to obtain the
+%   conditional law. Before applying Mecke, prove that a proposed record list is
+%   exactly the successful-interaction skeleton iff every associated patch is
+%   consistent. Define the reference measure m_T explicitly rather than through
+%   prose about components.
 % ============================================================================
 
-{\color{red} Unclear to the reader what is happening right now, sounds like the same information from before regurgitated. I think the goal of this paragraph was to give explanation for the theorem below, but the reader is lost by now.}
-Fix~$T<\infty$. Once~$\mathcal G_T$ is fixed, the patch family~$\mathcal P_T$
-and all its boundaries are fixed. The marks assigned to distinct patches come
-from disjoint parts of the Poisson graphical construction and, before the
-consistency conditions are imposed, have the independent reference laws
-$\pP_P$. Moreover, these marks give exactly the prescribed
-successful-interaction skeleton if and only if~$\operatorname{Con}(P)$ holds for
-every~$P\in\mathcal P_T$. Since each consistency event depends only on the marks
-of its own patch, conditioning on the skeleton conditions the patches
-separately.
+The one-patch laws above describe exactly the randomness left after the
+successful-interaction skeleton is fixed. Conditional on~$\mathcal G_T$,
+different patches are independent and each patch has its consistent law. Thus a
+conditional expectation of a product of patch-local quantities reduces to a
+product of one-patch expectations.
 
 \begin{theorem}[Patch factorization]
 \label{thm:patch-factorization}
-Conditional on~$\mathcal G_T$, the variables~$\Sigma_P$ are independent, and
-the conditional law of~$\Sigma_P$ is~$\pP_P^{\mathrm{con}}$ for each
-$P\in\mathcal P_T$. Equivalently, for bounded measurable functions~$f_P$ such
-that either all~$f_P$ are nonnegative or the product on the left below is
-integrable,
+Fix~$T<\infty$. Conditional on~$\mathcal G_T$, the variables~$\Sigma_P$ are
+independent, and the conditional law of~$\Sigma_P$ is
+$\pP_P^{\mathrm{con}}$ for each~$P\in\mathcal P_T$. Equivalently, for bounded
+measurable functions~$f_P$ such that either all~$f_P$ are nonnegative or the
+product on the left below is integrable,
 \begin{equation}
 \label{eq:patch-factorization}
 \CE{
@@ -210,8 +211,13 @@ integrable,
 \end{theorem}
 
 \begin{proof}
-Write~$G_T=(Y_0,\mathcal I_T)$, so~$\mathcal G_T=\sigma(G_T)$. By
-Lemma~\ref{lem:dual-local-finiteness}, its positive-time records under~$\pP_A$
+Write~$G_T=(Y_0,\mathcal I_T)$, so~$\mathcal G_T=\sigma(G_T)$. We compute the
+joint law of~$G_T$ and the patch variables relative to a reference measure on
+possible successful-interaction records. Setting all patch test functions equal
+to~$1$ then gives the marginal law of~$G_T$, and the quotient of the two
+densities gives the conditional law.
+
+By Lemma~\ref{lem:dual-local-finiteness}, the positive-time records in~$G_T$
 almost surely form a finite chronological list
 \begin{equation*}
 g=\bb{(i_k,t_k,S_k)}_{k=1}^n,
@@ -219,21 +225,41 @@ g=\bb{(i_k,t_k,S_k)}_{k=1}^n,
 0<t_1<\cdots<t_n\leq T,
 \end{equation*}
 where~$\varnothing\neq S_k\subseteq N(i_k)$ and
-$i_k\in A\cup\bigcup_{\ell<k}S_\ell$. The list space and the finite
-marked-configuration spaces are standard Borel.
-
-On the component {\color{red} Component of what? Confusing proof prose} with fixed discrete records~$((i_k,S_k))_{k=1}^n$, set
-\begin{equation*}
+$i_k\in A\cup\bigcup_{\ell<k}S_\ell$. We call the discrete sequence
+$((i_k,S_k))_{k=1}^n$ admissible when these conditions hold. On the disjoint
+union of all such record lists, define
+\begin{equation}
+\label{eq:patch-record-reference-measure}
 m_T(dg)
 =
+\sum_{n\geq0}
+\sum_{\substack{((i_k,S_k))_{k=1}^n\\\text{admissible}}}
+\ind\cb{0<t_1<\cdots<t_n\leq T}
 \prod_{k=1}^n
 \bb{\delta_{i_k}(S_k)+\beta_{i_k}(S_k)}
-\,dt_1\cdots dt_n,
-\end{equation*}
-and sum these measures over~$n\geq0$ and the discrete records, omitting
-zero-rate components {\color{red} Describing steps instead of showing them makes this very unclear to the reader}. For nonnegative measurable~$h$ and~$f_P$, the
-multivariate Mecke formula~\cite[Theorem~4.4]{LastPenrose2017}, applied to
-ordered tuples of nonempty-target marks, gives
+\,dt_1\cdots dt_n.
+\end{equation}
+Thus~$m_T$ is the Poisson intensity measure for a proposed list of
+nonempty-target interaction records, with the split and birth kinds suppressed.
+
+Fix such a record list~$g$, and let~$\mathcal P_T(g)$ be the patch family it
+defines. The interactions in~$g$ are exactly the successful interactions up to
+time~$T$ if and only if every~$P\in\mathcal P_T(g)$ satisfies
+$\operatorname{Con}(P)$. Indeed, suppose first that every patch is consistent
+and read the records chronologically. The initial incoming patches give the
+active set~$A$. Between successive records, deaths change the corresponding
+local and global active indicators in the same way, while consistency makes
+every unrecorded nonempty-target mark unsuccessful. At a record in~$g$, the
+source patch ends with an outgoing boundary and consistency makes its source
+active; the interaction kind determines the new state of that source, and the
+targets start the incoming patches. Hence no successful interaction is missing
+from~$g$ and every record in~$g$ is successful. Conversely, if~$g$ is the
+successful-interaction record, each~$X^P$ is the restriction of the global
+active indicator to its patch, so every patch is consistent.
+
+We can now compute the joint law. For nonnegative measurable~$h$ and~$f_P$, the
+multivariate Mecke formula~\cite[Theorem~4.4]{LastPenrose2017}, applied to the
+ordered nonempty-target marks, gives
 \begin{equation}
 \label{eq:patch-factorization-mecke}
 \E_A\Cb{
@@ -248,25 +274,15 @@ f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}
 }
 \,m_T(dg).
 \end{equation}
-A mark with record~$(i,t,S)$ has combined intensity
-$\bb{\delta_i(S)+\beta_i(S)}\,dt$ and, conditional on this record, its kind has
-the law in~\eqref{eq:patch-initial-kind-law}. The remaining marks in the
-disjoint patch intervals are independent with laws~$\pP_P$.
+Here a record~$(i,t,S)$ has combined intensity
+$\bb{\delta_i(S)+\beta_i(S)}\,dt$, while conditional on this record its hidden
+kind has the law in~\eqref{eq:patch-initial-kind-law}. After these records are
+fixed, the remaining marks on distinct patch intervals are independent with the
+reference laws~$\pP_P$. The consistency indicators impose exactly the condition
+proved above that~$g$ is the successful-interaction record.
 
-{\color{red} By now the reader is completely lost as to what is happening in the proof, its completely unclear what is needed to do.} It remains to identify the consistency indicators in
-\eqref{eq:patch-factorization-mecke}. Suppose first that every patch is
-consistent and read the records chronologically. The initial incoming patches
-give the active set~$A$. Between record times, empty-target marks change the
-local and global active indicators in the same way, while consistency makes
-every unrecorded nonempty-target mark unsuccessful. At a recorded interaction,
-consistency makes its source active; its kind determines the new state of the
-source, and its targets start the incoming patches. Hence the prescribed
-records are exactly the successful-interaction skeleton. Conversely, if the
-prescribed records are the complete successful-interaction skeleton, the
-one-site processes~$X^P$ are the restrictions of the global active process and
-every patch is consistent.
-
-Taking~$f_P=1$ in~\eqref{eq:patch-factorization-mecke} gives
+Setting~$f_P=1$ in~\eqref{eq:patch-factorization-mecke} gives the marginal law
+of the skeleton record,
 \begin{equation*}
 \pP_A\bb{G_T\in dg}
 =
@@ -274,8 +290,9 @@ Taking~$f_P=1$ in~\eqref{eq:patch-factorization-mecke} gives
 \pP_P\bb{\operatorname{Con}(P)}
 \,m_T(dg).
 \end{equation*}
-Taking the Radon--Nikodym derivative with respect to this marginal yields, for
-$\pP_A\circ G_T^{-1}$-almost every~$g$,
+Therefore, for~$\pP_A\circ G_T^{-1}$-almost every~$g$, the Radon--Nikodym
+quotient of the joint density in~\eqref{eq:patch-factorization-mecke} by this
+marginal density is
 \begin{align*}
 \E_A\Cb{
 \prod_{P\in\mathcal P_T}f_P\bb{\Sigma_P}
