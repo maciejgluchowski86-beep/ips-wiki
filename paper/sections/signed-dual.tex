@@ -302,6 +302,26 @@ remain in~$I^{\mathrm P}$ even though they do not affect the dual path.
 %   The successful-interaction skeleton and patch definitions themselves.
 % ============================================================================
 
+To put the initial state into the same interaction notation, introduce the
+deterministic initial interaction
+\begin{equation}
+\label{eq:initial-interaction}
+\iota_0
+=
+(\infty,0,\mathsf{init},A_0;\sigma_0),
+\end{equation}
+where~$\infty\notin\Lambda$ is a formal source. This is bookkeeping rather than
+a stochastic jump. It records the activation of~$A_0$ with sign~$\sigma_0$ at
+time~$0$, so that these initial activations can later be treated as incoming
+patch boundaries. We set
+\begin{equation*}
+I=\cb{\iota_0}\cup I^{\mathrm P}.
+\end{equation*}
+Equivalently, start from~$Y_{0-}=(\varnothing,+)$ and apply~$\iota_0$, giving
+\begin{equation*}
+Y_0=(A_0,\sigma_0).
+\end{equation*}
+
 % ============================================================================
 % BLURB D. Well-definedness and local finiteness
 %
