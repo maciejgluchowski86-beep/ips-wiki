@@ -2,19 +2,17 @@
 \label{sec:signed-dual}
 
 To prove Theorem~\ref{thm:patch-representation}, we start from the usual
-set-valued dual construction for spin systems. Because the coefficients in the
-monomial expansion may have either sign, the dual carries a sign and a
-Feynman--Kac potential. Its graphical construction records the interactions
+set-valued dual construction for spin systems. Its graphical construction records the interactions
 through which dependence passes between sites. These interactions define the
-patches. The process measure, conditional on their record factorizes by patches and yields the representation.
+patches. The process measure, conditional on their, record factorizes by patches and yields the representation.
 
 \subsection{Signed monomial dual}
 \label{subsec:signed-set-process}
 
 For a monomial~$\chi_A$, a set-valued dual tracks the finite set indexing the
-current monomial. We first define a general signed version of this process. The
-death, split, and birth notation below is convenient for the patch construction.
-Its rates and signs will be chosen from the generator~$\Lcal$ afterward.
+current monomial {\color{red} Terrible sentence for a new reader, completely opaque}. We first define a general signed version of this process. The
+death, split, and birth notation below is convenient for the patch construction {\color{red} Maybe a reference to standard literature, that this is the same duality, with a note we just use more convenient notation for us}.
+Its rates and signs will {\color{red} Use present tense in paper always} be chosen from the generator~$\Lcal$ afterward.
 
 A signed active set is a pair
 \begin{equation*}
@@ -23,7 +21,7 @@ Y=(A,\sigma)
 \cb{A:A\Subset\Lambda}\times\cb{+,-}.
 \end{equation*}
 We call~$A$ the active set, while~$\sigma$ records the sign multiplying the
-monomial~$\chi_A$. Signs are multiplied in the usual way and act on real
+monomial~$\chi_A$ {\color{red} You keep writing as if the monomial itself was evolving, this is weird and misleading. I would never write that. What is true is that the dual process allows to represent~$P_t(\chi_A)(\eta) = \E_\eta[\chi_A(\eta_t)]$ and it's evolution corresponds to the dependence of~$\eta_t$ on sites in the past. There is no "monomial evolution".}. Signs are multiplied in the usual way and act on real
 numbers by~$+x=x$ and~$-x=-x$. Fix, for now, rates and sign labels
 \begin{equation*}
 \delta_i(S),\ \beta_i(S)\geq0,
@@ -44,7 +42,7 @@ B_{i,S}(A,\sigma)
 \bb{A\cup S,
 \sigma\sigma_i^\beta(S)}.
 \end{align*}
-These are the usual additive set-valued transitions in a form convenient here.
+These are the usual additive set-valued transitions in a form convenient here {\color{red} Usual in what sense? The reader doesnt know.}.
 The update~$D_{i,\varnothing}$ is a \emph{death}, which removes~$i$. For
 $S\neq\varnothing$, the update~$D_{i,S}$ is a \emph{split}, which replaces~$i$
 by~$S$, and~$B_{i,S}$ is a \emph{birth}, which keeps~$i$ and adds~$S$.
@@ -118,7 +116,7 @@ most~$\sup_i\abs{N(i)}$ new sites.
 
 \paragraph{Feynman--Kac duality.}
 \label{subsec:monomial-duality}
-
+{\color{red} Remove paragraph headers}
 For~$Y=(A,\sigma)$, define
 \begin{equation}
 \label{eq:monomial-duality-function}
@@ -151,8 +149,8 @@ P_t\chi_A(\eta)
 
 The coefficient calculation proving~\eqref{eq:monomial-generator-duality} and
 the finite-volume passage to~\eqref{eq:monomial-feynman-kac-duality} are given
-in Appendix~\ref{app:dual-calculation}. Condition~\eqref{eq:fk-integrability}
-supplies the domination in the infinite-volume passage. The pure-death noise
+in Appendix~\ref{app:dual-calculation} {\color{red} Also a reference to relevant literature should be made, duality is standard, this is not new}. Condition~\eqref{eq:fk-integrability}
+supplies the domination in the infinite-volume passage {\color{red} Unclear to the reader what this means because it references proof method, which is not important here because duality is standard, and reader probably will skip appendix anyway. Just say the representation holds under integrability condition (FK)}. The pure-death noise
 generator acts diagonally on monomials:
 \begin{equation*}
 \Ncal^{\mb 0}\chi_A=-\abs A\chi_A.
@@ -162,7 +160,7 @@ $V(A)$ by~$V(A)-\varepsilon\abs A$. We therefore call these independent
 $1\to0$ transitions \emph{pure deaths}.
 
 \paragraph{Graphical construction.}
-\label{subsec:dual-graphical-construction}
+\label{subsec:dual-graphical-construction}{\color{red} Bad paragraph again. This may need to be its own small subsection}
 
 For every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
 $I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson point process of
@@ -181,8 +179,9 @@ For~$(i,t,\alpha,S)\in I^{\mathrm P}$, the site~$i$ is the \emph{source},
 $S$ is the \emph{target}, and~$\alpha\in\cb{\delta,\beta}$ is the interaction
 kind. Deaths have empty target; splits and births have nonempty target.
 
+
 To simplify the later patch construction, set the initial
-state~$Y_0=(A_0,\sigma_0)$ and start the process by the deterministic initial interaction
+we start the process by the deterministic initial interaction
 \begin{equation}
 \label{eq:initial-interaction}
 \iota_0
@@ -204,7 +203,7 @@ these relevant interactions. Rings at inactive sources are ignored.
 
 The total rate of relevant clocks is bounded by a constant times~$\abs{A_s}$,
 and one interaction creates at most~$\sup_i\abs{N(i)}$ new active sites.
-Thus~$\abs{A_t}$ is dominated by a nonexplosive continuous-time branching
+Thus~$\abs{\bigcup_{s\leq t} A_s}$ is dominated by a nonexplosive continuous-time branching
 process. In particular, only finitely many relevant interactions occur on every
 bounded time interval. We use the full interaction set~$I$ throughout the
 patch construction.
