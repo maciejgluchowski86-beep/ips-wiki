@@ -16,20 +16,20 @@ patches. The process measure, conditional on their, record factorizes by patches
 % BLURB A. What the dual represents
 %
 % Reader question:
-%   What quantity is the dual representing, and what does the finite set in the
-%   dual mean?
+%   What quantity is the dual representing, what should the duality formula
+%   look like, and what does the finite set in the dual mean?
 %
 % Job:
 %   Start from P_t chi_A(eta) as the expected product of the spins in A at the
-%   observation time. Explain that the set-valued dual traces backward the sites
-%   in the past on which this observable depends. Place this in the standard
-%   additive/set-valued duality framework for spin systems. Explain briefly that
-%   signs are needed because the coefficients produced by the generator need
-%   not be nonnegative.
+%   observation time. Display the target Feynman--Kac representation before
+%   defining its ingredients in detail. Explain that A_s traces backward the
+%   sites in the past on which the observable depends, sigma_s records the sign,
+%   and V is the Feynman--Kac potential. Place the finite-set process in the
+%   standard additive/set-valued duality framework for spin systems.
 %
 % Reader takeaway:
-%   The dual is a representation of dependence of P_t chi_A on the initial
-%   configuration. No monomial itself is evolving.
+%   The object being represented is P_t chi_A. The rest of the subsection
+%   constructs the process and potential appearing in the displayed formula.
 %
 % Keep out for now:
 %   The death/split/birth formulas and the specific rates coming from Lcal.
@@ -41,14 +41,23 @@ P_t\chi_A(\eta)
 =
 \E_\eta\Cb{\prod_{i\in A}\eta_t(i)}.
 \end{equation*}
-A set-valued dual represents the dependence of this quantity on the initial
-configuration by tracing the observable backward through the interactions of
-the spin system. Starting from~$A$, the dual set records the sites at earlier
-times on which the spins in~$A$ at the observation time depend. Such additive
-set-valued duals are standard for spin systems
-\cite{Harris1978,Griffeath1979,Gray1986}. In our setting, the coefficients in
-the generator calculation leading to the dual may have either sign, so we add
-a sign coordinate.
+We represent its dependence on the initial configuration by a signed
+set-valued process. The representation constructed below is
+\begin{equation}
+\label{eq:monomial-feynman-kac-duality-preview}
+P_t\chi_A(\eta)
+=
+\E_A\Cb{
+\sigma_t
+\exp\bb{\int_0^t V(A_s)\,ds}
+\chi_{A_t}(\eta)
+}.
+\end{equation}
+Here~$A_s$ traces the dependence backward from the sites in~$A$ at the
+observation time,~$\sigma_s\in\cb{+,-}$ records the accumulated sign, and~$V$
+is a Feynman--Kac potential. Set-valued duals of this kind are standard for spin
+systems~\cite{Harris1978,Griffeath1979,Gray1986}. We now define the signed
+process and the potential in~\eqref{eq:monomial-feynman-kac-duality-preview}.
 
 % ============================================================================
 % BLURB B. General signed set-valued process
