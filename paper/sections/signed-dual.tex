@@ -211,48 +211,81 @@ Feynman--Kac weight.
 \subsection{Graphical construction}
 \label{subsec:dual-graphical-construction}
 
-For every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
-$I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson point process of
-rate~$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let
-$I_{i,S}^\beta\subseteq(0,\infty)$ be a Poisson point process of
-rate~$\beta_i(S)$. All these processes are independent, and for notational
-convenience we set~$I_{i,\varnothing}^\beta=\varnothing$. The marked Poisson
-interaction set is
-\begin{equation*}
-I^{\mathrm P}
-=
-\cb{(i,t,\alpha,S):i\in\Lambda,\ \alpha\in\cb{\delta,\beta},\
-S\subseteq N(i),\ t\in I_{i,S}^\alpha}.
-\end{equation*}
-For~$(i,t,\alpha,S)\in I^{\mathrm P}$, the site~$i$ is the \emph{source},
-$S$ is the \emph{target}, and~$\alpha\in\cb{\delta,\beta}$ is the interaction
-kind. Deaths have empty target; splits and births have nonempty target.
+% Previous version preserved in
+% paper/revision-reference/section-4-2-graphical-construction.tex.
 
+% ============================================================================
+% BLURB A. Purpose and Poisson marks
+%
+% Reader question:
+%   Why do we introduce a graphical construction after defining the dual by its
+%   generator, and what random objects make up the construction?
+%
+% Job:
+%   Say that we realize the signed dual from independent Poisson marks so that
+%   individual interactions are explicitly recorded for the patch construction.
+%   Introduce the delta clocks for all S and the beta clocks for nonempty S.
+%   Define I^P and the source, target, and interaction kind of a mark. Make clear
+%   that I^P contains all Poisson marks, whether or not their source is active
+%   when they occur.
+%
+% Keep out:
+%   The update rule, the deterministic initial interaction, and the later notion
+%   of a successful interaction.
+% ============================================================================
 
-To simplify the later patch construction, set the initial
-we start the process by the deterministic initial interaction
-\begin{equation}
-\label{eq:initial-interaction}
-\iota_0
-=
-(\infty,0,\mathsf{init},A_0;\sigma_0),
-\end{equation}
-where~$\infty\notin\Lambda$ is a formal source. Its target is~$A_0$, its sign
-is~$\sigma_0$, and it has no rate. The full interaction set is
-\begin{equation*}
-I=\cb{\iota_0}\cup I^{\mathrm P}.
-\end{equation*}
-Start from~$Y_{0-}=(\varnothing,+)$ and apply~$\iota_0$,
-giving~$Y_0=(A_0,\sigma_0)$. Suppose the process has been constructed up to
-time~$s$ and has active set~$A_s$. Among the Poisson clocks whose sources lie
-in~$A_s$, take the first ring after time~$s$. At a
-mark~$(i,t,\delta,S)$, apply~$D_{i,S}$; at a mark~$(i,t,\beta,S)$,
-apply~$B_{i,S}$. Repeat from the new state, and keep the process constant between
-these relevant interactions. Rings at inactive sources are ignored.
+% ============================================================================
+% BLURB B. How the marks act
+%
+% Reader question:
+%   Given the Poisson marks, how is the signed dual path obtained?
+%
+% Job:
+%   Read the marks chronologically. At a mark with source i, apply D_{i,S} or
+%   B_{i,S} when i is active immediately before the mark, and make no change when
+%   i is inactive. Identify the three active-source cases as death, split, and
+%   birth. The process is constant between marks. Emphasize that inactive-source
+%   marks remain part of I^P even though they do not change the dual state.
+%
+% Avoid:
+%   The undefined language "relevant interaction". Do not introduce
+%   "successful interaction" yet; that is the next subsection.
+% ============================================================================
 
-The total rate of relevant clocks is bounded by a constant times~$\abs{A_s}$,
-and one interaction creates at most~$\sup_i\abs{N(i)}$ new active sites.
-Thus~$\abs{\bigcup_{s\leq t} A_s}$ is dominated by a nonexplosive continuous-time branching
-process. In particular, only finitely many relevant interactions occur on every
-bounded time interval. We use the full interaction set~$I$ throughout the
-patch construction.
+% ============================================================================
+% BLURB C. Initial interaction and the full interaction record
+%
+% Reader question:
+%   Why is the initial state encoded as an interaction, and what is the full
+%   interaction set used later for patches?
+%
+% Job:
+%   Define the deterministic initial interaction iota_0 with formal source
+%   infinity, time 0, target A_0, and sign sigma_0. Explain that it is bookkeeping,
+%   not a stochastic jump: it puts the initial activation into the same
+%   source/time/target language as later interactions, which will let initial
+%   sites serve as incoming patch boundaries. Define I={iota_0} union I^P and
+%   state the corresponding initial condition Y_0=(A_0,sigma_0).
+%
+% Keep out:
+%   The successful-interaction skeleton and patch definitions themselves.
+% ============================================================================
+
+% ============================================================================
+% BLURB D. Well-definedness and local finiteness
+%
+% Reader question:
+%   Is the graphical construction well defined on an infinite site set, and
+%   how many interactions can actually act on the dual in finite time?
+%
+% Job:
+%   Use the uniform bound on the jump rate per active site and the uniform bound
+%   on the number of sites added by one jump. Dominate |A_t| by a nonexplosive
+%   continuous-time branching process. Conclude that only finitely many Poisson
+%   marks act on the dual on every bounded time interval. This is the
+%   local-finiteness fact needed in the next subsection.
+%
+% Important:
+%   Do not claim that I^P itself is finite on bounded time intervals when
+%   Lambda is infinite. The finite statement concerns marks that act on the dual.
+% ============================================================================
