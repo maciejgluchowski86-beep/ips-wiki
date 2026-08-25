@@ -439,22 +439,65 @@ derived below.
 %
 % Reader question:
 %   What does the representation become after averaging over the initial
-%   configuration, and what cancellation has the patch construction preserved?
+%   configuration, and where is the signed cancellation retained?
 %
 % Job:
 %   Derive the general-initial-law assertion of
 %   Theorem~\ref{thm:patch-representation}. Then specialize to Bernoulli product
-%   measures using the fact that distinct end patches have distinct sites and
-%   that C(z,P) is affine, obtaining equation
-%   (patch-representation-product-law).
-%
-%   Finish with the conceptual interpretation. For a fixed skeleton, all local
-%   graphical histories compatible with one patch are averaged inside C(P) or
-%   C(z,P). Thus cancellations between different compatible local histories are
-%   retained before any later absolute-value estimate is made. Avoid vague
-%   phrases such as "groups the signed dual trajectory".
-%
-% Formatting:
-%   No paragraph headings are needed. Keep FloatBarrier only if it is still
-%   required by the relocated patch-interior figure.
+%   measures using the distinct end-patch sites and the affinity of C(z,P).
+%   Finish by stating precisely that C(P) and C(z,P) average the signed local
+%   factors over all compatible realizations of the omitted marks before any
+%   later absolute-value estimate is made.
 % ============================================================================
+
+It remains to average the representation over the initial configuration. For
+any probability measure~$\mu$, integrating~\eqref{eq:patch-representation}
+with respect to~$\mu$ gives
+\begin{equation*}
+(\mu P_t)(\chi_A)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+}.
+\end{equation*}
+This is~\eqref{eq:patch-representation-general-law} and completes the proof of
+Theorem~\ref{thm:patch-representation}.
+
+For the Bernoulli product measure~$\mu_{\mb p}$ with
+$\mu_{\mb p}\bb{\eta(i)=1}=p_i$, the sites~$i(P)$,
+$P\in\mathcal E_t$, are distinct. Hence independence of the spins at these
+sites and affinity of~$z\mapsto C(z,P)$ give
+\begin{equation*}
+\mu_{\mb p}\bb{
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+=
+\prod_{P\in\mathcal E_t}
+C\bb{p_{i(P)},P}.
+\end{equation*}
+Therefore
+\begin{equation}
+\label{eq:patch-representation-product-law}
+(\mu_{\mb p}P_t)(\chi_A)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C(P)
+\prod_{P\in\mathcal E_t}C\bb{p_{i(P)},P}
+}.
+\end{equation}
+
+The coarse conditioning on the successful-interaction skeleton performs a
+local signed average before any absolute values are introduced. For a fixed
+skeleton,~$C(P)$ averages~$F(P)$ over all realizations of the omitted marks on
+$P$ that are compatible with its prescribed boundaries, and~$C(z,P)$ does the
+same for an end patch. These realizations may differ in their death marks and,
+for an outgoing initial boundary, in the hidden split or birth kind. Whenever
+the corresponding local factors have opposite signs, they cancel inside the
+patch contribution. Thus later estimates act on the already averaged
+quantities~$C(P)$ and~$C(z,P)$ rather than on the individual graphical
+realizations.
+
+\FloatBarrier
