@@ -11,10 +11,10 @@ patches. The process measure, conditional on their record factorizes by patches 
 \subsection{Signed monomial dual}
 \label{subsec:signed-set-process}
 
-For the monomial~$\chi_A$, the set~$A$ records the sites appearing in the
-monomial. The set-valued dual evolves this set according to the monomials
-produced by the action of generator~$\mathcal{L}$ on~$\chi_A$. We add a sign coordinate so that the same
-construction applies when their coefficients have negative sign.
+For a monomial~$\chi_A$, a set-valued dual tracks the finite set indexing the
+current monomial. We first define a general signed version of this process. The
+death, split, and birth notation below is convenient for the patch construction.
+Its rates and signs will be chosen from the generator~$\Lcal$ afterward.
 
 A signed active set is a pair
 \begin{equation*}
@@ -23,8 +23,8 @@ Y=(A,\sigma)
 \cb{A:A\Subset\Lambda}\times\cb{+,-}.
 \end{equation*}
 We call~$A$ the active set, while~$\sigma$ records the sign multiplying the
-monomial~$\chi_A$. Signs are multiplied in the usual way and act on real numbers by~$+x=x$ and
-$-x=-x$. Fix rates and sign labels
+monomial~$\chi_A$. Signs are multiplied in the usual way and act on real
+numbers by~$+x=x$ and~$-x=-x$. Fix, for now, rates and sign labels
 \begin{equation*}
 \delta_i(S),\ \beta_i(S)\geq0,
 \qquad
@@ -44,11 +44,13 @@ B_{i,S}(A,\sigma)
 \bb{A\cup S,
 \sigma\sigma_i^\beta(S)}.
 \end{align*}
-The update~$D_{i,\varnothing}$ is called a \emph{death};~$D_{i,S}$ with
-$S\neq\varnothing$ is a \emph{split}; and~$B_{i,S}$ with
-$S\neq\varnothing$ is a \emph{birth}. Ignoring the sign coordinate, these
-updates preserve unions, which is the standard notion of additivity for
-set-valued particle systems~\cite{Harris1978,Griffeath1979,Gray1986}. The signed additive set
+These are the usual additive set-valued transitions in a form convenient here.
+The update~$D_{i,\varnothing}$ is a \emph{death}, which removes~$i$. For
+$S\neq\varnothing$, the update~$D_{i,S}$ is a \emph{split}, which replaces~$i$
+by~$S$, and~$B_{i,S}$ is a \emph{birth}, which keeps~$i$ and adds~$S$.
+Ignoring the sign coordinate, these updates preserve unions, which is the
+standard notion of additivity for set-valued particle systems
+\cite{Harris1978,Griffeath1979,Gray1986}. The resulting signed set-valued
 process has generator
 \begin{align*}
 \Dcal g(A,\sigma)
@@ -64,11 +66,11 @@ process has generator
 \bb{g\bb{B_{i,S}(A,\sigma)}-g(A,\sigma)}.
 \end{align*}
 
-\paragraph{Dual rates and signs.}
 \label{subsec:rates-to-dual}
-
-For~$r\in\R$, let~$\operatorname{sgn}_{\pm}(r)$ be~$+$ when~$r\geq0$ and~$-$
-when~$r<0$. For the coefficients in~\eqref{eq:rate-expansion}, set
+For the spin system with generator~$\Lcal$, we now choose these parameters by
+matching the monomials in~$\Lcal\chi_A$. For~$r\in\R$, let
+$\operatorname{sgn}_{\pm}(r)$ be~$+$ when~$r\geq0$ and~$-$ when~$r<0$. For the
+coefficients in~\eqref{eq:rate-expansion}, set
 \begin{equation}
 \label{eq:signed-dual-coefficients}
 a_i^\delta(S)=c_i^0(S),
@@ -77,22 +79,24 @@ a_i^\beta(S)=-c_i^0(S)-c_i^1(S).
 \end{equation}
 In the expansion of~$\Lcal\chi_A$, the~$a_i^\delta(S)$ is the coefficient of
 the monomial indexed by~$\bb{A\setminus\cb{i}}\cup S$, while~$a_i^\beta(S)$
-is the coefficient of the monomial indexed by~$A\cup S$; see
-Appendix~\ref{app:generator-action}. For every~$S\subseteq N(i)$, define
+is the coefficient of the monomial indexed by~$A\cup S$. See
+Appendix~\ref{app:generator-action}. We choose the corresponding rates and
+signs by
 \begin{equation}
 \label{eq:death-split-data}
 \delta_i(S)=\abs{a_i^\delta(S)},
 \qquad
-\sigma_i^\delta(S)=\operatorname{sgn}_{\pm}\bb{a_i^\delta(S)}.
+\sigma_i^\delta(S)=\operatorname{sgn}_{\pm}\bb{a_i^\delta(S)}
 \end{equation}
-For~$S\neq\varnothing$, define
+for every~$S\subseteq N(i)$, and
 \begin{equation}
 \label{eq:birth-data}
 \beta_i(S)=\abs{a_i^\beta(S)},
 \qquad
-\sigma_i^\beta(S)=\operatorname{sgn}_{\pm}\bb{a_i^\beta(S)},
+\sigma_i^\beta(S)=\operatorname{sgn}_{\pm}\bb{a_i^\beta(S)}
 \end{equation}
-and set~$\beta_i(\varnothing)=0$ and~$\sigma_i^\beta(\varnothing)=+$.
+for~$S\neq\varnothing$. As above,~$\beta_i(\varnothing)=0$, and we set
+$\sigma_i^\beta(\varnothing)=+$.
 
 The coefficient~$a_i^\beta(\varnothing)$ corresponds to an empty-target birth,
 which leaves the active set unchanged. It is included in the potential rather
