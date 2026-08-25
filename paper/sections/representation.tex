@@ -16,61 +16,62 @@
 % BLURB A. Why conditioning on the skeleton helps
 %
 % Reader question:
-%   We have defined the successful-interaction skeleton and G_T. What does
-%   conditioning on this information buy us?
+%   We have fixed the successful-interaction skeleton. What information is still
+%   hidden, and why is it useful that this remaining randomness is local?
 %
 % Job:
-%   Connect directly to the previous subsection. Once the skeleton is fixed,
-%   all patch boundaries are fixed. What remains unobserved consists of the
-%   Poisson marks on the individual site intervals and, at an outgoing initial
-%   boundary, the hidden interaction kind. Explain that these pieces are local
-%   to individual patches. The only further requirement is that the local
-%   history on each patch be compatible with the already fixed skeleton.
+%   Say first what G_T reveals and what it does not. It fixes the patch
+%   decomposition and all successful-interaction records up to time T. The
+%   interaction kinds are not recorded, and deaths inside patches are not
+%   revealed. These hidden variables must satisfy a local consistency condition:
+%   the resulting one-site history must have exactly the boundaries prescribed
+%   by the skeleton. Depending on the boundary types, consistency may determine
+%   an interaction kind or rule out some death histories.
 %
-%   Give the reader the mechanism before any local notation:
-%       independent local graphical randomness
-%       -> require compatibility with the fixed patch boundaries
-%       -> independent conditioned patch laws.
+%   State the payoff directly. Conditional on G_T, the remaining randomness
+%   factorizes over patches. We can therefore average compatible local histories
+%   separately on each patch, retaining cancellations between histories with
+%   the same successful-interaction skeleton.
 %
 % Keep out:
 %   Sigma_P, alpha(P), Con(P), and the formal factorization theorem. Do not use
-%   administrative roadmap language.
+%   Poisson-process technicalities here; Blurbs B--D supply them.
 % ============================================================================
 
-Conditioning on~$\mathcal G_T$ fixes every successful interaction, and hence
-every patch boundary, up to time~$T$, while leaving the rest of the graphical
-construction unobserved. The omitted randomness is local to individual patches:
-it consists of the Poisson marks on the patch site between its boundaries and,
-when the patch begins with an outgoing interaction, the interaction kind that
-the skeleton deliberately omitted. These local pieces arise from independent
-Poisson processes on disjoint patch intervals. The fixed skeleton imposes only
-local restrictions on them: the omitted marks must not create additional
-successful interactions inside a patch, and an outgoing terminal boundary must
-occur while its source is active. Consequently, the conditional law is obtained
-by conditioning the original one-patch graphical law on this local
-compatibility condition, independently for each patch.
-{\color{red} Badly written intro, obfuscates the meaning. The remaining randomness in each patch is simpler: the kind of each interaction and deaths inside patches are not revealed. There is also a consistency event that is local and must be satisfied, which sometimes forces the kind/no deaths to be revealed. Also what locality buys us is that the law of the process conditional on~$\mathcal{G}_T$ factorizes per patch. The remaining randomness is averaged which captures cancellations.}
+Conditioning on~$\mathcal G_T$ fixes the patch decomposition and all
+successful-interaction records up to time~$T$, but it does not reveal the full
+local history inside each patch. In particular, the kind of a recorded
+interaction is hidden, and deaths between successive successful interactions
+are not recorded. These hidden variables must be compatible with the fixed
+patch boundaries. Depending on the boundary types, this may determine an
+interaction kind or rule out some death histories. The key point is that these
+constraints are local to individual patches. Conditional on~$\mathcal G_T$,
+the remaining randomness factorizes over patches, so the compatible local
+histories can be averaged separately. This averaging retains cancellations
+between different histories with the same successful-interaction skeleton.
+
 % ============================================================================
 % BLURB B. Reference law on one patch
 %
 % Reader question:
-%   Before imposing compatibility with the skeleton, what randomness belongs to
-%   a single patch and how does that randomness determine the site's activity?
+%   Before imposing the boundary constraints, what is the local law of the
+%   hidden randomness on one patch and how does it determine the site's active
+%   history?
 %
 % Job:
-%   Fix a patch P. Define its interior outgoing marks Sigma_P^circ and the
-%   product Poisson reference law inherited from the graphical construction.
-%   If the initial boundary is incoming, there is no hidden boundary mark on
-%   the patch site. If it is outgoing, the skeleton specifies source, time, and
-%   target but has forgotten the kind alpha(P); recover its conditional law from
-%   the delta and beta intensities. Define the complete local mark collection
-%   Sigma_P and write P_P, E_P for its reference law and expectation.
+%   Fix a patch P. Define the local mark collection inherited from the graphical
+%   construction. Its interior marks include the deaths and the other outgoing
+%   marks on the patch site between the two boundaries. If the initial boundary
+%   is outgoing, the skeleton has also forgotten whether that recorded
+%   interaction was a split or a birth; denote this kind by alpha(P) and give
+%   its law from the delta and beta intensities. If the initial boundary is
+%   incoming, there is no hidden boundary kind attached to this patch.
 %
-%   Define X^P directly under this reference law as the one-site active process
-%   generated by Sigma_P. State its initial value and the local update rules.
-%   Avoid first defining X^P as a restriction of the global path and then
-%   redefining it under the reference law. The relation to the global path is
-%   established later through consistency and factorization.
+%   Define Sigma_P^circ, Sigma_P, and the reference law P_P and expectation E_P.
+%   Then define X^P directly under this reference law as the one-site active
+%   process generated by the local marks. State its initial value and update
+%   rules. This is the unconditioned local law; compatibility with the observed
+%   patch boundaries is imposed only in Blurb C.
 %
 % Formatting:
 %   Do not introduce an isolated display merely to abbreviate i(P), s(P), e(P),
@@ -81,8 +82,8 @@ compatibility condition, independently for each patch.
 % BLURB C. Consistency with the fixed skeleton
 %
 % Reader question:
-%   Which one-site histories under the reference law are compatible with this
-%   patch actually occurring in the fixed successful-interaction skeleton?
+%   Which local histories from the reference law actually give the patch
+%   boundaries already observed in the skeleton?
 %
 % Job:
 %   Explain consistency in prose before the formula. Every interior
@@ -90,12 +91,15 @@ compatibility condition, independently for each patch.
 %   it would create an additional successful interaction inside the patch. If
 %   the terminal boundary is outgoing, the site must be active immediately
 %   before the endpoint so that the recorded outgoing interaction is
-%   successful. Incoming and end terminal boundaries impose no analogous
-%   terminal condition.
+%   successful. These conditions can force the hidden initial interaction kind
+%   or exclude death histories, depending on the boundary type. Incoming and end
+%   terminal boundaries impose no analogous terminal condition.
 %
 %   Define Con(P), then the consistent patch law P_P^con and expectation
 %   E_P^con. State cleanly that for patches arising from the graphical
-%   construction the consistency probability is positive almost surely.
+%   construction the consistency probability is positive almost surely. Make
+%   clear that P_P^con is simply the reference one-patch law conditioned on
+%   producing the prescribed patch boundaries.
 %
 %   Insert paper/sections/patch-interior-figure here. Rewrite its caption around
 %   the mathematical content: the left object in each row gives the prescribed
