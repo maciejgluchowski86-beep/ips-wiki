@@ -12,37 +12,37 @@
 % BLURB A. Why retain a successful-interaction skeleton
 %
 % Reader question:
-%   What information from the full graphical construction matters for the patch
-%   decomposition, and why do we discard the rest?
+%   What information from the full graphical construction should we condition
+%   on so that all interactions between sites are fixed while local randomness
+%   remains available to average?
 %
 % Job:
-%   Start from the graphical construction in the previous subsection. Explain
-%   that nonempty-target marks which occur at active sources are the events that
-%   transmit dependence between site lines. The patch construction retains the
-%   source, time, and target of these cross-site interactions. Once these are
-%   fixed, the remaining marks act locally on the intervals between them and can
-%   later be averaged patch by patch.
-%
-%   Give the reader the picture before any formal definition:
-%       full graphical construction
-%       -> retained cross-site interaction skeleton
-%       -> consecutive intervals on each site line = patches.
+%   Motivate the skeleton as coarse conditioning information. Explain that an
+%   actual interaction between distinct sites occurs exactly when a nonempty-
+%   target mark rings at an active source. To determine such an interaction it
+%   is enough to retain its source, time, and target. Deliberately forget its
+%   kind: for fixed source/time/target, birth and split involve the same sites
+%   and differ only in the resulting state of the source. Also omit deaths and
+%   inactive-source rings. Once these records are fixed, their times divide each
+%   site line into intervals within which the omitted randomness is local.
 %
 % Keep out:
 %   The formal definition of I_T, the patch labels, and the finite-horizon
-%   truncation. Avoid vague phrases such as "retain the information needed" with
-%   no explanation of what that information is.
+%   truncation. Do not claim a formal minimality theorem for the sigma-algebra.
 % ============================================================================
 
-The full graphical construction contains many marks that do not connect
-different site lines. Deaths affect only their source site, and marks at
-inactive sources do not change the dual. By contrast, a nonempty-target mark at
-an active source links its source to the sites in its target {\color{red} Bad description, abnormal language and leaves reader confused what is the point. The point is we're trying to find a minimal sigma algebra that suffices to determine all interactions between sites and we want to argue that the right choice is all interactions at active points, but not their kinds, and not deaths. Right now the construction is unmotivated.}. The patch
-construction retains the source, time, and target of exactly these cross-site
-interactions. Once they are fixed, each site line is divided into intervals
-between consecutive retained interactions, and the remaining randomness acts
-within individual intervals. We call the retained record the
-successful-interaction skeleton and these site-time intervals patches.
+We now choose coarse information from the graphical construction on which to
+condition. It should determine every interaction between distinct sites while
+leaving local randomness unobserved. A positive-time interaction between sites
+occurs exactly when a mark with nonempty target rings at an active source. To
+specify such an interaction, it is enough to retain its source, time, and
+target. We do not retain its kind~$\alpha$: for fixed~$(i,t,S)$, a birth and a
+split involve the same source and target sites and differ only in the resulting
+state of the source. We also omit deaths, whose target is empty, and rings at
+inactive sources, which do not change the dual. The retained records will form
+the successful-interaction skeleton. Once this skeleton is fixed, its
+interaction times divide each site line into consecutive intervals, the
+patches, within which the omitted randomness is local.
 
 % ============================================================================
 % BLURB B. Successful interactions, skeleton, and conditioning information
