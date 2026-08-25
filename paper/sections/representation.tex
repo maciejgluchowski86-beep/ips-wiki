@@ -311,85 +311,59 @@ conditional-law statement.
 % BLURB E. Patch contributions and proof of the representation
 %
 % Reader question:
-%   What local quantity is averaged on each patch, and how do these local
-%   averages reconstruct the Feynman--Kac dual representation?
+%   How does patch factorization turn the Feynman--Kac duality into the patch
+%   representation of P_t chi_A?
 %
 % Job:
-%   Define the local sign sigma(P). For a bulk patch define F(P) as its local
-%   sign times its local Feynman--Kac weight and C(P) as the expectation under
-%   the consistent patch law. For an end patch define F(z,P) by including the
-%   terminal factor z^{X_t^P}, and define C(z,P). Explain before or alongside
-%   the formulas what these quantities mean. State that z -> C(z,P) is affine.
-%   Keep explicit boundary-type formulas in the appendix.
+%   Recall the Feynman--Kac random variable whose expectation is P_t chi_A.
+%   Explain that Theorem [Patch factorization] can be applied once this random
+%   variable is written as a product of quantities depending on individual
+%   patches. Split its sign, potential integral, and terminal monomial over the
+%   patch decomposition. Package these pieces into F(P) and F(z,P), and define
+%   C(P) and C(z,P) as their expectations under the consistent patch laws.
 %
-%   Then prove Theorem~\ref{thm:patch-representation}. On the graphical space,
-%   split the global dual random variable into:
-%       (1) the product of the patch signs,
-%       (2) the sum of the patch Feynman--Kac integrals,
-%       (3) the terminal monomial over the end patches.
-%   Combine these into the pathwise patch factorization. Condition on G_t, apply
-%   patch factorization, then take expectation and use monomial duality.
-%
-% Main-text principle:
-%   The reader should see here exactly why the entire construction pays off.
-%   Keep the structural identities; defer only routine local calculations.
+%   State the resulting pathwise product and prove
+%   Theorem~\ref{thm:patch-representation} by conditioning on G_t, applying patch
+%   factorization, taking expectation, and using monomial duality. Keep explicit
+%   boundary-type formulas in the appendix.
 % ============================================================================
-{\color{red} Reader should be reminded what the goal is now: the representation of~$P_t(\chi_A)$ i.e. the Theorem A. The constructions below should be explicitly motivated by the factorization theorem above, by splitting the FK duality equation random variable into contribution from each patch. It would be good to write that random variable to remind the reader.}
-We now attach to each patch the part of the signed Feynman--Kac variable carried
-by that patch. If the initial boundary is outgoing, it is a successful
-interaction whose split or birth kind is~$\alpha(P)$ and whose sign must be
-included. An incoming initial boundary contributes no sign. Thus set
+
+We now return to the goal of this section, the representation of
+$P_t\chi_A(\eta)$ in Theorem~\ref{thm:patch-representation}. For fixed
+$t\geq0$ and~$\eta\in\Omega$, write the random variable in the Feynman--Kac
+duality as
+\begin{equation*}
+Z_t^\eta
+=
+\sigma_t
+\exp\bb{\int_0^tV(A_u)\,du}
+\chi_{A_t}(\eta),
+\qquad
+P_t\chi_A(\eta)=\E_A\Cb{Z_t^\eta}.
+\end{equation*}
+Theorem~\ref{thm:patch-factorization} applies once~$Z_t^\eta$ is written as a
+product of factors depending on individual patches. We therefore split its
+sign, Feynman--Kac integral, and terminal monomial over the patch decomposition.
+
+Each successful nonempty-target interaction contributes its sign to the
+outgoing patch beginning at its source. Empty-target deaths have positive sign
+because~$a_i^\delta(\varnothing)=c_i^0(\varnothing)\geq0$. Thus define
 \begin{equation*}
 \sigma(P)
 =
 \pw{+}{\mathsf X(P)=\mathsf I}
-{\sigma_{i(P)}^{\alpha(P)}\bb{S(P)}}{\mathsf X(P)=\mathsf O}.
+{\sigma_{i(P)}^{\alpha(P)}\bb{S(P)}}{\mathsf X(P)=\mathsf O},
 \end{equation*}
-For~$P\in\mathcal P$, define its local signed Feynman--Kac factor and its
-consistent-patch average by
+so that
 \begin{equation*}
-F(P)
-=
-\sigma(P)
-\exp\bb{
-V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
-},
-\qquad
-C(P)=\E_P^{\mathrm{con}}\Cb{F(P)}.
-\end{equation*}
-When~$e(P)=\infty$, the exponential is interpreted as the limit over finite
-upper endpoints. For an end patch~$P\in\mathcal E_t$, the terminal spin also
-belongs to the local factor. For~$z\in[0,1]$, set
-\begin{equation*}
-F(z,P)
-=
-\sigma(P)
-\exp\bb{
-V_{i(P)}\int_{s(P)}^tX_u^P\,du
-}
-z^{X_t^P},
-\qquad
-C(z,P)=\E_P^{\mathrm{con}}\Cb{F(z,P)}.
-\end{equation*}
-Since~$X_t^P\in\cb{0,1}$, the map~$z\mapsto C(z,P)$ is affine. Explicit
-formulas for~$C(P)$ and~$C(z,P)$ for each boundary type are given in
-Appendix~\ref{app:contribution-formulas}.
-
-\begin{proof}[Proof of Theorem~\ref{thm:patch-representation}]
-Fix~$t\geq0$ and~$\eta\in\Omega$. On the graphical probability space, the
-three parts of the Feynman--Kac variable in
-\eqref{eq:monomial-feynman-kac-duality-preview} split over the patch
-decomposition. Every successful nonempty-target interaction contributes its
-sign to the unique outgoing patch beginning at its source. Empty-target deaths
-have positive sign because~$a_i^\delta(\varnothing)=c_i^0(\varnothing)\geq0$.
-Moreover,~$V(A_u)=\sum_{i\in A_u}V_i$, and the end patches record the active set
-at time~$t$. Hence
-\begin{align*}
 \sigma_t
-&=
+=
 \prod_{P\in\mathcal B_t}\sigma(P)
-\prod_{P\in\mathcal E_t}\sigma(P),
-\\
+\prod_{P\in\mathcal E_t}\sigma(P).
+\end{equation*}
+Since~$V(A_u)=\sum_{i\in A_u}V_i$, the patch intervals split the potential
+integral, while the end patches describe the active set at time~$t$. Hence
+\begin{align*}
 \int_0^tV(A_u)\,du
 &=
 \sum_{P\in\mathcal B_t}
@@ -403,29 +377,59 @@ V_{i(P)}\int_{s(P)}^tX_u^P\,du,
 \prod_{P\in\mathcal E_t}
 \eta\bb{i(P)}^{X_t^P}.
 \end{align*}
-Combining the three identities gives the pathwise factorization
+
+These are exactly the pieces that enter the local patch factors. For a full
+patch~$P\in\mathcal P$, set
+\begin{equation*}
+F(P)
+=
+\sigma(P)
+\exp\bb{
+V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
+}.
+\end{equation*}
+When~$e(P)=\infty$, the exponential is interpreted as the limit over finite
+upper endpoints. For an end patch~$P\in\mathcal E_t$ and~$z\in[0,1]$, include
+the terminal factor and set
+\begin{equation*}
+F(z,P)
+=
+\sigma(P)
+\exp\bb{
+V_{i(P)}\int_{s(P)}^tX_u^P\,du
+}
+z^{X_t^P}.
+\end{equation*}
+The preceding identities now give the pathwise factorization
 \begin{equation}
 \label{eq:pathwise-patch-factorization}
-\sigma_t
-\exp\bb{\int_0^tV(A_u)\,du}
-\chi_{A_t}(\eta)
+Z_t^\eta
 =
 \prod_{P\in\mathcal B_t}F(P)
 \prod_{P\in\mathcal E_t}F\bb{\eta\bb{i(P)},P}.
 \end{equation}
-By~\eqref{eq:fk-integrability}, we may condition this identity on
-$\mathcal G_t$. Theorem~\ref{thm:patch-factorization} then gives
+Patch factorization tells us to average each local factor under its consistent
+patch law. We therefore define
 \begin{equation*}
-\CE{
-\sigma_t
-\exp\bb{\int_0^tV(A_u)\,du}
-\chi_{A_t}(\eta)
-}{\mathcal G_t}
+C(P)=\E_P^{\mathrm{con}}\Cb{F(P)},
+\qquad
+C(z,P)=\E_P^{\mathrm{con}}\Cb{F(z,P)}.
+\end{equation*}
+Since~$X_t^P\in\cb{0,1}$, the map~$z\mapsto C(z,P)$ is affine. Explicit
+formulas for~$C(P)$ and~$C(z,P)$ for each boundary type are given in
+Appendix~\ref{app:contribution-formulas}.
+
+\begin{proof}[Proof of Theorem~\ref{thm:patch-representation}]
+By~\eqref{eq:fk-integrability}, we may condition
+\eqref{eq:pathwise-patch-factorization} on~$\mathcal G_t$.
+Theorem~\ref{thm:patch-factorization} gives
+\begin{equation*}
+\CE{Z_t^\eta}{\mathcal G_t}
 =
 \prod_{P\in\mathcal B_t}C(P)
 \prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}.
 \end{equation*}
-Taking expectation and applying Theorem~\ref{thm:monomial-duality} proves
+Taking expectation and using Theorem~\ref{thm:monomial-duality} yields
 \eqref{eq:patch-representation}. The assertion for a general initial law is
 derived below.
 \end{proof}
