@@ -141,6 +141,76 @@ finite almost surely.
 %   duplicate unexplained formulas. Do not use a \paragraph heading.
 % ============================================================================
 
+A positive-time record~$(j,t,S)\in\mathcal I$ is outgoing at its source~$j$
+and incoming at every site in~$S$. The initial record~$(\infty,0,A_0)$ has no
+site as its source and supplies an incoming interaction at time~$0$ for each
+site in~$A_0$. Thus, on each site line, the successful interactions divide time
+into consecutive intervals. Each such interval begins with an incoming or
+outgoing interaction and ends at the next successful interaction involving that
+site, if there is one.
+
+For~$i\in\Lambda$, let
+\begin{align*}
+\mathcal T^{\mathsf I}(i)
+&=
+\cb{t\geq0:(j,t,S)\in\mathcal I
+  \text{ for some }j,S\text{ with }i\in S},
+\\
+\mathcal T^{\mathsf O}(i)
+&=
+\cb{t>0:(i,t,S)\in\mathcal I\text{ for some }S},
+\end{align*}
+and set
+\begin{equation*}
+\mathcal T(i)=\mathcal T^{\mathsf I}(i)\cup\mathcal T^{\mathsf O}(i).
+\end{equation*}
+For~$s\in\mathcal T(i)$, the next successful interaction involving~$i$ occurs
+at
+\begin{equation*}
+e_i(s)=\inf\cb{u>s:u\in\mathcal T(i)},
+\qquad
+\inf\varnothing=\infty.
+\end{equation*}
+
+\begin{definition}[Patch]
+\label{def:patch}
+Let~$(j,s,S)\in\mathcal I$ be a record for which~$i=j$ or~$i\in S$. The patch
+beginning at~$(i,s)$ is
+\begin{equation*}
+P=
+\bb{i(P),[s(P),e(P)),\mathsf X(P)\mathsf Y(P),S(P)},
+\end{equation*}
+where
+\begin{equation*}
+i(P)=i,
+\qquad
+s(P)=s,
+\qquad
+e(P)=e_i(s),
+\qquad
+S(P)=S.
+\end{equation*}
+The initial label~$\mathsf X(P)$ records whether the interaction at~$s(P)$ is
+incoming or outgoing:
+\begin{equation*}
+\mathsf X(P)=
+\pw{\mathsf I}{i(P)\in S(P)}{\mathsf O}{i(P)\notin S(P)}.
+\end{equation*}
+The terminal label~$\mathsf Y(P)$ records the next successful interaction on
+the same site line, with~$\mathsf E$ meaning that there is no such interaction:
+\begin{equation*}
+\mathsf Y(P)=
+\pwthree
+{\mathsf I}{e(P)<\infty\text{ and }e(P)\in\mathcal T^{\mathsf I}\bb{i(P)}}
+{\mathsf O}{e(P)<\infty\text{ and }e(P)\in\mathcal T^{\mathsf O}\bb{i(P)}}
+{\mathsf E}{e(P)=\infty}.
+\end{equation*}
+\end{definition}
+
+Let~$\mathcal P$ be the family of all patches. For this infinite-horizon family,
+a patch with terminal label~$\mathsf E$ is infinite, while a patch with terminal
+label~$\mathsf I$ or~$\mathsf O$ is finite.
+
 % ============================================================================
 % BLURB D. Finite-horizon patches and the figure
 %
