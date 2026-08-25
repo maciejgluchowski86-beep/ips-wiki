@@ -127,36 +127,42 @@ $\delta$-mark sets~$X_u^P=0$ and a~$\beta$-mark leaves~$X_u^P=1$; when
 $X_{u-}^P=0$, either mark leaves~$X_u^P=0$. Between marks,~$X^P$ is constant.
 For a finite patch with terminal label~$\mathsf E$, set~$X_e^P=X_{e-}^P$.
 
-% ============================================================================
-% BLURB C. Consistency with the fixed skeleton
-%
-% Reader question:
-%   Which realizations of the local marks are compatible with the patch
-%   boundaries already fixed by the skeleton?
-%
-% Job:
-%   Explain consistency in prose before the formula. Every interior
-%   nonempty-target mark must occur while the patch site is inactive; otherwise
-%   it would create an additional successful interaction inside the patch. If
-%   the terminal boundary is outgoing, the site must be active immediately
-%   before the endpoint so that the recorded outgoing interaction is
-%   successful. These conditions can force the hidden initial interaction kind
-%   or exclude a death, depending on the boundary type. Incoming and end
-%   terminal boundaries impose no analogous terminal condition.
-%
-%   Define Con(P), then the consistent patch law P_P^con and expectation
-%   E_P^con. State cleanly that for patches arising from the graphical
-%   construction the consistency probability is positive almost surely. Make
-%   clear that P_P^con is simply the reference one-patch law conditioned on
-%   producing the prescribed patch boundaries.
-%
-%   Insert paper/sections/patch-interior-figure here. Rewrite its caption around
-%   the mathematical content: the left object in each row gives the prescribed
-%   patch boundaries and the objects to the right give the possible realizations
-%   of the one-site process X^P compatible with them. Avoid implementation
-%   language such as "striped prism" and "gray volume" except where genuinely
-%   needed to decode the picture.
-% ============================================================================
+Not every realization under~$\pP_P$ is compatible with the patch boundaries
+fixed by the skeleton. An interior mark with nonempty target would be a
+successful interaction whenever the patch site is active immediately before
+it, and would therefore create an additional patch boundary. Hence every such
+mark must occur with~$X_{u-}^P=0$. If the terminal boundary is outgoing, the
+recorded interaction must itself be successful, so~$X_{e-}^P=1$. There is no
+additional endpoint condition for an incoming or end boundary. We therefore
+define the consistency event
+\begin{equation*}
+\operatorname{Con}(P)
+=
+\cb{
+\begin{aligned}
+X_{u-}^P=0
+&\quad\text{for every }(i,u,\gamma,R)\in\Sigma_P^\circ\\[-0.2em]
+&\quad\text{with }R\neq\varnothing
+\end{aligned}
+}
+\cap
+\pw{\cb{X_{e-}^P=1}}{\mathsf Y(P)=\mathsf O}
+{\Omega_P}{\mathsf Y(P)\in\cb{\mathsf I,\mathsf E}},
+\end{equation*}
+where~$\Omega_P$ is the sample space of the reference patch law. Depending on
+the boundary types, this condition can determine the hidden initial interaction
+kind or exclude deaths inside the patch.
+
+For almost every patch arising from the graphical construction,
+$\pP_P\bb{\operatorname{Con}(P)}>0$. Its consistent patch law is
+\begin{equation*}
+\pP_P^{\mathrm{con}}(\cdot)
+=
+\pP_P\bb{\,\cdot\,\middle|\,\operatorname{Con}(P)},
+\end{equation*}
+and~$\E_P^{\mathrm{con}}$ denotes expectation under this law.
+
+\input{paper/sections/patch-interior-figure}
 
 % ============================================================================
 % BLURB D. Conditional factorization
