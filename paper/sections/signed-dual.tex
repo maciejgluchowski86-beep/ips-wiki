@@ -9,39 +9,13 @@ patches. The process measure, conditional on their, record factorizes by patches
 \subsection{Signed monomial dual}
 \label{subsec:signed-set-process}
 
-% Previous version preserved in
-% paper/revision-reference/section-4-1-signed-monomial-dual.tex.
-
-% ============================================================================
-% BLURB A. What the dual represents
-%
-% Reader question:
-%   What quantity is the dual representing, what should the duality formula
-%   look like, and what does the finite set in the dual mean?
-%
-% Job:
-%   Start from P_t chi_A(eta) as the expected product of the spins in A at the
-%   observation time. Display the target Feynman--Kac representation before
-%   defining its ingredients in detail. Explain that A_s traces backward the
-%   sites in the past on which the observable depends, sigma_s records the sign,
-%   and V is the Feynman--Kac potential. Place the finite-set process in the
-%   standard additive/set-valued duality framework for spin systems.
-%
-% Reader takeaway:
-%   The object being represented is P_t chi_A. The rest of the subsection
-%   constructs the process and potential appearing in the displayed formula.
-%
-% Keep out for now:
-%   The death/split/birth formulas and the specific rates coming from Lcal.
-% ============================================================================
-
 Let~$\cb{\eta_t}_{t\geq 0}$ be the stochastic process given by the spin system generator~$\mathcal{L}$. For~$A\Subset\Lambda$,
 \begin{equation*}
 P_t\chi_A(\eta)
 =
 \E_\eta\Cb{\prod_{i\in A}\eta_t(i)}.
 \end{equation*}
-We represent the dependence of~$\eta_t$ on the initial configuration by a signed
+We represent the dependence of this observable on the initial configuration by a signed
 set-valued process. The representation constructed below is
 \begin{equation}
 \label{eq:monomial-feynman-kac-duality-preview}
@@ -55,30 +29,9 @@ P_t\chi_A(\eta)
 \end{equation}
 Here~$A_s$ traces the dependence backward from the sites in~$A$ at the
 observation time,~$\sigma_s\in\cb{+,-}$ records the accumulated sign, and~$V$
-is a Feynman--Kac potential. Set-valued duals of this kind are standard for spin
-systems~\cite{Harris1978,Griffeath1979,Gray1986}. We now define the signed
-process and the potential in~\eqref{eq:monomial-feynman-kac-duality-preview}.
-
-% ============================================================================
-% BLURB B. General signed set-valued process
-%
-% Reader question:
-%   What is the general process we use, and what do its possible jumps do?
-%
-% Job:
-%   Define a signed active set Y=(A,sigma), with A the active set and sigma the
-%   accumulated sign. Introduce generic nonnegative rates and sign labels. Give
-%   the D and B updates and explain them plainly as death, split, and birth.
-%   State that this is a convenient parametrization of the standard additive
-%   set-valued dynamics used in spin-system duality, with appropriate references
-%   to Harris, Griffeath, and Gray. Then give the generator Dcal.
-%
-% Important framing:
-%   The rates in this blurb are generic parameters. They are not yet the rates
-%   of the dual associated with the spin system Lcal. The exact death/split/birth
-%   notation is chosen for this paper and should not be presented as standard
-%   notation from the literature.
-% ============================================================================
+is a Feynman--Kac potential. Set-valued duals for spin systems are standard
+~\cite{Harris1978,Griffeath1979,Gray1986}. We now define the signed process and
+the potential in~\eqref{eq:monomial-feynman-kac-duality-preview}.
 
 We use the following parametrization of a signed additive set-valued process. A
 state is
@@ -147,20 +100,7 @@ The generator is
 \end{align*}
 At this stage the rates and sign labels are arbitrary. We next choose them from
 $\Lcal$.
-% ============================================================================
-% BLURB C. Generator action and the dual coefficients
-%
-% Reader question:
-%   Why do the jumps above have the right form for the spin system, and which
-%   coefficients determine them?
-%
-% Job:
-%   State the expansion of Lcal chi_A, define the two coefficient families, and
-%   identify the corresponding active-set changes. The main text should show the
-%   reader the structure of the dual, not repeat the coefficient calculation.
-%   Refer to the appendix for the derivation.
-% ============================================================================
-\label{subsec:rates-to-dual}
+
 Expanding~$\Lcal\chi_A$ in the monomial basis gives
 \begin{equation}
 \label{eq:signed-dual-generator-expansion}
@@ -179,42 +119,14 @@ a_i^\delta(S)=c_i^0(S),
 \qquad
 a_i^\beta(S)=-c_i^0(S)-c_i^1(S).
 \end{equation}
-Thus the first family of terms has the active-set change
-\begin{equation*}
-A\longmapsto \bb{A\setminus\cb{i}}\cup S,
-\end{equation*}
-and the second has
-\begin{equation*}
-A\longmapsto A\cup S.
-\end{equation*}
-These are precisely the~$D_{i,S}$ and~$B_{i,S}$ updates from above. For the
-second family,~$S=\varnothing$ leaves~$A$ unchanged and is therefore a diagonal
+The two sums correspond to the~$D_{i,S}$ and~$B_{i,S}$ updates above. In the
+second sum,~$S=\varnothing$ leaves~$A$ unchanged and is therefore a diagonal
 term. The derivation of~\eqref{eq:signed-dual-generator-expansion} is given in
 Appendix~\ref{app:generator-action}.
 
-% ============================================================================
-% BLURB D. Rates, signs, and the Feynman--Kac potential
-%
-% Reader question:
-%   How are signed generator coefficients turned into a Markov jump process,
-%   and where does the potential come from?
-%
-% Job:
-%   Take absolute values of the nonzero-transition coefficients to obtain jump
-%   rates and record their signs in the sign labels. Explain separately the
-%   beta term with S=empty: it leaves A unchanged, so it is a diagonal term and
-%   is not represented by a jump. Define V(A) and explain that it also restores
-%   the diagonal rate terms introduced when the coefficient expansion is written
-%   as a Markov generator. Record the uniform bounds on jump rates and V_i that
-%   follow from the standing assumptions.
-%
-% Avoid:
-%   The phrase "empty-target birth". Nothing jumps in that case.
-% ============================================================================
-
 For~$r\in\R$, let~$\operatorname{sgn}_{\pm}(r)$ be~$+$ for~$r\geq0$ and~$-$
-for~$r<0$. We realize each non-diagonal coefficient in
-\eqref{eq:signed-dual-generator-expansion} as a jump rate together with a sign:
+for~$r<0$. We realize the coefficients~$a_i^\delta(S)$ and, for
+$S\neq\varnothing$,~$a_i^\beta(S)$ as jump rates together with signs:
 \begin{equation}
 \label{eq:death-split-data}
 \delta_i(S)=\abs{a_i^\delta(S)},
@@ -244,42 +156,9 @@ V_i=
 +
 a_i^\beta(\varnothing).
 \end{equation}
-The standing bounds on the neighbourhood sizes and flip rates imply
-\begin{equation*}
-\sup_{i\in\Lambda}
-\bb{
-\sum_{S\subseteq N(i)}\delta_i(S)
-+
-\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}\beta_i(S)
-+
-\abs{V_i}
-}
-<\infty.
-\end{equation*}
-In particular, the dual has uniformly bounded jump rate per active site, and
-each jump activates at most~$\sup_i\abs{N(i)}$ new sites.
+The standing bounds on the neighbourhood sizes and flip rates imply that the
+total dual jump rate per active site and~$\abs{V_i}$ are uniformly bounded.
 
-% ============================================================================
-% BLURB E. Feynman--Kac representation
-%
-% Reader question:
-%   What exact representation of P_t chi_A does this construction give?
-%
-% Job:
-%   Define H((A,sigma),eta)=sigma chi_A(eta), and define P_A and E_A for the
-%   dual started from (A,+). State the generator identity and the resulting
-%   Feynman--Kac representation under condition (FK). Make clear that this is
-%   standard Feynman--Kac duality specialized to the process just constructed,
-%   with a reference to the general duality literature. Point to the appendix
-%   only for the coefficient check in our notation.
-%
-% Keep out:
-%   Discussion of the finite-volume proof or the domination used to pass to
-%   infinite volume. The main text only needs the representation and its stated
-%   integrability assumption.
-% ============================================================================
-
-\label{subsec:monomial-duality}
 For~$Y=(A,\sigma)$, define
 \begin{equation}
 \label{eq:monomial-duality-function}
@@ -315,20 +194,6 @@ This is the standard Feynman--Kac duality relation for the signed process above;
 see, for example,~\cite{JansenKurt2014}. The coefficient check in our notation
 and the verification of~\eqref{eq:monomial-feynman-kac-duality} are given in
 Appendix~\ref{app:dual-calculation}.
-
-% ============================================================================
-% BLURB F. Effect of pure deaths
-%
-% Reader question:
-%   How does the pure-death perturbation introduced in Section~\ref{sec:setup}
-%   change the dual representation?
-%
-% Job:
-%   Record Ncal^0 chi_A=-|A| chi_A. Conclude that adding epsilon Ncal^0 leaves
-%   all dual jumps unchanged and shifts the potential from V(A) to
-%   V(A)-epsilon|A|. This fact is used later and should be stated without
-%   redefining pure deaths.
-% ============================================================================
 
 The pure-death generator from Section~\ref{sec:setup} acts diagonally on
 monomials:
