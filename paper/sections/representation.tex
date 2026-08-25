@@ -39,16 +39,13 @@
 % ============================================================================
 
 Conditioning on~$\mathcal G_T$ fixes the patch decomposition and all
-successful-interaction records up to time~$T$, but it does not reveal the full
-local history inside each patch. In particular, the kind of a recorded
-interaction is hidden, and deaths between successive successful interactions
-are not recorded. These hidden variables must be compatible with the fixed
+successful-interaction records up to time~$T$, but it does not reveal the kind of a recorded
+interaction and deaths between successive successful interactions. These hidden variables must however be compatible with the fixed
 patch boundaries. Depending on the boundary types, this may determine an
-interaction kind or rule out some death histories. The key point is that these
+interaction kind or rule out some deaths. The key point is that these
 constraints are local to individual patches. Conditional on~$\mathcal G_T$,
-the remaining randomness factorizes over patches, so the compatible local
-histories can be averaged separately. This averaging retains cancellations
-between different histories with the same successful-interaction skeleton.
+the remaining randomness factorizes over patches and can be explicitly averaged. This averaging retains cancellations
+between different histories with the same successful-interaction skeleton. {\color{red} Abnormal language everywhere. "histories" wtf. Also again you talk of cancellations but the reader doesnt know where or what.}
 
 % ============================================================================
 % BLURB B. Reference law on one patch
