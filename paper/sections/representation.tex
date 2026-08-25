@@ -77,6 +77,61 @@ randomness factorizes over the patches.
 %   and S(P). Keep notation economical.
 % ============================================================================
 
+Fix a patch~$P$, and write~$i=i(P)$,~$s=s(P)$,~$e=e(P)$, and~$S=S(P)$.
+We first put the original graphical law on the marks associated with~$P$,
+before imposing the boundary conditions encoded by its labels. The interior
+marks are the interactions outgoing from~$i$ strictly between the two
+boundaries:
+\begin{equation*}
+\Sigma_P^\circ
+=
+\cb{(i,u,\gamma,R)\in I:s<u<e}.
+\end{equation*}
+For each~$R$, the~$(\delta,R)$ and~$(\beta,R)$ marks in~$(s,e)$ are independent
+Poisson processes with rates~$\delta_i(R)$ and~$\beta_i(R)$, respectively.
+
+The reference patch law~$\pP_P$ also accounts for the initial boundary. If
+$\mathsf X(P)=\mathsf I$, this boundary is incoming, so there is no outgoing
+mark at~$i$ to add and we set~$\Sigma_P=\Sigma_P^\circ$. If
+$\mathsf X(P)=\mathsf O$, the boundary record specifies the target~$S$ but not
+whether the interaction is a split or a birth. Let
+$\alpha(P)\in\cb{\delta,\beta}$ denote this kind. Under~$\pP_P$ it is
+independent of~$\Sigma_P^\circ$ and has law
+\begin{equation}
+\label{eq:patch-initial-kind-law}
+\pP_P\bb{\alpha(P)=\delta}
+=
+\frac{\delta_i(S)}{\delta_i(S)+\beta_i(S)},
+\qquad
+\pP_P\bb{\alpha(P)=\beta}
+=
+\frac{\beta_i(S)}{\delta_i(S)+\beta_i(S)}.
+\end{equation}
+In this case,
+\begin{equation*}
+\Sigma_P
+=
+\Sigma_P^\circ\cup\cb{(i,s,\alpha(P),S)}.
+\end{equation*}
+Thus~$\pP_P$ is the product of the interior Poisson law and, for an outgoing
+initial boundary, the law in~\eqref{eq:patch-initial-kind-law}. Write~$\E_P$
+for expectation under~$\pP_P$.
+
+The marks in~$\Sigma_P$ determine a one-site process~$X^P\in\cb{0,1}$, where
+$X_u^P=1$ means that the patch site is active at time~$u$. Its initial value is
+\begin{equation*}
+X_s^P
+=
+\pw{1}{\mathsf X(P)=\mathsf I}
+{\ind\cb{\alpha(P)=\beta}}{\mathsf X(P)=\mathsf O}.
+\end{equation*}
+The interior marks are then read in chronological order. When~$X_{u-}^P=1$, a
+$\delta$-mark sets~$X_u^P=0$ and a~$\beta$-mark leaves~$X_u^P=1$; when
+$X_{u-}^P=0$, either mark leaves~$X_u^P=0$. Between marks the process is
+constant. For a finite patch with terminal label~$\mathsf E$, set
+$X_e^P=X_{e-}^P$. The law~$\pP_P$ does not yet impose that these marks produce
+the patch boundaries fixed by the skeleton.
+
 % ============================================================================
 % BLURB C. Consistency with the fixed skeleton
 %
