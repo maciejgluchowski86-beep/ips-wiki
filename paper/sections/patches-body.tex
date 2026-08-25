@@ -69,6 +69,46 @@ patches, within which the omitted randomness is local.
 %   No paragraph heading is needed.
 % ============================================================================
 
+\begin{definition}[Successful interaction and its record]
+\label{def:successful-interaction}
+The deterministic initial interaction~$\iota_0$ from
+\eqref{eq:initial-interaction} is declared successful and has record
+\begin{equation*}
+(\infty,0,A_0).
+\end{equation*}
+A positive-time interaction~$(i,t,\alpha,S)\in I^{\mathrm P}$ is
+\emph{successful} when
+\begin{equation*}
+S\neq\varnothing
+\qquad\text{and}\qquad
+i\in A_{t-}.
+\end{equation*}
+Its successful-interaction record is~$(i,t,S)$. Thus the record remembers the
+source, time, and target of the interaction, but not its kind~$\alpha$.
+\end{definition}
+
+For~$T<\infty$, let~$\mathcal I_T$ be the successful-interaction skeleton up to
+time~$T$:
+\begin{equation*}
+\mathcal I_T
+=
+\cb{(\infty,0,A_0)}
+\cup
+\cb{(i,t,S):t\leq T\text{ and, for some }\alpha\in\cb{\beta,\delta},
+(i,t,\alpha,S)\text{ is successful}}.
+\end{equation*}
+Thus~$\mathcal I_T$ omits deaths and rings at inactive sources, as well as the
+kind of each retained interaction. Set
+\begin{equation*}
+\mathcal I=\bigcup_{T<\infty}\mathcal I_T,
+\qquad
+\mathcal G_T=\sigma\bb{Y_0,\mathcal I_T}.
+\end{equation*}
+The~$\sigma$-algebra~$\mathcal G_T$ is the information on which we condition in
+the next subsection. The local-finiteness statement in
+Section~\ref{subsec:dual-graphical-construction} implies that~$\mathcal I_T$ is
+finite almost surely.
+
 % ============================================================================
 % BLURB C. Patch geometry and boundary labels
 %
