@@ -166,6 +166,51 @@ $\Lcal$.
 %   reader should be able to see the correspondence here without going there.
 % ============================================================================
 
+\label{subsec:rates-to-dual}
+For~$i\in A$, the contribution of the flip at~$i$ to~$\Lcal\chi_A$ is
+\begin{align*}
+c_i(\eta)\bb{\chi_A(\eta^i)-\chi_A(\eta)}
+={}&
+c_i^0(\eta)\chi_{A\setminus\cb{i}}(\eta)
+\\
+&-
+\bb{c_i^0(\eta)+c_i^1(\eta)}\chi_A(\eta).
+\end{align*}
+For~$i\notin A$, this contribution is zero. Using the expansion
+\eqref{eq:rate-expansion}, define
+\begin{equation}
+\label{eq:signed-dual-coefficients}
+a_i^\delta(S)=c_i^0(S),
+\qquad
+a_i^\beta(S)=-c_i^0(S)-c_i^1(S).
+\end{equation}
+Since
+\begin{equation*}
+\chi_S\chi_{A\setminus\cb{i}}
+=
+\chi_{\bb{A\setminus\cb{i}}\cup S},
+\qquad
+\chi_S\chi_A
+=
+\chi_{A\cup S},
+\end{equation*}
+we obtain
+\begin{equation}
+\label{eq:signed-dual-generator-expansion}
+\Lcal\chi_A
+=
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+a_i^\delta(S)\chi_{\bb{A\setminus\cb{i}}\cup S}
++
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+a_i^\beta(S)\chi_{A\cup S}.
+\end{equation}
+The first sum has exactly the active-set change~$D_{i,S}$. For
+$S\neq\varnothing$, the second has the active-set change~$B_{i,S}$. When
+$S=\varnothing$ in the second sum,~$A\cup S=A$, so the term is diagonal. We
+incorporate this term into the Feynman--Kac potential below. The detailed
+calculation is recorded in Appendix~\ref{app:generator-action}.
+
 % ============================================================================
 % BLURB D. Rates, signs, and the Feynman--Kac potential
 %
