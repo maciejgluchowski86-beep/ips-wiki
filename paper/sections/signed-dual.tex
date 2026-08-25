@@ -233,6 +233,24 @@ Feynman--Kac weight.
 %   of a successful interaction.
 % ============================================================================
 
+We realize the signed dual from independent Poisson marks so that the individual
+interactions are recorded for the patch construction. For every~$i\in\Lambda$
+and~$S\subseteq N(i)$, let~$I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson
+point process of rate~$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let
+$I_{i,S}^\beta\subseteq(0,\infty)$ be a Poisson point process of
+rate~$\beta_i(S)$. All these processes are independent, and we set
+$I_{i,\varnothing}^\beta=\varnothing$. The Poisson interaction record is
+\begin{equation*}
+I^{\mathrm P}
+=
+\cb{(i,t,\alpha,S):i\in\Lambda,\ \alpha\in\cb{\delta,\beta},\
+S\subseteq N(i),\ t\in I_{i,S}^\alpha}.
+\end{equation*}
+For a mark~$(i,t,\alpha,S)\in I^{\mathrm P}$, the site~$i$ is its
+\emph{source},~$S$ its \emph{target}, and~$\alpha$ its interaction kind. The
+record~$I^{\mathrm P}$ contains every Poisson mark, whether or not its source is
+active when the mark occurs.
+
 % ============================================================================
 % BLURB B. How the marks act
 %
