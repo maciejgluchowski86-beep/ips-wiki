@@ -210,29 +210,6 @@ Feynman--Kac weight.
 \subsection{Graphical construction}
 \label{subsec:dual-graphical-construction}
 
-% Previous version preserved in
-% paper/revision-reference/section-4-2-graphical-construction.tex.
-
-% ============================================================================
-% BLURB A. Purpose and Poisson marks
-%
-% Reader question:
-%   Why do we introduce a graphical construction after defining the dual by its
-%   generator, and what random objects make up the construction?
-%
-% Job:
-%   Say that we realize the signed dual from independent Poisson marks so that
-%   individual interactions are explicitly recorded for the patch construction.
-%   Introduce the delta clocks for all S and the beta clocks for nonempty S.
-%   Define I^P and the source, target, and interaction kind of a mark. Make clear
-%   that I^P contains all Poisson marks, whether or not their source is active
-%   when they occur.
-%
-% Keep out:
-%   The update rule, the deterministic initial interaction, and the later notion
-%   of a successful interaction.
-% ============================================================================
-
 The definition of patches below is based on the graphical construction of the
 signed dual. We use the standard Poisson graphical construction for set-valued
 particle systems, with notation adapted to the interactions above. Thus each
@@ -254,25 +231,8 @@ For a mark~$(i,t,\alpha,S)\in I^{\mathrm P}$, the site~$i$ is its
 record~$I^{\mathrm P}$ contains every Poisson mark, whether or not its source is
 active when the mark occurs.
 
-% ============================================================================
-% BLURB B. How the marks act
-%
-% Reader question:
-%   Given the Poisson marks, how is the signed dual path obtained?
-%
-% Job:
-%   Read the marks chronologically. At a mark with source i, apply D_{i,S} or
-%   B_{i,S} when i is active immediately before the mark, and make no change when
-%   i is inactive. Identify the three active-source cases as death, split, and
-%   birth. The process is constant between marks. Emphasize that inactive-source
-%   marks remain part of I^P even though they do not change the dual state.
-%
-% Avoid:
-%   The undefined language "relevant interaction". Do not introduce
-%   "successful interaction" yet; that is the next subsection.
-% ============================================================================
-
-At a mark~$(i,t,\delta,S)\in I^{\mathrm P}$ with~$i\in A_{t-}$, set
+Fix an initial state~$Y_0=(A_0,\sigma_0)$. At a
+mark~$(i,t,\delta,S)\in I^{\mathrm P}$ with~$i\in A_{t-}$, set
 \begin{equation*}
 Y_t=D_{i,S}(Y_{t-}),
 \end{equation*}
@@ -286,25 +246,6 @@ $S\neq\varnothing$ is a split, and a~$(\beta,S)$ mark is a birth. The process
 is constant between marks that change its state. Marks at inactive sources
 remain in~$I^{\mathrm P}$ even though they do not affect the dual path.
 
-% ============================================================================
-% BLURB C. Initial interaction and the full interaction record
-%
-% Reader question:
-%   Why is the initial state encoded as an interaction, and what is the full
-%   interaction set used later for patches?
-%
-% Job:
-%   Define the deterministic initial interaction iota_0 with formal source
-%   infinity, time 0, target A_0, and sign sigma_0. Explain that it is bookkeeping,
-%   not a stochastic jump: it puts the initial activation into the same
-%   source/time/target language as later interactions, which will let initial
-%   sites serve as incoming patch boundaries. Define I={iota_0} union I^P and
-%   state the corresponding initial condition Y_0=(A_0,sigma_0).
-%
-% Keep out:
-%   The successful-interaction skeleton and patch definitions themselves.
-% ============================================================================
-
 To put the initial state into the same interaction notation, introduce the
 deterministic initial interaction
 \begin{equation}
@@ -313,9 +254,9 @@ deterministic initial interaction
 =
 (\infty,0,\mathsf{init},A_0;\sigma_0),
 \end{equation}
-where~$\infty\notin\Lambda$ is a formal source. It records the activation of~$A_0$ with sign~$\sigma_0$ at
-time~$0$, so that these initial activations can later be treated as
-patch boundaries. We set
+where~$\infty\notin\Lambda$ is a formal source. It records the activation of~$A_0$
+with sign~$\sigma_0$ at time~$0$, so that time~$0$ can be treated in the same
+way as later interaction times when defining patches. We set
 \begin{equation*}
 I=\cb{\iota_0}\cup I^{\mathrm P}.
 \end{equation*}
@@ -323,25 +264,6 @@ Equivalently, start from~$Y_{0-}=(\varnothing,+)$ and apply~$\iota_0$, giving
 \begin{equation*}
 Y_0=(A_0,\sigma_0).
 \end{equation*}
-
-% ============================================================================
-% BLURB D. Well-definedness and local finiteness
-%
-% Reader question:
-%   Is the graphical construction well defined on an infinite site set, and
-%   how many interactions can actually act on the dual in finite time?
-%
-% Job:
-%   Use the uniform bound on the jump rate per active site and the uniform bound
-%   on the number of sites added by one jump. Dominate |A_t| by a nonexplosive
-%   continuous-time branching process. Conclude that only finitely many Poisson
-%   marks act on the dual on every bounded time interval. This is the
-%   local-finiteness fact needed in the next subsection.
-%
-% Important:
-%   Do not claim that I^P itself is finite on bounded time intervals when
-%   Lambda is infinite. The finite statement concerns marks that act on the dual.
-% ============================================================================
 
 The total rate of marks whose source is active is bounded by~$C\abs{A_t}$ for
 some finite~$C$, uniformly in the state. Moreover, one such mark can add at most
