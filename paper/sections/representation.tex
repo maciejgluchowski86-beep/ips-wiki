@@ -17,58 +17,60 @@
 %
 % Reader question:
 %   We have fixed the successful-interaction skeleton. What information is still
-%   hidden, and why is it useful that this remaining randomness is local?
+%   unresolved, and what does its locality buy us?
 %
 % Job:
-%   Say first what G_T reveals and what it does not. It fixes the patch
-%   decomposition and all successful-interaction records up to time T. The
-%   interaction kinds are not recorded, and deaths inside patches are not
-%   revealed. These hidden variables must satisfy a local consistency condition:
-%   the resulting one-site history must have exactly the boundaries prescribed
-%   by the skeleton. Depending on the boundary types, consistency may determine
-%   an interaction kind or rule out some death histories.
+%   Say first what G_T fixes and what it leaves unresolved. It fixes all
+%   successful interactions and hence the patch decomposition up to time T. It
+%   does not reveal the local information deliberately omitted from the
+%   skeleton. In particular, deaths inside patches are not recorded, and for a
+%   recorded outgoing interaction the skeleton does not say whether it was a
+%   split or a birth.
 %
-%   State the payoff directly. Conditional on G_T, the remaining randomness
-%   factorizes over patches. We can therefore average compatible local histories
-%   separately on each patch, retaining cancellations between histories with
-%   the same successful-interaction skeleton.
+%   The fixed patch boundaries restrict this remaining randomness. Depending on
+%   the boundary types, they may force an interaction kind or exclude a death.
+%   These restrictions involve only one patch at a time. State the payoff and
+%   stop there: conditional on G_T, the unresolved randomness factorizes over
+%   patches.
 %
 % Keep out:
-%   Sigma_P, alpha(P), Con(P), and the formal factorization theorem. Do not use
-%   Poisson-process technicalities here; Blurbs B--D supply them.
+%   Sigma_P, alpha(P), Con(P), averaging, cancellations, and the formal
+%   factorization theorem. Blurbs B--D make the local law and factorization
+%   precise; Blurbs E--F explain what is averaged and why.
 % ============================================================================
 
-Conditioning on~$\mathcal G_T$ fixes the patch decomposition and all
-successful-interaction records up to time~$T$, but it does not reveal the kind of a recorded
-interaction and deaths between successive successful interactions. These hidden variables must however be compatible with the fixed
-patch boundaries. Depending on the boundary types, this may determine an
-interaction kind or rule out some deaths. The key point is that these
-constraints are local to individual patches. Conditional on~$\mathcal G_T$,
-the remaining randomness factorizes over patches and can be explicitly averaged. This averaging retains cancellations
-between different histories with the same successful-interaction skeleton. {\color{red} Abnormal language everywhere. "histories" wtf. Also again you talk of cancellations but the reader doesnt know where or what.}
+Conditioning on~$\mathcal G_T$ fixes the successful interactions and hence the
+patch decomposition up to time~$T$. It leaves unresolved the local information
+that was omitted from the skeleton. In particular, deaths inside patches are
+not recorded, and for a recorded outgoing interaction the skeleton does not say
+whether it was a split or a birth. The fixed patch boundaries restrict this
+remaining randomness: depending on the boundary types, they may force the
+interaction kind or exclude a death. These restrictions involve only one patch
+at a time. Consequently, conditional on~$\mathcal G_T$, the unresolved
+randomness factorizes over the patches.
 
 % ============================================================================
 % BLURB B. Reference law on one patch
 %
 % Reader question:
 %   Before imposing the boundary constraints, what is the local law of the
-%   hidden randomness on one patch and how does it determine the site's active
-%   history?
+%   unresolved marks on one patch, and how do those marks determine the
+%   one-site process X^P?
 %
 % Job:
 %   Fix a patch P. Define the local mark collection inherited from the graphical
-%   construction. Its interior marks include the deaths and the other outgoing
-%   marks on the patch site between the two boundaries. If the initial boundary
-%   is outgoing, the skeleton has also forgotten whether that recorded
-%   interaction was a split or a birth; denote this kind by alpha(P) and give
-%   its law from the delta and beta intensities. If the initial boundary is
-%   incoming, there is no hidden boundary kind attached to this patch.
+%   construction. Its interior marks include deaths and the other outgoing marks
+%   on the patch site between the two boundaries. If the initial boundary is
+%   outgoing, the skeleton has also forgotten whether that recorded interaction
+%   was a split or a birth; denote this kind by alpha(P) and give its law from
+%   the delta and beta intensities. If the initial boundary is incoming, there
+%   is no hidden boundary kind attached to this patch.
 %
 %   Define Sigma_P^circ, Sigma_P, and the reference law P_P and expectation E_P.
 %   Then define X^P directly under this reference law as the one-site active
 %   process generated by the local marks. State its initial value and update
-%   rules. This is the unconditioned local law; compatibility with the observed
-%   patch boundaries is imposed only in Blurb C.
+%   rules. This is the unconditioned local law; the boundary constraints are
+%   imposed only in Blurb C.
 %
 % Formatting:
 %   Do not introduce an isolated display merely to abbreviate i(P), s(P), e(P),
@@ -79,8 +81,8 @@ between different histories with the same successful-interaction skeleton. {\col
 % BLURB C. Consistency with the fixed skeleton
 %
 % Reader question:
-%   Which local histories from the reference law actually give the patch
-%   boundaries already observed in the skeleton?
+%   Which realizations of the local marks are compatible with the patch
+%   boundaries already fixed by the skeleton?
 %
 % Job:
 %   Explain consistency in prose before the formula. Every interior
@@ -89,7 +91,7 @@ between different histories with the same successful-interaction skeleton. {\col
 %   the terminal boundary is outgoing, the site must be active immediately
 %   before the endpoint so that the recorded outgoing interaction is
 %   successful. These conditions can force the hidden initial interaction kind
-%   or exclude death histories, depending on the boundary type. Incoming and end
+%   or exclude a death, depending on the boundary type. Incoming and end
 %   terminal boundaries impose no analogous terminal condition.
 %
 %   Define Con(P), then the consistent patch law P_P^con and expectation
@@ -100,10 +102,10 @@ between different histories with the same successful-interaction skeleton. {\col
 %
 %   Insert paper/sections/patch-interior-figure here. Rewrite its caption around
 %   the mathematical content: the left object in each row gives the prescribed
-%   patch boundaries and the objects to the right give the possible one-site
-%   active histories compatible with them. Avoid implementation language such
-%   as "striped prism" and "gray volume" except where genuinely needed to decode
-%   the picture.
+%   patch boundaries and the objects to the right give the possible realizations
+%   of the one-site process X^P compatible with them. Avoid implementation
+%   language such as "striped prism" and "gray volume" except where genuinely
+%   needed to decode the picture.
 % ============================================================================
 
 % ============================================================================
