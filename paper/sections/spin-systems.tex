@@ -77,13 +77,16 @@ construction gives a Feller process with finite speed of
 information~\cite{Harris1978,Liggett1985}. Its semigroup is~$(P_t)_{t\geq0}$,
 and for an initial law~$\mu$ we write~$(\mu P_t)(f)=\mu(P_tf)$.
 
-Later we represent the evolution of each monomial~$\chi_A$ by a signed
-set-valued process~$(A_t,\sigma_t)$, called the signed monomial dual. Starting
-from~$A$, the set~$A_t$ records the sites on which the dual monomial depends,
-while~$\sigma_t$ records the accumulated sign; a potential~$V(A_t)$ supplies
-the Feynman--Kac correction. The process and potential are constructed in
-Section~\ref{sec:signed-dual}. Writing~$\E_A$ for expectation for this process
-started from~$(A,+)$, we impose throughout the absolute-integrability condition
+For~$A\Subset\Lambda$, $P_t\chi_A(\eta)$ is the expected product of the spins
+in~$A$ at time~$t$ when the process starts from~$\eta$. We represent its
+dependence on the initial configuration by a signed set-valued process
+$(A_s,\sigma_s)$, called the signed monomial dual. Starting from~$A$, the set
+$A_s$ traces backward through the interactions that carry this dependence to
+earlier sites. The sign~$\sigma_s$ records the accumulated sign, and a
+potential~$V(A_s)$ supplies the Feynman--Kac correction. The process and
+potential are constructed in Section~\ref{sec:signed-dual}. Writing~$\E_A$ for
+expectation for this process started from~$(A,+)$, we impose throughout the
+absolute-integrability condition
 \begin{equation}
 \tag{FK}
 \label{eq:fk-integrability}
