@@ -1,0 +1,96 @@
+\section{Poisson disintegration for patch factorization}
+\label{app:patch-factorization-proof}
+
+This section gives the measure-theoretic justification of
+Theorem~\ref{thm:patch-factorization}. The main text records the product
+conditioning mechanism; here we justify the conditional law at fixed successful
+interaction times.
+
+\begin{proof}[Detailed proof of Theorem~\ref{thm:patch-factorization}]
+Write~$G_T=(Y_0,\mathcal I_T)$, so~$\mathcal G_T=\sigma(G_T)$. By
+Lemma~\ref{lem:dual-local-finiteness}, its positive-time records under~$\pP_A$
+almost surely form a finite chronological list
+\begin{equation*}
+g=\bb{(i_k,t_k,S_k)}_{k=1}^n,
+\qquad
+0<t_1<\cdots<t_n\leq T,
+\end{equation*}
+where~$\varnothing\neq S_k\subseteq N(i_k)$ and
+$i_k\in A\cup\bigcup_{\ell<k}S_\ell$. The list space and the finite
+marked-configuration spaces are standard Borel.
+
+On the component with fixed discrete records~$((i_k,S_k))_{k=1}^n$, set
+\begin{equation*}
+m_T(dg)
+=
+\prod_{k=1}^n
+\bb{\delta_{i_k}(S_k)+\beta_{i_k}(S_k)}
+\,dt_1\cdots dt_n,
+\end{equation*}
+and sum these measures over~$n\geq0$ and the discrete records, omitting
+zero-rate components. For nonnegative measurable~$h$ and~$f_P$, the
+multivariate Mecke formula~\cite[Theorem~4.4]{LastPenrose2017}, applied to
+ordered tuples of nonempty-target marks, gives
+\begin{equation}
+\label{eq:appendix-patch-factorization-mecke}
+\E_A\Cb{
+h(G_T)
+\prod_{P\in\mathcal P_T}f_P\bb{\Sigma_P}
+}
+=
+\int h(g)
+\prod_{P\in\mathcal P_T(g)}
+\E_P\Cb{
+f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}
+}
+\,m_T(dg).
+\end{equation}
+Indeed, a mark with record~$(i,t,S)$ has combined intensity
+$\bb{\delta_i(S)+\beta_i(S)}\,dt$ and, conditional on this record, its kind has
+the law in~\eqref{eq:patch-initial-kind-law}. The remaining marks in the
+disjoint patch intervals are independent with laws~$\pP_P$.
+
+It remains to identify the consistency indicators in
+\eqref{eq:appendix-patch-factorization-mecke}. Suppose first that every patch is
+consistent and read the records chronologically. The initial incoming patches
+give the active set~$A$. Between record times, empty-target marks change the
+local and global active indicators in the same way, while consistency makes
+every unrecorded nonempty-target mark unsuccessful. At a recorded interaction,
+consistency makes its source active; its kind determines the new state of the
+source, and its targets start the incoming patches. Hence the prescribed
+records are exactly the successful-interaction skeleton. Conversely, if the
+prescribed records are the complete successful-interaction skeleton, the
+one-site processes~$X^P$ are the restrictions of the global active process and
+every patch is consistent.
+
+Taking~$f_P=1$ in~\eqref{eq:appendix-patch-factorization-mecke} gives
+\begin{equation*}
+\pP_A\bb{G_T\in dg}
+=
+\prod_{P\in\mathcal P_T(g)}
+\pP_P\bb{\operatorname{Con}(P)}
+\,m_T(dg).
+\end{equation*}
+Taking the Radon--Nikodym derivative with respect to this marginal yields, for
+$\pP_A\circ G_T^{-1}$-almost every~$g$,
+\begin{align*}
+\E_A\Cb{
+\prod_{P\in\mathcal P_T}f_P\bb{\Sigma_P}
+\,\middle|\,G_T=g
+}
+&=
+\prod_{P\in\mathcal P_T(g)}
+\frac{
+\E_P\Cb{f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}}
+}{
+\pP_P\bb{\operatorname{Con}(P)}
+}
+\\
+&=
+\prod_{P\in\mathcal P_T(g)}
+\E_P^{\mathrm{con}}\Cb{f_P\bb{\Sigma_P}}.
+\end{align*}
+This proves~\eqref{eq:patch-factorization} for nonnegative factors and
+identifies the conditional law. The integrable signed case follows from this
+conditional-law statement.
+\end{proof}
