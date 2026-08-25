@@ -1,0 +1,158 @@
+% Reference copy of Section 4.1 before the reader-first rewrite.
+% This file is not included in the manuscript.
+
+\subsection{Signed monomial dual}
+\label{subsec:signed-set-process}
+
+For~$A\Subset\Lambda$, $P_t\chi_A(\eta)$ is the expected product of the spins
+in~$A$ at time~$t$ when the process starts from~$\eta$. The dual runs backward
+from~$A$ and records the sites at earlier times through which these spins depend
+on the past. We first define a general signed version of this set-valued process.
+The death, split, and birth notation below is convenient for the patch construction {\color{red} Maybe a reference to standard literature, that this is the same duality, with a note we just use more convenient notation for us}.
+We then choose its rates and signs from the generator~$\Lcal$.
+
+A signed active set is a pair
+\begin{equation*}
+Y=(A,\sigma)
+\in
+\cb{A:A\Subset\Lambda}\times\cb{+,-}.
+\end{equation*}
+We call~$A$ the active set. Along the dual, it records the sites reached by
+tracing the dependence backward, while~$\sigma$ records the accumulated sign.
+Signs are multiplied in the usual way and act on real
+numbers by~$+x=x$ and~$-x=-x$. Fix, for now, rates and sign labels
+\begin{equation*}
+\delta_i(S),\ \beta_i(S)\geq0,
+\qquad
+\sigma_i^\delta(S),\ \sigma_i^\beta(S)\in\cb{+,-},
+\qquad
+i\in\Lambda,\quad S\subseteq N(i).
+\end{equation*}
+We use the convention~$\beta_i(\varnothing)=0$. For~$i\in A$, define
+\begin{align*}
+D_{i,S}(A,\sigma)
+&=
+\bb{\bb{A\setminus\cb{i}}\cup S,
+\sigma\sigma_i^\delta(S)},
+\\
+B_{i,S}(A,\sigma)
+&=
+\bb{A\cup S,
+\sigma\sigma_i^\beta(S)}.
+\end{align*}
+These are the usual additive set-valued transitions in a form convenient here {\color{red} Usual in what sense? The reader doesnt know.}.
+The update~$D_{i,\varnothing}$ is a \emph{death}, which removes~$i$. For
+$S\neq\varnothing$, the update~$D_{i,S}$ is a \emph{split}, which replaces~$i$
+by~$S$, and~$B_{i,S}$ is a \emph{birth}, which keeps~$i$ and adds~$S$.
+Ignoring the sign coordinate, these updates preserve unions, which is the
+standard notion of additivity for set-valued particle systems
+\cite{Harris1978,Griffeath1979,Gray1986}. The resulting signed set-valued
+process has generator
+\begin{align*}
+\Dcal g(A,\sigma)
+={}&
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+\delta_i(S)
+\bb{g\bb{D_{i,S}(A,\sigma)}-g(A,\sigma)}
+\\
+&+
+\sum_{i\in A}
+\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}
+\beta_i(S)
+\bb{g\bb{B_{i,S}(A,\sigma)}-g(A,\sigma)}.
+\end{align*}
+
+\label{subsec:rates-to-dual}
+For the spin system with generator~$\Lcal$, we now choose these parameters by
+matching the monomials in~$\Lcal\chi_A$. For~$r\in\R$, let
+$\operatorname{sgn}_{\pm}(r)$ be~$+$ when~$r\geq0$ and~$-$ when~$r<0$. For the
+coefficients in~\eqref{eq:rate-expansion}, set
+\begin{equation}
+\label{eq:signed-dual-coefficients}
+a_i^\delta(S)=c_i^0(S),
+\qquad
+a_i^\beta(S)=-c_i^0(S)-c_i^1(S).
+\end{equation}
+In the expansion of~$\Lcal\chi_A$, the~$a_i^\delta(S)$ is the coefficient of
+the monomial indexed by~$\bb{A\setminus\cb{i}}\cup S$, while~$a_i^\beta(S)$
+is the coefficient of the monomial indexed by~$A\cup S$. See
+Appendix~\ref{app:generator-action}. We choose the corresponding rates and
+signs by
+\begin{equation}
+\label{eq:death-split-data}
+\delta_i(S)=\abs{a_i^\delta(S)},
+\qquad
+\sigma_i^\delta(S)=\operatorname{sgn}_{\pm}\bb{a_i^\delta(S)}
+\end{equation}
+for every~$S\subseteq N(i)$, and
+\begin{equation}
+\label{eq:birth-data}
+\beta_i(S)=\abs{a_i^\beta(S)},
+\qquad
+\sigma_i^\beta(S)=\operatorname{sgn}_{\pm}\bb{a_i^\beta(S)}
+\end{equation}
+for~$S\neq\varnothing$. As above,~$\beta_i(\varnothing)=0$, and we set
+$\sigma_i^\beta(\varnothing)=+$.
+
+The coefficient~$a_i^\beta(\varnothing)$ corresponds to an empty-target birth,
+which leaves the active set unchanged. It is included in the potential rather
+than represented as a jump. Define
+\begin{equation}
+\label{eq:dual-potential}
+V(A)=\sum_{i\in A}V_i,
+\qquad
+V_i=
+\sum_{S\subseteq N(i)}\delta_i(S)
++
+\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}\beta_i(S)
++
+a_i^\beta(\varnothing).
+\end{equation}
+Since the neighbourhood sizes and flip rates are uniformly bounded, so are the
+total dual jump rate per active site and~$\abs{V_i}$. Each jump activates at
+most~$\sup_i\abs{N(i)}$ new sites.
+
+\paragraph{Feynman--Kac duality.}
+\label{subsec:monomial-duality}
+{\color{red} Remove paragraph headers}
+For~$Y=(A,\sigma)$, define
+\begin{equation}
+\label{eq:monomial-duality-function}
+H(Y,\eta)=\sigma\chi_A(\eta).
+\end{equation}
+We write~$\pP_A$ and~$\E_A$ for the law and expectation of the signed set
+process started from~$(A,+)$.
+
+\begin{theorem}[Monomial Feynman--Kac duality]
+\label{thm:monomial-duality}
+For every signed active set~$Y=(A,\sigma)$,
+\begin{equation}
+\label{eq:monomial-generator-duality}
+\Lcal_\eta H(Y,\eta)
+=
+\Dcal H(Y,\eta)+V(A)H(Y,\eta).
+\end{equation}
+Consequently, for every~$A\Subset\Lambda$,~$t\geq0$, and~$\eta\in\Omega$,
+\begin{equation}
+\label{eq:monomial-feynman-kac-duality}
+P_t\chi_A(\eta)
+=
+\E_A\Cb{
+\sigma_t
+\exp\bb{\int_0^t V(A_s)\,ds}
+\chi_{A_t}(\eta)
+}.
+\end{equation}
+\end{theorem}
+
+The coefficient calculation proving~\eqref{eq:monomial-generator-duality} and
+the finite-volume passage to~\eqref{eq:monomial-feynman-kac-duality} are given
+in Appendix~\ref{app:dual-calculation} {\color{red} Also a reference to relevant literature should be made, duality is standard, this is not new}. Condition~\eqref{eq:fk-integrability}
+supplies the domination in the infinite-volume passage {\color{red} Unclear to the reader what this means because it references proof method, which is not important here because duality is standard, and reader probably will skip appendix anyway. Just say the representation holds under integrability condition (FK)}. The pure-death noise
+generator acts diagonally on monomials:
+\begin{equation*}
+\Ncal^{\mb 0}\chi_A=-\abs A\chi_A.
+\end{equation*}
+Adding~$\varepsilon\Ncal^{\mb 0}$ leaves the dual jumps unchanged and replaces
+$V(A)$ by~$V(A)-\varepsilon\abs A$. We therefore call these independent
+$1\to0$ transitions \emph{pure deaths}.
