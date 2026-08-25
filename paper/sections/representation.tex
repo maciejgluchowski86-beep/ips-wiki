@@ -192,6 +192,47 @@ and~$\E_P^{\mathrm{con}}$ denotes expectation under this law.
 %   consistent and derive the conditional product law.
 % ============================================================================
 
+Fix~$T<\infty$. Once~$\mathcal G_T$ is fixed, the patch family~$\mathcal P_T$
+and all its boundaries are fixed. The marks assigned to distinct patches come
+from disjoint parts of the Poisson graphical construction and, before the
+consistency conditions are imposed, have the independent reference laws
+$\pP_P$. Moreover, these marks give exactly the prescribed
+successful-interaction skeleton if and only if~$\operatorname{Con}(P)$ holds for
+every~$P\in\mathcal P_T$. Since each consistency event depends only on the marks
+of its own patch, conditioning on the skeleton conditions the patches
+separately.
+
+\begin{theorem}[Patch factorization]
+\label{thm:patch-factorization}
+Conditional on~$\mathcal G_T$, the variables~$\Sigma_P$ are independent, and
+the conditional law of~$\Sigma_P$ is~$\pP_P^{\mathrm{con}}$ for each
+$P\in\mathcal P_T$. Equivalently, for bounded measurable functions~$f_P$ such
+that either all~$f_P$ are nonnegative or the product on the left below is
+integrable,
+\begin{equation}
+\label{eq:patch-factorization}
+\CE{
+\prod_{P\in\mathcal P_T}f_P\bb{\Sigma_P}
+}{\mathcal G_T}
+=
+\prod_{P\in\mathcal P_T}
+\E_P^{\mathrm{con}}\Cb{f_P\bb{\Sigma_P}}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+For a fixed value of the skeleton, the unconditioned local variables have
+product law~$\bigotimes_{P\in\mathcal P_T}\pP_P$. By the preceding observation,
+the event that these variables produce the prescribed skeleton is
+$\bigcap_{P\in\mathcal P_T}\operatorname{Con}(P)$. Conditioning the product law
+on this event therefore gives
+$\bigotimes_{P\in\mathcal P_T}\pP_P^{\mathrm{con}}$, which yields
+\eqref{eq:patch-factorization}. The Poisson disintegration that justifies this
+argument at fixed interaction times is given in
+Appendix~\ref{app:patch-factorization-proof}. The integrable signed case then
+follows from the conditional-law statement.
+\end{proof}
+
 % ============================================================================
 % BLURB E. Patch contributions and proof of the representation
 %
