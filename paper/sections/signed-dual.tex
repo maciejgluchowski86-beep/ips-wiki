@@ -9,161 +9,127 @@ patches. The process measure, conditional on their, record factorizes by patches
 \subsection{Signed monomial dual}
 \label{subsec:signed-set-process}
 
-For~$A\Subset\Lambda$, $P_t\chi_A(\eta)$ is the expected product of the spins
-in~$A$ at time~$t$ when the process starts from~$\eta$. The dual runs backward
-from~$A$ and records the sites at earlier times through which these spins depend
-on the past. We first define a general signed version of this set-valued process.
-The death, split, and birth notation below is convenient for the patch construction {\color{red} Maybe a reference to standard literature, that this is the same duality, with a note we just use more convenient notation for us}.
-We then choose its rates and signs from the generator~$\Lcal$.
+% Previous version preserved in
+% paper/revision-reference/section-4-1-signed-monomial-dual.tex.
 
-A signed active set is a pair
-\begin{equation*}
-Y=(A,\sigma)
-\in
-\cb{A:A\Subset\Lambda}\times\cb{+,-}.
-\end{equation*}
-We call~$A$ the active set. Along the dual, it records the sites reached by
-tracing the dependence backward, while~$\sigma$ records the accumulated sign.
-Signs are multiplied in the usual way and act on real
-numbers by~$+x=x$ and~$-x=-x$. Fix, for now, rates and sign labels
-\begin{equation*}
-\delta_i(S),\ \beta_i(S)\geq0,
-\qquad
-\sigma_i^\delta(S),\ \sigma_i^\beta(S)\in\cb{+,-},
-\qquad
-i\in\Lambda,\quad S\subseteq N(i).
-\end{equation*}
-We use the convention~$\beta_i(\varnothing)=0$. For~$i\in A$, define
-\begin{align*}
-D_{i,S}(A,\sigma)
-&=
-\bb{\bb{A\setminus\cb{i}}\cup S,
-\sigma\sigma_i^\delta(S)},
-\\
-B_{i,S}(A,\sigma)
-&=
-\bb{A\cup S,
-\sigma\sigma_i^\beta(S)}.
-\end{align*}
-These are the usual additive set-valued transitions in a form convenient here {\color{red} Usual in what sense? The reader doesnt know.}.
-The update~$D_{i,\varnothing}$ is a \emph{death}, which removes~$i$. For
-$S\neq\varnothing$, the update~$D_{i,S}$ is a \emph{split}, which replaces~$i$
-by~$S$, and~$B_{i,S}$ is a \emph{birth}, which keeps~$i$ and adds~$S$.
-Ignoring the sign coordinate, these updates preserve unions, which is the
-standard notion of additivity for set-valued particle systems
-\cite{Harris1978,Griffeath1979,Gray1986}. The resulting signed set-valued
-process has generator
-\begin{align*}
-\Dcal g(A,\sigma)
-={}&
-\sum_{i\in A}\sum_{S\subseteq N(i)}
-\delta_i(S)
-\bb{g\bb{D_{i,S}(A,\sigma)}-g(A,\sigma)}
-\\
-&+
-\sum_{i\in A}
-\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}
-\beta_i(S)
-\bb{g\bb{B_{i,S}(A,\sigma)}-g(A,\sigma)}.
-\end{align*}
+% ============================================================================
+% BLURB A. What the dual represents
+%
+% Reader question:
+%   What quantity is the dual representing, and what does the finite set in the
+%   dual mean?
+%
+% Job:
+%   Start from P_t chi_A(eta) as the expected product of the spins in A at the
+%   observation time. Explain that the set-valued dual traces backward the sites
+%   in the past on which this observable depends. Place this in the standard
+%   additive/set-valued duality framework for spin systems. Explain briefly that
+%   signs are needed because the coefficients produced by the generator need
+%   not be nonnegative.
+%
+% Reader takeaway:
+%   The dual is a representation of dependence of P_t chi_A on the initial
+%   configuration. No monomial itself is evolving.
+%
+% Keep out for now:
+%   The death/split/birth formulas and the specific rates coming from Lcal.
+% ============================================================================
 
-\label{subsec:rates-to-dual}
-For the spin system with generator~$\Lcal$, we now choose these parameters by
-matching the monomials in~$\Lcal\chi_A$. For~$r\in\R$, let
-$\operatorname{sgn}_{\pm}(r)$ be~$+$ when~$r\geq0$ and~$-$ when~$r<0$. For the
-coefficients in~\eqref{eq:rate-expansion}, set
-\begin{equation}
-\label{eq:signed-dual-coefficients}
-a_i^\delta(S)=c_i^0(S),
-\qquad
-a_i^\beta(S)=-c_i^0(S)-c_i^1(S).
-\end{equation}
-In the expansion of~$\Lcal\chi_A$, the~$a_i^\delta(S)$ is the coefficient of
-the monomial indexed by~$\bb{A\setminus\cb{i}}\cup S$, while~$a_i^\beta(S)$
-is the coefficient of the monomial indexed by~$A\cup S$. See
-Appendix~\ref{app:generator-action}. We choose the corresponding rates and
-signs by
-\begin{equation}
-\label{eq:death-split-data}
-\delta_i(S)=\abs{a_i^\delta(S)},
-\qquad
-\sigma_i^\delta(S)=\operatorname{sgn}_{\pm}\bb{a_i^\delta(S)}
-\end{equation}
-for every~$S\subseteq N(i)$, and
-\begin{equation}
-\label{eq:birth-data}
-\beta_i(S)=\abs{a_i^\beta(S)},
-\qquad
-\sigma_i^\beta(S)=\operatorname{sgn}_{\pm}\bb{a_i^\beta(S)}
-\end{equation}
-for~$S\neq\varnothing$. As above,~$\beta_i(\varnothing)=0$, and we set
-$\sigma_i^\beta(\varnothing)=+$.
+% ============================================================================
+% BLURB B. General signed set-valued process
+%
+% Reader question:
+%   What is the general process we use, and what do its possible jumps do?
+%
+% Job:
+%   Define a signed active set Y=(A,sigma), with A the active set and sigma the
+%   accumulated sign. Introduce generic nonnegative rates and sign labels. Give
+%   the D and B updates and explain them plainly as death, split, and birth.
+%   State that this is a convenient parametrization of the standard additive
+%   set-valued dynamics used in spin-system duality, with appropriate references
+%   to Harris, Griffeath, and Gray. Then give the generator Dcal.
+%
+% Important framing:
+%   The rates in this blurb are generic parameters. They are not yet the rates
+%   of the dual associated with the spin system Lcal. The exact death/split/birth
+%   notation is chosen for this paper and should not be presented as standard
+%   notation from the literature.
+% ============================================================================
 
-The coefficient~$a_i^\beta(\varnothing)$ corresponds to an empty-target birth,
-which leaves the active set unchanged. It is included in the potential rather
-than represented as a jump. Define
-\begin{equation}
-\label{eq:dual-potential}
-V(A)=\sum_{i\in A}V_i,
-\qquad
-V_i=
-\sum_{S\subseteq N(i)}\delta_i(S)
-+
-\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}\beta_i(S)
-+
-a_i^\beta(\varnothing).
-\end{equation}
-Since the neighbourhood sizes and flip rates are uniformly bounded, so are the
-total dual jump rate per active site and~$\abs{V_i}$. Each jump activates at
-most~$\sup_i\abs{N(i)}$ new sites.
+% ============================================================================
+% BLURB C. Generator action and the dual coefficients
+%
+% Reader question:
+%   Why do the jumps above arise from the spin-system generator, and which
+%   coefficients determine them?
+%
+% Job:
+%   Compute or state the expansion of Lcal chi_A. Show explicitly the terms
+%   indexed by (A\{i}) union S and by A union S. Define
+%       a_i^delta(S)=c_i^0(S),
+%       a_i^beta(S)=-c_i^0(S)-c_i^1(S).
+%   Explain how the two families correspond to the D and B set changes. This is
+%   the point where the general process becomes tied to the given spin system.
+%   The appendix may contain the detailed coefficient calculation, but the
+%   reader should be able to see the correspondence here without going there.
+% ============================================================================
 
-\paragraph{Feynman--Kac duality.}
-\label{subsec:monomial-duality}
-{\color{red} Remove paragraph headers}
-For~$Y=(A,\sigma)$, define
-\begin{equation}
-\label{eq:monomial-duality-function}
-H(Y,\eta)=\sigma\chi_A(\eta).
-\end{equation}
-We write~$\pP_A$ and~$\E_A$ for the law and expectation of the signed set
-process started from~$(A,+)$.
+% ============================================================================
+% BLURB D. Rates, signs, and the Feynman--Kac potential
+%
+% Reader question:
+%   How are signed generator coefficients turned into a Markov jump process,
+%   and where does the potential come from?
+%
+% Job:
+%   Take absolute values of the nonzero-transition coefficients to obtain jump
+%   rates and record their signs in the sign labels. Explain separately the
+%   beta term with S=empty: it leaves A unchanged, so it is a diagonal term and
+%   is not represented by a jump. Define V(A) and explain that it also restores
+%   the diagonal rate terms introduced when the coefficient expansion is written
+%   as a Markov generator. Record the uniform bounds on jump rates and V_i that
+%   follow from the standing assumptions.
+%
+% Avoid:
+%   The phrase "empty-target birth". Nothing jumps in that case.
+% ============================================================================
 
-\begin{theorem}[Monomial Feynman--Kac duality]
-\label{thm:monomial-duality}
-For every signed active set~$Y=(A,\sigma)$,
-\begin{equation}
-\label{eq:monomial-generator-duality}
-\Lcal_\eta H(Y,\eta)
-=
-\Dcal H(Y,\eta)+V(A)H(Y,\eta).
-\end{equation}
-Consequently, for every~$A\Subset\Lambda$,~$t\geq0$, and~$\eta\in\Omega$,
-\begin{equation}
-\label{eq:monomial-feynman-kac-duality}
-P_t\chi_A(\eta)
-=
-\E_A\Cb{
-\sigma_t
-\exp\bb{\int_0^t V(A_s)\,ds}
-\chi_{A_t}(\eta)
-}.
-\end{equation}
-\end{theorem}
+% ============================================================================
+% BLURB E. Feynman--Kac representation
+%
+% Reader question:
+%   What exact representation of P_t chi_A does this construction give?
+%
+% Job:
+%   Define H((A,sigma),eta)=sigma chi_A(eta), and define P_A and E_A for the
+%   dual started from (A,+). State the generator identity and the resulting
+%   Feynman--Kac representation under condition (FK). Make clear that this is
+%   standard Feynman--Kac duality specialized to the process just constructed,
+%   with a reference to the general duality literature. Point to the appendix
+%   only for the coefficient check in our notation.
+%
+% Keep out:
+%   Discussion of the finite-volume proof or the domination used to pass to
+%   infinite volume. The main text only needs the representation and its stated
+%   integrability assumption.
+% ============================================================================
 
-The coefficient calculation proving~\eqref{eq:monomial-generator-duality} and
-the finite-volume passage to~\eqref{eq:monomial-feynman-kac-duality} are given
-in Appendix~\ref{app:dual-calculation} {\color{red} Also a reference to relevant literature should be made, duality is standard, this is not new}. Condition~\eqref{eq:fk-integrability}
-supplies the domination in the infinite-volume passage {\color{red} Unclear to the reader what this means because it references proof method, which is not important here because duality is standard, and reader probably will skip appendix anyway. Just say the representation holds under integrability condition (FK)}. The pure-death noise
-generator acts diagonally on monomials:
-\begin{equation*}
-\Ncal^{\mb 0}\chi_A=-\abs A\chi_A.
-\end{equation*}
-Adding~$\varepsilon\Ncal^{\mb 0}$ leaves the dual jumps unchanged and replaces
-$V(A)$ by~$V(A)-\varepsilon\abs A$. We therefore call these independent
-$1\to0$ transitions \emph{pure deaths}.
+% ============================================================================
+% BLURB F. Effect of pure deaths
+%
+% Reader question:
+%   How does the pure-death perturbation introduced in Section~\ref{sec:setup}
+%   change the dual representation?
+%
+% Job:
+%   Record Ncal^0 chi_A=-|A| chi_A. Conclude that adding epsilon Ncal^0 leaves
+%   all dual jumps unchanged and shifts the potential from V(A) to
+%   V(A)-epsilon|A|. This fact is used later and should be stated without
+%   redefining pure deaths.
+% ============================================================================
 
-\paragraph{Graphical construction.}
-\label{subsec:dual-graphical-construction}{\color{red} Bad paragraph again. This may need to be its own small subsection}
+\subsection{Graphical construction}
+\label{subsec:dual-graphical-construction}
 
 For every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
 $I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson point process of
