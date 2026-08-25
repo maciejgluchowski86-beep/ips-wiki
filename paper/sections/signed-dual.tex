@@ -279,6 +279,43 @@ each jump activates at most~$\sup_i\abs{N(i)}$ new sites.
 %   integrability assumption.
 % ============================================================================
 
+\label{subsec:monomial-duality}
+For~$Y=(A,\sigma)$, define
+\begin{equation}
+\label{eq:monomial-duality-function}
+H(Y,\eta)=\sigma\chi_A(\eta).
+\end{equation}
+We write~$\pP_A$ and~$\E_A$ for the law and expectation of the signed set-valued
+process started from~$(A,+)$.
+
+\begin{theorem}[Monomial Feynman--Kac duality]
+\label{thm:monomial-duality}
+For every signed active set~$Y=(A,\sigma)$,
+\begin{equation}
+\label{eq:monomial-generator-duality}
+\Lcal_\eta H(Y,\eta)
+=
+\Dcal H(Y,\eta)+V(A)H(Y,\eta).
+\end{equation}
+Under condition~\eqref{eq:fk-integrability}, for every~$A\Subset\Lambda$,
+$t\geq0$, and~$\eta\in\Omega$,
+\begin{equation}
+\label{eq:monomial-feynman-kac-duality}
+P_t\chi_A(\eta)
+=
+\E_A\Cb{
+\sigma_t
+\exp\bb{\int_0^t V(A_s)\,ds}
+\chi_{A_t}(\eta)
+}.
+\end{equation}
+\end{theorem}
+
+This is the standard Feynman--Kac duality relation for the signed process above;
+see, for example,~\cite{JansenKurt2014}. The coefficient check in our notation
+and the verification of~\eqref{eq:monomial-feynman-kac-duality} are given in
+Appendix~\ref{app:dual-calculation}.
+
 % ============================================================================
 % BLURB F. Effect of pure deaths
 %
