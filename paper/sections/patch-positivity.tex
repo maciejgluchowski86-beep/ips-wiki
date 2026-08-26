@@ -1,17 +1,29 @@
 \section{Patch positivity and centered-moment order}
 \label{sec:patch-positivity}
 
-Section~\ref{sec:representation} expresses the signed dual weight as a product
-of averaged patch contributions. Patch positivity requires every bulk
-contribution~$C(P)$ to be nonnegative, but its definition quantifies over all
-possible bulk patches. We show that this condition is equivalent to explicit
-inequalities on the local coefficients of the flip rates, and then determine
-the threshold~$p_i^\star$ above which every end contribution based at~$i$ is
-nonnegative. These sign properties turn the patch representation into
-comparisons of moments, while a centered-monomial calculation gives the
-stronger preservation of the centered-moment order. We also use the same
-structure to compare dynamics that differ by pure deaths and to transfer
-convergence between ordered initial laws.
+Theorem~\ref{thm:patch-representation} gives the representation
+\begin{equation*}
+(\mu P_t)(\chi_A)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+}.
+\end{equation*}
+The patch contributions appearing here are defined in
+Section~\ref{sec:representation}, where the representation is proved. To obtain
+inequalities from this formula, we need to control their signs. We call the
+system patch-positive when~$C(P)\geq0$ for every bulk patch~$P$. Although this
+condition is defined through all possible bulk patches, we show that it is
+equivalent to explicit inequalities on the coefficients of the flip rates.
+Bulk positivity does not determine the sign of an end contribution, since
+$C(z,P)$ still depends on its terminal argument~$z$. For each site~$i$, we
+therefore determine the smallest~$p\in[0,1]$ for which
+$C(p,P)\geq0$ for every end patch based at~$i$; this value is the patch
+threshold~$p_i^\star$. These two sign controls are what allow the patch
+representation to yield the moment comparisons proved later in the section.
 
 \subsection{Coefficient criterion}
 \label{subsec:positivity-criterion}
