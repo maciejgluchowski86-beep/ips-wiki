@@ -248,6 +248,29 @@ Theorem~\ref{thm:patch-positivity-order}.
 %   sites with r_i>0.
 % ============================================================================
 
+Patch positivity controls the contributions~$C(P)$ of patches in the full
+family~$\mathcal P$, but the finite-time representation contains end
+contributions~$C(p,P)$ whose terminal value has not yet been fixed. For an end
+patch based at~$i$, the patch threshold~$p_i^\star$ is the smallest
+$p\in[0,1]$ for which~$C(p,P)\geq0$ for every such patch. At a fixed
+observation time, an end patch is obtained by cutting a patch that reaches the
+observation time, so its terminal label is~$\mathsf E$ and its contribution
+still depends on~$p$.
+
+Fix an end patch~$P$ based at~$i$ and write~$\Delta=e(P)-s(P)$. If its initial
+boundary is incoming, Appendix~\ref{app:end-contribution-formulas} gives
+\begin{equation*}
+C(p,P)=\frac{\psi_i(\Delta,p)}{\varphi_i(\Delta)}.
+\end{equation*}
+For~$p\in[0,1]$, both terms in~$\psi_i(\Delta,p)$ are nonnegative, while
+$\varphi_i(\Delta)>0$ for every realized patch. Hence incoming-initial end
+patches are nonnegative for every~$p\in[0,1]$ and impose no restriction on the
+threshold. Only outgoing-initial end patches can determine~$p_i^\star$.
+
+If~$r_i=0$, the coefficient criterion proved above gives~$c_i\equiv0$. There
+are then no outgoing end patches based at~$i$, so~$p_i^\star=0$. It remains to
+consider sites with~$r_i>0$.
+
 % ============================================================================
 % BLURB B. Positivity of one outgoing end patch
 %
