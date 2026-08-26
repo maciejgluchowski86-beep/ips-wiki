@@ -1,13 +1,11 @@
-\section{Patch positivity and centered-moment order}
+\section{Patch positivity and proof of Theorem~\ref{thm:patch-positivity-order}}
 \label{sec:patch-positivity}
 
 This section proves Theorem~\ref{thm:patch-positivity-order}. Part~\textup{(i)}
 characterizes patch positivity in terms of the coefficients of the flip rates
 and computes the patch threshold profile. After interpreting these conditions,
 we return to the patch representation to prove part~\textup{(ii)}, preservation
-of the centered-moment order.
-
-The starting point is the representation from
+of the centered-moment order. The starting point is the representation from
 Theorem~\ref{thm:patch-representation}:
 \begin{equation*}
 (\mu P_t)(\chi_A)
@@ -84,8 +82,8 @@ e^{V_i\Delta},
 \end{cases}
 \end{equation*}
 At~$\Delta=\infty$, the first expression is read by taking the corresponding
-limit. The signed coefficient of an empty-target death is
-$c_i^0(\vn)=c_i(\mb 0)\geq0$, so these deaths have positive sign. Hence
+limit. The coefficient of~$c_i$ corresponding to death at~$i$ is
+$c_i^0(\vn)=c_i(\mb 0)\geq0$, so deaths have positive sign. Hence
 $\psi_i(\Delta,1)\geq0$, while~$\varphi_i(\Delta)>0$ for every realized patch,
 and the exponential is positive. Thus every patch with an incoming initial
 boundary has a nonnegative contribution. Only patches with an outgoing initial
@@ -396,23 +394,21 @@ part~\textup{(i)} of Theorem~\ref{thm:patch-positivity-order}.
 
 \begin{corollary}[Threshold bound]
 \label{cor:critical-profile-empty-bound}
-If~$r_i>0$, then
+If~$r_i = 0$ then~$p_i^* = 0$. If~$r_i>0$, then
 \begin{equation*}
 p_i^\star
 \leq
-\frac{c_i^0(\vn)}{r_i}
-=
 \frac{c_i(\mb 0)}{c_i(\mb 0)+c_i(\mb 0^i)}.
 \end{equation*}
 \end{corollary}
 
 \begin{proof}
-For every target appearing in the supremum defining~$p_i^\star$, the preceding
+If~$r_i=0$ then the patch-positivity criterion gives~$c_i\equiv 0$ and hence~$p_i^*=0$. For the case~$r_i>0$, for every target~$S$ appearing in the supremum defining~$p_i^\star$, the preceding
 calculation gives
 \begin{equation*}
 \frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
 \leq
-\frac{c_i^0(\vn)}{r_i}.
+\frac{c_i^0(\vn)}{r_i} = \frac{c_i(\mb 0)}{c_i(\mb 0)+c_i(\mb 0^i)}.
 \end{equation*}
 Taking the supremum and then the maximum with~$0$ proves the claim.
 \end{proof}
