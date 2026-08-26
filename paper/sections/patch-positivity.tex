@@ -358,6 +358,61 @@ N_{i,S}(0,p)\geq0.
 %   expansions and moment comparisons belong in the following subsections.
 % ============================================================================
 
+If~$c_i^0(S)+c_i^1(S)=0$, then
+\eqref{eq:patch-positivity-second-inequality}, together with
+$c_i^1(S)=-c_i^0(S)$, gives~$r_i c_i^0(S)\geq0$. Hence~$c_i^0(S)\geq0$ and
+$N_{i,S}(0,p)\geq0$ for every~$p\in[0,1]$. Such a target therefore imposes no
+restriction on the threshold. If instead~$c_i^0(S)+c_i^1(S)<0$, the condition
+$N_{i,S}(0,p)\geq0$ is equivalent to
+\begin{equation*}
+p\geq
+\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}.
+\end{equation*}
+Taking the supremum over all nonempty targets with negative coefficient sum and
+also imposing~$p\geq0$ gives
+\begin{equation*}
+p_i^\star
+=
+\max\cb{
+0,
+\sup_{\substack{
+\vn\neq S\subseteq N(i)\\
+c_i^0(S)+c_i^1(S)<0
+}}
+\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
+},
+\end{equation*}
+which proves the threshold formula in
+Theorem~\ref{thm:patch-positivity-order}.
+
+The same coefficient inequality gives a useful upper bound on this threshold.
+For every target~$S$ appearing in the supremum,
+\eqref{eq:patch-positivity-second-inequality} can be rewritten as
+\begin{equation*}
+r_i c_i^0(S)
+\geq
+c_i^0(\vn)\bb{c_i^0(S)+c_i^1(S)}.
+\end{equation*}
+Since~$c_i^0(S)+c_i^1(S)<0$, division by this quantity reverses the inequality
+and yields
+\begin{equation*}
+\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
+\leq
+\frac{c_i^0(\vn)}{r_i}
+\leq1.
+\end{equation*}
+In particular, all ratios entering the threshold formula lie in~$(-\infty,1]$.
+
+\begin{corollary}[Empty-neighbour bound]
+\label{cor:critical-profile-empty-bound}
+If~$r_i>0$, then
+\begin{equation*}
+p_i^\star
+\leq
+\frac{c_i^0(\vn)}{c_i^0(\vn)+c_i^1(\vn)}.
+\end{equation*}
+\end{corollary}
+
 \subsection{Interpretation of patch positivity}
 \label{subsec:positivity-interpretation}
 
