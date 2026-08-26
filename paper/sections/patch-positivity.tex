@@ -61,9 +61,7 @@ $\mathsf X(P)\in\cb{\mathsf I,\mathsf O}$ records whether the interaction at
 $s(P)$ is incoming or outgoing at~$i$. The terminal label
 $\mathsf Y(P)\in\cb{\mathsf I,\mathsf O,\mathsf E}$ records whether the next
 successful interaction is incoming or outgoing, with~$\mathsf E$ meaning that
-there is no later successful interaction on that site line. In the formulas for
-$C(P)$, terminal labels~$\mathsf I$ and~$\mathsf E$ give the same expression.
-Thus the six boundary labels reduce to four distinct cases:
+there is no later successful interaction at that site. The contributions~$C(P)$ for~$\mathsf{XI}$ and~$\mathsf{XE}$ patches are the same so there are four distinct cases:
 $\cb{\mathsf{II},\mathsf{IE}}$,~$\mathsf{IO}$,
 $\cb{\mathsf{OI},\mathsf{OE}}$, and~$\mathsf{OO}$.
 
@@ -150,7 +148,7 @@ is
 \begin{equation*}
 c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,1).
 \end{equation*}
-Put~$r_i=c_i^0(\vn)+c_i^1(\vn)$ and suppose first that~$r_i>0$. Then
+Put~$r_i=c_i^0(\vn)+c_i^1(\vn)$. Note that~$r_i = c_i(\mb{0})+c_i(\mb{0}^i)\geq 0$ and suppose first that~$r_i>0$. Then
 \begin{equation*}
 \psi_i(\Delta,1)
 =
@@ -160,13 +158,13 @@ Put~$r_i=c_i^0(\vn)+c_i^1(\vn)$ and suppose first that~$r_i>0$. Then
 \end{equation*}
 Under~\eqref{eq:patch-positivity-first-inequality}, the numerator is
 nonincreasing in~$\Delta$. Its minimum is therefore the value at
-$\Delta=\infty$,
+$\Delta=\infty$, which is
 \begin{equation*}
 \frac{
 c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)
 }{r_i}.
 \end{equation*}
-Hence the common~$\mathsf{OI}/\mathsf{OE}$ contribution is nonnegative for
+Hence the~$\mathsf{OI}/\mathsf{OE}$ contribution is nonnegative for
 every patch length exactly when
 \begin{equation}
 \label{eq:patch-positivity-second-inequality}
@@ -195,7 +193,7 @@ c_i^0(\vn)c_i^1(S)
 It remains to consider~$r_i=0$. Since both terms in~$r_i$ are nonnegative,
 $c_i^0(\vn)=c_i^1(\vn)=0$, and
 Appendix~\ref{app:positivity-algebra} gives~$\psi_i(\Delta,1)=1$. The numerator
-of the common~$\mathsf{OI}/\mathsf{OE}$ contribution therefore reduces to
+of the~$\mathsf{OI}/\mathsf{OE}$ contribution therefore reduces to
 $-c_i^1(S)$, so patch positivity requires~$c_i^1(S)\leq0$ for every nonempty
 $S\subseteq N(i)$. For a neighbourhood configuration whose set of~$1$'s is
 $T\subseteq N(i)$, the expansion~\eqref{eq:rate-expansion} then gives
