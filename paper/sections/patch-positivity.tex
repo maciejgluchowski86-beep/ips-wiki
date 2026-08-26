@@ -145,6 +145,47 @@ c_i^0(S)+c_i^1(S)\leq0
 %   coefficient inequality; no separate condition is needed for each Delta.
 % ============================================================================
 
+It remains to consider an outgoing initial boundary followed by an incoming
+terminal boundary. By Appendix~\ref{app:bulk-formulas}, the denominator of the
+$\mathsf{OI}$ contribution is positive, while its numerator is
+\begin{equation*}
+c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,1).
+\end{equation*}
+Put
+\begin{equation*}
+r_i=c_i^0(\vn)+c_i^1(\vn),
+\end{equation*}
+and suppose first that~$r_i>0$. Then
+\begin{equation*}
+\psi_i(\Delta,1)
+=
+\frac{c_i^0(\vn)}{r_i}
++
+\frac{c_i^1(\vn)}{r_i}e^{-r_i\Delta}.
+\end{equation*}
+The first inequality~\eqref{eq:patch-positivity-first-inequality} implies that
+the numerator decreases as~$\psi_i(\Delta,1)$ decreases. Since
+$\psi_i(\Delta,1)$ decreases with~$\Delta$, the smallest value is attained in
+the limit~$\Delta\to\infty$, where
+\begin{equation*}
+\lim_{\Delta\to\infty}
+\Cb{
+c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,1)
+}
+=
+\frac{
+c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)
+}{r_i}.
+\end{equation*}
+Thus all~$\mathsf{OI}$ contributions based at~$i$ are nonnegative exactly when
+\begin{equation}
+\label{eq:patch-positivity-second-inequality}
+c_i^1(\vn)c_i^0(S)
+\geq
+c_i^0(\vn)c_i^1(S)
+\qquad\text{for every nonempty }S\subseteq N(i).
+\end{equation}
+
 % ============================================================================
 % BLURB D. The case r_i=0 and completion of the equivalence
 %
