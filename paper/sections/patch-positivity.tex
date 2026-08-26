@@ -30,7 +30,7 @@ comparisons proved later in the section.
 \label{subsec:positivity-criterion}
 
 % ============================================================================
-% BLURB A. Reduce patch positivity to the boundary cases
+% BLURB A. Reduce patch positivity to the distinct contribution formulas
 %
 % Reader question:
 %   Patch positivity asks for C(P)>=0 for every patch in the full patch family.
@@ -39,8 +39,9 @@ comparisons proved later in the section.
 % Job:
 %   Fix a site i and a patch P in the full patch family based at i, and write
 %   Delta=e(P)-s(P), allowing Delta=infinity. Recall the initial and terminal
-%   boundary labels. Use the explicit contribution formulas from
-%   Appendix~\ref{app:bulk-formulas}.
+%   boundary labels. Explain that terminal labels I and E give the same
+%   contribution formula, so the six boundary labels reduce to four distinct
+%   formulas: {II,IE}, IO, {OI,OE}, and OO.
 %
 %   Show first that every patch whose initial boundary is incoming has a
 %   nonnegative contribution. State the consequence clearly: only patches whose
@@ -60,10 +61,13 @@ $\mathsf X(P)\in\cb{\mathsf I,\mathsf O}$ records whether the interaction at
 $s(P)$ is incoming or outgoing at~$i$. The terminal label
 $\mathsf Y(P)\in\cb{\mathsf I,\mathsf O,\mathsf E}$ records whether the next
 successful interaction is incoming or outgoing, with~$\mathsf E$ meaning that
-there is no later successful interaction on that site line.
+there is no later successful interaction on that site line. In the formulas for
+$C(P)$, terminal labels~$\mathsf I$ and~$\mathsf E$ give the same expression.
+Thus the six boundary labels reduce to four distinct cases:
+$\cb{\mathsf{II},\mathsf{IE}}$,~$\mathsf{IO}$,
+$\cb{\mathsf{OI},\mathsf{OE}}$, and~$\mathsf{OO}$.
 
-The formulas in Appendix~\ref{app:bulk-formulas} give~$C(P)$ for each of these
-boundary types. If the initial boundary is incoming, then
+If the initial boundary is incoming, Appendix~\ref{app:bulk-formulas} gives
 \begin{equation*}
 C(P)
 =
@@ -102,7 +106,7 @@ rates.
 %       c_i^0(S)+c_i^1(S)<=0.
 %
 % Reader takeaway:
-%   The OO family contributes exactly the first coefficient inequality.
+%   The OO formula gives exactly the first coefficient inequality.
 % ============================================================================
 
 Suppose now that the initial boundary is outgoing, with nonempty target~$S$.
@@ -124,30 +128,29 @@ c_i^0(S)+c_i^1(S)\leq0
 \end{equation}
 
 % ============================================================================
-% BLURB C. The remaining outgoing-initial patches give the second inequality
+% BLURB C. The other outgoing-initial formula gives the second inequality
 %
 % Reader question:
-%   Once the first inequality holds, what further restriction comes from OI and
-%   OE patches?
+%   Once the first inequality holds, what further restriction comes from the
+%   common OI/OE contribution formula?
 %
 % Job:
-%   State that the denominator in the contribution formula is positive, so the
-%   sign is determined by
+%   State that OI and OE have the same contribution formula. Its denominator is
+%   positive, so the sign is determined by
 %       c_i^0(S)-(c_i^0(S)+c_i^1(S))psi_i(Delta,1).
 %   Put r_i=c_i^0(emptyset)+c_i^1(emptyset), and treat here the case r_i>0.
 %   Use the explicit formula for psi_i(Delta,1). Under the first inequality,
-%   explain that the numerator is minimized as Delta->infinity. The OE case is
-%   exactly this infinite-length limit. Compute it and obtain the second
-%   coefficient inequality.
+%   explain that the numerator is minimized at Delta=infinity. Compute it and
+%   obtain the second coefficient inequality.
 % ============================================================================
 
-It remains to consider patches of type~$\mathsf{OI}$ or~$\mathsf{OE}$. Their
-contribution has positive denominator, and its numerator is
+The remaining outgoing-initial cases,~$\mathsf{OI}$ and~$\mathsf{OE}$, have
+the same contribution formula. Its denominator is positive, while its numerator
+is
 \begin{equation*}
-c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,1),
+c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,1).
 \end{equation*}
-with~$\Delta=\infty$ in the~$\mathsf{OE}$ case. Put
-$r_i=c_i^0(\vn)+c_i^1(\vn)$ and suppose first that~$r_i>0$. Then
+Put~$r_i=c_i^0(\vn)+c_i^1(\vn)$ and suppose first that~$r_i>0$. Then
 \begin{equation*}
 \psi_i(\Delta,1)
 =
@@ -163,8 +166,8 @@ $\Delta=\infty$,
 c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)
 }{r_i}.
 \end{equation*}
-Hence all~$\mathsf{OI}$ and~$\mathsf{OE}$ contributions based at~$i$ are
-nonnegative exactly when
+Hence the common~$\mathsf{OI}/\mathsf{OE}$ contribution is nonnegative for
+every patch length exactly when
 \begin{equation}
 \label{eq:patch-positivity-second-inequality}
 c_i^1(\vn)c_i^0(S)
@@ -177,22 +180,22 @@ c_i^0(\vn)c_i^1(S)
 % BLURB D. The case r_i=0 and completion of the equivalence
 %
 % Reader question:
-%   What happens when r_i=0, and have the preceding conditions proved both
-%   directions of the criterion?
+%   What happens when r_i=0, and have the four distinct contribution formulas
+%   proved both directions of the criterion?
 %
 % Job:
-%   When r_i=0, use psi_i(Delta,1)=1. The OI/OE condition then gives
+%   When r_i=0, use psi_i(Delta,1)=1. The OI/OE formula then gives
 %   c_i^1(S)<=0 for every nonempty S. Use the multilinear expansion and the
 %   nonnegativity of the rate function to deduce c_i^1\equiv0. The OO inequality
 %   then similarly forces c_i^0\equiv0.
 %
-%   Close the converse explicitly over all six boundary types.
+%   Close the converse explicitly using the four distinct contribution formulas.
 % ============================================================================
 
 It remains to consider~$r_i=0$. Since both terms in~$r_i$ are nonnegative,
 $c_i^0(\vn)=c_i^1(\vn)=0$, and
 Appendix~\ref{app:positivity-algebra} gives~$\psi_i(\Delta,1)=1$. The numerator
-of an~$\mathsf{OI}$ or~$\mathsf{OE}$ contribution therefore reduces to
+of the common~$\mathsf{OI}/\mathsf{OE}$ contribution therefore reduces to
 $-c_i^1(S)$, so patch positivity requires~$c_i^1(S)\leq0$ for every nonempty
 $S\subseteq N(i)$. For a neighbourhood configuration whose set of~$1$'s is
 $T\subseteq N(i)$, the expansion~\eqref{eq:rate-expansion} then gives
@@ -203,19 +206,20 @@ c_i^1(\eta)
 \leq0.
 \end{equation*}
 Since~$c_i^1$ is a nonnegative rate function,~$c_i^1\equiv0$. The inequality
-from the~$\mathsf{OO}$ contributions now gives~$c_i^0(S)\leq0$ for every
+from the~$\mathsf{OO}$ contribution now gives~$c_i^0(S)\leq0$ for every
 nonempty~$S$, and the same argument, using~$c_i^0(\vn)=0$, yields
 $c_i^0\equiv0$.
 
 Conversely, suppose first that~$r_i>0$ and that
 \eqref{eq:patch-positivity-first-inequality} and
 \eqref{eq:patch-positivity-second-inequality} hold for every nonempty
-$S\subseteq N(i)$. The preceding cases show that the contributions of all six
-boundary types~$\mathsf{II}$,~$\mathsf{IE}$,~$\mathsf{IO}$,
-$\mathsf{OI}$,~$\mathsf{OE}$, and~$\mathsf{OO}$ are nonnegative. If~$r_i=0$
-and~$c_i\equiv0$, there are no outgoing interactions from~$i$, while the
-incoming-initial contributions are nonnegative by the first part of the proof.
-Since~$i$ was arbitrary, this proves the coefficient criterion in
+$S\subseteq N(i)$. The incoming-initial formulas are nonnegative, the
+$\mathsf{OO}$ formula is nonnegative by the first inequality, and the common
+$\mathsf{OI}/\mathsf{OE}$ formula is nonnegative by the second. These are all
+four distinct contribution formulas. If~$r_i=0$ and~$c_i\equiv0$, there are no
+outgoing interactions from~$i$, while the incoming-initial contributions are
+nonnegative by the first part of the proof. Since~$i$ was arbitrary, this
+proves the coefficient criterion in
 Theorem~\ref{thm:patch-positivity-order}.
 
 \subsection{Patch threshold}
