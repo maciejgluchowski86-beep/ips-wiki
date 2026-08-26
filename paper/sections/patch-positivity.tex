@@ -1,7 +1,14 @@
 \section{Patch positivity and centered-moment order}
 \label{sec:patch-positivity}
 
-Theorem~\ref{thm:patch-representation} gives the representation
+This section proves Theorem~\ref{thm:patch-positivity-order}. Part~\textup{(i)}
+characterizes patch positivity in terms of the coefficients of the flip rates
+and computes the patch threshold profile. After interpreting these conditions,
+we return to the patch representation to prove part~\textup{(ii)}, preservation
+of the centered-moment order.
+
+The starting point is the representation from
+Theorem~\ref{thm:patch-representation}:
 \begin{equation*}
 (\mu P_t)(\chi_A)
 =
@@ -13,18 +20,14 @@ Theorem~\ref{thm:patch-representation} gives the representation
 }.
 \end{equation*}
 The patch contributions appearing here are defined in
-Section~\ref{sec:representation}, where the representation is proved. To obtain
-inequalities from this formula, we need to control their signs. We call the
-system patch-positive when, for every finite initial dual set, almost every
-realization of the full patch family~$\mathcal P$ satisfies~$C(P)\geq0$ for
-every~$P\in\mathcal P$. We show that this condition is equivalent to explicit
-inequalities on the coefficients of the flip rates. Patch positivity does not
-determine the sign of a finite-time end contribution, since~$C(z,P)$ still
-depends on its terminal argument~$z$. For each site~$i$, we therefore determine
-the smallest~$p_i\in[0,1]$ for which~$C(p,P)\geq0$ for every end patch based
-at~$i$ and call this value the patch threshold~$p_i^\star$. These two sign
-controls are what allow the patch representation to yield the moment
-comparisons proved later in the section.
+Section~\ref{sec:representation}. Patch positivity requires, for every finite
+initial dual set, that almost every realization of the full patch
+family~$\mathcal P$ satisfies~$C(P)\geq0$ for every~$P\in\mathcal P$. The
+finite-time end contributions require an additional sign control because
+$C(z,P)$ still depends on its terminal argument~$z$. Part~\textup{(i)} first
+reduces patch positivity to explicit coefficient inequalities and then computes
+the smallest values~$p_i^\star$ for which~$C(p_i^\star,P)\geq0$ for every end
+patch based at~$i$.
 
 \subsection{Coefficient criterion}
 \label{subsec:positivity-criterion}
@@ -37,6 +40,7 @@ comparisons proved later in the section.
 %   How can this be checked from the local rates?
 %
 % Job:
+%   Begin the proof of part (i) of Theorem~\ref{thm:patch-positivity-order}.
 %   Fix a site i and a patch P in the full patch family based at i, and write
 %   Delta=e(P)-s(P), allowing Delta=infinity. Recall the initial and terminal
 %   boundary labels. Explain that terminal labels I and E give the same
@@ -53,16 +57,17 @@ comparisons proved later in the section.
 %   coefficient inequalities, and finite-time end-patch positivity.
 % ============================================================================
 
-We prove the coefficient criterion in
-Theorem~\ref{thm:patch-positivity-order}. Fix a site~$i$ and a patch
-$P\in\mathcal P$ based at~$i$, and write
+We begin the proof of part~\textup{(i)} of
+Theorem~\ref{thm:patch-positivity-order} with the coefficient criterion. Fix a
+site~$i$ and a patch~$P\in\mathcal P$ based at~$i$, and write
 $\Delta=e(P)-s(P)\in(0,\infty]$. The initial label
 $\mathsf X(P)\in\cb{\mathsf I,\mathsf O}$ records whether the interaction at
 $s(P)$ is incoming or outgoing at~$i$. The terminal label
 $\mathsf Y(P)\in\cb{\mathsf I,\mathsf O,\mathsf E}$ records whether the next
 successful interaction is incoming or outgoing, with~$\mathsf E$ meaning that
-there is no later successful interaction at that site. The contributions~$C(P)$ for~$\mathsf{XI}$ and~$\mathsf{XE}$ patches are the same so there are four distinct cases:
-$\cb{\mathsf{II},\mathsf{IE}}$,~$\mathsf{IO}$,
+there is no later successful interaction at that site. The contributions~$C(P)$
+for~$\mathsf{XI}$ and~$\mathsf{XE}$ patches are the same, so there are four
+distinct cases:~$\cb{\mathsf{II},\mathsf{IE}}$,~$\mathsf{IO}$,
 $\cb{\mathsf{OI},\mathsf{OE}}$, and~$\mathsf{OO}$.
 
 If the initial boundary is incoming, Appendix~\ref{app:bulk-formulas} gives
@@ -148,7 +153,8 @@ is
 \begin{equation*}
 c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,1).
 \end{equation*}
-Put~$r_i=c_i^0(\vn)+c_i^1(\vn)$. Note that~$r_i = c_i(\mb{0})+c_i(\mb{0}^i)\geq 0$ and suppose first that~$r_i>0$. Then
+Put~$r_i=c_i^0(\vn)+c_i^1(\vn)$. Note that
+$r_i=c_i(\mb 0)+c_i(\mb 0^i)\geq0$, and suppose first that~$r_i>0$. Then
 \begin{equation*}
 \psi_i(\Delta,1)
 =
@@ -175,11 +181,11 @@ c_i^0(\vn)c_i^1(S)
 \end{equation}
 
 % ============================================================================
-% BLURB D. The case r_i=0 and completion of the equivalence
+% BLURB D. The case r_i=0 and completion of the coefficient criterion
 %
 % Reader question:
 %   What happens when r_i=0, and have the four distinct contribution formulas
-%   proved both directions of the criterion?
+%   proved both directions of the coefficient criterion in part (i)?
 %
 % Job:
 %   When r_i=0, use psi_i(Delta,1)=1. The OI/OE formula then gives
@@ -217,7 +223,7 @@ $\mathsf{OI}/\mathsf{OE}$ formula is nonnegative by the second. These are all
 four distinct contribution formulas. If~$r_i=0$ and~$c_i\equiv0$, there are no
 outgoing interactions from~$i$, while the incoming-initial contributions are
 nonnegative by the first part of the proof. Since~$i$ was arbitrary, this
-proves the coefficient criterion in
+proves the coefficient criterion in part~\textup{(i)} of
 Theorem~\ref{thm:patch-positivity-order}.
 
 \subsection{Patch threshold}
@@ -227,24 +233,24 @@ Theorem~\ref{thm:patch-positivity-order}.
 % BLURB A. Reduce end-patch positivity to the OE case
 %
 % Reader question:
-%   Patch positivity controls C(P) for the full patch family. What extra sign
-%   condition is needed for the finite-time end factors C(p,P)?
+%   The coefficient criterion has characterized patch positivity. What remains
+%   to prove in part (i), and which end patches can determine the threshold?
 %
 % Job:
+%   State that it remains to compute the threshold profile in part (i).
 %   Recall that p_i^star is the smallest p for which every end patch based at i
 %   has C(p,P)>=0. Every end patch has terminal label E, so it has type IE or OE.
 %   Use the end-contribution formula to show that IE patches are nonnegative for
-%   every p in [0,1]. Hence only OE patches can determine p_i^star. Dispose of
-%   r_i=0 in one sentence and continue with r_i>0.
+%   every p in [0,1]. Hence only OE patches can determine p_i^star.
 %
 % Reader takeaway:
-%   The threshold is determined entirely by OE end patches at sites with
-%   r_i>0.
+%   The remaining part of Theorem B(i) is the OE threshold calculation.
 % ============================================================================
 
-Patch positivity controls~$C(P)$ for the full patch family. To use the
-finite-time representation, we also need to know when the end contributions
-$C(p,P)$ are nonnegative. Recall that~$p_i^\star$ is the smallest
+To complete part~\textup{(i)} of Theorem~\ref{thm:patch-positivity-order}, it
+remains to compute the patch threshold profile. Patch positivity controls
+$C(P)$ for the full patch family, while the finite-time representation also
+contains end contributions~$C(p,P)$. Recall that~$p_i^\star$ is the smallest
 $p\in[0,1]$ such that~$C(p,P)\geq0$ for every end patch based at~$i$. Every end
 patch has terminal label~$\mathsf E$, so it has type~$\mathsf{IE}$ or
 $\mathsf{OE}$.
@@ -254,45 +260,42 @@ $\mathsf{IE}$ patch,~\eqref{eq:end-contribution-formulas} gives
 \begin{equation*}
 C(p,P)=\frac{\psi_i(\Delta,p)}{\varphi_i(\Delta)}.
 \end{equation*}
-For~$p\in[0,1]$,~$\psi_i(\Delta,p)\geq0$ and~$\varphi_i(\Delta)>0$. Thus~$\mathsf{IE}$ patches impose no restriction on~$p$, and
-$p_i^\star$ is determined entirely by~$\mathsf{OE}$ patches. 
+For~$p\in[0,1]$,~$\psi_i(\Delta,p)\geq0$ and~$\varphi_i(\Delta)>0$. Thus
+$\mathsf{IE}$ patches impose no restriction on~$p$, and~$p_i^\star$ is
+determined entirely by~$\mathsf{OE}$ patches.
 
 % ============================================================================
 % BLURB B. Positivity of one outgoing end patch
 %
 % Reader question:
-%   For a fixed outgoing end patch with initial target S, how large must p be
-%   to make its contribution nonnegative for every possible patch length?
+%   For a fixed OE end patch with initial target S, how large must p be to make
+%   its contribution nonnegative for every possible patch length?
 %
 % Job:
-%   Assume r_i>0 and let S be the nonempty target of the initial outgoing
-%   interaction. Since the denominator is positive, define the numerator
+%   Recall r_i=c_i^0(emptyset)+c_i^1(emptyset). Dispose of r_i=0 in one sentence,
+%   then assume r_i>0. Since the denominator is positive, define the numerator
 %       N_{i,S}(Delta,p)
 %       =c_i^0(S)-(c_i^0(S)+c_i^1(S))psi_i(Delta,p).
 %   Keep this notation: it is used throughout the calculation.
 %
 %   Patch positivity gives c_i^0(S)+c_i^1(S)<=0, so N is nondecreasing in p.
 %   Write the explicit formula for psi_i(Delta,p), and compute the two endpoint
-%   values in Delta:
-%       N_{i,S}(0,p)
-%       =c_i^0(S)-(c_i^0(S)+c_i^1(S))p,
-%   while the Delta->infinity limit is the determinant expression from 5.1
-%   divided by r_i and is therefore nonnegative.
+%   values in Delta. The Delta->infinity endpoint is the determinant expression
+%   from 5.1 divided by r_i and is therefore nonnegative.
 %
 %   Since N is affine in exp(-r_i Delta), positivity for every Delta>=0 is
-%   equivalent to N_{i,S}(0,p)>=0. Make this reduction explicit rather than
-%   calling it a short-patch condition.
+%   equivalent to N_{i,S}(0,p)>=0.
 %
 % Reader takeaway:
 %   The second coefficient inequality already controls the large-Delta endpoint;
 %   the threshold comes entirely from the Delta=0 endpoint.
 % ============================================================================
 
-If~$r_i=0$, the coefficient criterion gives~$c_i\equiv0$ and hence
-$p_i^\star=0$. Suppose therefore that~$r_i>0$, and let~$P$ be an
-$\mathsf{OE}$ end patch based at~$i$, whose initial outgoing interaction has
-nonempty target~$S$. By~\eqref{eq:end-contribution-formulas}, the denominator
-of~$C(p,P)$ is positive, while its numerator is
+Recall that~$r_i=c_i^0(\vn)+c_i^1(\vn)$. If~$r_i=0$, the coefficient criterion
+gives~$c_i\equiv0$ and hence~$p_i^\star=0$. Suppose therefore that~$r_i>0$,
+and let~$P$ be an~$\mathsf{OE}$ end patch based at~$i$, whose initial outgoing
+interaction has nonempty target~$S$. By~\eqref{eq:end-contribution-formulas},
+the denominator of~$C(p,P)$ is positive, while its numerator is
 \begin{equation*}
 N_{i,S}(\Delta,p)
 =
@@ -335,22 +338,14 @@ N_{i,S}(0,p)\geq0.
 %   S, and how large can that threshold be?
 %
 % Job:
-%   Split according to the first coefficient sum. If
-%       c_i^0(S)+c_i^1(S)=0,
-%   use the second coefficient inequality to show c_i^0(S)>=0, so this target
-%   imposes no restriction on p. If the sum is negative, solve
-%   N_{i,S}(0,p)>=0 to obtain
-%       p >= c_i^0(S)/(c_i^0(S)+c_i^1(S)).
+%   Split according to c_i^0(S)+c_i^1(S). If the sum vanishes, show that S
+%   imposes no restriction. If it is negative, solve N_{i,S}(0,p)>=0 and use the
+%   second coefficient inequality to show that the resulting ratio is at most
+%   c_i^0(emptyset)/r_i<=1.
 %
-%   Take the supremum over nonempty targets with negative sum and impose p>=0.
-%   This proves the formula for p_i^star in Theorem~\ref{thm:patch-positivity-order}.
-%   Note briefly that patch positivity makes the relevant ratios at most 1.
-%
-%   Then record the useful consequence
-%       p_i^star <= c_i^0(emptyset)/r_i.
-%   Derive it directly from the second coefficient inequality for every target
-%   entering the supremum. Keep this bound because it is used later to prove
-%   positivity of the empty-set centered-generator coefficient.
+%   Take the supremum over the targets with negative sum and impose p>=0. State
+%   explicitly that this completes part (i) of the theorem. Then record the
+%   threshold bound as a useful consequence.
 %
 % Keep out:
 %   Dynamic interpretation of the coefficient inequalities; that belongs in
@@ -362,14 +357,28 @@ If~$c_i^0(S)+c_i^1(S)=0$, then
 \eqref{eq:patch-positivity-second-inequality}, together with
 $c_i^1(S)=-c_i^0(S)$, gives~$r_i c_i^0(S)\geq0$. Hence~$c_i^0(S)\geq0$ and
 $N_{i,S}(0,p)\geq0$ for every~$p\in[0,1]$. Such a target therefore imposes no
-restriction on the threshold. If instead~$c_i^0(S)+c_i^1(S)<0$, then the condition
+restriction on the threshold. If instead~$c_i^0(S)+c_i^1(S)<0$, then
 $N_{i,S}(0,p)\geq0$ is equivalent to
 \begin{equation*}
 p\geq
 \frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}.
 \end{equation*}
-Taking the supremum over all nonempty targets with negative coefficient sum and
-also imposing~$p\geq0$ gives
+For every such~$S$, the second coefficient inequality can also be rewritten as
+\begin{equation*}
+r_i c_i^0(S)
+\geq
+c_i^0(\vn)\bb{c_i^0(S)+c_i^1(S)}.
+\end{equation*}
+Since the factor in parentheses is negative,
+\begin{equation*}
+\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
+\leq
+\frac{c_i^0(\vn)}{r_i}
+\leq1.
+\end{equation*}
+If there is no nonempty~$S\subseteq N(i)$ with
+$c_i^0(S)+c_i^1(S)<0$, then~$p_i^\star=0$. Otherwise, taking the supremum over
+all such targets and imposing~$p\geq0$ gives
 \begin{equation*}
 p_i^\star
 =
@@ -380,20 +389,10 @@ p_i^\star
 c_i^0(S)+c_i^1(S)<0
 }}
 \frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
-},
+}.
 \end{equation*}
-which proves the threshold formula in
-Theorem~\ref{thm:patch-positivity-order}.
-The patch positivity criterion gives a nice upper bound on this threshold.
-For every target~$S$ appearing in the supremum,
-\eqref{eq:patch-positivity-second-inequality} can be rewritten as
-\begin{equation*}
-r_i c_i^0(S)
-\geq
-c_i^0(\vn)\bb{c_i^0(S)+c_i^1(S)}.
-\end{equation*}
-Since~$c_i^0(S)+c_i^1(S)<0$, division by this quantity reverses the inequality
-and yields the following bound.
+This proves the threshold formula and completes the proof of
+part~\textup{(i)} of Theorem~\ref{thm:patch-positivity-order}.
 
 \begin{corollary}[Threshold bound]
 \label{cor:critical-profile-empty-bound}
@@ -401,11 +400,33 @@ If~$r_i>0$, then
 \begin{equation*}
 p_i^\star
 \leq
-\frac{c_i^0(\vn)}{c_i^0(\vn)+c_i^1(\vn)} = \frac{c_i(\mb{0})}{c_i(\mb{0}) + c_i(\mb{0}^i)}.
+\frac{c_i^0(\vn)}{r_i}
+=
+\frac{c_i(\mb 0)}{c_i(\mb 0)+c_i(\mb 0^i)}.
 \end{equation*}
 \end{corollary}
-In particular the threshold profile always lies in~$[0,1]$, and is strictly below~$1$ if lone~$1$s are not static in the spin model.
+
+\begin{proof}
+For every target appearing in the supremum defining~$p_i^\star$, the preceding
+calculation gives
+\begin{equation*}
+\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
+\leq
+\frac{c_i^0(\vn)}{r_i}.
+\end{equation*}
+Taking the supremum and then the maximum with~$0$ proves the claim.
+\end{proof}
+
+If~$c_i(\mb 0^i)>0$, the right-hand side in the corollary is strictly smaller
+than~$1$, so~$p_i^\star<1$.
+
 \subsection{Interpretation of patch positivity}
 \label{subsec:positivity-interpretation}
 
+% This subsection is an interpretive interlude after the proof of part (i), not
+% a further proof obligation in Theorem~\ref{thm:patch-positivity-order}.
+% Explain what the two coefficient inequalities say about the local rates and
+% which monotonicity properties follow from them. The proof of part (ii) resumes
+% in Subsection~\ref{subsec:m-star}.
+%
 % Placeholder. Rewrite subsection blurb by blurb.
