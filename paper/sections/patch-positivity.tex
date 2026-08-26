@@ -362,7 +362,7 @@ If~$c_i^0(S)+c_i^1(S)=0$, then
 \eqref{eq:patch-positivity-second-inequality}, together with
 $c_i^1(S)=-c_i^0(S)$, gives~$r_i c_i^0(S)\geq0$. Hence~$c_i^0(S)\geq0$ and
 $N_{i,S}(0,p)\geq0$ for every~$p\in[0,1]$. Such a target therefore imposes no
-restriction on the threshold. If instead~$c_i^0(S)+c_i^1(S)<0$, the condition
+restriction on the threshold. If instead~$c_i^0(S)+c_i^1(S)<0$, then the condition
 $N_{i,S}(0,p)\geq0$ is equivalent to
 \begin{equation*}
 p\geq
@@ -384,8 +384,7 @@ c_i^0(S)+c_i^1(S)<0
 \end{equation*}
 which proves the threshold formula in
 Theorem~\ref{thm:patch-positivity-order}.
-
-The same coefficient inequality gives a useful upper bound on this threshold.
+The patch positivity criterion gives a nice upper bound on this threshold.
 For every target~$S$ appearing in the supremum,
 \eqref{eq:patch-positivity-second-inequality} can be rewritten as
 \begin{equation*}
@@ -394,25 +393,18 @@ r_i c_i^0(S)
 c_i^0(\vn)\bb{c_i^0(S)+c_i^1(S)}.
 \end{equation*}
 Since~$c_i^0(S)+c_i^1(S)<0$, division by this quantity reverses the inequality
-and yields
-\begin{equation*}
-\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
-\leq
-\frac{c_i^0(\vn)}{r_i}
-\leq1.
-\end{equation*}
-In particular, all ratios entering the threshold formula lie in~$(-\infty,1]$.
+and yields the following bound.
 
-\begin{corollary}[Empty-neighbour bound]
+\begin{corollary}[Threshold bound]
 \label{cor:critical-profile-empty-bound}
 If~$r_i>0$, then
 \begin{equation*}
 p_i^\star
 \leq
-\frac{c_i^0(\vn)}{c_i^0(\vn)+c_i^1(\vn)}.
+\frac{c_i^0(\vn)}{c_i^0(\vn)+c_i^1(\vn)} = \frac{c_i(\mb{0})}{c_i(\mb{0}) + c_i(\mb{0}^i)}.
 \end{equation*}
 \end{corollary}
-
+In particular the threshold profile always lies in~$[0,1]$, and is strictly below~$1$ if lone~$1$s are not static in the spin model.
 \subsection{Interpretation of patch positivity}
 \label{subsec:positivity-interpretation}
 
