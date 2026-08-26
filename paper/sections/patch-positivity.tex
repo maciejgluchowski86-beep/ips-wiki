@@ -288,6 +288,45 @@ $p_i^\star$ is determined entirely by~$\mathsf{OE}$ patches.
 %   the threshold comes entirely from the Delta=0 endpoint.
 % ============================================================================
 
+If~$r_i=0$, the coefficient criterion gives~$c_i\equiv0$ and hence
+$p_i^\star=0$. Suppose therefore that~$r_i>0$, and let~$P$ be an
+$\mathsf{OE}$ end patch based at~$i$, whose initial outgoing interaction has
+nonempty target~$S$. By~\eqref{eq:end-contribution-formulas}, the denominator
+of~$C(p,P)$ is positive, while its numerator is
+\begin{equation*}
+N_{i,S}(\Delta,p)
+=
+c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,p).
+\end{equation*}
+Patch positivity gives~$c_i^0(S)+c_i^1(S)\leq0$, so
+$N_{i,S}(\Delta,p)$ is nondecreasing in~$p$. Moreover,
+\begin{equation*}
+\psi_i(\Delta,p)
+=
+\frac{c_i^0(\vn)}{r_i}
++
+\bb{p-\frac{c_i^0(\vn)}{r_i}}e^{-r_i\Delta}.
+\end{equation*}
+Consequently,~$N_{i,S}(\Delta,p)$ is affine in~$e^{-r_i\Delta}$, with endpoint
+values
+\begin{align*}
+N_{i,S}(0,p)
+&=
+c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}p,
+\\
+\lim_{\Delta\to\infty}N_{i,S}(\Delta,p)
+&=
+\frac{
+c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)
+}{r_i}.
+\end{align*}
+The second endpoint is nonnegative by
+\eqref{eq:patch-positivity-second-inequality}. It follows that the
+$\mathsf{OE}$ contribution is nonnegative for every patch length exactly when
+\begin{equation*}
+N_{i,S}(0,p)\geq0.
+\end{equation*}
+
 % ============================================================================
 % BLURB C. Threshold formula and empty-neighbour bound
 %
