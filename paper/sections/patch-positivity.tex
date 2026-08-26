@@ -247,18 +247,17 @@ Theorem~\ref{thm:patch-positivity-order}.
 %   The threshold is determined entirely by outgoing-initial end patches at
 %   sites with r_i>0.
 % ============================================================================
-
+{\color{red} Generally not well written}
 Patch positivity controls the contributions~$C(P)$ of patches in the full
-family~$\mathcal P$, but the finite-time representation contains end
-contributions~$C(p,P)$ whose terminal value has not yet been fixed. For an end
-patch based at~$i$, the patch threshold~$p_i^\star$ is the smallest
+family~$\mathcal P$, but the finite-time representation contains
+contributions from end patches~$C(p,P)$. For site~$i$, the patch threshold~$p_i^\star$ is the smallest
 $p\in[0,1]$ for which~$C(p,P)\geq0$ for every such patch. At a fixed
 observation time, an end patch is obtained by cutting a patch that reaches the
 observation time, so its terminal label is~$\mathsf E$ and its contribution
-still depends on~$p$.
+still depends on~$p$ {\color{red} Opaque to the reader, especially one that skimmed section 4.}.
 
 Fix an end patch~$P$ based at~$i$ and write~$\Delta=e(P)-s(P)$. If its initial
-boundary is incoming, Appendix~\ref{app:end-contribution-formulas} gives
+boundary is incoming {\color{red} I think it would be easier for the reader to use the structure, and write "for an IY type patch" since this appears often. Just has to be clear the first few times }, Appendix~\ref{app:end-contribution-formulas}{\color{red} reference broken} gives
 \begin{equation*}
 C(p,P)=\frac{\psi_i(\Delta,p)}{\varphi_i(\Delta)}.
 \end{equation*}
@@ -267,7 +266,7 @@ $\varphi_i(\Delta)>0$ for every realized patch. Hence incoming-initial end
 patches are nonnegative for every~$p\in[0,1]$ and impose no restriction on the
 threshold. Only outgoing-initial end patches can determine~$p_i^\star$.
 
-If~$r_i=0$, the coefficient criterion proved above gives~$c_i\equiv0$. There
+If~$r_i=0$, the coefficient criterion proved above gives~$c_i\equiv0$. {\color{red} Idk how much time is worth spending on the case~$r_i = 0$ since the formula for~$p^*$ covers this anyway.} There
 are then no outgoing end patches based at~$i$, so~$p_i^\star=0$. It remains to
 consider sites with~$r_i>0$.
 
