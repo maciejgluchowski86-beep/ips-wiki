@@ -50,29 +50,37 @@ representation to yield the moment comparisons proved later in the section.
 %   coefficient inequalities, and end-patch positivity.
 % ============================================================================
 
-{\color{red} Current goal unstated.}Fix a site~$i$ and a bulk patch~$P$ based at~$i$, and write
-$\Delta=e(P)-s(P)$. Recall that~$\mathsf X(P)$ records whether the initial
-boundary is incoming or outgoing, while~$\mathsf Y(P)$ records whether the
-terminal boundary is {\color{red} Only the end patch got its type written, be consistent.}incoming, outgoing, or there is no later successful
-interaction, denoted by~$\mathsf E$. The formulas in
-Appendix~\ref{app:bulk-formulas} give~$C(P)$ for each of these boundary types.
-If the initial boundary is incoming, then
+Our goal in this subsection is to determine when~$C(P)\geq0$ for every bulk
+patch using only the coefficients of the flip rates, thereby proving the
+coefficient criterion in Theorem~\ref{thm:patch-positivity-order}. Fix a
+site~$i$ and a bulk patch~$P$ based at~$i$, and write
+$\Delta=e(P)-s(P)$. Since~$P$ is a bulk patch, both of its boundary interactions
+occur before the observation time. Thus
+$\mathsf X(P),\mathsf Y(P)\in\cb{\mathsf I,\mathsf O}$, where~$\mathsf I$
+means that the boundary interaction is incoming at~$i$ and~$\mathsf O$ that it
+is outgoing from~$i$.
+
+The formulas in Appendix~\ref{app:bulk-formulas} give~$C(P)$ for each of these
+boundary types. If the initial boundary is incoming, then
 \begin{equation*}
 C(P)
 =
 \begin{cases}
 \displaystyle
 \frac{\psi_i(\Delta,1)}{\varphi_i(\Delta)},
-&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{II},\mathsf{IE}},
+&\mathsf X(P)\mathsf Y(P)=\mathsf{II},
 \\[1em]
 e^{V_i\Delta},
 &\mathsf X(P)\mathsf Y(P)=\mathsf{IO}.
 \end{cases}
 \end{equation*}
-The first expression is nonnegative {\color{red} Maybe its useful to note somewhere that death sign is always positive, because~$\delta_i(\vn) = c_i^0(\vn) = c_i(\mb{0})\geq 0 $, the reader otherwise wont know why such assertions hold.} and its denominator is positive whenever
-the corresponding patch can occur {\color{red} Its tautological, otherwise the patch shape would have zero probability of occurring. Also at this point it should be clear from formulas.}, while the second is positive. Thus patches
-with an incoming initial boundary impose no restriction on patch positivity.
-It remains to consider patches whose initial boundary is outgoing.
+Recall that an empty-target death has positive sign, since
+$\delta_i(\vn)=c_i^0(\vn)\geq0$. From the definitions in
+Appendix~\ref{app:contribution-formulas},
+$\psi_i(\Delta,1)\geq0$ and~$\varphi_i(\Delta)>0$, while the exponential is
+positive. Hence every bulk patch with an incoming initial boundary has a
+nonnegative contribution. Only patches with an outgoing initial boundary can
+therefore impose conditions on the coefficients of the flip rates.
 
 % ============================================================================
 % BLURB B. Outgoing terminal boundary gives the first inequality
