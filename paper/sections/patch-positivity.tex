@@ -223,7 +223,92 @@ Theorem~\ref{thm:patch-positivity-order}.
 \subsection{Patch threshold}
 \label{subsec:critical-density}
 
-% Placeholder. Rewrite subsection blurb by blurb.
+% ============================================================================
+% BLURB A. Reduce end-patch positivity to outgoing initial boundaries
+%
+% Reader question:
+%   Patch positivity controls C(P) for the full patch family. What extra sign
+%   condition is needed for the finite-time end factors C(p,P)?
+%
+% Job:
+%   Recall that the patch threshold p_i^star is the smallest p for which every
+%   end patch based at i has C(p,P)>=0. Explain that an end patch has terminal
+%   label E because it is cut at the observation time, so its contribution still
+%   depends on the terminal value p.
+%
+%   Use the end-patch formulas to show that an incoming-initial end patch has
+%       C(p,P)=psi_i(Delta,p)/varphi_i(Delta)>=0
+%   for every p in [0,1]. Hence only outgoing-initial end patches can determine
+%   p_i^star. Dispose of the degenerate case r_i=0 immediately using 5.1:
+%   then c_i is identically zero, there are no outgoing end patches, and
+%   p_i^star=0.
+%
+% Reader takeaway:
+%   The threshold is determined entirely by outgoing-initial end patches at
+%   sites with r_i>0.
+% ============================================================================
+
+% ============================================================================
+% BLURB B. Positivity of one outgoing end patch
+%
+% Reader question:
+%   For a fixed outgoing end patch with initial target S, how large must p be
+%   to make its contribution nonnegative for every possible patch length?
+%
+% Job:
+%   Assume r_i>0 and let S be the nonempty target of the initial outgoing
+%   interaction. Since the denominator is positive, define the numerator
+%       N_{i,S}(Delta,p)
+%       =c_i^0(S)-(c_i^0(S)+c_i^1(S))psi_i(Delta,p).
+%   Keep this notation: it is used throughout the calculation.
+%
+%   Patch positivity gives c_i^0(S)+c_i^1(S)<=0, so N is nondecreasing in p.
+%   Write the explicit formula for psi_i(Delta,p), and compute the two endpoint
+%   values in Delta:
+%       N_{i,S}(0,p)
+%       =c_i^0(S)-(c_i^0(S)+c_i^1(S))p,
+%   while the Delta->infinity limit is the determinant expression from 5.1
+%   divided by r_i and is therefore nonnegative.
+%
+%   Since N is affine in exp(-r_i Delta), positivity for every Delta>=0 is
+%   equivalent to N_{i,S}(0,p)>=0. Make this reduction explicit rather than
+%   calling it a short-patch condition.
+%
+% Reader takeaway:
+%   The second coefficient inequality already controls the large-Delta endpoint;
+%   the threshold comes entirely from the Delta=0 endpoint.
+% ============================================================================
+
+% ============================================================================
+% BLURB C. Threshold formula and empty-neighbour bound
+%
+% Reader question:
+%   What threshold results after imposing the Delta=0 condition for every target
+%   S, and how large can that threshold be?
+%
+% Job:
+%   Split according to the first coefficient sum. If
+%       c_i^0(S)+c_i^1(S)=0,
+%   use the second coefficient inequality to show c_i^0(S)>=0, so this target
+%   imposes no restriction on p. If the sum is negative, solve
+%   N_{i,S}(0,p)>=0 to obtain
+%       p >= c_i^0(S)/(c_i^0(S)+c_i^1(S)).
+%
+%   Take the supremum over nonempty targets with negative sum and impose p>=0.
+%   This proves the formula for p_i^star in Theorem~\ref{thm:patch-positivity-order}.
+%   Note briefly that patch positivity makes the relevant ratios at most 1.
+%
+%   Then record the useful consequence
+%       p_i^star <= c_i^0(emptyset)/r_i.
+%   Derive it directly from the second coefficient inequality for every target
+%   entering the supremum. Keep this bound because it is used later to prove
+%   positivity of the empty-set centered-generator coefficient.
+%
+% Keep out:
+%   Dynamic interpretation of the coefficient inequalities; that belongs in
+%   Subsection~\ref{subsec:positivity-interpretation}. Centered end-factor
+%   expansions and moment comparisons belong in the following subsections.
+% ============================================================================
 
 \subsection{Interpretation of patch positivity}
 \label{subsec:positivity-interpretation}
