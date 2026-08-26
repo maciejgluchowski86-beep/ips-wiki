@@ -27,7 +27,99 @@ representation to yield the moment comparisons proved later in the section.
 \subsection{Coefficient criterion}
 \label{subsec:positivity-criterion}
 
-% Placeholder. Rewrite subsection blurb by blurb.
+% ============================================================================
+% BLURB A. Reduce patch positivity to the boundary cases
+%
+% Reader question:
+%   Patch positivity asks for C(P)>=0 for every bulk patch. How can this be
+%   checked from the local rates?
+%
+% Job:
+%   Fix a site i and a bulk patch P based at i, and write
+%   Delta=e(P)-s(P). Briefly remind the reader that the two boundary labels say
+%   whether the initial and terminal boundaries are incoming or outgoing. Use
+%   the explicit contribution formulas from Appendix~\ref{app:bulk-formulas}.
+%
+%   Show first that every patch whose initial boundary is incoming has a
+%   nonnegative contribution. State the consequence clearly: only patches whose
+%   initial boundary is outgoing can impose conditions on the coefficients of
+%   the flip rates.
+%
+% Keep out:
+%   Derivation of the patch-contribution formulas, interpretation of the
+%   coefficient inequalities, and end-patch positivity.
+% ============================================================================
+
+% ============================================================================
+% BLURB B. Outgoing terminal boundary gives the first inequality
+%
+% Reader question:
+%   What restriction comes from a patch whose initial and terminal boundaries
+%   are both outgoing?
+%
+% Job:
+%   Let the initial outgoing interaction have nonempty target S. For an OO
+%   patch, quote the formula
+%       C(P)=sigma_i^beta(S)e^{V_i Delta}
+%   together with
+%       beta_i(S)sigma_i^beta(S)=-c_i^0(S)-c_i^1(S).
+%   Since beta_i(S)>=0 and the exponential is positive, conclude that all such
+%   contributions are nonnegative exactly when
+%       c_i^0(S)+c_i^1(S)<=0.
+%   Note that this condition does not depend on the patch length Delta.
+%
+% Reader takeaway:
+%   The OO family contributes exactly the first coefficient inequality.
+% ============================================================================
+
+% ============================================================================
+% BLURB C. The remaining outgoing-initial patches give the second inequality
+%
+% Reader question:
+%   Once the first inequality holds, what further restriction comes from OI and
+%   OE patches?
+%
+% Job:
+%   State that the denominator in the contribution formula is positive, so the
+%   sign is determined by
+%       c_i^0(S)-(c_i^0(S)+c_i^1(S))psi_i(Delta,1).
+%   Put r_i=c_i^0(emptyset)+c_i^1(emptyset), and treat here the case r_i>0.
+%   Use the explicit formula
+%       psi_i(Delta,1)
+%       =c_i^0(emptyset)/r_i
+%        +c_i^1(emptyset)e^{-r_i Delta}/r_i.
+%   Under the first inequality, explain that the numerator is minimized as
+%   Delta->infinity. Compute that limit and obtain
+%       c_i^1(emptyset)c_i^0(S)>=c_i^0(emptyset)c_i^1(S).
+%
+% Reader takeaway:
+%   Requiring positivity for every possible patch length adds only the second
+%   coefficient inequality; no separate condition is needed for each Delta.
+% ============================================================================
+
+% ============================================================================
+% BLURB D. The case r_i=0 and completion of the equivalence
+%
+% Reader question:
+%   What happens when r_i=0, and have the preceding conditions proved both
+%   directions of the criterion?
+%
+% Job:
+%   When r_i=0, use psi_i(Delta,1)=1. The OI/OE condition then gives
+%   c_i^1(S)<=0 for every nonempty S. Together with c_i^1(emptyset)=0 and the
+%   fact that c_i^1 is a nonnegative rate function, deduce c_i^1\equiv0. The OO
+%   inequality then similarly forces c_i^0\equiv0.
+%
+%   Close the converse explicitly. If r_i>0 and the two coefficient
+%   inequalities hold, Blurbs A--C show that every possible bulk contribution
+%   based at i is nonnegative. If r_i=0 and c_i\equiv0, there are no outgoing
+%   interactions from i, while the incoming-initial contributions are
+%   nonnegative. Conclude the equivalence with patch positivity.
+%
+% Keep out:
+%   Coordinatewise monotonicity of the rates; that interpretation belongs in
+%   Subsection~\ref{subsec:positivity-interpretation}.
+% ============================================================================
 
 \subsection{Patch threshold}
 \label{subsec:critical-density}
