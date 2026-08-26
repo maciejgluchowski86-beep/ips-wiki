@@ -50,6 +50,30 @@ representation to yield the moment comparisons proved later in the section.
 %   coefficient inequalities, and end-patch positivity.
 % ============================================================================
 
+Fix a site~$i$ and a bulk patch~$P$ based at~$i$, and write
+$\Delta=e(P)-s(P)$. Recall that~$\mathsf X(P)$ records whether the initial
+boundary is incoming or outgoing, while~$\mathsf Y(P)$ records whether the
+terminal boundary is incoming, outgoing, or there is no later successful
+interaction, denoted by~$\mathsf E$. The formulas in
+Appendix~\ref{app:bulk-formulas} give~$C(P)$ for each of these boundary types.
+If the initial boundary is incoming, then
+\begin{equation*}
+C(P)
+=
+\begin{cases}
+\displaystyle
+\frac{\psi_i(\Delta,1)}{\varphi_i(\Delta)},
+&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{II},\mathsf{IE}},
+\\[1em]
+e^{V_i\Delta},
+&\mathsf X(P)\mathsf Y(P)=\mathsf{IO}.
+\end{cases}
+\end{equation*}
+The first expression is nonnegative and its denominator is positive whenever
+the corresponding patch can occur, while the second is positive. Thus patches
+with an incoming initial boundary impose no restriction on patch positivity.
+It remains to consider patches whose initial boundary is outgoing.
+
 % ============================================================================
 % BLURB B. Outgoing terminal boundary gives the first inequality
 %
