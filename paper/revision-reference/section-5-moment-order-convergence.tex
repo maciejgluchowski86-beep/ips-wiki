@@ -1,0 +1,34 @@
+\begin{corollary}[Convergence by centered-moment comparison]
+\label{cor:centered-moment-convergence}
+Suppose that the spin system has patch positivity and that
+\begin{equation*}
+\underline\mu\preceq_*\mu\preceq_*\overline\mu.
+\end{equation*}
+If~$\underline\mu P_t$ and~$\overline\mu P_t$ converge weakly to the same
+probability measure~$\pi$, then~$\mu P_t\Rightarrow\pi$. More generally, if
+there is a function~$\rho(t)\to0$ such that, for every~$A\Subset\Lambda$,
+\begin{equation*}
+\max_{\lambda\in\cb{\underline\mu,\overline\mu}}
+\abs{(\lambda P_t)(\chi_A^*)-\pi(\chi_A^*)}
+\leq
+C_A\rho(t),
+\end{equation*}
+then every local function~$f$ satisfies
+\begin{equation*}
+\abs{(\mu P_t)(f)-\pi(f)}
+\leq
+C_f\rho(t)
+\end{equation*}
+for some~$C_f<\infty$.
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:patch-positivity-order} places every centered moment of
+$\mu P_t$ between the corresponding moments of the two comparison laws. The
+qualitative conclusion follows because centered monomials determine weak
+convergence. Expanding a local function in the centered-monomial basis gives
+the quantitative bound.
+\end{proof}
+
+Thus convergence for the two comparison laws transfers to every initial law
+between them in centered-moment order.
