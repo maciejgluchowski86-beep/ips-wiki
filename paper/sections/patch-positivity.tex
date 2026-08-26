@@ -14,15 +14,17 @@ Theorem~\ref{thm:patch-representation} gives the representation
 \end{equation*}
 The patch contributions appearing here are defined in
 Section~\ref{sec:representation}, where the representation is proved. To obtain
-inequalities from this formula, we need to control the sign of patch contributions. We call the
-system patch-positive when~$C(P)\geq0$ for every bulk patch~$P$. We show that this condition is
-equivalent to explicit inequalities on the coefficients of the flip rates.
-Bulk positivity does not determine the sign of an end contribution, since
-$C(z,P)$ still depends on its terminal argument~$z$. For each site~$i$, we
-therefore determine the smallest~$p_i\in[0,1]$ for which
-$C(p,P)\geq0$ for every end patch based at~$i$ and call this value the patch
-threshold~$p_i^\star$. These two sign controls are what allow the patch
-representation to yield the moment comparisons proved later in the section.
+inequalities from this formula, we need to control their signs. We call the
+system patch-positive when, for every finite initial dual set, almost every
+realization of the full patch family~$\mathcal P$ satisfies~$C(P)\geq0$ for
+every~$P\in\mathcal P$. We show that this condition is equivalent to explicit
+inequalities on the coefficients of the flip rates. Patch positivity does not
+determine the sign of a finite-time end contribution, since~$C(z,P)$ still
+depends on its terminal argument~$z$. For each site~$i$, we therefore determine
+the smallest~$p_i\in[0,1]$ for which~$C(p,P)\geq0$ for every end patch based
+at~$i$ and call this value the patch threshold~$p_i^\star$. These two sign
+controls are what allow the patch representation to yield the moment
+comparisons proved later in the section.
 
 \subsection{Coefficient criterion}
 \label{subsec:positivity-criterion}
@@ -31,14 +33,14 @@ representation to yield the moment comparisons proved later in the section.
 % BLURB A. Reduce patch positivity to the boundary cases
 %
 % Reader question:
-%   Patch positivity asks for C(P)>=0 for every bulk patch. How can this be
-%   checked from the local rates?
+%   Patch positivity asks for C(P)>=0 for every patch in the full patch family.
+%   How can this be checked from the local rates?
 %
 % Job:
-%   Fix a site i and a bulk patch P based at i, and write
-%   Delta=e(P)-s(P). Briefly remind the reader that the two boundary labels say
-%   whether the initial and terminal boundaries are incoming or outgoing. Use
-%   the explicit contribution formulas from Appendix~\ref{app:bulk-formulas}.
+%   Fix a site i and a patch P in the full patch family based at i, and write
+%   Delta=e(P)-s(P), allowing Delta=infinity. Recall the initial and terminal
+%   boundary labels. Use the explicit contribution formulas from
+%   Appendix~\ref{app:bulk-formulas}.
 %
 %   Show first that every patch whose initial boundary is incoming has a
 %   nonnegative contribution. State the consequence clearly: only patches whose
@@ -47,18 +49,18 @@ representation to yield the moment comparisons proved later in the section.
 %
 % Keep out:
 %   Derivation of the patch-contribution formulas, interpretation of the
-%   coefficient inequalities, and end-patch positivity.
+%   coefficient inequalities, and finite-time end-patch positivity.
 % ============================================================================
 
-Our goal in this subsection is to determine when~$C(P)\geq0$ for every bulk
-patch using only the coefficients of the flip rates, thereby proving the
-coefficient criterion in Theorem~\ref{thm:patch-positivity-order}. Fix a
-site~$i$ and a bulk patch~$P$ based at~$i$, and write
-$\Delta=e(P)-s(P)$. Since~$P$ is a bulk patch, both of its boundary interactions
-occur before the observation time. Thus
-$\mathsf X(P),\mathsf Y(P)\in\cb{\mathsf I,\mathsf O}$, where~$\mathsf I$
-means that the boundary interaction is incoming at~$i$ and~$\mathsf O$ that it
-is outgoing from~$i$.
+We prove the coefficient criterion in
+Theorem~\ref{thm:patch-positivity-order}. Fix a site~$i$ and a patch
+$P\in\mathcal P$ based at~$i$, and write
+$\Delta=e(P)-s(P)\in(0,\infty]$. The initial label
+$\mathsf X(P)\in\cb{\mathsf I,\mathsf O}$ records whether the interaction at
+$s(P)$ is incoming or outgoing at~$i$. The terminal label
+$\mathsf Y(P)\in\cb{\mathsf I,\mathsf O,\mathsf E}$ records whether the next
+successful interaction is incoming or outgoing, with~$\mathsf E$ meaning that
+there is no later successful interaction on that site line.
 
 The formulas in Appendix~\ref{app:bulk-formulas} give~$C(P)$ for each of these
 boundary types. If the initial boundary is incoming, then
@@ -68,18 +70,20 @@ C(P)
 \begin{cases}
 \displaystyle
 \frac{\psi_i(\Delta,1)}{\varphi_i(\Delta)},
-&\mathsf X(P)\mathsf Y(P)=\mathsf{II},
+&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{II},\mathsf{IE}},
 \\[1em]
 e^{V_i\Delta},
 &\mathsf X(P)\mathsf Y(P)=\mathsf{IO}.
 \end{cases}
 \end{equation*}
-Recall that an empty-target death has positive sign, since
-$\delta_i(\vn)=c_i^0(\vn) = c_i(\mb{0})\geq0$. From the definitions in
-Appendix~\ref{app:contribution-formulas},
-$\psi_i(\Delta,1)\geq0$,~$\varphi_i(\Delta)>0$, and the exponential is
-positive too. Hence every bulk patch with an incoming initial boundary has a
-nonnegative contribution. Therefore only patches with an outgoing initial boundary can impose conditions on the coefficients of the flip rates.
+At~$\Delta=\infty$, the first expression is read by taking the corresponding
+limit. The signed coefficient of an empty-target death is
+$c_i^0(\vn)=c_i(\mb 0)\geq0$, so these deaths have positive sign. Hence
+$\psi_i(\Delta,1)\geq0$, while~$\varphi_i(\Delta)>0$ for every realized patch,
+and the exponential is positive. Thus every patch with an incoming initial
+boundary has a nonnegative contribution. Only patches with an outgoing initial
+boundary can therefore impose conditions on the coefficients of the flip
+rates.
 
 % ============================================================================
 % BLURB B. Outgoing terminal boundary gives the first inequality
@@ -94,17 +98,16 @@ nonnegative contribution. Therefore only patches with an outgoing initial bounda
 %       C(P)=sigma_i^beta(S)e^{V_i Delta}
 %   together with
 %       beta_i(S)sigma_i^beta(S)=-c_i^0(S)-c_i^1(S).
-%   Since beta_i(S)>=0 and the exponential is positive, conclude that all such
-%   contributions are nonnegative exactly when
+%   Conclude that all such contributions are nonnegative exactly when
 %       c_i^0(S)+c_i^1(S)<=0.
-%   Note that this condition does not depend on the patch length Delta.
 %
 % Reader takeaway:
 %   The OO family contributes exactly the first coefficient inequality.
 % ============================================================================
 
-Let now the initial boundary be outgoing, with nonempty target~$S$. If the
-terminal boundary is also outgoing, then Appendix~\ref{app:bulk-formulas} gives
+Suppose now that the initial boundary is outgoing, with nonempty target~$S$.
+If the terminal boundary is also outgoing, then
+Appendix~\ref{app:bulk-formulas} gives
 \begin{equation*}
 C(P)=\sigma_i^\beta(S)e^{V_i\Delta},
 \qquad
@@ -132,30 +135,19 @@ c_i^0(S)+c_i^1(S)\leq0
 %   sign is determined by
 %       c_i^0(S)-(c_i^0(S)+c_i^1(S))psi_i(Delta,1).
 %   Put r_i=c_i^0(emptyset)+c_i^1(emptyset), and treat here the case r_i>0.
-%   Use the explicit formula
-%       psi_i(Delta,1)
-%       =c_i^0(emptyset)/r_i
-%        +c_i^1(emptyset)e^{-r_i Delta}/r_i.
-%   Under the first inequality, explain that the numerator is minimized as
-%   Delta->infinity. Compute that limit and obtain
-%       c_i^1(emptyset)c_i^0(S)>=c_i^0(emptyset)c_i^1(S).
-%
-% Reader takeaway:
-%   Requiring positivity for every possible patch length adds only the second
-%   coefficient inequality; no separate condition is needed for each Delta.
+%   Use the explicit formula for psi_i(Delta,1). Under the first inequality,
+%   explain that the numerator is minimized as Delta->infinity. The OE case is
+%   exactly this infinite-length limit. Compute it and obtain the second
+%   coefficient inequality.
 % ============================================================================
 
-It remains to consider a patch with outgoing initial boundary followed by an incoming
-terminal boundary. By Appendix~\ref{app:bulk-formulas}, the denominator of the
-$\mathsf{OI}$ contribution is positive, while its numerator is
+It remains to consider patches of type~$\mathsf{OI}$ or~$\mathsf{OE}$. Their
+contribution has positive denominator, and its numerator is
 \begin{equation*}
-c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,1).
+c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,1),
 \end{equation*}
-Put
-\begin{equation*}
-r_i=c_i^0(\vn)+c_i^1(\vn) = c_i(\mb{0}) + c_i(\mb{0}^i)\geq 0,
-\end{equation*}
-and suppose first that~$r_i>0$. Then
+with~$\Delta=\infty$ in the~$\mathsf{OE}$ case. Put
+$r_i=c_i^0(\vn)+c_i^1(\vn)$ and suppose first that~$r_i>0$. Then
 \begin{equation*}
 \psi_i(\Delta,1)
 =
@@ -163,21 +155,16 @@ and suppose first that~$r_i>0$. Then
 +
 \frac{c_i^1(\vn)}{r_i}e^{-r_i\Delta}.
 \end{equation*}
-The first inequality~\eqref{eq:patch-positivity-first-inequality} implies that
-the numerator decreases as~$\psi_i(\Delta,1)$ decreases. Since
-$\psi_i(\Delta,1)$ decreases with~$\Delta$, the smallest value is attained in
-the limit~$\Delta\to\infty$, where
+Under~\eqref{eq:patch-positivity-first-inequality}, the numerator is
+nonincreasing in~$\Delta$. Its minimum is therefore the value at
+$\Delta=\infty$,
 \begin{equation*}
-\lim_{\Delta\to\infty}
-\Cb{
-c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,1)
-}
-=
 \frac{
 c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)
 }{r_i}.
 \end{equation*}
-Thus all~$\mathsf{OI}$ contributions based at~$i$ are nonnegative exactly when
+Hence all~$\mathsf{OI}$ and~$\mathsf{OE}$ contributions based at~$i$ are
+nonnegative exactly when
 \begin{equation}
 \label{eq:patch-positivity-second-inequality}
 c_i^1(\vn)c_i^0(S)
@@ -195,40 +182,41 @@ c_i^0(\vn)c_i^1(S)
 %
 % Job:
 %   When r_i=0, use psi_i(Delta,1)=1. The OI/OE condition then gives
-%   c_i^1(S)<=0 for every nonempty S. Together with c_i^1(emptyset)=0 and the
-%   fact that c_i^1 is a nonnegative rate function, deduce c_i^1\equiv0. The OO
-%   inequality then similarly forces c_i^0\equiv0.
+%   c_i^1(S)<=0 for every nonempty S. Use the multilinear expansion and the
+%   nonnegativity of the rate function to deduce c_i^1\equiv0. The OO inequality
+%   then similarly forces c_i^0\equiv0.
 %
-%   Close the converse explicitly. If r_i>0 and the two coefficient
-%   inequalities hold, Blurbs A--C show that every possible bulk contribution
-%   based at i is nonnegative. If r_i=0 and c_i\equiv0, there are no outgoing
-%   interactions from i, while the incoming-initial contributions are
-%   nonnegative. Conclude the equivalence with patch positivity.
-%
-% Keep out:
-%   Coordinatewise monotonicity of the rates; that interpretation belongs in
-%   Subsection~\ref{subsec:positivity-interpretation}.
+%   Close the converse explicitly over all six boundary types.
 % ============================================================================
 
-It remains to consider~$r_i=0$. Since both terms in the definition of~$r_i$
-are nonnegative, this gives
-$c_i^0(\vn)=c_i^1(\vn)=0$, and Appendix~\ref{app:positivity-algebra} gives
-$\psi_i(\Delta,1)=1$. The numerator of an~$\mathsf{OI}$ contribution therefore
-reduces to~$-c_i^1(S)$ and patch positivity requires
-$c_i^1(S)\leq0$ for every nonempty~$S\subseteq N(i)$. Since~$c_i^1$ is a
-nonnegative rate function the only way this can hold is if~$c_i^1\equiv0$. The inequality from the~$\mathsf{OO}$ contributions then
-gives~$c_i^0(S)\leq0$ for every nonempty~$S$. The same argument, together with
-$c_i^0(\vn)=0$, yields~$c_i^0\equiv0$.
+It remains to consider~$r_i=0$. Since both terms in~$r_i$ are nonnegative,
+$c_i^0(\vn)=c_i^1(\vn)=0$, and
+Appendix~\ref{app:positivity-algebra} gives~$\psi_i(\Delta,1)=1$. The numerator
+of an~$\mathsf{OI}$ or~$\mathsf{OE}$ contribution therefore reduces to
+$-c_i^1(S)$, so patch positivity requires~$c_i^1(S)\leq0$ for every nonempty
+$S\subseteq N(i)$. For a neighbourhood configuration whose set of~$1$'s is
+$T\subseteq N(i)$, the expansion~\eqref{eq:rate-expansion} then gives
+\begin{equation*}
+c_i^1(\eta)
+=
+\sum_{S\subseteq T}c_i^1(S)
+\leq0.
+\end{equation*}
+Since~$c_i^1$ is a nonnegative rate function,~$c_i^1\equiv0$. The inequality
+from the~$\mathsf{OO}$ contributions now gives~$c_i^0(S)\leq0$ for every
+nonempty~$S$, and the same argument, using~$c_i^0(\vn)=0$, yields
+$c_i^0\equiv0$.
 
 Conversely, suppose first that~$r_i>0$ and that
 \eqref{eq:patch-positivity-first-inequality} and
 \eqref{eq:patch-positivity-second-inequality} hold for every nonempty
-$S\subseteq N(i)$. The preceding cases show that the contributions of all four
-bulk boundary types~$\mathsf{II}$,~$\mathsf{IO}$,~$\mathsf{OI}$, and
-$\mathsf{OO}$ are nonnegative. If~$r_i=0$ and~$c_i\equiv0$, there are no
-outgoing interactions from~$i$, while the incoming-initial contributions are
-nonnegative by the first part of the proof. This finishes the proof of
-the coefficient criterion in Theorem~\ref{thm:patch-positivity-order}.
+$S\subseteq N(i)$. The preceding cases show that the contributions of all six
+boundary types~$\mathsf{II}$,~$\mathsf{IE}$,~$\mathsf{IO}$,
+$\mathsf{OI}$,~$\mathsf{OE}$, and~$\mathsf{OO}$ are nonnegative. If~$r_i=0$
+and~$c_i\equiv0$, there are no outgoing interactions from~$i$, while the
+incoming-initial contributions are nonnegative by the first part of the proof.
+Since~$i$ was arbitrary, this proves the coefficient criterion in
+Theorem~\ref{thm:patch-positivity-order}.
 
 \subsection{Patch threshold}
 \label{subsec:critical-density}
