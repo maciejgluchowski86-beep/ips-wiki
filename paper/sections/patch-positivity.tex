@@ -141,18 +141,18 @@ Theorem~\ref{thm:patch-positivity-order}.
 
 To complete part~\textup{(i)} of Theorem~\ref{thm:patch-positivity-order}, it
 remains to compute the patch threshold profile. Patch positivity controls
-$C(P)$ for the full patch family, while the finite-time representation also
-contains end contributions~$C(p,P)$. Recall that~$p_i^\star$ is the smallest
+$C(P)$ for the full patch family, but the finite-time representation also
+contains end contributions~$C(p,P)$. The threshold~$p_i^\star$ is defined as the smallest
 $p\in[0,1]$ such that~$C(p,P)\geq0$ for every end patch based at~$i$. Every end
 patch has terminal label~$\mathsf E$, so it has type~$\mathsf{IE}$ or
 $\mathsf{OE}$.
 
-Fix an end patch~$P$ based at~$i$ and write~$\Delta=e(P)-s(P)$. For a
+Assume the spin system is patch-positive and fix an end patch~$P$ based at~$i$ and write~$\Delta=e(P)-s(P)$. For a
 $\mathsf{IE}$ patch,~\eqref{eq:end-contribution-formulas} gives
 \begin{equation*}
 C(p,P)=\frac{\psi_i(\Delta,p)}{\varphi_i(\Delta)}.
 \end{equation*}
-For~$p\in[0,1]$,~$\psi_i(\Delta,p)\geq0$ and~$\varphi_i(\Delta)>0$. Thus
+For~$p\in[0,1]$ we have~$\psi_i(\Delta,p)\geq0$ and~$\varphi_i(\Delta)>0$. Thus
 $\mathsf{IE}$ patches impose no restriction on~$p$, and~$p_i^\star$ is
 determined entirely by~$\mathsf{OE}$ patches.
 
@@ -161,7 +161,7 @@ $\lambda_i\equiv0$. There are then no outgoing interactions based at~$i$, so
 $p_i^\star=0$. Suppose therefore that~$\lambda_i(\mb 0)>0$, and let~$P$ be an
 $\mathsf{OE}$ end patch whose initial outgoing interaction has nonempty
 target~$S$. Since its denominator is positive, the sign of~$C(p,P)$ is the sign
-of
+of the numerator,
 \begin{equation*}
 N_{i,S}(\Delta,p)
 =
