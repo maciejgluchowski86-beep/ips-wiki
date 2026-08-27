@@ -34,7 +34,7 @@ A spin system is specified by functions
 \qquad
 \rho_i:\Omega\to[0,1],
 \end{equation*}
-each depending only on the spins in~$N(i)$, with
+each depending only on the spins in~$N(i)${\color{red} This should have been~$N_*(i)$}, with
 $\sup_{i,\eta}\lambda_i(\eta)<\infty$. Its generator is
 \begin{equation}
 \label{eq:spin-generator}
@@ -55,7 +55,7 @@ allowing both to depend on the neighbourhood.
 This parametrization is equivalent to the usual flip-rate description. If
 $c_i$ denotes the flip rate in the conventional generator
 $\Lcal f(\eta)=\sum_i c_i(\eta)\bb{f(\eta^i)-f(\eta)}$, the two descriptions are
-related by
+related by {\color{red} formatting looks really bad}
 \begin{align*}
 c_i(\eta)
 &=
@@ -77,7 +77,7 @@ c_i(\eta^{i,0})+c_i(\eta^{i,1}),
 \end{align*}
 When~$\lambda_i(\eta)=0$, the value of~$\rho_i(\eta)$ may be chosen
 arbitrarily.
-
+{\color{red} I think its weird that the~$P_t$ semigroup is discussed so late but these algebraic elements earlier, it doesnt fit. I think monomials and coefficients should go after ergodicity, but before FK integrability.}
 Write~$A\Subset\Lambda$ when~$A$ is finite. A local function depends on
 finitely many coordinates. For~$A\Subset\Lambda$, set
 \begin{equation*}
@@ -102,12 +102,12 @@ g(\eta)
 \end{equation}
 We call~$\widehat g(S)$ the M\"obius coefficient of~$g$ at~$S$. In
 particular,~$\widehat{\lambda_i\rho_i}(S)$ denotes the coefficient of the
-product function~$\lambda_i\rho_i$. The coefficient families used below are
-$\widehat{\lambda_i}(S)$ and~$\widehat{\lambda_i\rho_i}(S)$. We do not use
+product function~$\lambda_i\rho_i$ {\color{red} no need to include this clarification, its clear from the hat notation}. The coefficient families used below are
+$\widehat{\lambda_i}(S)$ and~$\widehat{\lambda_i\rho_i}(S)${\color{red} meaningless statement to the reader}. We do not use
 M\"obius coefficients of~$\rho_i$ itself, since~$\rho_i$ may be chosen
 arbitrarily on configurations where~$\lambda_i=0$.
 
-For later spatial estimates, write~$N_*(i)=N(i)\cup\cb{i}$ and, for
+For later spatial estimates, write~$N_*(i)=N(i)\cup\cb{i}$ {\color{red}$N_*$ is needed earlier, also the prior organization with all graph related definitions coming first was good, including shortly descirbing what polynomial growth is. Its an easy definition and doesnt take reader out.}and, for
 $A\subseteq\Lambda$,
 \begin{equation*}
 N_*(A)=\bigcup_{i\in A}N_*(i),
@@ -154,7 +154,7 @@ started from~$(A,+)$, we assume throughout that
 \end{equation}
 We refer to~\eqref{eq:fk-integrability} as \emph{Feynman--Kac
 integrability}; see~\cite[p.~62]{JansenKurt2014}.
-
+{\color{red} The noise being here makes no sense, it should folllow the spin system description}
 We also use independent Bernoulli refreshes to perturb the dynamics. For
 $\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$ and~$\varepsilon\geq0$, define
 \begin{equation*}
