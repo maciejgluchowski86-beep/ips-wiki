@@ -21,27 +21,25 @@ $\chi_A^*$ unchanged. If~$i\in A$, then
 -
 \lambda_i\chi_A^*.
 \end{equation*}
-Expanding~$\lambda_i\rho_i$ and~$\lambda_i$ in ordinary monomials and summing
+Expanding~$\lambda_i\rho_i$ and~$\lambda_i$ in monomials and summing
 over~$i\in A$ gives
-\begin{align*}
+\begin{equation*}
 \Lcal\chi_A^*
-=\sum_{i\in A}\Bigg\{
-&-\lambda_i(\mb 0)\chi_A^*
+=\sum_{i\in A}\Cb{
+-\lambda_i(\mb 0)\chi_A^*
 +
 \sum_{S\subseteq N(i)}
 \bb{
 \widehat{\lambda_i\rho_i}(S)
 -p_i^\star\widehat{\lambda_i}(S)
 }
-\chi_S\chi_{A\setminus\cb{i}}^*
-\\
-&+
+\chi_S\chi_{A\setminus\cb{i}}^* + 
 \sum_{\substack{S\subseteq N(i)\\S\neq\vn}}
 \bb{-\widehat{\lambda_i}(S)}
 \chi_S\chi_A^*
-\Bigg\}.
-\end{align*}
-Part~\textup{(i)} gives the signs of both coefficient families. For every
+}.
+\end{equation*}
+Part~\textup{(i)} gives the signs of both coefficient families {\color{red} weird phrasing "coefficient families"}. For every
 nonempty~$S\subseteq N(i)$,
 \begin{equation*}
 -\widehat{\lambda_i}(S)\geq0.
@@ -83,12 +81,11 @@ Applying the second identity on~$S\cap B$ and then the first on~$S$ gives
 \bb{\prod_{j\in S\setminus R}p_j^\star}
 \chi_{R\cup(B\setminus S)}^*.
 \end{equation*}
-All coefficients are nonnegative because~$0\leq p_j^\star\leq1$. Thus every
-term in~$\Lcal\chi_A^*$ other than the explicit negative multiple of
-$\chi_A^*$ expands with nonnegative coefficients in the centered-monomial
-basis. In particular, every off-diagonal coefficient of the generator is
-nonnegative.
+All coefficients are nonnegative because~$0\leq p_j^\star\leq1$. Thus every off-diagonal
+term in~$\Lcal\chi_A^*$ has nonnegative coefficients in the centered-monomial
+basis. 
 
+{\color{red} There is no need to prove this through finite approximation. Just use standard Metzler matrix properties or write~$P_t = \sum_{n=0}^\infty \frac{t^n}{n!}\mathcal{L}^n$ which is true for inifnite lattice too.}
 Fix now~$R\Subset\Lambda$. For the zero-boundary restriction to~$R$, setting
 all exterior spins to~$0$ simply removes ordinary monomials~$\chi_S$ with
 $S\nsubseteq R$; the surviving coefficients in the calculation above are
