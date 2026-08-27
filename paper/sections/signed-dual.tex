@@ -2,9 +2,11 @@
 \label{sec:signed-dual}
 
 To prove Theorem~\ref{thm:patch-representation}, we start from the usual
-set-valued dual construction for spin systems. Its graphical construction records the interactions
-through which dependence passes between sites. These interactions define the
-patches. The process measure, conditional on their, record factorizes by patches and yields the representation.
+set-valued dual construction for spin systems. Its graphical construction
+records the interactions through which dependence passes between sites. These
+interactions determine the patches introduced in the next section. Conditioning
+on their record yields the factorization over patches used in the
+representation.
 
 \subsection{Signed monomial dual}
 \label{subsec:signed-set-process}
@@ -114,13 +116,21 @@ a_i^\beta(S)\chi_{A\cup S},
 where
 \begin{equation}
 \label{eq:signed-dual-coefficients}
-a_i^\delta(S)=c_i^0(S),
+a_i^\delta(S)=\widehat{\lambda_i\rho_i}(S),
 \qquad
-a_i^\beta(S)=-c_i^0(S)-c_i^1(S).
+a_i^\beta(S)=-\widehat{\lambda_i}(S).
 \end{equation}
 The two sums correspond to the~$D_{i,S}$ and~$B_{i,S}$ updates above. In the
 second sum,~$S=\varnothing$ leaves~$A$ unchanged and is therefore a diagonal
-term. The derivation of~\eqref{eq:signed-dual-generator-expansion} is given in
+term. In particular,
+\begin{equation*}
+a_i^\beta(\varnothing)
+=
+-\widehat{\lambda_i}(\varnothing)
+=
+-\lambda_i(\mb 0).
+\end{equation*}
+The derivation of~\eqref{eq:signed-dual-generator-expansion} is given in
 Appendix~\ref{app:generator-action}.
 
 For~$r\in\R$, let~$\operatorname{sgn}_{\pm}(r)$ be~$+$ for~$r\geq0$ and~$-$
@@ -155,7 +165,7 @@ V_i=
 +
 a_i^\beta(\varnothing).
 \end{equation}
-The standing bounds on the neighbourhood sizes and flip rates imply that the
+The uniform bounds on the neighbourhood sizes and update rates imply that the
 total dual jump rate per active site and~$\abs{V_i}$ are uniformly bounded.
 
 For~$Y=(A,\sigma)$, define
@@ -210,7 +220,8 @@ Feynman--Kac weight.
 \subsection{Graphical construction}
 \label{subsec:dual-graphical-construction}
 
-The definition of patches, given in subsequent subsection, is based on the graphical construction of the dual process. We use the standard Poisson graphical construction for set-valued
+The patches introduced in the next section are defined from the graphical
+construction of the dual process. We use the standard Poisson graphical construction for set-valued
 particle systems, with notation adapted to the interactions above. Thus each
 possible~$D_{i,S}$ or~$B_{i,S}$ update is assigned an independent Poisson
 clock. For every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
