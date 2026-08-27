@@ -108,17 +108,9 @@ $\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$ and~$\varepsilon\geq0$, define
 This is again a spin system. If~$\lambda_i^{\varepsilon,\mb s}$ and
 $\rho_i^{\varepsilon,\mb s}$ denote its update rate and refresh parameter, then
 \begin{equation*}
-\lambda_i^{\varepsilon,\mb s}
+\lambda_i^{\varepsilon,\mb s}(\eta)
 =
-\lambda_i+\varepsilon,
-\qquad
-\lambda_i^{\varepsilon,\mb s}\rho_i^{\varepsilon,\mb s}
-=
-\lambda_i\rho_i+\varepsilon s_i.
-\end{equation*}
-Hence, whenever~$\lambda_i(\eta)+\varepsilon>0$,
-\begin{equation*}
-\rho_i^{\varepsilon,\mb s}(\eta)
+\lambda_i(\eta)+\varepsilon, \qquad \rho_i^{\varepsilon,\mb s}(\eta)
 =
 \frac{\lambda_i(\eta)\rho_i(\eta)+\varepsilon s_i}
 {\lambda_i(\eta)+\varepsilon}.
@@ -138,8 +130,7 @@ for another spin-system generator~$\Lcal^\varepsilon$. Equivalently,
 \end{equation*}
 since the left-hand side is the~$1\to0$ transition rate at~$i$.
 
-The standard Harris construction gives a Feller process under the boundedness
-assumptions above~\cite{Harris1978,Liggett1985}. Its semigroup is
+The standard Harris construction gives a Feller process under the uniform boundedness of~$\lambda$, or equivalently the flip rate~\cite{Harris1978,Liggett1985}. Its semigroup is
 $(P_t)_{t\geq0}$, and for an initial law~$\mu$ we write
 $(\mu P_t)(f)=\mu(P_tf)$. A probability measure~$\pi$ is invariant when
 $\pi P_t=\pi$ for every~$t$. We call the process ergodic when
