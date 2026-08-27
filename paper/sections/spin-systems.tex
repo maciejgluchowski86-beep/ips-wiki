@@ -116,37 +116,60 @@ When~$\lambda_i(\eta)=0$,~$\rho_i(\eta)$ may be chosen arbitrarily. We use the
 refresh parametrization because it separates the frequency of updates from the
 law of the refreshed spin.
 
-For the coefficient calculations below, write
+For any function~$g$ depending only on the spins in~$N(i)$, write its unique
+multilinear expansion as
+\begin{equation}
+\label{eq:rate-expansion}
+g(\eta)
+=
+\sum_{S\subseteq N(i)}\widehat g(S)\chi_S(\eta).
+\end{equation}
+We call~$\widehat g(S)$ the M\"obius coefficient of~$g$ at~$S$. A hat applies
+to the whole function underneath it; in particular,
+$\widehat{\lambda_i\rho_i}(S)$ is the coefficient of the product function
+$\lambda_i\rho_i$, not the product of two coefficients. The two coefficient
+families used below are
+\begin{align*}
+\lambda_i(\eta)
+&=
+\sum_{S\subseteq N(i)}\widehat{\lambda_i}(S)\chi_S(\eta),
+\\
+\lambda_i(\eta)\rho_i(\eta)
+&=
+\sum_{S\subseteq N(i)}\widehat{\lambda_i\rho_i}(S)\chi_S(\eta).
+\end{align*}
+We do not need M\"obius coefficients of~$\rho_i$ itself. This is also natural
+when~$\lambda_i(\eta)=0$, where the value of~$\rho_i(\eta)$ does not affect the
+dynamics.
+
+The associated~$0\to1$ and~$1\to0$ rates are
 \begin{equation*}
 c_i^0(\eta)=\lambda_i(\eta)\rho_i(\eta),
 \qquad
 c_i^1(\eta)=\lambda_i(\eta)\bb{1-\rho_i(\eta)}.
 \end{equation*}
-These are the~$0\to1$ and~$1\to0$ flip rates, respectively, and depend only
-on~$N(i)$. Their multilinear expansions are
-\begin{equation}
-\label{eq:rate-expansion}
-c_i^x(\eta)
-=
-\sum_{S\subseteq N(i)}c_i^x(S)\chi_S(\eta),
-\qquad x\in\cb{0,1}.
-\end{equation}
-The same symbol is used for a function and its M\"obius coefficients; the
-argument~$\eta$ or~$S$ distinguishes them. Under the assumptions above, the
-standard Harris construction gives a Feller process with finite speed of
-information~\cite{Harris1978,Liggett1985}. Its semigroup is~$(P_t)_{t\geq0}$,
-and for an initial law~$\mu$ we write~$(\mu P_t)(f)=\mu(P_tf)$.
+When this flip-rate notation is used below, its coefficients are
+\begin{equation*}
+c_i^0(S)=\widehat{\lambda_i\rho_i}(S),
+\qquad
+c_i^1(S)=\widehat{\lambda_i}(S)-\widehat{\lambda_i\rho_i}(S).
+\end{equation*}
 
-For~$A\Subset\Lambda$, $P_t\chi_A(\eta)$ is the expected product of the spins
-in~$A$ at time~$t$ when the process starts from~$\eta$. We represent its
-dependence on the initial configuration by a signed set-valued process
-$(A_s,\sigma_s)$, called the signed monomial dual. Starting from~$A$, the set
-$A_s$ traces backward through the interactions that carry this dependence to
-earlier sites. The sign~$\sigma_s$ records the accumulated sign, and a
-potential~$V(A_s)$ supplies the Feynman--Kac correction. The process and
-potential are constructed in Section~\ref{sec:signed-dual}. Writing~$\E_A$ for
-expectation for this process started from~$(A,+)$, we impose throughout the
-absolute-integrability condition
+Under the assumptions above, the standard Harris construction gives a Feller
+process with finite speed of information~\cite{Harris1978,Liggett1985}. Its
+semigroup is~$(P_t)_{t\geq0}$, and for an initial law~$\mu$ we write
+$(\mu P_t)(f)=\mu(P_tf)$.
+
+For~$A\Subset\Lambda$,~$P_t\chi_A(\eta)$ is the expected product of the spins
+in~$A$ at time~$t$ when the process starts from~$\eta$. We represent the
+dependence of this observable on the initial configuration by a signed
+set-valued process~$(A_s,\sigma_s)$, called the signed monomial dual. Starting
+from~$A$ at the observation time,~$A_s$ traces backward through the
+interactions that carry this dependence to earlier sites. The sign~$\sigma_s$
+records the accumulated sign, and a potential~$V(A_s)$ supplies the
+Feynman--Kac correction. The process and potential are constructed in
+Section~\ref{sec:signed-dual}. Writing~$\E_A$ for expectation for this process
+started from~$(A,+)$, we impose throughout the absolute-integrability condition
 \begin{equation}
 \tag{FK}
 \label{eq:fk-integrability}
