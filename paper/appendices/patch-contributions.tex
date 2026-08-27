@@ -109,47 +109,63 @@ in~\eqref{eq:end-contribution-formulas} or
 has zero probability of occurring; every realized patch has a positive
 normalizer.
 
-The same formulas can be written directly in the spin-rate coefficients. The
+In terms of the M\"obius coefficients of the spin-system parameters, the
 required substitutions are
 \begin{equation}
 \label{eq:dual-to-spin-contribution-data}
 \begin{aligned}
 \alpha_i
 &=
-\sum_{R\subseteq N(i)}\abs{c_i^0(R)}
+\sum_{R\subseteq N(i)}\abs{\widehat{\lambda_i\rho_i}(R)}
 +
 \sum_{\substack{R\subseteq N(i)\\R\neq\varnothing}}
-\abs{c_i^0(R)+c_i^1(R)},
+\abs{\widehat{\lambda_i}(R)},
 \\
 a_i^\beta(\varnothing)
-&=-c_i^0(\varnothing)-c_i^1(\varnothing),
+&=
+-\widehat{\lambda_i}(\varnothing)
+=
+-\lambda_i(\mb 0),
 \\
-\delta_i(S)\sigma_i^\delta(S)&=c_i^0(S),
-&\delta_i(S)&=\abs{c_i^0(S)},
+\delta_i(S)\sigma_i^\delta(S)
+&=
+\widehat{\lambda_i\rho_i}(S),
+&\delta_i(S)
+&=
+\abs{\widehat{\lambda_i\rho_i}(S)},
 \\
-\beta_i(S)\sigma_i^\beta(S)&=-c_i^0(S)-c_i^1(S),
-&\beta_i(S)&=\abs{c_i^0(S)+c_i^1(S)}.
+\beta_i(S)\sigma_i^\beta(S)
+&=
+-\widehat{\lambda_i}(S),
+&\beta_i(S)
+&=
+\abs{\widehat{\lambda_i}(S)}.
 \end{aligned}
 \end{equation}
-Since~$c_i^0(\varnothing)\geq0$, this also gives
-\begin{align}
+Since
+\begin{equation*}
+\widehat{\lambda_i}(\varnothing)=\lambda_i(\mb 0),
+\qquad
+\widehat{\lambda_i\rho_i}(\varnothing)
+=
+\lambda_i(\mb 0)\rho_i(\mb 0),
+\end{equation*}
+we also have
+\begin{align*}
 \varphi_i(\Delta)
 &=
 e^{-\alpha_i\Delta}
 +
-c_i^0(\varnothing)
+\lambda_i(\mb 0)\rho_i(\mb 0)
 \int_0^\Delta e^{-\alpha_i u}\,du,
-\label{eq:patch-phi-spin}
 \\
 \psi_i(\Delta,z)
 &=
-c_i^0(\varnothing)
-\int_0^\Delta
-e^{-\bb{c_i^0(\varnothing)+c_i^1(\varnothing)}u}\,du
+\lambda_i(\mb 0)\rho_i(\mb 0)
+\int_0^\Delta e^{-\lambda_i(\mb 0)u}\,du
 +
-z e^{-\bb{c_i^0(\varnothing)+c_i^1(\varnothing)}\Delta}.
-\label{eq:patch-psi-spin}
-\end{align}
+z e^{-\lambda_i(\mb 0)\Delta}.
+\end{align*}
 
 \subsection{Derivation}
 \label{app:contribution-derivation}
@@ -217,13 +233,12 @@ to~$\Delta=\infty$ by taking limits.
 \subsection{Empty-neighbour relaxation}
 \label{app:positivity-algebra}
 
-Put~$r_i=c_i^0(\varnothing)+c_i^1(\varnothing)$. If~$r_i>0$, set
-$p_i^\circ=c_i^0(\varnothing)/r_i$. Then
+Put~$r_i=\lambda_i(\mb 0)$. If~$r_i>0$, then
 \begin{equation}
 \label{eq:empty-neighbour-relaxation}
 \psi_i(u,z)
 =
-p_i^\circ+\bb{z-p_i^\circ}e^{-r_i u},
+\rho_i(\mb 0)+\bb{z-\rho_i(\mb 0)}e^{-r_i u},
 \qquad
 \psi_i(u+v,z)
 =
