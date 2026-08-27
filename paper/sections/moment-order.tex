@@ -2,34 +2,121 @@
 \label{sec:moment-order}
 \label{subsec:moment-monotonicity}
 
-% This subsection proves part~\textup{(ii)} of
-% Theorem~\ref{thm:patch-positivity-order} and therefore completes the proof of
-% the theorem. Unlike part~\textup{(i)}, the order-preservation statement is
-% proved directly from the generator in the centered-monomial basis rather than
-% from the patch representation.
+% ============================================================================
+% BLURB A. Generator on centered monomials
 %
-% Main job:
-%   Compute the action of the generator on centered monomials. Use the
-%   coefficient criterion and threshold formula from part (i) to show that all
-%   off-diagonal coefficients in the centered-monomial basis are nonnegative.
-%   First prove this in finite volume, then pass to Lambda using finite
-%   propagation. Conclude
-%       mu \preceq_* nu  =>  mu P_t \preceq_* nu P_t.
+% Reader question:
+%   Why should the semigroup preserve the centered-moment order?
 %
-%   Preservation of M_* follows by applying the same positivity statement to a
-%   single measure. Ordinary monomial comparison is then immediate from
-%       chi_A = sum_{B subseteq A}
-%               (prod_{i in A\B} p_i^star) chi_B^*,
-%   whose coefficients are nonnegative. Do not use the patch representation to
-%   re-prove this consequence.
+% Job:
+%   Start directly from the generator acting on
+%       \chi_A^*=\prod_{j\in A}(\eta(j)-p_j^\star).
+%   For i\in A, first record the one-site identity
+%       \lambda_i(E_{i,\rho_i}-I)\chi_A^*
+%       = \lambda_i(\rho_i-p_i^\star)\chi_{A\setminus\{i\}}^*
+%         - \lambda_i\chi_A^*.
+%   Then expand \lambda_i(\rho_i-p_i^\star) and \lambda_i in ordinary
+%   monomials. This gives the central generator formula
+%       L\chi_A^*
+%       = sum_{i\in A} [
+%           -\lambda_i(0)\chi_A^*
+%           + sum_{S\subseteq N(i)}
+%             (\widehat{\lambda_i\rho_i}(S)
+%              -p_i^\star\widehat{\lambda_i}(S))
+%             \chi_S\chi_{A\setminus\{i\}}^*
+%           + sum_{\emptyset\ne S\subseteq N(i)}
+%             (-\widehat{\lambda_i}(S))\chi_S\chi_A^*
+%         ].
 %
-%   End explicitly by saying that part (ii), and hence
+% Reader takeaway:
+%   Preservation of centered moments is a direct generator statement. No patch
+%   representation is needed in this part of the proof.
+%
+% Keep out:
+%   Do not introduce the old auxiliary notation h_i(S), b_i(S), or r_i.
+% ============================================================================
+
+% ============================================================================
+% BLURB B. Why the coefficients are nonnegative
+%
+% Reader question:
+%   Where does patch positivity enter the centered-basis generator calculation?
+%
+% Job:
+%   Use part (i) exactly where it is needed. For nonempty S,
+%       -\widehat{\lambda_i}(S) >= 0.
+%   For the other coefficient family, show
+%       \widehat{\lambda_i\rho_i}(S)
+%       -p_i^\star\widehat{\lambda_i}(S) >= 0
+%   for every S\subseteq N(i). For S=\emptyset this is
+%       \lambda_i(0)(\rho_i(0)-p_i^\star) >= 0,
+%   using p_i^\star <= \rho_i(0). For nonempty S it follows from the threshold
+%   formula together with the coefficient criterion.
+%
+%   Then explain why multiplying by an ordinary monomial does not spoil
+%   positivity in the centered basis. Use the sitewise identities
+%       \eta(j)=p_j^\star+(\eta(j)-p_j^\star),
+%       \eta(j)(\eta(j)-p_j^\star)
+%       =(1-p_j^\star)\eta(j),
+%   and 0<=p_j^\star<=1 to conclude that every
+%       \chi_S\chi_B^*
+%   is a nonnegative linear combination of centered monomials.
+%
+% Reader takeaway:
+%   The threshold p^\star is exactly the centering for which all off-diagonal
+%   coefficients of the generator become nonnegative.
+% ============================================================================
+
+% ============================================================================
+% BLURB C. From the generator to preservation of order
+%
+% Reader question:
+%   How do the coefficient signs imply the semigroup comparison?
+%
+% Job:
+%   Work first in a finite zero-boundary volume. The generator matrix in the
+%   centered-monomial basis has nonnegative off-diagonal entries, so its
+%   exponential preserves the nonnegative orthant of centered-moment vectors.
+%   Apply this to the difference of two initial laws to obtain
+%       \mu\preceq_*\nu
+%       => \mu P_t\preceq_*\nu P_t
+%   in finite volume.
+%
+%   Then pass to Lambda using the finite-propagation approximation from the
+%   appendix. Keep this passage short and explicit; do not re-prove finite
+%   propagation here.
+%
+% Reader takeaway:
+%   This proves the main assertion of Theorem B(ii).
+% ============================================================================
+
+% ============================================================================
+% BLURB D. Immediate consequences and completion of Theorem B
+%
+% Reader question:
+%   How do the remaining assertions of part (ii) follow?
+%
+% Job:
+%   Apply the same cone preservation to a single initial law to conclude
+%       \mu\in\mathcal M_* => \mu P_t\in\mathcal M_*.
+%   Then derive ordinary monomial comparison from
+%       \chi_A
+%       = sum_{B\subseteq A}
+%         (prod_{i\in A\setminus B}p_i^\star)\chi_B^*,
+%   whose coefficients are nonnegative. Do not use the patch representation
+%   for this consequence.
+%
+%   Finally note that every nonempty centered moment of
+%   \mu_{\mb p^\star} is zero, hence
+%       \mu_{\mb p^\star}\preceq_*\mu
+%   for every \mu\in\mathcal M_*, giving the final comparison in the theorem.
+%   End explicitly by saying that part (ii), and therefore
 %   Theorem~\ref{thm:patch-positivity-order}, is proved.
 %
-% Product-profile consequences, if retained, belong here after the theorem has
-% been completed.
-%
-% Placeholder. Rewrite subsection blurb by blurb.
+% Keep out:
+%   Do not restore the old product-profile corollary here unless it is later
+%   judged independently useful.
+% ============================================================================
 
 \subsection{Pure-death comparison}
 \label{subsec:pure-death-comparison}
