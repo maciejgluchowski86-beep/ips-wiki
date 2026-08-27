@@ -34,36 +34,44 @@ Thus preservation of the centered-moment order reduces to the signs of these
 coefficients and to expanding the products~$\chi_S\chi_B^*$ back in the
 centered-monomial basis.
 
-% ============================================================================
-% BLURB B. Why the coefficients are nonnegative
-%
-% Reader question:
-%   Where does patch positivity enter the centered-basis generator calculation?
-%
-% Job:
-%   Use part (i) exactly where it is needed. For nonempty S,
-%       -\widehat{\lambda_i}(S) >= 0.
-%   For the other coefficient family, show
-%       \widehat{\lambda_i\rho_i}(S)
-%       -p_i^\star\widehat{\lambda_i}(S) >= 0
-%   for every S\subseteq N(i). For S=\emptyset this is
-%       \lambda_i(0)(\rho_i(0)-p_i^\star) >= 0,
-%   using p_i^\star <= \rho_i(0). For nonempty S it follows from the threshold
-%   formula together with the coefficient criterion.
-%
-%   Then explain why multiplying by an ordinary monomial does not spoil
-%   positivity in the centered basis. Use the sitewise identities
-%       \eta(j)=p_j^\star+(\eta(j)-p_j^\star),
-%       \eta(j)(\eta(j)-p_j^\star)
-%       =(1-p_j^\star)\eta(j),
-%   and 0<=p_j^\star<=1 to conclude that every
-%       \chi_S\chi_B^*
-%   is a nonnegative linear combination of centered monomials.
-%
-% Reader takeaway:
-%   The threshold p^\star is exactly the centering for which all off-diagonal
-%   coefficients of the generator become nonnegative.
-% ============================================================================
+Part~\textup{(i)} gives exactly the required signs. For every nonempty
+$S\subseteq N(i)$,
+\begin{equation*}
+-\widehat{\lambda_i}(S)\geq0.
+\end{equation*}
+For the other coefficient family, first consider~$S=\vn$. Since
+$p_i^\star\leq\rho_i(\mb 0)$,
+\begin{equation*}
+\widehat{\lambda_i\rho_i}(\vn)
+-p_i^\star\widehat{\lambda_i}(\vn)
+=
+\lambda_i(\mb 0)\bb{\rho_i(\mb 0)-p_i^\star}
+\geq0.
+\end{equation*}
+If~$S\neq\vn$ and~$\widehat{\lambda_i}(S)<0$, the definition of
+$p_i^\star$ gives
+\begin{equation*}
+\widehat{\lambda_i\rho_i}(S)
+-p_i^\star\widehat{\lambda_i}(S)
+\geq0.
+\end{equation*}
+If instead~$\widehat{\lambda_i}(S)=0$, the second coefficient inequality in
+part~\textup{(i)} gives~$\widehat{\lambda_i\rho_i}(S)\geq0$. Hence every
+coefficient multiplying~$\chi_S\chi_{A\setminus\cb{i}}^*$ or
+$\chi_S\chi_A^*$ above is nonnegative.
+
+It remains only to express these products in the centered basis. At each site,
+\begin{equation*}
+\eta(j)=p_j^\star+\bb{\eta(j)-p_j^\star},
+\qquad
+\eta(j)\bb{\eta(j)-p_j^\star}
+=\bb{1-p_j^\star}\eta(j).
+\end{equation*}
+Since~$0\leq p_j^\star\leq1$, repeated use of these identities shows that
+$\chi_S\chi_B^*$ is a nonnegative linear combination of centered monomials for
+every finite~$S,B$. Thus, apart from the diagonal term
+$-\lambda_i(\mb 0)\chi_A^*$, the generator sends each centered monomial to a
+nonnegative linear combination of centered monomials.
 
 % ============================================================================
 % BLURB C. From the generator to preservation of order
