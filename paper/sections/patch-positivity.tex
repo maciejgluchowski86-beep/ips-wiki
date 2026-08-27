@@ -18,14 +18,8 @@ Theorem~\ref{thm:patch-representation}:
 }.
 \end{equation*}
 The patch contributions appearing here are defined in
-Section~\ref{sec:representation}. Patch positivity requires, for every finite
-initial dual set, that almost every realization of the full patch
-family~$\mathcal P$ satisfies~$C(P)\geq0$ for every~$P\in\mathcal P$. The
-finite-time end contributions require an additional sign control because
-$C(z,P)$ still depends on its terminal argument~$z$. Part~\textup{(i)} first
-reduces patch positivity to explicit coefficient inequalities and then computes
-the smallest values~$p_i^\star$ for which~$C(p_i^\star,P)\geq0$ for every end
-patch based at~$i$.
+Section~\ref{sec:representation}. Patch positivity requires~$C(P)\geq0$ for every~$P\in\mathcal P$ almost surely for every realization of~$\mathcal{P}$. The end contributions require an additional sign control because
+$C(z,P)$ still depends on its terminal argument~$z$. 
 
 \subsection{Coefficient criterion}
 \label{subsec:positivity-criterion}
@@ -56,7 +50,7 @@ patch based at~$i$.
 % ============================================================================
 
 We begin the proof of part~\textup{(i)} of
-Theorem~\ref{thm:patch-positivity-order} with the coefficient criterion. Fix a
+Theorem~\ref{thm:patch-positivity-order}. Fix a
 site~$i$ and a patch~$P\in\mathcal P$ based at~$i$, and write
 $\Delta=e(P)-s(P)\in(0,\infty]$. The initial label
 $\mathsf X(P)\in\cb{\mathsf I,\mathsf O}$ records whether the interaction at
@@ -398,7 +392,7 @@ If~$r_i = 0$ then~$p_i^* = 0$. If~$r_i>0$, then
 \begin{equation*}
 p_i^\star
 \leq
-\frac{c_i(\mb 0)}{c_i(\mb 0)+c_i(\mb 0^i)}.
+\frac{c_i(\mb 0)}{c_i(\mb 0)+c_i(\mb 0^i)}\leq 1.
 \end{equation*}
 \end{corollary}
 
@@ -413,8 +407,6 @@ calculation gives
 Taking the supremum and then the maximum with~$0$ proves the claim.
 \end{proof}
 
-If~$c_i(\mb 0^i)>0$, the right-hand side in the corollary is strictly smaller
-than~$1$, so~$p_i^\star<1$.
 
 \subsection{Interpretation of patch positivity}
 \label{subsec:positivity-interpretation}
