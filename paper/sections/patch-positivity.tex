@@ -239,37 +239,37 @@ part~\textup{(i)} of Theorem~\ref{thm:patch-positivity-order}.
 \subsection{Interpretation of patch positivity}
 \label{subsec:positivity-interpretation}
 
-The coefficient criterion has a direct interpretation in terms of the local
-refresh dynamics. Put
+Patch-positive systems have a simple local interpretation. If~$\eta\leq\xi$
+on~$N(i)$, then, whenever~$\lambda_i(\xi)>0$,
 \begin{equation*}
-h_i=\lambda_i\bb{\rho_i-\rho_i(\mb 0)}.
+\lambda_i(\eta)\geq\lambda_i(\xi),
+\qquad
+\rho_i(\eta)\leq\rho_i(\xi).
 \end{equation*}
-The inequalities in Subsection~\ref{subsec:positivity-criterion} say that all
-nonconstant M\"obius coefficients of~$\lambda_i$ are nonpositive, while those
-of~$h_i$ are nonnegative. Thus adding neighbouring~$1$'s decreases
-$\lambda_i$, and increases~$h_i$ from~$h_i(\mb 0)=0$. Wherever updates remain
-possible,
-\begin{equation*}
-\rho_i
-=
-\rho_i(\mb 0)+\frac{h_i}{\lambda_i}.
-\end{equation*}
-Indeed, if~$\eta\leq\xi$ on~$N(i)$ and~$\lambda_i(\xi)>0$, then
-$0\leq h_i(\eta)\leq h_i(\xi)$ and
-$\lambda_i(\eta)\geq\lambda_i(\xi)>0$, so
+Thus changing neighbouring~$0$'s to~$1$'s makes updates less frequent and
+biases them toward~$1$. Equivalently, neighbouring~$0$'s facilitate updates and
+bias them toward~$0$.
+
+These inequalities follow directly from the coefficient criterion. The first
+holds because every nonconstant M\"obius coefficient of~$\lambda_i$ is
+nonpositive. For the second, the function
+$\lambda_i(\rho_i-\rho_i(\mb 0))$ has nonnegative nonconstant M\"obius
+coefficients and vanishes at~$\mb 0$, so for~$\eta\leq\xi$,
 \begin{equation*}
 0
 \leq
-\frac{h_i(\eta)}{\lambda_i(\eta)}
+\lambda_i(\eta)\bb{\rho_i(\eta)-\rho_i(\mb 0)}
 \leq
-\frac{h_i(\xi)}{\lambda_i(\eta)}
-\leq
-\frac{h_i(\xi)}{\lambda_i(\xi)}.
+\lambda_i(\xi)\bb{\rho_i(\xi)-\rho_i(\mb 0)}.
 \end{equation*}
-Hence~$\rho_i(\eta)\leq\rho_i(\xi)$. In dynamic terms, neighbouring~$1$'s
-make updates less frequent and, conditional on an update, make the refreshed
-spin more likely to be~$1$. Equivalently, neighbouring~$0$'s facilitate updates
-and make a refreshed~$0$ more likely.
+Together with~$\lambda_i(\eta)\geq\lambda_i(\xi)>0$, this gives
+$\rho_i(\eta)\leq\rho_i(\xi)$.
+
+The second inequality has the usual monotone direction: more neighbouring
+$1$'s favor~$1$, while more neighbouring~$0$'s favor~$0$. The first inequality
+is a different effect: more neighbouring~$1$'s suppress updates, while
+neighbouring~$0$'s facilitate them. This kinetic constraint can obstruct the
+usual monotone coupling in configuration order.
 
 % ============================================================================
 % BLURB B. Stronger than ordinary monotonicity
