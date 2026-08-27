@@ -29,34 +29,9 @@ argument~$z$.
 \subsection{Coefficient criterion}
 \label{subsec:positivity-criterion}
 
-% ============================================================================
-% BLURB A. Reduce patch positivity to the distinct contribution formulas
-%
-% Reader question:
-%   Patch positivity asks for C(P)>=0 for every patch in the full patch family.
-%   How can this be checked from the local rates?
-%
-% Job:
-%   Begin the proof of part (i) of Theorem~\ref{thm:patch-positivity-order}.
-%   Fix a site i and a patch P in the full patch family based at i, and write
-%   Delta=e(P)-s(P), allowing Delta=infinity. Recall the initial and terminal
-%   boundary labels. Explain that terminal labels I and E give the same
-%   contribution formula, so the six boundary labels reduce to four distinct
-%   formulas: {II,IE}, IO, {OI,OE}, and OO.
-%
-%   Show first that every patch whose initial boundary is incoming has a
-%   nonnegative contribution. State the consequence clearly: only patches whose
-%   initial boundary is outgoing can impose conditions on the coefficients of
-%   the flip rates.
-%
-% Keep out:
-%   Derivation of the patch-contribution formulas, interpretation of the
-%   coefficient inequalities, and finite-time end-patch positivity.
-% ============================================================================
-
 We begin the proof of part~\textup{(i)} of
-Theorem~\ref{thm:patch-positivity-order}. Fix a
-site~$i$ and a patch~$P\in\mathcal P$ based at~$i$, and write
+Theorem~\ref{thm:patch-positivity-order}. Fix a site~$i$ and a patch
+$P\in\mathcal P$ based at~$i$, and write
 $\Delta=e(P)-s(P)\in(0,\infty]$. The initial label
 $\mathsf X(P)\in\cb{\mathsf I,\mathsf O}$ records whether the interaction at
 $s(P)$ is incoming or outgoing at~$i$. The terminal label
@@ -65,9 +40,17 @@ successful interaction is incoming or outgoing, with~$\mathsf E$ meaning that
 there is no later successful interaction at that site. The contributions~$C(P)$
 for~$\mathsf{XI}$ and~$\mathsf{XE}$ patches are the same, so there are four
 distinct cases:~$\cb{\mathsf{II},\mathsf{IE}}$,~$\mathsf{IO}$,
-$\cb{\mathsf{OI},\mathsf{OE}}$, and~$\mathsf{OO}$.
+$\cb{\mathsf{OI},\mathsf{OE}}$, and~$\mathsf{OO}$. We use throughout
+\begin{equation*}
+\delta_i(S)\sigma_i^\delta(S)
+=\widehat{\lambda_i\rho_i}(S),
+\qquad
+\beta_i(S)\sigma_i^\beta(S)
+=-\widehat{\lambda_i}(S),
+\end{equation*}
+from Appendix~\ref{app:bulk-formulas}.
 
-If the initial boundary is incoming, Appendix~\ref{app:bulk-formulas} gives
+If the initial boundary is incoming, the full-patch formulas give
 \begin{equation*}
 C(P)
 =
@@ -81,146 +64,81 @@ e^{V_i\Delta},
 \end{cases}
 \end{equation*}
 At~$\Delta=\infty$, the first expression is read by taking the corresponding
-limit. The coefficient of~$c_i$ corresponding to death at~$i$ is
-$c_i^0(\vn)=c_i(\mb 0)\geq0$, so deaths have positive sign. Hence
-$\psi_i(\Delta,1)\geq0$, while~$\varphi_i(\Delta)>0$ for every realized patch,
-and the exponential is positive. Thus every patch with an incoming initial
-boundary has a nonnegative contribution. Only patches with an outgoing initial
-boundary can therefore impose conditions on the coefficients of the flip
-rates.
+limit. Since
+\begin{equation*}
+\delta_i(\vn)
+=\widehat{\lambda_i\rho_i}(\vn)
+=\lambda_i(\mb 0)\rho_i(\mb 0)\geq0,
+\end{equation*}
+we have~$\psi_i(\Delta,1)\geq0$, while~$\varphi_i(\Delta)>0$ for every
+realized patch and the exponential is positive. Thus every patch with an
+incoming initial boundary has a nonnegative contribution. Only patches with an
+outgoing initial boundary can impose conditions on the M\"obius coefficients.
 
-% ============================================================================
-% BLURB B. Outgoing terminal boundary gives the first inequality
-%
-% Reader question:
-%   What restriction comes from a patch whose initial and terminal boundaries
-%   are both outgoing?
-%
-% Job:
-%   Let the initial outgoing interaction have nonempty target S. For an OO
-%   patch, quote the formula
-%       C(P)=sigma_i^beta(S)e^{V_i Delta}
-%   together with
-%       beta_i(S)sigma_i^beta(S)=-c_i^0(S)-c_i^1(S).
-%   Conclude that all such contributions are nonnegative exactly when
-%       c_i^0(S)+c_i^1(S)<=0.
-%
-% Reader takeaway:
-%   The OO formula gives exactly the first coefficient inequality.
-% ============================================================================
-
-Suppose now that the initial boundary is outgoing, with nonempty target~$S$.
-If the terminal boundary is also outgoing, then
-Appendix~\ref{app:bulk-formulas} gives
+Suppose that the initial boundary is outgoing, with nonempty target~$S$. If the
+terminal boundary is also outgoing, then
 \begin{equation*}
 C(P)=\sigma_i^\beta(S)e^{V_i\Delta},
 \qquad
-\beta_i(S)\sigma_i^\beta(S)
-=-c_i^0(S)-c_i^1(S).
+\beta_i(S)\sigma_i^\beta(S)=-\widehat{\lambda_i}(S).
 \end{equation*}
-Thus the sign of an~$\mathsf{OO}$ contribution is the sign of
-$-c_i^0(S)-c_i^1(S)$. Consequently, all such contributions are nonnegative
-exactly when
+Consequently, all~$\mathsf{OO}$ contributions are nonnegative exactly when
 \begin{equation}
 \label{eq:patch-positivity-first-inequality}
-c_i^0(S)+c_i^1(S)\leq0
+\widehat{\lambda_i}(S)\leq0
 \qquad\text{for every nonempty }S\subseteq N(i).
 \end{equation}
-
-% ============================================================================
-% BLURB C. The other outgoing-initial formula gives the second inequality
-%
-% Reader question:
-%   Once the first inequality holds, what further restriction comes from the
-%   common OI/OE contribution formula?
-%
-% Job:
-%   State that OI and OE have the same contribution formula. Its denominator is
-%   positive, so the sign is determined by
-%       c_i^0(S)-(c_i^0(S)+c_i^1(S))psi_i(Delta,1).
-%   Put r_i=c_i^0(emptyset)+c_i^1(emptyset), and treat here the case r_i>0.
-%   Use the explicit formula for psi_i(Delta,1). Under the first inequality,
-%   explain that the numerator is minimized at Delta=infinity. Compute it and
-%   obtain the second coefficient inequality.
-% ============================================================================
 
 The remaining outgoing-initial cases,~$\mathsf{OI}$ and~$\mathsf{OE}$, have
 the same contribution formula. Its denominator is positive, while its numerator
 is
 \begin{equation*}
-c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,1).
+\widehat{\lambda_i\rho_i}(S)
+-\widehat{\lambda_i}(S)\psi_i(\Delta,1).
 \end{equation*}
-Put~$r_i=c_i^0(\vn)+c_i^1(\vn)$. Note that
-$r_i=c_i(\mb 0)+c_i(\mb 0^i)\geq0$, and suppose first that~$r_i>0$. Then
+The empty-neighbour relaxation formula gives
 \begin{equation*}
 \psi_i(\Delta,1)
-=
-\frac{c_i^0(\vn)}{r_i}
+=\rho_i(\mb 0)
++\bb{1-\rho_i(\mb 0)}e^{-\lambda_i(\mb 0)\Delta},
+\end{equation*}
+so the numerator can be written as
+\begin{equation}
+\label{eq:outgoing-incoming-numerator}
+\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb 0)}}(S)
 +
-\frac{c_i^1(\vn)}{r_i}e^{-r_i\Delta}.
-\end{equation*}
-Under~\eqref{eq:patch-positivity-first-inequality}, the numerator is
-nonincreasing in~$\Delta$. Its minimum is therefore the value at
-$\Delta=\infty$, which is
-\begin{equation*}
-\frac{
-c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)
-}{r_i}.
-\end{equation*}
-Hence the~$\mathsf{OI}/\mathsf{OE}$ contribution is nonnegative for
-every patch length exactly when
+\bb{1-\rho_i(\mb 0)}
+\bb{-\widehat{\lambda_i}(S)}
+e^{-\lambda_i(\mb 0)\Delta}.
+\end{equation}
+Under~\eqref{eq:patch-positivity-first-inequality}, the second term is
+nonnegative. If~$\lambda_i(\mb 0)>0$, letting~$\Delta\to\infty$ shows that the
+$\mathsf{OI}/\mathsf{OE}$ contributions are nonnegative for every patch length
+exactly when
 \begin{equation}
 \label{eq:patch-positivity-second-inequality}
-c_i^1(\vn)c_i^0(S)
-\geq
-c_i^0(\vn)c_i^1(S)
+\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb 0)}}(S)\geq0
 \qquad\text{for every nonempty }S\subseteq N(i).
 \end{equation}
-
-% ============================================================================
-% BLURB D. The case r_i=0 and completion of the coefficient criterion
-%
-% Reader question:
-%   What happens when r_i=0, and have the four distinct contribution formulas
-%   proved both directions of the coefficient criterion in part (i)?
-%
-% Job:
-%   When r_i=0, use psi_i(Delta,1)=1. The OI/OE formula then gives
-%   c_i^1(S)<=0 for every nonempty S. Use the multilinear expansion and the
-%   nonnegativity of the rate function to deduce c_i^1\equiv0. The OO inequality
-%   then similarly forces c_i^0\equiv0.
-%
-%   Close the converse explicitly using the four distinct contribution formulas.
-% ============================================================================
-
-It remains to consider~$r_i=0$. Since both terms in~$r_i$ are nonnegative,
-$c_i^0(\vn)=c_i^1(\vn)=0$, and
-Appendix~\ref{app:positivity-algebra} gives~$\psi_i(\Delta,1)=1$. The numerator
-of the~$\mathsf{OI}/\mathsf{OE}$ contribution therefore reduces to
-$-c_i^1(S)$, so patch positivity requires~$c_i^1(S)\leq0$ for every nonempty
-$S\subseteq N(i)$. For a neighbourhood configuration whose set of~$1$'s is
-$T\subseteq N(i)$, the expansion~\eqref{eq:rate-expansion} then gives
+If~$\lambda_i(\mb 0)=0$, then
+\eqref{eq:patch-positivity-first-inequality} and~$\lambda_i\geq0$ imply
+$\lambda_i\equiv0$: for a neighbourhood configuration whose set of~$1$'s is
+$T\subseteq N(i)$,
 \begin{equation*}
-c_i^1(\eta)
-=
-\sum_{S\subseteq T}c_i^1(S)
+0\leq\lambda_i(\eta)
+=\sum_{S\subseteq T}\widehat{\lambda_i}(S)
 \leq0.
 \end{equation*}
-Since~$c_i^1$ is a nonnegative rate function,~$c_i^1\equiv0$. The inequality
-from the~$\mathsf{OO}$ contribution now gives~$c_i^0(S)\leq0$ for every
-nonempty~$S$, and the same argument, using~$c_i^0(\vn)=0$, yields
-$c_i^0\equiv0$.
+Hence~$\lambda_i\rho_i\equiv0$, and
+\eqref{eq:patch-positivity-second-inequality} is automatic.
 
-Conversely, suppose first that~$r_i>0$ and that
-\eqref{eq:patch-positivity-first-inequality} and
-\eqref{eq:patch-positivity-second-inequality} hold for every nonempty
-$S\subseteq N(i)$. The incoming-initial formulas are nonnegative, the
-$\mathsf{OO}$ formula is nonnegative by the first inequality, and the common
-$\mathsf{OI}/\mathsf{OE}$ formula is nonnegative by the second. These are all
-four distinct contribution formulas. If~$r_i=0$ and~$c_i\equiv0$, there are no
-outgoing interactions from~$i$, while the incoming-initial contributions are
-nonnegative by the first part of the proof. Since~$i$ was arbitrary, this
-proves the coefficient criterion in part~\textup{(i)} of
+Conversely, suppose that~\eqref{eq:patch-positivity-first-inequality} and
+\eqref{eq:patch-positivity-second-inequality} hold. The incoming-initial
+contributions are nonnegative by the first part of the proof, the
+$\mathsf{OO}$ contribution is nonnegative by the first inequality, and both
+terms in~\eqref{eq:outgoing-incoming-numerator} are nonnegative. These are all
+four distinct contribution formulas. Since~$i$ was arbitrary, this proves the
+coefficient criterion in part~\textup{(i)} of
 Theorem~\ref{thm:patch-positivity-order}.
 
 \subsection{Patch threshold}
