@@ -2,9 +2,18 @@
 \label{sec:moment-order}
 \label{subsec:moment-monotonicity}
 
-Part~\textup{(ii)} of Theorem~\ref{thm:patch-positivity-order} can be proven
-directly from the generator in the centered-monomial basis. {\color{red} Reader would be lost. It should be stated what our aim in the proof is, to show that the generator expansion has non-negative off diagonal terms and why this suffices} If~$i\notin A$,
-the update at~$i$ leaves~$\chi_A^*$ unchanged. If~$i\in A$, then
+We now prove part~\textup{(ii)} of Theorem~\ref{thm:patch-positivity-order}.
+The aim is to show that, in the centered-monomial basis, the generator has
+nonnegative off-diagonal coefficients. In finite volume this is enough: the
+semigroup matrix is the exponential of the generator matrix, so it has
+nonnegative entries and sends every centered monomial to a nonnegative linear
+combination of centered monomials. If~$\mu\preceq_*\nu$, the signed measure
+$\nu-\mu$ is nonnegative on every centered monomial, and hence remains so after
+the semigroup is applied. We therefore first establish the coefficient signs
+and then pass from finite zero-boundary volumes to~$\Lambda$.
+
+The generator calculation is local. If~$i\notin A$, the update at~$i$ leaves
+$\chi_A^*$ unchanged. If~$i\in A$, then
 \begin{equation*}
 \lambda_i\bb{E_{i,\rho_i}-I}\chi_A^*
 =
@@ -24,23 +33,21 @@ over~$i\in A$ gives
 \widehat{\lambda_i\rho_i}(S)
 -p_i^\star\widehat{\lambda_i}(S)
 }
-\chi_S\chi_{A\setminus\cb{i}}^*+
+\chi_S\chi_{A\setminus\cb{i}}^*
+\\
+&+
 \sum_{\substack{S\subseteq N(i)\\S\neq\vn}}
 \bb{-\widehat{\lambda_i}(S)}
 \chi_S\chi_A^*
 \Bigg\}.
 \end{align*}
-Thus to prove preservation of the centered-moment order it suffices to verify the above
-coefficients of~$\chi_S\chi_B^*$ terms are non-negative and that the terms themselves have non-negative coefficient expansion in
-centered-monomial basis.
-
-Part~\textup{(i)} gives exactly the required signs. For every nonempty
-$S\subseteq N(i)$,
+Part~\textup{(i)} gives the signs of both coefficient families. For every
+nonempty~$S\subseteq N(i)$,
 \begin{equation*}
 -\widehat{\lambda_i}(S)\geq0.
 \end{equation*}
-For the other coefficient consider~$S=\vn$. Since
-$p_i^\star\leq\rho_i(\mb 0)$,
+For the first family, when~$S=\vn$ the bound
+$p_i^\star\leq\rho_i(\mb 0)$ gives
 \begin{equation*}
 \widehat{\lambda_i\rho_i}(\vn)
 -p_i^\star\widehat{\lambda_i}(\vn)
@@ -57,44 +64,73 @@ $p_i^\star$ gives
 \end{equation*}
 If instead~$\widehat{\lambda_i}(S)=0$, the second coefficient inequality in
 part~\textup{(i)} gives~$\widehat{\lambda_i\rho_i}(S)\geq0$. Hence every
-coefficient multiplying~$\chi_S\chi_{A\setminus\cb{i}}^*$ or
-$\chi_S\chi_A^*$ above is nonnegative.
+coefficient multiplying a product~$\chi_S\chi_B^*$ in the preceding generator
+formula is nonnegative.
 
-It remains only to express these products in the centered basis. At each site,
+It remains to expand those products in the centered basis. At each site,
 \begin{equation*}
 \eta(j)=p_j^\star+\bb{\eta(j)-p_j^\star},
 \qquad
 \eta(j)\bb{\eta(j)-p_j^\star}
 =\bb{1-p_j^\star}\eta(j).
 \end{equation*}
-Since~$0\leq p_j^\star\leq1$, repeated use of these identities shows that
-$\chi_S\chi_B^*$ is a nonnegative linear combination of centered monomials for
-every finite~$S,B$ {\color{red} This should be shown.}. Thus, apart from the diagonal term
-$-\lambda_i(\mb 0)\chi_A^*$, the generator sends each centered monomial to a
-nonnegative linear combination of centered monomials.
+Applying the second identity on~$S\cap B$ and then the first on~$S$ gives
+\begin{equation*}
+\chi_S\chi_B^*
+=
+\bb{\prod_{j\in S\cap B}\bb{1-p_j^\star}}
+\sum_{R\subseteq S}
+\bb{\prod_{j\in S\setminus R}p_j^\star}
+\chi_{R\cup(B\setminus S)}^*.
+\end{equation*}
+All coefficients are nonnegative because~$0\leq p_j^\star\leq1$. Thus every
+term in~$\Lcal\chi_A^*$ other than the explicit negative multiple of
+$\chi_A^*$ expands with nonnegative coefficients in the centered-monomial
+basis. In particular, every off-diagonal coefficient of the generator is
+nonnegative.
 
-% ============================================================================
-% BLURB C. From the generator to preservation of order
-%
-% Reader question:
-%   How do the coefficient signs imply the semigroup comparison?
-%
-% Job:
-%   Work first in a finite zero-boundary volume. The generator matrix in the
-%   centered-monomial basis has nonnegative off-diagonal entries, so its
-%   exponential preserves the nonnegative orthant of centered-moment vectors.
-%   Apply this to the difference of two initial laws to obtain
-%       \mu\preceq_*\nu
-%       => \mu P_t\preceq_*\nu P_t
-%   in finite volume.
-%
-%   Then pass to Lambda using the finite-propagation approximation from the
-%   appendix. Keep this passage short and explicit; do not re-prove finite
-%   propagation here.
-%
-% Reader takeaway:
-%   This proves the main assertion of Theorem B(ii).
-% ============================================================================
+Fix now~$R\Subset\Lambda$. For the zero-boundary restriction to~$R$, setting
+all exterior spins to~$0$ simply removes ordinary monomials~$\chi_S$ with
+$S\nsubseteq R$; the surviving coefficients in the calculation above are
+unchanged. Hence the finite-volume generator matrix~$M_R$ in the
+centered-monomial basis has nonnegative off-diagonal entries. Since this matrix
+is finite, we may choose~$a$ so that~$M_R+aI$ is entrywise nonnegative. Then
+\begin{equation*}
+e^{tM_R}
+=
+e^{-at}e^{t(M_R+aI)}
+\end{equation*}
+is entrywise nonnegative. Consequently, for every~$A\subseteq R$ there are
+coefficients~$q_{A,B}^R(t)\geq0$ such that
+\begin{equation*}
+P_t^{R,0}\chi_A^*
+=
+\sum_{B\subseteq R}q_{A,B}^R(t)\chi_B^*.
+\end{equation*}
+If~$\mu\preceq_*\nu$, it follows that
+\begin{equation*}
+\bb{\nu P_t^{R,0}-\mu P_t^{R,0}}\bb{\chi_A^*}
+=
+\sum_{B\subseteq R}
+q_{A,B}^R(t)\bb{\nu-\mu}\bb{\chi_B^*}
+\geq0.
+\end{equation*}
+The finite-propagation approximation in
+Appendix~\ref{app:finite-propagation} gives, for every finite~$A$ and fixed
+$t$,
+\begin{equation*}
+\lim_{R\uparrow\Lambda}
+(\mu P_t^{R,0})(\chi_A^*)
+=
+(\mu P_t)(\chi_A^*),
+\end{equation*}
+and the same for~$\nu$. Therefore
+\begin{equation*}
+\mu\preceq_*\nu
+\quad\Longrightarrow\quad
+\mu P_t\preceq_*\nu P_t,
+\end{equation*}
+which proves the main assertion of part~\textup{(ii)}.
 
 % ============================================================================
 % BLURB D. Immediate consequences and completion of Theorem B
