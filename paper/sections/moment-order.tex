@@ -2,39 +2,39 @@
 \label{sec:moment-order}
 \label{subsec:moment-monotonicity}
 
-% ============================================================================
-% BLURB A. Generator on centered monomials
-%
-% Reader question:
-%   Why should the semigroup preserve the centered-moment order?
-%
-% Job:
-%   Start directly from the generator acting on
-%       \chi_A^*=\prod_{j\in A}(\eta(j)-p_j^\star).
-%   For i\in A, first record the one-site identity
-%       \lambda_i(E_{i,\rho_i}-I)\chi_A^*
-%       = \lambda_i(\rho_i-p_i^\star)\chi_{A\setminus\{i\}}^*
-%         - \lambda_i\chi_A^*.
-%   Then expand \lambda_i(\rho_i-p_i^\star) and \lambda_i in ordinary
-%   monomials. This gives the central generator formula
-%       L\chi_A^*
-%       = sum_{i\in A} [
-%           -\lambda_i(0)\chi_A^*
-%           + sum_{S\subseteq N(i)}
-%             (\widehat{\lambda_i\rho_i}(S)
-%              -p_i^\star\widehat{\lambda_i}(S))
-%             \chi_S\chi_{A\setminus\{i\}}^*
-%           + sum_{\emptyset\ne S\subseteq N(i)}
-%             (-\widehat{\lambda_i}(S))\chi_S\chi_A^*
-%         ].
-%
-% Reader takeaway:
-%   Preservation of centered moments is a direct generator statement. No patch
-%   representation is needed in this part of the proof.
-%
-% Keep out:
-%   Do not introduce the old auxiliary notation h_i(S), b_i(S), or r_i.
-% ============================================================================
+We prove part~\textup{(ii)} of Theorem~\ref{thm:patch-positivity-order}
+directly from the generator in the centered-monomial basis. If~$i\notin A$,
+the update at~$i$ leaves~$\chi_A^*$ unchanged. If~$i\in A$, then
+\begin{equation*}
+\lambda_i\bb{E_{i,\rho_i}-I}\chi_A^*
+=
+\lambda_i\bb{\rho_i-p_i^\star}\chi_{A\setminus\cb{i}}^*
+-
+\lambda_i\chi_A^*.
+\end{equation*}
+Expanding~$\lambda_i\rho_i$ and~$\lambda_i$ in ordinary monomials and summing
+over~$i\in A$ gives
+\begin{align*}
+\Lcal\chi_A^*
+=\sum_{i\in A}\Bigg\{
+&-\lambda_i(\mb 0)\chi_A^*
++
+\sum_{S\subseteq N(i)}
+\bb{
+\widehat{\lambda_i\rho_i}(S)
+-p_i^\star\widehat{\lambda_i}(S)
+}
+\chi_S\chi_{A\setminus\cb{i}}^*
+\\
+&+
+\sum_{\substack{S\subseteq N(i)\\S\neq\vn}}
+\bb{-\widehat{\lambda_i}(S)}
+\chi_S\chi_A^*
+\Bigg\}.
+\end{align*}
+Thus preservation of the centered-moment order reduces to the signs of these
+coefficients and to expanding the products~$\chi_S\chi_B^*$ back in the
+centered-monomial basis.
 
 % ============================================================================
 % BLURB B. Why the coefficients are nonnegative
