@@ -1,52 +1,65 @@
-\subsection{Nonnegative patch weights and centered end factors}
-\label{subsec:m-star}
-
-% This subsection resumes the proof of
-% Theorem~\ref{thm:patch-positivity-order}, part~\textup{(ii)}. The reader has
-% just seen the coefficient criterion, threshold formula, and their dynamic
-% interpretation. Return now to the finite-time patch representation.
-%
-% Main job:
-%   Use the threshold from part (i) to write each end contribution as a
-%   nonnegative constant plus a nonnegative multiple of
-%   eta(i)-p_i^star. Expand the product over end patches in the centered-monomial
-%   basis. Together with patch positivity, conclude that the coefficients
-%   associated with a fixed successful-interaction skeleton are nonnegative.
-%
-% Reader takeaway:
-%   Part (i) supplies exactly the sign information needed to make the patch
-%   representation compatible with centered moments.
-%
-% Placeholder. Rewrite subsection blurb by blurb.
-
 \subsection{Centered-moment order}
 \label{sec:moment-order}
 \label{subsec:moment-monotonicity}
 
-% This subsection completes part~\textup{(ii)} of
+% This subsection proves part~\textup{(ii)} of
 % Theorem~\ref{thm:patch-positivity-order} and therefore completes the proof of
-% the theorem.
+% the theorem. Unlike part~\textup{(i)}, the order-preservation statement is
+% proved directly from the generator in the centered-monomial basis rather than
+% from the patch representation.
 %
 % Main job:
-%   Explain why the patch expansion already gives ordinary-monomial comparison
-%   but does not by itself prove preservation of centered-moment order. Use the
-%   generator in the centered-monomial basis, prove nonnegativity of its
-%   off-diagonal coefficients, pass from finite volume to Lambda, and conclude
+%   Compute the action of the generator on centered monomials. Use the
+%   coefficient criterion and threshold formula from part (i) to show that all
+%   off-diagonal coefficients in the centered-monomial basis are nonnegative.
+%   First prove this in finite volume, then pass to Lambda using finite
+%   propagation. Conclude
 %       mu \preceq_* nu  =>  mu P_t \preceq_* nu P_t.
-%   Derive preservation of M_* and ordinary-monomial comparison as consequences.
+%
+%   Preservation of M_* follows by applying the same positivity statement to a
+%   single measure. Ordinary monomial comparison is then immediate from
+%       chi_A = sum_{B subseteq A}
+%               (prod_{i in A\B} p_i^star) chi_B^*,
+%   whose coefficients are nonnegative. Do not use the patch representation to
+%   re-prove this consequence.
+%
 %   End explicitly by saying that part (ii), and hence
 %   Theorem~\ref{thm:patch-positivity-order}, is proved.
 %
 % Product-profile consequences, if retained, belong here after the theorem has
-% been completed, rather than as a separate stage of the proof.
+% been completed.
 %
 % Placeholder. Rewrite subsection blurb by blurb.
 
 \subsection{Pure-death comparison}
 \label{subsec:pure-death-comparison}
 
-% Theorem~\ref{thm:patch-positivity-order} should already be complete before
-% this subsection begins. Present the pure-death comparison as a consequence of
-% the theorem and the patch representation, not as another part of its proof.
+% Theorem~\ref{thm:patch-positivity-order} is complete before this subsection
+% begins. This is the first place where the centered-moment order and the patch
+% representation need to be combined.
+%
+% Main job:
+%   Introduce the centered expansion of end factors here, because it is needed
+%   for the comparison of two patch representations. For every end patch P
+%   based at i, use affinity and the definition of p_i^star to write
+%       C(z,P)
+%       = C(p_i^star,P) + kappa(P)(z-p_i^star),
+%   with C(p_i^star,P) >= 0 and kappa(P) >= 0. Expanding the product over end
+%   patches expresses its expectation as a sum of centered moments with
+%   nonnegative coefficients. Hence it is nonnegative for mu in M_*.
+%
+%   Then prove the pure-death comparison itself: removing the
+%   environment-independent 1->0 transitions preserves patch positivity and the
+%   threshold profile, and increases the relevant bulk and end patch
+%   contributions. The centered end-factor expansion allows the comparison to
+%   be made term by term for every mu in M_* and every successful-interaction
+%   skeleton before averaging.
+%
+%   Put the invariant-measure comparison here afterwards as a consequence.
+%
+% Keep out:
+%   Do not present the centered end-factor expansion as part of the proof of
+%   centered-moment order; that theorem has already been proved by the generator
+%   calculation.
 %
 % Placeholder. Rewrite subsection blurb by blurb.
