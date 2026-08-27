@@ -239,10 +239,94 @@ part~\textup{(i)} of Theorem~\ref{thm:patch-positivity-order}.
 \subsection{Interpretation of patch positivity}
 \label{subsec:positivity-interpretation}
 
-% This subsection is an interpretive interlude after the proof of part (i), not
-% a further proof obligation in Theorem~\ref{thm:patch-positivity-order}.
-% Explain what the two coefficient inequalities say about the local rates and
-% which monotonicity properties follow from them. The proof of part (ii) resumes
-% in Subsection~\ref{subsec:m-star}.
+% ============================================================================
+% BLURB A. Dynamic meaning of the coefficient criterion
 %
-% Placeholder. Rewrite subsection blurb by blurb.
+% Reader question:
+%   What does patch positivity mean for the local dynamics, rather than for
+%   M\"obius coefficients?
+%
+% Job:
+%   Put
+%       h_i = \lambda_i(\rho_i-\rho_i(\mb 0)).
+%   From the two coefficient inequalities proved in
+%   Subsection~\ref{subsec:positivity-criterion}, explain that adding neighbouring
+%   1's decreases \lambda_i and increases h_i from 0. Wherever updates remain
+%   possible,
+%       \rho_i = \rho_i(\mb 0)+h_i/\lambda_i.
+%   If \eta\leq\xi on N(i) and \lambda_i(\xi)>0, then
+%       h_i(\eta)\leq h_i(\xi),
+%       \lambda_i(\eta)\geq\lambda_i(\xi)>0,
+%   and hence \rho_i(\eta)\leq\rho_i(\xi).
+%
+%   State the dynamic interpretation prominently: neighbouring 1's make updates
+%   less frequent and, when an update occurs, bias the refreshed spin toward 1.
+%   Give the equivalent vacancy formulation: neighbouring 0's facilitate
+%   updates and bias refreshes toward 0.
+%
+% Reader takeaway:
+%   The defining dynamic picture of a patch-positive system is that neighbouring
+%   1's constrain updates and bias those updates toward 1.
+%
+% Keep out:
+%   The relation with KCSMs; centered moments; the proof of part (ii).
+% ============================================================================
+
+% ============================================================================
+% BLURB B. Stronger than ordinary monotonicity
+%
+% Reader question:
+%   Is patch positivity merely the pointwise condition that \lambda_i decreases
+%   and \rho_i increases when neighbouring 1's are added?
+%
+% Job:
+%   Explain that these monotonicities are consequences, not an equivalent
+%   characterization. Patch positivity fixes the signs of all nonconstant
+%   M\"obius coefficients. If useful, write
+%       d_i = \lambda_i(\mb 0)-\lambda_i
+%   and note briefly that d_i has nonnegative M\"obius coefficients (a totally
+%   monotone set function). Do not develop this terminology; the main point is
+%   that the condition controls all mixed effects of adding neighbouring 1's,
+%   not only first-order monotonicity.
+%
+%   Handle the zero-rate caveat here. Since \lambda_i is nonincreasing, once it
+%   reaches zero it remains zero after further 1's are added. On this set the
+%   value of \rho_i is dynamically irrelevant because no refresh occurs.
+%
+% Reader takeaway:
+%   The simple dynamic rule is the useful interpretation, but the actual
+%   patch-positivity hypothesis is a stronger coefficientwise condition.
+% ============================================================================
+
+% ============================================================================
+% BLURB C. Relation with kinetically constrained spin models
+%
+% Reader question:
+%   How does this class relate to the KCSMs introduced earlier in the paper?
+%
+% Job:
+%   Recall that in a standard KCSM the refresh law is fixed,
+%       \rho_i(\eta)\equiv p,
+%   while the neighbourhood affects the update activity \lambda_i. Thus KCSMs
+%   are the special case in which the neighbourhood controls whether or how
+%   often a site updates, but not the Bernoulli refresh distribution.
+%
+%   Explain that the present class allows the neighbourhood to affect both the
+%   update rate and the refresh bias. Under patch positivity the two effects are
+%   aligned: neighbouring 1's suppress updates and favor 1 when an update occurs.
+%
+%   Locate the class without claiming that it contains all KCSMs. Vacancy-
+%   facilitated examples such as FA-1f fit this picture; BABP and the contact
+%   process also fit the patch-positive class. Cooperative KCSMs need not be
+%   patch-positive, because ordinary monotonicity of a kinetic constraint does
+%   not imply the required M\"obius-sign condition.
+%
+% Reader takeaway:
+%   Patch-positive systems are best viewed through the local rule that 1's
+%   constrain updates and bias refreshes toward 1; this class intersects the
+%   familiar KCSM class but is not identical to it.
+%
+% Keep out:
+%   A catalogue of examples or application-specific calculations; these belong
+%   in the applications section.
+% ============================================================================
