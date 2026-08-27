@@ -239,38 +239,37 @@ part~\textup{(i)} of Theorem~\ref{thm:patch-positivity-order}.
 \subsection{Interpretation of patch positivity}
 \label{subsec:positivity-interpretation}
 
-% ============================================================================
-% BLURB A. Dynamic meaning of the coefficient criterion
-%
-% Reader question:
-%   What does patch positivity mean for the local dynamics, rather than for
-%   M\"obius coefficients?
-%
-% Job:
-%   Put
-%       h_i = \lambda_i(\rho_i-\rho_i(\mb 0)).
-%   From the two coefficient inequalities proved in
-%   Subsection~\ref{subsec:positivity-criterion}, explain that adding neighbouring
-%   1's decreases \lambda_i and increases h_i from 0. Wherever updates remain
-%   possible,
-%       \rho_i = \rho_i(\mb 0)+h_i/\lambda_i.
-%   If \eta\leq\xi on N(i) and \lambda_i(\xi)>0, then
-%       h_i(\eta)\leq h_i(\xi),
-%       \lambda_i(\eta)\geq\lambda_i(\xi)>0,
-%   and hence \rho_i(\eta)\leq\rho_i(\xi).
-%
-%   State the dynamic interpretation prominently: neighbouring 1's make updates
-%   less frequent and, when an update occurs, bias the refreshed spin toward 1.
-%   Give the equivalent vacancy formulation: neighbouring 0's facilitate
-%   updates and bias refreshes toward 0.
-%
-% Reader takeaway:
-%   The defining dynamic picture of a patch-positive system is that neighbouring
-%   1's constrain updates and bias those updates toward 1.
-%
-% Keep out:
-%   The relation with KCSMs; centered moments; the proof of part (ii).
-% ============================================================================
+The coefficient criterion has a direct interpretation in terms of the local
+refresh dynamics. Put
+\begin{equation*}
+h_i=\lambda_i\bb{\rho_i-\rho_i(\mb 0)}.
+\end{equation*}
+The inequalities in Subsection~\ref{subsec:positivity-criterion} say that all
+nonconstant M\"obius coefficients of~$\lambda_i$ are nonpositive, while those
+of~$h_i$ are nonnegative. Thus adding neighbouring~$1$'s decreases
+$\lambda_i$, and increases~$h_i$ from~$h_i(\mb 0)=0$. Wherever updates remain
+possible,
+\begin{equation*}
+\rho_i
+=
+\rho_i(\mb 0)+\frac{h_i}{\lambda_i}.
+\end{equation*}
+Indeed, if~$\eta\leq\xi$ on~$N(i)$ and~$\lambda_i(\xi)>0$, then
+$0\leq h_i(\eta)\leq h_i(\xi)$ and
+$\lambda_i(\eta)\geq\lambda_i(\xi)>0$, so
+\begin{equation*}
+0
+\leq
+\frac{h_i(\eta)}{\lambda_i(\eta)}
+\leq
+\frac{h_i(\xi)}{\lambda_i(\eta)}
+\leq
+\frac{h_i(\xi)}{\lambda_i(\xi)}.
+\end{equation*}
+Hence~$\rho_i(\eta)\leq\rho_i(\xi)$. In dynamic terms, neighbouring~$1$'s
+make updates less frequent and, conditional on an update, make the refreshed
+spin more likely to be~$1$. Equivalently, neighbouring~$0$'s facilitate updates
+and make a refreshed~$0$ more likely.
 
 % ============================================================================
 % BLURB B. Stronger than ordinary monotonicity
