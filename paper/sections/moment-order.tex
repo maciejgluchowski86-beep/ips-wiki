@@ -117,41 +117,12 @@ Theorem~\ref{thm:patch-positivity-order}.
 \subsection{Pure-death comparison}
 \label{subsec:pure-death-comparison}
 
-% ============================================================================
-% BLURB A. Same dual, different Feynman--Kac tilt
-%
-% Reader question:
-%   What fact from Section 4 is actually needed to compare the two systems?
-%
-% Job:
-%   Keep the orientation to one short paragraph. Let L and L' be as in
-%   Corollary~\ref{cor:pure-death-comparison}. Recall the specific observation
-%   from the signed-dual section: adding pure deaths leaves the signed dual jump
-%   process unchanged and only lowers its Feynman--Kac potential. Hence the two
-%   representations use the same successful-interaction skeleton and the same
-%   patches; only the patch contributions differ. Say that the proof compares
-%   those contributions on this common patch family.
-%
-% Keep out:
-%   Do not re-explain patch positivity, bulk versus end patches, or the purpose
-%   of M_*. Those have just been used in Sections 5.1--5.4. Do not introduce any
-%   local rate calculation here.
-% ============================================================================
-
-Corollary~\ref{cor:pure-death-comparison} {\color{red} Weird phrasing "corollary compares" noone writes like that} compares~$\Lcal$ with the generator
-$\Lcal'$ obtained by removing environment-independent~$1\to0$ transitions.
-These transitions do not change the nonempty interaction {\color{red} Meaningless to the reader, better say that spin system with added deaths has the same dual process as the original spin system} part of the dual.
-Thus, after conditioning on the successful-interaction skeleton, the two patch
-representations have the same patch geometry {\color{red} have the same patches, "patch geometry" is weird. you keep inserting redundant second word where one word suffices} and their contributions can be
-compared patch by patch.
-
-The bulk part causes no sign problem {\color{red} reader doesnt know what the problem is because they are unfamiliar with the proof idea, and it is very simple: the patch representation of~$P_t$ for both spin systems is the same, except the one with more deaths has smaller FK tilt, thats it.} because patch positivity makes every bulk
-contribution nonnegative. End patches require more care: the factor
-$C(\eta(i),P)$ depends on the terminal spin and need not be nonnegative at both
-spin values, so pointwise inequalities cannot simply be multiplied. The role
-of~$\mathcal M_*$ is precisely to control this terminal product after centering
-at~$\mb p^\star$ {\color{red} I feel like at this point these sort of statements have been repeated so many times in the paper}. We first record that centered expansion and then compare the
-local patch contributions after the pure deaths are removed.
+Let~$\Lcal$ and~$\Lcal'$ be as in Corollary~\ref{cor:pure-death-comparison}.
+As observed in Section~\ref{subsec:signed-set-process}, adding the pure-death
+term to~$\Lcal'$ leaves the signed dual jump process unchanged and only lowers
+its Feynman--Kac potential. Hence the two systems have the same
+successful-interaction skeleton and the same patches, and it remains to compare
+their patch contributions.
 
 % ============================================================================
 % BLURB B. Centered end-factor expansion
