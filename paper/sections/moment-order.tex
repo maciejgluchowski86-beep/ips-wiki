@@ -2,7 +2,7 @@
 \label{sec:moment-order}
 \label{subsec:moment-monotonicity}
 
-We prove part~\textup{(ii)} of Theorem~\ref{thm:patch-positivity-order}
+Part~\textup{(ii)} of Theorem~\ref{thm:patch-positivity-order} can be proven
 directly from the generator in the centered-monomial basis. If~$i\notin A$,
 the update at~$i$ leaves~$\chi_A^*$ unchanged. If~$i\in A$, then
 \begin{equation*}
@@ -30,8 +30,8 @@ over~$i\in A$ gives
 \chi_S\chi_A^*
 \Bigg\}.
 \end{align*}
-Thus preservation of the centered-moment order reduces to the signs of these
-coefficients and to expanding the products~$\chi_S\chi_B^*$ back in the
+Thus to prove preservation of the centered-moment order it suffices to verify the above
+coefficients of~$\chi_S\chi_B^*$ terms are non-negative and that the terms themselves have non-negative coefficient expansion in
 centered-monomial basis.
 
 Part~\textup{(i)} gives exactly the required signs. For every nonempty
@@ -39,7 +39,7 @@ $S\subseteq N(i)$,
 \begin{equation*}
 -\widehat{\lambda_i}(S)\geq0.
 \end{equation*}
-For the other coefficient family, first consider~$S=\vn$. Since
+For the other coefficient consider~$S=\vn$. Since
 $p_i^\star\leq\rho_i(\mb 0)$,
 \begin{equation*}
 \widehat{\lambda_i\rho_i}(\vn)
@@ -69,7 +69,7 @@ It remains only to express these products in the centered basis. At each site,
 \end{equation*}
 Since~$0\leq p_j^\star\leq1$, repeated use of these identities shows that
 $\chi_S\chi_B^*$ is a nonnegative linear combination of centered monomials for
-every finite~$S,B$. Thus, apart from the diagonal term
+every finite~$S,B$ {\color{red} This should be shown.}. Thus, apart from the diagonal term
 $-\lambda_i(\mb 0)\chi_A^*$, the generator sends each centered monomial to a
 nonnegative linear combination of centered monomials.
 
