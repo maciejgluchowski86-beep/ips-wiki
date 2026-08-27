@@ -1,50 +1,20 @@
 \section{Spin systems}
 \label{sec:setup}
 
-This section fixes the basic setting and notation used throughout the paper. We
-also record the assumptions on the interaction graph and introduce an
-elementary way of adding independent single-site noise.
+This section fixes the spin-system setup and notation used throughout the paper.
+We describe the dynamics through a neighbourhood-dependent update rate and
+refresh parameter, which directly extends the usual KCSM formulation.
 
 Let~$\Lambda$ be a countable site set. For each~$i\in\Lambda$, fix a finite
 neighbourhood~$N(i)\subseteq\Lambda\setminus\cb{i}$ and assume
 \begin{equation*}
 \sup_{i\in\Lambda}\abs{N(i)}<\infty.
 \end{equation*}
-The neighbourhood relation may be directed. Write~$N_*(i)=N(i)\cup\cb{i}$
-and, for~$A\subseteq\Lambda$,
-\begin{equation*}
-N_*(A)=\bigcup_{i\in A}N_*(i),
-\qquad
-B(A,0)=A,
-\qquad
-B(A,n+1)=N_*\bb{B(A,n)}.
-\end{equation*}
-Thus~$B(A,n)$ is the directed ball reached from~$A$ in at most~$n$ steps. The polynomial-growth assumption is that, for some~$K,D<\infty$,
-\begin{equation}
-\label{eq:polynomial-growth}
-\abs{B(i,n)}\leq K(1+n)^D
-\qquad
-\text{for every }i\in\Lambda\text{ and }n\in\N.
-\end{equation}
-
-Write~$A\Subset\Lambda$ when~$A$ is finite and put
-$\Omega=\cb{0,1}^{\Lambda}$. A local function depends on finitely many
-coordinates. For~$A\Subset\Lambda$, set
-\begin{equation*}
-\chi_A(\eta)=\prod_{i\in A}\eta(i),
-\qquad
-\chi_\vn=1.
-\end{equation*}
-The monomials supported on a finite set form a basis for the functions of the
-corresponding coordinates. For a density profile
-$\mb p=(p_i)_{i\in\Lambda}\in[0,1]^\Lambda$, let~$\mu_{\mb p}$ be the
-Bernoulli product measure with
-$\mu_{\mb p}\bb{\eta(i)=1}=p_i$ for every~$i$. For a constant profile,
-write~$\mu_p$.
-
-For~$x\in\cb{0,1}$, let~$\eta^{i,x}$ be the configuration obtained from~$\eta$
-by setting the spin at~$i$ equal to~$x$, and let~$\eta^i$ be obtained by
-flipping it. For~$p\in[0,1]$, the Bernoulli refresh operator at~$i$ is
+The neighbourhood relation may be directed. Put
+$\Omega=\cb{0,1}^{\Lambda}$. For~$x\in\cb{0,1}$, let~$\eta^{i,x}$ be the
+configuration obtained from~$\eta$ by setting the spin at~$i$ equal to~$x$,
+and let~$\eta^i$ be obtained by flipping it. For~$p\in[0,1]$, the Bernoulli
+refresh operator at~$i$ is
 \begin{align*}
 E_{i,p}f(\eta)
 &=
@@ -77,44 +47,50 @@ At rate~$\lambda_i(\eta)$, the spin at~$i$ is refreshed to~$1$ with
 probability~$\rho_i(\eta)$ and to~$0$ with probability~$1-\rho_i(\eta)$.
 The value of~$\rho_i(\eta)$ is irrelevant when~$\lambda_i(\eta)=0$. For a
 standard KCSM with Bernoulli refresh parameter~$p$, one has
-$\rho_i\equiv p$, while~$\lambda_i$ is the kinetic constraint. Thus~\eqref{eq:spin-generator} keeps the usual KCSM
-separation between the rate at which updates occur and the law used to refresh
-the spin, while allowing both to depend on the neighbourhood.
+$\rho_i\equiv p$, while~$\lambda_i$ is the kinetic constraint. Thus the
+parametrization in~\eqref{eq:spin-generator} keeps the KCSM separation between
+the rate at which updates occur and the law used to refresh the spin, while
+allowing both to depend on the neighbourhood.
 
-This is equivalent to the usual flip-rate description of a spin system. Given
-$\lambda_i$ and~$\rho_i$, define
-\begin{equation*}
+This parametrization is equivalent to the usual flip-rate description. If
+$c_i$ denotes the flip rate in the conventional generator
+$\Lcal f(\eta)=\sum_i c_i(\eta)\bb{f(\eta^i)-f(\eta)}$, the two descriptions are
+related by
+\begin{align*}
 c_i(\eta)
-=
+&=
 \lambda_i(\eta)
 \bb{
 \bb{1-\eta(i)}\rho_i(\eta)
 +
 \eta(i)\bb{1-\rho_i(\eta)}
-}.
-\end{equation*}
-Then
-\begin{equation*}
-\Lcal f(\eta)
-=
-\sum_{i\in\Lambda}c_i(\eta)
-\bb{f(\eta^i)-f(\eta)}.
-\end{equation*}
-Conversely, given a flip rate~$c_i$, set
-\begin{equation*}
+},
+\\
 \lambda_i(\eta)
-=
+&=
 c_i(\eta^{i,0})+c_i(\eta^{i,1}),
-\end{equation*}
-and, whenever~$\lambda_i(\eta)>0$,
-\begin{equation*}
+&
 \rho_i(\eta)
-=
-\frac{c_i(\eta^{i,0})}{\lambda_i(\eta)}.
+&=
+\frac{c_i(\eta^{i,0})}{\lambda_i(\eta)}
+\quad\text{when }\lambda_i(\eta)>0.
+\end{align*}
+When~$\lambda_i(\eta)=0$, the value of~$\rho_i(\eta)$ may be chosen
+arbitrarily.
+
+Write~$A\Subset\Lambda$ when~$A$ is finite. A local function depends on
+finitely many coordinates. For~$A\Subset\Lambda$, set
+\begin{equation*}
+\chi_A(\eta)=\prod_{i\in A}\eta(i),
+\qquad
+\chi_\vn=1.
 \end{equation*}
-When~$\lambda_i(\eta)=0$,~$\rho_i(\eta)$ may be chosen arbitrarily. We use the
-refresh parametrization because it separates the frequency of updates from the
-law of the refreshed spin.
+The monomials supported on a finite set form a basis for the functions of the
+corresponding coordinates. For a density profile
+$\mb p=(p_i)_{i\in\Lambda}\in[0,1]^\Lambda$, let~$\mu_{\mb p}$ be the
+Bernoulli product measure with
+$\mu_{\mb p}\bb{\eta(i)=1}=p_i$ for every~$i$. For a constant profile,
+write~$\mu_p$.
 
 For any function~$g$ depending only on the spins in~$N(i)$, write its unique
 multilinear expansion as
@@ -124,33 +100,30 @@ g(\eta)
 =
 \sum_{S\subseteq N(i)}\widehat g(S)\chi_S(\eta).
 \end{equation}
-We call~$\widehat g(S)$ the M\"obius coefficient of~$g$ at~$S$.  The two coefficient
-families used below are
-\begin{align*}
-\lambda_i(\eta)
-&=
-\sum_{S\subseteq N(i)}\widehat{\lambda_i}(S)\chi_S(\eta),
-\\
-\lambda_i(\eta)\rho_i(\eta)
-&=
-\sum_{S\subseteq N(i)}\widehat{\lambda_i\rho_i}(S)\chi_S(\eta).
-\end{align*}
-We do not need M\"obius coefficients of~$\rho_i$ itself. This is also natural
-when~$\lambda_i(\eta)=0$, where the value of~$\rho_i(\eta)$ does not affect the
-dynamics.
+We call~$\widehat g(S)$ the M\"obius coefficient of~$g$ at~$S$. In
+particular,~$\widehat{\lambda_i\rho_i}(S)$ denotes the coefficient of the
+product function~$\lambda_i\rho_i$. The coefficient families used below are
+$\widehat{\lambda_i}(S)$ and~$\widehat{\lambda_i\rho_i}(S)$. We do not use
+M\"obius coefficients of~$\rho_i$ itself, since they can depend on the
+arbitrary choice of~$\rho_i$ on configurations where~$\lambda_i=0$.
 
-The associated~$0\to1$ and~$1\to0$ rates are
+For later spatial estimates, write~$N_*(i)=N(i)\cup\cb{i}$ and, for
+$A\subseteq\Lambda$,
 \begin{equation*}
-c_i^0(\eta)=\lambda_i(\eta)\rho_i(\eta),
+N_*(A)=\bigcup_{i\in A}N_*(i),
 \qquad
-c_i^1(\eta)=\lambda_i(\eta)\bb{1-\rho_i(\eta)}.
-\end{equation*}
-When this flip-rate notation is used below, its coefficients are
-\begin{equation*}
-c_i^0(S)=\widehat{\lambda_i\rho_i}(S),
+B(A,0)=A,
 \qquad
-c_i^1(S)=\widehat{\lambda_i}(S)-\widehat{\lambda_i\rho_i}(S).
+B(A,n+1)=N_*\bb{B(A,n)}.
 \end{equation*}
+Thus~$B(A,n)$ is the directed ball reached from~$A$ in at most~$n$ steps. The
+polynomial-growth assumption is that, for some~$K,D<\infty$,
+\begin{equation}
+\label{eq:polynomial-growth}
+\abs{B(i,n)}\leq K(1+n)^D
+\qquad
+\text{for every }i\in\Lambda\text{ and }n\in\N.
+\end{equation}
 
 Under the assumptions above, the standard Harris construction gives a Feller
 process with finite speed of information~\cite{Harris1978,Liggett1985}. Its
