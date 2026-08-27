@@ -271,31 +271,26 @@ is a different effect: more neighbouring~$1$'s suppress updates, while
 neighbouring~$0$'s facilitate them. This kinetic constraint can obstruct the
 usual monotone coupling in configuration order.
 
-% ============================================================================
-% BLURB B. Stronger than ordinary monotonicity
-%
-% Reader question:
-%   Is patch positivity merely the pointwise condition that \lambda_i decreases
-%   and \rho_i increases when neighbouring 1's are added?
-%
-% Job:
-%   Explain that these monotonicities are consequences, not an equivalent
-%   characterization. Patch positivity fixes the signs of all nonconstant
-%   M\"obius coefficients. If useful, write
-%       d_i = \lambda_i(\mb 0)-\lambda_i
-%   and note briefly that d_i has nonnegative M\"obius coefficients (a totally
-%   monotone set function). Do not develop this terminology; the main point is
-%   that the condition controls all mixed effects of adding neighbouring 1's,
-%   not only first-order monotonicity.
-%
-%   Handle the zero-rate caveat here. Since \lambda_i is nonincreasing, once it
-%   reaches zero it remains zero after further 1's are added. On this set the
-%   value of \rho_i is dynamically irrelevant because no refresh occurs.
-%
-% Reader takeaway:
-%   The simple dynamic rule is the useful interpretation, but the actual
-%   patch-positivity hypothesis is a stronger coefficientwise condition.
-% ============================================================================
+The monotonicity just described is only a consequence of patch positivity, not
+an equivalent condition. Patch positivity requires the sign of every
+nonconstant M\"obius coefficient in
+\eqref{eq:patch-positivity-first-inequality} and
+\eqref{eq:patch-positivity-second-inequality}. In particular, the update-rate
+deficit
+\begin{equation*}
+\lambda_i(\mb 0)-\lambda_i
+\end{equation*}
+has nonnegative M\"obius coefficients; in the terminology of set functions it
+is totally monotone. Thus the criterion controls all mixed effects of adding
+neighbouring~$1$'s, not only the pointwise decrease of~$\lambda_i$ and increase
+of~$\rho_i$ along comparable configurations.
+
+There is one caveat at configurations where the update rate vanishes. Since
+$\lambda_i$ is nonnegative and nonincreasing, if~$\lambda_i(\eta)=0$ and
+$\eta\leq\xi$ on~$N(i)$, then~$\lambda_i(\xi)=0$ as well. On this zero-rate set
+the value of~$\rho_i$ is irrelevant to the dynamics, because no refresh occurs.
+Accordingly, the monotonicity statement for~$\rho_i$ concerns configurations
+where updates are possible.
 
 % ============================================================================
 % BLURB C. Relation with kinetically constrained spin models
