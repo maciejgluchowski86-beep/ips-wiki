@@ -19,8 +19,9 @@ B(A,0)=A,
 \qquad
 B(A,n+1)=N_*\bb{B(A,n)}.
 \end{equation*}
-Thus~$B(A,n)$ is the directed ball reached from~$A$ in at most~$n$ steps. We
-say that the neighbourhood graph has polynomial growth if, for some~$K,D<\infty$,
+Thus~$B(A,n)$ is the directed ball reached from~$A$ in at most~$n$ steps. For
+$i\in\Lambda$, write~$B(i,n)=B(\cb{i},n)$. We say that the neighbourhood graph
+has polynomial growth if, for some~$K,D<\infty$,
 \begin{equation}
 \label{eq:polynomial-growth}
 \abs{B(i,n)}\leq K(1+n)^D
@@ -61,13 +62,11 @@ $\sup_{i,\eta}\lambda_i(\eta)<\infty$. Its generator is
 \lambda_i(\eta)\bb{E_{i,\rho_i(\eta)}-I}f(\eta).
 \end{equation}
 At rate~$\lambda_i(\eta)$, the spin at~$i$ is refreshed to~$1$ with
-probability~$\rho_i(\eta)$ and to~$0$ otherwise.
-The value of~$\rho_i(\eta)$ is irrelevant when~$\lambda_i(\eta)=0$. For a
-standard KCSM with Bernoulli refresh parameter~$p$, one has
-$\rho_i\equiv p$, while~$\lambda_i$ is the kinetic constraint. Thus the
-parametrization in~\eqref{eq:spin-generator} keeps the KCSM separation between
-the rate at which updates occur and the law used to refresh the spin, while
-allowing both to depend on the neighbourhood.
+probability~$\rho_i(\eta)$ and to~$0$ otherwise. The value of~$\rho_i(\eta)$ is
+irrelevant when~$\lambda_i(\eta)=0$. For a standard KCSM with Bernoulli refresh
+parameter~$p$, one has~$\rho_i\equiv p$ and~$\lambda_i$ is the kinetic
+constraint. More generally, here both the update rate and the refresh parameter
+may depend on the neighbourhood.
 
 This parametrization is equivalent to the usual flip-rate description. If
 $c_i$ denotes the flip rate in the conventional generator
@@ -107,10 +106,19 @@ $\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$ and~$\varepsilon\geq0$, define
 \end{equation*}
 This is again a spin system. If~$\lambda_i^{\varepsilon,\mb s}$ and
 $\rho_i^{\varepsilon,\mb s}$ denote its update rate and refresh parameter, then
-\begin{equation*}
+\begin{align*}
 \lambda_i^{\varepsilon,\mb s}(\eta)
-=
-\lambda_i(\eta)+\varepsilon, \qquad \rho_i^{\varepsilon,\mb s}(\eta)
+&=
+\lambda_i(\eta)+\varepsilon,
+\\
+\lambda_i^{\varepsilon,\mb s}(\eta)
+\rho_i^{\varepsilon,\mb s}(\eta)
+&=
+\lambda_i(\eta)\rho_i(\eta)+\varepsilon s_i.
+\end{align*}
+Hence, whenever~$\lambda_i(\eta)+\varepsilon>0$,
+\begin{equation*}
+\rho_i^{\varepsilon,\mb s}(\eta)
 =
 \frac{\lambda_i(\eta)\rho_i(\eta)+\varepsilon s_i}
 {\lambda_i(\eta)+\varepsilon}.
@@ -130,7 +138,8 @@ for another spin-system generator~$\Lcal^\varepsilon$. Equivalently,
 \end{equation*}
 since the left-hand side is the~$1\to0$ transition rate at~$i$.
 
-The standard Harris construction gives a Feller process under the uniform boundedness of~$\lambda$, or equivalently the flip rate~\cite{Harris1978,Liggett1985}. Its semigroup is
+Since the update rates are uniformly bounded, the standard Harris construction
+gives a Feller process~\cite{Harris1978,Liggett1985}. Its semigroup is
 $(P_t)_{t\geq0}$, and for an initial law~$\mu$ we write
 $(\mu P_t)(f)=\mu(P_tf)$. A probability measure~$\pi$ is invariant when
 $\pi P_t=\pi$ for every~$t$. We call the process ergodic when
@@ -168,10 +177,11 @@ g(\eta)
 We call~$\widehat g(S)$ the M\"obius coefficient of~$g$ at~$S$.
 
 For~$A\Subset\Lambda$,~$P_t\chi_A(\eta)$ is the expected product of the spins
-in~$A$ at time~$t$ when the process starts from~$\eta$. Section~\ref{sec:signed-dual}
-constructs a signed set-valued process~$(A_s,\sigma_s)$ and a potential~$V$
-that represent this quantity via standard duality techinuqe. Writing~$\E_A$ for expectation for the dual
-started from~$(A,+)$, we assume throughout that
+in~$A$ at time~$t$ when the process starts from~$\eta$.
+Section~\ref{sec:signed-dual} constructs a signed set-valued process
+$(A_s,\sigma_s)$ and a potential~$V$ giving a Feynman--Kac representation of
+$P_t\chi_A(\eta)$. Writing~$\E_A$ for expectation for the dual started
+from~$(A,+)$, we assume throughout that
 \begin{equation}
 \tag{FK}
 \label{eq:fk-integrability}
