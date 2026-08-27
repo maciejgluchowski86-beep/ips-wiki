@@ -3,17 +3,16 @@
 \label{subsec:moment-monotonicity}
 
 We now prove part~\textup{(ii)} of Theorem~\ref{thm:patch-positivity-order}.
-The aim is to show that, in the centered-monomial basis, the generator has
-nonnegative off-diagonal coefficients. In finite volume this is enough: the
-semigroup matrix is the exponential of the generator matrix, so it has
-nonnegative entries and sends every centered monomial to a nonnegative linear
-combination of centered monomials. If~$\mu\preceq_*\nu$, the signed measure
-$\nu-\mu$ is nonnegative on every centered monomial, and hence remains so after
-the semigroup is applied. We therefore first establish the coefficient signs
-and then pass from finite zero-boundary volumes to~$\Lambda$.
+The idea is to write the generator in the centered-monomial basis and show that
+all off-diagonal coefficients are nonnegative. The resulting system of
+equations for centered moments is then cooperative: a centered moment can
+receive contributions from the other centered moments only with nonnegative
+coefficients. The standard positivity property of such Metzler systems implies
+that nonnegative centered moments remain nonnegative. Applied to the signed
+measure~$\nu-\mu$, this gives preservation of~$\preceq_*$.
 
-The generator calculation is local. If~$i\notin A$, the update at~$i$ leaves
-$\chi_A^*$ unchanged. If~$i\in A$, then
+The required generator calculation is local. If~$i\notin A$, the update at~$i$
+leaves~$\chi_A^*$ unchanged. If~$i\in A$, then
 \begin{equation*}
 \lambda_i\bb{E_{i,\rho_i}-I}\chi_A^*
 =
@@ -21,8 +20,8 @@ $\chi_A^*$ unchanged. If~$i\in A$, then
 -
 \lambda_i\chi_A^*.
 \end{equation*}
-Expanding~$\lambda_i\rho_i$ and~$\lambda_i$ in monomials and summing
-over~$i\in A$ gives
+Expanding~$\lambda_i\rho_i$ and~$\lambda_i$ in monomials and summing over
+$i\in A$ gives
 \begin{equation*}
 \Lcal\chi_A^*
 =\sum_{i\in A}\Cb{
@@ -33,19 +32,21 @@ over~$i\in A$ gives
 \widehat{\lambda_i\rho_i}(S)
 -p_i^\star\widehat{\lambda_i}(S)
 }
-\chi_S\chi_{A\setminus\cb{i}}^* + 
+\chi_S\chi_{A\setminus\cb{i}}^*
++
 \sum_{\substack{S\subseteq N(i)\\S\neq\vn}}
 \bb{-\widehat{\lambda_i}(S)}
 \chi_S\chi_A^*
 }.
 \end{equation*}
-Part~\textup{(i)} gives the signs of both coefficient families {\color{red} weird phrasing "coefficient families"}. For every
-nonempty~$S\subseteq N(i)$,
+Part~\textup{(i)} gives the required signs. For every nonempty
+$S\subseteq N(i)$,
 \begin{equation*}
 -\widehat{\lambda_i}(S)\geq0.
 \end{equation*}
-For the first family, when~$S=\vn$ the bound
-$p_i^\star\leq\rho_i(\mb 0)$ gives
+For the coefficient multiplying
+$\chi_S\chi_{A\setminus\cb{i}}^*$, first take~$S=\vn$. Since
+$p_i^\star\leq\rho_i(\mb 0)$,
 \begin{equation*}
 \widehat{\lambda_i\rho_i}(\vn)
 -p_i^\star\widehat{\lambda_i}(\vn)
@@ -60,19 +61,13 @@ $p_i^\star$ gives
 -p_i^\star\widehat{\lambda_i}(S)
 \geq0.
 \end{equation*}
-If instead~$\widehat{\lambda_i}(S)=0$, the second coefficient inequality in
-part~\textup{(i)} gives~$\widehat{\lambda_i\rho_i}(S)\geq0$. Hence every
-coefficient multiplying a product~$\chi_S\chi_B^*$ in the preceding generator
-formula is nonnegative.
+If~$\widehat{\lambda_i}(S)=0$, the second inequality in
+part~\textup{(i)} gives~$\widehat{\lambda_i\rho_i}(S)\geq0$. Thus every
+coefficient multiplying a product~$\chi_S\chi_B^*$ in the generator formula is
+nonnegative.
 
-It remains to expand those products in the centered basis. At each site,
-\begin{equation*}
-\eta(j)=p_j^\star+\bb{\eta(j)-p_j^\star},
-\qquad
-\eta(j)\bb{\eta(j)-p_j^\star}
-=\bb{1-p_j^\star}\eta(j).
-\end{equation*}
-Applying the second identity on~$S\cap B$ and then the first on~$S$ gives
+These products also have nonnegative expansions in the centered basis. Indeed,
+for finite~$S,B\subseteq\Lambda$,
 \begin{equation*}
 \chi_S\chi_B^*
 =
@@ -81,51 +76,40 @@ Applying the second identity on~$S\cap B$ and then the first on~$S$ gives
 \bb{\prod_{j\in S\setminus R}p_j^\star}
 \chi_{R\cup(B\setminus S)}^*.
 \end{equation*}
-All coefficients are nonnegative because~$0\leq p_j^\star\leq1$. Thus every off-diagonal
-term in~$\Lcal\chi_A^*$ has nonnegative coefficients in the centered-monomial
-basis. 
+To see this, use
+$\eta(j)(\eta(j)-p_j^\star)=(1-p_j^\star)\eta(j)$ on~$S\cap B$, and then
+expand each remaining factor
+$\eta(j)=p_j^\star+(\eta(j)-p_j^\star)$ for~$j\in S$. Since
+$0\leq p_j^\star\leq1$, every coefficient in the expansion is nonnegative.
 
-{\color{red} There is no need to prove this through finite approximation. Just use standard Metzler matrix properties or write~$P_t = \sum_{n=0}^\infty \frac{t^n}{n!}\mathcal{L}^n$ which is true for inifnite lattice too.}
-Fix now~$R\Subset\Lambda$. For the zero-boundary restriction to~$R$, setting
-all exterior spins to~$0$ simply removes ordinary monomials~$\chi_S$ with
-$S\nsubseteq R$; the surviving coefficients in the calculation above are
-unchanged. Hence the finite-volume generator matrix~$M_R$ in the
-centered-monomial basis has nonnegative off-diagonal entries. Since this matrix
-is finite, we may choose~$a$ so that~$M_R+aI$ is entrywise nonnegative. Then
-\begin{equation*}
-e^{tM_R}
+After collecting equal centered monomials, we may therefore write
+\begin{equation}
+\label{eq:centered-generator-metzler}
+\Lcal\chi_A^*
 =
-e^{-at}e^{t(M_R+aI)}
-\end{equation*}
-is entrywise nonnegative. Consequently, for every~$A\subseteq R$ there are
-coefficients~$q_{A,B}^R(t)\geq0$ such that
+\sum_{B\Subset\Lambda}M(A,B)\chi_B^*,
+\qquad
+M(A,B)\geq0\quad\text{for }B\neq A.
+\end{equation}
+For each~$A$, only finitely many~$B$ occur. Now let~$\sigma$ be a finite signed
+measure and set
 \begin{equation*}
-P_t^{R,0}\chi_A^*
+m_A(t)=(\sigma P_t)(\chi_A^*).
+\end{equation*}
+The backward equation and~\eqref{eq:centered-generator-metzler} give
+\begin{equation*}
+\frac{d}{dt}m_A(t)
 =
-\sum_{B\subseteq R}q_{A,B}^R(t)\chi_B^*.
+\sum_{B\Subset\Lambda}M(A,B)m_B(t).
 \end{equation*}
-If~$\mu\preceq_*\nu$, it follows that
+This is a locally finite linear system with a Metzler matrix. Its semigroup is
+positive, so coordinatewise nonnegativity of~$m(0)$ implies coordinatewise
+nonnegativity of~$m(t)$ for every~$t\geq0$. Taking~$\sigma=\nu-\mu$, the
+assumption~$\mu\preceq_*\nu$ says exactly that~$m_A(0)\geq0$ for every finite
+$A$. Hence
 \begin{equation*}
-\bb{\nu P_t^{R,0}-\mu P_t^{R,0}}\bb{\chi_A^*}
-=
-\sum_{B\subseteq R}
-q_{A,B}^R(t)\bb{\nu-\mu}\bb{\chi_B^*}
-\geq0.
-\end{equation*}
-The finite-propagation approximation in
-Appendix~\ref{app:finite-propagation} gives, for every finite~$A$ and fixed
-$t$,
-\begin{equation*}
-\lim_{R\uparrow\Lambda}
-(\mu P_t^{R,0})(\chi_A^*)
-=
-(\mu P_t)(\chi_A^*),
-\end{equation*}
-and the same for~$\nu$. Therefore
-\begin{equation*}
-\mu\preceq_*\nu
-\quad\Longrightarrow\quad
-\mu P_t\preceq_*\nu P_t,
+\mu P_t\preceq_*\nu P_t
+\qquad\text{for every }t\geq0,
 \end{equation*}
 which proves the main assertion of part~\textup{(ii)}.
 
