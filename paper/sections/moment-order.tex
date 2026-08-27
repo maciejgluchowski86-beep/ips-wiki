@@ -3,16 +3,14 @@
 \label{subsec:moment-monotonicity}
 
 We now prove part~\textup{(ii)} of Theorem~\ref{thm:patch-positivity-order}.
-The idea is to write the generator in the centered-monomial basis and show that
-all off-diagonal coefficients are nonnegative. The resulting system of
-equations for centered moments is then cooperative: a centered moment can
-receive contributions from the other centered moments only with nonnegative
-coefficients {\color{red} Reader has no clue waht this means. Keep it simple, just say its a locally Metzler system of equations with a reference}. The standard positivity property of such Metzler systems implies
-that nonnegative centered moments remain nonnegative. Applied to the signed
-measure~$\nu-\mu$, this gives preservation of~$\preceq_*$.
+We write the generator in the centered-monomial basis and show that its
+off-diagonal coefficients are nonnegative. The corresponding equations for the
+centered moments then form a row-finite Metzler system, so the standard
+positivity theorem for Metzler generators~\cite{ArendtEtAl1986} gives
+preservation of nonnegative centered moments.
 
-The required generator calculation is local. If~$i\notin A$, the update at~$i$
-leaves~$\chi_A^*$ unchanged. If~$i\in A$, then
+If~$i\notin A$, the update at~$i$ leaves~$\chi_A^*$ unchanged. If~$i\in A$,
+then
 \begin{equation*}
 \lambda_i\bb{E_{i,\rho_i}-I}\chi_A^*
 =
@@ -39,35 +37,24 @@ $i\in A$ gives
 \chi_S\chi_A^*
 }.
 \end{equation*}
-Part~\textup{(i)} gives the required signs. For every nonempty
-$S\subseteq N(i)$,
+Part~\textup{(i)} gives
 \begin{equation*}
--\widehat{\lambda_i}(S)\geq0.
-\end{equation*}
-For the coefficient multiplying
-$\chi_S\chi_{A\setminus\cb{i}}^*$, first take~$S=\vn$. Since
-$p_i^\star\leq\rho_i(\mb 0)$,
-\begin{equation*}
-\widehat{\lambda_i\rho_i}(\vn)
--p_i^\star\widehat{\lambda_i}(\vn)
-=
-\lambda_i(\mb 0)\bb{\rho_i(\mb 0)-p_i^\star}
-\geq0.
-\end{equation*}
-If~$S\neq\vn$ and~$\widehat{\lambda_i}(S)<0$, the definition of
-$p_i^\star$ gives
-\begin{equation*}
+-\widehat{\lambda_i}(S)\geq0
+\quad\text{for }S\neq\vn,
+\qquad
 \widehat{\lambda_i\rho_i}(S)
 -p_i^\star\widehat{\lambda_i}(S)
-\geq0.
+\geq0
+\quad\text{for every }S\subseteq N(i).
 \end{equation*}
-If~$\widehat{\lambda_i}(S)=0$, the second inequality in
-part~\textup{(i)} gives~$\widehat{\lambda_i\rho_i}(S)\geq0$. Thus every
-coefficient multiplying a product~$\chi_S\chi_B^*$ in the generator formula is
-nonnegative.
+For the second inequality, the case~$S=\vn$ is
+$\lambda_i(\mb 0)(\rho_i(\mb 0)-p_i^\star)\geq0$. If~$S\neq\vn$ and
+$\widehat{\lambda_i}(S)<0$, it follows from the definition of~$p_i^\star$; if
+$\widehat{\lambda_i}(S)=0$, it follows from the second coefficient inequality
+in part~\textup{(i)}.
 
-These products also have nonnegative expansions in the centered basis. Indeed,
-for finite~$S,B\subseteq\Lambda$,
+It remains to expand the products~$\chi_S\chi_B^*$ in the centered basis. For
+finite~$S,B\subseteq\Lambda$,
 \begin{equation*}
 \chi_S\chi_B^*
 =
@@ -76,70 +63,56 @@ for finite~$S,B\subseteq\Lambda$,
 \bb{\prod_{j\in S\setminus R}p_j^\star}
 \chi_{R\cup(B\setminus S)}^*.
 \end{equation*}
-To see this, use
+Indeed, first use
 $\eta(j)(\eta(j)-p_j^\star)=(1-p_j^\star)\eta(j)$ on~$S\cap B$, and then
-expand each remaining factor
-$\eta(j)=p_j^\star+(\eta(j)-p_j^\star)$ for~$j\in S$. Since
-$0\leq p_j^\star\leq1$, every coefficient in the expansion is nonnegative.
-
-After collecting equal centered monomials, we may therefore write
-\begin{equation}
-\label{eq:centered-generator-metzler}
+expand~$\eta(j)=p_j^\star+(\eta(j)-p_j^\star)$ for~$j\in S$. Since
+$0\leq p_j^\star\leq1$, every coefficient is nonnegative. Hence, after
+collecting equal centered monomials,
+\begin{equation*}
 \Lcal\chi_A^*
 =
 \sum_{B\Subset\Lambda}M(A,B)\chi_B^*,
 \qquad
-M(A,B)\geq0\quad\text{for }B\neq A.
-\end{equation}
-For each~$A$ there are only only finitely many~$B$ with~$M(A,B)\neq 0$. Now let~$\sigma$ be a finite signed
-measure and set
-\begin{equation*}
-m_A(t)=(\sigma P_t)(\chi_A^*).
+M(A,B)\geq0\quad\text{for }B\neq A,
 \end{equation*}
-The backward equation and~\eqref{eq:centered-generator-metzler} give
+and for each~$A$ only finitely many coefficients~$M(A,B)$ are nonzero.
+
+Let~$\sigma$ be a finite signed measure and put
+$m_A(t)=(\sigma P_t)(\chi_A^*)$. The backward equation gives
 \begin{equation*}
 \frac{d}{dt}m_A(t)
 =
 \sum_{B\Subset\Lambda}M(A,B)m_B(t).
 \end{equation*}
-This is a locally finite linear system with a Metzler matrix. Its semigroup is
-positive, so coordinatewise nonnegativity of~$m(0)$ implies coordinatewise
-nonnegativity of~$m(t)$ for every~$t\geq0$. Taking~$\sigma=\nu-\mu$, the
-assumption~$\mu\preceq_*\nu$ says exactly that~$m_A(0)\geq0$ for every finite
-$A$. Hence
+This is a row-finite Metzler system. By the positivity result cited above,
+$m_A(0)\geq0$ for every finite~$A$ implies~$m_A(t)\geq0$ for every finite~$A$
+and~$t\geq0$. Taking~$\sigma=\nu-\mu$ therefore proves
 \begin{equation*}
+\mu\preceq_*\nu
+\quad\Longrightarrow\quad
 \mu P_t\preceq_*\nu P_t
-\qquad\text{for every }t\geq0,
+\qquad\text{for every }t\geq0.
 \end{equation*}
-which proves the main assertion of part~\textup{(ii)}.
 
-% ============================================================================
-% BLURB D. Immediate consequences and completion of Theorem B
-%
-% Reader question:
-%   How do the remaining assertions of part (ii) follow?
-%
-% Job:
-%   Apply the same cone preservation to a single initial law to conclude
-%       \mu\in\mathcal M_* => \mu P_t\in\mathcal M_*.
-%   Then derive ordinary monomial comparison from
-%       \chi_A
-%       = sum_{B\subseteq A}
-%         (prod_{i\in A\setminus B}p_i^\star)\chi_B^*,
-%   whose coefficients are nonnegative. Do not use the patch representation
-%   for this consequence.
-%
-%   Finally note that every nonempty centered moment of
-%   \mu_{\mb p^\star} is zero, hence
-%       \mu_{\mb p^\star}\preceq_*\mu
-%   for every \mu\in\mathcal M_*, giving the final comparison in the theorem.
-%   End explicitly by saying that part (ii), and therefore
-%   Theorem~\ref{thm:patch-positivity-order}, is proved.
-%
-% Keep out:
-%   Do not restore the old product-profile corollary here unless it is later
-%   judged independently useful.
-% ============================================================================
+The same argument with~$\sigma=\mu$ shows that~$\mathcal M_*$ is preserved by
+the semigroup. Ordinary monomial comparison follows from
+\begin{equation*}
+\chi_A
+=
+\sum_{B\subseteq A}
+\bb{\prod_{i\in A\setminus B}p_i^\star}\chi_B^*,
+\end{equation*}
+whose coefficients are nonnegative. Finally, every nonempty centered moment of
+$\mu_{\mb p^\star}$ is zero, so
+$\mu_{\mb p^\star}\preceq_*\mu$ for every~$\mu\in\mathcal M_*$. Applying the
+monomial comparison gives
+\begin{equation*}
+(\mu_{\mb p^\star}P_t)(\chi_A)
+\leq
+(\mu P_t)(\chi_A).
+\end{equation*}
+This proves part~\textup{(ii)} and completes the proof of
+Theorem~\ref{thm:patch-positivity-order}.
 
 \subsection{Pure-death comparison}
 \label{subsec:pure-death-comparison}
