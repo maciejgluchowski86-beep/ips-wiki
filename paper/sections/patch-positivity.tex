@@ -282,35 +282,16 @@ is totally monotone. Thus the criterion controls all mixed effects of adding
 neighbouring~$1$'s, not only the pointwise decrease of~$\lambda_i$ and increase
 of~$\rho_i$ along comparable configurations.
 
-% ============================================================================
-% BLURB C. Relation with kinetically constrained spin models
-%
-% Reader question:
-%   How does this class relate to the KCSMs introduced earlier in the paper?
-%
-% Job:
-%   Recall that in a standard KCSM the refresh law is fixed,
-%       \rho_i(\eta)\equiv p,
-%   while the neighbourhood affects the update activity \lambda_i. Thus KCSMs
-%   are the special case in which the neighbourhood controls whether or how
-%   often a site updates, but not the Bernoulli refresh distribution.
-%
-%   Explain that the present class allows the neighbourhood to affect both the
-%   update rate and the refresh bias. Under patch positivity the two effects are
-%   aligned: neighbouring 1's suppress updates and favor 1 when an update occurs.
-%
-%   Locate the class without claiming that it contains all KCSMs. Vacancy-
-%   facilitated examples such as FA-1f fit this picture; BABP and the contact
-%   process also fit the patch-positive class. Cooperative KCSMs need not be
-%   patch-positive, because ordinary monotonicity of a kinetic constraint does
-%   not imply the required M\"obius-sign condition.
-%
-% Reader takeaway:
-%   Patch-positive systems are best viewed through the local rule that 1's
-%   constrain updates and bias refreshes toward 1; this class intersects the
-%   familiar KCSM class but is not identical to it.
-%
-% Keep out:
-%   A catalogue of examples or application-specific calculations; these belong
-%   in the applications section.
-% ============================================================================
+This local picture is closely related to kinetically constrained spin models.
+In a standard KCSM the refresh law is fixed,~$\rho_i(\eta)\equiv p$, while the
+neighbourhood enters through~$\lambda_i$, the kinetic constraint. Thus the
+neighbourhood changes whether or how often a site updates but not the Bernoulli
+refresh law. For a KCSM the second coefficient condition is automatic, so patch
+positivity reduces to the M\"obius-sign condition on the kinetic constraint.
+
+Patch-positive systems allow the neighbourhood to affect both parts of the
+refresh dynamics. Their characteristic local rule is that neighbouring~$1$'s
+constrain updates and bias them toward~$1$. Vacancy-facilitated models such as
+FA-1f satisfy this rule, while BABP and the contact process give patch-positive
+examples outside the KCSM class. The intersection does not contain all KCSMs:
+cooperative constraints such as FA-2f fail the stronger M\"obius-sign condition.
