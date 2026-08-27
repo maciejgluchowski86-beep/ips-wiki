@@ -44,36 +44,99 @@ Bernoulli product measure with
 $\mu_{\mb p}\bb{\eta(i)=1}=p_i$ for every~$i$. For a constant profile,
 write~$\mu_p$.
 
-A spin system has generator
+For~$x\in\cb{0,1}$, let~$\eta^{i,x}$ be the configuration obtained from~$\eta$
+by setting the spin at~$i$ equal to~$x$, and let~$\eta^i$ be obtained by
+flipping it. For~$p\in[0,1]$, the Bernoulli refresh operator at~$i$ is
+\begin{align*}
+E_{i,p}f(\eta)
+&=
+pf(\eta^{i,1})+(1-p)f(\eta^{i,0}),
+\\
+\bb{E_{i,p}-I}f(\eta)
+&=
+\bb{p\bb{1-\eta(i)}+(1-p)\eta(i)}
+\bb{f(\eta^i)-f(\eta)}.
+\end{align*}
+Thus a refresh sets the spin to~$1$ with probability~$p$ and to~$0$ with
+probability~$1-p$.
+
+A spin system is specified by functions
+\begin{equation*}
+\lambda_i:\Omega\to[0,\infty),
+\qquad
+\rho_i:\Omega\to[0,1],
+\end{equation*}
+each depending only on the spins in~$N(i)$, with
+$\sup_{i,\eta}\lambda_i(\eta)<\infty$. Its generator is
 \begin{equation}
 \label{eq:spin-generator}
 \Lcal f(\eta)
 =
-\sum_{i\in\Lambda}c_i(\eta)
-\bb{f(\eta^i)-f(\eta)},
+\sum_{i\in\Lambda}
+\lambda_i(\eta)\bb{E_{i,\rho_i(\eta)}-I}f(\eta).
 \end{equation}
-where~$c_i\geq0$ depends only on the spins in~$N(i)\cup\cb{i}$ and
-$\sup_{i,\eta}c_i(\eta)<\infty$. Here~$\eta^{i,x}$ denotes the configuration
-obtained by setting the spin at~$i$ equal to~$x$, and~$\eta^i$ is obtained by
-flipping it. Put~$c_i^x(\eta)=c_i(\eta^{i,x})$ for~$x\in\cb{0,1}$. Then
+At rate~$\lambda_i(\eta)$, the spin at~$i$ is refreshed to~$1$ with
+probability~$\rho_i(\eta)$ and to~$0$ with probability~$1-\rho_i(\eta)$.
+The value of~$\rho_i(\eta)$ is irrelevant when~$\lambda_i(\eta)=0$. For a
+standard KCSM with Bernoulli refresh parameter~$p$, one has
+$\rho_i\equiv p$, while~$\lambda_i$ is the kinetic constraint, up to an
+overall update rate. Thus~\eqref{eq:spin-generator} keeps the usual KCSM
+separation between the rate at which updates occur and the law used to refresh
+the spin, while allowing both to depend on the neighbourhood.
+
+This is equivalent to the usual flip-rate description of a spin system. Given
+$\lambda_i$ and~$\rho_i$, define
 \begin{equation*}
 c_i(\eta)
 =
-\bb{1-\eta(i)}c_i^0(\eta)+\eta(i)c_i^1(\eta),
+\lambda_i(\eta)
+\bb{
+\bb{1-\eta(i)}\rho_i(\eta)
++
+\eta(i)\bb{1-\rho_i(\eta)}
+}.
 \end{equation*}
-and~$c_i^x$ depends only on~$N(i)$. Its multilinear expansion is
+Then
+\begin{equation*}
+\Lcal f(\eta)
+=
+\sum_{i\in\Lambda}c_i(\eta)
+\bb{f(\eta^i)-f(\eta)}.
+\end{equation*}
+Conversely, given a flip rate~$c_i$, set
+\begin{equation*}
+\lambda_i(\eta)
+=
+c_i(\eta^{i,0})+c_i(\eta^{i,1}),
+\end{equation*}
+and, whenever~$\lambda_i(\eta)>0$,
+\begin{equation*}
+\rho_i(\eta)
+=
+\frac{c_i(\eta^{i,0})}{\lambda_i(\eta)}.
+\end{equation*}
+When~$\lambda_i(\eta)=0$,~$\rho_i(\eta)$ may be chosen arbitrarily. We use the
+refresh parametrization because it separates the frequency of updates from the
+law of the refreshed spin.
+
+For the coefficient calculations below, write
+\begin{equation*}
+c_i^0(\eta)=\lambda_i(\eta)\rho_i(\eta),
+\qquad
+c_i^1(\eta)=\lambda_i(\eta)\bb{1-\rho_i(\eta)}.
+\end{equation*}
+These are the~$0\to1$ and~$1\to0$ flip rates, respectively, and depend only
+on~$N(i)$. Their multilinear expansions are
 \begin{equation}
 \label{eq:rate-expansion}
 c_i^x(\eta)
 =
-\sum_{S\subseteq N(i)}c_i^x(S)\chi_S(\eta).
+\sum_{S\subseteq N(i)}c_i^x(S)\chi_S(\eta),
+\qquad x\in\cb{0,1}.
 \end{equation}
-Thus~$c_i^0$ and~$c_i^1$ are the restrictions of the same flip rate~$c_i$
-to configurations with the spin at~$i$ equal to~$0$ and~$1$, respectively;
-they are the~$0\to1$ and~$1\to0$ rates. The same symbol is used for a
-function and its M\"obius coefficients; the argument~$\eta$ or~$S$
-distinguishes them. Under the assumptions above, the standard Harris
-construction gives a Feller process with finite speed of
+The same symbol is used for a function and its M\"obius coefficients; the
+argument~$\eta$ or~$S$ distinguishes them. Under the assumptions above, the
+standard Harris construction gives a Feller process with finite speed of
 information~\cite{Harris1978,Liggett1985}. Its semigroup is~$(P_t)_{t\geq0}$,
 and for an initial law~$\mu$ we write~$(\mu P_t)(f)=\mu(P_tf)$.
 
@@ -100,19 +163,6 @@ the absolute-integrability condition for the Feynman--Kac correction; see
 \cite[p.~62]{JansenKurt2014}.
 
 We will also use independent Bernoulli refreshes to perturb the dynamics. For
-$p\in[0,1]$, write~$q=1-p$. The Bernoulli refresh operator at~$i$ is
-\begin{align*}
-E_{i,p}f(\eta)
-&=
-pf(\eta^{i,1})+qf(\eta^{i,0}),
-\\
-\bb{E_{i,p}-I}f(\eta)
-&=
-\bb{p\bb{1-\eta(i)}+q\eta(i)}
-\bb{f(\eta^i)-f(\eta)}.
-\end{align*}
-Thus the refresh sets the spin to~$1$ with probability~$p$ and to~$0$ with
-probability~$q$. For
 $\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$, define
 \begin{equation*}
 \Ncal^{\mb s}f
