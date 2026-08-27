@@ -10,8 +10,25 @@ neighbourhood~$N(i)\subseteq\Lambda\setminus\cb{i}$ and assume
 \begin{equation*}
 \sup_{i\in\Lambda}\abs{N(i)}<\infty.
 \end{equation*}
-The neighbourhood relation may be directed. Put
-$\Omega=\cb{0,1}^{\Lambda}$. For~$x\in\cb{0,1}$, let~$\eta^{i,x}$ be the
+The neighbourhood relation may be directed. Write~$N_*(i)=N(i)\cup\cb{i}$
+and, for~$A\subseteq\Lambda$,
+\begin{equation*}
+N_*(A)=\bigcup_{i\in A}N_*(i),
+\qquad
+B(A,0)=A,
+\qquad
+B(A,n+1)=N_*\bb{B(A,n)}.
+\end{equation*}
+Thus~$B(A,n)$ is the directed ball reached from~$A$ in at most~$n$ steps. We
+say that the neighbourhood graph has polynomial growth if, for some~$K,D<\infty$,
+\begin{equation}
+\label{eq:polynomial-growth}
+\abs{B(i,n)}\leq K(1+n)^D
+\qquad
+\text{for every }i\in\Lambda\text{ and }n\in\N.
+\end{equation}
+
+Put~$\Omega=\cb{0,1}^{\Lambda}$. For~$x\in\cb{0,1}$, let~$\eta^{i,x}$ be the
 configuration obtained from~$\eta$ by setting the spin at~$i$ equal to~$x$,
 and let~$\eta^i$ be obtained by flipping it. For~$p\in[0,1]$, the Bernoulli
 refresh operator at~$i$ is
@@ -34,7 +51,7 @@ A spin system is specified by functions
 \qquad
 \rho_i:\Omega\to[0,1],
 \end{equation*}
-each depending only on the spins in~$N(i)${\color{red} This should have been~$N_*(i)$}, with
+each depending only on the spins in~$N(i)$, with
 $\sup_{i,\eta}\lambda_i(\eta)<\infty$. Its generator is
 \begin{equation}
 \label{eq:spin-generator}
@@ -106,24 +123,6 @@ product function~$\lambda_i\rho_i$ {\color{red} no need to include this clarific
 $\widehat{\lambda_i}(S)$ and~$\widehat{\lambda_i\rho_i}(S)${\color{red} meaningless statement to the reader}. We do not use
 M\"obius coefficients of~$\rho_i$ itself, since~$\rho_i$ may be chosen
 arbitrarily on configurations where~$\lambda_i=0$.
-
-For later spatial estimates, write~$N_*(i)=N(i)\cup\cb{i}$ {\color{red}$N_*$ is needed earlier, also the prior organization with all graph related definitions coming first was good, including shortly descirbing what polynomial growth is. Its an easy definition and doesnt take reader out.}and, for
-$A\subseteq\Lambda$,
-\begin{equation*}
-N_*(A)=\bigcup_{i\in A}N_*(i),
-\qquad
-B(A,0)=A,
-\qquad
-B(A,n+1)=N_*\bb{B(A,n)}.
-\end{equation*}
-Thus~$B(A,n)$ is the directed ball reached from~$A$ in at most~$n$ steps.
-When polynomial growth is required, we assume that, for some~$K,D<\infty$,
-\begin{equation}
-\label{eq:polynomial-growth}
-\abs{B(i,n)}\leq K(1+n)^D
-\qquad
-\text{for every }i\in\Lambda\text{ and }n\in\N.
-\end{equation}
 
 The standard Harris construction gives a Feller process under the assumptions
 above~\cite{Harris1978,Liggett1985}. Its semigroup is~$(P_t)_{t\geq0}$, and for
