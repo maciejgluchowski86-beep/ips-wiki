@@ -117,32 +117,137 @@ Theorem~\ref{thm:patch-positivity-order}.
 \subsection{Pure-death comparison}
 \label{subsec:pure-death-comparison}
 
-% Theorem~\ref{thm:patch-positivity-order} is complete before this subsection
-% begins. This is the first place where the centered-moment order and the patch
-% representation need to be combined.
+% ============================================================================
+% BLURB A. Comparison mechanism
 %
-% Main job:
-%   Introduce the centered expansion of end factors here, because it is needed
-%   for the comparison of two patch representations. For every end patch P
-%   based at i, use affinity and the definition of p_i^star to write
-%       C(z,P)
-%       = C(p_i^star,P) + kappa(P)(z-p_i^star),
-%   with C(p_i^star,P) >= 0 and kappa(P) >= 0. Expanding the product over end
-%   patches expresses its expectation as a sum of centered moments with
-%   nonnegative coefficients. Hence it is nonnegative for mu in M_*.
+% Reader question:
+%   Why does removing independent 1->0 transitions lead to a comparison, and
+%   where are the patch representation and the class M_* used?
 %
-%   Then prove the pure-death comparison itself: removing the
-%   environment-independent 1->0 transitions preserves patch positivity and the
-%   threshold profile, and increases the relevant bulk and end patch
-%   contributions. The centered end-factor expansion allows the comparison to
-%   be made term by term for every mu in M_* and every successful-interaction
-%   skeleton before averaging.
+% Job:
+%   Start from Corollary~\ref{cor:pure-death-comparison}. The two systems differ
+%   only by environment-independent 1->0 transitions. Their nonempty
+%   interaction part is therefore the same, so after conditioning on the
+%   recorded successful interactions the two patch representations use the same
+%   patch geometry.
 %
-%   Put the invariant-measure comparison here afterwards as a consequence.
+%   Explain the only obstruction to an immediate factor-by-factor comparison.
+%   Bulk patch contributions are nonnegative by patch positivity. End-patch
+%   factors depend on the terminal spins and need not be nonnegative at both
+%   spin values, so they cannot simply be compared pointwise and multiplied.
+%   The condition mu in M_* is precisely what will control these terminal
+%   factors after centering at p^star.
+%
+% Reader takeaway:
+%   This subsection combines the two structures proved earlier: patch
+%   positivity controls the bulk, while nonnegative centered moments control the
+%   terminal part.
 %
 % Keep out:
-%   Do not present the centered end-factor expansion as part of the proof of
-%   centered-moment order; that theorem has already been proved by the generator
-%   calculation.
+%   Do not introduce psi_i, Mobius coefficients, or local rate calculations in
+%   this opening paragraph.
+% ============================================================================
+
+% ============================================================================
+% BLURB B. Centered end factors
 %
-% Placeholder. Rewrite subsection blurb by blurb.
+% Reader question:
+%   How does membership in M_* make the terminal patch contribution positive?
+%
+% Job:
+%   For an end patch P based at i, use that z -> C(z,P) is affine,
+%   nondecreasing, and nonnegative at p_i^star to write
+%       C(z,P)
+%       = C(p_i^star,P) + kappa(P)(z-p_i^star),
+%       C(p_i^star,P) >= 0,  kappa(P) >= 0.
+%
+%   Distinct end patches are based at distinct sites. Expand the product of end
+%   factors over subsets Q of E_t. The resulting formula should express
+%       mu(prod_{P in E_t} C(eta(i(P)),P))
+%   as a sum of centered moments
+%       mu(chi_{ {i(P): P in Q} }^*)
+%   multiplied by products of C(p_i^star,P) and kappa(P). Retain the old label
+%   eq:centered-end-expansion because it is useful in the comparison below.
+%
+%   Since every coefficient is nonnegative, the whole end-factor average is
+%   nonnegative whenever mu is in M_*.
+%
+% Reader takeaway:
+%   M_* is the exact hypothesis that turns the potentially signed terminal
+%   product into a positive linear combination.
+%
+% Keep out:
+%   Do not compare primed and unprimed systems yet. That comparison requires the
+%   next blurb, where the primed system is shown to have the same p^star.
+% ============================================================================
+
+% ============================================================================
+% BLURB C. Removing pure deaths
+%
+% Reader question:
+%   What changes in the patch representation when the independent 1->0
+%   transitions are removed?
+%
+% Job:
+%   Rewrite the generator change in the current notation:
+%       lambda_i' = lambda_i - d_i,
+%       lambda_i' rho_i' = lambda_i rho_i.
+%   Use the coefficient criterion from part (i) to show briefly that L' remains
+%   patch-positive. The nonconstant Mobius coefficients relevant to the
+%   threshold are unchanged, so the threshold formula gives the same p_i^star.
+%   Handle the degenerate case lambda_i'(0)=0 using the already established
+%   zero-constant-term observation rather than reproducing the old long case
+%   split.
+%
+%   Then explain the dynamic effect inside a patch. With no incoming
+%   interaction, the primed one-site dynamics is obtained by deleting some
+%   1->0 transitions. Reintroduce only the one-site relaxation psi_i needed for
+%   the patch formulas and show
+%       psi_i'(u,z) >= psi_i(u,z),
+%   while its slope in z also increases.
+%
+%   Cite the explicit patch formulas to conclude
+%       C(P) <= C'(P)
+%   for bulk patches and, for every end patch based at i,
+%       C(p_i^star,P) <= C'(p_i^star,P),
+%       kappa(P) <= kappa'(P).
+%
+% Reader takeaway:
+%   Removing pure deaths leaves the interaction skeleton unchanged and enlarges
+%   every nonnegative local coefficient used in the patch comparison.
+%
+% Keep out:
+%   Avoid the old c_i^0,c_i^1,r_i notation and do not introduce V_i or
+%   varphi_i unless an explicit patch formula genuinely forces it.
+% ============================================================================
+
+% ============================================================================
+% BLURB D. Comparison and invariant measures
+%
+% Reader question:
+%   How do the local inequalities give the semigroup comparison?
+%
+% Job:
+%   Fix the common successful-interaction skeleton. Every bulk factor for L is
+%   nonnegative and no larger than its primed counterpart. By the centered
+%   end-factor expansion from Blurb B, the terminal average is a sum of
+%   centered moments of mu with nonnegative coefficients. Since mu is in M_*,
+%   every term is nonnegative, and the inequalities from Blurb C show that each
+%   coefficient is no larger than the corresponding primed coefficient.
+%
+%   Therefore the contribution of every fixed skeleton for L is no larger than
+%   the corresponding contribution for L'. Average over the common skeleton and
+%   invoke Theorem~\ref{thm:patch-representation} to obtain
+%       (mu P_t)(chi_A) <= (mu P_t')(chi_A).
+%   This proves Corollary~\ref{cor:pure-death-comparison}.
+%
+%   Afterwards retain the invariant-measure comparison as a short corollary.
+%   Under uniqueness of invariant measures for both systems, apply the
+%   pure-death comparison to mu_{1}, average over t in [0,T], and let T tend to
+%   infinity. Cesaro subsequential limits are invariant, so uniqueness
+%   identifies them.
+%
+% Reader takeaway:
+%   Once one conditions on the common interaction skeleton, the comparison is
+%   termwise; no monotone coupling of the original spin systems is required.
+% ============================================================================
