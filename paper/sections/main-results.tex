@@ -89,28 +89,26 @@ $\mb p\geq\mb p^\star$.
 \label{thm:patch-positivity-order}
 \leavevmode
 \begin{enumerate}[label=\textup{(\roman*)}]
-\item The spin system is patch-positive if and only if, at every site~$i$ with
-$\lambda_i(\mb 0)=0$, one has~$\lambda_i\equiv0$, while at every site with
-$\lambda_i(\mb 0)>0$, the inequalities
+\item The spin system is patch-positive if and only if, for every site~$i$ and
+every nonempty~$S\subseteq N(i)$,
 \begin{equation}
 \label{eq:principal-coefficient-criterion}
 \widehat{\lambda_i}(S)\leq0,
 \qquad
-\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb 0)}}(S)\geq0
+\widehat{\lambda_i(\rho_i-\rho_i(\mb 0))}(S)\geq0.
 \end{equation}
-hold for every nonempty~$S\subseteq N(i)$. When these conditions hold,
-$p_i^\star=0$ if~$\lambda_i\equiv0$, while otherwise
+When these conditions hold, the patch threshold profile is
 \begin{equation}
 \label{eq:principal-threshold-profile}
 p_i^\star
 =
-\max\cb{
-0,
-\sup_{\substack{
-\vn\neq S\subseteq N(i)\\
-\widehat{\lambda_i}(S)<0
-}}
-\frac{\widehat{\lambda_i\rho_i}(S)}{\widehat{\lambda_i}(S)}
+\max\bb{
+\cb{0}
+\cup
+\cb{
+\frac{\widehat{\lambda_i\rho_i}(S)}{\widehat{\lambda_i}(S)}:
+\vn\neq S\subseteq N(i),\ \widehat{\lambda_i}(S)<0
+}
 }.
 \end{equation}
 Moreover,~$p_i^\star\leq\rho_i(\mb 0)$ at every site. Thus a condition defined
