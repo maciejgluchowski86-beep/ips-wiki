@@ -183,7 +183,7 @@ the absolute-integrability condition for the Feynman--Kac correction; see
 \cite[p.~62]{JansenKurt2014}.
 
 We will also use independent Bernoulli refreshes to perturb the dynamics. For
-$\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$, define
+$\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$ and~$\varepsilon\geq0$, define
 \begin{equation*}
 \Ncal^{\mb s}f
 =
@@ -193,6 +193,24 @@ $\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$, define
 =
 \Lcal+\varepsilon\Ncal^{\mb s}.
 \end{equation*}
+This is again a spin system. If~$\lambda_i^{\varepsilon,\mb s}$ and
+$\rho_i^{\varepsilon,\mb s}$ denote its update rate and refresh parameter, then
+\begin{equation*}
+\lambda_i^{\varepsilon,\mb s}
+=
+\lambda_i+\varepsilon,
+\qquad
+\lambda_i^{\varepsilon,\mb s}\rho_i^{\varepsilon,\mb s}
+=
+\lambda_i\rho_i+\varepsilon s_i.
+\end{equation*}
+Hence, whenever~$\lambda_i(\eta)+\varepsilon>0$,
+\begin{equation*}
+\rho_i^{\varepsilon,\mb s}(\eta)
+=
+\frac{\lambda_i(\eta)\rho_i(\eta)+\varepsilon s_i}
+{\lambda_i(\eta)+\varepsilon}.
+\end{equation*}
 
 The constant profile~$\mb 0$ gives independent transitions~$1\to0$. We say
 that~$\Lcal$ contains a pure-death component of rate~$\varepsilon>0$ when
@@ -200,8 +218,13 @@ that~$\Lcal$ contains a pure-death component of rate~$\varepsilon>0$ when
 \label{eq:pure-death-component}
 \Lcal=\Lcal^\varepsilon+\varepsilon\Ncal^{\mb 0}
 \end{equation}
-for another spin-system generator~$\Lcal^\varepsilon$; equivalently,
-$c_i^1(\eta)\geq\varepsilon$ for every~$i$ and~$\eta$.
+for another spin-system generator~$\Lcal^\varepsilon$. Equivalently,
+\begin{equation*}
+\lambda_i(\eta)\bb{1-\rho_i(\eta)}
+\geq\varepsilon
+\qquad\text{for every }i\in\Lambda\text{ and }\eta\in\Omega.
+\end{equation*}
+Indeed, the left-hand side is the rate of the transition~$1\to0$ at~$i$.
 
 A probability measure~$\pi$ is invariant when~$\pi P_t=\pi$ for every~$t$.
 We call the process ergodic when~$\mu P_t\Rightarrow\pi$ for every initial
