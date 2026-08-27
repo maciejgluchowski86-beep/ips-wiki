@@ -139,24 +139,6 @@ Theorem~\ref{thm:patch-positivity-order}.
 \subsection{Patch threshold}
 \label{subsec:critical-density}
 
-% ============================================================================
-% BLURB A. Reduce end-patch positivity to the OE case
-%
-% Reader question:
-%   The coefficient criterion has characterized patch positivity. What remains
-%   to prove in part (i), and which end patches can determine the threshold?
-%
-% Job:
-%   State that it remains to compute the threshold profile in part (i).
-%   Recall that p_i^star is the smallest p for which every end patch based at i
-%   has C(p,P)>=0. Every end patch has terminal label E, so it has type IE or OE.
-%   Use the end-contribution formula to show that IE patches are nonnegative for
-%   every p in [0,1]. Hence only OE patches can determine p_i^star.
-%
-% Reader takeaway:
-%   The remaining part of Theorem B(i) is the OE threshold calculation.
-% ============================================================================
-
 To complete part~\textup{(i)} of Theorem~\ref{thm:patch-positivity-order}, it
 remains to compute the patch threshold profile. Patch positivity controls
 $C(P)$ for the full patch family, while the finite-time representation also
@@ -174,157 +156,85 @@ For~$p\in[0,1]$,~$\psi_i(\Delta,p)\geq0$ and~$\varphi_i(\Delta)>0$. Thus
 $\mathsf{IE}$ patches impose no restriction on~$p$, and~$p_i^\star$ is
 determined entirely by~$\mathsf{OE}$ patches.
 
-% ============================================================================
-% BLURB B. Positivity of one outgoing end patch
-%
-% Reader question:
-%   For a fixed OE end patch with initial target S, how large must p be to make
-%   its contribution nonnegative for every possible patch length?
-%
-% Job:
-%   Recall r_i=c_i^0(emptyset)+c_i^1(emptyset). Dispose of r_i=0 in one sentence,
-%   then assume r_i>0. Since the denominator is positive, define the numerator
-%       N_{i,S}(Delta,p)
-%       =c_i^0(S)-(c_i^0(S)+c_i^1(S))psi_i(Delta,p).
-%   Keep this notation: it is used throughout the calculation.
-%
-%   Patch positivity gives c_i^0(S)+c_i^1(S)<=0, so N is nondecreasing in p.
-%   Write the explicit formula for psi_i(Delta,p), and compute the two endpoint
-%   values in Delta. The Delta->infinity endpoint is the determinant expression
-%   from 5.1 divided by r_i and is therefore nonnegative.
-%
-%   Since N is affine in exp(-r_i Delta), positivity for every Delta>=0 is
-%   equivalent to N_{i,S}(0,p)>=0.
-%
-% Reader takeaway:
-%   The second coefficient inequality already controls the large-Delta endpoint;
-%   the threshold comes entirely from the Delta=0 endpoint.
-% ============================================================================
-
-Recall that~$r_i=c_i^0(\vn)+c_i^1(\vn)$. If~$r_i=0$, the coefficient criterion
-gives~$c_i\equiv0$ and hence~$p_i^\star=0$. Suppose therefore that~$r_i>0$,
-and let~$P$ be an~$\mathsf{OE}$ end patch based at~$i$, whose initial outgoing
-interaction has nonempty target~$S$. By~\eqref{eq:end-contribution-formulas},
-the denominator of~$C(p,P)$ is positive, while its numerator is
+If~$\lambda_i(\mb 0)=0$, the coefficient criterion proved above forces
+$\lambda_i\equiv0$. There are then no outgoing interactions based at~$i$, so
+$p_i^\star=0$. Suppose therefore that~$\lambda_i(\mb 0)>0$, and let~$P$ be an
+$\mathsf{OE}$ end patch whose initial outgoing interaction has nonempty
+target~$S$. Since its denominator is positive, the sign of~$C(p,P)$ is the sign
+of
 \begin{equation*}
 N_{i,S}(\Delta,p)
 =
-c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}\psi_i(\Delta,p).
+\widehat{\lambda_i\rho_i}(S)
+-
+\widehat{\lambda_i}(S)\psi_i(\Delta,p).
 \end{equation*}
-Patch positivity gives~$c_i^0(S)+c_i^1(S)\leq0$, so
-$N_{i,S}(\Delta,p)$ is nondecreasing in~$p$. Moreover,
+By Appendix~\ref{app:positivity-algebra},
 \begin{equation*}
 \psi_i(\Delta,p)
 =
-\frac{c_i^0(\vn)}{r_i}
+\rho_i(\mb 0)
 +
-\bb{p-\frac{c_i^0(\vn)}{r_i}}e^{-r_i\Delta}.
+\bb{p-\rho_i(\mb 0)}e^{-\lambda_i(\mb 0)\Delta}.
 \end{equation*}
-Consequently,~$N_{i,S}(\Delta,p)$ is affine in~$e^{-r_i\Delta}$, with endpoint
-values
+Consequently,~$N_{i,S}(\Delta,p)$ is affine in
+$e^{-\lambda_i(\mb 0)\Delta}$, with endpoint values
 \begin{align*}
 N_{i,S}(0,p)
 &=
-c_i^0(S)-\bb{c_i^0(S)+c_i^1(S)}p,
+\widehat{\lambda_i\rho_i}(S)
+-p\widehat{\lambda_i}(S),
 \\
 \lim_{\Delta\to\infty}N_{i,S}(\Delta,p)
 &=
-\frac{
-c_i^1(\vn)c_i^0(S)-c_i^0(\vn)c_i^1(S)
-}{r_i}.
+\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb 0)}}(S).
 \end{align*}
 The second endpoint is nonnegative by
 \eqref{eq:patch-positivity-second-inequality}. It follows that the
 $\mathsf{OE}$ contribution is nonnegative for every patch length exactly when
 \begin{equation*}
-N_{i,S}(0,p)\geq0.
+\widehat{\lambda_i\rho_i}(S)
+-p\widehat{\lambda_i}(S)
+\geq0.
 \end{equation*}
 
-% ============================================================================
-% BLURB C. Threshold formula and empty-neighbour bound
-%
-% Reader question:
-%   What threshold results after imposing the Delta=0 condition for every target
-%   S, and how large can that threshold be?
-%
-% Job:
-%   Split according to c_i^0(S)+c_i^1(S). If the sum vanishes, show that S
-%   imposes no restriction. If it is negative, solve N_{i,S}(0,p)>=0 and use the
-%   second coefficient inequality to show that the resulting ratio is at most
-%   c_i^0(emptyset)/r_i<=1.
-%
-%   Take the supremum over the targets with negative sum and impose p>=0. State
-%   explicitly that this completes part (i) of the theorem. Then record the
-%   threshold bound as a useful consequence.
-%
-% Keep out:
-%   Dynamic interpretation of the coefficient inequalities; that belongs in
-%   Subsection~\ref{subsec:positivity-interpretation}. Centered end-factor
-%   expansions and moment comparisons belong in the following subsections.
-% ============================================================================
-
-If~$c_i^0(S)+c_i^1(S)=0$, then
-\eqref{eq:patch-positivity-second-inequality}, together with
-$c_i^1(S)=-c_i^0(S)$, gives~$r_i c_i^0(S)\geq0$. Hence~$c_i^0(S)\geq0$ and
-$N_{i,S}(0,p)\geq0$ for every~$p\in[0,1]$. Such a target therefore imposes no
-restriction on the threshold. If instead~$c_i^0(S)+c_i^1(S)<0$, then
-$N_{i,S}(0,p)\geq0$ is equivalent to
+If~$\widehat{\lambda_i}(S)=0$, then
+\eqref{eq:patch-positivity-second-inequality} gives
+$\widehat{\lambda_i\rho_i}(S)\geq0$, so~$S$ imposes no restriction. If instead
+$\widehat{\lambda_i}(S)<0$, the preceding inequality is equivalent to
 \begin{equation*}
-p\geq
-\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}.
-\end{equation*}
-For every such~$S$, the second coefficient inequality can also be rewritten as
-\begin{equation*}
-r_i c_i^0(S)
+p
 \geq
-c_i^0(\vn)\bb{c_i^0(S)+c_i^1(S)}.
+\frac{\widehat{\lambda_i\rho_i}(S)}{\widehat{\lambda_i}(S)}.
 \end{equation*}
-Since the factor in parentheses is negative,
-\begin{equation*}
-\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
-\leq
-\frac{c_i^0(\vn)}{r_i}
-\leq1.
-\end{equation*}
-If there is no nonempty~$S\subseteq N(i)$ with
-$c_i^0(S)+c_i^1(S)<0$, then~$p_i^\star=0$. Otherwise, taking the supremum over
-all such targets and imposing~$p\geq0$ gives
+Since~$N(i)$ is finite, taking the maximum over all nonempty targets gives
 \begin{equation*}
 p_i^\star
 =
-\max\cb{
-0,
-\sup_{\substack{
-\vn\neq S\subseteq N(i)\\
-c_i^0(S)+c_i^1(S)<0
-}}
-\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
+\max\bb{
+\cb{0}
+\cup
+\cb{
+\frac{\widehat{\lambda_i\rho_i}(S)}{\widehat{\lambda_i}(S)}:
+\vn\neq S\subseteq N(i),\ \widehat{\lambda_i}(S)<0
+}
 }.
 \end{equation*}
-This proves the threshold formula and completes the proof of
+Finally, for every~$S$ appearing in this maximum,
+\eqref{eq:patch-positivity-second-inequality} gives
+\begin{equation*}
+\widehat{\lambda_i\rho_i}(S)
+-\rho_i(\mb 0)\widehat{\lambda_i}(S)
+\geq0.
+\end{equation*}
+Dividing by~$\widehat{\lambda_i}(S)<0$ shows that
+\begin{equation*}
+\frac{\widehat{\lambda_i\rho_i}(S)}{\widehat{\lambda_i}(S)}
+\leq
+\rho_i(\mb 0).
+\end{equation*}
+Hence~$p_i^\star\leq\rho_i(\mb 0)$, which completes the proof of
 part~\textup{(i)} of Theorem~\ref{thm:patch-positivity-order}.
-
-\begin{corollary}[Threshold bound]
-\label{cor:critical-profile-empty-bound}
-If~$r_i = 0$ then~$p_i^* = 0$. If~$r_i>0$, then
-\begin{equation*}
-p_i^\star
-\leq
-\frac{c_i(\mb 0)}{c_i(\mb 0)+c_i(\mb 0^i)}\leq 1.
-\end{equation*}
-\end{corollary}
-
-\begin{proof}
-If~$r_i=0$ then the patch-positivity criterion gives~$c_i\equiv 0$ and hence~$p_i^*=0$. For the case~$r_i>0$, for every target~$S$ appearing in the supremum defining~$p_i^\star$, the preceding
-calculation gives
-\begin{equation*}
-\frac{c_i^0(S)}{c_i^0(S)+c_i^1(S)}
-\leq
-\frac{c_i^0(\vn)}{r_i} = \frac{c_i(\mb 0)}{c_i(\mb 0)+c_i(\mb 0^i)}.
-\end{equation*}
-Taking the supremum and then the maximum with~$0$ proves the claim.
-\end{proof}
-
 
 \subsection{Interpretation of patch positivity}
 \label{subsec:positivity-interpretation}
