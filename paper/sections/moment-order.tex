@@ -117,6 +117,27 @@ Theorem~\ref{thm:patch-positivity-order}.
 \subsection{Pure-death comparison}
 \label{subsec:pure-death-comparison}
 
+% ============================================================================
+% BLURB A. Same dual, different Feynman--Kac tilt
+%
+% Reader question:
+%   What fact from Section 4 is actually needed to compare the two systems?
+%
+% Job:
+%   Keep the orientation to one short paragraph. Let L and L' be as in
+%   Corollary~\ref{cor:pure-death-comparison}. Recall the specific observation
+%   from the signed-dual section: adding pure deaths leaves the signed dual jump
+%   process unchanged and only lowers its Feynman--Kac potential. Hence the two
+%   representations use the same successful-interaction skeleton and the same
+%   patches; only the patch contributions differ. Say that the proof compares
+%   those contributions on this common patch family.
+%
+% Keep out:
+%   Do not re-explain patch positivity, bulk versus end patches, or the purpose
+%   of M_*. Those have just been used in Sections 5.1--5.4. Do not introduce any
+%   local rate calculation here.
+% ============================================================================
+
 Corollary~\ref{cor:pure-death-comparison} {\color{red} Weird phrasing "corollary compares" noone writes like that} compares~$\Lcal$ with the generator
 $\Lcal'$ obtained by removing environment-independent~$1\to0$ transitions.
 These transitions do not change the nonempty interaction {\color{red} Meaningless to the reader, better say that spin system with added deaths has the same dual process as the original spin system} part of the dual.
@@ -133,105 +154,89 @@ at~$\mb p^\star$ {\color{red} I feel like at this point these sort of statements
 local patch contributions after the pure deaths are removed.
 
 % ============================================================================
-% BLURB B. Centered end factors
+% BLURB B. Centered end-factor expansion
 %
 % Reader question:
-%   How does membership in M_* make the terminal patch contribution positive?
+%   What algebraic form of the end factors will be used in the comparison?
 %
 % Job:
-%   For an end patch P based at i, use that z -> C(z,P) is affine,
-%   nondecreasing, and nonnegative at p_i^star to write
+%   Do the calculation directly, without another motivational paragraph. For an
+%   end patch P based at i, use affinity and the threshold property to write
 %       C(z,P)
 %       = C(p_i^star,P) + kappa(P)(z-p_i^star),
 %       C(p_i^star,P) >= 0,  kappa(P) >= 0.
-%
-%   Distinct end patches are based at distinct sites. Expand the product of end
-%   factors over subsets Q of E_t. The resulting formula should express
-%       mu(prod_{P in E_t} C(eta(i(P)),P))
-%   as a sum of centered moments
-%       mu(chi_{ {i(P): P in Q} }^*)
-%   multiplied by products of C(p_i^star,P) and kappa(P). Retain the old label
-%   eq:centered-end-expansion because it is useful in the comparison below.
-%
-%   Since every coefficient is nonnegative, the whole end-factor average is
-%   nonnegative whenever mu is in M_*.
-%
-% Reader takeaway:
-%   M_* is the exact hypothesis that turns the potentially signed terminal
-%   product into a positive linear combination.
+%   Since distinct end patches are based at distinct sites, expand the product
+%   over E_t into centered moments of mu. Retain the old label
+%   eq:centered-end-expansion because Blurb D will use the formula explicitly.
+%   Conclude only that every term is nonnegative for mu in M_*.
 %
 % Keep out:
-%   Do not compare primed and unprimed systems yet. That comparison requires the
-%   next blurb, where the primed system is shown to have the same p^star.
+%   Do not explain again why M_* is the right class. Do not introduce the primed
+%   system here; the same expansion will apply to it after Blurb C proves that
+%   its threshold profile is the same.
 % ============================================================================
 
 % ============================================================================
-% BLURB C. Removing pure deaths
+% BLURB C. Compare the patch contributions
 %
 % Reader question:
-%   What changes in the patch representation when the independent 1->0
-%   transitions are removed?
+%   How does removing pure deaths change the coefficients in the common patch
+%   representation?
 %
 % Job:
-%   Rewrite the generator change in the current notation:
+%   First dispose of the structural bookkeeping in the current notation:
 %       lambda_i' = lambda_i - d_i,
 %       lambda_i' rho_i' = lambda_i rho_i.
-%   Use the coefficient criterion from part (i) to show briefly that L' remains
-%   patch-positive. The nonconstant Mobius coefficients relevant to the
-%   threshold are unchanged, so the threshold formula gives the same p_i^star.
-%   Handle the degenerate case lambda_i'(0)=0 using the already established
-%   zero-constant-term observation rather than reproducing the old long case
+%   Use part (i) to show briefly that L' is patch-positive and that the threshold
+%   formula gives the same p_i^star. Handle lambda_i'(0)=0 with the existing
+%   zero-constant-term observation; do not reproduce the old c_i^0,c_i^1 case
 %   split.
 %
-%   Then explain the dynamic effect inside a patch. With no incoming
-%   interaction, the primed one-site dynamics is obtained by deleting some
-%   1->0 transitions. Reintroduce only the one-site relaxation psi_i needed for
-%   the patch formulas and show
-%       psi_i'(u,z) >= psi_i(u,z),
-%   while its slope in z also increases.
-%
-%   Cite the explicit patch formulas to conclude
-%       C(P) <= C'(P)
-%   for bulk patches and, for every end patch based at i,
+%   Then compare the actual patch contributions. The signed dual jump process,
+%   the successful-interaction skeleton, and the consistent patch laws are the
+%   same for L and L'; the only change is the smaller Feynman--Kac tilt for L.
+%   Use the explicit one-site/patch formulas from Section 5.1 and the appendix to
+%   prove exactly the inequalities needed below:
+%       C(P) <= C'(P),
 %       C(p_i^star,P) <= C'(p_i^star,P),
 %       kappa(P) <= kappa'(P).
+%   Reintroduce psi_i only if it gives the shortest transparent verification of
+%   these inequalities.
 %
 % Reader takeaway:
-%   Removing pure deaths leaves the interaction skeleton unchanged and enlarges
-%   every nonnegative local coefficient used in the patch comparison.
+%   The two representations have the same random patch structure; removing
+%   deaths increases the nonnegative coefficients that remain after patch
+%   averaging.
 %
 % Keep out:
-%   Avoid the old c_i^0,c_i^1,r_i notation and do not introduce V_i or
-%   varphi_i unless an explicit patch formula genuinely forces it.
+%   Avoid V_i, varphi_i, and other Section 4 notation unless an explicit formula
+%   genuinely needs it. Do not re-explain the construction of the skeleton or
+%   the consistent patch law.
 % ============================================================================
 
 % ============================================================================
-% BLURB D. Comparison and invariant measures
+% BLURB D. Finish the comparison
 %
 % Reader question:
-%   How do the local inequalities give the semigroup comparison?
+%   How do the patchwise inequalities imply the semigroup comparison?
 %
 % Job:
-%   Fix the common successful-interaction skeleton. Every bulk factor for L is
-%   nonnegative and no larger than its primed counterpart. By the centered
-%   end-factor expansion from Blurb B, the terminal average is a sum of
-%   centered moments of mu with nonnegative coefficients. Since mu is in M_*,
-%   every term is nonnegative, and the inequalities from Blurb C show that each
-%   coefficient is no larger than the corresponding primed coefficient.
+%   Condition on the common successful-interaction skeleton and use the general
+%   patch representation. Every bulk factor is nonnegative and bounded by the
+%   corresponding primed factor. Expand the end-factor expectation using
+%   eq:centered-end-expansion. For mu in M_*, every centered moment in that sum
+%   is nonnegative, while Blurb C shows that each coefficient is bounded by its
+%   primed counterpart. Therefore the conditional contribution for L is bounded
+%   by the conditional contribution for L'. Average over the common skeleton to
+%   obtain
+%       (mu P_t)(chi_A) <= (mu P_t')(chi_A),
+%   proving Corollary~\ref{cor:pure-death-comparison}.
 %
-%   Therefore the contribution of every fixed skeleton for L is no larger than
-%   the corresponding contribution for L'. Average over the common skeleton and
-%   invoke Theorem~\ref{thm:patch-representation} to obtain
-%       (mu P_t)(chi_A) <= (mu P_t')(chi_A).
-%   This proves Corollary~\ref{cor:pure-death-comparison}.
+%   After the proof, retain the invariant-measure comparison as a short
+%   corollary. Apply the comparison to mu_1, take Cesaro averages, and use
+%   uniqueness to identify the invariant limits.
 %
-%   Afterwards retain the invariant-measure comparison as a short corollary.
-%   Under uniqueness of invariant measures for both systems, apply the
-%   pure-death comparison to mu_{1}, average over t in [0,T], and let T tend to
-%   infinity. Cesaro subsequential limits are invariant, so uniqueness
-%   identifies them.
-%
-% Reader takeaway:
-%   Once one conditions on the common interaction skeleton, the comparison is
-%   termwise; no monotone coupling of the original spin systems is required.
+% Keep out:
+%   No further discussion of monotone couplings or of why centered moments were
+%   introduced. At this point the conclusion should be nearly mechanical.
 % ============================================================================
