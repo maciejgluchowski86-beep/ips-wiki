@@ -117,36 +117,20 @@ Theorem~\ref{thm:patch-positivity-order}.
 \subsection{Pure-death comparison}
 \label{subsec:pure-death-comparison}
 
-% ============================================================================
-% BLURB A. Comparison mechanism
-%
-% Reader question:
-%   Why does removing independent 1->0 transitions lead to a comparison, and
-%   where are the patch representation and the class M_* used?
-%
-% Job:
-%   Start from Corollary~\ref{cor:pure-death-comparison}. The two systems differ
-%   only by environment-independent 1->0 transitions. Their nonempty
-%   interaction part is therefore the same, so after conditioning on the
-%   recorded successful interactions the two patch representations use the same
-%   patch geometry.
-%
-%   Explain the only obstruction to an immediate factor-by-factor comparison.
-%   Bulk patch contributions are nonnegative by patch positivity. End-patch
-%   factors depend on the terminal spins and need not be nonnegative at both
-%   spin values, so they cannot simply be compared pointwise and multiplied.
-%   The condition mu in M_* is precisely what will control these terminal
-%   factors after centering at p^star.
-%
-% Reader takeaway:
-%   This subsection combines the two structures proved earlier: patch
-%   positivity controls the bulk, while nonnegative centered moments control the
-%   terminal part.
-%
-% Keep out:
-%   Do not introduce psi_i, Mobius coefficients, or local rate calculations in
-%   this opening paragraph.
-% ============================================================================
+Corollary~\ref{cor:pure-death-comparison} compares~$\Lcal$ with the generator
+$\Lcal'$ obtained by removing environment-independent~$1\to0$ transitions.
+These transitions do not change the nonempty interaction part of the dual.
+Thus, after conditioning on the successful-interaction skeleton, the two patch
+representations have the same patch geometry and their contributions can be
+compared patch by patch.
+
+The bulk part causes no sign problem because patch positivity makes every bulk
+contribution nonnegative. End patches require more care: the factor
+$C(\eta(i),P)$ depends on the terminal spin and need not be nonnegative at both
+spin values, so pointwise inequalities cannot simply be multiplied. The role
+of~$\mathcal M_*$ is precisely to control this terminal product after centering
+at~$\mb p^\star$. We first record that centered expansion and then compare the
+local patch contributions after the pure deaths are removed.
 
 % ============================================================================
 % BLURB B. Centered end factors
