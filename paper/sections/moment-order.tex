@@ -127,8 +127,8 @@ Let~$\Lcal$ and~$\Lcal'$ satisfy
 \bb{f\bb{\eta^{i,0}}-f(\eta)},
 \qquad d_i\geq0,
 \end{equation*}
-as in Corollary~\ref{cor:pure-death-comparison}. Thus~$\Lcal$ has the additional
-pure deaths and~$\Lcal'$ is obtained by removing them. We prove that, for every
+as in Corollary~\ref{cor:pure-death-comparison}. Thus~$\Lcal$ has
+pure deaths noise and~$\Lcal'$ is obtained by removing them. We prove that, for every
 $\mu\in\mathcal M_*$,
 \begin{equation*}
 (\mu P_t)(\chi_A)
@@ -145,24 +145,23 @@ $H((A,\sigma),\eta)=\sigma\chi_A(\eta)$. The pure-death term acts diagonally:
 \end{equation*}
 Hence, if
 \begin{equation*}
-\Lcal' H
-=
-\Dcal' H+V'(A)H,
-\end{equation*}
-is the signed-duality relation for~$\Lcal'$, then
-\begin{equation*}
 \Lcal H
 =
-\Dcal' H
+\Dcal H+V(A)H,
+\end{equation*}
+is the duality relation for~$\Lcal$, then
+\begin{equation*}
+\Lcal' H
+=
+\Dcal H
 +
-\bb{V'(A)-\sum_{i\in A}d_i}H.
+\bb{V(A)+\sum_{i\in A}d_i}H.
 \end{equation*}
 Thus the two systems have the same signed dual generator,
 $\Dcal=\Dcal'$, while their one-site Feynman--Kac potentials satisfy
-$V_i=V_i'-d_i$. In particular, they have the same successful-interaction
-skeleton, the same patch families~$\mathcal B_t$ and~$\mathcal E_t$, and the
-same consistent patch laws. Write~$C,C'$ for their patch contributions. The
-patch representation gives, with the same expectation~$\E_A$ in both lines,
+$V_i'=V_i+d_i$. In particular, the spin systems share the dual process, the successful-interaction
+skeleton, the patch families~$\mathcal B_t$ and~$\mathcal E_t$ etc. Write~$C,C'$ for their patch contributions. The
+patch representation gives
 \begin{align*}
 (\mu P_t)(\chi_A)
 &=
@@ -185,7 +184,7 @@ patch representation gives, with the same expectation~$\E_A$ in both lines,
 
 The explicit formulas in
 Appendix~\ref{app:contribution-formulas}, together with
-$V_i=V_i'-d_i$ and the patch-positivity inequality
+$V_i'=V_i+d_i$ and the patch-positivity inequality
 $-\widehat{\lambda_i}(S)\geq0$ for~$S\neq\vn$, give
 \begin{equation*}
 0\leq C(P)\leq C'(P),
