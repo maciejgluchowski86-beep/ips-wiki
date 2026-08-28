@@ -1,6 +1,167 @@
 \section{Examples and consequences}
 \label{sec:applications}
 
+% ============================================================================
+% BLURB A. What the examples are meant to show
+%
+% Reader question:
+%   Why are these particular models being discussed after the abstract theory?
+%
+% Job:
+%   Orient the section. Explain that the examples have two purposes:
+%     - calibrate the scope of patch positivity on familiar models;
+%     - show what the centered-moment and convergence theorems give in practice.
+%   Name the roles of the models: FA-1f is the motivating KCSM, higher-order
+%   FA constraints show that not every KCSM is patch-positive, BABP shows that
+%   the class extends beyond standard KCSMs, and the contact process is a
+%   benchmark where ordinary configuration monotonicity is already available.
+%
+% Keep out:
+%   Formulas, coefficient calculations, and literature details.
+% ============================================================================
+
+% ============================================================================
+% BLURB B. Contact process as a monotone benchmark
+%
+% Reader question:
+%   Does patch positivity include familiar monotone spin systems, and if so,
+%   what does the new order add there?
+%
+% Job:
+%   Write the contact process directly in refresh-rate/refresh-parameter form,
+%   using the complemented labeling adopted in the paper. Check patch
+%   positivity and identify the threshold p^star=0. Then make the point of the
+%   example: the contact process lies in the class, but its usual monotone
+%   coupling gives stronger comparisons, so this is a benchmark rather than a
+%   principal application.
+%
+% Keep out:
+%   Flip-rate coefficients and a long review of contact-process theory.
+% ============================================================================
+
+% ============================================================================
+% BLURB C. FA-1f as the canonical KCSM example
+%
+% Reader question:
+%   What does patch positivity look like in the motivating KCSM?
+%
+% Job:
+%   Fix p and write FA-1f in the notation of the paper:
+%       lambda_i(eta) = 1-chi_{N(i)}(eta),   rho_i(eta)=p.
+%   Explain in one sentence that a vacancy makes the refresh legal. Apply the
+%   Moebius criterion directly to lambda_i and lambda_i(rho_i-rho_i(0)) to show
+%   patch positivity and p_i^star=p. This should be the cleanest illustration
+%   of how the general criterion specializes to a KCSM.
+%
+% Keep out:
+%   Refresh noise, detailed out-of-equilibrium literature, and the later
+%   centered-moment transfer.
+% ============================================================================
+
+% ============================================================================
+% BLURB D. The boundary of the class: higher-order FA constraints
+%
+% Reader question:
+%   Is patch positivity simply another name for a monotone kinetic constraint?
+%
+% Job:
+%   Give a short negative calibration. Explain that FA-jf for j>=2 still has a
+%   vacancy-monotone kinetic constraint but fails the stronger Moebius-sign
+%   condition. Show the failure with the smallest useful coefficient/example,
+%   rather than developing a separate model analysis. This is where the reader
+%   should see concretely why patch positivity is stronger than the pointwise
+%   monotonicity discussed in the introduction.
+%
+% Keep out:
+%   General KCSM taxonomy and unnecessary combinatorics.
+% ============================================================================
+
+% ============================================================================
+% BLURB E. BABP as a non-KCSM patch-positive model
+%
+% Reader question:
+%   Does the criterion capture useful dynamics beyond standard KCSMs?
+%
+% Job:
+%   Introduce BABP in the same refresh notation:
+%       lambda_i(eta) = sum_{j in N(i)} (1-eta(j)),   rho_i(eta)=p.
+%   Briefly explain the complementary particle interpretation. Apply the
+%   coefficient criterion to show patch positivity and p_i^star=p. Emphasize
+%   that the refresh rate is graded by the number of neighbouring vacancies,
+%   rather than being a binary kinetic constraint.
+%
+% Keep out:
+%   The long stationary/convergence literature review; retain only background
+%   needed for the application in Blurb F.
+% ============================================================================
+
+% ============================================================================
+% BLURB F. What centered-moment comparison buys
+%
+% Reader question:
+%   Does the new order yield a concrete conclusion that is not merely a
+%   restatement of patch positivity?
+%
+% Job:
+%   Use BABP as the main payoff. State the known exponential convergence of
+%   suitable product initial laws and use the centered-moment sandwiching
+%   corollary to transfer it to dependent and non-translation-invariant laws.
+%   State the resulting centered-moment condition explicitly. Explain briefly
+%   what is genuinely enlarged and what is not: finite-particle initial states
+%   are not ordered between the product endpoints and finite-seed convergence
+%   is not resolved. Mention the analogous FA-1f transfer only briefly, since
+%   it does not enlarge the known qualitative class there.
+%
+% Keep out:
+%   A broad literature survey unrelated to the endpoint result being used.
+% ============================================================================
+
+% ============================================================================
+% BLURB G. Adding refresh noise
+%
+% Reader question:
+%   How does the general refresh parametrization simplify the noisy examples?
+%
+% Job:
+%   Treat FA-1f and BABP together. For a base model with rho_i=p, add
+%   epsilon N^{s}. Write the combined update rule directly:
+%       lambda_i^epsilon = lambda_i + epsilon,
+%       rho_i^epsilon = (lambda_i p + epsilon s_i)/(lambda_i+epsilon).
+%   Use the coefficient criterion once, rather than repeating two flip-rate
+%   calculations, to determine when the noisy system is patch-positive and to
+%   show that the threshold remains p. Note the soft-FA equality case where
+%   useful.
+%
+% Keep out:
+%   Convergence estimates; those belong in the final blurb.
+% ============================================================================
+
+% ============================================================================
+% BLURB H. Concrete convergence and ergodicity consequence
+%
+% Reader question:
+%   What does the common invariant-limit theorem say for these noisy models?
+%
+% Job:
+%   Apply the general theorem to the noisy FA-1f/BABP family from Blurb G.
+%   Identify the uniform pure-death rate
+%       delta = epsilon inf_i (1-s_i),
+%   state the common invariant-limit estimate for the covered initial laws,
+%   and state uniform exponential ergodicity when p<=1/2. Keep the statement
+%   visibly tied to the two main outputs of the paper: centered-moment
+%   comparison and convergence under a uniform pure-death component.
+%
+% Closing role:
+%   End with one short sentence summarizing the calibration: patch positivity
+%   covers a non-monotone KCSM and related non-KCSM dynamics, excludes some
+%   higher-order constraints, and gives concrete comparison/ergodic results.
+% ============================================================================
+
+% ============================================================================
+% PREVIOUS VERSION, HIDDEN DURING SECTION REVISION
+% ============================================================================
+\iffalse
+
 \begin{remark}[Contact process]
 \label{subsec:contact-benchmark}
 
@@ -277,3 +438,5 @@ at rate at least~$\delta$, and hence a pure-death component of rate~$\delta$.
 Apply Theorem~\ref{thm:common-invariant-limit} and
 Corollary~\ref{cor:uniform-ergodicity}.
 \end{proof}
+
+\fi
