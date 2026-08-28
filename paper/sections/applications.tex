@@ -90,9 +90,10 @@ first condition in~\eqref{eq:principal-coefficient-criterion} fails.
 %   Introduce BABP in the same refresh notation:
 %       lambda_i(eta) = sum_{j in N(i)} (1-eta(j)),   rho_i(eta)=p.
 %   Briefly explain the complementary particle interpretation. Apply the
-%   coefficient criterion to show patch positivity and p_i^star=p. Then use
-%   centered-moment sandwiching to transfer known product-law convergence to
-%   dependent and non-translation-invariant initial laws.
+%   coefficient criterion to show patch positivity and p_i^star=p. State the
+%   known product-law convergence result, including the sqrt(p) restriction for
+%   inhomogeneous product laws, before using centered-moment sandwiching to
+%   extend it to dependent and more general non-translation-invariant laws.
 %
 % Keep out:
 %   A broad stationary/convergence literature review.
@@ -127,6 +128,18 @@ Moreover, for every~$j\in N(i)$,
 \end{equation*}
 so its patch threshold profile is~$\mb p^\star=\mb p$.
 
+On~$\Z^d$, every homogeneous product law~$\mu_u$ with~$u<1$ converges
+exponentially to~$\mu_p$
+\cite[Application~2 and Section~5.1.1]{MartinelliShapiraToninelli2025}.
+The same argument also treats inhomogeneous product laws whose one-site
+probabilities~$p_i$ of state~$1$ satisfy
+\begin{equation*}
+p_i\leq\sqrt p
+\qquad\text{for every }i
+\end{equation*}
+\cite[Remark~5.5]{MartinelliShapiraToninelli2025}. The centered-moment order
+allows us to go beyond this restriction and beyond product initial laws.
+
 \begin{corollary}[Centered-moment comparison for BABP]
 \label{cor:babp-centered-convergence}
 Consider nearest-neighbour BABP on~$\Z^d$. Let~$0\leq u\leq v<1$ satisfy
@@ -154,11 +167,13 @@ claim follows from Corollary~\ref{cor:centered-moment-convergence}.
 This includes dependent and non-translation-invariant initial laws. In
 particular, taking~$u=p$, every inhomogeneous product law with one-site
 parameters~$p\leq p_i\leq v<1$ satisfies the assumptions and therefore
-converges exponentially to~$\mu_p$. The comparison does not place finite-particle
-configurations between nondegenerate product laws and hence does not address
-finite-seed convergence. An analogous centered-moment sandwiching argument
-applies to FA-1f, but does not enlarge the qualitative class of initial laws
-covered by the known FA-1f convergence results~\cite{BlondelEtAl2013}.
+converges exponentially to~$\mu_p$. Thus the coordinates may lie above the
+previous bound~$\sqrt p$, provided they are uniformly bounded away from~$1$.
+The comparison does not place finite-particle configurations between
+nondegenerate product laws and hence does not address finite-seed convergence.
+An analogous centered-moment sandwiching argument applies to FA-1f, but does
+not enlarge the qualitative class of initial laws covered by the known FA-1f
+convergence results~\cite{BlondelEtAl2013}.
 
 % ============================================================================
 % BLURB D. Contact process as a monotone benchmark
