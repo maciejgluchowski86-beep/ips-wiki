@@ -39,8 +39,8 @@ above.
 %       lambda_i(eta) = 1-chi_{N(i)}(eta),   rho_i(eta)=p.
 %   Explain in one sentence that a vacancy makes the refresh legal. Apply the
 %   Moebius criterion directly to lambda_i and lambda_i(rho_i-rho_i(0)) to show
-%   patch positivity and p_i^star=p. This should be the cleanest illustration
-%   of how the general criterion specializes to a KCSM.
+%   patch positivity and p_i^star=p. End with a short remark that higher-order
+%   FA constraints remain vacancy-monotone but are not patch-positive.
 %
 % Keep out:
 %   Refresh noise, detailed out-of-equilibrium literature, and the later
@@ -72,54 +72,16 @@ Moreover,
 \end{equation*}
 so its patch threshold profile is~$\mb p^\star=\mb p$.
 
-% ============================================================================
-% BLURB C. The boundary of the class: higher-order FA constraints
-%
-% Reader question:
-%   Is patch positivity simply another name for a monotone kinetic constraint?
-%
-% Job:
-%   Give a short negative calibration. Explain that FA-jf for j>=2 still has a
-%   vacancy-monotone kinetic constraint but fails the stronger Moebius-sign
-%   condition. Show the failure with the smallest useful coefficient/example,
-%   rather than developing a separate model analysis. This is where the reader
-%   should see concretely why patch positivity is stronger than the pointwise
-%   monotonicity discussed in the introduction.
-%
-% Keep out:
-%   General KCSM taxonomy and unnecessary combinatorics.
-% ============================================================================
-
-\subsection{FA-$j$f for~$j\geq2$}
-
-The analogous conclusion fails for the higher-order FA models. In FA-$j$f,
-a site is refreshed from the Bernoulli law with parameter~$p$ only when at
-least~$j$ neighbours are vacant. Thus~$\rho_i=p$, while, writing
-$m=\abs{N(i)}$,
-\begin{equation*}
-\lambda_i(\eta)
-=
-\ind\bb{\sum_{k\in N(i)}\bb{1-\eta(k)}\geq j}.
-\end{equation*}
-Suppose that~$2\leq j\leq m$, and let~$S\subseteq N(i)$ satisfy
-$\abs S=m-j+2$. By M\"obius inversion,
-\begin{equation*}
-\widehat{\lambda_i}(S)
-=
-\sum_{r=0}^{\abs S-2}
-(-1)^{\abs S-r}\binom{\abs S}{r}
-=
-\abs S-1
->
-0.
-\end{equation*}
-This violates the first condition in
-\eqref{eq:principal-coefficient-criterion}. Hence FA-$j$f is not
-patch-positive for~$j\geq2$, even though its kinetic constraint is monotone
-with respect to vacancies.
+\begin{remark}
+Patch positivity does not hold for all KCSMs with monotone constraints. For
+example, in FA-$j$f with~$j\geq2$, the refresh rate is the indicator that at
+least~$j$ neighbours are vacant. Although this constraint is monotone with
+respect to vacancies, some of its M\"obius coefficients are positive, so the
+first condition in~\eqref{eq:principal-coefficient-criterion} fails.
+\end{remark}
 
 % ============================================================================
-% BLURB D. BABP as a non-KCSM patch-positive model
+% BLURB C. BABP as a non-KCSM patch-positive model
 %
 % Reader question:
 %   Does the criterion capture useful dynamics beyond standard KCSMs?
@@ -134,11 +96,11 @@ with respect to vacancies.
 %
 % Keep out:
 %   The long stationary/convergence literature review; retain only background
-%   needed for the application in Blurb F.
+%   needed for the application in Blurb E.
 % ============================================================================
 
 % ============================================================================
-% BLURB E. Contact process as a monotone benchmark
+% BLURB D. Contact process as a monotone benchmark
 %
 % Reader question:
 %   Does patch positivity include familiar monotone spin systems, and if so,
@@ -157,7 +119,7 @@ with respect to vacancies.
 % ============================================================================
 
 % ============================================================================
-% BLURB F. What centered-moment comparison buys
+% BLURB E. What centered-moment comparison buys
 %
 % Reader question:
 %   Does the new order yield a concrete conclusion that is not merely a
@@ -178,7 +140,7 @@ with respect to vacancies.
 % ============================================================================
 
 % ============================================================================
-% BLURB G. Adding refresh noise
+% BLURB F. Adding refresh noise
 %
 % Reader question:
 %   How does the general refresh parametrization simplify the noisy examples?
@@ -198,13 +160,13 @@ with respect to vacancies.
 % ============================================================================
 
 % ============================================================================
-% BLURB H. Concrete convergence and ergodicity consequence
+% BLURB G. Concrete convergence and ergodicity consequence
 %
 % Reader question:
 %   What does the common invariant-limit theorem say for these noisy models?
 %
 % Job:
-%   Apply the general theorem to the noisy FA-1f/BABP family from Blurb G.
+%   Apply the general theorem to the noisy FA-1f/BABP family from Blurb F.
 %   Identify the uniform pure-death rate
 %       delta = epsilon inf_i (1-s_i),
 %   state the common invariant-limit estimate for the covered initial laws,
