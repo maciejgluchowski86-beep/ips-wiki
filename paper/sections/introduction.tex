@@ -149,14 +149,14 @@ monotone in configuration order?
 %   later; give the dynamical interpretation before introducing patches.
 % ============================================================================
 
-Motivated by the KCSM update rule, we describe the spin systems considered here
+Motivated by the KCSM update rule, we describe the spin systems
 in the same refresh form. Given the neighbouring spins, site~$i$ updates at
 rate~$\lambda_i$, and when it updates the spin is refreshed by a Bernoulli coin
-toss with parameter~$\rho_i$. This parametrization is general enough to
-describe all spin systems in our setting. For a standard KCSM,~$\lambda_i$ is
+toss with parameter~$\rho_i$. For a standard KCSM,~$\lambda_i$ is
 the kinetic constraint while~$\rho_i$ is the fixed Bernoulli equilibrium
 density. We allow both~$\lambda_i$ and~$\rho_i$ to depend on the neighbouring
-spins. Among these systems, we identify a class that we call
+spins. This parametrization is general enough to
+describe all spin systems. Among them, we identify a class that we call
 \emph{patch-positive}. The name comes from a graphical representation
 introduced later. Before describing that construction, we first give a direct
 dynamical interpretation of the condition and state the comparison principle it
@@ -177,11 +177,8 @@ gives.
 % ============================================================================
 
 Patch-positive systems retain the facilitating direction of KCSMs in a broader
-form. Replacing neighbouring~$1$'s by~$0$'s can only increase the update rate
-and, whenever the refresh probabilities are dynamically relevant, can only
-decrease the probability that the refreshed spin is~$1$. Thus neighbouring
-vacancies both facilitate updates and bias refreshes toward~$0$; equivalently,
-neighbouring~$1$'s suppress updates and bias refreshes toward~$1$. This
+form. For such systems replacing neighbouring~$1$'s by~$0$'s increases the refresh rate
+and, upon update, biases the refresh towards~$0$. Thus sites prefer to align with their neighbors spin, but there is an asymmetry:~$0$'s facilitate updates wheras~$1$'s constrain them. This
 monotone dependence is a consequence of patch positivity, while the full
 condition also controls mixed effects of several neighbouring spins.
 {\color{red} Recast this explicitly as a consequence and interpretation, not a
