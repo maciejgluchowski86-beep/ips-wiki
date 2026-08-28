@@ -265,34 +265,45 @@ is distinct from, both the KCSM class and the class of monotone spin systems.
 % BLURB K. Consequences
 %
 % Reader question:
-%   What further results does the comparison principle give?
+%   What immediate applications do the comparison principle and the graphical
+%   representation have?
 %
 % Job:
-%   State the consequences in concrete terms a new reader can interpret:
-%     1. the sandwiching argument transfers quantitative convergence bounds;
-%     2. extra spontaneous~$1\to0$ updates can be compared with the dynamics
-%        obtained by removing them;
-%     3. uniformly positive spontaneous~$1\to0$ updates imply convergence to
-%        one invariant law, and under the threshold condition exponential
+%   Orient the reader explicitly, then explain the applications with enough
+%   space to make each one concrete:
+%     1. sandwiching transfers convergence and convergence rates between
+%        different initial laws for the same dynamics;
+%     2. the graphical representation compares dynamics with and without
+%        spontaneous~$1\to0$ transitions;
+%     3. uniformly positive spontaneous deaths give convergence to one
+%        invariant law and, under the threshold condition, exponential
 %        ergodicity.
 %
 % Keep out for now:
-%   The patch representation; M_-; polynomial-growth exponent D; explicit
-%   convergence-rate formulas; proof details.
+%   M_-; polynomial-growth exponent D; explicit convergence-rate formulas;
+%   proof details.
 % ============================================================================
 
-The sandwiching argument also transfers quantitative convergence bounds: if the
-two bounding laws approach the same equilibrium at a given rate, then every law
-between them does so at that rate as well. We also compare systems with and
-without spontaneous deaths, by which we mean extra transitions from~$1$ to~$0$
-whose rates do not depend on the neighbouring spins. For initial laws with
-nonnegative centered moments, removing these deaths can only increase the
-probability that any prescribed finite set of sites is simultaneously in
-state~$1$ at a later time. Finally, if spontaneous deaths occur everywhere at a
-uniform positive rate, a broad class of initial laws converges to the same
-invariant law. If, in addition,~$\mb p^\star\leq\mbs{\frac{1}{2}}$, the system
-is exponentially ergodic. These results do not require reversibility or prior
-identification of the invariant law.
+The centered-moment order and the graphical representation introduced below
+have several immediate applications. The first concerns convergence from
+different initial laws. If an initial law lies between two comparison laws in
+the centered-moment order and the two bounding laws both converge to the same
+invariant law, then the middle law converges to it as well. Moreover, any
+quantitative convergence rate for the two bounding laws is inherited by the
+middle law. Thus the usual monotone sandwiching argument remains available even
+when there is no order-preserving coupling of the processes.
+
+A second application compares dynamics with and without spontaneous deaths,
+meaning extra transitions from~$1$ to~$0$ whose rates do not depend on the
+neighbouring spins. Removing these transitions makes~$1$'s more persistent; for
+initial laws with nonnegative centered moments, this translates into larger
+probabilities that a prescribed finite set of sites is simultaneously in
+state~$1$ at a later time. When spontaneous deaths occur at every site at a
+uniform positive rate, the same representation gives convergence from a broad
+class of initial laws to one invariant law. If, in addition,
+$\mb p^\star\leq\mbs{\frac{1}{2}}$, the system is exponentially ergodic. These
+results do not require reversibility or explicit knowledge of the invariant
+law.
 
 % ============================================================================
 % BLURB L. Signed duality and patches
