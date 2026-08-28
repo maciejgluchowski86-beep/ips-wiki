@@ -208,42 +208,37 @@ under spin system evolution to the same limit forces convergence of the middle o
 %   What is being centered, and how are two laws compared?
 %
 % Job:
-%   Introduce the reference profile p^star and the observables
-%       prod_{i in A} (eta(i)-p_i^star),
-%   then define mu \preceq_* nu by comparison of all such finite moments.
-%   State the preservation implication
-%       mu \preceq_* nu => mu P_t \preceq_* nu P_t.
+%   Introduce the rate-determined reference profile~$\mb p^\star$ and the
+%   centered monomials, define~$\mu\preceq_*\nu$, and state the preservation
+%   implication. Calibrate the analogy with configuration monotonicity by
+%   noting that this order generally has no universal lower and upper laws.
 %
-% Interpretation to include:
-%   This is an order on laws, not configurations; it does not produce a
-%   monotone pathwise coupling. The point is that a monotone direction lost at
-%   the trajectory level reappears at the level of centered correlations.
-%
-% Mathematical caution:
-%   The paper proves
-%       coefficient criterion <=> patch positivity => order preservation.
-%   Do not claim that order preservation is equivalent to patch positivity.
+% Keep out for now:
+%   The patch interpretation of~$\mb p^\star$ and the coefficient criterion.
 % ============================================================================
 
-Each patch-positive system has an associated patch threshold~$p^\star$, or a
-site-dependent patch threshold profile~$\mb p^\star$ in the general setting,
-determined by its local rates. For each finite set of sites~$A$, consider
+For systems in this class, the local rates determine a reference
+profile~$\mb p^\star=(p_i^\star)_{i\in\Lambda}$. For each finite set of
+sites~$A$, let
 \begin{equation*}
 \chi_A^*(\eta)
 =
 \prod_{i\in A}\bb{\eta(i)-p_i^\star}.
 \end{equation*}
 For probability laws~$\mu$ and~$\nu$, we write~$\mu\preceq_*\nu$ when
-$\mu(\chi_A^*)\leq\nu(\chi_A^*)$ for every finite~$A$. In other words, the
-order compares all finite products of spins centered at this rate-determined
-reference profile. {\color{red} Do not call~$p^\star$ the ``patch threshold''
-here, before patches have been introduced. Call it an associated/reference
-profile determined by the local rates; reserve ``patch threshold'' for N, where
-the patch construction can explain the name. Also add the limitation of the
-monotonicity analogy here or immediately after the sandwiching statement:
-unlike configuration order,~$\preceq_*$ generally has no universal smallest
-and largest probability laws unless~$\mb p^\star=\mb 0$. This explains why the
-applications use chosen comparison laws, typically product measures.}
+$\mu(\chi_A^*)\leq\nu(\chi_A^*)$ for every finite~$A$. Writing~$P_t$ for the
+Markov semigroup, our comparison theorem states that
+\begin{equation*}
+\mu\preceq_*\nu
+\quad\Longrightarrow\quad
+\mu P_t\preceq_*\nu P_t
+\qquad\text{for every }t\geq0.
+\end{equation*}
+This is an order on probability laws, not a pathwise ordering of configurations.
+Unlike configuration order, it generally has no universal smallest and largest
+probability laws; when~$\mb p^\star=\mb 0$, the all-$0$ and all-$1$ point masses
+play those roles. In applications we therefore use chosen comparison laws,
+typically product measures.
 
 % ============================================================================
 % BLURB O. Examples and scope
