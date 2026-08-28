@@ -265,38 +265,32 @@ is distinct from, both the KCSM class and the class of monotone spin systems.
 % BLURB K. Consequences
 %
 % Reader question:
-%   What do the comparison principle and patch representation give us?
+%   What further results does the comparison principle give?
 %
 % Job:
-%   Preview the two main payoffs without theorem-level technicalities:
-%     1. comparison of non-monotone evolutions, especially comparison after
-%        removing an environment-independent mechanism creating facilitating
-%        states;
-%     2. ergodic analysis/convergence when facilitating states are created
-%        uniformly, without first identifying the invariant law.
+%   Preview the main consequences without proof language or theorem-level
+%   technicalities. Distinguish clearly between:
+%     1. transferring convergence and convergence rates between initial laws
+%        under the same dynamics;
+%     2. comparing a spin system with the system obtained by removing
+%        environment-independent transitions from~$1$ to~$0$;
+%     3. convergence to a common invariant law when such transitions occur at
+%        a uniform positive rate.
 %
 % Keep out for now:
-%   M_-; polynomial-growth exponent D; explicit convergence-rate formula;
-%   proof details.
+%   The patch representation; M_-; polynomial-growth exponent D; explicit
+%   convergence-rate formulas; proof details.
 % ============================================================================
 
-These results have two main consequences. First, the centered-moment order gives
-comparisons between non-monotone dynamics. In particular, we have a comparison principle for a spin system and a 
-system obtained by removing pure deaths, meaning
-independent transitions from~$1$ to~$0$. Second, when pure deaths
-occur at a uniform positive rate, the patch representation yields convergence
-to a common invariant law for a broad class of initial laws. If the additional
-condition~$\mb p^\star\leq \mbs{\frac{1}{2}}$ holds, the system is exponentially ergodic. The
-convergence argument does not assume reversibility and does not require the
-invariant law to be identified in advance. {\color{red} Reorganize this
-paragraph into three distinct consequences. First, centered-moment order
-compares different initial laws under the same dynamics and transfers
-convergence by sandwiching. Second, comparison after removing pure deaths is a
-separate comparison between two dynamics. Third, uniform pure deaths give
-convergence to a common invariant law. Do not say here that ``the patch
-representation yields'' a result before the representation itself has been
-explained; state the theorem-level consequence first and leave the method to L.
-The current first sentence also conflates the first two mechanisms.}
+The centered-moment comparison also transfers convergence results and
+convergence rates from two bounding initial laws to any initial law between
+them. We can separately compare two different spin systems: one system and the
+system obtained by removing environment-independent transitions from~$1$ to~$0$.
+Finally, if such transitions occur at a uniform positive rate, all initial laws
+in a broad class converge to the same invariant law. If, in addition,
+$\mb p^\star\leq\mbs{\frac{1}{2}}$, this invariant law is unique and convergence
+is exponential, uniformly over all initial configurations. These conclusions do
+not require reversibility or prior identification of the invariant law.
 
 % ============================================================================
 % BLURB L. Signed duality and patches
