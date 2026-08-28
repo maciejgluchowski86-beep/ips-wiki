@@ -29,26 +29,7 @@ illustrate the centered-moment comparison and the convergence results proved
 above.
 
 % ============================================================================
-% BLURB B. Contact process
-%
-% Reader question:
-%   Does patch positivity include familiar monotone spin systems, and if so,
-%   what does the new order add there?
-%
-% Job:
-%   Write the contact process directly in refresh-rate/refresh-parameter form,
-%   using the complemented labeling adopted in the paper. Check patch
-%   positivity and identify the threshold p^star=0. Then make the point of the
-%   example: the contact process lies in the class, but its usual monotone
-%   coupling gives stronger comparisons, so this is a benchmark rather than a
-%   principal application.
-%
-% Keep out:
-%   Flip-rate coefficients and a long review of contact-process theory.
-% ============================================================================
-
-% ============================================================================
-% BLURB C. FA-1f as the canonical KCSM example
+% BLURB B. FA-1f as the canonical KCSM example
 %
 % Reader question:
 %   What does patch positivity look like in the motivating KCSM?
@@ -66,8 +47,33 @@ above.
 %   centered-moment transfer.
 % ============================================================================
 
+\subsection{FA-1f}
+\label{subsec:fa-1f-applications}
+
+Fix~$p\in(0,1)$ and assume that~$N(i)\neq\vn$ for every~$i\in\Lambda$.
+In FA-1f~\cite{FredricksonAndersen1984,CancriniEtAl2008,HartarskyToninelli2025},
+state~$0$ is vacant and state~$1$ is occupied. A site is refreshed from the
+Bernoulli law with parameter~$p$ whenever at least one neighbour is vacant, so
+\begin{equation*}
+\lambda_i(\eta)=1-\chi_{N(i)}(\eta),
+\qquad
+\rho_i(\eta)=p.
+\end{equation*}
+The only nonzero nonconstant M\"obius coefficient of~$\lambda_i$ is
+\begin{equation*}
+\widehat{\lambda_i}\bb{N(i)}=-1,
+\end{equation*}
+while~$\lambda_i\bb{\rho_i-\rho_i(\mb 0)}=0$. Hence
+Theorem~\ref{thm:patch-positivity-order} shows that FA-1f is patch-positive.
+Moreover,
+\begin{equation*}
+\frac{\widehat{\lambda_i\rho_i}\bb{N(i)}}
+{\widehat{\lambda_i}\bb{N(i)}}=p,
+\end{equation*}
+so its patch threshold profile is~$\mb p^\star=\mb p$.
+
 % ============================================================================
-% BLURB D. The boundary of the class: higher-order FA constraints
+% BLURB C. The boundary of the class: higher-order FA constraints
 %
 % Reader question:
 %   Is patch positivity simply another name for a monotone kinetic constraint?
@@ -85,7 +91,7 @@ above.
 % ============================================================================
 
 % ============================================================================
-% BLURB E. BABP as a non-KCSM patch-positive model
+% BLURB D. BABP as a non-KCSM patch-positive model
 %
 % Reader question:
 %   Does the criterion capture useful dynamics beyond standard KCSMs?
@@ -101,6 +107,25 @@ above.
 % Keep out:
 %   The long stationary/convergence literature review; retain only background
 %   needed for the application in Blurb F.
+% ============================================================================
+
+% ============================================================================
+% BLURB E. Contact process as a monotone benchmark
+%
+% Reader question:
+%   Does patch positivity include familiar monotone spin systems, and if so,
+%   what does the new order add there?
+%
+% Job:
+%   Write the contact process directly in refresh-rate/refresh-parameter form,
+%   using the complemented labeling adopted in the paper. Check patch
+%   positivity and identify the threshold p^star=0. Then make the point of the
+%   example: the contact process lies in the class, but its usual monotone
+%   coupling gives stronger comparisons, so this is a benchmark rather than a
+%   principal application.
+%
+% Keep out:
+%   Flip-rate coefficients and a long review of contact-process theory.
 % ============================================================================
 
 % ============================================================================
