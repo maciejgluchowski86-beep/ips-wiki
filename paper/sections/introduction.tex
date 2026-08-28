@@ -171,23 +171,16 @@ gives.
 % Job:
 %   Give the intuitive rate-level content before any coefficient formulas.
 %   Explain that vacancies both facilitate updates and bias refreshes toward
-%   vacancy. This monotone dependence is a consequence of patch positivity,
-%   while the full condition is stronger and also controls mixed effects of
-%   several neighbouring spins.
+%   vacancy. Present this monotone dependence explicitly as a consequence and
+%   interpretation of patch positivity, not as its definition.
 % ============================================================================
 
-Patch-positive systems retain the facilitating direction of KCSMs in a broader
-form. For such systems replacing neighbouring~$1$'s by~$0$'s increases the refresh rate
-and, upon update, biases the refresh towards~$0$. Thus sites prefer to align with their neighbors spin, but there is an asymmetry:~$0$'s facilitate updates wheras~$1$'s constrain them. This
-monotone dependence is a consequence of patch positivity, while the full
-condition also controls mixed effects of several neighbouring spins.
-{\color{red} Recast this explicitly as a consequence and interpretation, not a
-definition: begin with something like ``One consequence of patch positivity
-is...''. Remove the sentence about ``mixed effects of several neighbouring
-spins''; that distinction is meaningful only after the coefficient criterion
-has been introduced. For readability, replace ``whenever the refresh
-probabilities are dynamically relevant'' by a plain formulation such as
-``whenever updates were already possible''.}
+One consequence of patch positivity is that the facilitating direction of KCSMs
+survives in this broader setting. Replacing neighbouring~$1$'s by~$0$'s can only
+increase the update rate and, whenever updates were already possible, can only
+decrease the probability that an update refreshes the spin to~$1$. Thus
+neighbouring vacancies both facilitate updates and bias refreshes toward~$0$;
+equivalently, neighbouring~$1$'s suppress updates and bias refreshes toward~$1$.
 
 % ============================================================================
 % BLURB O. Examples and scope
