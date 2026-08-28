@@ -180,36 +180,6 @@ survives in this broader setting. Replacing neighbouring~$1$'s by~$0$'s
 increases the refresh rate and decreases the probability that an update refreshes the spin to~$1$. Thus the refresh rule is monotone in configuration order, but there is an asymmetry:~$0$'s facilitate updates and~$1$'s suppress them.
 
 % ============================================================================
-% BLURB O. Examples and scope
-%
-% Reader question:
-%   Which familiar systems does this cover, and what is the intended scope?
-%
-% Job:
-%   Anchor the framework in examples:
-%     - East / FA-1f as canonical KCSM examples;
-%     - FA-jf, j>=2, as KCSMs outside the patch-positive class;
-%     - BABP as an example beyond literal constrained Bernoulli refresh;
-%     - contact process as a benchmark where ordinary configuration
-%       monotonicity is already stronger.
-% ============================================================================
-
-The examples place patch positivity relative to familiar spin systems. East
-and FA-1f are patch-positive, so the class contains standard KCSMs. It is not,
-however, a class of all KCSMs: cooperative models, like FA-jf, for~$j\geq 2$, in which a site can update only when at
-least~$j$ neighbours are vacant, are not patch-positive. The framework also
-extends beyond KCSMs. BABP and the contact process are also patch-positive, although the latter is also monotone in the
-usual configuration order, where the standard monotone coupling gives stronger
-comparisons. Thus patch positivity picks out a rate structure shared by some
-KCSMs and by spin systems outside the KCSM class. {\color{red} Move this
-examples paragraph after the centered-moment monotonicity and sandwiching
-interpretation, so it does not interrupt the main conceptual payoff. Also avoid
-``cooperative'' here; simply say that FA-jf for~$j\geq2$ is not
-patch-positive (My note: cooperative is fine and useful for KCSM reader, leave). Once the class has been named in F, avoid repeating the
-unexplained term more than needed before the patch construction; use ``this
-class'' or ``such systems'' where natural.}
-
-% ============================================================================
 % BLURB H. Headline result: recovered monotonicity
 %
 % Reader question:
@@ -274,6 +244,30 @@ monotonicity analogy here or immediately after the sandwiching statement:
 unlike configuration order,~$\preceq_*$ generally has no universal smallest
 and largest probability laws unless~$\mb p^\star=\mb 0$. This explains why the
 applications use chosen comparison laws, typically product measures.}
+
+% ============================================================================
+% BLURB O. Examples and scope
+%
+% Reader question:
+%   Which familiar systems does this cover, and what is the intended scope?
+%
+% Job:
+%   Anchor the framework after the main comparison principle has been stated:
+%     - East / FA-1f as canonical KCSM examples;
+%     - cooperative FA-jf, j>=2, as KCSMs outside the patch-positive class;
+%     - BABP as an example beyond literal constrained Bernoulli refresh;
+%     - contact process as a benchmark where ordinary configuration
+%       monotonicity is already stronger.
+% ============================================================================
+
+This class contains familiar KCSMs: the East and FA-1f models are
+patch-positive. It does not, however, contain all KCSMs. Cooperative models
+such as FA-jf, for~$j\geq2$, in which a site can update only when at least~$j$
+neighbours are vacant, are not patch-positive. The class also extends beyond
+KCSMs: BABP and the contact process are patch-positive. The contact process is
+already monotone in the usual configuration order, so its standard monotone
+coupling gives stronger comparisons. Thus patch positivity overlaps with, but
+is distinct from, both the KCSM class and the class of monotone spin systems.
 
 % ============================================================================
 % BLURB K. Consequences
