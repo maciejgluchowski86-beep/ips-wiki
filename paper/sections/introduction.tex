@@ -164,24 +164,20 @@ singled out below by our representation are called \emph{patch-positive}.
 %
 % Job:
 %   Give the intuitive rate-level content before any coefficient formulas.
-%   The exact local criterion belongs later, after the patch representation has
-%   been explained.
-%
-% Mathematical caution:
-%   Coordinatewise monotonicity of the relevant rates is a consequence of the
-%   paper's criterion, but is weaker than the criterion and should not be
-%   presented as an equivalent definition.
+%   Explain that vacancies both facilitate updates and bias refreshes toward
+%   vacancy. This monotone dependence is a consequence of patch positivity,
+%   while the full condition is stronger and also controls mixed effects of
+%   several neighbouring spins.
 % ============================================================================
 
-A useful way to think about patch positivity is that neighbouring~$1$'s continue
-to act as constraints even when the dynamics no longer has the KCSM form.
-Adding such neighbours should suppress, rather than enhance, local activity.
-Patch positivity is a quantitative version of this constraining behaviour.
-{\color{red} This is now too weak and incomplete. State the actual dynamical
-consequence from Section~5.3: more neighbouring~$0$'s increase the update
-frequency and bias the refresh toward~$0$; equivalently, more neighbouring~$1$'s
-suppress updates and bias the refresh toward~$1$. Make clear that this is a
-consequence of patch positivity, not an equivalent definition.}
+Patch-positive systems retain the facilitating direction of KCSMs in a broader
+form. Replacing neighbouring~$1$'s by~$0$'s can only increase the update rate
+and, whenever the refresh probabilities are dynamically relevant, can only
+decrease the probability that the refreshed spin is~$1$. Thus neighbouring
+vacancies both facilitate updates and bias refreshes toward~$0$; equivalently,
+neighbouring~$1$'s suppress updates and bias refreshes toward~$1$. This
+monotone dependence is a consequence of patch positivity, while the full
+condition also controls mixed effects of several neighbouring spins.
 
 % ============================================================================
 % BLURB O. Examples and scope
