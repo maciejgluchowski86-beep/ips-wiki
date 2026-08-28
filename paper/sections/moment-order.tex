@@ -117,97 +117,135 @@ Theorem~\ref{thm:patch-positivity-order}.
 \subsection{Pure-death comparison}
 \label{subsec:pure-death-comparison}
 
-Let~$\Lcal$ and~$\Lcal'$ be as in Corollary~\ref{cor:pure-death-comparison}.
-As observed in Section~\ref{subsec:signed-set-process}, adding the pure-death
-term to~$\Lcal'$ leaves the signed dual jump process unchanged and only lowers
-its Feynman--Kac potential. Hence the two systems have the same
-successful-interaction skeleton and the same patches, and it remains to compare
-their patch contributions.
+We prove Corollary~\ref{cor:pure-death-comparison}. Let~$\Lcal$ and~$\Lcal'$
+satisfy~\eqref{eq:pure-death-decomposition}. The additional pure-death term
+acts diagonally on monomials:
+\begin{equation*}
+\sum_{i\in\Lambda}d_i\bb{E_{i,0}-I}\chi_A
+=
+-\bb{\sum_{i\in A}d_i}\chi_A.
+\end{equation*}
+Thus~$\Lcal$ and~$\Lcal'$ have the same signed dual jump process. If~$V_i$ and
+$V_i'$ are their one-site Feynman--Kac potentials, then
+$V_i=V_i'-d_i$. In particular, the two dual representations have the same
+successful-interaction skeleton, the same patch families~$\mathcal B_t$ and
+$\mathcal E_t$, and the same consistent patch laws. We write~$C,C'$ for the
+corresponding patch contributions. The patch representation gives, with the
+same expectation~$\E_A$ in both lines,
+\begin{align*}
+(\mu P_t)(\chi_A)
+&=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+},
+\\
+(\mu P_t')(\chi_A)
+&=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C'(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}C'\bb{\eta\bb{i(P)},P}
+}
+}.
+\end{align*}
 
-% ============================================================================
-% BLURB B. Centered end-factor expansion
-%
-% Reader question:
-%   What algebraic form of the end factors will be used in the comparison?
-%
-% Job:
-%   Do the calculation directly, without another motivational paragraph. For an
-%   end patch P based at i, use affinity and the threshold property to write
-%       C(z,P)
-%       = C(p_i^star,P) + kappa(P)(z-p_i^star),
-%       C(p_i^star,P) >= 0,  kappa(P) >= 0.
-%   Since distinct end patches are based at distinct sites, expand the product
-%   over E_t into centered moments of mu. Retain the old label
-%   eq:centered-end-expansion because Blurb D will use the formula explicitly.
-%   Conclude only that every term is nonnegative for mu in M_*.
-%
-% Keep out:
-%   Do not explain again why M_* is the right class. Do not introduce the primed
-%   system here; the same expansion will apply to it after Blurb C proves that
-%   its threshold profile is the same.
-% ============================================================================
+We first compare the local contributions. On a realization of a consistent
+patch based at~$i$, the local Feynman--Kac factor for~$\Lcal$ is the
+corresponding factor for~$\Lcal'$ multiplied by
+\begin{equation*}
+\exp\bb{-d_i\int X_u^P\,du}\leq1.
+\end{equation*}
+Patch positivity implies~$\widehat{\lambda_i}(S)\leq0$ for every nonempty
+$S$, so every dual birth has positive sign. Hence a negative local sign can
+only come from an initial split. Such a split removes the source from the
+active set immediately, so~$X_u^P=0$ afterwards and the factor above equals
+one. On every other local realization the signed factor is nonnegative and the
+additional pure-death tilt can only decrease it. Taking expectations under the
+common consistent patch law therefore gives
+\begin{equation*}
+0\leq C(P)\leq C'(P),
+\qquad
+C(z,P)\leq C'(z,P)
+\quad\text{for }z\in[0,1].
+\end{equation*}
+In particular,~$\Lcal'$ is patch-positive. Moreover,
+\eqref{eq:pure-death-decomposition} gives
+$\lambda_i=\lambda_i'+d_i$ and
+$\lambda_i\rho_i=\lambda_i'\rho_i'$. Hence all nonempty M\"obius
+coefficients appearing in~\eqref{eq:principal-threshold-profile} are unchanged,
+so~$\Lcal'$ has the same threshold profile~$\mb p^\star$.
 
-% ============================================================================
-% BLURB C. Compare the patch contributions
-%
-% Reader question:
-%   How does removing pure deaths change the coefficients in the common patch
-%   representation?
-%
-% Job:
-%   First dispose of the structural bookkeeping in the current notation:
-%       lambda_i' = lambda_i - d_i,
-%       lambda_i' rho_i' = lambda_i rho_i.
-%   Use part (i) to show briefly that L' is patch-positive and that the threshold
-%   formula gives the same p_i^star. Handle lambda_i'(0)=0 with the existing
-%   zero-constant-term observation; do not reproduce the old c_i^0,c_i^1 case
-%   split.
-%
-%   Then compare the actual patch contributions. The signed dual jump process,
-%   the successful-interaction skeleton, and the consistent patch laws are the
-%   same for L and L'; the only change is the smaller Feynman--Kac tilt for L.
-%   Use the explicit one-site/patch formulas from Section 5.1 and the appendix to
-%   prove exactly the inequalities needed below:
-%       C(P) <= C'(P),
-%       C(p_i^star,P) <= C'(p_i^star,P),
-%       kappa(P) <= kappa'(P).
-%   Reintroduce psi_i only if it gives the shortest transparent verification of
-%   these inequalities.
-%
-% Reader takeaway:
-%   The two representations have the same random patch structure; removing
-%   deaths increases the nonnegative coefficients that remain after patch
-%   averaging.
-%
-% Keep out:
-%   Avoid V_i, varphi_i, and other Section 4 notation unless an explicit formula
-%   genuinely needs it. Do not re-explain the construction of the skeleton or
-%   the consistent patch law.
-% ============================================================================
+For an end patch~$P$ based at~$i$, write
+$\kappa(P)=\partial_zC(z,P)$ and
+$\kappa'(P)=\partial_zC'(z,P)$. The derivative of the local terminal factor
+vanishes unless~$X_t^P=1$. On that event the local sign is positive, so the
+same Feynman--Kac comparison gives
+\begin{equation*}
+0\leq\kappa(P)\leq\kappa'(P),
+\qquad
+0\leq C\bb{p_i^\star,P}
+\leq C'\bb{p_i^\star,P}.
+\end{equation*}
+Using affinity in the terminal spin,
+\begin{equation*}
+C\bb{\eta(i),P}
+=
+C\bb{p_i^\star,P}
++
+\kappa(P)\bb{\eta(i)-p_i^\star},
+\end{equation*}
+and the same identity holds with primes. Since distinct end patches are based
+at distinct sites, expansion of the two terminal products gives
+\begin{align*}
+\mu\bb{
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+&=
+\sum_{\mathcal Q\subseteq\mathcal E_t}
+\mu\bb{\chi_{\cb{i(P):P\in\mathcal Q}}^*}
+\prod_{P\in\mathcal Q}\kappa(P)
+\prod_{P\in\mathcal E_t\setminus\mathcal Q}
+C\bb{p_{i(P)}^\star,P},
+\\
+\mu\bb{
+\prod_{P\in\mathcal E_t}C'\bb{\eta\bb{i(P)},P}
+}
+&=
+\sum_{\mathcal Q\subseteq\mathcal E_t}
+\mu\bb{\chi_{\cb{i(P):P\in\mathcal Q}}^*}
+\prod_{P\in\mathcal Q}\kappa'(P)
+\prod_{P\in\mathcal E_t\setminus\mathcal Q}
+C'\bb{p_{i(P)}^\star,P}.
+\end{align*}
+If~$\mu\in\mathcal M_*$, every centered moment in these sums is nonnegative,
+so the first terminal expectation is no larger than the second. Together with
+$0\leq C(P)\leq C'(P)$ for the bulk patches, the two patch representations
+above give
+\begin{equation*}
+(\mu P_t)(\chi_A)
+\leq
+(\mu P_t')(\chi_A).
+\end{equation*}
+This proves Corollary~\ref{cor:pure-death-comparison}.
 
-% ============================================================================
-% BLURB D. Finish the comparison
-%
-% Reader question:
-%   How do the patchwise inequalities imply the semigroup comparison?
-%
-% Job:
-%   Condition on the common successful-interaction skeleton and use the general
-%   patch representation. Every bulk factor is nonnegative and bounded by the
-%   corresponding primed factor. Expand the end-factor expectation using
-%   eq:centered-end-expansion. For mu in M_*, every centered moment in that sum
-%   is nonnegative, while Blurb C shows that each coefficient is bounded by its
-%   primed counterpart. Therefore the conditional contribution for L is bounded
-%   by the conditional contribution for L'. Average over the common skeleton to
-%   obtain
-%       (mu P_t)(chi_A) <= (mu P_t')(chi_A),
-%   proving Corollary~\ref{cor:pure-death-comparison}.
-%
-%   After the proof, retain the invariant-measure comparison as a short
-%   corollary. Apply the comparison to mu_1, take Cesaro averages, and use
-%   uniqueness to identify the invariant limits.
-%
-% Keep out:
-%   No further discussion of monotone couplings or of why centered moments were
-%   introduced. At this point the conclusion should be nearly mechanical.
-% ============================================================================
+\begin{corollary}[Invariant measure comparison]
+\label{cor:pure-death-invariant-comparison}
+Under the hypotheses of Corollary~\ref{cor:pure-death-comparison}, suppose that
+the two systems have unique invariant measures~$\pi$ and~$\pi'$. Then
+\begin{equation*}
+\pi(\chi_A)\leq\pi'(\chi_A)
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation*}
+\end{corollary}
+
+\begin{proof}
+Apply Corollary~\ref{cor:pure-death-comparison} with
+$\mu=\mu_{\mb 1}\in\mathcal M_*$ and average over~$t\in[0,T]$. Every
+subsequential weak limit of either family of Ces\`aro averages is invariant.
+Uniqueness identifies the limits as~$\pi$ and~$\pi'$, and letting~$T\to\infty$
+gives the claim.
+\end{proof}
