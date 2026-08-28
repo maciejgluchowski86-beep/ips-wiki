@@ -262,7 +262,7 @@ level reappears at the level of laws.
 
 Each patch-positive system has an associated patch threshold~$p^\star$, or a
 site-dependent patch threshold profile~$\mb p^\star$ in the general setting,
-determined by its local rates. For each finite set of sites~$A$, consider
+determined by its local refresh rule. For each finite set of sites~$A$, consider
 \begin{equation*}
 \chi_A^*(\eta)
 =
@@ -270,7 +270,7 @@ determined by its local rates. For each finite set of sites~$A$, consider
 \end{equation*}
 For probability laws~$\mu$ and~$\nu$, we write~$\mu\preceq_*\nu$ when
 $\mu(\chi_A^*)\leq\nu(\chi_A^*)$ for every finite~$A$. In other words, the
-order compares all finite products of spins centered at this rate-determined
+order compares all finite products of spins centered at this system-dependent
 reference profile.
 
 % ============================================================================
@@ -341,7 +341,7 @@ averaged within each one. The resulting patch factorization captures cancellatio
 %   Use only the language introduced in L. State the sign condition on patches
 %   lying entirely before the observation time, explain the terminal patches in
 %   one sentence, and then state the correct logical route through the local
-%   rate condition to preservation of the centered-moment order.
+%   coefficient condition to preservation of the centered-moment order.
 % ============================================================================
 
 Patch positivity means that the averaged contribution of every patch lying
@@ -351,8 +351,9 @@ combined to recover~$P_t\chi_A$. Patches that reach the observation time leave
 factors depending on the terminal spins; the patch threshold
 profile~$\mb p^\star$ introduced above is chosen so that these factors are
 compatible with the centered-moment order. We show that patch positivity is
-equivalent to an explicit local condition on the flip rates. The same condition
-implies preservation of the centered-moment order.
+equivalent to explicit sign conditions on the M\"obius coefficients of
+$\lambda_i$ and~$\lambda_i\bb{\rho_i-\rho_i(\mb 0)}$. The same conditions
+imply preservation of the centered-moment order.
 
 \paragraph{Relation to previous work.}
 Set-valued graphical constructions and additive dual processes go back to
