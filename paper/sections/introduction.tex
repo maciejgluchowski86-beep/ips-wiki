@@ -10,17 +10,18 @@
 % Job:
 %   Give a reader who is not an IPS specialist enough context to enter the
 %   paper. Motivate IPS broadly, then fix our narrower use of "spin system" as
-%   a binary IPS with single-site flips. Foreshadow dependence on the initial
+%   a binary IPS with single-site updates. Foreshadow dependence on the initial
 %   law and long-time behaviour, without making ergodicity the whole story.
 % ============================================================================
 
 Interacting particle systems are stochastic models in which many local random
 updates combine to produce nontrivial collective behaviour. In this paper, we
 study spin systems: continuous-time Markov processes on~$\{0,1\}^{\Lambda}$,
-where~$\Lambda$ is the set of sites representing space and updates flip one
-site at a time. The flip rate at a site may depend on nearby spins, which is how
-the sites interact. We are interested in how these local rules determine the
-dependence of the long-time behaviour of the system on the initial conditions.
+where~$\Lambda$ is the set of sites representing space and only one spin is
+updated at a time. The update rate at a site may depend on nearby spins, which
+is how the sites interact. We are interested in how these local rules determine
+the dependence of the long-time behaviour of the system on the initial
+conditions.
 
 % ============================================================================
 % BLURB B. Why monotonicity matters
@@ -48,9 +49,9 @@ space has the usual coordinatewise order: $\eta\leq\xi$ if
 $\eta(i)\leq\xi(i)$ at every site. A spin system is monotone if processes
 started from~$\eta\leq\xi$ can be coupled so that the same order holds at all
 later times. This gives direct comparisons between different initial
-conditions. The same idea can often also be used to compare systems with
+conditions. The same coupling idea can also be used to compare systems with
 different transition rules. Such comparisons are basic tools for studying
-dependence on the initial condition, invariant measures and convergence.
+dependence on the initial condition, invariant measures, and convergence.
 
 % ============================================================================
 % BLURB C. KCSMs as the motivating research class
