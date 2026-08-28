@@ -90,13 +90,12 @@ first condition in~\eqref{eq:principal-coefficient-criterion} fails.
 %   Introduce BABP in the same refresh notation:
 %       lambda_i(eta) = sum_{j in N(i)} (1-eta(j)),   rho_i(eta)=p.
 %   Briefly explain the complementary particle interpretation. Apply the
-%   coefficient criterion to show patch positivity and p_i^star=p. Emphasize
-%   that the refresh rate is graded by the number of neighbouring vacancies,
-%   rather than being a binary kinetic constraint.
+%   coefficient criterion to show patch positivity and p_i^star=p. Then use
+%   centered-moment sandwiching to transfer known product-law convergence to
+%   dependent and non-translation-invariant initial laws.
 %
 % Keep out:
-%   The long stationary/convergence literature review; retain only background
-%   needed for the application in Blurb E.
+%   A broad stationary/convergence literature review.
 % ============================================================================
 
 \subsection{Biased annihilating branching process}
@@ -127,6 +126,39 @@ Moreover, for every~$j\in N(i)$,
 {\widehat{\lambda_i}\bb{\cb{j}}}=p,
 \end{equation*}
 so its patch threshold profile is~$\mb p^\star=\mb p$.
+
+\begin{corollary}[Centered-moment comparison for BABP]
+\label{cor:babp-centered-convergence}
+Consider nearest-neighbour BABP on~$\Z^d$. Let~$0\leq u\leq v<1$ satisfy
+$v\geq p$ and~$\abs{u-p}\leq v-p$. If a probability measure~$\nu$ satisfies
+\begin{equation*}
+(u-p)^{\abs A}
+\leq
+\nu\bb{\prod_{i\in A}\bb{\eta(i)-p}}
+\leq
+(v-p)^{\abs A}
+\qquad
+\text{for every }A\Subset\Z^d,
+\end{equation*}
+then~$\nu P_t$ converges exponentially to~$\mu_p$ on local functions.
+\end{corollary}
+
+\begin{proof}
+The displayed inequalities are exactly
+$\mu_u\preceq_*\nu\preceq_*\mu_v$. Both product endpoints converge
+exponentially to~$\mu_p$ by
+\cite[Application~2 and Section~5.1.1]{MartinelliShapiraToninelli2025}, so the
+claim follows from Corollary~\ref{cor:centered-moment-convergence}.
+\end{proof}
+
+This includes dependent and non-translation-invariant initial laws. In
+particular, taking~$u=p$, every inhomogeneous product law with one-site
+parameters~$p\leq p_i\leq v<1$ satisfies the assumptions and therefore
+converges exponentially to~$\mu_p$. The comparison does not place finite-particle
+configurations between nondegenerate product laws and hence does not address
+finite-seed convergence. An analogous centered-moment sandwiching argument
+applies to FA-1f, but does not enlarge the qualitative class of initial laws
+covered by the known FA-1f convergence results~\cite{BlondelEtAl2013}.
 
 % ============================================================================
 % BLURB D. Contact process as a monotone benchmark
@@ -183,28 +215,7 @@ classical monotone coupling gives stronger comparisons than the centered-moment
 order considered here.
 
 % ============================================================================
-% BLURB E. What centered-moment comparison buys
-%
-% Reader question:
-%   Does the new order yield a concrete conclusion that is not merely a
-%   restatement of patch positivity?
-%
-% Job:
-%   Use BABP as the main payoff. State the known exponential convergence of
-%   suitable product initial laws and use the centered-moment sandwiching
-%   corollary to transfer it to dependent and non-translation-invariant laws.
-%   State the resulting centered-moment condition explicitly. Explain briefly
-%   what is genuinely enlarged and what is not: finite-particle initial states
-%   are not ordered between the product endpoints and finite-seed convergence
-%   is not resolved. Mention the analogous FA-1f transfer only briefly, since
-%   it does not enlarge the known qualitative class there.
-%
-% Keep out:
-%   A broad literature survey unrelated to the endpoint result being used.
-% ============================================================================
-
-% ============================================================================
-% BLURB F. Adding refresh noise
+% BLURB E. Adding refresh noise
 %
 % Reader question:
 %   How does the general refresh parametrization simplify the noisy examples?
@@ -224,13 +235,13 @@ order considered here.
 % ============================================================================
 
 % ============================================================================
-% BLURB G. Concrete convergence and ergodicity consequence
+% BLURB F. Concrete convergence and ergodicity consequence
 %
 % Reader question:
 %   What does the common invariant-limit theorem say for these noisy models?
 %
 % Job:
-%   Apply the general theorem to the noisy FA-1f/BABP family from Blurb F.
+%   Apply the general theorem to the noisy FA-1f/BABP family from Blurb E.
 %   Identify the uniform pure-death rate
 %       delta = epsilon inf_i (1-s_i),
 %   state the common invariant-limit estimate for the covered initial laws,
