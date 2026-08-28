@@ -99,6 +99,35 @@ first condition in~\eqref{eq:principal-coefficient-criterion} fails.
 %   needed for the application in Blurb E.
 % ============================================================================
 
+\subsection{Biased annihilating branching process}
+\label{subsec:babp-applications}
+
+Fix~$p\in(0,1)$ and write~$q=1-p$. The biased annihilating branching process
+(BABP)~\cite{NeuhauserSudbury1993} has the same Bernoulli refresh law as
+FA-1f, but the refresh rate is the number of vacant neighbours:
+\begin{equation*}
+\lambda_i(\eta)
+=
+\sum_{j\in N(i)}\bb{1-\eta(j)},
+\qquad
+\rho_i(\eta)=p.
+\end{equation*}
+In the complementary variables~$\xi(i)=1-\eta(i)$, vacancies correspond to
+particles and~$q$ is their equilibrium density. The only nonzero nonconstant
+M\"obius coefficients of~$\lambda_i$ are
+\begin{equation*}
+\widehat{\lambda_i}\bb{\cb{j}}=-1,
+\qquad j\in N(i),
+\end{equation*}
+while again~$\lambda_i\bb{\rho_i-\rho_i(\mb 0)}=0$. Hence
+Theorem~\ref{thm:patch-positivity-order} shows that BABP is patch-positive.
+Moreover, for every~$j\in N(i)$,
+\begin{equation*}
+\frac{\widehat{\lambda_i\rho_i}\bb{\cb{j}}}
+{\widehat{\lambda_i}\bb{\cb{j}}}=p,
+\end{equation*}
+so its patch threshold profile is~$\mb p^\star=\mb p$.
+
 % ============================================================================
 % BLURB D. Contact process as a monotone benchmark
 %
