@@ -147,6 +147,41 @@ so its patch threshold profile is~$\mb p^\star=\mb p$.
 %   Flip-rate coefficients and a long review of contact-process theory.
 % ============================================================================
 
+\begin{remark}[Contact process]
+\label{subsec:contact-benchmark}
+The contact process~\cite{Harris1974} is usually written with state~$1$
+infected and state~$0$ healthy. We use the reversed labeling, so that state~$0$
+is infected and state~$1$ is healthy. With recovery rate one and infection
+parameter~$\beta\geq0$, its refresh representation is
+\begin{equation*}
+\lambda_i(\eta)
+=
+1+\beta\sum_{j\in N(i)}\bb{1-\eta(j)},
+\qquad
+\rho_i(\eta)
+=
+\frac{1}{1+\beta\sum_{j\in N(i)}\bb{1-\eta(j)}}.
+\end{equation*}
+Thus~$\lambda_i\rho_i=1$, and the only nonzero nonconstant M\"obius
+coefficients of~$\lambda_i$ are
+\begin{equation*}
+\widehat{\lambda_i}\bb{\cb{j}}=-\beta,
+\qquad j\in N(i).
+\end{equation*}
+For every nonempty~$S\subseteq N(i)$,
+\begin{equation*}
+\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb0)}}(S)
+=
+-\rho_i(\mb0)\widehat{\lambda_i}(S)
+\geq0.
+\end{equation*}
+Hence the contact process is patch-positive. Since~$\lambda_i\rho_i$ is
+constant, its patch threshold profile is~$\mb p^\star=\mb0$. The contact
+process is also monotone in the usual configuration order, for which the
+classical monotone coupling gives stronger comparisons than the centered-moment
+order considered here.
+\end{remark}
+
 % ============================================================================
 % BLURB E. What centered-moment comparison buys
 %
