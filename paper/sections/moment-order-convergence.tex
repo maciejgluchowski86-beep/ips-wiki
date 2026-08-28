@@ -1,15 +1,77 @@
 \subsection{Convergence by centered-moment comparison}
 \label{subsec:centered-moment-convergence}
 
-% This is the final subsection of Section~\ref{sec:patch-positivity}. Theorem
-% \ref{thm:patch-positivity-order} has already been proved, and the pure-death
-% comparison has been established separately using the patch representation.
-%
-% Main job:
-%   Present the convergence statement as a direct consequence of preservation
-%   of the centered-moment order. If lower and upper evolutions converge to the
-%   same limit, every initial law between them in centered-moment order converges
-%   to the same limit as well. This is an application of Theorem B, not part of
-%   its proof.
-%
-% Placeholder. Rewrite subsection blurb by blurb.
+A standard use of monotonicity is the sandwiching argument: if an initial law
+lies between two comparison laws and both comparison evolutions converge to the
+same equilibrium, then the middle evolution converges as well. The
+centered-moment order gives the same principle for patch-positive systems, even
+when the dynamics is not monotone in configuration order. There is one
+important difference. The order~$\preceq_*$ does not in general come with
+universal lower and upper laws. In the special case~$\mb p^\star=\mb 0$, we
+have~$\chi_A^*=\chi_A$ and
+\begin{equation*}
+\delta_{\mb 0}\preceq_*\mu\preceq_*\delta_{\mb 1}
+\qquad\text{for every probability measure }\mu.
+\end{equation*}
+For a nonzero threshold profile, suitable comparison laws must instead be
+found. In the applications below these will typically be product measures.
+
+\begin{corollary}[Convergence by centered-moment comparison]
+\label{cor:centered-moment-convergence}
+Suppose that the spin system is patch-positive and that
+\begin{equation*}
+\underline\mu\preceq_*\mu\preceq_*\overline\mu.
+\end{equation*}
+If~$\underline\mu P_t$ and~$\overline\mu P_t$ converge weakly to the same
+probability measure~$\pi$, then~$\mu P_t\Rightarrow\pi$.
+
+More generally, suppose that~$\rho(t)\to0$ and that, for every
+$A\Subset\Lambda$,
+\begin{equation*}
+\max_{\lambda\in\cb{\underline\mu,\overline\mu}}
+\abs{(\lambda P_t)(\chi_A^*)-\pi(\chi_A^*)}
+\leq
+C_A\rho(t).
+\end{equation*}
+Then every local function~$f$ satisfies
+\begin{equation*}
+\abs{(\mu P_t)(f)-\pi(f)}
+\leq
+C_f\rho(t)
+\end{equation*}
+for some~$C_f<\infty$.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:patch-positivity-order},
+\begin{equation*}
+\underline\mu P_t\preceq_*\mu P_t\preceq_*\overline\mu P_t
+\qquad\text{for every }t\geq0.
+\end{equation*}
+Hence, for every~$A\Subset\Lambda$,
+\begin{equation*}
+(\underline\mu P_t)(\chi_A^*)
+\leq
+(\mu P_t)(\chi_A^*)
+\leq
+(\overline\mu P_t)(\chi_A^*).
+\end{equation*}
+If the two comparison laws converge weakly to~$\pi$, the outer terms converge
+to~$\pi(\chi_A^*)$, so the middle term does as well. On every finite set of
+sites, the centered monomials form a basis of all functions of those spins.
+Thus expectations of every local function converge to their~$\pi$-expectation,
+which gives~$\mu P_t\Rightarrow\pi$.
+
+Under the quantitative assumption, the same squeeze gives
+\begin{equation*}
+\abs{(\mu P_t)(\chi_A^*)-\pi(\chi_A^*)}
+\leq
+C_A\rho(t).
+\end{equation*}
+If~$f$ is supported on a finite set~$D$, write
+\begin{equation*}
+f=\sum_{A\subseteq D}b_A\chi_A^*.
+\end{equation*}
+Summing the preceding bounds with weights~$\abs{b_A}$ gives the claim with
+$C_f=\sum_{A\subseteq D}\abs{b_A}C_A$.
+\end{proof}
