@@ -144,22 +144,23 @@ class of spin systems in which neighbouring~$1$'s constrain updates and a simila
 %
 % Job:
 %   Explain the bridge from KCSMs to the class studied here:
-%     - in a standard KCSM, the neighbourhood controls whether/how often an
-%       update occurs while an allowed update uses a fixed Bernoulli refresh;
-%     - here the neighbourhood may affect the flip rate more generally;
-%     - the retained principle is that nonfacilitating surroundings act in the
-%       constraining direction.
+%     - every spin system can be parametrized by a neighbourhood-dependent
+%       update rate and Bernoulli refresh parameter;
+%     - in a standard KCSM, the refresh parameter is fixed while the update
+%       rate carries the kinetic constraint;
+%     - patch positivity is the additional restriction on this general local
+%       update rule.
 %
 % Leave model examples and the exact scope of the class to Blurb O.
 % ============================================================================
 
-We consider a broader class of spin systems motivated by this KCSM structure.
-In a KCSM, the neighbouring spins determine whether an update is allowed, while
-an allowed update uses a fixed Bernoulli refresh. We allow the neighbouring
-spins to affect the flip rate more generally, without requiring it to arise
-from a kinetic constraint followed by a fixed refresh. The condition defining
-the class arises from our graphical representation and is called \emph{patch
-positivity}.
+It is useful to describe a general spin system in a similar way. At each site,
+the neighbouring spins determine both the rate at which the site is updated
+and the Bernoulli parameter used for the new spin. Every spin system can be
+parametrized in this form. For a standard KCSM, the Bernoulli parameter is
+fixed, while the update rate is determined by the kinetic constraint. We
+identify a condition on these general local update rules, called \emph{patch
+positivity}, which retains part of the constraining structure of KCSMs.
 
 % ============================================================================
 % BLURB G. Dynamic interpretation of the new class
