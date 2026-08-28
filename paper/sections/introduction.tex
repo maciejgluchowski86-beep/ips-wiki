@@ -158,7 +158,11 @@ an allowed update uses a fixed Bernoulli refresh. We allow the neighbouring
 spins to affect the flip rate more generally, without requiring it to arise
 from a kinetic constraint followed by a fixed refresh. The condition defining
 the class arises from our graphical representation and is called \emph{patch
-positivity}.
+positivity}. {\color{red} Revise this paragraph in the current
+$\lambda_i,\rho_i$ language. The generalization is not merely that neighbours
+affect a flip rate: in a KCSM the neighbourhood controls the update rate while
+the refresh bias is fixed, whereas here both the update rate and the refresh
+bias may depend on the neighbourhood.}
 
 % ============================================================================
 % BLURB G. Dynamic interpretation of the new class
@@ -181,6 +185,11 @@ A useful way to think about patch positivity is that neighbouring~$1$'s continue
 to act as constraints even when the dynamics no longer has the KCSM form.
 Adding such neighbours should suppress, rather than enhance, local activity.
 Patch positivity is a quantitative version of this constraining behaviour.
+{\color{red} This is now too weak and incomplete. State the actual dynamical
+consequence from Section~5.3: more neighbouring~$0$'s increase the update
+frequency and bias the refresh toward~$0$; equivalently, more neighbouring~$1$'s
+suppress updates and bias the refresh toward~$1$. Make clear that this is a
+consequence of patch positivity, not an equivalent definition.}
 
 % ============================================================================
 % BLURB O. Examples and scope
@@ -204,7 +213,11 @@ least~$j$ neighbours are vacant, are not patch-positive. The framework also
 extends beyond KCSMs. BABP and the contact process are also patch-positive, although the latter is also monotone in the
 usual configuration order, where the standard monotone coupling gives stronger
 comparisons. Thus patch positivity picks out a rate structure shared by some
-KCSMs and by spin systems outside the KCSM class.
+KCSMs and by spin systems outside the KCSM class. {\color{red} Move this
+examples paragraph after the centered-moment monotonicity and sandwiching
+interpretation, so it does not interrupt the main conceptual payoff. Also avoid
+``cooperative'' here; simply say that FA-jf for~$j\geq2$ is not
+patch-positive.}
 
 % ============================================================================
 % BLURB I. Headline result: recovered monotonicity
@@ -224,7 +237,11 @@ The comparison principle takes the form of a new order on probability laws,
 which we call the \emph{centered-moment order}. Our main structural result is
 that the semigroup of every patch-positive spin system preserves this order for
 arbitrary initial laws. Thus a form of monotonicity lost at the configuration
-level reappears at the level of laws.
+level reappears at the level of laws. {\color{red} Strengthen the interpretation
+here using the classical monotonicity analogy: preservation of~$\preceq_*$
+gives the usual sandwiching argument at the level of laws. This is the concrete
+reason the reader should care, rather than only saying that monotonicity
+``reappears''.}
 
 % ============================================================================
 % BLURB J. What is the centered-moment order?
@@ -261,7 +278,11 @@ determined by its local rates. For each finite set of sites~$A$, consider
 For probability laws~$\mu$ and~$\nu$, we write~$\mu\preceq_*\nu$ when
 $\mu(\chi_A^*)\leq\nu(\chi_A^*)$ for every finite~$A$. In other words, the
 order compares all finite products of spins centered at this rate-determined
-reference profile.
+reference profile. {\color{red} Add the limitation of the monotonicity analogy
+here or immediately after the sandwiching statement: unlike configuration
+order,~$\preceq_*$ generally has no universal smallest and largest probability
+laws unless~$\mb p^\star=\mb 0$. This explains why the applications use chosen
+comparison laws, typically product measures.}
 
 % ============================================================================
 % BLURB K. Consequences
@@ -291,7 +312,13 @@ to a common invariant law for a broad class of initial laws. If the additional
 condition~$\mb p^\star\leq \mbs{\frac{1}{2}}$ holds, the invariant law is unique
 and convergence is exponential, uniformly over all initial configurations. The
 convergence argument does not assume reversibility and does not require the
-invariant law to be identified in advance.
+invariant law to be identified in advance. {\color{red} Reorganize this
+paragraph into three distinct consequences. First, centered-moment order
+compares different initial laws under the same dynamics and transfers
+convergence by sandwiching. Second, comparison after removing pure deaths is a
+separate comparison between two dynamics obtained from the patch
+representation. Third, uniform pure deaths give convergence to a common
+invariant law. The current first sentence conflates the first two mechanisms.}
 
 % ============================================================================
 % BLURB L. Signed duality and patches
@@ -318,7 +345,11 @@ sites on which the observable depends. Our graphical construction
 keeps only the events that pass this dependence between sites, recording when
 they occur and which sites they connect. These events divide spacetime into single-site regions which we call \emph{patches}. Once this coarser graphical structure
 is fixed, the remaining randomness separates between patches and can be
-averaged within each one. The resulting patch factorization captures cancellations in the dual representation of~$P_t\chi_A(\eta)$.
+averaged within each one. The resulting patch factorization captures cancellations in the dual representation of~$P_t\chi_A(\eta)$. {\color{red}
+Language cleanup here. ``Pass this dependence between sites'' is not natural;
+say that the recorded interactions are those at which dependence is transferred
+between sites. ``This coarser graphical structure'' can simply be ``this
+record''.}
 
 % ============================================================================
 % BLURB N. Patch positivity closes the loop
@@ -342,7 +373,13 @@ factors depending on the terminal spins; the patch threshold
 profile~$\mb p^\star$ introduced above is chosen so that these factors are
 compatible with the centered-moment order. We show that patch positivity is
 equivalent to an explicit local condition on the flip rates. The same condition
-implies preservation of the centered-moment order.
+implies preservation of the centered-moment order. {\color{red} ``Compatible
+with'' is vague. State instead that~$p_i^\star$ is the smallest reference value
+for which every end-patch contribution based at~$i$ is nonnegative. Also
+separate the two proof mechanisms: the patch representation gives the
+coefficient criterion and the threshold, while a separate generator
+calculation in the centered-monomial basis shows that the same coefficient
+criterion preserves the centered-moment order.}
 
 \paragraph{Relation to previous work.}
 Set-valued graphical constructions and additive dual processes go back to
