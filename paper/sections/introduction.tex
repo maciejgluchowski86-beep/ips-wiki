@@ -154,13 +154,15 @@ class of spin systems in which neighbouring~$1$'s constrain updates and a simila
 % Leave model examples and the exact scope of the class to Blurb O.
 % ============================================================================
 
-It is useful to describe a general spin system in a way similar to KCSMs. {\color{red} Reader should be told in more detail what the description is, they dont know what the update does. Introduce the refresh rate and Bernoulli parameter. } At each site,
-the neighbouring spins determine both the rate at which the site is updated
-and the Bernoulli parameter used for the new spin. Every spin system can be
-parametrized in this form. For a standard KCSM, the Bernoulli parameter is
-fixed, while the update rate is determined by the {\color{red} It IS the kinetic constraint!!} kinetic constraint. We
-identify a condition on these general local update rules, called \emph{patch
-positivity}, which retains part of the constraining structure of KCSMs.
+It is useful to describe a general spin system in a way similar to KCSMs. At
+site~$i$, the spin is refreshed at a rate~$\lambda_i$ determined by the
+neighbouring spins; when it is refreshed, its new value is~$1$ with
+probability~$\rho_i$ and~$0$ otherwise, where~$\rho_i$ may also depend on the
+neighbouring spins. Every spin system can be parametrized in this form. For a
+standard KCSM, the refresh parameter is fixed, and the refresh rate is the
+kinetic constraint. We identify a condition on these general local update
+rules, called \emph{patch positivity}, which retains part of the constraining
+structure of KCSMs.
 
 % ============================================================================
 % BLURB G. Dynamic interpretation of the new class
