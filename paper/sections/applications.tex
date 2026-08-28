@@ -90,6 +90,34 @@ so its patch threshold profile is~$\mb p^\star=\mb p$.
 %   General KCSM taxonomy and unnecessary combinatorics.
 % ============================================================================
 
+\subsection{FA-$j$f for~$j\geq2$}
+
+The analogous conclusion fails for the higher-order FA models. In FA-$j$f,
+a site is refreshed from the Bernoulli law with parameter~$p$ only when at
+least~$j$ neighbours are vacant. Thus~$\rho_i=p$, while, writing
+$m=\abs{N(i)}$,
+\begin{equation*}
+\lambda_i(\eta)
+=
+\ind\bb{\sum_{k\in N(i)}\bb{1-\eta(k)}\geq j}.
+\end{equation*}
+Suppose that~$2\leq j\leq m$, and let~$S\subseteq N(i)$ satisfy
+$\abs S=m-j+2$. By M\"obius inversion,
+\begin{equation*}
+\widehat{\lambda_i}(S)
+=
+\sum_{r=0}^{\abs S-2}
+(-1)^{\abs S-r}\binom{\abs S}{r}
+=
+\abs S-1
+>
+0.
+\end{equation*}
+This violates the first condition in
+\eqref{eq:principal-coefficient-criterion}. Hence FA-$j$f is not
+patch-positive for~$j\geq2$, even though its kinetic constraint is monotone
+with respect to vacancies.
+
 % ============================================================================
 % BLURB D. BABP as a non-KCSM patch-positive model
 %
