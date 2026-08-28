@@ -230,30 +230,96 @@ classical monotone coupling gives stronger comparisons than the centered-moment
 order considered here.
 
 % ============================================================================
-% BLURB E. Refresh noise and convergence
+% BLURB E. Perturbed FA-1f and BABP
 %
 % Reader question:
-%   What do the patch-positivity and convergence theorems give after adding
-%   unconstrained refreshes to FA-1f or BABP?
+%   What do the main results say after adding unconstrained refreshes to FA-1f
+%   or BABP?
 %
 % Job:
-%   Treat the two models together. Write the combined refresh parameters,
-%   check patch positivity and the unchanged threshold, then identify the
-%   uniform pure-death component supplied by the same noise and apply the
-%   common invariant-limit and uniform-ergodicity results.
+%   Explain why the perturbation is useful before introducing formulas. State
+%   patch positivity, convergence, comparison with mu_p, and uniform
+%   ergodicity first, then prove them from the refresh parametrization, the
+%   common invariant-limit theorem, and the pure-death comparison.
 % ============================================================================
 
-\subsection{Refresh noise and convergence}
+\subsection{Perturbed FA-1f and BABP}
 \label{subsec:fa-babp-consequences}
 
-Let~$\Lcal$ be either FA-1f or BABP with refresh parameter~$p$, and for
-$\varepsilon>0$ and~$\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$ set
+The FA-1f and BABP dynamics above can stop updating at a site when all of its
+neighbours are occupied. We now add an unconstrained Bernoulli refresh at every
+site. When the added refresh puts enough mass on state~$1$, patch positivity is
+preserved. If it also puts state~$0$ with a uniformly positive probability, the
+perturbed process has the pure-death component needed for the convergence
+results of Section~\ref{sec:main-results}. The same perturbation also gives a
+comparison between the limiting law and the Bernoulli product measure~$\mu_p$.
+
+Let~$\Lcal$ denote either FA-1f or BABP with refresh parameter~$p$. Assume that
+$N(i)\neq\vn$ for every~$i\in\Lambda$. For~$\varepsilon>0$ and
+$\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$, set
 \begin{equation*}
 \Lcal^{\varepsilon,\mb s}
 =
-\Lcal+\varepsilon\Ncal^{\mb s}.
+\Lcal+\varepsilon\Ncal^{\mb s},
 \end{equation*}
-At site~$i$, the combined dynamics have refresh rate and refresh parameter
+and write~$P_t^{\varepsilon,\mb s}$ for its semigroup.
+
+\begin{proposition}[Perturbed FA-1f and BABP]
+\label{prop:fa-babp-consequences}
+\leavevmode
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item The perturbed system is patch-positive if and only if
+$\mb s\geq\mb p$. In that case its patch threshold profile is
+$\mb p^\star=\mb p$, and the centered-moment order about~$p$ is preserved by
+$P_t^{\varepsilon,\mb s}$.
+
+\item Suppose that~$\mb s\geq\mb p$, that~$\Lambda$ has polynomial growth of
+exponent~$D$, and that
+\begin{equation*}
+\delta
+=
+\varepsilon\inf_{i\in\Lambda}\bb{1-s_i}
+>
+0.
+\end{equation*}
+Then there is an invariant probability measure~$\pi$ such that, for every
+local function~$f$, there is~$K_f<\infty$ satisfying
+\begin{equation*}
+\sup_{\mu\in\mathcal M_{-,K}}
+\abs{(\mu P_t^{\varepsilon,\mb s})(f)-\pi(f)}
+\leq
+\bb{1+2K}K_f(1+t)^D e^{-\delta t/2}
+\end{equation*}
+for every~$K\geq0$ and~$t\geq0$. Consequently,
+$\mu P_t^{\varepsilon,\mb s}\Rightarrow\pi$ for every~$\mu\in\mathcal M_-$.
+In particular, this includes every homogeneous product law~$\mu_u$ with
+$u\geq p^-:=\max\cb{2p-1,0}$ and every point mass on a configuration with
+finitely many sites in state~$0$.
+
+\item Under the assumptions of part~\textup{(ii)},
+\begin{equation*}
+p^{\abs A}
+\leq
+\pi(\chi_A)
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation*}
+If~$\mb s=\mb p$, then~$\pi=\mu_p$.
+
+\item Under the assumptions of part~\textup{(ii)}, if~$p\leq\frac12$, then
+$\pi$ is the unique invariant measure and
+\begin{equation*}
+\sup_{\eta\in\Omega}
+\abs{P_t^{\varepsilon,\mb s}f(\eta)-\pi(f)}
+\leq
+K_f(1+t)^D e^{-\delta t/2}
+\end{equation*}
+for every local function~$f$ and~$t\geq0$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+At site~$i$, the perturbed dynamics have refresh rate and refresh parameter
 \begin{equation*}
 \lambda_i^\varepsilon(\eta)=\lambda_i(\eta)+\varepsilon,
 \qquad
@@ -262,74 +328,102 @@ At site~$i$, the combined dynamics have refresh rate and refresh parameter
 \frac{p\lambda_i(\eta)+\varepsilon s_i}
 {\lambda_i(\eta)+\varepsilon}.
 \end{equation*}
-In particular,
+Thus
 \begin{equation*}
 \lambda_i^\varepsilon\rho_i^\varepsilon
 =
 p\lambda_i+\varepsilon s_i.
 \end{equation*}
-Hence, for every nonempty~$S\subseteq N(i)$,
+For every nonempty~$S\subseteq N(i)$,
 \begin{equation*}
 \widehat{\lambda_i^\varepsilon}(S)=\widehat{\lambda_i}(S),
 \qquad
 \widehat{\lambda_i^\varepsilon\rho_i^\varepsilon}(S)
 =
-p\widehat{\lambda_i}(S).
+p\widehat{\lambda_i}(S),
 \end{equation*}
-Since the nonzero nonconstant coefficients of~$\lambda_i$ are negative for
-both FA-1f and BABP, the second condition in
-\eqref{eq:principal-coefficient-criterion} is equivalent to
-$\rho_i^\varepsilon(\mb0)\geq p$, or equivalently~$s_i\geq p$. Thus the noisy
-system is patch-positive if and only if~$\mb s\geq\mb p$, and in that case its
-patch threshold profile is again~$\mb p^\star=\mb p$. For FA-1f, the case
-$\mb s=\mb p$ is the usual soft FA-1f perturbation, up to a deterministic
-rescaling of time.
-
-Write~$P_t^{\varepsilon,\mb s}$ for the semigroup of the noisy process. The
-same added refreshes give independent~$1\to0$ transitions at rate
-$\varepsilon(1-s_i)$ at site~$i$. Therefore, if
+and hence
 \begin{equation*}
-\delta
+\widehat{\lambda_i^\varepsilon
+\bb{\rho_i^\varepsilon-\rho_i^\varepsilon(\mb0)}}(S)
 =
-\varepsilon\inf_{i\in\Lambda}\bb{1-s_i}
->
-0,
+\bb{p-\rho_i^\varepsilon(\mb0)}\widehat{\lambda_i}(S).
 \end{equation*}
-the process has a uniform pure-death component of rate~$\delta$.
-
-\begin{proposition}[Noisy FA-1f and BABP]
-\label{prop:fa-babp-consequences}
-Assume that~$\mb s\geq\mb p$ and that~$\Lambda$ has polynomial growth of
-exponent~$D$. Then the centered-moment order about~$p$ is preserved by
-$P_t^{\varepsilon,\mb s}$. If moreover~$\delta>0$, the process has an invariant
-probability measure~$\pi$ and, for every~$K\geq0$ and every local function~$f$,
+The nonconstant coefficients of~$\lambda_i$ are nonpositive in both models,
+and at each site at least one is strictly negative. Therefore
+Theorem~\ref{thm:patch-positivity-order} shows that the perturbed system is
+patch-positive exactly when~$\rho_i^\varepsilon(\mb0)\geq p$ for every~$i$.
+Since
 \begin{equation*}
-\sup_{\mu\in\mathcal M_{-,K}}
-\abs{(\mu P_t^{\varepsilon,\mb s})(f)-\pi(f)}
-\leq
-\bb{1+2K}K_f(1+t)^D e^{-\delta t/2},
-\qquad t\geq0.
+\rho_i^\varepsilon(\mb0)
+=
+\frac{p\lambda_i(\mb0)+\varepsilon s_i}
+{\lambda_i(\mb0)+\varepsilon},
 \end{equation*}
-Here~$p^-=\max\cb{2p-1,0}$, so the covered initial laws include every~$\mu_u$
-with~$u\geq p^-$ and every point mass on a configuration with finitely many
-sites in state~$0$. If~$p\leq\frac12$, then~$\pi$ is the unique invariant
-measure and
+this is equivalent to~$s_i\geq p$. Whenever
+$\widehat{\lambda_i}(S)<0$,
 \begin{equation*}
-\sup_{\eta\in\Omega}
-\abs{P_t^{\varepsilon,\mb s}f(\eta)-\pi(f)}
-\leq
-K_f(1+t)^D e^{-\delta t/2}.
+\frac{\widehat{\lambda_i^\varepsilon\rho_i^\varepsilon}(S)}
+{\widehat{\lambda_i^\varepsilon}(S)}
+=p,
 \end{equation*}
-\end{proposition}
+so the patch threshold remains~$p$ at every site. The centered-moment
+comparison in part~\textup{(i)} now follows from the same theorem.
 
-\begin{proof}
-The patch-positivity calculation above and
-Theorem~\ref{thm:patch-positivity-order} give preservation of the
-centered-moment order. When~$\delta>0$, apply
-Theorem~\ref{thm:common-invariant-limit} to the pure-death component of
-rate~$\delta$, and Corollary~\ref{cor:uniform-ergodicity} when
-$p\leq\frac12$.
+For part~\textup{(ii)}, the added refresh at site~$i$ contains pure deaths at
+rate~$\varepsilon(1-s_i)$. Thus~$\delta>0$ gives a uniform pure-death
+component of rate~$\delta$, and
+Theorem~\ref{thm:common-invariant-limit} gives the stated invariant measure,
+estimate, and convergence from~$\mathcal M_-$. The two classes of initial laws
+listed in the statement are contained in~$\mathcal M_-$ by the discussion in
+Section~\ref{sec:main-results}.
+
+For part~\textup{(iii)}, set
+\begin{equation*}
+d_i=\varepsilon\frac{s_i-p}{p}\geq0
+\end{equation*}
+and define
+\begin{equation*}
+\widetilde\Lcal
+=
+\Lcal^{\varepsilon,\mb s}
++
+\sum_{i\in\Lambda}d_i\bb{E_{i,0}-I}.
+\end{equation*}
+A direct calculation gives
+\begin{equation*}
+\widetilde\Lcal
+=
+\Lcal
++
+\sum_{i\in\Lambda}
+\frac{\varepsilon s_i}{p}\bb{E_{i,p}-I}.
+\end{equation*}
+The added refreshes on the right have parameter~$p$, so the coefficient
+calculation from part~\textup{(i)} shows that~$\widetilde\Lcal$ is
+patch-positive with threshold~$p$. Moreover,~$\mu_p$ is invariant for
+$\widetilde\Lcal$. If~$\widetilde P_t$ denotes its semigroup,
+Corollary~\ref{cor:pure-death-comparison}, applied with initial law~$\mu_p$,
+gives
+\begin{equation*}
+p^{\abs A}
+=
+(\mu_p\widetilde P_t)(\chi_A)
+\leq
+(\mu_pP_t^{\varepsilon,\mb s})(\chi_A).
+\end{equation*}
+Since~$\mu_p\in\mathcal M_*$, part~\textup{(ii)} allows us to let~$t\to\infty$
+and obtain~$p^{\abs A}\leq\pi(\chi_A)$. If~$\mb s=\mb p$, then the original
+perturbed dynamics themselves preserve~$\mu_p$, so convergence from~$\mu_p$
+identifies~$\pi$ with~$\mu_p$.
+
+Finally, when~$p\leq\frac12$, the threshold profile satisfies
+$\mb p^\star\leq\mbs{\tfrac12}$. Part~\textup{(iv)} therefore follows from
+Corollary~\ref{cor:uniform-ergodicity}.
 \end{proof}
+
+For FA-1f, the choice~$\mb s=\mb p$ is the usual soft FA-1f perturbation, up
+to a deterministic rescaling of time.
 
 % ============================================================================
 % PREVIOUS VERSION, HIDDEN DURING SECTION REVISION
