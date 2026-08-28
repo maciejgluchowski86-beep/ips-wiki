@@ -134,34 +134,27 @@ still lead to a useful comparison principle, even though the process is not
 monotone in configuration order?
 
 % ============================================================================
-% BLURB F. What is being generalized from a KCSM?
+% BLURB F. Broader local dynamics
 %
 % Reader question:
-%   What feature of a standard KCSM are we keeping, and what freedom are we
-%   adding?
+%   What is being generalized beyond a standard KCSM?
 %
 % Job:
-%   Explain the bridge from KCSMs to the class studied here:
-%     - in a standard KCSM, the neighbourhood controls whether/how often an
-%       update occurs while an allowed update uses a fixed Bernoulli refresh;
-%     - here the neighbourhood may affect the flip rate more generally;
-%     - the retained principle is that nonfacilitating surroundings act in the
-%       constraining direction.
-%
-% Leave model examples and the exact scope of the class to Blurb O.
+%   Introduce the refresh description used in the paper. Given the neighbouring
+%   spins, a site updates at rate~$\lambda_i$, and the refreshed spin is~$1$
+%   with probability~$\rho_i$. In a standard KCSM only the update rate depends
+%   on the neighbourhood, while the refresh bias is fixed. Here both may depend
+%   on the neighbourhood. Name the subclass singled out below as patch-positive,
+%   but leave its dynamical interpretation to Blurb G.
 % ============================================================================
 
-We consider a broader class of spin systems motivated by this KCSM structure.
-In a KCSM, the neighbouring spins determine whether an update is allowed, while
-an allowed update uses a fixed Bernoulli refresh. We allow the neighbouring
-spins to affect the flip rate more generally, without requiring it to arise
-from a kinetic constraint followed by a fixed refresh. The condition defining
-the class arises from our graphical representation and is called \emph{patch
-positivity}. {\color{red} Revise this paragraph in the current
-$\lambda_i,\rho_i$ language. The generalization is not merely that neighbours
-affect a flip rate: in a KCSM the neighbourhood controls the update rate while
-the refresh bias is fixed, whereas here both the update rate and the refresh
-bias may depend on the neighbourhood.}
+We use an equivalent refresh description of the local dynamics. Given the
+neighbouring spins, site~$i$ updates at rate~$\lambda_i$, and when it updates
+the new spin is~$1$ with probability~$\rho_i$. For a standard KCSM,
+$\lambda_i$ is determined by the kinetic constraint while~$\rho_i$ is the
+fixed Bernoulli equilibrium density. We allow both~$\lambda_i$ and~$\rho_i$ to
+depend on the neighbouring configuration. Within this broader class, the
+systems singled out by our representation are called \emph{patch-positive}.
 
 % ============================================================================
 % BLURB G. Dynamic interpretation of the new class
