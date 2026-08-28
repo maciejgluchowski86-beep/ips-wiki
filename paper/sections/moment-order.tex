@@ -117,21 +117,52 @@ Theorem~\ref{thm:patch-positivity-order}.
 \subsection{Pure-death comparison}
 \label{subsec:pure-death-comparison}
 
-We prove Corollary~\ref{cor:pure-death-comparison} {\color{red} Would be useful to recall the relation between the generators and target inequality explicitly. Especially since here we dont see which process is the one with added deaths.}. Let~$\Lcal$ and~$\Lcal'$
-satisfy~\eqref{eq:pure-death-decomposition}. The additional pure-death term
-acts diagonally on monomials:
+Let~$\Lcal$ and~$\Lcal'$ satisfy
 \begin{equation*}
-\sum_{i\in\Lambda}d_i\bb{E_{i,0}-I}\chi_A
+\Lcal f(\eta)
 =
--\bb{\sum_{i\in A}d_i}\chi_A.
+\Lcal'f(\eta)
++
+\sum_{i\in\Lambda}d_i
+\bb{f\bb{\eta^{i,0}}-f(\eta)},
+\qquad d_i\geq0,
 \end{equation*}
-Thus~$\Lcal$ and~$\Lcal'$ have the same signed dual process {\color{red} Show this by comparing duality relations, the~$\mathcal{D}' =\mathcal{D}$}. If~$V_i$ and
-$V_i'$ are their one-site Feynman--Kac potentials, then
-$V_i=V_i'-d_i$. In particular, the two dual representations have the same
-successful-interaction skeleton, the same patch families~$\mathcal B_t$ and
-$\mathcal E_t$, and the same consistent patch laws. We write~$C,C'$ for the
-corresponding patch contributions. The patch representation gives, with the
-same expectation~$\E_A$ in both lines,
+as in Corollary~\ref{cor:pure-death-comparison}. Thus~$\Lcal$ has the additional
+pure deaths and~$\Lcal'$ is obtained by removing them. We prove that, for every
+$\mu\in\mathcal M_*$,
+\begin{equation*}
+(\mu P_t)(\chi_A)
+\leq
+(\mu P_t')(\chi_A).
+\end{equation*}
+
+Recall the duality function
+$H((A,\sigma),\eta)=\sigma\chi_A(\eta)$. The pure-death term acts diagonally:
+\begin{equation*}
+\sum_{i\in\Lambda}d_i\bb{E_{i,0}-I}H((A,\sigma),\eta)
+=
+-\bb{\sum_{i\in A}d_i}H((A,\sigma),\eta).
+\end{equation*}
+Hence, if
+\begin{equation*}
+\Lcal' H
+=
+\Dcal' H+V'(A)H,
+\end{equation*}
+is the signed-duality relation for~$\Lcal'$, then
+\begin{equation*}
+\Lcal H
+=
+\Dcal' H
++
+\bb{V'(A)-\sum_{i\in A}d_i}H.
+\end{equation*}
+Thus the two systems have the same signed dual generator,
+$\Dcal=\Dcal'$, while their one-site Feynman--Kac potentials satisfy
+$V_i=V_i'-d_i$. In particular, they have the same successful-interaction
+skeleton, the same patch families~$\mathcal B_t$ and~$\mathcal E_t$, and the
+same consistent patch laws. Write~$C,C'$ for their patch contributions. The
+patch representation gives, with the same expectation~$\E_A$ in both lines,
 \begin{align*}
 (\mu P_t)(\chi_A)
 &=
@@ -152,78 +183,66 @@ same expectation~$\E_A$ in both lines,
 }.
 \end{align*}
 
-We first compare the local contributions. On a realization of a consistent
-patch based at~$i$, the local Feynman--Kac factor for~$\Lcal$ is the
-corresponding factor for~$\Lcal'$ multiplied by
-\begin{equation*}
-\exp\bb{-d_i\int X_u^P\,du}\leq1.
-\end{equation*}
-{\color{red} I dont think its very useful to the reader to give a hand wavy the proof of inequalities by describing steps. Rather i think for this corollary it suffices to say that we have explicit formulas in the appendix. }Patch positivity implies~$\widehat{\lambda_i}(S)\leq0$ for every nonempty
-$S$, so every dual birth has positive sign. Hence a negative local sign can
-only come from an initial split. Such a split removes the source from the
-active set immediately, so~$X_u^P=0$ afterwards and the factor above equals
-one. On every other local realization the signed factor is nonnegative and the
-additional pure-death tilt can only decrease it. Taking expectations under the
-common consistent patch law therefore gives
+The explicit formulas in
+Appendix~\ref{app:contribution-formulas}, together with
+$V_i=V_i'-d_i$ and the patch-positivity inequality
+$-\widehat{\lambda_i}(S)\geq0$ for~$S\neq\vn$, give
 \begin{equation*}
 0\leq C(P)\leq C'(P),
 \qquad
 C(z,P)\leq C'(z,P)
 \quad\text{for }z\in[0,1].
 \end{equation*}
-In particular,~$\Lcal'$ is patch-positive. Moreover,
+Thus~$\Lcal'$ is patch-positive. Moreover,
 \eqref{eq:pure-death-decomposition} gives
 $\lambda_i=\lambda_i'+d_i$ and
-$\lambda_i\rho_i=\lambda_i'\rho_i'$. Hence all nonempty M\"obius
-coefficients appearing in~\eqref{eq:principal-threshold-profile} are unchanged,
-so~$\Lcal'$ has the same threshold profile~$\mb p^\star$.
+$\lambda_i\rho_i=\lambda_i'\rho_i'$. Hence the nonempty M\"obius coefficients
+in~\eqref{eq:principal-threshold-profile} are the same for the two systems, so
+they have the same patch threshold profile~$\mb p^\star$.
 
-For an end patch~$P$ based at~$i$, write
+For an end patch~$P$ based at~$i$, set
 $\kappa(P)=\partial_zC(z,P)$ and
-$\kappa'(P)=\partial_zC'(z,P)$. The derivative of the local terminal factor
-vanishes unless~$X_t^P=1$ {\color{red} Too vague, would confuse reader}. On that event the local sign is positive, so the
-same Feynman--Kac comparison gives
+$\kappa'(P)=\partial_zC'(z,P)$. The same formulas give
 \begin{equation*}
 0\leq\kappa(P)\leq\kappa'(P),
 \qquad
 0\leq C\bb{p_i^\star,P}
 \leq C'\bb{p_i^\star,P}.
 \end{equation*}
-Using affinity in the terminal spin,
+Since~$C(z,P)$ is affine in~$z$,
 \begin{equation*}
 C\bb{\eta(i),P}
 =
 C\bb{p_i^\star,P}
 +
-\kappa(P)\bb{\eta(i)-p_i^\star},
+\kappa(P)\bb{\eta(i)-p_i^\star}.
 \end{equation*}
-and the same identity holds with primes. Since distinct end patches are based
-at distinct sites, expansion of the two terminal products gives
-\begin{align*}
+Distinct end patches are based at distinct sites, so
+\begin{equation*}
 \mu\bb{
 \prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
 }
-&=
+=
 \sum_{\mathcal Q\subseteq\mathcal E_t}
 \mu\bb{\chi_{\cb{i(P):P\in\mathcal Q}}^*}
 \prod_{P\in\mathcal Q}\kappa(P)
 \prod_{P\in\mathcal E_t\setminus\mathcal Q}
-C\bb{p_{i(P)}^\star,P},
-\\
+C\bb{p_{i(P)}^\star,P}.
+\end{equation*}
+The same expansion holds with~$C$ and~$\kappa$ replaced by~$C'$ and~$\kappa'$.
+If~$\mu\in\mathcal M_*$, every centered moment in the sum is nonnegative, and
+the coefficient inequalities above therefore imply
+\begin{equation*}
+\mu\bb{
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+\leq
 \mu\bb{
 \prod_{P\in\mathcal E_t}C'\bb{\eta\bb{i(P)},P}
-}
-&=
-\sum_{\mathcal Q\subseteq\mathcal E_t}
-\mu\bb{\chi_{\cb{i(P):P\in\mathcal Q}}^*}
-\prod_{P\in\mathcal Q}\kappa'(P)
-\prod_{P\in\mathcal E_t\setminus\mathcal Q}
-C'\bb{p_{i(P)}^\star,P}.
-\end{align*}
-If~$\mu\in\mathcal M_*$, every centered moment in these sums is nonnegative,
-so the first terminal expectation is no larger than the second. Together with
-$0\leq C(P)\leq C'(P)$ for the bulk patches, the two patch representations
-above give
+}.
+\end{equation*}
+Together with~$0\leq C(P)\leq C'(P)$ for the bulk patches, the two patch
+representations give
 \begin{equation*}
 (\mu P_t)(\chi_A)
 \leq
