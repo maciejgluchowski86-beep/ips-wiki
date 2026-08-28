@@ -230,45 +230,106 @@ classical monotone coupling gives stronger comparisons than the centered-moment
 order considered here.
 
 % ============================================================================
-% BLURB E. Adding refresh noise
+% BLURB E. Refresh noise and convergence
 %
 % Reader question:
-%   How does the general refresh parametrization simplify the noisy examples?
+%   What do the patch-positivity and convergence theorems give after adding
+%   unconstrained refreshes to FA-1f or BABP?
 %
 % Job:
-%   Treat FA-1f and BABP together. For a base model with rho_i=p, add
-%   epsilon N^{s}. Write the combined update rule directly:
-%       lambda_i^epsilon = lambda_i + epsilon,
-%       rho_i^epsilon = (lambda_i p + epsilon s_i)/(lambda_i+epsilon).
-%   Use the coefficient criterion once, rather than repeating two flip-rate
-%   calculations, to determine when the noisy system is patch-positive and to
-%   show that the threshold remains p. Note the soft-FA equality case where
-%   useful.
-%
-% Keep out:
-%   Convergence estimates; those belong in the final blurb.
+%   Treat the two models together. Write the combined refresh parameters,
+%   check patch positivity and the unchanged threshold, then identify the
+%   uniform pure-death component supplied by the same noise and apply the
+%   common invariant-limit and uniform-ergodicity results.
 % ============================================================================
 
-% ============================================================================
-% BLURB F. Concrete convergence and ergodicity consequence
-%
-% Reader question:
-%   What does the common invariant-limit theorem say for these noisy models?
-%
-% Job:
-%   Apply the general theorem to the noisy FA-1f/BABP family from Blurb E.
-%   Identify the uniform pure-death rate
-%       delta = epsilon inf_i (1-s_i),
-%   state the common invariant-limit estimate for the covered initial laws,
-%   and state uniform exponential ergodicity when p<=1/2. Keep the statement
-%   visibly tied to the two main outputs of the paper: centered-moment
-%   comparison and convergence under a uniform pure-death component.
-%
-% Closing role:
-%   End with one short sentence summarizing the calibration: patch positivity
-%   covers a non-monotone KCSM and related non-KCSM dynamics, excludes some
-%   higher-order constraints, and gives concrete comparison/ergodic results.
-% ============================================================================
+\subsection{Refresh noise and convergence}
+\label{subsec:fa-babp-consequences}
+
+Let~$\Lcal$ be either FA-1f or BABP with refresh parameter~$p$, and for
+$\varepsilon>0$ and~$\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$ set
+\begin{equation*}
+\Lcal^{\varepsilon,\mb s}
+=
+\Lcal+\varepsilon\Ncal^{\mb s}.
+\end{equation*}
+At site~$i$, the combined dynamics have refresh rate and refresh parameter
+\begin{equation*}
+\lambda_i^\varepsilon(\eta)=\lambda_i(\eta)+\varepsilon,
+\qquad
+\rho_i^\varepsilon(\eta)
+=
+\frac{p\lambda_i(\eta)+\varepsilon s_i}
+{\lambda_i(\eta)+\varepsilon}.
+\end{equation*}
+In particular,
+\begin{equation*}
+\lambda_i^\varepsilon\rho_i^\varepsilon
+=
+p\lambda_i+\varepsilon s_i.
+\end{equation*}
+Hence, for every nonempty~$S\subseteq N(i)$,
+\begin{equation*}
+\widehat{\lambda_i^\varepsilon}(S)=\widehat{\lambda_i}(S),
+\qquad
+\widehat{\lambda_i^\varepsilon\rho_i^\varepsilon}(S)
+=
+p\widehat{\lambda_i}(S).
+\end{equation*}
+Since the nonzero nonconstant coefficients of~$\lambda_i$ are negative for
+both FA-1f and BABP, the second condition in
+\eqref{eq:principal-coefficient-criterion} is equivalent to
+$\rho_i^\varepsilon(\mb0)\geq p$, or equivalently~$s_i\geq p$. Thus the noisy
+system is patch-positive if and only if~$\mb s\geq\mb p$, and in that case its
+patch threshold profile is again~$\mb p^\star=\mb p$. For FA-1f, the case
+$\mb s=\mb p$ is the usual soft FA-1f perturbation, up to a deterministic
+rescaling of time.
+
+Write~$P_t^{\varepsilon,\mb s}$ for the semigroup of the noisy process. The
+same added refreshes give independent~$1\to0$ transitions at rate
+$\varepsilon(1-s_i)$ at site~$i$. Therefore, if
+\begin{equation*}
+\delta
+=
+\varepsilon\inf_{i\in\Lambda}\bb{1-s_i}
+>
+0,
+\end{equation*}
+the process has a uniform pure-death component of rate~$\delta$.
+
+\begin{proposition}[Noisy FA-1f and BABP]
+\label{prop:fa-babp-consequences}
+Assume that~$\mb s\geq\mb p$ and that~$\Lambda$ has polynomial growth of
+exponent~$D$. Then the centered-moment order about~$p$ is preserved by
+$P_t^{\varepsilon,\mb s}$. If moreover~$\delta>0$, the process has an invariant
+probability measure~$\pi$ and, for every~$K\geq0$ and every local function~$f$,
+\begin{equation*}
+\sup_{\mu\in\mathcal M_{-,K}}
+\abs{(\mu P_t^{\varepsilon,\mb s})(f)-\pi(f)}
+\leq
+\bb{1+2K}K_f(1+t)^D e^{-\delta t/2},
+\qquad t\geq0.
+\end{equation*}
+Here~$p^-=\max\cb{2p-1,0}$, so the covered initial laws include every~$\mu_u$
+with~$u\geq p^-$ and every point mass on a configuration with finitely many
+sites in state~$0$. If~$p\leq\frac12$, then~$\pi$ is the unique invariant
+measure and
+\begin{equation*}
+\sup_{\eta\in\Omega}
+\abs{P_t^{\varepsilon,\mb s}f(\eta)-\pi(f)}
+\leq
+K_f(1+t)^D e^{-\delta t/2}.
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+The patch-positivity calculation above and
+Theorem~\ref{thm:patch-positivity-order} give preservation of the
+centered-moment order. When~$\delta>0$, apply
+Theorem~\ref{thm:common-invariant-limit} to the pure-death component of
+rate~$\delta$, and Corollary~\ref{cor:uniform-ergodicity} when
+$p\leq\frac12$.
+\end{proof}
 
 % ============================================================================
 % PREVIOUS VERSION, HIDDEN DURING SECTION REVISION
