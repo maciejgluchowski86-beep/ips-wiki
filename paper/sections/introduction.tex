@@ -181,10 +181,16 @@ structure of KCSMs.
 %   presented as an equivalent definition.
 % ============================================================================
 
-A useful way to think about patch positivity is that neighbouring~$1$'s continue
-to act as constraints even when the dynamics no longer has the KCSM form.
-Adding such neighbours should suppress, rather than enhance, local activity.
-Patch positivity is a quantitative version of this constraining behaviour.
+A useful way to think about patch positivity is that neighbouring spins bias
+the local dynamics toward themselves, but asymmetrically. Adding
+neighbouring~$1$'s makes refreshes less frequent and, when they occur, more
+likely to produce a~$1$. Conversely, neighbouring~$0$'s make refreshes more
+frequent and bias them toward~$0$. Thus both spins favour their own value,
+while~$0$'s facilitate activity and~$1$'s constrain it. This asymmetry destroys
+the usual monotonicity in configuration order: the configuration with more
+vacancies may update while the larger configuration does not. These
+monotonicities are only consequences of patch positivity. The full condition is
+stronger and also controls higher-order effects of the neighbouring spins.
 
 % ============================================================================
 % BLURB O. Examples and scope
