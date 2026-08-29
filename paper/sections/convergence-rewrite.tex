@@ -242,26 +242,189 @@ For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
 \subsection{Completion of the proof}
 \label{subsec:convergence-completion}
 
-% ============================================================================
-% PROOF OF THE COMMON INVARIANT LIMIT
-%
-% Job:
-%   1. Write the difference E_A[W_t^mu]-E_A[W] as the three contributions
-%      corresponding exactly to the estimates above.
-%   2. Obtain
-%        2 rho_A(T,R) + 2 exp(-epsilon T)
-%        + (1+|R|) exp(-epsilon(t-T)).
-%   3. Take R = B(A,ceil(vT)) and T=t/2 and derive the stated quantitative
-%      convergence on M_*.
-%   4. Construct the invariant measure pi and identify its monomial moments.
-%   5. Use eq:m-minus-reduction to extend the estimate to M_{-,K}.
-%   6. Give the consequence for configurations with finitely many zeros, using
-%      current rho_i(0) notation.
-%   7. Prove the p^star <= 1/2 uniform-ergodicity corollary.
-%
-% Keep this before the proofs of the auxiliary estimates so the reader sees why
-% the three lemmas prove the theorem before entering their details.
-% ============================================================================
+\begin{proof}[Proof of Theorem~\ref{thm:common-invariant-limit}]
+Fix~$A\Subset\Lambda$,~$\mu\in\mathcal M_*$,~$0\leq T<t$, and a finite
+$R\supseteq A$. Since
+\begin{equation*}
+1
+=
+\ind\bb{L_{T,t}^c}
++
+\ind\bb{E_T^R\cap L_{T,t}}
++
+\ind\bb{(E_T^R)^c\cap L_{T,t}},
+\end{equation*}
+and the analogous identity holds with~$L_T$ in place of~$L_{T,t}$, the patch
+representation gives
+\begin{align*}
+(\mu P_t)(\chi_A)-\E_A\Cb{W}
+={}&
+\E_A\Cb{W_t^\mu\ind\bb{L_{T,t}^c}}
+-
+\E_A\Cb{W\ind\bb{L_T^c}}
+\\
+&+
+\E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}}}
+-
+\E_A\Cb{W\ind\bb{E_T^R\cap L_T}}
+\\
+&+
+\E_A\Cb{W_t^\mu\ind\bb{(E_T^R)^c\cap L_{T,t}}}
+-
+\E_A\Cb{W\ind\bb{(E_T^R)^c\cap L_T}}.
+\end{align*}
+Lemmas~\ref{lem:late-interactions}, \ref{lem:no-late-relaxation}, and
+\ref{lem:spatial-confinement}, in this order, imply
+\begin{equation}
+\label{eq:three-term-convergence-bound}
+\abs{(\mu P_t)(\chi_A)-\E_A\Cb{W}}
+\leq
+2e^{-\varepsilon T}
++
+\bb{1+\abs R}e^{-\varepsilon\bb{t-T}}
++
+2\rho_A(T,R).
+\end{equation}
+
+Apply Lemma~\ref{lem:finite-propagation} with~$a=\varepsilon$. There are
+$v<\infty$ and~$C_A<\infty$ such that, for
+\begin{equation*}
+R_T=B\bb{A,\lceil vT\rceil},
+\end{equation*}
+we have
+\begin{equation*}
+\rho_A(T,R_T)\leq C_Ae^{-\varepsilon T}.
+\end{equation*}
+Polynomial growth gives, after increasing~$C_A$ if necessary,
+\begin{equation*}
+\abs{R_T}\leq C_A(1+T)^D.
+\end{equation*}
+Taking~$T=t/2$ in~\eqref{eq:three-term-convergence-bound} therefore yields
+\begin{equation}
+\label{eq:m-star-monomial-convergence}
+\sup_{\mu\in\mathcal M_*}
+\abs{
+(\mu P_t)(\chi_A)
+-
+\E_A\Cb{W}
+}
+\leq
+K_A(1+t)^D e^{-\varepsilon t/2}
+\end{equation}
+for some~$K_A<\infty$.
+
+We now identify these limits with a probability measure. Since
+$\mu_{\mb 1}\in\mathcal M_*$ and~$\Omega$ is compact,
+$\mu_{\mb 1}P_t$ has a weakly convergent subsequence. Let~$\pi$ be one such
+subsequential limit. Equation~\eqref{eq:m-star-monomial-convergence} gives
+\begin{equation}
+\label{eq:pi-patch-moments}
+\pi(\chi_A)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal P}C(P)
+\ind\bb{\abs{\mathcal P}<\infty}
+}
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation}
+The monomials determine every cylinder function, so every subsequential limit
+has the same finite-dimensional marginals. Hence
+$\mu_{\mb 1}P_t\Rightarrow\pi$ as~$t\to\infty$.
+
+The measure~$\pi$ is invariant. Indeed, if~$g$ is local and~$s\geq0$, the
+Feller property gives
+\begin{equation*}
+(\pi P_s)(g)
+=
+\lim_{t\to\infty}(\mu_{\mb 1}P_t)(P_sg)
+=
+\lim_{t\to\infty}(\mu_{\mb 1}P_{t+s})(g)
+=
+\pi(g).
+\end{equation*}
+Thus~$\pi P_s$ and~$\pi$ agree on all local functions and therefore are equal.
+
+Every local function is a finite linear combination of monomials. Hence
+\eqref{eq:m-star-monomial-convergence} and~\eqref{eq:pi-patch-moments} give, for
+every local~$f$,
+\begin{equation}
+\label{eq:m-star-local-convergence}
+\sup_{\mu\in\mathcal M_*}
+\abs{(\mu P_t)(f)-\pi(f)}
+\leq
+K_f(1+t)^D e^{-\varepsilon t/2}
+\end{equation}
+for some~$K_f<\infty$. Applying~\eqref{eq:m-minus-reduction} with
+$B_f(t)=K_f(1+t)^D e^{-\varepsilon t/2}$ proves
+\eqref{eq:uniform-m-minus-convergence}. Since
+$\mathcal M_-=\bigcup_{K\geq0}\mathcal M_{-,K}$, it also gives
+$\mu P_t\Rightarrow\pi$ for every~$\mu\in\mathcal M_-$. Finally,
+\eqref{eq:pi-patch-moments} is exactly
+\eqref{eq:full-patch-limit-moments}.
+\end{proof}
+
+We also verify the claim following Theorem~\ref{thm:common-invariant-limit}
+that every configuration with finitely many zeros gives an initial law in
+$\mathcal M_-$. The pure-death assumption gives
+\begin{equation*}
+\lambda_i(\mb 0)\bb{1-\rho_i(\mb 0)}\geq\varepsilon,
+\end{equation*}
+so~$\rho_i(\mb 0)<1$. Since~$p_i^\star\leq\rho_i(\mb 0)$, we have
+$p_i^\star<1$ for every~$i$. Let~$\eta$ have finite zero set
+\begin{equation*}
+F=\cb{i:\eta(i)=0}.
+\end{equation*}
+For every finite~$A$,
+\begin{equation*}
+\frac{
+\abs{\delta_\eta(\chi_A^*)}
+}{
+\mu_{\mb 1}(\chi_A^*)
+}
+=
+\prod_{i\in A\cap F}
+\frac{p_i^\star}{1-p_i^\star}.
+\end{equation*}
+Consequently,
+\begin{equation*}
+K
+\geq
+\prod_{i\in F}
+\max\cb{1,\frac{p_i^\star}{1-p_i^\star}}
+\end{equation*}
+ensures
+\begin{equation*}
+\delta_\eta(\chi_A^*)
++K\mu_{\mb 1}(\chi_A^*)
+\geq0
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation*}
+Thus~$\delta_\eta\in\mathcal M_{-,K}\subseteq\mathcal M_-$.
+
+\begin{proof}[Proof of Corollary~\ref{cor:uniform-ergodicity}]
+Suppose~$\mb p^\star\leq\mbs{\tfrac12}$. For every configuration~$\eta$ and
+finite~$A$,
+\begin{equation*}
+\chi_A^*(\eta)
+\geq
+-\prod_{i\in A}\bb{1-p_i^\star}
+=
+-\mu_{\mb 1}(\chi_A^*),
+\end{equation*}
+because~$p_i^\star\leq1-p_i^\star$ at every site. Hence, for every probability
+measure~$\mu$,
+\begin{equation*}
+\frac{\mu+\mu_{\mb 1}}2\bb{\chi_A^*}\geq0
+\qquad
+\text{for every }A\Subset\Lambda,
+\end{equation*}
+so~$\mu\in\mathcal M_{-,1}$. Theorem~\ref{thm:common-invariant-limit} therefore
+gives the uniform bound~\eqref{eq:uniform-pointwise-convergence}, after
+absorbing the fixed factor~$3$ into~$K_f$. In particular, every initial law
+converges to~$\pi$, so~$\pi$ is the unique invariant measure.
+\end{proof}
 
 \subsection{Proofs of the estimates}
 \label{subsec:convergence-estimate-proofs}
