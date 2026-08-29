@@ -1,0 +1,163 @@
+\section{Proof of the convergence theorem}
+\label{sec:convergence}
+
+% The previous version of this section is preserved verbatim in
+% paper/sections/convergence.tex while the section is rewritten.
+
+% ============================================================================
+% ORIENTATION AND PROOF STRATEGY
+%
+% Reader question:
+%   Why should the finite-time patch representation forget the initial law as
+%   t becomes large, and what are the possible obstructions after cutting the
+%   graphical history at an intermediate time T?
+%
+% Job:
+%   1. Fix A and define the finite-horizon patch weight W_t^mu and the candidate
+%      limiting weight W. Explain that the first task is to prove
+%           E_A[W_t^mu] -> E_A[W]
+%      uniformly for mu in M_*.
+%   2. Introduce the system obtained by removing the uniform pure deaths. Its
+%      patch weights give the positive integrable comparison used throughout.
+%      State the comparison lemma here, before the three errors.
+%   3. Introduce a cut time 0 <= T < t and a finite region R. Explain that the
+%      difference between the finite and limiting weights is divided according
+%      to three possibilities:
+%         (a) the relevant graphical history leaves R before T;
+%         (b) a successful interaction occurs after T;
+%         (c) there is no successful interaction after T, but the end patches
+%             still depend on the terminal spins at time t.
+%   4. Say in one sentence how each term is controlled. This is the conceptual
+%      overview; do not yet prove the estimates or introduce technical appendix
+%      notation.
+%
+% Keep out:
+%   Finite-volume generator calculations, continuation normalizers, phi/psi
+%   formulas, detailed centered expansions, and finite-propagation proofs.
+% ============================================================================
+
+\subsection{Three estimates}
+\label{subsec:convergence-three-estimates}
+
+% ============================================================================
+% SUPPORTING LEMMA. COMPARISON AFTER REMOVING PURE DEATHS
+%
+% Role in the proof:
+%   This is a common tool for the three estimates, not one of the three errors.
+%
+% Reuse from the previous version:
+%   - decomposition L = L^epsilon + epsilon N^0;
+%   - definitions of W_t^mu, W_t^{epsilon,mu}, W, W^epsilon;
+%   - nonnegative-weight comparison and integrability;
+%   - exact factor exp(-epsilon(e(P)-s(P))) for a patch ending in an outgoing
+%     interaction.
+%
+% Presentation:
+%   Explain why the death-removed system is introduced before stating the
+%   lemma. Use current lambda/rho notation only.
+% ============================================================================
+
+% ============================================================================
+% ESTIMATE 1. SPATIAL CONFINEMENT
+%
+% Reader question:
+%   How much contribution can come from histories that travel far from A before
+%   the cut time T?
+%
+% Job:
+%   Define Cone_T, E_T^R, and rho_A(T,R). State the spatial-confinement estimate
+%   for both W_t^mu and W. Explain in ordinary IPS language that the confined
+%   contribution is identified with the zero-boundary finite-volume dynamics,
+%   and finite propagation makes rho_A(T,R) small when R grows linearly with T.
+%
+% Appendix:
+%   The confined-interaction identity and finite-propagation proof remain in the
+%   technical appendix.
+% ============================================================================
+
+% ============================================================================
+% ESTIMATE 2. A SUCCESSFUL INTERACTION AFTER T
+%
+% Reader question:
+%   Why are histories with a successful interaction after T exponentially
+%   suppressed by the uniform pure deaths?
+%
+% Job:
+%   Define L_{T,t} and L_T. Introduce the ancestry of the first successful
+%   interaction after T. The geometric fact needed is that its predecessor
+%   patches ending in outgoing interactions form a chain from time 0 to the
+%   interaction time, so their lifetimes add to u > T. State this ancestry fact
+%   as a supporting lemma or short lemma immediately before the late-interaction
+%   estimate. Then use the exact death factor along the chain to obtain
+%   exp(-epsilon T).
+%
+% Hierarchy:
+%   The ancestry lemma supports the late-interaction estimate; do not present it
+%   as a fourth error of equal status.
+% ============================================================================
+
+% ============================================================================
+% ESTIMATE 3. RELAXATION AFTER THE LAST INTERACTION
+%
+% Reader question:
+%   If no successful interaction occurs after T, why does the remaining
+%   dependence on the initial law disappear as t-T grows?
+%
+% Job:
+%   On L_{T,t}, the patch structure is fixed after T and only the end patches
+%   continue. State directly that the nonconstant part of each affine end
+%   contribution decays exponentially under the empty-neighbour refresh
+%   dynamics. On E_T^R there are at most |R| end patches. State the resulting
+%   bound
+%       (1+|R|) exp(-epsilon(t-T)).
+%
+% Appendix:
+%   Exact continuation identities, consistency normalizers, and explicit
+%   boundary-type calculations belong in the appendix. Keep only enough
+%   calculation here to make the exponential relaxation transparent.
+% ============================================================================
+
+\subsection{Completion of the proof}
+\label{subsec:convergence-completion}
+
+% ============================================================================
+% PROOF OF THE COMMON INVARIANT LIMIT
+%
+% Job:
+%   1. Write the difference E_A[W_t^mu]-E_A[W] as the three contributions
+%      corresponding exactly to the estimates above.
+%   2. Obtain
+%        2 rho_A(T,R) + 2 exp(-epsilon T)
+%        + (1+|R|) exp(-epsilon(t-T)).
+%   3. Take R = B(A,ceil(vT)) and T=t/2 and derive the stated quantitative
+%      convergence on M_*.
+%   4. Construct the invariant measure pi and identify its monomial moments.
+%   5. Extend from M_* to M_{-,K} by the affine decomposition with mu_1.
+%   6. Give the consequence for configurations with finitely many zeros, using
+%      current rho_i(0) notation.
+%   7. Prove the p^star <= 1/2 uniform-ergodicity corollary.
+%
+% Keep this before the proofs of the auxiliary estimates so the reader sees why
+% the three lemmas prove the theorem before entering their details.
+% ============================================================================
+
+\subsection{Proofs of the estimates}
+\label{subsec:convergence-estimate-proofs}
+
+% ============================================================================
+% PROOF ORDER
+%
+%   1. comparison after removing pure deaths;
+%   2. spatial confinement, citing the confined-interaction identity;
+%   3. ancestry lemma for a late successful interaction;
+%   4. late-interaction estimate;
+%   5. relaxation after the last interaction, citing the continuation formulas.
+%
+% Main-text / appendix rule:
+%   Keep the mathematical mechanism in this section. Leave technical graphical
+%   identities, explicit patch-boundary formulas, zero-boundary generator
+%   calculations, and finite-propagation estimates in the appendix.
+%
+% Do not restore the old closing discussion about cancellations outside M_-;
+% that point now belongs in Section~\ref{sec:discussion}.
+% ============================================================================
