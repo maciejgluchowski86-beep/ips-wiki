@@ -63,6 +63,33 @@ three estimates precise and then combine them with~$T=t/2$.
 \subsection{Three estimates}
 \label{subsec:convergence-three-estimates}
 
+The estimates below use the nonnegativity of the patch contributions and are
+therefore proved for initial laws in~$\mathcal M_*$. This is enough for the
+larger class in Theorem~\ref{thm:common-invariant-limit}. Indeed, for
+$\mu\in\mathcal M_{-,K}$, set
+\begin{equation*}
+\overline\mu
+=
+\frac{\mu+K\mu_{\mb 1}}{1+K}
+\in\mathcal M_*.
+\end{equation*}
+Then~$\mu=(1+K)\overline\mu-K\mu_{\mb 1}$, and~$\mu_{\mb 1}\in\mathcal M_*$. Hence any bound
+\begin{equation*}
+\sup_{\nu\in\mathcal M_*}
+\abs{(\nu P_t)(f)-\ell(f)}
+\leq B_f(t)
+\end{equation*}
+implies
+\begin{equation}
+\label{eq:m-minus-reduction}
+\sup_{\mu\in\mathcal M_{-,K}}
+\abs{(\mu P_t)(f)-\ell(f)}
+\leq
+(1+2K)B_f(t).
+\end{equation}
+It therefore suffices to prove the convergence estimate uniformly on
+$\mathcal M_*$.
+
 Write the pure-death decomposition as
 \begin{equation}
 \label{eq:uniform-death-decomposition}
@@ -227,7 +254,7 @@ For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
 %   3. Take R = B(A,ceil(vT)) and T=t/2 and derive the stated quantitative
 %      convergence on M_*.
 %   4. Construct the invariant measure pi and identify its monomial moments.
-%   5. Extend from M_* to M_{-,K} by the affine decomposition with mu_1.
+%   5. Use eq:m-minus-reduction to extend the estimate to M_{-,K}.
 %   6. Give the consequence for configurations with finitely many zeros, using
 %      current rho_i(0) notation.
 %   7. Prove the p^star <= 1/2 uniform-ergodicity corollary.
