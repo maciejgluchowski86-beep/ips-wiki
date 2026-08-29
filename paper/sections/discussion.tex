@@ -1,125 +1,23 @@
 \section{Discussion}
 \label{sec:discussion}
 
-% Previous version preserved in
-% paper/revision-reference/section-discussion.tex.
+The main role of patch positivity is to recover a useful order at the level of
+probability laws even when the underlying dynamics has no monotone coupling.
+The patch representation itself is more general: it remains valid without
+patch positivity and captures some, but not all cancellations in the dual
+representation. This suggests that the representation may still be useful
+beyond the patch-positive class, provided the resulting cancellations can be
+controlled by other means.
 
-% ============================================================================
-% BLURB A. What patch positivity is measuring
-%
-% Reader question:
-%   After seeing the coefficient criterion and the examples, how should one
-%   understand patch positivity as a condition on the local dynamics?
-%
-% Job:
-%   Interpret the condition rather than restate Theorem~B. Ordinary
-%   monotonicity of a constraint only compares two neighbourhood
-%   configurations. Patch positivity imposes sign conditions on all mixed
-%   effects of several neighbouring spins through the Moebius coefficients.
-%   Explain that this is why FA-1f can satisfy the condition while higher-order
-%   FA constraints can fail it despite having monotone constraints.
-%
-%   Make clear that the pointwise monotonicities of lambda_i and rho_i discussed
-%   earlier are consequences of patch positivity, not equivalent definitions.
-%   The reader should leave with a conceptual description of what extra
-%   structure the coefficient criterion is imposing.
-%
-% Keep out:
-%   The explicit criterion, the threshold formula, another calculation for the
-%   examples, or another statement of centered-moment order preservation.
-% ============================================================================
-
-Patch positivity places a stronger condition on the dependence of the local
-update rule on neighbouring spins than ordinary monotonicity {\color{red} this is just wrong, patch positivity is neither stronger nor weaker than monotonicity, it gives a different kind of order}. The pointwise
-consequences described above {\color{red} reader shouldnt go back and forth}, that changing neighbouring~$0$'s to~$1$'s
-decreases~$\lambda_i$ and increases~$\rho_i$, compare the rule between two
-neighbourhood configurations {\color{red} weird phrasing}. The coefficient criterion also controls how the
-effects of several neighbouring spins combine. In the expansion
-of the local rule, the contributions associated with every nonempty set of
-neighbours must have the prescribed sign {\color{red} pointless regurgitation}. Thus different orders of dependence
-cannot cancel to produce the pointwise monotonicity while violating the
-patchwise sign condition. This distinction is already visible among KCSMs.
-FA-1f is patch-positive, whereas higher-order FA constraints are still monotone
-with respect to vacancies but have multilinear coefficients of both signs and
-therefore fail patch positivity. Patch positivity therefore requires the
-constraining direction of the local rule to be consistent across its
-higher-order dependence on the neighbourhood, not only at the level of
-pointwise monotonicity. {\color{red} horribly long winded, also reader doesnt see what point are you getting at here}
-
-% ============================================================================
-% BLURB B. What the patch construction reveals about the signed dual
-%
-% Reader question:
-%   Why does the patch construction produce useful inequalities when the
-%   underlying dual has both signs?
-%
-% Job:
-%   State the methodological point. Individual dual updates do not have a
-%   useful sign. The successful-interaction skeleton isolates local pieces of
-%   the graphical history on which the omitted randomness can be averaged
-%   independently. The useful sign appears only after this local averaging,
-%   before the resulting contributions are multiplied together.
-%
-%   Explain this as the reason the representation is useful, not as a summary
-%   of its construction. The broader lesson is that signed graphical
-%   representations may still support comparison after an appropriate local
-%   conditional averaging.
-%
-% Keep out:
-%   Patch types, formulas for C(P), consistency events, or a reconstruction of
-%   Sections~4--6.
-% ============================================================================
-
-% ============================================================================
-% BLURB C. Which assumptions belong to which part of the paper
-%
-% Reader question:
-%   Which features of the results come from patch positivity itself, and which
-%   come only from the convergence argument?
-%
-% Job:
-%   Separate the structural part of the paper from the long-time argument.
-%   Patch positivity and centered-moment monotonicity are local statements and
-%   do not require polynomial growth or a uniform pure-death component.
-%   Polynomial growth is used to control spatial propagation in the convergence
-%   proof. Uniform pure deaths are used to erase dependence on long histories.
-%
-%   This paragraph should help the reader understand the actual scope of the
-%   method and where each assumption enters, rather than repeat the hypotheses
-%   of Theorem~C.
-%
-% Keep out:
-%   The detailed three-term convergence estimate, outgoing-patch chains, or the
-%   old calculation identifying an invariant law from infinite patches.
-% ============================================================================
-
-% ============================================================================
-% BLURB D. Limitations of the present results
-%
-% Reader question:
-%   Where does the paper stop, and which restrictions are restrictions of the
-%   present argument rather than established dynamical thresholds?
-%
-% Job:
-%   State the boundaries of the results plainly.
-%
-%   - Patch positivity excludes important KCSMs, already including FA-jf for
-%     j>=2.
-%   - The general convergence theorem requires a uniform environment-independent
-%     1->0 component, so it does not cover the corresponding hard models.
-%   - When p^star is not at most 1/2, Theorem~C gives convergence only from
-%     M_-, not from arbitrary initial laws.
-%   - Do not present 1/2 as a sharp or dynamical threshold: the paper does not
-%     establish this. It is the point at which the present affine comparison
-%     argument covers every initial law.
-%
-%   End with at most one restrained sentence saying that extending the method
-%   beyond these restrictions would require additional control not supplied by
-%   the present patchwise sign argument. Do not turn this into a speculative
-%   research programme or a list of open problems.
-%
-% Keep out:
-%   Repetition of applications, finite-seed discussion unless it is needed to
-%   illustrate the pure-death limitation, and claims about sharpness that are
-%   not proved in the paper.
-% ============================================================================
+We expect the condition~$\mb p^\star\leq\mbs{\tfrac12}$ in the uniform
+ergodicity result to be technical rather than sharp. Despite extensive search
+we have found no counterexample above this threshold, and in the examples
+considered here substantially stronger ergodicity results are available, either
+for the original dynamics or after adding independent noise. More importantly,
+the value~$1/2$ enters the proof only when passing from convergence on
+$\mathcal M_-$ to convergence from every initial law: above~$1/2$, some
+end-patch contributions have negative centered coefficients. Such negative
+terms do not by themselves indicate slower convergence. One would instead
+expect the additional cancellations to help, but we lack the tools to detect
+this. The present argument avoids having to control these cancellations, which
+is why the restriction appears.
