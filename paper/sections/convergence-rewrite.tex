@@ -4,34 +4,55 @@
 % The previous version of this section is preserved verbatim in
 % paper/sections/convergence.tex while the section is rewritten.
 
-In this section we prove Theorem~\ref{thm:common-invariant-limit}.{\color{red} Not needed I think, the title of the section is Proof of Theorem C} The patch
-representation suggests a direct route to the limit. At time~$t$, every bulk
-patch is already complete, whereas each end patch still carries the terminal
-spin through the factor~$C(\eta(i(P)),P)$. In the limiting expression from
-Theorem~\ref{thm:common-invariant-limit},{\color{red} I think it would be easier to give the two formulas rather than describe this} only completed patch contributions
-remain, on realizations for which the full patch {\color{red} abnormal language, just family of patches not "full patches" wtf} family is finite. We therefore
-have to control two effects: successful interactions that continue to occur at
-late times, and the remaining dependence of the end contributions on the
-terminal spins once the interactions have stopped. {\color{red} reader doesnt see why}
+We first prove the convergence estimate for~$\mu\in\mathcal M_*$. Recall that
+the patch representation gives
+\begin{equation*}
+(\mu P_t)(\chi_A)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+},
+\end{equation*}
+while the limiting moments in Theorem~\ref{thm:common-invariant-limit} are
+\begin{equation*}
+\E_A\Cb{
+\prod_{P\in\mathcal P}C(P)
+\ind\bb{\abs{\mathcal P}<\infty}
+}.
+\end{equation*}
+The main tool for comparing these expressions is the system obtained by
+removing the pure deaths at rate~$\varepsilon$. This leaves the dual jump
+process, and hence the successful-interaction skeleton, unchanged, while
+increasing the Feynman--Kac potential by~$\varepsilon$ for every dual-active
+site. Patch positivity makes the relevant patch contributions nonnegative, and
+the contributions for the original system are bounded above by those for this
+less noisy system.
 
-Fix an intermediate time~$0\leq T<t$. If a successful interaction occurs after
-$T$, trace the first such interaction backwards through its ancestry. The
-resulting patches end in outgoing interactions and their lifetimes add up to
-more than~$T$. The uniform pure-death component then gives a factor at most
-$e^{-\varepsilon T}$ {\color{red} Reader doesnt see why and definitely doesnt understand why. The reason is simple, less noisy system has larger patch contributions because it has larger FK weight~$V$}. If no successful interaction occurs after~$T$, no new
-patch boundary is created after~$T$: the end patches present at time~$T$ simply
-continue to time~$t$. Their dependence on the terminal spins decays at rate at
-least~$\varepsilon$, giving an error of order~$e^{-\varepsilon(t-T)}$.
-{\color{red} Reader doesnt understand the need for this split at all.}
-A separate, standard issue is the spatial spread of the interaction cone before
-time~$T$. We restrict it to a finite region~$R$. On this event there are at most
-$\abs R$ end patches, while the complementary contribution is controlled by a
-finite-propagation estimate. Thus the proof reduces to three estimates: spatial
-escape before~$T$, a successful interaction after~$T$, and relaxation of the
-end contributions when there is no successful interaction after~$T$. The
-argument is first carried out for~$\mu\in\mathcal M_*$, where patch positivity
-allows these contributions to be compared term by term. The extension to
-$\mathcal M_-$ is made after the three estimates have been combined.
+This comparison first controls realizations with successful interactions at
+large times. If a successful interaction occurs at time~$u$, tracing its
+ancestry backwards gives patches ending in outgoing interactions whose
+lifetimes add up to~$u$. Along these patches the difference of the two
+Feynman--Kac potentials gives the factor~$e^{-\varepsilon u}$. Thus the total
+contribution from realizations with a successful interaction after a time~$T$
+is of order~$e^{-\varepsilon T}$. On the remaining realizations there is no
+successful interaction after~$T$. The end patches present at time~$T$ then
+continue without creating new patch boundaries, and the dependence of each end
+contribution on its terminal spin decays at rate at least~$\varepsilon$. This
+is the mechanism by which the dependence on the initial law disappears.
+
+The last estimate becomes worse with the number of end patches present at
+time~$T$, so we also need to control that number. We choose a finite region~$R$
+containing~$A$. If the interaction cone up to time~$T$ stays inside~$R$, there
+are at most~$\abs R$ end patches. The contribution from the complementary
+event is bounded by the error made by replacing the process up to time~$T$ by
+its zero-boundary restriction to~$R$, and finite propagation makes this error
+small when~$R$ grows linearly with~$T$. This leads to the three estimates below:
+spatial escape before~$T$, a successful interaction after~$T$, and relaxation
+of the end contributions when neither of these occurs. After combining them we
+extend the result from~$\mathcal M_*$ to~$\mathcal M_-$.
 
 \subsection{Three estimates}
 \label{subsec:convergence-three-estimates}
