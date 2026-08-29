@@ -1,68 +1,108 @@
 \section{Discussion}
 \label{sec:discussion}
 
-\subsection{Scope of patch positivity}
+% Previous version preserved in
+% paper/revision-reference/section-discussion.tex.
 
-Patch positivity concerns the conditional contribution of the dual updates
-within one patch, not the sign of each update separately. Consecutive updates
-in the unaveraged Feynman--Kac dual may have different signs. After
-conditioning on the successful-interaction skeleton, the remaining local marks
-are averaged inside each patch to give~$C(P)$. The coefficient criterion
-determines exactly when these patch contributions are nonnegative.
+% ============================================================================
+% BLURB A. What patch positivity is measuring
+%
+% Reader question:
+%   After seeing the coefficient criterion and the examples, how should one
+%   understand patch positivity as a condition on the local dynamics?
+%
+% Job:
+%   Interpret the condition rather than restate Theorem~B. Ordinary
+%   monotonicity of a constraint only compares two neighbourhood
+%   configurations. Patch positivity imposes sign conditions on all mixed
+%   effects of several neighbouring spins through the Moebius coefficients.
+%   Explain that this is why FA-1f can satisfy the condition while higher-order
+%   FA constraints can fail it despite having monotone constraints.
+%
+%   Make clear that the pointwise monotonicities of lambda_i and rho_i discussed
+%   earlier are consequences of patch positivity, not equivalent definitions.
+%   The reader should leave with a conceptual description of what extra
+%   structure the coefficient criterion is imposing.
+%
+% Keep out:
+%   The explicit criterion, the threshold formula, another calculation for the
+%   examples, or another statement of centered-moment order preservation.
+% ============================================================================
 
-The condition is neither configuration monotonicity nor positivity of every
-coefficient in the signed dual. When~$\mb p^\star=\mb 0$, the centered
-monomials are ordinary monomials and~$\preceq_*$ is the upper-orthant, or
-monomial-moment, order. Stochastic order implies this order, but the converse
-fails. For the contact process, monotonicity in configuration order therefore
-gives stronger comparisons for all increasing observables. The centered-moment
-comparison also applies to FA-1f and BABP, whose dynamics do not preserve the
-configuration order.
+% ============================================================================
+% BLURB B. What the patch construction reveals about the signed dual
+%
+% Reader question:
+%   Why does the patch construction produce useful inequalities when the
+%   underlying dual has both signs?
+%
+% Job:
+%   State the methodological point. Individual dual updates do not have a
+%   useful sign. The successful-interaction skeleton isolates local pieces of
+%   the graphical history on which the omitted randomness can be averaged
+%   independently. The useful sign appears only after this local averaging,
+%   before the resulting contributions are multiplied together.
+%
+%   Explain this as the reason the representation is useful, not as a summary
+%   of its construction. The broader lesson is that signed graphical
+%   representations may still support comparison after an appropriate local
+%   conditional averaging.
+%
+% Keep out:
+%   Patch types, formulas for C(P), consistency events, or a reconstruction of
+%   Sections~4--6.
+% ============================================================================
 
-The profile~$\mb p^\star$ is the smallest terminal reference profile for which
-every end-patch contribution is nonnegative. It records where the sign argument
-applies. The lower profile
-$\mb p^-=(\max\cb{2p_i^\star-1,0})_{i\in\Lambda}$ arises only from the affine
-extension of~$\mathcal M_*$ to~$\mathcal M_-$. Neither profile is asserted to
-mark a change in the qualitative dynamics.
+% ============================================================================
+% BLURB C. Which assumptions belong to which part of the paper
+%
+% Reader question:
+%   Which features of the results come from patch positivity itself, and which
+%   come only from the convergence argument?
+%
+% Job:
+%   Separate the structural part of the paper from the long-time argument.
+%   Patch positivity and centered-moment monotonicity are local statements and
+%   do not require polynomial growth or a uniform pure-death component.
+%   Polynomial growth is used to control spatial propagation in the convergence
+%   proof. Uniform pure deaths are used to erase dependence on long histories.
+%
+%   This paragraph should help the reader understand the actual scope of the
+%   method and where each assumption enters, rather than repeat the hypotheses
+%   of Theorem~C.
+%
+% Keep out:
+%   The detailed three-term convergence estimate, outgoing-patch chains, or the
+%   old calculation identifying an invariant law from infinite patches.
+% ============================================================================
 
-\subsection{Limitations of the convergence argument}
-
-The restriction to~$\mathcal M_-$ comes from the centered expansion of the end
-factors. Outside this class some centered terms are negative, so the proof has
-no termwise nonnegative comparison. It therefore gives no conclusion about
-convergence outside~$\mathcal M_-$. Such an extension would have to control
-cancellations between terms of different signs, uniformly over the successful
-skeleton. When~$\mb p^\star\leq\mbs{\tfrac12}$, every initial law belongs
-to~$\mathcal M_{-,1}$ and this restriction disappears.
-
-The uniform pure-death component is used twice. Along a backward chain of
-outgoing patches it supplies a decaying factor for realizations with a
-successful interaction after the cut time. When there is no such interaction,
-it removes the
-dependence of long end patches on the terminal configuration. The proof would extend to a hard
-model if model-specific estimates replaced these two bounds.
-
-The full-patch formula can sometimes identify the invariant measure. If every
-infinite outgoing-to-end patch has zero contribution, every realization with an
-ordinary successful interaction has zero limiting weight. Indeed, on
-$\cb{\abs{\mathcal P}<\infty}$, such a realization has a last
-successful interaction, and the source patch beginning there is an infinite
-outgoing-to-end patch. The remaining term
-is the independent spin system with~$0\to1$ and~$1\to0$ rates
-$c_i^0(\vn)$ and~$c_i^1(\vn)$, whose stationary probability of state~$1$ is
-\begin{equation*}
-\frac{c_i^0(\vn)}{c_i^0(\vn)+c_i^1(\vn)}.
-\end{equation*}
-This recovers~$\mu_p$ for the equilibrium-refresh perturbations of FA-1f and
-BABP. Without the vanishing condition, the representation still gives the
-patchwise invariant-moment comparison in
-Corollary~\ref{cor:pure-death-invariant-comparison}.
-
-Two problems remain. The first is convergence from arbitrary initial laws when
-$\mb p^\star\nleq\mbs{\tfrac12}$. The second is convergence from configurations
-with finitely many sites in state~$0$ without a uniform pure-death component,
-including FA-1f from finitely many vacancies and BABP from a finite nonempty
-particle set. The latter requires model-specific control because these point
-masses are not bracketed by useful nondegenerate product laws under
-$\preceq_*$ and the hard dynamics has no uniform pure-death component.
+% ============================================================================
+% BLURB D. Limitations of the present results
+%
+% Reader question:
+%   Where does the paper stop, and which restrictions are restrictions of the
+%   present argument rather than established dynamical thresholds?
+%
+% Job:
+%   State the boundaries of the results plainly.
+%
+%   - Patch positivity excludes important KCSMs, already including FA-jf for
+%     j>=2.
+%   - The general convergence theorem requires a uniform environment-independent
+%     1->0 component, so it does not cover the corresponding hard models.
+%   - When p^star is not at most 1/2, Theorem~C gives convergence only from
+%     M_-, not from arbitrary initial laws.
+%   - Do not present 1/2 as a sharp or dynamical threshold: the paper does not
+%     establish this. It is the point at which the present affine comparison
+%     argument covers every initial law.
+%
+%   End with at most one restrained sentence saying that extending the method
+%   beyond these restrictions would require additional control not supplied by
+%   the present patchwise sign argument. Do not turn this into a speculative
+%   research programme or a list of open problems.
+%
+% Keep out:
+%   Repetition of applications, finite-seed discussion unless it is needed to
+%   illustrate the pure-death limitation, and claims about sharpness that are
+%   not proved in the paper.
+% ============================================================================
