@@ -4,7 +4,63 @@
 % The previous version of this section is preserved verbatim in
 % paper/sections/convergence.tex while the section is rewritten.
 
-% Opening orientation to be redrafted.
+The proof starts from the patch representation. For~$A\Subset\Lambda$ and
+$\mu\in\mathcal M_*$,
+\begin{equation*}
+(\mu P_t)(\chi_A)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+},
+\end{equation*}
+where the variables~$\eta(i(P))$ come from the initial configuration in the
+backward dual representation. The limiting moment in
+Theorem~\ref{thm:common-invariant-limit} is
+\begin{equation*}
+\E_A\Cb{
+\prod_{P\in\mathcal P}C(P)
+\ind\bb{\abs{\mathcal P}<\infty}
+}.
+\end{equation*}
+The event~$\abs{\mathcal P}<\infty$ is the event that the dual has a last
+successful interaction and subsequently dies. In particular, on this event the
+limiting product contains no end-patch contribution and hence no dependence on
+the initial configuration. This suggests proving convergence by showing first
+that the contribution from the event that a successful interaction occurs far
+in time is negligible.
+
+The comparison with pure deaths introduced earlier gives exactly this estimate.
+Section~\ref{sec:signed-dual} showed that adding pure deaths at rate
+$\varepsilon$ leaves the dual jump process unchanged and decreases its
+Feynman--Kac potential by~$\varepsilon\abs{A_s}$. Corollary~\ref{cor:pure-death-comparison}
+then used the same observation at the level of patches: removing these deaths
+leaves the successful interactions and patch families unchanged and increases
+the patch contributions. If a successful interaction occurs at time~$u$, its
+ancestry consists of dual-active patches whose lifetimes add up to~$u$. The
+contribution for the original system therefore carries, relative to the system
+with the pure deaths removed, a factor~$e^{-\varepsilon u}$. Since the latter
+provides an integrable upper bound, the contribution from the event that a
+successful interaction occurs after~$T$ is of order~$e^{-\varepsilon T}$.
+
+It remains to consider the event that there is no successful interaction after
+$T$. The end patches present at a later horizon~$t$ still contain the factors
+$C(z,P)$ through which the initial configuration enters the representation.
+Once there are no further successful interactions, the dependence of each such
+factor on~$z$ decays at rate at least~$\varepsilon$, and hence at order
+$e^{-\varepsilon(t-T)}$. This is the mechanism by which the dependence on the
+initial law disappears. The resulting estimate, however, is proportional to
+the number of end patches.
+
+For this reason we also control the event that there are many end patches. If
+the interaction cone up to time~$T$ stays in a finite region~$R$, there are at
+most~$\abs R$ end patches. The contribution from the complementary event is
+controlled by finite propagation. We may therefore take~$R$ with radius
+proportional to~$T$; polynomial growth gives~$\abs R\lesssim(1+T)^D$, while the
+finite-propagation error is exponentially small. The proof below makes these
+three estimates precise and then combines them with~$T=t/2$.
 
 \subsection{Three estimates}
 \label{subsec:convergence-three-estimates}
@@ -31,8 +87,8 @@
 % ESTIMATE 1. SPATIAL CONFINEMENT
 %
 % Reader question:
-%   How much contribution can come from histories that travel far from A before
-%   the cut time T?
+%   How much contribution can come from dual trajectories that travel far from
+%   A before the cut time T?
 %
 % Job:
 %   Define Cone_T, E_T^R, and rho_A(T,R). State the spatial-confinement estimate
@@ -49,8 +105,8 @@
 % ESTIMATE 2. A SUCCESSFUL INTERACTION AFTER T
 %
 % Reader question:
-%   Why are histories with a successful interaction after T exponentially
-%   suppressed by the uniform pure deaths?
+%   Why is the contribution from the event of a successful interaction after T
+%   exponentially small under the uniform pure deaths?
 %
 % Job:
 %   Define L_{T,t} and L_T. Introduce the ancestry of the first successful
