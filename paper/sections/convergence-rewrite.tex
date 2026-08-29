@@ -1,28 +1,28 @@
-\section{Proof of the convergence theorem}
+\section{Proof of Theorem~\ref{thm:common-invariant-limit}}
 \label{sec:convergence}
 
 % The previous version of this section is preserved verbatim in
 % paper/sections/convergence.tex while the section is rewritten.
 
-This section proves Theorem~\ref{thm:common-invariant-limit}. The patch
+In this section we prove Theorem~\ref{thm:common-invariant-limit}.{\color{red} Not needed I think, the title of the section is Proof of Theorem C} The patch
 representation suggests a direct route to the limit. At time~$t$, every bulk
 patch is already complete, whereas each end patch still carries the terminal
 spin through the factor~$C(\eta(i(P)),P)$. In the limiting expression from
-Theorem~\ref{thm:common-invariant-limit}, only completed patch contributions
-remain, on realizations for which the full patch family is finite. We therefore
+Theorem~\ref{thm:common-invariant-limit},{\color{red} I think it would be easier to give the two formulas rather than describe this} only completed patch contributions
+remain, on realizations for which the full patch {\color{red} abnormal language, just family of patches not "full patches" wtf} family is finite. We therefore
 have to control two effects: successful interactions that continue to occur at
 late times, and the remaining dependence of the end contributions on the
-terminal spins once the interactions have stopped.
+terminal spins once the interactions have stopped. {\color{red} reader doesnt see why}
 
 Fix an intermediate time~$0\leq T<t$. If a successful interaction occurs after
 $T$, trace the first such interaction backwards through its ancestry. The
 resulting patches end in outgoing interactions and their lifetimes add up to
 more than~$T$. The uniform pure-death component then gives a factor at most
-$e^{-\varepsilon T}$. If no successful interaction occurs after~$T$, no new
+$e^{-\varepsilon T}$ {\color{red} Reader doesnt see why and definitely doesnt understand why. The reason is simple, less noisy system has larger patch contributions because it has larger FK weight~$V$}. If no successful interaction occurs after~$T$, no new
 patch boundary is created after~$T$: the end patches present at time~$T$ simply
 continue to time~$t$. Their dependence on the terminal spins decays at rate at
 least~$\varepsilon$, giving an error of order~$e^{-\varepsilon(t-T)}$.
-
+{\color{red} Reader doesnt understand the need for this split at all.}
 A separate, standard issue is the spatial spread of the interaction cone before
 time~$T$. We restrict it to a finite region~$R$. On this event there are at most
 $\abs R$ end patches, while the complementary contribution is controlled by a
