@@ -1,0 +1,68 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Scope of patch positivity}
+
+Patch positivity concerns the conditional contribution of the dual updates
+within one patch, not the sign of each update separately. Consecutive updates
+in the unaveraged Feynman--Kac dual may have different signs. After
+conditioning on the successful-interaction skeleton, the remaining local marks
+are averaged inside each patch to give~$C(P)$. The coefficient criterion
+determines exactly when these patch contributions are nonnegative.
+
+The condition is neither configuration monotonicity nor positivity of every
+coefficient in the signed dual. When~$\mb p^\star=\mb 0$, the centered
+monomials are ordinary monomials and~$\preceq_*$ is the upper-orthant, or
+monomial-moment, order. Stochastic order implies this order, but the converse
+fails. For the contact process, monotonicity in configuration order therefore
+gives stronger comparisons for all increasing observables. The centered-moment
+comparison also applies to FA-1f and BABP, whose dynamics do not preserve the
+configuration order.
+
+The profile~$\mb p^\star$ is the smallest terminal reference profile for which
+every end-patch contribution is nonnegative. It records where the sign argument
+applies. The lower profile
+$\mb p^-=(\max\cb{2p_i^\star-1,0})_{i\in\Lambda}$ arises only from the affine
+extension of~$\mathcal M_*$ to~$\mathcal M_-$. Neither profile is asserted to
+mark a change in the qualitative dynamics.
+
+\subsection{Limitations of the convergence argument}
+
+The restriction to~$\mathcal M_-$ comes from the centered expansion of the end
+factors. Outside this class some centered terms are negative, so the proof has
+no termwise nonnegative comparison. It therefore gives no conclusion about
+convergence outside~$\mathcal M_-$. Such an extension would have to control
+cancellations between terms of different signs, uniformly over the successful
+skeleton. When~$\mb p^\star\leq\mbs{\tfrac12}$, every initial law belongs
+to~$\mathcal M_{-,1}$ and this restriction disappears.
+
+The uniform pure-death component is used twice. Along a backward chain of
+outgoing patches it supplies a decaying factor for realizations with a
+successful interaction after the cut time. When there is no such interaction,
+it removes the
+dependence of long end patches on the terminal configuration. The proof would extend to a hard
+model if model-specific estimates replaced these two bounds.
+
+The full-patch formula can sometimes identify the invariant measure. If every
+infinite outgoing-to-end patch has zero contribution, every realization with an
+ordinary successful interaction has zero limiting weight. Indeed, on
+$\cb{\abs{\mathcal P}<\infty}$, such a realization has a last
+successful interaction, and the source patch beginning there is an infinite
+outgoing-to-end patch. The remaining term
+is the independent spin system with~$0\to1$ and~$1\to0$ rates
+$c_i^0(\vn)$ and~$c_i^1(\vn)$, whose stationary probability of state~$1$ is
+\begin{equation*}
+\frac{c_i^0(\vn)}{c_i^0(\vn)+c_i^1(\vn)}.
+\end{equation*}
+This recovers~$\mu_p$ for the equilibrium-refresh perturbations of FA-1f and
+BABP. Without the vanishing condition, the representation still gives the
+patchwise invariant-moment comparison in
+Corollary~\ref{cor:pure-death-invariant-comparison}.
+
+Two problems remain. The first is convergence from arbitrary initial laws when
+$\mb p^\star\nleq\mbs{\tfrac12}$. The second is convergence from configurations
+with finitely many sites in state~$0$ without a uniform pure-death component,
+including FA-1f from finitely many vacancies and BABP from a finite nonempty
+particle set. The latter requires model-specific control because these point
+masses are not bracketed by useful nondegenerate product laws under
+$\preceq_*$ and the hard dynamics has no uniform pure-death component.
