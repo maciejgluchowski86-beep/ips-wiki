@@ -75,15 +75,29 @@ finitely many interactions before~$T$ and none after it.
 
 For~$R\subseteq\Lambda$, let~$\eta^{R,0}$ agree with~$\eta$ on~$R$ and vanish on
 $R^c$. Define
+\begin{align*}
+\lambda_i^R(\eta)
+&=
+\pw{\lambda_i\bb{\eta^{R,0}}}{i\in R}
+{\lambda_i(\mb 0)}{i\notin R},
+&
+\rho_i^R(\eta)
+&=
+\pw{\rho_i\bb{\eta^{R,0}}}{i\in R}
+{\rho_i(\mb 0)}{i\notin R},
+\end{align*}
+and let
 \begin{equation*}
-c_{i,R}(\eta)
+\Lcal^R f(\eta)
 =
-\pw{c_i\bb{\eta^{R,0}}}{i\in R}
-{c_i\bb{\eta^{\cb{i},0}}}{i\notin R},
+\sum_{i\in\Lambda}
+\lambda_i^R(\eta)
+\bb{E_{i,\rho_i^R(\eta)}-I}f(\eta).
 \end{equation*}
-and let~$\Lcal^R$ and~$P_t^R$ be the corresponding generator and semigroup.
-Inside~$R$, this is the original spin system with zero boundary; sites outside
-$R$ evolve independently. Hence, if~$f$ depends only on spins in~$R$,
+Write~$P_t^R$ for its semigroup. Inside~$R$, this is the original spin system
+with the spins outside~$R$ fixed at~$0$; outside~$R$, the update rate and refresh
+parameter are constant, so those sites evolve independently. Hence, if~$f$
+depends only on spins in~$R$,
 \begin{equation}
 \label{eq:modified-zero-boundary-agreement}
 P_t^Rf=P_t^{R,0}f.
@@ -136,8 +150,20 @@ The indicator of~$E_T^R$ kills the dual at the first discarded successful
 interaction, so its Feynman--Kac operator on~$[0,T]$ is
 $\Dcal_R+V-\kappa_R$.
 
-For~$Y=(B,\sigma)$ with~$B\subseteq R$, the coefficient expansion of the
-zero-boundary rates gives
+For~$i\in R$, the M\"obius expansions in~\eqref{eq:rate-expansion} give
+\begin{align*}
+\lambda_i^R(\eta)\rho_i^R(\eta)
+&=
+\sum_{S\subseteq N(i)\cap R}
+\widehat{\lambda_i\rho_i}(S)\chi_S(\eta),
+\\
+\lambda_i^R(\eta)
+&=
+\sum_{S\subseteq N(i)\cap R}
+\widehat{\lambda_i}(S)\chi_S(\eta).
+\end{align*}
+Thus, for~$Y=(B,\sigma)$ with~$B\subseteq R$, the generator calculation from
+Appendix~\ref{app:generator-action} gives
 \begin{align}
 \Lcal_\eta^R H(Y,\eta)
 ={}&
