@@ -10,10 +10,6 @@ Put
 =
 \sup_{i\in\Lambda,\,\eta\in\Omega}\lambda_i(\eta),
 \qquad
-\overline c
-=
-\sup_{i\in\Lambda,\,\eta\in\Omega}c_i(\eta),
-\qquad
 m_0=\sup_{i\in\Lambda}\abs{N(i)}.
 \end{equation*}
 Since~$0\leq\rho_i\leq1$, M\"obius inversion in~\eqref{eq:rate-expansion}
@@ -60,7 +56,7 @@ $\overline\alpha$ and creates at most~$m_0$ new particles. This branching
 process is nonexplosive. Independent Poisson processes have no simultaneous
 points almost surely, and a countable union over pairs of clocks preserves this
 property. The remaining conclusions follow from the definitions of the
-successful skeleton and the patch family.
+successful-interaction skeleton and the patch family.
 \end{proof}
 
 In particular,
@@ -125,10 +121,10 @@ $E_T^R\in\mathcal G_t$,
 \E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}.
 \end{equation}
 
-During the dual interval~$[0,T]$, retain every empty-target death interaction
-and retain a nonempty-target split or birth only when its source and all its
-targets lie in~$R$. Let~$\Dcal_R$ be the resulting signed-dual generator. If
-the active set is~$B$, the total rate of discarded interactions is
+During the dual interval~$[0,T]$, retain every death interaction with
+$S=\varnothing$ and retain a nonempty-target split or birth only when its source
+and all its targets lie in~$R$. Let~$\Dcal_R$ be the resulting signed-dual
+generator. If the active set is~$B$, the total rate of discarded interactions is
 \begin{equation*}
 \kappa_R(B)
 =
@@ -293,7 +289,7 @@ Appendix~\ref{app:end-formulas} give
 }{\mathsf X(P)=\mathsf O}.
 \end{equation}
 Multiplying the ordinary contribution of the geometric extension by this
-probability and using~\eqref{eq:empty-neighbour-relaxation} gives
+probability and using~\eqref{eq:all-zero-neighbourhood-relaxation} gives
 \begin{equation}
 \label{eq:local-probability-weighted-continuation}
 \CP{L_{T,t}^P}{\mathcal G_T}
@@ -343,7 +339,7 @@ independence,~\eqref{eq:local-no-late-factorization}, and
 The same argument applies to~$\Lcal^\varepsilon$.
 
 Uniform deaths give~$\lambda_i(\mb 0)\geq\varepsilon$, and
-\eqref{eq:empty-neighbour-relaxation} gives
+\eqref{eq:all-zero-neighbourhood-relaxation} gives
 $\psi_i(h,z)\to\rho_i(\mb 0)$ as~$h\to\infty$. For each
 $P\in\mathcal E_T$,~\eqref{eq:local-probability-weighted-continuation} with
 $z=1$ therefore gives
@@ -525,7 +521,7 @@ and the last inequality in
 \abs{\mathcal E_T}e^{-\varepsilon h}
 \prod_{P\in\mathcal E_T}b(P).
 \end{equation*}
-Both target quantities lie above the common product
+The two expressions compared in the lemma are both at least
 $\prod_Pa_t(P)$, so the sum of the two preceding errors bounds their absolute
 difference.
 \end{proof}
@@ -556,26 +552,27 @@ $B\bb{A,\lceil vt\rceil}$.
 \end{lemma}
 
 \begin{proof}
-Construct the process from rate-$\overline c$ candidate clocks and independent
-acceptance marks. Explore the clocks backwards from~$A$ at time~$t$. Whenever
-a candidate clock at~$i$ is encountered, add~$N(i)\cup\cb{i}$ to the sites whose
-states at earlier times must be determined. If this backward influence cluster
-stays inside~$R$, the infinite-volume and zero-boundary processes, coupled with
-the same clocks and marks in~$R$, agree on~$A$ at time~$t$.
+Construct the process from rate-$\overline\lambda$ clocks at each site,
+together with independent marks implementing the state-dependent acceptance
+and refresh. Explore these clocks backwards from~$A$ at time~$t$. Whenever a
+clock at~$i$ is encountered, add~$N(i)\cup\cb{i}$ to the sites whose states at
+earlier times must be determined. If this backward influence cluster stays
+inside~$R$, the infinite-volume and zero-boundary processes, coupled with the
+same clocks and marks in~$R$, agree on~$A$ at time~$t$.
 
 To leave~$B(A,n)$, the cluster must contain a chronological dependency path of
-at least~$n$ candidate clocks. There are at most~$\abs A m^k$ spatial paths of
-length~$k$, and the expected number of chronologically ordered~$k$-tuples along
-a fixed path is~$(\overline c t)^k/k!$. Therefore, for every~$\theta>0$,
+at least~$n$ clocks. There are at most~$\abs A m^k$ spatial paths of length~$k$,
+and the expected number of chronologically ordered~$k$-tuples along a fixed
+path is~$(\overline\lambda t)^k/k!$. Therefore, for every~$\theta>0$,
 \begin{equation*}
 \pP\bb{\text{the influence cluster leaves }B(A,n)}
 \leq
-\abs A\sum_{k\geq n}\frac{\bb{m\overline c t}^k}{k!}
+\abs A\sum_{k\geq n}\frac{\bb{m\overline\lambda t}^k}{k!}
 \leq
-\abs A\exp\bb{m\overline c t e^\theta-\theta n}.
+\abs A\exp\bb{m\overline\lambda t e^\theta-\theta n}.
 \end{equation*}
 Take~$n=\lceil vt\rceil$ and choose~$v$ so that
-$\theta v-m\overline c e^\theta>a$. After increasing the constant to cover
+$\theta v-m\overline\lambda e^\theta>a$. After increasing the constant to cover
 bounded~$t$, the exit probability is at most~$C_Ae^{-at}$. The graphical
 coupling gives
 \begin{equation*}
