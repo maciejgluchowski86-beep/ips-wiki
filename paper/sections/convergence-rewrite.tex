@@ -4,8 +4,7 @@
 % The previous version of this section is preserved verbatim in
 % paper/sections/convergence.tex while the section is rewritten.
 
-We first prove the convergence estimate for~$\mu\in\mathcal M_*$. Recall that
-the patch representation gives
+Fix~$A\Subset\Lambda$ and~$\mu\in\mathcal M_*$. The patch representation gives
 \begin{equation*}
 (\mu P_t)(\chi_A)
 =
@@ -16,43 +15,31 @@ the patch representation gives
 }
 },
 \end{equation*}
-while the limiting moments in Theorem~\ref{thm:common-invariant-limit} are
+while the limiting moment in Theorem~\ref{thm:common-invariant-limit} is
 \begin{equation*}
 \E_A\Cb{
 \prod_{P\in\mathcal P}C(P)
 \ind\bb{\abs{\mathcal P}<\infty}
 }.
 \end{equation*}
-The main tool for comparing these expressions is the system obtained by
-removing the pure deaths at rate~$\varepsilon$. This leaves the dual jump
-process, and hence the successful-interaction skeleton, unchanged, while
-increasing the Feynman--Kac potential by~$\varepsilon$ for every dual-active
-site. Patch positivity makes the relevant patch contributions nonnegative, and
-the contributions for the original system are bounded above by those for this
-less noisy system.
+Remove the pure deaths at rate~$\varepsilon$. This leaves the patch decomposition
+unchanged and increases the Feynman--Kac potential by~$\varepsilon$ for every
+dual-active site. Since the patch contributions are nonnegative, the resulting
+less noisy system gives a pointwise upper bound. If a successful interaction
+occurs at time~$u$, tracing its ancestry backwards gives patches ending in
+outgoing interactions whose lifetimes add up to~$u$. Along these patches the
+comparison contributes a factor~$e^{-\varepsilon u}$. Hence realizations with a
+successful interaction after time~$T$ have total contribution of order
+$e^{-\varepsilon T}$.
 
-This comparison first controls realizations with successful interactions at
-large times. If a successful interaction occurs at time~$u$, tracing its
-ancestry backwards gives patches ending in outgoing interactions whose
-lifetimes add up to~$u$. Along these patches the difference of the two
-Feynman--Kac potentials gives the factor~$e^{-\varepsilon u}$. Thus the total
-contribution from realizations with a successful interaction after a time~$T$
-is of order~$e^{-\varepsilon T}$. On the remaining realizations there is no
-successful interaction after~$T$. The end patches present at time~$T$ then
-continue without creating new patch boundaries, and the dependence of each end
-contribution on its terminal spin decays at rate at least~$\varepsilon$. This
-is the mechanism by which the dependence on the initial law disappears.
-
-The last estimate becomes worse with the number of end patches present at
-time~$T$, so we also need to control that number. We choose a finite region~$R$
-containing~$A$. If the interaction cone up to time~$T$ stays inside~$R$, there
-are at most~$\abs R$ end patches. The contribution from the complementary
-event is bounded by the error made by replacing the process up to time~$T$ by
-its zero-boundary restriction to~$R$, and finite propagation makes this error
-small when~$R$ grows linearly with~$T$. This leads to the three estimates below:
-spatial escape before~$T$, a successful interaction after~$T$, and relaxation
-of the end contributions when neither of these occurs. After combining them we
-extend the result from~$\mathcal M_*$ to~$\mathcal M_-$.
+On the complementary event there is no successful interaction after~$T$, so the
+end patches present at time~$T$ simply continue to time~$t$. Their dependence on
+the terminal spin decays at rate at least~$\varepsilon$, and therefore so does
+the dependence on the initial law. The resulting bound is proportional to the
+number of end patches. We control this number by restricting the interaction
+cone up to time~$T$ to a finite region~$R$: on this event there are at most
+$\abs R$ end patches, while the complementary contribution is controlled by
+finite propagation. These are the three estimates proved below.
 
 \subsection{Three estimates}
 \label{subsec:convergence-three-estimates}
