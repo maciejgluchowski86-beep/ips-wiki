@@ -63,83 +63,163 @@ three estimates precise and then combine them with~$T=t/2$.
 \subsection{Three estimates}
 \label{subsec:convergence-three-estimates}
 
-% ============================================================================
-% SUPPORTING LEMMA. COMPARISON AFTER REMOVING PURE DEATHS
-%
-% Role in the proof:
-%   This is a common tool for the three estimates, not one of the three errors.
-%
-% Reuse from the previous version:
-%   - decomposition L = L^epsilon + epsilon N^0;
-%   - definitions of W_t^mu, W_t^{epsilon,mu}, W, W^epsilon;
-%   - nonnegative-weight comparison and integrability;
-%   - exact factor exp(-epsilon(e(P)-s(P))) for a patch ending in an outgoing
-%     interaction.
-%
-% Presentation:
-%   Explain why the death-removed system is introduced before stating the
-%   lemma. Use current lambda/rho notation only.
-% ============================================================================
+Write the pure-death decomposition as
+\begin{equation}
+\label{eq:uniform-death-decomposition}
+\Lcal
+=
+\Lcal^\varepsilon
++
+\varepsilon\Ncal^{\mb 0},
+\end{equation}
+and let~$P_t^\varepsilon$ and~$C^\varepsilon$ denote the semigroup and patch
+contributions for~$\Lcal^\varepsilon$. The two systems have the same dual jump
+process, successful interactions, and patch families. For~$\mu\in\mathcal M_*$,
+set
+\begin{equation}
+\label{eq:finite-horizon-weight}
+W_t^\mu
+=
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+ \prod_{P\in\mathcal E_t}
+ C\bb{\eta\bb{i(P)},P}
+},
+\end{equation}
+and let~$W_t^{\varepsilon,\mu}$ be the same expression with~$C$ replaced by
+$C^\varepsilon$. We also write
+\begin{align*}
+W
+&=
+\prod_{P\in\mathcal P}C(P)
+\ind\bb{\abs{\mathcal P}<\infty},
+\\
+W^\varepsilon
+&=
+\prod_{P\in\mathcal P}C^\varepsilon(P)
+\ind\bb{\abs{\mathcal P}<\infty}.
+\end{align*}
+The pure-death comparison gives
+\begin{equation}
+\label{eq:positive-weight-comparison}
+0\leq W_t^\mu\leq W_t^{\varepsilon,\mu},
+\qquad
+\E_A\Cb{W_t^{\varepsilon,\mu}}
+=(\mu P_t^\varepsilon)(\chi_A)
+\leq1,
+\end{equation}
+and similarly
+\begin{equation}
+\label{eq:limiting-weight-mass}
+0\leq W\leq W^\varepsilon,
+\qquad
+\E_A\Cb{W^\varepsilon}\leq1.
+\end{equation}
+If a patch~$P$ ends at an outgoing successful interaction, then removing the
+pure deaths changes its contribution by the exact factor
+\begin{equation}
+\label{eq:outgoing-terminal-exact-factor}
+C(P)
+=
+e^{-\varepsilon\bb{e(P)-s(P)}}C^\varepsilon(P).
+\end{equation}
+These comparison bounds are the common input to the estimates below.
 
-% ============================================================================
-% ESTIMATE 1. SPATIAL CONFINEMENT
-%
-% Reader question:
-%   How much contribution can come from dual trajectories that travel far from
-%   A before the cut time T?
-%
-% Job:
-%   Define Cone_T, E_T^R, and rho_A(T,R). State the spatial-confinement estimate
-%   for both W_t^mu and W. Explain in ordinary IPS language that the confined
-%   contribution is identified with the zero-boundary finite-volume dynamics,
-%   and finite propagation makes rho_A(T,R) small when R grows linearly with T.
-%
-% Appendix:
-%   The confined-interaction identity and finite-propagation proof remain in the
-%   technical appendix.
-% ============================================================================
+For~$T\geq0$, let
+\begin{equation*}
+\mb{Cone}_T
+=
+\bigcup_{(i,u,S)\in\mathcal I_T}
+\bb{\cb{i}\cup S}\setminus\cb{\infty}
+\end{equation*}
+be the set of sites appearing in the successful-interaction skeleton up to
+time~$T$. For~$A\subseteq R\Subset\Lambda$, set
+\begin{equation}
+\label{eq:confinement-event}
+E_T^R=\cb{\mb{Cone}_T\subseteq R},
+\qquad
+\rho_A(T,R)
+=
+\norm{\bb{P_T-P_T^{R,0}}\chi_A}_\infty,
+\end{equation}
+where~$P_t^{R,0}$ is the semigroup of the dynamics on~$R$ with the spins outside
+$R$ fixed at~$0$. For~$0\leq T<t$, let
+\begin{equation}
+\label{eq:no-late-interaction-events}
+L_{T,t}
+=
+\cb{\text{no successful interaction occurs in }(T,t]},
+\qquad
+L_T
+=
+\cb{\text{no successful interaction occurs after }T}.
+\end{equation}
+Thus the finite-time expression is divided according to
+$(E_T^R)^c$, $E_T^R\cap L_{T,t}^c$, and $E_T^R\cap L_{T,t}$, with the
+corresponding events $(E_T^R)^c$, $E_T^R\cap L_T^c$, and $E_T^R\cap L_T$ for
+the limiting expression.
 
-% ============================================================================
-% ESTIMATE 2. A SUCCESSFUL INTERACTION AFTER T
-%
-% Reader question:
-%   Why is the contribution from the event of a successful interaction after T
-%   exponentially small under the uniform pure deaths?
-%
-% Job:
-%   Define L_{T,t} and L_T. Introduce the ancestry of the first successful
-%   interaction after T. The geometric fact needed is that its predecessor
-%   patches ending in outgoing interactions form a chain from time 0 to the
-%   interaction time, so their lifetimes add to u > T. State this ancestry fact
-%   as a supporting lemma or short lemma immediately before the late-interaction
-%   estimate. Then use the exact death factor along the chain to obtain
-%   exp(-epsilon T).
-%
-% Hierarchy:
-%   The ancestry lemma supports the late-interaction estimate; do not present it
-%   as a fourth error of equal status.
-% ============================================================================
+The first estimate controls trajectories whose interaction cone leaves~$R$
+before~$T$.
+\begin{lemma}[Spatial confinement]
+\label{lem:spatial-confinement}
+For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
+\begin{align}
+0
+&\leq
+\E_A\Cb{W_t^\mu\ind\bb{(E_T^R)^c}}
+\leq
+\rho_A(T,R),
+\label{eq:finite-horizon-confinement-bound}
+\\
+0
+&\leq
+\E_A\Cb{W\ind\bb{(E_T^R)^c}}
+\leq
+\rho_A(T,R).
+\label{eq:limiting-confinement-bound}
+\end{align}
+\end{lemma}
 
-% ============================================================================
-% ESTIMATE 3. RELAXATION AFTER THE LAST INTERACTION
-%
-% Reader question:
-%   If no successful interaction occurs after T, why does the remaining
-%   dependence on the initial law disappear as t-T grows?
-%
-% Job:
-%   On L_{T,t}, the patch structure is fixed after T and only the end patches
-%   continue. State directly that the nonconstant part of each affine end
-%   contribution decays exponentially under the empty-neighbour refresh
-%   dynamics. On E_T^R there are at most |R| end patches. State the resulting
-%   bound
-%       (1+|R|) exp(-epsilon(t-T)).
-%
-% Appendix:
-%   Exact continuation identities, consistency normalizers, and explicit
-%   boundary-type calculations belong in the appendix. Keep only enough
-%   calculation here to make the exponential relaxation transparent.
-% ============================================================================
+The second estimate controls the event that another successful interaction
+occurs after the cut time.
+\begin{lemma}[Late interactions]
+\label{lem:late-interactions}
+For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
+\begin{align}
+0
+&\leq
+\E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}^c}}
+\leq
+e^{-\varepsilon T},
+\label{eq:finite-late-interaction-bound}
+\\
+0
+&\leq
+\E_A\Cb{W\ind\bb{E_T^R\cap L_T^c}}
+\leq
+e^{-\varepsilon T}.
+\label{eq:limiting-late-interaction-bound}
+\end{align}
+\end{lemma}
+
+On the remaining event there are no successful interactions after~$T$. The
+last estimate compares the end-patch contributions at time~$t$ with their
+limits.
+\begin{lemma}[End-patch relaxation]
+\label{lem:no-late-relaxation}
+For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
+\begin{equation}
+\label{eq:no-late-relaxation-bound}
+\abs{
+ \E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}}}
+ -
+ \E_A\Cb{W\ind\bb{E_T^R\cap L_T}}
+}
+\leq
+\bb{1+\abs R}e^{-\varepsilon\bb{t-T}}.
+\end{equation}
+\end{lemma}
 
 \subsection{Completion of the proof}
 \label{subsec:convergence-completion}
