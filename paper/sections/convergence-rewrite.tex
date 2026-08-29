@@ -4,42 +4,7 @@
 % The previous version of this section is preserved verbatim in
 % paper/sections/convergence.tex while the section is rewritten.
 
-Fix~$A\Subset\Lambda$ and~$\mu\in\mathcal M_*$. The patch representation gives
-\begin{equation*}
-(\mu P_t)(\chi_A)
-=
-\E_A\Cb{
-\prod_{P\in\mathcal B_t}C(P)\,
-\mu\bb{
-\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
-}
-},
-\end{equation*}
-while the limiting moment in Theorem~\ref{thm:common-invariant-limit} is
-\begin{equation*}
-\E_A\Cb{
-\prod_{P\in\mathcal P}C(P)
-\ind\bb{\abs{\mathcal P}<\infty}
-}.
-\end{equation*}
-Remove the pure deaths at rate~$\varepsilon$. This leaves the patch decomposition
-unchanged and increases the Feynman--Kac potential by~$\varepsilon$ for every
-dual-active site. Since the patch contributions are nonnegative, the resulting
-less noisy system gives a pointwise upper bound. If a successful interaction
-occurs at time~$u$, tracing its ancestry backwards gives patches ending in
-outgoing interactions whose lifetimes add up to~$u$. Along these patches the
-comparison contributes a factor~$e^{-\varepsilon u}$. Hence realizations with a
-successful interaction after time~$T$ have total contribution of order
-$e^{-\varepsilon T}$.
-
-On the complementary event there is no successful interaction after~$T$, so the
-end patches present at time~$T$ simply continue to time~$t$. Their dependence on
-the terminal spin decays at rate at least~$\varepsilon$, and therefore so does
-the dependence on the initial law. The resulting bound is proportional to the
-number of end patches. We control this number by restricting the interaction
-cone up to time~$T$ to a finite region~$R$: on this event there are at most
-$\abs R$ end patches, while the complementary contribution is controlled by
-finite propagation. These are the three estimates proved below.
+% Opening orientation to be redrafted.
 
 \subsection{Three estimates}
 \label{subsec:convergence-three-estimates}
