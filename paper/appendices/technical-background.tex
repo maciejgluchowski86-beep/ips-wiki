@@ -6,21 +6,29 @@
 
 Put
 \begin{equation*}
+\overline\lambda
+=
+\sup_{i\in\Lambda,\,\eta\in\Omega}\lambda_i(\eta),
+\qquad
 \overline c
 =
 \sup_{i\in\Lambda,\,\eta\in\Omega}c_i(\eta),
 \qquad
 m_0=\sup_{i\in\Lambda}\abs{N(i)}.
 \end{equation*}
-M\"obius inversion in~\eqref{eq:rate-expansion} gives
+Since~$0\leq\rho_i\leq1$, M\"obius inversion in~\eqref{eq:rate-expansion}
+gives, for every~$S\subseteq N(i)$,
 \begin{equation*}
-\abs{c_i^x(S)}
+\abs{\widehat{\lambda_i\rho_i}(S)}
 \leq
-2^{\abs S}\overline c
+2^{\abs S}\overline\lambda,
+\qquad
+\abs{\widehat{\lambda_i}(S)}
 \leq
-2^{m_0}\overline c.
+2^{\abs S}\overline\lambda.
 \end{equation*}
-Hence
+Hence, by~\eqref{eq:signed-dual-coefficients}--\eqref{eq:birth-data} and the
+uniform bound on~$\abs{N(i)}$,
 \begin{equation*}
 \overline\alpha
 =
@@ -30,10 +38,8 @@ Hence
  +
  \sum_{\substack{S\subseteq N(i)\\S\neq\vn}}\beta_i(S)
 }
-<\infty,
+<\infty.
 \end{equation*}
-because~$\delta_i(S)=\abs{c_i^0(S)}$ and
-$\beta_i(S)=\abs{c_i^0(S)+c_i^1(S)}$.
 
 \begin{lemma}[Local finiteness]
 \label{lem:dual-local-finiteness}
@@ -530,7 +536,7 @@ $v<\infty$ and~$C_A<\infty$ such that
 \label{eq:finite-propagation}
 \norm{\bb{P_t-P_t^{R,0}}f}_\infty
 \leq
-C_Ae^{-at}\norm f_\infty
+C_Ae^{-at}\norm f\_infty
 \end{equation}
 for every~$t\geq0$ and every finite~$R$ containing
 $B\bb{A,\lceil vt\rceil}$.
@@ -562,7 +568,7 @@ coupling gives
 \begin{equation*}
 \abs{P_tf(\eta)-P_t^{R,0}f(\eta)}
 \leq
-2\norm f_\infty
+2\norm f\_infty
 \pP\bb{\text{the influence cluster leaves }R},
 \end{equation*}
 uniformly in~$\eta$, and proves~\eqref{eq:finite-propagation}.
