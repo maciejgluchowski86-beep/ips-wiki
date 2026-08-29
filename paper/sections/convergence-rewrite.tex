@@ -4,37 +4,34 @@
 % The previous version of this section is preserved verbatim in
 % paper/sections/convergence.tex while the section is rewritten.
 
-% ============================================================================
-% ORIENTATION AND PROOF STRATEGY
-%
-% Reader question:
-%   Why should the finite-time patch representation forget the initial law as
-%   t becomes large, and what are the possible obstructions after cutting the
-%   graphical history at an intermediate time T?
-%
-% Job:
-%   1. Fix A and define the finite-horizon patch weight W_t^mu and the candidate
-%      limiting weight W. Explain that the first task is to prove
-%           E_A[W_t^mu] -> E_A[W]
-%      uniformly for mu in M_*.
-%   2. Introduce the system obtained by removing the uniform pure deaths. Its
-%      patch weights give the positive integrable comparison used throughout.
-%      State the comparison lemma here, before the three errors.
-%   3. Introduce a cut time 0 <= T < t and a finite region R. Explain that the
-%      difference between the finite and limiting weights is divided according
-%      to three possibilities:
-%         (a) the relevant graphical history leaves R before T;
-%         (b) a successful interaction occurs after T;
-%         (c) there is no successful interaction after T, but the end patches
-%             still depend on the terminal spins at time t.
-%   4. Say in one sentence how each term is controlled. This is the conceptual
-%      overview; do not yet prove the estimates or introduce technical appendix
-%      notation.
-%
-% Keep out:
-%   Finite-volume generator calculations, continuation normalizers, phi/psi
-%   formulas, detailed centered expansions, and finite-propagation proofs.
-% ============================================================================
+This section proves Theorem~\ref{thm:common-invariant-limit}. The patch
+representation suggests a direct route to the limit. At time~$t$, every bulk
+patch is already complete, whereas each end patch still carries the terminal
+spin through the factor~$C(\eta(i(P)),P)$. In the limiting expression from
+Theorem~\ref{thm:common-invariant-limit}, only completed patch contributions
+remain, on realizations for which the full patch family is finite. We therefore
+have to control two effects: successful interactions that continue to occur at
+late times, and the remaining dependence of the end contributions on the
+terminal spins once the interactions have stopped.
+
+Fix an intermediate time~$0\leq T<t$. If a successful interaction occurs after
+$T$, trace the first such interaction backwards through its ancestry. The
+resulting patches end in outgoing interactions and their lifetimes add up to
+more than~$T$. The uniform pure-death component then gives a factor at most
+$e^{-\varepsilon T}$. If no successful interaction occurs after~$T$, no new
+patch boundary is created after~$T$: the end patches present at time~$T$ simply
+continue to time~$t$. Their dependence on the terminal spins decays at rate at
+least~$\varepsilon$, giving an error of order~$e^{-\varepsilon(t-T)}$.
+
+A separate, standard issue is the spatial spread of the interaction cone before
+time~$T$. We restrict it to a finite region~$R$. On this event there are at most
+$\abs R$ end patches, while the complementary contribution is controlled by a
+finite-propagation estimate. Thus the proof reduces to three estimates: spatial
+escape before~$T$, a successful interaction after~$T$, and relaxation of the
+end contributions when there is no successful interaction after~$T$. The
+argument is first carried out for~$\mu\in\mathcal M_*$, where patch positivity
+allows these contributions to be compared term by term. The extension to
+$\mathcal M_-$ is made after the three estimates have been combined.
 
 \subsection{Three estimates}
 \label{subsec:convergence-three-estimates}
