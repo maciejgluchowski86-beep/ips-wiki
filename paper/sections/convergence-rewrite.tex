@@ -74,7 +74,7 @@ Write the pure-death decomposition as
 \end{equation}
 and let~$P_t^\varepsilon$ and~$C^\varepsilon$ denote the semigroup and patch
 contributions for~$\Lcal^\varepsilon$. The two systems have the same dual jump
-process, successful interactions, and patch families. For~$\mu\in\mathcal M_-$,
+process, successful interactions, and patch families. For~$\mu\in\mathcal M_*$,
 set
 \begin{equation}
 \label{eq:finite-horizon-weight}
@@ -86,8 +86,7 @@ W_t^\mu
  C\bb{\eta\bb{i(P)},P}
 },
 \end{equation}
-and let~$W_t^{\varepsilon,\mu}$ be analogous with~$C$ replaced by
-$C^\varepsilon$. We also write
+and define~$W_t^{\varepsilon,\mu}$ by replacing~$C$ with~$C^\varepsilon$. Also set
 \begin{align*}
 W
 &=
@@ -108,42 +107,22 @@ The pure-death comparison gives
 =(\mu P_t^\varepsilon)(\chi_A)
 \leq1,
 \end{equation}
-and similarly
+and
 \begin{equation}
 \label{eq:limiting-weight-mass}
 0\leq W\leq W^\varepsilon,
 \qquad
 \E_A\Cb{W^\varepsilon}\leq1.
 \end{equation}
-If a patch~$P$ ends at an outgoing successful interaction, then removing the
-pure deaths changes its contribution by an exponential factor
+If a patch~$P$ ends at an outgoing successful interaction, then
 \begin{equation}
 \label{eq:outgoing-terminal-exact-factor}
 C(P)
 =
 e^{-\varepsilon\bb{e(P)-s(P)}}C^\varepsilon(P).
 \end{equation}
-These comparison bounds are the common input to the estimates below.
 
-For~$T\geq0$, let
-\begin{equation*}
-\mb{Cone}_T
-=
-\bigcup_{(i,u,S)\in\mathcal I_T}
-\bb{\cb{i}\cup S}\setminus\cb{\infty}
-\end{equation*}
-be the set of sites appearing in the successful-interaction skeleton up to
-time~$T$. For~$A\subseteq R\Subset\Lambda$, set
-\begin{equation}
-\label{eq:confinement-event}
-E_T^R=\cb{\mb{Cone}_T\subseteq R},
-\qquad
-\rho_A(T,R)
-=
-\norm{\bb{P_T-P_T^{R,0}}\chi_A}_\infty,
-\end{equation}
-where~$P_t^{R,0}$ is the semigroup of the dynamics on~$R$ with the spins outside
-$R$ fixed at~$0$. For~$0\leq T<t$, let
+For~$0\leq T<t$, let
 \begin{align}
 \label{eq:no-late-interaction-events}
 L_{T,t}
@@ -153,10 +132,66 @@ L_T
 &=
 \cb{\text{no successful interaction occurs after }T}.
 \end{align}
-The proof boils down to handling contributions from three events:
-$(E_T^R)^c$, $E_T^R\cap L_{T,t}^c$, and $E_T^R\cap L_{T,t}$.
-The first estimate controls trajectories whose interaction cone leaves~$R$
-before~$T$.
+The comparison above first gives the estimate for late successful interactions.
+\begin{lemma}[Late interactions]
+\label{lem:late-interactions}
+For~$\mu\in\mathcal M_*$ and~$0\leq T<t$,
+\begin{align}
+0
+&\leq
+\E_A\Cb{W_t^\mu\ind\bb{L_{T,t}^c}}
+\leq
+e^{-\varepsilon T},
+\label{eq:finite-late-interaction-bound}
+\\
+0
+&\leq
+\E_A\Cb{W\ind\bb{L_T^c}}
+\leq
+e^{-\varepsilon T}.
+\label{eq:limiting-late-interaction-bound}
+\end{align}
+\end{lemma}
+
+We next restrict to the event that there is no successful interaction after~$T$.
+The error from replacing an end-patch contribution at time~$t$ by its limit
+accumulates over the end patches. To bound their number, let
+\begin{equation*}
+\mb{Cone}_T
+=
+\bigcup_{(i,u,S)\in\mathcal I_T}
+\bb{\cb{i}\cup S}\setminus\cb{\infty}
+\end{equation*}
+be the set of sites appearing in the successful-interaction skeleton up to
+time~$T$, and for~$A\subseteq R\Subset\Lambda$ set
+\begin{equation}
+\label{eq:confinement-event}
+E_T^R=\cb{\mb{Cone}_T\subseteq R}.
+\end{equation}
+On~$E_T^R$ there are at most~$\abs R$ end patches at time~$T$.
+\begin{lemma}[Relaxation after the last interaction]
+\label{lem:no-late-relaxation}
+For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
+\begin{equation}
+\label{eq:no-late-relaxation-bound}
+\abs{
+ \E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}}}
+ -
+ \E_A\Cb{W\ind\bb{E_T^R\cap L_T}}
+}
+\leq
+\bb{1+\abs R}e^{-\varepsilon\bb{t-T}}.
+\end{equation}
+\end{lemma}
+
+It remains to control the event~$(E_T^R)^c$. Let~$P_t^{R,0}$ be the semigroup
+of the dynamics on~$R$ with the spins outside~$R$ fixed at~$0$, and set
+\begin{equation}
+\label{eq:confinement-error}
+\rho_A(T,R)
+=
+\norm{\bb{P_T-P_T^{R,0}}\chi_A}_\infty.
+\end{equation}
 \begin{lemma}[Spatial confinement]
 \label{lem:spatial-confinement}
 For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
@@ -175,46 +210,6 @@ For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
 \rho_A(T,R).
 \label{eq:limiting-confinement-bound}
 \end{align}
-\end{lemma}
-
-The second estimate controls the event that another successful interaction
-occurs after the cut time.
-\begin{lemma}[Late interactions]
-\label{lem:late-interactions}
-For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
-\begin{align}
-0
-&\leq
-\E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}^c}}
-\leq
-e^{-\varepsilon T},
-\label{eq:finite-late-interaction-bound}
-\\
-0
-&\leq
-\E_A\Cb{W\ind\bb{E_T^R\cap L_T^c}}
-\leq
-e^{-\varepsilon T}.
-\label{eq:limiting-late-interaction-bound}
-\end{align}
-\end{lemma}
-
-On the remaining event there are no successful interactions after~$T$. The
-last estimate compares the end-patch contributions at time~$t$ with their
-limits.
-\begin{lemma}[End-patch relaxation]
-\label{lem:no-late-relaxation}
-For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
-\begin{equation}
-\label{eq:no-late-relaxation-bound}
-\abs{
- \E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}}}
- -
- \E_A\Cb{W\ind\bb{E_T^R\cap L_T}}
-}
-\leq
-\bb{1+\abs R}e^{-\varepsilon\bb{t-T}}.
-\end{equation}
 \end{lemma}
 
 \subsection{Completion of the proof}
@@ -248,10 +243,9 @@ For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
 % PROOF ORDER
 %
 %   1. comparison after removing pure deaths;
-%   2. spatial confinement, citing the confined-interaction identity;
-%   3. ancestry lemma for a late successful interaction;
-%   4. late-interaction estimate;
-%   5. relaxation after the last interaction, citing the continuation formulas.
+%   2. ancestry lemma and late-interaction estimate;
+%   3. relaxation after the last interaction, citing the continuation formulas;
+%   4. spatial confinement, citing the confined-interaction identity.
 %
 % Main-text / appendix rule:
 %   Keep the mathematical mechanism in this section. Leave technical graphical
