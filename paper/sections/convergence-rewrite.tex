@@ -74,7 +74,7 @@ Write the pure-death decomposition as
 \end{equation}
 and let~$P_t^\varepsilon$ and~$C^\varepsilon$ denote the semigroup and patch
 contributions for~$\Lcal^\varepsilon$. The two systems have the same dual jump
-process, successful interactions, and patch families. For~$\mu\in\mathcal M_*$,
+process, successful interactions, and patch families. For~$\mu\in\mathcal M_-$,
 set
 \begin{equation}
 \label{eq:finite-horizon-weight}
@@ -86,7 +86,7 @@ W_t^\mu
  C\bb{\eta\bb{i(P)},P}
 },
 \end{equation}
-and let~$W_t^{\varepsilon,\mu}$ be the same expression with~$C$ replaced by
+and let~$W_t^{\varepsilon,\mu}$ be analogous with~$C$ replaced by
 $C^\varepsilon$. We also write
 \begin{align*}
 W
@@ -116,7 +116,7 @@ and similarly
 \E_A\Cb{W^\varepsilon}\leq1.
 \end{equation}
 If a patch~$P$ ends at an outgoing successful interaction, then removing the
-pure deaths changes its contribution by the exact factor
+pure deaths changes its contribution by an exponential factor
 \begin{equation}
 \label{eq:outgoing-terminal-exact-factor}
 C(P)
@@ -144,21 +144,17 @@ E_T^R=\cb{\mb{Cone}_T\subseteq R},
 \end{equation}
 where~$P_t^{R,0}$ is the semigroup of the dynamics on~$R$ with the spins outside
 $R$ fixed at~$0$. For~$0\leq T<t$, let
-\begin{equation}
+\begin{align}
 \label{eq:no-late-interaction-events}
 L_{T,t}
-=
-\cb{\text{no successful interaction occurs in }(T,t]},
-\qquad
+&=
+\cb{\text{no successful interaction occurs in }(T,t]},\notag\\
 L_T
-=
+&=
 \cb{\text{no successful interaction occurs after }T}.
-\end{equation}
-Thus the finite-time expression is divided according to
-$(E_T^R)^c$, $E_T^R\cap L_{T,t}^c$, and $E_T^R\cap L_{T,t}$, with the
-corresponding events $(E_T^R)^c$, $E_T^R\cap L_T^c$, and $E_T^R\cap L_T$ for
-the limiting expression.
-
+\end{align}
+The proof boils down to handling contributions from three events:
+$(E_T^R)^c$, $E_T^R\cap L_{T,t}^c$, and $E_T^R\cap L_{T,t}$.
 The first estimate controls trajectories whose interaction cone leaves~$R$
 before~$T$.
 \begin{lemma}[Spatial confinement]
