@@ -377,7 +377,7 @@ $\mu\in\mathcal M_*$,
   C\bb{\eta\bb{i(P)},P^{\uparrow t}}
  }
  -
-\prod_{P\in\mathcal E_T}C\bb{p_{i(P)}^\circ,P}
+\prod_{P\in\mathcal E_T}C\bb{\rho_{i(P)}(\mb 0),P}
 }
 \\
 &\qquad\leq
@@ -390,7 +390,7 @@ e^{-\varepsilon\bb{t-T}}
  }
  +
  \abs{\mathcal E_T}
-\prod_{P\in\mathcal E_T}C\bb{p_{i(P)}^\circ,P}
+\prod_{P\in\mathcal E_T}C\bb{\rho_{i(P)}(\mb 0),P}
 }.
 \end{align*}
 \end{lemma}
@@ -418,23 +418,23 @@ k_t^\varepsilon(P)
 \CP{L_{T,t}^P}{\mathcal G_T}
 \partial_zC^\varepsilon\bb{z,P^{\uparrow t}},
 \\
-b(P)&=C\bb{p_i^\circ,P}.
+b(P)&=C\bb{\rho_i(\mb 0),P}.
 \end{align*}
 Equation~\eqref{eq:local-probability-weighted-continuation} and the affine
 end-factor formula give
 \begin{equation*}
 a_t(P)=C\bb{\psi_i(h,p_i^\star),P},
 \qquad
-k_t(P)=e^{-r_i h}\kappa(P),
+k_t(P)=e^{-\lambda_i(\mb 0)h}\kappa(P),
 \qquad
-b(P)=C\bb{p_i^\circ,P}.
+b(P)=C\bb{\rho_i(\mb 0),P}.
 \end{equation*}
-The system with the pure-death component removed has empty-neighbour
-rate~$r_i-\varepsilon$, so
+For the system with the pure-death component removed, the corresponding update
+rate at the all-zero neighbourhood is~$\lambda_i(\mb 0)-\varepsilon$, so
 \begin{equation*}
 k_t^\varepsilon(P)
 =
-e^{-\bb{r_i-\varepsilon}h}\kappa^\varepsilon(P).
+e^{-\bb{\lambda_i(\mb 0)-\varepsilon}h}\kappa^\varepsilon(P).
 \end{equation*}
 The patchwise pure-death comparison and the common continuation probability
 therefore imply
@@ -446,15 +446,23 @@ therefore imply
 \qquad
 0\leq b(P)-a_t(P)\leq e^{-\varepsilon h}b(P).
 \end{equation}
-For the last inequality, use~$p_i^\star\leq p_i^\circ$ and compute
+For the last inequality, use~$p_i^\star\leq\rho_i(\mb 0)$ and compute
 \begin{equation*}
 b(P)-a_t(P)
 =
-\kappa(P)\bb{p_i^\circ-p_i^\star}e^{-r_i h}
+\kappa(P)\bb{\rho_i(\mb 0)-p_i^\star}
+e^{-\lambda_i(\mb 0)h}
 \leq
 e^{-\varepsilon h}b(P),
 \end{equation*}
-because~$b(P)=C(p_i^\star,P)+\kappa(P)(p_i^\circ-p_i^\star)$.
+because
+\begin{equation*}
+b(P)
+=
+C\bb{p_i^\star,P}
++
+\kappa(P)\bb{\rho_i(\mb 0)-p_i^\star}.
+\end{equation*}
 
 For~$\mathcal Q\subseteq\mathcal E_T$, put
 $I(\mathcal Q)=\cb{i(P):P\in\mathcal Q}$. Distributing the product in
