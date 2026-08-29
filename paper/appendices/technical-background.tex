@@ -202,14 +202,14 @@ $P_T^{R,0}$. Integrating over~$\mu$ proves
 \subsection{Continuation without successful interactions}
 \label{app:no-late-continuation}
 
-For~$P\in\mathcal E_T$ and~$t>T$, continue its candidate local active
-process after~$T$ using only the future outgoing marks at~$i(P)$ and no incoming
-boundary. Let~$L_{T,t}^P$ be the event that no nonempty-target mark acts while
-this continuation is active in~$(T,t]$. Conditional on~$\mathcal G_T$, the
-events~$(L_{T,t}^P)_{P\in\mathcal E_T}$ are independent. If a first successful
-interaction occurs after~$T$, its source belongs to one of the end patches, and
-up to that time its active indicator agrees with this one-site continuation.
-Hence
+For~$P\in\mathcal E_T$ and~$t>T$, continue the dual-active indicator at~$i(P)$
+after time~$T$ using only future outgoing marks at that site, with no incoming
+successful interactions. Let~$L_{T,t}^P$ be the event that no nonempty-target
+outgoing mark acts while this indicator is~$1$ in~$(T,t]$. Conditional on
+$\mathcal G_T$, the events~$(L_{T,t}^P)_{P\in\mathcal E_T}$ are independent.
+If a first successful interaction occurs after~$T$, its source belongs to one
+of the end patches, and up to that time the dual-active indicator at its source
+agrees with this one-site continuation. Hence
 \begin{equation}
 \label{eq:local-no-late-factorization}
 L_{T,t}
@@ -256,18 +256,21 @@ where the extensions are geometric. For every probability measure~$\mu$,
 \CE{W\ind\bb{L_T}}{\mathcal G_T}
 &=
 \prod_{P\in\mathcal B_T}C(P)
-\prod_{P\in\mathcal E_T}C\bb{p_{i(P)}^\circ,P}.
+\prod_{P\in\mathcal E_T}
+C\bb{\rho_{i(P)}(\mb 0),P}.
 \label{eq:appendix-infinite-continuation-identity}
 \end{align}
 The first equality in~\eqref{eq:appendix-finite-continuation-identity} also
 holds for~$W_t^{\varepsilon,\mu}$, with~$C$ replaced by~$C^\varepsilon$. The
 conditional probability is unchanged because the two systems have the same
-signed dual and reference patch laws.
+dual jump process and reference patch laws.
 \end{proposition}
 
 \begin{proof}
 The patch-family identities follow directly from the geometric definition of
-$P^{\uparrow t}$. On~$L_{T,t}$, no patch begins or ends after~$T$.
+$P^{\uparrow t}$. On~$L_{T,t}$, no successful interaction after~$T$ creates a
+new patch boundary, so the bulk patches are unchanged and each end patch in
+$\mathcal E_T$ extends geometrically to time~$t$.
 
 Fix~$P\in\mathcal E_T$, write~$i=i(P)$,~$S=S(P)$,
 $\Delta=T-s(P)$, and~$h=t-T$. The consistency normalizers in
@@ -339,15 +342,17 @@ independence,~\eqref{eq:local-no-late-factorization}, and
 \eqref{eq:local-probability-weighted-continuation} give the second equality.
 The same argument applies to~$\Lcal^\varepsilon$.
 
-Uniform deaths give~$r_i\geq\varepsilon$ and hence
-$\psi_i(h,z)\to p_i^\circ$ as~$h\to\infty$. For each~$P\in\mathcal E_T$,
-\eqref{eq:local-probability-weighted-continuation} with~$z=1$ therefore gives
+Uniform deaths give~$\lambda_i(\mb 0)\geq\varepsilon$, and
+\eqref{eq:empty-neighbour-relaxation} gives
+$\psi_i(h,z)\to\rho_i(\mb 0)$ as~$h\to\infty$. For each
+$P\in\mathcal E_T$,~\eqref{eq:local-probability-weighted-continuation} with
+$z=1$ therefore gives
 \begin{equation*}
 \lim_{u\to\infty}
 \CP{L_{T,u}^P}{\mathcal G_T}
 C\bb{1,P^{\uparrow u}}
 =
-C\bb{p_i^\circ,P}.
+C\bb{\rho_i(\mb 0),P}.
 \end{equation*}
 The product on the left is the conditional expectation of the patch factor
 on~$L_{T,u}^P$; the formula supplies its limit even when the
