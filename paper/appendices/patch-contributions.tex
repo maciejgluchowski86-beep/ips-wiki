@@ -64,7 +64,7 @@ C(z,P)
 \end{equation}
 In particular, every end contribution is affine in~$z$.
 
-\subsection{Full-patch contributions}
+\subsection{Contributions without terminal variables}
 \label{app:bulk-formulas}
 
 Let~$P\in\mathcal P$, and write
@@ -102,7 +102,7 @@ e^{V_i\Delta},
 &\mathsf X(P)\mathsf Y(P)=\mathsf{OO}.
 \end{cases}
 \end{equation}
-An infinite full patch has type~$\mathsf{IE}$ or~$\mathsf{OE}$, and the
+An infinite patch has type~$\mathsf{IE}$ or~$\mathsf{OE}$, and the
 corresponding row is read at~$\Delta=\infty$. If a denominator
 in~\eqref{eq:end-contribution-formulas} or
 \eqref{eq:full-contribution-formulas} vanishes, the corresponding labeled patch
@@ -172,8 +172,8 @@ z e^{-\lambda_i(\mb 0)\Delta}.
 
 Suppose first that a patch starts incoming, so~$X_s^P=1$, and has terminal
 label~$\mathsf I$ or~$\mathsf E$. Consistency occurs either when there is no
-outgoing mark before the endpoint, or when the first outgoing mark is an
-empty-target death. Therefore
+outgoing mark before the endpoint, or when the first outgoing mark is a death
+mark with~$S=\varnothing$. Therefore
 \begin{equation*}
 \pP_P\bb{\operatorname{Con}(P)}
 =
@@ -230,21 +230,24 @@ $\sigma_i^\beta(S)e^{V_i\Delta}$. These are the remaining two rows of
 \eqref{eq:full-contribution-formulas}. The same calculations pass
 to~$\Delta=\infty$ by taking limits.
 
-\subsection{Empty-neighbour relaxation}
+\subsection{All-zero-neighbourhood relaxation}
 \label{app:positivity-algebra}
 
-Put~$r_i=\lambda_i(\mb 0)$. If~$r_i>0$, then
+If~$\lambda_i(\mb 0)>0$, then
 \begin{equation}
-\label{eq:empty-neighbour-relaxation}
+\label{eq:all-zero-neighbourhood-relaxation}
 \psi_i(u,z)
 =
-\rho_i(\mb 0)+\bb{z-\rho_i(\mb 0)}e^{-r_i u},
+\rho_i(\mb 0)
++
+\bb{z-\rho_i(\mb 0)}e^{-\lambda_i(\mb 0)u},
 \qquad
 \psi_i(u+v,z)
 =
 \psi_i\bb{u,\psi_i(v,z)}.
 \end{equation}
-If~$r_i=0$, then~$\psi_i(u,z)=z$, and the second identity remains valid.
+If~$\lambda_i(\mb 0)=0$, then~$\psi_i(u,z)=z$, and the second identity remains
+valid.
 
 Let~$P$ be an end patch, let~$u\geq e(P)$ be finite, and put
 $h=u-e(P)$. The extension~$P^{\uparrow u}$ is the geometric patch from
