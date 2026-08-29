@@ -24,8 +24,7 @@ backward dual representation. We aim to show this converges to
 \ind\bb{\abs{\mathcal P}<\infty}
 }.
 \end{equation*}
-The event~$\abs{\mathcal P}<\infty$ is the event that the dual has a last
-successful interaction and subsequently dies. In particular, on this event the
+The event~$\cb{\abs{\mathcal P}<\infty}$ is the event that the dual process eventually dies, and from that point there are no more successful interactions. In particular, on this event the
 limiting product contains no end-patch contribution and hence no dependence on
 the initial configuration. This suggests proving convergence by showing first
 that the contribution from the event that a successful interaction occurs far
@@ -38,17 +37,17 @@ Feynman--Kac potential by~$\varepsilon\abs{A_s}$. Corollary~\ref{cor:pure-death-
 then used the same observation at the level of patches: removing these deaths
 leaves the successful interactions and patch families unchanged and increases
 the patch contributions. If a successful interaction occurs at time~$u$, its
-ancestry consists of dual-active patches whose lifetimes add up to~$u$. The
+ancestry consists of active patches whose lifetimes add up to~$u$. The
 contribution for the original system therefore carries, relative to the system
 with the pure deaths removed, a factor~$e^{-\varepsilon u}$. Since the latter
 provides an integrable upper bound, the contribution from the event that a
 successful interaction occurs after~$T$ is of order~$e^{-\varepsilon T}$.
 
 It remains to consider the event that there is no successful interaction after
-$T$. The end patches present at a later horizon~$t$ still contain the factors
+$T$ and show that on this event the dependence on initial law decays. The end patches present at a later horizon~$t$ still contain the factors
 $C(z,P)$ through which the initial configuration enters the representation.
 Once there are no further successful interactions, the dependence of each such
-factor on~$z$ decays at rate at least~$\varepsilon$, and hence at order
+factor on~$z$ decays at rate at least~$\varepsilon$, and hence is of order
 $e^{-\varepsilon(t-T)}$. This is the mechanism by which the dependence on the
 initial law disappears. The resulting estimate, however, is proportional to
 the number of end patches.
@@ -57,9 +56,9 @@ For this reason we also control the event that there are many end patches. If
 the interaction cone up to time~$T$ stays in a finite region~$R$, there are at
 most~$\abs R$ end patches. The contribution from the complementary event is
 controlled by finite propagation. We may therefore take~$R$ with radius
-proportional to~$T$; polynomial growth gives~$\abs R\lesssim(1+T)^D$, while the
-finite-propagation error is exponentially small. The proof below makes these
-three estimates precise and then combines them with~$T=t/2$.
+proportional to~$T$. Polynomial growth ensures~$\abs R\lesssim(1+T)^D$, while the
+finite-propagation error is exponentially small. In  the proof below we make these
+three estimates precise and then combine them with~$T=t/2$.
 
 \subsection{Three estimates}
 \label{subsec:convergence-three-estimates}
