@@ -430,18 +430,18 @@ converges to~$\pi$, so~$\pi$ is the unique invariant measure.
 \label{subsec:convergence-estimate-proofs}
 
 We now prove the three estimates used above. We first recall the comparison with
-the system obtained by removing pure deaths, which will be used repeatedly; the
-technical continuation and confinement identities used below are proved in
-Appendix~\ref{app:technical-background}.
+the system obtained by removing pure deaths, which will {\color{red} present tense} be used repeatedly; the
+technical continuation and confinement identities {\color{red}phrasing meaningless to the reader} used below are proved in
+Appendix~\ref{app:technical-background}.{\color{red} I almost never use semicolons.}
 
 \paragraph{Late successful interactions.}
-The proof of Corollary~\ref{cor:pure-death-comparison} already established the
+The proof of Corollary~\ref{cor:pure-death-comparison} {\color{red} Dont use headers like this, it looks artificial and bad.} already established the
 patchwise inequalities needed to compare the two systems. In particular, for
 $\mu\in\mathcal M_*$ they give~\eqref{eq:positive-weight-comparison}. They also
 give~$0\leq W\leq W^\varepsilon$. On
 $\cb{\abs{\mathcal P}<\infty}$, the finite-horizon weights
 $W_u^{\varepsilon,\mu_{\mb 1}}$ converge to~$W^\varepsilon$, while
-$W^\varepsilon=0$ on the complementary event. Hence
+$W = W^\varepsilon=0$ on the complementary event. Hence
 \begin{equation*}
 W^\varepsilon
 \leq
@@ -449,7 +449,7 @@ W^\varepsilon
 \end{equation*}
 and Fatou's lemma gives~$\E_A[W^\varepsilon]\leq1$, proving
 \eqref{eq:limiting-weight-mass}.
-
+{\color{red} Idk if all this is needed, it just repeats the proof strategy again. Section 6.3 is a proof section, the sketch was already explained earlier. Also the fact that the bounds on~$W$ and~$W^\varepsilon$ and relation between~$C(P)$ and~$C^\varepsilon(P)$ are given earlier without proof and proven here/in the appendix, but the reader doesnt know where when they read them. Bad presentation. I think maybe these should be moved to appendix (if they arent there already) and in 6.2 there should be appropriate references.}
 We also need the exact effect of the removed deaths on a patch ending at an
 outgoing interaction. Such a patch remains dual-active throughout
 $[s(P),e(P))$. Removing the pure deaths raises the one-site potential from
@@ -542,7 +542,7 @@ W\ind\bb{L_T^c}
 \leq
 e^{-\varepsilon T}W^\varepsilon.
 \end{equation*}
-The inequality is trivial when~$\abs{\mathcal P}=\infty$, since then~$W=0$.
+The inequality is trivial on~$\cb{\abs{\mathcal P}=\infty}$, since then~$W=0$.
 Taking expectations and using~\eqref{eq:limiting-weight-mass} proves
 \eqref{eq:limiting-late-interaction-bound}.
 \end{proof}
