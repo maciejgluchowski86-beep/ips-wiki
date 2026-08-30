@@ -90,19 +90,7 @@ implies
 It therefore suffices to prove the convergence estimate uniformly on
 $\mathcal M_*$.
 
-Write the pure-death decomposition as
-\begin{equation}
-\label{eq:uniform-death-decomposition}
-\Lcal
-=
-\Lcal^\varepsilon
-+
-\varepsilon\Ncal^{\mb 0},
-\end{equation}
-and let~$P_t^\varepsilon$ and~$C^\varepsilon$ denote the semigroup and patch
-contributions for~$\Lcal^\varepsilon$. The two systems have the same dual jump
-process, successful interactions, and patch families. For any probability
-measure~$\mu$, set
+For any probability measure~$\mu$, set
 \begin{equation}
 \label{eq:finite-horizon-weight}
 W_t^\mu
@@ -113,41 +101,13 @@ W_t^\mu
  C\bb{\eta\bb{i(P)},P}
 },
 \end{equation}
-and define~$W_t^{\varepsilon,\mu}$ by replacing~$C$ with~$C^\varepsilon$. Also set
-\begin{align*}
+and set
+\begin{equation*}
 W
-&=
-\prod_{P\in\mathcal P}C(P)
-\ind\bb{\abs{\mathcal P}<\infty},
-\\
-W^\varepsilon
-&=
-\prod_{P\in\mathcal P}C^\varepsilon(P)
-\ind\bb{\abs{\mathcal P}<\infty}.
-\end{align*}
-For~$\mu\in\mathcal M_*$, the pure-death comparison gives
-\begin{equation}
-\label{eq:positive-weight-comparison}
-0\leq W_t^\mu\leq W_t^{\varepsilon,\mu},
-\qquad
-\E_A\Cb{W_t^{\varepsilon,\mu}}
-=(\mu P_t^\varepsilon)(\chi_A)
-\leq1,
-\end{equation}
-and
-\begin{equation}
-\label{eq:limiting-weight-mass}
-0\leq W\leq W^\varepsilon,
-\qquad
-\E_A\Cb{W^\varepsilon}\leq1.
-\end{equation}
-If a patch~$P$ ends at an outgoing successful interaction, i.e. is of type~$\mathsf{IO}$ or~$\mathsf{OO}$, then
-\begin{equation}
-\label{eq:outgoing-terminal-exact-factor}
-C(P)
 =
-e^{-\varepsilon\bb{e(P)-s(P)}}C^\varepsilon(P).
-\end{equation}
+\prod_{P\in\mathcal P}C(P)
+\ind\bb{\abs{\mathcal P}<\infty}.
+\end{equation*}
 
 For~$0\leq T<t$, let
 \begin{align}
@@ -159,7 +119,7 @@ L_T
 &=
 \cb{\text{no successful interaction occurs after }T}.
 \end{align}
-The comparison above first gives the estimate for late successful interactions.
+The first estimate controls late successful interactions.
 \begin{lemma}[Late interactions]
 \label{lem:late-interactions}
 For~$\mu\in\mathcal M_*$ and~$0\leq T<t$,
