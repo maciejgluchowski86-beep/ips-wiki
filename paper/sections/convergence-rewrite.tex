@@ -402,9 +402,11 @@ Write
 \varepsilon\Ncal^{\mb 0},
 \end{equation}
 and let~$P_s^\varepsilon$ and~$C^\varepsilon$ denote the semigroup and patch
-contributions for~$\Lcal^\varepsilon$. The two systems have the same dual jump
-process, successful interactions, and patch families {\color{red} I think its proven in the appendix/earlier, but the reader doesnt know this}. For a probability
-measure~$\mu$, define
+contributions for~$\Lcal^\varepsilon$. By the proof of
+Corollary~\ref{cor:pure-death-comparison}, removing the pure deaths leaves the
+signed dual generator unchanged. We therefore realize the two systems with the
+same dual process, successful-interaction skeleton, and patch families. For a
+probability measure~$\mu$, define
 \begin{align*}
 W_t^{\varepsilon,\mu}
 &=
@@ -417,11 +419,26 @@ W^\varepsilon
 \prod_{P\in\mathcal P}C^\varepsilon(P)
 \ind\bb{\abs{\mathcal P}<\infty}.
 \end{align*}
-The proof of Corollary~\ref{cor:pure-death-comparison} gives, for every
-$\mu\in\mathcal M_*$ and~$t\geq0$,
+For every realized bulk patch and every~$\mu\in\mathcal M_*$, respectively,
+\begin{equation*}
+0\leq C(P)\leq C^\varepsilon(P)
+\end{equation*}
+and
+\begin{equation*}
+0\leq
+\mu\bb{
+ \prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+\leq
+\mu\bb{
+ \prod_{P\in\mathcal E_t}C^\varepsilon\bb{\eta\bb{i(P)},P}
+}.
+\end{equation*}
+These inequalities are proved in the proof of
+Corollary~\ref{cor:pure-death-comparison}. Consequently,
 \begin{equation}
 \label{eq:death-removed-weight-comparison}
-0\leq W_t^\mu\leq W_t^{\varepsilon,\nu},
+0\leq W_t^\mu\leq W_t^{\varepsilon,\mu},
 \qquad
 \E_A\Cb{W_t^{\varepsilon,\mu}}
 =(\mu P_t^\varepsilon)(\chi_A)
@@ -439,7 +456,7 @@ C(P)
 e^{-\varepsilon\bb{e(P)-s(P)}}C^\varepsilon(P).
 \end{equation}
 
-We now show that for a successful interaction happening at time~$u>0$ there exists a trail of~$\mathsf{XO}$ type patches that spans time from~$0$ to~$u$. Every successful interaction, except the formal initial interaction~$\iota_0$, ends a~$\mathsf{XO}$ patch. We call the successful interaction that starts this patch the ancestor of the previous successful interaction. Jumping from ancestor to ancestor generates a finite sequence of successful interactions ending at~$\iota_0$. Indeed, the boundary times decrease
+We now show that for a successful interaction happening at time~$u>0$ there exists a trail of~$\mathsf{XO}$ type patches that spans time from~$0$ to~$u$. Every successful interaction ends a~$\mathsf{XO}$ patch. We call the interaction record that starts this patch the ancestor of the previous successful interaction. Jumping from ancestor to ancestor generates a finite sequence of interaction records ending at the formal initial interaction~$\iota_0$. Indeed, the boundary times decrease
 strictly, and local finiteness of the graphical construction forces the chain
 to reach time~$0$ after finitely many steps, call that number~$n$. This ancestry trail gives the sequence of patches
 $P_1,\ldots,P_n$, each joining a successful interaction with its ancestor. All these patches are of type~$\mathsf{XO}$ and
@@ -470,10 +487,8 @@ e^{-\varepsilon u}
 e^{-\varepsilon T}
 \prod_{k=1}^n C^\varepsilon(P_k).
 \end{equation*}
-The remaining bulk factors and the terms in the centered end expansion are
-compared exactly as in the proof of
-Corollary~\ref{cor:pure-death-comparison} {\color{red} write explicitly that~$C(P)\leq C^\varepsilon(P)$ and the more complicated inequality for~$\mu(...)$, and then say the proof is in proof of corollary 3.1. This reads as incomplete and even unclear to the reader}. Since~$\mu\in\mathcal M_*$, the
-centered moments are nonnegative {\color{red} This should be subsumed by earlier note}, and therefore
+Applying the comparison above to the remaining bulk patches and to the end
+contribution gives
 \begin{equation*}
 W_t^\mu\ind\bb{L_{T,t}^c}
 \leq
@@ -483,7 +498,8 @@ Taking expectations and using~\eqref{eq:death-removed-weight-comparison} proves
 \eqref{eq:finite-late-interaction-bound}.
 
 For the infinite-horizon estimate, the same patchwise comparison gives
-$0\leq W\leq W^\varepsilon$. On~$\cb{\abs{\mathcal P}<\infty}$,
+$0\leq W\leq W^\varepsilon$. On~$\cb{\abs{\mathcal P}<\infty}$ the product
+defining~$W^\varepsilon$ has only finitely many factors, so
 $W_s^{\varepsilon,\mu_{\mb 1}}\to W^\varepsilon$ as~$s\to\infty$, while
 $W^\varepsilon=0$ on the complementary event. Hence
 \begin{equation*}
