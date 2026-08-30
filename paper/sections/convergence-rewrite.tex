@@ -434,19 +434,119 @@ the system obtained by removing pure deaths, which will be used repeatedly; the
 technical continuation and confinement identities used below are proved in
 Appendix~\ref{app:technical-background}.
 
-% ============================================================================
-% PROOF ORDER
-%
-%   1. comparison after removing pure deaths;
-%   2. ancestry lemma and late-interaction estimate;
-%   3. relaxation after the last interaction, citing the continuation formulas;
-%   4. spatial confinement, citing the confined-interaction identity.
-%
-% Main-text / appendix rule:
-%   Keep the mathematical mechanism in this section. Leave technical graphical
-%   identities, explicit patch-boundary formulas, zero-boundary generator
-%   calculations, and finite-propagation estimates in the appendix.
-%
-% Do not restore the old closing discussion about cancellations outside M_-;
-% that point now belongs in Section~\ref{sec:discussion}.
-% ============================================================================
+\paragraph{Late successful interactions.}
+The proof of Corollary~\ref{cor:pure-death-comparison} already established the
+patchwise inequalities needed to compare the two systems. In particular, for
+$\mu\in\mathcal M_*$ they give~\eqref{eq:positive-weight-comparison}. They also
+give~$0\leq W\leq W^\varepsilon$. On
+$\cb{\abs{\mathcal P}<\infty}$, the finite-horizon weights
+$W_u^{\varepsilon,\mu_{\mb 1}}$ converge to~$W^\varepsilon$, while
+$W^\varepsilon=0$ on the complementary event. Hence
+\begin{equation*}
+W^\varepsilon
+\leq
+\liminf_{u\to\infty}W_u^{\varepsilon,\mu_{\mb 1}},
+\end{equation*}
+and Fatou's lemma gives~$\E_A[W^\varepsilon]\leq1$, proving
+\eqref{eq:limiting-weight-mass}.
+
+We also need the exact effect of the removed deaths on a patch ending at an
+outgoing interaction. Such a patch remains dual-active throughout
+$[s(P),e(P))$. Removing the pure deaths raises the one-site potential from
+$V_i$ to~$V_i+\varepsilon$ and leaves the dual jump process and the patch
+consistency law unchanged. The outgoing-terminal formulas in
+Appendix~\ref{app:bulk-formulas} therefore give
+\begin{equation*}
+C(P)
+=
+e^{-\varepsilon\bb{e(P)-s(P)}}C^\varepsilon(P),
+\end{equation*}
+which proves~\eqref{eq:outgoing-terminal-exact-factor}.
+
+A successful interaction at time~$u$ can now be traced backwards through
+patches ending at outgoing interactions. The following lemma records the only
+geometric property of this ancestry that we use.
+
+\begin{lemma}[Ancestry of a successful interaction]
+\label{lem:backward-outgoing-chain}
+Let~$(i,u,S)$ be a successful-interaction record with~$u>0$. There are distinct
+patches~$P_1,\ldots,P_n$, each ending at an outgoing successful interaction,
+such that
+\begin{equation*}
+s(P_1)=0,
+\qquad
+e(P_n)=u,
+\qquad
+e(P_k)=s(P_{k+1})
+\quad\text{for }1\leq k<n.
+\end{equation*}
+Consequently,
+\begin{equation}
+\label{eq:outgoing-chain-total-length}
+\sum_{k=1}^n\bb{e(P_k)-s(P_k)}=u.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Start with the patch at the source~$i$ ending at~$u$. Its terminal boundary is
+outgoing because~$i$ is dual-active immediately before the successful
+interaction. Trace predecessors backwards. If the current patch begins with an
+incoming interaction, take the patch at the source of that interaction ending
+at the same time. If it begins with an outgoing interaction, that interaction
+must be a birth, since the source remains dual-active in the current patch; take
+the preceding patch at the same site. In either case the predecessor has
+outgoing terminal boundary. Lemma~\ref{lem:dual-local-finiteness} implies that
+this backward chain reaches time~$0$ after finitely many steps. Reversing the
+sequence, consecutive intervals meet at their endpoints and together fill
+$[0,u)$, which proves~\eqref{eq:outgoing-chain-total-length}.
+\end{proof}
+
+\begin{figure}[htbp]
+\centering
+\input{paper/figures/convergence-backward-xo-trail}
+\caption{The ancestry chain of a successful interaction at time~$u$. Each dark
+rectangle is a patch ending at an outgoing successful interaction. The patch
+intervals concatenate from time~$0$ to~$u$, so their lifetimes sum to~$u$.}
+\label{fig:backward-outgoing-chain}
+\end{figure}
+\FloatBarrier
+
+\begin{proof}[Proof of Lemma~\ref{lem:late-interactions}]
+On~$L_{T,t}^c$, let~$u\in(T,t]$ be the first successful-interaction time after
+$T$, and let~$P_1,\ldots,P_n$ be its ancestry chain. Every patch in the chain
+belongs to~$\mathcal B_t$, and
+\begin{equation*}
+\prod_{k=1}^n C(P_k)
+=
+e^{-\varepsilon u}
+\prod_{k=1}^n C^\varepsilon(P_k)
+\leq
+e^{-\varepsilon T}
+\prod_{k=1}^n C^\varepsilon(P_k).
+\end{equation*}
+The remaining bulk and end factors are compared exactly as in the proof of
+Corollary~\ref{cor:pure-death-comparison}; the centered moments are
+nonnegative because~$\mu\in\mathcal M_*$. Hence
+\begin{equation*}
+W_t^\mu\ind\bb{L_{T,t}^c}
+\leq
+e^{-\varepsilon T}W_t^{\varepsilon,\mu}.
+\end{equation*}
+Taking expectations and using~\eqref{eq:positive-weight-comparison} proves
+\eqref{eq:finite-late-interaction-bound}.
+
+On~$\cb{\abs{\mathcal P}<\infty}\cap L_T^c$, apply the same argument to the
+first successful interaction after~$T$ to obtain
+\begin{equation*}
+W\ind\bb{L_T^c}
+\leq
+e^{-\varepsilon T}W^\varepsilon.
+\end{equation*}
+The inequality is trivial when~$\abs{\mathcal P}=\infty$, since then~$W=0$.
+Taking expectations and using~\eqref{eq:limiting-weight-mass} proves
+\eqref{eq:limiting-late-interaction-bound}.
+\end{proof}
+
+% Remaining proof blocks:
+%   2. relaxation after the last interaction, citing the continuation formulas;
+%   3. spatial confinement, citing the confined-interaction identity.
