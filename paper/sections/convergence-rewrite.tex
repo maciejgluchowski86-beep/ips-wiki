@@ -5,7 +5,7 @@
 % paper/sections/convergence.tex while the section is rewritten.
 
 The proof starts from the patch representation. For~$A\Subset\Lambda$ and law
-$\mu$ we have,
+$\mu$ we have
 \begin{equation*}
 (\mu P_t)(\chi_A)
 =
@@ -14,7 +14,7 @@ $\mu$ we have,
 \mu\bb{
 \prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
 }
-}.
+},
 \end{equation*}
 where the variables~$\eta(i(P))$ come from the initial configuration in the
 backward dual representation. We aim to show this converges to
@@ -57,7 +57,7 @@ the interaction cone up to time~$T$ stays in a finite region~$R$, there are at
 most~$\abs R$ end patches. The complementary event requires the dual process to experience abnormal growth spurt and its contribution is
 controlled via estimates on speed of information spread. We take~$R$ with radius
 proportional to~$T$. Polynomial growth ensures~$\abs R\lesssim(1+T)^D$, while the
-finite-propagation error is exponentially small. In  the proof below we make these
+finite-propagation error is exponentially small. In the proof below we make these
 three estimates precise and then combine them with~$T=t/2$.
 
 \subsection{Three estimates}
@@ -235,8 +235,8 @@ representation gives
 -
 \E_A\Cb{W\ind\bb{(E_T^R)^c\cap L_T}}.
 \end{align*}
-Lemmas~\ref{lem:late-interactions}, \ref{lem:no-late-relaxation}, and
-\ref{lem:spatial-confinement} with~$0\leq W_t^\mu, W_t$ and~$(E_T^R)^c\cap L_{T,t}\subseteq \bb{E_T^R}^c$, in this order, imply
+Since~$W_t^\mu,W\geq0$ and
+$(E_T^R)^c\cap L_{T,t}\subseteq(E_T^R)^c$, the three lemmas above give
 \begin{equation}
 \label{eq:three-term-convergence-bound}
 \abs{(\mu P_t)(\chi_A)-\E_A\Cb{W}}
@@ -565,7 +565,7 @@ where
 =
 \rho_i(\mb 0)
 +
-e^{-\lambda_i(\mb 0)(t-T))}\bb{z-\rho_i(\mb 0)}.
+e^{-\lambda_i(\mb 0)(t-T)}\bb{z-\rho_i(\mb 0)}.
 \end{equation*}
 The pure-death assumption gives~$\lambda_i(\mb 0)\geq\varepsilon$. Since the
 end contribution~$C(z,P)$ is affine in~$z$, the probability-weighted factor in
@@ -580,7 +580,8 @@ B_T^\varepsilon=\prod_{P\in\mathcal B_T}C^\varepsilon(P).
 \end{equation*}
 The preceding factorization over end patches gives the conditional finite- and
 infinite-horizon contributions
-\begin{align}\label{eq:LTt_representation}
+\begin{align}
+\label{eq:no-late-conditional-weights}
 \CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
 &=
 B_T\CP{L_{T,t}}{\mathcal G_T}
@@ -645,7 +646,7 @@ e^{-\varepsilon (t-T)}
  C\bb{\rho_{i(P)}(\mb 0),P}
 }.
 \end{align*}
-For the first term, the inequality~$B_T\leq B_T^\varepsilon$ and the same formula as~\ref{eq:LTt_representation} for the system with pure deaths removed give
+For the first term, the inequality~$B_T\leq B_T^\varepsilon$ and the same formula as~\eqref{eq:no-late-conditional-weights} for the system with pure deaths removed give
 \begin{equation*}
 \E_A\Cb{
  \ind\bb{E_T^R}B_T
@@ -662,7 +663,7 @@ For the first term, the inequality~$B_T\leq B_T^\varepsilon$ and the same formul
 \leq1.
 \end{equation*}
 For the second term, we have~$\abs{\mathcal E_T}\leq\abs R$ on
-$E_T^R$, so~\ref{eq:LTt_representation} gives
+$E_T^R$, so~\eqref{eq:no-late-conditional-weights} gives
 \begin{equation*}
 \E_A\Cb{
  \ind\bb{E_T^R}B_T\abs{\mathcal E_T}
@@ -678,7 +679,7 @@ $E_T^R$, so~\ref{eq:LTt_representation} gives
 \end{equation*}
 Here the last inequalities use~\eqref{eq:death-removed-weight-comparison} and
 $0\leq W\leq W^\varepsilon$ together with
-\eqref{eq:limiting-death-removed-mass}.The bounds on the two terms
+\eqref{eq:limiting-death-removed-mass}. The bounds on the two terms
 give~\eqref{eq:no-late-relaxation-bound}.
 \end{proof}
 
@@ -725,13 +726,14 @@ Therefore
 which proves~\eqref{eq:finite-horizon-confinement-bound}.
 
 On~$\cb{\abs{\mathcal P}<\infty}$,
-$W_u^{\mu}\to W$ as~$u\to\infty$, and on~$\cb{\abs{\mathcal{P}}=\infty}$ we have~$W=0$, so Fatou's Lemma gives
+$W_u^{\mu}\to W$ as~$u\to\infty$, and on~$\cb{\abs{\mathcal P}=\infty}$ we have~$W=0$, so Fatou's lemma gives
 \begin{equation*}
 0
 \leq
 \E_A\Cb{W\ind\bb{(E_T^R)^c}}
 \leq
-\liminf_{t\to\infty}\E_A\Cb{W_t^\mu\ind\bb{(E_T^R)^c}}\leq
+\liminf_{u\to\infty}\E_A\Cb{W_u^\mu\ind\bb{(E_T^R)^c}}
+\leq
 \rho_A(T,R),
 \end{equation*}
 which is~\eqref{eq:limiting-confinement-bound}.
