@@ -54,11 +54,10 @@ the number of end patches.
 
 For this reason we also control the event that there are many end patches. If
 the interaction cone up to time~$T$ stays in a finite region~$R$, there are at
-most~$\abs R$ end patches. The complementary event requires the dual process to experience abnormal growth spurt and its contribution is
-controlled via estimates on speed of information spread. We take~$R$ with radius
+most~$\abs R$ end patches. On the complementary event the interaction cone exits~$R$ before time~$T$, and its contribution is controlled by finite propagation. We take~$R$ with radius
 proportional to~$T$. Polynomial growth ensures~$\abs R\lesssim(1+T)^D$, while the
 finite-propagation error is exponentially small. In the proof below we make these
-three estimates precise and then combine them with~$T=t/2$.
+three estimates precise and then combine them with~$T=t/2$. We first prove the convergence estimate for initial laws in~$\mathcal M_*$ and then extend it to~$\mathcal M_-$ by writing each measure in~$\mathcal M_{-,K}$ as an affine combination of two measures in~$\mathcal M_*$.
 
 \subsection{Three estimates}
 \label{subsec:convergence-three-estimates}
@@ -119,7 +118,7 @@ L_T
 &=
 \cb{\text{no successful interaction occurs after }T}.
 \end{align}
-The first estimate controls event with late successful interactions.
+The first estimate controls the contribution from late successful interactions.
 \begin{lemma}[Late interactions]
 \label{lem:late-interactions}
 For~$\mu\in\mathcal M_*$ and~$0\leq T<t$,
