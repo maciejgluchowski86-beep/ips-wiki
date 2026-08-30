@@ -546,11 +546,16 @@ to time~$t$.}
 
 Fix the successful-interaction skeleton up to time~$T$. For
 $P\in\mathcal E_T$, let~$L_{T,t}^P$ be the event that the one-site evolution
-continuing~$P$ produces no successful interaction in~$(T,t]$. Appendix~\ref{app:no-late-continuation} proves that these events are conditionally independent,
+continuing~$P$ produces no successful interaction in~$(T,t]$. Appendix~\ref{app:no-late-continuation} proves that these events are conditionally independent, so
 \begin{equation*}
 L_{T,t}=\bigcap_{P\in\mathcal E_T}L_{T,t}^P,
+\qquad
+\CP{L_{T,t}}{\mathcal G_T}
+=
+\prod_{P\in\mathcal E_T}
+\CP{L_{T,t}^P}{\mathcal G_T}.
 \end{equation*}
-and, for~$P$ based at~$i$,
+For~$P$ based at~$i$, the same appendix gives
 \begin{equation}
 \label{eq:main-local-end-relaxation}
 \CP{L_{T,t}^P}{\mathcal G_T}
@@ -566,10 +571,10 @@ where
 +
 e^{-\lambda_i(\mb 0)(t-T)}\bb{z-\rho_i(\mb 0)}.
 \end{equation*}
-The pure-death assumption gives~$\lambda_i(\mb 0)\geq\varepsilon$. Since the
-end contribution~$C(z,P)$ is affine in~$z$, the probability-weighted factor in
+The pure-death assumption gives~$\lambda_i(\mb 0)\geq\varepsilon$. Since
+$C(z,P)$ is affine in~$z$, the conditional end-patch contribution in
 \eqref{eq:main-local-end-relaxation} converges to
-$C\bb{\rho_i(\mb 0),P}$ at rate at least~$e^{-\varepsilon (t-T)}$.
+$C\bb{\rho_i(\mb 0),P}$ at rate at least~$e^{-\varepsilon(t-T)}$.
 
 Write
 \begin{equation*}
@@ -577,8 +582,7 @@ B_T=\prod_{P\in\mathcal B_T}C(P),
 \qquad
 B_T^\varepsilon=\prod_{P\in\mathcal B_T}C^\varepsilon(P).
 \end{equation*}
-The preceding factorization over end patches gives the conditional finite- and
-infinite-horizon contributions
+The conditional finite- and infinite-horizon contributions are therefore
 \begin{align}
 \label{eq:no-late-conditional-weights}
 \CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
@@ -595,8 +599,12 @@ B_T
 \prod_{P\in\mathcal E_T}
 C\bb{\rho_{i(P)}(\mb 0),P}.
 \end{align}
-Lemma~\ref{lem:end-factor-relaxation}
-expands the product and gives, via telescoping inequality,
+Thus each end-patch factor in the finite-horizon expression converges
+exponentially to the corresponding factor in the limiting product. Since the
+full end contribution contains a product over~$\mathcal E_T$, the individual
+errors must be accumulated, and the terminal spins may be dependent under~$\mu$.
+Lemma~\ref{lem:end-factor-relaxation} carries out this product comparison by a
+centered expansion and a telescoping estimate. It gives
 \begin{align*}
 &\abs{
 \CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
@@ -617,8 +625,10 @@ e^{-\varepsilon (t-T)}B_T\abs{\mathcal E_T}
 \prod_{P\in\mathcal E_T}
 C\bb{\rho_{i(P)}(\mb 0),P}.
 \end{align*}
-
-Because~$E_T^R$ is determined by~$\mathcal G_T$, the preceding bound gives
+The first term is controlled by the finite-horizon contribution for the system
+with pure deaths removed. The second accumulates one error for each end patch.
+Because~$E_T^R$ is determined by~$\mathcal G_T$, multiplying by
+$\ind(E_T^R)$ and taking expectations gives
 \begin{align*}
 &\abs{
  \E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}}}
@@ -645,7 +655,9 @@ e^{-\varepsilon (t-T)}
  C\bb{\rho_{i(P)}(\mb 0),P}
 }.
 \end{align*}
-For the first term, the inequality~$B_T\leq B_T^\varepsilon$ and the same formula as~\eqref{eq:no-late-conditional-weights} for the system with pure deaths removed give
+For the finite-horizon term,~$B_T\leq B_T^\varepsilon$ and the same formula
+as~\eqref{eq:no-late-conditional-weights} for the system with pure deaths
+removed give
 \begin{equation*}
 \E_A\Cb{
  \ind\bb{E_T^R}B_T
@@ -661,7 +673,7 @@ For the first term, the inequality~$B_T\leq B_T^\varepsilon$ and the same formul
 }
 \leq1.
 \end{equation*}
-For the second term, we have~$\abs{\mathcal E_T}\leq\abs R$ on
+For the accumulated end-patch term,~$\abs{\mathcal E_T}\leq\abs R$ on
 $E_T^R$, so~\eqref{eq:no-late-conditional-weights} gives
 \begin{equation*}
 \E_A\Cb{
@@ -678,8 +690,8 @@ $E_T^R$, so~\eqref{eq:no-late-conditional-weights} gives
 \end{equation*}
 Here the last inequalities use~\eqref{eq:death-removed-weight-comparison} and
 $0\leq W\leq W^\varepsilon$ together with
-\eqref{eq:limiting-death-removed-mass}. The bounds on the two terms
-give~\eqref{eq:no-late-relaxation-bound}.
+\eqref{eq:limiting-death-removed-mass}. Combining the two bounds proves
+\eqref{eq:no-late-relaxation-bound}.
 \end{proof}
 
 \begin{proof}[Proof of Lemma~\ref{lem:spatial-confinement}]
