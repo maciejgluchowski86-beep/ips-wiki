@@ -38,8 +38,8 @@ then used the same observation at the level of patches: removing these deaths
 leaves the successful interactions and patch families unchanged and increases
 the patch contributions. If a successful interaction occurs at time~$u$, its
 ancestry consists of active patches whose lifetimes add up to~$u$. The
-contribution for the original system therefore carries, relative to the system
-with the pure deaths removed, a factor~$e^{-\varepsilon u}$. Since the latter
+contribution for the original system is therefore smaller, relative to the system
+with the pure deaths removed, by a factor~$e^{-\varepsilon u}$. Since the latter
 provides an integrable upper bound, the contribution from the event that a
 successful interaction occurs after~$T$ is of order~$e^{-\varepsilon T}$.
 
@@ -49,13 +49,13 @@ $C(z,P)$ through which the initial configuration enters the representation.
 Once there are no further successful interactions, the dependence of each such
 factor on~$z$ decays at rate at least~$\varepsilon$, and hence is of order
 $e^{-\varepsilon(t-T)}$. This is the mechanism by which the dependence on the
-initial law disappears. The resulting estimate, however, is proportional to
+initial law disappears. The resulting estimate, however, gets worse with
 the number of end patches.
 
 For this reason we also control the event that there are many end patches. If
 the interaction cone up to time~$T$ stays in a finite region~$R$, there are at
-most~$\abs R$ end patches. The contribution from the complementary event is
-controlled by finite propagation. We may therefore take~$R$ with radius
+most~$\abs R$ end patches. The complementary event requires the dual process to experience abnormal growth spurt and its contribution is
+controlled via estimates on speed of information spread. We take~$R$ with radius
 proportional to~$T$. Polynomial growth ensures~$\abs R\lesssim(1+T)^D$, while the
 finite-propagation error is exponentially small. In  the proof below we make these
 three estimates precise and then combine them with~$T=t/2$.
