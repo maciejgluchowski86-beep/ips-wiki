@@ -543,7 +543,7 @@ to time~$t$.}
 \end{figure}
 \FloatBarrier
 
-Fix the successful-interaction skeleton up to time~$T$, and put~$h=t-T$. For
+Fix the successful-interaction skeleton up to time~$T$. For
 $P\in\mathcal E_T$, let~$L_{T,t}^P$ be the event that the one-site evolution
 continuing~$P$ produces no successful interaction in~$(T,t]$. Appendix~\ref{app:no-late-continuation} proves that these events are conditionally independent,
 \begin{equation*}
@@ -555,20 +555,20 @@ and, for~$P$ based at~$i$,
 \CP{L_{T,t}^P}{\mathcal G_T}
 C\bb{z,P^{\uparrow t}}
 =
-C\bb{\psi_i(h,z),P},
+C\bb{\psi_i(t-T,z),P},
 \end{equation}
 where
 \begin{equation*}
-\psi_i(h,z)
+\psi_i(t-T,z)
 =
 \rho_i(\mb 0)
 +
-e^{-\lambda_i(\mb 0)h}\bb{z-\rho_i(\mb 0)}.
+e^{-\lambda_i(\mb 0)(t-T))}\bb{z-\rho_i(\mb 0)}.
 \end{equation*}
 The pure-death assumption gives~$\lambda_i(\mb 0)\geq\varepsilon$. Since the
 end contribution~$C(z,P)$ is affine in~$z$, the probability-weighted factor in
 \eqref{eq:main-local-end-relaxation} converges to
-$C\bb{\rho_i(\mb 0),P}$ at rate at least~$e^{-\varepsilon h}$.
+$C\bb{\rho_i(\mb 0),P}$ at rate at least~$e^{-\varepsilon (t-T)}$.
 
 Write
 \begin{equation*}
@@ -578,24 +578,23 @@ B_T^\varepsilon=\prod_{P\in\mathcal B_T}C^\varepsilon(P).
 \end{equation*}
 The preceding factorization over end patches gives the conditional finite- and
 infinite-horizon contributions
-\begin{align*}
+\begin{align}\label{eq:LTt_representation}
 \CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
 &=
 B_T\CP{L_{T,t}}{\mathcal G_T}
 \mu\bb{
  \prod_{P\in\mathcal E_T}
  C\bb{\eta\bb{i(P)},P^{\uparrow t}}
-},
+},\notag
 \\
 \CE{W\ind\bb{L_T}}{\mathcal G_T}
 &=
 B_T
 \prod_{P\in\mathcal E_T}
 C\bb{\rho_{i(P)}(\mb 0),P}.
-\end{align*}
-The initial law~$\mu$ need not factor over the end-patch sites, so the one-patch
-convergence cannot simply be multiplied. Lemma~\ref{lem:end-factor-relaxation}
-expands the product in centered moments and gives
+\end{align}
+Lemma~\ref{lem:end-factor-relaxation}
+expands the product and gives, via telescoping inequality,
 \begin{align*}
 &\abs{
 \CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
@@ -604,7 +603,7 @@ expands the product in centered moments and gives
 }
 \\
 &\qquad\leq
-e^{-\varepsilon h}B_T
+e^{-\varepsilon (t-T)}B_T
 \CP{L_{T,t}}{\mathcal G_T}
 \mu\bb{
  \prod_{P\in\mathcal E_T}
@@ -612,13 +611,10 @@ e^{-\varepsilon h}B_T
 }
 \\
 &\qquad\quad+
-e^{-\varepsilon h}B_T\abs{\mathcal E_T}
+e^{-\varepsilon (t-T)}B_T\abs{\mathcal E_T}
 \prod_{P\in\mathcal E_T}
 C\bb{\rho_{i(P)}(\mb 0),P}.
 \end{align*}
-The first term controls the nonconstant centered terms: each contains at least
-one slope which decays by~$e^{-\varepsilon h}$. The second term is the accumulated
-error of the constant terms over the end patches.
 
 Because~$E_T^R$ is determined by~$\mathcal G_T$, the preceding bound gives
 \begin{align*}
@@ -629,7 +625,7 @@ Because~$E_T^R$ is determined by~$\mathcal G_T$, the preceding bound gives
 }
 \\
 &\quad\leq
-e^{-\varepsilon h}
+e^{-\varepsilon (t-T)}
 \E_A\Cb{
  \ind\bb{E_T^R}B_T
  \CP{L_{T,t}}{\mathcal G_T}
@@ -640,15 +636,14 @@ e^{-\varepsilon h}
 }
 \\
 &\qquad+
-e^{-\varepsilon h}
+e^{-\varepsilon (t-T)}
 \E_A\Cb{
  \ind\bb{E_T^R}B_T\abs{\mathcal E_T}
  \prod_{P\in\mathcal E_T}
  C\bb{\rho_{i(P)}(\mb 0),P}
 }.
 \end{align*}
-For the centered-part contribution,~$B_T\leq B_T^\varepsilon$ and the same
-conditional formula for the system with pure deaths removed give
+For the first term, the inequality~$B_T\leq B_T^\varepsilon$ and the same formula as~\ref{eq:LTt_representation} for the system with pure deaths removed give
 \begin{equation*}
 \E_A\Cb{
  \ind\bb{E_T^R}B_T
@@ -664,8 +659,8 @@ conditional formula for the system with pure deaths removed give
 }
 \leq1.
 \end{equation*}
-For the constant-part contribution,~$\abs{\mathcal E_T}\leq\abs R$ on
-$E_T^R$, and the second conditional formula above gives
+For the second term, we have~$\abs{\mathcal E_T}\leq\abs R$ on
+$E_T^R$, so~\ref{eq:LTt_representation} gives
 \begin{equation*}
 \E_A\Cb{
  \ind\bb{E_T^R}B_T\abs{\mathcal E_T}
@@ -681,7 +676,7 @@ $E_T^R$, and the second conditional formula above gives
 \end{equation*}
 Here the last inequalities use~\eqref{eq:death-removed-weight-comparison} and
 $0\leq W\leq W^\varepsilon$ together with
-\eqref{eq:limiting-death-removed-mass}. Since~$h=t-T$, the two contributions
+\eqref{eq:limiting-death-removed-mass}.The bounds on the two terms
 give~\eqref{eq:no-late-relaxation-bound}.
 \end{proof}
 
