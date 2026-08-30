@@ -524,13 +524,60 @@ expectations and using~\eqref{eq:limiting-death-removed-mass} proves
 \end{proof}
 
 \begin{proof}[Proof of Lemma~\ref{lem:no-late-relaxation}]
-Set
+On~$L_{T,t}$ there is no new patch boundary after time~$T$. Thus
+\begin{equation*}
+\mathcal B_t=\mathcal B_T,
+\qquad
+\mathcal E_t=\cb{P^{\uparrow t}:P\in\mathcal E_T},
+\end{equation*}
+so the bulk patches are fixed at time~$T$ and each end patch simply extends to
+time~$t$.
+
+\begin{figure}[htbp]
+\centering
+\input{paper/figures/convergence-no-late-end-patches}
+\caption{On~$L_{T,t}$, no successful interaction occurs in~$(T,t]$. The bulk
+patches are unchanged after~$T$, while every end patch present at~$T$ extends
+to time~$t$.}
+\label{fig:no-late-end-patches}
+\end{figure}
+\FloatBarrier
+
+Fix the successful-interaction skeleton up to time~$T$, and put~$h=t-T$. For
+$P\in\mathcal E_T$, let~$L_{T,t}^P$ be the event that the one-site evolution
+continuing~$P$ produces no successful interaction in~$(T,t]$. Appendix~\ref{app:no-late-continuation} proves that these events are conditionally independent,
+\begin{equation*}
+L_{T,t}=\bigcap_{P\in\mathcal E_T}L_{T,t}^P,
+\end{equation*}
+and, for~$P$ based at~$i$,
+\begin{equation}
+\label{eq:main-local-end-relaxation}
+\CP{L_{T,t}^P}{\mathcal G_T}
+C\bb{z,P^{\uparrow t}}
+=
+C\bb{\psi_i(h,z),P},
+\end{equation}
+where
+\begin{equation*}
+\psi_i(h,z)
+=
+\rho_i(\mb 0)
++
+e^{-\lambda_i(\mb 0)h}\bb{z-\rho_i(\mb 0)}.
+\end{equation*}
+The pure-death assumption gives~$\lambda_i(\mb 0)\geq\varepsilon$. Since the
+end contribution~$C(z,P)$ is affine in~$z$, the probability-weighted factor in
+\eqref{eq:main-local-end-relaxation} converges to
+$C\bb{\rho_i(\mb 0),P}$ at rate at least~$e^{-\varepsilon h}$.
+
+Write
 \begin{equation*}
 B_T=\prod_{P\in\mathcal B_T}C(P),
 \qquad
 B_T^\varepsilon=\prod_{P\in\mathcal B_T}C^\varepsilon(P).
 \end{equation*}
-The comparison above gives~$0\leq B_T\leq B_T^\varepsilon$. Proposition~\ref{prop:no-late-continuation-identity} gives {\color{red} sentence about how on the event~$L_{T,t}$ all the bulk and end patches never change from time T onward, except the end patches get longer. Also figure for the event is missing, it previously existed}
+The preceding factorization over end patches gives the conditional finite- and
+infinite-horizon contributions
 \begin{align*}
 \CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
 &=
@@ -546,24 +593,44 @@ B_T
 \prod_{P\in\mathcal E_T}
 C\bb{\rho_{i(P)}(\mb 0),P}.
 \end{align*}
-Lemma~\ref{lem:end-factor-relaxation} {\color{red} Doesnt tell the story that the event~$L_{T,t}$ factorizes per site and the appropriate terms converge pointise to~$C\bb{\rho_{i(P)}(\mb 0),P}$} bounds the conditional absolute difference by {\color{red} difference of what???}
+The initial law~$\mu$ need not factor over the end-patch sites, so the one-patch
+convergence cannot simply be multiplied. Lemma~\ref{lem:end-factor-relaxation}
+expands the product in centered moments and gives
 \begin{align*}
-&e^{-\varepsilon\bb{t-T}}B_T
+&\abs{
+\CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
+-
+\CE{W\ind\bb{L_T}}{\mathcal G_T}
+}
+\\
+&\qquad\leq
+e^{-\varepsilon h}B_T
 \CP{L_{T,t}}{\mathcal G_T}
 \mu\bb{
  \prod_{P\in\mathcal E_T}
  C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
 }
 \\
-&\qquad+
-e^{-\varepsilon\bb{t-T}}B_T\abs{\mathcal E_T}
+&\qquad\quad+
+e^{-\varepsilon h}B_T\abs{\mathcal E_T}
 \prod_{P\in\mathcal E_T}
 C\bb{\rho_{i(P)}(\mb 0),P}.
 \end{align*}
+The first term controls the nonconstant centered terms: each contains at least
+one slope which decays by~$e^{-\varepsilon h}$. The second term is the accumulated
+error of the constant terms over the end patches.
 
-Since~$E_T^R\in\mathcal G_T$, we may multiply this bound by~$\ind\bb{E_T^R}$ {\color{red} awful prose, describing steps instead of showing them} and take expectations. For the first term, the continuation identity {\color{red} completely unclear what "continuation identity" means. abnormal language} for the system with pure deaths removed and~$B_T\leq B_T^\varepsilon$ give
+Because~$E_T^R$ is determined by~$\mathcal G_T$, the preceding bound gives
 \begin{align*}
-&\E_A\Cb{
+&\abs{
+ \E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}}}
+ -
+ \E_A\Cb{W\ind\bb{E_T^R\cap L_T}}
+}
+\\
+&\quad\leq
+e^{-\varepsilon h}
+\E_A\Cb{
  \ind\bb{E_T^R}B_T
  \CP{L_{T,t}}{\mathcal G_T}
  \mu\bb{
@@ -572,29 +639,50 @@ Since~$E_T^R\in\mathcal G_T$, we may multiply this bound by~$\ind\bb{E_T^R}$ {\c
  }
 }
 \\
-&\qquad\leq
+&\qquad+
+e^{-\varepsilon h}
 \E_A\Cb{
- W_t^{\varepsilon,\mu}
- \ind\bb{E_T^R\cap L_{T,t}}
-}
-\leq1,
+ \ind\bb{E_T^R}B_T\abs{\mathcal E_T}
+ \prod_{P\in\mathcal E_T}
+ C\bb{\rho_{i(P)}(\mb 0),P}
+}.
 \end{align*}
-where the last inequality is~\eqref{eq:death-removed-weight-comparison}. For the second term {\color{red} reader is lost}, on~$E_T^R$ we have~$\abs{\mathcal E_T}\leq\abs R$, while the infinite continuation identity gives
-\begin{align*}
-&\E_A\Cb{
+For the centered-part contribution,~$B_T\leq B_T^\varepsilon$ and the same
+conditional formula for the system with pure deaths removed give
+\begin{equation*}
+\E_A\Cb{
+ \ind\bb{E_T^R}B_T
+ \CP{L_{T,t}}{\mathcal G_T}
+ \mu\bb{
+  \prod_{P\in\mathcal E_T}
+  C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+ }
+}
+\leq
+\E_A\Cb{
+ W_t^{\varepsilon,\mu}\ind\bb{E_T^R\cap L_{T,t}}
+}
+\leq1.
+\end{equation*}
+For the constant-part contribution,~$\abs{\mathcal E_T}\leq\abs R$ on
+$E_T^R$, and the second conditional formula above gives
+\begin{equation*}
+\E_A\Cb{
  \ind\bb{E_T^R}B_T\abs{\mathcal E_T}
  \prod_{P\in\mathcal E_T}
  C\bb{\rho_{i(P)}(\mb 0),P}
 }
-\\
-&\qquad\leq
+\leq
 \abs R\,
 \E_A\Cb{
  W\ind\bb{E_T^R\cap L_T}
 }
 \leq\abs R.
-\end{align*}
-The last inequality follows from~$0\leq W\leq W^\varepsilon$ and~\eqref{eq:limiting-death-removed-mass}. Combining the two bounds proves~\eqref{eq:no-late-relaxation-bound}. 
+\end{equation*}
+Here the last inequalities use~\eqref{eq:death-removed-weight-comparison} and
+$0\leq W\leq W^\varepsilon$ together with
+\eqref{eq:limiting-death-removed-mass}. Since~$h=t-T$, the two contributions
+give~\eqref{eq:no-late-relaxation-bound}.
 \end{proof}
 
 % Remaining proof block:
