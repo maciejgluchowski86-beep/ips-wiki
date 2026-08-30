@@ -523,6 +523,79 @@ expectations and using~\eqref{eq:limiting-death-removed-mass} proves
 \eqref{eq:limiting-late-interaction-bound}.
 \end{proof}
 
-% Remaining proof blocks:
-%   2. relaxation after the last interaction, citing the continuation formulas;
-%   3. spatial confinement, citing the confined-interaction identity.
+\begin{proof}[Proof of Lemma~\ref{lem:no-late-relaxation}]
+Set
+\begin{equation*}
+B_T=\prod_{P\in\mathcal B_T}C(P),
+\qquad
+B_T^\varepsilon=\prod_{P\in\mathcal B_T}C^\varepsilon(P).
+\end{equation*}
+The comparison above gives~$0\leq B_T\leq B_T^\varepsilon$. Proposition~\ref{prop:no-late-continuation-identity} gives
+\begin{align*}
+\CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
+&=
+B_T\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+},
+\\
+\CE{W\ind\bb{L_T}}{\mathcal G_T}
+&=
+B_T
+\prod_{P\in\mathcal E_T}
+C\bb{\rho_{i(P)}(\mb 0),P}.
+\end{align*}
+Lemma~\ref{lem:end-factor-relaxation} therefore bounds the conditional absolute difference by
+\begin{align*}
+&e^{-\varepsilon\bb{t-T}}B_T
+\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+\\
+&\qquad+
+e^{-\varepsilon\bb{t-T}}B_T\abs{\mathcal E_T}
+\prod_{P\in\mathcal E_T}
+C\bb{\rho_{i(P)}(\mb 0),P}.
+\end{align*}
+
+Since~$E_T^R\in\mathcal G_T$, we may multiply this bound by~$\ind\bb{E_T^R}$ and take expectations. For the first term, the continuation identity for the system with pure deaths removed and~$B_T\leq B_T^\varepsilon$ give
+\begin{align*}
+&\E_A\Cb{
+ \ind\bb{E_T^R}B_T
+ \CP{L_{T,t}}{\mathcal G_T}
+ \mu\bb{
+  \prod_{P\in\mathcal E_T}
+  C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+ }
+}
+\\
+&\qquad\leq
+\E_A\Cb{
+ W_t^{\varepsilon,\mu}
+ \ind\bb{E_T^R\cap L_{T,t}}
+}
+\leq1,
+\end{align*}
+where the last inequality is~\eqref{eq:death-removed-weight-comparison}. For the second term, on~$E_T^R$ we have~$\abs{\mathcal E_T}\leq\abs R$, while the infinite continuation identity gives
+\begin{align*}
+&\E_A\Cb{
+ \ind\bb{E_T^R}B_T\abs{\mathcal E_T}
+ \prod_{P\in\mathcal E_T}
+ C\bb{\rho_{i(P)}(\mb 0),P}
+}
+\\
+&\qquad\leq
+\abs R\,
+\E_A\Cb{
+ W\ind\bb{E_T^R\cap L_T}
+}
+\leq\abs R.
+\end{align*}
+The last inequality follows from~$0\leq W\leq W^\varepsilon$ and~\eqref{eq:limiting-death-removed-mass}. Combining the two bounds proves~\eqref{eq:no-late-relaxation-bound}.
+\end{proof}
+
+% Remaining proof block:
+%   spatial confinement, citing the confined-interaction identity.
