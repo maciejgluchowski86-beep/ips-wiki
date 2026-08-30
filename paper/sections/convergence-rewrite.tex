@@ -172,7 +172,7 @@ For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_*$, and~$0\leq T<t$,
 \end{lemma}
 
 It remains to control the event~$(E_T^R)^c$. On~$E_T^R$, the dual during the
-first~$T$ units of dual time stays inside~$R$, so its contribution is unchanged
+first~$T$ units of time stays inside~$R$, so its contribution is unchanged
 if the spins outside~$R$ are fixed at~$0$. Let~$P_t^{R,0}$ be the semigroup of
 this zero-boundary dynamics on~$R$, and set
 \begin{equation}
@@ -683,10 +683,8 @@ give~\eqref{eq:no-late-relaxation-bound}.
 \end{proof}
 
 \begin{proof}[Proof of Lemma~\ref{lem:spatial-confinement}]
-On~$E_T^R$, every successful interaction up to time~$T$ stays inside~$R$.
-Starting from~$A\subseteq R$, the dual therefore remains inside~$R$ during
-these first~$T$ units of dual time. Fixing the spins outside~$R$ to~$0$ does not
-change the contribution of such a realization. Proposition~\ref{prop:confined-interaction-identity} makes this precise. The confined part is the first~$T$ units of the dual evolution from~$A$, so it corresponds to the factor~$P_T$ acting on~$\chi_A$, while the remaining~$t-T$ units are unchanged. Hence
+On~$E_T^R$, every successful interaction up to time~$T$ stays inside~$R$ so, if~$A\subseteq R$, the dual process remains inside~$R$ up to time~$T$. Fixing the spins outside~$R$ to~$0$ does not
+change the contribution of such a realization. After~$T$ the dual process evolves without constraint. Proposition~\ref{prop:confined-interaction-identity} makes this argument precise by undoing the duality under the~$E_T^R$ event. We obtain
 \begin{equation*}
 \E_A\Cb{W_t^\mu\ind\bb{E_T^R}}
 =
@@ -697,12 +695,12 @@ change the contribution of such a realization. Proposition~\ref{prop:confined-in
 \centering
 \input{paper/figures/convergence-event-spatial-escape}
 \caption{The event~$(E_T^R)^c$: before time~$T$, the interaction cone leaves
-$R$. The red region marks the part of the cone outside~$R$.}
+$R$ due to unlikely growth spurt. The red region marks the part of the cone outside~$R$.}
 \label{fig:convergence-spatial-escape}
 \end{figure}
 \FloatBarrier
 
-The unrestricted patch representation gives
+The patch representation gives
 \begin{equation*}
 \E_A\Cb{W_t^\mu}
 =
@@ -720,29 +718,20 @@ Therefore
 (\mu P_{t-T})\bb{\bb{P_T-P_T^{R,0}}\chi_A}
 \\
 &\leq
-\norm{\bb{P_T-P_T^{R,0}}\chi_A}_\infty
-=
+\norm{\bb{P_T-P_T^{R,0}}\chi_A}_\infty\\
+&=
 \rho_A(T,R),
 \end{align*}
 which proves~\eqref{eq:finite-horizon-confinement-bound}.
 
-For the limiting estimate, apply the same bound with~$\mu=\mu_{\mb 1}$ and
-horizon~$u\geq T$:
-\begin{equation*}
-0
-\leq
-\E_A\Cb{W_u^{\mu_{\mb 1}}\ind\bb{(E_T^R)^c}}
-\leq
-\rho_A(T,R).
-\end{equation*}
 On~$\cb{\abs{\mathcal P}<\infty}$,
-$W_u^{\mu_{\mb 1}}\to W$ as~$u\to\infty$, while~$W=0$ on the complementary
-event. Fatou's lemma therefore gives
+$W_u^{\mu}\to W$ as~$u\to\infty$, and on~$\cb{\abs{\mathcal{P}}=\infty}$ we have~$W=0$, so Fatou's Lemma gives
 \begin{equation*}
 0
 \leq
 \E_A\Cb{W\ind\bb{(E_T^R)^c}}
 \leq
+\liminf_{t\to\infty}\E_A\Cb{W_t^\mu\ind\bb{(E_T^R)^c}}\leq
 \rho_A(T,R),
 \end{equation*}
 which is~\eqref{eq:limiting-confinement-bound}.
