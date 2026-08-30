@@ -403,27 +403,32 @@ Write
 \end{equation}
 and let~$P_s^\varepsilon$ and~$C^\varepsilon$ denote the semigroup and patch
 contributions for~$\Lcal^\varepsilon$. The two systems have the same dual jump
-process, successful interactions, and patch families. For a probability
-measure~$\nu$, define~$W_s^{\varepsilon,\nu}$ from~$W_s^\nu$ by replacing each
-patch contribution~$C$ by~$C^\varepsilon$, and set
-\begin{equation*}
+process, successful interactions, and patch families {\color{red} I think its proven in the appendix/earlier, but the reader doesnt know this}. For a probability
+measure~$\mu$, define
+\begin{align*}
+W_t^{\varepsilon,\mu}
+&=
+\prod_{P\in\mathcal B_t}C^\varepsilon(P)\,
+\mu\bb{
+ \prod_{P\in\mathcal E_t}
+ C^\varepsilon\bb{\eta\bb{i(P)},P}},\\
 W^\varepsilon
-=
+&=
 \prod_{P\in\mathcal P}C^\varepsilon(P)
 \ind\bb{\abs{\mathcal P}<\infty}.
-\end{equation*}
+\end{align*}
 The proof of Corollary~\ref{cor:pure-death-comparison} gives, for every
-$\nu\in\mathcal M_*$ and~$s\geq0$,
+$\mu\in\mathcal M_*$ and~$t\geq0$,
 \begin{equation}
 \label{eq:death-removed-weight-comparison}
-0\leq W_s^\nu\leq W_s^{\varepsilon,\nu},
+0\leq W_t^\mu\leq W_t^{\varepsilon,\nu},
 \qquad
-\E_A\Cb{W_s^{\varepsilon,\nu}}
-=(\nu P_s^\varepsilon)(\chi_A)
+\E_A\Cb{W_t^{\varepsilon,\mu}}
+=(\mu P_t^\varepsilon)(\chi_A)
 \leq1.
 \end{equation}
 
-If a patch~$P$ ends at an outgoing successful interaction, its site is
+If a patch~$P$ is of type~$\mathsf{XO}$, meaning it ends with an outgoing successful interaction, then its site is
 dual-active throughout~$[s(P),e(P))$. Removing the pure deaths raises the
 one-site potential from~$V_i$ to~$V_i+\varepsilon$ and leaves the dual jump
 process and the conditional patch law unchanged. Therefore
@@ -434,16 +439,10 @@ C(P)
 e^{-\varepsilon\bb{e(P)-s(P)}}C^\varepsilon(P).
 \end{equation}
 
-We next trace a successful interaction at time~$u>0$ backwards to time~$0$.
-Start with the patch at its source ending at~$u$. If the current patch begins
-with an incoming interaction, take the patch at the source of that interaction
-ending at the same time. If it begins with an outgoing interaction, that
-interaction must be a birth because the source remains dual-active in the
-current patch, so take the preceding patch at the same site. In either case the
-predecessor ends at an outgoing interaction. The boundary times decrease
+We now show that for a successful interaction happening at time~$u>0$ there exists a trail of~$\mathsf{XO}$ type patches that spans time from~$0$ to~$u$. Every successful interaction, except the formal initial interaction~$\iota_0$, ends a~$\mathsf{XO}$ patch. We call the successful interaction that starts this patch the ancestor of the previous successful interaction. Jumping from ancestor to ancestor generates a finite sequence of successful interactions ending at~$\iota_0$. Indeed, the boundary times decrease
 strictly, and local finiteness of the graphical construction forces the chain
-to reach time~$0$ after finitely many steps. Reversing the resulting patches
-$P_1,\ldots,P_n$, their intervals concatenate from~$0$ to~$u$. Hence
+to reach time~$0$ after finitely many steps, call that number~$n$. This ancestry trail gives the sequence of patches
+$P_1,\ldots,P_n$, each joining a successful interaction with its ancestor. All these patches are of type~$\mathsf{XO}$ and
 \begin{equation}
 \label{eq:outgoing-chain-total-length}
 \sum_{k=1}^n\bb{e(P_k)-s(P_k)}=u.
@@ -453,13 +452,12 @@ $P_1,\ldots,P_n$, their intervals concatenate from~$0$ to~$u$. Hence
 \centering
 \input{paper/figures/convergence-backward-xo-trail}
 \caption{The ancestry of a successful interaction at time~$u$. Each dark
-rectangle is a patch ending at an outgoing successful interaction. The patch
-intervals concatenate from time~$0$ to~$u$, so their lifetimes sum to~$u$.}
+rectangle is a patch ending at an outgoing successful interaction. The patch lifetimes sum to~$u$.}
 \label{fig:backward-outgoing-chain}
 \end{figure}
 \FloatBarrier
 
-On~$L_{T,t}^c$, let~$u\in(T,t]$ be the first successful interaction after~$T$
+On~$L_{T,t}^c$, let~$u\in(T,t]$ be the time of the first successful interaction after~$T$
 and let~$P_1,\ldots,P_n$ be its ancestry chain. Every patch in the chain belongs
 to~$\mathcal B_t$, so~\eqref{eq:outgoing-terminal-exact-factor} and
 \eqref{eq:outgoing-chain-total-length} give
@@ -474,8 +472,8 @@ e^{-\varepsilon T}
 \end{equation*}
 The remaining bulk factors and the terms in the centered end expansion are
 compared exactly as in the proof of
-Corollary~\ref{cor:pure-death-comparison}. Since~$\mu\in\mathcal M_*$, the
-centered moments are nonnegative, and therefore
+Corollary~\ref{cor:pure-death-comparison} {\color{red} write explicitly that~$C(P)\leq C^\varepsilon(P)$ and the more complicated inequality for~$\mu(...)$, and then say the proof is in proof of corollary 3.1. This reads as incomplete and even unclear to the reader}. Since~$\mu\in\mathcal M_*$, the
+centered moments are nonnegative {\color{red} This should be subsumed by earlier note}, and therefore
 \begin{equation*}
 W_t^\mu\ind\bb{L_{T,t}^c}
 \leq
