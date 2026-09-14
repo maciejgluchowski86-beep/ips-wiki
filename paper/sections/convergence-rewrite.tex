@@ -546,7 +546,7 @@ to time~$t$.}
 
 Fix the successful-interaction skeleton up to time~$T$. For
 $P\in\mathcal E_T$, let~$L_{T,t}^P$ be the event that the one-site evolution
-continuing~$P$ produces no successful interaction in~$(T,t]$. Appendix~\ref{app:no-late-continuation} proves that these events are conditionally independent, so
+continuing~$P$ produces no successful interaction in~$(T,t]$. In Appendix~\ref{app:no-late-continuation} we prove that these events are conditionally independent, so
 \begin{equation*}
 L_{T,t}=\bigcap_{P\in\mathcal E_T}L_{T,t}^P,
 \qquad
@@ -555,7 +555,7 @@ L_{T,t}=\bigcap_{P\in\mathcal E_T}L_{T,t}^P,
 \prod_{P\in\mathcal E_T}
 \CP{L_{T,t}^P}{\mathcal G_T}.
 \end{equation*}
-For~$P$ based at~$i$, the same appendix gives
+Additionally, for~$P$ based at~$i$ we have
 \begin{equation}
 \label{eq:main-local-end-relaxation}
 \CP{L_{T,t}^P}{\mathcal G_T}
@@ -587,9 +587,9 @@ The conditional finite- and infinite-horizon contributions are therefore
 \label{eq:no-late-conditional-weights}
 \CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
 &=
-B_T\CP{L_{T,t}}{\mathcal G_T}
+B_T
 \mu\bb{
- \prod_{P\in\mathcal E_T}
+ \prod_{P\in\mathcal E_T}\CP{L_{T,t}^P}{\mathcal G_T}
  C\bb{\eta\bb{i(P)},P^{\uparrow t}}
 },\notag
 \\
@@ -599,12 +599,9 @@ B_T
 \prod_{P\in\mathcal E_T}
 C\bb{\rho_{i(P)}(\mb 0),P}.
 \end{align}
-Thus each end-patch factor in the finite-horizon expression converges
-exponentially to the corresponding factor in the limiting product. Since the
-full end contribution contains a product over~$\mathcal E_T$, the individual
-errors must be accumulated, and the terminal spins may be dependent under~$\mu$.
-Lemma~\ref{lem:end-factor-relaxation} carries out this product comparison by a
-centered expansion and a telescoping estimate. It gives
+Each factor under~$\mu$ in~\ref{eq:no-late-conditional-weights} converges
+exponentially to the corresponding factor in the limiting product. To bound the error we use a telescoping estimate. The calculation details are in the Appendix, in the proof of 
+Lemma~\ref{lem:end-factor-relaxation}, where we show
 \begin{align*}
 &\abs{
 \CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
@@ -627,8 +624,7 @@ C\bb{\rho_{i(P)}(\mb 0),P}.
 \end{align*}
 The first term is controlled by the finite-horizon contribution for the system
 with pure deaths removed. The second accumulates one error for each end patch.
-Because~$E_T^R$ is determined by~$\mathcal G_T$, multiplying by
-$\ind(E_T^R)$ and taking expectations gives
+The event~$E_T^R$ is~$\mathcal G_T$-measurable, so by the tower property
 \begin{align*}
 &\abs{
  \E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}}}
@@ -655,7 +651,7 @@ e^{-\varepsilon (t-T)}
  C\bb{\rho_{i(P)}(\mb 0),P}
 }.
 \end{align*}
-For the finite-horizon term,~$B_T\leq B_T^\varepsilon$ and the same formula
+For the first term,~$B_T\leq B_T^\varepsilon$ and the same formula
 as~\eqref{eq:no-late-conditional-weights} for the system with pure deaths
 removed give
 \begin{equation*}
@@ -673,7 +669,7 @@ removed give
 }
 \leq1.
 \end{equation*}
-For the accumulated end-patch term,~$\abs{\mathcal E_T}\leq\abs R$ on
+For the second term,~$\abs{\mathcal E_T}\leq\abs R$ on
 $E_T^R$, so~\eqref{eq:no-late-conditional-weights} gives
 \begin{equation*}
 \E_A\Cb{

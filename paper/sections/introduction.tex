@@ -23,6 +23,8 @@ is how the sites interact. We are interested in how these local rules determine
 the dependence of the long-time behaviour of the system on the initial
 conditions.
 
+\gm{Standard textbook references missing Liggets book.}
+
 % ============================================================================
 % BLURB B. Why monotonicity matters
 %
@@ -53,6 +55,8 @@ conditions. The same idea can often also be used to compare systems with
 different transition rules. Such comparisons are basic tools for studying
 dependence on the initial condition, invariant measures and convergence.
 
+\gm{also reference missing to standard textbook or overview article}
+
 % ============================================================================
 % BLURB C. KCSMs as the motivating research class
 %
@@ -77,14 +81,33 @@ dependence on the initial condition, invariant measures and convergence.
 
 Kinetically constrained spin models (KCSMs) are spin systems constructed so
 that their equilibrium measure is a Bernoulli product measure, with all spins independent, while the
-dynamics is interacting through local constraints. At an update
+dynamics is interacting through local constraints.
+
+\gm{not sure if I would characterice KCSM in this way. Also references who inroduced them and standard references for KCSM}
+
+
+At an update
 attempt, the spin at a site is refreshed from the one-site Bernoulli equilibrium
-law only if a constraint determined by neighbouring spins is satisfied. We use
-the standard convention that vacancy, denoted~$0$, is a facilitating state. The
+law only if a constraint determined by neighbouring spins is satisfied. 
+
+\gm{add simple example what that constraint could be here it is too general. }
+
+We use
+the standard convention that vacancy, denoted~$0$, is a facilitating state. 
+
+
+
+The
 constraint is monotone with respect to vacancies: adding vacancies can make an
-update legal but cannot make a legal update illegal. These constraints can make
+update legal but cannot make a legal update illegal.
+
+\gm{is that standard convention for KSCMs or a special subclass.}
+
+
+These constraints can make
 relaxation very slow and lead to glassy dynamics~\cite{CancriniEtAl2008,HartarskyToninelli2025}. The East and FA-1f models
-are standard examples.
+are standard examples. 
+\gm{not clear if we need to introduce them, at least point to the definition later.}
 
 % ============================================================================
 % BLURB D. Monotone constraints do not imply monotone dynamics
@@ -113,6 +136,9 @@ $\xi$. If the legal refresh changes~$\eta(i)$ from~$0$ to~$1$ while~$\xi(i)$
 remains~$0$, the coordinatewise order is lost. Thus the monotone structure of
 the constraint does not give the usual order-preserving coupling.
 
+\gm{It seems like the monotone structure of the constraint is going in the wrong direction in order to yield order-preserving couplings. If so we should say it.}
+
+
 % ============================================================================
 % BLURB E. Motivating question
 %
@@ -134,6 +160,8 @@ This leaves a natural question: can the monotone structure of the constraint
 still yield a useful comparison principle, even though the process is not
 monotone in configuration order? More generally, can one identify a broader
 class of spin systems in which neighbouring~$1$'s constrain updates and a similar comparison principle survives?
+
+\gm{Good questions, I like how you structured the introduction. But we might want to change the exact formulation of the question. Just a try: How does  the monotonicity of the unconstrained spin model survive/ express itself in the constrained case?}
 
 % ============================================================================
 % BLURB F. What is being generalized from a KCSM?
@@ -164,6 +192,9 @@ kinetic constraint. We identify a condition on these general local update
 rules, called \emph{patch positivity}, which retains part of the constraining
 structure of KCSMs.
 
+\gm{good try but we can formulate it better. I will think about it. We also need to refer the the Definition of patch positivity}
+
+
 % ============================================================================
 % BLURB G. Dynamic interpretation of the new class
 %
@@ -182,15 +213,18 @@ structure of KCSMs.
 % ============================================================================
 
 A useful way to think about spin systemts with patch positivity is that neighbouring spins bias
-the local dynamics toward themselves, but asymmetrically. Adding
-neighbouring~$1$'s makes refreshes less frequent and, when they occur, more
-likely to produce a~$1$. Conversely, neighbouring~$0$'s make refreshes more
-frequent and bias them toward~$0$. Thus both spins favour their own value,
+the local dynamics toward themselves, but asymmetrically. \gm{Beautiful description but is it correct?} This means that adding
+neighboring~$1$'s makes refreshes less frequent and, when they occur, more
+likely to produce a~$1$. Conversely, neighboring~$0$'s make refreshes more
+frequent and bias them toward~$0$. Thus both spins favor their own value,
 while~$0$'s facilitate activity and~$1$'s constrain it. This asymmetry destroys
 the usual monotonicity in configuration order: the configuration with more
-vacancies may update while the larger configuration does not. These
-monotonicities are only consequences of patch positivity. The full condition is
-stronger and also controls higher-order effects of the neighbouring spins.
+vacancies may update while the larger configuration does not. 
+
+
+{\color{Bleu} These
+monotonicities are only consequences of patch positivity.} \gm{This sentence does not make snse.}  The full condition is
+stronger and also controls higher-order effects of the neighbouring spins. \gm{Not clear what is menat with full condition....full definition of patch positivity...?}
 
 % ============================================================================
 % BLURB O. Examples and scope
@@ -293,12 +327,12 @@ reference profile. Semigroup of a patch-positive spin system preserves this orde
 
 These results have two main consequences. First, the centered-moment order gives
 comparisons between non-monotone dynamics. In particular, we obtain a comparison principle between systems differing by rate of pure deaths, meaning
-environment-independent transitions from~$1$ to~$0$. Second, when pure deaths
+environment-independent transitions from~$1$ to~$0$. \gm{not clear what is meant with comparison principle also missing reference to the statement.} Second, when pure deaths
 occur at a uniform positive rate, the patch representation yields convergence
 to a common invariant law for a broad class of initial laws. If the additional
-condition~$\mb p^\star\leq \mbs{\frac{1}{2}}$ holds, the system is uniformly exponentially ergodic. The
+condition~$\mb p^\star\leq \mbs{\frac{1}{2}}$ holds, the system is uniformly exponentially ergodic. \gm{same reference to the statement missing.} The
 convergence argument does not assume reversibility and does not require the
-invariant law to be identified in advance.
+invariant law to be identified in advance. 
 
 % ============================================================================
 % BLURB L. Signed duality and patches
@@ -314,7 +348,7 @@ invariant law to be identified in advance.
 %   remaining randomness separates between patches and can be averaged locally.
 % ============================================================================
 
-The method is as follows: write~$P_t$ for the Markov semigroup and, for a finite set~$A$, let
+The method is as follows {\gm refomrulate not clear what is done here...method for what? For a proof of our main results? Ok, I see here you try to explain what means pathces and patch postivity....paragraph needs to be rewritten, or maybe it should not be in the introduction at all.}: write~$P_t$ for the Markov semigroup and, for a finite set~$A$, let
 \begin{equation*}
 \chi_A(\eta)=\prod_{i\in A}\eta(i).
 \end{equation*}
@@ -353,24 +387,24 @@ $\lambda_i$ and~$\lambda_i\bb{\rho_i-\rho_i(\mb 0)}$. The same conditions
 imply preservation of the centered-moment order.
 
 \paragraph{Relation to previous work.}
-Set-valued graphical constructions and additive dual processes go back to
+\gm{we treat authors differently some get named and some not, this might not be fair and cause trouble (e.g. if we do not name the reviewer)} Set-valued graphical constructions and additive dual processes go back to
 Harris~\cite{Harris1974,Harris1978}; see also
 Griffeath~\cite{Griffeath1979}, Holley--Stroock~\cite{HolleyStroock1979}, and
-Gray~\cite{Gray1986}. We use the signed monomial Feynman--Kac duality; Jansen
+Gray~\cite{Gray1986}. We use the signed monomial Feynman--Kac duality \gm{not clear if this is a standard well-known thing or a new thing written as is it sounds like it is a special case of Jansen and Kurt}; Jansen
 and Kurt~\cite{JansenKurt2014} give a general account of Markov-process
-duality. Conditioning on the coarse interaction record described above gives a
+duality. Conditioning on the coarse interaction record \gm{not clear what we mean with coarse interaction record. needs to be reformulated} described above gives a
 one-site factorization which is not present in the standard duality.
 Information percolation also retains updates which carry information
-\cite{LubetzkySly2016}, but uses them for a different decomposition. Our
+\cite{LubetzkySly2016}, but uses them for a different decomposition \gm{not clear how information percolation is related we might just want to delete this reference}. Our
 construction is also different from the time-scaling observation
 in~\cite{GluchowskiMenz2025}, where each local update transition matrix is mixed
 with the identity. It was motivated by the wall-type one-sided spin systems
-studied in~\cite{GluchowskiMenz2026}; many of their rate functions satisfy the
+studied in~\cite{GluchowskiMenz2026} \gm{we might put that comment to another place in the introduction}; many of their rate functions satisfy the
 coefficient criterion below, although not all.
 
 Classical correlation inequalities for monotone spin systems, traditionally
-called attractive systems in the IPS literature, are tied to order-preserving
-couplings and association~\cite{Harris1977,Liggett2006}; duality can also yield
+called attractive systems in the IPS literature \gm{we might want to make the remark that monotone spin systems are called attractive systems earlier}, are tied to order-preserving
+couplings and association \gm{not clear what association means..}~\cite{Harris1977,Liggett2006}; duality can also yield
 moment inequalities in particular models~\cite{GiardinaRedigVafayi2010}. The
 order considered here uses products centered at~$\mb p^\star$ and applies to
 systems which are not monotone in configuration order. To our knowledge,
@@ -390,11 +424,11 @@ Lloyd--Sudbury~\cite{Sudbury1997,LloydSudbury1997}. The product-law estimates
 in~\cite{MartinelliShapiraToninelli2025} provide the endpoints for the
 centered-moment corollary proved here.
 
-\paragraph{Organization.}
+\paragraph{Organization.} \gm{needs to be rewritten. Main problem: not clear what are the three principal theorems and what sections proof the,.}
 In Section~\ref{sec:setup} we fix the notation, in
-Section~\ref{sec:main-results} we state the three principal theorems, in
+Section~\ref{sec:main-results} we state the three principal theorems \gm{at this point not clear what those are....either it should be clear or we need to be more precise}, in
 Section~\ref{sec:signed-dual} we construct the signed monomial dual, introduce
-the successful-interaction skeleton and patches, and prove the patch
+the successful-interaction skeleton \gm{I think not clear what skeleton is here} and patches, and prove the patch
 representation, Theorem~\ref{thm:patch-representation}.
 In Section~\ref{sec:patch-positivity} we prove the coefficient criterion for patch
 positivity and preservation of the centered-moment order, together with the
@@ -403,6 +437,6 @@ In Section~\ref{sec:convergence} we prove the common invariant-limit result,
 Theorem~\ref{thm:common-invariant-limit}. In
 Section~\ref{sec:applications} we give examples and applications to the contact
 process, FA-1f and BABP, and in Section~\ref{sec:discussion} we discuss the scope of
-the method. The appendices contain the derivation of the monomial dual, the
+the method \gm{not clear what method, and scope needs to be rewritten}. The appendices contain the derivation of the monomial dual, the
 patch-contribution formulas, and the technical graphical and propagation
 estimates.
