@@ -788,22 +788,24 @@ Given uniform orientability, we make convergence rate quantitative and show it i
 %   Two short paragraphs around the substitution identities. Distinguish the
 %   generator L from its semigroup P. No conditioning is used at this stage.
 % ============================================================================
-\paragraph{Blurb B. Restriction with a fixed boundary.}
-Pick a nonempty finite set~$A$ and take~$I=\bar A$ and~$U=U(A)$ from
+Fix a nonempty finite set~$A$ and take~$I=\bar A$ and~$U=U(A)$ from
 orientability. For~$\xi\in\cb{0,1}^U$, let~$\eta^{U,\xi}$ agree with~$\xi$
-on~$U$ and with~$\eta$ elsewhere. For~$f$ depending only on~$I$, define
+on~$U$ and with~$\eta$ elsewhere. For a function~$f$ on~$\cb{0,1}^I$,
+viewed as a cylinder function on~$\Omega$, define
 \begin{equation*}
-\Lcal^{I,\xi}f(\eta)=\Lcal f(\eta^{U,\xi}),
-\qquad
+\Lcal^{I,\xi}f(\eta)=\Lcal f(\eta^{U,\xi}).
+\end{equation*}
+Since~$I\cup U$ is autonomous, this defines a spin-system generator
+on~$\cb{0,1}^I$, with semigroup~$P_t^{I,\xi}$ and rates
+\begin{equation*}
 \lambda_i^{I,\xi}(\eta)=\lambda_i(\eta^{U,\xi}),
 \qquad
 \rho_i^{I,\xi}(\eta)=\rho_i(\eta^{U,\xi})
-\quad(i\in I).
+\qquad(i\in I).
 \end{equation*}
-Autonomy of~$I\cup U$ makes this a generator on~$\cb{0,1}^I$;
-denote its semigroup by~$P_t^{I,\xi}$. Set
-$g_i=\lambda_i(\rho_i-p_i^\star)$ and define~$g_i^{I,\xi}$ by the same
-substitution. Explain the coefficient identities explicitly:
+Set~$g_i=\lambda_i(\rho_i-p_i^\star)$ and
+$g_i^{I,\xi}=\lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)$.
+Substituting the fixed boundary values in the monomial expansions gives
 \begin{align*}
 \widehat{\lambda_i^{I,\xi}}(S)
 &=\sum_{T\subseteq N(i)\cap U}
@@ -816,9 +818,16 @@ substitution. Explain the coefficient identities explicitly:
 \geq0
 &&(S\subseteq N(i)\cap I).
 \end{align*}
-Each product is~$0$ or~$1$. Account for the changed all-zero baseline
-$a_i^\xi=\rho_i^{I,\xi}(\mb0)\geq p_i^\star$ when verifying patch positivity:
-for~$S\neq\vn$,
+Indeed, each product is~$0$ or~$1$, and the signs of the original
+coefficients follow from
+\eqref{eq:principal-coefficient-criterion} and
+\eqref{eq:principal-threshold-profile}, including
+$\widehat g_i(\vn)=\lambda_i(\mb0)(\rho_i(\mb0)-p_i^\star)\geq0$.
+
+To verify patch positivity of the restricted system, write
+$a_i^\xi=\rho_i^{I,\xi}(\mb0)$. The second inequality above at~$S=\vn$,
+together with~$\lambda_i^{I,\xi}(\mb0)\geq\varepsilon>0$, gives
+$a_i^\xi\geq p_i^\star$. Hence, for nonempty~$S\subseteq N(i)\cap I$,
 \begin{equation*}
 \widehat{\lambda_i^{I,\xi}(\rho_i^{I,\xi}-a_i^\xi)}(S)
 =
@@ -826,15 +835,20 @@ for~$S\neq\vn$,
 -(a_i^\xi-p_i^\star)\widehat{\lambda_i^{I,\xi}}(S)
 \geq0.
 \end{equation*}
-Conclude patch positivity by Theorem~\ref{thm:patch-positivity-order}(i),
-and use its centered-moment argument to obtain
+Theorem~\ref{thm:patch-positivity-order}~\textup{(i)} therefore gives patch
+positivity. Moreover, the signs of~$\widehat{\lambda_i^{I,\xi}}$ and
+$\widehat{g_i^{I,\xi}}$ are precisely those used in
+Section~\ref{subsec:moment-monotonicity} to prove preservation of
+nonnegative centered moments. Applying that argument with the original
+profile~$(p_i^\star)_{i\in I}$ gives
 \begin{equation*}
-\mathcal M_*^I P_t^{I,\xi}\subseteq\mathcal M_*^I,
+\mathcal M_*^I P_t^{I,\xi}\subseteq\mathcal M_*^I
+\qquad(t\geq0),
 \qquad
 \mathcal M_*^I
-=\cb{\mu:\mu(\chi_B^*)\geq0\text{ for every }B\subseteq I}.
+=\cb{\mu:\mu(\chi_B^*)\geq0\text{ for every }B\subseteq I},
 \end{equation*}
-Emphasize that this uses the original~$p_i^\star$ throughout.
+where~$\mu$ ranges over probability measures on~$\cb{0,1}^I$.
 
 % ============================================================================
 % BLURB C. Where does a positive part in M_*^I come from?
