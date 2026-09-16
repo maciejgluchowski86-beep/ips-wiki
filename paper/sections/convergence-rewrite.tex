@@ -772,9 +772,13 @@ sets, in the sense that
 \qquad\text{for every finite }A\subseteq\Lambda.
 \end{equation*}
 To obtain this bound, choose a finite set~$I=\bar A$ as in the definition
-of orientability and consider the dynamics of the spin system on~$I$, conditional on a particular realization of the trajectory on the (autonomous!) set~$U(A)$. This is the original spin system, but now on a finite set and with time-inhomogenous boundary conditions. This restricted system is still patch positive and, with the original
+of orientability and consider the dynamics of the spin system on~$I$, conditional on a particular realization of the trajectory on the (autonomous) set~$U(A)$. This is the original spin system, but now on a finite set and with time-inhomogenous boundary conditions. This restricted system is still patch positive and, with the original
 centering profile~$p^*$, preserves the class~$M_*^I$ of probability measures on~$\cb{0,1}^I$ with non-negative centered moments. The boundary conditions are not homogenous in time, so the restricted system does not converge to any invariant measure, but it does converge towards the class~$\mathcal{M}_*^I$. Finiteness of~$I$ and presence of noise are crucial here, because they guarantee that a positive part of the measure enters~$\mathcal{M}_*^I$ after running the restricted process for any positive time. This proves the convergence towards~$\mathcal{M}_*$, in the above sense, and hence ergodicity.
 Given uniform orientability, we make convergence rate quantitative and show it is exponential.
+
+\begin{proof}[Proof of Corollary~\ref{cor:oriented-ergodicity}]
+    
+
 
 % ============================================================================
 % BLURB B. What process do we obtain after fixing the exterior?
@@ -788,8 +792,8 @@ Given uniform orientability, we make convergence rate quantitative and show it i
 %   Two short paragraphs around the substitution identities. Distinguish the
 %   generator L from its semigroup P. No conditioning is used at this stage.
 % ============================================================================
-Fix a nonempty finite set~$A$ and take~$I=\bar A$ and~$U=U(A)$ from
-orientability. For~$\xi\in\cb{0,1}^U$, let~$\eta^{U,\xi}$ agree with~$\xi$
+Fix a nonempty finite set~$A$ and take~$I=\bar A$ and~$U=U(A)$ as in
+orientability property. For~$\xi\in\cb{0,1}^U$, let~$\eta^{U,\xi}$ agree with~$\xi$
 on~$U$ and with~$\eta$ elsewhere. For a function~$f$ on~$\cb{0,1}^I$,
 viewed as a cylinder function on~$\Omega$, define
 \begin{equation*}
@@ -803,53 +807,27 @@ on~$\cb{0,1}^I$, with semigroup~$P_t^{I,\xi}$ and rates
 \rho_i^{I,\xi}(\eta)=\rho_i(\eta^{U,\xi})
 \qquad(i\in I).
 \end{equation*}
-Set~$g_i=\lambda_i(\rho_i-p_i^\star)$ and
-$g_i^{I,\xi}=\lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)$.
-Substituting the fixed boundary values in the monomial expansions gives
-\begin{align*}
+We first verify that this restricted spin system is patch positive. We check this directly. For each~$i\in I$ and~$\vn\neq S\subseteq N(i)\cap I$ we have 
+\begin{equation*}
 \widehat{\lambda_i^{I,\xi}}(S)
+=\sum_{T\subseteq N(i)\cap U}
+  \widehat{\lambda_i}(S\cup T)\prod_{j\in T}\xi(j)\leq 0,
+\end{equation*}
+since patch positivity of the original spin system guarantees every term in the sum is non-negative (c.f.~\eqref{eq:principal-coefficient-criterion}). Similarly
+\begin{align*}
+\widehat{\lambda_i^{I,\xi}(\rho_i^{I,\xi}-\rho_i^{I,\xi}(\mb{0}))}(S)
 &=\sum_{T\subseteq N(i)\cap U}
-  \widehat{\lambda_i}(S\cup T)\prod_{j\in T}\xi(j)
-\leq0
-&&(\vn\neq S\subseteq N(i)\cap I),\\
-\widehat{g_i^{I,\xi}}(S)
-&=\sum_{T\subseteq N(i)\cap U}
-  \widehat{g_i}(S\cup T)\prod_{j\in T}\xi(j)
-\geq0
-&&(S\subseteq N(i)\cap I).
+  \widehat{\lambda_i(\rho_i-\rho_i(\mb{0}^{U,\xi}))}(S\cup T)\prod_{j\in T}\xi(j) \\
+  &=\sum_{T\subseteq N(i)\cap U}
+  \widehat{\lambda_i(\rho_i-\rho_i(\mb{0}))}(S\cup T)\prod_{j\in T}\xi(j)\\
+  &\qquad + \bb{\rho_i(\mb{0}) - \rho_i(\mb{0}^{U,\xi})} \sum_{T\subseteq N(i)\cap U} \lambda_i^{I,\xi}(S) \prod_{j\in T}\xi(j) \geq 0.
 \end{align*}
-Indeed, each product is~$0$ or~$1$, and the signs of the original
-coefficients follow from
-\eqref{eq:principal-coefficient-criterion} and
-\eqref{eq:principal-threshold-profile}, including
-$\widehat g_i(\vn)=\lambda_i(\mb0)(\rho_i(\mb0)-p_i^\star)\geq0$.
-
-To verify patch positivity of the restricted system, write
-$a_i^\xi=\rho_i^{I,\xi}(\mb0)$. The second inequality above at~$S=\vn$,
-together with~$\lambda_i^{I,\xi}(\mb0)\geq\varepsilon>0$, gives
-$a_i^\xi\geq p_i^\star$. Hence, for nonempty~$S\subseteq N(i)\cap I$,
+The first sum has only non-negative terms. The second sum is non-positive, because as we just noted~$\lambda_i^{I,\xi}\leq 0$ and 
 \begin{equation*}
-\widehat{\lambda_i^{I,\xi}(\rho_i^{I,\xi}-a_i^\xi)}(S)
-=
-\widehat{g_i^{I,\xi}}(S)
--(a_i^\xi-p_i^\star)\widehat{\lambda_i^{I,\xi}}(S)
-\geq0.
+    \rho_i(\mb{0}^{U,\xi}) = FILL THIS IN
 \end{equation*}
-Theorem~\ref{thm:patch-positivity-order}~\textup{(i)} therefore gives patch
-positivity. Moreover, the signs of~$\widehat{\lambda_i^{I,\xi}}$ and
-$\widehat{g_i^{I,\xi}}$ are precisely those used in
-Section~\ref{subsec:moment-monotonicity} to prove preservation of
-nonnegative centered moments. Applying that argument with the original
-profile~$(p_i^\star)_{i\in I}$ gives
-\begin{equation*}
-\mathcal M_*^I P_t^{I,\xi}\subseteq\mathcal M_*^I
-\qquad(t\geq0),
-\qquad
-\mathcal M_*^I
-=\cb{\mu:\mu(\chi_B^*)\geq0\text{ for every }B\subseteq I},
-\end{equation*}
-where~$\mu$ ranges over probability measures on~$\cb{0,1}^I$.
-
+Therefore, by Theorem~\ref{thm:patch-positivity-order}~\textup{(i)} the restricted spin system is patch
+positive. ARGUMENT FOR WHY~$(p^{I,\xi})^* \leq p^*$ IS MISSING AND WHY~$\rho_i(\mb{0}^{U,\xi})\geq \rho_i(\mb{0})$. THIS IS HOW YOU ARGUE FOR PRESERVATION OF~$\mathcal{M}_*^I$ WHICH ALSO NEEDS TO BE DEFINED.
 % ============================================================================
 % BLURB C. Where does a positive part in M_*^I come from?
 %
@@ -1045,4 +1023,5 @@ Theorem~\ref{thm:common-invariant-limit} to obtain
 Finish with~$u=\bb{1+2rv\log(2d)/\varepsilon}s$ and explain why the
 resulting exponential rate is independent of~$f$.
 \par
+\end{proof}
 \endgroup
