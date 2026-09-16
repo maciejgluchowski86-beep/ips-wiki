@@ -807,27 +807,77 @@ on~$\cb{0,1}^I$, with semigroup~$P_t^{I,\xi}$ and rates
 \rho_i^{I,\xi}(\eta)=\rho_i(\eta^{U,\xi})
 \qquad(i\in I).
 \end{equation*}
-We first verify that this restricted spin system is patch positive. We check this directly. For each~$i\in I$ and~$\vn\neq S\subseteq N(i)\cap I$ we have 
+We first verify that this restricted spin system is patch positive.
+For each~$i\in I$ and~$\vn\neq S\subseteq N(i)\cap I$ we have
 \begin{equation*}
 \widehat{\lambda_i^{I,\xi}}(S)
 =\sum_{T\subseteq N(i)\cap U}
-  \widehat{\lambda_i}(S\cup T)\prod_{j\in T}\xi(j)\leq 0,
+  \widehat{\lambda_i}(S\cup T)\prod_{j\in T}\xi(j)\leq0,
 \end{equation*}
-since patch positivity of the original spin system guarantees every term in the sum is non-negative (c.f.~\eqref{eq:principal-coefficient-criterion}). Similarly
+since patch positivity of the original spin system guarantees that every
+term in the sum is non-positive
+(see~\eqref{eq:principal-coefficient-criterion}). Similarly,
 \begin{align*}
-\widehat{\lambda_i^{I,\xi}(\rho_i^{I,\xi}-\rho_i^{I,\xi}(\mb{0}))}(S)
+\widehat{\lambda_i^{I,\xi}(\rho_i^{I,\xi}-\rho_i^{I,\xi}(\mb0))}(S)
 &=\sum_{T\subseteq N(i)\cap U}
-  \widehat{\lambda_i(\rho_i-\rho_i(\mb{0}^{U,\xi}))}(S\cup T)\prod_{j\in T}\xi(j) \\
-  &=\sum_{T\subseteq N(i)\cap U}
-  \widehat{\lambda_i(\rho_i-\rho_i(\mb{0}))}(S\cup T)\prod_{j\in T}\xi(j)\\
-  &\qquad + \bb{\rho_i(\mb{0}) - \rho_i(\mb{0}^{U,\xi})} \sum_{T\subseteq N(i)\cap U} \lambda_i^{I,\xi}(S\cup T) \prod_{j\in T}\xi(j) \geq 0.
+  \widehat{\lambda_i(\rho_i-\rho_i(\mb0^{U,\xi}))}(S\cup T)
+  \prod_{j\in T}\xi(j)\\
+&=\sum_{T\subseteq N(i)\cap U}
+  \widehat{\lambda_i(\rho_i-\rho_i(\mb0))}(S\cup T)
+  \prod_{j\in T}\xi(j)\\
+&\quad+\bb{\rho_i(\mb0)-\rho_i(\mb0^{U,\xi})}
+  \sum_{T\subseteq N(i)\cap U}
+  \widehat{\lambda_i}(S\cup T)\prod_{j\in T}\xi(j)
+\geq0.
 \end{align*}
-The first sum has only non-negative terms. The second sum is non-positive, because as we just noted~$\lambda_i^{I,\xi}\leq 0$ and 
+The first sum has only non-negative terms. The second sum and its
+prefactor are both non-positive: the sum equals
+$\widehat{\lambda_i^{I,\xi}}(S)\leq0$, and
 \begin{equation*}
-    \rho_i(\mb{0}^{U,\xi}) = FILL THIS IN
+\rho_i(\mb0^{U,\xi})
+=\rho_i(\mb0)
++\frac{1}{\lambda_i(\mb0^{U,\xi})}
+ \sum_{\vn\neq T\subseteq N(i)\cap U}
+ \widehat{\lambda_i(\rho_i-\rho_i(\mb0))}(T)
+ \prod_{j\in T}\xi(j)
+\geq\rho_i(\mb0).
 \end{equation*}
-Therefore, by Theorem~\ref{thm:patch-positivity-order}~\textup{(i)} the restricted spin system is patch
-positive. ARGUMENT FOR WHY~$(p^{I,\xi})^* \leq p^*$ IS MISSING AND WHY~$\rho_i(\mb{0}^{U,\xi})\geq \rho_i(\mb{0})$. THIS IS HOW YOU ARGUE FOR PRESERVATION OF~$\mathcal{M}_*^I$ WHICH ALSO NEEDS TO BE DEFINED.
+Here the denominator is at least~$\varepsilon$ by the pure-death
+assumption, and all summands are non-negative by
+\eqref{eq:principal-coefficient-criterion}.
+Therefore, by Theorem~\ref{thm:patch-positivity-order}~\textup{(i)},
+the restricted spin system is patch positive.
+
+Its patch threshold satisfies~$(p_i^{I,\xi})^\star\leq p_i^\star$.
+Indeed, for every~$S\subseteq N(i)\cap I$,
+\begin{equation*}
+\widehat{\lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)}(S)
+=\sum_{T\subseteq N(i)\cap U}
+ \widehat{\lambda_i(\rho_i-p_i^\star)}(S\cup T)
+ \prod_{j\in T}\xi(j)
+\geq0.
+\end{equation*}
+For nonempty~$S\cup T$, the sign follows from
+\eqref{eq:principal-coefficient-criterion} and
+\eqref{eq:principal-threshold-profile}; for~$S=T=\vn$, it follows from
+$p_i^\star\leq\rho_i(\mb0)$. In particular,
+\begin{equation*}
+\frac{\widehat{\lambda_i^{I,\xi}\rho_i^{I,\xi}}(S)}
+     {\widehat{\lambda_i^{I,\xi}}(S)}
+\leq p_i^\star
+\qquad\text{whenever }\widehat{\lambda_i^{I,\xi}}(S)<0,\ S\neq\vn,
+\end{equation*}
+so~\eqref{eq:principal-threshold-profile} gives the claimed threshold
+comparison. Let~$\mathcal M_*^I$ be the class of probability measures~$\mu$
+on~$\cb{0,1}^I$ such that~$\mu(\chi_B^*)\geq0$ for every~$B\subseteq I$,
+with~$\chi_B^*$ centered at the original~$p_i^\star$. The coefficient
+inequalities above, including the one for~$S=\vn$, give, by the argument
+in Section~\ref{subsec:moment-monotonicity},
+\begin{equation*}
+\mathcal M_*^I P_t^{I,\xi}\subseteq\mathcal M_*^I
+\qquad(t\geq0).
+\end{equation*}
+
 % ============================================================================
 % BLURB C. Where does a positive part in M_*^I come from?
 %
