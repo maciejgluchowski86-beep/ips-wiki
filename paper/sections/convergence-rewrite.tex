@@ -751,9 +751,6 @@ which is~\eqref{eq:limiting-confinement-bound}.
 \subsection{Ergodicity under orientability}
 \label{subsec:oriented-ergodicity}
 
-\textit{Blurb scaffold for the proof of
-Corollary~\ref{cor:oriented-ergodicity}. The paragraphs below specify the
-exposition and mathematical steps to develop; they are not a finished proof.}
 
 % ============================================================================
 % BLURB A. What remains after Theorem C?
@@ -766,11 +763,8 @@ exposition and mathematical steps to develop; they are not a finished proof.}
 %   One opening paragraph. Explain local closeness; do not suggest that a
 %   single finite burn-in time puts the full law in M_* or M_{-,1}.
 % ============================================================================
-Corollary~\ref{cor:oriented-ergodicity} asserts that orientability gives
-convergence to the invariant measure~$\pi$ from every initial configuration,
-and that uniform orientability gives a uniform exponential rate.
-Theorem~\ref{thm:common-invariant-limit} already gives convergence uniformly
-over~$\mathcal M_*$. By compactness and the Feller property, it therefore
+The statement of Corollary~\ref{cor:oriented-ergodicity} is that orientability suffices to strengthen 
+Theorem~\ref{thm:common-invariant-limit} to ergodicity. The main idea is as follows: since all measures in~$\mathcal{M}_*$ converge to~$\pi$ then ,to prove ergodicity, it suffices to show that for any configuration~$\eta$ its evolution~$\delta_\eta P_t$ converges towards~$\mathcal{M}_*$. More precisely, by compactness and the Feller property, it
 suffices to show that~$\delta_\eta P_t$ approaches~$\mathcal M_*$ on finite
 sets, in the sense that
 \begin{equation*}
@@ -778,19 +772,9 @@ sets, in the sense that
 \qquad\text{for every finite }A\subseteq\Lambda.
 \end{equation*}
 To obtain this bound, choose a finite set~$I=\bar A$ as in the definition
-of orientability and condition on the evolution in the autonomous
-set~$U(A)$. The conditional dynamics on~$I$ then have prescribed boundary
-conditions. Restriction preserves patch positivity and, with the original
-centering profile, the class~$\mathcal M_*^I$ of laws with nonnegative
-centered moments, even when the boundary changes with time. Uniform deaths
-allow us to write the conditional law after one unit of time as a convex
-combination with a positive weight in~$\mathcal M_*^I$, uniformly over the
-initial state and boundary path. This part remains in~$\mathcal M_*^I$;
-repeating the decomposition on the remaining part makes its weight tend
-to zero. This proves the displayed bound and hence ergodicity.
-For uniform orientability, a coupling estimate on growing finite sets
-makes this preliminary waiting time quantitative and yields the
-exponential rate.
+of orientability and consider the dynamics of the spin system on~$I$, conditional on a particular realization of the trajectory on the (autonomous!) set~$U(A)$. This is the original spin system, but now on a finite set and with time-inhomogenous boundary conditions. This restricted system is still patch positive and, with the original
+centering profile~$p^*$, preserves the class~$M_*^I$ of probability measures on~$\cb{0,1}^I$ with non-negative centered moments. The boundary conditions are not homogenous in time, so the restricted system does not converge to any invariant measure, but it does converge towards the class~$\mathcal{M}_*^I$. Finiteness of~$I$ and presence of noise are crucial here, because they guarantee that a positive part of the measure enters~$\mathcal{M}_*^I$ after running the restricted process for any positive time. This proves the convergence towards~$\mathcal{M}_*$, in the above sense, and hence ergodicity.
+Given uniform orientability, we make convergence rate quantitative and show it is exponential.
 
 % ============================================================================
 % BLURB B. What process do we obtain after fixing the exterior?
