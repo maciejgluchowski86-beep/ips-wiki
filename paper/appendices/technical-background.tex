@@ -616,3 +616,86 @@ exhaustion whose boundary recedes from the dependence set of~$f$. In
 particular, the nonnegative centered-monomial coefficients of the finite-volume
 semigroups used in Theorem~\ref{thm:patch-positivity-order} pass to the
 infinite-volume limit.
+
+\begingroup
+\color{red}
+\subsection{Preservation under prescribed boundary conditions}
+\label{app:boundary-moment-preservation}
+
+\begin{lemma}[Preservation under prescribed boundary conditions]
+\label{lem:boundary-moment-preservation}
+Suppose that~$\Lcal$ is patch positive. Let~$I\Subset\Lambda$ and
+$U\subseteq\Lambda\setminus I$ satisfy~$N(i)\subseteq I\cup U$ for every
+$i\in I$. For~$\xi\in\cb{0,1}^U$, let~$P_t^{I,\xi}$ be the semigroup on
+$\cb{0,1}^I$ obtained by fixing the spins on~$U$ at~$\xi$.
+Let~$\mathcal M_*^I$ consist of probability measures on~$\cb{0,1}^I$
+whose moments centered at the original~$(p_i^\star)_{i\in I}$ are
+nonnegative. Then
+\begin{equation*}
+\mathcal M_*^I P_t^{I,\xi}\subseteq\mathcal M_*^I
+\qquad(t\geq0).
+\end{equation*}
+More generally, for any~$t_1,\ldots,t_n\geq0$ and prescribed boundary
+configurations~$\xi_1,\ldots,\xi_n$,
+\begin{equation*}
+\mathcal M_*^I P_{t_1}^{I,\xi_1}\cdots P_{t_n}^{I,\xi_n}
+\subseteq\mathcal M_*^I.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Substituting the fixed boundary values in the monomial expansions gives,
+for~$S\subseteq N(i)\cap I$,
+\begin{align*}
+\widehat{\lambda_i^{I,\xi}}(S)
+&=\sum_{T\subseteq N(i)\cap U}
+ \widehat{\lambda_i}(S\cup T)\prod_{j\in T}\xi(j)
+\leq0
+\quad(S\neq\vn),\\
+\widehat{\lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)}(S)
+&=\sum_{T\subseteq N(i)\cap U}
+ \widehat{\lambda_i(\rho_i-p_i^\star)}(S\cup T)
+ \prod_{j\in T}\xi(j)
+\geq0.
+\end{align*}
+The signs follow from~\eqref{eq:principal-coefficient-criterion} and
+\eqref{eq:principal-threshold-profile}. The second identity includes
+$S=\vn$; its term with~$T=\vn$ is
+$\lambda_i(\mb0)(\rho_i(\mb0)-p_i^\star)\geq0$.
+Thus both~$\lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)$ and
+$\lambda_i^{I,\xi}(\mb0)-\lambda_i^{I,\xi}$ have nonnegative monomial
+coefficients.
+
+Choose~$h>0$ with~$h\sum_{i\in I}\lambda_i^{I,\xi}(\mb0)\leq1$.
+For~$B\subseteq I$,
+\begin{align*}
+(\mathrm{Id}+h\Lcal^{I,\xi})\chi_B^*
+&=\bb{1-h\sum_{i\in B}\lambda_i^{I,\xi}(\mb0)}\chi_B^*\\
+&\quad+h\sum_{i\in B}
+ \lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)
+ \chi_{B\setminus\cb{i}}^*\\
+&\quad+h\sum_{i\in B}
+ \bb{\lambda_i^{I,\xi}(\mb0)-\lambda_i^{I,\xi}}\chi_B^*.
+\end{align*}
+The identities
+\begin{equation*}
+\eta(j)=p_j^\star+\chi_{\cb{j}}^*,
+\qquad
+\eta(j)\chi_{\cb{j}}^*
+=p_j^\star(1-p_j^\star)+(1-p_j^\star)\chi_{\cb{j}}^*
+\end{equation*}
+show that the right-hand side is a nonnegative linear combination of
+centered monomials. The same holds after any number of applications of
+$\mathrm{Id}+h\Lcal^{I,\xi}$. Since~$I$ is finite, for~$\mu\in\mathcal M_*^I$,
+\begin{equation*}
+(\mu P_t^{I,\xi})(\chi_B^*)
+=\lim_{n\to\infty}
+ \mu\bb{\bb{\mathrm{Id}+\frac{t}{n}\Lcal^{I,\xi}}^n\chi_B^*}
+\geq0
+\qquad(B\subseteq I).
+\end{equation*}
+This proves preservation for a fixed boundary. The last assertion follows
+by composition.
+\end{proof}
+\par
+\endgroup

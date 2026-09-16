@@ -784,133 +784,43 @@ Given uniform orientability, we make convergence rate quantitative and show it i
 % BLURB B. What process do we obtain after fixing the exterior?
 %
 % Reader question:
-%   Why does boundary substitution preserve the sign conditions?
+%   What is the restricted process, and which class of measures does it preserve?
 % Role in the proof:
-%   Define the finite system and establish preservation at the ORIGINAL
-%   profile p^star, even though the restricted patch threshold may differ.
+%   Define the finite system and M_*^I at the ORIGINAL profile p^star.
 % Drafting target:
-%   Two short paragraphs around the substitution identities. Distinguish the
-%   generator L from its semigroup P. No conditioning is used at this stage.
+%   Two short paragraphs. State preservation with a reference to the appendix
+%   lemma; keep its algebraic proof there. No conditioning is used here.
 % ============================================================================
-Fix a nonempty finite set~$A$ and take~$I=\bar A$ and~$U=U(A)$ as in
-orientability property. For~$\xi\in\cb{0,1}^U$, let~$\eta^{U,\xi}$ agree with~$\xi$
-on~$U$ and with~$\eta$ elsewhere. For a function~$f$ on~$\cb{0,1}^I$,
-viewed as a cylinder function on~$\Omega$, define
-\begin{equation*}
-\Lcal^{I,\xi}f(\eta)=\Lcal f(\eta^{U,\xi}).
-\end{equation*}
-Since~$I\cup U$ is autonomous, this defines a spin-system generator
-on~$\cb{0,1}^I$, with semigroup~$P_t^{I,\xi}$ and rates
-\begin{equation*}
-\lambda_i^{I,\xi}(\eta)=\lambda_i(\eta^{U,\xi}),
+Fix a nonempty finite set~$A$ and take~$I=\bar A$ and~$U=U(A)$ from
+orientability. For~$\xi\in\cb{0,1}^U$, let~$\eta^{U,\xi}$ agree with~$\xi$
+on~$U$ and with~$\eta$ elsewhere. Since~$I\cup U$ is autonomous, fixing
+the spins on~$U$ defines a spin system on~$\cb{0,1}^I$, with generator
+and rates
+\begin{align*}
+\Lcal^{I,\xi}f(\eta)&=\Lcal f(\eta^{U,\xi}),\\
+\lambda_i^{I,\xi}(\eta)&=\lambda_i(\eta^{U,\xi}),
 \qquad
 \rho_i^{I,\xi}(\eta)=\rho_i(\eta^{U,\xi})
-\qquad(i\in I).
-\end{equation*}
-We first verify that this restricted spin system is patch positive.
-For each~$i\in I$ and~$\vn\neq S\subseteq N(i)\cap I$ we have
-\begin{equation*}
-\widehat{\lambda_i^{I,\xi}}(S)
-=\sum_{T\subseteq N(i)\cap U}
-  \widehat{\lambda_i}(S\cup T)\prod_{j\in T}\xi(j)\leq0,
-\end{equation*}
-since patch positivity of the original spin system guarantees that~$\widehat{\lambda_i}(S)\leq 0$ whenever~$S\neq \vn$ 
-(see~\eqref{eq:principal-coefficient-criterion}). Similarly,
-\begin{align*}
-\widehat{\lambda_i^{I,\xi}(\rho_i^{I,\xi}-\rho_i^{I,\xi}(\mb0))}(S)
-&=\sum_{T\subseteq N(i)\cap U}
-  \widehat{\lambda_i(\rho_i-\rho_i(\mb0^{U,\xi}))}(S\cup T)
-  \prod_{j\in T}\xi(j)\\
-&=\sum_{T\subseteq N(i)\cap U}
-  \widehat{\lambda_i(\rho_i-\rho_i(\mb0))}(S\cup T)
-  \prod_{j\in T}\xi(j)\\
-&\quad+\bb{\rho_i(\mb0)-\rho_i(\mb0^{U,\xi})}
-  \sum_{T\subseteq N(i)\cap U}
-  \widehat{\lambda_i}(S\cup T)\prod_{j\in T}\xi(j)
-\geq0.
+\quad(i\in I).
 \end{align*}
-The first sum has only non-negative terms. The second sum and its
-prefactor are both non-positive: we again use
-$\widehat{\lambda_i^{I,\xi}}(S)\leq0$ for~$S\neq\vn$, and
-\begin{equation*}
-\rho_i(\mb0^{U,\xi})
-=\rho_i(\mb0)
-+\frac{1}{\lambda_i(\mb0^{U,\xi})}
- \sum_{\vn\neq T\subseteq N(i)\cap U}
- \widehat{\lambda_i(\rho_i-\rho_i(\mb0))}(T)
- \prod_{j\in T}\xi(j)
-\geq\rho_i(\mb0).
-\end{equation*}
-Here the denominator is at least~$\varepsilon$ by the pure-death
-assumption, and the terms in the sum are non-negative by
-\eqref{eq:principal-coefficient-criterion}.
-Therefore, by Theorem~\ref{thm:patch-positivity-order}~\textup{(i)},
-the restricted spin system is patch positive.
+Here~$f$ is a function on~$\cb{0,1}^I$, viewed as a cylinder function
+on~$\Omega$. Denote the restricted semigroup by~$P_t^{I,\xi}$.
 
-Its patch threshold satisfies~$(p_i^{I,\xi})^\star\leq p_i^\star$.
-To verify this first we note, that for every~$S\subseteq N(i)\cap I$,
+With the original centering profile~$(p_i^\star)_{i\in I}$, define
 \begin{equation*}
-\widehat{\lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)}(S)
-=\sum_{T\subseteq N(i)\cap U}
- \widehat{\lambda_i(\rho_i-p_i^\star)}(S\cup T)
- \prod_{j\in T}\xi(j)
-\geq0.
+\mathcal M_*^I
+=\cb{\mu\in\mathcal P\bb{\cb{0,1}^I}:
+       \mu(\chi_B^*)\geq0\text{ for every }B\subseteq I}.
 \end{equation*}
-Indeed, for terms with~$S\cup T\neq\vn$, the non-negativity follows from
-\eqref{eq:principal-coefficient-criterion} and
-\eqref{eq:principal-threshold-profile}. For the~$S=T=\vn$ term, it follows from
-$p_i^\star\leq\rho_i(\mb0)$. In particular,
+Lemma~\ref{lem:boundary-moment-preservation} in
+Appendix~\ref{app:boundary-moment-preservation} gives
 \begin{equation*}
-\frac{\widehat{\lambda_i^{I,\xi}\rho_i^{I,\xi}}(S)}
-     {\widehat{\lambda_i^{I,\xi}}(S)}
-\leq p_i^\star
-\qquad\text{whenever }\widehat{\lambda_i^{I,\xi}}(S)<0,\ S\neq\vn,
+\mathcal M_*^I P_t^{I,\xi}\subseteq\mathcal M_*^I
+\qquad(t\geq0).
 \end{equation*}
-so~\eqref{eq:principal-threshold-profile} gives the threshold
-comparison. 
-
-Let~$\mathcal M_*^I$ be the equivalent of~$\mathcal{M}_*$ for the restricted process,
-\begin{equation*}
-    \mathcal{M}_*^I = \cb{\mu\in \mathcal{P}\bb{\cb{0,1}^I}: \mu\bb{\chi_B^*}\geq 0 \text{ for all }B\subseteq I}.
-\end{equation*}
-The restricted process preserves~$\mathcal{M}_*^I$.  Preservation at this centering uses both bounds
-\begin{equation*}
-(p_i^{I,\xi})^\star\leq p_i^\star
-\leq\rho_i(\mb0)\leq\rho_i^{I,\xi}(\mb0).
-\end{equation*}
-The first gives the nonnegative nonconstant coefficients of
-$\lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)$, and the last bounds give its
-nonnegative constant coefficient. To see preservation directly, choose
-$h>0$ with~$h\sum_{i\in I}\lambda_i^{I,\xi}(\mb0)\leq1$. For~$B\subseteq I$,
-\begin{align*}
-(\mathrm{Id}+h\Lcal^{I,\xi})\chi_B^*
-&=\bb{1-h\sum_{i\in B}\lambda_i^{I,\xi}(\mb0)}\chi_B^*\\
-&\quad+h\sum_{i\in B}
- \lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)
- \chi_{B\setminus\cb{i}}^*\\
-&\quad+h\sum_{i\in B}
- \bb{\lambda_i^{I,\xi}(\mb0)-\lambda_i^{I,\xi}}\chi_B^*.
-\end{align*}
-Both~$\lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)$ and
-$\lambda_i^{I,\xi}(\mb0)-\lambda_i^{I,\xi}$ have nonnegative monomial
-coefficients. Using
-\begin{equation*}
-\eta(j)=p_j^\star+\chi_{\cb{j}}^*,
-\qquad
-\eta(j)\chi_{\cb{j}}^*
-=p_j^\star(1-p_j^\star)+(1-p_j^\star)\chi_{\cb{j}}^*,
-\end{equation*}
-the right-hand side is therefore a nonnegative linear combination of
-centered monomials. The same holds after any number of applications of
-$\mathrm{Id}+h\Lcal^{I,\xi}$. Consequently, for~$\mu\in\mathcal M_*^I$,
-\begin{equation*}
-(\mu P_t^{I,\xi})(\chi_B^*)
-=\lim_{n\to\infty}
- \mu\bb{\bb{\mathrm{Id}+\frac{t}{n}\Lcal^{I,\xi}}^n\chi_B^*}
-\geq0
-\qquad(B\subseteq I),
-\end{equation*}
-which proves~$\mathcal M_*^I P_t^{I,\xi}\subseteq\mathcal M_*^I$.
+This holds for every prescribed boundary configuration~$\xi$; the lemma
+also gives preservation when the boundary changes finitely many times
+on a bounded time interval. The restricted system is also patch positive.
 
 % ============================================================================
 % BLURB C. Where does a positive part in M_*^I come from?
@@ -987,7 +897,8 @@ $t_1,\ldots,t_n$ with~$\sum_k t_k=t$, write
 \end{equation*}
 Here each~$\xi_k$ may be extended arbitrarily to the rest of~$U$.
 Denote the resulting evolution along the revealed boundary path~$b$
-by~$Q^b_{s,t}$. Finite composition gives preservation of~$\mathcal M_*^I$.
+by~$Q^b_{s,t}$. Lemma~\ref{lem:boundary-moment-preservation} gives
+preservation of~$\mathcal M_*^I$ under this finite composition.
 
 Perform extraction on fixed unit intervals, independently of the boundary
 change times. Blurb~C gives Markov kernels~$R_k^b$ such that
