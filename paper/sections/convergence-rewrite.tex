@@ -766,17 +766,31 @@ exposition and mathematical steps to develop; they are not a finished proof.}
 %   One opening paragraph. Explain local closeness; do not suggest that a
 %   single finite burn-in time puts the full law in M_* or M_{-,1}.
 % ============================================================================
-\paragraph{Blurb A. The remaining task.}
-Recall the two conclusions of Corollary~\ref{cor:oriented-ergodicity} and
-the invariant measure~$\pi$ from Theorem~\ref{thm:common-invariant-limit}.
-That theorem already gives convergence uniformly over~$\mathcal M_*$.
-Explain that the remaining task is to bring~$\delta_\eta P_t$ close to
-this class on finite sets. Introduce the idea in this order: prescribed
-boundary conditions preserve patch positivity and the original centered-moment
-class; uniform deaths allow extraction of a positive part in that class;
-repeated extraction leaves a vanishing remainder. Blurb~E must justify why
-this local approximation suffices for ergodicity, and Blurb~F must explain
-what uniform orientability adds.
+Corollary~\ref{cor:oriented-ergodicity} asserts that orientability gives
+convergence to the invariant measure~$\pi$ from every initial configuration,
+and that uniform orientability gives a uniform exponential rate.
+Theorem~\ref{thm:common-invariant-limit} already gives convergence uniformly
+over~$\mathcal M_*$. By compactness and the Feller property, it therefore
+suffices to show that~$\delta_\eta P_t$ approaches~$\mathcal M_*$ on finite
+sets, in the sense that
+\begin{equation*}
+\liminf_{t\to\infty}\inf_\eta P_t(\chi_A^*)(\eta)\geq0
+\qquad\text{for every finite }A\subseteq\Lambda.
+\end{equation*}
+To obtain this bound, choose a finite set~$I=\bar A$ as in the definition
+of orientability and condition on the evolution in the autonomous
+set~$U(A)$. The conditional dynamics on~$I$ then have prescribed boundary
+conditions. Restriction preserves patch positivity and, with the original
+centering profile, the class~$\mathcal M_*^I$ of laws with nonnegative
+centered moments, even when the boundary changes with time. Uniform deaths
+allow us to write the conditional law after one unit of time as a convex
+combination with a positive weight in~$\mathcal M_*^I$, uniformly over the
+initial state and boundary path. This part remains in~$\mathcal M_*^I$;
+repeating the decomposition on the remaining part makes its weight tend
+to zero. This proves the displayed bound and hence ergodicity.
+For uniform orientability, a coupling estimate on growing finite sets
+makes this preliminary waiting time quantitative and yields the
+exponential rate.
 
 % ============================================================================
 % BLURB B. What process do we obtain after fixing the exterior?
