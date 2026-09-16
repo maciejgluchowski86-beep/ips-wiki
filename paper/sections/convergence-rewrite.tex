@@ -869,13 +869,45 @@ $p_i^\star\leq\rho_i(\mb0)$. In particular,
 so~\eqref{eq:principal-threshold-profile} gives the claimed threshold
 comparison. Let~$\mathcal M_*^I$ be the class of probability measures~$\mu$
 on~$\cb{0,1}^I$ such that~$\mu(\chi_B^*)\geq0$ for every~$B\subseteq I$,
-with~$\chi_B^*$ centered at the original~$p_i^\star$. The coefficient
-inequalities above, including the one for~$S=\vn$, give, by the argument
-in Section~\ref{subsec:moment-monotonicity},
+with~$\chi_B^*$ centered at the original~$p_i^\star$.
+Preservation at this centering uses both bounds
 \begin{equation*}
-\mathcal M_*^I P_t^{I,\xi}\subseteq\mathcal M_*^I
-\qquad(t\geq0).
+(p_i^{I,\xi})^\star\leq p_i^\star
+\leq\rho_i(\mb0)\leq\rho_i^{I,\xi}(\mb0).
 \end{equation*}
+The first gives the nonnegative nonconstant coefficients of
+$\lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)$, and the last bounds give its
+nonnegative constant coefficient. To see preservation directly, choose
+$h>0$ with~$h\sum_{i\in I}\lambda_i^{I,\xi}(\mb0)\leq1$. For~$B\subseteq I$,
+\begin{align*}
+(\mathrm{Id}+h\Lcal^{I,\xi})\chi_B^*
+&=\bb{1-h\sum_{i\in B}\lambda_i^{I,\xi}(\mb0)}\chi_B^*\\
+&\quad+h\sum_{i\in B}
+ \lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)
+ \chi_{B\setminus\cb{i}}^*\\
+&\quad+h\sum_{i\in B}
+ \bb{\lambda_i^{I,\xi}(\mb0)-\lambda_i^{I,\xi}}\chi_B^*.
+\end{align*}
+Both~$\lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)$ and
+$\lambda_i^{I,\xi}(\mb0)-\lambda_i^{I,\xi}$ have nonnegative monomial
+coefficients. Using
+\begin{equation*}
+\eta(j)=p_j^\star+\chi_{\cb{j}}^*,
+\qquad
+\eta(j)\chi_{\cb{j}}^*
+=p_j^\star(1-p_j^\star)+(1-p_j^\star)\chi_{\cb{j}}^*,
+\end{equation*}
+the right-hand side is therefore a nonnegative linear combination of
+centered monomials. The same holds after any number of applications of
+$\mathrm{Id}+h\Lcal^{I,\xi}$. Consequently, for~$\mu\in\mathcal M_*^I$,
+\begin{equation*}
+(\mu P_t^{I,\xi})(\chi_B^*)
+=\lim_{n\to\infty}
+ \mu\bb{\bb{\mathrm{Id}+\frac{t}{n}\Lcal^{I,\xi}}^n\chi_B^*}
+\geq0
+\qquad(B\subseteq I),
+\end{equation*}
+which proves~$\mathcal M_*^I P_t^{I,\xi}\subseteq\mathcal M_*^I$.
 
 % ============================================================================
 % BLURB C. Where does a positive part in M_*^I come from?
