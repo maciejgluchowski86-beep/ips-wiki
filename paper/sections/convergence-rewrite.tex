@@ -814,8 +814,7 @@ For each~$i\in I$ and~$\vn\neq S\subseteq N(i)\cap I$ we have
 =\sum_{T\subseteq N(i)\cap U}
   \widehat{\lambda_i}(S\cup T)\prod_{j\in T}\xi(j)\leq0,
 \end{equation*}
-since patch positivity of the original spin system guarantees that every
-term in the sum is non-positive
+since patch positivity of the original spin system guarantees that~$\widehat{\lambda_i}(S)\leq 0$ whenever~$S\neq \vn$ 
 (see~\eqref{eq:principal-coefficient-criterion}). Similarly,
 \begin{align*}
 \widehat{\lambda_i^{I,\xi}(\rho_i^{I,\xi}-\rho_i^{I,\xi}(\mb0))}(S)
@@ -831,7 +830,7 @@ term in the sum is non-positive
 \geq0.
 \end{align*}
 The first sum has only non-negative terms. The second sum and its
-prefactor are both non-positive: the sum equals
+prefactor are both non-positive: we again use
 $\widehat{\lambda_i^{I,\xi}}(S)\leq0$ for~$S\neq\vn$, and
 \begin{equation*}
 \rho_i(\mb0^{U,\xi})
@@ -843,13 +842,13 @@ $\widehat{\lambda_i^{I,\xi}}(S)\leq0$ for~$S\neq\vn$, and
 \geq\rho_i(\mb0).
 \end{equation*}
 Here the denominator is at least~$\varepsilon$ by the pure-death
-assumption, and all summands are non-negative by
+assumption, and the terms in the sum are non-negative by
 \eqref{eq:principal-coefficient-criterion}.
 Therefore, by Theorem~\ref{thm:patch-positivity-order}~\textup{(i)},
 the restricted spin system is patch positive.
 
 Its patch threshold satisfies~$(p_i^{I,\xi})^\star\leq p_i^\star$.
-Indeed, for every~$S\subseteq N(i)\cap I$,
+To verify this first we note, that for every~$S\subseteq N(i)\cap I$,
 \begin{equation*}
 \widehat{\lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)}(S)
 =\sum_{T\subseteq N(i)\cap U}
@@ -857,9 +856,9 @@ Indeed, for every~$S\subseteq N(i)\cap I$,
  \prod_{j\in T}\xi(j)
 \geq0.
 \end{equation*}
-For nonempty~$S\cup T$, the sign follows from
+Indeed, for terms with~$S\cup T\neq\vn$, the non-negativity follows from
 \eqref{eq:principal-coefficient-criterion} and
-\eqref{eq:principal-threshold-profile}; for~$S=T=\vn$, it follows from
+\eqref{eq:principal-threshold-profile}. For the~$S=T=\vn$ term, it follows from
 $p_i^\star\leq\rho_i(\mb0)$. In particular,
 \begin{equation*}
 \frac{\widehat{\lambda_i^{I,\xi}\rho_i^{I,\xi}}(S)}
