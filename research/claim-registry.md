@@ -26,6 +26,18 @@ Source: `paper/sections/main-results.tex` and `paper/sections/representation.tex
 
 Basis: principal designation of `paper/` as the canonical patch source.
 
+## Patch manuscript additions under review
+
+### PATCH-ORIENT-001
+
+Status: `claimed`
+
+Claim: under the hypotheses of the common invariant-limit theorem (Theorem C), orientability implies ergodicity with the same invariant measure. Uniform orientability, defined by an integer height function whose increments along neighbourhood edges lie between 1 and a fixed finite bound, implies uniform exponential ergodicity for local observables.
+
+Source: `paper/sections/spin-systems.tex`, Definition `def:orientability`; `paper/sections/main-results.tex`, Corollary `cor:oriented-ergodicity`; proof in `paper/sections/convergence-rewrite.tex`, subsection `subsec:oriented-ergodicity`.
+
+Basis: principal-requested manuscript addition, marked in red for review. The proof uses boundary preservation of the original centered-moment cone, finite-volume burn-in, and Theorem C. Independent correctness and novelty audits are not recorded for this addition.
+
 ## Verified BABP mathematics retained for reuse
 
 ### BABP-EDGE-001

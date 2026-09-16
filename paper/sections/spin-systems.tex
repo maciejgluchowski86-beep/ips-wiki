@@ -29,6 +29,39 @@ has polynomial growth if, for some~$K,D<\infty$,
 \text{for every }i\in\Lambda\text{ and }n\in\N.
 \end{equation}
 
+\begingroup
+\color{red}
+\begin{definition}[Orientability]
+\label{def:orientability}
+A set~$V\subseteq\Lambda$ is \emph{autonomous} if~$N_*(V)=V$.
+The neighbourhood graph is \emph{orientable} if every finite set~$A$ is
+contained in a finite set~$\bar A$ for which there is
+$U\subseteq\Lambda\setminus\bar A$ such that
+\begin{equation*}
+N_*(U)=U,
+\qquad
+N_*(\bar A\cup U)=\bar A\cup U.
+\end{equation*}
+It is \emph{uniformly orientable} if there are a height function
+$h:\Lambda\to\Z$ and an integer~$r\geq1$ such that
+\begin{equation*}
+1\leq h(j)-h(i)\leq r
+\qquad\text{whenever }j\in N(i).
+\end{equation*}
+\end{definition}
+Uniform orientability implies orientability. Indeed, for nonempty~$A$, put
+$H=\max_{i\in A}h(i)$ and take
+\begin{equation*}
+\bar A=\bigcup_{n\geq0}B(A,n)\cap\cb{i:h(i)\leq H},
+\qquad U=\cb{i:h(i)>H}.
+\end{equation*}
+Then~$\bar A\subseteq B\bb{A,H-\min_{i\in A}h(i)}$, and both required
+sets are autonomous. These definitions apply to general neighbourhood graphs;
+for example, on~$\Z$, the condition~$N(i)\subseteq\cb{i+1,\ldots,i+r}$
+gives uniform orientability with~$h(i)=i$.
+\par
+\endgroup
+
 Put~$\Omega=\cb{0,1}^{\Lambda}$. A local function depends on finitely many
 coordinates. For~$x\in\cb{0,1}$, let~$\eta^{i,x}$ be the configuration obtained
 from~$\eta$ \gm{$\eta$ not defined need $\eta \in \Omega$} by setting the spin at~$i$ equal to~$x$, and let~$\eta^i$ be obtained

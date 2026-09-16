@@ -745,3 +745,129 @@ $W_u^{\mu}\to W$ as~$u\to\infty$, and on~$\cb{\abs{\mathcal P}=\infty}$ we have~
 \end{equation*}
 which is~\eqref{eq:limiting-confinement-bound}.
 \end{proof}
+
+\begingroup
+\color{red}
+\subsection{Ergodicity under orientability}
+\label{subsec:oriented-ergodicity}
+
+\begin{proof}[Proof of Corollary~\ref{cor:oriented-ergodicity}]
+For finite~$I$, let~$\mathcal M_*^I$ be the probability laws on
+$\cb{0,1}^I$ with nonnegative centered moments, using the original
+profile~$\mb p^\star$. Fixing an exterior configuration~$b$ only replaces
+ordinary spin factors by~$0$ or~$1$, so the restricted rates satisfy
+\begin{equation*}
+\widehat{\lambda_i^b}(S)\leq0\quad(S\neq\vn),
+\qquad
+\widehat{\lambda_i^b(\rho_i^b-p_i^\star)}(S)\geq0
+\quad(S\subseteq N(i)\cap I).
+\end{equation*}
+The centered-moment argument in Theorem~\ref{thm:patch-positivity-order}
+therefore gives preservation of~$\mathcal M_*^I$. For a boundary path~$b$,
+write~$Q^b_{s,t}$ for the restricted evolution. Only finitely many boundary
+spins affect~$I$, and their paths have finitely many jumps on bounded time
+intervals. Composing the frozen-boundary semigroups gives
+\begin{equation*}
+\mathcal M_*^I Q^b_{s,t}\subseteq\mathcal M_*^I.
+\end{equation*}
+Whenever~$U$ and~$I\cup U$ are autonomous and~$I\cap U=\vn$, conditioning
+on the trajectory in~$U$ identifies the evolution in~$I$ with~$Q^b$:
+for a deterministic initial configuration, that trajectory depends only on
+the graphical randomness in~$U$, which is independent of the clocks in~$I$.
+
+The coefficient inequalities and uniform deaths give
+$\lambda_i\rho_i\geq p_i^\star\lambda_i\geq\varepsilon p_i^\star$.
+At sites with~$p_i^\star>0$, retain independent resets to~$1$ at rate
+$\varepsilon p_i^\star$; at the other sites, retain resets to~$0$ at
+rate~$\varepsilon$. Put~$e_i=\ind\bb{p_i^\star>0}$.
+The event of at least one retained reset at every site of~$I$ and no
+remaining update marks there during a unit interval has probability
+$\alpha_I>0$, uniformly in the boundary and initial state. Hence
+\begin{equation*}
+Q^b_{k,k+1}(x,\cdot)\geq\alpha_I\delta_e,
+\qquad \delta_e\in\mathcal M_*^I.
+\end{equation*}
+Iterating this bound and evolving each extracted part with~$Q^b$ gives
+\begin{equation*}
+\delta_xQ^b_{0,u}=(1-r)\nu+r\zeta,
+\qquad \nu\in\mathcal M_*^I,
+\qquad 0\leq r\leq(1-\alpha_I)^{\lfloor u\rfloor}.
+\end{equation*}
+Averaging over the boundary and extending~$\nu$ by all~$1$'s outside~$I$
+therefore gives a law~$\nu_{\eta,u,I}\in\mathcal M_*$ satisfying
+\begin{equation}
+\label{eq:oriented-burn-in-distance}
+d_{\mathrm{TV}}\bb{(\delta_\eta P_u)|_I,\nu_{\eta,u,I}|_I}
+\leq(1-\alpha_I)^{\lfloor u\rfloor}.
+\end{equation}
+Here total variation is the supremum over events.
+
+Let~$f$ be supported on a nonempty finite set~$A$. Choose~$v$ in
+Lemma~\ref{lem:finite-propagation} with~$a=\varepsilon/2$; its proof
+allows~$v$ to depend only on~$\varepsilon$ and the uniform bounds on
+rates and neighbourhood sizes. For~$I\supseteq B(A,\lceil vs\rceil)$
+as above and any~$\nu\in\mathcal M_*$, Theorem~\ref{thm:common-invariant-limit}
+and that lemma give
+\begin{align}
+\abs{P_{u+s}f(\eta)-\pi(f)}
+&\leq 2\norm{P_sf-P_s^{I,0}f}_\infty
++2\norm f_\infty d_{\mathrm{TV}}\bb{(\delta_\eta P_u)|_I,\nu|_I}\notag\\
+&\quad+\abs{(\nu P_s)(f)-\pi(f)}\notag\\
+&\leq C_f(1+s)^D e^{-\varepsilon s/2}
++2\norm f_\infty d_{\mathrm{TV}}\bb{(\delta_\eta P_u)|_I,\nu|_I}.
+\label{eq:oriented-ergodicity-transfer}
+\end{align}
+For each fixed~$s$, orientability supplies such an~$I$.
+Use~\eqref{eq:oriented-burn-in-distance} and let first~$u\to\infty$,
+then~$s\to\infty$. This proves
+$\sup_\eta\abs{P_tf(\eta)-\pi(f)}\to0$, hence ergodicity and uniqueness.
+
+Suppose now that the graph is uniformly orientable, with~$h,r$ as in
+Definition~\ref{def:orientability}. Put~$H_A=\max_{i\in A}h(i)$ and take
+\begin{equation*}
+H_s=H_A+r\lceil vs\rceil,
+\qquad
+I_s=\bigcup_{n\geq0}B(A,n)\cap\cb{i:h(i)\leq H_s},
+\qquad U_s=\cb{i:h(i)>H_s}.
+\end{equation*}
+Then~$U_s$ and~$I_s\cup U_s$ are autonomous,
+$B(A,\lceil vs\rceil)\subseteq I_s$, and polynomial growth gives
+\begin{equation*}
+\abs{I_s}\leq C_A(1+s)^D,
+\qquad \ell_s\leq d_A+rv s,
+\end{equation*}
+where~$\ell_s$ is the maximum number of vertices in a directed path
+inside~$I_s$ and~$C_A,d_A<\infty$.
+For a prescribed boundary, couple the processes from~$x$ and~$\mb1_{I_s}$
+using the same pure-death clocks and remaining graphical randomness.
+Once all neighbours of a site agree permanently, the next pure death
+makes that site agree permanently. In decreasing height order the resulting
+coupling times satisfy
+\begin{equation*}
+T_i=\max_{j\in N(i)\cap I_s}T_j+E_i,
+\qquad E_i\text{ independent with law }\operatorname{Exp}(\varepsilon),
+\qquad \max\vn=0.
+\end{equation*}
+Independence holds because the maximum depends only on clocks at greater
+heights. With~$m=\max\cb{1,\sup_i\abs{N(i)}}$, exponential Markov
+inequality along each directed path yields
+\begin{align*}
+\sup_{x,b}d_{\mathrm{TV}}\bb{\delta_xQ^b_{0,u},
+\delta_{\mb1_{I_s}}Q^b_{0,u}}
+&\leq\abs{I_s}\sum_{k=1}^{\ell_s}m^{k-1}2^k e^{-\varepsilon u/2}\\
+&\leq2\abs{I_s}(2m)^{\ell_s}e^{-\varepsilon u/2}.
+\end{align*}
+Average~$\delta_{\mb1_{I_s}}Q^b_{0,u}\in\mathcal M_*^{I_s}$ over the
+boundary and extend by all~$1$'s as before. Substitution in
+\eqref{eq:oriented-ergodicity-transfer} gives
+\begin{equation*}
+\sup_\eta\abs{P_{u+s}f(\eta)-\pi(f)}
+\leq C_f(1+s)^D
+\bb{e^{-\varepsilon s/2}
++e^{rv\log(2m)s-\varepsilon u/2}}.
+\end{equation*}
+Taking~$u=\bb{1+2rv\log(2m)/\varepsilon}s$ and absorbing the polynomial
+factor gives the asserted exponential bound, with an exponent independent
+of~$f$.
+\end{proof}
+\endgroup
