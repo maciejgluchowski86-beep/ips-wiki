@@ -751,123 +751,286 @@ which is~\eqref{eq:limiting-confinement-bound}.
 \subsection{Ergodicity under orientability}
 \label{subsec:oriented-ergodicity}
 
-\begin{proof}[Proof of Corollary~\ref{cor:oriented-ergodicity}]
-For finite~$I$, let~$\mathcal M_*^I$ be the probability laws on
-$\cb{0,1}^I$ with nonnegative centered moments, using the original
-profile~$\mb p^\star$. Fixing an exterior configuration~$b$ only replaces
-ordinary spin factors by~$0$ or~$1$, so the restricted rates satisfy
+\textit{Blurb scaffold for the proof of
+Corollary~\ref{cor:oriented-ergodicity}. The paragraphs below specify the
+exposition and mathematical steps to develop; they are not a finished proof.}
+
+% ============================================================================
+% BLURB A. What remains after Theorem C?
+%
+% Reader question:
+%   Why should approaching M_* imply convergence from an arbitrary state?
+% Role in the proof:
+%   State the reduction before introducing restricted dynamics or conditioning.
+% Drafting target:
+%   One opening paragraph. Explain local closeness; do not suggest that a
+%   single finite burn-in time puts the full law in M_* or M_{-,1}.
+% ============================================================================
+\paragraph{Blurb A. The remaining task.}
+Recall the two conclusions of Corollary~\ref{cor:oriented-ergodicity} and
+the invariant measure~$\pi$ from Theorem~\ref{thm:common-invariant-limit}.
+That theorem already gives convergence uniformly over~$\mathcal M_*$.
+Explain that the remaining task is to bring~$\delta_\eta P_t$ close to
+this class on finite sets. Introduce the idea in this order: prescribed
+boundary conditions preserve patch positivity and the original centered-moment
+class; uniform deaths allow extraction of a positive part in that class;
+repeated extraction leaves a vanishing remainder. Blurb~E must justify why
+this local approximation suffices for ergodicity, and Blurb~F must explain
+what uniform orientability adds.
+
+% ============================================================================
+% BLURB B. What process do we obtain after fixing the exterior?
+%
+% Reader question:
+%   Why does boundary substitution preserve the sign conditions?
+% Role in the proof:
+%   Define the finite system and establish preservation at the ORIGINAL
+%   profile p^star, even though the restricted patch threshold may differ.
+% Drafting target:
+%   Two short paragraphs around the substitution identities. Distinguish the
+%   generator L from its semigroup P. No conditioning is used at this stage.
+% ============================================================================
+\paragraph{Blurb B. Restriction with a fixed boundary.}
+Pick a nonempty finite set~$A$ and take~$I=\bar A$ and~$U=U(A)$ from
+orientability. For~$\xi\in\cb{0,1}^U$, let~$\eta^{U,\xi}$ agree with~$\xi$
+on~$U$ and with~$\eta$ elsewhere. For~$f$ depending only on~$I$, define
 \begin{equation*}
-\widehat{\lambda_i^b}(S)\leq0\quad(S\neq\vn),
+\Lcal^{I,\xi}f(\eta)=\Lcal f(\eta^{U,\xi}),
 \qquad
-\widehat{\lambda_i^b(\rho_i^b-p_i^\star)}(S)\geq0
-\quad(S\subseteq N(i)\cap I).
+\lambda_i^{I,\xi}(\eta)=\lambda_i(\eta^{U,\xi}),
+\qquad
+\rho_i^{I,\xi}(\eta)=\rho_i(\eta^{U,\xi})
+\quad(i\in I).
 \end{equation*}
-The centered-moment argument in Theorem~\ref{thm:patch-positivity-order}
-therefore gives preservation of~$\mathcal M_*^I$. For a boundary path~$b$,
-write~$Q^b_{s,t}$ for the restricted evolution. Only finitely many boundary
-spins affect~$I$, and their paths have finitely many jumps on bounded time
-intervals. Composing the frozen-boundary semigroups gives
+Autonomy of~$I\cup U$ makes this a generator on~$\cb{0,1}^I$;
+denote its semigroup by~$P_t^{I,\xi}$. Set
+$g_i=\lambda_i(\rho_i-p_i^\star)$ and define~$g_i^{I,\xi}$ by the same
+substitution. Explain the coefficient identities explicitly:
+\begin{align*}
+\widehat{\lambda_i^{I,\xi}}(S)
+&=\sum_{T\subseteq N(i)\cap U}
+  \widehat{\lambda_i}(S\cup T)\prod_{j\in T}\xi(j)
+\leq0
+&&(\vn\neq S\subseteq N(i)\cap I),\\
+\widehat{g_i^{I,\xi}}(S)
+&=\sum_{T\subseteq N(i)\cap U}
+  \widehat{g_i}(S\cup T)\prod_{j\in T}\xi(j)
+\geq0
+&&(S\subseteq N(i)\cap I).
+\end{align*}
+Each product is~$0$ or~$1$. Account for the changed all-zero baseline
+$a_i^\xi=\rho_i^{I,\xi}(\mb0)\geq p_i^\star$ when verifying patch positivity:
+for~$S\neq\vn$,
 \begin{equation*}
-\mathcal M_*^I Q^b_{s,t}\subseteq\mathcal M_*^I.
+\widehat{\lambda_i^{I,\xi}(\rho_i^{I,\xi}-a_i^\xi)}(S)
+=
+\widehat{g_i^{I,\xi}}(S)
+-(a_i^\xi-p_i^\star)\widehat{\lambda_i^{I,\xi}}(S)
+\geq0.
 \end{equation*}
-Whenever~$U$ and~$I\cup U$ are autonomous and~$I\cap U=\vn$, conditioning
-on the trajectory in~$U$ identifies the evolution in~$I$ with~$Q^b$:
-for a deterministic initial configuration, that trajectory depends only on
-the graphical randomness in~$U$, which is independent of the clocks in~$I$.
+Conclude patch positivity by Theorem~\ref{thm:patch-positivity-order}(i),
+and use its centered-moment argument to obtain
+\begin{equation*}
+\mathcal M_*^I P_t^{I,\xi}\subseteq\mathcal M_*^I,
+\qquad
+\mathcal M_*^I
+=\cb{\mu:\mu(\chi_B^*)\geq0\text{ for every }B\subseteq I}.
+\end{equation*}
+Emphasize that this uses the original~$p_i^\star$ throughout.
 
-The coefficient inequalities and uniform deaths give
-$\lambda_i\rho_i\geq p_i^\star\lambda_i\geq\varepsilon p_i^\star$.
-At sites with~$p_i^\star>0$, retain independent resets to~$1$ at rate
-$\varepsilon p_i^\star$; at the other sites, retain resets to~$0$ at
-rate~$\varepsilon$. Put~$e_i=\ind\bb{p_i^\star>0}$.
-The event of at least one retained reset at every site of~$I$ and no
-remaining update marks there during a unit interval has probability
-$\alpha_I>0$, uniformly in the boundary and initial state. Hence
+% ============================================================================
+% BLURB C. Where does a positive part in M_*^I come from?
+%
+% Reader question:
+%   What event erases the initial state on a finite set?
+% Role in the proof:
+%   Obtain a lower bound uniform in the initial state and prescribed boundary.
+% Drafting target:
+%   One paragraph describing the reset event, followed by the bound.
+% Correction:
+%   A coefficient of delta_e cannot generally tend to one. At small times,
+%   forcing every site costs order s^{|I|}; a bound 1-exp(-alpha_I s) for
+%   every s>0 is generally false. Later extraction uses fixed unit intervals.
+% ============================================================================
+\paragraph{Blurb C. A positive part after one time interval.}
+Use~$\lambda_i\rho_i\geq\varepsilon p_i^\star$ and the pure-death
+component to retain independent resets to~$e_i$ at rate~$r_i$, where
 \begin{equation*}
-Q^b_{k,k+1}(x,\cdot)\geq\alpha_I\delta_e,
-\qquad \delta_e\in\mathcal M_*^I.
+e_i=\ind\bb{p_i^\star>0},
+\qquad
+r_i=
+\begin{cases}
+\varepsilon p_i^\star,&p_i^\star>0,\\
+\varepsilon,&p_i^\star=0.
+\end{cases}
 \end{equation*}
-Iterating this bound and evolving each extracted part with~$Q^b$ gives
+Write~$\overline\lambda=\sup_{i,\eta}\lambda_i(\eta)$.
+Describe the event that each retained reset clock rings and no remaining
+update mark occurs in~$I$ during an interval of length~$s$. The required
+bound, for every~$x\in\cb{0,1}^I$, is
 \begin{equation*}
-\delta_xQ^b_{0,u}=(1-r)\nu+r\zeta,
-\qquad \nu\in\mathcal M_*^I,
-\qquad 0\leq r\leq(1-\alpha_I)^{\lfloor u\rfloor}.
+P_s^{I,\xi}(x,\cdot)\geq\alpha_I(s)\delta_e,
+\qquad
+\alpha_I(s)=e^{-\overline\lambda\abs I s}
+\prod_{i\in I}(1-e^{-r_i s})>0
+\quad(s>0),
+\qquad
+\delta_e\in\mathcal M_*^I.
 \end{equation*}
-Averaging over the boundary and extending~$\nu$ by all~$1$'s outside~$I$
-therefore gives a law~$\nu_{\eta,u,I}\in\mathcal M_*$ satisfying
-\begin{equation}
-\label{eq:oriented-burn-in-distance}
-d_{\mathrm{TV}}\bb{(\delta_\eta P_u)|_I,\nu_{\eta,u,I}|_I}
-\leq(1-\alpha_I)^{\lfloor u\rfloor}.
-\end{equation}
-Here total variation is the supremum over events.
+The same event works if the prescribed boundary changes during the interval.
+Retain the constant~$a_I=\alpha_I(1)>0$ for repeated extraction.
+Distinguish this fixed positive part from the total mass in~$\mathcal M_*^I$,
+which will approach~$1$ after previously extracted parts have evolved.
 
-Let~$f$ be supported on a nonempty finite set~$A$. Choose~$v$ in
-Lemma~\ref{lem:finite-propagation} with~$a=\varepsilon/2$; its proof
-allows~$v$ to depend only on~$\varepsilon$ and the uniform bounds on
-rates and neighbourhood sizes. For~$I\supseteq B(A,\lceil vs\rceil)$
-as above and any~$\nu\in\mathcal M_*$, Theorem~\ref{thm:common-invariant-limit}
-and that lemma give
-\begin{align}
-\abs{P_{u+s}f(\eta)-\pi(f)}
-&\leq 2\norm{P_sf-P_s^{I,0}f}_\infty
-+2\norm f_\infty d_{\mathrm{TV}}\bb{(\delta_\eta P_u)|_I,\nu|_I}\notag\\
-&\quad+\abs{(\nu P_s)(f)-\pi(f)}\notag\\
-&\leq C_f(1+s)^D e^{-\varepsilon s/2}
-+2\norm f_\infty d_{\mathrm{TV}}\bb{(\delta_\eta P_u)|_I,\nu|_I}.
-\label{eq:oriented-ergodicity-transfer}
-\end{align}
-For each fixed~$s$, orientability supplies such an~$I$.
-Use~\eqref{eq:oriented-burn-in-distance} and let first~$u\to\infty$,
-then~$s\to\infty$. This proves
-$\sup_\eta\abs{P_tf(\eta)-\pi(f)}\to0$, hence ergodicity and uniqueness.
-
-Suppose now that the graph is uniformly orientable, with~$h,r$ as in
-Definition~\ref{def:orientability}. Put~$H_A=\max_{i\in A}h(i)$ and take
+% ============================================================================
+% BLURB D. How do boundary conditioning and repeated extraction fit together?
+%
+% Reader question:
+%   Why does revealing the exterior give the prescribed-boundary process,
+%   and why do arbitrarily frequent boundary changes cause no loss?
+% Role in the proof:
+%   Derive the conditional centered-moment lower bound with the correct
+%   chronological order and geometric mixture weights.
+% Drafting target:
+%   Separate the conditioning paragraph from the extraction paragraph.
+% ============================================================================
+\paragraph{Blurb D. Conditioning and repeated extraction.}
+Define
 \begin{equation*}
-H_s=H_A+r\lceil vs\rceil,
+\mathcal G_U=\sigma\cb{\eta_s(j):j\in U,\ s\geq0},
+\qquad
+\partial I=N_*(I)\setminus I\subseteq U.
+\end{equation*}
+For a deterministic initial configuration~$\eta$, justify conditioning on
+$\mathcal G_U$ using autonomy of~$U$ and~$I\cup U$. Only the finitely many
+spins in~$\partial I$ affect the restricted dynamics. If their successive
+values on~$[0,t]$ are~$\xi_1,\ldots,\xi_n$ for durations
+$t_1,\ldots,t_n$ with~$\sum_k t_k=t$, write
+\begin{equation*}
+\E_\eta\Cb{\chi_A^*(\eta_t)\mid\mathcal G_U}
+=
+\bb{P_{t_1}^{I,\xi_1}\cdots P_{t_n}^{I,\xi_n}\chi_A^*}(\eta|_I).
+\end{equation*}
+Here each~$\xi_k$ may be extended arbitrarily to the rest of~$U$.
+Denote the resulting evolution along the revealed boundary path~$b$
+by~$Q^b_{s,t}$. Finite composition gives preservation of~$\mathcal M_*^I$.
+
+Perform extraction on fixed unit intervals, independently of the boundary
+change times. Blurb~C gives Markov kernels~$R_k^b$ such that
+\begin{equation*}
+Q^b_{k-1,k}(x,\cdot)=a_I\delta_e+(1-a_I)R_k^b(x,\cdot).
+\end{equation*}
+For~$m=\lfloor t\rfloor$, expand according to the first extracted part:
+\begin{align*}
+\delta_{\eta|_I}Q^b_{0,t}
+&=\sum_{k=1}^m a_I(1-a_I)^{k-1}\delta_e Q^b_{k,t}
+ +(1-a_I)^m\nu_t^b,\\
+\nu_t^b
+&=\delta_{\eta|_I}R_1^b\cdots R_m^b Q^b_{m,t}.
+\end{align*}
+The measure~$\nu_t^b$ is a probability measure, and every term
+$\delta_e Q^b_{k,t}$ belongs to~$\mathcal M_*^I$. The target is therefore
+\begin{equation*}
+\E_\eta\Cb{\chi_B^*(\eta_t)\mid\mathcal G_U}
+\geq-\norm{\chi_B^*}_\infty(1-a_I)^{\lfloor t\rfloor}
+\qquad(B\subseteq I).
+\end{equation*}
+Average over~$\mathcal G_U$ and take~$B=A$.
+
+% ============================================================================
+% BLURB E. Why does the moment bound imply ergodicity?
+%
+% Reader question:
+%   How does a statement for each finite set become convergence of the law?
+% Role in the proof:
+%   Supply the limiting argument; local cone approximation alone must not be
+%   treated as an application of Theorem C without this step.
+% Drafting target:
+%   One paragraph for compactness/Feller and Theorem C. Keep the finite-volume
+%   M_{-,1} observation separate, and do not require it for this argument.
+% ============================================================================
+\paragraph{Blurb E. From the burn-in estimate to ergodicity.}
+Explain that every weak subsequential limit of
+$\delta_{\eta_n}P_{t_n}$ with~$t_n\to\infty$ belongs to~$\mathcal M_*$:
+apply Blurb~D to each finite~$A$. For fixed~$s$, apply this observation to
+$\delta_{\eta_n}P_{t_n-s}$ and use compactness and the Feller property to
+justify the first inequality below:
+\begin{equation*}
+\limsup_{t\to\infty}\sup_\eta\abs{P_tf(\eta)-\pi(f)}
+\leq
+\sup_{\mu\in\mathcal M_*}\abs{(\mu P_s)(f)-\pi(f)}
+\leq K_f(1+s)^D e^{-\varepsilon s/2}
+\longrightarrow0
+\quad(s\to\infty).
+\end{equation*}
+Conclude convergence from every initial law and uniqueness of~$\pi$.
+
+Record separately the answer to the finite-time entry question.
+For fixed~$I$, uniform deaths imply~$p_i^\star<1$, so
+\begin{equation*}
+(1-a_I)^{\lfloor t\rfloor}
+\leq
+\min_{\vn\neq B\subseteq I}
+\frac{\prod_{i\in B}(1-p_i^\star)}{\norm{\chi_B^*}_\infty}
+\quad\Longrightarrow\quad
+(\delta_\eta P_t)|_I\in\mathcal M_{-,1}^I,
+\end{equation*}
+where~$\mathcal M_{-,1}^I=\cb{\mu:(\mu+\delta_{\mb1_I})/2\in\mathcal M_*^I}$.
+The minimum is positive. This gives a time depending on~$I$, uniformly
+in~$\eta$; it does not establish entry into the global~$\mathcal M_{-,1}$.
+
+% ============================================================================
+% BLURB F. What quantitative information does uniform orientability add?
+%
+% Reader question:
+%   Why is there now a common exponential rate for every local observable?
+% Role in the proof:
+%   Replace finite-set extraction by a boundary-uniform coupling estimate,
+%   then combine burn-in with finite propagation and Theorem C.
+% Drafting target:
+%   Explain the choice of region before the coupling, and the coupling
+%   before the final estimate. Leave the detailed path count to drafting.
+% ============================================================================
+\paragraph{Blurb F. Uniform orientability and an exponential rate.}
+For~$f$ supported on~$A$, choose a finite-propagation speed~$v$ for error
+$e^{-\varepsilon s/2}$, independent of~$A$. With the height function~$h$
+and increment bound~$r$, use
+\begin{equation*}
+H_s=\max_{i\in A}h(i)+r\lceil vs\rceil,
 \qquad
 I_s=\bigcup_{n\geq0}B(A,n)\cap\cb{i:h(i)\leq H_s},
-\qquad U_s=\cb{i:h(i)>H_s}.
+\qquad
+U_s=\cb{i:h(i)>H_s}.
 \end{equation*}
-Then~$U_s$ and~$I_s\cup U_s$ are autonomous,
-$B(A,\lceil vs\rceil)\subseteq I_s$, and polynomial growth gives
+Explain autonomy and the geometric bounds
 \begin{equation*}
+B(A,\lceil vs\rceil)\subseteq I_s,
+\qquad
 \abs{I_s}\leq C_A(1+s)^D,
-\qquad \ell_s\leq d_A+rv s,
+\qquad
+\ell_s\leq d_A+rv s,
 \end{equation*}
-where~$\ell_s$ is the maximum number of vertices in a directed path
-inside~$I_s$ and~$C_A,d_A<\infty$.
-For a prescribed boundary, couple the processes from~$x$ and~$\mb1_{I_s}$
-using the same pure-death clocks and remaining graphical randomness.
-Once all neighbours of a site agree permanently, the next pure death
-makes that site agree permanently. In decreasing height order the resulting
-coupling times satisfy
+where~$\ell_s$ is the maximum number of vertices in a directed path in~$I_s$.
+Couple the restrictions from~$x$ and~$\mb1_{I_s}$ with the same boundary,
+pure-death clocks, and remaining graphical randomness. Explain how agreement
+passes from greater to smaller heights. With
+$d=\max\cb{1,\sup_i\abs{N(i)}}$, the estimate to prove is
 \begin{equation*}
-T_i=\max_{j\in N(i)\cap I_s}T_j+E_i,
-\qquad E_i\text{ independent with law }\operatorname{Exp}(\varepsilon),
-\qquad \max\vn=0.
-\end{equation*}
-Independence holds because the maximum depends only on clocks at greater
-heights. With~$m=\max\cb{1,\sup_i\abs{N(i)}}$, exponential Markov
-inequality along each directed path yields
-\begin{align*}
 \sup_{x,b}d_{\mathrm{TV}}\bb{\delta_xQ^b_{0,u},
 \delta_{\mb1_{I_s}}Q^b_{0,u}}
-&\leq\abs{I_s}\sum_{k=1}^{\ell_s}m^{k-1}2^k e^{-\varepsilon u/2}\\
-&\leq2\abs{I_s}(2m)^{\ell_s}e^{-\varepsilon u/2}.
-\end{align*}
-Average~$\delta_{\mb1_{I_s}}Q^b_{0,u}\in\mathcal M_*^{I_s}$ over the
-boundary and extend by all~$1$'s as before. Substitution in
-\eqref{eq:oriented-ergodicity-transfer} gives
+\leq2\abs{I_s}(2d)^{\ell_s}e^{-\varepsilon u/2}.
+\end{equation*}
+Here~$d_{\mathrm{TV}}$ is the supremum over events. Explain why averaging
+the second law over the boundary and extending by all~$1$'s gives a law
+in~$\mathcal M_*$. Compare~$P_sf$ with~$P_s^{I_s,0}f$ using
+Lemma~\ref{lem:finite-propagation}, then apply
+Theorem~\ref{thm:common-invariant-limit} to obtain
 \begin{equation*}
 \sup_\eta\abs{P_{u+s}f(\eta)-\pi(f)}
 \leq C_f(1+s)^D
-\bb{e^{-\varepsilon s/2}
-+e^{rv\log(2m)s-\varepsilon u/2}}.
+\bb{e^{-\varepsilon s/2}+e^{rv\log(2d)s-\varepsilon u/2}}.
 \end{equation*}
-Taking~$u=\bb{1+2rv\log(2m)/\varepsilon}s$ and absorbing the polynomial
-factor gives the asserted exponential bound, with an exponent independent
-of~$f$.
-\end{proof}
+Finish with~$u=\bb{1+2rv\log(2d)/\varepsilon}s$ and explain why the
+resulting exponential rate is independent of~$f$.
+\par
 \endgroup
