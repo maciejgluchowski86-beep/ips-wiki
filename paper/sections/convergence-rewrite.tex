@@ -942,22 +942,6 @@ Theorem~\ref{thm:common-invariant-limit} now gives
 Letting~$s\to\infty$ proves convergence uniformly over initial
 configurations for every local~$f$ and thus ergodicity.
 
-Now we prove that the result can be strenghtened to uniform exponential ergodicity, if the lattice is uniformly orientable. First note that on finite~$I$ the evolution enters
-$\mathcal M_{-,1}^I
-=\cb{\mu:(\mu+\delta_{\mb1_I})/2\in\mathcal M_*^I}$ in finite time, uniformly in initial configuration.
-Indeed, uniform deaths imply~$p_i^\star<1$, and for every
-nonempty~$B\subseteq I$,
-\begin{equation*}
-\bb{(\delta_\eta P_t)|_I+\delta_{\mb1_I}}(\chi_B^*)
-\geq
-\prod_{i\in B}(1-p_i^\star)
--\norm{\chi_B^*}_\infty\bb{1-\alpha_I}^{\lfloor t\rfloor}
-\geq0
-\end{equation*}
-for all sufficiently large~$t$. Since~$I$ is finite, a fixed time works
-for all~$B\subseteq I$, uniformly in~$\eta$. This entry time may however depend
-on~$I$.
-
 % ============================================================================
 % BLURB F. What quantitative information does uniform orientability add?
 %
@@ -970,12 +954,10 @@ on~$I$.
 %   Choose the region, compare with a measure in M_*, and apply Theorem C.
 %   The clock estimate is proved in the appendix.
 % ============================================================================
-Uniform orientability gives a quantitative comparison with~$\mathcal M_*$
-on sets large enough to control the subsequent evolution.
-Let~$h,r$ be as in Definition~\ref{def:orientability}, and fix~$f$
+Now we prove that the result can be strenghtened to uniform exponential ergodicity, if the lattice is uniformly orientable.
+Let~$h,r$ be witnesses to uniform orientability, as in Definition~\ref{def:orientability}. Fix~$f$
 supported on a finite nonempty set~$A$. Choose the speed~$v$ in
-Lemma~\ref{lem:finite-propagation} for error~$e^{-\varepsilon s/2}$;
-as its proof shows,~$v$ is independent of~$A$. For~$s\geq0$, set
+Lemma~\ref{lem:finite-propagation} for error~$e^{-\varepsilon s/2}$. Set
 \begin{gather*}
 H_s=\max_{i\in A}h(i)+r\lceil vs\rceil,
 \qquad U_s=\cb{i:h(i)>H_s},\\
