@@ -893,35 +893,52 @@ and hence, for every~$A\Subset\Lambda$,
 %   One paragraph for compactness/Feller and Theorem C. Keep the finite-volume
 %   M_{-,1} observation separate, and do not require it for this argument.
 % ============================================================================
-\paragraph{Blurb E. From the burn-in estimate to ergodicity.}
-Explain that every weak subsequential limit of
-$\delta_{\eta_n}P_{t_n}$ with~$t_n\to\infty$ belongs to~$\mathcal M_*$:
-apply Blurb~D to each finite~$A$. For fixed~$s$, apply this observation to
-$\delta_{\eta_n}P_{t_n-s}$ and use compactness and the Feller property to
-justify the first inequality below:
+To obtain convergence to~$\pi$, we combine the preceding moment bound
+with Theorem~\ref{thm:common-invariant-limit} after a further fixed time.
+Fix a local function~$f$ and~$s>0$. Choose~$t_n\to\infty$ and
+configurations~$\eta_n$ such that
+$\abs{P_{t_n}f(\eta_n)-\pi(f)}$ converges to
+$\limsup_{t\to\infty}\sup_\eta\abs{P_tf(\eta)-\pi(f)}$.
+Compactness of~$\Omega$ gives, along a subsequence,
+$\delta_{\eta_n}P_{t_n-s}\Rightarrow\mu$.
+For every finite~$B\subseteq\Lambda$, the preceding bound implies
+\begin{equation*}
+\mu(\chi_B^*)
+=\lim_{n\to\infty}P_{t_n-s}(\chi_B^*)(\eta_n)\geq0,
+\end{equation*}
+so~$\mu\in\mathcal M_*$. By the Feller property,~$P_sf$ is continuous,
+and hence
+\begin{equation*}
+P_{t_n}f(\eta_n)
+=(\delta_{\eta_n}P_{t_n-s})(P_sf)
+\longrightarrow(\mu P_s)(f).
+\end{equation*}
+Theorem~\ref{thm:common-invariant-limit} now gives
 \begin{equation*}
 \limsup_{t\to\infty}\sup_\eta\abs{P_tf(\eta)-\pi(f)}
-\leq
-\sup_{\mu\in\mathcal M_*}\abs{(\mu P_s)(f)-\pi(f)}
-\leq K_f(1+s)^D e^{-\varepsilon s/2}
-\longrightarrow0
-\quad(s\to\infty).
+=\abs{(\mu P_s)(f)-\pi(f)}
+\leq K_f(1+s)^D e^{-\varepsilon s/2}.
 \end{equation*}
-Conclude convergence from every initial law and uniqueness of~$\pi$.
+Letting~$s\to\infty$ proves convergence uniformly over initial
+configurations for every local~$f$. Integrating against any initial
+law~$\nu$ gives~$\nu P_t\Rightarrow\pi$; taking~$\nu$ invariant shows
+that~$\pi$ is the unique invariant probability measure.
 
-Record separately the answer to the finite-time entry question.
-For fixed~$I$, uniform deaths imply~$p_i^\star<1$, so
+The finite-volume estimate also gives eventual entry into
+$\mathcal M_{-,1}^I
+=\cb{\mu:(\mu+\delta_{\mb1_I})/2\in\mathcal M_*^I}$.
+Indeed, uniform deaths imply~$p_i^\star<1$, and for every
+nonempty~$B\subseteq I$,
 \begin{equation*}
-(1-a_I)^{\lfloor t\rfloor}
-\leq
-\min_{\vn\neq B\subseteq I}
-\frac{\prod_{i\in B}(1-p_i^\star)}{\norm{\chi_B^*}_\infty}
-\quad\Longrightarrow\quad
-(\delta_\eta P_t)|_I\in\mathcal M_{-,1}^I,
+\bb{(\delta_\eta P_t)|_I+\delta_{\mb1_I}}(\chi_B^*)
+\geq
+\prod_{i\in B}(1-p_i^\star)
+-\norm{\chi_B^*}_\infty\bb{1-\alpha_I(1)}^{\lfloor t\rfloor}
+\geq0
 \end{equation*}
-where~$\mathcal M_{-,1}^I=\cb{\mu:(\mu+\delta_{\mb1_I})/2\in\mathcal M_*^I}$.
-The minimum is positive. This gives a time depending on~$I$, uniformly
-in~$\eta$; it does not establish entry into the global~$\mathcal M_{-,1}$.
+for all sufficiently large~$t$. Since~$I$ is finite, one time works
+for all~$B\subseteq I$, uniformly in~$\eta$. This entry time may depend
+on~$I$.
 
 % ============================================================================
 % BLURB F. What quantitative information does uniform orientability add?
