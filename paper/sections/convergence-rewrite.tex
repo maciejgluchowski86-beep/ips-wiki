@@ -769,7 +769,7 @@ suffices to show that~$\delta_\eta P_t$ approaches~$\mathcal M_*$ on finite
 sets, in the sense that
 \begin{equation*}
 \liminf_{t\to\infty}\inf_\eta P_t(\chi_A^*)(\eta)\geq0
-\qquad\text{for every finite }A\subseteq\Lambda.
+\qquad\text{for every }A\Subset\Lambda.
 \end{equation*}
 To obtain this bound, choose a finite set~$I=\bar A$ as in the definition
 of orientability and consider the dynamics of the spin system on~$I$, conditional on a particular realization of the trajectory on the (autonomous) set~$U(A)$. This is the original spin system, but now on a finite set and with time-inhomogenous boundary conditions. This restricted system is still patch positive and, with the original
@@ -875,10 +875,9 @@ Now we repeatedly apply~\eqref{eq:mass_leak_decomposition}:
     &\geq -\prod_{k=1}^n \bb{1-\alpha_I(t_l)}\\
     & FILL THE REST OR IMPROVE ESTIMATE ON alpha IF NEEDED
 \end{align*}
-Hence 
+Hence, for every~$A\Subset \Lambda$ we have
 \begin{equation*}
-\liminf_{t\to\infty}\inf_\eta P_t(\chi_A^*)(\eta)\geq0
-\qquad\text{for every finite }A\subseteq\Lambda.
+\liminf_{t\to\infty}\inf_\eta P_t(\chi_A^*)(\eta) = \liminf_{t\to\infty}\inf_\eta \E_\eta\CE{\chi_A^*(\eta_t)}{\mathcal{G_U}}\geq0.
 \end{equation*}
 %  ============================================================================
 % BLURB E. Why does the moment bound imply ergodicity?
