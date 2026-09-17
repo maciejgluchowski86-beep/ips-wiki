@@ -688,3 +688,58 @@ $\bb{\mathrm{Id}+h\Lcal^{I,\xi}}^n\bb{\chi_B^*}$ for any~$n\geq 0$. Since~$I$ is
 \end{proof}
 \par
 \endgroup
+
+\begingroup
+\color{red}
+\subsection{Coupling on finite oriented sets}
+\label{app:oriented-finite-coupling}
+
+\begin{lemma}
+\label{lem:oriented-finite-coupling}
+Suppose the spin system contains a pure-death component of rate
+$\varepsilon>0$. Let~$I\Subset\Lambda$ be nonempty, and suppose
+$h:I\to\Z$ satisfies~$h(j)>h(i)$ whenever~$j\in N(i)\cap I$.
+Put~$\ell=\max_I h-\min_I h+1$ and
+$d=\max\cb{1,\sup_i\abs{N(i)}}$.
+Two copies~$X,\widetilde X$ of the restricted system with arbitrary
+initial configurations and the same prescribed boundary trajectory
+can be coupled so that
+\begin{equation*}
+\pP\bb{X_u\neq\widetilde X_u}
+\leq\abs I(2d)^\ell e^{-\varepsilon u/2}
+\qquad(u\geq0).
+\end{equation*}
+The bound is uniform over the boundary trajectory.
+\end{lemma}
+
+\begin{proof}
+Use the same rate-$\varepsilon$ pure-death clocks in both copies,
+and the same clocks and marks for the remaining updates.
+Starting at the greatest heights, define~$T_i$ to be the first
+pure-death time at~$i$ after
+$\max\cb{T_j:j\in N(i)\cap I}$, with~$\max\vn=0$.
+Inductively, all neighbours agree permanently by this maximum time,
+and the next pure death makes the spins at~$i$ agree permanently.
+Thus~$X_u=\widetilde X_u$ whenever~$\max_{i\in I}T_i\leq u$.
+
+The times~$T_j$ for~$j\in N(i)\cap I$ depend only on clocks at heights
+greater than~$h(i)$, so they are independent of the pure-death clock
+at~$i$. Its waiting time after their maximum is exponential with
+rate~$\varepsilon$. Consequently,
+\begin{align*}
+\E e^{\varepsilon T_i/2}
+&=2\E\exp\bb{\frac{\varepsilon}{2}
+                 \max_{j\in N(i)\cap I}T_j}\\
+&\leq2\max\cb{1,\sum_{j\in N(i)\cap I}\E e^{\varepsilon T_j/2}}.
+\end{align*}
+With~$H=\max_I h$, induction over decreasing heights gives
+$\E e^{\varepsilon T_i/2}\leq(2d)^{H-h(i)+1}$.
+A union bound and Markov's inequality now yield
+\begin{equation*}
+\pP\bb{\max_{i\in I}T_i>u}
+\leq e^{-\varepsilon u/2}\sum_{i\in I}\E e^{\varepsilon T_i/2}
+\leq\abs I(2d)^\ell e^{-\varepsilon u/2}.
+\end{equation*}
+\end{proof}
+\par
+\endgroup

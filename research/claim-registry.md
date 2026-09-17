@@ -34,9 +34,9 @@ Status: `claimed`
 
 Claim: under the hypotheses of the common invariant-limit theorem (Theorem C), orientability implies ergodicity with the same invariant measure. Uniform orientability, defined by an integer height function whose increments along neighbourhood edges lie between 1 and a fixed finite bound, implies uniform exponential ergodicity for local observables.
 
-Source: `paper/sections/spin-systems.tex`, Definition `def:orientability`; `paper/sections/main-results.tex`, Corollary `cor:oriented-ergodicity`; proof scaffold in `paper/sections/convergence-rewrite.tex`, subsection `subsec:oriented-ergodicity`.
+Source: `paper/sections/spin-systems.tex`, Definition `def:orientability`; `paper/sections/main-results.tex`, Corollary `cor:oriented-ergodicity`; proof draft in `paper/sections/convergence-rewrite.tex`, subsection `subsec:oriented-ergodicity`; `paper/appendices/technical-background.tex`, Lemmas `lem:boundary-moment-preservation` and `lem:oriented-finite-coupling`.
 
-Basis: principal-requested manuscript addition, marked in red for review. At the principal's request, the proof exposition has been replaced by a six-blurb scaffold for redrafting. It records boundary preservation of the original centered-moment cone, finite-volume burn-in, and the transfer to Theorem C. The earlier proof draft remains in Git history at commit `3b81172c2d3c29ab997062aa2d1e0694d125187d`. Independent correctness and novelty audits are not recorded for this addition.
+Basis: principal-requested manuscript addition, marked in red for review. The six-blurb proof has now been drafted: boundary preservation of the original centered-moment cone, finite-volume burn-in, compactness and Theorem C give ergodicity; coupling along increasing heights, finite propagation, and Theorem C give a common exponential rate under uniform orientability. The two auxiliary lemmas are proved in the appendix. The earlier proof draft remains in Git history at commit `3b81172c2d3c29ab997062aa2d1e0694d125187d`. Independent correctness and novelty audits are not recorded for this addition.
 
 ## Verified BABP mathematics retained for reuse
 

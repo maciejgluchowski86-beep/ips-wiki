@@ -861,21 +861,41 @@ conditional on~$\mathcal G_U$, the process on~$I$ evolves with
 the revealed trajectory on~$U$ as a boundary condition. Only the states at~$\partial I:=N_*(I)\setminus I\subseteq U$ matter.
 This set is finite and the update rates are bounded, so the boundary conditions change finitely many times before time~$t$. 
 If the successive boundary configurations are~$\xi_1,\ldots,\xi_n$,
-extended arbitrarily from~$\partial I$ to~$U$, and their durations are~$t_1,\ldots,t_n$ with~$\sum_{k=1}^n t_k=t$, then
-\begin{align*}
-\CE{f(\eta_t)}{\mathcal{G}_U}&=P_{t_1}^{I,\xi_1}\cdots P_{t_n}^{I,\xi_n}(f)(\eta)\\
-&= \bb{P_{s_1^1}^{I,\xi_1^1}\cdots P_{s_{n_1}^1}^{I,\xi_{n_1}^1}}\cdots \bb{P_{s_1^{\lfloor t\rfloor}}^{I,\xi_1^{\lfloor t\rfloor}}\cdots P_{s_{n_{\lfloor t\rfloor}}^{\lfloor t\rfloor}}^{I,\xi_{n_{\lfloor t\rfloor}}^{\lfloor t\rfloor}}}(f)(\eta),
-\end{align*}
-gives a subdecomposition with~$s_1^k+\dots+s_{n_k}^k = 1$ for~$k < \lfloor t\rfloor$ and~$s_1^{\lfloor t\rfloor}+\dots +s_{n_{\lfloor t\rfloor}}^{\lfloor t\rfloor}\geq 1$.
-We apply~\eqref{eq:mass_leak_decomposition} on successive unit intervals
+extended arbitrarily from~$\partial I$ to~$U$, and their durations
+are~$t_1,\ldots,t_n$ with~$\sum_{k=1}^n t_k=t$, then, for~$f$ supported on~$I$,
+\begin{equation*}
+\CE{f(\eta_t)}{\mathcal G_U}
+=P_{t_1}^{I,\xi_1}\cdots P_{t_n}^{I,\xi_n}(f)(\eta).
+\end{equation*}
+For~$t\geq1$, put~$m=\lfloor t\rfloor$ and split this evolution into~$m$
+blocks: the first~$m-1$ have length~$1$, and the last has length~$t-m+1$.
+Splitting the boundary intervals at the block endpoints gives
+\begin{equation*}
+\CE{f(\eta_t)}{\mathcal G_U}
+=\bb{\prod_{j=1}^{m}
+ \bb{P_{s_1^j}^{I,\xi_1^j}\cdots
+     P_{s_{n_j}^j}^{I,\xi_{n_j}^j}}}(f)(\eta),
+\end{equation*}
+where~$\sum_l s_l^j=1$ for~$j<m$ and~$\sum_l s_l^m=t-m+1\geq1$;
+products are ordered by increasing block index.
+
+By~\eqref{eq:mass_leak_decomposition}, each block allows us to extract
+mass~$\alpha_I$ at~$\zeta_I$ from the remaining measure.
+Repeating the extraction gives
 \begin{align*}
 \CE{\chi_A^*(\eta_t)}{\mathcal G_U}
-&=\sum_{k=1}^{\lfloor t\rfloor} a_I(1-a_I)^{n-k}
-   \bb{P_{s_1^1}^{I,\xi_1^1}\cdots P_{s_{n_1}^1}^{I,\xi_{n_1}^1}}\cdots \bb{P_{s_1^{k-1}}^{I,\xi_1^{k-1}}\cdots P_{s_{n_{k-1}}^{k-1}}^{I,\xi_{n_{k-1}}^{k-1}}}(\chi_A^*)(\zeta_I)\\
-  &\quad +(1-a_I)^{\lfloor t\rfloor}\nu_t(\chi_A^*)\\
-&\geq-\norm{\chi_A^*}_\infty(1-a_I)^{\lfloor t\rfloor},
+&=\sum_{k=1}^{m} \alpha_I(1-\alpha_I)^{k-1}
+ \bb{\prod_{j=k+1}^{m}
+  \bb{P_{s_1^j}^{I,\xi_1^j}\cdots
+      P_{s_{n_j}^j}^{I,\xi_{n_j}^j}}}(\chi_A^*)(\zeta_I)\\
+&\quad +(1-\alpha_I)^m\nu_t(\chi_A^*)\\
+&\geq-\norm{\chi_A^*}_\infty(1-\alpha_I)^m,
 \end{align*}
-where~$\nu_t$ is a probability measure. The sum is non-negative because~$\delta_{\zeta_I}\in\mathcal{M}_*^I$ and each~$P_s^{I,\xi}$ preserves~$\mathcal{M}_*^I$. 
+where~$\nu_t$ is a probability measure and the empty product is the identity.
+The term indexed by~$k$ is the mass first extracted at the end of
+block~$k$, evolved through the remaining blocks.
+The sum is non-negative because~$\delta_{\zeta_I}\in\mathcal M_*^I$
+and each~$P_s^{I,\xi}$ preserves~$\mathcal M_*^I$.
 The lower bound side tends to zero exponentially,
 and hence, for every~$A\Subset\Lambda$,
 \begin{equation}\label{eq:convergence_towards_m*}
@@ -946,51 +966,77 @@ on~$I$.
 % Role in the proof:
 %   Replace finite-set extraction by a boundary-uniform coupling estimate,
 %   then combine burn-in with finite propagation and Theorem C.
-% Drafting target:
-%   Explain the choice of region before the coupling, and the coupling
-%   before the final estimate. Leave the detailed path count to drafting.
+% Exposition:
+%   Choose the region, compare with a measure in M_*, and apply Theorem C.
+%   The clock estimate is proved in the appendix.
 % ============================================================================
-\paragraph{Blurb F. Uniform orientability and an exponential rate.}
-For~$f$ supported on~$A$, choose a finite-propagation speed~$v$ for error
-$e^{-\varepsilon s/2}$, independent of~$A$. With the height function~$h$
-and increment bound~$r$, use
-\begin{equation*}
+Uniform orientability gives a quantitative comparison with~$\mathcal M_*$
+on sets large enough to control the subsequent evolution.
+Let~$h,r$ be as in Definition~\ref{def:orientability}, and fix~$f$
+supported on a finite nonempty set~$A$. Choose the speed~$v$ in
+Lemma~\ref{lem:finite-propagation} for error~$e^{-\varepsilon s/2}$;
+as its proof shows,~$v$ is independent of~$A$. For~$s\geq0$, set
+\begin{gather*}
 H_s=\max_{i\in A}h(i)+r\lceil vs\rceil,
+\qquad U_s=\cb{i:h(i)>H_s},\\
+I_s=\bb{\bigcup_{n\geq0}B(A,n)}\cap\cb{i:h(i)\leq H_s},
 \qquad
-I_s=\bigcup_{n\geq0}B(A,n)\cap\cb{i:h(i)\leq H_s},
-\qquad
-U_s=\cb{i:h(i)>H_s}.
-\end{equation*}
-Explain autonomy and the geometric bounds
+\ell_s=H_s-\min_{i\in A}h(i)+1.
+\end{gather*}
+The sets~$U_s$ and~$I_s\cup U_s$ are autonomous. Since each step along
+a neighbourhood edge raises the height by at least~$1$ and at most~$r$,
+$I_s\subseteq B(A,H_s-\min_A h)$ and
 \begin{equation*}
 B(A,\lceil vs\rceil)\subseteq I_s,
 \qquad
 \abs{I_s}\leq C_A(1+s)^D,
 \qquad
-\ell_s\leq d_A+rv s,
+\ell_s\leq C_A+rvs.
 \end{equation*}
-where~$\ell_s$ is the maximum number of vertices in a directed path in~$I_s$.
-Couple the restrictions from~$x$ and~$\mb1_{I_s}$ with the same boundary,
-pure-death clocks, and remaining graphical randomness. Explain how agreement
-passes from greater to smaller heights. With
-$d=\max\cb{1,\sup_i\abs{N(i)}}$, the estimate to prove is
+
+Condition on the trajectory in~$U_s$ and couple two copies of the
+restricted system, one from~$\eta|_{I_s}$ and one from~$\mb1_{I_s}$,
+using the same clocks and marks. Agreement becomes permanent from
+greater to smaller heights: once all neighbours of a site agree,
+its next pure-death event makes the two copies agree there as well.
+Lemma~\ref{lem:oriented-finite-coupling} in
+Appendix~\ref{app:oriented-finite-coupling} quantifies this argument.
+The law of the second copy at time~$u\geq0$ belongs to~$\mathcal M_*^{I_s}$ by
+Lemma~\ref{lem:boundary-moment-preservation}. Average that law over the
+boundary trajectory and extend it by all~$1$'s outside~$I_s$.
+The resulting measure~$\mu$ belongs to~$\mathcal M_*$, since its centered
+moments factor into a nonnegative moment on~$I_s$ and factors
+$1-p_i^\star$ outside. Writing~$d=\max\cb{1,\sup_i\abs{N(i)}}$, the
+coupling estimate gives, for every~$g$ supported on~$I_s$,
 \begin{equation*}
-\sup_{x,b}d_{\mathrm{TV}}\bb{\delta_xQ^b_{0,u},
-\delta_{\mb1_{I_s}}Q^b_{0,u}}
-\leq2\abs{I_s}(2d)^{\ell_s}e^{-\varepsilon u/2}.
+\abs{P_ug(\eta)-\mu(g)}
+\leq2\norm g_\infty\abs{I_s}(2d)^{\ell_s}e^{-\varepsilon u/2}.
 \end{equation*}
-Here~$d_{\mathrm{TV}}$ is the supremum over events. Explain why averaging
-the second law over the boundary and extending by all~$1$'s gives a law
-in~$\mathcal M_*$. Compare~$P_sf$ with~$P_s^{I_s,0}f$ using
-Lemma~\ref{lem:finite-propagation}, then apply
-Theorem~\ref{thm:common-invariant-limit} to obtain
+Here~$\mu$ may depend on~$\eta,u,s$, while the bound is uniform in~$\eta$.
+
+We can now run the original process for a further time~$s$.
+Using finite propagation to replace~$P_sf$ by~$P_s^{I_s,0}f$, and then
+Theorem~\ref{thm:common-invariant-limit}, gives
+\begin{align*}
+\abs{P_{u+s}f(\eta)-\pi(f)}
+&\leq2\norm{P_sf-P_s^{I_s,0}f}_\infty\\
+&\quad+\abs{(\delta_\eta P_u-\mu)(P_s^{I_s,0}f)}
+       +\abs{(\mu P_s)(f)-\pi(f)}\\
+&\leq C_f(1+s)^D
+ \bb{e^{-\varepsilon s/2}
+       +e^{rv\log(2d)s-\varepsilon u/2}}.
+\end{align*}
+Take~$u=\kappa s$, where
+$\kappa=1+2rv\log(2d)/\varepsilon$.
+Both exponential terms then equal~$e^{-\varepsilon s/2}$.
+Absorbing the polynomial factor and writing~$t=(1+\kappa)s$ proves
 \begin{equation*}
-\sup_\eta\abs{P_{u+s}f(\eta)-\pi(f)}
-\leq C_f(1+s)^D
-\bb{e^{-\varepsilon s/2}+e^{rv\log(2d)s-\varepsilon u/2}}.
+\sup_\eta\abs{P_tf(\eta)-\pi(f)}
+\leq C_f e^{-\gamma t},
+\qquad
+\gamma=\frac{\varepsilon}{4(1+\kappa)}>0.
 \end{equation*}
-Finish with~$u=\bb{1+2rv\log(2d)/\varepsilon}s$ and explain why the
-resulting exponential rate is independent of~$f$.
+The rate~$\gamma$ is independent of~$f$, as required.
 \par
 \end{proof}
 \endgroup
