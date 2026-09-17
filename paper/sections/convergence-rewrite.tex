@@ -852,49 +852,69 @@ We verify that the restricted process has positive probability of entering~$\zet
 % Drafting target:
 %   Separate the conditioning paragraph from the extraction paragraph.
 % ============================================================================
-\paragraph{Blurb D. Conditioning and repeated extraction.}
-Define
+Fix an initial configuration~$\eta$ and condition on
 \begin{equation*}
-\mathcal G_U=\sigma\cb{\eta_s(j):j\in U,\ s\geq0},
+\mathcal G_U=\sigma\cb{\eta_s(j):j\in U,\ s\geq0}.
+\end{equation*}
+Since~$U$ is autonomous, its trajectory depends only on the graphical
+randomness in~$U$, which is independent of the clocks and marks in~$I$.
+Conditional on~$\mathcal G_U$, the process on~$I$ therefore evolves with
+the revealed trajectory as its prescribed boundary condition. Only
+$\partial I=N_*(I)\setminus I\subseteq U$ affects this evolution.
+This set is finite and the update rates are bounded, so its trajectory
+has finitely many jumps on every bounded time interval. Write~$b$ for this boundary path and~$Q^b_{s,t}$
+for the resulting transition kernel on~$I$ from time~$s$ to time~$t$.
+If the successive boundary values on this interval are~$\xi_1,\ldots,\xi_n$,
+extended arbitrarily from~$\partial I$ to~$U$, for durations
+$t_1,\ldots,t_n$, then
+\begin{equation*}
+Q^b_{s,t}=P_{t_1}^{I,\xi_1}\cdots P_{t_n}^{I,\xi_n},
 \qquad
-\partial I=N_*(I)\setminus I\subseteq U.
+\sum_{k=1}^n t_k=t-s.
 \end{equation*}
-For a deterministic initial configuration~$\eta$, justify conditioning on
-$\mathcal G_U$ using autonomy of~$U$ and~$I\cup U$. Only the finitely many
-spins in~$\partial I$ affect the restricted dynamics. If their successive
-values on~$[0,t]$ are~$\xi_1,\ldots,\xi_n$ for durations
-$t_1,\ldots,t_n$ with~$\sum_k t_k=t$, write
+Each factor preserves~$\mathcal M_*^I$ by
+Lemma~\ref{lem:boundary-moment-preservation}, so~$Q^b_{s,t}$ does too.
+For every function~$f$ on~$\cb{0,1}^I$,
 \begin{equation*}
-\E_\eta\Cb{\chi_A^*(\eta_t)\mid\mathcal G_U}
-=
-\bb{P_{t_1}^{I,\xi_1}\cdots P_{t_n}^{I,\xi_n}\chi_A^*}(\eta|_I).
+\E_\eta\Cb{f(\eta_t|_I)\mid\mathcal G_U}
+=(Q^b_{0,t}f)(\eta|_I).
 \end{equation*}
-Here each~$\xi_k$ may be extended arbitrarily to the rest of~$U$.
-Denote the resulting evolution along the revealed boundary path~$b$
-by~$Q^b_{s,t}$. Lemma~\ref{lem:boundary-moment-preservation} gives
-preservation of~$\mathcal M_*^I$ under this finite composition.
 
-Perform extraction on fixed unit intervals, independently of the boundary
-change times. Blurb~C gives Markov kernels~$R_k^b$ such that
+The lower bounds on the rates of setting spins to~$\zeta_I$ hold
+throughout any prescribed boundary path. Thus the event used above
+gives the same positive part even when the boundary changes during
+the interval. Put~$a_I=\alpha_I(1)\in(0,1)$ and apply the decomposition
+on successive unit intervals: for every probability measure~$\nu$
+on~$\cb{0,1}^I$,
 \begin{equation*}
-Q^b_{k-1,k}(x,\cdot)=a_I\mu_{\mb p^\star}^I+(1-a_I)R_k^b(x,\cdot).
+\nu Q^b_{k-1,k}=a_I\delta_{\zeta_I}+(1-a_I)\nu'
+\qquad(k\geq1),
 \end{equation*}
-For~$m=\lfloor t\rfloor$, expand according to the first extracted part:
-\begin{align*}
+where~$\nu'$ is another probability measure. The first part belongs
+to~$\mathcal M_*^I$ and remains there under the subsequent evolution.
+Applying the same decomposition to the remaining part at each step,
+we obtain, for~$m=\lfloor t\rfloor$,
+\begin{equation*}
 \delta_{\eta|_I}Q^b_{0,t}
-&=\sum_{k=1}^m a_I(1-a_I)^{k-1}\mu_{\mb p^\star}^I Q^b_{k,t}
- +(1-a_I)^m\nu_t^b,\\
-\nu_t^b
-&=\delta_{\eta|_I}R_1^b\cdots R_m^b Q^b_{m,t}.
-\end{align*}
-The measure~$\nu_t^b$ is a probability measure, and every term
-$\mu_{\mb p^\star}^I Q^b_{k,t}$ belongs to~$\mathcal M_*^I$. The target is therefore
+=\sum_{k=1}^m a_I(1-a_I)^{k-1}\delta_{\zeta_I}Q^b_{k,t}
+ +(1-a_I)^m\nu_t^b,
+\end{equation*}
+for some probability measure~$\nu_t^b$. Every measure
+$\delta_{\zeta_I}Q^b_{k,t}$ in the sum belongs to~$\mathcal M_*^I$.
+Consequently,
 \begin{equation*}
 \E_\eta\Cb{\chi_B^*(\eta_t)\mid\mathcal G_U}
 \geq-\norm{\chi_B^*}_\infty(1-a_I)^{\lfloor t\rfloor}
 \qquad(B\subseteq I).
 \end{equation*}
-Average over~$\mathcal G_U$ and take~$B=A$.
+Taking~$B=A$ and averaging over the boundary trajectory gives
+\begin{equation*}
+P_t(\chi_A^*)(\eta)
+\geq-\norm{\chi_A^*}_\infty(1-a_I)^{\lfloor t\rfloor}
+\longrightarrow0
+\qquad(t\to\infty),
+\end{equation*}
+with a lower bound independent of the initial configuration~$\eta$.
 
 % ============================================================================
 % BLURB E. Why does the moment bound imply ergodicity?
