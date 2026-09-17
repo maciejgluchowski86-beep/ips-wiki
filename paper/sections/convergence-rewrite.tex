@@ -829,43 +829,16 @@ This holds for every boundary condition~$\xi$. The restricted system is also pat
 %   Explain the independent refreshes, then the event and its probability.
 %   Use the product law at p^star in the repeated decomposition in Blurb D.
 % ============================================================================
-We next show that, after any positive time, a fixed positive part of the
-law belongs to~$\mathcal M_*^I$, regardless of the initial configuration
-and boundary conditions. Patch positivity gives
-$\lambda_i(\rho_i-p_i^\star)\geq0$, and the pure-death assumption gives
-$\lambda_i(1-\rho_i)\geq\varepsilon$. Hence
+We next show that, for every initial configuration~$\eta$ and boundary condition~$\xi$, after any positive time a positive part of the evolution law enters~$\mathcal{M}_*^I$. To be more precise we obtain a decomposition
 \begin{equation*}
-\lambda_i\rho_i\geq p_i^\star\lambda_i\geq\varepsilon p_i^\star,
-\qquad
-\lambda_i(1-\rho_i)\geq\varepsilon(1-p_i^\star).
+    \delta_\eta P_s^{I,\xi} = \alpha_I(s) \delta_{\zeta_I} + \bb{1-\alpha_I(s)}\nu,
 \end{equation*}
-We can therefore separate from the dynamics, at each site~$i$, an
-independent rate-$\varepsilon$ clock that refreshes the spin with a
-Bernoulli~$p_i^\star$ coin. Write
-$\mu_{\mb p^\star}^I=\bigotimes_{i\in I}\mathrm{Bernoulli}(p_i^\star)$.
-Every nonempty centered moment of this product measure is zero, so
-$\mu_{\mb p^\star}^I\in\mathcal M_*^I$.
+where~$\zeta_I(i) = \ind\bb{p_i^* > 0}$ for~$i\in I$,~$\nu$ is a probability measure, and~$\alpha_I(s)$ is an explicit positive function for~$s>0$. This is useful because~$\delta_{\zeta_I}\in\mathcal{M}_*^I$.
 
-The remaining updates can be generated using independent Poisson clocks
-of rate~$\overline\lambda=\sup_{i,\eta}\lambda_i(\eta)$ at each site,
-with suitable acceptance probabilities. During an interval of length~$s>0$, consider the event that every
-rate-$\varepsilon$ clock in~$I$ rings at least once and none of the
-remaining clocks rings. On this event, the final spins are independent
-Bernoulli~$p_i^\star$ variables, since they are given by the last refresh
-at each site. Thus, for every initial configuration~$x\in\cb{0,1}^I$
-and boundary~$\xi$,
-\begin{align*}
-P_s^{I,\xi}(x,\cdot)
-&=\alpha_I(s)\mu_{\mb p^\star}^I+(1-\alpha_I(s))\nu,\\
-\alpha_I(s)
-&=e^{-\overline\lambda\abs I s}(1-e^{-\varepsilon s})^{\abs I}>0,
-\end{align*}
-for some probability measure~$\nu$. The same event and bound apply if
-the prescribed boundary changes during the interval. In particular,
-every unit interval contributes a part of weight~$a_I=\alpha_I(1)>0$
-in~$\mathcal M_*^I$. Since this class is preserved by the subsequent
-evolution, we can repeat the decomposition on the remaining part of
-the law.
+We verify that the restricted process has positive probability of entering~$\zeta_I$ after any positive time. The rate at which a site turns to state~$1$ is~$\lambda_i\rho_i  \geq \varepsilon p_i^*$, which is positive if~$p_i^*>0$. Similarly, the rate at which a site turns to state~$0$ is~$\lambda_i\bb{1 - \rho_i}\geq \varepsilon \bb{1-p_i^*}$, which is positive if~$p_i^* = 0$. Both of these inequalities follow from patch positivity. Thus every site~$i\in I$ has uniformly positive rate at which it takes the state~$\zeta_I(i)$. The event that after time~$s$ every site in~$I$ experienced at least one update, and at the last one its state aligned with~$\zeta_I$ is thus at least~$\alpha_I(s):= \gamma^{\abs{I}}\bb{1-e^{-\gamma s}}^{\abs{I}}$, for some~$\gamma>0$ which depends on~$\inf\cb{p_i^* >0 : i\in I}>0$ and~$\sup \cb{\lambda_i(\eta):i\in I,\eta\in\cb{0,1}^I}<\infty$.
+
+
+
 
 % ============================================================================
 % BLURB D. How do boundary conditioning and repeated extraction fit together?
