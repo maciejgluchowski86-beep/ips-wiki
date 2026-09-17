@@ -243,16 +243,14 @@ K_f(1+t)^D e^{-\varepsilon t/2}.
 
 \begingroup
 \color{red}
-\begin{corollary}[Ergodicity under orientability]
+\begin{corollary}[Uniform ergodicity under orientability]
 \label{cor:oriented-ergodicity}
 Under the hypotheses of Theorem~\ref{thm:common-invariant-limit}, suppose
-also that the neighbourhood graph is orientable. Then the spin system is
-ergodic, with~$\pi$ from that theorem as its unique invariant measure.
-If the graph is uniformly orientable, there is~$\gamma>0$ such that, for
-every local function~$f$, some~$C_f<\infty$ satisfies
+also that the neighbourhood graph is orientable. Then~$\pi$ from that
+theorem is the unique invariant measure and, for every local function~$f$,
 \begin{equation*}
-\sup_{\eta\in\Omega}\abs{P_tf(\eta)-\pi(f)}
-\leq C_fe^{-\gamma t}.
+\lim_{t\to\infty}\sup_{\eta\in\Omega}
+\abs{P_tf(\eta)-\pi(f)}=0.
 \end{equation*}
 \end{corollary}
 \endgroup

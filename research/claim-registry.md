@@ -32,11 +32,11 @@ Basis: principal designation of `paper/` as the canonical patch source.
 
 Status: `claimed`
 
-Claim: under the hypotheses of the common invariant-limit theorem (Theorem C), orientability implies ergodicity with the same invariant measure. Uniform orientability, defined by an integer height function whose increments along neighbourhood edges lie between 1 and a fixed finite bound, implies uniform exponential ergodicity for local observables.
+Claim: under the hypotheses of the common invariant-limit theorem (Theorem C), including polynomial growth, orientability implies convergence to the same invariant measure, uniformly over initial configurations for every local observable. In particular, this invariant measure is unique. No exponential rate is asserted for this corollary.
 
-Source: `paper/sections/spin-systems.tex`, Definition `def:orientability`; `paper/sections/main-results.tex`, Corollary `cor:oriented-ergodicity`; proof draft in `paper/sections/convergence-rewrite.tex`, subsection `subsec:oriented-ergodicity`; `paper/appendices/technical-background.tex`, Lemmas `lem:boundary-moment-preservation` and `lem:oriented-finite-coupling`.
+Source: `paper/sections/spin-systems.tex`, Definition `def:orientability`; `paper/sections/main-results.tex`, Corollary `cor:oriented-ergodicity`; proof draft in `paper/sections/convergence-rewrite.tex`, subsection `subsec:oriented-ergodicity`; `paper/appendices/technical-background.tex`, Lemma `lem:boundary-moment-preservation`.
 
-Basis: principal-requested manuscript addition, marked in red for review. The six-blurb proof has now been drafted: boundary preservation of the original centered-moment cone, finite-volume burn-in, compactness and Theorem C give ergodicity; coupling along increasing heights, finite propagation, and Theorem C give a common exponential rate under uniform orientability. The two auxiliary lemmas are proved in the appendix. The earlier proof draft remains in Git history at commit `3b81172c2d3c29ab997062aa2d1e0694d125187d`. Independent correctness and novelty audits are not recorded for this addition.
+Basis: principal-requested manuscript addition, marked in red for review. The proof is complete through blurb E: boundary preservation of the original centered-moment cone, finite-volume burn-in, compactness and Theorem C give convergence uniformly over initial configurations. The boundary-preservation lemma is proved in the appendix. At the principal's request, the separate exponential-rate strengthening and its auxiliary coupling lemma have been removed from the manuscript. The earlier proof draft remains in Git history at commit `3b81172c2d3c29ab997062aa2d1e0694d125187d`. Independent correctness and novelty audits are not recorded for this addition.
 
 ## Verified BABP mathematics retained for reuse
 

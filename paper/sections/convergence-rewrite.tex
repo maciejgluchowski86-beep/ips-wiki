@@ -748,23 +748,11 @@ which is~\eqref{eq:limiting-confinement-bound}.
 
 \begingroup
 \color{red}
-\subsection{Ergodicity under orientability}
+\subsection{Uniform ergodicity under orientability}
 \label{subsec:oriented-ergodicity}
 
-
-% ============================================================================
-% BLURB A. What remains after Theorem C?
-%
-% Reader question:
-%   Why should approaching M_* imply convergence from an arbitrary state?
-% Role in the proof:
-%   State the reduction before introducing restricted dynamics or conditioning.
-% Drafting target:
-%   One opening paragraph. Explain local closeness; do not suggest that a
-%   single finite burn-in time puts the full law in M_* or M_{-,1}.
-% ============================================================================
 The statement of Corollary~\ref{cor:oriented-ergodicity} is that orientability suffices to strengthen 
-Theorem~\ref{thm:common-invariant-limit} to ergodicity. The main idea is as follows: since all measures in~$\mathcal{M}_*$ converge to~$\pi$ then ,to prove ergodicity, it suffices to show that for any configuration~$\eta$ its evolution~$\delta_\eta P_t$ converges towards~$\mathcal{M}_*$. More precisely, by compactness and the Feller property, it
+Theorem~\ref{thm:common-invariant-limit} to uniform ergodicity. The main idea is as follows: since all measures in~$\mathcal{M}_*$ converge to~$\pi$ then ,to prove ergodicity, it suffices to show that for any configuration~$\eta$ its evolution~$\delta_\eta P_t$ converges towards~$\mathcal{M}_*$. More precisely, by compactness and the Feller property, it
 suffices to show that~$\delta_\eta P_t$ approaches~$\mathcal M_*$ on finite
 sets, in the sense that
 \begin{equation*}
@@ -773,24 +761,11 @@ sets, in the sense that
 \end{equation*}
 To obtain this bound, choose a finite set~$I=\bar A$ as in the definition
 of orientability and consider the dynamics of the spin system on~$I$, conditional on a particular realization of the trajectory on the (autonomous) set~$U(A)$. This is the original spin system, but now on a finite set and with time-inhomogenous boundary conditions. This restricted system is still patch positive and, with the original
-centering profile~$p^*$, preserves the class~$M_*^I$ of probability measures on~$\cb{0,1}^I$ with non-negative centered moments. The boundary conditions are not homogenous in time, so the restricted system does not converge to any invariant measure, but it does converge towards the class~$\mathcal{M}_*^I$. Finiteness of~$I$ and presence of noise are crucial here, because they guarantee that a positive part of the measure enters~$\mathcal{M}_*^I$ after running the restricted process for any positive time. This proves the convergence towards~$\mathcal{M}_*$, in the above sense, and hence ergodicity.
-Given uniform orientability, we make convergence rate quantitative and show it is exponential.
+centering profile~$p^*$, preserves the class~$M_*^I$ of probability measures on~$\cb{0,1}^I$ with non-negative centered moments. The boundary conditions are not homogenous in time, so the restricted system need not converge to an invariant measure, but it does converge towards the class~$\mathcal{M}_*^I$. Finiteness of~$I$ and presence of noise are crucial here, because they guarantee that a positive part of the measure enters~$\mathcal{M}_*^I$ after running the restricted process for any positive time. This proves the convergence towards~$\mathcal{M}_*$, in the above sense, and hence ergodicity.
 
 \begin{proof}[Proof of Corollary~\ref{cor:oriented-ergodicity}]
     
 
-
-% ============================================================================
-% BLURB B. What process do we obtain after fixing the exterior?
-%
-% Reader question:
-%   What is the restricted process, and which class of measures does it preserve?
-% Role in the proof:
-%   Define the finite system and M_*^I at the ORIGINAL profile p^star.
-% Drafting target:
-%   Two short paragraphs. State preservation with a reference to the appendix
-%   lemma; keep its algebraic proof there. No conditioning is used here.
-% ============================================================================
 Fix a nonempty finite set~$A$ and take~$I=\bar A$ and~$U=U(A)$ from
 orientability. For~$\xi\in\cb{0,1}^U$, let~$\eta^{U,\xi}$ agree with~$\xi$
 on~$U$ and with~$\eta$ elsewhere. Since~$I\cup U$ is autonomous, fixing
@@ -818,40 +793,14 @@ Appendix~\ref{app:boundary-moment-preservation} gives
 \end{equation*}
 This holds for every boundary condition~$\xi$. The restricted system is also patch positive, though we do not use this fact directly.
 
-% ============================================================================
-% BLURB C. Where does a positive part in M_*^I come from?
-%
-% Reader question:
-%   What event produces a law in M_*^I regardless of the initial state?
-% Role in the proof:
-%   Obtain a positive mixture weight uniform in the initial state and boundary.
-% Drafting target:
-%   Explain the independent refreshes, then the event and its probability.
-%   Use the product law at p^star in the repeated decomposition in Blurb D.
-% ============================================================================
 We next show that, for every initial configuration~$\eta$ and boundary conditions, after a unit of time a fixed positive part of the evolution law enters~$\mathcal{M}_*^I$. To be more precise we obtain a decomposition
 \begin{equation}\label{eq:mass_leak_decomposition}
     \delta_\eta P_{s_1}^{I,\xi_1}\cdots P_{s_n}^{I,\xi_n} = \alpha_I \delta_{\zeta_I} + \bb{1-\alpha_I}\nu,
 \end{equation}
 where~$\zeta_I(i) = \ind\bb{p_i^* > 0}$ for~$i\in I$,~$\nu$ is a probability measure,~$\alpha_I>0$ and~$\xi_1,\dots,\xi_n$ and~$s_1+\dots +s_n\geq 1$ are arbitrary boundary conditions and their durations. This is useful because~$\delta_{\zeta_I}\in\mathcal{M}_*^I$.
 
-We verify that the restricted process has positive probability of entering~$\zeta_I$ after any positive time. The rate at which a site turns to state~$1$ is~$\lambda_i\rho_i  \geq \varepsilon p_i^*$, which is positive if~$p_i^*>0$. Similarly, the rate at which a site turns to state~$0$ is~$\lambda_i\bb{1 - \rho_i}\geq \varepsilon \bb{1-p_i^*}$, which is positive if~$p_i^* = 0$. Both of these inequalities follow from patch positivity. Thus every site~$i\in I$ has uniformly positive rate at which it takes the state~$\zeta_I(i)$. The event that after time one every site in~$I$ experienced at least one update, and at the last one its state aligned with~$\zeta_I$ is thus uniformly positive in~$\eta$ and boundary conditions, and we denote it~$\alpha_I$.
+We verify that the restricted process has positive probability of entering~$\zeta_I$ after any positive time. The rate at which a site turns to state~$1$ is~$\lambda_i\rho_i  \geq \varepsilon p_i^*$, which is positive if~$p_i^*>0$. Similarly, the rate at which a site turns to state~$0$ is~$\lambda_i\bb{1 - \rho_i}\geq \varepsilon \bb{1-p_i^*}$, which is positive if~$p_i^* = 0$. Both inequalities follow from patch positivity and uniform deaths. Thus every site~$i\in I$ has uniformly positive rate at which it takes the state~$\zeta_I(i)$. The event that every site in~$I$ updates during a unit interval and its last update sets it to~$\zeta_I$ therefore has probability bounded below by some~$\alpha_I\in(0,1)$, uniformly in the initial configuration and boundary trajectory. Applying this to the last unit interval gives~\eqref{eq:mass_leak_decomposition}.
 
-
-
-
-% ============================================================================
-% BLURB D. How do boundary conditioning and repeated extraction fit together?
-%
-% Reader question:
-%   Why does revealing the exterior give the prescribed-boundary process,
-%   and why do arbitrarily frequent boundary changes cause no loss?
-% Role in the proof:
-%   Derive the conditional centered-moment lower bound with the correct
-%   chronological order and geometric mixture weights.
-% Drafting target:
-%   Separate the conditioning paragraph from the extraction paragraph.
-% ============================================================================
 Now we show that the process converges towards~$\mathcal{M}_*$ from any initial configuration~$\eta$. Define the~$\sigma$-algebra 
 \begin{equation*}
 \mathcal G_U:=\sigma\cb{\eta_s(j):j\in U,\ s\geq0}.
@@ -901,18 +850,6 @@ and hence, for every~$A\Subset\Lambda$,
 \begin{equation}\label{eq:convergence_towards_m*}
 \liminf_{t\to\infty}\inf_\eta P_t(\chi_A^*)(\eta)\geq0.
 \end{equation}
-%  ============================================================================
-% BLURB E. Why does the moment bound imply ergodicity?
-%
-% Reader question:
-%   How does a statement for each finite set become convergence of the law?
-% Role in the proof:
-%   Supply the limiting argument; local cone approximation alone must not be
-%   treated as an application of Theorem C without this step.
-% Drafting target:
-%   One paragraph for compactness/Feller and Theorem C. Keep the finite-volume
-%   M_{-,1} observation separate, and do not require it for this argument.
-% ============================================================================
 
 To obtain convergence to~$\pi$, we combine~\eqref{eq:convergence_towards_m*}
 with Theorem~\ref{thm:common-invariant-limit}.
@@ -942,101 +879,6 @@ Theorem~\ref{thm:common-invariant-limit} now gives
 Letting~$s\to\infty$ proves convergence uniformly over initial
 configurations for every local~$f$ and thus ergodicity.
 
-Now we prove that the result can be strenghtened to uniform exponential ergodicity, if the lattice is uniformly orientable. First note that on finite~$I$ the evolution enters
-$\mathcal M_{-,1}^I
-=\cb{\mu:(\mu+\delta_{\mb1_I})/2\in\mathcal M_*^I}$ in finite time, uniformly in initial configuration.
-Indeed, uniform deaths imply~$p_i^\star<1$, and for every
-nonempty~$B\subseteq I$,
-\begin{equation*}
-\bb{(\delta_\eta P_t)|_I+\delta_{\mb1_I}}(\chi_B^*)
-\geq
-\prod_{i\in B}(1-p_i^\star)
--\norm{\chi_B^*}_\infty\bb{1-\alpha_I}^{\lfloor t\rfloor}
-\geq0
-\end{equation*}
-for all sufficiently large~$t$. Since~$I$ is finite, a fixed time works
-for all~$B\subseteq I$, uniformly in~$\eta$. This entry time may however depend
-on~$I$.
-
-% ============================================================================
-% BLURB F. What quantitative information does uniform orientability add?
-%
-% Reader question:
-%   Why is there now a common exponential rate for every local observable?
-% Role in the proof:
-%   Replace finite-set extraction by a boundary-uniform coupling estimate,
-%   then combine burn-in with finite propagation and Theorem C.
-% Exposition:
-%   Choose the region, compare with a measure in M_*, and apply Theorem C.
-%   The clock estimate is proved in the appendix.
-% ============================================================================
-Uniform orientability gives a quantitative comparison with~$\mathcal M_*$
-on sets large enough to control the subsequent evolution.
-Let~$h,r$ be as in Definition~\ref{def:orientability}, and fix~$f$
-supported on a finite nonempty set~$A$. Choose the speed~$v$ in
-Lemma~\ref{lem:finite-propagation} for error~$e^{-\varepsilon s/2}$;
-as its proof shows,~$v$ is independent of~$A$. For~$s\geq0$, set
-\begin{gather*}
-H_s=\max_{i\in A}h(i)+r\lceil vs\rceil,
-\qquad U_s=\cb{i:h(i)>H_s},\\
-I_s=\bb{\bigcup_{n\geq0}B(A,n)}\cap\cb{i:h(i)\leq H_s},
-\qquad
-\ell_s=H_s-\min_{i\in A}h(i)+1.
-\end{gather*}
-The sets~$U_s$ and~$I_s\cup U_s$ are autonomous. Since each step along
-a neighbourhood edge raises the height by at least~$1$ and at most~$r$,
-$I_s\subseteq B(A,H_s-\min_A h)$ and
-\begin{equation*}
-B(A,\lceil vs\rceil)\subseteq I_s,
-\qquad
-\abs{I_s}\leq C_A(1+s)^D,
-\qquad
-\ell_s\leq C_A+rvs.
-\end{equation*}
-
-Condition on the trajectory in~$U_s$ and couple two copies of the
-restricted system, one from~$\eta|_{I_s}$ and one from~$\mb1_{I_s}$,
-using the same clocks and marks. Agreement becomes permanent from
-greater to smaller heights: once all neighbours of a site agree,
-its next pure-death event makes the two copies agree there as well.
-Lemma~\ref{lem:oriented-finite-coupling} in
-Appendix~\ref{app:oriented-finite-coupling} quantifies this argument.
-The law of the second copy at time~$u\geq0$ belongs to~$\mathcal M_*^{I_s}$ by
-Lemma~\ref{lem:boundary-moment-preservation}. Average that law over the
-boundary trajectory and extend it by all~$1$'s outside~$I_s$.
-The resulting measure~$\mu$ belongs to~$\mathcal M_*$, since its centered
-moments factor into a nonnegative moment on~$I_s$ and factors
-$1-p_i^\star$ outside. Writing~$d=\max\cb{1,\sup_i\abs{N(i)}}$, the
-coupling estimate gives, for every~$g$ supported on~$I_s$,
-\begin{equation*}
-\abs{P_ug(\eta)-\mu(g)}
-\leq2\norm g_\infty\abs{I_s}(2d)^{\ell_s}e^{-\varepsilon u/2}.
-\end{equation*}
-Here~$\mu$ may depend on~$\eta,u,s$, while the bound is uniform in~$\eta$.
-
-We can now run the original process for a further time~$s$.
-Using finite propagation to replace~$P_sf$ by~$P_s^{I_s,0}f$, and then
-Theorem~\ref{thm:common-invariant-limit}, gives
-\begin{align*}
-\abs{P_{u+s}f(\eta)-\pi(f)}
-&\leq2\norm{P_sf-P_s^{I_s,0}f}_\infty\\
-&\quad+\abs{(\delta_\eta P_u-\mu)(P_s^{I_s,0}f)}
-       +\abs{(\mu P_s)(f)-\pi(f)}\\
-&\leq C_f(1+s)^D
- \bb{e^{-\varepsilon s/2}
-       +e^{rv\log(2d)s-\varepsilon u/2}}.
-\end{align*}
-Take~$u=\kappa s$, where
-$\kappa=1+2rv\log(2d)/\varepsilon$.
-Both exponential terms then equal~$e^{-\varepsilon s/2}$.
-Absorbing the polynomial factor and writing~$t=(1+\kappa)s$ proves
-\begin{equation*}
-\sup_\eta\abs{P_tf(\eta)-\pi(f)}
-\leq C_f e^{-\gamma t},
-\qquad
-\gamma=\frac{\varepsilon}{4(1+\kappa)}>0.
-\end{equation*}
-The rate~$\gamma$ is independent of~$f$, as required.
 \par
 \end{proof}
 \endgroup

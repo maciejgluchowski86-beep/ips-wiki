@@ -42,23 +42,14 @@ N_*(U)=U,
 \qquad
 N_*(\bar A\cup U)=\bar A\cup U.
 \end{equation*}
-It is \emph{uniformly orientable} if there are a height function
-$h:\Lambda\to\Z$ and a natural number~$r$ such that
-\begin{equation*}
-1\leq h(j)-h(i)\leq r
-\qquad\text{whenever }j\in N(i).
-\end{equation*}
 \end{definition}
-Uniform orientability implies orientability. Indeed, for nonempty~$A$, put
-$H=\max_{i\in A}h(i)$ and take
+For example, if~$\Lambda=\Z$ and~$N(i)\subseteq\cb{j:j>i}$, then for
+every nonempty finite~$A$ we may take
 \begin{equation*}
-\bar A=\bigcup_{n\geq0}B(A,n)\cap\cb{i:h(i)\leq H},
-\qquad U=\cb{i:h(i)>H}.
+\bar A=[\min A,\max A]\cap\Z,
+\qquad U=\cb{j\in\Z:j>\max A}.
 \end{equation*}
-Then~$\bar A\subseteq B\bb{A,H-\min_{i\in A}h(i)}$, and both required
-sets are autonomous. These definitions apply to general neighbourhood graphs;
-for example, on~$\Z$, the condition~$N(i)\subseteq\cb{i+1,\ldots,i+r}$
-gives uniform orientability with~$h(i)=i$.
+Both~$U$ and~$\bar A\cup U$ are autonomous, so the graph is orientable.
 \par
 \endgroup
 
