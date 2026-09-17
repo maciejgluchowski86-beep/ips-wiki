@@ -822,45 +822,50 @@ This holds for every boundary condition~$\xi$. The restricted system is also pat
 % BLURB C. Where does a positive part in M_*^I come from?
 %
 % Reader question:
-%   What event erases the initial state on a finite set?
+%   What event produces a law in M_*^I regardless of the initial state?
 % Role in the proof:
-%   Obtain a lower bound uniform in the initial state and prescribed boundary.
+%   Obtain a positive mixture weight uniform in the initial state and boundary.
 % Drafting target:
-%   One paragraph describing the reset event, followed by the bound.
-% Correction:
-%   A coefficient of delta_e cannot generally tend to one. At small times,
-%   forcing every site costs order s^{|I|}; a bound 1-exp(-alpha_I s) for
-%   every s>0 is generally false. Later extraction uses fixed unit intervals.
+%   Explain the independent refreshes, then the event and its probability.
+%   Use the product law at p^star in the repeated decomposition in Blurb D.
 % ============================================================================
-\paragraph{Blurb C. A positive part after one time interval.}
-Use~$\lambda_i\rho_i\geq\varepsilon p_i^\star$ and the pure-death
-component to retain independent resets to~$e_i$ at rate~$r_i$, where
+We next show that, after any positive time, a fixed positive part of the
+law belongs to~$\mathcal M_*^I$, regardless of the initial configuration
+and boundary conditions. Patch positivity gives
+$\lambda_i(\rho_i-p_i^\star)\geq0$, and the pure-death assumption gives
+$\lambda_i(1-\rho_i)\geq\varepsilon$. Hence
 \begin{equation*}
-e_i=\ind\bb{p_i^\star>0},
+\lambda_i\rho_i\geq p_i^\star\lambda_i\geq\varepsilon p_i^\star,
 \qquad
-r_i=
-\begin{cases}
-\varepsilon p_i^\star,&p_i^\star>0,\\
-\varepsilon,&p_i^\star=0.
-\end{cases}
+\lambda_i(1-\rho_i)\geq\varepsilon(1-p_i^\star).
 \end{equation*}
-Write~$\overline\lambda=\sup_{i,\eta}\lambda_i(\eta)$.
-Describe the event that each retained reset clock rings and no remaining
-update mark occurs in~$I$ during an interval of length~$s$. The required
-bound, for every~$x\in\cb{0,1}^I$, is
-\begin{equation*}
-P_s^{I,\xi}(x,\cdot)\geq\alpha_I(s)\delta_e,
-\qquad
-\alpha_I(s)=e^{-\overline\lambda\abs I s}
-\prod_{i\in I}(1-e^{-r_i s})>0
-\quad(s>0),
-\qquad
-\delta_e\in\mathcal M_*^I.
-\end{equation*}
-The same event works if the prescribed boundary changes during the interval.
-Retain the constant~$a_I=\alpha_I(1)>0$ for repeated extraction.
-Distinguish this fixed positive part from the total mass in~$\mathcal M_*^I$,
-which will approach~$1$ after previously extracted parts have evolved.
+We can therefore separate from the dynamics, at each site~$i$, an
+independent rate-$\varepsilon$ clock that refreshes the spin with a
+Bernoulli~$p_i^\star$ coin. Write
+$\mu_{\mb p^\star}^I=\bigotimes_{i\in I}\mathrm{Bernoulli}(p_i^\star)$.
+Every nonempty centered moment of this product measure is zero, so
+$\mu_{\mb p^\star}^I\in\mathcal M_*^I$.
+
+The remaining updates can be generated using independent Poisson clocks
+of rate~$\overline\lambda=\sup_{i,\eta}\lambda_i(\eta)$ at each site,
+with suitable acceptance probabilities. During an interval of length~$s>0$, consider the event that every
+rate-$\varepsilon$ clock in~$I$ rings at least once and none of the
+remaining clocks rings. On this event, the final spins are independent
+Bernoulli~$p_i^\star$ variables, since they are given by the last refresh
+at each site. Thus, for every initial configuration~$x\in\cb{0,1}^I$
+and boundary~$\xi$,
+\begin{align*}
+P_s^{I,\xi}(x,\cdot)
+&=\alpha_I(s)\mu_{\mb p^\star}^I+(1-\alpha_I(s))\nu,\\
+\alpha_I(s)
+&=e^{-\overline\lambda\abs I s}(1-e^{-\varepsilon s})^{\abs I}>0,
+\end{align*}
+for some probability measure~$\nu$. The same event and bound apply if
+the prescribed boundary changes during the interval. In particular,
+every unit interval contributes a part of weight~$a_I=\alpha_I(1)>0$
+in~$\mathcal M_*^I$. Since this class is preserved by the subsequent
+evolution, we can repeat the decomposition on the remaining part of
+the law.
 
 % ============================================================================
 % BLURB D. How do boundary conditioning and repeated extraction fit together?
@@ -899,18 +904,18 @@ preservation of~$\mathcal M_*^I$ under this finite composition.
 Perform extraction on fixed unit intervals, independently of the boundary
 change times. Blurb~C gives Markov kernels~$R_k^b$ such that
 \begin{equation*}
-Q^b_{k-1,k}(x,\cdot)=a_I\delta_e+(1-a_I)R_k^b(x,\cdot).
+Q^b_{k-1,k}(x,\cdot)=a_I\mu_{\mb p^\star}^I+(1-a_I)R_k^b(x,\cdot).
 \end{equation*}
 For~$m=\lfloor t\rfloor$, expand according to the first extracted part:
 \begin{align*}
 \delta_{\eta|_I}Q^b_{0,t}
-&=\sum_{k=1}^m a_I(1-a_I)^{k-1}\delta_e Q^b_{k,t}
+&=\sum_{k=1}^m a_I(1-a_I)^{k-1}\mu_{\mb p^\star}^I Q^b_{k,t}
  +(1-a_I)^m\nu_t^b,\\
 \nu_t^b
 &=\delta_{\eta|_I}R_1^b\cdots R_m^b Q^b_{m,t}.
 \end{align*}
 The measure~$\nu_t^b$ is a probability measure, and every term
-$\delta_e Q^b_{k,t}$ belongs to~$\mathcal M_*^I$. The target is therefore
+$\mu_{\mb p^\star}^I Q^b_{k,t}$ belongs to~$\mathcal M_*^I$. The target is therefore
 \begin{equation*}
 \E_\eta\Cb{\chi_B^*(\eta_t)\mid\mathcal G_U}
 \geq-\norm{\chi_B^*}_\infty(1-a_I)^{\lfloor t\rfloor}
