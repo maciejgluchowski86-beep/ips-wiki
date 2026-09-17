@@ -859,25 +859,50 @@ Now we show that the process converges towards~$\mathcal{M}_*$ from any initial 
 Since~$U$ is autonomous, its trajectory depends only on the graphical
 randomness in~$U$, which is independent of the clocks and marks in~$I$.
 Conditional on~$\mathcal G_U$, the process on~$I$ evolves with
-the revealed trajectory as a boundary condition. Only the states at~$\partial I:=N_*(I)\setminus I\subseteq U$ affects this evolution.
+the revealed trajectory as a boundary condition. Only the states at~$\partial I:=N_*(I)\setminus I\subseteq U$ affect this evolution.
 This set is finite and the update rates are bounded, so the boundary conditions change finitely many times before time~$t$. 
 If the successive boundary configurations are~$\xi_1,\ldots,\xi_n$,
-extended arbitrarily from~$\partial I$ to~$U$, and their durations are
-$t_1+\dots+t_n = t$, then
+extended arbitrarily from~$\partial I$ to~$U$, and their durations are~$t_1,\ldots,t_n$ with~$\sum_{k=1}^n t_k=t$, then
 \begin{equation*}
 \CE{f(\eta_t)}{\mathcal{G}_U}=P_{t_1}^{I,\xi_1}\cdots P_{t_n}^{I,\xi_n}(f)(\eta),
 \end{equation*}
 for any~$f$ that depends only on sites in~$I$.
 
-Now we repeatedly apply~\eqref{eq:mass_leak_decomposition}:
-\begin{align*}
-    \CE{\chi_A^*(\eta_t)}{\mathcal{G}_U}&= \sum_{k=1}^n \alpha_I(t_k)\prod_{l=k+1}^n\bb{1-\alpha_I(t_l)} P_{t_1}^{I,\xi_1}\cdots P_{t_{k-1}}^{I,\xi_{k-1}}\bb{\chi_A^*}(\zeta_I)\\&\quad + \prod_{k=1}^n \bb{1-\alpha_I(t_l)} \nu_n(\chi_A^*)\\
-    &\geq -\prod_{k=1}^n \bb{1-\alpha_I(t_l)}\\
-    & FILL THE REST OR IMPROVE ESTIMATE ON alpha IF NEEDED
-\end{align*}
-Hence, for every~$A\Subset \Lambda$ we have
+We apply~\eqref{eq:mass_leak_decomposition} on successive unit intervals.
+Its proof uses rate bounds uniform in the boundary, so the same event
+gives a part of weight~$a_I:=\alpha_I(1)\in(0,1)$ even if the boundary
+changes during the interval. For the revealed boundary path~$b$, let
+$Q^b_{s,t}$ denote the conditional transition kernel from~$s$ to~$t$,
+given by the corresponding product of restricted semigroups. In
+particular, for any probability measure~$\nu$ on~$\cb{0,1}^I$,
 \begin{equation*}
-\liminf_{t\to\infty}\inf_\eta P_t(\chi_A^*)(\eta) = \liminf_{t\to\infty}\inf_\eta \E_\eta\CE{\chi_A^*(\eta_t)}{\mathcal{G_U}}\geq0.
+\nu Q^b_{k-1,k}
+=a_I\delta_{\zeta_I}+(1-a_I)\nu',
+\end{equation*}
+where~$\nu'$ is another probability measure. The first part remains
+in~$\mathcal M_*^I$ under the subsequent evolution; we apply the
+decomposition again to the remaining part. After~$m=\lfloor t\rfloor$
+such steps, for every~$B\subseteq I$,
+\begin{align*}
+\CE{\chi_B^*(\eta_t)}{\mathcal G_U}
+&=\sum_{k=1}^m a_I(1-a_I)^{k-1}
+   Q^b_{k,t}(\chi_B^*)(\zeta_I)
+  +(1-a_I)^m\nu_t^b(\chi_B^*)\\
+&\geq-\norm{\chi_B^*}_\infty(1-a_I)^{\lfloor t\rfloor},
+\end{align*}
+where~$\nu_t^b$ is the remaining probability law, including its evolution
+from~$m$ to~$t$. The term indexed by~$k$
+is the part separated at time~$k$, after the first~$k-1$ steps left it
+in the remainder. Each such term is nonnegative because~$Q^b_{k,t}$
+preserves~$\mathcal M_*^I$. Taking~$B=A$ and averaging gives
+\begin{equation*}
+P_t(\chi_A^*)(\eta)
+\geq-\norm{\chi_A^*}_\infty(1-a_I)^{\lfloor t\rfloor},
+\end{equation*}
+uniformly in~$\eta$. The right-hand side tends to zero exponentially,
+and hence, for every~$A\Subset\Lambda$,
+\begin{equation*}
+\liminf_{t\to\infty}\inf_\eta P_t(\chi_A^*)(\eta)\geq0.
 \end{equation*}
 %  ============================================================================
 % BLURB E. Why does the moment bound imply ergodicity?
