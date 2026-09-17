@@ -830,9 +830,9 @@ This holds for every boundary condition~$\xi$. The restricted system is also pat
 %   Use the product law at p^star in the repeated decomposition in Blurb D.
 % ============================================================================
 We next show that, for every initial configuration~$\eta$ and boundary condition~$\xi$, after any positive time a positive part of the evolution law enters~$\mathcal{M}_*^I$. To be more precise we obtain a decomposition
-\begin{equation*}
+\begin{equation}\label{eq:mass_leak_decomposition}
     \delta_\eta P_s^{I,\xi} = \alpha_I(s) \delta_{\zeta_I} + \bb{1-\alpha_I(s)}\nu,
-\end{equation*}
+\end{equation}
 where~$\zeta_I(i) = \ind\bb{p_i^* > 0}$ for~$i\in I$,~$\nu$ is a probability measure, and~$\alpha_I(s)$ is an explicit positive function for~$s>0$. This is useful because~$\delta_{\zeta_I}\in\mathcal{M}_*^I$.
 
 We verify that the restricted process has positive probability of entering~$\zeta_I$ after any positive time. The rate at which a site turns to state~$1$ is~$\lambda_i\rho_i  \geq \varepsilon p_i^*$, which is positive if~$p_i^*>0$. Similarly, the rate at which a site turns to state~$0$ is~$\lambda_i\bb{1 - \rho_i}\geq \varepsilon \bb{1-p_i^*}$, which is positive if~$p_i^* = 0$. Both of these inequalities follow from patch positivity. Thus every site~$i\in I$ has uniformly positive rate at which it takes the state~$\zeta_I(i)$. The event that after time~$s$ every site in~$I$ experienced at least one update, and at the last one its state aligned with~$\zeta_I$ is thus at least~$\alpha_I(s):= \gamma^{\abs{I}}\bb{1-e^{-\gamma s}}^{\abs{I}}$, for some~$\gamma>0$ which depends on~$\inf\cb{p_i^* >0 : i\in I}>0$ and~$\sup \cb{\lambda_i(\eta):i\in I,\eta\in\cb{0,1}^I}<\infty$.
@@ -852,71 +852,35 @@ We verify that the restricted process has positive probability of entering~$\zet
 % Drafting target:
 %   Separate the conditioning paragraph from the extraction paragraph.
 % ============================================================================
-Fix an initial configuration~$\eta$ and condition on
+Now we show that the process converges towards~$\mathcal{M}_*$ from any initial configuration~$\eta$. Define the~$\sigma$-algebra 
 \begin{equation*}
-\mathcal G_U=\sigma\cb{\eta_s(j):j\in U,\ s\geq0}.
+\mathcal G_U:=\sigma\cb{\eta_s(j):j\in U,\ s\geq0}.
 \end{equation*}
 Since~$U$ is autonomous, its trajectory depends only on the graphical
 randomness in~$U$, which is independent of the clocks and marks in~$I$.
-Conditional on~$\mathcal G_U$, the process on~$I$ therefore evolves with
-the revealed trajectory as its prescribed boundary condition. Only
-$\partial I=N_*(I)\setminus I\subseteq U$ affects this evolution.
-This set is finite and the update rates are bounded, so its trajectory
-has finitely many jumps on every bounded time interval. Write~$b$ for this boundary path and~$Q^b_{s,t}$
-for the resulting transition kernel on~$I$ from time~$s$ to time~$t$.
-If the successive boundary values on this interval are~$\xi_1,\ldots,\xi_n$,
-extended arbitrarily from~$\partial I$ to~$U$, for durations
-$t_1,\ldots,t_n$, then
+Conditional on~$\mathcal G_U$, the process on~$I$ evolves with
+the revealed trajectory as a boundary condition. Only the states at~$\partial I:=N_*(I)\setminus I\subseteq U$ affects this evolution.
+This set is finite and the update rates are bounded, so the boundary conditions change finitely many times before time~$t$. 
+If the successive boundary configurations are~$\xi_1,\ldots,\xi_n$,
+extended arbitrarily from~$\partial I$ to~$U$, and their durations are
+$t_1+\dots+t_n = t$, then
 \begin{equation*}
-Q^b_{s,t}=P_{t_1}^{I,\xi_1}\cdots P_{t_n}^{I,\xi_n},
-\qquad
-\sum_{k=1}^n t_k=t-s.
+\CE{f(\eta_t)}{\mathcal{G}_U}=P_{t_1}^{I,\xi_1}\cdots P_{t_n}^{I,\xi_n}(f)(\eta),
 \end{equation*}
-Each factor preserves~$\mathcal M_*^I$ by
-Lemma~\ref{lem:boundary-moment-preservation}, so~$Q^b_{s,t}$ does too.
-For every function~$f$ on~$\cb{0,1}^I$,
-\begin{equation*}
-\E_\eta\Cb{f(\eta_t|_I)\mid\mathcal G_U}
-=(Q^b_{0,t}f)(\eta|_I).
-\end{equation*}
+for any~$f$ that depends only on sites in~$I$.
 
-The lower bounds on the rates of setting spins to~$\zeta_I$ hold
-throughout any prescribed boundary path. Thus the event used above
-gives the same positive part even when the boundary changes during
-the interval. Put~$a_I=\alpha_I(1)\in(0,1)$ and apply the decomposition
-on successive unit intervals: for every probability measure~$\nu$
-on~$\cb{0,1}^I$,
+Now we repeatedly apply~\eqref{eq:mass_leak_decomposition}:
+\begin{align*}
+    \CE{\chi_A^*(\eta_t)}{\mathcal{G}_U}&= \sum_{k=1}^n \alpha_I(t_k)\prod_{l=k+1}^n\bb{1-\alpha_I(t_l)} P_{t_1}^{I,\xi_1}\cdots P_{t_{k-1}}^{I,\xi_{k-1}}\bb{\chi_A^*}(\zeta_I)\\&\quad + \prod_{k=1}^n \bb{1-\alpha_I(t_l)} \nu_n(\chi_A^*)\\
+    &\geq -\prod_{k=1}^n \bb{1-\alpha_I(t_l)}\\
+    & FILL THE REST OR IMPROVE ESTIMATE ON alpha IF NEEDED
+\end{align*}
+Hence 
 \begin{equation*}
-\nu Q^b_{k-1,k}=a_I\delta_{\zeta_I}+(1-a_I)\nu'
-\qquad(k\geq1),
+\liminf_{t\to\infty}\inf_\eta P_t(\chi_A^*)(\eta)\geq0
+\qquad\text{for every finite }A\subseteq\Lambda.
 \end{equation*}
-where~$\nu'$ is another probability measure. The first part belongs
-to~$\mathcal M_*^I$ and remains there under the subsequent evolution.
-Applying the same decomposition to the remaining part at each step,
-we obtain, for~$m=\lfloor t\rfloor$,
-\begin{equation*}
-\delta_{\eta|_I}Q^b_{0,t}
-=\sum_{k=1}^m a_I(1-a_I)^{k-1}\delta_{\zeta_I}Q^b_{k,t}
- +(1-a_I)^m\nu_t^b,
-\end{equation*}
-for some probability measure~$\nu_t^b$. Every measure
-$\delta_{\zeta_I}Q^b_{k,t}$ in the sum belongs to~$\mathcal M_*^I$.
-Consequently,
-\begin{equation*}
-\E_\eta\Cb{\chi_B^*(\eta_t)\mid\mathcal G_U}
-\geq-\norm{\chi_B^*}_\infty(1-a_I)^{\lfloor t\rfloor}
-\qquad(B\subseteq I).
-\end{equation*}
-Taking~$B=A$ and averaging over the boundary trajectory gives
-\begin{equation*}
-P_t(\chi_A^*)(\eta)
-\geq-\norm{\chi_A^*}_\infty(1-a_I)^{\lfloor t\rfloor}
-\longrightarrow0
-\qquad(t\to\infty),
-\end{equation*}
-with a lower bound independent of the initial configuration~$\eta$.
-
-% ============================================================================
+%  ============================================================================
 % BLURB E. Why does the moment bound imply ergodicity?
 %
 % Reader question:
