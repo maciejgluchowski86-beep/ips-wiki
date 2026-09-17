@@ -878,9 +878,9 @@ We apply~\eqref{eq:mass_leak_decomposition} on successive unit intervals
 where~$\nu_t$ is a probability measure. The sum is non-negative because~$\delta_{\zeta_I}\in\mathcal{M}_*^I$ and each~$P_s^{I,\xi}$ preserves~$\mathcal{M}_*^I$. 
 The lower bound side tends to zero exponentially,
 and hence, for every~$A\Subset\Lambda$,
-\begin{equation*}
+\begin{equation}\label{eq:convergence_towards_m*}
 \liminf_{t\to\infty}\inf_\eta P_t(\chi_A^*)(\eta)\geq0.
-\end{equation*}
+\end{equation}
 %  ============================================================================
 % BLURB E. Why does the moment bound imply ergodicity?
 %
@@ -893,15 +893,15 @@ and hence, for every~$A\Subset\Lambda$,
 %   One paragraph for compactness/Feller and Theorem C. Keep the finite-volume
 %   M_{-,1} observation separate, and do not require it for this argument.
 % ============================================================================
-To obtain convergence to~$\pi$, we combine the preceding moment bound
-with Theorem~\ref{thm:common-invariant-limit} after a further fixed time.
+
+To obtain convergence to~$\pi$, we combine~\eqref{eq:convergence_towards_m*}
+with Theorem~\ref{thm:common-invariant-limit}.
 Fix a local function~$f$ and~$s>0$. Choose~$t_n\to\infty$ and
 configurations~$\eta_n$ such that
 $\abs{P_{t_n}f(\eta_n)-\pi(f)}$ converges to
-$\limsup_{t\to\infty}\sup_\eta\abs{P_tf(\eta)-\pi(f)}$.
-Compactness of~$\Omega$ gives, along a subsequence,
-$\delta_{\eta_n}P_{t_n-s}\Rightarrow\mu$.
-For every finite~$B\subseteq\Lambda$, the preceding bound implies
+$\limsup_{t\to\infty}\sup_\eta\abs{P_tf(\eta)-\pi(f)}$ and
+$\delta_{\eta_n}P_{t_n-s}\Rightarrow\mu$ for some probability measure~$\mu$. This is possible because~$\mathcal{P}\bb{\cb{0,1}^\Lambda}$ is compact.
+For every finite~$B\subseteq\Lambda$, the~\eqref{eq:convergence_towards_m*} implies
 \begin{equation*}
 \mu(\chi_B^*)
 =\lim_{n\to\infty}P_{t_n-s}(\chi_B^*)(\eta_n)\geq0,
@@ -920,24 +920,22 @@ Theorem~\ref{thm:common-invariant-limit} now gives
 \leq K_f(1+s)^D e^{-\varepsilon s/2}.
 \end{equation*}
 Letting~$s\to\infty$ proves convergence uniformly over initial
-configurations for every local~$f$. Integrating against any initial
-law~$\nu$ gives~$\nu P_t\Rightarrow\pi$; taking~$\nu$ invariant shows
-that~$\pi$ is the unique invariant probability measure.
+configurations for every local~$f$ and thus ergodicity.
 
-The finite-volume estimate also gives eventual entry into
+Now we prove that the result can be strenghtened to uniform exponential ergodicity, if the lattice is uniformly orientable. First note that on finite~$I$ the evolution enters
 $\mathcal M_{-,1}^I
-=\cb{\mu:(\mu+\delta_{\mb1_I})/2\in\mathcal M_*^I}$.
+=\cb{\mu:(\mu+\delta_{\mb1_I})/2\in\mathcal M_*^I}$ in finite time, uniformly in initial configuration.
 Indeed, uniform deaths imply~$p_i^\star<1$, and for every
 nonempty~$B\subseteq I$,
 \begin{equation*}
 \bb{(\delta_\eta P_t)|_I+\delta_{\mb1_I}}(\chi_B^*)
 \geq
 \prod_{i\in B}(1-p_i^\star)
--\norm{\chi_B^*}_\infty\bb{1-\alpha_I(1)}^{\lfloor t\rfloor}
+-\norm{\chi_B^*}_\infty\bb{1-\alpha_I}^{\lfloor t\rfloor}
 \geq0
 \end{equation*}
-for all sufficiently large~$t$. Since~$I$ is finite, one time works
-for all~$B\subseteq I$, uniformly in~$\eta$. This entry time may depend
+for all sufficiently large~$t$. Since~$I$ is finite, a fixed time works
+for all~$B\subseteq I$, uniformly in~$\eta$. This entry time may however depend
 on~$I$.
 
 % ============================================================================
