@@ -829,13 +829,13 @@ This holds for every boundary condition~$\xi$. The restricted system is also pat
 %   Explain the independent refreshes, then the event and its probability.
 %   Use the product law at p^star in the repeated decomposition in Blurb D.
 % ============================================================================
-We next show that, for every initial configuration~$\eta$ and boundary condition~$\xi$, after any positive time a positive part of the evolution law enters~$\mathcal{M}_*^I$. To be more precise we obtain a decomposition
+We next show that, for every initial configuration~$\eta$ and boundary conditions, after a unit of time a fixed positive part of the evolution law enters~$\mathcal{M}_*^I$. To be more precise we obtain a decomposition
 \begin{equation}\label{eq:mass_leak_decomposition}
-    \delta_\eta P_s^{I,\xi} = \alpha_I(s) \delta_{\zeta_I} + \bb{1-\alpha_I(s)}\nu,
+    \delta_\eta P_{s_1}^{I,\xi_1}\cdots P_{s_n}^{I,\xi_n} = \alpha_I \delta_{\zeta_I} + \bb{1-\alpha_I}\nu,
 \end{equation}
-where~$\zeta_I(i) = \ind\bb{p_i^* > 0}$ for~$i\in I$,~$\nu$ is a probability measure, and~$\alpha_I(s)$ is an explicit positive function for~$s>0$. This is useful because~$\delta_{\zeta_I}\in\mathcal{M}_*^I$.
+where~$\zeta_I(i) = \ind\bb{p_i^* > 0}$ for~$i\in I$,~$\nu$ is a probability measure,~$\alpha_I>0$ and~$\xi_1,\dots,\xi_n$ and~$s_1+\dots +s_n\geq 1$ are arbitrary boundary conditions and their durations. This is useful because~$\delta_{\zeta_I}\in\mathcal{M}_*^I$.
 
-We verify that the restricted process has positive probability of entering~$\zeta_I$ after any positive time. The rate at which a site turns to state~$1$ is~$\lambda_i\rho_i  \geq \varepsilon p_i^*$, which is positive if~$p_i^*>0$. Similarly, the rate at which a site turns to state~$0$ is~$\lambda_i\bb{1 - \rho_i}\geq \varepsilon \bb{1-p_i^*}$, which is positive if~$p_i^* = 0$. Both of these inequalities follow from patch positivity. Thus every site~$i\in I$ has uniformly positive rate at which it takes the state~$\zeta_I(i)$. The event that after time~$s$ every site in~$I$ experienced at least one update, and at the last one its state aligned with~$\zeta_I$ is thus at least~$\alpha_I(s):= \gamma^{\abs{I}}\bb{1-e^{-\gamma s}}^{\abs{I}}$, for some~$\gamma>0$ which depends on~$\inf\cb{p_i^* >0 : i\in I}>0$ and~$\sup \cb{\lambda_i(\eta):i\in I,\eta\in\cb{0,1}^I}<\infty$.
+We verify that the restricted process has positive probability of entering~$\zeta_I$ after any positive time. The rate at which a site turns to state~$1$ is~$\lambda_i\rho_i  \geq \varepsilon p_i^*$, which is positive if~$p_i^*>0$. Similarly, the rate at which a site turns to state~$0$ is~$\lambda_i\bb{1 - \rho_i}\geq \varepsilon \bb{1-p_i^*}$, which is positive if~$p_i^* = 0$. Both of these inequalities follow from patch positivity. Thus every site~$i\in I$ has uniformly positive rate at which it takes the state~$\zeta_I(i)$. The event that after time one every site in~$I$ experienced at least one update, and at the last one its state aligned with~$\zeta_I$ is thus uniformly positive in~$\eta$ and boundary conditions, and we denote it~$\alpha_I$.
 
 
 
@@ -856,50 +856,27 @@ Now we show that the process converges towards~$\mathcal{M}_*$ from any initial 
 \begin{equation*}
 \mathcal G_U:=\sigma\cb{\eta_s(j):j\in U,\ s\geq0}.
 \end{equation*}
-Since~$U$ is autonomous, its trajectory depends only on the graphical
-randomness in~$U$, which is independent of the clocks and marks in~$I$.
-Conditional on~$\mathcal G_U$, the process on~$I$ evolves with
-the revealed trajectory as a boundary condition. Only the states at~$\partial I:=N_*(I)\setminus I\subseteq U$ affect this evolution.
+Since both~$U$ and~$I\cup U$ are autonomous,
+conditional on~$\mathcal G_U$, the process on~$I$ evolves with
+the revealed trajectory on~$U$ as a boundary condition. Only the states at~$\partial I:=N_*(I)\setminus I\subseteq U$ matter.
 This set is finite and the update rates are bounded, so the boundary conditions change finitely many times before time~$t$. 
 If the successive boundary configurations are~$\xi_1,\ldots,\xi_n$,
 extended arbitrarily from~$\partial I$ to~$U$, and their durations are~$t_1,\ldots,t_n$ with~$\sum_{k=1}^n t_k=t$, then
-\begin{equation*}
-\CE{f(\eta_t)}{\mathcal{G}_U}=P_{t_1}^{I,\xi_1}\cdots P_{t_n}^{I,\xi_n}(f)(\eta),
-\end{equation*}
-for any~$f$ that depends only on sites in~$I$.
-
-We apply~\eqref{eq:mass_leak_decomposition} on successive unit intervals.
-Its proof uses rate bounds uniform in the boundary, so the same event
-gives a part of weight~$a_I:=\alpha_I(1)\in(0,1)$ even if the boundary
-changes during the interval. For the revealed boundary path~$b$, let
-$Q^b_{s,t}$ denote the conditional transition kernel from~$s$ to~$t$,
-given by the corresponding product of restricted semigroups. In
-particular, for any probability measure~$\nu$ on~$\cb{0,1}^I$,
-\begin{equation*}
-\nu Q^b_{k-1,k}
-=a_I\delta_{\zeta_I}+(1-a_I)\nu',
-\end{equation*}
-where~$\nu'$ is another probability measure. The first part remains
-in~$\mathcal M_*^I$ under the subsequent evolution; we apply the
-decomposition again to the remaining part. After~$m=\lfloor t\rfloor$
-such steps, for every~$B\subseteq I$,
 \begin{align*}
-\CE{\chi_B^*(\eta_t)}{\mathcal G_U}
-&=\sum_{k=1}^m a_I(1-a_I)^{k-1}
-   Q^b_{k,t}(\chi_B^*)(\zeta_I)
-  +(1-a_I)^m\nu_t^b(\chi_B^*)\\
-&\geq-\norm{\chi_B^*}_\infty(1-a_I)^{\lfloor t\rfloor},
+\CE{f(\eta_t)}{\mathcal{G}_U}&=P_{t_1}^{I,\xi_1}\cdots P_{t_n}^{I,\xi_n}(f)(\eta)\\
+&= \bb{P_{s_1^1}^{I,\xi_1^1}\cdots P_{s_{n_1}^1}^{I,\xi_{n_1}^1}}\cdots \bb{P_{s_1^{\lfloor t\rfloor}}^{I,\xi_1^{\lfloor t\rfloor}}\cdots P_{s_{n_{\lfloor t\rfloor}}^{\lfloor t\rfloor}}^{I,\xi_{n_{\lfloor t\rfloor}}^{\lfloor t\rfloor}}}(f)(\eta),
 \end{align*}
-where~$\nu_t^b$ is the remaining probability law, including its evolution
-from~$m$ to~$t$. The term indexed by~$k$
-is the part separated at time~$k$, after the first~$k-1$ steps left it
-in the remainder. Each such term is nonnegative because~$Q^b_{k,t}$
-preserves~$\mathcal M_*^I$. Taking~$B=A$ and averaging gives
-\begin{equation*}
-P_t(\chi_A^*)(\eta)
-\geq-\norm{\chi_A^*}_\infty(1-a_I)^{\lfloor t\rfloor},
-\end{equation*}
-uniformly in~$\eta$. The right-hand side tends to zero exponentially,
+gives a subdecomposition with~$s_1^k+\dots+s_{n_k}^k = 1$ for~$k < \lfloor t\rfloor$ and~$s_1^{\lfloor t\rfloor}+\dots +s_{n_{\lfloor t\rfloor}}^{\lfloor t\rfloor}\geq 1$.
+We apply~\eqref{eq:mass_leak_decomposition} on successive unit intervals
+\begin{align*}
+\CE{\chi_A^*(\eta_t)}{\mathcal G_U}
+&=\sum_{k=1}^{\lfloor t\rfloor} a_I(1-a_I)^{n-k}
+   \bb{P_{s_1^1}^{I,\xi_1^1}\cdots P_{s_{n_1}^1}^{I,\xi_{n_1}^1}}\cdots \bb{P_{s_1^{k-1}}^{I,\xi_1^{k-1}}\cdots P_{s_{n_{k-1}}^{k-1}}^{I,\xi_{n_{k-1}}^{k-1}}}(\chi_A^*)(\zeta_I)\\
+  &\quad +(1-a_I)^{\lfloor t\rfloor}\nu_t(\chi_A^*)\\
+&\geq-\norm{\chi_A^*}_\infty(1-a_I)^{\lfloor t\rfloor},
+\end{align*}
+where~$\nu_t$ is a probability measure. The sum is non-negative because~$\delta_{\zeta_I}\in\mathcal{M}_*^I$ and each~$P_s^{I,\xi}$ preserves~$\mathcal{M}_*^I$. 
+The lower bound side tends to zero exponentially,
 and hence, for every~$A\Subset\Lambda$,
 \begin{equation*}
 \liminf_{t\to\infty}\inf_\eta P_t(\chi_A^*)(\eta)\geq0.
