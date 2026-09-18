@@ -459,10 +459,9 @@ to a deterministic rescaling of time.
 %   probability when a=1. The reader need not know the earlier papers.
 % ============================================================================
 
-A \emph{simple} spin system is a translation-invariant binary spin system
-on~$\Z$ with~$N(i)=\cb{i+1}$. Each site updates at rate one, choosing
-state~$1$ with probability~$p_{1\mid ab}$ when its current spin is~$a$ and
-its neighbour's spin is~$b$. Both flips have positive rates for either
+A \emph{simple} interacting particle system is a translation-invariant spin system
+on~$\Z$ with~$N(i)=\cb{i+1}$. When in configuration~$\eta$ each site~$i\in\Z$ updates at rate one, choosing
+state~$1$ with probability~$p_{1\mid \eta(i)\eta(i+1)}$. Both flips have positive rates for either
 neighbour state precisely when
 \begin{equation*}
 p_{1\mid11},p_{1\mid10}<1,
@@ -491,20 +490,13 @@ of the parameter space~\cite{GluchowskiMenz2025,GluchowskiMenz2026}.
 %   configurations for each local observable; no exponential rate is claimed.
 % ============================================================================
 
-Under the positive-rate assumptions above,
+Under the positive-rate assumption,
 Corollary~\ref{cor:oriented-ergodicity} gives uniform ergodicity if
 \begin{equation}
 \label{eq:simple-positive-rates-criterion}
 p_{1\mid01}(1-p_{1\mid10})
 \geq p_{1\mid00}(1-p_{1\mid11}).
 \end{equation}
-Namely, there is a unique invariant measure~$\pi$ and
-\begin{equation*}
-\lim_{t\to\infty}\sup_{\eta\in\Omega}
-\abs{P_tf(\eta)-\pi(f)}=0
-\end{equation*}
-for every local function~$f$.
-
 % ============================================================================
 % BLURB C. Verification of the patch-positivity hypotheses
 %
@@ -532,27 +524,22 @@ for every local function~$f$.
 %   unspecified calculation. Keep the state exchange in this proof distinct
 %   from the time normalization used to explain the figure in D.
 % ============================================================================
-
-To verify the hypotheses, write the system in refresh notation:
+To verify this, write the system in refresh notation:
 \begin{equation*}
-\lambda(b)=p_{1\mid0b}+1-p_{1\mid1b},
+\lambda_i(\eta)=p_{1\mid0\eta(i+1)}+1-p_{1\mid1\eta(i+1)},
 \qquad
-\rho(b)=\frac{p_{1\mid0b}}{\lambda(b)},
-\qquad b\in\cb{0,1}.
+\rho_i(\eta)=\frac{p_{1\mid0\eta(i+1)}}{\lambda_i(\eta)}.
 \end{equation*}
-Exchanging states swaps~$\lambda(0)$ and~$\lambda(1)$ and
-preserves~\eqref{eq:simple-positive-rates-criterion}, so we may assume
-$\lambda(1)\leq\lambda(0)$. Since~$N(i)=\cb{i+1}$, the two coefficients
+Since~$N(i)=\cb{i+1}$, the two coefficients
 in~\eqref{eq:principal-coefficient-criterion} are
 \begin{align*}
-\widehat{\lambda}\bb{\cb{i+1}}
-&=\lambda(1)-\lambda(0)\leq0,\\
+\widehat{\lambda_i}\bb{\cb{i+1}}
+&=p_{1\mid01}-p_{1\mid11}-p_{1\mid00}+p_{1\mid10}\leq 0,\\
 \widehat{\lambda(\rho-\rho(0))}\bb{\cb{i+1}}
-&=\lambda(1)\bb{\rho(1)-\rho(0)}\\
 &=\frac{p_{1\mid01}(1-p_{1\mid10})-p_{1\mid00}(1-p_{1\mid11})}
-{\lambda(0)}\geq0.
+{p_{1\mid00} + 1 -p_{1\mid10}}\geq0.
 \end{align*}
-Thus the system is patch-positive in these labels. The death rates have
+The first inequality can be assumed without loss of generality, by swapping the roles of~$0$ and~$1$. The second inequality is equivalent to~\eqref{eq:principal-coefficient-criterion}.  The death rates have
 the positive lower bound~$\min\cb{1-p_{1\mid11},1-p_{1\mid10}}$, giving
 uniform pure deaths. The neighbourhood graph is orientable and has
 polynomial growth, so Corollary~\ref{cor:oriented-ergodicity} applies.
@@ -585,11 +572,9 @@ polynomial growth, so Corollary~\ref{cor:oriented-ergodicity} applies.
 %   displayed there. Leave the detailed colour key to the caption.
 % ============================================================================
 
-For comparison with earlier results, divide all four flip rates by their
-maximum; this only rescales time. After exchanging states if necessary,
-we have~$p_{1\mid11}=0$ or~$p_{1\mid10}=0$. Ergodicity under positive rates
+Symmetry under swapping roles of~$0$ and~$1$ and a time-scaling trick reduce the problem to two cases:~$p_{1\mid11}=0$ or~$p_{1\mid10}=0$. Ergodicity under positive rates
 is known in the latter case~\cite[Section~7]{GluchowskiMenz2025}.
-We therefore consider the face~$p_{1\mid11}=0$, which gives a unit-rate
+We therefore consider the case~$p_{1\mid11}=0$, which gives a unit-rate
 $1\to0$ flip when the neighbour is~$1$.
 On this face,~\eqref{eq:simple-positive-rates-criterion} becomes
 \begin{equation*}
@@ -629,19 +614,13 @@ this condition extends the regions covered by the earlier criteria.
 \begin{figure}[htbp]
 \centering
 \input{paper/figures/simple-ips-ergodicity-regions}
-\caption{\textcolor{red}{Sections of~$p_{1\mid11}=0$, with horizontal
-coordinate~$p_{1\mid10}$, vertical coordinate~$p_{1\mid01}$, and
-$p_{1\mid00}=1/100$ (left) or~$1/10$ (right).
-Gray shows the region from~\cite{GluchowskiMenz2025} where
-$p_{1\mid10}<1/2$ or~$p_{1\mid10}<p_{1\mid01}+p_{1\mid00}$
+\caption{{Sections of the cube~$\cb{p_{1\mid11}=0, p_{1\mid xy}\in[0,1] \text{ for }xy\neq 11}$. The parameter~$p_{1\mid10}$ varies on~$X$-axis and~$p_{1\mid01}$ on~$Y$-axis. The left figure corresponds to the slice~$p_{1\mid00}=1/100$, and the right to~$p_{1\mid 00} = 1/10$.
+Each colored region represents part of the parameter space where the conjecture has been proven. Light gray corresponds to results from~\cite{GluchowskiMenz2025}, and is given by~$p_{1\mid10}<1/2$ or~$p_{1\mid10}<p_{1\mid01}+p_{1\mid00}$
 or~$p_{1\mid01}\leq p_{1\mid00}$.
-Red adds~$\max\cb{p_{1\mid01},p_{1\mid00}}<\sqrt2(1-p_{1\mid10})$
-from~\cite{GluchowskiMenz2026}.
-Blue adds~$p_{1\mid00}\leq(1-p_{1\mid10})p_{1\mid01}$ from
-Corollary~\ref{cor:oriented-ergodicity}, outside gray and red.
-White denotes parameters not covered by these criteria.
-Positive flip rates are assumed; shading includes the boundaries.
-The figure format follows~\cite[arXiv version, Figure~3]{GluchowskiMenz2026}.}}
+Dark gray corresponds to result 
+from~\cite{GluchowskiMenz2026}, and is given by~$\max\cb{p_{1\mid01},p_{1\mid00}}<\sqrt2(1-p_{1\mid10})$. In red the region~$p_{1\mid00}\leq(1-p_{1\mid10})p_{1\mid01}$ from
+Corollary~\ref{cor:oriented-ergodicity}.
+White denotes parameters not covered by these criteria. Order of overlay is chronological, so red region demonstrates the progress. Corollary~\ref{cor:oriented-ergodicity} becomes strongest when rate of spontaneous births,~$p_{1\mid 00}$ is low.}}
 \label{fig:simple-ips-ergodicity-regions}
 \end{figure}
 \endgroup
