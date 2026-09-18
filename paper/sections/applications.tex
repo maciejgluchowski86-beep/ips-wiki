@@ -459,12 +459,19 @@ to a deterministic rescaling of time.
 %   probability when a=1. The reader need not know the earlier papers.
 % ============================================================================
 
-Consider a translation-invariant spin system on~$\Z$ with~$N(i)=\cb{i+1}$.
-Write~$p_{1\mid ab}$ for the probability of choosing state~$1$ at a rate-one
-update when the current spin is~$a$ and its neighbour is~$b$. The positive
-rates conjecture for these simple systems asks whether
-$p_{1\mid11},p_{1\mid10}<1$ and~$p_{1\mid01},p_{1\mid00}>0$ imply ergodicity;
-see~\cite{GluchowskiMenz2025,GluchowskiMenz2026}.
+A \emph{simple} spin system is a translation-invariant binary spin system
+on~$\Z$ with~$N(i)=\cb{i+1}$. Each site updates at rate one, choosing
+state~$1$ with probability~$p_{1\mid ab}$ when its current spin is~$a$ and
+its neighbour's spin is~$b$. Both flips have positive rates for either
+neighbour state precisely when
+\begin{equation*}
+p_{1\mid11},p_{1\mid10}<1,
+\qquad
+p_{1\mid01},p_{1\mid00}>0.
+\end{equation*}
+The positive rates conjecture for simple systems asserts that every such
+system is ergodic. Earlier sufficient conditions establish this for parts
+of the parameter space~\cite{GluchowskiMenz2025,GluchowskiMenz2026}.
 
 % ============================================================================
 % BLURB B. The additional sufficient condition
@@ -484,12 +491,19 @@ see~\cite{GluchowskiMenz2025,GluchowskiMenz2026}.
 %   configurations for each local observable; no exponential rate is claimed.
 % ============================================================================
 
-Corollary~\ref{cor:oriented-ergodicity} gives uniform ergodicity whenever
+Under the positive-rate assumptions above,
+Corollary~\ref{cor:oriented-ergodicity} gives uniform ergodicity if
 \begin{equation}
 \label{eq:simple-positive-rates-criterion}
 p_{1\mid01}(1-p_{1\mid10})
 \geq p_{1\mid00}(1-p_{1\mid11}).
 \end{equation}
+Namely, there is a unique invariant measure~$\pi$ and
+\begin{equation*}
+\lim_{t\to\infty}\sup_{\eta\in\Omega}
+\abs{P_tf(\eta)-\pi(f)}=0
+\end{equation*}
+for every local function~$f$.
 
 % ============================================================================
 % BLURB C. Verification of the patch-positivity hypotheses
@@ -519,23 +533,29 @@ p_{1\mid01}(1-p_{1\mid10})
 %   from the time normalization used to explain the figure in D.
 % ============================================================================
 
-Indeed, in refresh notation,
+To verify the hypotheses, write the system in refresh notation:
 \begin{equation*}
 \lambda(b)=p_{1\mid0b}+1-p_{1\mid1b},
 \qquad
-\rho(b)=\frac{p_{1\mid0b}}{\lambda(b)}.
+\rho(b)=\frac{p_{1\mid0b}}{\lambda(b)},
+\qquad b\in\cb{0,1}.
 \end{equation*}
-Exchanging the two states if necessary gives~$\lambda(1)\leq\lambda(0)$,
-while~\eqref{eq:simple-positive-rates-criterion} is unchanged and implies
-\begin{equation*}
-\rho(1)-\rho(0)
-=\frac{p_{1\mid01}(1-p_{1\mid10})-p_{1\mid00}(1-p_{1\mid11})}
-{\lambda(0)\lambda(1)}\geq0.
-\end{equation*}
-These are precisely the two conditions
-in~\eqref{eq:principal-coefficient-criterion} for a one-site neighbourhood.
-Positive rates supply uniform pure deaths, and the neighbourhood graph is
-orientable and has polynomial growth, so the corollary applies.
+Exchanging states swaps~$\lambda(0)$ and~$\lambda(1)$ and
+preserves~\eqref{eq:simple-positive-rates-criterion}, so we may assume
+$\lambda(1)\leq\lambda(0)$. Since~$N(i)=\cb{i+1}$, the two coefficients
+in~\eqref{eq:principal-coefficient-criterion} are
+\begin{align*}
+\widehat{\lambda}\bb{\cb{i+1}}
+&=\lambda(1)-\lambda(0)\leq0,\\
+\widehat{\lambda(\rho-\rho(0))}\bb{\cb{i+1}}
+&=\lambda(1)\bb{\rho(1)-\rho(0)}\\
+&=\frac{p_{1\mid01}(1-p_{1\mid10})-p_{1\mid00}(1-p_{1\mid11})}
+{\lambda(0)}\geq0.
+\end{align*}
+Thus the system is patch-positive in these labels. The death rates have
+the positive lower bound~$\min\cb{1-p_{1\mid11},1-p_{1\mid10}}$, giving
+uniform pure deaths. The neighbourhood graph is orientable and has
+polynomial growth, so Corollary~\ref{cor:oriented-ergodicity} applies.
 
 % ============================================================================
 % BLURB D. Why these sections of the parameter space are plotted
@@ -544,7 +564,7 @@ orientable and has polynomial growth, so the corollary applies.
 %   Why set p_{1|11}=0, and how does the picture compare with the earlier
 %   sufficient conditions?
 %
-% Job (70--90 words, plus the simplified criterion; paragraph to be drafted):
+% Job (about 90 words, plus the simplified criterion):
 %   Explain time scaling in ordinary terms: multiplying every flip rate by
 %   the same positive constant changes only the speed of the process.
 %   Normalize the largest of the four flip rates to one. Together with
@@ -565,13 +585,26 @@ orientable and has polynomial growth, so the corollary applies.
 %   displayed there. Leave the detailed colour key to the caption.
 % ============================================================================
 
+For comparison with earlier results, divide all four flip rates by their
+maximum; this only rescales time. After exchanging states if necessary,
+we have~$p_{1\mid11}=0$ or~$p_{1\mid10}=0$. Ergodicity under positive rates
+is known in the latter case~\cite[Section~7]{GluchowskiMenz2025}.
+We therefore consider the face~$p_{1\mid11}=0$, which gives a unit-rate
+$1\to0$ flip when the neighbour is~$1$.
+On this face,~\eqref{eq:simple-positive-rates-criterion} becomes
+\begin{equation*}
+p_{1\mid00}\leq(1-p_{1\mid10})p_{1\mid01}.
+\end{equation*}
+Figure~\ref{fig:simple-ips-ergodicity-regions} shows two sections where
+this condition extends the regions covered by the earlier criteria.
+
 % ============================================================================
 % BLURB E. A self-contained figure caption
 %
 % Reader question:
 %   What do the axes, slices and colours mean?
 %
-% Job (about 90 words; existing caption below is a working draft):
+% Job (about 90 words, plus the region inequalities):
 %   Identify p_{1|11}=0, the horizontal coordinate p_{1|10}, the vertical
 %   coordinate p_{1|01}, and the left/right slices p_{1|00}=1/100 and 1/10.
 %   Give the regions in the original parameter notation:
@@ -596,16 +629,19 @@ orientable and has polynomial growth, so the corollary applies.
 \begin{figure}[htbp]
 \centering
 \input{paper/figures/simple-ips-ergodicity-regions}
-\caption{\textcolor{red}{Sections of~$p_{1\mid11}=0$, adapting the figure
-format and earlier regions from~\cite[arXiv version, Figure~3]{GluchowskiMenz2026}.
-Gray shows~$x<1/2$ or~$x<y+z$ or~$y\leq z$; red adds
-$\max\cb{y,z}<\sqrt2(1-x)$, where~$x=p_{1\mid10}$,
-$y=p_{1\mid01}$ and~$z=p_{1\mid00}$.
-Blue adds~$z\leq(1-x)y$, the region
-from~\eqref{eq:simple-positive-rates-criterion} outside those earlier
-regions. Shading depicts regions up to their boundaries; the positive-rate
-assumptions require~$x<1$ and~$y,z>0$.
-White denotes parameters not covered by the displayed criteria.}}
+\caption{\textcolor{red}{Sections of~$p_{1\mid11}=0$, with horizontal
+coordinate~$p_{1\mid10}$, vertical coordinate~$p_{1\mid01}$, and
+$p_{1\mid00}=1/100$ (left) or~$1/10$ (right).
+Gray shows the region from~\cite{GluchowskiMenz2025} where
+$p_{1\mid10}<1/2$ or~$p_{1\mid10}<p_{1\mid01}+p_{1\mid00}$
+or~$p_{1\mid01}\leq p_{1\mid00}$.
+Red adds~$\max\cb{p_{1\mid01},p_{1\mid00}}<\sqrt2(1-p_{1\mid10})$
+from~\cite{GluchowskiMenz2026}.
+Blue adds~$p_{1\mid00}\leq(1-p_{1\mid10})p_{1\mid01}$ from
+Corollary~\ref{cor:oriented-ergodicity}, outside gray and red.
+White denotes parameters not covered by these criteria.
+Positive flip rates are assumed; shading includes the boundaries.
+The figure format follows~\cite[arXiv version, Figure~3]{GluchowskiMenz2026}.}}
 \label{fig:simple-ips-ergodicity-regions}
 \end{figure}
 \endgroup
