@@ -436,18 +436,89 @@ to a deterministic rescaling of time.
 \subsection{Positive rates for simple spin systems}
 \label{subsec:simple-positive-rates}
 
+% ============================================================================
+% BLURB A. The simple positive-rates problem
+%
+% Reader question:
+%   What class of systems is this, and what remains to be proved about it?
+%
+% Job (65--80 words, plus the positive-rate inequalities):
+%   Define "simple" here: translation-invariant binary spin systems on Z,
+%   with N(i)={i+1}. Explain rate-one updates and p_{1|ab}: a is the
+%   site's current spin and b is its neighbour's current spin.
+%   Positive rates means both directions of a flip are possible for either
+%   neighbour value:
+%       p_{1|11}, p_{1|10}<1,   p_{1|01}, p_{1|00}>0.
+%   State the conjecture for this class explicitly: every such system is
+%   ergodic. Explain that GluchowskiMenz2025 and GluchowskiMenz2026 establish
+%   sufficient conditions covering parts of the parameter space.
+%
+% Reader preparation:
+%   Introduce the model and the question before referring to the earlier
+%   papers. In particular, p_{1|ab} is an update probability, not a flip
+%   probability when a=1. The reader need not know the earlier papers.
+% ============================================================================
+
 Consider a translation-invariant spin system on~$\Z$ with~$N(i)=\cb{i+1}$.
 Write~$p_{1\mid ab}$ for the probability of choosing state~$1$ at a rate-one
 update when the current spin is~$a$ and its neighbour is~$b$. The positive
 rates conjecture for these simple systems asks whether
 $p_{1\mid11},p_{1\mid10}<1$ and~$p_{1\mid01},p_{1\mid00}>0$ imply ergodicity;
 see~\cite{GluchowskiMenz2025,GluchowskiMenz2026}.
+
+% ============================================================================
+% BLURB B. The additional sufficient condition
+%
+% Reader question:
+%   Which systems does the orientability corollary allow us to treat?
+%
+% Job (25--35 words, plus the criterion):
+%   Under the positive-rate assumptions from A, state
+%       p_{1|01}(1-p_{1|10}) >= p_{1|00}(1-p_{1|11}).
+%   Conclude a unique invariant measure and convergence uniformly over
+%   initial configurations for every local observable. Cite
+%   cor:oriented-ergodicity.
+%
+% Scope:
+%   State the result before its verification. The uniformity is over initial
+%   configurations for each local observable; no exponential rate is claimed.
+% ============================================================================
+
 Corollary~\ref{cor:oriented-ergodicity} gives uniform ergodicity whenever
 \begin{equation}
 \label{eq:simple-positive-rates-criterion}
 p_{1\mid01}(1-p_{1\mid10})
 \geq p_{1\mid00}(1-p_{1\mid11}).
 \end{equation}
+
+% ============================================================================
+% BLURB C. Verification of the patch-positivity hypotheses
+%
+% Reader question:
+%   How does the condition on the four probabilities imply the corollary's
+%   assumptions in the notation of this paper?
+%
+% Job (65--80 words, plus explicit equations):
+%   Define, for b in {0,1},
+%       lambda(b)=p_{1|0b}+1-p_{1|1b},
+%       rho(b)=p_{1|0b}/lambda(b).
+%   Exchanging states sends p_{1|ab} to 1-p_{1|1-a,1-b}. It swaps
+%   lambda(0) and lambda(1), while preserving the inequality in B.
+%   Thus choose lambda(1)<=lambda(0), and display the two coefficients:
+%       widehat{lambda}({i+1})=lambda(1)-lambda(0)<=0,
+%       widehat{lambda(rho-rho(0))}({i+1})
+%         =lambda(1)(rho(1)-rho(0))
+%         =[p_{1|01}(1-p_{1|10})-p_{1|00}(1-p_{1|11})]/lambda(0)>=0.
+%   Apply eq:principal-coefficient-criterion. Positive rates give a positive
+%   lower bound on the 1-to-0 rates, hence uniform pure deaths; the
+%   neighbourhood graph is orientable and has polynomial growth.
+%
+% Exposition:
+%   Show the coefficient identities instead of referring the reader to an
+%   unspecified calculation. Keep the state exchange in this proof distinct
+%   from the time normalization used to explain the figure in D.
+% ============================================================================
+
 Indeed, in refresh notation,
 \begin{equation*}
 \lambda(b)=p_{1\mid0b}+1-p_{1\mid1b},
@@ -465,6 +536,62 @@ These are precisely the two conditions
 in~\eqref{eq:principal-coefficient-criterion} for a one-site neighbourhood.
 Positive rates supply uniform pure deaths, and the neighbourhood graph is
 orientable and has polynomial growth, so the corollary applies.
+
+% ============================================================================
+% BLURB D. Why these sections of the parameter space are plotted
+%
+% Reader question:
+%   Why set p_{1|11}=0, and how does the picture compare with the earlier
+%   sufficient conditions?
+%
+% Job (70--90 words, plus the simplified criterion; paragraph to be drafted):
+%   Explain time scaling in ordinary terms: multiplying every flip rate by
+%   the same positive constant changes only the speed of the process.
+%   Normalize the largest of the four flip rates to one. Together with
+%   exchange of states, this reduces the problem to the faces
+%       p_{1|11}=0  or  p_{1|10}=0.
+%   Cite GluchowskiMenz2025 for this reduction and for ergodicity throughout
+%   the positive-rate part of the second face. Thus focus on p_{1|11}=0.
+%   A zero update probability here is compatible with positive flip rates:
+%   p_{1|11}=0 means a 1 flips to 0 at rate one when its neighbour is 1.
+%   On this face the new condition reads
+%       p_{1|00} <= (1-p_{1|10})p_{1|01}.
+%   Refer to fig:simple-ips-ergodicity-regions: it compares the earlier
+%   criteria with this condition on the two slices p_{1|00}=1/100 and 1/10.
+%
+% Scope:
+%   Explain the normalization here, before asking the reader to interpret
+%   the figure. The new coverage is relative to the earlier regions
+%   displayed there. Leave the detailed colour key to the caption.
+% ============================================================================
+
+% ============================================================================
+% BLURB E. A self-contained figure caption
+%
+% Reader question:
+%   What do the axes, slices and colours mean?
+%
+% Job (about 90 words; existing caption below is a working draft):
+%   Identify p_{1|11}=0, the horizontal coordinate p_{1|10}, the vertical
+%   coordinate p_{1|01}, and the left/right slices p_{1|00}=1/100 and 1/10.
+%   Give the regions in the original parameter notation:
+%     Gray, GluchowskiMenz2025:
+%       p_{1|10}<1/2 or p_{1|10}<p_{1|01}+p_{1|00}
+%       or p_{1|01}<=p_{1|00}.
+%     Red, the additional region from GluchowskiMenz2026:
+%       max{p_{1|01},p_{1|00}}<sqrt(2)(1-p_{1|10}), outside gray.
+%     Blue, the additional region from the present corollary:
+%       p_{1|00}<=(1-p_{1|10})p_{1|01}, outside gray and red.
+%   White means not covered by the displayed criteria. State that shading
+%   shows the regions up to their boundaries and that positive flip rates
+%   are assumed. Credit Figure 3 of the arXiv source of GluchowskiMenz2026
+%   for the figure format.
+%
+% Exposition:
+%   The caption should be understandable without reading the earlier papers.
+%   Keep the explanation of time scaling in D; use the caption for reading
+%   the figure. The graph legend and the caption must use the same colours.
+% ============================================================================
 
 \begin{figure}[htbp]
 \centering
