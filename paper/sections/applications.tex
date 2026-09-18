@@ -431,6 +431,58 @@ Corollary~\ref{cor:uniform-ergodicity}.
 For FA-1f, the choice~$\mb s=\mb p$ is the usual soft FA-1f perturbation, up
 to a deterministic rescaling of time.
 
+\begingroup
+\color{red}
+\subsection{Positive rates for simple spin systems}
+\label{subsec:simple-positive-rates}
+
+Consider a translation-invariant spin system on~$\Z$ with~$N(i)=\cb{i+1}$.
+Write~$p_{1\mid ab}$ for the probability of choosing state~$1$ at a rate-one
+update when the current spin is~$a$ and its neighbour is~$b$. The positive
+rates conjecture for these simple systems asks whether
+$p_{1\mid11},p_{1\mid10}<1$ and~$p_{1\mid01},p_{1\mid00}>0$ imply ergodicity;
+see~\cite{GluchowskiMenz2025,GluchowskiMenz2026}.
+Corollary~\ref{cor:oriented-ergodicity} gives uniform ergodicity whenever
+\begin{equation}
+\label{eq:simple-positive-rates-criterion}
+p_{1\mid01}(1-p_{1\mid10})
+\geq p_{1\mid00}(1-p_{1\mid11}).
+\end{equation}
+Indeed, in refresh notation,
+\begin{equation*}
+\lambda(b)=p_{1\mid0b}+1-p_{1\mid1b},
+\qquad
+\rho(b)=\frac{p_{1\mid0b}}{\lambda(b)}.
+\end{equation*}
+Exchanging the two states if necessary gives~$\lambda(1)\leq\lambda(0)$,
+while~\eqref{eq:simple-positive-rates-criterion} is unchanged and implies
+\begin{equation*}
+\rho(1)-\rho(0)
+=\frac{p_{1\mid01}(1-p_{1\mid10})-p_{1\mid00}(1-p_{1\mid11})}
+{\lambda(0)\lambda(1)}\geq0.
+\end{equation*}
+These are precisely the two conditions
+in~\eqref{eq:principal-coefficient-criterion} for a one-site neighbourhood.
+Positive rates supply uniform pure deaths, and the neighbourhood graph is
+orientable and has polynomial growth, so the corollary applies.
+
+\begin{figure}[htbp]
+\centering
+\input{paper/figures/simple-ips-ergodicity-regions}
+\caption{\textcolor{red}{Sections of~$p_{1\mid11}=0$, adapting the figure
+format and earlier regions from~\cite[arXiv version, Figure~3]{GluchowskiMenz2026}.
+Gray shows~$x<1/2$ or~$x<y+z$ or~$y\leq z$; red adds
+$\max\cb{y,z}<\sqrt2(1-x)$, where~$x=p_{1\mid10}$,
+$y=p_{1\mid01}$ and~$z=p_{1\mid00}$.
+Blue adds~$z\leq(1-x)y$, the region
+from~\eqref{eq:simple-positive-rates-criterion} outside those earlier
+regions. Shading depicts regions up to their boundaries; the positive-rate
+assumptions require~$x<1$ and~$y,z>0$.
+White denotes parameters not covered by the displayed criteria.}}
+\label{fig:simple-ips-ergodicity-regions}
+\end{figure}
+\endgroup
+
 % ============================================================================
 % PREVIOUS VERSION, HIDDEN DURING SECTION REVISION
 % ============================================================================

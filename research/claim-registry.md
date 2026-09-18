@@ -38,6 +38,18 @@ Source: `paper/sections/spin-systems.tex`, Definition `def:orientability`; `pape
 
 Basis: principal-requested manuscript addition, marked in red for review. The proof is complete through blurb E: boundary preservation of the original centered-moment cone, finite-volume burn-in, compactness and Theorem C give convergence uniformly over initial configurations. The boundary-preservation lemma is proved in the appendix. At the principal's request, the separate exponential-rate strengthening and its auxiliary coupling lemma have been removed from the manuscript. The earlier proof draft remains in Git history at commit `3b81172c2d3c29ab997062aa2d1e0694d125187d`. Independent correctness and novelty audits are not recorded for this addition.
 
+### PATCH-SIMPLE-001
+
+Status: `claimed`
+
+Claim: a translation-invariant binary spin system on Z with one-sided nearest-neighbour dependence and positive flip rates is uniformly ergodic on local observables if `p_{1|01}(1-p_{1|10}) >= p_{1|00}(1-p_{1|11})`. On the normalized face `p_{1|11}=0`, writing `(x,y,z)=(p_{1|10},p_{1|01},p_{1|00})`, this is `z <= (1-x)y`.
+
+Source: `paper/sections/applications.tex`, subsection `subsec:simple-positive-rates`; `paper/figures/simple-ips-ergodicity-regions.tex`.
+
+Basis: the singleton-neighbourhood coefficient criterion, followed by `PATCH-ORIENT-001`. A global exchange of states permits `lambda(1)<=lambda(0)` and preserves the determinant inequality, which is equivalent to `rho(1)>=rho(0)`. Positive flip rates supply uniform pure deaths. This is a manuscript application under review, not a separate independently audited theorem.
+
+Figure comparison: adapted from Figure 3 in the source of arXiv:2508.08459v1. Gray is `x<1/2` or `x<y+z` or `y<=z`; red adds `max(y,z)<sqrt(2)(1-x)`; blue is the part of `z<=(1-x)y` outside that union. Exact intersections replace the original rounded vertices. The two slices are `z=1/100` and `z=1/10`; no application at zero rates is asserted. Additional coverage is relative to these displayed criteria, without a claim to exhaust all earlier methods. No exponential convergence rate is asserted for the added region.
+
 ## Verified BABP mathematics retained for reuse
 
 ### BABP-EDGE-001
