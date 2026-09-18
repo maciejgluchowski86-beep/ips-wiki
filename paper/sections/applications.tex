@@ -28,6 +28,12 @@ monotone in the usual configuration order. We then use FA-1f and BABP to
 illustrate the centered-moment comparison and the convergence results proved
 above.
 
+\textcolor{revisionpurple}{[Revision note: revise this section overview to list
+East separately. Its role is different from generic FA-1f: patch positivity is
+the same local calculation, but the one-sided East neighbourhood is orientable,
+so the new orientability corollary yields a stronger ergodicity conclusion.
+The section structure should make that extra payoff visible.]}
+
 % ============================================================================
 % BLURB B. FA-1f as the canonical KCSM example
 %
@@ -71,6 +77,15 @@ Moreover,
 {\widehat{\lambda_i}\bb{N(i)}}=p,
 \end{equation*}
 so its patch threshold profile is~$\mb p^\star=\mb p$.
+
+\textcolor{revisionpurple}{[Revision note: add a short East paragraph or
+subsection immediately after the FA-1f calculation. Take the one-sided
+neighbourhood~$N(i)=\cb{i+1}$ (up to orientation convention), identify the East
+model as the corresponding one-neighbour constrained refresh, and record that
+the same coefficient calculation gives patch positivity with threshold~$p$.
+Then point forward to the perturbed-model result, where orientability removes
+the restriction~$p\leq1/2$. This should avoid forcing the reader to infer East
+as a hidden special case of the general FA-1f notation.]}
 
 \begin{remark}
 Patch positivity does not hold for all KCSMs with monotone constraints. For
@@ -319,10 +334,14 @@ for every local function~$f$ and~$t\geq0$.
 \end{proposition}
 
 \textcolor{revisionpurple}{[Revision note: add an orientability conclusion to
-Proposition~\ref{prop:fa-babp-consequences}. Under part~\textup{(ii)},
+Proposition~\ref{prop:fa-babp-consequences}, and make the East consequence
+explicit rather than leaving it as an aside. Under part~\textup{(ii)},
 Corollary~\ref{cor:oriented-ergodicity} gives convergence uniformly over
 initial configurations on orientable neighbourhood graphs for every
-$p\in(0,1)$. This includes the perturbed East model.]}
+$p\in(0,1)$. For the one-sided East neighbourhood this applies for every~$p$,
+so the perturbed East model is uniformly ergodic even when~$p>1/2$. Consider
+stating this as a separate East corollary or paragraph immediately after the
+proposition.]}
 
 \begin{proof}
 At site~$i$, the perturbed dynamics have refresh rate and refresh parameter
@@ -470,6 +489,12 @@ p_{1\mid01},p_{1\mid00}>0.
 The positive rates conjecture for simple systems asserts that every such
 system is ergodic. Earlier sufficient conditions establish this for parts
 of the parameter space~\cite{GluchowskiMenz2025,GluchowskiMenz2026}.
+
+\textcolor{revisionpurple}{[Revision note: briefly connect this one-sided
+positive-rates application back to East. A softened/perturbed East process is a
+canonical one-sided positive-rates model, so naming it here would explain why
+the orientability theorem simultaneously strengthens the KCSM application and
+produces new coverage for the simple positive-rates problem.]}
 
 % ============================================================================
 % BLURB B. The additional sufficient condition
