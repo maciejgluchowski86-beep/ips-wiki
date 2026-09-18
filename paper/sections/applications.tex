@@ -563,7 +563,8 @@ polynomial growth, so Corollary~\ref{cor:oriented-ergodicity} applies.
 %   On this face the new condition reads
 %       p_{1|00} <= (1-p_{1|10})p_{1|01}.
 %   Refer to fig:simple-ips-ergodicity-regions: it compares the earlier
-%   criteria with this condition on the two slices p_{1|00}=1/100 and 1/10.
+%   criteria with this condition on the three slices
+%   p_{1|00}=1/100, 1/8 and 1/4.
 %
 % Scope:
 %   Explain the normalization here, before asking the reader to interpret
@@ -579,7 +580,7 @@ On this face,~\eqref{eq:simple-positive-rates-criterion} becomes
 \begin{equation*}
 p_{1\mid00}\leq(1-p_{1\mid10})p_{1\mid01}.
 \end{equation*}
-Figure~\ref{fig:simple-ips-ergodicity-regions} shows two sections where
+Figure~\ref{fig:simple-ips-ergodicity-regions} shows three sections where
 this condition extends the regions covered by the earlier criteria.
 
 % ============================================================================
@@ -590,15 +591,17 @@ this condition extends the regions covered by the earlier criteria.
 %
 % Job (about 90 words, plus the region inequalities):
 %   Identify p_{1|11}=0, the horizontal coordinate p_{1|10}, the vertical
-%   coordinate p_{1|01}, and the left/right slices p_{1|00}=1/100 and 1/10.
+%   coordinate p_{1|01}, and the upper-left, upper-right, lower-left slices
+%   p_{1|00}=1/100, 1/8, 1/4.
 %   Give the regions in the original parameter notation:
-%     Gray, GluchowskiMenz2025:
+%     Light gray, GluchowskiMenz2025:
 %       p_{1|10}<1/2 or p_{1|10}<p_{1|01}+p_{1|00}
 %       or p_{1|01}<=p_{1|00}.
-%     Red, the additional region from GluchowskiMenz2026:
+%     Dark gray, the additional region from GluchowskiMenz2026:
 %       max{p_{1|01},p_{1|00}}<sqrt(2)(1-p_{1|10}), outside gray.
-%     Blue, the additional region from the present corollary:
+%     Red, the additional region from the present corollary:
 %       p_{1|00}<=(1-p_{1|10})p_{1|01}, outside gray and red.
+%   The red region is empty when p_{1|00}=1/4.
 %   White means not covered by the displayed criteria. State that shading
 %   shows the regions up to their boundaries and that positive flip rates
 %   are assumed. Credit Figure 3 of the arXiv source of GluchowskiMenz2026
@@ -613,13 +616,13 @@ this condition extends the regions covered by the earlier criteria.
 \begin{figure}[htbp]
 \centering
 \input{paper/figures/simple-ips-ergodicity-regions}
-\caption{{Sections of the cube~$\cb{p_{1\mid11}=0, p_{1\mid xy}\in[0,1] \text{ for }xy\neq 11}$. The parameter~$p_{1\mid10}$ varies on~$X$-axis and~$p_{1\mid01}$ on~$Y$-axis. The left figure corresponds to the slice~$p_{1\mid00}=1/100$, and the right to~$p_{1\mid 00} = 1/10$.
+\caption{{Sections of the cube~$\cb{p_{1\mid11}=0, p_{1\mid xy}\in[0,1] \text{ for }xy\neq 11}$. The parameter~$p_{1\mid10}$ varies on~$X$-axis and~$p_{1\mid01}$ on~$Y$-axis. The upper-left, upper-right and lower-left panels correspond to~$p_{1\mid00}=1/100$,~$1/8$ and~$1/4$, respectively.
 Each colored region represents part of the parameter space where the conjecture has been proven. Light gray corresponds to results from~\cite{GluchowskiMenz2025}, and is given by~$p_{1\mid10}<1/2$ or~$p_{1\mid10}<p_{1\mid01}+p_{1\mid00}$
 or~$p_{1\mid01}\leq p_{1\mid00}$.
-Dark gray corresponds to result 
+Dark gray corresponds to result
 from~\cite{GluchowskiMenz2026}, and is given by~$\max\cb{p_{1\mid01},p_{1\mid00}}<\sqrt2(1-p_{1\mid10})$. In red the region~$p_{1\mid00}\leq(1-p_{1\mid10})p_{1\mid01}$ from
 Corollary~\ref{cor:oriented-ergodicity}.
-White denotes parameters not covered by these criteria. Order of overlay is chronological, so red region demonstrates the progress. Corollary~\ref{cor:oriented-ergodicity} becomes strongest when rate of spontaneous births,~$p_{1\mid 00}$ is low.}}
+White denotes parameters not covered by these criteria. The red region is empty in the~$1/4$ slice. Order of overlay is chronological, so red region demonstrates the progress. Corollary~\ref{cor:oriented-ergodicity} becomes strongest when rate of spontaneous births,~$p_{1\mid 00}$ is low.}}
 \label{fig:simple-ips-ergodicity-regions}
 \end{figure}
 \endgroup
