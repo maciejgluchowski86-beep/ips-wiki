@@ -21,9 +21,7 @@ where~$\Lambda$ is the set of sites representing space and only one spin is
 updated at a time. The update at a site may depend on nearby spins, which
 is how the sites interact. We are interested in how these local rules determine
 the dependence of the long-time behaviour of the system on the initial
-conditions.
-
-\gm{Standard textbook references missing Liggets book.}
+conditions\textcolor{red}{~\cite{Liggett1985}}.
 
 % ============================================================================
 % BLURB B. Why monotonicity matters
@@ -48,14 +46,13 @@ conditions.
 
 One of the main tools for such questions is monotonicity. The configuration
 space has the usual coordinatewise order: $\eta\leq\xi$ if
-$\eta(i)\leq\xi(i)$ at every site. A spin system is monotone if processes
-started from~$\eta\leq\xi$ can be coupled so that the same order holds at all
-later times. This gives direct comparisons between different initial
+$\eta(i)\leq\xi(i)$ at every site. A spin system is monotone\textcolor{red}{ (traditionally called attractive in
+the IPS literature)} if processes started from~$\eta\leq\xi$ can be coupled so
+that the same order holds at all later times. This gives direct comparisons between different initial
 conditions. The same idea can often also be used to compare systems with
 different transition rules. Such comparisons are basic tools for studying
-dependence on the initial condition, invariant measures and convergence.
-
-\gm{also reference missing to standard textbook or overview article}
+dependence on the initial condition, invariant measures and
+convergence\textcolor{red}{~\cite{Liggett1985,Harris1977}}.
 
 % ============================================================================
 % BLURB C. KCSMs as the motivating research class
@@ -79,35 +76,34 @@ dependence on the initial condition, invariant measures and convergence.
 %   literature, not defining its own isolated universe.
 % ============================================================================
 
-Kinetically constrained spin models (KCSMs) are spin systems constructed so
-that their equilibrium measure is a Bernoulli product measure, with all spins independent, while the
-dynamics is interacting through local constraints.
+\textcolor{red}{Kinetically constrained spin models (KCSMs) are spin systems in
+which a site may update only when a local kinetic constraint is satisfied. In
+the standard models, a legal update refreshes the spin from a fixed Bernoulli
+law, so the associated Bernoulli product measure is invariant even though the
+dynamics is interacting~\cite{FredricksonAndersen1984,CancriniEtAl2008,HartarskyToninelli2025}.}
 
-\gm{not sure if I would characterice KCSM in this way. Also references who inroduced them and standard references for KCSM}
-
-
-At an update
-attempt, the spin at a site is refreshed from the one-site Bernoulli equilibrium
-law only if a constraint determined by neighbouring spins is satisfied. 
-
-\gm{add simple example what that constraint could be here it is too general. }
+\textcolor{red}{For example, one may allow an update only when at least one
+neighbouring site is vacant.}
 
 We use
 the standard convention that vacancy, denoted~$0$, is a facilitating state. 
 
 
 
-The
-constraint is monotone with respect to vacancies: adding vacancies can make an
-update legal but cannot make a legal update illegal.
-
-\gm{is that standard convention for KSCMs or a special subclass.}
+\textcolor{red}{With the standard KCSM convention used here, the constraint is
+monotone with respect to vacancies: adding vacancies can make an update legal
+but cannot make a legal update
+illegal~\cite{CancriniEtAl2008,HartarskyToninelli2025}.}
 
 
 These constraints can make
-relaxation very slow and lead to glassy dynamics~\cite{CancriniEtAl2008,HartarskyToninelli2025}. The East and FA-1f models
-are standard examples. 
-\gm{not clear if we need to introduce them, at least point to the definition later.}
+relaxation very slow and lead to glassy
+dynamics~\cite{CancriniEtAl2008,HartarskyToninelli2025}.
+\textcolor{red}{The East model, in which a specified neighbouring vacancy
+facilitates an update, and the Fredrickson--Andersen one-spin facilitated model
+(FA-1f), in which any neighbouring vacancy suffices, are standard
+examples~\cite{FredricksonAndersen1984,HartarskyToninelli2025}. FA-1f is
+treated explicitly in Section~\ref{subsec:fa-1f-applications}.}
 
 % ============================================================================
 % BLURB D. Monotone constraints do not imply monotone dynamics
@@ -189,10 +185,11 @@ probability~$\rho_i$ and~$0$ otherwise, where~$\rho_i$ may also depend on the
 neighbouring spins. Every spin system can be parametrized in this form. For a
 standard KCSM, the refresh parameter is fixed, and the refresh rate is the
 kinetic constraint. We identify a condition on these general local update
-rules, called \emph{patch positivity}, which retains part of the constraining
+rules, called \emph{patch positivity}\textcolor{red}{, defined formally in
+Section~\ref{sec:main-results}}, which retains part of the constraining
 structure of KCSMs.
 
-\gm{good try but we can formulate it better. I will think about it. We also need to refer the the Definition of patch positivity}
+\gm{good try but we can formulate it better. I will think about it.}
 
 
 % ============================================================================
@@ -242,12 +239,17 @@ stronger and also controls higher-order effects of the neighbouring spins. \gm{N
 % ============================================================================
 
 The examples place patch positivity relative to familiar spin systems. East
-and FA-1f are patch-positive, so the class contains standard KCSMs. It is not,
+and FA-1f are patch-positive\textcolor{red}{ (for FA-1f, see
+Proposition~\ref{prop:fa-1f-patch-positivity})}, so the class contains standard
+KCSMs. It is not,
 however, a class of all KCSMs: cooperative models, like FA-jf, for~$j\geq 2$, in which a site can update only when at
 least~$j$ neighbours are vacant, are not patch-positive. The framework also
-extends beyond KCSMs. BABP and the contact process are also patch-positive, although the latter is also monotone in the
-usual configuration order, where the standard monotone coupling gives stronger
-comparisons. Thus patch positivity picks out a rate structure shared by some
+extends beyond KCSMs. \textcolor{red}{The biased annihilating branching
+process (BABP)~\cite{NeuhauserSudbury1993}, see
+Proposition~\ref{prop:babp-patch-positivity}, and the contact
+process~\cite{Harris1974}} are also patch-positive, although the latter is also
+monotone in the usual configuration order, where the standard monotone coupling
+gives stronger comparisons. Thus patch positivity picks out a rate structure shared by some
 KCSMs and by spin systems outside the KCSM class.
 
 % ============================================================================
@@ -267,7 +269,9 @@ KCSMs and by spin systems outside the KCSM class.
 The comparison principle takes the form of a new order on probability laws,
 which we call the \emph{centered-moment order}. Our main structural result is
 that the semigroup of every patch-positive spin system preserves this order for
-arbitrary initial laws. Thus a form of monotonicity lost at the configuration
+arbitrary initial laws\textcolor{red}{; see
+Theorem~\ref{thm:patch-positivity-order}}. Thus a form of monotonicity lost at
+the configuration
 level reappears at the level of laws.
 
 % ============================================================================
@@ -304,7 +308,9 @@ determined by its local refresh rule. For each finite set of sites~$A$, consider
 For probability laws~$\mu$ and~$\nu$, we write~$\mu\preceq_*\nu$ when
 $\mu(\chi_A^*)\leq\nu(\chi_A^*)$ for every finite~$A$. In other words, the
 order compares all finite products of spins centered at this system-dependent
-reference profile. Semigroup of a patch-positive spin system preserves this order.
+reference profile. Semigroup of a patch-positive spin system preserves this
+order\textcolor{red}{, as stated in
+Theorem~\ref{thm:patch-positivity-order}}.
 
 % ============================================================================
 % BLURB K. Consequences
@@ -326,20 +332,23 @@ reference profile. Semigroup of a patch-positive spin system preserves this orde
 % ============================================================================
 
 These results have two main consequences. First, the centered-moment order gives
-comparisons between non-monotone dynamics. In particular, we obtain a comparison principle between systems differing by rate of pure deaths, meaning
-environment-independent transitions from~$1$ to~$0$. \gm{not clear what is meant with comparison principle also missing reference to the statement.} Second, when pure deaths
-occur at a uniform positive rate, the patch representation yields convergence
-to a common invariant law for a broad class of initial laws. If the additional
-condition~$\mb p^\star\leq \mbs{\frac{1}{2}}$ holds, the system is uniformly exponentially ergodic. \gm{same reference to the statement missing.} The
-convergence argument does not assume reversibility and does not require the
-invariant law to be identified in advance. 
-
-\textcolor{revisionpurple}{[Revision note: extend this paragraph to include
-Corollary~\ref{cor:oriented-ergodicity}. Under the same polynomial-growth
-and uniform-death assumptions, orientability gives convergence uniformly
-over initial configurations for every patch threshold.
-The additional argument uses preservation of nonnegative centered moments
-under prescribed boundary paths and a finite-volume burn-in period.]}
+comparisons between non-monotone dynamics. \textcolor{red}{In particular,
+under the hypotheses of Corollary~\ref{cor:pure-death-comparison}, adding
+environment-independent transitions from~$1$ to~$0$ can only decrease finite
+spin-product expectations relative to the system with those transitions
+removed.} Second, when pure deaths occur at a uniform positive rate, the patch
+representation yields convergence to a common invariant law for a broad class
+of initial laws\textcolor{red}{; see
+Theorem~\ref{thm:common-invariant-limit}}. If the additional
+condition~$\mb p^\star\leq \mbs{\frac{1}{2}}$ holds, the system is uniformly
+exponentially ergodic\textcolor{red}{; see
+Corollary~\ref{cor:uniform-ergodicity}}. \textcolor{red}{Alternatively, under
+the hypotheses of Theorem~\ref{thm:common-invariant-limit}, orientability of
+the neighbourhood graph yields uniform ergodicity without the restriction
+$\mb p^\star\leq\mbs{\frac12}$; see
+Corollary~\ref{cor:oriented-ergodicity}.} The convergence argument does not
+assume reversibility and does not require the invariant law to be identified in
+advance.
 
 % ============================================================================
 % BLURB L. Signed duality and patches
@@ -354,6 +363,10 @@ under prescribed boundary paths and a finite-volume burn-in period.]}
 %   events that pass dependence between sites. Once this record is fixed, the
 %   remaining randomness separates between patches and can be averaged locally.
 % ============================================================================
+
+\textcolor{red}{Theorem~\ref{thm:patch-representation} gives a patch
+representation for the spin systems considered here, and this representation
+underlies the comparison results above.}
 
 The method is as follows {\gm refomrulate not clear what is done here...method for what? For a proof of our main results? Ok, I see here you try to explain what means pathces and patch postivity....paragraph needs to be rewritten, or maybe it should not be in the introduction at all.}: write~$P_t$ for the Markov semigroup and, for a finite set~$A$, let
 \begin{equation*}
