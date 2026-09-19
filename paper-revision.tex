@@ -29,8 +29,8 @@ We describe the dynamics through a neighbourhood-dependent update rate and
 refresh parameter, which directly extends the usual KCSM formulation. We also give examples of spin models that are particularly relevant to this article. For a comprehensive introduction to spin systems, with proofs of existence and basic properties, we point to~\cite{Liggett1985}.
 
 Let~$\Lambda$ be a countable set of sites and let
-$\Omega=\cb{0,1}^{\Lambda}$ be the configuration space. For each~$i\in\Lambda$,
-fix a finite neighbourhood~$N(i)\subseteq\Lambda\setminus\cb{i}$ and assume
+$\Omega=\cb{0,1}^{\Lambda}$ be the configuration space. We write~$\cdot \Subset \Lambda$ for a finite set of sites. For each~$i\in\Lambda$,
+fix a  neighbourhood~$N(i)\Subset\Lambda\setminus\cb{i}$ and assume
 \begin{equation*}
 \sup_{i\in\Lambda}\abs{N(i)}<\infty.
 \end{equation*}
@@ -324,7 +324,7 @@ N_*(\bar A\cup U)=\bar A\cup U.
 The neighbourhood graph of the East model is orientable: for any~$A\Subset\Lambda$ one can take~$\bar A = I^d$ for sufficiently large interval~$I$ and~$U = (I + \N)^d$. 
 \end{example}
 
-Write~$A\Subset\Lambda$ when~$A$ is finite. For~$A\Subset\Lambda$, define
+For~$A\Subset\Lambda$, define the monomial
 \begin{equation*}
 \chi_A(\eta)
 :=
@@ -332,15 +332,9 @@ Write~$A\Subset\Lambda$ when~$A$ is finite. For~$A\Subset\Lambda$, define
 \qquad
 \chi_\vn:=1.
 \end{equation*}
-If~$F\Subset\Lambda$, then~$\cb{\chi_A:A\subseteq F}$ is a basis for the
-functions depending only on the spins in~$F$. For a profile
-$\mb p=(p_i)_{i\in\Lambda}\in[0,1]^\Lambda$, let~$\mu_{\mb p}$ denote the
-Bernoulli product measure satisfying
-\begin{equation*}
-\mu_{\mb p}\bb{\eta(i)=1}=p_i
-\qquad
-\text{for every }i\in\Lambda.
-\end{equation*}
+If~$F\subseteq\Lambda$, then~$\cb{\chi_A:A\Subset F}$ is a basis for the local
+functions depending only on coordinates in~$F$. For a profile
+$\mb p=(p_i)_{i\in\Lambda}\in[0,1]^\Lambda$, let~$\mu_{\mb p} = \otimes_{i\in\Lambda}\operatorname{Ber}(p)$.
 For a constant profile, write~$\mu_p$.
 
 Every function~$g$ depending only on the spins in~$N(i)$ has a unique
