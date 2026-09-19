@@ -370,6 +370,81 @@ nonempty~$S\subseteq N(i)$,
 \end{equation}
 \end{definition}
 
+\begin{definition}[Threshold profile]
+For a patch-positive spin system, define~$\mb p^\star=(p_i^\star)_{i\in\Lambda}$ by
+\begin{equation}
+\label{eq:threshold-profile}
+p_i^\star
+=
+\max\bb{
+\cb{0}
+\cup
+\cb{
+\frac{\widehat{\lambda_i\rho_i}(S)}
+{\widehat{\lambda_i}(S)}
+:
+\vn\neq S\subseteq N(i),\ 
+\widehat{\lambda_i}(S)<0
+}
+}.
+\end{equation}
+We call~$\mb p^\star$ the \emph{threshold profile}.
+\end{definition}
+
+Equivalently,~$p_i^\star$ is the smallest~$p\in[0,1]$ such that
+\begin{equation}
+\label{eq:threshold-minimality}
+\widehat{\lambda_i\rho_i}(S)
+-
+p\,\widehat{\lambda_i}(S)
+\geq0
+\qquad
+\text{for every nonempty }S\subseteq N(i).
+\end{equation}
+Indeed, when~$\widehat{\lambda_i}(S)<0$, this inequality is equivalent to
+$p\geq\widehat{\lambda_i\rho_i}(S)/\widehat{\lambda_i}(S)$, while when
+$\widehat{\lambda_i}(S)=0$ it follows from patch positivity. In particular,
+\eqref{eq:patch-positivity} implies
+\begin{equation*}
+p_i^\star\leq\rho_i(\mb 0).
+\end{equation*}
+
+The threshold profile determines the centering used in our order.
+
+\begin{definition}[Centered monomial order]
+For~$A\Subset\Lambda$, define the centered monomial
+\begin{equation*}
+\chi_A^\star(\eta)
+=
+\prod_{i\in A}\bb{\eta(i)-p_i^\star},
+\qquad
+\chi_\vn^\star=1.
+\end{equation*}
+For probability measures~$\mu$ and~$\nu$ on~$\Omega$, write
+\begin{equation*}
+\mu\preceq_\star\nu
+\end{equation*}
+if
+\begin{equation}
+\label{eq:centered-monomial-order}
+\mu\bb{\chi_A^\star}
+\leq
+\nu\bb{\chi_A^\star}
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation}
+We also define
+\begin{equation}
+\label{eq:m-star-definition-revision}
+\mathcal M_\star
+=
+\cb{
+\mu:
+\mu\bb{\chi_A^\star}\geq0
+\text{ for every }A\Subset\Lambda
+}.
+\end{equation}
+\end{definition}
 
 \section{Applications}
 \label{sec:applications}
