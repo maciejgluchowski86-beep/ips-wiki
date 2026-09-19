@@ -229,6 +229,61 @@ p_{1\mid0\eta(i+1)}+1-p_{1\mid1\eta(i+1)},
 when~$\lambda_i(\eta)>0$; again, if~$\lambda_i(\eta)=0$ then~$\rho_i(\eta)$ is irrelevant.
 \end{example}
 
+We will also consider spin systems obtained by adding independent refreshes to
+the dynamics. These perturbations will be used both in the comparison results
+and in the convergence theorems.
+
+\begin{definition}[Independent refresh noise]
+For~$\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$ and~$\varepsilon\geq0$, define
+\begin{equation*}
+\Ncal^{\mb s}f
+=
+\sum_{i\in\Lambda}\bb{E_{i,s_i}-I}f,
+\qquad
+\Lcal^{\varepsilon,\mb s}
+=
+\Lcal+\varepsilon\Ncal^{\mb s}.
+\end{equation*}
+The generator~$\Lcal^{\varepsilon,\mb s}$ is again of the form
+\eqref{eq:spin-generator-revision}, with update rate and refresh parameter
+\begin{equation*}
+\lambda_i^{\varepsilon,\mb s}
+=
+\lambda_i+\varepsilon,
+\qquad
+\rho_i^{\varepsilon,\mb s}
+=
+\frac{\lambda_i\rho_i+\varepsilon s_i}
+{\lambda_i+\varepsilon}.
+\end{equation*}
+\end{definition}
+
+The special case~$\mb s=\mb 0$ adds independent transitions from~$1$ to~$0$.
+
+\begin{definition}[Pure-death component]
+We say that~$\Lcal$ contains a pure-death component of rate~$\varepsilon>0$ if
+there is another spin-system generator~$\widetilde\Lcal$ such that
+\begin{equation}
+\label{eq:pure-death-component-revision}
+\Lcal
+=
+\widetilde\Lcal
++
+\varepsilon\Ncal^{\mb 0}.
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Equivalently, the~$1\to0$ transition rate is at least~$\varepsilon$ at every
+site and in every configuration:
+\begin{equation*}
+c_i(\eta^{i,1})
+=
+\lambda_i(\eta)\bb{1-\rho_i(\eta)}
+\geq\varepsilon.
+\end{equation*}
+\end{remark}
+
 \section{Main results}
 
 \section{Applications}
