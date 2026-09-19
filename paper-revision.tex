@@ -427,40 +427,13 @@ We also define
 \end{equation}
 \end{definition}
 
-\begin{example}[Product measures]
-For a profile~$\mb p\in[0,1]^\Lambda$,
-\begin{equation*}
-\mu_{\mb p}\bb{\chi_A^\star}
-=
-\prod_{i\in A}\bb{p_i-p_i^\star}.
-\end{equation*}
-Hence~$\mu_{\mb p}\in\mathcal M_\star$ if and only if
-$\mb p\geq\mb p^\star$. Moreover, if
-\begin{equation*}
-\mb p^\star\leq\mb p\leq\mb q,
-\end{equation*}
-then
-\begin{equation*}
-\mu_{\mb p}\preceq_\star\mu_{\mb q}.
-\end{equation*}
-\end{example}
+To understand this order it is useful to see how it compares the product measures. If~$\mb p^\star\leq\mb p\leq\mb q$, then~$\mu_{\mb p^*}\preceq_* \mu_{\mb p}\preceq_* \mu_{\mb q}$. Product measures with profiles that stray below~$\mb p^*$ are not comparable in the order.
+
 
 \begin{remark}
 The measure~$\mu_{\mb p^\star}$ is the minimum of~$\mathcal M_\star$ under
 $\preceq_\star$, since all of its nonconstant centered monomials have
-expectation zero. In general~$\mathcal M_\star$ need not have a maximum. If
-\begin{equation*}
-\mb p^\star\leq\mbs{\tfrac12},
-\end{equation*}
-then~$\mu_{\mb 1}$ is a maximum: for every~$A\Subset\Lambda$ and
-$\eta\in\Omega$,
-\begin{equation*}
-\chi_A^\star(\eta)
-\leq
-\prod_{i\in A}\bb{1-p_i^\star}
-=
-\mu_{\mb 1}\bb{\chi_A^\star}.
-\end{equation*}
+expectation zero. In general~$\mathcal M_\star$ need not have a maximum. If~$\mb p^\star\leq\mbs{\tfrac12}$ then~$\mu_{\mb 1}$ is a maximum.
 \end{remark}
 
 \section{Applications}
