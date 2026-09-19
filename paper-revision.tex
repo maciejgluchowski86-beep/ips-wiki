@@ -401,14 +401,10 @@ For~$A\Subset\Lambda$, define the centered monomial
 \qquad
 \chi_\vn^\star=1.
 \end{equation*}
-For probability measures~$\mu$ and~$\nu$ on~$\Omega$, write
-\begin{equation*}
-\mu\preceq_\star\nu
-\end{equation*}
-if
+For probability measures~$\mu$ and~$\nu$ on~$\Omega$, we set
 \begin{equation}
 \label{eq:centered-monomial-order}
-\mu\bb{\chi_A^\star}
+\mu\preceq_\star\nu \qquad \iff \quad \mu\bb{\chi_A^\star}
 \leq
 \nu\bb{\chi_A^\star}
 \qquad
@@ -438,13 +434,7 @@ expectation zero. In general~$\mathcal M_\star$ need not have a maximum. If~$\mb
 
 \begin{theorem}[Centered monomial monotonicity]
 \label{thm:centered-monomial-monotonicity}
-Suppose that the spin system is patch-positive. If~$\mu\preceq_\star\nu$, then
-\begin{equation}
-\label{eq:centered-monomial-monotonicity}
-\mu P_t\preceq_\star\nu P_t
-\qquad
-\text{for every }t\geq0.
-\end{equation}
+Suppose that the spin system is patch-positive. If~$\mu$ and~$\nu$ are signed measures on~$\Omega$ and~$\mu\preceq_\star\nu$, then~$\mu P_t\preceq_\star\nu P_t$ for every~$t\geq 0$.
 Moreover,~$P_t$ preserves~$\mathcal M_\star$. The centered monomial order also
 implies the corresponding order for ordinary monomials: if
 $\mu\preceq_\star\nu$, then
@@ -458,14 +448,14 @@ $\mu\preceq_\star\nu$, then
 \end{equation}
 \end{theorem}
 
-The theorem gives canonical monotone evolutions at the bottom of
+The theorem gives monotone evolution at the bottom of
 $\mathcal M_\star$, and also at the top whenever a maximum exists.
 
 \begin{corollary}[Extremal limits and comparison]
 \label{cor:extremal-limits-comparison}
 Suppose that the spin system is patch-positive.
 \begin{enumerate}[label=\textup{(\roman*)}]
-\item The family~$\mu_{\mb p^\star}P_t$ is increasing in~$t$ under
+\item The sequence~$\mu_{\mb p^\star}P_t$ is increasing in~$t$ under
 $\preceq_\star$ and converges weakly to an invariant measure~$\pi^-\in\mathcal M_\star$.
 
 \item If~$\mb p^\star\leq\mbs{\tfrac12}$, then
@@ -477,20 +467,7 @@ weakly to an invariant measure~$\pi^+\in\mathcal M_\star$.
 \underline\mu\preceq_\star\mu\preceq_\star\overline\mu
 \end{equation*}
 and that both~$\underline\mu P_t$ and~$\overline\mu P_t$ converge weakly to
-the same probability measure~$\pi$. Then~$\mu P_t\Rightarrow\pi$.
-If, for some~$\rho(t)\to0$ and every~$A\Subset\Lambda$,
-\begin{equation*}
-\max_{\lambda\in\cb{\underline\mu,\overline\mu}}
-\abs{(\lambda P_t)(\chi_A^\star)-\pi(\chi_A^\star)}
-\leq
-C_A\rho(t),
-\end{equation*}
-then for every local function~$f$ there is~$C_f<\infty$ such that
-\begin{equation*}
-\abs{(\mu P_t)(f)-\pi(f)}
-\leq
-C_f\rho(t).
-\end{equation*}
+the same measure~$\pi$. Then~$\mu P_t\Rightarrow\pi$.
 \end{enumerate}
 \end{corollary}
 
