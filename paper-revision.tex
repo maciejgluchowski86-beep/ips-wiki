@@ -34,13 +34,11 @@ fix a finite neighbourhood~$N(i)\subseteq\Lambda\setminus\cb{i}$ and assume
 \begin{equation*}
 \sup_{i\in\Lambda}\abs{N(i)}<\infty.
 \end{equation*}
-A function~$f:\Omega\to\R$ is called local if it depends on only finitely many
-coordinates. For~$\eta\in\Omega$, $i\in\Lambda$, and~$x\in\cb{0,1}$,
+For~$\eta\in\Omega$, $i\in\Lambda$, and~$x\in\cb{0,1}$,
 let~$\eta^{i,x}$ be the configuration obtained from~$\eta$ by setting the spin
 at~$i$ equal to~$x$, and let~$\eta^i$ be the configuration obtained by flipping
-the spin at~$i$.
-
-For~$p\in[0,1]$, define the Bernoulli refresh operator at~$i$ by
+the spin at~$i$. A function~$f:\Omega\to\R$ is called local if it depends on only finitely many
+coordinates. For~$p\in[0,1]$, define the Bernoulli refresh operator at~$i$ by
 \begin{equation*}
 E_{i,p}f(\eta)
 =
@@ -66,9 +64,7 @@ by
 \lambda_i(\eta)
 \bb{E_{i,\rho_i(\eta)}-I}f(\eta).
 \end{equation}
-Thus, at rate~$\lambda_i(\eta)$, the spin at~$i$ is replaced by~$1$ with
-probability~$\rho_i(\eta)$ and by~$0$ with probability
-$1-\rho_i(\eta)$.
+Thus, at rate~$\lambda_i(\eta)$ the state of site~$i$ is updated, and upon update its new state is a~$\operatorname{Bern}(\rho_i(\eta))$ random variable. We call~$\lambda_i$ the update rate and~$\rho_i$ the refresh parameter.
 \end{definition}
 
 \begin{remark}
@@ -91,9 +87,8 @@ c_i(\eta)
 \eta(i)\bb{1-\rho_i(\eta)}
 }.
 \end{equation*}
-Conversely, suppose that the two rates
-$c_i(\eta^{i,0})$ and~$c_i(\eta^{i,1})$ depend only on the spins in~$N(i)$.
-Then the refresh representation is obtained from
+Conversely any spin system given by flip rates~$c$ can also be described by an update rate and refresh parameter. Indeed since the two rates
+$c_i(\eta^{i,0})$ and~$c_i(\eta^{i,1})$ depend only on the spins in~$N(i)$, the refresh representation is given by
 \begin{equation*}
 \lambda_i(\eta)
 =
@@ -104,7 +99,7 @@ c_i(\eta^{i,0})+c_i(\eta^{i,1}),
 \frac{c_i(\eta^{i,0})}{\lambda_i(\eta)}
 \end{equation*}
 when~$\lambda_i(\eta)>0$; if~$\lambda_i(\eta)=0$, the value of
-$\rho_i(\eta)$ is irrelevant.
+$\rho_i(\eta)$ is irrelevant. 
 \end{remark}
 
 The uniform bound on the update rates gives a Feller process
@@ -114,7 +109,7 @@ $\cb{\eta_t}_{t\geq0}$ by the standard Harris construction
 P_tf(\eta)=\E_\eta\Cb{f(\eta_t)}.
 \end{equation*}
 For an initial law~$\mu$, we write~$\mu P_t$ for the law at time~$t$, so that
-$(\mu P_t)(f)=\mu(P_tf)$.
+$(\mu P_t)(f)=\mu(P_tf)$. We also use the shorthand~$\mu(f) = \int_\Omega f d\mu$.
 
 \begin{definition}
 For probability measures~$\mu_t$ and~$\mu$ on~$\Omega$, we write
