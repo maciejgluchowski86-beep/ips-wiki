@@ -500,6 +500,92 @@ $t\geq0$.
 
 Thus, within~$\mathcal M_\star$, adding deaths can only decrease the expectations of the monomials.
 
+For the convergence results we use a larger class of initial measures.
+
+\begin{definition}
+For~$K\geq0$, define
+\begin{equation}
+\label{eq:m-minus-affine-characterization}
+\mathcal M_{-,K}
+=
+\cb{
+\mu:
+\frac{\mu+K\mu_{\mb 1}}{1+K}\in\mathcal M_\star
+},
+\qquad
+\mathcal M_-
+=
+\bigcup_{K\geq0}\mathcal M_{-,K}.
+\end{equation}
+Thus~$\mathcal M_{-,0}=\mathcal M_\star$, while~$\mathcal M_-$ also contains
+measures that enter~$\mathcal M_\star$ after mixing with~$\mu_{\mb 1}$.
+\end{definition}
+
+If
+\begin{equation*}
+p_i^-:=\max\cb{2p_i^\star-1,0},
+\end{equation*}
+then a Bernoulli product measure~$\mu_{\mb p}$ belongs to
+$\mathcal M_{-,1}$ exactly when~$\mb p\geq\mb p^-$. In particular, if
+$\mb p^\star\leq\mbs{\tfrac12}$, then every Bernoulli product measure
+belongs to~$\mathcal M_{-,1}$.
+
+\begin{theorem}[Common invariant limit]
+\label{thm:common-invariant-limit}
+Suppose that the neighbourhood graph has polynomial growth with exponent~$D$,
+the spin system is patch-positive, and it contains a pure-death component of
+rate~$\varepsilon>0$. Then there is an invariant probability measure~$\pi$
+such that, for every local function~$f$, there is~$K_f<\infty$ satisfying
+\begin{equation}
+\label{eq:uniform-m-minus-convergence}
+\sup_{\mu\in\mathcal M_{-,K}}
+\abs{(\mu P_t)(f)-\pi(f)}
+\leq
+(1+2K)K_f(1+t)^D e^{-\varepsilon t/2}
+\end{equation}
+for every~$K\geq0$ and~$t\geq0$. Consequently,
+\begin{equation*}
+\mu P_t\Rightarrow\pi
+\qquad
+\text{for every }\mu\in\mathcal M_-.
+\end{equation*}
+\end{theorem}
+
+Every point mass on a configuration with finitely many~$0$s belongs to
+$\mathcal M_-$. Thus Theorem~\ref{thm:common-invariant-limit} also gives
+convergence from every such configuration.
+
+\begin{corollary}[Uniform exponential ergodicity]
+\label{cor:uniform-exponential-ergodicity}
+Under the hypotheses of Theorem~\ref{thm:common-invariant-limit}, suppose also
+that
+\begin{equation*}
+\mb p^\star\leq\mbs{\tfrac12}.
+\end{equation*}
+Then~$\pi$ is the unique invariant measure and, for every local function~$f$,
+\begin{equation}
+\label{eq:uniform-pointwise-convergence}
+\sup_{\eta\in\Omega}
+\abs{P_tf(\eta)-\pi(f)}
+\leq
+K_f(1+t)^D e^{-\varepsilon t/2}.
+\end{equation}
+\end{corollary}
+
+\begin{corollary}[Uniform ergodicity under orientability]
+\label{cor:oriented-ergodicity}
+Under the hypotheses of Theorem~\ref{thm:common-invariant-limit}, suppose also
+that the neighbourhood graph is orientable. Then~$\pi$ is the unique invariant
+measure and, for every local function~$f$,
+\begin{equation*}
+\lim_{t\to\infty}
+\sup_{\eta\in\Omega}
+\abs{P_tf(\eta)-\pi(f)}
+=
+0.
+\end{equation*}
+\end{corollary}
+
 \section{Applications}
 \label{sec:applications}
 
