@@ -2,12 +2,6 @@
 \RequirePackage[T1]{fontenc}
 \documentclass[EJP,preprint,NODS,nobera]{ejpecp}
 
-\usepackage{xcolor}
-\providecolor{Bleu}{rgb}{0,0,1}
-\definecolor{revisionpurple}{RGB}{128,0,128}
-
-\newcommand{\gm}[1]{\textcolor{green}{#1}}
-
 \input{paper/preamble}
 
 \SHORTTITLE{Patch positive spin systems}
@@ -24,40 +18,25 @@ Georg~Menz\footnotemark[1]}%AUTHORS
 \AMSSUBJ{60K35}
 \AMSSUBJSECONDARY{60E15; 82C22}
 
-\ABSTRACT{%
-Kinetically constrained spin models have monotone constraints, but their dynamics need not be monotone in the usual configuration order. We introduce patch-positive spin systems, a class of spin systems for which this lost monotonicity is recovered at the level of probability laws. More precisely, we show that the semigroup preserves an order defined by centered moments. This yields comparison results between non-monotone dynamics, including systems that differ by environment-independent transitions from~$1$ to~$0$.
-On interaction graphs of polynomial growth, a uniform positive rate of such transitions implies convergence from a broad class of initial laws to a common invariant measure. If the spin system is orientable or the patch threshold profile is at most~$1/2$ the system is uniformly ergodic.
-\textcolor{revisionpurple}{[Revision note: East should be named explicitly in the abstract. The orientability result makes the perturbed East model a principal application: its one-sided neighbourhood graph is orientable, so uniform ergodicity holds for every refresh parameter, not only in the regime where the patch threshold is at most~$1/2$. Tie this example directly to the preceding orientability sentence.]}
-The proof is based on a graphical representation obtained from a signed Feynman--Kac dual by averaging local randomness over spacetime patches. FA-1f, biased annihilating branching process and the contact process are patch-positive examples. The results also provide partial progress on the Positive Rates Conjecture for simple interacting particle systems.}
-
-\hypersetup{
-  pdftitle={Patch representation and convergence for facilitated spin systems},
-  pdfauthor={Maciej Gluchowski and Georg Menz}
-}
-
 \begin{document}
 
-\clearpage
-\tableofcontents
-\clearpage
+\section{Introduction}
 
-\input{paper/revision/sections/01-introduction}
-\input{paper/revision/sections/02-spin-systems}
-\input{paper/revision/sections/03-main-results}
-\input{paper/revision/sections/04-applications}
-\input{paper/revision/sections/05-centered-moment-monotonicity}
-\input{paper/revision/sections/06-representation-strategy}
-\input{paper/revision/sections/07-signed-dual}
-\input{paper/revision/sections/08-patches-representation}
-\input{paper/revision/sections/09-patch-positivity}
-\input{paper/revision/sections/10-convergence}
-\input{paper/revision/sections/11-discussion}
+\section{Setup and examples}
 
-\appendix
+\section{Main results}
 
-\input{paper/revision/appendices/a-monomial-dual}
-\input{paper/revision/appendices/b-patch-contributions}
-\input{paper/revision/appendices/c-technical-estimates}
+\section{Applications}
+
+\section{Dual process}
+
+\section{Patches}
+
+\section{Proofs}
+
+\section{Discussion}
+
+\section{Appendix}
 
 \bibliographystyle{paper/amsplain-fullnames}
 \bibliography{paper/references}
