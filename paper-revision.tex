@@ -324,6 +324,36 @@ N_*(\bar A\cup U)=\bar A\cup U.
 The neighbourhood graph of the East model is orientable: for any~$A\Subset\Lambda$ one can take~$\bar A = I^d$ for sufficiently large interval~$I$ and~$U = (I + \N)^d$. 
 \end{example}
 
+Write~$A\Subset\Lambda$ when~$A$ is finite. For~$A\Subset\Lambda$, define
+\begin{equation*}
+\chi_A(\eta)
+:=
+\prod_{i\in A}\eta(i),
+\qquad
+\chi_\vn:=1.
+\end{equation*}
+If~$F\Subset\Lambda$, then~$\cb{\chi_A:A\subseteq F}$ is a basis for the
+functions depending only on the spins in~$F$. For a profile
+$\mb p=(p_i)_{i\in\Lambda}\in[0,1]^\Lambda$, let~$\mu_{\mb p}$ denote the
+Bernoulli product measure satisfying
+\begin{equation*}
+\mu_{\mb p}\bb{\eta(i)=1}=p_i
+\qquad
+\text{for every }i\in\Lambda.
+\end{equation*}
+For a constant profile, write~$\mu_p$.
+
+Every function~$g$ depending only on the spins in~$N(i)$ has a unique
+expansion
+\begin{equation}
+\label{eq:rate-expansion-revision}
+g(\eta)
+=
+\sum_{S\subseteq N(i)}
+\widehat g(S)\chi_S(\eta).
+\end{equation}
+We call~$\widehat g(S)$ the coefficient of~$\chi_S$ in this expansion.
+
 \section{Main results}
 
 \section{Applications}
