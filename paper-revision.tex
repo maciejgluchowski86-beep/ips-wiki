@@ -144,6 +144,99 @@ Since~$\Omega$ is compact in the product topology, convergence against local
 functions is equivalent to weak convergence of probability measures.
 \end{remark}
 
+\begin{example}[Kinetically constrained spin models]
+In a kinetically constrained spin model (KCSM), the refresh parameter is
+constant,
+\begin{equation*}
+\rho_i(\eta)=p,
+\qquad p\in(0,1),
+\end{equation*}
+while the update rate~$\lambda_i$ is a constraint depending on the neighbouring
+spins. We use the convention that state~$0$ is vacant and state~$1$ is occupied.
+Thus, whenever the constraint at~$i$ is satisfied, the spin at~$i$ is refreshed
+from the Bernoulli law with parameter~$p$.
+\end{example}
+
+\begin{example}[East model]
+Let~$\Lambda=\Z^d$ and let~$\cb{e_k}_{k\leq d}$ be the standard basis of
+$\Z^d$. In the East model,
+\begin{equation*}
+N(i)=\cb{i+e_k:k\leq d},
+\qquad
+\lambda_i(\eta)=1-\prod_{k=1}^d\eta(i+e_k),
+\qquad
+\rho_i(\eta)=p.
+\end{equation*}
+Hence a site can update whenever at least one of the sites~$i+e_k$ is vacant.
+For~$d=1$, this is the usual one-dimensional East model.
+\end{example}
+
+\begin{example}[FA-1f]
+For FA-1f~\cite{FredricksonAndersen1984,CancriniEtAl2008,HartarskyToninelli2025},
+assume that~$N(i)\neq\vn$ for every~$i\in\Lambda$ and set
+\begin{equation*}
+\lambda_i(\eta)=1-\prod_{j\in N(i)}\eta(j),
+\qquad
+\rho_i(\eta)=p.
+\end{equation*}
+Thus a site can update whenever at least one site in its neighbourhood is
+vacant. The East model above is the corresponding choice of an oriented
+neighbourhood on~$\Z^d$.
+\end{example}
+
+\begin{example}[Biased annihilating branching process]
+The biased annihilating branching process (BABP)~\cite{NeuhauserSudbury1993}
+has
+\begin{equation*}
+\lambda_i(\eta)
+=
+\sum_{j\in N(i)}\bb{1-\eta(j)},
+\qquad
+\rho_i(\eta)=p.
+\end{equation*}
+Thus the update rate is the number of vacant neighbours. In the complementary
+variables~$\xi(i)=1-\eta(i)$, vacancies are particles.
+\end{example}
+
+\begin{example}[Contact process]
+The contact process~\cite{Harris1974} is usually written with state~$1$
+infected and state~$0$ healthy. We use the reversed labeling, so that state~$0$
+is infected and state~$1$ is healthy. With recovery rate one and infection
+parameter~$\beta\geq0$, it has
+\begin{equation*}
+\lambda_i(\eta)
+=
+1+\beta\sum_{j\in N(i)}\bb{1-\eta(j)},
+\qquad
+\rho_i(\eta)
+=
+\frac{1}{1+\beta\sum_{j\in N(i)}\bb{1-\eta(j)}}.
+\end{equation*}
+\end{example}
+
+\begin{example}[Simple spin systems]
+A simple spin system is a translation-invariant spin system on~$\Z$ with
+$N(i)=\cb{i+1}$. It is parametrized by four numbers
+$p_{1\mid ab}\in[0,1]$, $a,b\in\cb{0,1}$. When the spins at~$i$ and~$i+1$
+are~$a$ and~$b$, respectively, a rate-one update at~$i$ sets the spin to~$1$
+with probability~$p_{1\mid ab}$. Equivalently, its refresh representation is
+\begin{equation*}
+\lambda_i(\eta)
+=
+p_{1\mid0\eta(i+1)}+1-p_{1\mid1\eta(i+1)},
+\qquad
+\rho_i(\eta)
+=
+\frac{p_{1\mid0\eta(i+1)}}{\lambda_i(\eta)}
+\end{equation*}
+when~$\lambda_i(\eta)>0$. The system has positive rates when
+\begin{equation*}
+p_{1\mid11},p_{1\mid10}<1,
+\qquad
+p_{1\mid01},p_{1\mid00}>0.
+\end{equation*}
+\end{example}
+
 \section{Main results}
 
 \section{Applications}
