@@ -283,6 +283,54 @@ c_i(\eta^{i,1})
 \end{equation*}
 \end{remark}
 
+For~$i\in\Lambda$, write
+\begin{equation*}
+N_*(i)=N(i)\cup\cb{i},
+\end{equation*}
+and for~$A\subseteq\Lambda$ set
+\begin{equation*}
+N_*(A)=\bigcup_{i\in A}N_*(i),
+\qquad
+B(A,0)=A,
+\qquad
+B(A,n+1)=N_*\bb{B(A,n)}.
+\end{equation*}
+For~$i\in\Lambda$, write~$B(i,n)=B(\cb{i},n)$. We say that the
+neighbourhood graph has polynomial growth if there are~$K,D<\infty$ such that
+\begin{equation}
+\label{eq:polynomial-growth-revision}
+\abs{B(i,n)}
+\leq
+K(1+n)^D
+\qquad
+\text{for every }i\in\Lambda\text{ and }n\in\N.
+\end{equation}
+
+\begin{definition}[Orientability]
+A set~$V\subseteq\Lambda$ is \emph{autonomous} if~$N_*(V)=V$. The
+neighbourhood graph is \emph{orientable} if every finite set~$A\subseteq\Lambda$
+is contained in a finite set~$\bar A$ for which there is
+$U\subseteq\Lambda\setminus\bar A$ such that
+\begin{equation*}
+N_*(U)=U,
+\qquad
+N_*(\bar A\cup U)=\bar A\cup U.
+\end{equation*}
+\end{definition}
+
+\begin{example}[One-sided neighbourhoods]
+Let~$\Lambda=\Z$ and suppose that
+$N(i)\subseteq\cb{j\in\Z:j>i}$ for every~$i\in\Z$. For a nonempty finite
+set~$A\subseteq\Z$, take
+\begin{equation*}
+\bar A=[\min A,\max A]\cap\Z,
+\qquad
+U=\cb{j\in\Z:j>\max A}.
+\end{equation*}
+Then both~$U$ and~$\bar A\cup U$ are autonomous, so the neighbourhood graph
+is orientable.
+\end{example}
+
 \section{Main results}
 
 \section{Applications}
