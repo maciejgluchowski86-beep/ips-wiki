@@ -40,6 +40,115 @@ let~$\eta^{i,x}$ be the configuration obtained from~$\eta$ by setting the spin
 at~$i$ equal to~$x$, and let~$\eta^i$ be the configuration obtained by flipping
 the spin at~$i$.
 
+For~$p\in[0,1]$, define the Bernoulli refresh operator at~$i$ by
+\begin{equation*}
+E_{i,p}f(\eta)
+=
+pf(\eta^{i,1})+(1-p)f(\eta^{i,0}).
+\end{equation*}
+
+\begin{definition}[Spin system]
+A spin system is specified by functions
+\begin{equation*}
+\lambda_i:\Omega\to[0,\infty),
+\qquad
+\rho_i:\Omega\to[0,1],
+\qquad i\in\Lambda,
+\end{equation*}
+which depend only on the spins in~$N(i)$ and satisfy
+$\sup_{i,\eta}\lambda_i(\eta)<\infty$. Its generator acts on local functions
+by
+\begin{equation}
+\label{eq:spin-generator-revision}
+\Lcal f(\eta)
+=
+\sum_{i\in\Lambda}
+\lambda_i(\eta)
+\bb{E_{i,\rho_i(\eta)}-I}f(\eta).
+\end{equation}
+Thus, at rate~$\lambda_i(\eta)$, the spin at~$i$ is replaced by~$1$ with
+probability~$\rho_i(\eta)$ and by~$0$ with probability
+$1-\rho_i(\eta)$.
+\end{definition}
+
+\begin{remark}
+The generator~\eqref{eq:spin-generator-revision} can also be written in the
+usual flip-rate form
+\begin{equation*}
+\Lcal f(\eta)
+=
+\sum_{i\in\Lambda}
+c_i(\eta)\bb{f(\eta^i)-f(\eta)},
+\end{equation*}
+where
+\begin{equation*}
+c_i(\eta)
+=
+\lambda_i(\eta)
+\bb{
+\bb{1-\eta(i)}\rho_i(\eta)
++
+\eta(i)\bb{1-\rho_i(\eta)}
+}.
+\end{equation*}
+Conversely, suppose that the two rates
+$c_i(\eta^{i,0})$ and~$c_i(\eta^{i,1})$ depend only on the spins in~$N(i)$.
+Then the refresh representation is obtained from
+\begin{equation*}
+\lambda_i(\eta)
+=
+c_i(\eta^{i,0})+c_i(\eta^{i,1}),
+\qquad
+\rho_i(\eta)
+=
+\frac{c_i(\eta^{i,0})}{\lambda_i(\eta)}
+\end{equation*}
+when~$\lambda_i(\eta)>0$; if~$\lambda_i(\eta)=0$, the value of
+$\rho_i(\eta)$ is irrelevant.
+\end{remark}
+
+The uniform bound on the update rates gives a Feller process
+$\cb{\eta_t}_{t\geq0}$ by the standard Harris construction
+\cite{Harris1978,Liggett1985}. Its semigroup~$(P_t)_{t\geq0}$ is defined by
+\begin{equation*}
+P_tf(\eta)=\E_\eta\Cb{f(\eta_t)}.
+\end{equation*}
+For an initial law~$\mu$, we write~$\mu P_t$ for the law at time~$t$, so that
+$(\mu P_t)(f)=\mu(P_tf)$.
+
+\begin{definition}
+For probability measures~$\mu_t$ and~$\mu$ on~$\Omega$, we write
+$\mu_t\Rightarrow\mu$ if
+\begin{equation*}
+\mu_t(f)\longrightarrow\mu(f)
+\end{equation*}
+for every local function~$f$. A probability measure~$\pi$ is invariant if
+$\pi P_t=\pi$ for every~$t\geq0$. The spin system is \emph{ergodic} if there
+is an invariant measure~$\pi$ such that
+\begin{equation*}
+\mu P_t\Rightarrow\pi
+\end{equation*}
+for every initial law~$\mu$. It is \emph{uniformly ergodic} if, for every local
+function~$f$,
+\begin{equation*}
+\sup_{\eta\in\Omega}
+\abs{P_tf(\eta)-\pi(f)}
+\longrightarrow0.
+\end{equation*}
+It is \emph{uniformly exponentially ergodic} if there is~$\gamma>0$ such that,
+for every local function~$f$, some~$C_f<\infty$ satisfies
+\begin{equation*}
+\sup_{\eta\in\Omega}
+\abs{P_tf(\eta)-\pi(f)}
+\leq C_fe^{-\gamma t}.
+\end{equation*}
+\end{definition}
+
+\begin{remark}
+Since~$\Omega$ is compact in the product topology, convergence against local
+functions is equivalent to weak convergence of probability measures.
+\end{remark}
+
 \section{Main results}
 
 \section{Applications}
