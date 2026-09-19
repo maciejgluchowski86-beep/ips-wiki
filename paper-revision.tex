@@ -436,6 +436,64 @@ $\preceq_\star$, since all of its nonconstant centered monomials have
 expectation zero. In general~$\mathcal M_\star$ need not have a maximum. If~$\mb p^\star\leq\mbs{\tfrac12}$ then~$\mu_{\mb 1}$ is a maximum.
 \end{remark}
 
+\begin{theorem}[Centered monomial monotonicity]
+\label{thm:centered-monomial-monotonicity}
+Suppose that the spin system is patch-positive. If~$\mu\preceq_\star\nu$, then
+\begin{equation}
+\label{eq:centered-monomial-monotonicity}
+\mu P_t\preceq_\star\nu P_t
+\qquad
+\text{for every }t\geq0.
+\end{equation}
+Moreover,~$P_t$ preserves~$\mathcal M_\star$. The centered monomial order also
+implies the corresponding order for ordinary monomials: if
+$\mu\preceq_\star\nu$, then
+\begin{equation}
+\label{eq:ordinary-monomial-comparison}
+(\mu P_t)(\chi_A)
+\leq
+(\nu P_t)(\chi_A)
+\qquad
+\text{for every }A\Subset\Lambda\text{ and }t\geq0.
+\end{equation}
+\end{theorem}
+
+The theorem gives canonical monotone evolutions at the bottom of
+$\mathcal M_\star$, and also at the top whenever a maximum exists.
+
+\begin{corollary}[Extremal limits and comparison]
+\label{cor:extremal-limits-comparison}
+Suppose that the spin system is patch-positive.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item The family~$\mu_{\mb p^\star}P_t$ is increasing in~$t$ under
+$\preceq_\star$ and converges weakly to an invariant measure~$\pi^-\in\mathcal M_\star$.
+
+\item If~$\mb p^\star\leq\mbs{\tfrac12}$, then
+$\mu_{\mb 1}P_t$ is decreasing in~$t$ under~$\preceq_\star$ and converges
+weakly to an invariant measure~$\pi^+\in\mathcal M_\star$.
+
+\item More generally, suppose that
+\begin{equation*}
+\underline\mu\preceq_\star\mu\preceq_\star\overline\mu
+\end{equation*}
+and that both~$\underline\mu P_t$ and~$\overline\mu P_t$ converge weakly to
+the same probability measure~$\pi$. Then~$\mu P_t\Rightarrow\pi$.
+If, for some~$\rho(t)\to0$ and every~$A\Subset\Lambda$,
+\begin{equation*}
+\max_{\lambda\in\cb{\underline\mu,\overline\mu}}
+\abs{(\lambda P_t)(\chi_A^\star)-\pi(\chi_A^\star)}
+\leq
+C_A\rho(t),
+\end{equation*}
+then for every local function~$f$ there is~$C_f<\infty$ such that
+\begin{equation*}
+\abs{(\mu P_t)(f)-\pi(f)}
+\leq
+C_f\rho(t).
+\end{equation*}
+\end{enumerate}
+\end{corollary}
+
 \section{Applications}
 \label{sec:applications}
 
