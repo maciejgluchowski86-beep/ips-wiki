@@ -26,7 +26,7 @@ Georg~Menz\footnotemark[1]}%AUTHORS
 
 This section fixes the spin-system setup and notation used throughout the paper.
 We describe the dynamics through a neighbourhood-dependent update rate and
-refresh parameter, which directly extends the usual KCSM formulation.
+refresh parameter, which directly extends the usual KCSM formulation. We also give examples of spim models that are particularly relevant to this article.
 
 Let~$\Lambda$ be a countable set of sites and let
 $\Omega=\cb{0,1}^{\Lambda}$ be the configuration space. For each~$i\in\Lambda$,
@@ -152,26 +152,12 @@ constant,
 \qquad p\in(0,1),
 \end{equation*}
 while the update rate~$\lambda_i$ is a constraint depending on the neighbouring
-spins. We use the convention that state~$0$ is vacant and state~$1$ is occupied.
-Thus, whenever the constraint at~$i$ is satisfied, the spin at~$i$ is refreshed
-from the Bernoulli law with parameter~$p$.
+spins. We use the convention that state~$0$ is vacant and state~$1$ is occupied. The constraint is typically that at least one of a few prescribed subsets of~$N(i)$ is filled with vacancies. 
+Whenever the constraint at~$i$ is satisfied, the spin at~$i$ is refreshed
+from the Bernoulli law with parameter~$p$. This construction ensures that~$\otimes_{i\in \Lambda}\operatorname{Bern}(p)$ is a reversible invariant measure.
 \end{example}
 
-\begin{example}[East model]
-Let~$\Lambda=\Z^d$ and let~$\cb{e_k}_{k\leq d}$ be the standard basis of
-$\Z^d$. In the East model,
-\begin{equation*}
-N(i)=\cb{i+e_k:k\leq d},
-\qquad
-\lambda_i(\eta)=1-\prod_{k=1}^d\eta(i+e_k),
-\qquad
-\rho_i(\eta)=p.
-\end{equation*}
-Hence a site can update whenever at least one of the sites~$i+e_k$ is vacant.
-For~$d=1$, this is the usual one-dimensional East model.
-\end{example}
-
-\begin{example}[FA-1f]
+\begin{example}[Fredrickson-Andersen one spin facilitated model (FA-1f)]
 For FA-1f~\cite{FredricksonAndersen1984,CancriniEtAl2008,HartarskyToninelli2025},
 assume that~$N(i)\neq\vn$ for every~$i\in\Lambda$ and set
 \begin{equation*}
@@ -180,9 +166,19 @@ assume that~$N(i)\neq\vn$ for every~$i\in\Lambda$ and set
 \rho_i(\eta)=p.
 \end{equation*}
 Thus a site can update whenever at least one site in its neighbourhood is
-vacant. The East model above is the corresponding choice of an oriented
-neighbourhood on~$\Z^d$.
+vacant. This model is a standard example of a KCSM.
 \end{example}
+
+\begin{example}[East model]
+Let~$\Lambda=\Z^d$ and let~$\cb{e_k}_{k\leq d}$ be the standard basis of
+$\Z^d$. The East models is a particular case of FA-1f, with
+\begin{equation*}
+N(i)=\cb{i+e_k:k\leq d}.
+\end{equation*}
+The neighbourhoods create an oriented lattice where sites only interact one-way. 
+\end{example}
+
+
 
 \begin{example}[Biased annihilating branching process]
 The biased annihilating branching process (BABP)~\cite{NeuhauserSudbury1993}
@@ -200,26 +196,25 @@ variables~$\xi(i)=1-\eta(i)$, vacancies are particles.
 
 \begin{example}[Contact process]
 The contact process~\cite{Harris1974} is usually written with state~$1$
-infected and state~$0$ healthy. We use the reversed labeling, so that state~$0$
-is infected and state~$1$ is healthy. With recovery rate one and infection
-parameter~$\beta\geq0$, it has
+infected and state~$0$ healthy. With recovery rate one and infection
+parameter~$\beta\geq0$, it is given by
 \begin{equation*}
 \lambda_i(\eta)
 =
-1+\beta\sum_{j\in N(i)}\bb{1-\eta(j)},
+1+\beta\sum_{j\in N(i)}\eta(j),
 \qquad
 \rho_i(\eta)
 =
-\frac{1}{1+\beta\sum_{j\in N(i)}\bb{1-\eta(j)}}.
+\frac{\beta\sum_{j\in N(i)}\eta(j)}{1+\beta\sum_{j\in N(i)}\eta(j)}.
 \end{equation*}
 \end{example}
 
 \begin{example}[Simple spin systems]
-A simple spin system is a translation-invariant spin system on~$\Z$ with
+A Simple spin system\cite{GluchowskiMenz2025, GluchowskiMenz2026} is a translation-invariant spin system~ on~$\Z$ with
 $N(i)=\cb{i+1}$. It is parametrized by four numbers
 $p_{1\mid ab}\in[0,1]$, $a,b\in\cb{0,1}$. When the spins at~$i$ and~$i+1$
 are~$a$ and~$b$, respectively, a rate-one update at~$i$ sets the spin to~$1$
-with probability~$p_{1\mid ab}$. Equivalently, its refresh representation is
+with probability~$p_{1\mid ab}$, and to~$0$ with probability~$p_{0\mid ab} = 1 -p_{1\mid ab}$. Equivalently, its refresh representation is
 \begin{equation*}
 \lambda_i(\eta)
 =
@@ -229,12 +224,7 @@ p_{1\mid0\eta(i+1)}+1-p_{1\mid1\eta(i+1)},
 =
 \frac{p_{1\mid0\eta(i+1)}}{\lambda_i(\eta)}
 \end{equation*}
-when~$\lambda_i(\eta)>0$. The system has positive rates when
-\begin{equation*}
-p_{1\mid11},p_{1\mid10}<1,
-\qquad
-p_{1\mid01},p_{1\mid00}>0.
-\end{equation*}
+when~$\lambda_i(\eta)>0$; again, if~$\lambda_i(\eta)=0$ then~$\rho_i(\eta)$ is irrelevant.
 \end{example}
 
 \section{Main results}
