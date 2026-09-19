@@ -1,0 +1,687 @@
+\section{Technical estimates}
+\label{app:technical-background}
+
+\subsection{Local finiteness and backward predecessors}
+\label{app:local-finiteness}
+
+Put
+\begin{equation*}
+\overline\lambda
+=
+\sup_{i\in\Lambda,\,\eta\in\Omega}\lambda_i(\eta),
+\qquad
+m_0=\sup_{i\in\Lambda}\abs{N(i)}.
+\end{equation*}
+Since~$0\leq\rho_i\leq1$, M\"obius inversion in~\eqref{eq:rate-expansion}
+gives, for every~$S\subseteq N(i)$,
+\begin{equation*}
+\abs{\widehat{\lambda_i\rho_i}(S)}
+\leq
+2^{\abs S}\overline\lambda,
+\qquad
+\abs{\widehat{\lambda_i}(S)}
+\leq
+2^{\abs S}\overline\lambda.
+\end{equation*}
+Hence, by~\eqref{eq:signed-dual-coefficients}--\eqref{eq:birth-data} and the
+uniform bound on~$\abs{N(i)}$,
+\begin{equation*}
+\overline\alpha
+=
+\sup_{i\in\Lambda}
+\bb{
+ \sum_{S\subseteq N(i)}\delta_i(S)
+ +
+ \sum_{\substack{S\subseteq N(i)\\S\neq\vn}}\beta_i(S)
+}
+<\infty.
+\end{equation*}
+
+\begin{lemma}[Local finiteness]
+\label{lem:dual-local-finiteness}
+If the signed dual starts from~$A\Subset\Lambda$, then almost surely only
+finitely many relevant interactions occur on every bounded time interval.
+Consequently,~$\mathcal I_T$ and~$\mathcal P_T$ are finite for every~$T<\infty$,
+interaction times are distinct, and every maximal backward predecessor chain
+of patches with outgoing terminal boundary reaches time~$0$ after finitely many
+steps.
+\end{lemma}
+
+\begin{proof}
+When the active set is~$B$, the total rate of relevant clocks is at most
+$\overline\alpha\abs B$. One interaction adds at most~$m_0$ sites. Hence the
+number of active sites and the number of relevant rings are dominated by a
+continuous-time branching process in which each particle rings at rate
+$\overline\alpha$ and creates at most~$m_0$ new particles. This branching
+process is nonexplosive. Independent Poisson processes have no simultaneous
+points almost surely, and a countable union over pairs of clocks preserves this
+property. The remaining conclusions follow from the definitions of the
+successful-interaction skeleton and the patch family.
+\end{proof}
+
+In particular,
+\begin{equation}
+\label{eq:finite-patch-family-last-interaction}
+\cb{\abs{\mathcal P}<\infty}
+=
+\bigcup_{n\in\N}L_n.
+\end{equation}
+Indeed, a finite patch family contains only finitely many successful
+interactions and therefore has a last one. Conversely, on~$L_T$ there are only
+finitely many interactions before~$T$ and none after it.
+
+\subsection{Confined-interaction identity}
+\label{app:confined-interactions}
+
+For~$R\subseteq\Lambda$, let~$\eta^{R,0}$ agree with~$\eta$ on~$R$ and vanish on
+$R^c$. Define
+\begin{align*}
+\lambda_i^R(\eta)
+&=
+\pw{\lambda_i\bb{\eta^{R,0}}}{i\in R}
+{\lambda_i(\mb 0)}{i\notin R},
+&
+\rho_i^R(\eta)
+&=
+\pw{\rho_i\bb{\eta^{R,0}}}{i\in R}
+{\rho_i(\mb 0)}{i\notin R},
+\end{align*}
+and let
+\begin{equation*}
+\Lcal^R f(\eta)
+=
+\sum_{i\in\Lambda}
+\lambda_i^R(\eta)
+\bb{E_{i,\rho_i^R(\eta)}-I}f(\eta).
+\end{equation*}
+Write~$P_t^R$ for its semigroup. Inside~$R$, this is the original spin system
+with the spins outside~$R$ fixed at~$0$. Outside~$R$, the update rate and refresh
+parameter are constant, so those sites evolve independently. Hence, if~$f$
+depends only on spins in~$R$,
+\begin{equation}
+\label{eq:modified-zero-boundary-agreement}
+P_t^Rf=P_t^{R,0}f.
+\end{equation}
+
+\begin{proposition}[Confined-interaction identity]
+\label{prop:confined-interaction-identity}
+Let~$A\subseteq R\Subset\Lambda$,~$0\leq T\leq t$, and let~$\mu$ be any
+probability measure. Then
+\begin{equation}
+\label{eq:confined-interaction-identity}
+\E_A\Cb{W_t^\mu\ind\bb{E_T^R}}
+=
+(\mu P_{t-T}P_T^{R,0})(\chi_A).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For a fixed configuration~$\eta$, write
+\begin{equation*}
+Z_t^\eta
+=
+\sigma_t
+\exp\bb{\int_0^tV(A_s)\,ds}
+\chi_{A_t}(\eta).
+\end{equation*}
+By~\eqref{eq:fk-integrability}, this random variable is integrable. The
+pathwise patch factorization and Theorem~\ref{thm:patch-factorization} give
+$W_t^{\delta_\eta}=\CE{Z_t^\eta}{\mathcal G_t}$. Since
+$E_T^R\in\mathcal G_t$,
+\begin{equation}
+\label{eq:confined-weight-to-dual}
+\E_A\Cb{W_t^{\delta_\eta}\ind\bb{E_T^R}}
+=
+\E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}.
+\end{equation}
+
+During the dual interval~$[0,T]$, retain every death interaction with
+$S=\varnothing$ and retain a nonempty-target split or birth only when its source
+and all its targets lie in~$R$. Let~$\Dcal_R$ be the resulting signed-dual
+generator. If the active set is~$B$, the total rate of discarded interactions is
+\begin{equation*}
+\kappa_R(B)
+=
+\sum_{i\in B}
+\sum_{\substack{\vn\neq S\subseteq N(i)\\i\notin R\text{ or }S\nsubseteq R}}
+\bb{\delta_i(S)+\beta_i(S)}.
+\end{equation*}
+The indicator of~$E_T^R$ kills the dual at the first discarded successful
+interaction, so its Feynman--Kac operator on~$[0,T]$ is
+$\Dcal_R+V-\kappa_R$.
+
+For~$i\in R$, the M\"obius expansions in~\eqref{eq:rate-expansion} give
+\begin{align*}
+\lambda_i^R(\eta)\rho_i^R(\eta)
+&=
+\sum_{S\subseteq N(i)\cap R}
+\widehat{\lambda_i\rho_i}(S)\chi_S(\eta),
+\\
+\lambda_i^R(\eta)
+&=
+\sum_{S\subseteq N(i)\cap R}
+\widehat{\lambda_i}(S)\chi_S(\eta).
+\end{align*}
+Thus, for~$Y=(B,\sigma)$ with~$B\subseteq R$, the generator calculation from
+Appendix~\ref{app:generator-action} gives
+\begin{align}
+\Lcal_\eta^R H(Y,\eta)
+={}&
+\sigma
+\sum_{i\in B}
+\sum_{S\subseteq N(i)\cap R}
+ a_i^\delta(S)
+ \chi_{\bb{B\setminus\cb{i}}\cup S}(\eta)
+\notag
+\\
+&+
+\sigma
+\sum_{i\in B}
+\sum_{S\subseteq N(i)\cap R}
+ a_i^\beta(S)
+ \chi_{B\cup S}(\eta).
+\label{eq:confined-spin-generator-on-H}
+\end{align}
+On the other hand,~$\Dcal_R H(Y,\eta)$ contains the same signed monomial terms
+with~$S\subseteq R$ and subtracts the total retained jump rate. Since
+\begin{equation*}
+V(B)-\kappa_R(B)
+=
+\sum_{i\in B}
+\bb{
+ \sum_{S\subseteq N(i)\cap R}\delta_i(S)
+ +
+ \sum_{\substack{\vn\neq S\subseteq N(i)\cap R}}\beta_i(S)
+ +
+ a_i^\beta(\vn)
+},
+\end{equation*}
+adding the potential cancels this subtracted rate and restores the diagonal
+$S=\vn$ birth coefficient. Therefore
+\begin{equation}
+\label{eq:confined-generator-duality}
+\Lcal_\eta^R H(Y,\eta)
+=
+\Dcal_RH(Y,\eta)
++
+\bb{V(B)-\kappa_R(B)}H(Y,\eta),
+\end{equation}
+with both sides equal to~\eqref{eq:confined-spin-generator-on-H}.
+
+Apply~\eqref{eq:confined-generator-duality} on~$[0,T]$ and the original duality
+on~$[T,t]$. Dual intervals act from right to left on observables, giving
+\begin{equation*}
+\E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}
+=
+\bb{P_{t-T}P_T^R\chi_A}(\eta).
+\end{equation*}
+Since~$A\subseteq R$,~$\chi_A$ depends only on~$R$, and
+\eqref{eq:modified-zero-boundary-agreement} replaces~$P_T^R$ by
+$P_T^{R,0}$. Integrating over~$\mu$ proves
+\eqref{eq:confined-interaction-identity}.
+\end{proof}
+
+\subsection{Continuation without successful interactions}
+\label{app:no-late-continuation}
+
+For~$P\in\mathcal E_T$ and~$t>T$, continue the dual-active indicator at~$i(P)$
+after time~$T$ using only future outgoing marks at that site, with no incoming
+successful interactions. Let~$L_{T,t}^P$ be the event that no nonempty-target
+outgoing mark acts while this indicator is~$1$ in~$(T,t]$. Conditional on
+$\mathcal G_T$, the events~$(L_{T,t}^P)_{P\in\mathcal E_T}$ are independent.
+If a first successful interaction occurs after~$T$, its source belongs to one
+of the end patches, and up to that time the dual-active indicator at its source
+agrees with this one-site continuation. Hence
+\begin{equation}
+\label{eq:local-no-late-factorization}
+L_{T,t}
+=
+\bigcap_{P\in\mathcal E_T}L_{T,t}^P,
+\qquad
+\CP{L_{T,t}}{\mathcal G_T}
+=
+\prod_{P\in\mathcal E_T}\CP{L_{T,t}^P}{\mathcal G_T}.
+\end{equation}
+Let~$L_T^P$ denote the corresponding event with no successful interaction at
+any time after~$T$.
+
+\begin{proposition}[No-late continuation]
+\label{prop:no-late-continuation-identity}
+Fix~$0\leq T<t$. On~$L_{T,t}$,
+\begin{equation*}
+\mathcal B_t=\mathcal B_T,
+\qquad
+\mathcal E_t
+=
+\cb{P^{\uparrow t}:P\in\mathcal E_T},
+\end{equation*}
+where the extensions are geometric. For every probability measure~$\mu$,
+\begin{align}
+\CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
+&=
+\prod_{P\in\mathcal B_T}C(P)\,
+\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+\notag
+\\
+&=
+\prod_{P\in\mathcal B_T}C(P)\,
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\psi_{i(P)}\bb{t-T,\eta\bb{i(P)}},P}
+},
+\label{eq:appendix-finite-continuation-identity}
+\\
+\CE{W\ind\bb{L_T}}{\mathcal G_T}
+&=
+\prod_{P\in\mathcal B_T}C(P)
+\prod_{P\in\mathcal E_T}
+C\bb{\rho_{i(P)}(\mb 0),P}.
+\label{eq:appendix-infinite-continuation-identity}
+\end{align}
+The first equality in~\eqref{eq:appendix-finite-continuation-identity} also
+holds for~$W_t^{\varepsilon,\mu}$, with~$C$ replaced by~$C^\varepsilon$. The
+conditional probability is unchanged because the two systems have the same
+dual jump process and reference patch laws.
+\end{proposition}
+
+\begin{proof}
+The patch-family identities follow directly from the geometric definition of
+$P^{\uparrow t}$. On~$L_{T,t}$, no successful interaction after~$T$ creates a
+new patch boundary, so the bulk patches are unchanged and each end patch in
+$\mathcal E_T$ extends geometrically to time~$t$.
+
+Fix~$P\in\mathcal E_T$, write~$i=i(P)$,~$S=S(P)$,
+$\Delta=T-s(P)$, and~$h=t-T$. The consistency normalizers in
+Appendix~\ref{app:end-formulas} give
+\begin{equation}
+\label{eq:local-continuation-probability}
+\CP{L_{T,t}^P}{\mathcal G_T}
+=
+\pw{
+\displaystyle
+\frac{\varphi_i(\Delta+h)}{\varphi_i(\Delta)}
+}{\mathsf X(P)=\mathsf I}
+{
+\displaystyle
+\frac{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta+h)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}
+}{\mathsf X(P)=\mathsf O}.
+\end{equation}
+Multiplying the ordinary contribution of the geometric extension by this
+probability and using~\eqref{eq:all-zero-neighbourhood-relaxation} gives
+\begin{equation}
+\label{eq:local-probability-weighted-continuation}
+\CP{L_{T,t}^P}{\mathcal G_T}
+C\bb{z,P^{\uparrow t}}
+=
+C\bb{\psi_i(h,z),P}.
+\end{equation}
+For an incoming patch, the calculation is
+\begin{equation*}
+\frac{\varphi_i(\Delta+h)}{\varphi_i(\Delta)}
+\frac{\psi_i(\Delta+h,z)}{\varphi_i(\Delta+h)}
+=
+\frac{\psi_i\bb{\Delta,\psi_i(h,z)}}{\varphi_i(\Delta)}.
+\end{equation*}
+For an outgoing patch, it is
+\begin{align*}
+&\frac{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta+h)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta+h,z)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta+h)
+}
+\\
+&\qquad=
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)
+\psi_i\bb{\Delta,\psi_i(h,z)}
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}.
+\end{align*}
+These are the two rows of~$C(\psi_i(h,z),P)$.
+
+On~$L_{T,t}$, the finite-horizon weight is constant once~$\mathcal G_T$ and
+the event are fixed, so the first equality in
+\eqref{eq:appendix-finite-continuation-identity} follows. Conditional
+independence,~\eqref{eq:local-no-late-factorization}, and
+\eqref{eq:local-probability-weighted-continuation} give the second equality.
+The same argument applies to~$\Lcal^\varepsilon$.
+
+Uniform deaths give~$\lambda_i(\mb 0)\geq\varepsilon$, and
+\eqref{eq:all-zero-neighbourhood-relaxation} gives
+$\psi_i(h,z)\to\rho_i(\mb 0)$ as~$h\to\infty$. For each
+$P\in\mathcal E_T$,~\eqref{eq:local-probability-weighted-continuation} with
+$z=1$ therefore gives
+\begin{equation*}
+\lim_{u\to\infty}
+\CP{L_{T,u}^P}{\mathcal G_T}
+C\bb{1,P^{\uparrow u}}
+=
+C\bb{\rho_i(\mb 0),P}.
+\end{equation*}
+The product on the left is the conditional expectation of the patch factor
+on~$L_{T,u}^P$; the formula supplies its limit even when the
+limiting infinite extension has zero consistency probability. The
+future increments at the finitely many end-patch sites are independent, so
+multiplying these local limits proves
+\eqref{eq:appendix-infinite-continuation-identity}.
+\end{proof}
+
+The centered terms are compared directly; the constant terms are handled by a
+telescoping identity.
+
+\begin{lemma}[End-factor relaxation]
+\label{lem:end-factor-relaxation}
+Fix a realization of~$\mathcal G_T$ and let~$0\leq T<t$. For every
+$\mu\in\mathcal M_*$,
+\begin{align*}
+&\abs{
+ \CP{L_{T,t}}{\mathcal G_T}
+ \mu\bb{
+  \prod_{P\in\mathcal E_T}
+  C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+ }
+ -
+\prod_{P\in\mathcal E_T}C\bb{\rho_{i(P)}(\mb 0),P}
+}
+\\
+&\qquad\leq
+e^{-\varepsilon\bb{t-T}}
+\bb{
+ \CP{L_{T,t}}{\mathcal G_T}
+ \mu\bb{
+  \prod_{P\in\mathcal E_T}
+  C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+ }
+ +
+ \abs{\mathcal E_T}
+\prod_{P\in\mathcal E_T}C\bb{\rho_{i(P)}(\mb 0),P}
+}.
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+Put~$h=t-T$. For~$P\in\mathcal E_T$ based at~$i$, write
+\begin{align*}
+a_t(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+C\bb{p_i^\star,P^{\uparrow t}},
+&
+k_t(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+\partial_zC\bb{z,P^{\uparrow t}},
+\\
+a_t^\varepsilon(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+C^\varepsilon\bb{p_i^\star,P^{\uparrow t}},
+&
+k_t^\varepsilon(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+\partial_zC^\varepsilon\bb{z,P^{\uparrow t}},
+\\
+b(P)&=C\bb{\rho_i(\mb 0),P}.
+\end{align*}
+Equation~\eqref{eq:local-probability-weighted-continuation} and the affine
+end-factor formula give
+\begin{equation*}
+a_t(P)=C\bb{\psi_i(h,p_i^\star),P},
+\qquad
+k_t(P)=e^{-\lambda_i(\mb 0)h}\kappa(P),
+\qquad
+b(P)=C\bb{\rho_i(\mb 0),P}.
+\end{equation*}
+For the system with the pure-death component removed, the corresponding update
+rate at the all-zero neighbourhood is~$\lambda_i(\mb 0)-\varepsilon$, so
+\begin{equation*}
+k_t^\varepsilon(P)
+=
+e^{-\bb{\lambda_i(\mb 0)-\varepsilon}h}\kappa^\varepsilon(P).
+\end{equation*}
+The patchwise pure-death comparison and the common continuation probability
+therefore imply
+\begin{equation}
+\label{eq:appendix-continued-factor-comparisons}
+0\leq a_t(P)\leq a_t^\varepsilon(P),
+\qquad
+0\leq k_t(P)\leq e^{-\varepsilon h}k_t^\varepsilon(P),
+\qquad
+0\leq b(P)-a_t(P)\leq e^{-\varepsilon h}b(P).
+\end{equation}
+For the last inequality, use~$p_i^\star\leq\rho_i(\mb 0)$ and compute
+\begin{equation*}
+b(P)-a_t(P)
+=
+\kappa(P)\bb{\rho_i(\mb 0)-p_i^\star}
+e^{-\lambda_i(\mb 0)h}
+\leq
+e^{-\varepsilon h}b(P),
+\end{equation*}
+because
+\begin{equation*}
+b(P)
+=
+C\bb{p_i^\star,P}
++
+\kappa(P)\bb{\rho_i(\mb 0)-p_i^\star}.
+\end{equation*}
+
+For~$\mathcal Q\subseteq\mathcal E_T$, put
+$I(\mathcal Q)=\cb{i(P):P\in\mathcal Q}$. Distributing the product in
+\eqref{eq:local-no-late-factorization} among the end factors and expanding
+around~$\mb p^\star$ gives
+\begin{equation*}
+\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+} =
+\sum_{\mathcal Q\subseteq\mathcal E_T}
+\mu\bb{\chi_{I(\mathcal Q)}^*}
+\prod_{P\in\mathcal Q}k_t(P)
+\prod_{P\in\mathcal E_T\setminus\mathcal Q}a_t(P).
+\end{equation*}
+All terms are nonnegative. For~$\mathcal Q\neq\vn$, the first two inequalities
+in~\eqref{eq:appendix-continued-factor-comparisons} bound the corresponding
+term by~$e^{-\varepsilon h}$ times its~$\varepsilon$ counterpart. Therefore
+\begin{align*}
+0
+&\leq
+\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+-
+\prod_{P\in\mathcal E_T}a_t(P)
+\\
+&\leq
+e^{-\varepsilon h}
+\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}.
+\end{align*}
+
+Enumerate~$\mathcal E_T=\cb{P_1,\ldots,P_n}$ and write
+$a_j=a_t(P_j)$ and~$b_j=b(P_j)$. The telescoping identity
+\begin{equation*}
+\prod_{j=1}^n b_j-
+\prod_{j=1}^n a_j
+=
+\sum_{j=1}^n
+\bb{b_j-a_j}
+\prod_{k<j}a_k
+\prod_{k>j}b_k
+\end{equation*}
+and the last inequality in
+\eqref{eq:appendix-continued-factor-comparisons} give
+\begin{equation*}
+0
+\leq
+\prod_{P\in\mathcal E_T}b(P)
+-
+\prod_{P\in\mathcal E_T}a_t(P)
+\leq
+\abs{\mathcal E_T}e^{-\varepsilon h}
+\prod_{P\in\mathcal E_T}b(P).
+\end{equation*}
+The two expressions compared in the lemma are both at least
+$\prod_Pa_t(P)$, so the sum of the two preceding errors bounds their absolute
+difference.
+\end{proof}
+
+\subsection{Finite-volume and finite-propagation approximations}
+\label{app:finite-propagation}
+
+Put
+\begin{equation*}
+m=\sup_{i\in\Lambda}\abs{N(i)\cup\cb{i}}<\infty.
+\end{equation*}
+The following finite-speed estimate is standard for Harris graphical
+constructions; see, for example,~\cite[Chapter~I]{Liggett1985}. We include the
+proof to keep the approximation used above self-contained.
+
+\begin{lemma}[Finite propagation]
+\label{lem:finite-propagation}
+Let~$f$ be supported on~$A\Subset\Lambda$. For every~$a>0$, there are
+$v<\infty$ and~$C_A<\infty$ such that
+\begin{equation}
+\label{eq:finite-propagation}
+\norm{\bb{P_t-P_t^{R,0}}f}_\infty
+\leq
+C_Ae^{-at}\norm f_\infty
+\end{equation}
+for every~$t\geq0$ and every finite~$R$ containing
+$B\bb{A,\lceil vt\rceil}$.
+\end{lemma}
+
+\begin{proof}
+Construct the process from rate-$\overline\lambda$ clocks at each site,
+together with independent marks implementing the state-dependent acceptance
+and refresh. Explore these clocks backwards from~$A$ at time~$t$. Whenever a
+clock at~$i$ is encountered, add~$N(i)\cup\cb{i}$ to the sites whose states at
+earlier times must be determined. If this backward influence cluster stays
+inside~$R$, the infinite-volume and zero-boundary processes, coupled with the
+same clocks and marks in~$R$, agree on~$A$ at time~$t$.
+
+To leave~$B(A,n)$, the cluster must contain a chronological dependency path of
+at least~$n$ clocks. There are at most~$\abs A m^k$ spatial paths of length~$k$,
+and the expected number of chronologically ordered~$k$-tuples along a fixed
+path is~$(\overline\lambda t)^k/k!$. Therefore, for every~$\theta>0$,
+\begin{equation*}
+\pP\bb{\text{the influence cluster leaves }B(A,n)}
+\leq
+\abs A\sum_{k\geq n}\frac{\bb{m\overline\lambda t}^k}{k!}
+\leq
+\abs A\exp\bb{m\overline\lambda t e^\theta-\theta n}.
+\end{equation*}
+Take~$n=\lceil vt\rceil$ and choose~$v$ so that
+$\theta v-m\overline\lambda e^\theta>a$. After increasing the constant to cover
+bounded~$t$, the exit probability is at most~$C_Ae^{-at}$. The graphical
+coupling gives
+\begin{equation*}
+\abs{P_tf(\eta)-P_t^{R,0}f(\eta)}
+\leq
+2\norm f_\infty
+\pP\bb{\text{the influence cluster leaves }R},
+\end{equation*}
+uniformly in~$\eta$, and proves~\eqref{eq:finite-propagation}.
+\end{proof}
+
+For fixed~$t$ and local~$f$, Lemma~\ref{lem:finite-propagation} implies uniform
+convergence of zero-boundary finite-volume semigroups to~$P_tf$ along any
+exhaustion whose boundary recedes from the dependence set of~$f$. In
+particular, the nonnegative centered-monomial coefficients of the finite-volume
+semigroups used in Theorem~\ref{thm:patch-positivity-order} pass to the
+infinite-volume limit.
+
+\subsection{Restricted system preserves~$\mathcal{M}_*^I$}
+\label{app:boundary-moment-preservation}
+
+\begin{lemma}
+\label{lem:boundary-moment-preservation}
+Suppose that~$\Lcal$ is patch positive. Let~$I\Subset\Lambda$ and
+$U\subseteq\Lambda\setminus I$ satisfy~$N(i)\subseteq I\cup U$ for every
+$i\in I$. For~$\xi\in\cb{0,1}^U$, let~$P_t^{I,\xi}$ be the semigroup on
+$\cb{0,1}^I$ obtained by fixing the spins on~$U$ at~$\xi$.
+Let~$\mathcal M_*^I$ consist of probability measures on~$\cb{0,1}^I$
+whose moments centered at~$(p_i^\star)_{i\in I}$ are
+nonnegative. Then
+\begin{equation*}
+\mathcal M_*^I P_t^{I,\xi}\subseteq\mathcal M_*^I
+\qquad(t\geq0).
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+The proof is by demonstration that the expension of~$\mathcal{L}^{I,\xi}\bb{\chi_B^*}$ in centered moments has non-negative off-diagonal coefficients.  First observe, that for~$S\subseteq N(i)\cap I$ we have
+\begin{align*}
+\widehat{\lambda_i^{I,\xi}}(S)
+&=\sum_{T\subseteq N(i)\cap U}
+ \widehat{\lambda_i}(S\cup T)\prod_{j\in T}\xi(j)
+\leq0,
+\quad(S\neq\vn),\\
+\widehat{\lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)}(S)
+&=\sum_{T\subseteq N(i)\cap U}
+ \widehat{\lambda_i(\rho_i-p_i^\star)}(S\cup T)
+ \prod_{j\in T}\xi(j)
+\geq0.
+\end{align*}
+The inequalities hold because each term with~$S\cup T\neq \vn$ in  the sums has the right sign, see~\eqref{eq:principal-coefficient-criterion} and
+\eqref{eq:principal-threshold-profile}. The second sum also includes the term corresponding to~$S\cup T = \vn$, which is
+$\lambda_i(\mb0)(\rho_i(\mb0)-p_i^\star)\geq0$, see remark under~\eqref{eq:principal-threshold-profile}.
+Thus both~$\lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)$ and
+$\lambda_i^{I,\xi}(\mb0)-\lambda_i^{I,\xi}$ have nonnegative monomial
+coefficients.
+
+Choose~$h>0$ with~$h\sum_{i\in I}\lambda_i^{I,\xi}(\mb0)\leq1$.
+For~$B\subseteq I$,
+\begin{align*}
+(\mathrm{Id}+h\Lcal^{I,\xi})\chi_B^*
+&=\bb{1-h\sum_{i\in B}\lambda_i^{I,\xi}(\mb0)}\chi_B^*\\
+&\quad+h\sum_{i\in B}
+ \lambda_i^{I,\xi}(\rho_i^{I,\xi}-p_i^\star)
+ \chi_{B\setminus\cb{i}}^*\\
+&\quad+h\sum_{i\in B}
+ \bb{\lambda_i^{I,\xi}(\mb0)-\lambda_i^{I,\xi}}\chi_B^*.
+\end{align*}
+The identities
+\begin{equation*}
+\eta(j)=p_j^\star+\chi_{\cb{j}}^*,
+\qquad
+\eta(j)\chi_{\cb{j}}^*
+=p_j^\star(1-p_j^\star)+(1-p_j^\star)\chi_{\cb{j}}^*
+\end{equation*}
+show that a product of a monomial and a centered monomial can be represented by a linear combination of centered monomials with only non-negative coefficients. Hence so can
+$\bb{\mathrm{Id}+h\Lcal^{I,\xi}}^n\bb{\chi_B^*}$ for any~$n\in\N$. Since~$I$ is finite, for~$\mu\in\mathcal M_*^I$,
+\begin{equation*}
+(\mu P_t^{I,\xi})(\chi_B^*)
+=\lim_{n\to\infty}
+ \mu\bb{\bb{\mathrm{Id}+\frac{t}{n}\Lcal^{I,\xi}}^n\chi_B^*}
+\geq0
+\qquad(B\subseteq I).
+\end{equation*}
+\end{proof}
+\par
