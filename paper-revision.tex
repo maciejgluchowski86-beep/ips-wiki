@@ -149,17 +149,60 @@ condition for uniform ergodicity under positive rates, extending the regions
 covered by earlier criteria; see
 Corollary~\ref{cor:simple-positive-rates}.
 
-The main construction starts from a signed Feynman--Kac representation for finite spin
-monomials. Tracing such an observable backward in time gives a set-valued
-process recording the sites on which it depends, while the coefficients of the
-spin-system generator produce signs in the representation. Treating these
-signed terms separately would discard the cancellations that are important
-here. Instead, we condition only on the interactions that transmit dependence
-between sites. Along each site line, the retained interaction times divide
-spacetime into consecutive regions, which we call \emph{patches}. Once this
-interaction structure is fixed, the remaining local randomness separates
-between patches and can be averaged within each one. This produces the patch
-factorization developed in Sections~\ref{sec:dual} and~\ref{sec:patches}.
+The main construction reorganizes a signed dual representation of the spin
+monomials. For~$\chi_A(\eta)=\prod_{i\in A}\eta(i)$, the starting point is
+the set-valued Feynman--Kac representation
+\begin{equation}
+\label{eq:intro-signed-duality}
+P_t\chi_A(\eta)
+=
+\E_A\Cb{
+\sigma_t
+\exp\bb{\int_0^t V(A_s)\,ds}
+\chi_{A_t}(\eta)
+}.
+\end{equation}
+Here~$A_s$ is the finite set-valued dual,~$\sigma_s$ records its sign, and~$V$
+is the Feynman--Kac potential. Set-valued dual constructions for spin systems
+are standard; see, for example,
+\cite{Harris1978,Griffeath1979,Gray1986,JansenKurt2014}. The important feature
+for us is that the right-hand side of~\eqref{eq:intro-signed-duality} is
+signed, so estimating the different dual histories separately would lose
+cancellations between them.
+
+The new step is to reveal only part of the graphical construction. We let
+$\mathcal G_t$ record the inter-site interactions that actually occur in the
+dual up to time~$t$, including their times and the sites they connect, while
+forgetting their local type and the purely local events between them. Once this
+information is fixed, the recorded interactions divide each site line into
+consecutive time intervals. We call these intervals \emph{patches}. Thus a
+patch is a piece of one site line between two consecutive recorded
+interactions, or between such an interaction and the observation time.
+
+Conditioning on~$\mathcal G_t$ makes the reason for this choice visible. The
+forgotten randomness has a conditional law that factorizes over the patches,
+and the signed random variable in~\eqref{eq:intro-signed-duality} is itself a
+product of patch-local factors. Consequently, schematically,
+\begin{equation}
+\label{eq:intro-patch-factorization}
+\E_A\Cb{
+\sigma_t
+\exp\bb{\int_0^t V(A_s)\,ds}
+\chi_{A_t}(\eta)
+\,\middle|\,
+\mathcal G_t
+}
+=
+\prod_{\substack{P\text{ ending}\\\text{before }t}} C(P)
+\prod_{\substack{P\text{ reaching}\\\text{time }t}}
+C\bb{\eta\bb{i(P)},P}.
+\end{equation}
+The notation in~\eqref{eq:intro-patch-factorization} is only schematic; the
+patches and their contributions are defined precisely in
+Section~\ref{sec:patches}. Its point is that dual histories which differ only
+through hidden events inside one patch are averaged together. Positive and
+negative terms can therefore cancel locally inside a patch, before the
+contributions from different patches are multiplied.
 
 This representation explains the condition introduced above. The coefficient
 inequalities defining patch positivity ensure that the averaged contribution
@@ -171,7 +214,7 @@ factorization preserves the sign needed for the centered monomial comparison,
 which yields Theorem~\ref{thm:centered-monomial-monotonicity}. Thus patch
 positivity is an algebraic condition on the local update rule whose
 probabilistic meaning becomes visible only after the signed representation is
-averaged over patches.\section{Setup and examples}
+averaged over patches.\n\n\section{Setup and examples}
 \label{sec:setup}
 
 This section fixes the spin-system setup and notation used throughout the paper.
