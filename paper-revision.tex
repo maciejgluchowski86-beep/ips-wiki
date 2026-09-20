@@ -1776,6 +1776,243 @@ Thus~$P^{\uparrow t}=P$.
 \subsection{Patch factorization}
 \label{subsec:patch-factorization}
 
+{\color{red}
+Conditioning on~$\mathcal G_T$ fixes the successful-interaction skeleton and
+hence the patch family~$\mathcal P_T$.
+}
+It leaves unresolved the local information that was omitted from the skeleton.
+In particular, deaths inside patches are not recorded, and for a recorded
+outgoing interaction the skeleton does not say whether it was a split or a
+birth. The fixed patch boundaries restrict this remaining randomness:
+depending on the boundary types, they may force the interaction kind or
+exclude deaths. These restrictions involve only one patch at a time.
+Consequently, conditional on~$\mathcal G_T$, the unresolved randomness
+factorizes over the patches.
+
+Fix a patch~$P$, and write~$i=i(P)$,~$s=s(P)$,~$e=e(P)$, and~$S=S(P)$.
+We first define a reference law for the information in the patch~$P$, that is
+not revealed by the skeleton. Inside the patch, the outgoing marks from~$i$ are
+\begin{equation*}
+\Sigma_P^\circ
+=
+\cb{(i,u,\gamma,R)\in {\color{red}I^{\mathrm P}}:s<u<e}.
+\end{equation*}
+For each~$R$, the~$(\delta,R)$ and~$(\beta,R)$ marks in~$(s,e)$ are
+independent Poisson processes with rates~$\delta_i(R)$ and~$\beta_i(R)$,
+respectively.
+
+It remains to specify the information at the initial boundary. If
+$\mathsf X(P)=\mathsf I$, the boundary is incoming, so there is no outgoing
+mark from~$i$ to add and we set~$\Sigma_P=\Sigma_P^\circ$. If
+$\mathsf X(P)=\mathsf O$, the boundary record specifies the target~$S$ but not
+whether the interaction is a split or a birth. Let
+$\alpha(P)\in\cb{\delta,\beta}$ denote its kind, independent of
+$\Sigma_P^\circ$, with
+\begin{equation}
+\label{eq:patch-initial-kind-law}
+\pP_P\bb{\alpha(P)=\delta}
+=
+\frac{\delta_i(S)}{\delta_i(S)+\beta_i(S)},
+\qquad
+\pP_P\bb{\alpha(P)=\beta}
+=
+\frac{\beta_i(S)}{\delta_i(S)+\beta_i(S)}.
+\end{equation}
+{\color{red}
+For an outgoing patch boundary,~$\delta_i(S)+\beta_i(S)>0$ because that
+boundary comes from a successful interaction.
+}
+In this case,
+\begin{equation*}
+\Sigma_P
+=
+\Sigma_P^\circ\cup\cb{(i,s,\alpha(P),S)}.
+\end{equation*}
+Together, the interior Poisson marks and, when present, the random initial kind
+define the reference patch law~$\pP_P$. Write~$\E_P$ for expectation under
+$\pP_P$.
+
+The marks in~$\Sigma_P$ determine a one-site process~$X^P\in\cb{0,1}$, where
+$X_u^P=1$ means that the patch site is active at time~$u$. Its initial value is
+\begin{equation*}
+X_s^P
+=
+\pw{1}{\mathsf X(P)=\mathsf I}
+{\ind\cb{\alpha(P)=\beta}}{\mathsf X(P)=\mathsf O}.
+\end{equation*}
+The interior marks are then read in chronological order. When~$X_{u-}^P=1$, a
+$\delta$-mark sets~$X_u^P=0$ and a~$\beta$-mark leaves~$X_u^P=1$; when
+$X_{u-}^P=0$, either mark leaves~$X_u^P=0$. Between marks,~$X^P$ is constant.
+For a finite patch with terminal label~$\mathsf E$, set~$X_e^P=X_{e-}^P$.
+
+Not every realization under~$\pP_P$ is compatible with the patch boundaries
+fixed by the skeleton. {\color{red}A mark with nonempty target inside the patch
+would be a successful interaction whenever the patch site is active immediately
+before it, and would therefore give an additional successful-interaction record,
+contrary to the fixed skeleton.} Hence such marks can only occur with
+~$X_{u-}^P=0$. If the terminal boundary is outgoing, the recorded interaction
+must itself be successful, so~$X_{e-}^P=1$. There is no additional endpoint
+condition for an incoming or end boundary. We therefore define the consistency
+event
+\begin{equation*}
+\operatorname{Con}(P)
+=
+\cb{
+\begin{aligned}
+X_{u-}^P=0
+&\quad\text{for every }(i,u,\gamma,R)\in\Sigma_P^\circ\\[-0.2em]
+&\quad\text{with }R\neq\varnothing
+\end{aligned}
+}
+\cap
+\pw{\cb{X_{e-}^P=1}}{\mathsf Y(P)=\mathsf O}
+{\Omega_P}{\mathsf Y(P)\in\cb{\mathsf I,\mathsf E}},
+\end{equation*}
+where~$\Omega_P$ is the sample space of the patch law. Depending on the
+boundary types, this condition can determine the hidden initial interaction
+kind or exclude deaths inside the patch.
+
+For almost every patch arising from the graphical construction,
+$\pP_P\bb{\operatorname{Con}(P)}>0$. Its consistent patch law is
+\begin{equation*}
+\pP_P^{\mathrm{con}}(\cdot)
+=
+\pP_P\bb{\,\cdot\,\middle|\,\operatorname{Con}(P)},
+\end{equation*}
+and~$\E_P^{\mathrm{con}}$ denotes expectation under this law.
+
+\input{paper/sections/patch-interior-figure}
+
+The one-patch laws above describe exactly the randomness left after the
+successful-interaction skeleton is fixed. Conditional on~$\mathcal G_T$,
+different patches are independent and each patch has its consistent law. Thus a
+conditional expectation of a product of patch-local quantities reduces to a
+product of one-patch expectations.
+
+\begin{theorem}[Patch factorization]
+\label{thm:patch-factorization}
+Fix~$T<\infty$. Conditional on~$\mathcal G_T$, the variables~$\Sigma_P$ are
+independent, and the conditional law of~$\Sigma_P$ is
+$\pP_P^{\mathrm{con}}$ for each~$P\in\mathcal P_T$. Equivalently, for
+bounded measurable functions~$f_P$ such that either all~$f_P$ are nonnegative
+or the product on the left below is integrable,
+\begin{equation}
+\label{eq:patch-factorization}
+\CE{
+\prod_{P\in\mathcal P_T}f_P\bb{\Sigma_P}
+}{\mathcal G_T}
+=
+\prod_{P\in\mathcal P_T}
+\E_P^{\mathrm{con}}\Cb{f_P\bb{\Sigma_P}}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+{\color{red}
+Since the initial record~$(\infty,0,A)$ is deterministic under~$\pP_A$, let
+~$G_T$ denote the positive-time records in~$\mathcal I_T$. Then
+~$\mathcal G_T=\sigma(G_T)$.
+}
+We compute the joint law of~$G_T$ and the patch variables relative to a
+reference measure on possible successful-interaction records. Setting all patch
+test functions equal to~$1$ then gives the marginal law of~$G_T$, and the
+quotient of the two densities gives the conditional law.
+
+By Lemma~\ref{lem:dual-local-finiteness}, the records in~$G_T$ almost surely
+form a finite chronological list
+\begin{equation*}
+g=\bb{(i_k,t_k,S_k)}_{k=1}^n,
+\qquad
+0<t_1<\cdots<t_n\leq T,
+\end{equation*}
+where~$\varnothing\neq S_k\subseteq N(i_k)$ and
+$i_k\in A\cup\bigcup_{\ell<k}S_\ell$. We call the discrete sequence
+$((i_k,S_k))_{k=1}^n$ admissible when these conditions hold. On the disjoint
+union of all such record lists, define
+\begin{equation}
+\label{eq:patch-record-reference-measure}
+m_T(dg)
+=
+\sum_{n\geq0}
+\sum_{\substack{((i_k,S_k))_{k=1}^n\\\text{admissible}}}
+\ind\cb{0<t_1<\cdots<t_n\leq T}
+\prod_{k=1}^n
+\bb{\delta_{i_k}(S_k)+\beta_{i_k}(S_k)}
+\,dt_1\cdots dt_n.
+\end{equation}
+Thus~$m_T$ is the Poisson intensity measure for a proposed list of
+nonempty-target interaction records, with the split and birth kinds suppressed.
+
+Fix such a record list~$g$, and let~$\mathcal P_T(g)$ be the patch family it
+defines. The interactions in~$g$ are exactly the successful interactions up to
+time~$T$ if and only if every~$P\in\mathcal P_T(g)$ satisfies
+$\operatorname{Con}(P)$. Indeed, suppose first that every patch is consistent.
+Then there are no successful interactions that originate from the interior of a
+patch, and every interaction with record in~$g$ is successful because the
+consistency event for its source patch ensures it happens at an active site.
+Thus~$g$ is exactly the list of records of successful interactions. Conversely,
+if~$g$ is the successful-interaction record, then each~$X^P$ is the restriction
+of the global active indicator to its patch, so every patch is consistent.
+
+We can now compute the joint law. For nonnegative measurable~$h$ and~$f_P$, the
+multivariate Mecke formula~\cite[Theorem~4.4]{LastPenrose2017}, applied to the
+ordered nonempty-target marks, gives
+\begin{equation}
+\label{eq:patch-factorization-mecke}
+\E_A\Cb{
+h(G_T)
+\prod_{P\in\mathcal P_T}f_P\bb{\Sigma_P}
+}
+=
+\int h(g)
+\prod_{P\in\mathcal P_T(g)}
+\E_P\Cb{
+f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}
+}
+\,m_T(dg).
+\end{equation}
+Here a record~$(i,t,S)$ has combined intensity
+$\bb{\delta_i(S)+\beta_i(S)}\,dt$, while conditional on this record its
+hidden kind has the law in~\eqref{eq:patch-initial-kind-law}. After these
+records are fixed, the remaining marks on distinct patch intervals are
+independent with the reference laws~$\pP_P$. The consistency indicators impose
+exactly the condition proved above that~$g$ is the successful-interaction
+record.
+
+Setting~$f_P=1$ in~\eqref{eq:patch-factorization-mecke} gives the marginal law
+of the skeleton record,
+\begin{equation*}
+\pP_A\bb{G_T\in dg}
+=
+\prod_{P\in\mathcal P_T(g)}
+\pP_P\bb{\operatorname{Con}(P)}
+\,m_T(dg).
+\end{equation*}
+Therefore, for~$\pP_A\circ G_T^{-1}$-almost every~$g$, the Radon--Nikodym
+quotient of the joint density in~\eqref{eq:patch-factorization-mecke} by this
+marginal density is
+\begin{align*}
+\E_A\Cb{
+\prod_{P\in\mathcal P_T}f_P\bb{\Sigma_P}
+\,\middle|\,G_T=g
+}
+&=
+\prod_{P\in\mathcal P_T(g)}
+\frac{
+\E_P\Cb{f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}}
+}{
+\pP_P\bb{\operatorname{Con}(P)}
+}
+\\
+&=
+\prod_{P\in\mathcal P_T(g)}
+\E_P^{\mathrm{con}}\Cb{f_P\bb{\Sigma_P}}.
+\end{align*}
+This proves~\eqref{eq:patch-factorization} for nonnegative factors and
+identifies the conditional law. The integrable signed case follows from this
+conditional-law statement.
+\end{proof}
+
 \subsection{Patch representation}
 \label{subsec:patch-representation}
 
