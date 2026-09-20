@@ -1532,22 +1532,19 @@ Thus two spin systems that only differ by adding pure deaths have the same dual 
 \subsection{Interaction skeleton}
 \label{subsec:interaction-skeleton}
 
-To obtain the patch representation, we condition on a~$\sigma$-algebra that
+To obtain the patch representation, we define a~$\sigma$-algebra that
 records how dependence passes between sites while revealing as little of the
-remaining randomness as possible. We therefore retain every interaction that
-actually connects a source site to a nonempty target, together with its source,
-time, and target, but suppress local events and any additional information that
-does not change which sites are connected. To make this conditioning precise,
-we first realize the signed dual graphically.
+remaining randomness as possible. The~$\sigma$-algebra should reveal every interaction between sites, but suppress local events and any additional information. To make this notion precise,
+we first construct the dual process graphically.
 
-We use the standard Poisson graphical construction for the signed dual. For
+We use the standard Poisson graphical construction for the dual process. For
 every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
 $I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson point process of
 rate~$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let
 $I_{i,S}^\beta\subseteq(0,\infty)$ be a Poisson point process of
 rate~$\beta_i(S)$. All these processes are independent, and we set
-$I_{i,\varnothing}^\beta=\varnothing$. We write the resulting collection of
-marks as
+$I_{i,\varnothing}^\beta=\varnothing$. We denote the resulting collection of
+Poisson marks by
 \begin{equation*}
 I^{\mathrm P}
 =
