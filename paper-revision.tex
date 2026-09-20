@@ -69,26 +69,25 @@ system.
 This raises the question that motivates the paper: does any kind of monotonicity survive? More generally, can one recover a useful comparison principle for a large class of
 spin systems whose dynamics are not monotone in configuration order?
 
-We describe the systems considered here in a form modeled on KCSMs. At each
+We describe the systems considered here in a form based on KCSMs. At each
 site, updates occur at a rate determined by the neighbouring spins and, when an
 update occurs, the new spin is sampled from a Bernoulli law whose parameter may
 also depend on the neighbours. For a KCSM the Bernoulli parameter is fixed and
 the update rate contains the kinetic constraint. We identify a condition on
-these more general local update rules, called \emph{patch positivity}; its
-formal definition is given in Section~\ref{sec:main-results}.
+these more general local update rules, called \emph{patch positivity}. Its
+formal definition is given in Section~\ref{sec:main-results}, and probabilistic interpretation, which explains the name, in Section~\ref{sec:patches}.
 
-Patch positivity includes the main examples that motivate the paper but is not
+Patch positivite spin systems include the main examples that motivate the paper but is not
 a condition satisfied by all KCSMs. FA-1f and East are patch-positive, whereas
-FA-$j$f with~$j\geq2$ need not be. The biased annihilating branching process
+FA-$j$f with~$j\geq2$ are not. The biased annihilating branching process
 (BABP) is another patch-positive example outside the KCSM class. After
 exchanging the two spin values, the contact process is patch-positive as well,
-although in that case the usual configuration monotonicity gives stronger
-comparisons. These examples are worked out in
+although that model is also monotone in the usual configuration order. These examples are worked out in
 Section~\ref{sec:applications}.
 
-The comparison principle associated with patch positivity is an order on
-probability laws rather than on configurations. Each patch-positive system has
-a reference profile~$\mb p^\star=(p_i^\star)_{i\in\Lambda}$. For a finite
+Our first result is that a patch positive spin system admits an order on
+probability laws that the system preserves. Each patch-positive system has
+a reference profile~$\mb p^\star=(p_i^\star)_{i\in\Lambda} \in [0,1]^\Lambda$. For a finite
 set~$A\subseteq\Lambda$, define the centered monomial
 \begin{equation*}
 \chi_A^\star(\eta)
@@ -104,9 +103,7 @@ when
 \qquad
 \text{for every finite }A\subseteq\Lambda.
 \end{equation*}
-We call this the \emph{centered monomial order}.
-
-Our main structural result is that patch-positive dynamics preserve this order.
+We call this the \emph{centered monomial order}. The result is that patch-positive dynamics preserve this order.
 Writing~$P_t$ for the Markov semigroup,
 \begin{equation*}
 \mu\preceq_\star\nu
