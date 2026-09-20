@@ -1,5 +1,8 @@
 \RequirePackage{lmodern}
 \RequirePackage[T1]{fontenc}
+% Overleaf TeX Live 2025 emits a spurious compatibility warning from microtype.
+\RequirePackage{silence}
+\WarningFilter{latex}{Command \\showhyphens has changed}
 \documentclass[EJP,preprint,NODS,nobera]{ejpecp}
 
 \input{paper/preamble}
@@ -1063,30 +1066,17 @@ the earlier sufficient conditions on three sections of the parameter space.
 \caption{Sections of the face~$p_{1\mid11}=0$. The horizontal coordinate is
 $p_{1\mid10}$ and the vertical coordinate is~$p_{1\mid01}$; the three panels
 have~$p_{1\mid00}=1/100$,~$1/8$, and~$1/4$. Light gray is the region covered
-by~\cite{GluchowskiMenz2025},
-\[
-p_{1\mid10}<\tfrac12
-\quad\text{or}\quad
-p_{1\mid10}<p_{1\mid01}+p_{1\mid00}
-\quad\text{or}\quad
-p_{1\mid01}\leq p_{1\mid00}.
-\]
-Dark gray is the additional region from~\cite{GluchowskiMenz2026},
-\[
-\max\cb{p_{1\mid01},p_{1\mid00}}
-<
-\sqrt2(1-p_{1\mid10}),
-\]
-and red is the additional region given by
-Corollary~\ref{cor:simple-positive-rates},
-\[
-p_{1\mid00}
-\leq
-(1-p_{1\mid10})p_{1\mid01}.
-\]
-White denotes parameters not covered by these criteria. The additional red
-region is empty in the~$p_{1\mid00}=1/4$ section. The figure format is adapted
-from Figure~3 of~\cite{GluchowskiMenz2026}.}
+by~\cite{GluchowskiMenz2025}, where
+$p_{1\mid10}<\tfrac12$, or
+$p_{1\mid10}<p_{1\mid01}+p_{1\mid00}$, or
+$p_{1\mid01}\leq p_{1\mid00}$. Dark gray is the additional region from
+~\cite{GluchowskiMenz2026}, where
+$\max\cb{p_{1\mid01},p_{1\mid00}}<\sqrt2(1-p_{1\mid10})$, and red is the
+additional region given by Corollary~\ref{cor:simple-positive-rates}, where
+$p_{1\mid00}\leq(1-p_{1\mid10})p_{1\mid01}$. White denotes parameters not
+covered by these criteria. The additional red region is empty in the
+~$p_{1\mid00}=1/4$ section. The figure format is adapted from Figure~3 of
+~\cite{GluchowskiMenz2026}.}
 \label{fig:simple-ips-ergodicity-regions}
 \end{figure}
 
