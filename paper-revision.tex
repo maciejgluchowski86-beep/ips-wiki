@@ -1010,14 +1010,15 @@ p_{1\mid0\eta(i+1)}+1-p_{1\mid1\eta(i+1)},
 =
 \frac{p_{1\mid0\eta(i+1)}}{\lambda_i(\eta)}.
 \end{equation*}
-Exchanging the roles of~$0$ and~$1$ swaps the two values of~$\lambda_i$ and
+Since~$\lambda_i$ is translation invariant and depend only on a single coordinate we write~$\lambda(0)=\lambda_i(\eta^{i,0})$ and~$\lambda(1)=\lambda_i(\eta^{i,1})$.  Exchanging the roles of~$0$ and~$1$ swaps the two values of~$\lambda$ and
 leaves~\eqref{eq:simple-positive-rates-criterion} unchanged. We may therefore
-assume that~$\lambda_i(1)\leq\lambda_i(0)$. Since
+assume that~$\lambda(1)\leq\lambda(0)$. Since
 $N(i)=\cb{i+1}$,
 \begin{align*}
 \widehat{\lambda_i}\bb{\cb{i+1}}
 &=
-p_{1\mid01}-p_{1\mid11}-p_{1\mid00}+p_{1\mid10}
+p_{1\mid01}-p_{1\mid11}-p_{1\mid00}+p_{1\mid10}\\
+&= \lambda(1)-\lambda(0)
 \leq0,\\
 \widehat{\lambda_i\bb{\rho_i-\rho_i(\mb0)}}\bb{\cb{i+1}}
 &=
@@ -1040,15 +1041,13 @@ therefore applies.
 \end{proof}
 
 To compare this criterion with the earlier sufficient conditions, we use the
-same normalization as in~\cite{GluchowskiMenz2025}. Exchanging the two states
-and multiplying all transition rates by the same positive constant reduce the
-problem to the two faces
+same normalization as in~\cite{GluchowskiMenz2025}. Symmetry of exchanging the two states and a time-scaling trick~\cite{GluchowskiMenz2025} reduce the problem to two cubes in the parameter space
 \begin{equation*}
-p_{1\mid11}=0
+\cb{p_{1\mid11}=0, p_{1\mid 10}<1, p_{1\mid 01}>0, p_{1\mid 00}>0}
 \qquad\text{or}\qquad
-p_{1\mid10}=0.
+\cb{p_{1\mid11}<1, p_{1\mid 10}=0, p_{1\mid 01}>0, p_{1\mid 00}>0}.
 \end{equation*}
-The positive-rate part of the second face is already known to be ergodic
+The spin systems with parameters in the second cube are already known to be ergodic
 \cite[Section~7]{GluchowskiMenz2025}, so we focus on~$p_{1\mid11}=0$. On this
 face,~\eqref{eq:simple-positive-rates-criterion} becomes
 \begin{equation}
@@ -1063,7 +1062,7 @@ the earlier sufficient conditions on three sections of the parameter space.
 \begin{figure}[htbp]
 \centering
 \input{paper/figures/simple-ips-ergodicity-regions}
-\caption{Sections of the face~$p_{1\mid11}=0$. The horizontal coordinate is
+\caption{Sections of the cube~$\cb{p_{1\mid11}=0}$. The horizontal coordinate is
 $p_{1\mid10}$ and the vertical coordinate is~$p_{1\mid01}$; the three panels
 have~$p_{1\mid00}=1/100$,~$1/8$, and~$1/4$. Light gray is the region covered
 by~\cite{GluchowskiMenz2025}, where
@@ -1074,9 +1073,7 @@ $p_{1\mid01}\leq p_{1\mid00}$. Dark gray is the additional region from
 $\max\cb{p_{1\mid01},p_{1\mid00}}<\sqrt2(1-p_{1\mid10})$, and red is the
 additional region given by Corollary~\ref{cor:simple-positive-rates}, where
 $p_{1\mid00}\leq(1-p_{1\mid10})p_{1\mid01}$. White denotes parameters not
-covered by these criteria. The additional red region is empty in the
-~$p_{1\mid00}=1/4$ section. The figure format is adapted from Figure~3 of
-~\cite{GluchowskiMenz2026}.}
+covered by these criteria. The improvement is greatest when spontaneous births are sparse, meaning~$p_{1\mid 00}\approx 0$.}
 \label{fig:simple-ips-ergodicity-regions}
 \end{figure}
 
