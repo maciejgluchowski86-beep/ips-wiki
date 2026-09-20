@@ -1467,6 +1467,63 @@ neighbourhood sizes and update rates imply that the total dual jump rate per
 active site and~$\abs{V_i}$ are uniformly bounded.
 
 
+We write~$\pP_A$ and~$\E_A$ for the law and expectation of the signed
+set-valued process started from~$(A,+)$.
+
+\begin{definition}[Feynman--Kac integrability]
+\label{def:fk-integrability}
+The signed dual satisfies \emph{Feynman--Kac integrability} if
+\begin{equation}
+\tag{FK}
+\label{eq:fk-integrability}
+\E_A\Cb{
+\exp\bb{\int_0^t V(A_s)\,ds}
+}
+<\infty
+\qquad
+\text{for every }A\Subset\Lambda\text{ and }t\geq0.
+\end{equation}
+\end{definition}
+
+Under this condition, the generator identity
+~\eqref{eq:monomial-generator-duality} gives the standard Feynman--Kac
+duality relation
+\begin{theorem}[Monomial Feynman--Kac duality]
+\label{thm:monomial-duality}
+For every~$A\Subset\Lambda$, $t\geq0$, and~$\eta\in\Omega$,
+\begin{equation}
+\label{eq:monomial-feynman-kac-duality}
+P_t\chi_A(\eta)
+=
+\E_A\Cb{
+\sigma_t
+\exp\bb{\int_0^t V(A_s)\,ds}
+\chi_{A_t}(\eta)
+}.
+\end{equation}
+\end{theorem}
+This is a standard Feynman--Kac duality argument; see, for example,
+~\cite{JansenKurt2014}. In Appendix~\ref{app:dual-calculation}, we verify the
+generator calculation and the passage from finite to infinite volume in the
+present notation.
+
+Pure deaths have a particularly simple effect on this representation. Since
+\begin{equation*}
+\Ncal^{\mb 0}\chi_A
+=
+-\abs{A}\chi_A,
+\end{equation*}
+adding~$\varepsilon\Ncal^{\mb 0}$ to the spin-system generator changes no
+off-diagonal coefficient in~\eqref{eq:signed-dual-generator-expansion}.
+Consequently, the signed dual jump process is unchanged, while the potential
+is replaced by
+\begin{equation*}
+V(A)-\varepsilon\abs{A}.
+\end{equation*}
+Thus a pure-death component appears in the dual representation only through
+an additional damping factor in the Feynman--Kac weight.
+
+
 \subsection{Graphical construction}
 \label{subsec:dual-graphical-construction}
 
