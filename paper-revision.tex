@@ -1608,6 +1608,33 @@ dependence passes between sites up to time~$T$, but does not reveal deaths,
 marks at inactive sources, or the split/birth kind of a successful
 interaction.
 
+
+\begin{lemma}[Local finiteness]
+\label{lem:dual-local-finiteness}
+For every~$T<\infty$, the successful-interaction skeleton~$\mathcal I_T$ is
+almost surely finite.
+\end{lemma}
+
+\begin{proof}
+The total rate of marks whose source is active is bounded by
+~$C\abs{A_t}$ for some finite~$C$, uniformly in the state. Moreover, a single
+mark can add at most
+\begin{equation*}
+\sup_{i\in\Lambda}\abs{N(i)}<\infty
+\end{equation*}
+sites to the active set. Hence~$\abs{A_t}$ is dominated by a nonexplosive
+continuous-time branching process. Almost surely only finitely many marks occur
+at active sources on~$[0,T]$, and therefore only finitely many of them are
+successful interactions.
+\end{proof}
+
+Each record~$(j,t,S)\in\mathcal I$ is outgoing at its source~$j$ and incoming
+at every site in~$S$. Consequently, on each site line the retained interaction
+times divide time into consecutive intervals between one incoming or outgoing
+interaction and the next. In Section~\ref{subsec:patches}, we use these
+intervals as the patches over which the unrevealed local randomness is
+organized.
+
 \subsection{Patches}
 \label{subsec:patches}
 
