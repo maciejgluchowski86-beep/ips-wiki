@@ -26,6 +26,51 @@ Georg~Menz\footnotemark[1]}%AUTHORS
 \section{Introduction}
 \label{sec:introduction}
 
+Interacting particle systems are stochastic models in which local random
+updates at many sites combine to produce collective behaviour. We study spin
+systems, continuous-time Markov processes on~$\cb{0,1}^{\Lambda}$ in which
+one spin is updated at a time and the update rule may depend on nearby spins;
+see~\cite{Liggett1985} for the general theory. A basic question is how the
+local update rule determines the dependence of the process on its initial
+condition, in particular its invariant measures and long-time behaviour.
+
+One of the main tools for such questions is monotonicity. The configuration
+space carries the coordinatewise order~$\eta\leq\xi$. A spin system is
+monotone, traditionally called attractive in the interacting-particle-systems
+literature, if processes started from ordered configurations can be coupled so
+that the order is preserved at all later times. Such couplings give direct
+comparisons between different initial conditions and are a standard tool for
+studying invariant measures and convergence
+\cite{Harris1977,Liggett1985}.
+
+A principal motivation for this paper comes from kinetically constrained spin
+models (KCSMs)~\cite{FredricksonAndersen1984,CancriniEtAl2008,HartarskyToninelli2025}.
+In the standard binary models relevant here, a site may update only when a
+local kinetic constraint is satisfied, and a legal update refreshes the spin
+from a fixed Bernoulli law. For example, in the Fredrickson--Andersen
+one-spin facilitated model (FA-1f), an update is allowed when at least one
+neighbouring site is vacant. The East model imposes the same type of
+constraint using only designated forward neighbours. Thus these models have a
+simple Bernoulli product equilibrium measure, while the kinetic constraint can
+make relaxation slow and the out-of-equilibrium behaviour difficult. Precise
+definitions of the models used in this paper are given in
+Section~\ref{sec:setup}.
+
+The constraint in FA-1f and East has a clear monotone direction: adding
+vacancies can make more updates legal. This direction is opposite to the
+coordinatewise order, where~$0<1$, and therefore does not produce the usual
+monotone coupling. Indeed, if~$\eta\leq\xi$, an update may be legal in
+$\eta$ because it has more vacancies while the same update is blocked in
+$\xi$. If the two configurations agree at the updated site and the legal
+refresh in~$\eta$ changes that spin from~$0$ to~$1$, the order can be lost.
+Thus monotonicity of the constraint does not imply monotonicity of the spin
+system.
+
+This raises the question that motivates the paper: how does the monotonicity
+of the unconstrained refresh dynamics survive after kinetic constraints are
+imposed? More generally, can one recover a useful comparison principle for
+spin systems whose dynamics are not monotone in configuration order?
+
 \section{Setup and examples}
 \label{sec:setup}
 
