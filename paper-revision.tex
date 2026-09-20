@@ -22,32 +22,50 @@ Georg~Menz\footnotemark[1]}%AUTHORS
 \AMSSUBJSECONDARY{60E15; 82C22}
 
 \ABSTRACT{%
-In kinetically constrained spin models such as FA-1f and East, adding vacancies
-can make more updates legal, but this does not in general make the dynamics
-monotone in the usual configuration order. We introduce patch-positive spin
-systems, a class characterized by local sign conditions on the update rule.
-Each patch-positive system has a threshold profile, and we prove that its
-semigroup preserves the corresponding centered monomial order on probability
-laws. This gives comparisons between initial laws and between different
-dynamics, including systems that differ by additional independent
-transitions from~$1$ to~$0$.
+We study two-state interacting particle systems in which the update of a site
+may depend on the neighbouring spins. A motivating example is the
+Fredrickson--Andersen one-spin facilitated model (FA-1f), where a site
+refreshes its state only when a neighbouring site is vacant. Adding vacancies
+can make more updates possible, but this does not in general give a monotone
+coupling in the usual configuration order.
 
-On neighbourhood graphs of polynomial growth, a uniformly positive rate of
-such transitions implies convergence from a broad class of initial laws to a
-common invariant measure. If the threshold profile is at most~$1/2$, the
-system is uniformly exponentially ergodic. If the neighbourhood graph is
-orientable, uniform ergodicity holds without this restriction. In particular,
-the perturbed East models considered here are uniformly ergodic for every
-refresh parameter~$p\in(0,1)$. The centered monomial comparison also gives
-new convergence results for the biased annihilating branching process and a
-new sufficient ergodicity criterion for one-dimensional simple spin systems
-under positive rates.
+We identify a local sign condition on the update rule under which a different
+monotonicity survives. We call systems satisfying this condition
+\emph{patch-positive}. Associated with such a system is a reference density
+profile~$\mb p^\star=(p_i^\star)_{i\in\Lambda}$. For probability
+laws~$\mu$ and~$\nu$, define
+\begin{equation*}
+\mu\preceq_\star\nu
+\quad\Longleftrightarrow\quad
+\mu\bb{\prod_{i\in A}\bb{\eta(i)-p_i^\star}}
+\leq
+\nu\bb{\prod_{i\in A}\bb{\eta(i)-p_i^\star}}
+\quad\text{for every finite }A\subseteq\Lambda.
+\end{equation*}
+Our main comparison theorem states that
+$\mu\preceq_\star\nu$ implies
+$\mu P_t\preceq_\star\nu P_t$ for every~$t\geq0$. The same framework
+compares different dynamics, including systems that differ by additional
+independent transitions from~$1$ to~$0$.
 
-The proof starts from a standard signed set-valued Feynman--Kac dual. By
-conditioning only on its inter-site interactions, we divide each site line
-into patches and average the remaining local randomness patch by patch. This
-exposes cancellations in the signed dual and leads to the positivity condition
-underlying the comparison principle.}
+If such transitions occur at a uniformly positive rate and the neighbourhood
+graph has polynomial growth, a broad class of initial laws converges to a
+common invariant measure. If~$\mb p^\star\leq\mbs{\tfrac12}$, the
+convergence is uniform over all initial configurations and exponentially fast.
+For one-sided neighbourhoods, including the East model, uniform ergodicity
+holds without this restriction. In particular, the perturbed East models
+considered here are uniformly ergodic for every refresh density~$p\in(0,1)$.
+We also obtain new convergence results for the biased annihilating branching
+process and a new sufficient ergodicity condition for one-dimensional
+nearest-neighbour spin systems with strictly positive flip rates.
+
+The proof starts from a standard signed set-valued Feynman--Kac dual. We
+condition only on the interactions that pass dependence between sites. These
+interactions divide each site line into time intervals, which we call
+\emph{patches}. Conditional on this information, the remaining local
+randomness factorizes over patches and can be averaged patch by patch. This
+performs cancellations between positive and negative dual histories locally
+and produces the positivity behind the comparison theorem.}
 
 \begin{document}
 
