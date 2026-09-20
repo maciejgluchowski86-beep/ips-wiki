@@ -147,7 +147,31 @@ class of dependent and non-translation-invariant initial laws; see
 Corollary~\ref{cor:babp-centered-convergence}. For one-dimensional, one-sided nearest neighbor spin systems, called Simple~\cite{GluchowskiMenz2025,GluchowskiMenz2026}, patch positivity together with orientability gives a new sufficient
 condition for uniform ergodicity under positive rates, extending the regions
 covered by earlier criteria; see
-Corollary~\ref{cor:simple-positive-rates}.\section{Setup and examples}
+Corollary~\ref{cor:simple-positive-rates}.
+
+The proof starts from a signed Feynman--Kac representation for finite spin
+monomials. Tracing such an observable backward in time gives a set-valued
+process recording the sites on which it depends, while the coefficients of the
+spin-system generator produce signs in the representation. Treating these
+signed terms separately would discard the cancellations that are important
+here. Instead, we condition only on the interactions that transmit dependence
+between sites. Along each site line, the retained interaction times divide
+spacetime into consecutive regions, which we call \emph{patches}. Once this
+interaction structure is fixed, the remaining local randomness separates
+between patches and can be averaged within each one. This produces the patch
+factorization developed in Sections~\ref{sec:dual} and~\ref{sec:patches}.
+
+This representation explains the condition introduced above. The coefficient
+inequalities defining patch positivity ensure that the averaged contribution
+of every patch completed before the observation time is nonnegative. Patches
+that reach the observation time retain factors depending on the terminal
+spins, and the threshold profile~$\mb p^\star$ is chosen so that these factors
+are compatible with the centered monomials~$\chi_A^\star$. The resulting
+factorization preserves the sign needed for the centered monomial comparison,
+which yields Theorem~\ref{thm:centered-monomial-monotonicity}. Thus patch
+positivity is an algebraic condition on the local update rule whose
+probabilistic meaning becomes visible only after the signed representation is
+averaged over patches.\section{Setup and examples}
 \label{sec:setup}
 
 This section fixes the spin-system setup and notation used throughout the paper.
