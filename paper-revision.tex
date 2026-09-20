@@ -1776,13 +1776,10 @@ Thus~$P^{\uparrow t}=P$.
 \subsection{Patch factorization}
 \label{subsec:patch-factorization}
 
-{\color{red}
-Conditioning on~$\mathcal G_T$ fixes the successful-interaction skeleton and
+Conditioning on~$\mathcal G_T$ fixes the successful-interaction skeleton up to time~$T$, and
 hence the patch family~$\mathcal P_T$.
-}
 It leaves unresolved the local information that was omitted from the skeleton.
-In particular, deaths inside patches are not recorded, and for a recorded
-outgoing interaction the skeleton does not say whether it was a split or a
+In particular, deaths inside patches are not revealed, and for a successful interaction the skeleton does not say whether it was a split or a
 birth. The fixed patch boundaries restrict this remaining randomness:
 depending on the boundary types, they may force the interaction kind or
 exclude deaths. These restrictions involve only one patch at a time.
@@ -1795,7 +1792,7 @@ not revealed by the skeleton. Inside the patch, the outgoing marks from~$i$ are
 \begin{equation*}
 \Sigma_P^\circ
 =
-\cb{(i,u,\gamma,R)\in {\color{red}I^{\mathrm P}}:s<u<e}.
+\cb{(i,u,\gamma,R)\in I^{\mathrm P}:s<u<e}.
 \end{equation*}
 For each~$R$, the~$(\delta,R)$ and~$(\beta,R)$ marks in~$(s,e)$ are
 independent Poisson processes with rates~$\delta_i(R)$ and~$\beta_i(R)$,
@@ -1818,18 +1815,14 @@ $\Sigma_P^\circ$, with
 =
 \frac{\beta_i(S)}{\delta_i(S)+\beta_i(S)}.
 \end{equation}
-{\color{red}
-For an outgoing patch boundary,~$\delta_i(S)+\beta_i(S)>0$ because that
-boundary comes from a successful interaction.
-}
-In this case,
+Note that almost surely, for every patch~$P\in\mathcal{P_T}$ we have~$\delta_{i}(S)+\beta_i(S)>0$, as otherwise the successful interaction that begins the patch would have rate zero and would have never happened. Hence, in the case~$\mathsf{X}(P)=\mathsf{O}$ we set
 \begin{equation*}
 \Sigma_P
 =
 \Sigma_P^\circ\cup\cb{(i,s,\alpha(P),S)}.
 \end{equation*}
 Together, the interior Poisson marks and, when present, the random initial kind
-define the reference patch law~$\pP_P$. Write~$\E_P$ for expectation under
+define the law~$\pP_P$ of the patch~$P$ interaction record~$\Sigma_P$. Write~$\E_P$ for expectation under
 $\pP_P$.
 
 The marks in~$\Sigma_P$ determine a one-site process~$X^P\in\cb{0,1}$, where
@@ -1846,10 +1839,9 @@ $X_{u-}^P=0$, either mark leaves~$X_u^P=0$. Between marks,~$X^P$ is constant.
 For a finite patch with terminal label~$\mathsf E$, set~$X_e^P=X_{e-}^P$.
 
 Not every realization under~$\pP_P$ is compatible with the patch boundaries
-fixed by the skeleton. {\color{red}A mark with nonempty target inside the patch
+fixed by the skeleton. A mark with nonempty target inside the patch
 would be a successful interaction whenever the patch site is active immediately
-before it, and would therefore give an additional successful-interaction record,
-contrary to the fixed skeleton.} Hence such marks can only occur with
+before it, and would create an additional successful-interaction cutting the patch into smaller patches. Hence such marks can only occur with
 ~$X_{u-}^P=0$. If the terminal boundary is outgoing, the recorded interaction
 must itself be successful, so~$X_{e-}^P=1$. There is no additional endpoint
 condition for an incoming or end boundary. We therefore define the consistency
@@ -1908,11 +1900,10 @@ or the product on the left below is integrable,
 \end{theorem}
 
 \begin{proof}
-{\color{red}
+
 Since the initial record~$(\infty,0,A)$ is deterministic under~$\pP_A$, let
 ~$G_T$ denote the positive-time records in~$\mathcal I_T$. Then
 ~$\mathcal G_T=\sigma(G_T)$.
-}
 We compute the joint law of~$G_T$ and the patch variables relative to a
 reference measure on possible successful-interaction records. Setting all patch
 test functions equal to~$1$ then gives the marginal law of~$G_T$, and the
@@ -1928,7 +1919,7 @@ g=\bb{(i_k,t_k,S_k)}_{k=1}^n,
 where~$\varnothing\neq S_k\subseteq N(i_k)$ and
 $i_k\in A\cup\bigcup_{\ell<k}S_\ell$. We call the discrete sequence
 $((i_k,S_k))_{k=1}^n$ admissible when these conditions hold. On the disjoint
-union of all such record lists, define
+union of all admissible record lists, define
 \begin{equation}
 \label{eq:patch-record-reference-measure}
 m_T(dg)
