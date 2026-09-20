@@ -1367,9 +1367,8 @@ a_i^\beta(S)
 =
 -\widehat{\lambda_i}(S).
 \end{equation}
-Thus the first family of terms replaces~$i$ by~$S$, while the second adds~$S$
-to the active set. In the second sum,~$S=\varnothing$ leaves~$A$ unchanged
-and is therefore diagonal; in particular,
+In the second sum, the term with~$S=\varnothing$ leaves the index unchanged
+and is therefore a diagonal term. Its coefficient is
 \begin{equation*}
 a_i^\beta(\varnothing)
 =
@@ -1381,6 +1380,7 @@ In Appendix~\ref{app:generator-action}, we derive
 \eqref{eq:signed-dual-generator-expansion} directly from the spin-system
 generator.
 
+We now construct the generator of the dual process.
 For~$r\in\R$, let~$\operatorname{sgn}_{\pm}(r)$ be~$+$ when~$r\geq0$ and~$-$
 when~$r<0$. We turn the off-diagonal coefficients in
 \eqref{eq:signed-dual-generator-expansion} into jump rates by taking absolute
@@ -1423,8 +1423,7 @@ A\cup S,
 \sigma\sigma_i^\beta(S)
 }.
 \end{align*}
-Thus~$D_{i,\varnothing}$ removes~$i$ from the active set, while
-~$D_{i,S}$ with~$S\neq\varnothing$ replaces~$i$ by~$S$, and~$B_{i,S}$
+Thus the update operator~$D_{i,\varnothing}$ removes~$i$, the operator~$D_{i,S}$ with~$S\neq\varnothing$ replaces~$i$ by~$S$, and~$B_{i,S}$
 adds~$S$. We refer to these transitions as a death, split, and birth,
 respectively. The dual generator is
 \begin{align}
@@ -1447,11 +1446,7 @@ g\bb{B_{i,S}(A,\sigma)}-g(A,\sigma)
 \end{align}
 
 The off-diagonal terms of~\eqref{eq:signed-dual-generator-expansion} are now
-reproduced by~$\Dcal H$. The Markov generator~$\Dcal$ also subtracts the
-total jump rate from the diagonal, whereas the remaining diagonal term in
-~\eqref{eq:signed-dual-generator-expansion} is
-~$\sum_{i\in A}a_i^\beta(\varnothing)\chi_A$. The required
-Feynman--Kac potential is therefore
+reproduced by~$\Dcal H$. For the duality equation to hold the remaining diagonal terms must be included in the Feynman--Kac potential, which therefore is
 \begin{equation}
 \label{eq:dual-potential}
 V(A)
