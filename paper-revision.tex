@@ -958,6 +958,138 @@ is Corollaries~\ref{cor:perturbed-fa-babp-comparison} and
 \ref{cor:perturbed-fa-babp-ergodicity}.
 \end{proof}
 
+\subsection{Positive rates for simple spin systems}
+\label{subsec:simple-positive-rates}
+
+Recall the simple spin systems from Section~\ref{sec:setup}. Both flips have
+positive rates for either value of the right neighbour precisely when
+\begin{equation}
+\label{eq:simple-positive-rates}
+p_{1\mid11},p_{1\mid10}<1,
+\qquad
+p_{1\mid01},p_{1\mid00}>0.
+\end{equation}
+The positive rates conjecture for simple spin systems asserts that every system
+satisfying~\eqref{eq:simple-positive-rates} is ergodic. Earlier sufficient
+conditions prove this on parts of the parameter space
+\cite{GluchowskiMenz2025,GluchowskiMenz2026}. The orientability result above
+gives an additional region.
+
+\begin{corollary}[Positive rates for simple spin systems]
+\label{cor:simple-positive-rates}
+Suppose that a simple spin system satisfies~\eqref{eq:simple-positive-rates}
+and
+\begin{equation}
+\label{eq:simple-positive-rates-criterion}
+p_{1\mid01}(1-p_{1\mid10})
+\geq
+p_{1\mid00}(1-p_{1\mid11}).
+\end{equation}
+Then the system has a unique invariant measure~$\pi$ and, for every local
+function~$f$,
+\begin{equation*}
+\lim_{t\to\infty}
+\sup_{\eta\in\Omega}
+\abs{P_tf(\eta)-\pi(f)}
+=
+0.
+\end{equation*}
+\end{corollary}
+
+\begin{proof}
+In the refresh representation,
+\begin{equation*}
+\lambda_i(\eta)
+=
+p_{1\mid0\eta(i+1)}+1-p_{1\mid1\eta(i+1)},
+\qquad
+\rho_i(\eta)
+=
+\frac{p_{1\mid0\eta(i+1)}}{\lambda_i(\eta)}.
+\end{equation*}
+Exchanging the roles of~$0$ and~$1$ swaps the two values of~$\lambda_i$ and
+leaves~\eqref{eq:simple-positive-rates-criterion} unchanged. We may therefore
+assume that~$\lambda_i(1)\leq\lambda_i(0)$. Since
+$N(i)=\cb{i+1}$,
+\begin{align*}
+\widehat{\lambda_i}\bb{\cb{i+1}}
+&=
+p_{1\mid01}-p_{1\mid11}-p_{1\mid00}+p_{1\mid10}
+\leq0,\\
+\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb0)}}\bb{\cb{i+1}}
+&=
+\frac{
+p_{1\mid01}(1-p_{1\mid10})
+-
+p_{1\mid00}(1-p_{1\mid11})
+}{
+p_{1\mid00}+1-p_{1\mid10}
+}
+\geq0.
+\end{align*}
+Thus the system is patch-positive. Its~$1\to0$ rates are bounded below by
+\begin{equation*}
+\min\cb{1-p_{1\mid11},1-p_{1\mid10}}>0,
+\end{equation*}
+so it contains a pure-death component. The one-sided neighbourhood graph has
+polynomial growth and is orientable. Corollary~\ref{cor:oriented-ergodicity}
+therefore applies.
+\end{proof}
+
+To compare this criterion with the earlier sufficient conditions, we use the
+same normalization as in~\cite{GluchowskiMenz2025}. Exchanging the two states
+and multiplying all transition rates by the same positive constant reduce the
+problem to the two faces
+\begin{equation*}
+p_{1\mid11}=0
+\qquad\text{or}\qquad
+p_{1\mid10}=0.
+\end{equation*}
+The positive-rate part of the second face is already known to be ergodic
+\cite[Section~7]{GluchowskiMenz2025}, so we focus on~$p_{1\mid11}=0$. On this
+face,~\eqref{eq:simple-positive-rates-criterion} becomes
+\begin{equation}
+\label{eq:simple-positive-rates-face}
+p_{1\mid00}
+\leq
+(1-p_{1\mid10})p_{1\mid01}.
+\end{equation}
+Figure~\ref{fig:simple-ips-ergodicity-regions} compares this condition with
+the earlier sufficient conditions on three sections of the parameter space.
+
+\begin{figure}[htbp]
+\centering
+\input{paper/figures/simple-ips-ergodicity-regions}
+\caption{Sections of the face~$p_{1\mid11}=0$. The horizontal coordinate is
+$p_{1\mid10}$ and the vertical coordinate is~$p_{1\mid01}$; the three panels
+have~$p_{1\mid00}=1/100$,~$1/8$, and~$1/4$. Light gray is the region covered
+by~\cite{GluchowskiMenz2025},
+\[
+p_{1\mid10}<\tfrac12
+\quad\text{or}\quad
+p_{1\mid10}<p_{1\mid01}+p_{1\mid00}
+\quad\text{or}\quad
+p_{1\mid01}\leq p_{1\mid00}.
+\]
+Dark gray is the additional region from~\cite{GluchowskiMenz2026},
+\[
+\max\cb{p_{1\mid01},p_{1\mid00}}
+<
+\sqrt2(1-p_{1\mid10}),
+\]
+and red is the additional region given by
+Corollary~\ref{cor:simple-positive-rates},
+\[
+p_{1\mid00}
+\leq
+(1-p_{1\mid10})p_{1\mid01}.
+\]
+White denotes parameters not covered by these criteria. The additional red
+region is empty in the~$p_{1\mid00}=1/4$ section. The figure format is adapted
+from Figure~3 of~\cite{GluchowskiMenz2026}.}
+\label{fig:simple-ips-ergodicity-regions}
+\end{figure}
+
 \section{Dual process}
 \label{sec:dual}
 
