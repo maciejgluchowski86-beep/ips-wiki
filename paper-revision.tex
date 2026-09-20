@@ -191,7 +191,7 @@ for us is that the right-hand side of~\eqref{eq:intro-signed-duality} is
 signed, which is an obstruction for monotonicity or convergence arguments.
 
 The new step is to reveal only part of the graphical construction. We define a~$\sigma$-algebra
-$\mathcal G_t$ that records interactions between sites that actually occur in the
+$\mathcal G_t$ that records interactions between sites that occur in the
 dual up to time~$t$, including their times and the sites they connect, while
 forgetting their type and the purely local events between them. Once this
 information is fixed, the recorded interactions divide each site line~$\cb{i}\times[0,t]$ into
@@ -1632,17 +1632,14 @@ at active sources on~$[0,T]$, and therefore only finitely many of them are
 successful interactions.
 \end{proof}
 
-Each record~$(j,t,S)\in\mathcal I$ is outgoing at its source~$j$ and incoming
-at every site in~$S$. Consequently, on each site line~$\cb{i}\times [0,\infty)$ the retained interaction
-times divide time into consecutive intervals between one incoming or outgoing successful
-interaction and the next. In Section~\ref{subsec:patches}, we use these
-intervals as the patches over which the unrevealed local randomness is
-organized.
-
 \subsection{Patches}
 \label{subsec:patches}
+Each record~$(i,t,S)\in\mathcal I$ is outgoing at its source~$i$ and incoming
+at every site in~$S$. Consequently, on each site line~$\cb{i}\times [0,\infty)$ the retained interaction
+times divide time into consecutive intervals between one incoming or outgoing successful
+interaction and the next. These intervals are the patches. Below we give the precise construction.
 
-For~$i\in\Lambda$, let
+For~$i\in\Lambda$, define the times of incoming and outgoing successful interactions at~$i$:
 \begin{align*}
 \mathcal T^{\mathsf I}(i)
 &=
@@ -1657,12 +1654,8 @@ For~$i\in\Lambda$, let
 &=
 \mathcal T^{\mathsf I}(i)\cup\mathcal T^{\mathsf O}(i).
 \end{align*}
-{\color{red}
 The formal record~$(\infty,0,A)$ implies that
-~$0\in\mathcal T^{\mathsf I}(i)$ for every~$i\in A$, so the initial active
-sites enter the same geometry as sites reached by later successful
-interactions.
-}
+~$0\in\mathcal T^{\mathsf I}(i)$, meaning we interpret the initial conditions of the process as an incoming successful interaction.
 For~$s\in\mathcal T(i)$, the next successful interaction involving~$i$ occurs
 at
 \begin{equation*}
@@ -1751,22 +1744,16 @@ The families of bulk patches, end patches, and all finite-horizon patches are
 \mathcal B_t\cup\mathcal E_t.
 \end{align*}
 Thus the bulk patches are completed by time~$t$, while the end patches are the
-patches crossing~$t$, truncated at the observation time.
-{\color{red}
-By Lemma~\ref{lem:dual-local-finiteness}, the family~$\mathcal P_t$ is finite
-almost surely.
-}
-Distinct end patches have distinct sites, since the successful-interaction
-times divide each site line into consecutive intervals.
-
-Figure~\ref{fig:patch-geometry} shows the full graphical realization and the
+patches crossing~$t$, truncated at the observation time. By Lemma~\ref{lem:dual-local-finiteness}, the family~$\mathcal P_t$ is finite
+almost surely. Distinct end patches have distinct sites, since the successful-interaction
+times divide each site line into consecutive intervals. Figure~\ref{fig:patch-geometry} shows the full graphical realization and the
 finite-horizon patch family induced by its successful-interaction skeleton.
 \begin{figure}[htbp]
 \centering
 \resizebox{\linewidth}{!}{\input{paper/figures/patch-geometry}}
 \caption{A realization of the graphical construction (left) and the induced
 finite-horizon patch family at time~$t$ (right). On the left, gray shading marks
-{\color{red}times when a site is dual-active}, black arrows are successful interactions,
+times when a site is dual-active, black arrows are successful interactions,
 gray arrows are rings at inactive sources, and crosses are deaths. On the right,
 gray shading highlights patches with outgoing terminal boundary, which remain
 active throughout. Red striped sides delimit patches, the labels give their
