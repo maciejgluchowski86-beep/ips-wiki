@@ -1319,19 +1319,13 @@ covered by these criteria. The improvement is greatest when spontaneous births a
 \section{Dual process}
 \label{sec:dual}
 
-\textcolor{red}{[Revision: the old section was framed as the proof of the patch
-representation theorem. In the revised paper the patch representation is
-technical machinery developed in Section~\ref{sec:patches}, so this opening
-should instead orient the reader: construct the standard signed monomial dual,
-record the effect of pure deaths, and give the graphical realization that will
-be conditioned in the next section.]}
-
-To prove Theorem~\ref{thm:patch-representation}, we start from the usual
-set-valued dual construction for spin systems. Its graphical construction
-records the interactions through which dependence passes between sites. These
-interactions determine the partition of spacetime into patches. Conditioning
-on a coarse record of these interactions yields the factorization over patches used in the
-representation.
+\textcolor{red}{This section constructs the signed set-valued dual used in the
+patch representation. Set-valued dual constructions and Feynman--Kac duality
+for spin systems are standard; the features needed here are the signed
+monomial representation, the effect of pure deaths on its Feynman--Kac weight,
+and a graphical realization in which every interaction has a source and a
+target. Section~\ref{sec:patches} will condition this graphical construction
+to obtain the patch representation.}
 
 \subsection{Signed monomial dual}
 \label{subsec:signed-set-process}
@@ -1342,8 +1336,9 @@ P_t\chi_A(\eta)
 =
 \E_\eta\Cb{\prod_{i\in A}\eta_t(i)}.
 \end{equation*}
-We represent the dependence of this observable on the initial configuration by a signed
-set-valued process. The representation constructed below is
+\textcolor{red}{We now construct the signed set-valued process appearing in
+\eqref{eq:intro-signed-duality}. In the notation of this section, the
+representation is}
 \begin{equation}
 \label{eq:monomial-feynman-kac-duality-preview}
 P_t\chi_A(\eta)
@@ -1501,10 +1496,22 @@ H(Y,\eta)=\sigma\chi_A(\eta).
 We write~$\pP_A$ and~$\E_A$ for the law and expectation of the signed set-valued
 process started from~$(A,+)$.
 
-\textcolor{red}{[Revision: the Feynman--Kac integrability condition used below
-was stated in the old setup section but is absent from the revised Sections~2--4.
-Decide whether to state it here as a standing assumption or derive it from the
-current hypotheses before retaining the theorem in this form.]}
+{\color{red}
+\begin{definition}[Feynman--Kac integrability]
+\label{def:fk-integrability}
+We say that the signed dual satisfies \emph{Feynman--Kac integrability} if
+\begin{equation}
+\tag{FK}
+\label{eq:fk-integrability}
+\E_A\Cb{
+\exp\bb{\int_0^t V(A_s)\,ds}
+}
+<\infty
+\qquad
+\text{for every }A\Subset\Lambda\text{ and }t\geq0.
+\end{equation}
+\end{definition}
+}
 
 \begin{theorem}[Monomial Feynman--Kac duality]
 \label{thm:monomial-duality}
@@ -1515,7 +1522,7 @@ For every signed active set~$Y=(A,\sigma)$,
 =
 \Dcal H(Y,\eta)+V(A)H(Y,\eta).
 \end{equation}
-Under condition~\eqref{eq:fk-integrability}, for every~$A\Subset\Lambda$,
+\textcolor{red}{Under Feynman--Kac integrability}, for every~$A\Subset\Lambda$,
 $t\geq0$, and~$\eta\in\Omega$,
 \begin{equation}
 \label{eq:monomial-feynman-kac-duality}
@@ -1534,27 +1541,31 @@ see, for example,~\cite{JansenKurt2014}. The coefficient check in our notation
 and the verification of~\eqref{eq:monomial-feynman-kac-duality} are given in
 Appendix~\ref{app:dual-calculation}.
 
-The pure-death generator from Section~\ref{sec:setup} acts diagonally on
-monomials:
+{\color{red}
+The terminology of a pure-death component is particularly convenient in the
+dual representation. The pure-death generator acts diagonally on monomials:
 \begin{equation*}
 \Ncal^{\mb 0}\chi_A=-\abs{A}\chi_A.
 \end{equation*}
-Consequently, adding~$\varepsilon\Ncal^{\mb 0}$ to a spin-system generator
-leaves its signed dual jump process unchanged and replaces the potential by
+Consequently, adding~$\varepsilon\Ncal^{\mb 0}$ leaves the signed dual jump
+process unchanged and replaces the potential by
 \begin{equation*}
 V(A)-\varepsilon\abs{A}.
 \end{equation*}
-Thus a pure-death component affects the dual representation only through shrinking the
-Feynman--Kac weight.
+Thus pure deaths enter the dual only through an additional factor that
+decreases the Feynman--Kac weight.
+}
 
 \subsection{Graphical construction}
 \label{subsec:dual-graphical-construction}
 
-The patches introduced in the next section are defined from the graphical
-construction of the dual process. We use the standard Poisson graphical construction for set-valued
-particle systems, with notation adapted to the interactions above. Thus each
-possible~$D_{i,S}$ or~$B_{i,S}$ update is assigned an independent Poisson
-clock. For every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
+\textcolor{red}{Section~\ref{sec:patches} will retain only part of the
+graphical information. We therefore distinguish explicitly the source, target,
+and kind of every Poisson mark, as well as whether its source is active when
+the mark occurs.} We use the standard Poisson graphical construction for
+set-valued particle systems, with notation adapted to the interactions above.
+Thus each possible~$D_{i,S}$ or~$B_{i,S}$ update is assigned an independent
+Poisson clock. For every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
 $I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson point process of
 rate~$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let
 $I_{i,S}^\beta\subseteq(0,\infty)$ be a Poisson point process of
@@ -1605,20 +1616,30 @@ Equivalently, start from~$Y_{0-}=(\varnothing,+)$ and apply~$\iota_0$, giving
 Y_0=(A_0,\sigma_0).
 \end{equation*}
 
-\textcolor{red}{[Revision: this local-finiteness argument is used immediately
-in the patch construction. It should probably be promoted to a named lemma here,
-with the duplicate local-finiteness lemma removed from the appendix.]}
+{\color{red}
+\begin{lemma}[Local finiteness]
+\label{lem:dual-local-finiteness}
+If the signed dual starts from a finite active set, then almost surely only
+finitely many Poisson marks occur at active sources on every bounded time
+interval.
+\end{lemma}
 
+\begin{proof}
 The total rate of marks whose source is active is bounded by~$C\abs{A_t}$ for
-some finite~$C$, uniformly in the state. Moreover, one such mark can add at most
+some finite~$C$, uniformly in the state. One mark can add at most
 \begin{equation*}
 \sup_{i\in\Lambda}\abs{N(i)}<\infty
 \end{equation*}
 new active sites. Hence~$\abs{A_t}$ is dominated by a nonexplosive
-continuous-time branching process. In particular, starting from a finite active
-set, only finitely many Poisson marks occur at active sources on every bounded
-time interval. Thus the graphical construction is well defined, and this is the
-local-finiteness property used below.
+continuous-time branching process, which proves the claim.
+\end{proof}
+
+The construction above records every Poisson mark. In
+Section~\ref{sec:patches} we retain much less information: only
+nonempty-target interactions that occur at active sources, and only their
+source, time, and target. This retained information determines the patch
+decomposition.
+}
 
 \section{Patches}
 \label{sec:patches}
