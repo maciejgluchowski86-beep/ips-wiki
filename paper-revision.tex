@@ -1532,6 +1532,82 @@ Thus two spin systems that only differ by adding pure deaths have the same dual 
 \subsection{Interaction skeleton}
 \label{subsec:interaction-skeleton}
 
+We use the standard Poisson graphical construction for the signed dual. For
+every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
+$I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson point process of
+rate~$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let
+$I_{i,S}^\beta\subseteq(0,\infty)$ be a Poisson point process of
+rate~$\beta_i(S)$. All these processes are independent, and we set
+$I_{i,\varnothing}^\beta=\varnothing$. We write the resulting collection of
+marks as
+\begin{equation*}
+I^{\mathrm P}
+=
+\cb{
+(i,t,\alpha,S):
+i\in\Lambda,\ 
+\alpha\in\cb{\delta,\beta},\ 
+S\subseteq N(i),\ 
+t\in I_{i,S}^\alpha
+}.
+\end{equation*}
+For a mark~$(i,t,\alpha,S)$, the site~$i$ is its \emph{source},~$S$ its
+\emph{target}, and~$\alpha$ its \emph{kind}. Starting from~$(A,+)$, a
+mark~$(i,t,\delta,S)$ with~$i\in A_{t-}$ applies~$D_{i,S}$, while a
+mark~$(i,t,\beta,S)$ with~$i\in A_{t-}$ applies~$B_{i,S}$. A mark whose
+source is not active does not change the process. This gives the signed dual
+with generator~$\Dcal$ from~\eqref{eq:signed-dual-generator}.
+
+The marks through which dependence passes between distinct sites are exactly
+those with nonempty target that occur at active sources.
+\begin{definition}[Successful interaction and its record]
+\label{def:successful-interaction}
+A mark~$(i,t,\alpha,S)\in I^{\mathrm P}$ is a \emph{successful
+interaction} if
+\begin{equation*}
+S\neq\varnothing
+\qquad\text{and}\qquad
+i\in A_{t-}.
+\end{equation*}
+Its \emph{record} is the triple~$(i,t,S)$.
+\end{definition}
+The record retains exactly the source, time, and target of the interaction.
+The kind~$\alpha$ is not retained: a split and a birth with the same source
+and target connect the same sites. Deaths are not retained because their target
+is empty, and marks at inactive sources are not retained because they do not
+affect the dual.
+
+To include the starting set in the same record, we adjoin the formal record
+~$(\infty,0,A)$, where~$\infty\notin\Lambda$ is a formal source. For
+~$T<\infty$, define the successful-interaction skeleton up to time~$T$ by
+\begin{equation}
+\label{eq:successful-interaction-skeleton}
+\mathcal I_T
+=
+\cb{(\infty,0,A)}
+\cup
+\cb{
+(i,t,S):
+t\leq T
+\text{ and }(i,t,\alpha,S)\text{ is successful for some }
+\alpha\in\cb{\delta,\beta}
+}.
+\end{equation}
+We also set
+\begin{equation*}
+\mathcal I
+=
+\bigcup_{T<\infty}\mathcal I_T,
+\qquad
+\mathcal G_T
+=
+\sigma\bb{\mathcal I_T}.
+\end{equation*}
+Thus~$\mathcal G_T$ reveals the complete record of interactions through which
+dependence passes between sites up to time~$T$, but does not reveal deaths,
+marks at inactive sources, or the split/birth kind of a successful
+interaction.
+
 \subsection{Patches}
 \label{subsec:patches}
 
