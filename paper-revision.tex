@@ -69,6 +69,56 @@ system.
 This raises the question that motivates the paper: does any kind of monotonicity survive? More generally, can one recover a useful comparison principle for a large class of
 spin systems whose dynamics are not monotone in configuration order?
 
+We describe the systems considered here in a form modeled on KCSMs. At each
+site, updates occur at a rate determined by the neighbouring spins and, when an
+update occurs, the new spin is sampled from a Bernoulli law whose parameter may
+also depend on the neighbours. For a KCSM the Bernoulli parameter is fixed and
+the update rate contains the kinetic constraint. We identify a condition on
+these more general local update rules, called \emph{patch positivity}; its
+formal definition is given in Section~\ref{sec:main-results}.
+
+Patch positivity includes the main examples that motivate the paper but is not
+a condition satisfied by all KCSMs. FA-1f and East are patch-positive, whereas
+FA-$j$f with~$j\geq2$ need not be. The biased annihilating branching process
+(BABP) is another patch-positive example outside the KCSM class. After
+exchanging the two spin values, the contact process is patch-positive as well,
+although in that case the usual configuration monotonicity gives stronger
+comparisons. These examples are worked out in
+Section~\ref{sec:applications}.
+
+The comparison principle associated with patch positivity is an order on
+probability laws rather than on configurations. Each patch-positive system has
+a reference profile~$\mb p^\star=(p_i^\star)_{i\in\Lambda}$. For a finite
+set~$A\subseteq\Lambda$, define the centered monomial
+\begin{equation*}
+\chi_A^\star(\eta)
+=
+\prod_{i\in A}\bb{\eta(i)-p_i^\star}.
+\end{equation*}
+For probability measures~$\mu$ and~$\nu$, we write~$\mu\preceq_\star\nu$
+when
+\begin{equation*}
+\mu\bb{\chi_A^\star}
+\leq
+\nu\bb{\chi_A^\star}
+\qquad
+\text{for every finite }A\subseteq\Lambda.
+\end{equation*}
+We call this the \emph{centered monomial order}.
+
+Our main structural result is that patch-positive dynamics preserve this order.
+Writing~$P_t$ for the Markov semigroup,
+\begin{equation*}
+\mu\preceq_\star\nu
+\quad\Longrightarrow\quad
+\mu P_t\preceq_\star\nu P_t
+\qquad
+\text{for every }t\geq0.
+\end{equation*}
+See Theorem~\ref{thm:centered-monomial-monotonicity}. Thus the configuration
+order need not be preserved along trajectories, but a monotone comparison
+survives at the level of probability laws.
+
 \section{Setup and examples}
 \label{sec:setup}
 
