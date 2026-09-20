@@ -1324,6 +1324,65 @@ In this section we construct a dual process to the spin system. Set-valued duals
 \subsection{Signed monomial duality}
 \label{subsec:signed-set-process}
 
+For~$A\Subset\Lambda$ and~$\sigma\in\cb{+,-}$, identify~$+$ and~$-$ with
+$+1$ and~$-1$ and define
+\begin{equation}
+\label{eq:monomial-duality-function}
+H((A,\sigma),\eta)
+=
+\sigma\chi_A(\eta).
+\end{equation}
+We seek a signed set-valued Markov process~$(A_t,\sigma_t)$ and a potential~$V$
+such that
+\begin{equation}
+\label{eq:monomial-generator-duality}
+\Lcal_\eta H((A,\sigma),\eta)
+=
+\Dcal H((A,\sigma),\eta)
++
+V(A)H((A,\sigma),\eta),
+\end{equation}
+where~$\Dcal$ is the generator of~$(A_t,\sigma_t)$. Once the duality
+function~\eqref{eq:monomial-duality-function} is fixed, the possible jumps,
+their signs, and the potential are read directly from the action of~$\Lcal$
+on monomials.
+
+Indeed, expanding~$\Lcal\chi_A$ in the monomial basis gives
+\begin{equation}
+\label{eq:signed-dual-generator-expansion}
+\Lcal\chi_A
+=
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+a_i^\delta(S)\chi_{\bb{A\setminus\cb{i}}\cup S}
++
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+a_i^\beta(S)\chi_{A\cup S},
+\end{equation}
+where
+\begin{equation}
+\label{eq:signed-dual-coefficients}
+a_i^\delta(S)
+=
+\widehat{\lambda_i\rho_i}(S),
+\qquad
+a_i^\beta(S)
+=
+-\widehat{\lambda_i}(S).
+\end{equation}
+Thus the first family of terms replaces~$i$ by~$S$, while the second adds~$S$
+to the active set. In the second sum,~$S=\varnothing$ leaves~$A$ unchanged
+and is therefore diagonal; in particular,
+\begin{equation*}
+a_i^\beta(\varnothing)
+=
+-\widehat{\lambda_i}(\varnothing)
+=
+-\lambda_i(\mb 0).
+\end{equation*}
+In Appendix~\ref{app:generator-action}, we derive
+\eqref{eq:signed-dual-generator-expansion} directly from the spin-system
+generator.
+
 \subsection{Graphical construction}
 \label{subsec:dual-graphical-construction}
 
