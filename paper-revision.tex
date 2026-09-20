@@ -326,11 +326,11 @@ N_*(\bar A\cup U)=\bar A\cup U.
 The neighbourhood graph of the East model is orientable. Indeed, for any
 $A\Subset\Z^d$, choose a finite box
 \begin{equation*}
-\bar A=\prod_{k=1}^d[a_k,b_k]\cap\Z^d
+\bar A=\prod_{k=1}^d \cb{a_k, a_k +1,\dots,b_k}
 \end{equation*}
 containing~$A$, and set
 \begin{equation*}
-U=\cb{x\in\Z^d:x_k>b_k\text{ for some }k\leq d}.
+U=\prod_{k=1}^d \cb{a_k, a_k+1\dots} \setminus \bar{A}.
 \end{equation*}
 Then~$N_*(U)=U$ and~$N_*(\bar A\cup U)=\bar A\cup U$.
 \end{example}
@@ -835,9 +835,8 @@ state~$0$.
 \end{proposition}
 
 \begin{proof}
-The added refreshes contain independent~$1\to0$ transitions at site~$i$ at
-rate~$\varepsilon(1-s_i)$. Thus~$\delta>0$ gives a pure-death component of
-rate~$\delta$, and the claim follows from
+The added refreshes contain~$1\to0$ transitions at site~$i$ at
+rate~$\varepsilon(1-s_i)$. Thus~$\delta>0$ gives a pure-death component and the claim follows from
 Theorem~\ref{thm:common-invariant-limit}.
 \end{proof}
 
@@ -900,7 +899,7 @@ $\pi=\mu_p$.
 \begin{corollary}[Ergodicity of the perturbed models]
 \label{cor:perturbed-fa-babp-ergodicity}
 Under the assumptions of
-Proposition~\ref{prop:perturbed-fa-babp-convergence}, the following hold.
+Proposition~\ref{prop:perturbed-fa-babp-convergence}, the following holds:
 \begin{enumerate}[label=\textup{(\roman*)}]
 \item If~$p\leq\frac12$, then~$\pi$ is the unique invariant measure and,
 for every local function~$f$,
