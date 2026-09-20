@@ -1319,13 +1319,8 @@ covered by these criteria. The improvement is greatest when spontaneous births a
 \section{Dual process}
 \label{sec:dual}
 
-\textcolor{red}{This section constructs the signed set-valued dual used in the
-patch representation. Set-valued dual constructions and Feynman--Kac duality
-for spin systems are standard; the features needed here are the signed
-monomial representation, the effect of pure deaths on its Feynman--Kac weight,
-and a graphical realization in which every interaction has a source and a
-target. Section~\ref{sec:patches} will condition this graphical construction
-to obtain the patch representation.}
+In this section we construct a dual process to the spin system. Set-valued duals for spin systems are standard, see~\cite{Harris1978,Griffeath1979,Gray1986}. We also introduce a particular graphical realization of the process that is used in Section~\ref{sec:patches} for the patch representation.
+
 
 \subsection{Signed monomial dual}
 \label{subsec:signed-set-process}
@@ -1336,9 +1331,7 @@ P_t\chi_A(\eta)
 =
 \E_\eta\Cb{\prod_{i\in A}\eta_t(i)}.
 \end{equation*}
-\textcolor{red}{We now construct the signed set-valued process appearing in
-\eqref{eq:intro-signed-duality}. In the notation of this section, the
-representation is}
+The dual representation we show is
 \begin{equation}
 \label{eq:monomial-feynman-kac-duality-preview}
 P_t\chi_A(\eta)
@@ -1350,15 +1343,12 @@ P_t\chi_A(\eta)
 }.
 \end{equation}
 Here~$A_s$ traces the dependence backward from the sites in~$A$ at the
-observation time,~$\sigma_s\in\cb{+,-}$ records the accumulated sign, and~$V$
-is a Feynman--Kac potential. Set-valued duals for spin systems are standard
-~\cite{Harris1978,Griffeath1979,Gray1986}. We now define the signed process and
-the potential in~\eqref{eq:monomial-feynman-kac-duality-preview}.
-
+observation time,~$\sigma_s\in\cb{+,-}$ is the sign process, and~$V$
+is a Feynman--Kac potential.
 We use the following parametrization of a signed additive set-valued process. A
 state is
 \begin{equation*}
-Y=(A,\sigma)
+(A,\sigma)
 \in
 \cb{A:A\Subset\Lambda}\times\cb{+,-},
 \end{equation*}
