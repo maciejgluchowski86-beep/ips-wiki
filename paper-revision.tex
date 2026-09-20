@@ -1321,16 +1321,11 @@ covered by these criteria. The improvement is greatest when spontaneous births a
 
 In this section, we derive the standard set-valued Feynman--Kac duality for
 spin systems in the signed form needed for the patch representation; see
-~\cite{Harris1978,Griffeath1979,Gray1986,JansenKurt2014}. In
-Section~\ref{subsec:signed-set-process}, we identify the signed dual directly
-from the action of the generator on monomials and record the effect of pure
-deaths on its Feynman--Kac potential. In
-Section~\ref{subsec:dual-graphical-construction}, we give the particular form of the
-graphical construction of the process, from which in
-Section~\ref{sec:patches} the patches are constructed.
-
-\subsection{Signed monomial duality}
-\label{subsec:signed-set-process}
+~\cite{Harris1978,Griffeath1979,Gray1986,JansenKurt2014}. We identify the
+signed dual directly from the action of the generator on monomials and record
+the effect of pure deaths on its Feynman--Kac potential. The graphical
+construction used to define patches is introduced in
+Section~\ref{sec:patches}.
 
 The duality function we choose is given through monomials. For~$A\Subset\Lambda$ and~$\sigma\in\cb{+,-}$  define
 \begin{equation}
@@ -1530,46 +1525,6 @@ V(A)-\varepsilon\abs{A}.
 \end{equation*}
 Thus two spin systems that only differ by adding pure deaths have the same dual process but the one with more deaths has smaller Feynman--Kac weight.
 
-
-\subsection{Graphical construction}
-\label{subsec:dual-graphical-construction}
-
-We use the standard Poisson graphical construction for the jump process defined
-above. For every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
-$I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson point process of
-rate~$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let
-$I_{i,S}^\beta\subseteq(0,\infty)$ be a Poisson point process of
-rate~$\beta_i(S)$. All these processes are independent, and we set
-$I_{i,\varnothing}^\beta=\varnothing$. We write the resulting collection of
-marks as
-\begin{equation*}
-I^{\mathrm P}
-=
-\cb{
-(i,t,\alpha,S):
-i\in\Lambda,\ 
-\alpha\in\cb{\delta,\beta},\ 
-S\subseteq N(i),\ 
-t\in I_{i,S}^\alpha
-}.
-\end{equation*}
-For a mark~$(i,t,\alpha,S)$, the site~$i$ is its \emph{source},~$S$ its
-\emph{target}, and~$\alpha$ its \emph{kind}.
-
-Starting from~$(A_0,\sigma_0)$, a mark~$(i,t,\delta,S)$ with
-~$i\in A_{t-}$ applies~$D_{i,S}$, while a mark~$(i,t,\beta,S)$ with
-~$i\in A_{t-}$ applies~$B_{i,S}$. Marks whose source is not active do not
-change the process. Thus the Poisson construction has generator~$\Dcal$ from
-\eqref{eq:signed-dual-generator}.
-
-The interactions through which dependence passes between distinct sites are
-exactly the marks with nonempty target that occur at active sources. We call
-such a mark~$(i,t,\alpha,S)$ a \emph{successful interaction}. Its source
-~$i$, time~$t$, and target~$S$ determine which site lines are connected by the
-interaction. The kind~$\alpha$ is not needed for this information: a split and
-a birth with the same source and target connect the same sites. A death has
-empty target and therefore does not transmit dependence to another site, while
-a mark at an inactive source does not affect the dual at all.
 
 \section{Patches}
 \label{sec:patches}
