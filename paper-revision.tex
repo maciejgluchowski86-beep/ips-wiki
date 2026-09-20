@@ -199,16 +199,31 @@ The notation in~\eqref{eq:intro-patch-factorization} is only schematic.
 Patches and their contributions are defined precisely in
 Section~\ref{sec:patches}. The point is this conditioning allows for local averaging, which gives explicit contributions and captures cancellations from sign process in~\eqref{eq:intro-signed-duality}.
 
-This representation explains the patch positivity condition introduced above. The coefficient
-inequalities defining patch positivity ensure that the averaged contribution
-of every patch completed before the observation time is nonnegative. Patches
-that reach the observation time retain factors depending on the initial measure on~$\eta$, and the threshold profile~$\mb p^\star$ is chosen so that these factors
-are non-negative for product measures with density profile above~$\mb p^*$. The resulting
-factorization preserves the sign needed for the centered monomial comparison,
-which yields Theorem~\ref{thm:centered-monomial-monotonicity}. Thus patch
-positivity is an algebraic condition on the local update rule whose
-probabilistic meaning becomes visible only after the signed representation is
-averaged over patches.
+The factorization~\eqref{eq:intro-patch-factorization} also explains the
+condition of patch positivity. A patch that ends before time~$t$ leaves no
+spin variable in the representation and, after the local averaging above,
+contributes a number~$C(P)$. Patch positivity means that every such
+contribution is nonnegative. A patch that reaches time~$t$ instead contributes
+$C(z,P)$, an affine function of the remaining spin argument~$z$. For a site
+$i$, the threshold~$p_i^\star$ is the smallest~$p\in[0,1]$ for which
+\begin{equation*}
+C(p,P)\geq0
+\end{equation*}
+for every patch reaching time~$t$ on the site~$i$. Thus the threshold profile
+records exactly how much positivity is needed at the patches that remain open
+at the observation time.
+
+The patch contributions can be computed from the local update rule. The
+one-patch calculation shows that positivity of all completed patches, together
+with the threshold condition for the remaining patches, is equivalent to the
+coefficient inequalities used to define patch positivity and~$\mb p^\star$
+in Section~\ref{sec:main-results}. The same inequalities make the
+off-diagonal coefficients nonnegative when the generator is written in the
+centered monomial basis~$\chi_A^\star$. This is what yields preservation of
+the centered monomial order in
+Theorem~\ref{thm:centered-monomial-monotonicity}. In this way, the algebraic
+condition in Section~\ref{sec:main-results} is the local expression of the
+cancellations exposed by the patch representation.
 
 \section{Setup and examples}
 \label{sec:setup}
