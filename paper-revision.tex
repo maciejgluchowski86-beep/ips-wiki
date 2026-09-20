@@ -2007,11 +2007,8 @@ conditional-law statement.
 \subsection{Patch representation}
 \label{subsec:patch-representation}
 
-{\color{red}
 We now apply the conditional factorization to the Feynman--Kac random variable
-from Section~\ref{sec:dual}.
-}
-For fixed~$t\geq0$ and~$\eta\in\Omega$, write
+from Section~\ref{sec:dual}. For fixed~$t\geq0$ and~$\eta\in\Omega$, write
 \begin{equation*}
 Z_t^\eta
 =
@@ -2026,7 +2023,7 @@ product of factors over patches. We therefore split its sign, Feynman--Kac
 integral, and terminal monomial over the patch decomposition.
 
 Each successful nonempty-target interaction contributes its sign to the
-outgoing patch beginning at its source. {\color{red}Empty-target deaths have
+outgoing patch beginning at its source. Deaths have
 positive sign because
 \begin{equation*}
 a_i^\delta(\varnothing)
@@ -2036,8 +2033,7 @@ a_i^\delta(\varnothing)
 \lambda_i(\mb 0)\rho_i(\mb 0)
 \geq0.
 \end{equation*}
-}
-Thus define
+Define
 \begin{equation*}
 \sigma(P)
 =
@@ -2068,7 +2064,7 @@ V_{i(P)}\int_{s(P)}^tX_u^P\,du,
 \eta\bb{i(P)}^{X_t^P}.
 \end{align*}
 
-These are exactly the pieces that enter the local patch factors. For a full
+These are exactly the pieces that make up the local patch factors. For a full
 patch~$P\in\mathcal P$, set
 \begin{equation*}
 F(P)
@@ -2090,7 +2086,7 @@ V_{i(P)}\int_{s(P)}^tX_u^P\,du
 }
 z^{X_t^P}.
 \end{equation*}
-The preceding identities give the pathwise factorization
+The preceding identities give the factorization
 \begin{equation}
 \label{eq:pathwise-patch-factorization}
 Z_t^\eta
@@ -2099,7 +2095,7 @@ Z_t^\eta
 \prod_{P\in\mathcal E_t}F\bb{\eta\bb{i(P)},P}.
 \end{equation}
 Patch factorization tells us to average each local factor under its consistent
-patch law. We therefore define
+patch law. We define
 \begin{equation*}
 C(P)=\E_P^{\mathrm{con}}\Cb{F(P)},
 \qquad
@@ -2107,7 +2103,7 @@ C(z,P)=\E_P^{\mathrm{con}}\Cb{F(z,P)}.
 \end{equation*}
 Since~$X_t^P\in\cb{0,1}$, the map~$z\mapsto C(z,P)$ is affine.
 
-{\color{red}
+
 \begin{theorem}[Patch representation]
 \label{thm:patch-representation}
 For every~$A\Subset\Lambda$,~$t\geq0$, and~$\eta\in\Omega$,
@@ -2133,7 +2129,6 @@ For any initial law~$\mu$,
 }.
 \end{equation}
 \end{theorem}
-}
 
 \begin{proof}
 By~\eqref{eq:fk-integrability}, we may condition
@@ -2174,20 +2169,18 @@ Therefore
 }.
 \end{equation}
 
-{\color{red}
-The patch expectations average exactly the local information omitted from the
-skeleton. In particular, empty-target deaths inside a patch are integrated out.
-If a patch begins with an outgoing boundary, the skeleton fixes its
+The patch expectation~$\E_P^{\operatorname{con}}$ average the local information omitted from the
+skeleton. In particular, all deaths are integrated out.
+If a patch begins with an outgoing boundary, the skeleton determines its
 target~$S(P)$ but not whether that interaction was a split or a birth, so this
-hidden kind and the sign it may carry are averaged under the consistent patch
-law. When a split and a birth with the same target carry opposite signs, their
+hidden kind and the sign it may carry are also averaged under the patch expectation. When a split and a birth with the same target carry opposite signs, their
 contributions can therefore cancel inside~$C(P)$ or~$C(z,P)$.
 
 The coefficient condition called patch positivity in
 Section~\ref{sec:main-results} is shown in Section~\ref{sec:proofs} to make
 every full-patch contribution~$C(P)$ nonnegative. End contributions retain the
 terminal argument~$z$; their sign control gives the threshold profile.
-}
+
 
 \FloatBarrier
 
