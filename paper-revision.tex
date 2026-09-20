@@ -323,7 +323,16 @@ N_*(\bar A\cup U)=\bar A\cup U.
 \end{definition}
 
 \begin{example}
-The neighbourhood graph of the East model is orientable: for any~$A\Subset\Lambda$ one can take~$\bar A = I^d$ for sufficiently large interval~$I$ and~$U = (I + \N)^d$. 
+The neighbourhood graph of the East model is orientable. Indeed, for any
+$A\Subset\Z^d$, choose a finite box
+\begin{equation*}
+\bar A=\prod_{k=1}^d[a_k,b_k]\cap\Z^d
+\end{equation*}
+containing~$A$, and set
+\begin{equation*}
+U=\cb{x\in\Z^d:x_k>b_k\text{ for some }k\leq d}.
+\end{equation*}
+Then~$N_*(U)=U$ and~$N_*(\bar A\cup U)=\bar A\cup U$.
 \end{example}
 
 For~$A\Subset\Lambda$, define the monomial
@@ -744,6 +753,211 @@ The contact process is already monotone in the usual configuration order, and
 the classical monotone coupling gives stronger comparisons than the centered
 monomial order. We only mention it to demonstrate the scope of patch
 positivity.
+
+\subsection{Perturbed FA-1f and BABP}
+\label{subsec:perturbed-fa-babp}
+
+Let~$\Lcal$ denote either FA-1f or BABP with refresh parameter~$p\in(0,1)$,
+and assume that~$N(i)\neq\vn$ for every~$i\in\Lambda$. For
+$\varepsilon>0$ and~$\mb s\in[0,1]^\Lambda$, consider
+\begin{equation*}
+\Lcal^{\varepsilon,\mb s}
+=
+\Lcal+\varepsilon\Ncal^{\mb s}.
+\end{equation*}
+Its update rate and refresh parameter are
+\begin{equation*}
+\lambda_i^{\varepsilon,\mb s}
+=
+\lambda_i+\varepsilon,
+\qquad
+\rho_i^{\varepsilon,\mb s}
+=
+\frac{p\lambda_i+\varepsilon s_i}
+{\lambda_i+\varepsilon}.
+\end{equation*}
+For every nonempty~$S\subseteq N(i)$,
+\begin{equation*}
+\widehat{\lambda_i^{\varepsilon,\mb s}}(S)
+=
+\widehat{\lambda_i}(S),
+\qquad
+\widehat{\lambda_i^{\varepsilon,\mb s}
+\rho_i^{\varepsilon,\mb s}}(S)
+=
+p\widehat{\lambda_i}(S),
+\end{equation*}
+and therefore
+\begin{equation*}
+\widehat{\lambda_i^{\varepsilon,\mb s}
+\bb{\rho_i^{\varepsilon,\mb s}
+-\rho_i^{\varepsilon,\mb s}(\mb0)}}(S)
+=
+\bb{p-\rho_i^{\varepsilon,\mb s}(\mb0)}
+\widehat{\lambda_i}(S).
+\end{equation*}
+The nonconstant coefficients of~$\lambda_i$ are nonpositive in both models,
+and at least one is strictly negative. Hence~$\Lcal^{\varepsilon,\mb s}$ is
+patch-positive if and only if
+\begin{equation}
+\label{eq:perturbed-fa-babp-patch-positive}
+\mb s\geq\mb p.
+\end{equation}
+Whenever this holds, its threshold profile remains~$\mb p^\star=\mb p$.
+
+\begin{proposition}[Convergence for perturbed FA-1f and BABP]
+\label{prop:perturbed-fa-babp-convergence}
+Assume~\eqref{eq:perturbed-fa-babp-patch-positive}, suppose that the
+neighbourhood graph has polynomial growth with exponent~$D$, and set
+\begin{equation*}
+\delta
+=
+\varepsilon\inf_{i\in\Lambda}\bb{1-s_i}.
+\end{equation*}
+If~$\delta>0$, then there is an invariant probability measure~$\pi$ such that,
+for every local function~$f$, there is~$K_f<\infty$ satisfying
+\begin{equation}
+\label{eq:perturbed-fa-babp-convergence}
+\sup_{\mu\in\mathcal M_{-,K}}
+\abs{(\mu P_t^{\varepsilon,\mb s})(f)-\pi(f)}
+\leq
+(1+2K)K_f(1+t)^D e^{-\delta t/2}
+\end{equation}
+for every~$K\geq0$ and~$t\geq0$. Consequently,
+$\mu P_t^{\varepsilon,\mb s}\Rightarrow\pi$ for every
+$\mu\in\mathcal M_-$. In particular, this holds for every homogeneous
+product law~$\mu_u$ with
+\begin{equation*}
+u\geq p^-:=\max\cb{2p-1,0},
+\end{equation*}
+and for every point mass on a configuration with finitely many sites in
+state~$0$.
+\end{proposition}
+
+\begin{proof}
+The added refreshes contain independent~$1\to0$ transitions at site~$i$ at
+rate~$\varepsilon(1-s_i)$. Thus~$\delta>0$ gives a pure-death component of
+rate~$\delta$, and the claim follows from
+Theorem~\ref{thm:common-invariant-limit}.
+\end{proof}
+
+The limiting measure can also be compared with the Bernoulli product measure
+of the unperturbed system.
+
+\begin{corollary}[Comparison with the Bernoulli measure]
+\label{cor:perturbed-fa-babp-comparison}
+Under the assumptions of
+Proposition~\ref{prop:perturbed-fa-babp-convergence},
+\begin{equation}
+\label{eq:perturbed-fa-babp-stationary-comparison}
+p^{\abs A}
+\leq
+\pi(\chi_A)
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation}
+If~$\mb s=\mb p$, then~$\pi=\mu_p$.
+\end{corollary}
+
+\begin{proof}
+Set
+\begin{equation*}
+d_i=\varepsilon\frac{s_i-p}{p}\geq0
+\end{equation*}
+and define
+\begin{equation*}
+\widetilde\Lcal
+=
+\Lcal^{\varepsilon,\mb s}
++
+\sum_{i\in\Lambda}d_i\bb{E_{i,0}-I}.
+\end{equation*}
+Then
+\begin{equation*}
+\widetilde\Lcal
+=
+\Lcal
++
+\sum_{i\in\Lambda}
+\frac{\varepsilon s_i}{p}\bb{E_{i,p}-I}.
+\end{equation*}
+Hence~$\widetilde\Lcal$ is patch-positive with threshold~$p$, and~$\mu_p$
+is invariant for its semigroup~$\widetilde P_t$. By
+Corollary~\ref{cor:pure-death-comparison-revision},
+\begin{equation*}
+p^{\abs A}
+=
+(\mu_p\widetilde P_t)(\chi_A)
+\leq
+(\mu_pP_t^{\varepsilon,\mb s})(\chi_A).
+\end{equation*}
+Letting~$t\to\infty$ gives~\eqref{eq:perturbed-fa-babp-stationary-comparison}.
+If~$\mb s=\mb p$, then~$\mu_p$ is itself invariant for
+$\Lcal^{\varepsilon,\mb p}$, so convergence from~$\mu_p$ gives
+$\pi=\mu_p$.
+\end{proof}
+
+\begin{corollary}[Ergodicity of the perturbed models]
+\label{cor:perturbed-fa-babp-ergodicity}
+Under the assumptions of
+Proposition~\ref{prop:perturbed-fa-babp-convergence}, the following hold.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item If~$p\leq\frac12$, then~$\pi$ is the unique invariant measure and,
+for every local function~$f$,
+\begin{equation*}
+\sup_{\eta\in\Omega}
+\abs{P_t^{\varepsilon,\mb s}f(\eta)-\pi(f)}
+\leq
+K_f(1+t)^D e^{-\delta t/2}.
+\end{equation*}
+
+\item If the neighbourhood graph is orientable, then~$\pi$ is the unique
+invariant measure and, for every local function~$f$,
+\begin{equation*}
+\lim_{t\to\infty}
+\sup_{\eta\in\Omega}
+\abs{P_t^{\varepsilon,\mb s}f(\eta)-\pi(f)}
+=
+0.
+\end{equation*}
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Part~\textup{(i)} follows from
+Corollary~\ref{cor:uniform-exponential-ergodicity}, since the threshold is
+$p$. Part~\textup{(ii)} follows from
+Corollary~\ref{cor:oriented-ergodicity}.
+\end{proof}
+
+\begin{corollary}[Perturbed East model]
+\label{cor:perturbed-east}
+Consider the East model on~$\Z^d$ and add independent refreshes
+$\varepsilon\Ncal^{\mb s}$ with
+\begin{equation*}
+\mb s\geq\mb p,
+\qquad
+\inf_{i\in\Z^d}(1-s_i)>0.
+\end{equation*}
+Then, for every~$p\in(0,1)$, the perturbed process has a unique invariant
+measure~$\pi$ and
+\begin{equation*}
+\lim_{t\to\infty}
+\sup_{\eta\in\Omega}
+\abs{P_t^{\varepsilon,\mb s}f(\eta)-\pi(f)}
+=
+0
+\end{equation*}
+for every local function~$f$. If~$\mb s=\mb p$, then~$\pi=\mu_p$.
+For~$p\leq\frac12$, the convergence satisfies the exponential bound in
+Corollary~\ref{cor:perturbed-fa-babp-ergodicity}.
+\end{corollary}
+
+\begin{proof}
+The East neighbourhood graph has polynomial growth and is orientable, so this
+is Corollaries~\ref{cor:perturbed-fa-babp-comparison} and
+\ref{cor:perturbed-fa-babp-ergodicity}.
+\end{proof}
 
 \section{Dual process}
 \label{sec:dual}
