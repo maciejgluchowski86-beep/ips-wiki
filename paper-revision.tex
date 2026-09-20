@@ -1645,6 +1645,150 @@ organized.
 \subsection{Patches}
 \label{subsec:patches}
 
+For~$i\in\Lambda$, let
+\begin{align*}
+\mathcal T^{\mathsf I}(i)
+&=
+\cb{t\geq0:(j,t,S)\in\mathcal I
+  \text{ for some }j,S\text{ with }i\in S},
+\\
+\mathcal T^{\mathsf O}(i)
+&=
+\cb{t>0:(i,t,S)\in\mathcal I\text{ for some }S},
+\\
+\mathcal T(i)
+&=
+\mathcal T^{\mathsf I}(i)\cup\mathcal T^{\mathsf O}(i).
+\end{align*}
+{\color{red}
+The formal record~$(\infty,0,A)$ implies that
+~$0\in\mathcal T^{\mathsf I}(i)$ for every~$i\in A$, so the initial active
+sites enter the same geometry as sites reached by later successful
+interactions.
+}
+For~$s\in\mathcal T(i)$, the next successful interaction involving~$i$ occurs
+at
+\begin{equation*}
+e_i(s)
+=
+\inf\cb{u>s:u\in\mathcal T(i)},
+\qquad
+\inf\varnothing=\infty.
+\end{equation*}
+
+\begin{definition}[Patch]
+\label{def:patch}
+Let~$(j,s,S)\in\mathcal I$ be a record for which~$i=j$ or~$i\in S$. The patch
+beginning at~$(i,s)$ is
+\begin{equation*}
+P
+=
+\bb{i(P),[s(P),e(P)),\mathsf X(P)\mathsf Y(P),S(P)},
+\end{equation*}
+where
+\begin{equation*}
+i(P)=i,
+\qquad
+s(P)=s,
+\qquad
+e(P)=e_i(s),
+\qquad
+S(P)=S.
+\end{equation*}
+The initial label~$\mathsf X(P)$ records whether the interaction at~$s(P)$ is
+incoming or outgoing:
+\begin{equation*}
+\mathsf X(P)
+=
+\pw{\mathsf I}{i(P)\in S(P)}{\mathsf O}{i(P)\notin S(P)}.
+\end{equation*}
+The terminal label~$\mathsf Y(P)$ records the next successful interaction on
+the same site line, with~$\mathsf E$ meaning that there is no such interaction:
+\begin{equation*}
+\mathsf Y(P)
+=
+\pwthree
+{\mathsf I}{e(P)<\infty\text{ and }e(P)\in\mathcal T^{\mathsf I}\bb{i(P)}}
+{\mathsf O}{e(P)<\infty\text{ and }e(P)\in\mathcal T^{\mathsf O}\bb{i(P)}}
+{\mathsf E}{e(P)=\infty}.
+\end{equation*}
+\end{definition}
+
+Let~$\mathcal P$ be the family of all patches. For this infinite-horizon family,
+a patch with terminal label~$\mathsf E$ is infinite, while a patch with terminal
+label~$\mathsf I$ or~$\mathsf O$ is finite.
+
+For the representation at a finite time~$t$, patches which continue beyond~$t$
+must be cut at the observation time. For~$P\in\mathcal P$ with~$s(P)\leq t$,
+let~$P^{\downarrow t}$ be obtained by replacing its endpoint by
+$\min\cb{e(P),t}$ and, when~$t<e(P)$, replacing its terminal label by
+$\mathsf E$. Thus
+\begin{equation*}
+P^{\downarrow t}
+=
+\bb{
+ i(P),
+ [s(P),\min\cb{e(P),t}),
+ \mathsf X(P)\mathsf Y^{\downarrow t}(P),
+ S(P)
+},
+\end{equation*}
+where
+\begin{equation*}
+\mathsf Y^{\downarrow t}(P)
+=
+\pw{\mathsf Y(P)}{e(P)\leq t}{\mathsf E}{t<e(P)}.
+\end{equation*}
+The families of bulk patches, end patches, and all finite-horizon patches are
+\begin{align*}
+\mathcal B_t
+&=
+\cb{P\in\mathcal P:e(P)\leq t},
+\\
+\mathcal E_t
+&=
+\cb{P^{\downarrow t}:P\in\mathcal P,\ s(P)\leq t<e(P)},
+\\
+\mathcal P_t
+&=
+\mathcal B_t\cup\mathcal E_t.
+\end{align*}
+Thus the bulk patches are completed by time~$t$, while the end patches are the
+patches crossing~$t$, truncated at the observation time.
+{\color{red}
+By Lemma~\ref{lem:dual-local-finiteness}, the family~$\mathcal P_t$ is finite
+almost surely.
+}
+Distinct end patches have distinct sites, since the successful-interaction
+times divide each site line into consecutive intervals.
+
+Figure~\ref{fig:patch-geometry} shows the full graphical realization and the
+finite-horizon patch family induced by its successful-interaction skeleton.
+\begin{figure}[htbp]
+\centering
+\resizebox{\linewidth}{!}{\input{paper/figures/patch-geometry}}
+\caption{A realization of the graphical construction (left) and the induced
+finite-horizon patch family at time~$t$ (right). On the left, gray shading marks
+{\color{red}times when a site is dual-active}, black arrows are successful interactions,
+gray arrows are rings at inactive sources, and crosses are deaths. On the right,
+gray shading highlights patches with outgoing terminal boundary, which remain
+active throughout. Red striped sides delimit patches, the labels give their
+initial and terminal boundary types, and the thick red line separates bulk
+patches from end patches.}
+\label{fig:patch-geometry}
+\end{figure}
+\FloatBarrier
+
+If~$P\in\mathcal E_t$ and~$u\geq t$ is finite, define its extension through
+time~$u$ by
+\begin{equation}
+\label{eq:geometric-patch-extension}
+P^{\uparrow u}
+=
+\bb{i(P),[s(P),u),\mathsf X(P)\mathsf E,S(P)}.
+\end{equation}
+Thus~$P^{\uparrow t}=P$.
+
 \subsection{Patch factorization}
 \label{subsec:patch-factorization}
 
