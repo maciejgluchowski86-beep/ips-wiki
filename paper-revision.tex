@@ -149,8 +149,7 @@ condition for uniform ergodicity under positive rates, extending the regions
 covered by earlier criteria; see
 Corollary~\ref{cor:simple-positive-rates}.
 
-The main construction reorganizes a signed dual representation of the spin
-monomials. For~$\chi_A(\eta)=\prod_{i\in A}\eta(i)$, the starting point is
+The main construction is a representation of the action of the Markov semigroup on monomials. For~$\chi_A(\eta)=\prod_{i\in A}\eta(i)$, the starting point is
 the set-valued Feynman--Kac representation
 \begin{equation}
 \label{eq:intro-signed-duality}
@@ -162,19 +161,18 @@ P_t\chi_A(\eta)
 \chi_{A_t}(\eta)
 }.
 \end{equation}
-Here~$A_s$ is the finite set-valued dual,~$\sigma_s$ records its sign, and~$V$
+Here~$A_s$ is the finite set-valued dual process,~$\sigma_s\in\cb{+,-}$, and~$V$
 is the Feynman--Kac potential. Set-valued dual constructions for spin systems
 are standard; see, for example,
 \cite{Harris1978,Griffeath1979,Gray1986,JansenKurt2014}. The important feature
 for us is that the right-hand side of~\eqref{eq:intro-signed-duality} is
-signed, so estimating the different dual histories separately would lose
-cancellations between them.
+signed, which is an obstruction for monotonicity or convergence arguments.
 
-The new step is to reveal only part of the graphical construction. We let
-$\mathcal G_t$ record the inter-site interactions that actually occur in the
+The new step is to reveal only part of the graphical construction. We define a~$\sigma$-algebra
+$\mathcal G_t$ that records interactions between sites that actually occur in the
 dual up to time~$t$, including their times and the sites they connect, while
-forgetting their local type and the purely local events between them. Once this
-information is fixed, the recorded interactions divide each site line into
+forgetting their type and the purely local events between them. Once this
+information is fixed, the recorded interactions divide each site line~$\cb{i}\times[0,t]$ into
 consecutive time intervals. We call these intervals \emph{patches}. Thus a
 patch is a piece of one site line between two consecutive recorded
 interactions, or between such an interaction and the observation time.
@@ -182,7 +180,7 @@ interactions, or between such an interaction and the observation time.
 Conditioning on~$\mathcal G_t$ makes the reason for this choice visible. The
 forgotten randomness has a conditional law that factorizes over the patches,
 and the signed random variable in~\eqref{eq:intro-signed-duality} is itself a
-product of patch-local factors. Consequently, schematically,
+product of local factors. Consequently, schematically,
 \begin{equation}
 \label{eq:intro-patch-factorization}
 \E_A\Cb{
@@ -193,28 +191,26 @@ product of patch-local factors. Consequently, schematically,
 \mathcal G_t
 }
 =
-\prod_{\substack{P\text{ ending}\\\text{before }t}} C(P)
-\prod_{\substack{P\text{ reaching}\\\text{time }t}}
+\prod_{\substack{ \text{patch }P\text{ ending}\\\text{before }t}} C(P)
+\prod_{\substack{\text{patch }P\text{ reaching}\\\text{time }t}}
 C\bb{\eta\bb{i(P)},P}.
 \end{equation}
-The notation in~\eqref{eq:intro-patch-factorization} is only schematic; the
-patches and their contributions are defined precisely in
-Section~\ref{sec:patches}. Its point is that dual histories which differ only
-through hidden events inside one patch are averaged together. Positive and
-negative terms can therefore cancel locally inside a patch, before the
-contributions from different patches are multiplied.
+The notation in~\eqref{eq:intro-patch-factorization} is only schematic. 
+Patches and their contributions are defined precisely in
+Section~\ref{sec:patches}. The point is this conditioning allows for local averaging, which gives explicit contributions and captures cancellations from sign process in~\eqref{eq:intro-signed-duality}.
 
-This representation explains the condition introduced above. The coefficient
+This representation explains the patch positivity condition introduced above. The coefficient
 inequalities defining patch positivity ensure that the averaged contribution
 of every patch completed before the observation time is nonnegative. Patches
-that reach the observation time retain factors depending on the terminal
-spins, and the threshold profile~$\mb p^\star$ is chosen so that these factors
-are compatible with the centered monomials~$\chi_A^\star$. The resulting
+that reach the observation time retain factors depending on the initial measure on~$\eta$, and the threshold profile~$\mb p^\star$ is chosen so that these factors
+are non-negative for product measures with density profile above~$\mb p^*$. The resulting
 factorization preserves the sign needed for the centered monomial comparison,
 which yields Theorem~\ref{thm:centered-monomial-monotonicity}. Thus patch
 positivity is an algebraic condition on the local update rule whose
 probabilistic meaning becomes visible only after the signed representation is
-averaged over patches.\n\n\section{Setup and examples}
+averaged over patches.
+
+\section{Setup and examples}
 \label{sec:setup}
 
 This section fixes the spin-system setup and notation used throughout the paper.
