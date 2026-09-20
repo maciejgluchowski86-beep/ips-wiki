@@ -36,7 +36,7 @@ condition, in particular its invariant measures and long-time behaviour.
 
 One of the main tools for such questions is monotonicity. The configuration
 space carries the coordinatewise order~$\eta\leq\xi$. A spin system is
-monotone, traditionally called attractive in the interacting-particle-systems
+monotone, traditionally called attractive in the IPS
 literature, if processes started from ordered configurations can be coupled so
 that the order is preserved at all later times. Such couplings give direct
 comparisons between different initial conditions and are a standard tool for
@@ -45,12 +45,12 @@ studying invariant measures and convergence
 
 A principal motivation for this paper comes from kinetically constrained spin
 models (KCSMs)~\cite{FredricksonAndersen1984,CancriniEtAl2008,HartarskyToninelli2025}.
-In the standard binary models relevant here, a site may update only when a
+In the standard two-state models relevant here, a site may update only when a
 local kinetic constraint is satisfied, and a legal update refreshes the spin
 from a fixed Bernoulli law. For example, in the Fredrickson--Andersen
 one-spin facilitated model (FA-1f), an update is allowed when at least one
 neighbouring site is vacant. The East model imposes the same type of
-constraint using only designated forward neighbours. Thus these models have a
+constraint but on an oriented neighbourhood graph. Thus these models have a
 simple Bernoulli product equilibrium measure, while the kinetic constraint can
 make relaxation slow and the out-of-equilibrium behaviour difficult. Precise
 definitions of the models used in this paper are given in
@@ -61,14 +61,12 @@ vacancies can make more updates legal. This direction is opposite to the
 coordinatewise order, where~$0<1$, and therefore does not produce the usual
 monotone coupling. Indeed, if~$\eta\leq\xi$, an update may be legal in
 $\eta$ because it has more vacancies while the same update is blocked in
-$\xi$. If the two configurations agree at the updated site and the legal
-refresh in~$\eta$ changes that spin from~$0$ to~$1$, the order can be lost.
+$\xi$. If the two configurations agree at the updated site on state~$0$ and the legal
+refresh in~$\eta$ changes that spin to~$1$, the order is lost.
 Thus monotonicity of the constraint does not imply monotonicity of the spin
 system.
 
-This raises the question that motivates the paper: how does the monotonicity
-of the unconstrained refresh dynamics survive after kinetic constraints are
-imposed? More generally, can one recover a useful comparison principle for
+This raises the question that motivates the paper: does any kind of monotonicity survive? More generally, can one recover a useful comparison principle for a large class of
 spin systems whose dynamics are not monotone in configuration order?
 
 \section{Setup and examples}
