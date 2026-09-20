@@ -22,50 +22,25 @@ Georg~Menz\footnotemark[1]}%AUTHORS
 \AMSSUBJSECONDARY{60E15; 82C22}
 
 \ABSTRACT{%
-We study two-state interacting particle systems in which the update of a site
-may depend on the neighbouring spins. A motivating example is the
-Fredrickson--Andersen one-spin facilitated model (FA-1f), where a site
-refreshes its state only when a neighbouring site is vacant. Adding vacancies
-can make more updates possible, but this does not in general give a monotone
-coupling in the usual configuration order.
+In kinetically constrained spin models such as FA-1f and East, adding
+vacancies can make more updates possible even though the dynamics are not
+monotone in the usual configuration order. We introduce patch-positive spin
+systems, a class for which the semigroup preserves an order on probability
+laws defined by centered monomials around a system-dependent reference
+density. This yields comparison principles between initial laws and between
+systems that differ by additional independent~$1\to0$ transitions.
 
-We identify a local sign condition on the update rule under which a different
-monotonicity survives. We call systems satisfying this condition
-\emph{patch-positive}. Associated with such a system is a reference density
-profile~$\mb p^\star=(p_i^\star)_{i\in\Lambda}$. For probability
-laws~$\mu$ and~$\nu$, define
-\begin{equation*}
-\mu\preceq_\star\nu
-\quad\Longleftrightarrow\quad
-\mu\bb{\prod_{i\in A}\bb{\eta(i)-p_i^\star}}
-\leq
-\nu\bb{\prod_{i\in A}\bb{\eta(i)-p_i^\star}}
-\quad\text{for every finite }A\subseteq\Lambda.
-\end{equation*}
-Our main comparison theorem states that
-$\mu\preceq_\star\nu$ implies
-$\mu P_t\preceq_\star\nu P_t$ for every~$t\geq0$. The same framework
-compares different dynamics, including systems that differ by additional
-independent transitions from~$1$ to~$0$.
-
-If such transitions occur at a uniformly positive rate and the neighbourhood
-graph has polynomial growth, a broad class of initial laws converges to a
-common invariant measure. If~$\mb p^\star\leq\mbs{\tfrac12}$, the
-convergence is uniform over all initial configurations and exponentially fast.
-For one-sided neighbourhoods, including the East model, uniform ergodicity
-holds without this restriction. In particular, the perturbed East models
-considered here are uniformly ergodic for every refresh density~$p\in(0,1)$.
-We also obtain new convergence results for the biased annihilating branching
-process and a new sufficient ergodicity condition for one-dimensional
-nearest-neighbour spin systems with strictly positive flip rates.
-
-The proof starts from a standard signed set-valued Feynman--Kac dual. We
-condition only on the interactions that pass dependence between sites. These
-interactions divide each site line into time intervals, which we call
-\emph{patches}. Conditional on this information, the remaining local
-randomness factorizes over patches and can be averaged patch by patch. This
-performs cancellations between positive and negative dual histories locally
-and produces the positivity behind the comparison theorem.}
+On neighbourhood graphs of polynomial growth, a uniformly positive rate of
+such transitions implies convergence from a broad class of initial laws to a
+common invariant measure. Under an additional condition on the reference
+density the convergence is uniform and exponential, while for oriented
+systems it is uniform without this restriction. In particular, the perturbed
+East models considered here are uniformly ergodic for every refresh
+density~$p\in(0,1)$. The same framework gives new results for the biased
+annihilating branching process and for the positive-rates problem for
+one-dimensional spin systems. The proof is based on a signed dual
+representation in which local randomness is averaged over spacetime patches,
+exposing cancellations between positive and negative contributions.}
 
 \begin{document}
 
