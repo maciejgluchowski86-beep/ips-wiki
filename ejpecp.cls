@@ -104,9 +104,8 @@
 \else
     \RequirePackage{bera} % beware that the logo is sensitive to default font change
 \fi
-\RequirePackage{hyperref}
+\RequirePackage[pagebackref=false]{hyperref}
 \hypersetup{
-  pagebackref=false,
   pdfborder={0 0 0},
   pdfstartview={FitH},
   hypertexnames=false,
