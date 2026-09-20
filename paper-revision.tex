@@ -624,6 +624,84 @@ coefficients, so the first condition in~\eqref{eq:patch-positivity} fails.
 
 
 
+\subsection{Biased annihilating branching process}
+\label{subsec:babp-applications}
+
+For BABP, the only nonzero nonconstant coefficients of
+\begin{equation*}
+\lambda_i(\eta)
+=
+\sum_{j\in N(i)}\bb{1-\eta(j)}
+\end{equation*}
+are
+\begin{equation*}
+\widehat{\lambda_i}\bb{\cb{j}}=-1,
+\qquad j\in N(i).
+\end{equation*}
+Again~$\rho_i=p$ is constant, so
+$\lambda_i\bb{\rho_i-\rho_i(\mb0)}=0$. Hence BABP is patch-positive.
+Moreover, for every~$j\in N(i)$,
+\begin{equation*}
+\frac{\widehat{\lambda_i\rho_i}\bb{\cb{j}}}
+{\widehat{\lambda_i}\bb{\cb{j}}}
+=
+p,
+\end{equation*}
+so its threshold profile is~$\mb p^\star=\mb p$.
+
+On~$\Z^d$, every homogeneous product law~$\mu_u$ with~$u<1$ converges
+exponentially to~$\mu_p$
+\cite[Application~2 and Section~5.1.1]{MartinelliShapiraToninelli2025}.
+The centered monomial order allows these product laws to be used as comparison
+laws for more general initial distributions.
+
+\begin{corollary}[Centered monomial comparison for BABP]
+\label{cor:babp-centered-convergence}
+Consider nearest-neighbour BABP on~$\Z^d$. Let~$0\leq u\leq v<1$ satisfy
+\begin{equation*}
+v\geq p,
+\qquad
+\abs{u-p}\leq v-p.
+\end{equation*}
+If a probability measure~$\nu$ satisfies
+\begin{equation}
+\label{eq:babp-centered-sandwich}
+(u-p)^{\abs A}
+\leq
+\nu\bb{\prod_{i\in A}\bb{\eta(i)-p}}
+\leq
+(v-p)^{\abs A}
+\qquad
+\text{for every }A\Subset\Z^d,
+\end{equation}
+then~$\nu P_t$ converges exponentially to~$\mu_p$ on local functions.
+\end{corollary}
+
+\begin{proof}
+Condition~\eqref{eq:babp-centered-sandwich} is exactly
+\begin{equation*}
+\mu_u\preceq_\star\nu\preceq_\star\mu_v.
+\end{equation*}
+By Theorem~\ref{thm:centered-monomial-monotonicity}, this ordering is preserved
+by~$P_t$. Both endpoint laws converge exponentially to~$\mu_p$, so every
+centered monomial expectation under~$\nu P_t$ is squeezed between two
+quantities converging exponentially to its~$\mu_p$ expectation. Since centered
+monomials form a basis for the functions on every finite set of sites, the same
+holds for every local function.
+\end{proof}
+
+This includes dependent and non-translation-invariant initial laws. In
+particular, taking~$u=p$, every inhomogeneous product law with one-site
+parameters
+\begin{equation*}
+p\leq p_i\leq v<1
+\end{equation*}
+satisfies~\eqref{eq:babp-centered-sandwich} and therefore converges
+exponentially to~$\mu_p$. This allows parameters above the bound
+$p_i\leq\sqrt p$ appearing in
+\cite[Remark~5.5]{MartinelliShapiraToninelli2025}, provided they are uniformly
+bounded away from~$1$.
+
 \section{Dual process}
 \label{sec:dual}
 
