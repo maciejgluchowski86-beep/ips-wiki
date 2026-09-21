@@ -2587,6 +2587,191 @@ Thus~$\mu P_t\Rightarrow\pi$.
 \subsection{Pure-death comparison}
 \label{subsec:proof-pure-death-comparison}
 
+\begin{proof}[Proof of Corollary~\ref{cor:pure-death-comparison-revision}]
+Let~$H((A,\sigma),\eta)=\sigma\chi_A(\eta)$ be the duality function from
+Section~\ref{sec:dual}. The pure-death term in
+\eqref{eq:pure-death-decomposition-revision} acts diagonally on~$H$:
+\begin{equation*}
+\sum_{i\in\Lambda}d_i\bb{E_{i,0}-I}H((A,\sigma),\eta)
+=
+-\bb{\sum_{i\in A}d_i}H((A,\sigma),\eta).
+\end{equation*}
+Hence, if
+\begin{equation*}
+\Lcal H
+=
+\Dcal H+V(A)H,
+\end{equation*}
+then
+\begin{equation*}
+\Lcal'H
+=
+\Dcal H
++
+\bb{V(A)+\sum_{i\in A}d_i}H.
+\end{equation*}
+Thus the two systems have the same signed dual generator and therefore the same
+dual process, successful-interaction skeleton, patch families, and consistent
+patch laws. Their one-site potentials satisfy
+\begin{equation}
+\label{eq:pure-death-potential-comparison}
+V_i'=V_i+d_i.
+\end{equation}
+
+We next compare the patch contributions. From
+\eqref{eq:pure-death-decomposition-revision},
+\begin{equation}
+\label{eq:pure-death-rate-identities}
+\lambda_i=\lambda_i'+d_i,
+\qquad
+\lambda_i\rho_i=\lambda_i'\rho_i'.
+\end{equation}
+Consequently, for every nonempty~$S\subseteq N(i)$,
+\begin{equation}
+\label{eq:pure-death-mobius-identities}
+\widehat{\lambda_i}(S)=\widehat{\lambda_i'}(S),
+\qquad
+\widehat{\lambda_i\rho_i}(S)
+=
+\widehat{\lambda_i'\rho_i'}(S).
+\end{equation}
+The data~$\alpha_i$, $\delta_i(S)$, $\beta_i(S)$ and their signs in
+Appendix~\ref{app:contribution-formulas} are therefore the same for the two
+systems, and so is~$\varphi_i$. Only the all-zero-neighbourhood relaxation
+changes. Writing~$\psi_i'$ for the function associated with~$\Lcal'$, we
+have, by~\eqref{eq:dual-to-spin-contribution-data},
+\begin{align*}
+\psi_i(\Delta,z)
+&=
+\delta_i(\varnothing)
+\int_0^\Delta
+e^{-\bb{\lambda_i'(\mb 0)+d_i}u}\,du
++
+z e^{-\bb{\lambda_i'(\mb 0)+d_i}\Delta},
+\\
+\psi_i'(\Delta,z)
+&=
+\delta_i(\varnothing)
+\int_0^\Delta
+e^{-\lambda_i'(\mb 0)u}\,du
++
+z e^{-\lambda_i'(\mb 0)\Delta}.
+\end{align*}
+Hence
+\begin{equation}
+\label{eq:pure-death-psi-comparison}
+0\leq\psi_i(\Delta,z)\leq\psi_i'(\Delta,z)
+\qquad
+\text{for }\Delta\in[0,\infty]\text{ and }z\in[0,1].
+\end{equation}
+
+Suppose first that a full patch starts with an incoming boundary. The first two
+rows of~\eqref{eq:full-contribution-formulas},
+together with~\eqref{eq:pure-death-potential-comparison} and
+\eqref{eq:pure-death-psi-comparison}, give
+\begin{equation*}
+0\leq C(P)\leq C'(P).
+\end{equation*}
+If a full patch starts with an outgoing boundary with target~$S$, patch
+positivity gives
+\begin{equation*}
+\beta_i(S)\sigma_i^\beta(S)
+=
+-\widehat{\lambda_i}(S)
+\geq0.
+\end{equation*}
+The remaining rows of~\eqref{eq:full-contribution-formulas} therefore give the
+same inequality. We have proved
+\begin{equation}
+\label{eq:pure-death-bulk-patch-comparison}
+0\leq C(P)\leq C'(P)
+\qquad
+\text{for every full patch }P.
+\end{equation}
+Moreover, if~$P$ has an outgoing terminal boundary, its contribution is the
+common sign, when present, multiplied by~$e^{V_i\Delta}$, where
+$i=i(P)$ and~$\Delta=e(P)-s(P)$. Thus
+\begin{equation}
+\label{eq:pure-death-outgoing-terminal-factor}
+C(P)
+=
+e^{-d_{i(P)}\bb{e(P)-s(P)}}C'(P).
+\end{equation}
+
+By Proposition~\ref{prop:patch-contribution-positivity},
+\eqref{eq:pure-death-bulk-patch-comparison} implies that~$\Lcal'$ is
+patch-positive. Its threshold profile is the same as that of~$\Lcal$, because
+the formula~\eqref{eq:threshold-profile} only involves the nonempty
+coefficients in~\eqref{eq:pure-death-mobius-identities}.
+
+It remains to compare the end-patch factors. For an end patch~$P$ based at
+site~$i$, set
+\begin{equation*}
+\kappa(P)=\partial_zC(z,P),
+\qquad
+\kappa'(P)=\partial_zC'(z,P).
+\end{equation*}
+Since~$\varphi_i$ is unchanged, the formulas in
+\eqref{eq:end-contribution-formulas} give
+\begin{equation}
+\label{eq:pure-death-end-patch-comparison}
+0\leq\kappa(P)\leq\kappa'(P),
+\qquad
+0\leq C\bb{p_i^\star,P}
+\leq
+C'\bb{p_i^\star,P}.
+\end{equation}
+The second inequality also uses Proposition~\ref{prop:patch-contribution-positivity}
+for the two patch-positive systems. Since~$C(z,P)$ is affine in~$z$,
+\begin{equation*}
+C\bb{\eta(i),P}
+=
+C\bb{p_i^\star,P}
++
+\kappa(P)\bb{\eta(i)-p_i^\star}.
+\end{equation*}
+Distinct end patches are based at distinct sites. Therefore
+\begin{align}
+&\mu\bb{
+\prod_{P\in\mathcal E_t}
+C\bb{\eta\bb{i(P)},P}
+}
+\notag\\
+&\qquad=
+\sum_{\mathcal Q\subseteq\mathcal E_t}
+\mu\bb{
+\chi_{\cb{i(P):P\in\mathcal Q}}^\star
+}
+\prod_{P\in\mathcal Q}\kappa(P)
+\prod_{P\in\mathcal E_t\setminus\mathcal Q}
+C\bb{p_{i(P)}^\star,P}.
+\label{eq:pure-death-centered-end-expansion}
+\end{align}
+The same expansion holds with~$C,\kappa$ replaced by~$C',\kappa'$. If
+~$\mu\in\mathcal M_\star$, every centered moment in
+\eqref{eq:pure-death-centered-end-expansion} is nonnegative, so
+\eqref{eq:pure-death-end-patch-comparison} yields
+\begin{equation*}
+\mu\bb{
+\prod_{P\in\mathcal E_t}
+C\bb{\eta\bb{i(P)},P}
+}
+\leq
+\mu\bb{
+\prod_{P\in\mathcal E_t}
+C'\bb{\eta\bb{i(P)},P}
+}.
+\end{equation*}
+Combining this with~\eqref{eq:pure-death-bulk-patch-comparison} in the two
+patch representations~\eqref{eq:patch-representation-general-law} gives
+\begin{equation*}
+(\mu P_t)(\chi_A)
+\leq
+(\mu P_t')(\chi_A),
+\end{equation*}
+which proves the corollary.
+\end{proof}
+
 \subsection{Common invariant limit}
 \label{subsec:proof-common-invariant-limit}
 
