@@ -4488,6 +4488,246 @@ future interactions are conditionally independent, multiplying the limits in
 \end{proof}
 
 
+\subsection{End-factor relaxation}
+
+The continuation identity reduces the dependence on the initial configuration
+to affine functions of the spins at the end-patch sites. The next lemma
+controls this dependence uniformly over~$\mathcal M_\star$.
+
+\begin{lemma}[End-factor relaxation]
+\label{lem:end-factor-relaxation}
+Fix a realization of~$\mathcal G_T$ and let~$0\leq T<t$. For every
+~$\mu\in\mathcal M_\star$,
+\begin{align*}
+&\abs{
+ \CP{L_{T,t}}{\mathcal G_T}
+ \mu\bb{
+  \prod_{P\in\mathcal E_T}
+  C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+ }
+ -
+ \prod_{P\in\mathcal E_T}
+ C\bb{\rho_{i(P)}(\mb 0),P}
+}
+\\
+&\qquad\leq
+e^{-\varepsilon(t-T)}
+\bb{
+ \CP{L_{T,t}}{\mathcal G_T}
+ \mu\bb{
+  \prod_{P\in\mathcal E_T}
+  C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+ }
+ +
+ \abs{\mathcal E_T}
+ \prod_{P\in\mathcal E_T}
+ C\bb{\rho_{i(P)}(\mb 0),P}
+}.
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+Put~$h=t-T$. For an end patch~$P$ based at~$i$, define
+\begin{align*}
+a_t(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+C\bb{p_i^\star,P^{\uparrow t}},
+&
+k_t(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+\partial_z C\bb{z,P^{\uparrow t}},
+\\
+a_t^\varepsilon(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+C^\varepsilon\bb{p_i^\star,P^{\uparrow t}},
+&
+k_t^\varepsilon(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+\partial_z C^\varepsilon\bb{z,P^{\uparrow t}},
+\\
+b(P)
+&=
+C\bb{\rho_i(\mb 0),P}.
+\end{align*}
+Also write
+\begin{equation*}
+\kappa(P)=\partial_zC(z,P),
+\qquad
+\kappa^\varepsilon(P)=\partial_zC^\varepsilon(z,P).
+\end{equation*}
+Since the end-patch contributions are affine in~$z$, these derivatives do not
+depend on~$z$.
+
+By~\eqref{eq:local-probability-weighted-continuation},
+\begin{equation}
+\label{eq:continued-end-factor-data}
+a_t(P)
+=
+C\bb{\psi_i(h,p_i^\star),P},
+\qquad
+k_t(P)
+=
+e^{-\lambda_i(\mb 0)h}\kappa(P).
+\end{equation}
+For the system with the pure-death component removed, the update rate at the
+all-zero neighbourhood is~$\lambda_i(\mb 0)-\varepsilon$. The same calculation
+therefore gives
+\begin{equation*}
+k_t^\varepsilon(P)
+=
+e^{-\bb{\lambda_i(\mb 0)-\varepsilon}h}
+\kappa^\varepsilon(P).
+\end{equation*}
+The pure-death comparison from
+Section~\ref{subsec:proof-pure-death-comparison}, applied to the extended end
+patch, gives
+\begin{equation*}
+0\leq a_t(P)\leq a_t^\varepsilon(P),
+\qquad
+0\leq\kappa(P)\leq\kappa^\varepsilon(P).
+\end{equation*}
+Consequently,
+\begin{equation}
+\label{eq:appendix-continued-factor-comparisons}
+0\leq a_t(P)\leq a_t^\varepsilon(P),
+\qquad
+0\leq k_t(P)\leq e^{-\varepsilon h}k_t^\varepsilon(P).
+\end{equation}
+
+We also compare~$a_t(P)$ with its limiting value~$b(P)$. Since
+~$p_i^\star\leq\rho_i(\mb 0)$ and
+\begin{equation*}
+\psi_i(h,p_i^\star)
+=
+\rho_i(\mb 0)
+-
+\bb{\rho_i(\mb 0)-p_i^\star}
+e^{-\lambda_i(\mb 0)h},
+\end{equation*}
+the affine dependence of~$C(z,P)$ on~$z$ gives
+\begin{equation*}
+b(P)-a_t(P)
+=
+\kappa(P)\bb{\rho_i(\mb 0)-p_i^\star}
+e^{-\lambda_i(\mb 0)h}.
+\end{equation*}
+Moreover,
+\begin{equation*}
+b(P)
+=
+C\bb{p_i^\star,P}
++
+\kappa(P)\bb{\rho_i(\mb 0)-p_i^\star}
+\geq
+\kappa(P)\bb{\rho_i(\mb 0)-p_i^\star},
+\end{equation*}
+where~$C(p_i^\star,P)\geq0$ by patch positivity. Since
+~$\lambda_i(\mb 0)\geq\varepsilon$,
+\begin{equation}
+\label{eq:continued-end-factor-limit-comparison}
+0
+\leq
+b(P)-a_t(P)
+\leq
+e^{-\varepsilon h}b(P).
+\end{equation}
+
+We first control the terms that depend on centered moments of~$\mu$. For
+~$\mathcal Q\subseteq\mathcal E_T$, set
+\begin{equation*}
+I(\mathcal Q)
+=
+\cb{i(P):P\in\mathcal Q}.
+\end{equation*}
+The end-patch sites are distinct. Using
+\eqref{eq:local-no-late-factorization} and expanding each affine factor around
+~$p_i^\star$ gives
+\begin{align}
+&\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+\notag\\
+&\qquad=
+\sum_{\mathcal Q\subseteq\mathcal E_T}
+\mu\bb{\chi_{I(\mathcal Q)}^\star}
+\prod_{P\in\mathcal Q}k_t(P)
+\prod_{P\in\mathcal E_T\setminus\mathcal Q}a_t(P).
+\label{eq:continued-end-factor-centered-expansion}
+\end{align}
+Every term is nonnegative because~$\mu\in\mathcal M_\star$. The term with
+~$\mathcal Q=\varnothing$ is~$\prod_Pa_t(P)$. If
+~$\mathcal Q\neq\varnothing$, the inequalities in
+\eqref{eq:appendix-continued-factor-comparisons} give
+\begin{align*}
+&\mu\bb{\chi_{I(\mathcal Q)}^\star}
+\prod_{P\in\mathcal Q}k_t(P)
+\prod_{P\in\mathcal E_T\setminus\mathcal Q}a_t(P)
+\\
+&\qquad\leq
+e^{-\varepsilon h}
+\mu\bb{\chi_{I(\mathcal Q)}^\star}
+\prod_{P\in\mathcal Q}k_t^\varepsilon(P)
+\prod_{P\in\mathcal E_T\setminus\mathcal Q}a_t^\varepsilon(P).
+\end{align*}
+Summing over nonempty~$\mathcal Q$ and then adding the nonnegative empty-set
+term on the right gives
+\begin{align}
+0
+&\leq
+\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+-
+\prod_{P\in\mathcal E_T}a_t(P)
+\notag\\
+&\leq
+e^{-\varepsilon h}
+\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}.
+\label{eq:continued-end-factor-centered-error}
+\end{align}
+
+It remains to replace~$\prod_Pa_t(P)$ by~$\prod_Pb(P)$. Enumerate
+~$\mathcal E_T=\cb{P_1,\ldots,P_n}$ and write
+~$a_j=a_t(P_j)$ and~$b_j=b(P_j)$. Since~$0\leq a_j\leq b_j$,
+\begin{equation*}
+\prod_{j=1}^n b_j-\prod_{j=1}^n a_j
+=
+\sum_{j=1}^n
+\bb{b_j-a_j}
+\prod_{k<j}a_k
+\prod_{k>j}b_k.
+\end{equation*}
+Using~\eqref{eq:continued-end-factor-limit-comparison},
+\begin{equation}
+\label{eq:continued-end-factor-constant-error}
+0
+\leq
+\prod_{P\in\mathcal E_T}b(P)
+-
+\prod_{P\in\mathcal E_T}a_t(P)
+\leq
+\abs{\mathcal E_T}e^{-\varepsilon h}
+\prod_{P\in\mathcal E_T}b(P).
+\end{equation}
+Both quantities compared in the lemma are at least
+~$\prod_{P\in\mathcal E_T}a_t(P)$. Combining
+\eqref{eq:continued-end-factor-centered-error} and
+\eqref{eq:continued-end-factor-constant-error} proves the claim.
+\end{proof}
+
+
 \bibliographystyle{paper/amsplain-fullnames}
 \bibliography{paper/references}
 
