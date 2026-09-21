@@ -236,14 +236,19 @@ is the minimal density profile~$\mb p$ such that for a product measure~$\mu = \o
 
 The duality in~\eqref{eq:intro-signed-duality} belongs to the standard
 graphical and set-valued duality framework for spin systems
-\cite{Harris1974,Harris1978,Griffeath1979,Gray1986,JansenKurt2014}. The new
-ingredient here is the choice of the smaller~$\sigma$-algebra~$\mathcal G_t$. It is
-this conditional factorization, rather than the duality itself, that exposes
-the local cancellations used in our arguments.
+\cite{Harris1974,Harris1978,Griffeath1979,HolleyStroock1979,Gray1986,JansenKurt2014}.
+The new ingredient here is the choice of the smaller~$\sigma$-algebra~$\mathcal G_t$.
+It is this conditional factorization, rather than the duality itself, that
+exposes the local cancellations used in our arguments. Information
+percolation also records updates that carry information
+\cite{LubetzkySly2016}, but uses them for a different decomposition.
 
 Classical comparison results for monotone spin systems are based on couplings
-that preserve the coordinatewise order on configurations
-\cite{Harris1977,Liggett1985}. Patch-positive systems need not admit such a
+that preserve the coordinatewise order on configurations and on related
+association inequalities
+\cite{Harris1977,Liggett1985,Liggett2006}. Duality can also yield correlation
+inequalities in particular interacting particle systems
+\cite{GiardinaRedigVafayi2010}. Patch-positive systems need not admit such a
 coupling. Instead, the local sign conditions revealed by the patch
 factorization lead to the centered monomial order on probability laws. Thus
 the comparison principle developed here plays a similar role for the models
@@ -872,7 +877,12 @@ Its expansion in the monomials~$\chi_S$ contains positive nonconstant
 coefficients, so the first condition in~\eqref{eq:patch-positivity} fails.
 \end{remark}
 
-
+The out-of-equilibrium behaviour of FA-1f and East has been studied in a
+number of settings; see
+\cite{CancriniEtAl2010,BlondelEtAl2013,MountfordValle2019,Mareche2019,
+HartarskyToninelli2024}. These results provide model-specific convergence
+theorems for the hard dynamics, complementary to the comparison and noisy
+ergodicity results proved here.
 
 \subsection{Biased annihilating branching process}
 \label{subsec:babp-applications}
@@ -899,6 +909,9 @@ p,
 \end{equation*}
 so its threshold profile is~$\mb p^\star=\mb p$.
 
+Qualitative convergence of BABP from translation-invariant initial laws was
+proved by Sudbury~\cite{Sudbury1997}, while quasi-duality and thinning
+relations were developed by Lloyd and Sudbury~\cite{LloydSudbury1997}.
 On~$\Z^d$, every homogeneous product law~$\mu_u$ with~$u<1$ converges
 exponentially to~$\mu_p$
 \cite[Application~2 and Section~5.1.1]{MartinelliShapiraToninelli2025}.
@@ -1210,9 +1223,14 @@ p_{1\mid11},p_{1\mid10}<1,
 \qquad
 p_{1\mid01},p_{1\mid00}>0.
 \end{equation}
-The positive rates conjecture for simple spin systems asserts that every system
-satisfying~\eqref{eq:simple-positive-rates} is ergodic. Earlier sufficient
-conditions prove this on parts of the parameter space
+The broad positive-rates conjecture for one-dimensional finite-range systems
+is false in general: G\'acs constructed counterexamples
+\cite{Gacs1986,Gacs2001}; see also Gray's guide~\cite{Gray2001}. Classical
+positive-rate results for monotone nearest-neighbour spin systems include
+\cite{Gray1982}. The binary, one-sided nearest-neighbour problem considered
+here remains open. We refer to it as the positive rates conjecture for simple
+spin systems: every system satisfying~\eqref{eq:simple-positive-rates} should
+be ergodic. Earlier sufficient conditions cover parts of the parameter space
 \cite{GluchowskiMenz2025,GluchowskiMenz2026}. The orientability result above
 gives an additional region.
 
@@ -2470,7 +2488,7 @@ with~\eqref{eq:centered-monomial-generator-expansion} and
 M(A,B)\geq0
 \quad\text{for }B\neq A.
 \end{equation}
-For each~$A$, only the coefficients~$M(A,B)$ for~$B\subseteq N_*(A)$ are nonzero, and the matrix~$M$ is Metzler, so for each~$t\geq 0$ the matrix~$e^{tM} = \sum_{n\in\N} \frac{t^n}{n!} M^n$ is well-defined and has non-negative entries. If~$\sigma$ is a
+For each~$A$, only the coefficients~$M(A,B)$ for~$B\subseteq N_*(A)$ are nonzero, and the matrix~$M$ is Metzler, so for each~$t\geq0$ the matrix~$e^{tM}=\sum_{n\in\N}\frac{t^n}{n!}M^n$ is well-defined and has nonnegative entries; see, for example,~\cite{ArendtEtAl1986}. If~$\sigma$ is a
 finite signed measure whose centered moments are all nonnegative, then
 \begin{equation*}
 (\sigma P_t)(\chi_A^\star)
