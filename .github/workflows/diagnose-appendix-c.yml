@@ -42,7 +42,7 @@ jobs:
               "C2": s.index("\\subsection{Continuation without successful interactions}"),
               "C3": s.index("\\subsection{End-factor relaxation}"),
               "C4": s.index("\\subsection{Finite propagation}"),
-              "C5": s.index("\\subsection{Preservation under fixed boundary conditions}"),
+              "C5": s.index("\\subsection{Preservation of~$\\mathcal{M}_*^I$ under arbitrary boundary conditions}"),
               "C6": bib,
           }
           level = os.environ["LEVEL"]
