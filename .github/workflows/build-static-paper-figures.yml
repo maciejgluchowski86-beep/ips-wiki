@@ -15,69 +15,58 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Create standalone figure wrappers
+      - name: Create standalone simple-IPS figure
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p paper/figures/rendered
-
-          make_wrapper () {
-            name="$1"
-            src="$2"
-            cat > "paper/figures/rendered/${name}.tex" <<EOF
+          python3 - <<'PY'
+          from pathlib import Path
+          src = Path("paper/figures/simple-ips-ergodicity-regions.tex").read_text()
+          src = src.replace(
+              r"Corollaries 7.1 and 7.2 in~\cite{GluchowskiMenz2025}",
+              "Earlier criteria",
+          )
+          src = src.replace(
+              r"Long-lived-state criterion~\cite{GluchowskiMenz2026}",
+              "Long-lived-state criterion",
+          )
+          src = src.replace(
+              r"Corollary~\ref{cor:oriented-ergodicity}",
+              "Present criterion",
+          )
+          Path("paper/figures/rendered/simple-ips-body.tex").write_text(src)
+          PY
+          cat > paper/figures/rendered/simple-ips-ergodicity-regions.tex <<'EOF'
           \documentclass[border=2pt]{standalone}
           \usepackage[T1]{fontenc}
           \usepackage{lmodern}
           \usepackage{amsmath,amssymb,graphicx}
           \input{paper/preamble}
           \begin{document}
-          \input{${src}}
+          \input{paper/figures/rendered/simple-ips-body}
           \end{document}
           EOF
-          }
 
-          make_wrapper patch-geometry paper/figures/patch-geometry
-          make_wrapper patch-interiors paper/figures/patch-interiors
-          make_wrapper convergence-backward-xo-trail paper/figures/convergence-backward-xo-trail
-          make_wrapper convergence-no-late-end-patches paper/figures/convergence-no-late-end-patches
-          make_wrapper convergence-event-spatial-escape paper/figures/convergence-event-spatial-escape
-
-      - name: Compile static figures
+      - name: Compile simple-IPS figure
         uses: xu-cheng/latex-action@v4
         with:
-          root_file: |
-            paper/figures/rendered/patch-geometry.tex
-            paper/figures/rendered/patch-interiors.tex
-            paper/figures/rendered/convergence-backward-xo-trail.tex
-            paper/figures/rendered/convergence-no-late-end-patches.tex
-            paper/figures/rendered/convergence-event-spatial-escape.tex
+          root_file: paper/figures/rendered/simple-ips-ergodicity-regions.tex
           compiler: pdflatex
           args: -file-line-error -halt-on-error -interaction=nonstopmode
 
-      - name: Commit rendered PDFs
+      - name: Commit rendered PDF
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p paper/figures/rendered
-          for name in \
-            patch-geometry \
-            patch-interiors \
-            convergence-backward-xo-trail \
-            convergence-no-late-end-patches \
-            convergence-event-spatial-escape
-          do
-            mv "${name}.pdf" "paper/figures/rendered/${name}.pdf"
-          done
-          rm -f paper/figures/rendered/*.tex \
+          mv simple-ips-ergodicity-regions.pdf paper/figures/rendered/simple-ips-ergodicity-regions.pdf
+          rm -f paper/figures/rendered/simple-ips-ergodicity-regions.tex \
+                paper/figures/rendered/simple-ips-body.tex \
                 paper/figures/rendered/*.aux \
                 paper/figures/rendered/*.log \
                 paper/figures/rendered/*.out
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add paper/figures/rendered/*.pdf
-          if git diff --cached --quiet; then
-            echo "No rendered figure changes."
-            exit 0
-          fi
-          git commit -m "Precompile static paper figures"
+          git add paper/figures/rendered/simple-ips-ergodicity-regions.pdf
+          git commit -m "Precompile simple IPS parameter figure"
           git push origin HEAD:main
