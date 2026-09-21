@@ -2928,8 +2928,8 @@ W^\varepsilon
 \prod_{P\in\mathcal P}C^\varepsilon(P)
 \ind\bb{\abs{\mathcal P}<\infty}.
 \end{align*}
-By Section~\ref{subsec:proof-pure-death-comparison}, the two systems have the
-same successful-interaction skeleton and patch families, and for
+In Section~\ref{subsec:proof-pure-death-comparison} we have shown, that the two systems have the
+same dual process and thus the same successful-interaction skeleton and patch families, and for
 ~$\mu\in\mathcal M_\star$,
 \begin{equation}
 \label{eq:death-removed-weight-comparison}
@@ -2964,7 +2964,7 @@ e^{-\varepsilon T}.
 \begin{proof}
 We first describe the ancestry of a successful interaction at time~$u>0$.
 The source of this interaction lies in a patch ending with an outgoing
-interaction. If that patch starts at another successful interaction, move to
+interaction. That patch starts at another successful interaction, so move to
 the patch ending with the outgoing side of that interaction, at its source.
 Iterating produces patches~$P_1,\ldots,P_n$, each ending with an outgoing
 interaction, such that
@@ -2976,10 +2976,10 @@ e(P_n)=u,
 e(P_k)=s(P_{k+1})
 \quad\text{for }1\leq k<n.
 \end{equation*}
-The boundary times decrease strictly when this construction is followed
+The interaction times decrease strictly when this construction is followed
 backward, and there are only finitely many successful interactions before~$u$
 by Lemma~\ref{lem:dual-local-finiteness}. Hence the chain reaches the formal
-initial interaction at time~$0$ after finitely many steps. In particular,
+initial interaction at time~$0$ after finitely many steps. In particular, for some~$n$ we have
 \begin{equation}
 \label{eq:outgoing-chain-total-length}
 \sum_{k=1}^n\bb{e(P_k)-s(P_k)}
@@ -2997,7 +2997,7 @@ lifetimes sum to~$u$.}
 \end{figure}
 \FloatBarrier
 
-On~$L_{T,t}^c$, let~$u\in(T,t]$ be the first successful interaction
+On~$L_{T,t}^c$, let~$u\in(T,t]$ be the time of the first successful interaction
 after~$T$, and let~$P_1,\ldots,P_n$ be its ancestry chain. Every patch in the
 chain belongs to~$\mathcal B_t$. Applying
 \eqref{eq:pure-death-outgoing-terminal-factor} with~$d_i=\varepsilon$ and
