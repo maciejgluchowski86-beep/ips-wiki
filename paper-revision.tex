@@ -4284,19 +4284,17 @@ Combining this with~\eqref{eq:confined-weight-to-dual} and integrating over
 \label{app:no-late-continuation}
 
 We derive the continuation identities used in the proof of
-Lemma~\ref{lem:no-late-relaxation}. Fix~$0\leq T<t$ and condition on~$\mathcal G_T$. If no successful interaction occurs after time~$T$, the bulk
-patches are unchanged and each end patch at time~$T$ is extended forward in
-time.
+Lemma~\ref{lem:no-late-relaxation}. Fix~$0\leq T<t$ and condition on~$\mathcal G_T$. On the event~$L_{T,t}$, since no successful interaction occurs after time~$T$, the bulk
+patches are unchanged and each end patch at time~$T$ is extended forward to time~$t$.
 
 For~$P\in\mathcal E_T$, consider the site~$i(P)$ after time~$T$.
 Start from its activity state at time~$T$ and follow only interactions whose
 source is~$i(P)$, ignoring incoming interactions from other sites. While the
-site is active, a death makes it inactive, whereas a nonempty-target
-interaction would be a successful interaction. Once the site is inactive it
+site is active, a death makes it inactive, whereas an
+interaction would be a successful. Once the site is inactive it
 remains inactive in this one-site evolution. Let~$L_{T,t}^P$ be the event that
-no nonempty-target interaction occurs while the site is active during
-~$(T,t]$. Distinct end patches are based at distinct sites, so conditional on
-~$\mathcal G_T$ the events~$(L_{T,t}^P)_{P\in\mathcal E_T}$ are independent.
+no interaction occurs while the site is active during
+~$(T,t]$. 
 Moreover,
 \begin{equation}
 \label{eq:local-no-late-factorization}
@@ -4309,12 +4307,8 @@ L_{T,t}
 \prod_{P\in\mathcal E_T}
 \CP{L_{T,t}^P}{\mathcal G_T}.
 \end{equation}
-Indeed, before the first successful interaction after~$T$, no incoming
-interaction has changed the activity of any site. Its source must therefore
-belong to one of the end patches present at time~$T$, and its activity agrees
-up to that time with the continuation just defined. We also write~$L_T^P$ for
-the event that the continuation of~$P$ has no successful interaction at any
-time after~$T$.
+Indeed, each~$L_{T,t}^P$ implies that there is no successful interaction at~$i(P)$ during~$[T,t)$, so~$L_{T,t}$ must lie in the intersection of these events. The opposite inclusion is trivial. The second identity follows because distinct end patches are based at distinct sites, so conditional on
+~$\mathcal G_T$ the events~$(L_{T,t}^P)_{P\in\mathcal E_T}$ are independent.
 
 \begin{proposition}[Continuation identity]
 \label{prop:no-late-continuation-identity}
@@ -4419,8 +4413,7 @@ during the added interval. Conditional on~$\mathcal G_T$,
 }{\mathsf X(P)=\mathsf O}.
 \end{equation}
 Multiplying~\eqref{eq:end-patch-continuation} by
-\eqref{eq:local-continuation-probability} cancels the normalizer at length
-~$\Delta+h$. Using
+\eqref{eq:local-continuation-probability} and using
 \begin{equation*}
 \psi_i(\Delta+h,z)
 =
@@ -4455,8 +4448,7 @@ When the initial interaction is outgoing, the same cancellation gives
 \end{equation*}
 In both cases this is~$C(\psi_i(h,z),P)$.
 
-On~$L_{T,t}$ the patch family at time~$t$ is determined by
-~$\mathcal G_T$, so the definition of~$W_t^\mu$ gives the first equality in
+On~$L_{T,t}$ the patch family at time~$t$ is determined by~$\mathcal G_T$, so the definition of~$W_t^\mu$ gives the first equality in
 \eqref{eq:appendix-finite-continuation-identity}. Using
 \eqref{eq:local-no-late-factorization}, we may put the product of the local
 conditional probabilities inside the~$\mu$-integral. Applying
