@@ -4805,6 +4805,156 @@ This proves~\eqref{eq:finite-propagation}.
 \end{proof}
 
 
+\subsection{Preservation under fixed boundary conditions}
+\label{app:boundary-moment-preservation}
+
+The orientability argument conditions on the evolution outside a finite set.
+The following lemma shows that, for every fixed boundary configuration, the
+restricted dynamics preserves nonnegative centered moments with respect to the
+original threshold profile.
+
+\begin{lemma}
+\label{lem:boundary-moment-preservation}
+Suppose that~$\Lcal$ is patch-positive. Let~$I\Subset\Lambda$ and
+~$U\subseteq\Lambda\setminus I$ satisfy
+\begin{equation*}
+N(i)\subseteq I\cup U
+\qquad
+\text{for every }i\in I.
+\end{equation*}
+For~$\xi\in\cb{0,1}^U$, let~$P_t^{I,\xi}$ be the semigroup on
+~$\cb{0,1}^I$ obtained by fixing the spins on~$U$ at~$\xi$. Define
+\begin{equation*}
+\mathcal M_\star^I
+=
+\cb{
+\mu\in\mathcal P\bb{\cb{0,1}^I}:
+\mu(\chi_B^\star)\geq0
+\text{ for every }B\subseteq I
+}.
+\end{equation*}
+Then
+\begin{equation*}
+\mathcal M_\star^I P_t^{I,\xi}
+\subseteq
+\mathcal M_\star^I
+\qquad
+\text{for every }t\geq0.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Write~$\lambda_i^{I,\xi}$ and~$\rho_i^{I,\xi}$ for the update rate and
+refresh parameter of the restricted dynamics. For~$S\subseteq N(i)\cap I$,
+substituting the fixed spins~$\xi$ into the monomial expansions gives
+\begin{align}
+\widehat{\lambda_i^{I,\xi}}(S)
+&=
+\sum_{T\subseteq N(i)\cap U}
+\widehat{\lambda_i}(S\cup T)
+\prod_{j\in T}\xi(j),
+\label{eq:restricted-lambda-coefficients}
+\\
+\widehat{
+\lambda_i^{I,\xi}
+\bb{\rho_i^{I,\xi}-p_i^\star}
+}(S)
+&=
+\sum_{T\subseteq N(i)\cap U}
+\bb{
+\widehat{\lambda_i\rho_i}(S\cup T)
+-
+p_i^\star\widehat{\lambda_i}(S\cup T)
+}
+\prod_{j\in T}\xi(j).
+\label{eq:restricted-centered-coefficients}
+\end{align}
+If~$S\neq\varnothing$, then every~$S\cup T$ appearing in
+\eqref{eq:restricted-lambda-coefficients} is nonempty, so patch positivity
+gives
+\begin{equation}
+\label{eq:restricted-lambda-sign}
+\widehat{\lambda_i^{I,\xi}}(S)\leq0.
+\end{equation}
+By~\eqref{eq:centered-generator-positive-coefficients}, every summand in
+\eqref{eq:restricted-centered-coefficients} is nonnegative. Hence
+\begin{equation}
+\label{eq:restricted-centered-sign}
+\widehat{
+\lambda_i^{I,\xi}
+\bb{\rho_i^{I,\xi}-p_i^\star}
+}(S)
+\geq0
+\qquad
+\text{for every }S\subseteq N(i)\cap I.
+\end{equation}
+
+We now repeat the centered-generator calculation from
+Theorem~\ref{thm:centered-monomial-monotonicity}. For~$B\subseteq I$,
+\begin{align*}
+\Lcal^{I,\xi}\chi_B^\star
+={}&
+\sum_{i\in B}\Cb{
+-\lambda_i^{I,\xi}(\mb 0)\chi_B^\star
+\\
+&\qquad+
+\sum_{S\subseteq N(i)\cap I}
+\widehat{
+\lambda_i^{I,\xi}
+\bb{\rho_i^{I,\xi}-p_i^\star}
+}(S)
+\chi_S\chi_{B\setminus\cb{i}}^\star
+\\
+&\qquad+
+\sum_{\substack{S\subseteq N(i)\cap I\\S\neq\varnothing}}
+\bb{-\widehat{\lambda_i^{I,\xi}}(S)}
+\chi_S\chi_B^\star
+}.
+\end{align*}
+Choose~$r>0$ so that
+\begin{equation*}
+r\sum_{i\in I}\lambda_i^{I,\xi}(\mb 0)\leq1.
+\end{equation*}
+By~\eqref{eq:restricted-lambda-sign} and
+\eqref{eq:restricted-centered-sign}, all coefficients in
+~$(I+r\Lcal^{I,\xi})\chi_B^\star$ are nonnegative before the products
+~$\chi_S\chi_D^\star$ are expanded. Equation
+~\eqref{eq:ordinary-centered-product-expansion} shows that each such product
+is itself a nonnegative linear combination of centered monomials. Therefore
+\begin{equation*}
+\bb{I+r\Lcal^{I,\xi}}\chi_B^\star
+\end{equation*}
+is a nonnegative linear combination of
+~$\cb{\chi_D^\star:D\subseteq I}$.
+
+Since~$I$ is finite, for every~$t\geq0$,
+\begin{equation*}
+P_t^{I,\xi}
+=
+\lim_{n\to\infty}
+\bb{
+I+\frac{t}{n}\Lcal^{I,\xi}
+}^n
+\end{equation*}
+as operators on functions on~$\cb{0,1}^I$. For all sufficiently large~$n$,
+the preceding argument applies with~$r=t/n$. Thus, if
+~$\mu\in\mathcal M_\star^I$, then for every~$B\subseteq I$,
+\begin{equation*}
+(\mu P_t^{I,\xi})(\chi_B^\star)
+=
+\lim_{n\to\infty}
+\mu\bb{
+\bb{
+I+\frac{t}{n}\Lcal^{I,\xi}
+}^n
+\chi_B^\star
+}
+\geq0.
+\end{equation*}
+Hence~$\mu P_t^{I,\xi}\in\mathcal M_\star^I$.
+\end{proof}
+
+
 \bibliographystyle{paper/amsplain-fullnames}
 \bibliography{paper/references}
 
