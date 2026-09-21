@@ -2185,17 +2185,16 @@ contributions can cancel inside~$C(P)$ or~$C(z,P)$.
 \subsection{Patch positivity and threshold}
 \label{subsec:proof-patch-positivity-threshold}
 
-The coefficient conditions in Definition~\ref{eq:patch-positivity} control the
-signs that remain after the local averaging in the patch representation. The
-explicit contribution formulas are collected in
-Appendix~\ref{app:contribution-formulas}. Their consequences needed below are
+We now give the probabilistic interpretation to the earlier definition of patch-positivity the threshold profile~$\mb p^*$. Conditions in~\eqref{eq:patch-positivity} are equivalent to non-negativity of bulk patch contributions, and~$\mb p^*$ is defined so that the end patch contributions are also non-negative, when integrated against a measure in~$\mathcal{M}_*$. The
+explicit formulas for~$C(P)$ and~$C(z,P)$ are given in
+Appendix~\ref{app:contribution-formulas}. Their consequences are
 summarized in the following proposition.
 
-\begin{proposition}[Patch positivity of the contributions]
+\begin{proposition}
 \label{prop:patch-contribution-positivity}
-Suppose that the spin system is patch-positive. Then every full patch satisfies
+A spin system is patch positive if and only if
 \begin{equation*}
-C(P)\geq0.
+C(P)\geq0 \qquad \text{ for every }P\in\mathcal{P}, \text{ almost surely.}
 \end{equation*}
 For every site~$i$, the threshold~$p_i^\star$ from
 \eqref{eq:threshold-profile} is the smallest~$p\in[0,1]$ such that
@@ -2248,7 +2247,7 @@ For every realized patch the normalizer~$\varphi_i(\Delta)$ is positive, and
 \lambda_i(\mb 0)\rho_i(\mb 0)
 \geq0
 \end{equation*}
-gives~$\psi_i(\Delta,1)\geq0$. Hence every full patch with an incoming
+gives~$\psi_i(\Delta,1)\geq0$. Hence every patch with an incoming
 initial boundary has nonnegative contribution.
 
 Now suppose that the initial boundary is outgoing, with nonempty target~$S$.
@@ -2281,10 +2280,9 @@ nonnegative. For an~$\mathsf{OI}$ or~$\mathsf{OE}$ patch, the denominator in
 e^{-\lambda_i(\mb 0)\Delta}.
 \label{eq:outgoing-full-patch-numerator}
 \end{align}
-Here we used~\eqref{eq:all-zero-neighbourhood-relaxation}; the same identity
+Here we used~\eqref{eq:all-zero-neighbourhood-relaxation}. The same identity
 holds when~$\lambda_i(\mb 0)=0$. Both terms in
-\eqref{eq:outgoing-full-patch-numerator} are nonnegative by patch positivity.
-This proves~$C(P)\geq0$ for every full patch.
+\eqref{eq:outgoing-full-patch-numerator} are nonnegative by patch positivity. Thus the coefficient criterion for patch positivity is equivalent to~$C(P)\geq 0$.
 
 It remains to identify the threshold for end patches. If
 $\lambda_i(\mb 0)=0$, then patch positivity and~$\lambda_i\geq0$ force
@@ -2302,7 +2300,7 @@ Thus~$\lambda_i\rho_i\equiv0$, there are no outgoing interactions based
 at~$i$, and~\eqref{eq:threshold-profile} gives~$p_i^\star=0$. Hence assume
 that~$\lambda_i(\mb 0)>0$.
 
-An incoming-initial end patch has, by~\eqref{eq:end-contribution-formulas},
+An~$\mathsf{IE}$ patch has, by~\eqref{eq:end-contribution-formulas},
 \begin{equation*}
 C(p,P)
 =
@@ -2311,9 +2309,9 @@ C(p,P)
 \qquad
 \text{for every }p\in[0,1],
 \end{equation*}
-because~\eqref{eq:all-zero-neighbourhood-relaxation} expresses
-$\psi_i(\Delta,p)$ as a convex combination of~$p$ and~$\rho_i(\mb 0)$.
-Thus only outgoing-initial end patches impose a restriction. For such a patch
+because by~\eqref{eq:all-zero-neighbourhood-relaxation} the
+$\psi_i(\Delta,p)$ is a convex combination of~$p$ and~$\rho_i(\mb 0)$.
+Thus only~$\mathsf{OE}$ patches can have negative contributions and impose a restriction. For such a patch
 with target~$S$, the sign of~$C(p,P)$ is the sign of
 \begin{equation*}
 N_{i,S}(\Delta,p)
@@ -2337,8 +2335,8 @@ p\widehat{\lambda_i}(S),
 \geq0.
 \end{align*}
 If~$\widehat{\lambda_i}(S)=0$, patch positivity gives
-$\widehat{\lambda_i\rho_i}(S)\geq0$, so~$S$ imposes no restriction on~$p$.
-If~$\widehat{\lambda_i}(S)<0$, nonnegativity for every patch length is
+$\widehat{\lambda_i\rho_i}(S)\geq0$, there is no restriction on~$p$.
+If~$\widehat{\lambda_i}(S)<0$, nonnegativity for every~$\Delta$ is
 equivalent to
 \begin{equation*}
 p
@@ -2349,19 +2347,17 @@ p
 Taking the maximum over all nonempty targets gives exactly
 \eqref{eq:threshold-profile}. This threshold is sharp: if~$p<p_i^\star$,
 then for some~$S$ with~$\widehat{\lambda_i}(S)<0$ we have
-$N_{i,S}(0,p)<0$. Since~$\beta_i(S)>0$, an outgoing birth with target~$S$
-can start an~$\mathsf{OE}$ end patch, and by continuity its contribution is
-negative for all sufficiently small positive patch lengths.
+$N_{i,S}(0,p)<0$ and so~$C(p,P)<0$ for short~$\mathsf{OE}$ patches with~$S(P)=S$.
 
 The same formulas also show that every end contribution is nondecreasing in its
-terminal argument. For an incoming-initial end patch,
+terminal argument. For an~$\mathsf{IE}$ patch,
 \begin{equation*}
 \partial_zC(z,P)
 =
 \frac{e^{-\lambda_i(\mb 0)\Delta}}{\varphi_i(\Delta)}
 \geq0,
 \end{equation*}
-while for an outgoing-initial end patch,
+while for an~$\mathsf{OE}$ patch,
 \begin{equation*}
 \partial_zC(z,P)
 =
