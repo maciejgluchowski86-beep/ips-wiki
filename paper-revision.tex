@@ -4490,7 +4490,7 @@ future interactions are conditionally independent, multiplying the limits in
 
 \subsection{End-factor relaxation}
 
-The continuation identity reduces the dependence on the initial configuration
+The continuation identity~\eqref{app:no-late-continuation} reduces the dependence on the initial configuration
 to affine functions of the spins at the end-patch sites. The next lemma
 controls this dependence uniformly over~$\mathcal M_\star$.
 
@@ -4644,37 +4644,35 @@ I(\mathcal Q)
 \cb{i(P):P\in\mathcal Q}.
 \end{equation*}
 The end-patch sites are distinct. Using
-\eqref{eq:local-no-late-factorization} and expanding each affine factor around
+\eqref{eq:local-no-late-factorization} and expanding each factor around
 ~$p_i^\star$ gives
-\begin{align}
-&\CP{L_{T,t}}{\mathcal G_T}
+\begin{equation}
+\CP{L_{T,t}}{\mathcal G_T}
 \mu\bb{
  \prod_{P\in\mathcal E_T}
  C\bb{\eta\bb{i(P)},P^{\uparrow t}}
 }
-\notag\\
-&\qquad=
+=
 \sum_{\mathcal Q\subseteq\mathcal E_T}
 \mu\bb{\chi_{I(\mathcal Q)}^\star}
 \prod_{P\in\mathcal Q}k_t(P)
 \prod_{P\in\mathcal E_T\setminus\mathcal Q}a_t(P).
 \label{eq:continued-end-factor-centered-expansion}
-\end{align}
+\end{equation}
 Every term is nonnegative because~$\mu\in\mathcal M_\star$. The term with
 ~$\mathcal Q=\varnothing$ is~$\prod_Pa_t(P)$. If
 ~$\mathcal Q\neq\varnothing$, the inequalities in
 \eqref{eq:appendix-continued-factor-comparisons} give
-\begin{align*}
-&\mu\bb{\chi_{I(\mathcal Q)}^\star}
+\begin{equation*}
+\mu\bb{\chi_{I(\mathcal Q)}^\star}
 \prod_{P\in\mathcal Q}k_t(P)
 \prod_{P\in\mathcal E_T\setminus\mathcal Q}a_t(P)
-\\
-&\qquad\leq
+\leq
 e^{-\varepsilon h}
 \mu\bb{\chi_{I(\mathcal Q)}^\star}
 \prod_{P\in\mathcal Q}k_t^\varepsilon(P)
 \prod_{P\in\mathcal E_T\setminus\mathcal Q}a_t^\varepsilon(P).
-\end{align*}
+\end{equation*}
 Summing over nonempty~$\mathcal Q$ and then adding the nonnegative empty-set
 term on the right gives
 \begin{align}
