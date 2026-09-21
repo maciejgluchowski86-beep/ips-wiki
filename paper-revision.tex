@@ -3520,9 +3520,8 @@ Theorem~\ref{thm:common-invariant-limit} gives uniform, exponential ergodicity w
 
 We now prove Corollary~\ref{cor:oriented-ergodicity}. By
 Theorem~\ref{thm:common-invariant-limit}, every initial law in
-~$\mathcal M_\star$ converges to~$\pi$. The point of orientability is that,
-on every finite set, the evolution from an arbitrary configuration approaches
-~$\mathcal M_\star$. More precisely, we will prove that
+~$\mathcal M_\star$ converges to~$\pi$, so ergodicity follows if one proves that any evolution of any initial measure approaches~$\mathcal{M}_*$. This is immediate  for finite~$\Lambda$, because then~$\mathcal{M}_-$ contains all probability measures. The point of orientability is that,
+for any finite set~$A$ we can condition on the spin system trajectory on~$U(A)$ and get a finite, patch-positive spin system on~$\bar{A}$. This reduced system has time-inhomogenous boundary conditions, so it may not converge to an invariant measure, but it still preserves~$\mathcal{M}_*$. This is what allows a burn-in argument to go through. More precisely, we prove that
 \begin{equation}
 \label{eq:convergence-towards-m-star}
 \liminf_{t\to\infty}
@@ -3610,19 +3609,16 @@ satisfies
 \end{equation*}
 while when~$p_i^\star=0$, the rate of an update setting~$i$ to~$0$ is at
 least~$\varepsilon$. Since~$I$ is finite and the update rates are uniformly
-bounded above, there is~$\alpha_I>0$ such that every restricted evolution
-over an interval of length at least~$1$, with arbitrary time-dependent boundary
-condition on~$U$, satisfies
+bounded above, there is~$\alpha_I>0$ such that 
 \begin{equation}
 \label{eq:mass-leak-decomposition}
-\delta_\eta Q
+\delta_\eta P_{1}^{I,\xi}
 =
 \alpha_I\delta_{\zeta_I}
 +
-\bb{1-\alpha_I}\nu
+\bb{1-\alpha_I}\nu^{I,\xi,\eta}
 \end{equation}
-for some probability measure~$\nu$. Here~$Q$ denotes the transition operator
-over that interval. To see the uniform lower bound, one may prescribe disjoint
+for some probability measure~$\nu^{I,\xi,\eta}$. The content of~\eqref{eq:mass-leak-decomposition} is that~$\alpha_I$ is uniform in~$\eta$ and boundary conditions~$\xi$. To see the uniform lower bound, one may prescribe disjoint
 subintervals in which the sites of~$I$ are successively set to their
 ~$\zeta_I$ values and require no later update at sites already set; the lower
 bounds above and the uniform upper bound on the total update rate give a
@@ -3647,10 +3643,10 @@ matter. This set is finite, and its trajectory has only finitely many jumps on
 every bounded time interval. Hence the conditional transition on~$I$ is a
 finite composition of semigroups~$P_s^{I,\xi}$.
 
-For~$t\geq1$, let~$m=\lfloor t\rfloor$ and divide~$[0,t]$ into~$m$
-blocks, the first~$m-1$ of length~$1$ and the last of length
-~$t-m+1\geq1$. Denote the corresponding conditional transition operators on
-~$I$ by~$Q_1,\ldots,Q_m$. Each~$Q_j$ is a finite composition of fixed-boundary
+For~$t\geq1$ and divide~$[0,t]$ into~$\lfloor t\rfloor$
+blocks, the first~$\lfloor t\rfloor-1$ of length~$1$ and the last of length
+~$t-{\lfloor t\rfloor}+1\geq1$. Denote the corresponding conditional transition operators on
+~$I$ by~$Q_1,\ldots,Q_{\lfloor t\rfloor}$. Each~$Q_j$ is a finite composition of fixed-boundary
 semigroups and therefore preserves~$\mathcal M_\star^I$ by
 \eqref{eq:boundary-m-star-preservation}. Applying
 \eqref{eq:mass-leak-decomposition} successively to the part of the law not
@@ -3658,13 +3654,13 @@ previously extracted gives
 \begin{align*}
 \CE{\chi_A^\star(\eta_t)}{\mathcal G_U}
 &=
-\sum_{k=1}^m
+\sum_{k=1}^{\lfloor t\rfloor}
 \alpha_I\bb{1-\alpha_I}^{k-1}
-\bb{\delta_{\zeta_I}Q_{k+1}\cdots Q_m}
+\bb{\delta_{\zeta_I}Q_{k+1}\cdots Q_{\lfloor t\rfloor}}
 \bb{\chi_A^\star}
 \\
 &\quad+
-\bb{1-\alpha_I}^m\nu_t(\chi_A^\star)
+\bb{1-\alpha_I}^{\lfloor t\rfloor}\nu_t(\chi_A^\star)
 \end{align*}
 for some probability measure~$\nu_t$, with the empty product interpreted as
 the identity. Each term in the sum is nonnegative because
@@ -3676,10 +3672,10 @@ the identity. Each term in the sum is nonnegative because
 -\norm{\chi_A^\star}_\infty
 \bb{1-\alpha_I}^{\lfloor t\rfloor}.
 \end{equation*}
-Taking expectations, uniformly in the initial configuration, proves
+Taking expectations proves
 \eqref{eq:convergence-towards-m-star}.
 
-It remains to identify the uniform limit. Fix a local function~$f$ and
+It remains to identify the limit. Fix a local function~$f$ and
 ~$s>0$. Choose~$t_n\to\infty$ and~$\eta_n\in\Omega$ such that
 \begin{equation*}
 \abs{P_{t_n}f(\eta_n)-\pi(f)}
@@ -3694,7 +3690,7 @@ After passing to a subsequence,
 \Rightarrow
 \mu
 \end{equation*}
-for some probability measure~$\mu$, by compactness of~$\Omega$. For every
+for some probability measure~$\mu$, by compactness of the space of probability measures on~$\Omega$. For every
 finite~$B\Subset\Lambda$,~\eqref{eq:convergence-towards-m-star} gives
 \begin{equation*}
 \mu(\chi_B^\star)
@@ -3726,20 +3722,9 @@ Letting~$s\to\infty$ proves
 \sup_{\eta\in\Omega}
 \abs{P_tf(\eta)-\pi(f)}
 =
-0.
+0,
 \end{equation*}
-
-Finally, if~$\nu$ is invariant, then for every local~$f$,
-\begin{equation*}
-\abs{\nu(f)-\pi(f)}
-=
-\abs{(\nu P_t)(f)-\pi(f)}
-\leq
-\sup_{\eta\in\Omega}
-\abs{P_tf(\eta)-\pi(f)}
-\longrightarrow0.
-\end{equation*}
-Thus~$\nu=\pi$, and~$\pi$ is the unique invariant measure.
+which is uniform ergodicity.
 \end{proof}
 
 \section{Discussion}
