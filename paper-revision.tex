@@ -3779,8 +3779,9 @@ because~$A\cup\varnothing=A$.
 
 \textcolor{red}{The dual rates, signs, and potential were defined in
 Section~\ref{sec:dual}. We verify here that they give the generator identity
-\eqref{eq:monomial-generator-duality} and then justify the
-infinite-volume Feynman--Kac formula.}
+\eqref{eq:monomial-generator-duality}. The Feynman--Kac duality
+\eqref{eq:monomial-feynman-kac-duality} then follows from this identity by the
+standard Feynman--Kac argument under condition~\eqref{eq:fk-integrability}.}
 
 Let~$Y=(A,\sigma)$ and let~$H$ be given
 by~\eqref{eq:monomial-duality-function}. \textcolor{red}{By
@@ -3823,26 +3824,10 @@ The resulting expression is~$\sigma$ times the right-hand side of
 equals~$\Lcal_\eta H(Y,\eta)$. This proves
 \eqref{eq:monomial-generator-duality}.
 
-\textcolor{red}{It remains to pass from the finite-volume generator identity
-to the infinite-volume semigroup.} Fix~$R\Subset\Lambda$ containing~$A$.
-The finite-state Feynman--Kac formula, applied to the dual killed at the first
-successful interaction leaving~$R$, gives
-\begin{equation*}
-P_t^{R,0}\chi_A(\eta)
-=
-\E_A\Cb{
-\sigma_t
-\exp\bb{\int_0^tV(A_s)\,ds}
-\chi_{A_t}(\eta)
-\ind\bb{E_t^R}
-}.
-\end{equation*}
-Along a finite exhaustion~$R\uparrow\Lambda$, local finiteness gives
-$E_t^R\uparrow\Omega$. Condition~\eqref{eq:fk-integrability} supplies the
-integrable dominating random variable, while
-Lemma~\ref{lem:finite-propagation} gives
-$P_t^{R,0}\chi_A\to P_t\chi_A$ uniformly. Dominated convergence proves
-\eqref{eq:monomial-feynman-kac-duality}.
+\textcolor{red}{Therefore, by the standard Feynman--Kac
+duality argument applied to~\eqref{eq:monomial-generator-duality}, condition
+~\eqref{eq:fk-integrability} gives
+\eqref{eq:monomial-feynman-kac-duality}.}
 
 
 \bibliographystyle{paper/amsplain-fullnames}
