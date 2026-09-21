@@ -3823,7 +3823,7 @@ The resulting expression is~$\sigma$ times the right-hand side of
 \section{Patch-contribution formulas}
 \label{app:contribution-formulas}
 
-\textcolor{red}{Fix a patch based at~$i$, and write}
+Fix a patch based at~$i$, and write
 \begin{equation*}
 \alpha_i
 =
@@ -3831,7 +3831,7 @@ The resulting expression is~$\sigma$ times the right-hand side of
 +
 \sum_{\substack{R\subseteq N(i)\\R\neq\varnothing}}\beta_i(R).
 \end{equation*}
-\textcolor{red}{Thus~$\alpha_i$ is the total rate of outgoing interactions at~$i$, and}
+Thus~$\alpha_i$ is the total rate of outgoing interactions at~$i$, and
 $V_i=\alpha_i+a_i^\beta(\varnothing)$. For~$\Delta\in[0,\infty]$ and
 $z\in[0,1]$, set
 \begin{align}
@@ -3886,7 +3886,7 @@ C(z,P)
 \end{equation}
 In particular, every end contribution is affine in~$z$.
 
-\subsection{\textcolor{red}{Bulk and infinite patch contributions}}
+\subsection{Bulk and infinite patch contributions}
 \label{app:bulk-formulas}
 
 Let~$P\in\mathcal P$, and write
@@ -3897,7 +3897,7 @@ S=S(P),
 \qquad
 \Delta=e(P)-s(P).
 \end{equation*}
-\textcolor{red}{For finite and infinite patches, the contribution is}
+For finite and infinite patches, the contribution is
 \begin{equation}
 \label{eq:full-contribution-formulas}
 C(P)
@@ -3925,12 +3925,12 @@ e^{V_i\Delta},
 \end{cases}
 \end{equation}
 An infinite patch has type~$\mathsf{IE}$ or~$\mathsf{OE}$, and the
-corresponding row is read at~$\Delta=\infty$. \textcolor{red}{If a denominator in~\eqref{eq:end-contribution-formulas} or
+corresponding row is read at~$\Delta=\infty$. If a denominator in~\eqref{eq:end-contribution-formulas} or
 \eqref{eq:full-contribution-formulas} vanishes, that patch has zero
-probability of occurring, so the formula is irrelevant.}
+probability of occurring, so the formula is irrelevant.
 
-\textcolor{red}{By the definitions in Section~\ref{sec:dual}, these
-quantities satisfy}
+By the definitions in Section~\ref{sec:dual}, these
+quantities satisfy
 \begin{equation}
 \label{eq:dual-to-spin-contribution-data}
 \begin{aligned}
@@ -3990,9 +3990,9 @@ z e^{-\lambda_i(\mb 0)\Delta}.
 \subsection{Derivation}
 \label{app:contribution-derivation}
 
-\textcolor{red}{Suppose first that the initial interaction is incoming, so~$X_s^P=1$, and the terminal interaction is incoming or absent,
+Suppose first that the initial interaction is incoming, so~$X_s^P=1$, and the terminal interaction is incoming or absent,
 corresponding to~$\mathsf I$ or~$\mathsf E$. Consistency occurs either when
-there is no outgoing interaction before the endpoint or death.} Therefore
+there is no outgoing interaction before the endpoint or death. Therefore
 \begin{equation*}
 \pP_P\bb{\operatorname{Con}(P)}
 =
@@ -4003,7 +4003,7 @@ e^{-\alpha_i\Delta}
 =
 \varphi_i(\Delta).
 \end{equation*}
-\textcolor{red}{To compute~$C(z,P)$, we also need the numerator of
+To compute~$C(z,P)$, we also need the numerator of
 the conditional expectation defining the patch contribution,
 \begin{equation*}
 \E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}}.
@@ -4011,7 +4011,7 @@ the conditional expectation defining the patch contribution,
 If there is a death at time~$u$, the site is active
 until~$u$ and contributes~$e^{V_i u}$. If there is no death,
 the site remains active for the whole patch and contributes the terminal
-factor~$z$. Hence}
+factor~$z$. Hence
 \begin{equation*}
 \E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}}
 =
@@ -4026,13 +4026,13 @@ Thus the first formula in~\eqref{eq:end-contribution-formulas} is justified.
 Setting~$z=1$ gives the~$\mathsf{II}$ and~$\mathsf{IE}$ formulas in
 \eqref{eq:full-contribution-formulas}.
 
-\textcolor{red}{Suppose next that the initial interaction is outgoing and the
+Suppose next that the initial interaction is outgoing and the
 terminal interaction is incoming or absent, corresponding to~$\mathsf I$ or
-~$\mathsf E$.} If~$\alpha(P)=\delta$, the source becomes inactive at
+~$\mathsf E$. If~$\alpha(P)=\delta$, the source becomes inactive at
 the initial interaction, so consistency is automatic and the local factor
 is~$\sigma_i^\delta(S)$. If~$\alpha(P)=\beta$, the source remains active
 and the preceding calculation applies. By~\eqref{eq:patch-initial-kind-law},
-\textcolor{red}{we have}
+we have
 \begin{align*}
 \pP_P\bb{\operatorname{Con}(P)} &= 
 \frac{
@@ -4050,12 +4050,12 @@ and the preceding calculation applies. By~\eqref{eq:patch-initial-kind-law},
 \end{align*}
 Their ratio gives the second formula of~\eqref{eq:end-contribution-formulas} and
 the~$\mathsf{OI}$,~$\mathsf{OE}$ formulas of
-\eqref{eq:full-contribution-formulas}. \textcolor{red}{If the terminal interaction is outgoing, the source must
+\eqref{eq:full-contribution-formulas}. If the terminal interaction is outgoing, the source must
 remain active throughout the patch. If the initial interaction is
 incoming, the patch contributes~$e^{V_i\Delta}$. If the initial interaction
-is outgoing, consistency also forces~$\alpha(P)=\beta$, leaving~$\sigma_i^\beta(S)e^{V_i\Delta}$. These are the remaining two formulas of~\eqref{eq:full-contribution-formulas}. The formulas extend to~$\Delta=\infty$ by taking limits.}
+is outgoing, consistency also forces~$\alpha(P)=\beta$, leaving~$\sigma_i^\beta(S)e^{V_i\Delta}$. These are the remaining two formulas of~\eqref{eq:full-contribution-formulas}. The formulas extend to~$\Delta=\infty$ by taking limits.
 
-\subsection{\textcolor{red}{All-zero-neighbourhood relaxation}}
+\subsection{All-zero-neighbourhood relaxation}
 \label{app:positivity-algebra}
 
 If~$\lambda_i(\mb 0)>0$, then
@@ -4074,9 +4074,9 @@ If~$\lambda_i(\mb 0)>0$, then
 If~$\lambda_i(\mb 0)=0$, then~$\psi_i(u,z)=z$, and the second identity remains
 valid.
 
-\textcolor{red}{Thus, when~$\lambda_i(\mb 0)>0$, the value~$z$ is forgotten
+Thus, when~$\lambda_i(\mb 0)>0$, the value~$z$ is forgotten
 exponentially fast and replaced in the limit by~$\rho_i(\mb 0)$.
-}
+
 
 
 \bibliographystyle{paper/amsplain-fullnames}
