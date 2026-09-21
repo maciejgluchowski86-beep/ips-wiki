@@ -15,4 +15,5 @@ jobs:
         uses: xu-cheng/latex-action@v4
         with:
           root_file: paper-revision.tex
-          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+          compiler: pdflatex
+          args: -file-line-error -halt-on-error -interaction=nonstopmode
