@@ -4289,10 +4289,14 @@ Lemma~\ref{lem:no-late-relaxation}. Fix~$0\leq T<t$ and condition on
 patches are unchanged and each end patch at time~$T$ is extended forward in
 time.
 
-For~$P\in\mathcal E_T$, define its continuation after~$T$ using the future
-interactions at~$i(P)$, with no incoming interaction from another site. Let
-~$L_{T,t}^P$ be the event that this continuation has no successful interaction
-in~$(T,t]$. Distinct end patches are based at distinct sites, so conditional on
+For~$P\in\mathcal E_T$, consider the site~$i(P)$ after time~$T$.
+Start from its activity state at time~$T$ and follow only interactions whose
+source is~$i(P)$, ignoring incoming interactions from other sites. While the
+site is active, a death makes it inactive, whereas a nonempty-target
+interaction would be a successful interaction. Once the site is inactive it
+remains inactive in this one-site evolution. Let~$L_{T,t}^P$ be the event that
+no nonempty-target interaction occurs while the site is active during
+~$(T,t]$. Distinct end patches are based at distinct sites, so conditional on
 ~$\mathcal G_T$ the events~$(L_{T,t}^P)_{P\in\mathcal E_T}$ are independent.
 Moreover,
 \begin{equation}
