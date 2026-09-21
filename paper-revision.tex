@@ -2185,10 +2185,48 @@ contributions can cancel inside~$C(P)$ or~$C(z,P)$.
 \subsection{Patch positivity and threshold}
 \label{subsec:proof-patch-positivity-threshold}
 
+The coefficient conditions in Definition~\ref{eq:patch-positivity} control the
+signs that remain after the local averaging in the patch representation. The
+explicit contribution formulas are collected in
+Appendix~\ref{app:contribution-formulas}. Their consequences needed below are
+summarized in the following proposition.
+
+\begin{proposition}[Patch positivity of the contributions]
+\label{prop:patch-contribution-positivity}
+Suppose that the spin system is patch-positive. Then every full patch satisfies
+\begin{equation*}
+C(P)\geq0.
+\end{equation*}
+For every site~$i$, the threshold~$p_i^\star$ from
+\eqref{eq:threshold-profile} is the smallest~$p\in[0,1]$ such that
+\begin{equation*}
+C(p,P)\geq0
+\end{equation*}
+for every end patch~$P$ based at~$i$. Moreover, for every end patch the map
+~$z\mapsto C(z,P)$ is nondecreasing, and
+\begin{equation}
+\label{eq:threshold-below-zero-neighbour-refresh}
+p_i^\star\leq\rho_i(\mb 0).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
 Fix a patch~$P$ based at~$i$ and write
-$\Delta=e(P)-s(P)\in(0,\infty]$. The contribution formulas in
-Appendix~\ref{app:bulk-formulas} show that, when the initial boundary is
-incoming,
+$\Delta=e(P)-s(P)\in(0,\infty]$. We use
+\begin{equation}
+\label{eq:patch-sign-substitutions}
+\delta_i(S)\sigma_i^\delta(S)
+=
+\widehat{\lambda_i\rho_i}(S),
+\qquad
+\beta_i(S)\sigma_i^\beta(S)
+=
+-\widehat{\lambda_i}(S),
+\end{equation}
+from~\eqref{eq:dual-to-spin-contribution-data}.
+
+Suppose first that the initial boundary is incoming. By
+\eqref{eq:full-contribution-formulas},
 \begin{equation*}
 C(P)
 =
@@ -2201,7 +2239,7 @@ e^{V_i\Delta},
 &\mathsf X(P)\mathsf Y(P)=\mathsf{IO}.
 \end{cases}
 \end{equation*}
-For every realized patch,~$\varphi_i(\Delta)>0$, while
+For every realized patch the normalizer~$\varphi_i(\Delta)$ is positive, and
 \begin{equation*}
 \delta_i(\varnothing)
 =
@@ -2210,9 +2248,149 @@ For every realized patch,~$\varphi_i(\Delta)>0$, while
 \lambda_i(\mb 0)\rho_i(\mb 0)
 \geq0
 \end{equation*}
-implies~$\psi_i(\Delta,1)\geq0$. Hence every full patch with an incoming
-initial boundary has nonnegative contribution. Only patches with an outgoing
-initial boundary can impose sign restrictions.
+gives~$\psi_i(\Delta,1)\geq0$. Hence every full patch with an incoming
+initial boundary has nonnegative contribution.
+
+Now suppose that the initial boundary is outgoing, with nonempty target~$S$.
+For an~$\mathsf{OO}$ patch,
+\eqref{eq:full-contribution-formulas} and
+\eqref{eq:patch-sign-substitutions} give
+\begin{equation*}
+C(P)
+=
+\sigma_i^\beta(S)e^{V_i\Delta},
+\qquad
+\beta_i(S)\sigma_i^\beta(S)
+=
+-\widehat{\lambda_i}(S)
+\geq0.
+\end{equation*}
+An~$\mathsf{OO}$ patch can occur only when~$\beta_i(S)>0$, so its sign is
+nonnegative. For an~$\mathsf{OI}$ or~$\mathsf{OE}$ patch, the denominator in
+\eqref{eq:full-contribution-formulas} is positive and its numerator is
+\begin{align}
+&\widehat{\lambda_i\rho_i}(S)
+-
+\widehat{\lambda_i}(S)\psi_i(\Delta,1)
+\notag\\
+&\qquad=
+\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb 0)}}(S)
++
+\bb{1-\rho_i(\mb 0)}
+\bb{-\widehat{\lambda_i}(S)}
+e^{-\lambda_i(\mb 0)\Delta}.
+\label{eq:outgoing-full-patch-numerator}
+\end{align}
+Here we used~\eqref{eq:all-zero-neighbourhood-relaxation}; the same identity
+holds when~$\lambda_i(\mb 0)=0$. Both terms in
+\eqref{eq:outgoing-full-patch-numerator} are nonnegative by patch positivity.
+This proves~$C(P)\geq0$ for every full patch.
+
+It remains to identify the threshold for end patches. If
+$\lambda_i(\mb 0)=0$, then patch positivity and~$\lambda_i\geq0$ force
+$\lambda_i\equiv0$. Indeed, if~$T\subseteq N(i)$ is the set of coordinates
+equal to~$1$ in a neighbourhood configuration, then
+\begin{equation*}
+0
+\leq
+\lambda_i(\eta)
+=
+\sum_{S\subseteq T}\widehat{\lambda_i}(S)
+\leq0.
+\end{equation*}
+Thus~$\lambda_i\rho_i\equiv0$, there are no outgoing interactions based
+at~$i$, and~\eqref{eq:threshold-profile} gives~$p_i^\star=0$. Hence assume
+that~$\lambda_i(\mb 0)>0$.
+
+An incoming-initial end patch has, by~\eqref{eq:end-contribution-formulas},
+\begin{equation*}
+C(p,P)
+=
+\frac{\psi_i(\Delta,p)}{\varphi_i(\Delta)}
+\geq0
+\qquad
+\text{for every }p\in[0,1],
+\end{equation*}
+because~\eqref{eq:all-zero-neighbourhood-relaxation} expresses
+$\psi_i(\Delta,p)$ as a convex combination of~$p$ and~$\rho_i(\mb 0)$.
+Thus only outgoing-initial end patches impose a restriction. For such a patch
+with target~$S$, the sign of~$C(p,P)$ is the sign of
+\begin{equation*}
+N_{i,S}(\Delta,p)
+=
+\widehat{\lambda_i\rho_i}(S)
+-
+\widehat{\lambda_i}(S)\psi_i(\Delta,p).
+\end{equation*}
+As a function of~$e^{-\lambda_i(\mb 0)\Delta}$, this is affine, with endpoint
+values
+\begin{align*}
+N_{i,S}(0,p)
+&=
+\widehat{\lambda_i\rho_i}(S)
+-
+p\widehat{\lambda_i}(S),
+\\
+\lim_{\Delta\to\infty}N_{i,S}(\Delta,p)
+&=
+\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb 0)}}(S)
+\geq0.
+\end{align*}
+If~$\widehat{\lambda_i}(S)=0$, patch positivity gives
+$\widehat{\lambda_i\rho_i}(S)\geq0$, so~$S$ imposes no restriction on~$p$.
+If~$\widehat{\lambda_i}(S)<0$, nonnegativity for every patch length is
+equivalent to
+\begin{equation*}
+p
+\geq
+\frac{\widehat{\lambda_i\rho_i}(S)}
+{\widehat{\lambda_i}(S)}.
+\end{equation*}
+Taking the maximum over all nonempty targets gives exactly
+\eqref{eq:threshold-profile}. This threshold is sharp: if~$p<p_i^\star$,
+then for some~$S$ with~$\widehat{\lambda_i}(S)<0$ we have
+$N_{i,S}(0,p)<0$. Since~$\beta_i(S)>0$, an outgoing birth with target~$S$
+can start an~$\mathsf{OE}$ end patch, and by continuity its contribution is
+negative for all sufficiently small positive patch lengths.
+
+The same formulas also show that every end contribution is nondecreasing in its
+terminal argument. For an incoming-initial end patch,
+\begin{equation*}
+\partial_zC(z,P)
+=
+\frac{e^{-\lambda_i(\mb 0)\Delta}}{\varphi_i(\Delta)}
+\geq0,
+\end{equation*}
+while for an outgoing-initial end patch,
+\begin{equation*}
+\partial_zC(z,P)
+=
+\frac{
+\bb{-\widehat{\lambda_i}(S)}
+e^{-\lambda_i(\mb 0)\Delta}
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}
+\geq0.
+\end{equation*}
+
+Finally, if~$\widehat{\lambda_i}(S)<0$, patch positivity gives
+\begin{equation*}
+\widehat{\lambda_i\rho_i}(S)
+-
+\rho_i(\mb 0)\widehat{\lambda_i}(S)
+\geq0.
+\end{equation*}
+Dividing by~$\widehat{\lambda_i}(S)<0$ yields
+\begin{equation*}
+\frac{\widehat{\lambda_i\rho_i}(S)}
+{\widehat{\lambda_i}(S)}
+\leq
+\rho_i(\mb 0).
+\end{equation*}
+Taking the maximum in~\eqref{eq:threshold-profile} proves
+\eqref{eq:threshold-below-zero-neighbour-refresh}.
+\end{proof}
 
 \subsection{Centered monomial monotonicity}
 \label{subsec:proof-centered-monomial-monotonicity}
