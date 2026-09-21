@@ -1,0 +1,100 @@
+name: Package minimal Overleaf project
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/package-overleaf-minimal.yml'
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble minimal project
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf overleaf-minimal
+          mkdir -p overleaf-minimal/figures
+
+          cp paper-revision.tex overleaf-minimal/main.tex
+          cp paper/preamble.tex overleaf-minimal/preamble.tex
+          cp paper/references.bib overleaf-minimal/references.bib
+          cp paper/amsplain-fullnames.bst overleaf-minimal/amsplain-fullnames.bst
+          cp ejpecp.cls overleaf-minimal/ejpecp.cls
+          cp paper/figures/rendered/*.pdf overleaf-minimal/figures/
+
+          python3 - <<'PY'
+          from pathlib import Path
+
+          root = Path("overleaf-minimal")
+          p = root / "main.tex"
+          s = p.read_text()
+
+          # Keep only the live manuscript.
+          marker = r"\end{document}"
+          pos = s.find(marker)
+          if pos < 0:
+              raise SystemExit("main source has no end{document}")
+          s = s[:pos + len(marker)] + "\n"
+
+          # Flatten project paths.
+          s = s.replace(r"\input{paper/preamble}", r"\input{preamble}")
+          s = s.replace("paper/figures/rendered/", "figures/")
+          s = s.replace(
+              r"\bibliographystyle{paper/amsplain-fullnames}",
+              r"\bibliographystyle{amsplain-fullnames}",
+          )
+          s = s.replace(
+              r"\bibliography{paper/references}",
+              r"\bibliography{references}",
+          )
+
+          wrapper = Path("paper/sections/patch-interior-figure.tex").read_text()
+          wrapper = wrapper.replace("paper/figures/rendered/", "figures/")
+          target = r"\input{paper/sections/patch-interior-figure}"
+          if target not in s:
+              raise SystemExit("patch-interior wrapper input not found")
+          s = s.replace(target, wrapper)
+
+          # No repo-relative inputs may remain.
+          if r"\input{paper/" in s or "paper/figures/" in s:
+              raise SystemExit("repo-relative paper path remains in main.tex")
+
+          p.write_text(s)
+
+          (root / "README.txt").write_text(
+              "Minimal Overleaf project for Patch positive spin systems.\n"
+              "Upload all files/folders to a new Overleaf project.\n"
+              "Set main.tex as the Main document and compile with pdfLaTeX.\n"
+              "The figures are precompiled PDFs; no TikZ is executed by main.tex.\n"
+          )
+          PY
+
+          echo "Files in minimal project:"
+          find overleaf-minimal -maxdepth 2 -type f -printf '%P\n' | sort
+
+      - name: Compile minimal project
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+          working_directory: overleaf-minimal
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Create ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f overleaf-minimal/*.aux overleaf-minimal/*.bbl overleaf-minimal/*.blg \
+                overleaf-minimal/*.fdb_latexmk overleaf-minimal/*.fls \
+                overleaf-minimal/*.log overleaf-minimal/*.out overleaf-minimal/*.toc \
+                overleaf-minimal/main.pdf
+          (cd overleaf-minimal && zip -9 -r ../patch-positive-overleaf-minimal.zip .)
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: patch-positive-overleaf-minimal
+          path: patch-positive-overleaf-minimal.zip
+          if-no-files-found: error
