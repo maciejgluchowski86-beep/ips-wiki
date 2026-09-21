@@ -4820,10 +4820,11 @@ Theorem~\ref{thm:centered-monomial-monotonicity}. For~$B\subseteq I$,
 \begin{align*}
 \Lcal^{I,\xi}\chi_B^\star
 ={}&
-\sum_{i\in B}\Cb{
--\lambda_i^{I,\xi}(\mb 0)\chi_B^\star
+-\sum_{i\in B}
+\lambda_i^{I,\xi}(\mb 0)\chi_B^\star
 \\
-&\qquad+
+&+
+\sum_{i\in B}
 \sum_{S\subseteq N(i)\cap I}
 \widehat{
 \lambda_i^{I,\xi}
@@ -4831,11 +4832,11 @@ Theorem~\ref{thm:centered-monomial-monotonicity}. For~$B\subseteq I$,
 }(S)
 \chi_S\chi_{B\setminus\cb{i}}^\star
 \\
-&\qquad+
+&+
+\sum_{i\in B}
 \sum_{\substack{S\subseteq N(i)\cap I\\S\neq\varnothing}}
 \bb{-\widehat{\lambda_i^{I,\xi}}(S)}
-\chi_S\chi_B^\star
-}.
+\chi_S\chi_B^\star.
 \end{align*}
 Choose~$r>0$ so that
 \begin{equation*}
