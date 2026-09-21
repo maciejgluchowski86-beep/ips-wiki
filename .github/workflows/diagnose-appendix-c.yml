@@ -1,0 +1,85 @@
+name: Diagnose Appendix C compile time
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/diagnose-appendix-c.yml'
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/xu-cheng/texlive-full:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build subsection variants
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          s = Path("paper-revision.tex").read_text()
+          # Current source has A+B live and C wrapped in \iffalse ... \fi.
+          marker = "% Appendix C temporarily excluded from compilation.\n\\iffalse\n"
+          if marker not in s:
+              raise SystemExit("C exclusion marker not found")
+          s = s.replace(marker, "", 1)
+          # Remove the matching \fi immediately before bibliography.
+          bib = s.index("\\bibliographystyle")
+          fi = s.rfind("\\fi", 0, bib)
+          if fi < 0:
+              raise SystemExit("matching fi not found")
+          s = s[:fi] + s[fi+3:]
+
+          starts = [
+              ("C0", s.index("\\section{Technical details}")),
+              ("C1", s.index("\\subsection{Consequences of local finiteness}")),
+              ("C2", s.index("\\subsection{Confined-interaction identity}")),
+              ("C3", s.index("\\subsection{Continuation without successful interactions}")),
+              ("C4", s.index("\\subsection{End-factor relaxation}")),
+              ("C5", s.index("\\subsection{Finite propagation}")),
+              ("C6", s.index("\\subsection{Preservation under fixed boundary conditions}")),
+          ]
+          bib = s.index("\\bibliographystyle")
+          # C0 = none of C; C1 = through C1; ..., C6 = all C.
+          boundaries = {
+              "C0": starts[0][1],
+              "C1": starts[2][1],
+              "C2": starts[3][1],
+              "C3": starts[4][1],
+              "C4": starts[5][1],
+              "C5": starts[6][1],
+              "C6": bib,
+          }
+          for name, cut in boundaries.items():
+              t = s[:cut]
+              if cut < bib:
+                  t += "\n% remainder of Appendix C suppressed for timing\n\\iffalse\n"
+                  t += s[cut:bib]
+                  t += "\n\\fi\n"
+                  t += s[bib:]
+              else:
+                  t += s[cut:]
+              Path(f"diag-{name}.tex").write_text(t)
+          PY
+
+      - name: Time one pdflatex pass per variant
+        shell: bash
+        run: |
+          set +e
+          for v in C0 C1 C2 C3 C4 C5 C6; do
+            rm -f diag-${v}.aux diag-${v}.log diag-${v}.out diag-${v}.toc diag-${v}.pdf
+            echo "===== START ${v} ====="
+            start=$(date +%s%3N)
+            timeout 90s pdflatex -file-line-error -interaction=nonstopmode -halt-on-error diag-${v}.tex > diag-${v}.stdout 2>&1
+            code=$?
+            end=$(date +%s%3N)
+            elapsed=$((end-start))
+            echo "RESULT ${v} exit=${code} elapsed_ms=${elapsed}"
+            if [ "${code}" -ne 0 ]; then
+              tail -n 80 diag-${v}.stdout
+            fi
+          done
+          exit 0
