@@ -2491,6 +2491,57 @@ M(A,B)\geq0
 \end{equation}
 For each~$A$, only finitely many coefficients~$M(A,B)$ are nonzero.
 
+We first pass from this generator calculation to the semigroup in finite volume.
+Let~$R\Subset\Lambda$ and let~$P_t^{R,0}$ denote the process restricted to~$R$
+with the exterior spins fixed at~$0$. Setting the variables outside~$R$ equal
+to~$0$ in the preceding calculation gives, for~$A\subseteq R$,
+\begin{equation*}
+\Lcal^{R,0}\chi_A^\star
+=
+\sum_{B\subseteq R}M_R(A,B)\chi_B^\star,
+\qquad
+M_R(A,B)\geq0
+\quad\text{for }B\neq A.
+\end{equation*}
+Thus~$M_R$ is a finite matrix with nonnegative off-diagonal entries, and
+$e^{tM_R}$ has nonnegative entries for every~$t\geq0$. If~$\sigma$ is a
+finite signed measure whose centered moments are all nonnegative, then
+\begin{equation*}
+(\sigma P_t^{R,0})(\chi_A^\star)
+=
+\sum_{B\subseteq R}
+e^{tM_R}(A,B)\,\sigma(\chi_B^\star)
+\geq0.
+\end{equation*}
+For fixed~$t$ and~$A$, Lemma~\ref{lem:finite-propagation} gives
+$P_t^{R,0}\chi_A^\star\to P_t\chi_A^\star$ uniformly as~$R$ increases to
+~$\Lambda$. Hence
+\begin{equation*}
+(\sigma P_t)(\chi_A^\star)\geq0.
+\end{equation*}
+Taking~$\sigma=\nu-\mu$ proves
+$\mu P_t\preceq_\star\nu P_t$ whenever~$\mu\preceq_\star\nu$.
+
+The same argument with~$\sigma=\mu\in\mathcal M_\star$ shows that
+~$P_t$ preserves~$\mathcal M_\star$. To obtain the comparison for ordinary
+monomials, expand
+\begin{equation*}
+\chi_A
+=
+\sum_{B\subseteq A}
+\bb{\prod_{i\in A\setminus B}p_i^\star}
+\chi_B^\star.
+\end{equation*}
+All coefficients are nonnegative. Therefore
+$\mu P_t\preceq_\star\nu P_t$ implies
+\begin{equation*}
+(\mu P_t)(\chi_A)
+\leq
+(\nu P_t)(\chi_A)
+\end{equation*}
+for every~$A\Subset\Lambda$, which proves
+Theorem~\ref{thm:centered-monomial-monotonicity}.
+
 \subsection{Pure-death comparison}
 \label{subsec:proof-pure-death-comparison}
 
