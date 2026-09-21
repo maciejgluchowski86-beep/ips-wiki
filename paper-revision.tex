@@ -2902,6 +2902,163 @@ The quantity~$\rho_A(T,R)$ measures the error made by replacing the original
 dynamics by its zero-boundary restriction to~$R$ during the first~$T$ units of
 time.
 
+We first control realizations with a successful interaction after~$T$. Remove
+the pure-death component from~$\Lcal$ and write
+\begin{equation}
+\label{eq:uniform-death-decomposition}
+\Lcal
+=
+\Lcal^\varepsilon
++
+\varepsilon\Ncal^{\mb 0}.
+\end{equation}
+Let~$P_t^\varepsilon$ and~$C^\varepsilon$ denote the semigroup and patch
+contributions for~$\Lcal^\varepsilon$, and define
+\begin{align*}
+W_t^{\varepsilon,\mu}
+&=
+\prod_{P\in\mathcal B_t}C^\varepsilon(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}
+C^\varepsilon\bb{\eta\bb{i(P)},P}
+},
+\\
+W^\varepsilon
+&=
+\prod_{P\in\mathcal P}C^\varepsilon(P)
+\ind\bb{\abs{\mathcal P}<\infty}.
+\end{align*}
+By Section~\ref{subsec:proof-pure-death-comparison}, the two systems have the
+same successful-interaction skeleton and patch families, and for
+~$\mu\in\mathcal M_\star$,
+\begin{equation}
+\label{eq:death-removed-weight-comparison}
+0\leq W_t^\mu\leq W_t^{\varepsilon,\mu},
+\qquad
+\E_A\Cb{W_t^{\varepsilon,\mu}}
+=
+(\mu P_t^\varepsilon)(\chi_A)
+\leq1.
+\end{equation}
+
+\begin{lemma}[Late interactions]
+\label{lem:late-interactions}
+For~$\mu\in\mathcal M_\star$ and~$0\leq T<t$,
+\begin{align}
+0
+&\leq
+\E_A\Cb{W_t^\mu\ind\bb{L_{T,t}^c}}
+\leq
+e^{-\varepsilon T},
+\label{eq:finite-late-interaction-bound}
+\\
+0
+&\leq
+\E_A\Cb{W\ind\bb{L_T^c}}
+\leq
+e^{-\varepsilon T}.
+\label{eq:limiting-late-interaction-bound}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+We first describe the ancestry of a successful interaction at time~$u>0$.
+The source of this interaction lies in a patch ending with an outgoing
+interaction. If that patch starts at another successful interaction, move to
+the patch ending with the outgoing side of that interaction, at its source.
+Iterating produces patches~$P_1,\ldots,P_n$, each ending with an outgoing
+interaction, such that
+\begin{equation*}
+s(P_1)=0,
+\qquad
+e(P_n)=u,
+\qquad
+e(P_k)=s(P_{k+1})
+\quad\text{for }1\leq k<n.
+\end{equation*}
+The boundary times decrease strictly when this construction is followed
+backward, and there are only finitely many successful interactions before~$u$
+by Lemma~\ref{lem:dual-local-finiteness}. Hence the chain reaches the formal
+initial interaction at time~$0$ after finitely many steps. In particular,
+\begin{equation}
+\label{eq:outgoing-chain-total-length}
+\sum_{k=1}^n\bb{e(P_k)-s(P_k)}
+=
+u.
+\end{equation}
+
+\begin{figure}[htbp]
+\centering
+\input{paper/figures/convergence-backward-xo-trail}
+\caption{The ancestry of a successful interaction at time~$u$. Each dark
+rectangle is a patch ending at an outgoing successful interaction. The patch
+lifetimes sum to~$u$.}
+\label{fig:backward-outgoing-chain}
+\end{figure}
+\FloatBarrier
+
+On~$L_{T,t}^c$, let~$u\in(T,t]$ be the first successful interaction
+after~$T$, and let~$P_1,\ldots,P_n$ be its ancestry chain. Every patch in the
+chain belongs to~$\mathcal B_t$. Applying
+\eqref{eq:pure-death-outgoing-terminal-factor} with~$d_i=\varepsilon$ and
+using~\eqref{eq:outgoing-chain-total-length},
+\begin{equation*}
+\prod_{k=1}^n C(P_k)
+=
+e^{-\varepsilon u}
+\prod_{k=1}^n C^\varepsilon(P_k)
+\leq
+e^{-\varepsilon T}
+\prod_{k=1}^n C^\varepsilon(P_k).
+\end{equation*}
+For the remaining bulk patches and the end-patch contribution, the comparison
+from Section~\ref{subsec:proof-pure-death-comparison} gives
+\begin{equation*}
+W_t^\mu\ind\bb{L_{T,t}^c}
+\leq
+e^{-\varepsilon T}
+W_t^{\varepsilon,\mu}.
+\end{equation*}
+Taking expectations and using
+\eqref{eq:death-removed-weight-comparison} proves
+\eqref{eq:finite-late-interaction-bound}.
+
+For the infinite-horizon estimate, the same patchwise comparison gives
+~$0\leq W\leq W^\varepsilon$. On~$\cb{\abs{\mathcal P}<\infty}$,
+the finite-horizon weights for the system with the pure deaths removed satisfy
+\begin{equation*}
+W_s^{\varepsilon,\mu_{\mb 1}}
+\longrightarrow
+W^\varepsilon
+\qquad
+\text{as }s\to\infty,
+\end{equation*}
+while~$W^\varepsilon=0$ on~$\cb{\abs{\mathcal P}=\infty}$. Hence
+\begin{equation*}
+W^\varepsilon
+\leq
+\liminf_{s\to\infty}
+W_s^{\varepsilon,\mu_{\mb 1}},
+\end{equation*}
+and Fatou's lemma together with
+\eqref{eq:death-removed-weight-comparison} gives
+\begin{equation}
+\label{eq:limiting-death-removed-mass}
+\E_A\Cb{W^\varepsilon}
+\leq1.
+\end{equation}
+On~$\cb{\abs{\mathcal P}<\infty}\cap L_T^c$, apply the same ancestry
+comparison to the first successful interaction after~$T$ to obtain
+\begin{equation*}
+W\ind\bb{L_T^c}
+\leq
+e^{-\varepsilon T}W^\varepsilon.
+\end{equation*}
+The left-hand side is zero on~$\cb{\abs{\mathcal P}=\infty}$. Taking
+expectations and using~\eqref{eq:limiting-death-removed-mass} proves
+\eqref{eq:limiting-late-interaction-bound}.
+\end{proof}
+
 \subsection{Orientability}
 \label{subsec:proof-orientability}
 
