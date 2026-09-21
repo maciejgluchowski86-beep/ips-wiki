@@ -3548,9 +3548,7 @@ and rates
 \rho_i^{I,\xi}(\eta)=\rho_i(\eta^{U,\xi})
 \quad(i\in I).
 \end{align*}
-Denote the restricted semigroup by~$P_t^{I,\xi}$.
-
-With the original centering profile~$(p_i^\star)_{i\in I}$, define
+Denote the restricted semigroup by~$P_t^{I,\xi}$. With the original centering profile~$(p_i^\star)_{i\in I}$, define
 \begin{equation*}
 \mathcal M_\star^I
 =\cb{\mu\in\mathcal P\bb{\cb{0,1}^I}:
@@ -3567,9 +3565,9 @@ We next show that, for every initial configuration~$\eta$ and boundary condition
 \begin{equation}\label{eq:mass_leak_decomposition}
     \delta_\eta P_{s_1}^{I,\xi_1}\cdots P_{s_n}^{I,\xi_n} = \alpha_I \delta_{\zeta_I} + \bb{1-\alpha_I}\nu,
 \end{equation}
-where~$\zeta_I(i) = \ind\bb{p_i^\star > 0}$ for~$i\in I$,~$\nu$ is a probability measure,~$\alpha_I>0$ and~$\xi_1,\dots,\xi_n$ and~$s_1+\dots +s_n\geq 1$ are arbitrary boundary conditions and their durations. This is useful because~$\delta_{\zeta_I}\in\mathcal{M}_\star^I$.
+where~$\zeta_I(i) = \ind\bb{p_i^\star > 0}$ for~$i\in I$,~$\nu$ is a probability measure,~$\alpha_I>0$ and~$\xi_1,\dots,\xi_n$ and~$s_1+\dots +s_n\geq 1$ are arbitrary boundary conditions and their durations. The content of~\eqref{eq:mass_leak_decomposition} is that~$\alpha_I$ is uniform in~$\eta$,~$s_1,\dots,s_n$ and the boundary conditions~$\xi_1,\dots,\xi_n$. This is useful because~$\delta_{\zeta_I}\in\mathcal{M}_\star^I$.
 
-We verify that the restricted process has positive probability of entering~$\zeta_I$ after any positive time. The rate at which a site turns to state~$1$ is~$\lambda_i\rho_i  \geq \varepsilon p_i^\star$, which is positive if~$p_i^\star>0$. Similarly, the rate at which a site turns to state~$0$ is~$\lambda_i\bb{1 - \rho_i}\geq \varepsilon \bb{1-p_i^\star}$, which is positive if~$p_i^\star = 0$. Both inequalities follow from patch positivity and uniform deaths. Thus every site~$i\in I$ has uniformly positive rate at which it takes the state~$\zeta_I(i)$. The event that every site in~$I$ updates during a unit interval and its last update sets it to~$\zeta_I$ therefore has probability bounded below by some~$\alpha_I\in(0,1)$, uniformly in the initial configuration and boundary trajectory. Applying this to the last unit interval gives~\eqref{eq:mass_leak_decomposition}.
+We verify that the restricted process has positive probability of entering~$\zeta_I$ after any positive time. The rate at which a site turns to state~$1$ is~$\lambda_i\rho_i  \geq \varepsilon p_i^\star$, which is positive if~$p_i^\star>0$. Similarly, the rate at which a site turns to state~$0$ is~$\lambda_i\bb{1 - \rho_i}\geq \varepsilon \bb{1-p_i^\star}$, which is positive if~$p_i^\star = 0$. Both inequalities follow from patch positivity and uniform deaths. Thus every site~$i\in I$ has uniformly positive rate at which it takes the state~$\zeta_I(i)$. The event that every site in~$I$ updates during a unit interval and its last update sets it to~$\zeta_I$ therefore has probability bounded below by some~$\alpha_I\in(0,1)$, uniformly in the initial configuration and boundary conditions. Applying this to the last unit interval gives~\eqref{eq:mass_leak_decomposition}.
 
 Now we show that the process converges towards~$\mathcal{M}_\star$ from any initial configuration~$\eta$. Define the~$\sigma$-algebra 
 \begin{equation*}
@@ -3586,31 +3584,30 @@ are~$t_1,\ldots,t_n$ with~$\sum_{k=1}^n t_k=t$, then, for~$f$ supported on~$I$,
 \CE{f(\eta_t)}{\mathcal G_U}
 =P_{t_1}^{I,\xi_1}\cdots P_{t_n}^{I,\xi_n}(f)(\eta).
 \end{equation*}
-For~$t\geq1$, put~$m=\lfloor t\rfloor$ and split this evolution into~$m$
-blocks: the first~$m-1$ have length~$1$, and the last has length~$t-m+1$.
+For~$t\geq1$ split this evolution into~${\lfloor t\rfloor}$
+blocks: the first~${\lfloor t\rfloor}-1$ have length~$1$, and the last has length~$t-{\lfloor t\rfloor}+1\geq 1$.
 Splitting the boundary intervals at the block endpoints gives
 \begin{equation*}
 \CE{f(\eta_t)}{\mathcal G_U}
-=\bb{\prod_{j=1}^{m}
+=\bb{\prod_{j=1}^{{\lfloor t\rfloor}}
  \bb{P_{s_1^j}^{I,\xi_1^j}\cdots
      P_{s_{n_j}^j}^{I,\xi_{n_j}^j}}}(f)(\eta),
 \end{equation*}
-where~$\sum_l s_l^j=1$ for~$j<m$ and~$\sum_l s_l^m=t-m+1\geq1$;
-products are ordered by increasing block index.
+where~$\sum_l s_l^j=1$ for~$j<{\lfloor t\rfloor}$ and~$\sum_l s_l^{\lfloor t\rfloor}=t-{\lfloor t\rfloor}+1\geq1$.
 
 By~\eqref{eq:mass_leak_decomposition}, each block allows us to extract
 mass~$\alpha_I$ at~$\zeta_I$ from the remaining measure.
 Repeating the extraction gives
 \begin{align*}
 \CE{\chi_A^\star(\eta_t)}{\mathcal G_U}
-&=\sum_{k=1}^{m} \alpha_I(1-\alpha_I)^{k-1}
- \bb{\prod_{j=k+1}^{m}
+&=\sum_{k=1}^{{\lfloor t\rfloor}} \alpha_I(1-\alpha_I)^{k-1}
+ \bb{\prod_{j=k+1}^{{\lfloor t\rfloor}}
   \bb{P_{s_1^j}^{I,\xi_1^j}\cdots
       P_{s_{n_j}^j}^{I,\xi_{n_j}^j}}}(\chi_A^\star)(\zeta_I)\\
-&\quad +(1-\alpha_I)^m\nu_t(\chi_A^\star)\\
-&\geq-\norm{\chi_A^\star}_\infty(1-\alpha_I)^m,
+&\quad +(1-\alpha_I)^{\lfloor t\rfloor}\nu_t(\chi_A^\star)\\
+&\geq-\norm{\chi_A^\star}_\infty(1-\alpha_I)^{\lfloor t\rfloor},
 \end{align*}
-where~$\nu_t$ is a probability measure and the empty product is the identity.
+where~$\nu_t$ is a probability measure.
 The term indexed by~$k$ is the mass first extracted at the end of
 block~$k$, evolved through the remaining blocks.
 The sum is non-negative because~$\delta_{\zeta_I}\in\mathcal M_\star^I$
@@ -3627,8 +3624,8 @@ Fix a local function~$f$ and~$s>0$. Choose~$t_n\to\infty$ and
 configurations~$\eta_n$ such that
 $\abs{P_{t_n}f(\eta_n)-\pi(f)}$ converges to
 $\limsup_{t\to\infty}\sup_\eta\abs{P_tf(\eta)-\pi(f)}$ and
-$\delta_{\eta_n}P_{t_n-s}\Rightarrow\mu$ for some probability measure~$\mu$. This is possible because~$\mathcal{P}\bb{\cb{0,1}^\Lambda}$ is compact.
-For every finite~$B\subseteq\Lambda$, the~\eqref{eq:convergence-towards-m-star} implies
+$\delta_{\eta_n}P_{t_n-s}\Rightarrow\mu$ for some probability measure~$\mu$. This is possible because the space of probability measures on~$\Omega$ is compact.
+For every finite~$B\subseteq\Lambda$,~\eqref{eq:convergence-towards-m-star} implies
 \begin{equation*}
 \mu(\chi_B^\star)
 =\lim_{n\to\infty}P_{t_n-s}(\chi_B^\star)(\eta_n)\geq0,
