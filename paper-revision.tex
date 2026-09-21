@@ -3522,209 +3522,134 @@ We now prove Corollary~\ref{cor:oriented-ergodicity}. By
 Theorem~\ref{thm:common-invariant-limit}, every initial law in
 ~$\mathcal M_\star$ converges to~$\pi$, so ergodicity follows if one proves that any evolution of any initial measure approaches~$\mathcal{M}_*$. This is immediate  for finite~$\Lambda$, because then~$\mathcal{M}_-$ contains all probability measures. The point of orientability is that,
 for any finite set~$A$ we can condition on the spin system trajectory on~$U(A)$ and get a finite, patch-positive spin system on~$\bar{A}$. This reduced system has time-inhomogenous boundary conditions, so it may not converge to an invariant measure, but it still preserves~$\mathcal{M}_*$. This is what allows a burn-in argument to go through. More precisely, we prove that
-\begin{equation}
-\label{eq:convergence-towards-m-star}
+\begin{equation*}
 \liminf_{t\to\infty}
 \inf_{\eta\in\Omega}
 P_t\chi_A^\star(\eta)
 \geq0
 \qquad
 \text{for every }A\Subset\Lambda.
-\end{equation}
+\end{equation*}
 We then combine this with compactness and
 Theorem~\ref{thm:common-invariant-limit}.
 
 \begin{proof}[Proof of Corollary~\ref{cor:oriented-ergodicity}]
-Fix a nonempty finite set~$A$ and choose~$I=\bar A$ and~$U=U(A)$ from the
-definition of orientability. For~$\xi\in\cb{0,1}^U$, fixing the spins on
-~$U$ at~$\xi$ defines a spin system on~$\cb{0,1}^I$. Write
-~$P_t^{I,\xi}$ for its semigroup and
-\begin{equation*}
-\lambda_i^{I,\xi}(\eta)
-=
-\lambda_i\bb{\eta^{U,\xi}},
+    
+
+Fix a nonempty finite set~$A$ and take~$I=\bar A$ and~$U=U(A)$ from
+orientability. For~$\xi\in\cb{0,1}^U$, let~$\eta^{U,\xi}$ agree with~$\xi$
+on~$U$ and with~$\eta$ elsewhere. Since~$I\cup U$ is autonomous, fixing
+the spins on~$U$ defines a spin system on~$\cb{0,1}^I$, with generator
+and rates
+\begin{align*}
+\Lcal^{I,\xi}f(\eta)&=\Lcal f(\eta^{U,\xi}),\\
+\lambda_i^{I,\xi}(\eta)&=\lambda_i(\eta^{U,\xi}),
 \qquad
-\rho_i^{I,\xi}(\eta)
-=
-\rho_i\bb{\eta^{U,\xi}},
-\qquad i\in I,
-\end{equation*}
-where~$\eta^{U,\xi}$ agrees with~$\eta$ on~$I$ and with~$\xi$ on~$U$.
-The values outside~$I\cup U$ are irrelevant because~$I\cup U$ is
-autonomous.
+\rho_i^{I,\xi}(\eta)=\rho_i(\eta^{U,\xi})
+\quad(i\in I).
+\end{align*}
+Denote the restricted semigroup by~$P_t^{I,\xi}$.
 
 With the original centering profile~$(p_i^\star)_{i\in I}$, define
 \begin{equation*}
 \mathcal M_\star^I
-=
-\cb{
-\mu\in\mathcal P\bb{\cb{0,1}^I}:
-\mu(\chi_B^\star)\geq0
-\text{ for every }B\subseteq I
-}.
+=\cb{\mu\in\mathcal P\bb{\cb{0,1}^I}:
+       \mu(\chi_B^\star)\geq0\text{ for every }B\subseteq I}.
 \end{equation*}
-Lemma~\ref{lem:boundary-moment-preservation} gives
-\begin{equation}
-\label{eq:boundary-m-star-preservation}
-\mathcal M_\star^I P_t^{I,\xi}
-\subseteq
-\mathcal M_\star^I
-\qquad
-\text{for every }t\geq0
-\text{ and }\xi\in\cb{0,1}^U.
+Lemma~\ref{lem:boundary-moment-preservation} in
+Appendix~\ref{app:boundary-moment-preservation} gives
+\begin{equation*}
+\mathcal M_\star^I P_t^{I,\xi}\subseteq\mathcal M_\star^I.
+\end{equation*}
+This holds for every boundary condition~$\xi$. The restricted system is also patch positive, though we do not use this fact directly.
+
+We next show that, for every initial configuration~$\eta$ and boundary conditions, after a unit of time a fixed positive part of the evolution law enters~$\mathcal{M}_\star^I$. To be more precise we obtain a decomposition
+\begin{equation}\label{eq:mass_leak_decomposition}
+    \delta_\eta P_{s_1}^{I,\xi_1}\cdots P_{s_n}^{I,\xi_n} = \alpha_I \delta_{\zeta_I} + \bb{1-\alpha_I}\nu,
 \end{equation}
+where~$\zeta_I(i) = \ind\bb{p_i^\star > 0}$ for~$i\in I$,~$\nu$ is a probability measure,~$\alpha_I>0$ and~$\xi_1,\dots,\xi_n$ and~$s_1+\dots +s_n\geq 1$ are arbitrary boundary conditions and their durations. This is useful because~$\delta_{\zeta_I}\in\mathcal{M}_\star^I$.
 
-We next show that, over every unit interval, a fixed positive part of the law
-of the restricted process enters~$\mathcal M_\star^I$, uniformly over the
-initial configuration and the boundary trajectory. Define
-\begin{equation*}
-\zeta_I(i)
-=
-\ind\bb{p_i^\star>0},
-\qquad i\in I.
-\end{equation*}
-Then~$\delta_{\zeta_I}\in\mathcal M_\star^I$. Indeed, every factor in
-~$\chi_B^\star(\zeta_I)$ is either~$1-p_i^\star\geq0$ or~$0$.
+We verify that the restricted process has positive probability of entering~$\zeta_I$ after any positive time. The rate at which a site turns to state~$1$ is~$\lambda_i\rho_i  \geq \varepsilon p_i^\star$, which is positive if~$p_i^\star>0$. Similarly, the rate at which a site turns to state~$0$ is~$\lambda_i\bb{1 - \rho_i}\geq \varepsilon \bb{1-p_i^\star}$, which is positive if~$p_i^\star = 0$. Both inequalities follow from patch positivity and uniform deaths. Thus every site~$i\in I$ has uniformly positive rate at which it takes the state~$\zeta_I(i)$. The event that every site in~$I$ updates during a unit interval and its last update sets it to~$\zeta_I$ therefore has probability bounded below by some~$\alpha_I\in(0,1)$, uniformly in the initial configuration and boundary trajectory. Applying this to the last unit interval gives~\eqref{eq:mass_leak_decomposition}.
 
-The pure-death component gives
+Now we show that the process converges towards~$\mathcal{M}_\star$ from any initial configuration~$\eta$. Define the~$\sigma$-algebra 
 \begin{equation*}
-\lambda_i(\eta)\bb{1-\rho_i(\eta)}
-\geq
-\varepsilon
-\qquad
-\text{for every }i,\eta,
+\mathcal G_U:=\sigma\cb{\eta_s(j):j\in U,\ s\geq0}.
 \end{equation*}
-and hence~$\lambda_i(\eta)\geq\varepsilon$. Moreover,
-\eqref{eq:centered-generator-positive-coefficients} implies
+Since both~$U$ and~$I\cup U$ are autonomous,
+conditional on~$\mathcal G_U$, the process on~$I$ evolves with
+the revealed trajectory on~$U$ as a boundary condition. Only the states at~$\partial I:=N_*(I)\setminus I\subseteq U$ matter.
+This set is finite and the update rates are bounded, so the boundary conditions change finitely many times before time~$t$. 
+If the successive boundary configurations are~$\xi_1,\ldots,\xi_n$,
+extended arbitrarily from~$\partial I$ to~$U$, and their durations
+are~$t_1,\ldots,t_n$ with~$\sum_{k=1}^n t_k=t$, then, for~$f$ supported on~$I$,
 \begin{equation*}
-\lambda_i(\eta)\bb{\rho_i(\eta)-p_i^\star}
-\geq0.
+\CE{f(\eta_t)}{\mathcal G_U}
+=P_{t_1}^{I,\xi_1}\cdots P_{t_n}^{I,\xi_n}(f)(\eta).
 \end{equation*}
-Thus, when~$p_i^\star>0$, the rate of an update setting site~$i$ to~$1$
-satisfies
+For~$t\geq1$, put~$m=\lfloor t\rfloor$ and split this evolution into~$m$
+blocks: the first~$m-1$ have length~$1$, and the last has length~$t-m+1$.
+Splitting the boundary intervals at the block endpoints gives
 \begin{equation*}
-\lambda_i(\eta)\rho_i(\eta)
-\geq
-\varepsilon p_i^\star,
+\CE{f(\eta_t)}{\mathcal G_U}
+=\bb{\prod_{j=1}^{m}
+ \bb{P_{s_1^j}^{I,\xi_1^j}\cdots
+     P_{s_{n_j}^j}^{I,\xi_{n_j}^j}}}(f)(\eta),
 \end{equation*}
-while when~$p_i^\star=0$, the rate of an update setting~$i$ to~$0$ is at
-least~$\varepsilon$. Since~$I$ is finite and the update rates are uniformly
-bounded above, there is~$\alpha_I>0$ such that 
-\begin{equation}
-\label{eq:mass-leak-decomposition}
-\delta_\eta P_{1}^{I,\xi}
-=
-\alpha_I\delta_{\zeta_I}
-+
-\bb{1-\alpha_I}\nu^{I,\xi,\eta}
-\end{equation}
-for some probability measure~$\nu^{I,\xi,\eta}$. The content of~\eqref{eq:mass-leak-decomposition} is that~$\alpha_I$ is uniform in~$\eta$ and boundary conditions~$\xi$. To see the uniform lower bound, one may prescribe disjoint
-subintervals in which the sites of~$I$ are successively set to their
-~$\zeta_I$ values and require no later update at sites already set; the lower
-bounds above and the uniform upper bound on the total update rate give a
-positive probability depending only on~$I$.
+where~$\sum_l s_l^j=1$ for~$j<m$ and~$\sum_l s_l^m=t-m+1\geq1$;
+products are ordered by increasing block index.
 
-We now apply this minorization to the original process. Let
-\begin{equation*}
-\mathcal G_U
-=
-\sigma\cb{\eta_s(j):j\in U,\ s\geq0}.
-\end{equation*}
-Since both~$U$ and~$I\cup U$ are autonomous, conditional on
-~$\mathcal G_U$ the process on~$I$ evolves with the revealed trajectory on
-~$U$ as a time-dependent boundary condition. Only the spins in
-\begin{equation*}
-\partial I
-=
-N_*(I)\setminus I
-\subseteq U
-\end{equation*}
-matter. This set is finite, and its trajectory has only finitely many jumps on
-every bounded time interval. Hence the conditional transition on~$I$ is a
-finite composition of semigroups~$P_s^{I,\xi}$.
-
-For~$t\geq1$ and divide~$[0,t]$ into~$\lfloor t\rfloor$
-blocks, the first~$\lfloor t\rfloor-1$ of length~$1$ and the last of length
-~$t-{\lfloor t\rfloor}+1\geq1$. Denote the corresponding conditional transition operators on
-~$I$ by~$Q_1,\ldots,Q_{\lfloor t\rfloor}$. Each~$Q_j$ is a finite composition of fixed-boundary
-semigroups and therefore preserves~$\mathcal M_\star^I$ by
-\eqref{eq:boundary-m-star-preservation}. Applying
-\eqref{eq:mass-leak-decomposition} successively to the part of the law not
-previously extracted gives
+By~\eqref{eq:mass_leak_decomposition}, each block allows us to extract
+mass~$\alpha_I$ at~$\zeta_I$ from the remaining measure.
+Repeating the extraction gives
 \begin{align*}
 \CE{\chi_A^\star(\eta_t)}{\mathcal G_U}
-&=
-\sum_{k=1}^{\lfloor t\rfloor}
-\alpha_I\bb{1-\alpha_I}^{k-1}
-\bb{\delta_{\zeta_I}Q_{k+1}\cdots Q_{\lfloor t\rfloor}}
-\bb{\chi_A^\star}
-\\
-&\quad+
-\bb{1-\alpha_I}^{\lfloor t\rfloor}\nu_t(\chi_A^\star)
+&=\sum_{k=1}^{m} \alpha_I(1-\alpha_I)^{k-1}
+ \bb{\prod_{j=k+1}^{m}
+  \bb{P_{s_1^j}^{I,\xi_1^j}\cdots
+      P_{s_{n_j}^j}^{I,\xi_{n_j}^j}}}(\chi_A^\star)(\zeta_I)\\
+&\quad +(1-\alpha_I)^m\nu_t(\chi_A^\star)\\
+&\geq-\norm{\chi_A^\star}_\infty(1-\alpha_I)^m,
 \end{align*}
-for some probability measure~$\nu_t$, with the empty product interpreted as
-the identity. Each term in the sum is nonnegative because
-~$\delta_{\zeta_I}\in\mathcal M_\star^I$ and the~$Q_j$ preserve
-~$\mathcal M_\star^I$. Therefore
-\begin{equation*}
-\CE{\chi_A^\star(\eta_t)}{\mathcal G_U}
-\geq
--\norm{\chi_A^\star}_\infty
-\bb{1-\alpha_I}^{\lfloor t\rfloor}.
-\end{equation*}
-Taking expectations proves
-\eqref{eq:convergence-towards-m-star}.
+where~$\nu_t$ is a probability measure and the empty product is the identity.
+The term indexed by~$k$ is the mass first extracted at the end of
+block~$k$, evolved through the remaining blocks.
+The sum is non-negative because~$\delta_{\zeta_I}\in\mathcal M_\star^I$
+and each~$P_s^{I,\xi}$ preserves~$\mathcal M_\star^I$.
+The lower bound side tends to zero exponentially,
+and hence, for every~$A\Subset\Lambda$,
+\begin{equation}\label{eq:convergence-towards-m-star}
+\liminf_{t\to\infty}\inf_\eta P_t(\chi_A^\star)(\eta)\geq0.
+\end{equation}
 
-It remains to identify the limit. Fix a local function~$f$ and
-~$s>0$. Choose~$t_n\to\infty$ and~$\eta_n\in\Omega$ such that
-\begin{equation*}
-\abs{P_{t_n}f(\eta_n)-\pi(f)}
-\longrightarrow
-\limsup_{t\to\infty}
-\sup_{\eta\in\Omega}
-\abs{P_tf(\eta)-\pi(f)}.
-\end{equation*}
-After passing to a subsequence,
-\begin{equation*}
-\delta_{\eta_n}P_{t_n-s}
-\Rightarrow
-\mu
-\end{equation*}
-for some probability measure~$\mu$, by compactness of the space of probability measures on~$\Omega$. For every
-finite~$B\Subset\Lambda$,~\eqref{eq:convergence-towards-m-star} gives
+To obtain convergence to~$\pi$, we combine~\eqref{eq:convergence-towards-m-star}
+with Theorem~\ref{thm:common-invariant-limit}.
+Fix a local function~$f$ and~$s>0$. Choose~$t_n\to\infty$ and
+configurations~$\eta_n$ such that
+$\abs{P_{t_n}f(\eta_n)-\pi(f)}$ converges to
+$\limsup_{t\to\infty}\sup_\eta\abs{P_tf(\eta)-\pi(f)}$ and
+$\delta_{\eta_n}P_{t_n-s}\Rightarrow\mu$ for some probability measure~$\mu$. This is possible because~$\mathcal{P}\bb{\cb{0,1}^\Lambda}$ is compact.
+For every finite~$B\subseteq\Lambda$, the~\eqref{eq:convergence-towards-m-star} implies
 \begin{equation*}
 \mu(\chi_B^\star)
-=
-\lim_{n\to\infty}
-P_{t_n-s}\chi_B^\star(\eta_n)
-\geq0.
+=\lim_{n\to\infty}P_{t_n-s}(\chi_B^\star)(\eta_n)\geq0,
 \end{equation*}
-Hence~$\mu\in\mathcal M_\star$. Since~$P_sf$ is continuous by the Feller
-property,
+so~$\mu\in\mathcal M_\star$. By the Feller property,~$P_sf$ is continuous,
+and hence
 \begin{equation*}
 P_{t_n}f(\eta_n)
-=
-\bb{\delta_{\eta_n}P_{t_n-s}}(P_sf)
-\longrightarrow
-(\mu P_s)(f).
+=(\delta_{\eta_n}P_{t_n-s})(P_sf)
+\longrightarrow(\mu P_s)(f).
 \end{equation*}
-Theorem~\ref{thm:common-invariant-limit} therefore gives
+Theorem~\ref{thm:common-invariant-limit} now gives
 \begin{equation*}
-\limsup_{t\to\infty}
-\sup_{\eta\in\Omega}
-\abs{P_tf(\eta)-\pi(f)}
-\leq
-K_f(1+s)^D e^{-\varepsilon s/2}.
+\limsup_{t\to\infty}\sup_\eta\abs{P_tf(\eta)-\pi(f)}
+=\abs{(\mu P_s)(f)-\pi(f)}
+\leq K_f(1+s)^D e^{-\varepsilon s/2}.
 \end{equation*}
-Letting~$s\to\infty$ proves
-\begin{equation*}
-\lim_{t\to\infty}
-\sup_{\eta\in\Omega}
-\abs{P_tf(\eta)-\pi(f)}
-=
-0,
-\end{equation*}
-which is uniform ergodicity.
+Letting~$s\to\infty$ proves convergence uniformly over initial
+configurations for every local~$f$ and thus uniform ergodicity.
+
+\par
 \end{proof}
 
 \section{Discussion}
