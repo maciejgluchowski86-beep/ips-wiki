@@ -700,7 +700,7 @@ $\mu\preceq_\star\nu$, then
 The theorem gives monotone evolution at the bottom of
 $\mathcal M_\star$, and also at the top whenever a maximum exists.
 
-\begin{corollary}[Extremal limits and comparison]
+\begin{corollary}[Extremal limits and sandwiching]
 \label{cor:extremal-limits-comparison}
 Suppose that the spin system is patch-positive.
 \begin{enumerate}[label=\textup{(\roman*)}]
@@ -747,7 +747,7 @@ for every~$\mu\in\mathcal M_\star$, every~$A\Subset\Lambda$, and every
 $t\geq0$.
 \end{corollary}
 
-Thus, within~$\mathcal M_\star$, adding deaths can only decrease the expectations of the monomials.
+Thus, within~$\mathcal M_\star$, adding deaths can only decrease the expectations of the monomials. The result becomes stronger if the invariant measures for one of the systems are known, for example for perturbed KCSMs.
 
 For the convergence results we use a larger class of initial measures.
 
@@ -2395,7 +2395,7 @@ action of the generator in the centered-monomial basis. Patch positivity and
 the threshold bound from Proposition~\ref{prop:patch-contribution-positivity}
 make every off-diagonal coefficient in this basis nonnegative. The resulting semigroup therefore preserve nonnegative centered moments.
 
-\begin{proof}
+\begin{proof}[Proof of Theorem~\ref{thm:centered-monomial-monotonicity}]
 If~$i\in A$, then
 \begin{equation*}
 \lambda_i\bb{E_{i,\rho_i}-I}\chi_A^\star
@@ -2487,7 +2487,7 @@ with~\eqref{eq:centered-monomial-generator-expansion} and
 M(A,B)\geq0
 \quad\text{for }B\neq A.
 \end{equation}
-For each~$A$, only finitely many coefficients~$M(A,B)$ are nonzero, and the matrix~$M$ is Metzler, so for each~$t\geq 0$ the matrix~$e^{tM} = \sum_{n\in\N} \frac{t^n}{n!} M^n$ is well-defined and has non-negative entries. If~$\sigma$ is a
+For each~$A$, only the coefficients~$M(A,B)$ for~$B\subseteq N_*(A)$ are nonzero, and the matrix~$M$ is Metzler, so for each~$t\geq 0$ the matrix~$e^{tM} = \sum_{n\in\N} \frac{t^n}{n!} M^n$ is well-defined and has non-negative entries. If~$\sigma$ is a
 finite signed measure whose centered moments are all nonnegative, then
 \begin{equation*}
 (\sigma P_t)(\chi_A^\star)
@@ -2553,25 +2553,9 @@ property and the semigroup identity
 give~$\pi^-P_s=\pi^-$.
 
 Suppose now that~$\mb p^\star\leq\mbs{\tfrac12}$. Then~$\mu_{\mb1}$ is
-the maximum of~$\mathcal M_\star$. Since~$\mu_{\mb1}P_s\in\mathcal
-M_\star$,
-\begin{equation*}
-\mu_{\mb1}P_s
-\preceq_\star
-\mu_{\mb1}.
-\end{equation*}
-Applying the monotonicity theorem gives
-\begin{equation*}
-\mu_{\mb1}P_{t+s}
-\preceq_\star
-\mu_{\mb1}P_t
-\qquad
-\text{for every }s,t\geq0.
-\end{equation*}
-Thus every centered monomial expectation decreases to a limit. The same
-argument as above gives~$\mu_{\mb1}P_t\Rightarrow\pi^+$ for some
-~$\pi^+\in\mathcal M_\star$, and the semigroup property shows that
-~$\pi^+$ is invariant.
+the maximal element of~$\mathcal M_\star$, and the same
+argument as above gives~$\mu_{\mb1}P_t\Rightarrow\pi^+$ for some invariant
+~$\pi^+\in\mathcal M_\star$.
 
 For part~\textup{(iii)}, suppose that
 ~$\underline\mu\preceq_\star\mu\preceq_\star\overline\mu$. By
