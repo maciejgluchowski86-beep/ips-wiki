@@ -3771,23 +3771,21 @@ The terms with~$S=\varnothing$ in the first sum are deaths; the terms
 with~$S\neq\varnothing$ are splits. The nonempty-target terms in the second sum
 are births.
 
-\subsection{\textcolor{red}{Verification of the duality}}
+\subsection{Verification of the duality}
 \label{app:dual-data}
 
-\textcolor{red}{The dual rates, signs, and potential were defined in
+The dual rates, signs, and potential were defined in
 Section~\ref{sec:dual}. We verify here that they give the generator identity
 \eqref{eq:monomial-generator-duality}. The Feynman--Kac duality
 \eqref{eq:monomial-feynman-kac-duality} then follows from this identity by the
-standard Feynman--Kac argument under condition~\eqref{eq:fk-integrability}.}
+standard Feynman--Kac argument under condition~\eqref{eq:fk-integrability}.
 
-Let~$Y=(A,\sigma)$ and let~$H$ be given
-by~\eqref{eq:monomial-duality-function}. \textcolor{red}{By
-\eqref{eq:death-split-data}--\eqref{eq:birth-data}, each rate multiplied by
-its sign is the corresponding signed coefficient. Hence}
+By~\eqref{eq:death-split-data}--\eqref{eq:birth-data}, each rate multiplied by
+its sign is the corresponding signed coefficient. Hence
 \begin{equation}
 \label{eq:dual-generator-on-H}
 \begin{aligned}
-\Dcal H(Y,\eta)
+\Dcal H((A,\sigma),\eta)
 ={}&
 \sigma
 \sum_{i\in A}\sum_{S\subseteq N(i)}
@@ -3807,24 +3805,24 @@ a_i^\beta(S)
 \sum_{S\subseteq N(i)}\delta_i(S)
 +
 \sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}\beta_i(S)
-}H(Y,\eta).
+}H((A,\sigma),\eta).
 \end{aligned}
 \end{equation}
-By~\eqref{eq:dual-potential}, adding~$V(A)H(Y,\eta)$ cancels the total jump
-rates in the last line of~\eqref{eq:dual-generator-on-H} and leaves the
-additional diagonal term
+By~\eqref{eq:dual-potential}, adding~$V(A)H((A,\sigma),\eta)$ cancels the
+total jump rates in the last line of~\eqref{eq:dual-generator-on-H} and leaves
+the additional diagonal term
 \begin{equation*}
-\bb{\sum_{i\in A}a_i^\beta(\varnothing)}H(Y,\eta).
+\bb{\sum_{i\in A}a_i^\beta(\varnothing)}H((A,\sigma),\eta).
 \end{equation*}
 The resulting expression is~$\sigma$ times the right-hand side of
-\eqref{eq:generator-action-monomials}, hence
-equals~$\Lcal_\eta H(Y,\eta)$. This proves
+\eqref{eq:generator-action-monomials}, hence equals
+~$\Lcal_\eta H((A,\sigma),\eta)$. This proves
 \eqref{eq:monomial-generator-duality}.
 
-\textcolor{red}{Therefore, by the standard Feynman--Kac
-duality argument applied to~\eqref{eq:monomial-generator-duality}, condition
+Therefore, by the standard Feynman--Kac duality argument applied to
+~\eqref{eq:monomial-generator-duality}, condition
 ~\eqref{eq:fk-integrability} gives
-\eqref{eq:monomial-feynman-kac-duality}.}
+\eqref{eq:monomial-feynman-kac-duality}.
 
 
 \bibliographystyle{paper/amsplain-fullnames}
