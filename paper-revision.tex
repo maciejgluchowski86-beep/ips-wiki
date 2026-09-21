@@ -3320,6 +3320,238 @@ Fatou's lemma and~\eqref{eq:finite-horizon-confinement-bound} give
 which proves~\eqref{eq:limiting-confinement-bound}.
 \end{proof}
 
+We now combine the three estimates.
+
+\begin{proof}[Proof of Theorem~\ref{thm:common-invariant-limit}]
+Fix~$A\Subset\Lambda$,~$\mu\in\mathcal M_\star$,~$0\leq T<t$, and a
+finite set~$R\supseteq A$. Since
+\begin{equation*}
+1
+=
+\ind\bb{L_{T,t}^c}
++
+\ind\bb{E_T^R\cap L_{T,t}}
++
+\ind\bb{(E_T^R)^c\cap L_{T,t}},
+\end{equation*}
+and the analogous identity holds with~$L_T$ in place of~$L_{T,t}$, the patch
+representation gives
+\begin{align*}
+(\mu P_t)(\chi_A)-\E_A\Cb{W}
+&=
+\E_A\Cb{W_t^\mu\ind\bb{L_{T,t}^c}}
+-
+\E_A\Cb{W\ind\bb{L_T^c}}
+\\
+&\quad+
+\E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}}}
+-
+\E_A\Cb{W\ind\bb{E_T^R\cap L_T}}
+\\
+&\quad+
+\E_A\Cb{W_t^\mu\ind\bb{(E_T^R)^c\cap L_{T,t}}}
+-
+\E_A\Cb{W\ind\bb{(E_T^R)^c\cap L_T}}.
+\end{align*}
+Since~$W_t^\mu,W\geq0$ and
+$(E_T^R)^c\cap L_{T,t}\subseteq(E_T^R)^c$, Lemmas~\ref{lem:late-interactions},
+\ref{lem:no-late-relaxation}, and~\ref{lem:spatial-confinement} give
+\begin{equation}
+\label{eq:three-term-convergence-bound}
+\abs{(\mu P_t)(\chi_A)-\E_A\Cb{W}}
+\leq
+2e^{-\varepsilon T}
++
+\bb{1+\abs R}e^{-\varepsilon\bb{t-T}}
++
+2\rho_A(T,R).
+\end{equation}
+
+Apply Lemma~\ref{lem:finite-propagation} with~$a=\varepsilon$. There are
+~$v<\infty$ and~$C_A<\infty$ such that, for
+\begin{equation*}
+R_T
+=
+B\bb{A,\lceil vT\rceil},
+\end{equation*}
+we have
+\begin{equation*}
+\rho_A(T,R_T)
+\leq
+C_Ae^{-\varepsilon T}.
+\end{equation*}
+Polynomial growth gives, after increasing~$C_A$ if necessary,
+\begin{equation*}
+\abs{R_T}
+\leq
+C_A(1+T)^D.
+\end{equation*}
+Taking~$T=t/2$ in~\eqref{eq:three-term-convergence-bound} therefore yields
+\begin{equation}
+\label{eq:m-star-monomial-convergence}
+\sup_{\mu\in\mathcal M_\star}
+\abs{
+(\mu P_t)(\chi_A)
+-
+\E_A\Cb{W}
+}
+\leq
+K_A(1+t)^D e^{-\varepsilon t/2}
+\end{equation}
+for some~$K_A<\infty$.
+
+We next identify the limits in~\eqref{eq:m-star-monomial-convergence} with a
+probability measure. Since~$\mu_{\mb 1}\in\mathcal M_\star$ and~$\Omega$
+is compact, the family~$\mu_{\mb 1}P_t$ has a weakly convergent subsequence.
+Let~$\pi$ be one such subsequential limit. Then
+\begin{equation}
+\label{eq:pi-patch-moments}
+\pi(\chi_A)
+=
+\E_A\Cb{W}
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation}
+The monomials determine every local function, so every subsequential limit has
+the same finite-dimensional marginals. Hence
+\begin{equation*}
+\mu_{\mb 1}P_t
+\Rightarrow
+\pi
+\qquad
+\text{as }t\to\infty.
+\end{equation*}
+
+The measure~$\pi$ is invariant. Indeed, if~$g$ is local and~$s\geq0$, then
+the Feller property gives
+\begin{equation*}
+(\pi P_s)(g)
+=
+\lim_{t\to\infty}(\mu_{\mb 1}P_t)(P_sg)
+=
+\lim_{t\to\infty}(\mu_{\mb 1}P_{t+s})(g)
+=
+\pi(g).
+\end{equation*}
+Thus~$\pi P_s$ and~$\pi$ agree on every local function and therefore are
+equal.
+
+Every local function is a finite linear combination of monomials. Hence
+\eqref{eq:m-star-monomial-convergence} and~\eqref{eq:pi-patch-moments} give,
+for every local~$f$,
+\begin{equation}
+\label{eq:m-star-local-convergence}
+\sup_{\mu\in\mathcal M_\star}
+\abs{(\mu P_t)(f)-\pi(f)}
+\leq
+K_f(1+t)^D e^{-\varepsilon t/2}
+\end{equation}
+for some~$K_f<\infty$. Applying~\eqref{eq:m-minus-reduction} with
+\begin{equation*}
+B_f(t)
+=
+K_f(1+t)^D e^{-\varepsilon t/2}
+\end{equation*}
+proves~\eqref{eq:uniform-m-minus-convergence}. Since
+~$\mathcal M_- = \bigcup_{K\geq0}\mathcal M_{-,K}$, it also follows that
+\begin{equation*}
+\mu P_t\Rightarrow\pi
+\qquad
+\text{for every }\mu\in\mathcal M_-.
+\end{equation*}
+\end{proof}
+
+We also verify the claim following Theorem~\ref{thm:common-invariant-limit}
+that every configuration with finitely many~$0$s gives an initial law in
+~$\mathcal M_-$. The pure-death component gives
+\begin{equation*}
+\lambda_i(\mb 0)\bb{1-\rho_i(\mb 0)}
+\geq
+\varepsilon,
+\end{equation*}
+so~$\rho_i(\mb 0)<1$. Proposition~\ref{prop:patch-contribution-positivity}
+gives~$p_i^\star\leq\rho_i(\mb 0)$, and therefore
+~$p_i^\star<1$ for every~$i$.
+
+Let~$\eta$ have finite zero set
+\begin{equation*}
+F
+=
+\cb{i:\eta(i)=0}.
+\end{equation*}
+For every finite~$A$,
+\begin{equation*}
+\frac{
+\abs{\delta_\eta(\chi_A^\star)}
+}{
+\mu_{\mb 1}(\chi_A^\star)
+}
+=
+\prod_{i\in A\cap F}
+\frac{p_i^\star}{1-p_i^\star}.
+\end{equation*}
+Consequently, any
+\begin{equation*}
+K
+\geq
+\prod_{i\in F}
+\max\cb{
+1,
+\frac{p_i^\star}{1-p_i^\star}
+}
+\end{equation*}
+satisfies
+\begin{equation*}
+\delta_\eta(\chi_A^\star)
++
+K\mu_{\mb 1}(\chi_A^\star)
+\geq0
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation*}
+Hence
+\begin{equation*}
+\frac{\delta_\eta+K\mu_{\mb 1}}{1+K}
+\in
+\mathcal M_\star,
+\end{equation*}
+so~$\delta_\eta\in\mathcal M_{-,K}\subseteq\mathcal M_-$.
+
+\begin{proof}[Proof of Corollary~\ref{cor:uniform-exponential-ergodicity}]
+Suppose~$\mb p^\star\leq\mbs{\tfrac12}$. For every configuration~$\eta$
+and every finite~$A$,
+\begin{equation*}
+\chi_A^\star(\eta)
+\geq
+-\prod_{i\in A}\bb{1-p_i^\star}
+=
+-\mu_{\mb 1}(\chi_A^\star),
+\end{equation*}
+because~$p_i^\star\leq1-p_i^\star$ at every site. Hence, for every
+probability measure~$\mu$,
+\begin{equation*}
+\frac{\mu+\mu_{\mb 1}}2
+\bb{\chi_A^\star}
+\geq0
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation*}
+Thus every probability measure belongs to~$\mathcal M_{-,1}$. Applying
+Theorem~\ref{thm:common-invariant-limit} with~$K=1$ gives
+\eqref{eq:uniform-pointwise-convergence}, after absorbing the fixed factor~$3$
+into~$K_f$.
+
+Finally, if~$\nu$ is invariant, then for every local~$f$,
+\begin{equation*}
+\abs{\nu(f)-\pi(f)}
+=
+\abs{(\nu P_t)(f)-\pi(f)}
+\longrightarrow
+0.
+\end{equation*}
+Therefore~$\nu=\pi$, so~$\pi$ is the unique invariant measure.
+\end{proof}
+
 \subsection{Orientability}
 \label{subsec:proof-orientability}
 
