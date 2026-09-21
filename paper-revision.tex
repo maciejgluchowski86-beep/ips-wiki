@@ -3059,6 +3059,272 @@ expectations and using~\eqref{eq:limiting-death-removed-mass} proves
 \eqref{eq:limiting-late-interaction-bound}.
 \end{proof}
 
+We next restrict to realizations with no successful interaction after~$T$. The
+remaining dependence on the initial configuration is carried by the end
+patches, and the error from relaxing these factors accumulates over their
+number.
+
+\begin{lemma}[Relaxation after the last interaction]
+\label{lem:no-late-relaxation}
+For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_\star$, and
+~$0\leq T<t$,
+\begin{equation}
+\label{eq:no-late-relaxation-bound}
+\abs{
+ \E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}}}
+ -
+ \E_A\Cb{W\ind\bb{E_T^R\cap L_T}}
+}
+\leq
+\bb{1+\abs R}e^{-\varepsilon\bb{t-T}}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+On~$L_{T,t}$ there is no new patch boundary after time~$T$. Thus
+\begin{equation*}
+\mathcal B_t=\mathcal B_T,
+\qquad
+\mathcal E_t
+=
+\cb{P^{\uparrow t}:P\in\mathcal E_T},
+\end{equation*}
+so the bulk patches are fixed at time~$T$ and each end patch simply extends to
+time~$t$.
+
+\begin{figure}[htbp]
+\centering
+\input{paper/figures/convergence-no-late-end-patches}
+\caption{On~$L_{T,t}$, no successful interaction occurs in~$(T,t]$. The bulk
+patches are unchanged after~$T$, while every end patch present at~$T$ extends
+to time~$t$.}
+\label{fig:no-late-end-patches}
+\end{figure}
+\FloatBarrier
+
+Fix the successful-interaction skeleton up to time~$T$. For
+~$P\in\mathcal E_T$, let~$L_{T,t}^P$ be the event that the one-site
+continuation of~$P$ produces no successful interaction in~$(T,t]$. The
+continuation identities in Appendix~\ref{app:no-late-continuation} give
+\begin{equation*}
+L_{T,t}
+=
+\bigcap_{P\in\mathcal E_T}L_{T,t}^P,
+\qquad
+\CP{L_{T,t}}{\mathcal G_T}
+=
+\prod_{P\in\mathcal E_T}
+\CP{L_{T,t}^P}{\mathcal G_T},
+\end{equation*}
+and, for an end patch~$P$ based at~$i$,
+\begin{equation}
+\label{eq:main-local-end-relaxation}
+\CP{L_{T,t}^P}{\mathcal G_T}
+C\bb{z,P^{\uparrow t}}
+=
+C\bb{\psi_i(t-T,z),P},
+\end{equation}
+where
+\begin{equation*}
+\psi_i(t-T,z)
+=
+\rho_i(\mb 0)
++
+e^{-\lambda_i(\mb 0)(t-T)}
+\bb{z-\rho_i(\mb 0)}.
+\end{equation*}
+Since the system contains a pure-death component of rate~$\varepsilon$,
+~$\lambda_i(\mb 0)\geq\varepsilon$. As~$C(z,P)$ is affine in~$z$,
+the probability-weighted end factor in
+\eqref{eq:main-local-end-relaxation} therefore relaxes to
+~$C(\rho_i(\mb 0),P)$ at rate at least
+~$e^{-\varepsilon(t-T)}$.
+
+Write
+\begin{equation*}
+B_T
+=
+\prod_{P\in\mathcal B_T}C(P),
+\qquad
+B_T^\varepsilon
+=
+\prod_{P\in\mathcal B_T}C^\varepsilon(P).
+\end{equation*}
+The same continuation identities give
+\begin{align}
+\label{eq:no-late-conditional-weights}
+\CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
+&=
+B_T
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ \CP{L_{T,t}^P}{\mathcal G_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+},
+\notag\\
+\CE{W\ind\bb{L_T}}{\mathcal G_T}
+&=
+B_T
+\prod_{P\in\mathcal E_T}
+C\bb{\rho_{i(P)}(\mb 0),P}.
+\end{align}
+The end-factor relaxation estimate from
+Lemma~\ref{lem:end-factor-relaxation} yields
+\begin{align*}
+&\abs{
+\CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
+-
+\CE{W\ind\bb{L_T}}{\mathcal G_T}
+}
+\\
+&\qquad\leq
+e^{-\varepsilon(t-T)}
+B_T
+\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+\\
+&\qquad\quad+
+e^{-\varepsilon(t-T)}
+B_T\abs{\mathcal E_T}
+\prod_{P\in\mathcal E_T}
+C\bb{\rho_{i(P)}(\mb 0),P}.
+\end{align*}
+The event~$E_T^R$ is~$\mathcal G_T$-measurable. For the first term,
+~$B_T\leq B_T^\varepsilon$, and the corresponding continuation identity for
+the system with pure deaths removed gives
+\begin{align*}
+&\E_A\Cb{
+ \ind\bb{E_T^R}
+ B_T
+ \CP{L_{T,t}}{\mathcal G_T}
+ \mu\bb{
+  \prod_{P\in\mathcal E_T}
+  C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+ }
+}
+\\
+&\qquad\leq
+\E_A\Cb{
+ W_t^{\varepsilon,\mu}
+ \ind\bb{E_T^R\cap L_{T,t}}
+}
+\leq1.
+\end{align*}
+For the second term,~$\abs{\mathcal E_T}\leq\abs R$ on~$E_T^R$, so
+\eqref{eq:no-late-conditional-weights} gives
+\begin{align*}
+&\E_A\Cb{
+ \ind\bb{E_T^R}
+ B_T\abs{\mathcal E_T}
+ \prod_{P\in\mathcal E_T}
+ C\bb{\rho_{i(P)}(\mb 0),P}
+}
+\\
+&\qquad\leq
+\abs R\,
+\E_A\Cb{
+ W\ind\bb{E_T^R\cap L_T}
+}
+\leq
+\abs R.
+\end{align*}
+Here the last inequality follows from~$0\leq W\leq W^\varepsilon$ and
+\eqref{eq:limiting-death-removed-mass}. Taking expectations in the conditional
+estimate proves~\eqref{eq:no-late-relaxation-bound}.
+\end{proof}
+
+It remains to control realizations for which the interaction cone leaves~$R$.
+
+\begin{lemma}[Spatial confinement]
+\label{lem:spatial-confinement}
+For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_\star$, and
+~$0\leq T<t$,
+\begin{align}
+0
+&\leq
+\E_A\Cb{W_t^\mu\ind\bb{(E_T^R)^c}}
+\leq
+\rho_A(T,R),
+\label{eq:finite-horizon-confinement-bound}
+\\
+0
+&\leq
+\E_A\Cb{W\ind\bb{(E_T^R)^c}}
+\leq
+\rho_A(T,R).
+\label{eq:limiting-confinement-bound}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+On~$E_T^R$, every successful interaction up to time~$T$ stays inside~$R$.
+Proposition~\ref{prop:confined-interaction-identity} makes precise that fixing
+the spins outside~$R$ to~$0$ therefore does not change the contribution of
+such a realization during the first~$T$ units of dual time. It gives
+\begin{equation}
+\label{eq:main-confined-interaction-identity}
+\E_A\Cb{W_t^\mu\ind\bb{E_T^R}}
+=
+(\mu P_{t-T}P_T^{R,0})(\chi_A).
+\end{equation}
+
+\begin{figure}[htbp]
+\centering
+\input{paper/figures/convergence-event-spatial-escape}
+\caption{The event~$(E_T^R)^c$: before time~$T$, the interaction cone leaves
+~$R$. The red region marks the part of the cone outside~$R$.}
+\label{fig:convergence-spatial-escape}
+\end{figure}
+\FloatBarrier
+
+The patch representation and the semigroup property give
+\begin{equation*}
+\E_A\Cb{W_t^\mu}
+=
+(\mu P_t)(\chi_A)
+=
+(\mu P_{t-T}P_T)(\chi_A).
+\end{equation*}
+Subtracting~\eqref{eq:main-confined-interaction-identity},
+\begin{align*}
+0
+&\leq
+\E_A\Cb{W_t^\mu\ind\bb{(E_T^R)^c}}
+\\
+&=
+(\mu P_{t-T})
+\bb{
+\bb{P_T-P_T^{R,0}}\chi_A
+}
+\\
+&\leq
+\norm{
+\bb{P_T-P_T^{R,0}}\chi_A
+}_\infty
+=
+\rho_A(T,R),
+\end{align*}
+which proves~\eqref{eq:finite-horizon-confinement-bound}.
+
+On~$\cb{\abs{\mathcal P}<\infty}$, the finite-horizon weights converge
+pointwise to~$W$, while~$W=0$ on~$\cb{\abs{\mathcal P}=\infty}$. Hence
+Fatou's lemma and~\eqref{eq:finite-horizon-confinement-bound} give
+\begin{equation*}
+0
+\leq
+\E_A\Cb{W\ind\bb{(E_T^R)^c}}
+\leq
+\liminf_{u\to\infty}
+\E_A\Cb{W_u^\mu\ind\bb{(E_T^R)^c}}
+\leq
+\rho_A(T,R),
+\end{equation*}
+which proves~\eqref{eq:limiting-confinement-bound}.
+\end{proof}
+
 \subsection{Orientability}
 \label{subsec:proof-orientability}
 
