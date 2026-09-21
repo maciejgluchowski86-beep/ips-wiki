@@ -8,11 +8,20 @@ on:
 jobs:
   compile:
     runs-on: ubuntu-latest
+    timeout-minutes: 6
+    container:
+      image: ghcr.io/xu-cheng/texlive-full:latest
     steps:
       - uses: actions/checkout@v4
-      - name: Compile paper-revision.tex
-        uses: xu-cheng/latex-action@v4
-        with:
-          root_file: paper-revision.tex
-          latexmk_use_xelatex: false
-          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: One pdflatex pass with timeout
+        shell: bash
+        run: |
+          set +e
+          timeout 90s pdflatex -file-line-error -interaction=nonstopmode -halt-on-error paper-revision.tex > pdflatex.stdout 2>&1
+          code=$?
+          echo "PDFLATEX_EXIT_CODE=$code"
+          echo "===== STDOUT TAIL ====="
+          tail -n 250 pdflatex.stdout || true
+          echo "===== LOG TAIL ====="
+          tail -n 250 paper-revision.log || true
+          exit $code
