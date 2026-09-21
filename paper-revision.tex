@@ -3401,9 +3401,7 @@ K_A(1+t)^D e^{-\varepsilon t/2}
 for some~$K_A<\infty$.
 
 We next identify the limits in~\eqref{eq:m-star-monomial-convergence} with a
-probability measure. Since~$\mu_{\mb 1}\in\mathcal M_\star$ and~$\Omega$
-is compact, the family~$\mu_{\mb 1}P_t$ has a weakly convergent subsequence.
-Let~$\pi$ be one such subsequential limit. Then
+probability measure. In Corollary~\ref{cor:extremal-limits-comparison} we prove that~$\mu_{\mb p^*}P_t$ converges weakly to an invariant measure~$\pi$. Then
 \begin{equation}
 \label{eq:pi-patch-moments}
 \pi(\chi_A)
@@ -3412,29 +3410,6 @@ Let~$\pi$ be one such subsequential limit. Then
 \qquad
 \text{for every }A\Subset\Lambda.
 \end{equation}
-The monomials determine every local function, so every subsequential limit has
-the same finite-dimensional marginals. Hence
-\begin{equation*}
-\mu_{\mb 1}P_t
-\Rightarrow
-\pi
-\qquad
-\text{as }t\to\infty.
-\end{equation*}
-
-The measure~$\pi$ is invariant. Indeed, if~$g$ is local and~$s\geq0$, then
-the Feller property gives
-\begin{equation*}
-(\pi P_s)(g)
-=
-\lim_{t\to\infty}(\mu_{\mb 1}P_t)(P_sg)
-=
-\lim_{t\to\infty}(\mu_{\mb 1}P_{t+s})(g)
-=
-\pi(g).
-\end{equation*}
-Thus~$\pi P_s$ and~$\pi$ agree on every local function and therefore are
-equal.
 
 Every local function is a finite linear combination of monomials. Hence
 \eqref{eq:m-star-monomial-convergence} and~\eqref{eq:pi-patch-moments} give,
@@ -3536,20 +3511,8 @@ probability measure~$\mu$,
 \qquad
 \text{for every }A\Subset\Lambda.
 \end{equation*}
-Thus every probability measure belongs to~$\mathcal M_{-,1}$. Applying
-Theorem~\ref{thm:common-invariant-limit} with~$K=1$ gives
-\eqref{eq:uniform-pointwise-convergence}, after absorbing the fixed factor~$3$
-into~$K_f$.
-
-Finally, if~$\nu$ is invariant, then for every local~$f$,
-\begin{equation*}
-\abs{\nu(f)-\pi(f)}
-=
-\abs{(\nu P_t)(f)-\pi(f)}
-\longrightarrow
-0.
-\end{equation*}
-Therefore~$\nu=\pi$, so~$\pi$ is the unique invariant measure.
+Thus every probability measure belongs to~$\mathcal M_{-,1}$ and
+Theorem~\ref{thm:common-invariant-limit} gives uniform, exponential ergodicity with rate~$\frac{\varepsilon}{2}$.
 \end{proof}
 
 \subsection{Orientability}
