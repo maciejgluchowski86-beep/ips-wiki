@@ -4123,10 +4123,8 @@ patches,~$\mathcal P$ is finite.
 \subsection{Confined-interaction identity}
 \label{app:confined-interactions}
 
-We relate the event that all successful interactions up to time~$T$ remain in
-a finite set~$R$ to the spin system in~$R$ with zero boundary condition.
-
-For~$R\subseteq\Lambda$, let~$\eta^{R,0}$ agree with~$\eta$ on~$R$ and be
+We relate the event that all successful interactions up to time~$T$ remain on
+a finite set~$R$ to the spin system with zero boundary condition outside~$R$. For~$R\subseteq\Lambda$, let~$\eta^{R,0}$ agree with~$\eta$ on~$R$ and be
 zero on~$R^c$. Define
 \begin{align*}
 \lambda_i^R(\eta)
@@ -4191,9 +4189,7 @@ Since~$E_T^R\in\mathcal G_t$,
 \E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}.
 \end{equation}
 
-We now identify the expectation on the right. Up to time~$T$, keep every death,
-and keep a split or birth with nonempty target only when its source and all its
-targets lie in~$R$. Let~$\Dcal_R$ be the resulting signed-dual generator. If
+We now identify the expectation on the right. Let~$\Dcal_R$ be the generator of a signed set process like~$\mathcal{D}$, but with the rates of interactions reaching outside~$R$ set to zero. If
 the active set is~$B\subseteq R$, the total rate of the discarded
 interactions is
 \begin{equation*}
@@ -4206,9 +4202,12 @@ interactions is
 The event~$E_T^R$ is exactly the event that no discarded interaction is
 successful before time~$T$. Thus multiplication by~$\ind(E_T^R)$ is
 equivalent to killing the dual at the first such interaction, with killing
-rate~$\kappa_R$.
+rate~$\kappa_R$, meaning
+\begin{equation}
+    \E_{(A,\sigma)}\Cb{f(A_s,\sigma_s) \ind\bb{E_s^R}} = e^{s(\mathcal{D}_R - \kappa_R)}(f)(A,\sigma).
+\end{equation}
 
-For~$i\in R$, the M\"obius expansions in
+For~$i\in R$, the monomial expansions in
 \eqref{eq:rate-expansion-revision} give
 \begin{align*}
 \lambda_i^R(\eta)\rho_i^R(\eta)
@@ -4241,7 +4240,7 @@ a_i^\beta(S)
 \label{eq:confined-spin-generator-on-H}
 \end{align}
 On the other hand,~$\Dcal_RH((B,\sigma),\eta)$ contains the same
-off-diagonal terms and subtracts the total rate of the retained jumps. Since
+off-diagonal terms. Since
 \begin{equation*}
 V(B)-\kappa_R(B)
 =
@@ -4254,8 +4253,7 @@ V(B)-\kappa_R(B)
 a_i^\beta(\varnothing)
 },
 \end{equation*}
-the potential cancels this subtracted jump rate and restores the diagonal
-coefficient~$a_i^\beta(\varnothing)$. Hence
+we have
 \begin{equation}
 \label{eq:confined-generator-duality}
 \Lcal_\eta^R H((B,\sigma),\eta)
@@ -4265,15 +4263,13 @@ coefficient~$a_i^\beta(\varnothing)$. Hence
 \bb{V(B)-\kappa_R(B)}H((B,\sigma),\eta).
 \end{equation}
 
-The generator identity~\eqref{eq:confined-generator-duality} gives the
-Feynman--Kac duality for the killed dual up to time~$T$. Combining it with the
+Combining it with the
 original duality for the remaining time~$t-T$ and using the Markov property
 gives
-\begin{equation*}
-\E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}
-=
-\bb{P_{t-T}P_T^R\chi_A}(\eta).
-\end{equation*}
+\begin{align*}
+\E_A\Cb{Z_t^\eta\ind\bb{E_T^R}} &= \bb{P_{t-T}e^{T\bb{\mathcal{D}_R +\bb{V-\kappa_R}}}\chi_A}\bb{\eta}\\
+&=\bb{P_{t-T}P_T^R \chi_A}\bb{\eta}.
+\end{align*}
 Since~$A\subseteq R$, the function~$\chi_A$ depends only on~$R$, so
 \eqref{eq:modified-zero-boundary-agreement} gives
 \begin{equation*}
