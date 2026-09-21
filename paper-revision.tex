@@ -3704,7 +3704,146 @@ the initial law.
 
 \appendix
 
-\section{Technical details}
+\section{Derivation of the monomial dual}
+\label{app:dual-calculation}
+
+\subsection{Generator action on monomials}
+\label{app:generator-action}
+
+Fix~$A\Subset\Lambda$. If~$i\notin A$, then
+\begin{equation*}
+\bb{E_{i,\rho_i(\eta)}-I}\chi_A(\eta)=0.
+\end{equation*}
+If~$i\in A$, then
+\begin{equation*}
+E_{i,\rho_i(\eta)}\chi_A(\eta)
+=
+\rho_i(\eta)\chi_{A\setminus\cb{i}}(\eta),
+\end{equation*}
+and hence
+\begin{equation*}
+\lambda_i(\eta)\bb{E_{i,\rho_i(\eta)}-I}\chi_A(\eta)
+=
+\lambda_i(\eta)\rho_i(\eta)\chi_{A\setminus\cb{i}}(\eta)
+-
+\lambda_i(\eta)\chi_A(\eta).
+\end{equation*}
+Using the M\"obius expansions
+\begin{equation*}
+\lambda_i\rho_i
+=
+\sum_{S\subseteq N(i)}\widehat{\lambda_i\rho_i}(S)\chi_S,
+\qquad
+\lambda_i
+=
+\sum_{S\subseteq N(i)}\widehat{\lambda_i}(S)\chi_S,
+\end{equation*}
+together with
+\begin{equation*}
+\chi_S\chi_{A\setminus\cb{i}}
+=
+\chi_{\bb{A\setminus\cb{i}}\cup S},
+\qquad
+\chi_S\chi_A=\chi_{A\cup S},
+\end{equation*}
+we obtain
+\begin{align*}
+\Lcal\chi_A
+={}&
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+\widehat{\lambda_i\rho_i}(S)
+\chi_{\bb{A\setminus\cb{i}}\cup S}
+\\
+&-
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+\widehat{\lambda_i}(S)\chi_{A\cup S}.
+\end{align*}
+By~\eqref{eq:signed-dual-coefficients}, this is
+\begin{equation}
+\label{eq:generator-action-monomials}
+\Lcal\chi_A
+=
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+a_i^\delta(S)\chi_{\bb{A\setminus\cb{i}}\cup S}
++
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+a_i^\beta(S)\chi_{A\cup S}.
+\end{equation}
+The terms with~$S=\varnothing$ in the first sum are deaths; the terms
+with~$S\neq\varnothing$ are splits. The nonempty-target terms in the second sum
+are births. Its empty-target term is diagonal
+because~$A\cup\varnothing=A$.
+
+\subsection{\textcolor{red}{Verification of the duality}}
+\label{app:dual-data}
+
+\textcolor{red}{The dual rates, signs, and potential were defined in
+Section~\ref{sec:dual}. We verify here that they give the generator identity
+\eqref{eq:monomial-generator-duality} and then justify the
+infinite-volume Feynman--Kac formula.}
+
+Let~$Y=(A,\sigma)$ and let~$H$ be given
+by~\eqref{eq:monomial-duality-function}. \textcolor{red}{By
+\eqref{eq:death-split-data}--\eqref{eq:birth-data}, each rate multiplied by
+its sign is the corresponding signed coefficient. Hence}
+\begin{equation}
+\label{eq:dual-generator-on-H}
+\begin{aligned}
+\Dcal H(Y,\eta)
+={}&
+\sigma
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+a_i^\delta(S)
+\chi_{\bb{A\setminus\cb{i}}\cup S}(\eta)
+\\
+&+
+\sigma
+\sum_{i\in A}
+\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}
+a_i^\beta(S)
+\chi_{A\cup S}(\eta)
+\\
+&-
+\sum_{i\in A}
+\bb{
+\sum_{S\subseteq N(i)}\delta_i(S)
++
+\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}\beta_i(S)
+}H(Y,\eta).
+\end{aligned}
+\end{equation}
+By~\eqref{eq:dual-potential}, adding~$V(A)H(Y,\eta)$ cancels the total jump
+rates in the last line of~\eqref{eq:dual-generator-on-H} and leaves the
+additional diagonal term
+\begin{equation*}
+\bb{\sum_{i\in A}a_i^\beta(\varnothing)}H(Y,\eta).
+\end{equation*}
+The resulting expression is~$\sigma$ times the right-hand side of
+\eqref{eq:generator-action-monomials}, hence
+equals~$\Lcal_\eta H(Y,\eta)$. This proves
+\eqref{eq:monomial-generator-duality}.
+
+\textcolor{red}{It remains to pass from the finite-volume generator identity
+to the infinite-volume semigroup.} Fix~$R\Subset\Lambda$ containing~$A$.
+The finite-state Feynman--Kac formula, applied to the dual killed at the first
+successful interaction leaving~$R$, gives
+\begin{equation*}
+P_t^{R,0}\chi_A(\eta)
+=
+\E_A\Cb{
+\sigma_t
+\exp\bb{\int_0^tV(A_s)\,ds}
+\chi_{A_t}(\eta)
+\ind\bb{E_t^R}
+}.
+\end{equation*}
+Along a finite exhaustion~$R\uparrow\Lambda$, local finiteness gives
+$E_t^R\uparrow\Omega$. Condition~\eqref{eq:fk-integrability} supplies the
+integrable dominating random variable, while
+Lemma~\ref{lem:finite-propagation} gives
+$P_t^{R,0}\chi_A\to P_t\chi_A$ uniformly. Dominated convergence proves
+\eqref{eq:monomial-feynman-kac-duality}.
+
 
 \bibliographystyle{paper/amsplain-fullnames}
 \bibliography{paper/references}
