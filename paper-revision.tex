@@ -4280,6 +4280,219 @@ Combining this with~\eqref{eq:confined-weight-to-dual} and integrating over
 \end{proof}
 
 
+\subsection{Continuation without successful interactions}
+\label{app:no-late-continuation}
+
+We derive the continuation identities used in the proof of
+Lemma~\ref{lem:no-late-relaxation}. Fix~$0\leq T<t$ and condition on
+~$\mathcal G_T$. If no successful interaction occurs after time~$T$, the bulk
+patches are unchanged and each end patch at time~$T$ is extended forward in
+time.
+
+For~$P\in\mathcal E_T$, define its continuation after~$T$ using the future
+interactions at~$i(P)$, with no incoming interaction from another site. Let
+~$L_{T,t}^P$ be the event that this continuation has no successful interaction
+in~$(T,t]$. Distinct end patches are based at distinct sites, so conditional on
+~$\mathcal G_T$ the events~$(L_{T,t}^P)_{P\in\mathcal E_T}$ are independent.
+Moreover,
+\begin{equation}
+\label{eq:local-no-late-factorization}
+L_{T,t}
+=
+\bigcap_{P\in\mathcal E_T}L_{T,t}^P,
+\qquad
+\CP{L_{T,t}}{\mathcal G_T}
+=
+\prod_{P\in\mathcal E_T}
+\CP{L_{T,t}^P}{\mathcal G_T}.
+\end{equation}
+Indeed, before the first successful interaction after~$T$, no incoming
+interaction has changed the activity of any site. Its source must therefore
+belong to one of the end patches present at time~$T$, and its activity agrees
+up to that time with the continuation just defined. We also write~$L_T^P$ for
+the event that the continuation of~$P$ has no successful interaction at any
+time after~$T$.
+
+\begin{proposition}[Continuation identity]
+\label{prop:no-late-continuation-identity}
+Fix~$0\leq T<t$. On~$L_{T,t}$,
+\begin{equation*}
+\mathcal B_t=\mathcal B_T,
+\qquad
+\mathcal E_t
+=
+\cb{P^{\uparrow t}:P\in\mathcal E_T}.
+\end{equation*}
+For every probability measure~$\mu$,
+\begin{align}
+\CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
+&=
+\prod_{P\in\mathcal B_T}C(P)\,
+\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+\notag
+\\
+&=
+\prod_{P\in\mathcal B_T}C(P)\,
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\psi_{i(P)}\bb{t-T,\eta\bb{i(P)}},P}
+}.
+\label{eq:appendix-finite-continuation-identity}
+\end{align}
+Furthermore,
+\begin{equation}
+\label{eq:appendix-infinite-continuation-identity}
+\CE{W\ind\bb{L_T}}{\mathcal G_T}
+=
+\prod_{P\in\mathcal B_T}C(P)
+\prod_{P\in\mathcal E_T}
+C\bb{\rho_{i(P)}(\mb 0),P}.
+\end{equation}
+The first equality in~\eqref{eq:appendix-finite-continuation-identity} also
+holds for~$W_t^{\varepsilon,\mu}$ with~$C$ replaced by~$C^\varepsilon$.
+\end{proposition}
+
+\begin{proof}
+On~$L_{T,t}$ no successful interaction starts a new patch after time~$T$.
+Thus the bulk patches are unchanged, while each~$P\in\mathcal E_T$ becomes its
+geometric extension~$P^{\uparrow t}$ from
+\eqref{eq:geometric-patch-extension}.
+
+Fix~$P\in\mathcal E_T$ and write
+\begin{equation*}
+i=i(P),
+\qquad
+S=S(P),
+\qquad
+\Delta=T-s(P),
+\qquad
+h=t-T.
+\end{equation*}
+The patch~$P^{\uparrow t}$ has length~$\Delta+h$. Therefore
+\eqref{eq:end-contribution-formulas} gives
+\begin{equation}
+\label{eq:end-patch-continuation}
+C\bb{z,P^{\uparrow t}}
+=
+\pw{
+\displaystyle
+\frac{\psi_i(\Delta+h,z)}{\varphi_i(\Delta+h)}
+}{\mathsf X(P)=\mathsf I}
+{
+\displaystyle
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta+h,z)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta+h)
+}
+}{\mathsf X(P)=\mathsf O}.
+\end{equation}
+This is the end-patch formula from Appendix~\ref{app:end-formulas} applied to
+the longer patch.
+
+The same formulas give the probability that the patch remains consistent
+during the added interval. Conditional on~$\mathcal G_T$,
+\begin{equation}
+\label{eq:local-continuation-probability}
+\CP{L_{T,t}^P}{\mathcal G_T}
+=
+\pw{
+\displaystyle
+\frac{\varphi_i(\Delta+h)}{\varphi_i(\Delta)}
+}{\mathsf X(P)=\mathsf I}
+{
+\displaystyle
+\frac{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta+h)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}
+}{\mathsf X(P)=\mathsf O}.
+\end{equation}
+Multiplying~\eqref{eq:end-patch-continuation} by
+\eqref{eq:local-continuation-probability} cancels the normalizer at length
+~$\Delta+h$. Using
+\begin{equation*}
+\psi_i(\Delta+h,z)
+=
+\psi_i\bb{\Delta,\psi_i(h,z)}
+\end{equation*}
+from~\eqref{eq:all-zero-neighbourhood-relaxation}, we obtain
+\begin{equation}
+\label{eq:local-probability-weighted-continuation}
+\CP{L_{T,t}^P}{\mathcal G_T}
+C\bb{z,P^{\uparrow t}}
+=
+C\bb{\psi_i(h,z),P}.
+\end{equation}
+For example, when the initial interaction of~$P$ is incoming, the left-hand
+side is
+\begin{equation*}
+\frac{\varphi_i(\Delta+h)}{\varphi_i(\Delta)}
+\frac{\psi_i(\Delta+h,z)}{\varphi_i(\Delta+h)}
+=
+\frac{\psi_i\bb{\Delta,\psi_i(h,z)}}{\varphi_i(\Delta)}.
+\end{equation*}
+When the initial interaction is outgoing, the same cancellation gives
+\begin{equation*}
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)
+\psi_i\bb{\Delta,\psi_i(h,z)}
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}.
+\end{equation*}
+In both cases this is~$C(\psi_i(h,z),P)$.
+
+On~$L_{T,t}$ the patch family at time~$t$ is determined by
+~$\mathcal G_T$, so the definition of~$W_t^\mu$ gives the first equality in
+\eqref{eq:appendix-finite-continuation-identity}. Using
+\eqref{eq:local-no-late-factorization}, we may put the product of the local
+conditional probabilities inside the~$\mu$-integral. Applying
+\eqref{eq:local-probability-weighted-continuation} to every end patch then
+gives the second equality.
+
+The system with the pure-death component removed has the same signed dual,
+successful-interaction skeleton, and patch laws; see
+Section~\ref{subsec:proof-pure-death-comparison}. Hence the event
+~$L_{T,t}$ and its conditional probability are unchanged, which proves the
+corresponding first equality for~$W_t^{\varepsilon,\mu}$.
+
+It remains to pass from a finite continuation to~$L_T$. By the pure-death
+assumption,~$\lambda_i(\mb 0)\geq\varepsilon$, and therefore
+\eqref{eq:all-zero-neighbourhood-relaxation} gives
+\begin{equation*}
+\psi_i(h,1)\longrightarrow\rho_i(\mb 0)
+\qquad\text{as }h\to\infty.
+\end{equation*}
+For each~$P\in\mathcal E_T$,
+\eqref{eq:local-probability-weighted-continuation} with~$z=1$ yields
+\begin{equation}
+\label{eq:local-infinite-continuation-limit}
+\lim_{u\to\infty}
+\CP{L_{T,u}^P}{\mathcal G_T}
+C\bb{1,P^{\uparrow u}}
+=
+C\bb{\rho_i(\mb 0),P}.
+\end{equation}
+The left-hand side is the conditional contribution of the continuation of
+~$P$, together with the event that it produces no successful interaction up to
+time~$u$. On~$L_T^P$ this continuation becomes the infinite patch following
+~$P$. Since there are only finitely many end patches at time~$T$ and their
+future interactions are conditionally independent, multiplying the limits in
+\eqref{eq:local-infinite-continuation-limit} proves
+\eqref{eq:appendix-infinite-continuation-identity}.
+\end{proof}
+
+
 \bibliographystyle{paper/amsplain-fullnames}
 \bibliography{paper/references}
 
