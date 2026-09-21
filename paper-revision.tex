@@ -3992,8 +3992,7 @@ z e^{-\lambda_i(\mb 0)\Delta}.
 
 \textcolor{red}{Suppose first that the initial interaction is incoming, so~$X_s^P=1$, and the terminal interaction is incoming or absent,
 corresponding to~$\mathsf I$ or~$\mathsf E$. Consistency occurs either when
-there is no outgoing interaction before the endpoint, or when the first
-outgoing interaction is a death with~$S=\varnothing$.} Therefore
+there is no outgoing interaction before the endpoint or death.} Therefore
 \begin{equation*}
 \pP_P\bb{\operatorname{Con}(P)}
 =
@@ -4009,8 +4008,8 @@ the conditional expectation defining the patch contribution,
 \begin{equation*}
 \E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}}.
 \end{equation*}
-If the first outgoing interaction is a death at time~$u$, the site is active
-until~$u$ and contributes~$e^{V_i u}$; if there is no outgoing interaction,
+If there is a death at time~$u$, the site is active
+until~$u$ and contributes~$e^{V_i u}$. If there is no death,
 the site remains active for the whole patch and contributes the terminal
 factor~$z$. Hence}
 \begin{equation*}
@@ -4023,40 +4022,39 @@ z e^{\bb{V_i-\alpha_i}\Delta}
 =
 \psi_i(\Delta,z).
 \end{equation*}
-Dividing gives the first row of~\eqref{eq:end-contribution-formulas};
-setting~$z=1$ gives the~$\mathsf{II}$ and~$\mathsf{IE}$ row of
+Thus the first formula in~\eqref{eq:end-contribution-formulas} is justified.
+Setting~$z=1$ gives the~$\mathsf{II}$ and~$\mathsf{IE}$ formulas in
 \eqref{eq:full-contribution-formulas}.
 
 \textcolor{red}{Suppose next that the initial interaction is outgoing and the
 terminal interaction is incoming or absent, corresponding to~$\mathsf I$ or
-~$\mathsf E$.} If~$\alpha(P)=\delta$, the source leaves the dual-active set at
+~$\mathsf E$.} If~$\alpha(P)=\delta$, the source becomes inactive at
 the initial interaction, so consistency is automatic and the local factor
-is~$\sigma_i^\delta(S)$. If~$\alpha(P)=\beta$, the source remains dual-active
+is~$\sigma_i^\delta(S)$. If~$\alpha(P)=\beta$, the source remains active
 and the preceding calculation applies. By~\eqref{eq:patch-initial-kind-law},
-\textcolor{red}{the consistency probability and the corresponding
-unnormalized contribution are, respectively,}
-\begin{equation*}
+\textcolor{red}{we have}
+\begin{align*}
+\pP_P\bb{\operatorname{Con}(P)} &= 
 \frac{
 \delta_i(S)+\beta_i(S)\varphi_i(\Delta)
 }{
 \delta_i(S)+\beta_i(S)
-}
-\qquad\text{and}\qquad
-\frac{
+},\\
+\E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}} &= \frac{
 \delta_i(S)\sigma_i^\delta(S)
 +
 \beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,z)
 }{
 \delta_i(S)+\beta_i(S)
 }.
-\end{equation*}
-Their ratio gives the second row of~\eqref{eq:end-contribution-formulas} and
-the~$\mathsf{OI}$,~$\mathsf{OE}$ row of
+\end{align*}
+Their ratio gives the second formula of~\eqref{eq:end-contribution-formulas} and
+the~$\mathsf{OI}$,~$\mathsf{OE}$ formulas of
 \eqref{eq:full-contribution-formulas}. \textcolor{red}{If the terminal interaction is outgoing, the source must
-remain dual-active throughout the patch. If the initial interaction is
+remain active throughout the patch. If the initial interaction is
 incoming, the patch contributes~$e^{V_i\Delta}$. If the initial interaction
 is outgoing, consistency also forces~$\alpha(P)=\beta$, leaving
-~$\sigma_i^\beta(S)e^{V_i\Delta}$. These are the remaining two rows of
+~$\sigma_i^\beta(S)e^{V_i\Delta}$. These are the remaining two formulas of
 ~\eqref{eq:full-contribution-formulas}. The formulas extend to
 ~$\Delta=\infty$ by taking limits.}
 
@@ -4081,8 +4079,7 @@ valid.
 
 Let~$P$ be an end patch, let~$u\geq e(P)$ be finite, and put
 $h=u-e(P)$. The extension~$P^{\uparrow u}$ is the geometric patch from
-\eqref{eq:geometric-patch-extension}. \textcolor{red}{Its contribution~$C(z,P^{\uparrow u})$, before multiplying
-by the probability of no further successful interaction, is obtained from
+\eqref{eq:geometric-patch-extension}. \textcolor{red}{Its contribution~$C(z,P^{\uparrow u})$ is obtained from
 ~\eqref{eq:end-contribution-formulas} by replacing~$e(P)-s(P)$ with
 ~$u-s(P)$.} In particular,
 \begin{equation}
