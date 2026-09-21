@@ -2393,9 +2393,7 @@ Taking the maximum in~\eqref{eq:threshold-profile} proves
 The proof of Theorem~\ref{thm:centered-monomial-monotonicity} is based on the
 action of the generator in the centered-monomial basis. Patch positivity and
 the threshold bound from Proposition~\ref{prop:patch-contribution-positivity}
-make every off-diagonal coefficient in this basis nonnegative. The resulting
-finite-volume semigroups therefore preserve nonnegative centered moments, and
-the infinite-volume statement follows by a standard finite-propagation approximation, given in the appendix.
+make every off-diagonal coefficient in this basis nonnegative. The resulting semigroup therefore preserve nonnegative centered moments.
 
 If~$i\in A$, then
 \begin{equation*}
@@ -2478,8 +2476,7 @@ and then expand each remaining factor as
 ~$0\leq p_j^\star\leq1$, every coefficient in
 \eqref{eq:ordinary-centered-product-expansion} is nonnegative. Combining this
 with~\eqref{eq:centered-monomial-generator-expansion} and
-\eqref{eq:centered-generator-positive-coefficients}, and collecting equal
-centered monomials, gives
+\eqref{eq:centered-generator-positive-coefficients} gives
 \begin{equation}
 \label{eq:centered-generator-metzler}
 \Lcal\chi_A^\star
@@ -2489,41 +2486,19 @@ centered monomials, gives
 M(A,B)\geq0
 \quad\text{for }B\neq A.
 \end{equation}
-For each~$A$, only finitely many coefficients~$M(A,B)$ are nonzero.
-
-We first pass from this generator calculation to the semigroup in finite volume.
-Let~$R\Subset\Lambda$ and let~$P_t^{R,0}$ denote the process restricted to~$R$
-with the exterior spins fixed at~$0$. Setting the variables outside~$R$ equal
-to~$0$ in the preceding calculation gives, for~$A\subseteq R$,
-\begin{equation*}
-\Lcal^{R,0}\chi_A^\star
-=
-\sum_{B\subseteq R}M_R(A,B)\chi_B^\star,
-\qquad
-M_R(A,B)\geq0
-\quad\text{for }B\neq A.
-\end{equation*}
-Thus~$M_R$ is a finite matrix with nonnegative off-diagonal entries, and
-$e^{tM_R}$ has nonnegative entries for every~$t\geq0$. If~$\sigma$ is a
+For each~$A$, only finitely many coefficients~$M(A,B)$ are nonzero, and the matrix~$M$ is Metzler, so for each~$t\geq 0$ the matrix~$e^{tM} = \sum_{n\in\N} \frac{t^n}{n!} M^n$ is well-defined and has non-negative entries. If~$\sigma$ is a
 finite signed measure whose centered moments are all nonnegative, then
 \begin{equation*}
-(\sigma P_t^{R,0})(\chi_A^\star)
+(\sigma P_t)(\chi_A^\star)
 =
-\sum_{B\subseteq R}
-e^{tM_R}(A,B)\,\sigma(\chi_B^\star)
+\sum_{B\Subset \Lambda}
+e^{tM}(A,B)\,\sigma(\chi_B^\star)
 \geq0.
 \end{equation*}
-For fixed~$t$ and~$A$, Lemma~\ref{lem:finite-propagation} gives
-$P_t^{R,0}\chi_A^\star\to P_t\chi_A^\star$ uniformly as~$R$ increases to
-~$\Lambda$. Hence
-\begin{equation*}
-(\sigma P_t)(\chi_A^\star)\geq0.
-\end{equation*}
 Taking~$\sigma=\nu-\mu$ proves
-$\mu P_t\preceq_\star\nu P_t$ whenever~$\mu\preceq_\star\nu$.
+$\mu P_t\preceq_\star\nu P_t$ whenever~$\mu\preceq_\star\nu$. The same argument with~$\nu\in\mathcal M_\star$ and~$\mu = 0$ shows that~$P_t$ preserves~$\mathcal M_\star$.
 
-The same argument with~$\sigma=\mu\in\mathcal M_\star$ shows that
-~$P_t$ preserves~$\mathcal M_\star$. To obtain the comparison for ordinary
+ To obtain the comparison for
 monomials, expand
 \begin{equation*}
 \chi_A
