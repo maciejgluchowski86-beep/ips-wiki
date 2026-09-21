@@ -2517,6 +2517,88 @@ $\mu P_t\preceq_\star\nu P_t$ implies
 for every~$A\Subset\Lambda$, which proves
 Theorem~\ref{thm:centered-monomial-monotonicity}.
 
+\begin{proof}[Proof of Corollary~\ref{cor:extremal-limits-comparison}]
+Since~$\mu_{\mb p^\star}$ is the minimum of~$\mathcal M_\star$ and
+~$P_t$ preserves~$\mathcal M_\star$, for every~$s\geq0$,
+\begin{equation*}
+\mu_{\mb p^\star}
+\preceq_\star
+\mu_{\mb p^\star}P_s.
+\end{equation*}
+Applying Theorem~\ref{thm:centered-monomial-monotonicity} and using the
+semigroup property gives
+\begin{equation*}
+\mu_{\mb p^\star}P_t
+\preceq_\star
+\mu_{\mb p^\star}P_{t+s}
+\qquad
+\text{for every }s,t\geq0.
+\end{equation*}
+Thus, for every~$A\Subset\Lambda$, the centered moment
+~$(\mu_{\mb p^\star}P_t)(\chi_A^\star)$ is increasing in~$t$ and bounded,
+so it has a limit. Any subsequential weak limit of
+~$\mu_{\mb p^\star}P_t$ therefore has the same centered monomial moments.
+Since centered monomials form a basis for the functions of every finite set of
+spins, these moments determine the weak limit. Hence
+~$\mu_{\mb p^\star}P_t\Rightarrow\pi^-$ for some probability measure
+~$\pi^-$. The cone~$\mathcal M_\star$ is closed under weak convergence, so
+~$\pi^-\in\mathcal M_\star$. Finally, for every~$s\geq0$, the Feller
+property and the semigroup identity
+\begin{equation*}
+\mu_{\mb p^\star}P_{t+s}
+=
+\bb{\mu_{\mb p^\star}P_t}P_s
+\end{equation*}
+give~$\pi^-P_s=\pi^-$.
+
+Suppose now that~$\mb p^\star\leq\mbs{\tfrac12}$. Then~$\mu_{\mb1}$ is
+the maximum of~$\mathcal M_\star$. Since~$\mu_{\mb1}P_s\in\mathcal
+M_\star$,
+\begin{equation*}
+\mu_{\mb1}P_s
+\preceq_\star
+\mu_{\mb1}.
+\end{equation*}
+Applying the monotonicity theorem gives
+\begin{equation*}
+\mu_{\mb1}P_{t+s}
+\preceq_\star
+\mu_{\mb1}P_t
+\qquad
+\text{for every }s,t\geq0.
+\end{equation*}
+Thus every centered monomial expectation decreases to a limit. The same
+argument as above gives~$\mu_{\mb1}P_t\Rightarrow\pi^+$ for some
+~$\pi^+\in\mathcal M_\star$, and the semigroup property shows that
+~$\pi^+$ is invariant.
+
+For part~\textup{(iii)}, suppose that
+~$\underline\mu\preceq_\star\mu\preceq_\star\overline\mu$. By
+Theorem~\ref{thm:centered-monomial-monotonicity},
+\begin{equation*}
+\underline\mu P_t
+\preceq_\star
+\mu P_t
+\preceq_\star
+\overline\mu P_t
+\qquad
+\text{for every }t\geq0.
+\end{equation*}
+Hence, for every~$A\Subset\Lambda$,
+\begin{equation*}
+(\underline\mu P_t)(\chi_A^\star)
+\leq
+(\mu P_t)(\chi_A^\star)
+\leq
+(\overline\mu P_t)(\chi_A^\star).
+\end{equation*}
+If the two outer measures converge weakly to~$\pi$, the outer terms both
+converge to~$\pi(\chi_A^\star)$, so the middle term does as well. Since the
+centered monomials form a basis for the functions of every finite set of spins,
+expectations of every local function converge to their~$\pi$-expectation.
+Thus~$\mu P_t\Rightarrow\pi$.
+\end{proof}
+
 \subsection{Pure-death comparison}
 \label{subsec:proof-pure-death-comparison}
 
