@@ -2778,10 +2778,8 @@ event that a successful interaction occurs far in time is negligible.
 The comparison with pure deaths from
 Section~\ref{subsec:proof-pure-death-comparison} gives exactly this estimate.
 Removing deaths at rate~$\varepsilon$ leaves the dual jump process unchanged
-and increases its Feynman--Kac potential by~$\varepsilon\abs{A_s}$. At the
-level of patches, it leaves the successful interactions and patch families
-unchanged and increases the patch contributions. If a successful interaction
-occurs at time~$u$, its ancestry consists of active patches whose lifetimes add
+and increases its Feynman--Kac potential by~$\varepsilon\abs{A_s}$. If a successful interaction
+occurs at time~$u$, its ancestry consists of~$\mathsf{XO}$ type patches, which are active throughout, and whose lifetimes add
 up to~$u$. The contribution for the original system is therefore smaller,
 relative to the system with the pure deaths removed, by a factor
 ~$e^{-\varepsilon u}$. Since the latter provides an integrable upper bound,
@@ -2805,60 +2803,9 @@ exits~$R$ before time~$T$, and its contribution is controlled by finite
 propagation. We take~$R$ with radius proportional to~$T$. Polynomial growth
 ensures~$\abs R\lesssim(1+T)^D$, while the finite-propagation error is
 exponentially small. In the proof below we make these three estimates precise
-and then combine them with~$T=t/2$. We first prove the convergence estimate for
-initial laws in~$\mathcal M_\star$ and then extend it to~$\mathcal M_-$ by
-writing each measure in~$\mathcal M_{-,K}$ as an affine combination of two
-measures in~$\mathcal M_\star$.
+and then combine them with~$T=t/2$. 
 
-We first record the elementary description of the product measures in
-~$\mathcal M_{-,1}$ used in Section~\ref{sec:main-results}. For a Bernoulli
-product measure~$\mu_{\mb p}$,
-\begin{equation*}
-\mu_{\mb p}(\chi_A^\star)
-=
-\prod_{i\in A}\bb{p_i-p_i^\star},
-\qquad
-\mu_{\mb 1}(\chi_A^\star)
-=
-\prod_{i\in A}\bb{1-p_i^\star}.
-\end{equation*}
-Thus~$\mu_{\mb p}\in\mathcal M_{-,1}$ if and only if
-\begin{equation}
-\label{eq:product-m-minus-condition}
-\prod_{i\in A}\bb{p_i-p_i^\star}
-+
-\prod_{i\in A}\bb{1-p_i^\star}
-\geq0
-\qquad
-\text{for every }A\Subset\Lambda.
-\end{equation}
-Taking~$A=\cb{i}$ shows that
-\begin{equation*}
-p_i\geq 2p_i^\star-1,
-\end{equation*}
-and hence~$\mb p\geq\mb p^-$, where
-$p_i^-=\max\cb{2p_i^\star-1,0}$. Conversely, if
-~$\mb p\geq\mb p^-$, then
-\begin{equation*}
--\bb{1-p_i^\star}
-\leq
-p_i-p_i^\star
-\leq
-1-p_i^\star
-\end{equation*}
-for every~$i$. If the first product in
-\eqref{eq:product-m-minus-condition} is nonnegative, the inequality is
-immediate. If it is negative, its absolute value is at most
-$\prod_{i\in A}(1-p_i^\star)$, and the inequality follows again. Therefore
-\begin{equation}
-\label{eq:product-m-minus-characterization}
-\mu_{\mb p}\in\mathcal M_{-,1}
-\quad\Longleftrightarrow\quad
-\mb p\geq\mb p^-.
-\end{equation}
-
-It is enough to prove the quantitative convergence estimate uniformly over
-~$\mathcal M_\star$. Indeed, let~$K\geq0$ and
+It is enough to prove the convergence uniformly over~$\mathcal M_\star$. Indeed, let~$K\geq0$ and
 $\mu\in\mathcal M_{-,K}$, and set
 \begin{equation*}
 \overline\mu
