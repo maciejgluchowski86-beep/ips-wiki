@@ -4005,9 +4005,18 @@ e^{-\alpha_i\Delta}
 =
 \varphi_i(\Delta).
 \end{equation*}
-\textcolor{red}{The corresponding unnormalized expectation, with terminal
-factor~$z$, is}
+\textcolor{red}{To compute~$C(z,P)$, we also need the numerator of
+the conditional expectation defining the patch contribution,
 \begin{equation*}
+\E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}}.
+\end{equation*}
+If the first outgoing interaction is a death at time~$u$, the site is active
+until~$u$ and contributes~$e^{V_i u}$; if there is no outgoing interaction,
+the site remains active for the whole patch and contributes the terminal
+factor~$z$. Hence}
+\begin{equation*}
+\E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}}
+=
 \delta_i(\varnothing)
 \int_0^\Delta e^{\bb{V_i-\alpha_i}u}\,du
 +
