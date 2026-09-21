@@ -1516,7 +1516,7 @@ Pure deaths have a particularly simple effect on this representation. Since
 =
 -\abs{A}\chi_A,
 \end{equation*}
-adding~$\varepsilon\Ncal^{\mb 0}$ to the spin-system generator changes no
+adding~$\varepsilon\Ncal^{\mb 0}$ to the spin system generator changes no
 off-diagonal coefficient in~\eqref{eq:signed-dual-generator-expansion}.
 Consequently, the signed dual jump process is unchanged, while the potential
 is replaced by
@@ -2611,34 +2611,14 @@ then
 \bb{V(A)+\sum_{i\in A}d_i}H.
 \end{equation*}
 Thus the two systems have the same signed dual generator and therefore the same
-dual process, successful-interaction skeleton, patch families, and consistent
-patch laws. Their one-site potentials satisfy
+dual process, successful-interaction skeleton, patch families, and
+patch laws. Their potentials satisfy
 \begin{equation}
 \label{eq:pure-death-potential-comparison}
 V_i'=V_i+d_i.
 \end{equation}
 
-We next compare the patch contributions. From
-\eqref{eq:pure-death-decomposition-revision},
-\begin{equation}
-\label{eq:pure-death-rate-identities}
-\lambda_i=\lambda_i'+d_i,
-\qquad
-\lambda_i\rho_i=\lambda_i'\rho_i'.
-\end{equation}
-Consequently, for every nonempty~$S\subseteq N(i)$,
-\begin{equation}
-\label{eq:pure-death-mobius-identities}
-\widehat{\lambda_i}(S)=\widehat{\lambda_i'}(S),
-\qquad
-\widehat{\lambda_i\rho_i}(S)
-=
-\widehat{\lambda_i'\rho_i'}(S).
-\end{equation}
-The data~$\alpha_i$, $\delta_i(S)$, $\beta_i(S)$ and their signs in
-Appendix~\ref{app:contribution-formulas} are therefore the same for the two
-systems, and so is~$\varphi_i$. Only the all-zero-neighbourhood relaxation
-changes. Writing~$\psi_i'$ for the function associated with~$\Lcal'$, we
+We next compare the patch contributions between the two systems. Writing~$\psi_i'$ for the function associated with~$\Lcal'$, we
 have, by~\eqref{eq:dual-to-spin-contribution-data},
 \begin{align*}
 \psi_i(\Delta,z)
@@ -2665,15 +2645,14 @@ Hence
 \text{for }\Delta\in[0,\infty]\text{ and }z\in[0,1].
 \end{equation}
 
-Suppose first that a full patch starts with an incoming boundary. The first two
+First consider a bulk patch with incoming initial interaction, i.e. of type~$\mathsf{II}$ or~$\mathsf{IO}$. The first two
 rows of~\eqref{eq:full-contribution-formulas},
 together with~\eqref{eq:pure-death-potential-comparison} and
 \eqref{eq:pure-death-psi-comparison}, give
 \begin{equation*}
 0\leq C(P)\leq C'(P).
 \end{equation*}
-If a full patch starts with an outgoing boundary with target~$S$, patch
-positivity gives
+If a bulk patch starts with an outgoing interaction, i.e. is of type~$\mathsf{OI}$ or~$\mathsf{OO}$, and the interaction has target~$S$, then patch positivity gives
 \begin{equation*}
 \beta_i(S)\sigma_i^\beta(S)
 =
@@ -2686,10 +2665,9 @@ same inequality. We have proved
 \label{eq:pure-death-bulk-patch-comparison}
 0\leq C(P)\leq C'(P)
 \qquad
-\text{for every full patch }P.
+\text{for every bulk patch }P.
 \end{equation}
-Moreover, if~$P$ has an outgoing terminal boundary, its contribution is the
-common sign, when present, multiplied by~$e^{V_i\Delta}$, where
+Moreover, if~$P$ ends with an outgoing interaction, i.e. is of type~$\mathsf{IO}$ or~$\mathsf{OO}$, then its contribution is~$e^{V_i\Delta}$, where
 $i=i(P)$ and~$\Delta=e(P)-s(P)$. Thus
 \begin{equation}
 \label{eq:pure-death-outgoing-terminal-factor}
@@ -2698,13 +2676,11 @@ C(P)
 e^{-d_{i(P)}\bb{e(P)-s(P)}}C'(P).
 \end{equation}
 
-By Proposition~\ref{prop:patch-contribution-positivity},
+Now we move on to comparing end patch contributions. By Proposition~\ref{prop:patch-contribution-positivity},
 \eqref{eq:pure-death-bulk-patch-comparison} implies that~$\Lcal'$ is
-patch-positive. Its threshold profile is the same as that of~$\Lcal$, because
+patch-positive and its threshold profile is the same as that of~$\Lcal$, because
 the formula~\eqref{eq:threshold-profile} only involves the nonempty
-coefficients in~\eqref{eq:pure-death-mobius-identities}.
-
-It remains to compare the end-patch factors. For an end patch~$P$ based at
+coefficients in~\eqref{eq:pure-death-mobius-identities}. For an end patch~$P$ based at
 site~$i$, set
 \begin{equation*}
 \kappa(P)=\partial_zC(z,P),
@@ -2731,13 +2707,11 @@ C\bb{p_i^\star,P}
 \kappa(P)\bb{\eta(i)-p_i^\star}.
 \end{equation*}
 Distinct end patches are based at distinct sites. Therefore
-\begin{align}
-&\mu\bb{
+\begin{equation}
+\mu\bb{
 \prod_{P\in\mathcal E_t}
 C\bb{\eta\bb{i(P)},P}
-}
-\notag\\
-&\qquad=
+} =
 \sum_{\mathcal Q\subseteq\mathcal E_t}
 \mu\bb{
 \chi_{\cb{i(P):P\in\mathcal Q}}^\star
@@ -2746,7 +2720,7 @@ C\bb{\eta\bb{i(P)},P}
 \prod_{P\in\mathcal E_t\setminus\mathcal Q}
 C\bb{p_{i(P)}^\star,P}.
 \label{eq:pure-death-centered-end-expansion}
-\end{align}
+\end{equation}
 The same expansion holds with~$C,\kappa$ replaced by~$C',\kappa'$. If
 ~$\mu\in\mathcal M_\star$, every centered moment in
 \eqref{eq:pure-death-centered-end-expansion} is nonnegative, so
