@@ -4724,6 +4724,87 @@ Both quantities compared in the lemma are at least
 \end{proof}
 
 
+\subsection{Finite propagation}
+\label{app:finite-propagation}
+
+Set
+\begin{equation*}
+\overline\lambda
+=
+\sup_{i\in\Lambda,\,\eta\in\Omega}\lambda_i(\eta),
+\qquad
+m
+=
+\sup_{i\in\Lambda}\abs{N(i)\cup\cb{i}}.
+\end{equation*}
+Both quantities are finite by the assumptions on the spin system. We use the
+following standard finite-speed estimate for the Harris graphical
+construction; see, for example,~\cite[Chapter~I]{Liggett1985}.
+
+\begin{lemma}[Finite propagation]
+\label{lem:finite-propagation}
+Let~$f$ be supported on~$A\Subset\Lambda$. For every~$a>0$, there are
+~$v<\infty$ and~$C_A<\infty$ such that
+\begin{equation}
+\label{eq:finite-propagation}
+\norm{\bb{P_t-P_t^{R,0}}f}_\infty
+\leq
+C_Ae^{-at}\norm f_\infty
+\end{equation}
+for every~$t\geq0$ and every finite~$R$ containing
+~$B\bb{A,\lceil vt\rceil}$.
+\end{lemma}
+
+\begin{proof}
+Construct the process using rate-$\overline\lambda$ Poisson clocks at each site,
+together with independent randomness deciding whether a proposed update is
+accepted and, if so, the refreshed spin. Trace the dependence of the spins in
+~$A$ at time~$t$ backwards through this construction. Whenever a clock at
+~$i$ is encountered, the earlier states at the sites in
+~$N(i)\cup\cb{i}$ may be needed, so these sites are added to the dependence
+set.
+
+Couple the infinite-volume process and the process with zero boundary outside
+~$R$ using the same graphical construction in~$R$. If the backward dependence
+set stays inside~$R$, the two processes agree on~$A$ at time~$t$.
+
+To leave~$B(A,n)$, the backward dependence set must contain a time-ordered path
+of at least~$n$ clock rings. For a path of length~$k$, there are at most
+~$\abs A\,m^k$ possible spatial paths, while the expected number of
+chronologically ordered~$k$-tuples of clock rings along any fixed path is
+~$(\overline\lambda t)^k/k!$. Hence, for every~$\theta>0$,
+\begin{align*}
+\pP\bb{\text{the backward dependence set leaves }B(A,n)}
+&\leq
+\abs A
+\sum_{k\geq n}
+\frac{\bb{m\overline\lambda t}^k}{k!}
+\\
+&\leq
+\abs A
+\exp\bb{
+m\overline\lambda t e^\theta-\theta n
+}.
+\end{align*}
+Choose~$v$ so that
+\begin{equation*}
+\theta v-m\overline\lambda e^\theta>a.
+\end{equation*}
+With~$n=\lceil vt\rceil$, the preceding probability is bounded by
+~$\abs A e^{-at}$ after decreasing~$a$ slightly if necessary. Therefore, for
+every~$\eta\in\Omega$,
+\begin{equation*}
+\abs{P_tf(\eta)-P_t^{R,0}f(\eta)}
+\leq
+2\norm f_\infty
+\pP\bb{\text{the backward dependence set leaves }R}
+\leq
+2\abs A e^{-at}\norm f_\infty.
+\end{equation*}
+This proves~\eqref{eq:finite-propagation}.
+\end{proof}
+
+
 \bibliographystyle{paper/amsplain-fullnames}
 \bibliography{paper/references}
 
