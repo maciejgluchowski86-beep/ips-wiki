@@ -2748,6 +2748,101 @@ which proves the corollary.
 \subsection{Common invariant limit}
 \label{subsec:proof-common-invariant-limit}
 
+We prove Theorem~\ref{thm:common-invariant-limit} by comparing the finite-horizon
+patch representation with its limit after the successful-interaction skeleton
+has stopped. Fixing a cut time~$T<t$, there are three sources of error. First,
+a successful interaction may occur after~$T$; the pure-death comparison from
+Section~\ref{subsec:proof-pure-death-comparison} makes the contribution of this
+event of order~$e^{-\varepsilon T}$. Second, if there is no successful
+interaction after~$T$, the end patches still depend on the initial
+configuration, but this dependence relaxes at rate~$e^{-\varepsilon(t-T)}$.
+Finally, the number of end patches is controlled by confining the
+successful-interaction skeleton to a finite set~$R$, while the contribution
+from leaving~$R$ is bounded by finite propagation. Taking~$R$ to be a ball of
+radius proportional to~$T$ gives~$\abs R\lesssim(1+T)^D$, and we then take
+~$T=t/2$.
+
+We first record the elementary description of the product measures in
+~$\mathcal M_{-,1}$ used in Section~\ref{sec:main-results}. For a Bernoulli
+product measure~$\mu_{\mb p}$,
+\begin{equation*}
+\mu_{\mb p}(\chi_A^\star)
+=
+\prod_{i\in A}\bb{p_i-p_i^\star},
+\qquad
+\mu_{\mb 1}(\chi_A^\star)
+=
+\prod_{i\in A}\bb{1-p_i^\star}.
+\end{equation*}
+Thus~$\mu_{\mb p}\in\mathcal M_{-,1}$ if and only if
+\begin{equation}
+\label{eq:product-m-minus-condition}
+\prod_{i\in A}\bb{p_i-p_i^\star}
++
+\prod_{i\in A}\bb{1-p_i^\star}
+\geq0
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation}
+Taking~$A=\cb{i}$ shows that
+\begin{equation*}
+p_i\geq 2p_i^\star-1,
+\end{equation*}
+and hence~$\mb p\geq\mb p^-$, where
+$p_i^-=\max\cb{2p_i^\star-1,0}$. Conversely, if
+~$\mb p\geq\mb p^-$, then
+\begin{equation*}
+-\bb{1-p_i^\star}
+\leq
+p_i-p_i^\star
+\leq
+1-p_i^\star
+\end{equation*}
+for every~$i$. If the first product in
+\eqref{eq:product-m-minus-condition} is nonnegative, the inequality is
+immediate. If it is negative, its absolute value is at most
+$\prod_{i\in A}(1-p_i^\star)$, and the inequality follows again. Therefore
+\begin{equation}
+\label{eq:product-m-minus-characterization}
+\mu_{\mb p}\in\mathcal M_{-,1}
+\quad\Longleftrightarrow\quad
+\mb p\geq\mb p^-.
+\end{equation}
+
+It remains enough to prove the quantitative convergence estimate uniformly over
+~$\mathcal M_\star$. Indeed, let~$K\geq0$ and
+$\mu\in\mathcal M_{-,K}$, and set
+\begin{equation*}
+\overline\mu
+=
+\frac{\mu+K\mu_{\mb 1}}{1+K}
+\in\mathcal M_\star.
+\end{equation*}
+Then
+\begin{equation*}
+\mu
+=
+(1+K)\overline\mu-K\mu_{\mb 1},
+\end{equation*}
+while~$\mu_{\mb 1}\in\mathcal M_\star$. Hence, if for some local
+function~$f$ and some quantity~$\ell(f)$ we have
+\begin{equation*}
+\sup_{\nu\in\mathcal M_\star}
+\abs{(\nu P_t)(f)-\ell(f)}
+\leq
+B_f(t),
+\end{equation*}
+then
+\begin{equation}
+\label{eq:m-minus-reduction}
+\sup_{\mu\in\mathcal M_{-,K}}
+\abs{(\mu P_t)(f)-\ell(f)}
+\leq
+(1+2K)B_f(t).
+\end{equation}
+We therefore work with initial laws in~$\mathcal M_\star$ until the end of
+the proof.
+
 \subsection{Orientability}
 \label{subsec:proof-orientability}
 
