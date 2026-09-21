@@ -2748,19 +2748,67 @@ which proves the corollary.
 \subsection{Common invariant limit}
 \label{subsec:proof-common-invariant-limit}
 
-We prove Theorem~\ref{thm:common-invariant-limit} by comparing the finite-horizon
-patch representation with its limit after the successful-interaction skeleton
-has stopped. Fixing a cut time~$T<t$, there are three sources of error. First,
-a successful interaction may occur after~$T$; the pure-death comparison from
-Section~\ref{subsec:proof-pure-death-comparison} makes the contribution of this
-event of order~$e^{-\varepsilon T}$. Second, if there is no successful
-interaction after~$T$, the end patches still depend on the initial
-configuration, but this dependence relaxes at rate~$e^{-\varepsilon(t-T)}$.
-Finally, the number of end patches is controlled by confining the
-successful-interaction skeleton to a finite set~$R$, while the contribution
-from leaving~$R$ is bounded by finite propagation. Taking~$R$ to be a ball of
-radius proportional to~$T$ gives~$\abs R\lesssim(1+T)^D$, and we then take
-~$T=t/2$.
+The proof starts from the patch representation. For~$A\Subset\Lambda$ and a
+probability measure~$\mu$ we have
+\begin{equation*}
+(\mu P_t)(\chi_A)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+},
+\end{equation*}
+where the variables~$\eta(i(P))$ come from the initial configuration in the
+backward dual representation. We aim to show that this converges to
+\begin{equation*}
+\E_A\Cb{
+\prod_{P\in\mathcal P}C(P)
+\ind\bb{\abs{\mathcal P}<\infty}
+}.
+\end{equation*}
+The event~$\cb{\abs{\mathcal P}<\infty}$ is the event that the dual process
+eventually dies, and from that point there are no more successful interactions.
+In particular, on this event the limiting product contains no end-patch
+contribution and hence no dependence on the initial configuration. This
+suggests proving convergence by showing first that the contribution from the
+event that a successful interaction occurs far in time is negligible.
+
+The comparison with pure deaths from
+Section~\ref{subsec:proof-pure-death-comparison} gives exactly this estimate.
+Removing deaths at rate~$\varepsilon$ leaves the dual jump process unchanged
+and increases its Feynman--Kac potential by~$\varepsilon\abs{A_s}$. At the
+level of patches, it leaves the successful interactions and patch families
+unchanged and increases the patch contributions. If a successful interaction
+occurs at time~$u$, its ancestry consists of active patches whose lifetimes add
+up to~$u$. The contribution for the original system is therefore smaller,
+relative to the system with the pure deaths removed, by a factor
+~$e^{-\varepsilon u}$. Since the latter provides an integrable upper bound,
+the contribution from the event that a successful interaction occurs
+after~$T$ is of order~$e^{-\varepsilon T}$.
+
+It remains to consider the event that there is no successful interaction after
+~$T$ and show that on this event the dependence on the initial law decays. The
+end patches present at a later horizon~$t$ still contain the factors~$C(z,P)$
+through which the initial configuration enters the representation. Once there
+are no further successful interactions, the dependence of each such factor
+on~$z$ decays at rate at least~$\varepsilon$, and hence is of order
+~$e^{-\varepsilon(t-T)}$. This is the mechanism by which the dependence on the
+initial law disappears. The resulting estimate, however, gets worse with the
+number of end patches.
+
+For this reason we also control the event that there are many end patches. If
+the interaction cone up to time~$T$ stays in a finite region~$R$, there are at
+most~$\abs R$ end patches. On the complementary event the interaction cone
+exits~$R$ before time~$T$, and its contribution is controlled by finite
+propagation. We take~$R$ with radius proportional to~$T$. Polynomial growth
+ensures~$\abs R\lesssim(1+T)^D$, while the finite-propagation error is
+exponentially small. In the proof below we make these three estimates precise
+and then combine them with~$T=t/2$. We first prove the convergence estimate for
+initial laws in~$\mathcal M_\star$ and then extend it to~$\mathcal M_-$ by
+writing each measure in~$\mathcal M_{-,K}$ as an affine combination of two
+measures in~$\mathcal M_\star$.
 
 We first record the elementary description of the product measures in
 ~$\mathcal M_{-,1}$ used in Section~\ref{sec:main-results}. For a Bernoulli
