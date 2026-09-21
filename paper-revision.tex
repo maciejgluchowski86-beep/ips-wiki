@@ -2391,6 +2391,108 @@ Taking the maximum in~\eqref{eq:threshold-profile} proves
 \subsection{Centered monomial monotonicity}
 \label{subsec:proof-centered-monomial-monotonicity}
 
+If~$i\notin A$, an update at~$i$ leaves~$\chi_A^\star$ unchanged. If~$i\in A$, then
+\begin{equation*}
+\lambda_i\bb{E_{i,\rho_i}-I}\chi_A^\star
+=
+\lambda_i\bb{\rho_i-p_i^\star}\chi_{A\setminus\cb{i}}^\star
+-
+\lambda_i\chi_A^\star.
+\end{equation*}
+Expanding~$\lambda_i\rho_i$ and~$\lambda_i$ in ordinary monomials and summing
+over~$i\in A$ gives
+\begin{equation}
+\label{eq:centered-monomial-generator-expansion}
+\Lcal\chi_A^\star
+=
+\sum_{i\in A}\Cb{
+-\lambda_i(\mb 0)\chi_A^\star
++
+\sum_{S\subseteq N(i)}
+\bb{
+\widehat{\lambda_i\rho_i}(S)
+-
+p_i^\star\widehat{\lambda_i}(S)
+}
+\chi_S\chi_{A\setminus\cb{i}}^\star
++
+\sum_{\substack{S\subseteq N(i)\\S\neq\vn}}
+\bb{-\widehat{\lambda_i}(S)}
+\chi_S\chi_A^\star
+}.
+\end{equation}
+
+Patch positivity gives
+\begin{equation*}
+-\widehat{\lambda_i}(S)\geq0
+\qquad
+\text{for every nonempty }S\subseteq N(i).
+\end{equation*}
+The other coefficients in~\eqref{eq:centered-monomial-generator-expansion}
+are also nonnegative:
+\begin{equation}
+\label{eq:centered-generator-positive-coefficients}
+\widehat{\lambda_i\rho_i}(S)
+-
+p_i^\star\widehat{\lambda_i}(S)
+\geq0
+\qquad
+\text{for every }S\subseteq N(i).
+\end{equation}
+For~$S=\vn$, this is
+\begin{equation*}
+\lambda_i(\mb 0)
+\bb{\rho_i(\mb 0)-p_i^\star}
+\geq0
+\end{equation*}
+by Proposition~\ref{prop:patch-contribution-positivity}. If~$S\neq\vn$ and
+$\widehat{\lambda_i}(S)<0$, inequality
+\eqref{eq:centered-generator-positive-coefficients} follows directly from the
+definition~\eqref{eq:threshold-profile} of~$p_i^\star$. If
+$\widehat{\lambda_i}(S)=0$, patch positivity gives
+\begin{equation*}
+\widehat{\lambda_i\rho_i}(S)
+=
+\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb 0)}}(S)
+\geq0.
+\end{equation*}
+
+It remains to expand the products of ordinary and centered monomials in
+\eqref{eq:centered-monomial-generator-expansion}. For finite
+~$S,B\subseteq\Lambda$,
+\begin{equation}
+\label{eq:ordinary-centered-product-expansion}
+\chi_S\chi_B^\star
+=
+\bb{\prod_{j\in S\cap B}\bb{1-p_j^\star}}
+\sum_{R\subseteq S}
+\bb{\prod_{j\in S\setminus R}p_j^\star}
+\chi_{R\cup(B\setminus S)}^\star.
+\end{equation}
+Indeed, on~$S\cap B$ we use
+\begin{equation*}
+\eta(j)\bb{\eta(j)-p_j^\star}
+=
+\bb{1-p_j^\star}\eta(j),
+\end{equation*}
+and then expand each remaining factor as
+~$\eta(j)=p_j^\star+\bb{\eta(j)-p_j^\star}$. Since
+~$0\leq p_j^\star\leq1$, every coefficient in
+\eqref{eq:ordinary-centered-product-expansion} is nonnegative. Combining this
+with~\eqref{eq:centered-monomial-generator-expansion} and
+\eqref{eq:centered-generator-positive-coefficients}, and collecting equal
+centered monomials, gives
+\begin{equation}
+\label{eq:centered-generator-metzler}
+\Lcal\chi_A^\star
+=
+\sum_{B\Subset\Lambda}M(A,B)\chi_B^\star,
+\qquad
+M(A,B)\geq0
+\quad\text{for }B\neq A.
+\end{equation}
+For each~$A$, only finitely many coefficients~$M(A,B)$ are nonzero.
+
 \subsection{Pure-death comparison}
 \label{subsec:proof-pure-death-comparison}
 
