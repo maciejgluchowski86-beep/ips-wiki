@@ -1,0 +1,68 @@
+name: Build static paper figures
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-static-paper-figures.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/xu-cheng/texlive-full:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile static TikZ figures
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p paper/figures/rendered /tmp/paper-figure-wrappers
+
+          build_figure () {
+            name="$1"
+            src="$2"
+            wrapper="/tmp/paper-figure-wrappers/${name}.tex"
+            cat > "$wrapper" <<EOF
+\documentclass[border=2pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\input{paper/preamble}
+\begin{document}
+\input{${src}}
+\end{document}
+EOF
+            pdflatex -file-line-error -halt-on-error -interaction=nonstopmode \
+              -jobname="${name}" \
+              -output-directory=paper/figures/rendered \
+              "$wrapper"
+          }
+
+          build_figure patch-geometry paper/figures/patch-geometry
+          build_figure patch-interiors paper/figures/patch-interiors
+          build_figure convergence-backward-xo-trail paper/figures/convergence-backward-xo-trail
+          build_figure convergence-no-late-end-patches paper/figures/convergence-no-late-end-patches
+          build_figure convergence-event-spatial-escape paper/figures/convergence-event-spatial-escape
+
+          rm -f paper/figures/rendered/*.aux \
+                paper/figures/rendered/*.log \
+                paper/figures/rendered/*.out
+
+      - name: Commit rendered figures
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper/figures/rendered/*.pdf
+          if git diff --cached --quiet; then
+            echo "No rendered figure changes."
+            exit 0
+          fi
+          git commit -m "Precompile static paper figures"
+          git push origin HEAD:main
