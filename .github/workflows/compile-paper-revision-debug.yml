@@ -13,15 +13,27 @@ jobs:
       image: ghcr.io/xu-cheng/texlive-full:latest
     steps:
       - uses: actions/checkout@v4
-      - name: One pdflatex pass with timeout
+      - name: Instrument page timings
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          p = 'paper-revision.tex'
+          s = open(p).read()
+          needle = r'\begin{document}'
+          hook = needle + "\n" + r'\AddToHook{shipout/before}{\typeout{ELAPSED-PAGE-\thepage=\the\pdfelapsedtime}}'
+          assert needle in s
+          s = s.replace(needle, hook, 1)
+          open(p, 'w').write(s)
+          PY
+      - name: One pdflatex pass with timing
         shell: bash
         run: |
           set +e
-          timeout 90s pdflatex -file-line-error -interaction=nonstopmode -halt-on-error paper-revision.tex > pdflatex.stdout 2>&1
+          timeout 100s pdflatex -file-line-error -interaction=nonstopmode -halt-on-error paper-revision.tex > pdflatex.stdout 2>&1
           code=$?
           echo "PDFLATEX_EXIT_CODE=$code"
+          echo "===== PAGE TIMINGS ====="
+          grep 'ELAPSED-PAGE-' pdflatex.stdout || true
           echo "===== STDOUT TAIL ====="
-          tail -n 250 pdflatex.stdout || true
-          echo "===== LOG TAIL ====="
-          tail -n 250 paper-revision.log || true
+          tail -n 100 pdflatex.stdout || true
           exit $code
