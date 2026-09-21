@@ -12,51 +12,56 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/xu-cheng/texlive-full:latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Compile static TikZ figures
+      - name: Create standalone figure wrappers
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p paper/figures/rendered /tmp/paper-figure-wrappers
+          mkdir -p paper/figures/rendered
 
-          build_figure () {
+          make_wrapper () {
             name="$1"
             src="$2"
-            wrapper="/tmp/paper-figure-wrappers/${name}.tex"
-            cat > "$wrapper" <<EOF
+            cat > "paper/figures/rendered/${name}.tex" <<EOF
           \documentclass[border=2pt]{standalone}
           \usepackage[T1]{fontenc}
           \usepackage{lmodern}
-          \usepackage{amsmath,amssymb}
+          \usepackage{amsmath,amssymb,graphicx}
           \input{paper/preamble}
           \begin{document}
           \input{${src}}
           \end{document}
           EOF
-            pdflatex -file-line-error -halt-on-error -interaction=nonstopmode \
-              -jobname="${name}" \
-              -output-directory=paper/figures/rendered \
-              "$wrapper"
           }
 
-          build_figure patch-geometry paper/figures/patch-geometry
-          build_figure patch-interiors paper/figures/patch-interiors
-          build_figure convergence-backward-xo-trail paper/figures/convergence-backward-xo-trail
-          build_figure convergence-no-late-end-patches paper/figures/convergence-no-late-end-patches
-          build_figure convergence-event-spatial-escape paper/figures/convergence-event-spatial-escape
+          make_wrapper patch-geometry paper/figures/patch-geometry
+          make_wrapper patch-interiors paper/figures/patch-interiors
+          make_wrapper convergence-backward-xo-trail paper/figures/convergence-backward-xo-trail
+          make_wrapper convergence-no-late-end-patches paper/figures/convergence-no-late-end-patches
+          make_wrapper convergence-event-spatial-escape paper/figures/convergence-event-spatial-escape
 
-          rm -f paper/figures/rendered/*.aux \
-                paper/figures/rendered/*.log \
-                paper/figures/rendered/*.out
+      - name: Compile static figures
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: |
+            paper/figures/rendered/patch-geometry.tex
+            paper/figures/rendered/patch-interiors.tex
+            paper/figures/rendered/convergence-backward-xo-trail.tex
+            paper/figures/rendered/convergence-no-late-end-patches.tex
+            paper/figures/rendered/convergence-event-spatial-escape.tex
+          compiler: pdflatex
+          args: -file-line-error -halt-on-error -interaction=nonstopmode
 
-      - name: Commit rendered figures
+      - name: Commit rendered PDFs
         shell: bash
         run: |
           set -euo pipefail
+          rm -f paper/figures/rendered/*.tex \
+                paper/figures/rendered/*.aux \
+                paper/figures/rendered/*.log \
+                paper/figures/rendered/*.out
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add paper/figures/rendered/*.pdf
