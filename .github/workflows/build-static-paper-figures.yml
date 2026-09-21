@@ -58,6 +58,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          mkdir -p paper/figures/rendered
+          for name in \
+            patch-geometry \
+            patch-interiors \
+            convergence-backward-xo-trail \
+            convergence-no-late-end-patches \
+            convergence-event-spatial-escape
+          do
+            mv "${name}.pdf" "paper/figures/rendered/${name}.pdf"
+          done
           rm -f paper/figures/rendered/*.tex \
                 paper/figures/rendered/*.aux \
                 paper/figures/rendered/*.log \
