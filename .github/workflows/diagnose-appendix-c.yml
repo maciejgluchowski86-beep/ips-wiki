@@ -1,4 +1,4 @@
-name: Diagnose Appendix C compile time
+name: Export paper diagnostic bundle
 
 on:
   push:
@@ -7,54 +7,23 @@ on:
       - '.github/workflows/diagnose-appendix-c.yml'
 
 jobs:
-  timing:
-    strategy:
-      fail-fast: false
-      matrix:
-        level: [C0, C1, C2, C3, C4, C5, C6]
+  export:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Build variant
+      - name: Assemble bundle
         shell: bash
-        env:
-          LEVEL: ${{ matrix.level }}
         run: |
-          python3 - <<'PY'
-          import os
-          from pathlib import Path
-          s = Path("paper-revision.tex").read_text()
-
-          marker = "% Appendix C temporarily excluded from compilation.\n\\iffalse\n"
-          if marker not in s:
-              raise SystemExit("C exclusion marker not found")
-          s = s.replace(marker, "", 1)
-          bib = s.index("\\bibliographystyle")
-          fi = s.rfind("\\fi", 0, bib)
-          if fi < 0:
-              raise SystemExit("matching fi not found")
-          s = s[:fi] + s[fi+3:]
-
-          starts = {
-              "C0": s.index("\\section{Technical details}"),
-              "C1": s.index("\\subsection{Confined-interaction identity}"),
-              "C2": s.index("\\subsection{Continuation without successful interactions}"),
-              "C3": s.index("\\subsection{End-factor relaxation}"),
-              "C4": s.index("\\subsection{Finite propagation}"),
-              "C5": s.index("\\subsection{Preservation of~$\\mathcal{M}_*^I$ under arbitrary boundary conditions}"),
-              "C6": bib,
-          }
-          level = os.environ["LEVEL"]
-          cut = starts[level]
-          if cut < bib:
-              s = s[:cut] + "\n\\iffalse\n" + s[cut:bib] + "\n\\fi\n" + s[bib:]
-          Path("diag.tex").write_text(s)
-          PY
-
-      - name: Compile one pass
-        uses: xu-cheng/latex-action@v4
+          set -euo pipefail
+          mkdir -p bundle/paper/figures/rendered bundle/paper/sections
+          cp paper-revision.tex bundle/
+          cp ejpecp.cls bundle/
+          cp paper/preamble.tex bundle/paper/
+          cp paper/references.bib bundle/paper/
+          cp paper/amsplain-fullnames.bst bundle/paper/
+          cp paper/sections/patch-interior-figure.tex bundle/paper/sections/
+          cp paper/figures/rendered/*.pdf bundle/paper/figures/rendered/
+      - uses: actions/upload-artifact@v4
         with:
-          root_file: diag.tex
-          compiler: pdflatex
-          args: -file-line-error -halt-on-error -interaction=nonstopmode
+          name: appendix-c-diagnostic-bundle
+          path: bundle
