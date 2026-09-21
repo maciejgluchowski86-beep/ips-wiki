@@ -3652,6 +3652,62 @@ configurations for every local~$f$ and thus uniform ergodicity.
 \section{Discussion}
 \label{sec:discussion}
 
+The patch representation is not restricted to patch-positive systems. Patch
+positivity is one way of making the representation useful: it makes the patch
+contributions nonnegative and therefore allows termwise comparison. A different
+possibility is quantitative contraction even when the contributions have mixed
+signs. For example, if the relevant patch factors satisfy a uniform bound of
+the form
+\begin{equation*}
+\abs{C(z,P)}
+\leq
+1-\delta
+\end{equation*}
+for some~$\delta>0$, then realizations containing many patches have small
+total contribution, exponentially in the number of patches. On the other hand,
+if there are only few patches over a long time interval, then some of them must
+be long, and their terminal contributions depend only weakly on the initial
+configuration. This is the usual many-events/few-events mechanism in duality
+arguments for ergodicity. Thus the patch representation may remain useful well
+outside the patch-positive class, provided the signed patch contributions can
+be controlled in absolute value or through cancellations. Models such as
+FA-2f, which are not patch-positive, are a natural test case for this
+possibility.
+
+The condition~$\mb p^\star\leq\mbs{\tfrac12}$ in
+Corollary~\ref{cor:uniform-exponential-ergodicity} also appears to be a
+feature of the proof rather than a dynamical threshold. The value~$1/2$ enters
+only because it implies that every probability measure belongs to
+~$\mathcal M_{-,1}$, after which Theorem~\ref{thm:common-invariant-limit}
+applies directly to every initial law. Nothing in the patch representation or
+the definition of patch positivity changes at this value. Corollary
+~\ref{cor:oriented-ergodicity} gives further evidence that the restriction is
+not intrinsic: on orientable neighbourhood graphs, uniform ergodicity holds
+without any assumption that~$\mb p^\star\leq\mbs{\tfrac12}$. In
+particular, the perturbed East model is uniformly ergodic for every
+~$p\in(0,1)$ under the assumptions of Corollary~\ref{cor:perturbed-east}.
+
+The orientability proof suggests a possible route to removing the restriction
+on general neighbourhood graphs. Rather than requiring the initial law itself
+to belong to~$\mathcal M_\star$ or~$\mathcal M_-$, one may try to prove
+that after a burn-in period its evolution approaches one of these classes on
+finite sets. A natural target is
+\begin{equation*}
+\liminf_{t\to\infty}
+\inf_{\eta\in\Omega}
+P_t\chi_A^\star(\eta)
+\geq0
+\qquad
+\text{for every }A\Subset\Lambda,
+\end{equation*}
+or an analogous approximation to~$\mathcal M_-$. Once such a statement is
+available, Theorem~\ref{thm:common-invariant-limit} gives convergence to the
+common invariant measure. Orientability provides one mechanism for this
+burn-in by reducing the problem locally to a finite system with autonomous
+boundary. Finding a replacement for this mechanism on general neighbourhood
+graphs would extend the convergence result beyond the present restriction on
+the initial law.
+
 \appendix
 
 \bibliographystyle{paper/amsplain-fullnames}
