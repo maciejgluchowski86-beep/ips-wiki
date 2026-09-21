@@ -4058,8 +4058,14 @@ is outgoing, consistency also forces~$\alpha(P)=\beta$, leaving
 ~\eqref{eq:full-contribution-formulas}. The formulas extend to
 ~$\Delta=\infty$ by taking limits.}
 
-\subsection{All-zero-neighbourhood relaxation}
+\subsection{\textcolor{red}{End-patch relaxation and continuation}}
 \label{app:positivity-algebra}
+
+\textcolor{red}{The following identities are used in the convergence proof.
+There one fixes the patch configuration up to a cutoff time and, on the event
+that no later successful interaction occurs, extends each end patch to a later
+time. We need to understand both how its terminal contribution changes under
+this extension and what happens as the extension becomes long.}
 
 If~$\lambda_i(\mb 0)>0$, then
 \begin{equation}
@@ -4077,11 +4083,18 @@ If~$\lambda_i(\mb 0)>0$, then
 If~$\lambda_i(\mb 0)=0$, then~$\psi_i(u,z)=z$, and the second identity remains
 valid.
 
-Let~$P$ be an end patch, let~$u\geq e(P)$ be finite, and put
-$h=u-e(P)$. The extension~$P^{\uparrow u}$ is the geometric patch from
-\eqref{eq:geometric-patch-extension}. \textcolor{red}{Its contribution~$C(z,P^{\uparrow u})$ is obtained from
-~\eqref{eq:end-contribution-formulas} by replacing~$e(P)-s(P)$ with
-~$u-s(P)$.} In particular,
+\textcolor{red}{Thus, when~$\lambda_i(\mb 0)>0$, the terminal value~$z$
+is forgotten exponentially fast and is replaced in the limit by
+~$\rho_i(\mb 0)$. The second identity describes the same relaxation over
+two consecutive time intervals.}
+
+Let~$P$ be an end patch and let~$u\geq e(P)$ be finite. The extension
+~$P^{\uparrow u}$ is the geometric patch from
+\eqref{eq:geometric-patch-extension}. \textcolor{red}{If no successful
+interaction occurs before time~$u$, this is the patch obtained by extending
+~$P$ to~$u$. Its conditional patch contribution is obtained from
+\eqref{eq:end-contribution-formulas} by replacing its length
+~$e(P)-s(P)$ by~$u-s(P)$.} In particular,
 \begin{equation}
 \label{eq:end-patch-continuation}
 C\bb{z,P^{\uparrow u}}
@@ -4102,12 +4115,15 @@ C\bb{z,P^{\uparrow u}}
 }
 }{\mathsf X(P)=\mathsf O}.
 \end{equation}
-The contribution in~\eqref{eq:end-patch-continuation} is normalized by the
-consistency probability of the extended patch. It does not contain the
-probability that the realized skeleton has no successful interaction during
-the added interval~$[e(P),u)$. \textcolor{red}{The corresponding identities after including the probability
-of no further successful interaction are derived in
-Proposition~\ref{prop:no-late-continuation-identity}.}
+
+\textcolor{red}{There is one distinction needed later. The quantity
+~$C(z,P^{\uparrow u})$ is conditioned on the extended patch being consistent.
+In the convergence proof we condition only on the patch configuration up to
+time~$e(P)$ and then ask that no successful interaction occur during
+~$[e(P),u)$. The relevant quantity is therefore the contribution in
+\eqref{eq:end-patch-continuation} multiplied by the probability of that event.
+The corresponding identity is derived later together with the convergence
+estimates.}
 
 
 \bibliographystyle{paper/amsplain-fullnames}
