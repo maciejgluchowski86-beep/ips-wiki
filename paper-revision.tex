@@ -4120,6 +4120,170 @@ patches,~$\mathcal P$ is finite.
 \end{proof}
 
 
+\subsection{Confined-interaction identity}
+\label{app:confined-interactions}
+
+We relate the event that all successful interactions up to time~$T$ remain in
+a finite set~$R$ to the spin system in~$R$ with zero boundary condition.
+
+For~$R\subseteq\Lambda$, let~$\eta^{R,0}$ agree with~$\eta$ on~$R$ and be
+zero on~$R^c$. Define
+\begin{align*}
+\lambda_i^R(\eta)
+&=
+\pw{\lambda_i\bb{\eta^{R,0}}}{i\in R}
+{\lambda_i(\mb 0)}{i\notin R},
+&
+\rho_i^R(\eta)
+&=
+\pw{\rho_i\bb{\eta^{R,0}}}{i\in R}
+{\rho_i(\mb 0)}{i\notin R},
+\end{align*}
+and let
+\begin{equation*}
+\Lcal^R f(\eta)
+=
+\sum_{i\in\Lambda}
+\lambda_i^R(\eta)
+\bb{E_{i,\rho_i^R(\eta)}-I}f(\eta).
+\end{equation*}
+Write~$P_t^R$ for its semigroup. On~$R$, this is the original dynamics with
+all spins outside~$R$ fixed at~$0$. Outside~$R$, the sites evolve
+independently and do not affect the spins in~$R$. Hence, if~$f$ depends only on
+spins in~$R$,
+\begin{equation}
+\label{eq:modified-zero-boundary-agreement}
+P_t^Rf=P_t^{R,0}f.
+\end{equation}
+
+\begin{proposition}[Confined-interaction identity]
+\label{prop:confined-interaction-identity}
+Let~$A\subseteq R\Subset\Lambda$,~$0\leq T\leq t$, and let~$\mu$ be any
+probability measure. Then
+\begin{equation}
+\label{eq:confined-interaction-identity}
+\E_A\Cb{W_t^\mu\ind\bb{E_T^R}}
+=
+(\mu P_{t-T}P_T^{R,0})(\chi_A).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For~$\eta\in\Omega$, write
+\begin{equation*}
+Z_t^\eta
+=
+\sigma_t
+\exp\bb{\int_0^tV(A_s)\,ds}
+\chi_{A_t}(\eta).
+\end{equation*}
+By the patch factorization,
+\begin{equation*}
+W_t^{\delta_\eta}
+=
+\CE{Z_t^\eta}{\mathcal G_t}.
+\end{equation*}
+Since~$E_T^R\in\mathcal G_t$,
+\begin{equation}
+\label{eq:confined-weight-to-dual}
+\E_A\Cb{W_t^{\delta_\eta}\ind\bb{E_T^R}}
+=
+\E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}.
+\end{equation}
+
+We now identify the expectation on the right. Up to time~$T$, keep every death,
+and keep a split or birth with nonempty target only when its source and all its
+targets lie in~$R$. Let~$\Dcal_R$ be the resulting signed-dual generator. If
+the active set is~$B\subseteq R$, the total rate of the discarded
+interactions is
+\begin{equation*}
+\kappa_R(B)
+=
+\sum_{i\in B}
+\sum_{\substack{\varnothing\neq S\subseteq N(i)\\S\nsubseteq R}}
+\bb{\delta_i(S)+\beta_i(S)}.
+\end{equation*}
+The event~$E_T^R$ is exactly the event that no discarded interaction is
+successful before time~$T$. Thus multiplication by~$\ind(E_T^R)$ is
+equivalent to killing the dual at the first such interaction, with killing
+rate~$\kappa_R$.
+
+For~$i\in R$, the M\"obius expansions in
+\eqref{eq:rate-expansion-revision} give
+\begin{align*}
+\lambda_i^R(\eta)\rho_i^R(\eta)
+&=
+\sum_{S\subseteq N(i)\cap R}
+\widehat{\lambda_i\rho_i}(S)\chi_S(\eta),
+\\
+\lambda_i^R(\eta)
+&=
+\sum_{S\subseteq N(i)\cap R}
+\widehat{\lambda_i}(S)\chi_S(\eta).
+\end{align*}
+Therefore, for~$B\subseteq R$,
+\begin{align}
+\Lcal_\eta^R H((B,\sigma),\eta)
+={}&
+\sigma
+\sum_{i\in B}
+\sum_{S\subseteq N(i)\cap R}
+a_i^\delta(S)
+\chi_{\bb{B\setminus\cb{i}}\cup S}(\eta)
+\notag
+\\
+&+
+\sigma
+\sum_{i\in B}
+\sum_{S\subseteq N(i)\cap R}
+a_i^\beta(S)
+\chi_{B\cup S}(\eta).
+\label{eq:confined-spin-generator-on-H}
+\end{align}
+On the other hand,~$\Dcal_RH((B,\sigma),\eta)$ contains the same
+off-diagonal terms and subtracts the total rate of the retained jumps. Since
+\begin{equation*}
+V(B)-\kappa_R(B)
+=
+\sum_{i\in B}
+\bb{
+\sum_{S\subseteq N(i)\cap R}\delta_i(S)
++
+\sum_{\substack{\varnothing\neq S\subseteq N(i)\cap R}}\beta_i(S)
++
+a_i^\beta(\varnothing)
+},
+\end{equation*}
+the potential cancels this subtracted jump rate and restores the diagonal
+coefficient~$a_i^\beta(\varnothing)$. Hence
+\begin{equation}
+\label{eq:confined-generator-duality}
+\Lcal_\eta^R H((B,\sigma),\eta)
+=
+\Dcal_RH((B,\sigma),\eta)
++
+\bb{V(B)-\kappa_R(B)}H((B,\sigma),\eta).
+\end{equation}
+
+The generator identity~\eqref{eq:confined-generator-duality} gives the
+Feynman--Kac duality for the killed dual up to time~$T$. Combining it with the
+original duality for the remaining time~$t-T$ and using the Markov property
+gives
+\begin{equation*}
+\E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}
+=
+\bb{P_{t-T}P_T^R\chi_A}(\eta).
+\end{equation*}
+Since~$A\subseteq R$, the function~$\chi_A$ depends only on~$R$, so
+\eqref{eq:modified-zero-boundary-agreement} gives
+\begin{equation*}
+P_T^R\chi_A=P_T^{R,0}\chi_A.
+\end{equation*}
+Combining this with~\eqref{eq:confined-weight-to-dual} and integrating over
+~$\mu$ proves~\eqref{eq:confined-interaction-identity}.
+\end{proof}
+
+
 \bibliographystyle{paper/amsplain-fullnames}
 \bibliography{paper/references}
 
