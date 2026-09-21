@@ -24,17 +24,14 @@
 % continuous band along a site column is equivalent here because consecutive
 % patches share the same vertical sides.
 \newcommand{\ConvEndPatchBarrier}[3]{%
-  \begin{scope}
-    \clip (#1,#2) rectangle ({#1+1},#3);
-    \foreach \k in {-1,...,68}{%
-      \pgfmathsetmacro{\yy}{-0.045+0.165*\k}
-      \fill[patchfigred]
-        (#1,\yy)--(#1,{\yy+0.075})--({#1+0.105},{\yy+0.155})
-        --({#1+0.105},{\yy+0.080})--cycle;
-      \fill[patchfigred]
-        ({#1+1},\yy)--({#1+1},{\yy+0.075})
-        --({#1+0.895},{\yy+0.155})--({#1+0.895},{\yy+0.080})--cycle;}
-  \end{scope}}
+  \path[
+    pattern={Lines[angle=39,distance=3.10pt,line width=1.40pt]},
+    pattern color=patchfigred
+  ] (#1,#2) rectangle ({#1+0.105},#3);
+  \path[
+    pattern={Lines[angle=39,distance=3.10pt,line width=1.40pt]},
+    pattern color=patchfigred
+  ] ({#1+0.895},#2) rectangle ({#1+1},#3);}
 
 % A successful interaction cuts the source column and the two target columns.
 \newcommand{\ConvEndInteractionBoundary}[2]{%

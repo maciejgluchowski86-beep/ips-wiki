@@ -23,13 +23,14 @@
   \draw[patchfig horizon](0,0)--(7,0);
   \draw[patchfig horizon](0,8.4)--(7,8.4);}
 \newcommand{\PatchFigBarrier}[3]{%
-  \begin{scope}
-    \clip (#1,#2) rectangle ({#1+1},#3);
-    \foreach \k in {-1,...,53}{%
-      \pgfmathsetmacro{\yy}{-0.045+0.165*\k}
-      \fill[patchfigred] (#1,\yy)--(#1,{\yy+0.075})--({#1+0.105},{\yy+0.155})--({#1+0.105},{\yy+0.080})--cycle;
-      \fill[patchfigred] ({#1+1},\yy)--({#1+1},{\yy+0.075})--({#1+0.895},{\yy+0.155})--({#1+0.895},{\yy+0.080})--cycle;}
-  \end{scope}}
+  \path[
+    pattern={Lines[angle=33,distance=3.65pt,line width=1.65pt]},
+    pattern color=patchfigred
+  ] (#1,#2) rectangle ({#1+0.105},#3);
+  \path[
+    pattern={Lines[angle=33,distance=3.65pt,line width=1.65pt]},
+    pattern color=patchfigred
+  ] ({#1+0.895},#2) rectangle ({#1+1},#3);}
 \newcommand{\PatchFigInitial}{%
   \node[font=\small,inner sep=0pt](patchfiginf) at (3.5,-0.92){$\infty$};
   \draw[patchfig success]([xshift=-1.4mm]patchfiginf.north west)..controls(2.95,-0.40)and(2.05,-0.31)..(1.5,0);
