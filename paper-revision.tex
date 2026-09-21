@@ -2838,6 +2838,70 @@ then
 We therefore work with initial laws in~$\mathcal M_\star$ until the end of
 the proof.
 
+For a probability measure~$\mu$, define the finite-horizon weight
+\begin{equation}
+\label{eq:finite-horizon-weight}
+W_t^\mu
+=
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}
+C\bb{\eta\bb{i(P)},P}
+},
+\end{equation}
+so that the patch representation gives
+\begin{equation*}
+(\mu P_t)(\chi_A)=\E_A\Cb{W_t^\mu}.
+\end{equation*}
+We also define the limiting weight
+\begin{equation}
+\label{eq:limiting-patch-weight}
+W
+=
+\prod_{P\in\mathcal P}C(P)
+\ind\bb{\abs{\mathcal P}<\infty}.
+\end{equation}
+
+For~$0\leq T<t$, let
+\begin{align}
+\label{eq:no-late-interaction-events}
+L_{T,t}
+&=
+\cb{\text{no successful interaction occurs in }(T,t]},
+\notag\\
+L_T
+&=
+\cb{\text{no successful interaction occurs after }T}.
+\end{align}
+To control the number of end patches, let
+\begin{equation*}
+\mb{Cone}_T
+=
+\bigcup_{(i,u,S)\in\mathcal I_T}
+\bb{\cb{i}\cup S}\setminus\cb{\infty}
+\end{equation*}
+be the set of sites appearing in the successful-interaction skeleton up to
+time~$T$. For~$A\subseteq R\Subset\Lambda$, set
+\begin{equation}
+\label{eq:confinement-event}
+E_T^R
+=
+\cb{\mb{Cone}_T\subseteq R}.
+\end{equation}
+On~$E_T^R$, there are at most~$\abs R$ end patches at time~$T$.
+
+Let~$P_t^{R,0}$ denote the semigroup of the dynamics in~$R$ with the spins
+outside~$R$ fixed at~$0$, and define
+\begin{equation}
+\label{eq:confinement-error}
+\rho_A(T,R)
+=
+\norm{\bb{P_T-P_T^{R,0}}\chi_A}_\infty.
+\end{equation}
+The quantity~$\rho_A(T,R)$ measures the error made by replacing the original
+dynamics by its zero-boundary restriction to~$R$ during the first~$T$ units of
+time.
+
 \subsection{Orientability}
 \label{subsec:proof-orientability}
 
