@@ -4079,6 +4079,47 @@ exponentially fast and replaced in the limit by~$\rho_i(\mb 0)$.
 
 
 
+\section{Technical details}
+\label{app:technical-background}
+
+\subsection{Consequences of local finiteness}
+\label{app:local-finiteness}
+
+Lemma~\ref{lem:dual-local-finiteness} shows that only finitely many
+successful interactions occur on every bounded time interval. We record two
+consequences used in the convergence proof.
+
+\begin{lemma}
+\label{lem:patch-local-finiteness-consequences}
+Almost surely, successful interactions occur at distinct times. Moreover, every
+backward chain obtained by following patches that end with an outgoing
+interaction reaches the initial interaction at time~$0$ after finitely many
+steps. Finally,
+\begin{equation}
+\label{eq:finite-patch-family-last-interaction}
+\cb{\abs{\mathcal P}<\infty}
+=
+\bigcup_{n\in\N}L_n.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The graphical construction uses countably many independent Poisson processes,
+so almost surely no two interaction times coincide. Consider now a backward
+chain of patches ending with outgoing interactions. Its interaction times
+decrease strictly. If the chain did not reach time~$0$ after finitely many
+steps, it would contain infinitely many successful interactions in a bounded
+time interval, contradicting Lemma~\ref{lem:dual-local-finiteness}.
+
+For the last statement, if~$\mathcal P$ is finite, then there are only
+finitely many successful interactions, so there is a last one and~$L_n$ occurs
+for some~$n\in\N$. Conversely, on~$L_n$ there are finitely many successful
+interactions before time~$n$ by Lemma~\ref{lem:dual-local-finiteness} and none
+after time~$n$. Since each successful interaction creates only finitely many
+patches,~$\mathcal P$ is finite.
+\end{proof}
+
+
 \bibliographystyle{paper/amsplain-fullnames}
 \bibliography{paper/references}
 
