@@ -3728,7 +3728,7 @@ and hence
 -
 \lambda_i(\eta)\chi_A(\eta).
 \end{equation*}
-Using the M\"obius expansions
+Using the monomial expansions
 \begin{equation*}
 \lambda_i\rho_i
 =
@@ -3747,17 +3747,15 @@ together with
 \chi_S\chi_A=\chi_{A\cup S},
 \end{equation*}
 we obtain
-\begin{align*}
+\begin{equation*}
 \Lcal\chi_A
-={}&
+=
 \sum_{i\in A}\sum_{S\subseteq N(i)}
 \widehat{\lambda_i\rho_i}(S)
-\chi_{\bb{A\setminus\cb{i}}\cup S}
-\\
-&-
+\chi_{\bb{A\setminus\cb{i}}\cup S}-
 \sum_{i\in A}\sum_{S\subseteq N(i)}
 \widehat{\lambda_i}(S)\chi_{A\cup S}.
-\end{align*}
+\end{equation*}
 By~\eqref{eq:signed-dual-coefficients}, this is
 \begin{equation}
 \label{eq:generator-action-monomials}
@@ -3771,8 +3769,7 @@ a_i^\beta(S)\chi_{A\cup S}.
 \end{equation}
 The terms with~$S=\varnothing$ in the first sum are deaths; the terms
 with~$S\neq\varnothing$ are splits. The nonempty-target terms in the second sum
-are births. Its empty-target term is diagonal
-because~$A\cup\varnothing=A$.
+are births.
 
 \subsection{\textcolor{red}{Verification of the duality}}
 \label{app:dual-data}
