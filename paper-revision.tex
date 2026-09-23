@@ -1536,7 +1536,12 @@ Thus two spin systems that only differ by adding pure deaths have the same dual 
 \section{Patches}
 \label{sec:patches}
 
-The signed duality formula of Section~\ref{sec:dual} expresses~$P_t\chi_A$ as an expectation involving the sign, the Feynman--Kac weight, and the terminal dual set. To make the cancellations in this expectation explicit, we condition on only part of the graphical construction: the successful interactions that connect different sites. For each site, the successive incoming and outgoing successful interactions divide the time axis into intervals, which we call patches. Conditional on the successful-interaction skeleton, the unresolved randomness factorizes over these patches. Taking the corresponding conditional expectations gives one contribution for each patch and leads to the patch representation used in the comparison and convergence proofs.
+The duality formula~\eqref{eq:monomial-feynman-kac-duality} represents the nonnegative~$P_t\chi_A$ in a way that includes the sign process~$\sigma_t$. If the sign process was not there then monotonicity in monomial order would be immediate:
+\begin{equation*}
+ \mu P_t \chi_A \E\Cb{\exp\bb{\int_0^t V(A_s)ds}\mu (\chi_A)}\leq \E\Cb{\exp\bb{\int_0^t V(A_s)ds}\nu (\chi_A)} \leq \nu P_t,
+\end{equation*}
+for any~$\mu\leq \nu$. Hence, to get monotonicity one needs to control the cancellations from the sign process.
+To capture these cancellations, we introduce a~$\sigma$-algebra that reveals when sites interact, but not exactly how. For each site~$i$, the consecutive incoming and outgoing interactions divide~$\cb{i}\times [0,\infty)$ into intervals, which we call patches. Conditional on the the interaction skeleton the law of the dual process factorizes over these patches. Then~$P_t\chi_A$ can be represented via expectation over a product of contributions, one per patch, and given patch positivity these contributions capture all necessary cancellations.
 
 \subsection{Interaction skeleton}
 \label{subsec:interaction-skeleton}
