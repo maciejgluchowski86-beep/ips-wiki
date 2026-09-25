@@ -68,7 +68,7 @@ A dedicated pruning sweep is triggered by the first of:
 5. entry into `FINAL_AUDIT`;
 6. unfinished legacy migration taking priority under `wiki-curation-state.json`.
 
-A pruning sweep uses one fresh **Wiki Curator** ChatGPT session and replaces the ordinary PDE-wiki-reader slot for that cycle. It does not add a fourth concurrent worker. The Curator should normally review a coherent batch of at most about twelve entries: first legacy `proved here` pages, then entries on the current PDE reading path, then recently changed material, then obvious duplicate/obsolete/scaffolding pages.
+A pruning sweep uses one fresh **Wiki Curator** ChatGPT session. The Curator should normally review a coherent batch of at most about twelve entries: first legacy `proved here` pages, then recently changed material, then obvious duplicate/obsolete/scaffolding pages.
 
 The Curator is read-only and returns a concise action list with reasons. A Director resolves any mathematical-status issue. The single Integrator performs the approved rewrites, status changes, deletions, link repairs, and metadata changes on `main`.
 
@@ -80,20 +80,6 @@ Migration is economical rather than exhaustive in one session. Each pruning cycl
 
 When every live entry has passed the current gate and no live page has status `obsolete`, the Director may instruct the Integrator to set `legacy_migration_complete` to `true`. At that point CI treats missing audit metadata as an error for the entire live entry set.
 
-## Reading-path discipline
-
-`docs/pde-reading-path.md` is a curated linear route, not an inventory of everything in `docs/entries/`.
-
-A pruning or reader-path pass checks that:
-
-- every linked prerequisite exists and is audited;
-- the path introduces concepts before using them;
-- deleted or renamed entries have no stale inbound links;
-- duplicate entries are merged or one is deleted;
-- optional material does not interrupt the core route;
-- project-specific pages enter the path only after the background needed to understand their statement and importance.
-
-As the wiki grows, the reading path should become clearer, not longer by default. New pages belong on the core path only when they are genuine prerequisites.
 
 ## What preserves research history
 
