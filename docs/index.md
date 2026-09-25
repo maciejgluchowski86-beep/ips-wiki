@@ -1,6 +1,6 @@
 # IPS Wiki
 
-This is a public-facing mathematical wiki for interacting particle systems, spin systems, ergodicity, duality, branching representations for nonlinear PDEs, and related research.
+This is a public-facing mathematical wiki for interacting particle systems, spin systems, ergodicity, duality, and related research.
 
 Each article is a separate page with rendered TeX math and ordinary links to neighboring entries. The source files are Markdown under `docs/`.
 
@@ -70,9 +70,6 @@ The KCSM block uses the standard convention that `0` is the facilitating state. 
 12. [East out of equilibrium](entries/east-out-of-equilibrium.md)
 13. [BABP out of equilibrium](entries/babp-out-of-equilibrium.md)
 
-## PDE and branching representations
-
-Start with [Probabilistic representations for nonlinear PDEs](pde-branching-representations.md), then follow the [PDE reading path](pde-reading-path.md). The terminated quadratic-Hessian theorem chain is not part of the live research path. The surviving material is limited to audited reusable finite or analytic mechanisms and observations; it does not supply an active quadratic-Hessian representation theorem.
 
 ## Meta pages
 
