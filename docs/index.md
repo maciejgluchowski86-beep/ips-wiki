@@ -4,7 +4,7 @@ This is a public-facing mathematical wiki for interacting particle systems, spin
 
 Each article is a separate page with rendered TeX math and ordinary links to neighboring entries. The source files are Markdown under `docs/`.
 
-For the patch theory, the canonical source is the repository manuscript *Patch representations and convergence for facilitated spin systems*. The wiki pages below present that paper's current definitions and proved results; older development-stage conditional warnings have been removed.
+For the patch theory, the canonical source is the repository manuscript *Patch positive spin systems*. The wiki pages below present the paper's definitions and proved results.
 
 ## Core entries
 
@@ -70,13 +70,9 @@ The KCSM block uses the standard convention that `0` is the facilitating state. 
 12. [East out of equilibrium](entries/east-out-of-equilibrium.md)
 13. [BABP out of equilibrium](entries/babp-out-of-equilibrium.md)
 
-
 ## Meta pages
 
 - [Notation](meta/notation.md)
-- [Style decisions](meta/style-decisions.md)
-- [Wiki quality and pruning](meta/wiki-quality-and-pruning.md)
-- [Entry template](meta/entry-template.md)
 - [References](meta/references.md)
 
 ## Public-content rule
