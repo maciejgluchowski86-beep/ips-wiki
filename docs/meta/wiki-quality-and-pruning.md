@@ -76,7 +76,7 @@ The Curator is read-only and returns a concise action list with reasons. A Direc
 
 Entries created before this discipline are not automatically grandfathered. Until `legacy_migration_complete` is set to `true` in `wiki-curation-state.json`, an entry without `audit: current` is legacy debt.
 
-Migration is economical rather than exhaustive in one session. Each pruning cycle reviews a bounded batch. Existing `proved here` pages have first priority because their old labels are incompatible with the current theorem-verification protocol. The PDE reading path has second priority because it is the user's route through the subject.
+Migration is economical rather than exhaustive in one session. Each pruning cycle reviews a bounded batch. Existing `proved here` pages have first priority because their old labels are incompatible with the current theorem-verification protocol.
 
 When every live entry has passed the current gate and no live page has status `obsolete`, the Director may instruct the Integrator to set `legacy_migration_complete` to `true`. At that point CI treats missing audit metadata as an error for the entire live entry set.
 
