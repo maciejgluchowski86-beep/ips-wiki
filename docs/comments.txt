@@ -30,7 +30,6 @@ attractive-spin-system.md entry; 15 monomial-duality-for-spin-systems.md is not 
 implicit conventions and the repair presented before the defect; 16 reading order, the
 duality entry is placed before the signed additive set process it depends on.
 
-
 1. Entry: spin-system.md (and interacting-particle-system.md)
 
 The wiki restricts "spin system" to the two-state case, {0,1}^Lambda with single-site
@@ -54,7 +53,6 @@ specific usage/legacy, in contrast with the general statistical-mechanics usage 
 "spin system", not the only meaning of the term. As currently written, a reader coming
 from the statistical-mechanics side could easily mistake the definition for the
 standard/universal one.
-
 
 2. Entry: spin-system.md, section "Locality" -- order of exposition
 
@@ -95,7 +93,6 @@ site-indexed set and the translation shape. lattice-and-graph.md, section
 Z^d \ {0} and writes N_*(i) = i + (N cup {0}). The two are consistent in content but
 not in notation. Pick one.
 
-
 3. General (site format, not a single entry): formulas should be copy-pasteable
 
 Reading the wiki alongside a chat assistant (Claude app, ChatGPT) is a normal working
@@ -134,7 +131,6 @@ Possible fixes, roughly in increasing order of effort:
 Also worth noting that the theme's edit_uri already exposes raw Markdown per page on
 GitHub, which is the reliable source-of-truth path today, but it is a page-level
 detour rather than a formula-level copy.
-
 
 4. Entry: pure-noise-spin-system.md -- undefined notation c_i^x, and a superscript
    collision with interacting-particle-system.md
@@ -199,7 +195,6 @@ convention", records the inversion -- but E_i^{.} carries opposite meanings in t
 entries with nothing said at the crossing point. Reading E_i^r under the convention of
 the entry that defines E gives the time-reversed target measure.
 
-
 5. General (site organization): the wiki is organized as a reading order, and that
    loses the structure
 
@@ -208,20 +203,6 @@ in mkdocs.yml. That one tree is asked to be three things at once -- a taxonomy, 
 reading order, and a table of contents -- and it cannot be all three.
 
 What goes wrong:
-
-  - Taxonomy is lost. interacting-particle-system and spin-system are siblings under
-    "Core entries", ordered by prerequisite. That a spin system IS an interacting
-    particle system is stated only in prose (spin-system.md, "Relation to general IPS";
-    interacting-particle-system.md, "Relation to spin systems") and is not navigable.
-  - Multi-membership is impossible. fa-1f-out-of-equilibrium belongs to both FA-1f and
-    out-of-equilibrium. A tree forces one choice, and the repository has already made
-    two different ones: mkdocs.yml splits KCSM / Models / Out of equilibrium, while
-    docs/index.md lists all thirteen under "KCSM entries". Two hand-maintained copies of
-    the same classification, already inconsistent.
-  - It does not scale. The PDE block is 45 entries in one flat nav list.
-  - Existing metadata is inert. Every entry carries tags: (about 100 distinct values)
-    and status: (38 standard fact, 36 definition, 9 conditional, 6 observation,
-    6 literature). mkdocs.yml has no plugins: key at all, so nothing consumes any of it.
 
 How Wikipedia solves this. Storage is flat -- every article sits at /wiki/Title and the
 path never encodes a parent. Hierarchy is then one of several overlapping access layers,
@@ -275,7 +256,6 @@ Proposal, in order of cost:
 Steps (2), (4), (6) are configuration-only and fix multi-membership plus the duplicate
 taxonomy immediately. Step (3) needs a script but delivers the backlinks and the is-a
 ladder. Step (7) is a research-hygiene win independent of the rest.
-
 
 6. Notation: c_i^{x}(.) has two different domains, and the wiki never says so
 
@@ -342,7 +322,6 @@ warning that the argument type switches, meta/notation.md needs both forms regis
 to the definition. See also item 4 for the separate, orthogonal collision in the
 superscript: target value in interacting-particle-system.md, source value in
 monomial-duality-for-spin-systems.md.
-
 
 7. Entries: lattice-and-graph.md, polynomial-growth-lattice.md, oriented-spin-system.md
    -- "lattice" is never defined, and "oriented" is used for what is standardly called
@@ -496,7 +475,6 @@ explicitly that it means acyclic, since oriented-spin-system.md currently repeat
 antisymmetry definition without the acyclicity remark that lattice-and-graph.md
 supplies.
 
-
 8. Entry: kinetically-constrained-spin-model.md, section "Reversibility and convergence
    questions" -- the reversibility argument is too short to be usable
 
@@ -582,7 +560,6 @@ together -- add the Dirichlet form as (d) with a link to kcsm-relaxation-and-mix
 define reversibility once somewhere central per (a), and have babp-model.md and
 soft-kcsm.md cite that argument instead of restating the conclusion.
 
-
 9. General (site-wide): references carry no hyperlinks
 
 Measured state of the wiki:
@@ -597,58 +574,13 @@ Measured state of the wiki:
   - meta/references.md lists 45 items, of which only 10 carry an arXiv number or a DOI.
     None is a link.
 
-There is also a large quality split between blocks. Compare
-aronson-nash-gaussian-bounds.md, which gives "Bulletin of the American Mathematical
-Society 73 (1967), 890--896" and two arXiv numbers, with east-model.md, whose entire
-reference line is "Hartarsky and Toninelli, Kinetically constrained models; Cancrini,
-Martinelli, Schonmann, and Toninelli, Facilitated oriented spin models: some non
-equilibrium results; Marêché, Exponential convergence to equilibrium for the
-d-dimensional East model" -- no year, no venue, no identifier. The PDE block was written
-to a visibly higher citation standard than the IPS and KCSM blocks.
-
 Why this matters beyond convenience:
 
-  (a) Verification cost. The wiki operates under a claim-registry discipline in which
-      statements are supposed to be checkable. A citation with no identifier cannot be
-      checked without a literature search per item, which is precisely the friction the
-      registry is meant to remove.
-  (b) Theorem-level pointers rot silently. east-out-of-equilibrium.md cites "Cancrini,
-      Martinelli, Schonmann, and Toninelli, Facilitated oriented spin models: some non
-      equilibrium results, Theorem 3.1" and "Hartarsky and Toninelli, Kinetically
-      constrained models, Theorem 7.6". Theorem numbering routinely differs between
-      arXiv versions and the published version. A numbered pointer with no versioned
-      link is unresolvable the moment the numbering shifts, and the reader cannot even
-      tell which document was meant.
-  (c) The data already exists in this repository. paper/references.bib contains 27
-      entries and EVERY ONE of them carries a doi, eprint or url field; pde-paper/
-      references.bib is a second such file. So the wiki is hand-maintaining a linkless
-      parallel bibliography alongside a complete linked one that was produced for the
-      manuscript. meta/references.md even says "A structured BibTeX file can be added
-      later if citation automation becomes useful" -- it exists already, twice.
-
 Ask:
-
-  - Give every reference a resolvable identifier rendered as an actual link: DOI
-    (https://doi.org/10....) for published work, arXiv (https://arxiv.org/abs/....) for
-    preprints, both when both exist.
-  - Generate meta/references.md from paper/references.bib and pde-paper/references.bib
-    rather than maintaining a third list by hand. That also removes a class of drift
-    between the manuscript bibliography and the wiki one.
-  - Give each item in meta/references.md an anchor so that entry-level reference lines
-    can deep-link to the exact item instead of to the top of the page, which is what
-    they currently do.
-  - For citations that point at a numbered theorem, pin the version -- either the arXiv
-    version number or the published volume and pages -- since the number is meaningless
-    without it.
-  - Extend scripts/check_wiki_quality.py, which already gates entry metadata in CI, with
-    two mechanical checks: every item named in an entry's References line resolves to an
-    item in meta/references.md, and every item in meta/references.md carries a DOI or an
-    arXiv link. Both are string checks and neither requires any mathematical judgment.
 
 Related to item 5: this is the same pattern as the unused tags: and status: metadata --
 information that exists in the repository but is not wired up to anything the reader
 sees.
-
 
 10. Entries: lattice-and-graph.md, oriented-spin-system.md -- the neighbour sets are
     never given a semantic gloss, and the graph edges point opposite to influence
@@ -701,7 +633,6 @@ by the dual set process, and that influence propagates along the reversed edges.
 either reword the sentence in oriented-spin-system.md so that it refers to influence
 travelling against the arrows, or restate it in terms of dependence so that the two
 pages agree.
-
 
 11. General (house style): every process and definition needs a plain mechanism sentence
     at the top
@@ -781,7 +712,6 @@ This is the same discipline as Wikipedia's lead sentence, referred to in item 5:
 first sentence says what the thing is, in terms someone who does not already know it can
 follow.
 
-
 12. Attractiveness is used as a load-bearing term, is never defined, its consequences are
     never stated, and the one negative claim about BABP is unargued
 
@@ -860,7 +790,6 @@ in kinetically-constrained-spin-model.md, with babp-model.md citing it. The conc
 computation above should be confirmed by whoever owns the entry before it is written in;
 it is offered as the missing argument, not as an audited one.
 
-
 13. Naming: "attractive" versus "(stochastically) monotone"
 
 Both names denote the same property -- the semigroup maps increasing functions to
@@ -918,7 +847,6 @@ name.
 
 Either way the substantive requirement is item 12: the property must be defined
 somewhere, once, before it is used in five entries as a load-bearing term.
-
 
 14. New entry needed: attractive-spin-system.md
 
@@ -1011,7 +939,6 @@ as proved: the Bernoulli-refresh characterization in (8), and the flip-invarianc
 Both were worked out in conversation, not read from a source. They look routine, but the
 page should not present them as audited until someone with the authority to do so checks
 them.
-
 
 15. Entry: monomial-duality-for-spin-systems.md is not readable
 
@@ -1172,7 +1099,6 @@ pure-noise system of pure-noise-spin-system.md, whose dual is a pure death proce
 can be checked independently by hand -- so that the reader meets the general machinery
 against a case they can verify.
 
-
 16. Reading order: monomial duality is placed before the process it depends on
 
 monomial-duality-for-spin-systems.md needs signed-additive-set-process.md. Its section
@@ -1205,14 +1131,6 @@ So a reader following the wiki's own order meets all of this AFTER the page that
 it. Some of what looked like missing exposition is misordering. What still stands
 regardless of order: the passage from (1) to (2) is asserted rather than derived, and the
 monomial expansion is undefined wherever one starts.
-
-Wider pattern. Comparing link targets against the nav order across the 96 nav pages gives
-228 forward references. Most are benign and should not be "fixed": index.md alone
-accounts for 51 and pde-reading-path.md for 23, since hub pages necessarily point
-forward, and a definition page pointing ahead to its applications is a see-also, not a
-prerequisite. The distinction that matters is exactly prerequisite versus see-also, and a
-linear nav cannot express it -- which is item 5's point, that a single ordered list is
-being asked to encode a dependency DAG.
 
 Ask: swap the Duality and Signed additive set processes blocks in both mkdocs.yml and
 docs/index.md. Better, adopt the frontmatter prerequisites proposed in item 5 and
