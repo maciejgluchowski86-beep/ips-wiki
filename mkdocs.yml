@@ -71,12 +71,8 @@ nav:
       - FA-1f out of equilibrium: entries/fa-1f-out-of-equilibrium.md
       - East out of equilibrium: entries/east-out-of-equilibrium.md
       - BABP out of equilibrium: entries/babp-out-of-equilibrium.md
-
   - Meta:
       - Notation: meta/notation.md
-      - Style decisions: meta/style-decisions.md
-      - Wiki quality and pruning: meta/wiki-quality-and-pruning.md
-      - Entry template: meta/entry-template.md
       - References: meta/references.md
 
 markdown_extensions:
