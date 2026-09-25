@@ -1,7 +1,7 @@
-# Local MkDocs build output
-site/
+# MkDocs build output
+/site/
 
-# Local LaTeX build output
+# LaTeX build output
 /main.aux
 /main.bbl
 /main.blg
@@ -11,36 +11,7 @@ site/
 /main.out
 /main.pdf
 /main.toc
-/paper-revision.aux
-/paper-revision.bbl
-/paper-revision.blg
-/paper-revision.fdb_latexmk
-/paper-revision.fls
-/paper-revision.log
-/paper-revision.out
-/paper-revision.pdf
-/paper-revision.toc
 /latexmk_stdout.log
-paper/build/
-paper/*.aux
-paper/*.bbl
-paper/*.blg
-paper/*.fdb_latexmk
-paper/*.fls
-paper/*.log
-paper/*.out
-paper/*.pdf
-paper/*.toc
-
-# Local document artifacts and visual QA output
-/output/
-/tmp/
-
-# Python
-__pycache__/
-*.py[cod]
-.venv/
-venv/
 
 # OS/editor noise
 .DS_Store
