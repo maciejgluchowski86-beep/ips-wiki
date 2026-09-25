@@ -1,6 +1,6 @@
 # IPS Wiki
 
-This repository is a public-facing wiki for interacting particle systems, spin systems, ergodicity, duality, probabilistic representations for nonlinear PDEs, and related literature.
+This repository is a public-facing wiki for interacting particle systems, spin systems, ergodicity, duality, and related literature.
 
 The rendered wiki is published at <https://maciejgluchowski86-beep.github.io/ips-wiki/>.
 
@@ -12,7 +12,6 @@ The facilitated-spin-system manuscript lives under `paper/`. The repository-leve
 
 For the patch construction, patch factorization, patch contributions, patch positivity, centered-moment comparisons, pure-death comparison, and the common invariant-limit theorem, the manuscript *Patch representations and convergence for facilitated spin systems* is the canonical source. The corresponding wiki pages are an expository layer synchronized to that manuscript; older conditional-status warnings from the pre-paper development have been removed.
 
-A separate nonlinear-PDE manuscript lives under `pde-paper/`. Its entry point is `pde-paper/main.tex`, with an independent preamble, bibliography, and section tree. This manuscript studies cancellation before absolute values in branching representations with derivative weights. It does not modify or replace the facilitated-spin-system paper.
 
 ## Reading target
 
@@ -86,11 +85,6 @@ GitHub Actions contains a `Build wiki site` workflow. It checks live-wiki curati
 - East out of equilibrium: `docs/entries/east-out-of-equilibrium.md`
 - BABP out of equilibrium: `docs/entries/babp-out-of-equilibrium.md`
 
-## PDE and branching representations
-
-The pedagogical entry point for the PDE side is `docs/pde-reading-path.md`. The advanced research map is `docs/pde-branching-representations.md`.
-
-The PDE core path now treats the surviving audited material from the terminated quadratic-Hessian programme only as reusable background and mechanism notes.
 
 ## Entry workflow
 

@@ -620,8 +620,7 @@ Why this matters beyond convenience:
       link is unresolvable the moment the numbering shifts, and the reader cannot even
       tell which document was meant.
   (c) The data already exists in this repository. paper/references.bib contains 27
-      entries and EVERY ONE of them carries a doi, eprint or url field; pde-paper/
-      references.bib is a second such file. So the wiki is hand-maintaining a linkless
+      entries and EVERY ONE of them carries a doi, eprint or url field. So the wiki is hand-maintaining a linkless
       parallel bibliography alongside a complete linked one that was produced for the
       manuscript. meta/references.md even says "A structured BibTeX file can be added
       later if citation automation becomes useful" -- it exists already, twice.
@@ -631,7 +630,7 @@ Ask:
   - Give every reference a resolvable identifier rendered as an actual link: DOI
     (https://doi.org/10....) for published work, arXiv (https://arxiv.org/abs/....) for
     preprints, both when both exist.
-  - Generate meta/references.md from paper/references.bib and pde-paper/references.bib
+  - Generate meta/references.md from paper/references.bib
     rather than maintaining a third list by hand. That also removes a class of drift
     between the manuscript bibliography and the wiki one.
   - Give each item in meta/references.md an anchor so that entry-level reference lines
