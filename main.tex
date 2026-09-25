@@ -1,3 +1,5242 @@
-% Overleaf compiles from the repository root. The paper source itself
-% remains under paper/.
-\input{paper/main}
+\RequirePackage{lmodern}
+\RequirePackage[T1]{fontenc}
+% Overleaf TeX Live 2025 emits a spurious compatibility warning from microtype.
+\RequirePackage{silence}
+\WarningFilter{latex}{Command \showhyphens has changed}
+\documentclass[EJP,preprint,NODS,nobera]{ejpecp}
+
+% Packages, theorem environments, and notation specific to the revised paper.
+
+\usepackage{enumitem}
+\usepackage{placeins}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns.meta}
+\usepackage{yhmath}
+
+% Number sets.
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+% Probability.
+\newcommand{\pP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\CE}[2]{\E\Cb{#1\,\middle|\,#2}}
+\newcommand{\CP}[2]{\pP\bb{#1\,\middle|\,#2}}
+
+% Delimiters.
+\newcommand{\bb}[1]{\left(#1\right)}
+\newcommand{\Cb}[1]{\left[#1\right]}
+\newcommand{\cb}[1]{\left\{#1\right\}}
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left|#1\right|}
+
+% Recurrent symbols.
+\newcommand{\ind}{\mathbf{1}}
+\newcommand{\vn}{\varnothing}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\mbs}[1]{\boldsymbol{#1}}
+\newcommand{\Lcal}{\mathcal{L}}
+\newcommand{\Dcal}{\mathcal{D}}
+\newcommand{\Ncal}{\mathcal{N}}
+
+% Two- and three-branch cases.
+\newcommand{\pw}[4]{\left\{\begin{array}{cl}
+  #1 &\text{ if } #2 \\
+  #3 &\text{ if } #4
+\end{array}\right.}
+\newcommand{\pwthree}[6]{\left\{\begin{array}{cl}
+  #1 &\text{ if } #2 \\
+  #3 &\text{ if } #4 \\
+  #5 &\text{ if } #6
+\end{array}\right.}
+
+\SHORTTITLE{Patch positive spin systems}
+\TITLE{Patch positive spin systems}
+\AUTHORS{%
+Maciej~G{\l}uchowski\footnote{Department of Mathematics, University of
+California, Los Angeles, CA 90095, USA. Corresponding author: Maciej
+G{\l}uchowski. \mbox{\EMAIL{mgluchowski@math.ucla.edu}};
+\mbox{\EMAIL{gmenz@math.ucla.edu}}}
+\and
+Georg~Menz\footnotemark[1]}%AUTHORS
+\KEYWORDS{spin systems; interacting particle systems; kinetically constrained spin models;
+  centered monomial order; graphical representation; ergodicity}
+\AMSSUBJ{60K35}
+\AMSSUBJSECONDARY{60E15; 82C22}
+
+\ABSTRACT{%
+In kinetically constrained spin models such as FA-1f and East, adding
+vacancies can make more updates possible even though the dynamics are not
+monotone in the usual configuration order. We introduce patch-positive spin
+systems, a class for which the semigroup preserves an order on probability
+laws defined by monomials centered around a density profile inherent to the system. This yields comparison principles between initial laws and between
+systems that differ by additional independent~$1\to0$ transitions.
+
+On neighbourhood graphs of polynomial growth, a uniformly positive rate of
+such transitions implies convergence from a broad class of initial laws to a
+common invariant measure. Under an additional condition on the reference
+density the convergence is uniform and exponential, while for oriented
+systems it is uniform without this restriction. In particular, the perturbed
+East models considered here are uniformly ergodic for every refresh
+density~$p\in(0,1)$. The same framework gives new results for the biased
+annihilating branching process and for the positive-rates problem for
+one-dimensional spin systems. The proof is based on a signed dual
+representation in which local randomness is factorized over spacetime patches.}
+
+\begin{document}
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:introduction}
+
+Interacting particle systems are stochastic models in which local random
+updates at many sites combine to produce collective behaviour. We study spin
+systems, continuous-time Markov processes on~$\cb{0,1}^{\Lambda}$ in which
+one spin is updated at a time and the update rule may depend on nearby spins;
+see~\cite{Liggett1985} for the general theory. A basic question is how the
+local update rule determines the dependence of the process on its initial
+condition, in particular its invariant measures and long-time behaviour.
+
+One of the main tools for such questions is monotonicity. The configuration
+space carries the coordinatewise order~$\eta\leq\xi$. A spin system is
+monotone, traditionally called attractive in the IPS
+literature, if processes started from ordered configurations can be coupled so
+that the order is preserved at all later times. Such couplings give direct
+comparisons between different initial conditions and are a standard tool for
+studying invariant measures and convergence
+\cite{Harris1977,Liggett1985}.
+
+A principal motivation for this paper comes from kinetically constrained spin
+models (KCSMs)~\cite{FredricksonAndersen1984,CancriniEtAl2008,HartarskyToninelli2025}.
+In the standard two-state models relevant here, a site may update only when a
+local kinetic constraint is satisfied, and a legal update refreshes the spin
+from a fixed Bernoulli law. For example, in the Fredrickson--Andersen
+one-spin facilitated model (FA-1f), an update is allowed when at least one
+neighbouring site is vacant. The East model imposes the same type of
+constraint but on an oriented neighbourhood graph. Thus these models have a
+simple Bernoulli product equilibrium measure, while the kinetic constraint can
+make relaxation slow and the out-of-equilibrium behaviour difficult. Precise
+definitions of the models used in this paper are given in
+Section~\ref{sec:setup}.
+
+The constraint in FA-1f and East has a clear monotone direction: adding
+vacancies can make more updates legal, but this does not produce the usual
+monotone coupling. Indeed, if~$\eta\leq\xi$, an update may be legal in
+$\eta$ because it has more vacancies while the same update is blocked in
+$\xi$. For example, if for two neighboring sites~$i\sim j$ we have~$\eta(x) = \ind(x\neq i,j)$ and~$\xi(x)=\ind(x\neq i)$, then~$\eta\leq \xi$ but and update at~$i$ turns~$\eta(i)\to 1$ and leaves~$\xi(i)=0$, so the order is lost.
+Thus monotonicity of the constraint does not imply monotonicity of the spin
+system.
+
+This raises the question that motivates the paper: does any kind of monotonicity survive? More generally, can one recover a useful comparison principle for a large class of
+spin systems whose dynamics are not monotone in configuration order?
+
+We describe the systems considered here in a form based on KCSMs. At each
+site, updates occur at a rate determined by the neighbouring spins and, when an
+update occurs, the new spin is sampled from a Bernoulli law whose parameter may
+also depend on the neighbours. For a KCSM the Bernoulli parameter is fixed and
+the update rate contains the kinetic constraint. We identify a condition on
+these more general local update rules, called \emph{patch positivity}. Its
+formal definition is given in Section~\ref{sec:main-results}, and probabilistic interpretation, which explains the name, in Section~\ref{sec:patches}.
+
+Patch positivite spin systems include the main examples that motivate the paper but is not
+a condition satisfied by all KCSMs. FA-1f and East are patch-positive, whereas
+FA-$j$f with~$j\geq2$ are not. The biased annihilating branching process
+(BABP) is another patch-positive example outside the KCSM class. After
+exchanging the two spin values, the contact process is patch-positive as well,
+although that model is also monotone in the usual configuration order. These examples are worked out in
+Section~\ref{sec:applications}.
+
+Our first result is that a patch positive spin system admits an order on
+probability laws that the system preserves. Each patch-positive system has
+a reference profile~$\mb p^\star=(p_i^\star)_{i\in\Lambda} \in [0,1]^\Lambda$. For a finite
+set~$A\subseteq\Lambda$, define the centered monomial
+\begin{equation*}
+\chi_A^\star(\eta)
+=
+\prod_{i\in A}\bb{\eta(i)-p_i^\star}.
+\end{equation*}
+For probability measures~$\mu$ and~$\nu$, we write~$\mu\preceq_\star\nu$
+when
+\begin{equation*}
+\mu\bb{\chi_A^\star}
+\leq
+\nu\bb{\chi_A^\star}
+\qquad
+\text{for every finite }A\subseteq\Lambda.
+\end{equation*}
+We call this the \emph{centered monomial order}. The result is that patch-positive dynamics preserve this order.
+Writing~$P_t$ for the Markov semigroup,
+\begin{equation*}
+\mu\preceq_\star\nu
+\quad\Longrightarrow\quad
+\mu P_t\preceq_\star\nu P_t
+\qquad
+\text{for every }t\geq0.
+\end{equation*}
+See Theorem~\ref{thm:centered-monomial-monotonicity}. Thus the configuration
+order need not be preserved along trajectories, but a monotone comparison
+survives at the level of probability laws.
+
+The order has immediate comparison consequences. The Bernoulli product law
+with profile~$\mb p^\star$ evolves monotonically upward in time and converges to an
+invariant measure. When~$\mb p^\star\leq\mbs{\tfrac12}$ the same is true about the evolution of the all~$1$ configuration.  More generally, the order admits a sandwiching argument, see Corollary~\ref{cor:extremal-limits-comparison}. The order also
+compares different dynamics. In particular, if a patch-positive system is
+obtained from another one by adding independent~$1\to0$ transitions, which we call pure deaths, then
+for the initial laws covered by Corollary~\ref{cor:pure-death-comparison-revision},
+the expectations of all finite spin monomials are smaller in the system with
+the additional transitions.
+
+The comparison principle also leads to convergence results. On neighbourhood
+graphs of polynomial growth, if a patch-positive system contains pure deaths at a uniformly positive rate, then a broad class of
+initial laws converges to a common invariant measure. This class includes every
+configuration with only finitely many~$0$s. See
+Theorem~\ref{thm:common-invariant-limit}.
+
+There are two routes from this result to convergence uniformly
+over all initial configurations. If
+$\mb p^\star\leq\mbs{\tfrac12}$, the system is uniformly exponentially
+ergodic; see Corollary~\ref{cor:uniform-exponential-ergodicity}. Alternatively,
+if the neighbourhood graph is orientable, then the system is uniformly
+ergodic without any restriction of this kind on~$\mb p^\star$; see
+Corollary~\ref{cor:oriented-ergodicity}. The perturbed East model gives the main example
+of the second route; see Corollary~\ref{cor:perturbed-east}.
+
+The applications also show how the centered monomial order can be combined
+with information specific to a model. For BABP, known exponential convergence
+from homogeneous product measures can be used as the endpoints for a sandwiching argument. This gives exponential convergence to equilibrium for a
+class of dependent and non-translation-invariant initial laws; see
+Corollary~\ref{cor:babp-centered-convergence}. For one-dimensional, one-sided nearest neighbor spin systems, called Simple~\cite{GluchowskiMenz2025,GluchowskiMenz2026}, patch positivity together with orientability gives a new sufficient
+condition for uniform ergodicity under positive rates, extending the regions
+covered by earlier criteria; see
+Corollary~\ref{cor:simple-positive-rates}.
+
+The main construction is a representation of the action of the Markov semigroup on monomials. For~$\chi_A(\eta)=\prod_{i\in A}\eta(i)$, the starting point is
+the set-valued Feynman--Kac representation
+\begin{equation}
+\label{eq:intro-signed-duality}
+P_t\chi_A(\eta)
+=
+\E_A\Cb{
+\sigma_t
+\exp\bb{\int_0^t V(A_s)\,ds}
+\chi_{A_t}(\eta)
+}.
+\end{equation}
+Here~$A_s$ is the finite set-valued dual process,~$\sigma_s\in\cb{+,-}$, and~$V$
+is the Feynman--Kac potential. Set-valued dual constructions for spin systems
+are standard; see, for example,
+\cite{Harris1978,Griffeath1979,Gray1986,JansenKurt2014}. The important feature
+for us is that the right-hand side of~\eqref{eq:intro-signed-duality} is
+signed, which is an obstruction for monotonicity or convergence arguments.
+
+The new step is to reveal only part of the graphical construction. We define a~$\sigma$-algebra
+$\mathcal G_t$ that records interactions between sites that occur in the
+dual up to time~$t$, including their times and the sites they connect, while
+forgetting their type and the purely local events between them. Once this
+information is fixed, the recorded interactions divide each site line~$\cb{i}\times[0,t]$ into
+consecutive time intervals. We call these intervals \emph{patches}. Thus a
+patch is a piece of one site line between two consecutive recorded
+interactions, or between such an interaction and the observation time.
+
+Conditioning on~$\mathcal G_t$ makes the reason for this choice visible. The
+forgotten randomness has a conditional law that factorizes over the patches,
+and the signed random variable in~\eqref{eq:intro-signed-duality} is itself a
+product of local factors. Consequently, schematically,
+\begin{equation}
+\label{eq:intro-patch-factorization}
+\E_A\Cb{
+\sigma_t
+\exp\bb{\int_0^t V(A_s)\,ds}
+\chi_{A_t}(\eta)
+\,\middle|\,
+\mathcal G_t
+}
+=
+\prod_{\substack{ \text{patch }P\text{ ending}\\\text{before }t}} C(P)
+\prod_{\substack{\text{patch }P\text{ reaching}\\\text{time }t}}
+C\bb{\eta\bb{i(P)},P}.
+\end{equation}
+The notation in~\eqref{eq:intro-patch-factorization} is only schematic. 
+Patches and their contributions are defined precisely in
+Section~\ref{sec:patches}. The point is this conditioning allows for local averaging, which gives explicit contributions and captures cancellations from sign process in~\eqref{eq:intro-signed-duality}.
+
+The factorization~\eqref{eq:intro-patch-factorization} also explains the
+condition of patch positivity. A patch that ends before time~$t$ leaves no
+spin variable in the representation and, after the local averaging above,
+contributes a number~$C(P)$. Patch positivity means that every such
+contribution is nonnegative. A patch that reaches time~$t$ instead contributes
+$C(z,P)$, an affine function of the remaining spin argument~$z$. For a site
+$i$, the threshold~$p_i^\star$ is the smallest~$p\in[0,1]$ for which
+\begin{equation*}
+C(p,P)\geq0
+\end{equation*}
+for every patch reaching time~$t$ on the site~$i$. Thus the threshold profile
+is the minimal density profile~$\mb p$ such that for a product measure~$\mu = \otimes_{i\in\Lambda}\operatorname{Ber}(p_i)$ the~$\mu P_t \chi_A$ can be represented using only nonnegative factors. This supplies enough monotonicity to yield the order preservation result and earlier stated convergence results.
+
+The duality in~\eqref{eq:intro-signed-duality} belongs to the standard
+graphical and set-valued duality framework for spin systems
+\cite{Harris1974,Harris1978,Griffeath1979,HolleyStroock1979,Gray1986,JansenKurt2014}.
+The new ingredient here is the choice of the smaller~$\sigma$-algebra~$\mathcal G_t$.
+It is this conditional factorization, rather than the duality itself, that
+exposes the local cancellations used in our arguments. Information
+percolation also records updates that carry information
+\cite{LubetzkySly2016}, but uses them for a different decomposition.
+
+Classical comparison results for monotone spin systems are based on couplings
+that preserve the coordinatewise order on configurations and on related
+association inequalities
+\cite{Harris1977,Liggett1985,Liggett2006}. Duality can also yield correlation
+inequalities in particular interacting particle systems
+\cite{GiardinaRedigVafayi2010}. Patch-positive systems need not admit such a
+coupling. Instead, the local sign conditions revealed by the patch
+factorization lead to the centered monomial order on probability laws. Thus
+the comparison principle developed here plays a similar role for the models
+considered in this paper, while being formulated in terms of centered
+monomials rather than configuration order.
+
+The paper is organized so that the results and applications can be read
+without the patch construction. Section~\ref{sec:setup} introduces the general
+spin-system framework and the examples used throughout the paper.
+Section~\ref{sec:main-results} defines patch positivity and the centered
+monomial order and states the comparison and convergence results.
+Section~\ref{sec:applications} applies them to FA-1f, the East model, BABP,
+the contact process, and simple spin systems. The remaining sections develop
+the proofs. Section~\ref{sec:dual} constructs the signed dual and its graphical
+representation, and Section~\ref{sec:patches} introduces the conditioning,
+patches, and patch factorization described above. Section~\ref{sec:proofs}
+uses this representation to prove the main results.
+Section~\ref{sec:discussion} discusses the scope and limitations of the
+approach. The appendices contain technical details of main proofs.
+
+\section{Setup and examples}
+\label{sec:setup}
+
+This section fixes the spin-system setup and notation used throughout the paper.
+We describe the dynamics through a neighbourhood-dependent update rate and
+refresh parameter, which directly extends the usual KCSM formulation. We also give examples of spin models that are particularly relevant to this article. For a comprehensive introduction to spin systems, with proofs of existence and basic properties, we point to~\cite{Liggett1985}.
+
+Let~$\Lambda$ be a countable set of sites and let
+$\Omega=\cb{0,1}^{\Lambda}$ be the configuration space. We write~$\cdot \Subset \Lambda$ for a finite set of sites. For each~$i\in\Lambda$,
+fix a  neighbourhood~$N(i)\Subset\Lambda\setminus\cb{i}$ and assume
+\begin{equation*}
+\sup_{i\in\Lambda}\abs{N(i)}<\infty.
+\end{equation*}
+For~$\eta\in\Omega$, $i\in\Lambda$, and~$x\in\cb{0,1}$,
+let~$\eta^{i,x}$ be the configuration obtained from~$\eta$ by setting the spin
+at~$i$ equal to~$x$, and let~$\eta^i$ be the configuration obtained by flipping
+the spin at~$i$. A function~$f:\Omega\to\R$ is called local if it depends on only finitely many
+coordinates. For~$p\in[0,1]$, define the Bernoulli refresh operator at~$i$ by
+\begin{equation*}
+E_{i,p}f(\eta)
+:=
+pf(\eta^{i,1})+(1-p)f(\eta^{i,0}).
+\end{equation*}
+
+\begin{definition}[Spin system]
+A spin system is specified by functions
+\begin{equation*}
+\lambda_i:\Omega\to[0,\infty),
+\qquad
+\rho_i:\Omega\to[0,1],
+\qquad i\in\Lambda,
+\end{equation*}
+which depend only on the spins in~$N(i)$ and satisfy
+$\sup_{i,\eta}\lambda_i(\eta)<\infty$. Its generator acts on local functions
+by
+\begin{equation}
+\label{eq:spin-generator-revision}
+\Lcal f(\eta)
+=
+\sum_{i\in\Lambda}
+\lambda_i(\eta)
+\bb{E_{i,\rho_i(\eta)}-I}f(\eta).
+\end{equation}
+Thus, at rate~$\lambda_i(\eta)$ the state of site~$i$ is updated, and upon update its new state is a~$\operatorname{Bern}(\rho_i(\eta))$ random variable. We call~$\lambda_i$ the update rate and~$\rho_i$ the refresh parameter.
+\end{definition}
+
+\begin{remark}
+The generator~\eqref{eq:spin-generator-revision} can also be written in the
+usual flip-rate form
+\begin{equation*}
+\Lcal f(\eta)
+=
+\sum_{i\in\Lambda}
+c_i(\eta)\bb{f(\eta^i)-f(\eta)},
+\end{equation*}
+where
+\begin{equation*}
+c_i(\eta)
+=
+\lambda_i(\eta)
+\bb{
+\bb{1-\eta(i)}\rho_i(\eta)
++
+\eta(i)\bb{1-\rho_i(\eta)}
+}.
+\end{equation*}
+Conversely any spin system given by flip rates~$c$ can also be described by an update rate and refresh parameter. Indeed since the two rates
+$c_i(\eta^{i,0})$ and~$c_i(\eta^{i,1})$ depend only on the spins in~$N(i)$, the refresh representation is given by
+\begin{equation*}
+\lambda_i(\eta)
+=
+c_i(\eta^{i,0})+c_i(\eta^{i,1}),
+\qquad
+\rho_i(\eta)
+=
+\frac{c_i(\eta^{i,0})}{\lambda_i(\eta)}
+\end{equation*}
+when~$\lambda_i(\eta)>0$; if~$\lambda_i(\eta)=0$, the value of
+$\rho_i(\eta)$ is irrelevant. 
+\end{remark}
+
+The uniform bound on the update rates gives a Feller process
+$\cb{\eta_t}_{t\geq0}$ by the standard Harris construction
+\cite{Harris1978,Liggett1985}. Its semigroup~$(P_t)_{t\geq0}$ is defined by
+\begin{equation*}
+P_tf(\eta)=\E_\eta\Cb{f(\eta_t)}.
+\end{equation*}
+For an initial law~$\mu$, we write~$\mu P_t$ for the law at time~$t$, so that
+$(\mu P_t)(f)=\mu(P_tf)$. We also use the shorthand~$\mu(f) = \int_\Omega f d\mu$.
+
+\begin{definition}
+For probability measures~$\mu_t$ and~$\mu$ on~$\Omega$, we write
+$\mu_t\Rightarrow\mu$ if
+\begin{equation*}
+\mu_t(f)\longrightarrow\mu(f)
+\end{equation*}
+for every local function~$f$. A probability measure~$\pi$ is invariant if
+$\pi P_t=\pi$ for every~$t\geq0$. The spin system is \emph{ergodic} if there
+is an invariant measure~$\pi$ such that
+\begin{equation*}
+\mu P_t\Rightarrow\pi
+\end{equation*}
+for every initial law~$\mu$. It is \emph{uniformly ergodic} if, for every local
+function~$f$,
+\begin{equation*}
+\sup_{\eta\in\Omega}
+\abs{P_tf(\eta)-\pi(f)}
+\longrightarrow0.
+\end{equation*}
+It is \emph{uniformly exponentially ergodic} if there is~$\gamma>0$ such that,
+for every local function~$f$, some~$C_f<\infty$ satisfies
+\begin{equation*}
+\sup_{\eta\in\Omega}
+\abs{P_tf(\eta)-\pi(f)}
+\leq C_fe^{-\gamma t}.
+\end{equation*}
+\end{definition}
+
+\begin{remark}
+Since~$\Omega$ is compact in the product topology, convergence against local
+functions is equivalent to weak convergence of probability measures.
+\end{remark}
+
+We now give a few examples of familiar spin systems and how to represent them using the refresh convention.
+
+\begin{example}[Kinetically constrained spin models]
+In a kinetically constrained spin model (KCSM), the refresh parameter is
+constant,
+\begin{equation*}
+\rho_i(\eta)=p,
+\qquad p\in(0,1),
+\end{equation*}
+while the update rate~$\lambda_i$ is a constraint depending on the neighbouring
+spins. We use the convention that state~$0$ is vacant and state~$1$ is occupied. The constraint is typically that at least one of a few prescribed subsets of~$N(i)$ is filled with vacancies. 
+Whenever the constraint at~$i$ is satisfied, the spin at~$i$ is refreshed
+from the Bernoulli law with parameter~$p$. This construction ensures that~$\otimes_{i\in \Lambda}\operatorname{Bern}(p)$ is a reversible invariant measure.
+\end{example}
+
+\begin{example}[Fredrickson-Andersen one spin facilitated model (FA-1f)]
+For FA-1f~\cite{FredricksonAndersen1984,CancriniEtAl2008,HartarskyToninelli2025},
+assume that~$N(i)\neq\vn$ for every~$i\in\Lambda$ and set
+\begin{equation*}
+\lambda_i(\eta)=1-\prod_{j\in N(i)}\eta(j),
+\qquad
+\rho_i(\eta)=p.
+\end{equation*}
+Thus a site can update whenever at least one site in its neighbourhood is
+vacant. This model is a standard example of a KCSM.
+\end{example}
+
+\begin{example}[East model]
+Let~$\Lambda=\Z^d$ and let~$\cb{e_k}_{k\leq d}$ be the standard basis of
+$\Z^d$. The East models is a particular case of FA-1f, with
+\begin{equation*}
+N(i)=\cb{i+e_k:k\leq d}.
+\end{equation*}
+The neighbourhoods create an oriented lattice where sites only interact one-way. 
+\end{example}
+
+
+
+\begin{example}[Biased annihilating branching process]
+The biased annihilating branching process (BABP)~\cite{NeuhauserSudbury1993}
+has
+\begin{equation*}
+\lambda_i(\eta)
+=
+\sum_{j\in N(i)}\bb{1-\eta(j)},
+\qquad
+\rho_i(\eta)=p.
+\end{equation*}
+Thus the update rate is the number of vacant neighbours. In the complementary
+variables~$\xi(i)=1-\eta(i)$, vacancies are particles.
+\end{example}
+
+\begin{example}[Contact process]
+The contact process~\cite{Harris1974} is usually written with state~$1$
+infected and state~$0$ healthy. With recovery rate one and infection
+parameter~$\beta\geq0$, it is given by
+\begin{equation*}
+\lambda_i(\eta)
+=
+1+\beta\sum_{j\in N(i)}\eta(j),
+\qquad
+\rho_i(\eta)
+=
+\frac{\beta\sum_{j\in N(i)}\eta(j)}{1+\beta\sum_{j\in N(i)}\eta(j)}.
+\end{equation*}
+\end{example}
+
+\begin{example}[Simple spin systems]
+A Simple spin system\cite{GluchowskiMenz2025, GluchowskiMenz2026} is a translation-invariant spin system~ on~$\Z$ with
+$N(i)=\cb{i+1}$. It is parametrized by four numbers
+$p_{1\mid ab}\in[0,1]$, $a,b\in\cb{0,1}$. When the spins at~$i$ and~$i+1$
+are~$a$ and~$b$, respectively, a rate-one update at~$i$ sets the spin to~$1$
+with probability~$p_{1\mid ab}$, and to~$0$ with probability~$p_{0\mid ab} = 1 -p_{1\mid ab}$. Equivalently, its refresh representation is
+\begin{equation*}
+\lambda_i(\eta)
+=
+p_{1\mid0\eta(i+1)}+1-p_{1\mid1\eta(i+1)},
+\qquad
+\rho_i(\eta)
+=
+\frac{p_{1\mid0\eta(i+1)}}{\lambda_i(\eta)}
+\end{equation*}
+when~$\lambda_i(\eta)>0$; again, if~$\lambda_i(\eta)=0$ then~$\rho_i(\eta)$ is irrelevant.
+\end{example}
+
+We also consider spin systems obtained by adding noise in the form of independent refreshes to
+the dynamics. 
+
+\begin{definition}[Independent refresh noise]
+For~$\mb s=(s_i)_{i\in\Lambda}\in[0,1]^\Lambda$ and~$\varepsilon\geq0$, define
+\begin{equation*}
+\Ncal^{\mb s}f
+:=
+\sum_{i\in\Lambda}\bb{E_{i,s_i}-I}f,
+\qquad
+\Lcal^{\varepsilon,\mb s}
+:=
+\Lcal+\varepsilon\Ncal^{\mb s}.
+\end{equation*}
+The generator~$\Lcal^{\varepsilon,\mb s}$ is again of the form
+\eqref{eq:spin-generator-revision}, with update rate and refresh parameter
+\begin{equation*}
+\lambda_i^{\varepsilon,\mb s}
+=
+\lambda_i+\varepsilon,
+\qquad
+\rho_i^{\varepsilon,\mb s}
+=
+\frac{\lambda_i\rho_i+\varepsilon s_i}
+{\lambda_i+\varepsilon}.
+\end{equation*}
+\end{definition}
+
+\begin{definition}[Pure-death component]
+We say that~$\Lcal$ contains a pure-death component of rate~$\varepsilon>0$ if
+there is another spin-system generator~$\widetilde\Lcal$ such that
+\begin{equation}
+\label{eq:pure-death-component-revision}
+\Lcal
+=
+\widetilde\Lcal
++
+\varepsilon\Ncal^{\mb 0}.
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Equivalently, the~$1\to0$ transition rate is at least~$\varepsilon$ at every
+site and in every configuration:
+\begin{equation*}
+c_i(\eta^{i,1})
+=
+\lambda_i(\eta)\bb{1-\rho_i(\eta)}
+\geq\varepsilon.
+\end{equation*}
+\end{remark}
+
+Some of our results require assumptions on geometry of~$\Lambda$. For~$i\in\Lambda$, we set
+\begin{equation*}
+N_*(i):=N(i)\cup\cb{i},
+\end{equation*}
+and for~$A\subseteq\Lambda$ set
+\begin{equation*}
+N_*(A)=\bigcup_{i\in A}N_*(i),
+\qquad
+B(A,0)=A,
+\qquad
+B(A,n+1)=N_*\bb{B(A,n)}.
+\end{equation*}
+For~$i\in\Lambda$, write~$B(i,n)=B(\cb{i},n)$. 
+
+\begin{definition}[Polynomial growth]
+    We say that the
+neighbourhood graph has polynomial growth if there are~$K,D<\infty$ such that
+\begin{equation}
+\label{eq:polynomial-growth-revision}
+\abs{B(i,n)}
+\leq
+K(1+n)^D
+\qquad
+\text{for every }i\in\Lambda\text{ and }n\in\N.
+\end{equation}
+\end{definition}
+
+\begin{definition}[Orientability]
+A set~$V\subseteq\Lambda$ is \emph{autonomous} if~$N_*(V)=V$. The
+neighbourhood graph is \emph{orientable} if every finite set~$A\subseteq\Lambda$
+is contained in a finite set~$\bar A$ for which there is
+$U\subseteq\Lambda\setminus\bar A$ such that
+\begin{equation*}
+N_*(U)=U,
+\qquad
+N_*(\bar A\cup U)=\bar A\cup U.
+\end{equation*}
+\end{definition}
+
+\begin{example}
+The neighbourhood graph of the East model is orientable. Indeed, for any
+$A\Subset\Z^d$, choose a finite box
+\begin{equation*}
+\bar A=\prod_{k=1}^d \cb{a_k, a_k +1,\dots,b_k}
+\end{equation*}
+containing~$A$, and set
+\begin{equation*}
+U=\prod_{k=1}^d \cb{a_k, a_k+1\dots} \setminus \bar{A}.
+\end{equation*}
+Then~$N_*(U)=U$ and~$N_*(\bar A\cup U)=\bar A\cup U$.
+\end{example}
+
+For~$A\Subset\Lambda$, define the monomial
+\begin{equation*}
+\chi_A(\eta)
+:=
+\prod_{i\in A}\eta(i),
+\qquad
+\chi_\vn:=1.
+\end{equation*}
+The family~$\cb{\chi_A:A\Subset \Lambda}$ is a basis for the local
+functions. Thus, every local function~$g$ has a unique
+expansion
+\begin{equation}
+\label{eq:rate-expansion-revision}
+g(\eta)
+=
+\sum_{S\Subset \Lambda}
+\widehat g(S)\chi_S(\eta).
+\end{equation}
+We call~$\widehat g(S)$ the coefficient of~$\chi_S$ in this expansion.
+
+ Finally, for a profile
+$\mb p=(p_i)_{i\in\Lambda}\in[0,1]^\Lambda$, let~$\mu_{\mb p}$ be the Bernoulli product measure~$\otimes_{i\in\Lambda}\operatorname{Ber}(p)$.
+For a constant profile, we write~$\mu_p$.
+\section{Main results}
+\label{sec:main-results}
+
+We now state the main results. We first introduce a condition
+on the update rates called patch positivity. The name comes from the representation for spin systems developed in Sections~\ref{sec:dual} and~\ref{sec:patches}, where
+the condition is shown to have a probabilistic interpretation. We also introduce an order on probability measures defined
+through centered monomials. We show that patch-positive spin systems preserve this
+order, which leads to comparison and convergence results. 
+
+\begin{definition}[Patch positivity]
+A spin system is \emph{patch-positive} if, for every~$i\in\Lambda$ and every
+nonempty~$S\subseteq N(i)$,
+\begin{equation}
+\label{eq:patch-positivity}
+\widehat{\lambda_i}(S)\leq0,
+\qquad
+\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb 0)}}(S)\geq0.
+\end{equation}
+\end{definition}
+
+\begin{definition}[Threshold profile]
+For a patch-positive spin system, define~$\mb p^\star=(p_i^\star)_{i\in\Lambda}$ by
+\begin{equation}
+\label{eq:threshold-profile}
+p_i^\star
+=
+\max\bb{
+\cb{0}
+\cup
+\cb{
+\frac{\widehat{\lambda_i\rho_i}(S)}
+{\widehat{\lambda_i}(S)}
+:
+\vn\neq S\subseteq N(i),\ 
+\widehat{\lambda_i}(S)<0
+}
+}.
+\end{equation}
+We call~$\mb p^\star$ the \emph{threshold profile}.
+\end{definition}
+The threshold profile determines the centering used in our order.
+
+\begin{definition}[Centered monomial order]
+For~$A\Subset\Lambda$, define the centered monomial
+\begin{equation*}
+\chi_A^\star(\eta)
+=
+\prod_{i\in A}\bb{\eta(i)-p_i^\star},
+\qquad
+\chi_\vn^\star=1.
+\end{equation*}
+For probability measures~$\mu$ and~$\nu$ on~$\Omega$, we set
+\begin{equation}
+\label{eq:centered-monomial-order}
+\mu\preceq_\star\nu \qquad \iff \quad \mu\bb{\chi_A^\star}
+\leq
+\nu\bb{\chi_A^\star}
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation}
+We also define
+\begin{equation}
+\label{eq:m-star-definition-revision}
+\mathcal M_\star
+=
+\cb{
+\mu:
+\mu\bb{\chi_A^\star}\geq0
+\text{ for every }A\Subset\Lambda
+}.
+\end{equation}
+\end{definition}
+
+To understand this order it is useful to see how it compares the product measures. If~$\mb p^\star\leq\mb p\leq\mb q$, then~$\mu_{\mb p^*}\preceq_* \mu_{\mb p}\preceq_* \mu_{\mb q}$. Product measures with profiles that stray below~$\mb p^*$ are not comparable in the order.
+
+
+\begin{remark}
+The measure~$\mu_{\mb p^\star}$ is the minimum of~$\mathcal M_\star$ under
+$\preceq_\star$, since all of its nonconstant centered monomials have
+expectation zero. In general~$\mathcal M_\star$ need not have a maximum. If~$\mb p^\star\leq\mbs{\tfrac12}$ then~$\mu_{\mb 1}$ is a maximum.
+\end{remark}
+
+\begin{theorem}[Centered monomial monotonicity]
+\label{thm:centered-monomial-monotonicity}
+Suppose that the spin system is patch-positive. If~$\mu$ and~$\nu$ are signed measures on~$\Omega$ and~$\mu\preceq_\star\nu$, then~$\mu P_t\preceq_\star\nu P_t$ for every~$t\geq 0$.
+Moreover,~$P_t$ preserves~$\mathcal M_\star$. The centered monomial order also
+implies the corresponding order for ordinary monomials: if
+$\mu\preceq_\star\nu$, then
+\begin{equation}
+\label{eq:ordinary-monomial-comparison}
+(\mu P_t)(\chi_A)
+\leq
+(\nu P_t)(\chi_A)
+\qquad
+\text{for every }A\Subset\Lambda\text{ and }t\geq0.
+\end{equation}
+\end{theorem}
+
+The theorem gives monotone evolution at the bottom of
+$\mathcal M_\star$, and also at the top whenever a maximum exists.
+
+\begin{corollary}[Extremal limits and sandwiching]
+\label{cor:extremal-limits-comparison}
+Suppose that the spin system is patch-positive.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item The sequence~$\mu_{\mb p^\star}P_t$ is increasing in~$t$ under
+$\preceq_\star$ and converges weakly to an invariant measure~$\pi^-\in\mathcal M_\star$.
+
+\item If~$\mb p^\star\leq\mbs{\tfrac12}$, then
+$\mu_{\mb 1}P_t$ is decreasing in~$t$ under~$\preceq_\star$ and converges
+weakly to an invariant measure~$\pi^+\in\mathcal M_\star$.
+
+\item More generally, suppose that
+\begin{equation*}
+\underline\mu\preceq_\star\mu\preceq_\star\overline\mu
+\end{equation*}
+and that both~$\underline\mu P_t$ and~$\overline\mu P_t$ converge weakly to
+the same measure~$\pi$. Then~$\mu P_t\Rightarrow\pi$.
+\end{enumerate}
+\end{corollary}
+
+\begin{corollary}[Pure-death comparison]
+\label{cor:pure-death-comparison-revision}
+Let~$\Lcal$ and~$\Lcal'$ be spin-system generators. Suppose that~$\Lcal$ is
+patch-positive and that
+\begin{equation}
+\label{eq:pure-death-decomposition-revision}
+\Lcal f(\eta)
+=
+\Lcal'f(\eta)
++
+\sum_{i\in\Lambda}d_i
+\bb{f\bb{\eta^{i,0}}-f(\eta)},
+\qquad d_i\geq0,
+\end{equation}
+so~$\mathcal{L}$ is perturbation of~$\mathcal{L}'$ by adding independent deaths.
+Then~$\Lcal'$ is patch-positive with the same threshold profile~$\mb p^\star$.
+If~$P_t'$ denotes its semigroup, then
+\begin{equation}
+\label{eq:pure-death-comparison-revision}
+(\mu P_t)(\chi_A)
+\leq
+(\mu P_t')(\chi_A)
+\end{equation}
+for every~$\mu\in\mathcal M_\star$, every~$A\Subset\Lambda$, and every
+$t\geq0$.
+\end{corollary}
+
+Thus, within~$\mathcal M_\star$, adding deaths can only decrease the expectations of the monomials. The result becomes stronger if the invariant measures for one of the systems are known, for example for perturbed KCSMs.
+
+For the convergence results we use a larger class of initial measures.
+
+\begin{definition}
+For~$K\geq0$, define
+\begin{equation}
+\label{eq:m-minus-affine-characterization}
+\mathcal M_{-,K}
+=
+\cb{
+\mu:
+\frac{\mu+K\mu_{\mb 1}}{1+K}\in\mathcal M_\star
+},
+\qquad
+\mathcal M_-
+=
+\bigcup_{K\geq0}\mathcal M_{-,K}.
+\end{equation}
+Thus~$\mathcal M_{-,0}=\mathcal M_\star$, while~$\mathcal M_-$ also contains
+measures that enter~$\mathcal M_\star$ after mixing with~$\mu_{\mb 1}$.
+\end{definition}
+
+If~$p_i^-:=\max\cb{2p_i^\star-1,0}$, then a Bernoulli product measure~$\mu_{\mb p}$ belongs to
+$\mathcal M_{-,1}$ exactly when~$\mb p\geq\mb p^-$. In particular, if
+$\mb p^\star\leq\mbs{\tfrac12}$, then every probability measure on~$\Omega$ belongs to~$\mathcal M_{-,1}$.
+
+\begin{theorem}[Common invariant limit]
+\label{thm:common-invariant-limit}
+Suppose that the neighbourhood graph has polynomial growth with exponent~$D$,
+the spin system is patch-positive, and it contains a pure-death component of
+rate~$\varepsilon>0$. Then there is an invariant probability measure~$\pi$
+such that, for every local function~$f$, there is~$K_f<\infty$ satisfying
+\begin{equation}
+\label{eq:uniform-m-minus-convergence}
+\sup_{\mu\in\mathcal M_{-,K}}
+\abs{(\mu P_t)(f)-\pi(f)}
+\leq
+(1+2K)K_f(1+t)^D e^{-\varepsilon t/2}
+\end{equation}
+for every~$K\geq0$ and~$t\geq0$. Consequently,
+\begin{equation*}
+\mu P_t\Rightarrow\pi
+\qquad
+\text{for every }\mu\in\mathcal M_-.
+\end{equation*}
+\end{theorem}
+
+Every point mass on a configuration with finitely many~$0$s belongs to
+$\mathcal M_-$. Thus Theorem~\ref{thm:common-invariant-limit} also gives
+convergence from every such configuration.
+
+\begin{corollary}[Uniform exponential ergodicity]
+\label{cor:uniform-exponential-ergodicity}
+Under the hypotheses of Theorem~\ref{thm:common-invariant-limit}, suppose also
+that
+\begin{equation*}
+\mb p^\star\leq\mbs{\tfrac12}.
+\end{equation*}
+Then~$\pi$ is the unique invariant measure and, for every local function~$f$,
+\begin{equation}
+\label{eq:uniform-pointwise-convergence}
+\sup_{\eta\in\Omega}
+\abs{P_tf(\eta)-\pi(f)}
+\leq
+K_f(1+t)^D e^{-\varepsilon t/2}.
+\end{equation}
+\end{corollary}
+
+\begin{corollary}[Uniform ergodicity under orientability]
+\label{cor:oriented-ergodicity}
+Under the hypotheses of Theorem~\ref{thm:common-invariant-limit}, suppose also
+that the neighbourhood graph is orientable. Then~$\pi$ is the unique invariant
+measure and, for every local function~$f$,
+\begin{equation*}
+\lim_{t\to\infty}
+\sup_{\eta\in\Omega}
+\abs{P_tf(\eta)-\pi(f)}
+=
+0.
+\end{equation*}
+\end{corollary}
+
+The next section applies these results to the examples from
+Section~\ref{sec:setup}. Sections~\ref{sec:dual} and~\ref{sec:patches}
+develop the representation behind patch positivity, and
+Section~\ref{sec:proofs} contains the proofs.
+
+\section{Applications}
+\label{sec:applications}
+
+We now apply the results of Section~\ref{sec:main-results} to the examples from
+Section~\ref{sec:setup}. For each model we first check patch positivity and
+identify its threshold profile, and then state the comparison or ergodicity
+consequences that follow. FA-1f and the East model are the main KCSM examples, and the similarly behaving
+BABP illustrates the centered monomial order outside the KCSM class. For the monotone
+contact process the usual configuration order gives a stronger comparison. The final application is partial progress on the 
+positive-rates problem for simple spin systems.
+
+\subsection{FA-1f and the East model}
+\label{subsec:fa-east-applications}
+
+For FA-1f, the only nonzero nonconstant coefficient of the update rate~$\lambda_i=1-\chi_{N(i)}$ is
+\begin{equation*}
+\widehat{\lambda_i}\bb{N(i)}=-1.
+\end{equation*}
+Since~$\rho_i=p$ is constant,
+\begin{equation*}
+\lambda_i\bb{\rho_i-\rho_i(\mb 0)}=0.
+\end{equation*}
+Thus FA-1f is patch-positive. Moreover,
+\begin{equation*}
+\frac{\widehat{\lambda_i\rho_i}\bb{N(i)}}
+{\widehat{\lambda_i}\bb{N(i)}}
+=p,
+\end{equation*}
+so its threshold profile is~$\mb p^\star=\mb p$.
+The East model is a particular case of FA-1f, hence it is also patch-positive with the same threshold profile.
+\begin{remark}
+Patch positivity does not hold for all FA models. For FA-$j$f with~$j\geq2$,
+the update rate is the indicator that at least~$j$ sites in~$N(i)$ are vacant.
+Its expansion in the monomials~$\chi_S$ contains positive nonconstant
+coefficients, so the first condition in~\eqref{eq:patch-positivity} fails.
+\end{remark}
+
+The out-of-equilibrium behaviour of FA-1f and East has been studied in a
+number of settings; see
+\cite{CancriniEtAl2010,BlondelEtAl2013,MountfordValle2019,Mareche2019,
+HartarskyToninelli2024}. These results provide model-specific convergence
+theorems for the hard dynamics, complementary to the comparison and noisy
+ergodicity results proved here.
+
+\subsection{Biased annihilating branching process}
+\label{subsec:babp-applications}
+
+For BABP, the only nonzero nonconstant coefficients of
+\begin{equation*}
+\lambda_i(\eta)
+=
+\sum_{j\in N(i)}\bb{1-\eta(j)}
+\end{equation*}
+are
+\begin{equation*}
+\widehat{\lambda_i}\bb{\cb{j}}=-1,
+\qquad j\in N(i).
+\end{equation*}
+Again~$\rho_i=p$ is constant, so
+$\lambda_i\bb{\rho_i-\rho_i(\mb0)}=0$. Hence BABP is patch-positive.
+Moreover, for every~$j\in N(i)$,
+\begin{equation*}
+\frac{\widehat{\lambda_i\rho_i}\bb{\cb{j}}}
+{\widehat{\lambda_i}\bb{\cb{j}}}
+=
+p,
+\end{equation*}
+so its threshold profile is~$\mb p^\star=\mb p$.
+
+Qualitative convergence of BABP from translation-invariant initial laws was
+proved by Sudbury~\cite{Sudbury1997}, while quasi-duality and thinning
+relations were developed by Lloyd and Sudbury~\cite{LloydSudbury1997}.
+On~$\Z^d$, every homogeneous product law~$\mu_u$ with~$u<1$ converges
+exponentially to~$\mu_p$
+\cite[Application~2 and Section~5.1.1]{MartinelliShapiraToninelli2025}.
+The centered monomial order allows these product laws to be used as comparison
+laws for more general initial distributions.
+
+\begin{corollary}[Centered monomial comparison for BABP]
+\label{cor:babp-centered-convergence}
+Consider nearest-neighbour BABP on~$\Z^d$. Let~$0\leq u\leq v<1$ satisfy
+\begin{equation*}
+v\geq p,
+\qquad
+\abs{u-p}\leq v-p.
+\end{equation*}
+If a probability measure~$\nu$ satisfies
+\begin{equation}
+\label{eq:babp-centered-sandwich}
+(u-p)^{\abs A}
+\leq
+\nu\bb{\prod_{i\in A}\bb{\eta(i)-p}}
+\leq
+(v-p)^{\abs A}
+\qquad
+\text{for every }A\Subset\Z^d,
+\end{equation}
+then~$\nu P_t$ converges exponentially to~$\mu_p$ on local functions.
+\end{corollary}
+
+\begin{proof}
+Condition~\eqref{eq:babp-centered-sandwich} is exactly
+\begin{equation*}
+\mu_u\preceq_\star\nu\preceq_\star\mu_v.
+\end{equation*}
+By Theorem~\ref{thm:centered-monomial-monotonicity}, this ordering is preserved
+by~$P_t$. Both endpoint laws converge exponentially to~$\mu_p$, so every
+centered monomial expectation under~$\nu P_t$ is squeezed between two
+quantities converging exponentially to its~$\mu_p$ expectation. Since centered
+monomials form a basis for the functions on every finite set of sites, the same
+holds for every local function.
+\end{proof}
+
+This includes dependent and non-translation-invariant initial laws. In
+particular, taking~$u=p$, every inhomogeneous product law with one-site
+parameters
+\begin{equation*}
+p\leq p_i\leq v<1
+\end{equation*}
+satisfies~\eqref{eq:babp-centered-sandwich} and therefore converges
+exponentially to~$\mu_p$. This allows parameters above the bound
+$p_i\leq\sqrt p$ appearing in
+\cite[Remark~5.5]{MartinelliShapiraToninelli2025}, provided they are uniformly
+bounded away from~$1$.
+
+\subsection{Contact process}
+\label{subsec:contact-process-applications}
+
+In the usual labeling from Section~\ref{sec:setup}, the contact process has
+state~$1$ infected and
+\begin{equation*}
+\lambda_i(\eta)
+=
+1+\beta\sum_{j\in N(i)}\eta(j).
+\end{equation*}
+Its nonconstant coefficients are positive, so this labeling does not satisfy
+the first condition in~\eqref{eq:patch-positivity}. Exchange the roles of
+states~$0$ and~$1$. In the resulting variables,
+\begin{equation*}
+\lambda_i(\eta)
+=
+1+\beta\sum_{j\in N(i)}\bb{1-\eta(j)},
+\qquad
+\rho_i(\eta)
+=
+\frac{1}{1+\beta\sum_{j\in N(i)}\bb{1-\eta(j)}}.
+\end{equation*}
+Thus~$\lambda_i\rho_i=1$, while the only nonzero nonconstant coefficients of
+$\lambda_i$ are
+\begin{equation*}
+\widehat{\lambda_i}\bb{\cb{j}}=-\beta,
+\qquad j\in N(i).
+\end{equation*}
+For every nonempty~$S\subseteq N(i)$,
+\begin{equation*}
+\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb0)}}(S)
+=
+-\rho_i(\mb0)\widehat{\lambda_i}(S)
+\geq0.
+\end{equation*}
+Hence the complemented contact process is patch-positive. Since
+$\lambda_i\rho_i$ is constant, its threshold profile is~$\mb p^\star=\mb0$.
+
+The contact process is already monotone in the usual configuration order, and
+the classical monotone coupling gives stronger comparisons than the centered
+monomial order. We only mention it to demonstrate the scope of patch
+positivity.
+
+\subsection{Perturbed FA-1f and BABP}
+\label{subsec:perturbed-fa-babp}
+
+Let~$\Lcal$ denote either FA-1f or BABP with refresh parameter~$p\in(0,1)$,
+and assume that~$N(i)\neq\vn$ for every~$i\in\Lambda$. For
+$\varepsilon>0$ and~$\mb s\in[0,1]^\Lambda$, consider
+\begin{equation*}
+\Lcal^{\varepsilon,\mb s}
+=
+\Lcal+\varepsilon\Ncal^{\mb s}.
+\end{equation*}
+Its update rate and refresh parameter are
+\begin{equation*}
+\lambda_i^{\varepsilon,\mb s}
+=
+\lambda_i+\varepsilon,
+\qquad
+\rho_i^{\varepsilon,\mb s}
+=
+\frac{p\lambda_i+\varepsilon s_i}
+{\lambda_i+\varepsilon}.
+\end{equation*}
+For every nonempty~$S\subseteq N(i)$,
+\begin{equation*}
+\widehat{\lambda_i^{\varepsilon,\mb s}}(S)
+=
+\widehat{\lambda_i}(S),
+\qquad
+\widehat{\lambda_i^{\varepsilon,\mb s}
+\rho_i^{\varepsilon,\mb s}}(S)
+=
+p\widehat{\lambda_i}(S),
+\end{equation*}
+and therefore
+\begin{equation*}
+\widehat{\lambda_i^{\varepsilon,\mb s}
+\bb{\rho_i^{\varepsilon,\mb s}
+-\rho_i^{\varepsilon,\mb s}(\mb0)}}(S)
+=
+\bb{p-\rho_i^{\varepsilon,\mb s}(\mb0)}
+\widehat{\lambda_i}(S).
+\end{equation*}
+The nonconstant coefficients of~$\lambda_i$ are nonpositive in both models,
+and at least one is strictly negative. Hence~$\Lcal^{\varepsilon,\mb s}$ is
+patch-positive if and only if
+\begin{equation}
+\label{eq:perturbed-fa-babp-patch-positive}
+\mb s\geq\mb p.
+\end{equation}
+Whenever this holds, its threshold profile remains~$\mb p^\star=\mb p$.
+
+\begin{proposition}[Convergence for perturbed FA-1f and BABP]
+\label{prop:perturbed-fa-babp-convergence}
+Assume~\eqref{eq:perturbed-fa-babp-patch-positive}, suppose that the
+neighbourhood graph has polynomial growth with exponent~$D$, and set
+\begin{equation*}
+\delta
+=
+\varepsilon\inf_{i\in\Lambda}\bb{1-s_i}.
+\end{equation*}
+If~$\delta>0$, then there is an invariant probability measure~$\pi$ such that,
+for every local function~$f$, there is~$K_f<\infty$ satisfying
+\begin{equation}
+\label{eq:perturbed-fa-babp-convergence}
+\sup_{\mu\in\mathcal M_{-,K}}
+\abs{(\mu P_t^{\varepsilon,\mb s})(f)-\pi(f)}
+\leq
+(1+2K)K_f(1+t)^D e^{-\delta t/2}
+\end{equation}
+for every~$K\geq0$ and~$t\geq0$. Consequently,
+$\mu P_t^{\varepsilon,\mb s}\Rightarrow\pi$ for every
+$\mu\in\mathcal M_-$. In particular, this holds for every homogeneous
+product law~$\mu_u$ with
+\begin{equation*}
+u\geq p^-:=\max\cb{2p-1,0},
+\end{equation*}
+and for every point mass on a configuration with finitely many sites in
+state~$0$.
+\end{proposition}
+
+\begin{proof}
+The added refreshes contain~$1\to0$ transitions at site~$i$ at
+rate~$\varepsilon(1-s_i)$. Thus~$\delta>0$ gives a pure-death component and the claim follows from
+Theorem~\ref{thm:common-invariant-limit}.
+\end{proof}
+
+The limiting measure can also be compared with the Bernoulli product measure
+of the unperturbed system.
+
+\begin{corollary}[Comparison with the Bernoulli measure]
+\label{cor:perturbed-fa-babp-comparison}
+Under the assumptions of
+Proposition~\ref{prop:perturbed-fa-babp-convergence},
+\begin{equation}
+\label{eq:perturbed-fa-babp-stationary-comparison}
+p^{\abs A}
+\leq
+\pi(\chi_A)
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation}
+If~$\mb s=\mb p$, then~$\pi=\mu_p$.
+\end{corollary}
+
+\begin{proof}
+Set
+\begin{equation*}
+d_i=\varepsilon\frac{s_i-p}{p}\geq0
+\end{equation*}
+and define
+\begin{equation*}
+\widetilde\Lcal
+=
+\Lcal^{\varepsilon,\mb s}
++
+\sum_{i\in\Lambda}d_i\bb{E_{i,0}-I}.
+\end{equation*}
+Then
+\begin{equation*}
+\widetilde\Lcal
+=
+\Lcal
++
+\sum_{i\in\Lambda}
+\frac{\varepsilon s_i}{p}\bb{E_{i,p}-I}.
+\end{equation*}
+Hence~$\widetilde\Lcal$ is patch-positive with threshold~$p$, and~$\mu_p$
+is invariant for its semigroup~$\widetilde P_t$. By
+Corollary~\ref{cor:pure-death-comparison-revision},
+\begin{equation*}
+p^{\abs A}
+=
+(\mu_p\widetilde P_t)(\chi_A)
+\leq
+(\mu_pP_t^{\varepsilon,\mb s})(\chi_A).
+\end{equation*}
+Letting~$t\to\infty$ gives~\eqref{eq:perturbed-fa-babp-stationary-comparison}.
+If~$\mb s=\mb p$, then~$\mu_p$ is itself invariant for
+$\Lcal^{\varepsilon,\mb p}$, so convergence from~$\mu_p$ gives
+$\pi=\mu_p$.
+\end{proof}
+
+\begin{corollary}[Ergodicity of the perturbed models]
+\label{cor:perturbed-fa-babp-ergodicity}
+Under the assumptions of
+Proposition~\ref{prop:perturbed-fa-babp-convergence}, the following holds:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item If~$p\leq\frac12$, then~$\pi$ is the unique invariant measure and,
+for every local function~$f$,
+\begin{equation*}
+\sup_{\eta\in\Omega}
+\abs{P_t^{\varepsilon,\mb s}f(\eta)-\pi(f)}
+\leq
+K_f(1+t)^D e^{-\delta t/2}.
+\end{equation*}
+
+\item If the neighbourhood graph is orientable, then~$\pi$ is the unique
+invariant measure and, for every local function~$f$,
+\begin{equation*}
+\lim_{t\to\infty}
+\sup_{\eta\in\Omega}
+\abs{P_t^{\varepsilon,\mb s}f(\eta)-\pi(f)}
+=
+0.
+\end{equation*}
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Part~\textup{(i)} follows from
+Corollary~\ref{cor:uniform-exponential-ergodicity}, since the threshold is
+$p$. Part~\textup{(ii)} follows from
+Corollary~\ref{cor:oriented-ergodicity}.
+\end{proof}
+
+\begin{corollary}[Perturbed East model]
+\label{cor:perturbed-east}
+Consider the East model on~$\Z^d$ and add independent refreshes
+$\varepsilon\Ncal^{\mb s}$ with
+\begin{equation*}
+\mb s\geq\mb p,
+\qquad
+\inf_{i\in\Z^d}(1-s_i)>0.
+\end{equation*}
+Then, for every~$p\in(0,1)$, the perturbed process has a unique invariant
+measure~$\pi$ and
+\begin{equation*}
+\lim_{t\to\infty}
+\sup_{\eta\in\Omega}
+\abs{P_t^{\varepsilon,\mb s}f(\eta)-\pi(f)}
+=
+0
+\end{equation*}
+for every local function~$f$. If~$\mb s=\mb p$, then~$\pi=\mu_p$.
+For~$p\leq\frac12$, the convergence satisfies the exponential bound in
+Corollary~\ref{cor:perturbed-fa-babp-ergodicity}.
+\end{corollary}
+
+\begin{proof}
+The East neighbourhood graph has polynomial growth and is orientable, so this
+is Corollaries~\ref{cor:perturbed-fa-babp-comparison} and
+\ref{cor:perturbed-fa-babp-ergodicity}.
+\end{proof}
+
+\subsection{Positive rates for simple spin systems}
+\label{subsec:simple-positive-rates}
+
+Recall the simple spin systems from Section~\ref{sec:setup}. Both flips have
+positive rates for either value of the right neighbour precisely when
+\begin{equation}
+\label{eq:simple-positive-rates}
+p_{1\mid11},p_{1\mid10}<1,
+\qquad
+p_{1\mid01},p_{1\mid00}>0.
+\end{equation}
+The broad positive-rates conjecture for one-dimensional finite-range systems
+is false in general: G\'acs constructed counterexamples
+\cite{Gacs1986,Gacs2001}; see also Gray's guide~\cite{Gray2001}. Classical
+positive-rate results for monotone nearest-neighbour spin systems include
+\cite{Gray1982}. The binary, one-sided nearest-neighbour problem considered
+here remains open. We refer to it as the positive rates conjecture for simple
+spin systems: every system satisfying~\eqref{eq:simple-positive-rates} should
+be ergodic. Earlier sufficient conditions cover parts of the parameter space
+\cite{GluchowskiMenz2025,GluchowskiMenz2026}. The orientability result above
+gives an additional region.
+
+\begin{corollary}[Positive rates for simple spin systems]
+\label{cor:simple-positive-rates}
+Suppose that a simple spin system satisfies~\eqref{eq:simple-positive-rates}
+and
+\begin{equation}
+\label{eq:simple-positive-rates-criterion}
+p_{1\mid01}(1-p_{1\mid10})
+\geq
+p_{1\mid00}(1-p_{1\mid11}).
+\end{equation}
+Then the system has a unique invariant measure~$\pi$ and, for every local
+function~$f$,
+\begin{equation*}
+\lim_{t\to\infty}
+\sup_{\eta\in\Omega}
+\abs{P_tf(\eta)-\pi(f)}
+=
+0.
+\end{equation*}
+\end{corollary}
+
+\begin{proof}
+In the refresh representation,
+\begin{equation*}
+\lambda_i(\eta)
+=
+p_{1\mid0\eta(i+1)}+1-p_{1\mid1\eta(i+1)},
+\qquad
+\rho_i(\eta)
+=
+\frac{p_{1\mid0\eta(i+1)}}{\lambda_i(\eta)}.
+\end{equation*}
+Since~$\lambda_i$ is translation invariant and depend only on a single coordinate we write~$\lambda(0)=\lambda_i(\eta^{i,0})$ and~$\lambda(1)=\lambda_i(\eta^{i,1})$.  Exchanging the roles of~$0$ and~$1$ swaps the two values of~$\lambda$ and
+leaves~\eqref{eq:simple-positive-rates-criterion} unchanged. We may therefore
+assume that~$\lambda(1)\leq\lambda(0)$. Since
+$N(i)=\cb{i+1}$,
+\begin{align*}
+\widehat{\lambda_i}\bb{\cb{i+1}}
+&=
+p_{1\mid01}-p_{1\mid11}-p_{1\mid00}+p_{1\mid10}\\
+&= \lambda(1)-\lambda(0)
+\leq0,\\
+\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb0)}}\bb{\cb{i+1}}
+&=
+\frac{
+p_{1\mid01}(1-p_{1\mid10})
+-
+p_{1\mid00}(1-p_{1\mid11})
+}{
+p_{1\mid00}+1-p_{1\mid10}
+}
+\geq0.
+\end{align*}
+Thus the system is patch-positive. Its~$1\to0$ rates are bounded below by
+\begin{equation*}
+\min\cb{1-p_{1\mid11},1-p_{1\mid10}}>0,
+\end{equation*}
+so it contains a pure-death component. The one-sided neighbourhood graph has
+polynomial growth and is orientable. Corollary~\ref{cor:oriented-ergodicity}
+therefore applies.
+\end{proof}
+
+To compare this criterion with the earlier sufficient conditions, we use the
+same normalization as in~\cite{GluchowskiMenz2025}. Symmetry of exchanging the two states and a time-scaling trick~\cite{GluchowskiMenz2025} reduce the problem to two cubes in the parameter space
+\begin{equation*}
+\cb{p_{1\mid11}=0, p_{1\mid 10}<1, p_{1\mid 01}>0, p_{1\mid 00}>0}
+\qquad\text{or}\qquad
+\cb{p_{1\mid11}<1, p_{1\mid 10}=0, p_{1\mid 01}>0, p_{1\mid 00}>0}.
+\end{equation*}
+The spin systems with parameters in the second cube are already known to be ergodic
+\cite[Section~7]{GluchowskiMenz2025}, so we focus on~$p_{1\mid11}=0$. On this
+face,~\eqref{eq:simple-positive-rates-criterion} becomes
+\begin{equation}
+\label{eq:simple-positive-rates-face}
+p_{1\mid00}
+\leq
+(1-p_{1\mid10})p_{1\mid01}.
+\end{equation}
+Figure~\ref{fig:simple-ips-ergodicity-regions} compares this condition with
+the earlier sufficient conditions on three sections of the parameter space.
+
+\begin{figure}[htbp]
+\centering
+% Adapted from Figure 3 in the arXiv source of Gluchowski--Menz,
+% arXiv:2508.08459v1, main.tex (https://arxiv.org/src/2508.08459v1).
+% Retains the unit squares, axes and ticks of the source figure.
+% Uses three positive slices and exact intersections; red is the added region.
+% Coordinates: x=p_{1|10}, y=p_{1|01}, z=p_{1|00}, with p_{1|11}=0.
+% Earlier light gray: x<1/2 or x<y+z or y<=z.
+% Earlier dark gray: max(y,z)<sqrt(2)*(1-x), outside light gray.
+% New red: z<=y*(1-x), outside light and dark gray.
+% Its additional region is nonempty only when z<3-2*sqrt(2).
+\begingroup
+\color{black}
+\begin{tikzpicture}[scale=4, line cap=round, line join=round]
+  \pgfmathsetmacro{\criticalz}{3-2*sqrt(2)}
+  \foreach \z/\xshift/\yshift/\denom in
+    {0.01/0/0/100,0.125/1.55/0/8,0.25/0/-1.55/4} {
+    \begin{scope}[xshift=\xshift cm,yshift=\yshift cm]
+      \pgfmathsetmacro{\oldcross}{(sqrt(2)+\z)/(1+sqrt(2))}
+      \pgfmathsetmacro{\redend}{1-\z/sqrt(2)}
+
+      % Regions in the earlier figure, with rounded vertices replaced
+      % by their exact expressions.
+      \fill[lightgray!25] (0,0) -- (1,0) -- (1,\z) -- (0.5,\z)
+        -- (0.5,{0.5-\z}) -- (1,{1-\z})
+        -- (1,1) -- (0,1) -- cycle;
+      \fill[darkgray!25] (0.5,\z) -- (\redend,\z)
+        -- (\oldcross,{\oldcross-\z})
+        -- (0.5,{0.5-\z}) -- cycle;
+
+      % Additional coverage: above both y=sqrt(2)*(1-x) and
+      % y=z/(1-x), and below y=x-z. There is none for z=1/4.
+      \ifdim\z pt<\criticalz pt
+        \pgfmathsetmacro{\newcross}{1-sqrt(\z/sqrt(2))}
+        \pgfmathsetmacro{\newend}{(1+\z+sqrt(1-6*\z+\z*\z))/2}
+        \fill[red!25] (\oldcross,{\oldcross-\z})
+          -- (\newend,{\newend-\z})
+          -- plot[domain=\newend:\newcross,samples=100,variable=\x]
+            ({\x},{\z/(1-\x)}) -- cycle;
+      \fi
+
+      % Boundaries between the regions. The red curve is the new
+      % criterion's boundary outside the previously shaded regions.
+      \draw[thick] (0.5,\z) -- (0.5,{0.5-\z}) -- (1,{1-\z});
+      \draw[thick] (0.5,\z) -- (1,\z);
+      \draw[thick,dashed,darkgray!70!black]
+        (\oldcross,{\oldcross-\z}) -- (\redend,\z);
+      \ifdim\z pt<\criticalz pt
+        \draw[thick,red!70!black]
+          plot[domain=\newcross:\newend,samples=100,variable=\x]
+            ({\x},{\z/(1-\x)});
+      \fi
+
+      % Axes and ticks follow the source figure.
+      \draw (0,0) rectangle (1,1);
+      \draw[->] (-0.02,0) -- (1.08,0)
+        node[below right] {$p_{1\mid10}$};
+      \draw[->] (0,-0.02) -- (0,1.08)
+        node[above left] {$p_{1\mid01}$};
+      \foreach \t in {0,1} {
+        \draw (\t,0) -- (\t,-0.02) node[below] {\small $\t$};
+        \draw (0,\t) -- (-0.02,\t) node[left] {\small $\t$};
+      }
+      \draw (0.5,0) -- (0.5,-0.02) node[below] {\small $\tfrac12$};
+      \draw (0,0.5) -- (-0.02,0.5) node[left] {\small $\tfrac12$};
+      \node at (0.5,-0.20) {$p_{1\mid00}=\tfrac1{\denom}$};
+    \end{scope}
+  }
+  % The legend occupies the open position beside the third panel.
+  \begin{scope}[shift={(1.43,-0.75)},every node/.style={anchor=west,font=\small}]
+    \fill[lightgray!25] (0,0) rectangle (0.065,0.055);
+    \node at (0.09,0.0275) {Corollaries 7.1 and 7.2 in~\cite{GluchowskiMenz2025}};
+    \fill[darkgray!25] (0,-0.15) rectangle (0.065,-0.095);
+    \node at (0.09,-0.1225) {Long-lived-state criterion~\cite{GluchowskiMenz2026}};
+    \fill[red!25] (0,-0.30) rectangle (0.065,-0.245);
+    \node at (0.09,-0.2725) {Corollary~\ref{cor:oriented-ergodicity}};
+    \draw (0,-0.45) rectangle (0.065,-0.395);
+    \node at (0.09,-0.4225) {Not proven};
+  \end{scope}
+\end{tikzpicture}
+\endgroup
+\caption{Sections of the cube~$\cb{p_{1\mid11}=0}$. The horizontal coordinate is
+$p_{1\mid10}$ and the vertical coordinate is~$p_{1\mid01}$; the three panels
+have~$p_{1\mid00}=1/100$,~$1/8$, and~$1/4$. Light gray is the region covered
+by~\cite{GluchowskiMenz2025}, where
+$p_{1\mid10}<\tfrac12$, or
+$p_{1\mid10}<p_{1\mid01}+p_{1\mid00}$, or
+$p_{1\mid01}\leq p_{1\mid00}$. Dark gray is the additional region from~\cite{GluchowskiMenz2026}, where
+$\max\cb{p_{1\mid01},p_{1\mid00}}<\sqrt2(1-p_{1\mid10})$, and red is the
+additional region given by Corollary~\ref{cor:simple-positive-rates}, where
+$p_{1\mid00}\leq(1-p_{1\mid10})p_{1\mid01}$. White denotes parameters not
+covered by these criteria. The improvement is greatest when spontaneous births are sparse, meaning~$p_{1\mid 00}\approx 0$.}
+\label{fig:simple-ips-ergodicity-regions}
+\end{figure}
+\FloatBarrier
+
+\section{Dual process}
+\label{sec:dual}
+
+In this section, we derive the standard set-valued Feynman--Kac duality for
+spin systems in the signed form needed for the patch representation; see~\cite{Harris1978,Griffeath1979,Gray1986,JansenKurt2014}. We identify the
+signed dual directly from the action of the generator on monomials and record
+the effect of pure deaths on its Feynman--Kac potential. The graphical
+construction used to define patches is introduced in
+Section~\ref{sec:patches}.
+
+The duality function we choose is given through monomials. For~$A\Subset\Lambda$ and~$\sigma\in\cb{+,-}$  define
+\begin{equation}
+\label{eq:monomial-duality-function}
+H((A,\sigma),\eta)
+=
+\sigma\chi_A(\eta).
+\end{equation}
+We seek a signed set-valued Markov process~$(A_t,\sigma_t)$ and a potential~$V$
+such that
+\begin{equation}
+\label{eq:monomial-generator-duality}
+\Lcal_\eta H((A,\sigma),\eta)
+=
+\Dcal H((A,\sigma),\eta)
++
+V(A)H((A,\sigma),\eta),
+\end{equation}
+where~$\Dcal$ is the generator of~$(A_t,\sigma_t)$. Once the duality
+function~\eqref{eq:monomial-duality-function} is fixed, possible transitions in the dual process and the potential are read directly from the action of~$\Lcal$
+on monomials.
+
+Indeed, expanding~$\Lcal\chi_A$ in the monomial basis gives
+\begin{equation}
+\label{eq:signed-dual-generator-expansion}
+\Lcal\chi_A
+=
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+a_i^\delta(S)\chi_{\bb{A\setminus\cb{i}}\cup S}
++
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+a_i^\beta(S)\chi_{A\cup S},
+\end{equation}
+where
+\begin{equation}
+\label{eq:signed-dual-coefficients}
+a_i^\delta(S)
+=
+\widehat{\lambda_i\rho_i}(S),
+\qquad
+a_i^\beta(S)
+=
+-\widehat{\lambda_i}(S).
+\end{equation}
+In the second sum, the term with~$S=\varnothing$ leaves the index unchanged
+and is therefore a diagonal term. Its coefficient is
+\begin{equation*}
+a_i^\beta(\varnothing)
+=
+-\widehat{\lambda_i}(\varnothing)
+=
+-\lambda_i(\mb 0).
+\end{equation*}
+In Appendix~\ref{app:generator-action}, we derive
+\eqref{eq:signed-dual-generator-expansion} directly from the spin-system
+generator.
+
+We now construct the generator of the dual process.
+For~$r\in\R$, let~$\operatorname{sgn}_{\pm}(r)$ be~$+$ when~$r\geq0$ and~$-$
+when~$r<0$. We turn the off-diagonal coefficients in
+\eqref{eq:signed-dual-generator-expansion} into jump rates by taking absolute
+values, while their signs are carried by the second coordinate. For~$S\subseteq N(i)$, set
+\begin{equation}
+\label{eq:death-split-data}
+\delta_i(S)
+=
+\abs{a_i^\delta(S)},
+\qquad
+\sigma_i^\delta(S)
+=
+\operatorname{sgn}_{\pm}\bb{a_i^\delta(S)},
+\end{equation}
+and, for~$\varnothing\neq S\subseteq N(i)$, set
+\begin{equation}
+\label{eq:birth-data}
+\beta_i(S)
+=
+\abs{a_i^\beta(S)},
+\qquad
+\sigma_i^\beta(S)
+=
+\operatorname{sgn}_{\pm}\bb{a_i^\beta(S)}.
+\end{equation}
+For~$i\in A$, define
+\begin{align*}
+D_{i,S}(A,\sigma)
+&=
+\bb{
+\bb{A\setminus\cb{i}}\cup S,
+\sigma\sigma_i^\delta(S)
+},
+\\
+B_{i,S}(A,\sigma)
+&=
+\bb{
+A\cup S,
+\sigma\sigma_i^\beta(S)
+}.
+\end{align*}
+Thus the update operator~$D_{i,\varnothing}$ removes~$i$, the operator~$D_{i,S}$ with~$S\neq\varnothing$ replaces~$i$ by~$S$, and~$B_{i,S}$
+adds~$S$. We refer to these transitions as a death, split, and birth,
+respectively. The dual generator is
+\begin{align}
+\label{eq:signed-dual-generator}
+\Dcal g(A,\sigma)
+={}&
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+\delta_i(S)
+\bb{
+g\bb{D_{i,S}(A,\sigma)}-g(A,\sigma)
+}
+\notag\\
+&+
+\sum_{i\in A}
+\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}
+\beta_i(S)
+\bb{
+g\bb{B_{i,S}(A,\sigma)}-g(A,\sigma)
+}.
+\end{align}
+
+The off-diagonal terms of~\eqref{eq:signed-dual-generator-expansion} are now
+reproduced by~$\Dcal H$. For the duality equation to hold the remaining diagonal terms must be included in the Feynman--Kac potential, which therefore is
+\begin{equation}
+\label{eq:dual-potential}
+V(A)
+=
+\sum_{i\in A}V_i,
+\qquad
+V_i
+=
+\sum_{S\subseteq N(i)}\delta_i(S)
++
+\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}\beta_i(S)
++
+a_i^\beta(\varnothing).
+\end{equation}
+With this choice, the generator identity~\eqref{eq:monomial-generator-duality} holds, which we check in Appendix~\ref{app:dual-data}. The uniform bounds on the
+neighbourhood sizes and update rates imply that the total dual jump rate per
+active site and~$\abs{V_i}$ are uniformly bounded.
+
+
+We write~$\pP_A$ and~$\E_A$ for the law and expectation of the signed
+set-valued process started from~$(A,+)$.
+
+\begin{definition}[Feynman--Kac integrability]
+\label{def:fk-integrability}
+The signed dual satisfies \emph{Feynman--Kac integrability} if
+\begin{equation}
+\tag{FK}
+\label{eq:fk-integrability}
+\E_A\Cb{
+\exp\bb{\int_0^t V(A_s)\,ds}
+}
+<\infty
+\qquad
+\text{for every }A\Subset\Lambda\text{ and }t\geq0.
+\end{equation}
+\end{definition}
+
+Under this condition, the generator identity~\eqref{eq:monomial-generator-duality} gives the standard Feynman--Kac
+duality relation
+\begin{theorem}[Monomial Feynman--Kac duality]
+\label{thm:monomial-duality}
+For every~$A\Subset\Lambda$, $t\geq0$, and~$\eta\in\Omega$,
+\begin{equation}
+\label{eq:monomial-feynman-kac-duality}
+P_t\chi_A(\eta)
+=
+\E_A\Cb{
+\sigma_t
+\exp\bb{\int_0^t V(A_s)\,ds}
+\chi_{A_t}(\eta)
+}.
+\end{equation}
+\end{theorem}
+This is a standard Feynman--Kac duality argument; see, for example,~\cite{JansenKurt2014}.
+
+Pure deaths have a particularly simple effect on this representation. Since
+\begin{equation*}
+\Ncal^{\mb 0}\chi_A
+=
+-\abs{A}\chi_A,
+\end{equation*}
+adding~$\varepsilon\Ncal^{\mb 0}$ to the spin system generator changes no
+off-diagonal coefficient in~\eqref{eq:signed-dual-generator-expansion}.
+Consequently, the signed dual jump process is unchanged, while the potential
+is replaced by
+\begin{equation*}
+V(A)-\varepsilon\abs{A}.
+\end{equation*}
+Thus two spin systems that only differ by adding pure deaths have the same dual process but the one with more deaths has smaller Feynman--Kac weight.
+
+
+\section{Patches}
+\label{sec:patches}
+
+The duality formula~\eqref{eq:monomial-feynman-kac-duality} represents the nonnegative~$P_t\chi_A$ in a way that includes the sign process~$\sigma_t$. If the sign process was not there then monotonicity in monomial order would be immediate:
+\begin{equation*}
+ \mu P_t \chi_A \E\Cb{\exp\bb{\int_0^t V(A_s)ds}\mu (\chi_A)}\leq \E\Cb{\exp\bb{\int_0^t V(A_s)ds}\nu (\chi_A)} \leq \nu P_t,
+\end{equation*}
+for any~$\mu\leq \nu$. Hence, to get monotonicity one needs to control the cancellations from the sign process.
+To capture these cancellations, we introduce a~$\sigma$-algebra that reveals when sites interact, but not exactly how. For each site~$i$, the consecutive incoming and outgoing interactions divide~$\cb{i}\times [0,\infty)$ into intervals, which we call patches. Conditional on the the interaction skeleton the law of the dual process factorizes over these patches. Then~$P_t\chi_A$ can be represented via expectation over a product of contributions, one per patch, and given patch positivity these contributions capture all necessary cancellations.
+
+\subsection{Interaction skeleton}
+\label{subsec:interaction-skeleton}
+
+To obtain the patch representation, we define a~$\sigma$-algebra that
+records how dependence passes between sites while revealing as little of the
+remaining randomness as possible. The~$\sigma$-algebra should reveal every interaction between sites, but suppress local events and any additional information. To make this notion precise,
+we first construct the dual process graphically.
+
+We use the standard Poisson graphical construction for the dual process. For
+every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
+$I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson point process of
+rate~$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let
+$I_{i,S}^\beta\subseteq(0,\infty)$ be a Poisson point process of
+rate~$\beta_i(S)$. All these processes are independent, and we set
+$I_{i,\varnothing}^\beta=\varnothing$. We denote the resulting collection of
+Poisson marks by
+\begin{equation*}
+I^{\mathrm P}
+=
+\cb{
+(i,t,\alpha,S):
+i\in\Lambda,\ 
+\alpha\in\cb{\delta,\beta},\ 
+S\subseteq N(i),\ 
+t\in I_{i,S}^\alpha
+}.
+\end{equation*}
+For a mark~$(i,t,\alpha,S)$, the site~$i$ is its \emph{source},~$S$ its
+\emph{target}, and~$\alpha$ its \emph{kind}. Starting from~$(A,+)$, a
+mark~$(i,t,\delta,S)$ with~$i\in A_{t-}$ applies~$D_{i,S}$, while a
+mark~$(i,t,\beta,S)$ with~$i\in A_{t-}$ applies~$B_{i,S}$. A mark whose
+source is not active does not change the process. This gives the signed dual
+with generator~$\Dcal$ from~\eqref{eq:signed-dual-generator}.
+
+The marks through which dependence passes between distinct sites are exactly
+those with nonempty target that occur at active sources.
+\begin{definition}[Successful interaction and its record]
+\label{def:successful-interaction}
+A mark~$(i,t,\alpha,S)\in I^{\mathrm P}$ is a \emph{successful
+interaction} if
+\begin{equation*}
+S\neq\varnothing
+\qquad\text{and}\qquad
+i\in A_{t-}.
+\end{equation*}
+Its \emph{record} is the triple~$(i,t,S)$.
+\end{definition}
+The record retains exactly the source, time, and target of the interaction.
+The kind~$\alpha$ is not retained: a split and a birth with the same source
+and target connect the same sites. Deaths are not retained because their target
+is empty, and marks at inactive sources are not retained because they do not
+affect the dual.
+
+It is convenient for later construction of patches to add the initial successful interaction record~$(\infty,0,A)$, where~$\infty\notin\Lambda$ is a formal source. For~$T<\infty$, define the successful-interaction skeleton up to time~$T$ by
+\begin{equation}
+\label{eq:successful-interaction-skeleton}
+\mathcal I_T
+=
+\cb{(\infty,0,A)}
+\cup
+\cb{
+(i,t,S):
+t\leq T
+\text{ and }(i,t,\alpha,S)\text{ is successful for some }
+\alpha\in\cb{\delta,\beta}
+}.
+\end{equation}
+We also set
+\begin{equation*}
+\mathcal I
+=
+\bigcup_{T<\infty}\mathcal I_T,
+\qquad
+\mathcal G_T
+=
+\sigma\bb{\mathcal I_T}.
+\end{equation*}
+Thus~$\mathcal G_T$ reveals the complete record of interactions through which
+dependence passes between sites up to time~$T$, but does not reveal deaths,
+marks at inactive sources, or the split/birth kind of a successful
+interaction.
+
+
+\begin{lemma}[Local finiteness]
+\label{lem:dual-local-finiteness}
+For every~$T<\infty$, the successful-interaction skeleton~$\mathcal I_T$ is
+almost surely finite.
+\end{lemma}
+
+\begin{proof}
+The total rate of marks whose source is active is bounded by~$C\abs{A_t}$ for some finite~$C$, uniformly in the state. Moreover, a single
+mark can add at most
+\begin{equation*}
+\sup_{i\in\Lambda}\abs{N(i)}<\infty
+\end{equation*}
+sites to the active set. Hence~$\abs{A_t}$ is dominated by a nonexplosive
+continuous-time branching process. Almost surely only finitely many marks occur
+at active sources on~$[0,T]$, and therefore only finitely many of them are
+successful interactions.
+\end{proof}
+
+\subsection{Patches}
+\label{subsec:patches}
+Each record~$(i,t,S)\in\mathcal I$ is outgoing at its source~$i$ and incoming
+at every site in~$S$. Consequently, on each site line~$\cb{i}\times [0,\infty)$ the retained interaction
+times divide time into consecutive intervals between one incoming or outgoing successful
+interaction and the next. These intervals are the patches. Below we give the precise construction.
+
+For~$i\in\Lambda$, define the times of incoming and outgoing successful interactions at~$i$:
+\begin{align*}
+\mathcal T^{\mathsf I}(i)
+&=
+\cb{t\geq0:(j,t,S)\in\mathcal I
+  \text{ for some }j,S\text{ with }i\in S},
+\\
+\mathcal T^{\mathsf O}(i)
+&=
+\cb{t>0:(i,t,S)\in\mathcal I\text{ for some }S},
+\\
+\mathcal T(i)
+&=
+\mathcal T^{\mathsf I}(i)\cup\mathcal T^{\mathsf O}(i).
+\end{align*}
+The formal record~$(\infty,0,A)$ implies that~$0\in\mathcal T^{\mathsf I}(i)$, meaning we interpret the initial conditions of the process as an incoming successful interaction.
+For~$s\in\mathcal T(i)$, the next successful interaction involving~$i$ occurs
+at
+\begin{equation*}
+e_i(s)
+=
+\inf\cb{u>s:u\in\mathcal T(i)},
+\qquad
+\inf\varnothing=\infty.
+\end{equation*}
+
+\begin{definition}[Patch]
+\label{def:patch}
+Let~$(j,s,S)\in\mathcal I$ be a record for which~$i=j$ or~$i\in S$. The patch
+beginning at~$(i,s)$ is
+\begin{equation*}
+P
+=
+\bb{i(P),[s(P),e(P)),\mathsf X(P)\mathsf Y(P),S(P)},
+\end{equation*}
+where
+\begin{equation*}
+i(P)=i,
+\qquad
+s(P)=s,
+\qquad
+e(P)=e_i(s),
+\qquad
+S(P)=S.
+\end{equation*}
+The initial label~$\mathsf X(P)$ records whether the interaction at~$s(P)$ is
+incoming or outgoing:
+\begin{equation*}
+\mathsf X(P)
+=
+\pw{\mathsf I}{i(P)\in S(P)}{\mathsf O}{i(P)\notin S(P)}.
+\end{equation*}
+The terminal label~$\mathsf Y(P)$ records the next successful interaction on
+the same site line, with~$\mathsf E$ meaning that there is no such interaction:
+\begin{equation*}
+\mathsf Y(P)
+=
+\pwthree
+{\mathsf I}{e(P)<\infty\text{ and }e(P)\in\mathcal T^{\mathsf I}\bb{i(P)}}
+{\mathsf O}{e(P)<\infty\text{ and }e(P)\in\mathcal T^{\mathsf O}\bb{i(P)}}
+{\mathsf E}{e(P)=\infty}.
+\end{equation*}
+\end{definition}
+
+Let~$\mathcal P$ be the family of all patches. For this infinite-horizon family,
+a patch with terminal label~$\mathsf E$ is infinite, while a patch with terminal
+label~$\mathsf I$ or~$\mathsf O$ is finite.
+
+For the representation at a finite time~$t$, patches which continue beyond~$t$
+must be cut at the observation time. For~$P\in\mathcal P$ with~$s(P)\leq t$,
+let~$P^{\downarrow t}$ be obtained by replacing its endpoint by
+$\min\cb{e(P),t}$ and, when~$t<e(P)$, replacing its terminal label by
+$\mathsf E$. Thus
+\begin{equation*}
+P^{\downarrow t}
+=
+\bb{
+ i(P),
+ [s(P),\min\cb{e(P),t}),
+ \mathsf X(P)\mathsf Y^{\downarrow t}(P),
+ S(P)
+},
+\end{equation*}
+where
+\begin{equation*}
+\mathsf Y^{\downarrow t}(P)
+=
+\pw{\mathsf Y(P)}{e(P)\leq t}{\mathsf E}{t<e(P)}.
+\end{equation*}
+The families of bulk patches, end patches, and all finite-horizon patches are
+\begin{align*}
+\mathcal B_t
+&=
+\cb{P\in\mathcal P:e(P)\leq t},
+\\
+\mathcal E_t
+&=
+\cb{P^{\downarrow t}:P\in\mathcal P,\ s(P)\leq t<e(P)},
+\\
+\mathcal P_t
+&=
+\mathcal B_t\cup\mathcal E_t.
+\end{align*}
+Thus the bulk patches are completed by time~$t$, while the end patches are the
+patches crossing~$t$, truncated at the observation time. By Lemma~\ref{lem:dual-local-finiteness}, the family~$\mathcal P_t$ is finite
+almost surely. Distinct end patches have distinct sites, since the successful-interaction
+times divide each site line into consecutive intervals. Figure~\ref{fig:patch-geometry} shows the full graphical realization and the
+finite-horizon patch family induced by its successful-interaction skeleton.
+\begin{figure}[htbp]
+\centering
+\resizebox{\linewidth}{!}{\begingroup
+\definecolor{patchfigred}{RGB}{175,32,38}
+\definecolor{patchfigactive}{gray}{0.86}
+\definecolor{patchfigused}{gray}{0.32}
+\definecolor{patchfigunused}{gray}{0.50}
+\definecolor{patchfigoutline}{gray}{0.15}
+\begin{tikzpicture}[x=0.92cm,y=0.78cm]
+\tikzset{
+  patchfig site/.style={draw=patchfigoutline,line width=0.48pt},
+  patchfig active/.style={fill=patchfigactive,draw=none},
+  patchfig success/.style={draw=black,line width=0.86pt,-{Stealth[length=2.0mm,width=1.35mm]}},
+  patchfig unused/.style={draw=patchfigunused,line width=0.68pt,-{Stealth[length=1.75mm,width=1.18mm]}},
+  patchfig horizon/.style={draw=patchfigoutline,line width=0.72pt},
+  patchfig boundary/.style={draw=patchfigoutline,line width=0.40pt},
+  patchfig label/.style={font=\scriptsize,text=black,inner sep=0pt},
+  patchfig separator/.style={draw=patchfigred,line width=2.70pt,line cap=butt,line join=miter},
+  patchfig small/.style={font=\scriptsize,text=patchfigoutline},
+  patchfig used death/.style={font=\normalsize,text=patchfigused,inner sep=0pt},
+  patchfig unused death/.style={font=\normalsize,text=patchfigunused,inner sep=0pt}
+}
+\newcommand{\PatchFigGrid}{%
+  \foreach \x in {0,...,7}{\draw[patchfig site](\x,0)--(\x,8.4);}
+  \draw[patchfig horizon](0,0)--(7,0);
+  \draw[patchfig horizon](0,8.4)--(7,8.4);}
+\newcommand{\PatchFigBarrier}[3]{%
+  \path[
+    pattern={Lines[angle=33,distance=3.65pt,line width=1.65pt]},
+    pattern color=patchfigred
+  ] (#1,#2) rectangle ({#1+0.105},#3);
+  \path[
+    pattern={Lines[angle=33,distance=3.65pt,line width=1.65pt]},
+    pattern color=patchfigred
+  ] ({#1+0.895},#2) rectangle ({#1+1},#3);}
+\newcommand{\PatchFigInitial}{%
+  \node[font=\small,inner sep=0pt](patchfiginf) at (3.5,-0.92){$\infty$};
+  \draw[patchfig success]([xshift=-1.4mm]patchfiginf.north west)..controls(2.95,-0.40)and(2.05,-0.31)..(1.5,0);
+  \draw[patchfig success](patchfiginf.north)--(3.5,0);
+  \draw[patchfig success]([xshift=1.4mm]patchfiginf.north east)..controls(4.05,-0.40)and(4.95,-0.31)..(5.5,0);}
+\begin{scope}
+  \path[patchfig active] (0,1.1) rectangle (1,1.65);
+  \path[patchfig active] (0,3.1) rectangle (1,8.4);
+  \path[patchfig active] (1,0) rectangle (2,8.4);
+  \path[patchfig active] (2,1.1) rectangle (3,5.7);
+  \path[patchfig active] (2,7.85) rectangle (3,8.4);
+  \path[patchfig active] (3,0) rectangle (4,2.1);
+  \path[patchfig active] (3,4.1) rectangle (4,8.4);
+  \path[patchfig active] (4,2.1) rectangle (5,6.1);
+  \path[patchfig active] (4,7.1) rectangle (5,8.4);
+  \path[patchfig active] (5,0) rectangle (6,8.4);
+  \path[patchfig active] (6,7.1) rectangle (7,7.55);
+  \PatchFigGrid
+  \draw[patchfig success] (1.5,1.1)--(0.5,1.1);
+  \draw[patchfig success] (1.5,1.1)--(2.5,1.1);
+  \fill[black] (1.5,1.1) circle[radius=1.25pt];
+  \draw[patchfig success] (3.5,2.1)--(2.5,2.1);
+  \draw[patchfig success] (3.5,2.1)--(4.5,2.1);
+  \fill[black] (3.5,2.1) circle[radius=1.25pt];
+  \draw[patchfig success] (1.5,3.1)--(0.5,3.1);
+  \draw[patchfig success] (1.5,3.1)--(2.5,3.1);
+  \fill[black] (1.5,3.1) circle[radius=1.25pt];
+  \draw[patchfig success] (2.5,4.1)--(1.5,4.1);
+  \draw[patchfig success] (2.5,4.1)--(3.5,4.1);
+  \fill[black] (2.5,4.1) circle[radius=1.25pt];
+  \draw[patchfig success] (3.5,5.1)--(2.5,5.1);
+  \draw[patchfig success] (3.5,5.1)--(4.5,5.1);
+  \fill[black] (3.5,5.1) circle[radius=1.25pt];
+  \draw[patchfig success] (4.5,6.1)--(3.5,6.1);
+  \draw[patchfig success] (4.5,6.1)--(5.5,6.1);
+  \fill[black] (4.5,6.1) circle[radius=1.25pt];
+  \draw[patchfig success] (5.5,7.1)--(4.5,7.1);
+  \draw[patchfig success] (5.5,7.1)--(6.5,7.1);
+  \fill[black] (5.5,7.1) circle[radius=1.25pt];
+  \draw[patchfig success] (1.5,7.85)--(0.5,7.85);
+  \draw[patchfig success] (1.5,7.85)--(2.5,7.85);
+  \fill[black] (1.5,7.85) circle[radius=1.25pt];
+  \draw[patchfig unused] (4.5,0.55)--(3.5,0.55);
+  \draw[patchfig unused] (4.5,0.55)--(5.5,0.55);
+  \node[patchfig used death] at (0.5,1.65) {$\times$};
+  \node[patchfig used death] at (2.5,5.7) {$\times$};
+  \node[patchfig used death] at (6.5,7.55) {$\times$};
+  \node[patchfig unused death] at (6.5,2.65) {$\times$};
+  \PatchFigInitial
+  \node[patchfig small,anchor=west] at (7.08,8.4){$t$};
+  \node[patchfig small,anchor=west] at (7.08,0){$0$};
+\end{scope}
+\begin{scope}[shift={(8.10,0)}]
+  \path[patchfig active] (1,0) rectangle (2,1.1);
+  \path[patchfig active] (1,1.1) rectangle (2,3.1);
+  \path[patchfig active] (1,4.1) rectangle (2,7.85);
+  \path[patchfig active] (2,3.1) rectangle (3,4.1);
+  \path[patchfig active] (3,0) rectangle (4,2.1);
+  \path[patchfig active] (3,4.1) rectangle (4,5.1);
+  \path[patchfig active] (4,5.1) rectangle (5,6.1);
+  \path[patchfig active] (5,6.1) rectangle (6,7.1);
+  \PatchFigBarrier{0}{1.1}{3.1}
+  \PatchFigBarrier{0}{3.1}{7.85}
+  \PatchFigBarrier{0}{7.85}{8.4}
+  \PatchFigBarrier{1}{0}{1.1}
+  \PatchFigBarrier{1}{1.1}{3.1}
+  \PatchFigBarrier{1}{3.1}{4.1}
+  \PatchFigBarrier{1}{4.1}{7.85}
+  \PatchFigBarrier{1}{7.85}{8.4}
+  \PatchFigBarrier{2}{1.1}{2.1}
+  \PatchFigBarrier{2}{2.1}{3.1}
+  \PatchFigBarrier{2}{3.1}{4.1}
+  \PatchFigBarrier{2}{4.1}{5.1}
+  \PatchFigBarrier{2}{5.1}{7.85}
+  \PatchFigBarrier{2}{7.85}{8.4}
+  \PatchFigBarrier{3}{0}{2.1}
+  \PatchFigBarrier{3}{2.1}{4.1}
+  \PatchFigBarrier{3}{4.1}{5.1}
+  \PatchFigBarrier{3}{5.1}{6.1}
+  \PatchFigBarrier{3}{6.1}{8.4}
+  \PatchFigBarrier{4}{2.1}{5.1}
+  \PatchFigBarrier{4}{5.1}{6.1}
+  \PatchFigBarrier{4}{6.1}{7.1}
+  \PatchFigBarrier{4}{7.1}{8.4}
+  \PatchFigBarrier{5}{0}{6.1}
+  \PatchFigBarrier{5}{6.1}{7.1}
+  \PatchFigBarrier{5}{7.1}{8.4}
+  \PatchFigBarrier{6}{7.1}{8.4}
+  \PatchFigGrid
+  \draw[patchfig boundary] (0,1.1)--(1,1.1);
+  \draw[patchfig boundary] (0,3.1)--(1,3.1);
+  \draw[patchfig boundary] (0,7.85)--(1,7.85);
+  \draw[patchfig boundary] (0,8.4)--(1,8.4);
+  \draw[patchfig boundary] (1,0)--(2,0);
+  \draw[patchfig boundary] (1,1.1)--(2,1.1);
+  \draw[patchfig boundary] (1,3.1)--(2,3.1);
+  \draw[patchfig boundary] (1,4.1)--(2,4.1);
+  \draw[patchfig boundary] (1,7.85)--(2,7.85);
+  \draw[patchfig boundary] (1,8.4)--(2,8.4);
+  \draw[patchfig boundary] (2,1.1)--(3,1.1);
+  \draw[patchfig boundary] (2,2.1)--(3,2.1);
+  \draw[patchfig boundary] (2,3.1)--(3,3.1);
+  \draw[patchfig boundary] (2,4.1)--(3,4.1);
+  \draw[patchfig boundary] (2,5.1)--(3,5.1);
+  \draw[patchfig boundary] (2,7.85)--(3,7.85);
+  \draw[patchfig boundary] (2,8.4)--(3,8.4);
+  \draw[patchfig boundary] (3,0)--(4,0);
+  \draw[patchfig boundary] (3,2.1)--(4,2.1);
+  \draw[patchfig boundary] (3,4.1)--(4,4.1);
+  \draw[patchfig boundary] (3,5.1)--(4,5.1);
+  \draw[patchfig boundary] (3,6.1)--(4,6.1);
+  \draw[patchfig boundary] (3,8.4)--(4,8.4);
+  \draw[patchfig boundary] (4,2.1)--(5,2.1);
+  \draw[patchfig boundary] (4,5.1)--(5,5.1);
+  \draw[patchfig boundary] (4,6.1)--(5,6.1);
+  \draw[patchfig boundary] (4,7.1)--(5,7.1);
+  \draw[patchfig boundary] (4,8.4)--(5,8.4);
+  \draw[patchfig boundary] (5,0)--(6,0);
+  \draw[patchfig boundary] (5,6.1)--(6,6.1);
+  \draw[patchfig boundary] (5,7.1)--(6,7.1);
+  \draw[patchfig boundary] (5,8.4)--(6,8.4);
+  \draw[patchfig boundary] (6,7.1)--(7,7.1);
+  \draw[patchfig boundary] (6,8.4)--(7,8.4);
+  \node[patchfig label] at (0.5,2.1) {$\mathsf{II}$};
+  \node[patchfig label] at (0.5,5.475) {$\mathsf{II}$};
+  \node[patchfig label] at (0.5,8.125) {$\mathsf{IE}$};
+  \node[patchfig label] at (1.5,0.55) {$\mathsf{IO}$};
+  \node[patchfig label] at (1.5,2.1) {$\mathsf{OO}$};
+  \node[patchfig label] at (1.5,3.6) {$\mathsf{OI}$};
+  \node[patchfig label] at (1.5,5.975) {$\mathsf{IO}$};
+  \node[patchfig label] at (1.5,8.125) {$\mathsf{OE}$};
+  \node[patchfig label] at (2.5,1.6) {$\mathsf{II}$};
+  \node[patchfig label] at (2.5,2.6) {$\mathsf{II}$};
+  \node[patchfig label] at (2.5,3.6) {$\mathsf{IO}$};
+  \node[patchfig label] at (2.5,4.6) {$\mathsf{OI}$};
+  \node[patchfig label] at (2.5,6.475) {$\mathsf{II}$};
+  \node[patchfig label] at (2.5,8.125) {$\mathsf{IE}$};
+  \node[patchfig label] at (3.5,1.05) {$\mathsf{IO}$};
+  \node[patchfig label] at (3.5,3.1) {$\mathsf{OI}$};
+  \node[patchfig label] at (3.5,4.6) {$\mathsf{IO}$};
+  \node[patchfig label] at (3.5,5.6) {$\mathsf{OI}$};
+  \node[patchfig label] at (3.5,7.25) {$\mathsf{IE}$};
+  \node[patchfig label] at (4.5,3.6) {$\mathsf{II}$};
+  \node[patchfig label] at (4.5,5.6) {$\mathsf{IO}$};
+  \node[patchfig label] at (4.5,6.6) {$\mathsf{OI}$};
+  \node[patchfig label] at (4.5,7.75) {$\mathsf{IE}$};
+  \node[patchfig label] at (5.5,3.05) {$\mathsf{II}$};
+  \node[patchfig label] at (5.5,6.6) {$\mathsf{IO}$};
+  \node[patchfig label] at (5.5,7.75) {$\mathsf{OE}$};
+  \node[patchfig label] at (6.5,7.75) {$\mathsf{IE}$};
+  \draw[patchfig separator] (0,7.85) -- (1,7.85) -- (2,7.85) -- (3,7.85) -- (3,6.1) -- (4,6.1) -- (4,7.1) -- (5,7.1) -- (6,7.1) -- (7,7.1);
+  \draw[patchfig success] (1.5,1.1)--(0.5,1.1);
+  \draw[patchfig success] (1.5,1.1)--(2.5,1.1);
+  \fill[black] (1.5,1.1) circle[radius=1.25pt];
+  \draw[patchfig success] (3.5,2.1)--(2.5,2.1);
+  \draw[patchfig success] (3.5,2.1)--(4.5,2.1);
+  \fill[black] (3.5,2.1) circle[radius=1.25pt];
+  \draw[patchfig success] (1.5,3.1)--(0.5,3.1);
+  \draw[patchfig success] (1.5,3.1)--(2.5,3.1);
+  \fill[black] (1.5,3.1) circle[radius=1.25pt];
+  \draw[patchfig success] (2.5,4.1)--(1.5,4.1);
+  \draw[patchfig success] (2.5,4.1)--(3.5,4.1);
+  \fill[black] (2.5,4.1) circle[radius=1.25pt];
+  \draw[patchfig success] (3.5,5.1)--(2.5,5.1);
+  \draw[patchfig success] (3.5,5.1)--(4.5,5.1);
+  \fill[black] (3.5,5.1) circle[radius=1.25pt];
+  \draw[patchfig success] (4.5,6.1)--(3.5,6.1);
+  \draw[patchfig success] (4.5,6.1)--(5.5,6.1);
+  \fill[black] (4.5,6.1) circle[radius=1.25pt];
+  \draw[patchfig success] (5.5,7.1)--(4.5,7.1);
+  \draw[patchfig success] (5.5,7.1)--(6.5,7.1);
+  \fill[black] (5.5,7.1) circle[radius=1.25pt];
+  \draw[patchfig success] (1.5,7.85)--(0.5,7.85);
+  \draw[patchfig success] (1.5,7.85)--(2.5,7.85);
+  \fill[black] (1.5,7.85) circle[radius=1.25pt];
+  \PatchFigInitial
+  \node[patchfig small,anchor=west] at (7.08,8.4){$t$};
+  \node[patchfig small,anchor=west] at (7.08,0){$0$};
+\end{scope}
+\end{tikzpicture}
+\endgroup}
+\caption{A realization of the graphical construction (left) and the induced
+finite-horizon patch family at time~$t$ (right). On the left, gray shading marks
+times when a site is dual-active, black arrows are successful interactions,
+gray arrows are rings at inactive sources, and crosses are deaths. On the right,
+gray shading highlights patches with outgoing terminal boundary, which remain
+active throughout. Red striped sides delimit patches, the labels give their
+initial and terminal boundary types, and the thick red line separates bulk
+patches from end patches.}
+\label{fig:patch-geometry}
+\end{figure}
+\FloatBarrier
+
+If~$P\in\mathcal E_t$ and~$u\geq t$ is finite, define its extension through
+time~$u$ by
+\begin{equation}
+\label{eq:geometric-patch-extension}
+P^{\uparrow u}
+=
+\bb{i(P),[s(P),u),\mathsf X(P)\mathsf E,S(P)}.
+\end{equation}
+Thus~$P^{\uparrow t}=P$.
+
+\subsection{Patch factorization}
+\label{subsec:patch-factorization}
+
+Conditioning on~$\mathcal G_T$ fixes the successful-interaction skeleton up to time~$T$, and
+hence the patch family~$\mathcal P_T$.
+It leaves unresolved the local information that was omitted from the skeleton.
+In particular, deaths inside patches are not revealed, and for a successful interaction the skeleton does not say whether it was a split or a
+birth. The fixed patch boundaries restrict this remaining randomness:
+depending on the boundary types, they may force the interaction kind or
+exclude deaths. These restrictions involve only one patch at a time.
+Consequently, conditional on~$\mathcal G_T$, the unresolved randomness
+factorizes over the patches.
+
+Fix a patch~$P$, and write~$i=i(P)$,~$s=s(P)$,~$e=e(P)$, and~$S=S(P)$.
+We first define a reference law for the information in the patch~$P$, that is
+not revealed by the skeleton. Inside the patch, the outgoing marks from~$i$ are
+\begin{equation*}
+\Sigma_P^\circ
+=
+\cb{(i,u,\gamma,R)\in I^{\mathrm P}:s<u<e}.
+\end{equation*}
+For each~$R$, the~$(\delta,R)$ and~$(\beta,R)$ marks in~$(s,e)$ are
+independent Poisson processes with rates~$\delta_i(R)$ and~$\beta_i(R)$,
+respectively.
+
+It remains to specify the information at the initial boundary. If
+$\mathsf X(P)=\mathsf I$, the boundary is incoming, so there is no outgoing
+mark from~$i$ to add and we set~$\Sigma_P=\Sigma_P^\circ$. If
+$\mathsf X(P)=\mathsf O$, the boundary record specifies the target~$S$ but not
+whether the interaction is a split or a birth. Let
+$\alpha(P)\in\cb{\delta,\beta}$ denote its kind, independent of
+$\Sigma_P^\circ$, with
+\begin{equation}
+\label{eq:patch-initial-kind-law}
+\pP_P\bb{\alpha(P)=\delta}
+=
+\frac{\delta_i(S)}{\delta_i(S)+\beta_i(S)},
+\qquad
+\pP_P\bb{\alpha(P)=\beta}
+=
+\frac{\beta_i(S)}{\delta_i(S)+\beta_i(S)}.
+\end{equation}
+Note that almost surely, for every patch~$P\in\mathcal{P_T}$ we have~$\delta_{i}(S)+\beta_i(S)>0$, as otherwise the successful interaction that begins the patch would have rate zero and would have never happened. Hence, in the case~$\mathsf{X}(P)=\mathsf{O}$ we set
+\begin{equation*}
+\Sigma_P
+=
+\Sigma_P^\circ\cup\cb{(i,s,\alpha(P),S)}.
+\end{equation*}
+Together, the interior Poisson marks and, when present, the random initial kind
+define the law~$\pP_P$ of the patch~$P$ interaction record~$\Sigma_P$. Write~$\E_P$ for expectation under
+$\pP_P$.
+
+The marks in~$\Sigma_P$ determine a one-site process~$X^P\in\cb{0,1}$, where
+$X_u^P=1$ means that the patch site is active at time~$u$. Its initial value is
+\begin{equation*}
+X_s^P
+=
+\pw{1}{\mathsf X(P)=\mathsf I}
+{\ind\cb{\alpha(P)=\beta}}{\mathsf X(P)=\mathsf O}.
+\end{equation*}
+The interior marks are then read in chronological order. When~$X_{u-}^P=1$, a
+$\delta$-mark sets~$X_u^P=0$ and a~$\beta$-mark leaves~$X_u^P=1$; when
+$X_{u-}^P=0$, either mark leaves~$X_u^P=0$. Between marks,~$X^P$ is constant.
+For a finite patch with terminal label~$\mathsf E$, set~$X_e^P=X_{e-}^P$.
+
+Not every realization under~$\pP_P$ is compatible with the patch boundaries
+fixed by the skeleton. A mark with nonempty target inside the patch
+would be a successful interaction whenever the patch site is active immediately
+before it, and would create an additional successful-interaction cutting the patch into smaller patches. Hence such marks can only occur with~$X_{u-}^P=0$. If the terminal boundary is outgoing, the recorded interaction
+must itself be successful, so~$X_{e-}^P=1$. There is no additional endpoint
+condition for an incoming or end boundary. We therefore define the consistency
+event
+\begin{equation*}
+\operatorname{Con}(P)
+=
+\cb{
+\begin{aligned}
+X_{u-}^P=0
+&\quad\text{for every }(i,u,\gamma,R)\in\Sigma_P^\circ\\[-0.2em]
+&\quad\text{with }R\neq\varnothing
+\end{aligned}
+}
+\cap
+\pw{\cb{X_{e-}^P=1}}{\mathsf Y(P)=\mathsf O}
+{\Omega_P}{\mathsf Y(P)\in\cb{\mathsf I,\mathsf E}},
+\end{equation*}
+where~$\Omega_P$ is the sample space of the patch law. Depending on the
+boundary types, this condition can determine the hidden initial interaction
+kind or exclude deaths inside the patch.
+
+For almost every patch arising from the graphical construction,
+$\pP_P\bb{\operatorname{Con}(P)}>0$. Its consistent patch law is
+\begin{equation*}
+\pP_P^{\mathrm{con}}(\cdot)
+=
+\pP_P\bb{\,\cdot\,\middle|\,\operatorname{Con}(P)},
+\end{equation*}
+and~$\E_P^{\mathrm{con}}$ denotes expectation under this law.
+
+\input{paper/sections/patch-interior-figure}
+
+The one-patch laws above describe exactly the randomness left after the
+successful-interaction skeleton is fixed. Conditional on~$\mathcal G_T$,
+different patches are independent and each patch has its consistent law. Thus a
+conditional expectation of a product of patch-local quantities reduces to a
+product of one-patch expectations.
+
+\begin{theorem}[Patch factorization]
+\label{thm:patch-factorization}
+Fix~$T<\infty$. Conditional on~$\mathcal G_T$, the variables~$\Sigma_P$ are
+independent, and the conditional law of~$\Sigma_P$ is
+$\pP_P^{\mathrm{con}}$ for each~$P\in\mathcal P_T$. Equivalently, for
+bounded measurable functions~$f_P$ such that either all~$f_P$ are nonnegative
+or the product on the left below is integrable,
+\begin{equation}
+\label{eq:patch-factorization}
+\CE{
+\prod_{P\in\mathcal P_T}f_P\bb{\Sigma_P}
+}{\mathcal G_T}
+=
+\prod_{P\in\mathcal P_T}
+\E_P^{\mathrm{con}}\Cb{f_P\bb{\Sigma_P}}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+
+Since the initial record~$(\infty,0,A)$ is deterministic under~$\pP_A$, let~$G_T$ denote the positive-time records in~$\mathcal I_T$. Then~$\mathcal G_T=\sigma(G_T)$.
+We compute the joint law of~$G_T$ and the patch variables relative to a
+reference measure on possible successful-interaction records. Setting all patch
+test functions equal to~$1$ then gives the marginal law of~$G_T$, and the
+quotient of the two densities gives the conditional law.
+
+By Lemma~\ref{lem:dual-local-finiteness}, the records in~$G_T$ almost surely
+form a finite chronological list
+\begin{equation*}
+g=\bb{(i_k,t_k,S_k)}_{k=1}^n,
+\qquad
+0<t_1<\cdots<t_n\leq T,
+\end{equation*}
+where~$\varnothing\neq S_k\subseteq N(i_k)$ and
+$i_k\in A\cup\bigcup_{\ell<k}S_\ell$. We call the discrete sequence
+$((i_k,S_k))_{k=1}^n$ admissible when these conditions hold. On the disjoint
+union of all admissible record lists, define
+\begin{equation}
+\label{eq:patch-record-reference-measure}
+m_T(dg)
+=
+\sum_{n\geq0}
+\sum_{\substack{((i_k,S_k))_{k=1}^n\\\text{admissible}}}
+\ind\cb{0<t_1<\cdots<t_n\leq T}
+\prod_{k=1}^n
+\bb{\delta_{i_k}(S_k)+\beta_{i_k}(S_k)}
+\,dt_1\cdots dt_n.
+\end{equation}
+Thus~$m_T$ is the Poisson intensity measure for a proposed list of
+nonempty-target interaction records, with the split and birth kinds suppressed.
+
+Fix such a record list~$g$, and let~$\mathcal P_T(g)$ be the patch family it
+defines. The interactions in~$g$ are exactly the successful interactions up to
+time~$T$ if and only if every~$P\in\mathcal P_T(g)$ satisfies
+$\operatorname{Con}(P)$. Indeed, suppose first that every patch is consistent.
+Then there are no successful interactions that originate from the interior of a
+patch, and every interaction with record in~$g$ is successful because the
+consistency event for its source patch ensures it happens at an active site.
+Thus~$g$ is exactly the list of records of successful interactions. Conversely,
+if~$g$ is the successful-interaction record, then each~$X^P$ is the restriction
+of the global active indicator to its patch, so every patch is consistent.
+
+We can now compute the joint law. For nonnegative measurable~$h$ and~$f_P$, the
+multivariate Mecke formula~\cite[Theorem~4.4]{LastPenrose2017}, applied to the
+ordered nonempty-target marks, gives
+\begin{equation}
+\label{eq:patch-factorization-mecke}
+\E_A\Cb{
+h(G_T)
+\prod_{P\in\mathcal P_T}f_P\bb{\Sigma_P}
+}
+=
+\int h(g)
+\prod_{P\in\mathcal P_T(g)}
+\E_P\Cb{
+f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}
+}
+\,m_T(dg).
+\end{equation}
+Here a record~$(i,t,S)$ has combined intensity
+$\bb{\delta_i(S)+\beta_i(S)}\,dt$, while conditional on this record its
+hidden kind has the law in~\eqref{eq:patch-initial-kind-law}. After these
+records are fixed, the remaining marks on distinct patch intervals are
+independent with the reference laws~$\pP_P$. The consistency indicators impose
+exactly the condition proved above that~$g$ is the successful-interaction
+record.
+
+Setting~$f_P=1$ in~\eqref{eq:patch-factorization-mecke} gives the marginal law
+of the skeleton record,
+\begin{equation*}
+\pP_A\bb{G_T\in dg}
+=
+\prod_{P\in\mathcal P_T(g)}
+\pP_P\bb{\operatorname{Con}(P)}
+\,m_T(dg).
+\end{equation*}
+Therefore, for~$\pP_A\circ G_T^{-1}$-almost every~$g$, the Radon--Nikodym
+quotient of the joint density in~\eqref{eq:patch-factorization-mecke} by this
+marginal density is
+\begin{align*}
+\E_A\Cb{
+\prod_{P\in\mathcal P_T}f_P\bb{\Sigma_P}
+\,\middle|\,G_T=g
+}
+&=
+\prod_{P\in\mathcal P_T(g)}
+\frac{
+\E_P\Cb{f_P\bb{\Sigma_P}\ind_{\operatorname{Con}(P)}}
+}{
+\pP_P\bb{\operatorname{Con}(P)}
+}
+\\
+&=
+\prod_{P\in\mathcal P_T(g)}
+\E_P^{\mathrm{con}}\Cb{f_P\bb{\Sigma_P}}.
+\end{align*}
+This proves~\eqref{eq:patch-factorization} for nonnegative factors and
+identifies the conditional law. The integrable signed case follows from this
+conditional-law statement.
+\end{proof}
+
+\subsection{Patch representation}
+\label{subsec:patch-representation}
+
+We now apply the conditional factorization to the Feynman--Kac random variable
+from Section~\ref{sec:dual}. For fixed~$t\geq0$ and~$\eta\in\Omega$, write
+\begin{equation*}
+Z_t^\eta
+=
+\sigma_t
+\exp\bb{\int_0^tV(A_u)\,du}
+\chi_{A_t}(\eta),
+\qquad
+P_t\chi_A(\eta)=\E_A\Cb{Z_t^\eta}.
+\end{equation*}
+Theorem~\ref{thm:patch-factorization} applies once~$Z_t^\eta$ is written as a
+product of factors over patches. We therefore split its sign, Feynman--Kac
+integral, and terminal monomial over the patch decomposition.
+
+Each successful nonempty-target interaction contributes its sign to the
+outgoing patch beginning at its source. Deaths have
+positive sign because
+\begin{equation*}
+a_i^\delta(\varnothing)
+=
+\widehat{\lambda_i\rho_i}(\varnothing)
+=
+\lambda_i(\mb 0)\rho_i(\mb 0)
+\geq0.
+\end{equation*}
+Define
+\begin{equation*}
+\sigma(P)
+=
+\pw{+}{\mathsf X(P)=\mathsf I}
+{\sigma_{i(P)}^{\alpha(P)}\bb{S(P)}}{\mathsf X(P)=\mathsf O},
+\end{equation*}
+so that
+\begin{equation*}
+\sigma_t
+=
+\prod_{P\in\mathcal B_t}\sigma(P)
+\prod_{P\in\mathcal E_t}\sigma(P).
+\end{equation*}
+Since~$V(A_u)=\sum_{i\in A_u}V_i$, the patch intervals split the potential
+integral, while the end patches describe the active set at time~$t$. Hence
+\begin{align*}
+\int_0^tV(A_u)\,du
+&=
+\sum_{P\in\mathcal B_t}
+V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
++
+\sum_{P\in\mathcal E_t}
+V_{i(P)}\int_{s(P)}^tX_u^P\,du,
+\\
+\chi_{A_t}(\eta)
+&=
+\prod_{P\in\mathcal E_t}
+\eta\bb{i(P)}^{X_t^P}.
+\end{align*}
+
+These are exactly the pieces that make up the local patch factors. For a full
+patch~$P\in\mathcal P$, set
+\begin{equation*}
+F(P)
+=
+\sigma(P)
+\exp\bb{
+V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
+}.
+\end{equation*}
+When~$e(P)=\infty$, the exponential is interpreted as the limit over finite
+upper endpoints. For an end patch~$P\in\mathcal E_t$ and~$z\in[0,1]$, include
+the terminal factor and set
+\begin{equation*}
+F(z,P)
+=
+\sigma(P)
+\exp\bb{
+V_{i(P)}\int_{s(P)}^tX_u^P\,du
+}
+z^{X_t^P}.
+\end{equation*}
+The preceding identities give the factorization
+\begin{equation}
+\label{eq:pathwise-patch-factorization}
+Z_t^\eta
+=
+\prod_{P\in\mathcal B_t}F(P)
+\prod_{P\in\mathcal E_t}F\bb{\eta\bb{i(P)},P}.
+\end{equation}
+Patch factorization tells us to average each local factor under its consistent
+patch law. We define
+\begin{equation*}
+C(P)=\E_P^{\mathrm{con}}\Cb{F(P)},
+\qquad
+C(z,P)=\E_P^{\mathrm{con}}\Cb{F(z,P)}.
+\end{equation*}
+Since~$X_t^P\in\cb{0,1}$, the map~$z\mapsto C(z,P)$ is affine.
+
+
+\begin{theorem}[Patch representation]
+\label{thm:patch-representation}
+For every~$A\Subset\Lambda$,~$t\geq0$, and~$\eta\in\Omega$,
+\begin{equation}
+\label{eq:patch-representation}
+P_t\chi_A(\eta)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C(P)
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}.
+\end{equation}
+For any initial law~$\mu$,
+\begin{equation}
+\label{eq:patch-representation-general-law}
+(\mu P_t)(\chi_A)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By~\eqref{eq:fk-integrability}, we may condition
+\eqref{eq:pathwise-patch-factorization} on~$\mathcal G_t$.
+Theorem~\ref{thm:patch-factorization} gives
+\begin{equation*}
+\CE{Z_t^\eta}{\mathcal G_t}
+=
+\prod_{P\in\mathcal B_t}C(P)
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}.
+\end{equation*}
+Taking expectation and using Theorem~\ref{thm:monomial-duality} gives
+\eqref{eq:patch-representation}. Integrating this identity with respect to an
+arbitrary initial law~$\mu$ gives
+\eqref{eq:patch-representation-general-law}.
+\end{proof}
+
+For a Bernoulli product measure~$\mu_{\mb p}$ with
+$\mu_{\mb p}\bb{\eta(i)=1}=p_i$, the sites~$i(P)$,
+$P\in\mathcal E_t$, are distinct. Hence independence of the spins at these
+sites and~$z\mapsto C(z,P)$ being affine gives
+\begin{equation*}
+\mu_{\mb p}\bb{
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+=
+\prod_{P\in\mathcal E_t}
+C\bb{p_{i(P)},P}.
+\end{equation*}
+Therefore
+\begin{equation}
+\label{eq:patch-representation-product-law}
+(\mu_{\mb p}P_t)(\chi_A)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C(P)
+\prod_{P\in\mathcal E_t}C\bb{p_{i(P)},P}
+}.
+\end{equation}
+
+The patch expectation~$\E_P^{\operatorname{con}}$ average the local information omitted from the
+skeleton. In particular, all deaths are integrated out.
+If a patch begins with an outgoing boundary, the skeleton determines its
+target~$S(P)$ but not whether that interaction was a split or a birth, so this
+hidden kind and the sign it may carry are also averaged under the patch expectation. When a split and a birth with the same target carry opposite signs, their
+contributions can cancel inside~$C(P)$ or~$C(z,P)$.
+
+
+\FloatBarrier
+
+\section{Proofs}
+\label{sec:proofs}
+
+\subsection{Patch positivity and threshold}
+\label{subsec:proof-patch-positivity-threshold}
+
+We now give the probabilistic interpretation to the earlier definition of patch-positivity the threshold profile~$\mb p^*$. Conditions in~\eqref{eq:patch-positivity} are equivalent to non-negativity of bulk patch contributions, and~$\mb p^*$ is defined so that the end patch contributions are also non-negative, when integrated against a measure in~$\mathcal{M}_*$. The
+explicit formulas for~$C(P)$ and~$C(z,P)$ are given in
+Appendix~\ref{app:contribution-formulas}. Their consequences are
+summarized in the following proposition.
+
+\begin{proposition}
+\label{prop:patch-contribution-positivity}
+A spin system is patch positive if and only if
+\begin{equation*}
+C(P)\geq0 \qquad \text{ for every }P\in\mathcal{P}, \text{ almost surely.}
+\end{equation*}
+For every site~$i$, the threshold~$p_i^\star$ from
+\eqref{eq:threshold-profile} is the smallest~$p\in[0,1]$ such that
+\begin{equation*}
+C(p,P)\geq0
+\end{equation*}
+for every end patch~$P$ based at~$i$. Moreover, for every end patch the map~$z\mapsto C(z,P)$ is nondecreasing, and
+\begin{equation}
+\label{eq:threshold-below-zero-neighbour-refresh}
+p_i^\star\leq\rho_i(\mb 0).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Fix a patch~$P$ based at~$i$ and write
+$\Delta=e(P)-s(P)\in(0,\infty]$. We use
+\begin{equation}
+\label{eq:patch-sign-substitutions}
+\delta_i(S)\sigma_i^\delta(S)
+=
+\widehat{\lambda_i\rho_i}(S),
+\qquad
+\beta_i(S)\sigma_i^\beta(S)
+=
+-\widehat{\lambda_i}(S),
+\end{equation}
+from~\eqref{eq:dual-to-spin-contribution-data}.
+
+Suppose first that the initial boundary is incoming. By
+\eqref{eq:full-contribution-formulas},
+\begin{equation*}
+C(P)
+=
+\begin{cases}
+\displaystyle
+\frac{\psi_i(\Delta,1)}{\varphi_i(\Delta)},
+&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{II},\mathsf{IE}},
+\\[1em]
+e^{V_i\Delta},
+&\mathsf X(P)\mathsf Y(P)=\mathsf{IO}.
+\end{cases}
+\end{equation*}
+For every realized patch the normalizer~$\varphi_i(\Delta)$ is positive, and
+\begin{equation*}
+\delta_i(\varnothing)
+=
+\widehat{\lambda_i\rho_i}(\varnothing)
+=
+\lambda_i(\mb 0)\rho_i(\mb 0)
+\geq0
+\end{equation*}
+gives~$\psi_i(\Delta,1)\geq0$. Hence every patch with an incoming
+initial boundary has nonnegative contribution.
+
+Now suppose that the initial boundary is outgoing, with nonempty target~$S$.
+For an~$\mathsf{OO}$ patch,
+\eqref{eq:full-contribution-formulas} and
+\eqref{eq:patch-sign-substitutions} give
+\begin{equation*}
+C(P)
+=
+\sigma_i^\beta(S)e^{V_i\Delta},
+\qquad
+\beta_i(S)\sigma_i^\beta(S)
+=
+-\widehat{\lambda_i}(S)
+\geq0.
+\end{equation*}
+An~$\mathsf{OO}$ patch can occur only when~$\beta_i(S)>0$, so its sign is
+nonnegative. For an~$\mathsf{OI}$ or~$\mathsf{OE}$ patch, the denominator in
+\eqref{eq:full-contribution-formulas} is positive and its numerator is
+\begin{equation}
+\widehat{\lambda_i\rho_i}(S)
+-
+\widehat{\lambda_i}(S)\psi_i(\Delta,1)
+=
+\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb 0)}}(S)
++
+\bb{1-\rho_i(\mb 0)}
+\bb{-\widehat{\lambda_i}(S)}
+e^{-\lambda_i(\mb 0)\Delta}.
+\label{eq:outgoing-full-patch-numerator}
+\end{equation}
+Here we used~\eqref{eq:all-zero-neighbourhood-relaxation}. The same identity
+holds when~$\lambda_i(\mb 0)=0$. Both terms in
+\eqref{eq:outgoing-full-patch-numerator} are nonnegative by patch positivity. Thus the coefficient criterion for patch positivity is equivalent to~$C(P)\geq 0$.
+
+It remains to identify the threshold for end patches. If
+$\lambda_i(\mb 0)=0$, then patch positivity and~$\lambda_i\geq0$ force
+$\lambda_i\equiv0$. Indeed, if~$T\subseteq N(i)$ is the set of coordinates
+equal to~$1$ in a neighbourhood configuration, then
+\begin{equation*}
+0
+\leq
+\lambda_i(\eta)
+=
+\sum_{S\subseteq T}\widehat{\lambda_i}(S)
+\leq0.
+\end{equation*}
+Thus~$\lambda_i\rho_i\equiv0$, there are no outgoing interactions based
+at~$i$, and~\eqref{eq:threshold-profile} gives~$p_i^\star=0$. Hence assume
+that~$\lambda_i(\mb 0)>0$.
+
+An~$\mathsf{IE}$ patch has, by~\eqref{eq:end-contribution-formulas},
+\begin{equation*}
+C(p,P)
+=
+\frac{\psi_i(\Delta,p)}{\varphi_i(\Delta)}
+\geq0
+\qquad
+\text{for every }p\in[0,1],
+\end{equation*}
+because by~\eqref{eq:all-zero-neighbourhood-relaxation} the
+$\psi_i(\Delta,p)$ is a convex combination of~$p$ and~$\rho_i(\mb 0)$.
+Thus only~$\mathsf{OE}$ patches can have negative contributions and impose a restriction. For such a patch
+with target~$S$, the sign of~$C(p,P)$ is the sign of
+\begin{equation*}
+N_{i,S}(\Delta,p)
+=
+\widehat{\lambda_i\rho_i}(S)
+-
+\widehat{\lambda_i}(S)\psi_i(\Delta,p).
+\end{equation*}
+As a function of~$e^{-\lambda_i(\mb 0)\Delta}$, this is affine, with endpoint
+values
+\begin{align*}
+N_{i,S}(0,p)
+&=
+\widehat{\lambda_i\rho_i}(S)
+-
+p\widehat{\lambda_i}(S),
+\\
+\lim_{\Delta\to\infty}N_{i,S}(\Delta,p)
+&=
+\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb 0)}}(S)
+\geq0.
+\end{align*}
+If~$\widehat{\lambda_i}(S)=0$, patch positivity gives
+$\widehat{\lambda_i\rho_i}(S)\geq0$, there is no restriction on~$p$.
+If~$\widehat{\lambda_i}(S)<0$, nonnegativity for every~$\Delta$ is
+equivalent to
+\begin{equation*}
+p
+\geq
+\frac{\widehat{\lambda_i\rho_i}(S)}
+{\widehat{\lambda_i}(S)}.
+\end{equation*}
+Taking the maximum over all nonempty targets gives exactly
+\eqref{eq:threshold-profile}. This threshold is sharp: if~$p<p_i^\star$,
+then for some~$S$ with~$\widehat{\lambda_i}(S)<0$ we have
+$N_{i,S}(0,p)<0$ and so~$C(p,P)<0$ for short~$\mathsf{OE}$ patches with~$S(P)=S$.
+
+The same formulas also show that every end contribution is nondecreasing in its
+terminal argument. For an~$\mathsf{IE}$ patch,
+\begin{equation*}
+\partial_zC(z,P)
+=
+\frac{e^{-\lambda_i(\mb 0)\Delta}}{\varphi_i(\Delta)}
+\geq0,
+\end{equation*}
+while for an~$\mathsf{OE}$ patch,
+\begin{equation*}
+\partial_zC(z,P)
+=
+\frac{
+\bb{-\widehat{\lambda_i}(S)}
+e^{-\lambda_i(\mb 0)\Delta}
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}
+\geq0.
+\end{equation*}
+
+Finally, if~$\widehat{\lambda_i}(S)<0$, patch positivity gives
+\begin{equation*}
+\widehat{\lambda_i\rho_i}(S)
+-
+\rho_i(\mb 0)\widehat{\lambda_i}(S)
+\geq0.
+\end{equation*}
+Dividing by~$\widehat{\lambda_i}(S)<0$ yields
+\begin{equation*}
+\frac{\widehat{\lambda_i\rho_i}(S)}
+{\widehat{\lambda_i}(S)}
+\leq
+\rho_i(\mb 0).
+\end{equation*}
+Taking the maximum in~\eqref{eq:threshold-profile} proves
+\eqref{eq:threshold-below-zero-neighbour-refresh}.
+\end{proof}
+
+\subsection{Centered monomial monotonicity}
+\label{subsec:proof-centered-monomial-monotonicity}
+
+The proof of Theorem~\ref{thm:centered-monomial-monotonicity} is based on the
+action of the generator in the centered-monomial basis. Patch positivity and
+the threshold bound from Proposition~\ref{prop:patch-contribution-positivity}
+make every off-diagonal coefficient in this basis nonnegative. The resulting semigroup therefore preserve nonnegative centered moments.
+
+\begin{proof}[Proof of Theorem~\ref{thm:centered-monomial-monotonicity}]
+If~$i\in A$, then
+\begin{equation*}
+\lambda_i\bb{E_{i,\rho_i}-I}\chi_A^\star
+=
+\lambda_i\bb{\rho_i-p_i^\star}\chi_{A\setminus\cb{i}}^\star
+-
+\lambda_i\chi_A^\star.
+\end{equation*}
+Expanding~$\lambda_i\rho_i$ and~$\lambda_i$ in~$\mathcal{L}\chi_A^*$ gives
+\begin{equation}
+\label{eq:centered-monomial-generator-expansion}
+\Lcal\chi_A^\star
+=
+\sum_{i\in A}\Cb{
+-\lambda_i(\mb 0)\chi_A^\star
++
+\sum_{S\subseteq N(i)}
+\bb{
+\widehat{\lambda_i\rho_i}(S)
+-
+p_i^\star\widehat{\lambda_i}(S)
+}
+\chi_S\chi_{A\setminus\cb{i}}^\star
++
+\sum_{\substack{S\subseteq N(i)\\S\neq\vn}}
+\bb{-\widehat{\lambda_i}(S)}
+\chi_S\chi_A^\star
+}.
+\end{equation}
+
+Patch positivity implies~$-\widehat{\lambda_i}(S)\geq0$ for every nonempty~$S\subseteq N(i)$.
+The other coefficients in~\eqref{eq:centered-monomial-generator-expansion}
+are also nonnegative:
+\begin{equation}
+\label{eq:centered-generator-positive-coefficients}
+\widehat{\lambda_i\rho_i}(S)
+-
+p_i^\star\widehat{\lambda_i}(S)
+\geq0
+\qquad
+\text{for every }S\subseteq N(i).
+\end{equation}
+For~$S=\vn$, this is
+\begin{equation*}
+\lambda_i(\mb 0)
+\bb{\rho_i(\mb 0)-p_i^\star}
+\geq0
+\end{equation*}
+by Proposition~\ref{prop:patch-contribution-positivity}. If~$S\neq\vn$ and
+$\widehat{\lambda_i}(S)<0$, inequality
+\eqref{eq:centered-generator-positive-coefficients} follows directly from the
+definition~\eqref{eq:threshold-profile} of~$p_i^\star$. If
+$\widehat{\lambda_i}(S)=0$, patch positivity gives
+\begin{equation*}
+\widehat{\lambda_i\rho_i}(S)
+=
+\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb 0)}}(S)
+\geq0.
+\end{equation*}
+
+It remains to verify that a product of a monomial and a centered monomial has nonnegative coefficient expansion in the centered monomial basis. For finite~$S,B\subseteq\Lambda$, we have
+\begin{equation}
+\label{eq:ordinary-centered-product-expansion}
+\chi_S\chi_B^\star
+=
+\bb{\prod_{j\in S\cap B}\bb{1-p_j^\star}}
+\sum_{R\subseteq S}
+\bb{\prod_{j\in S\setminus R}p_j^\star}
+\chi_{R\cup(B\setminus S)}^\star.
+\end{equation}
+Indeed, on~$S\cap B$ we use
+\begin{equation*}
+\eta(j)\bb{\eta(j)-p_j^\star}
+=
+\bb{1-p_j^\star}\eta(j),
+\end{equation*}
+and then expand each remaining factor as~$\eta(j)=p_j^\star+\bb{\eta(j)-p_j^\star}$. Since~$0\leq p_j^\star\leq1$, every coefficient in
+\eqref{eq:ordinary-centered-product-expansion} is nonnegative. Combining this
+with~\eqref{eq:centered-monomial-generator-expansion} and
+\eqref{eq:centered-generator-positive-coefficients} gives
+\begin{equation}
+\label{eq:centered-generator-metzler}
+\Lcal\chi_A^\star
+=
+\sum_{B\Subset\Lambda}M(A,B)\chi_B^\star,
+\qquad
+M(A,B)\geq0
+\quad\text{for }B\neq A.
+\end{equation}
+For each~$A$, only the coefficients~$M(A,B)$ for~$B\subseteq N_*(A)$ are nonzero, and the matrix~$M$ is Metzler, so for each~$t\geq0$ the matrix~$e^{tM}=\sum_{n\in\N}\frac{t^n}{n!}M^n$ is well-defined and has nonnegative entries; see, for example,~\cite{ArendtEtAl1986}. If~$\sigma$ is a
+finite signed measure whose centered moments are all nonnegative, then
+\begin{equation*}
+(\sigma P_t)(\chi_A^\star)
+=
+\sum_{B\Subset \Lambda}
+e^{tM}(A,B)\,\sigma(\chi_B^\star)
+\geq0.
+\end{equation*}
+Taking~$\sigma=\nu-\mu$ proves
+$\mu P_t\preceq_\star\nu P_t$ whenever~$\mu\preceq_\star\nu$. The same argument with~$\nu\in\mathcal M_\star$ and~$\mu = 0$ shows that~$P_t$ preserves~$\mathcal M_\star$.
+
+ To obtain the comparison for
+monomials, expand
+\begin{equation*}
+\chi_A
+=
+\sum_{B\subseteq A}
+\bb{\prod_{i\in A\setminus B}p_i^\star}
+\chi_B^\star.
+\end{equation*}
+All coefficients are nonnegative. Therefore
+$\mu P_t\preceq_\star\nu P_t$ implies
+\begin{equation*}
+(\mu P_t)(\chi_A)
+\leq
+(\nu P_t)(\chi_A)
+\end{equation*}
+for every~$A\Subset\Lambda$, which proves
+Theorem~\ref{thm:centered-monomial-monotonicity}.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:extremal-limits-comparison}]
+Since~$\mu_{\mb p^\star}$ is the minimal element of~$\mathcal M_\star$ and~$P_t$ preserves~$\mathcal M_\star$, for every~$s\geq0$,
+\begin{equation*}
+\mu_{\mb p^\star}
+\preceq_\star
+\mu_{\mb p^\star}P_s.
+\end{equation*}
+Applying Theorem~\ref{thm:centered-monomial-monotonicity} and using the
+semigroup property gives
+\begin{equation*}
+\mu_{\mb p^\star}P_t
+\preceq_\star
+\mu_{\mb p^\star}P_{t+s}
+\qquad
+\text{for every }s,t\geq0.
+\end{equation*}
+Thus, for every~$A\Subset\Lambda$, the centered moment~$(\mu_{\mb p^\star}P_t)(\chi_A^\star)$ is increasing in~$t$ and bounded,
+so it has a limit. Any subsequential weak limit of~$\mu_{\mb p^\star}P_t$ therefore has the same centered monomial moments.
+Since centered monomials form a basis for the functions of every finite set of
+spins, these moments determine the weak limit. Hence~$\mu_{\mb p^\star}P_t\Rightarrow\pi^-$ for some probability measure~$\pi^-$. The cone~$\mathcal M_\star$ is closed under weak convergence, so~$\pi^-\in\mathcal M_\star$. Finally, for every~$s\geq0$, the Feller
+property and the semigroup identity
+\begin{equation*}
+\mu_{\mb p^\star}P_{t+s}
+=
+\bb{\mu_{\mb p^\star}P_t}P_s
+\end{equation*}
+give~$\pi^-P_s=\pi^-$.
+
+Suppose now that~$\mb p^\star\leq\mbs{\tfrac12}$. Then~$\mu_{\mb1}$ is
+the maximal element of~$\mathcal M_\star$, and the same
+argument as above gives~$\mu_{\mb1}P_t\Rightarrow\pi^+$ for some invariant~$\pi^+\in\mathcal M_\star$.
+
+For part~\textup{(iii)}, suppose that~$\underline\mu\preceq_\star\mu\preceq_\star\overline\mu$. By
+Theorem~\ref{thm:centered-monomial-monotonicity},
+\begin{equation*}
+\underline\mu P_t
+\preceq_\star
+\mu P_t
+\preceq_\star
+\overline\mu P_t
+\qquad
+\text{for every }t\geq0.
+\end{equation*}
+Hence, for every~$A\Subset\Lambda$,
+\begin{equation*}
+(\underline\mu P_t)(\chi_A^\star)
+\leq
+(\mu P_t)(\chi_A^\star)
+\leq
+(\overline\mu P_t)(\chi_A^\star).
+\end{equation*}
+If the two outer measures converge weakly to~$\pi$, the outer terms both
+converge to~$\pi(\chi_A^\star)$, so the middle term does as well. Since the
+centered monomials form a basis for the functions of every finite set of spins,
+expectations of every local function converge to their~$\pi$-expectation.
+Thus~$\mu P_t\Rightarrow\pi$.
+\end{proof}
+
+\subsection{Pure-death comparison}
+\label{subsec:proof-pure-death-comparison}
+
+\begin{proof}[Proof of Corollary~\ref{cor:pure-death-comparison-revision}]
+Let~$H((A,\sigma),\eta)=\sigma\chi_A(\eta)$ be the duality function from
+Section~\ref{sec:dual}. The pure-death term in
+\eqref{eq:pure-death-decomposition-revision} acts diagonally on~$H$:
+\begin{equation*}
+\sum_{i\in\Lambda}d_i\bb{E_{i,0}-I}H((A,\sigma),\eta)
+=
+-\bb{\sum_{i\in A}d_i}H((A,\sigma),\eta).
+\end{equation*}
+Hence, if
+\begin{equation*}
+\Lcal H
+=
+\Dcal H+V(A)H,
+\end{equation*}
+then
+\begin{equation*}
+\Lcal'H
+=
+\Dcal H
++
+\bb{V(A)+\sum_{i\in A}d_i}H.
+\end{equation*}
+Thus the two systems have the same signed dual generator and therefore the same
+dual process, successful-interaction skeleton, patch families, and
+patch laws. Their potentials satisfy
+\begin{equation}
+\label{eq:pure-death-potential-comparison}
+V_i'=V_i+d_i.
+\end{equation}
+
+We next compare the patch contributions between the two systems. Writing~$\psi_i'$ for the function associated with~$\Lcal'$, we
+have, by~\eqref{eq:dual-to-spin-contribution-data},
+\begin{align*}
+\psi_i(\Delta,z)
+&=
+\delta_i(\varnothing)
+\int_0^\Delta
+e^{-\bb{\lambda_i'(\mb 0)+d_i}u}\,du
++
+z e^{-\bb{\lambda_i'(\mb 0)+d_i}\Delta},
+\\
+\psi_i'(\Delta,z)
+&=
+\delta_i(\varnothing)
+\int_0^\Delta
+e^{-\lambda_i'(\mb 0)u}\,du
++
+z e^{-\lambda_i'(\mb 0)\Delta}.
+\end{align*}
+Hence
+\begin{equation}
+\label{eq:pure-death-psi-comparison}
+0\leq\psi_i(\Delta,z)\leq\psi_i'(\Delta,z)
+\qquad
+\text{for }\Delta\in[0,\infty]\text{ and }z\in[0,1].
+\end{equation}
+
+First consider a bulk patch with incoming initial interaction, i.e. of type~$\mathsf{II}$ or~$\mathsf{IO}$. The first two
+rows of~\eqref{eq:full-contribution-formulas},
+together with~\eqref{eq:pure-death-potential-comparison} and
+\eqref{eq:pure-death-psi-comparison}, give
+\begin{equation*}
+0\leq C(P)\leq C'(P).
+\end{equation*}
+If a bulk patch starts with an outgoing interaction, i.e. is of type~$\mathsf{OI}$ or~$\mathsf{OO}$, and the interaction has target~$S$, then patch positivity gives
+\begin{equation*}
+\beta_i(S)\sigma_i^\beta(S)
+=
+-\widehat{\lambda_i}(S)
+\geq0.
+\end{equation*}
+The remaining rows of~\eqref{eq:full-contribution-formulas} therefore give the
+same inequality. We have proved
+\begin{equation}
+\label{eq:pure-death-bulk-patch-comparison}
+0\leq C(P)\leq C'(P)
+\qquad
+\text{for every bulk patch }P.
+\end{equation}
+Moreover, if~$P$ ends with an outgoing interaction, i.e. is of type~$\mathsf{IO}$ or~$\mathsf{OO}$, then its contribution is~$e^{V_i\Delta}$, where
+$i=i(P)$ and~$\Delta=e(P)-s(P)$. Thus
+\begin{equation}
+\label{eq:pure-death-outgoing-terminal-factor}
+C(P)
+=
+e^{-d_{i(P)}\bb{e(P)-s(P)}}C'(P).
+\end{equation}
+
+Now we move on to comparing end patch contributions. By Proposition~\ref{prop:patch-contribution-positivity},
+\eqref{eq:pure-death-bulk-patch-comparison} implies that~$\Lcal'$ is
+patch-positive and its threshold profile is the same as that of~$\Lcal$. Indeed,~$\lambda_i'(S) = \lambda_i(S)$ for~$S\neq \vn$, while~$\lambda_i\rho_i=\lambda_i'\rho_i'$,
+and definition of~$\mb p^*$ in~\eqref{eq:threshold-profile} only involves coefficients for~$S\neq \vn$. For an end patch~$P$ based at
+site~$i$, set
+\begin{equation*}
+\kappa(P)=\partial_zC(z,P),
+\qquad
+\kappa'(P)=\partial_zC'(z,P).
+\end{equation*}
+Since~$\varphi_i$ is unchanged, the formulas in
+\eqref{eq:end-contribution-formulas} give
+\begin{equation}
+\label{eq:pure-death-end-patch-comparison}
+0\leq\kappa(P)\leq\kappa'(P),
+\qquad
+0\leq C\bb{p_i^\star,P}
+\leq
+C'\bb{p_i^\star,P}.
+\end{equation}
+The second inequality also uses Proposition~\ref{prop:patch-contribution-positivity}
+for the two patch-positive systems. Since~$C(z,P)$ is affine in~$z$,
+\begin{equation*}
+C\bb{\eta(i),P}
+=
+C\bb{p_i^\star,P}
++
+\kappa(P)\bb{\eta(i)-p_i^\star}.
+\end{equation*}
+Distinct end patches are based at distinct sites. Therefore
+\begin{equation}
+\mu\bb{
+\prod_{P\in\mathcal E_t}
+C\bb{\eta\bb{i(P)},P}
+} =
+\sum_{\mathcal Q\subseteq\mathcal E_t}
+\mu\bb{
+\chi_{\cb{i(P):P\in\mathcal Q}}^\star
+}
+\prod_{P\in\mathcal Q}\kappa(P)
+\prod_{P\in\mathcal E_t\setminus\mathcal Q}
+C\bb{p_{i(P)}^\star,P}.
+\label{eq:pure-death-centered-end-expansion}
+\end{equation}
+The same expansion holds with~$C,\kappa$ replaced by~$C',\kappa'$. If~$\mu\in\mathcal M_\star$, every centered moment in
+\eqref{eq:pure-death-centered-end-expansion} is nonnegative, so
+\eqref{eq:pure-death-end-patch-comparison} yields
+\begin{equation*}
+\mu\bb{
+\prod_{P\in\mathcal E_t}
+C\bb{\eta\bb{i(P)},P}
+}
+\leq
+\mu\bb{
+\prod_{P\in\mathcal E_t}
+C'\bb{\eta\bb{i(P)},P}
+}.
+\end{equation*}
+Combining this with~\eqref{eq:pure-death-bulk-patch-comparison} in the two
+patch representations~\eqref{eq:patch-representation-general-law} gives
+\begin{equation*}
+(\mu P_t)(\chi_A)
+\leq
+(\mu P_t')(\chi_A),
+\end{equation*}
+which proves the corollary.
+\end{proof}
+
+\subsection{Common invariant limit}
+\label{subsec:proof-common-invariant-limit}
+
+The proof starts from the patch representation. For~$A\Subset\Lambda$ and a
+probability measure~$\mu$ we have
+\begin{equation*}
+(\mu P_t)(\chi_A)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+},
+\end{equation*}
+where the variables~$\eta(i(P))$ come from the initial configuration in the
+backward dual representation. We aim to show that this converges to
+\begin{equation*}
+\E_A\Cb{
+\prod_{P\in\mathcal P}C(P)
+\ind\bb{\abs{\mathcal P}<\infty}
+}.
+\end{equation*}
+The event~$\cb{\abs{\mathcal P}<\infty}$ is the event that the dual process
+eventually dies, and from that point there are no more successful interactions.
+In particular, on this event the limiting product contains no end-patch
+contribution and hence no dependence on the initial configuration. This
+suggests proving convergence by showing first that the contribution from the
+event that a successful interaction occurs far in time is negligible.
+
+The comparison with pure deaths from
+Section~\ref{subsec:proof-pure-death-comparison} gives exactly this estimate.
+Removing deaths at rate~$\varepsilon$ leaves the dual jump process unchanged
+and increases its Feynman--Kac potential by~$\varepsilon\abs{A_s}$. If a successful interaction
+occurs at time~$u$, its ancestry consists of~$\mathsf{XO}$ type patches, which are active throughout, and whose lifetimes add
+up to~$u$. The contribution for the original system is therefore smaller,
+relative to the system with the pure deaths removed, by a factor~$e^{-\varepsilon u}$. Since the latter provides an integrable upper bound,
+the contribution from the event that a successful interaction occurs
+after~$T$ is of order~$e^{-\varepsilon T}$.
+
+It remains to consider the event that there is no successful interaction after~$T$ and show that on this event the dependence on the initial law decays. The
+end patches present at a later horizon~$t$ still contain the factors~$C(z,P)$
+through which the initial configuration enters the representation. Once there
+are no further successful interactions, the dependence of each such factor
+on~$z$ decays at rate at least~$\varepsilon$, and hence is of order~$e^{-\varepsilon(t-T)}$. This is the mechanism by which the dependence on the
+initial law disappears. The resulting estimate, however, gets worse with the
+number of end patches.
+
+For this reason we also control the event that there are many end patches. If
+the interaction cone up to time~$T$ stays in a finite region~$R$, there are at
+most~$\abs R$ end patches. On the complementary event the interaction cone
+exits~$R$ before time~$T$, and its contribution is controlled by finite
+propagation. We take~$R$ with radius proportional to~$T$. Polynomial growth
+ensures~$\abs R\lesssim(1+T)^D$, while the finite-propagation error is
+exponentially small. In the proof below we make these three estimates precise
+and then combine them with~$T=t/2$. 
+
+It is enough to prove the convergence uniformly over~$\mathcal M_\star$. Indeed, let~$K\geq0$ and
+$\mu\in\mathcal M_{-,K}$, and set
+\begin{equation*}
+\overline\mu
+=
+\frac{\mu+K\mu_{\mb 1}}{1+K}
+\in\mathcal M_\star.
+\end{equation*}
+Then
+\begin{equation*}
+\mu
+=
+(1+K)\overline\mu-K\mu_{\mb 1},
+\end{equation*}
+while~$\mu_{\mb 1}\in\mathcal M_\star$. Hence, if for some local
+function~$f$ and some quantity~$\ell(f)$ we have
+\begin{equation*}
+\sup_{\nu\in\mathcal M_\star}
+\abs{(\nu P_t)(f)-\ell(f)}
+\leq
+B_f(t),
+\end{equation*}
+then
+\begin{equation}
+\label{eq:m-minus-reduction}
+\sup_{\mu\in\mathcal M_{-,K}}
+\abs{(\mu P_t)(f)-\ell(f)}
+\leq
+(1+2K)B_f(t).
+\end{equation}
+We therefore work with initial laws in~$\mathcal M_\star$ until the end of
+the proof.
+
+For a probability measure~$\mu$, define the weight
+\begin{equation}
+\label{eq:finite-horizon-weight}
+W_t^\mu
+=
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}
+C\bb{\eta\bb{i(P)},P}
+},
+\end{equation}
+so that the patch representation gives
+\begin{equation*}
+(\mu P_t)(\chi_A)=\E_A\Cb{W_t^\mu}.
+\end{equation*}
+We also define the limiting weight
+\begin{equation}
+\label{eq:limiting-patch-weight}
+W
+=
+\prod_{P\in\mathcal P}C(P)
+\ind\bb{\abs{\mathcal P}<\infty}.
+\end{equation}
+
+For~$0\leq T<t$, let
+\begin{align}
+\label{eq:no-late-interaction-events}
+L_{T,t}
+&=
+\cb{\text{no successful interaction occurs in }(T,t]},
+\notag\\
+L_T
+&=
+\cb{\text{no successful interaction occurs after }T}.
+\end{align}
+To control the number of end patches, let
+\begin{equation*}
+\mb{Cone}_T
+=
+\bigcup_{(i,u,S)\in\mathcal I_T}
+\bb{\cb{i}\cup S}\setminus\cb{\infty}
+\end{equation*}
+be the set of sites appearing in the successful-interaction skeleton up to
+time~$T$. For~$A\subseteq R\Subset\Lambda$, set
+\begin{equation}
+\label{eq:confinement-event}
+E_T^R
+=
+\cb{\mb{Cone}_T\subseteq R}.
+\end{equation}
+On~$E_T^R$, there are at most~$\abs R$ end patches at time~$T$.
+
+Let~$P_t^{R,0}$ denote the semigroup of the dynamics in~$R$ with the spins
+outside~$R$ fixed at~$0$, and define
+\begin{equation}
+\label{eq:confinement-error}
+\rho_A(T,R)
+=
+\norm{\bb{P_T-P_T^{R,0}}\chi_A}_\infty.
+\end{equation}
+The quantity~$\rho_A(T,R)$ measures the error made by replacing the original
+dynamics by its zero-boundary restriction to~$R$ during the first~$T$ units of
+time.
+
+We first control realizations with a successful interaction after~$T$. Remove
+the pure-death component from~$\Lcal$ and write
+\begin{equation}
+\label{eq:uniform-death-decomposition}
+\Lcal
+=
+\Lcal^\varepsilon
++
+\varepsilon\Ncal^{\mb 0}.
+\end{equation}
+Let~$P_t^\varepsilon$ and~$C^\varepsilon$ denote the semigroup and patch
+contributions for~$\Lcal^\varepsilon$, and define
+\begin{align*}
+W_t^{\varepsilon,\mu}
+&=
+\prod_{P\in\mathcal B_t}C^\varepsilon(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}
+C^\varepsilon\bb{\eta\bb{i(P)},P}
+},
+\\
+W^\varepsilon
+&=
+\prod_{P\in\mathcal P}C^\varepsilon(P)
+\ind\bb{\abs{\mathcal P}<\infty}.
+\end{align*}
+In Section~\ref{subsec:proof-pure-death-comparison} we have shown, that the two systems have the
+same dual process and thus the same successful-interaction skeleton and patch families, and for~$\mu\in\mathcal M_\star$,
+\begin{equation}
+\label{eq:death-removed-weight-comparison}
+0\leq W_t^\mu\leq W_t^{\varepsilon,\mu},
+\qquad
+\E_A\Cb{W_t^{\varepsilon,\mu}}
+=
+(\mu P_t^\varepsilon)(\chi_A)
+\leq1.
+\end{equation}
+
+\begin{lemma}[Late interactions]
+\label{lem:late-interactions}
+For~$\mu\in\mathcal M_\star$ and~$0\leq T<t$,
+\begin{align}
+0
+&\leq
+\E_A\Cb{W_t^\mu\ind\bb{L_{T,t}^c}}
+\leq
+e^{-\varepsilon T},
+\label{eq:finite-late-interaction-bound}
+\\
+0
+&\leq
+\E_A\Cb{W\ind\bb{L_T^c}}
+\leq
+e^{-\varepsilon T}.
+\label{eq:limiting-late-interaction-bound}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+We first describe the ancestry of a successful interaction at time~$u>0$.
+The source of this interaction lies in a patch ending with an outgoing
+interaction. That patch starts at another successful interaction, so move to
+the patch ending with the outgoing side of that interaction, at its source.
+Iterating produces patches~$P_1,\ldots,P_n$, each ending with an outgoing
+interaction, such that
+\begin{equation*}
+s(P_1)=0,
+\qquad
+e(P_n)=u,
+\qquad
+e(P_k)=s(P_{k+1})
+\quad\text{for }1\leq k<n.
+\end{equation*}
+The interaction times decrease strictly when this construction is followed
+backward, and there are only finitely many successful interactions before~$u$
+by Lemma~\ref{lem:dual-local-finiteness}. Hence the chain reaches the formal
+initial interaction at time~$0$ after finitely many steps. In particular, for some~$n$ we have
+\begin{equation}
+\label{eq:outgoing-chain-total-length}
+\sum_{k=1}^n\bb{e(P_k)-s(P_k)}
+=
+u.
+\end{equation}
+
+\begin{figure}[htbp]
+\centering
+\input{paper/figures/convergence-backward-xo-trail}
+\caption{The ancestry of a successful interaction at time~$u$. Each dark
+rectangle is a patch ending at an outgoing successful interaction. The patch
+lifetimes sum to~$u$.}
+\label{fig:backward-outgoing-chain}
+\end{figure}
+\FloatBarrier
+
+On~$L_{T,t}^c$, let~$u\in(T,t]$ be the time of the first successful interaction
+after~$T$, and let~$P_1,\ldots,P_n$ be its ancestry chain. Every patch in the
+chain belongs to~$\mathcal B_t$. Applying
+\eqref{eq:pure-death-outgoing-terminal-factor} with~$d_i=\varepsilon$ and
+using~\eqref{eq:outgoing-chain-total-length},
+\begin{equation*}
+\prod_{k=1}^n C(P_k)
+=
+e^{-\varepsilon u}
+\prod_{k=1}^n C^\varepsilon(P_k)
+\leq
+e^{-\varepsilon T}
+\prod_{k=1}^n C^\varepsilon(P_k).
+\end{equation*}
+For the remaining bulk patches and the end-patch contribution, the comparison
+from Section~\ref{subsec:proof-pure-death-comparison} gives
+\begin{equation*}
+W_t^\mu\ind\bb{L_{T,t}^c}
+\leq
+e^{-\varepsilon T}
+W_t^{\varepsilon,\mu}.
+\end{equation*}
+Taking expectations and using
+\eqref{eq:death-removed-weight-comparison} proves
+\eqref{eq:finite-late-interaction-bound}.
+
+For the infinite-horizon estimate, the same patchwise comparison gives~$0\leq W\leq W^\varepsilon$. On~$\cb{\abs{\mathcal P}<\infty}$,
+the finite-horizon weights for the system with the pure deaths removed satisfy
+\begin{equation*}
+W_s^{\varepsilon,\mu_{\mb 1}}
+\longrightarrow
+W^\varepsilon
+\qquad
+\text{as }s\to\infty,
+\end{equation*}
+while~$W^\varepsilon=0$ on~$\cb{\abs{\mathcal P}=\infty}$. Hence
+\begin{equation*}
+W^\varepsilon
+\leq
+\liminf_{s\to\infty}
+W_s^{\varepsilon,\mu_{\mb 1}},
+\end{equation*}
+and Fatou's lemma together with
+\eqref{eq:death-removed-weight-comparison} gives
+\begin{equation}
+\label{eq:limiting-death-removed-mass}
+\E_A\Cb{W^\varepsilon}
+\leq1.
+\end{equation}
+On~$\cb{\abs{\mathcal P}<\infty}\cap L_T^c$, apply the same ancestry
+comparison to the first successful interaction after~$T$ to obtain
+\begin{equation*}
+W\ind\bb{L_T^c}
+\leq
+e^{-\varepsilon T}W^\varepsilon.
+\end{equation*}
+The left-hand side is zero on~$\cb{\abs{\mathcal P}=\infty}$. Taking
+expectations and using~\eqref{eq:limiting-death-removed-mass} proves
+\eqref{eq:limiting-late-interaction-bound}.
+\end{proof}
+
+We next consider the event with no successful interaction after~$T$. The
+remaining dependence on the initial configuration is carried by the end
+patches, and the error from relaxing these factors accumulates over their
+number.
+
+\begin{lemma}[Relaxation after the last interaction]
+\label{lem:no-late-relaxation}
+For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_\star$, and~$0\leq T<t$,
+\begin{equation}
+\label{eq:no-late-relaxation-bound}
+\abs{
+ \E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}}}
+ -
+ \E_A\Cb{W\ind\bb{E_T^R\cap L_T}}
+}
+\leq
+\bb{1+\abs R}e^{-\varepsilon\bb{t-T}}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+On~$L_{T,t}$ no new patches start after time~$T$. Thus
+\begin{equation*}
+\mathcal B_t=\mathcal B_T,
+\qquad
+\mathcal E_t
+=
+\cb{P^{\uparrow t}:P\in\mathcal E_T},
+\end{equation*}
+so the bulk patches are fixed at time~$T$ and each end patch simply extends to
+time~$t$.
+
+\begin{figure}[htbp]
+\centering
+\input{paper/figures/convergence-no-late-end-patches}
+\caption{On~$L_{T,t}$, no successful interaction occurs in~$(T,t]$. The bulk
+patches are unchanged after~$T$, while every end patch present at~$T$ extends
+to time~$t$.}
+\label{fig:no-late-end-patches}
+\end{figure}
+\FloatBarrier
+
+Fix the successful-interaction skeleton up to time~$T$. For~$P\in\mathcal E_T$, let~$L_{T,t}^P$ be the event that the one-site
+continuation of~$P$ produces no successful interaction in~$(T,t]$. The
+identities in Appendix~\ref{app:no-late-continuation} give
+\begin{equation*}
+L_{T,t}
+=
+\bigcap_{P\in\mathcal E_T}L_{T,t}^P,
+\qquad
+\CP{L_{T,t}}{\mathcal G_T}
+=
+\prod_{P\in\mathcal E_T}
+\CP{L_{T,t}^P}{\mathcal G_T},
+\end{equation*}
+and, for an end patch~$P$ based at~$i$,
+\begin{equation}
+\label{eq:main-local-end-relaxation}
+\CP{L_{T,t}^P}{\mathcal G_T}
+C\bb{z,P^{\uparrow t}}
+=
+C\bb{\psi_i(t-T,z),P},
+\end{equation}
+where
+\begin{equation*}
+\psi_i(t-T,z)
+=
+\rho_i(\mb 0)
++
+e^{-\lambda_i(\mb 0)(t-T)}
+\bb{z-\rho_i(\mb 0)}.
+\end{equation*}
+Since the system contains a pure-death component of rate~$\varepsilon$,~$\lambda_i(\mb 0)\geq\varepsilon$. As~$C(z,P)$ is affine in~$z$,
+the factor in
+\eqref{eq:main-local-end-relaxation} relaxes to~$C(\rho_i(\mb 0),P)$ at rate at least~$e^{-\varepsilon(t-T)}$.
+
+Write
+\begin{equation*}
+B_T
+=
+\prod_{P\in\mathcal B_T}C(P),
+\qquad
+B_T^\varepsilon
+=
+\prod_{P\in\mathcal B_T}C^\varepsilon(P).
+\end{equation*}
+The same identities give
+\begin{align}
+\label{eq:no-late-conditional-weights}
+\CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
+&=
+B_T
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ \CP{L_{T,t}^P}{\mathcal G_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+},
+\notag\\
+\CE{W\ind\bb{L_T}}{\mathcal G_T}
+&=
+B_T
+\prod_{P\in\mathcal E_T}
+C\bb{\rho_{i(P)}(\mb 0),P}.
+\end{align}
+The end-factor relaxation estimate from
+Lemma~\ref{lem:end-factor-relaxation} yields
+\begin{align*}
+&\abs{
+\CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
+-
+\CE{W\ind\bb{L_T}}{\mathcal G_T}
+}
+\\
+&\qquad\leq
+e^{-\varepsilon(t-T)}
+B_T
+\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+\\
+&\qquad\quad+
+e^{-\varepsilon(t-T)}
+B_T\abs{\mathcal E_T}
+\prod_{P\in\mathcal E_T}
+C\bb{\rho_{i(P)}(\mb 0),P}.
+\end{align*}
+The event~$E_T^R$ is~$\mathcal G_T$-measurable. For the first term,~$B_T\leq B_T^\varepsilon$, and we get
+\begin{align*}
+&\E_A\Cb{
+ \ind\bb{E_T^R}
+ B_T
+ \CP{L_{T,t}}{\mathcal G_T}
+ \mu\bb{
+  \prod_{P\in\mathcal E_T}
+  C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+ }
+}
+\\
+&\qquad\leq
+\E_A\Cb{
+ W_t^{\varepsilon,\mu}
+ \ind\bb{E_T^R\cap L_{T,t}}
+}
+\leq1.
+\end{align*}
+For the second term,~$\abs{\mathcal E_T}\leq\abs R$ on~$E_T^R$, so
+\eqref{eq:no-late-conditional-weights} gives
+\begin{equation*}
+\E_A\Cb{
+ \ind\bb{E_T^R}
+ B_T\abs{\mathcal E_T}
+ \prod_{P\in\mathcal E_T}
+ C\bb{\rho_{i(P)}(\mb 0),P}
+}\leq
+\abs R\,
+\E_A\Cb{
+ W\ind\bb{E_T^R\cap L_T}
+}
+\leq
+\abs R.
+\end{equation*}
+Here the last inequality follows from~$0\leq W\leq W^\varepsilon$ and
+\eqref{eq:limiting-death-removed-mass}. Taking expectations in the conditional
+estimate proves~\eqref{eq:no-late-relaxation-bound}.
+\end{proof}
+
+It remains to control the event on which the interaction cone leaves~$R$.
+
+\begin{lemma}[Spatial confinement]
+\label{lem:spatial-confinement}
+For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_\star$, and~$0\leq T<t$,
+\begin{align}
+0
+&\leq
+\E_A\Cb{W_t^\mu\ind\bb{(E_T^R)^c}}
+\leq
+\rho_A(T,R),
+\label{eq:finite-horizon-confinement-bound}
+\\
+0
+&\leq
+\E_A\Cb{W\ind\bb{(E_T^R)^c}}
+\leq
+\rho_A(T,R).
+\label{eq:limiting-confinement-bound}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+On~$E_T^R$, every successful interaction up to time~$T$ stays inside~$R$.
+Proposition~\ref{prop:confined-interaction-identity} gives
+\begin{equation}
+\label{eq:main-confined-interaction-identity}
+\E_A\Cb{W_t^\mu\ind\bb{E_T^R}}
+=
+(\mu P_{t-T}P_T^{R,0})(\chi_A).
+\end{equation}
+
+\begin{figure}[htbp]
+\centering
+\input{paper/figures/convergence-event-spatial-escape}
+\caption{The event~$(E_T^R)^c$: before time~$T$, the interaction cone leaves~$R$. The red region marks the part of the cone outside~$R$.}
+\label{fig:convergence-spatial-escape}
+\end{figure}
+\FloatBarrier
+
+The patch representation and the semigroup property give
+\begin{equation*}
+\E_A\Cb{W_t^\mu}
+=
+(\mu P_t)(\chi_A)
+=
+(\mu P_{t-T}P_T)(\chi_A).
+\end{equation*}
+Subtracting~\eqref{eq:main-confined-interaction-identity},
+\begin{align*}
+0
+&\leq
+\E_A\Cb{W_t^\mu\ind\bb{(E_T^R)^c}}
+\\
+&=
+(\mu P_{t-T})
+\bb{
+\bb{P_T-P_T^{R,0}}\chi_A
+}
+\\
+&\leq
+\norm{
+\bb{P_T-P_T^{R,0}}\chi_A
+}_\infty
+=
+\rho_A(T,R),
+\end{align*}
+which proves~\eqref{eq:finite-horizon-confinement-bound}.
+
+On~$\cb{\abs{\mathcal P}<\infty}$, the finite-horizon weights converge
+pointwise to~$W$, while~$W=0$ on~$\cb{\abs{\mathcal P}=\infty}$. Hence
+Fatou's lemma and~\eqref{eq:finite-horizon-confinement-bound} give
+\begin{equation*}
+0
+\leq
+\E_A\Cb{W\ind\bb{(E_T^R)^c}}
+\leq
+\liminf_{u\to\infty}
+\E_A\Cb{W_u^\mu\ind\bb{(E_T^R)^c}}
+\leq
+\rho_A(T,R),
+\end{equation*}
+which proves~\eqref{eq:limiting-confinement-bound}.
+\end{proof}
+
+We now combine the three estimates.
+
+\begin{proof}[Proof of Theorem~\ref{thm:common-invariant-limit}]
+Fix~$A\Subset\Lambda$,~$\mu\in\mathcal M_\star$,~$0\leq T<t$, and a
+finite set~$R\supseteq A$. Since
+\begin{equation*}
+1
+=
+\ind\bb{L_{T,t}^c}
++
+\ind\bb{E_T^R\cap L_{T,t}}
++
+\ind\bb{(E_T^R)^c\cap L_{T,t}},
+\end{equation*}
+and the analogous identity holds with~$L_T$ in place of~$L_{T,t}$, the patch
+representation gives
+\begin{align*}
+(\mu P_t)(\chi_A)-\E_A\Cb{W}
+&=
+\E_A\Cb{W_t^\mu\ind\bb{L_{T,t}^c}}
+-
+\E_A\Cb{W\ind\bb{L_T^c}}
+\\
+&\quad+
+\E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap L_{T,t}}}
+-
+\E_A\Cb{W\ind\bb{E_T^R\cap L_T}}
+\\
+&\quad+
+\E_A\Cb{W_t^\mu\ind\bb{(E_T^R)^c\cap L_{T,t}}}
+-
+\E_A\Cb{W\ind\bb{(E_T^R)^c\cap L_T}}.
+\end{align*}
+Since~$W_t^\mu,W\geq0$ and
+$(E_T^R)^c\cap L_{T,t}\subseteq(E_T^R)^c$, Lemmas~\ref{lem:late-interactions},
+\ref{lem:no-late-relaxation}, and~\ref{lem:spatial-confinement} give
+\begin{equation}
+\label{eq:three-term-convergence-bound}
+\abs{(\mu P_t)(\chi_A)-\E_A\Cb{W}}
+\leq
+2e^{-\varepsilon T}
++
+\bb{1+\abs R}e^{-\varepsilon\bb{t-T}}
++
+2\rho_A(T,R).
+\end{equation}
+
+Apply Lemma~\ref{lem:finite-propagation} with~$a=\varepsilon$. There are~$v<\infty$ and~$C_A<\infty$ such that, for
+\begin{equation*}
+R_T
+=
+B\bb{A,\lceil vT\rceil},
+\end{equation*}
+we have
+\begin{equation*}
+\rho_A(T,R_T)
+\leq
+C_Ae^{-\varepsilon T}.
+\end{equation*}
+Polynomial growth gives, after increasing~$C_A$ if necessary,
+\begin{equation*}
+\abs{R_T}
+\leq
+C_A(1+T)^D.
+\end{equation*}
+Taking~$T=t/2$ in~\eqref{eq:three-term-convergence-bound} therefore yields
+\begin{equation}
+\label{eq:m-star-monomial-convergence}
+\sup_{\mu\in\mathcal M_\star}
+\abs{
+(\mu P_t)(\chi_A)
+-
+\E_A\Cb{W}
+}
+\leq
+K_A(1+t)^D e^{-\varepsilon t/2}
+\end{equation}
+for some~$K_A<\infty$.
+
+We next identify the limits in~\eqref{eq:m-star-monomial-convergence} with a
+probability measure. In Corollary~\ref{cor:extremal-limits-comparison} we prove that~$\mu_{\mb p^*}P_t$ converges weakly to an invariant measure~$\pi$. Then
+\begin{equation}
+\label{eq:pi-patch-moments}
+\pi(\chi_A)
+=
+\E_A\Cb{W}
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation}
+
+Every local function is a finite linear combination of monomials. Hence
+\eqref{eq:m-star-monomial-convergence} and~\eqref{eq:pi-patch-moments} give,
+for every local~$f$,
+\begin{equation}
+\label{eq:m-star-local-convergence}
+\sup_{\mu\in\mathcal M_\star}
+\abs{(\mu P_t)(f)-\pi(f)}
+\leq
+K_f(1+t)^D e^{-\varepsilon t/2}
+\end{equation}
+for some~$K_f<\infty$. Applying~\eqref{eq:m-minus-reduction} with
+\begin{equation*}
+B_f(t)
+=
+K_f(1+t)^D e^{-\varepsilon t/2}
+\end{equation*}
+proves~\eqref{eq:uniform-m-minus-convergence}. Since~$\mathcal M_- = \bigcup_{K\geq0}\mathcal M_{-,K}$, it also follows that
+\begin{equation*}
+\mu P_t\Rightarrow\pi
+\qquad
+\text{for every }\mu\in\mathcal M_-.
+\end{equation*}
+\end{proof}
+
+We also verify the claim following Theorem~\ref{thm:common-invariant-limit}
+that every configuration with finitely many~$0$s gives an initial law in~$\mathcal M_-$. The pure-death component gives
+\begin{equation*}
+\lambda_i(\mb 0)\bb{1-\rho_i(\mb 0)}
+\geq
+\varepsilon,
+\end{equation*}
+so~$\rho_i(\mb 0)<1$. Proposition~\ref{prop:patch-contribution-positivity}
+gives~$p_i^\star\leq\rho_i(\mb 0)$, and therefore~$p_i^\star<1$ for every~$i$.
+
+Let~$\eta$ have finite zero set
+\begin{equation*}
+F
+=
+\cb{i:\eta(i)=0}.
+\end{equation*}
+For every finite~$A$,
+\begin{equation*}
+\frac{
+\abs{\delta_\eta(\chi_A^\star)}
+}{
+\mu_{\mb 1}(\chi_A^\star)
+}
+=
+\prod_{i\in A\cap F}
+\frac{p_i^\star}{1-p_i^\star}.
+\end{equation*}
+Consequently, any
+\begin{equation*}
+K
+\geq
+\prod_{i\in F}
+\max\cb{
+1,
+\frac{p_i^\star}{1-p_i^\star}
+}
+\end{equation*}
+satisfies
+\begin{equation*}
+\delta_\eta(\chi_A^\star)
++
+K\mu_{\mb 1}(\chi_A^\star)
+\geq0
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation*}
+Hence
+\begin{equation*}
+\frac{\delta_\eta+K\mu_{\mb 1}}{1+K}
+\in
+\mathcal M_\star,
+\end{equation*}
+so~$\delta_\eta\in\mathcal M_{-,K}\subseteq\mathcal M_-$.
+
+\begin{proof}[Proof of Corollary~\ref{cor:uniform-exponential-ergodicity}]
+Suppose~$\mb p^\star\leq\mbs{\tfrac12}$. For every configuration~$\eta$
+and every finite~$A$,
+\begin{equation*}
+\chi_A^\star(\eta)
+\geq
+-\prod_{i\in A}\bb{1-p_i^\star}
+=
+-\mu_{\mb 1}(\chi_A^\star),
+\end{equation*}
+because~$p_i^\star\leq1-p_i^\star$ at every site. Hence, for every
+probability measure~$\mu$,
+\begin{equation*}
+\frac{\mu+\mu_{\mb 1}}2
+\bb{\chi_A^\star}
+\geq0
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation*}
+Thus every probability measure belongs to~$\mathcal M_{-,1}$ and
+Theorem~\ref{thm:common-invariant-limit} gives uniform, exponential ergodicity with rate~$\frac{\varepsilon}{2}$.
+\end{proof}
+
+\subsection{Orientability}
+\label{subsec:proof-orientability}
+
+We now prove Corollary~\ref{cor:oriented-ergodicity}. By
+Theorem~\ref{thm:common-invariant-limit}, every initial law in~$\mathcal M_\star$ converges to~$\pi$, so ergodicity follows if one proves that any evolution of any initial measure approaches~$\mathcal{M}_*$. This is immediate  for finite~$\Lambda$, because then~$\mathcal{M}_-$ contains all probability measures. The point of orientability is that,
+for any finite set~$A$ we can condition on the spin system trajectory on~$U(A)$ and get a finite, patch-positive spin system on~$\bar{A}$. This reduced system has time-inhomogenous boundary conditions, so it may not converge to an invariant measure, but it still preserves~$\mathcal{M}_*$. This is what allows a burn-in argument to go through. More precisely, we prove that
+\begin{equation*}
+\liminf_{t\to\infty}
+\inf_{\eta\in\Omega}
+P_t\chi_A^\star(\eta)
+\geq0
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation*}
+We then combine this with compactness and
+Theorem~\ref{thm:common-invariant-limit}.
+
+\begin{proof}[Proof of Corollary~\ref{cor:oriented-ergodicity}]
+    
+
+Fix a nonempty finite set~$A$ and take~$I=\bar A$ and~$U=U(A)$ from
+orientability. For~$\xi\in\cb{0,1}^U$, let~$\eta^{U,\xi}$ agree with~$\xi$
+on~$U$ and with~$\eta$ elsewhere. Since~$I\cup U$ is autonomous, fixing
+the spins on~$U$ defines a spin system on~$\cb{0,1}^I$, with generator
+and rates
+\begin{align*}
+\Lcal^{I,\xi}f(\eta)&=\Lcal f(\eta^{U,\xi}),\\
+\lambda_i^{I,\xi}(\eta)&=\lambda_i(\eta^{U,\xi}),
+\qquad
+\rho_i^{I,\xi}(\eta)=\rho_i(\eta^{U,\xi})
+\quad(i\in I).
+\end{align*}
+Denote the restricted semigroup by~$P_t^{I,\xi}$. With the original centering profile~$(p_i^\star)_{i\in I}$, define
+\begin{equation*}
+\mathcal M_\star^I
+=\cb{\mu\in\mathcal P\bb{\cb{0,1}^I}:
+       \mu(\chi_B^\star)\geq0\text{ for every }B\subseteq I}.
+\end{equation*}
+Lemma~\ref{lem:boundary-moment-preservation} in
+Appendix~\ref{app:boundary-moment-preservation} gives
+\begin{equation*}
+\mathcal M_\star^I P_t^{I,\xi}\subseteq\mathcal M_\star^I.
+\end{equation*}
+This holds for every boundary condition~$\xi$. The restricted system is also patch positive, though we do not use this fact directly.
+
+We next show that, for every initial configuration~$\eta$ and boundary conditions, after a unit of time a fixed positive part of the evolution law enters~$\mathcal{M}_\star^I$. To be more precise we obtain a decomposition
+\begin{equation}\label{eq:mass_leak_decomposition}
+    \delta_\eta P_{s_1}^{I,\xi_1}\cdots P_{s_n}^{I,\xi_n} = \alpha_I \delta_{\zeta_I} + \bb{1-\alpha_I}\nu,
+\end{equation}
+where~$\zeta_I(i) = \ind\bb{p_i^\star > 0}$ for~$i\in I$,~$\nu$ is a probability measure,~$\alpha_I>0$ and~$\xi_1,\dots,\xi_n$ and~$s_1+\dots +s_n\geq 1$ are arbitrary boundary conditions and their durations. The content of~\eqref{eq:mass_leak_decomposition} is that~$\alpha_I$ is uniform in~$\eta$,~$s_1,\dots,s_n$ and the boundary conditions~$\xi_1,\dots,\xi_n$. This is useful because~$\delta_{\zeta_I}\in\mathcal{M}_\star^I$.
+
+We verify that the restricted process has positive probability of entering~$\zeta_I$ after any positive time. The rate at which a site turns to state~$1$ is~$\lambda_i\rho_i  \geq \varepsilon p_i^\star$, which is positive if~$p_i^\star>0$. Similarly, the rate at which a site turns to state~$0$ is~$\lambda_i\bb{1 - \rho_i}\geq \varepsilon \bb{1-p_i^\star}$, which is positive if~$p_i^\star = 0$. Both inequalities follow from patch positivity and uniform deaths. Thus every site~$i\in I$ has uniformly positive rate at which it takes the state~$\zeta_I(i)$. The event that every site in~$I$ updates during a unit interval and its last update sets it to~$\zeta_I$ therefore has probability bounded below by some~$\alpha_I\in(0,1)$, uniformly in the initial configuration and boundary conditions. Applying this to the last unit interval gives~\eqref{eq:mass_leak_decomposition}.
+
+Now we show that the process converges towards~$\mathcal{M}_\star$ from any initial configuration~$\eta$. Define the~$\sigma$-algebra 
+\begin{equation*}
+\mathcal G_U:=\sigma\cb{\eta_s(j):j\in U,\ s\geq0}.
+\end{equation*}
+Since both~$U$ and~$I\cup U$ are autonomous,
+conditional on~$\mathcal G_U$, the process on~$I$ evolves with
+the revealed trajectory on~$U$ as a boundary condition. Only the states at~$\partial I:=N_*(I)\setminus I\subseteq U$ matter.
+This set is finite and the update rates are bounded, so the boundary conditions change finitely many times before time~$t$. 
+If the successive boundary configurations are~$\xi_1,\ldots,\xi_n$,
+extended arbitrarily from~$\partial I$ to~$U$, and their durations
+are~$t_1,\ldots,t_n$ with~$\sum_{k=1}^n t_k=t$, then, for~$f$ supported on~$I$,
+\begin{equation*}
+\CE{f(\eta_t)}{\mathcal G_U}
+=P_{t_1}^{I,\xi_1}\cdots P_{t_n}^{I,\xi_n}(f)(\eta).
+\end{equation*}
+For~$t\geq1$ split this evolution into~${\lfloor t\rfloor}$
+blocks: the first~${\lfloor t\rfloor}-1$ have length~$1$, and the last has length~$t-{\lfloor t\rfloor}+1\geq 1$.
+Splitting the boundary intervals at the block endpoints gives
+\begin{equation*}
+\CE{f(\eta_t)}{\mathcal G_U}
+=\bb{\prod_{j=1}^{{\lfloor t\rfloor}}
+ \bb{P_{s_1^j}^{I,\xi_1^j}\cdots
+     P_{s_{n_j}^j}^{I,\xi_{n_j}^j}}}(f)(\eta),
+\end{equation*}
+where~$\sum_l s_l^j=1$ for~$j<{\lfloor t\rfloor}$ and~$\sum_l s_l^{\lfloor t\rfloor}=t-{\lfloor t\rfloor}+1\geq1$.
+
+By~\eqref{eq:mass_leak_decomposition}, each block allows us to extract
+mass~$\alpha_I$ at~$\zeta_I$ from the remaining measure.
+Repeating the extraction gives
+\begin{align*}
+\CE{\chi_A^\star(\eta_t)}{\mathcal G_U}
+&=\sum_{k=1}^{{\lfloor t\rfloor}} \alpha_I(1-\alpha_I)^{k-1}
+ \bb{\prod_{j=k+1}^{{\lfloor t\rfloor}}
+  \bb{P_{s_1^j}^{I,\xi_1^j}\cdots
+      P_{s_{n_j}^j}^{I,\xi_{n_j}^j}}}(\chi_A^\star)(\zeta_I)\\
+&\quad +(1-\alpha_I)^{\lfloor t\rfloor}\nu_t(\chi_A^\star)\\
+&\geq-\norm{\chi_A^\star}_\infty(1-\alpha_I)^{\lfloor t\rfloor},
+\end{align*}
+where~$\nu_t$ is a probability measure.
+The term indexed by~$k$ is the mass first extracted at the end of
+block~$k$, evolved through the remaining blocks.
+The sum is non-negative because~$\delta_{\zeta_I}\in\mathcal M_\star^I$
+and each~$P_s^{I,\xi}$ preserves~$\mathcal M_\star^I$.
+The lower bound side tends to zero exponentially,
+and hence, for every~$A\Subset\Lambda$,
+\begin{equation}\label{eq:convergence-towards-m-star}
+\liminf_{t\to\infty}\inf_\eta P_t(\chi_A^\star)(\eta)\geq0.
+\end{equation}
+
+To obtain convergence to~$\pi$, we combine~\eqref{eq:convergence-towards-m-star}
+with Theorem~\ref{thm:common-invariant-limit}.
+Fix a local function~$f$ and~$s>0$. Choose~$t_n\to\infty$ and
+configurations~$\eta_n$ such that
+$\abs{P_{t_n}f(\eta_n)-\pi(f)}$ converges to
+$\limsup_{t\to\infty}\sup_\eta\abs{P_tf(\eta)-\pi(f)}$ and
+$\delta_{\eta_n}P_{t_n-s}\Rightarrow\mu$ for some probability measure~$\mu$. This is possible because the space of probability measures on~$\Omega$ is compact.
+For every finite~$B\subseteq\Lambda$,~\eqref{eq:convergence-towards-m-star} implies
+\begin{equation*}
+\mu(\chi_B^\star)
+=\lim_{n\to\infty}P_{t_n-s}(\chi_B^\star)(\eta_n)\geq0,
+\end{equation*}
+so~$\mu\in\mathcal M_\star$. By the Feller property,~$P_sf$ is continuous,
+and hence
+\begin{equation*}
+P_{t_n}f(\eta_n)
+=(\delta_{\eta_n}P_{t_n-s})(P_sf)
+\longrightarrow(\mu P_s)(f).
+\end{equation*}
+Theorem~\ref{thm:common-invariant-limit} now gives
+\begin{equation*}
+\limsup_{t\to\infty}\sup_\eta\abs{P_tf(\eta)-\pi(f)}
+=\abs{(\mu P_s)(f)-\pi(f)}
+\leq K_f(1+s)^D e^{-\varepsilon s/2}.
+\end{equation*}
+Letting~$s\to\infty$ proves convergence uniformly over initial
+configurations for every local~$f$ and thus uniform ergodicity.
+
+\par
+\end{proof}
+
+\section{Discussion}
+\label{sec:discussion}
+
+The patch representation is not restricted to patch-positive systems. Patch
+positivity is one way of making the representation useful: it makes the patch
+contributions nonnegative and allows termwise comparison. A different
+possibility is quantitative contraction even when the contributions have mixed
+signs. For example, if the relevant patch factors satisfy a uniform bound of
+the form
+\begin{equation*}
+\abs{C(z,P)}
+\leq
+1-\varepsilon
+\end{equation*}
+for some~$\varepsilon>0$, then event where many patches exist has small contribution, exponentially in the number of patches. On the other hand,
+if there are only few patches then the dual process likely died out and the patches are very long, so their terminal contributions depend only weakly on the initial configuration. This is the usual mechanism in duality arguments for ergodicity. Thus the patch representation may remain useful well
+outside the patch-positive class, provided the signed patch contributions provide enough cancellations. Models such as
+FA-2f, which are not patch-positive, are a natural test case for this
+possibility.
+
+The condition~$\mb p^\star\leq\mbs{\tfrac12}$ in
+Corollary~\ref{cor:uniform-exponential-ergodicity} also appears to be a
+feature of the proof rather than a real threshold. The value~$1/2$ enters
+only because it implies that every probability measure belongs to~$\mathcal M_{-,1}$, after which Theorem~\ref{thm:common-invariant-limit}
+applies directly to every initial law. Nothing in the patch representation or
+the definition of patch positivity changes at this value. Corollary~\ref{cor:oriented-ergodicity} gives further evidence that the restriction is
+not intrinsic: on orientable neighbourhood graphs, uniform ergodicity holds
+without any assumption that~$\mb p^\star\leq\mbs{\tfrac12}$. In
+particular, the perturbed East model is uniformly ergodic for every~$p\in(0,1)$ under the assumptions of Corollary~\ref{cor:perturbed-east}.
+
+The orientability proof suggests a possible route to removing the restriction
+on general neighbourhood graphs. Rather than requiring the initial law itself
+to belong to~$\mathcal M_\star$ or~$\mathcal M_-$, one may try to prove
+that after a burn-in period its evolution approaches one of these classes on
+finite sets. A natural target is
+\begin{equation*}
+\liminf_{t\to\infty}
+\inf_{\eta\in\Omega}
+P_t\chi_A^\star(\eta)
+\geq0
+\qquad
+\text{for every }A\Subset\Lambda,
+\end{equation*}
+or an analogous approximation to~$\mathcal M_-$. Once such a statement is
+available, Theorem~\ref{thm:common-invariant-limit} gives convergence to the invariant measure unique in~$\mathcal{M}_-$. Orientability provides one mechanism for this
+burn-in by reducing the problem locally to a finite system with autonomous
+boundary. A replacement for this mechanism on general neighbourhood
+graphs would extend the convergence result beyond the present restriction on
+the initial law.
+
+\appendix
+
+\section{Derivation of the monomial dual}
+\label{app:dual-calculation}
+
+\subsection{Generator action on monomials}
+\label{app:generator-action}
+
+Fix~$A\Subset\Lambda$. If~$i\notin A$, then
+\begin{equation*}
+\bb{E_{i,\rho_i(\eta)}-I}\chi_A(\eta)=0.
+\end{equation*}
+If~$i\in A$, then
+\begin{equation*}
+E_{i,\rho_i(\eta)}\chi_A(\eta)
+=
+\rho_i(\eta)\chi_{A\setminus\cb{i}}(\eta),
+\end{equation*}
+and hence
+\begin{equation*}
+\lambda_i(\eta)\bb{E_{i,\rho_i(\eta)}-I}\chi_A(\eta)
+=
+\lambda_i(\eta)\rho_i(\eta)\chi_{A\setminus\cb{i}}(\eta)
+-
+\lambda_i(\eta)\chi_A(\eta).
+\end{equation*}
+Using the monomial expansions
+\begin{equation*}
+\lambda_i\rho_i
+=
+\sum_{S\subseteq N(i)}\widehat{\lambda_i\rho_i}(S)\chi_S,
+\qquad
+\lambda_i
+=
+\sum_{S\subseteq N(i)}\widehat{\lambda_i}(S)\chi_S,
+\end{equation*}
+together with
+\begin{equation*}
+\chi_S\chi_{A\setminus\cb{i}}
+=
+\chi_{\bb{A\setminus\cb{i}}\cup S},
+\qquad
+\chi_S\chi_A=\chi_{A\cup S},
+\end{equation*}
+we obtain
+\begin{equation*}
+\Lcal\chi_A
+=
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+\widehat{\lambda_i\rho_i}(S)
+\chi_{\bb{A\setminus\cb{i}}\cup S}-
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+\widehat{\lambda_i}(S)\chi_{A\cup S}.
+\end{equation*}
+By~\eqref{eq:signed-dual-coefficients}, this is
+\begin{equation}
+\label{eq:generator-action-monomials}
+\Lcal\chi_A
+=
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+a_i^\delta(S)\chi_{\bb{A\setminus\cb{i}}\cup S}
++
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+a_i^\beta(S)\chi_{A\cup S}.
+\end{equation}
+The terms with~$S=\varnothing$ in the first sum are deaths; the terms
+with~$S\neq\varnothing$ are splits. The nonempty-target terms in the second sum
+are births.
+
+\subsection{Verification of the duality}
+\label{app:dual-data}
+
+The dual rates, signs, and potential were defined in
+Section~\ref{sec:dual}. We verify here that they give the generator identity
+\eqref{eq:monomial-generator-duality}. The Feynman--Kac duality
+\eqref{eq:monomial-feynman-kac-duality} then follows from this identity by the
+standard Feynman--Kac argument under condition~\eqref{eq:fk-integrability}.
+
+By~\eqref{eq:death-split-data}--\eqref{eq:birth-data}, each rate multiplied by
+its sign is the corresponding signed coefficient. Hence
+\begin{equation}
+\label{eq:dual-generator-on-H}
+\begin{aligned}
+\Dcal H((A,\sigma),\eta)
+={}&
+\sigma
+\sum_{i\in A}\sum_{S\subseteq N(i)}
+a_i^\delta(S)
+\chi_{\bb{A\setminus\cb{i}}\cup S}(\eta)
+\\
+&+
+\sigma
+\sum_{i\in A}
+\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}
+a_i^\beta(S)
+\chi_{A\cup S}(\eta)
+\\
+&-
+\sum_{i\in A}
+\bb{
+\sum_{S\subseteq N(i)}\delta_i(S)
++
+\sum_{\substack{S\subseteq N(i)\\S\neq\varnothing}}\beta_i(S)
+}H((A,\sigma),\eta).
+\end{aligned}
+\end{equation}
+By~\eqref{eq:dual-potential}, adding~$V(A)H((A,\sigma),\eta)$ cancels the
+total jump rates in the last line of~\eqref{eq:dual-generator-on-H} and leaves
+the additional diagonal term
+\begin{equation*}
+\bb{\sum_{i\in A}a_i^\beta(\varnothing)}H((A,\sigma),\eta).
+\end{equation*}
+The resulting expression is~$\sigma$ times the right-hand side of
+\eqref{eq:generator-action-monomials}, hence equals~$\Lcal_\eta H((A,\sigma),\eta)$. This proves
+\eqref{eq:monomial-generator-duality}. Therefore, by the standard Feynman--Kac duality argument applied to~\eqref{eq:monomial-generator-duality}, condition~\eqref{eq:fk-integrability} gives
+\eqref{eq:monomial-feynman-kac-duality}.
+
+
+\section{Patch-contribution formulas}
+\label{app:contribution-formulas}
+
+Fix a patch based at~$i$, and write
+\begin{equation*}
+\alpha_i
+=
+\sum_{R\subseteq N(i)}\delta_i(R)
++
+\sum_{\substack{R\subseteq N(i)\\R\neq\varnothing}}\beta_i(R).
+\end{equation*}
+Thus~$\alpha_i$ is the total rate of outgoing interactions at~$i$, and
+$V_i=\alpha_i+a_i^\beta(\varnothing)$. For~$\Delta\in[0,\infty]$ and
+$z\in[0,1]$, set
+\begin{align}
+\varphi_i(\Delta)
+&=
+e^{-\alpha_i\Delta}
++
+\delta_i(\varnothing)
+\int_0^\Delta e^{-\alpha_i u}\,du,
+\label{eq:patch-phi}
+\\
+\psi_i(\Delta,z)
+&=
+\delta_i(\varnothing)
+\int_0^\Delta e^{a_i^\beta(\varnothing)u}\,du
++
+z e^{a_i^\beta(\varnothing)\Delta}.
+\label{eq:patch-psi}
+\end{align}
+At~$\Delta=\infty$, these expressions are interpreted by their limits.
+
+\subsection{End contributions}
+\label{app:end-formulas}
+
+Let~$P$ be an end patch, and put
+\begin{equation*}
+i=i(P),
+\qquad
+S=S(P),
+\qquad
+\Delta=e(P)-s(P).
+\end{equation*}
+Then
+\begin{equation}
+\label{eq:end-contribution-formulas}
+C(z,P)
+=
+\pw{
+\displaystyle
+\frac{\psi_i(\Delta,z)}{\varphi_i(\Delta)}
+}{\mathsf X(P)=\mathsf I}
+{
+\displaystyle
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,z)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}
+}{\mathsf X(P)=\mathsf O}.
+\end{equation}
+In particular, every end contribution is affine in~$z$.
+
+\subsection{Bulk and infinite patch contributions}
+\label{app:bulk-formulas}
+
+Let~$P\in\mathcal P$, and write
+\begin{equation*}
+i=i(P),
+\qquad
+S=S(P),
+\qquad
+\Delta=e(P)-s(P).
+\end{equation*}
+For finite and infinite patches, the contribution is
+\begin{equation}
+\label{eq:full-contribution-formulas}
+C(P)
+=
+\begin{cases}
+\displaystyle
+\frac{\psi_i(\Delta,1)}{\varphi_i(\Delta)},
+&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{II},\mathsf{IE}},
+\\[1.4em]
+e^{V_i\Delta},
+&\mathsf X(P)\mathsf Y(P)=\mathsf{IO},
+\\[0.8em]
+\displaystyle
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,1)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+},
+&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{OI},\mathsf{OE}},
+\\[1.4em]
+\sigma_i^\beta(S)e^{V_i\Delta},
+&\mathsf X(P)\mathsf Y(P)=\mathsf{OO}.
+\end{cases}
+\end{equation}
+An infinite patch has type~$\mathsf{IE}$ or~$\mathsf{OE}$, and the
+corresponding row is read at~$\Delta=\infty$. If a denominator in~\eqref{eq:end-contribution-formulas} or
+\eqref{eq:full-contribution-formulas} vanishes, that patch has zero
+probability of occurring, so the formula is irrelevant.
+
+By the definitions in Section~\ref{sec:dual}, these
+quantities satisfy
+\begin{equation}
+\label{eq:dual-to-spin-contribution-data}
+\begin{aligned}
+\alpha_i
+&=
+\sum_{R\subseteq N(i)}\abs{\widehat{\lambda_i\rho_i}(R)}
++
+\sum_{\substack{R\subseteq N(i)\\R\neq\varnothing}}
+\abs{\widehat{\lambda_i}(R)},
+\\
+a_i^\beta(\varnothing)
+&=
+-\widehat{\lambda_i}(\varnothing)
+=
+-\lambda_i(\mb 0),
+\\
+\delta_i(S)\sigma_i^\delta(S)
+&=
+\widehat{\lambda_i\rho_i}(S),
+&\delta_i(S)
+&=
+\abs{\widehat{\lambda_i\rho_i}(S)},
+\\
+\beta_i(S)\sigma_i^\beta(S)
+&=
+-\widehat{\lambda_i}(S),
+&\beta_i(S)
+&=
+\abs{\widehat{\lambda_i}(S)}.
+\end{aligned}
+\end{equation}
+Since
+\begin{equation*}
+\widehat{\lambda_i}(\varnothing)=\lambda_i(\mb 0),
+\qquad
+\widehat{\lambda_i\rho_i}(\varnothing)
+=
+\lambda_i(\mb 0)\rho_i(\mb 0),
+\end{equation*}
+we also have
+\begin{align*}
+\varphi_i(\Delta)
+&=
+e^{-\alpha_i\Delta}
++
+\lambda_i(\mb 0)\rho_i(\mb 0)
+\int_0^\Delta e^{-\alpha_i u}\,du,
+\\
+\psi_i(\Delta,z)
+&=
+\lambda_i(\mb 0)\rho_i(\mb 0)
+\int_0^\Delta e^{-\lambda_i(\mb 0)u}\,du
++
+z e^{-\lambda_i(\mb 0)\Delta}.
+\end{align*}
+
+\subsection{Derivation}
+\label{app:contribution-derivation}
+
+Suppose first that the initial interaction is incoming, so~$X_s^P=1$, and the terminal interaction is incoming or absent,
+corresponding to~$\mathsf I$ or~$\mathsf E$. Consistency occurs either when
+there is no outgoing interaction before the endpoint or death. Therefore
+\begin{equation*}
+\pP_P\bb{\operatorname{Con}(P)}
+=
+e^{-\alpha_i\Delta}
++
+\delta_i(\varnothing)
+\int_0^\Delta e^{-\alpha_i u}\,du
+=
+\varphi_i(\Delta).
+\end{equation*}
+To compute~$C(z,P)$, we also need the numerator of
+the conditional expectation defining the patch contribution,
+\begin{equation*}
+\E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}}.
+\end{equation*}
+If there is a death at time~$u$, the site is active
+until~$u$ and contributes~$e^{V_i u}$. If there is no death,
+the site remains active for the whole patch and contributes the terminal
+factor~$z$. Hence
+\begin{equation*}
+\E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}}
+=
+\delta_i(\varnothing)
+\int_0^\Delta e^{\bb{V_i-\alpha_i}u}\,du
++
+z e^{\bb{V_i-\alpha_i}\Delta}
+=
+\psi_i(\Delta,z).
+\end{equation*}
+Thus the first formula in~\eqref{eq:end-contribution-formulas} is justified.
+Setting~$z=1$ gives the~$\mathsf{II}$ and~$\mathsf{IE}$ formulas in
+\eqref{eq:full-contribution-formulas}.
+
+Suppose next that the initial interaction is outgoing and the
+terminal interaction is incoming or absent, corresponding to~$\mathsf I$ or~$\mathsf E$. If~$\alpha(P)=\delta$, the source becomes inactive at
+the initial interaction, so consistency is automatic and the local factor
+is~$\sigma_i^\delta(S)$. If~$\alpha(P)=\beta$, the source remains active
+and the preceding calculation applies. By~\eqref{eq:patch-initial-kind-law},
+we have
+\begin{align*}
+\pP_P\bb{\operatorname{Con}(P)} &= 
+\frac{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}{
+\delta_i(S)+\beta_i(S)
+},\\
+\E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}} &= \frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,z)
+}{
+\delta_i(S)+\beta_i(S)
+}.
+\end{align*}
+Their ratio gives the second formula of~\eqref{eq:end-contribution-formulas} and
+the~$\mathsf{OI}$,~$\mathsf{OE}$ formulas of
+\eqref{eq:full-contribution-formulas}. If the terminal interaction is outgoing, the source must
+remain active throughout the patch. If the initial interaction is
+incoming, the patch contributes~$e^{V_i\Delta}$. If the initial interaction
+is outgoing, consistency also forces~$\alpha(P)=\beta$, leaving~$\sigma_i^\beta(S)e^{V_i\Delta}$. These are the remaining two formulas of~\eqref{eq:full-contribution-formulas}. The formulas extend to~$\Delta=\infty$ by taking limits.
+
+\subsection{All-zero-neighbourhood relaxation}
+\label{app:positivity-algebra}
+
+If~$\lambda_i(\mb 0)>0$, then
+\begin{equation}
+\label{eq:all-zero-neighbourhood-relaxation}
+\psi_i(u,z)
+=
+\rho_i(\mb 0)
++
+\bb{z-\rho_i(\mb 0)}e^{-\lambda_i(\mb 0)u},
+\qquad
+\psi_i(u+v,z)
+=
+\psi_i\bb{u,\psi_i(v,z)}.
+\end{equation}
+If~$\lambda_i(\mb 0)=0$, then~$\psi_i(u,z)=z$, and the second identity remains
+valid.
+
+Thus, when~$\lambda_i(\mb 0)>0$, the value~$z$ is forgotten
+exponentially fast and replaced in the limit by~$\rho_i(\mb 0)$.
+
+
+
+\section{Technical details}
+\label{app:technical-background}
+
+\subsection{Consequences of local finiteness}
+\label{app:local-finiteness}
+
+Lemma~\ref{lem:dual-local-finiteness} shows that only finitely many
+successful interactions occur on every bounded time interval. We record two
+consequences used in the convergence proof.
+
+\begin{lemma}
+\label{lem:patch-local-finiteness-consequences}
+Almost surely, successful interactions occur at distinct times. Moreover, every
+backward chain obtained by following patches that end with an outgoing
+interaction reaches the initial interaction at time~$0$ after finitely many
+steps. Finally,
+\begin{equation}
+\label{eq:finite-patch-family-last-interaction}
+\cb{\abs{\mathcal P}<\infty}
+=
+\bigcup_{n\in\N}L_n.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The graphical construction uses countably many independent Poisson processes,
+so almost surely no two interaction times coincide. Consider now a backward
+chain of patches ending with outgoing interactions. Its interaction times
+decrease strictly. If the chain did not reach time~$0$ after finitely many
+steps, it would contain infinitely many successful interactions in a bounded
+time interval, contradicting Lemma~\ref{lem:dual-local-finiteness}.
+
+For the last statement, if~$\mathcal P$ is finite, then there are only
+finitely many successful interactions, so there is a last one and~$L_n$ occurs
+for some~$n\in\N$. Conversely, on~$L_n$ there are finitely many successful
+interactions before time~$n$ by Lemma~\ref{lem:dual-local-finiteness} and none
+after time~$n$. Since each successful interaction creates only finitely many
+patches,~$\mathcal P$ is finite.
+\end{proof}
+
+
+\subsection{Confined-interaction identity}
+\label{app:confined-interactions}
+
+We relate the event that all successful interactions up to time~$T$ remain on
+a finite set~$R$ to the spin system with zero boundary condition outside~$R$. For~$R\subseteq\Lambda$, let~$\eta^{R,0}$ agree with~$\eta$ on~$R$ and be
+zero on~$R^c$. Define
+\begin{align*}
+\lambda_i^R(\eta)
+&=
+\pw{\lambda_i\bb{\eta^{R,0}}}{i\in R}
+{\lambda_i(\mb 0)}{i\notin R},
+&
+\rho_i^R(\eta)
+&=
+\pw{\rho_i\bb{\eta^{R,0}}}{i\in R}
+{\rho_i(\mb 0)}{i\notin R},
+\end{align*}
+and let
+\begin{equation*}
+\Lcal^R f(\eta)
+=
+\sum_{i\in\Lambda}
+\lambda_i^R(\eta)
+\bb{E_{i,\rho_i^R(\eta)}-I}f(\eta).
+\end{equation*}
+Write~$P_t^R$ for its semigroup. On~$R$, this is the original dynamics with
+all spins outside~$R$ fixed at~$0$. Outside~$R$, the sites evolve
+independently and do not affect the spins in~$R$. Hence, if~$f$ depends only on
+spins in~$R$,
+\begin{equation}
+\label{eq:modified-zero-boundary-agreement}
+P_t^Rf=P_t^{R,0}f.
+\end{equation}
+
+\begin{proposition}[Confined-interaction identity]
+\label{prop:confined-interaction-identity}
+Let~$A\subseteq R\Subset\Lambda$,~$0\leq T\leq t$, and let~$\mu$ be any
+probability measure. Then
+\begin{equation}
+\label{eq:confined-interaction-identity}
+\E_A\Cb{W_t^\mu\ind\bb{E_T^R}}
+=
+(\mu P_{t-T}P_T^{R,0})(\chi_A).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For~$\eta\in\Omega$, write
+\begin{equation*}
+Z_t^\eta
+=
+\sigma_t
+\exp\bb{\int_0^tV(A_s)\,ds}
+\chi_{A_t}(\eta).
+\end{equation*}
+By the patch factorization,
+\begin{equation*}
+W_t^{\delta_\eta}
+=
+\CE{Z_t^\eta}{\mathcal G_t}.
+\end{equation*}
+Since~$E_T^R\in\mathcal G_t$,
+\begin{equation}
+\label{eq:confined-weight-to-dual}
+\E_A\Cb{W_t^{\delta_\eta}\ind\bb{E_T^R}}
+=
+\E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}.
+\end{equation}
+
+We now identify the expectation on the right. Let~$\Dcal_R$ be the generator of a signed set process like~$\mathcal{D}$, but with the rates of interactions reaching outside~$R$ set to zero. If
+the active set is~$B\subseteq R$, the total rate of the discarded
+interactions is
+\begin{equation*}
+\kappa_R(B)
+=
+\sum_{i\in B}
+\sum_{\substack{\varnothing\neq S\subseteq N(i)\\S\nsubseteq R}}
+\bb{\delta_i(S)+\beta_i(S)}.
+\end{equation*}
+The event~$E_T^R$ is exactly the event that no discarded interaction is
+successful before time~$T$. Thus multiplication by~$\ind(E_T^R)$ is
+equivalent to killing the dual at the first such interaction, with killing
+rate~$\kappa_R$, meaning
+\begin{equation}
+    \E_{(A,\sigma)}\Cb{f(A_s,\sigma_s) \ind\bb{E_s^R}} = e^{s(\mathcal{D}_R - \kappa_R)}(f)(A,\sigma).
+\end{equation}
+
+For~$i\in R$, the monomial expansions in
+\eqref{eq:rate-expansion-revision} give
+\begin{align*}
+\lambda_i^R(\eta)\rho_i^R(\eta)
+&=
+\sum_{S\subseteq N(i)\cap R}
+\widehat{\lambda_i\rho_i}(S)\chi_S(\eta),
+\\
+\lambda_i^R(\eta)
+&=
+\sum_{S\subseteq N(i)\cap R}
+\widehat{\lambda_i}(S)\chi_S(\eta).
+\end{align*}
+Therefore, for~$B\subseteq R$,
+\begin{align}
+\Lcal_\eta^R H((B,\sigma),\eta)
+={}&
+\sigma
+\sum_{i\in B}
+\sum_{S\subseteq N(i)\cap R}
+a_i^\delta(S)
+\chi_{\bb{B\setminus\cb{i}}\cup S}(\eta)
+\notag
+\\
+&+
+\sigma
+\sum_{i\in B}
+\sum_{S\subseteq N(i)\cap R}
+a_i^\beta(S)
+\chi_{B\cup S}(\eta).
+\label{eq:confined-spin-generator-on-H}
+\end{align}
+On the other hand,~$\Dcal_RH((B,\sigma),\eta)$ contains the same
+off-diagonal terms. Since
+\begin{equation*}
+V(B)-\kappa_R(B)
+=
+\sum_{i\in B}
+\bb{
+\sum_{S\subseteq N(i)\cap R}\delta_i(S)
++
+\sum_{\substack{\varnothing\neq S\subseteq N(i)\cap R}}\beta_i(S)
++
+a_i^\beta(\varnothing)
+},
+\end{equation*}
+we have
+\begin{equation}
+\label{eq:confined-generator-duality}
+\Lcal_\eta^R H((B,\sigma),\eta)
+=
+\Dcal_RH((B,\sigma),\eta)
++
+\bb{V(B)-\kappa_R(B)}H((B,\sigma),\eta).
+\end{equation}
+
+Combining it with the
+original duality for the remaining time~$t-T$ and using the Markov property
+gives
+\begin{align*}
+\E_A\Cb{Z_t^\eta\ind\bb{E_T^R}} &= \bb{P_{t-T}e^{T\bb{\mathcal{D}_R +\bb{V-\kappa_R}}}\chi_A}\bb{\eta}\\
+&=\bb{P_{t-T}P_T^R \chi_A}\bb{\eta}.
+\end{align*}
+Since~$A\subseteq R$, the function~$\chi_A$ depends only on~$R$, so
+\eqref{eq:modified-zero-boundary-agreement} gives
+\begin{equation*}
+P_T^R\chi_A=P_T^{R,0}\chi_A.
+\end{equation*}
+Combining this with~\eqref{eq:confined-weight-to-dual} and integrating over~$\mu$ proves~\eqref{eq:confined-interaction-identity}.
+\end{proof}
+
+
+\subsection{Continuation without successful interactions}
+\label{app:no-late-continuation}
+
+We derive the continuation identities used in the proof of
+Lemma~\ref{lem:no-late-relaxation}. Fix~$0\leq T<t$ and condition on~$\mathcal G_T$. On the event~$L_{T,t}$, since no successful interaction occurs after time~$T$, the bulk
+patches are unchanged and each end patch at time~$T$ is extended forward to time~$t$.
+
+For~$P\in\mathcal E_T$, consider the site~$i(P)$ after time~$T$.
+Start from its activity state at time~$T$ and follow only interactions whose
+source is~$i(P)$, ignoring incoming interactions from other sites. While the
+site is active, a death makes it inactive, whereas an
+interaction would be a successful. Once the site is inactive it
+remains inactive in this one-site evolution. Let~$L_{T,t}^P$ be the event that
+no interaction occurs while the site is active during~$(T,t]$. 
+Moreover,
+\begin{equation}
+\label{eq:local-no-late-factorization}
+L_{T,t}
+=
+\bigcap_{P\in\mathcal E_T}L_{T,t}^P,
+\qquad
+\CP{L_{T,t}}{\mathcal G_T}
+=
+\prod_{P\in\mathcal E_T}
+\CP{L_{T,t}^P}{\mathcal G_T}.
+\end{equation}
+Indeed, each~$L_{T,t}^P$ implies that there is no successful interaction at~$i(P)$ during~$[T,t)$, so~$L_{T,t}$ must lie in the intersection of these events. The opposite inclusion is trivial. The second identity follows because distinct end patches are based at distinct sites, so conditional on~$\mathcal G_T$ the events~$(L_{T,t}^P)_{P\in\mathcal E_T}$ are independent.
+
+\begin{proposition}[Continuation identity]
+\label{prop:no-late-continuation-identity}
+Fix~$0\leq T<t$. On~$L_{T,t}$,
+\begin{equation*}
+\mathcal B_t=\mathcal B_T,
+\qquad
+\mathcal E_t
+=
+\cb{P^{\uparrow t}:P\in\mathcal E_T}.
+\end{equation*}
+For every probability measure~$\mu$,
+\begin{align}
+\CE{W_t^\mu\ind\bb{L_{T,t}}}{\mathcal G_T}
+&=
+\prod_{P\in\mathcal B_T}C(P)\,
+\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+\notag
+\\
+&=
+\prod_{P\in\mathcal B_T}C(P)\,
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\psi_{i(P)}\bb{t-T,\eta\bb{i(P)}},P}
+}.
+\label{eq:appendix-finite-continuation-identity}
+\end{align}
+Furthermore,
+\begin{equation}
+\label{eq:appendix-infinite-continuation-identity}
+\CE{W\ind\bb{L_T}}{\mathcal G_T}
+=
+\prod_{P\in\mathcal B_T}C(P)
+\prod_{P\in\mathcal E_T}
+C\bb{\rho_{i(P)}(\mb 0),P}.
+\end{equation}
+The first equality in~\eqref{eq:appendix-finite-continuation-identity} also
+holds for~$W_t^{\varepsilon,\mu}$ with~$C$ replaced by~$C^\varepsilon$.
+\end{proposition}
+
+\begin{proof}
+On~$L_{T,t}$ no successful interaction starts a new patch after time~$T$.
+Thus the bulk patches are unchanged, while each~$P\in\mathcal E_T$ becomes its
+geometric extension~$P^{\uparrow t}$ from
+\eqref{eq:geometric-patch-extension}.
+
+Fix~$P\in\mathcal E_T$ and write
+\begin{equation*}
+i=i(P),
+\qquad
+S=S(P),
+\qquad
+\Delta=T-s(P).
+\end{equation*}
+The patch~$P^{\uparrow t}$ has length~$\Delta+t-T$. Therefore
+\eqref{eq:end-contribution-formulas} gives
+\begin{equation}
+\label{eq:end-patch-continuation}
+C\bb{z,P^{\uparrow t}}
+=
+\pw{
+\displaystyle
+\frac{\psi_i(\Delta+t-T,z)}{\varphi_i(\Delta+t-T)}
+}{\mathsf X(P)=\mathsf I}
+{
+\displaystyle
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta+t-T,z)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta+t-T)
+}
+}{\mathsf X(P)=\mathsf O}.
+\end{equation}
+This is the end-patch formula from Appendix~\ref{app:end-formulas} applied to
+the longer patch.
+
+The same formulas give the probability that the patch remains consistent
+during the added interval. Conditional on~$\mathcal G_T$,
+\begin{equation}
+\label{eq:local-continuation-probability}
+\CP{L_{T,t}^P}{\mathcal G_T}
+=
+\pw{
+\displaystyle
+\frac{\varphi_i(\Delta+t-T)}{\varphi_i(\Delta)}
+}{\mathsf X(P)=\mathsf I}
+{
+\displaystyle
+\frac{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta+t-T)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}
+}{\mathsf X(P)=\mathsf O}.
+\end{equation}
+Multiplying~\eqref{eq:end-patch-continuation} by
+\eqref{eq:local-continuation-probability} and using
+\begin{equation*}
+\psi_i(\Delta+t-T,z)
+=
+\psi_i\bb{\Delta,\psi_i(t-T,z)}
+\end{equation*}
+from~\eqref{eq:all-zero-neighbourhood-relaxation}, we obtain
+\begin{equation}
+\label{eq:local-probability-weighted-continuation}
+\CP{L_{T,t}^P}{\mathcal G_T}
+C\bb{z,P^{\uparrow t}}
+=
+C\bb{\psi_i(t-T,z),P}.
+\end{equation}
+For example, when the initial interaction of~$P$ is incoming, the left-hand
+side is
+\begin{equation*}
+\frac{\varphi_i(\Delta+t-T)}{\varphi_i(\Delta)}
+\frac{\psi_i(\Delta+t-T,z)}{\varphi_i(\Delta+t-T)}
+=
+\frac{\psi_i\bb{\Delta,\psi_i(t-T,z)}}{\varphi_i(\Delta)}.
+\end{equation*}
+When the initial interaction is outgoing, the same cancellation gives
+\begin{equation*}
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)
+\psi_i\bb{\Delta,\psi_i(t-T,z)}
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}.
+\end{equation*}
+In both cases this is~$C(\psi_i(t-T,z),P)$.
+
+On~$L_{T,t}$ the patch family at time~$t$ is determined by~$\mathcal G_T$, so the definition of~$W_t^\mu$ gives the first equality in
+\eqref{eq:appendix-finite-continuation-identity}. Using
+\eqref{eq:local-no-late-factorization}, we may put the product of the local
+conditional probabilities inside the~$\mu$-integral. Applying
+\eqref{eq:local-probability-weighted-continuation} to every end patch then
+gives the second equality.
+
+The system with the pure-death component removed has the same signed dual,
+successful-interaction skeleton, and patch laws; see
+Section~\ref{subsec:proof-pure-death-comparison}. Hence the event~$L_{T,t}$ and its conditional probability are unchanged, which proves the
+corresponding first equality for~$W_t^{\varepsilon,\mu}$.
+
+It remains to pass from a finite continuation to~$L_T$. By the pure-death
+assumption,~$\lambda_i(\mb 0)\geq\varepsilon$, and therefore
+\eqref{eq:all-zero-neighbourhood-relaxation} gives
+\begin{equation*}
+\psi_i(t-T,1)\longrightarrow\rho_i(\mb 0)
+\qquad\text{as }t\to\infty.
+\end{equation*}
+For each~$P\in\mathcal E_T$,
+\eqref{eq:local-probability-weighted-continuation} with~$z=1$ yields
+\begin{equation}
+\label{eq:local-infinite-continuation-limit}
+\lim_{u\to\infty}
+\CP{L_{T,u}^P}{\mathcal G_T}
+C\bb{1,P^{\uparrow u}}
+=
+C\bb{\rho_i(\mb 0),P}.
+\end{equation}
+The left-hand side is the conditional contribution of the continuation of~$P$, together with the event that it produces no successful interaction up to
+time~$u$. On~$L_T^P$ this continuation becomes the infinite patch following~$P$. Since there are only finitely many end patches at time~$T$ and their
+future interactions are conditionally independent, multiplying the limits in
+\eqref{eq:local-infinite-continuation-limit} proves
+\eqref{eq:appendix-infinite-continuation-identity}.
+\end{proof}
+
+
+\subsection{End-factor relaxation}
+
+The continuation identity~\eqref{app:no-late-continuation} reduces the dependence on the initial configuration
+to affine functions of the spins at the end-patch sites. The next lemma
+controls this dependence uniformly over~$\mathcal M_\star$.
+
+\begin{lemma}[End-factor relaxation]
+\label{lem:end-factor-relaxation}
+Fix a realization of~$\mathcal G_T$ and let~$0\leq T<t$. For every~$\mu\in\mathcal M_\star$,
+\begin{align*}
+&\abs{
+ \CP{L_{T,t}}{\mathcal G_T}
+ \mu\bb{
+  \prod_{P\in\mathcal E_T}
+  C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+ }
+ -
+ \prod_{P\in\mathcal E_T}
+ C\bb{\rho_{i(P)}(\mb 0),P}
+}
+\\
+&\qquad\leq
+e^{-\varepsilon(t-T)}
+\bb{
+ \CP{L_{T,t}}{\mathcal G_T}
+ \mu\bb{
+  \prod_{P\in\mathcal E_T}
+  C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+ }
+ +
+ \abs{\mathcal E_T}
+ \prod_{P\in\mathcal E_T}
+ C\bb{\rho_{i(P)}(\mb 0),P}
+}.
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+For an end patch~$P$ based at~$i$, define
+\begin{align*}
+a_t(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+C\bb{p_i^\star,P^{\uparrow t}},
+&
+k_t(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+\partial_z C\bb{z,P^{\uparrow t}},
+\\
+a_t^\varepsilon(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+C^\varepsilon\bb{p_i^\star,P^{\uparrow t}},
+&
+k_t^\varepsilon(P)
+&=
+\CP{L_{T,t}^P}{\mathcal G_T}
+\partial_z C^\varepsilon\bb{z,P^{\uparrow t}},
+\\
+b(P)
+&=
+C\bb{\rho_i(\mb 0),P}.
+\end{align*}
+Also write
+\begin{equation*}
+\kappa(P)=\partial_zC(z,P),
+\qquad
+\kappa^\varepsilon(P)=\partial_zC^\varepsilon(z,P).
+\end{equation*}
+Since the end-patch contributions are affine in~$z$, these derivatives do not
+depend on~$z$.
+
+By~\eqref{eq:local-probability-weighted-continuation},
+\begin{equation}
+\label{eq:continued-end-factor-data}
+a_t(P)
+=
+C\bb{\psi_i(t-T,p_i^\star),P},
+\qquad
+k_t(P)
+=
+e^{-\lambda_i(\mb 0)(t-T)}\kappa(P).
+\end{equation}
+For the system with the pure-death component removed, the update rate at the
+all-zero neighbourhood is~$\lambda_i(\mb 0)-\varepsilon$. The same calculation
+therefore gives
+\begin{equation*}
+k_t^\varepsilon(P)
+=
+e^{-\bb{\lambda_i(\mb 0)-\varepsilon}(t-T)}
+\kappa^\varepsilon(P).
+\end{equation*}
+The pure-death comparison from
+Section~\ref{subsec:proof-pure-death-comparison}, applied to the extended end
+patch, gives
+\begin{equation*}
+0\leq a_t(P)\leq a_t^\varepsilon(P),
+\qquad
+0\leq\kappa(P)\leq\kappa^\varepsilon(P).
+\end{equation*}
+Consequently,
+\begin{equation}
+\label{eq:appendix-continued-factor-comparisons}
+0\leq a_t(P)\leq a_t^\varepsilon(P),
+\qquad
+0\leq k_t(P)\leq e^{-\varepsilon(t-T)}k_t^\varepsilon(P).
+\end{equation}
+
+We also compare~$a_t(P)$ with its limiting value~$b(P)$. Since~$p_i^\star\leq\rho_i(\mb 0)$ and
+\begin{equation*}
+\psi_i(t-T,p_i^\star)
+=
+\rho_i(\mb 0)
+-
+\bb{\rho_i(\mb 0)-p_i^\star}
+e^{-\lambda_i(\mb 0)(t-T)},
+\end{equation*}
+the affine dependence of~$C(z,P)$ on~$z$ gives
+\begin{equation*}
+b(P)-a_t(P)
+=
+\kappa(P)\bb{\rho_i(\mb 0)-p_i^\star}
+e^{-\lambda_i(\mb 0)(t-T)}.
+\end{equation*}
+Moreover,
+\begin{equation*}
+b(P)
+=
+C\bb{p_i^\star,P}
++
+\kappa(P)\bb{\rho_i(\mb 0)-p_i^\star}
+\geq
+\kappa(P)\bb{\rho_i(\mb 0)-p_i^\star},
+\end{equation*}
+where~$C(p_i^\star,P)\geq0$ by patch positivity. Since~$\lambda_i(\mb 0)\geq\varepsilon$,
+\begin{equation}
+\label{eq:continued-end-factor-limit-comparison}
+0
+\leq
+b(P)-a_t(P)
+\leq
+e^{-\varepsilon(t-T)}b(P).
+\end{equation}
+
+We first control the terms that depend on centered moments of~$\mu$. For~$\mathcal Q\subseteq\mathcal E_T$, set
+\begin{equation*}
+I(\mathcal Q)
+=
+\cb{i(P):P\in\mathcal Q}.
+\end{equation*}
+The end-patch sites are distinct. Using
+\eqref{eq:local-no-late-factorization} and expanding each factor around~$p_i^\star$ gives
+\begin{equation}
+\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+=
+\sum_{\mathcal Q\subseteq\mathcal E_T}
+\mu\bb{\chi_{I(\mathcal Q)}^\star}
+\prod_{P\in\mathcal Q}k_t(P)
+\prod_{P\in\mathcal E_T\setminus\mathcal Q}a_t(P).
+\label{eq:continued-end-factor-centered-expansion}
+\end{equation}
+Every term is nonnegative because~$\mu\in\mathcal M_\star$. The term with~$\mathcal Q=\varnothing$ is~$\prod_Pa_t(P)$. If~$\mathcal Q\neq\varnothing$, the inequalities in
+\eqref{eq:appendix-continued-factor-comparisons} give
+\begin{equation*}
+\mu\bb{\chi_{I(\mathcal Q)}^\star}
+\prod_{P\in\mathcal Q}k_t(P)
+\prod_{P\in\mathcal E_T\setminus\mathcal Q}a_t(P)
+\leq
+e^{-\varepsilon(t-T)}
+\mu\bb{\chi_{I(\mathcal Q)}^\star}
+\prod_{P\in\mathcal Q}k_t^\varepsilon(P)
+\prod_{P\in\mathcal E_T\setminus\mathcal Q}a_t^\varepsilon(P).
+\end{equation*}
+Summing over nonempty~$\mathcal Q$ and then adding the nonnegative empty-set
+term on the right gives
+\begin{align}
+0
+&\leq
+\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}
+-
+\prod_{P\in\mathcal E_T}a_t(P)
+\notag\\
+&\leq
+e^{-\varepsilon(t-T)}
+\CP{L_{T,t}}{\mathcal G_T}
+\mu\bb{
+ \prod_{P\in\mathcal E_T}
+ C^\varepsilon\bb{\eta\bb{i(P)},P^{\uparrow t}}
+}.
+\label{eq:continued-end-factor-centered-error}
+\end{align}
+
+It remains to replace~$\prod_Pa_t(P)$ by~$\prod_Pb(P)$. Enumerate~$\mathcal E_T=\cb{P_1,\ldots,P_n}$ and write~$a_j=a_t(P_j)$ and~$b_j=b(P_j)$. Since~$0\leq a_j\leq b_j$,
+\begin{equation*}
+\prod_{j=1}^n b_j-\prod_{j=1}^n a_j
+=
+\sum_{j=1}^n
+\bb{b_j-a_j}
+\prod_{k<j}a_k
+\prod_{k>j}b_k.
+\end{equation*}
+Using~\eqref{eq:continued-end-factor-limit-comparison},
+\begin{equation}
+\label{eq:continued-end-factor-constant-error}
+0
+\leq
+\prod_{P\in\mathcal E_T}b(P)
+-
+\prod_{P\in\mathcal E_T}a_t(P)
+\leq
+\abs{\mathcal E_T}e^{-\varepsilon(t-T)}
+\prod_{P\in\mathcal E_T}b(P).
+\end{equation}
+Both quantities compared in the lemma are at least~$\prod_{P\in\mathcal E_T}a_t(P)$. Combining
+\eqref{eq:continued-end-factor-centered-error} and
+\eqref{eq:continued-end-factor-constant-error} proves the claim.
+\end{proof}
+
+
+\subsection{Finite propagation}
+\label{app:finite-propagation}
+
+Set
+\begin{equation*}
+\overline\lambda
+=
+\sup_{i\in\Lambda,\,\eta\in\Omega}\lambda_i(\eta),
+\qquad
+m
+=
+\sup_{i\in\Lambda}\abs{N(i)\cup\cb{i}}.
+\end{equation*}
+Both quantities are finite by the assumptions on the spin system. We use the
+following standard finite-speed estimate for the Harris graphical
+construction; see, for example,~\cite[Chapter~I]{Liggett1985}.
+
+\begin{lemma}[Finite propagation]
+\label{lem:finite-propagation}
+Let~$f$ be supported on~$A\Subset\Lambda$. For every~$a>0$, there are~$v<\infty$ and~$C_A<\infty$ such that
+\begin{equation}
+\label{eq:finite-propagation}
+\norm{\bb{P_t-P_t^{R,0}}f}_\infty
+\leq
+C_Ae^{-at}\norm f_\infty
+\end{equation}
+for every~$t\geq0$ and every finite~$R$ containing~$B\bb{A,\lceil vt\rceil}$.
+\end{lemma}
+
+\begin{proof}
+Construct the process using rate-$\overline\lambda$ Poisson clocks at each site,
+together with independent randomness deciding whether a proposed update is
+accepted and, if so, the refreshed spin. Trace the dependence of the spins in~$A$ at time~$t$ backwards through this construction. Whenever a clock at~$i$ is encountered, the earlier states at the sites in~$N(i)\cup\cb{i}$ may be needed, so these sites are added to the dependence
+set.
+
+Couple the infinite-volume process and the process with zero boundary outside~$R$ using the same graphical construction in~$R$. If the backward dependence
+set stays inside~$R$, the two processes agree on~$A$ at time~$t$.
+
+To leave~$B(A,n)$, the backward dependence set must contain a time-ordered path
+of at least~$n$ clock rings. For a path of length~$k$, there are at most~$\abs A\,m^k$ possible spatial paths, while the expected number of
+chronologically ordered~$k$-tuples of clock rings along any fixed path is~$(\overline\lambda t)^k/k!$. Hence, for every~$\theta>0$,
+\begin{align*}
+\pP\bb{\text{the backward dependence set leaves }B(A,n)}
+&\leq
+\abs A
+\sum_{k\geq n}
+\frac{\bb{m\overline\lambda t}^k}{k!}
+\\
+&\leq
+\abs A
+\exp\bb{
+m\overline\lambda t e^\theta-\theta n
+}.
+\end{align*}
+Choose~$v$ so that
+\begin{equation*}
+\theta v-m\overline\lambda e^\theta>a.
+\end{equation*}
+With~$n=\lceil vt\rceil$, the preceding probability is bounded by~$\abs A e^{-at}$. Therefore, for
+every~$\eta\in\Omega$,
+\begin{equation*}
+\abs{P_tf(\eta)-P_t^{R,0}f(\eta)}
+\leq
+2\norm f_\infty
+\pP\bb{\text{the backward dependence set leaves }R}
+\leq
+2\abs A e^{-at}\norm f_\infty.
+\end{equation*}
+This proves~\eqref{eq:finite-propagation}.
+\end{proof}
+
+
+\subsection{Preservation of~\texorpdfstring{$\mathcal{M}_*^I$}{M-star-I} under arbitrary boundary conditions}
+\label{app:boundary-moment-preservation}
+
+The orientability argument conditions on the evolution outside a finite set.
+The following lemma shows that, for every fixed boundary configuration, the
+restricted dynamics preserves~$\mathcal{M}_*^I$.
+
+\begin{lemma}
+\label{lem:boundary-moment-preservation}
+Suppose that~$\Lcal$ is patch-positive. Let~$I\Subset\Lambda$ and~$U\subseteq\Lambda\setminus I$ satisfy
+\begin{equation*}
+N(i)\subseteq I\cup U
+\qquad
+\text{for every }i\in I.
+\end{equation*}
+For~$\xi\in\cb{0,1}^U$, let~$P_t^{I,\xi}$ be the semigroup on~$\cb{0,1}^I$ obtained by fixing the spins on~$U$ at~$\xi$. Define
+\begin{equation*}
+\mathcal M_\star^I
+=
+\cb{
+\mu\in\mathcal P\bb{\cb{0,1}^I}:
+\mu(\chi_B^\star)\geq0
+\text{ for every }B\subseteq I
+}.
+\end{equation*}
+Then
+\begin{equation*}
+\mathcal M_\star^I P_t^{I,\xi}
+\subseteq
+\mathcal M_\star^I
+\qquad
+\text{for every }t\geq0.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Write~$\lambda_i^{I,\xi}$ and~$\rho_i^{I,\xi}$ for the update rate and
+refresh parameter of the restricted dynamics. For~$S\subseteq N(i)\cap I$,
+substituting the fixed spins~$\xi$ into the monomial expansions gives
+\begin{align}
+\widehat{\lambda_i^{I,\xi}}(S)
+&=
+\sum_{T\subseteq N(i)\cap U}
+\widehat{\lambda_i}(S\cup T)
+\prod_{j\in T}\xi(j),
+\label{eq:restricted-lambda-coefficients}
+\\
+\widehat{
+\lambda_i^{I,\xi}
+\bb{\rho_i^{I,\xi}-p_i^\star}
+}(S)
+&=
+\sum_{T\subseteq N(i)\cap U}
+\bb{
+\widehat{\lambda_i\rho_i}(S\cup T)
+-
+p_i^\star\widehat{\lambda_i}(S\cup T)
+}
+\prod_{j\in T}\xi(j).
+\label{eq:restricted-centered-coefficients}
+\end{align}
+If~$S\neq\varnothing$, then every~$S\cup T$ appearing in
+\eqref{eq:restricted-lambda-coefficients} is nonempty, so patch positivity
+gives
+\begin{equation}
+\label{eq:restricted-lambda-sign}
+\widehat{\lambda_i^{I,\xi}}(S)\leq0.
+\end{equation}
+By~\eqref{eq:centered-generator-positive-coefficients}, every term in
+\eqref{eq:restricted-centered-coefficients} is nonnegative. Hence
+\begin{equation}
+\label{eq:restricted-centered-sign}
+\widehat{
+\lambda_i^{I,\xi}
+\bb{\rho_i^{I,\xi}-p_i^\star}
+}(S)
+\geq0
+\qquad
+\text{for every }S\subseteq N(i)\cap I.
+\end{equation}
+
+We now repeat the centered-generator calculation from
+Theorem~\ref{thm:centered-monomial-monotonicity}. For~$B\subseteq I$,
+\begin{align*}
+\Lcal^{I,\xi}\chi_B^\star
+={}&
+-\sum_{i\in B}
+\lambda_i^{I,\xi}(\mb 0)\chi_B^\star
+\\
+&+
+\sum_{i\in B}
+\sum_{S\subseteq N(i)\cap I}
+\widehat{
+\lambda_i^{I,\xi}
+\bb{\rho_i^{I,\xi}-p_i^\star}
+}(S)
+\chi_S\chi_{B\setminus\cb{i}}^\star
+\\
+&+
+\sum_{i\in B}
+\sum_{\substack{S\subseteq N(i)\cap I\\S\neq\varnothing}}
+\bb{-\widehat{\lambda_i^{I,\xi}}(S)}
+\chi_S\chi_B^\star.
+\end{align*}
+Choose~$r>0$ so that
+\begin{equation*}
+r\sum_{i\in I}\lambda_i^{I,\xi}(\mb 0)\leq1.
+\end{equation*}
+By~\eqref{eq:restricted-lambda-sign} and
+\eqref{eq:restricted-centered-sign}, all coefficients in~$(I+r\Lcal^{I,\xi})\chi_B^\star$ are nonnegative before the products~$\chi_S\chi_D^\star$ are expanded. Equation~\eqref{eq:ordinary-centered-product-expansion} shows that a product of monomial and a centered monomial has a nonnegative coefficient expansion in centered monomials. Therefore
+\begin{equation*}
+\bb{I+r\Lcal^{I,\xi}}\chi_B^\star
+\end{equation*}
+is a nonnegative linear combination of~$\cb{\chi_D^\star:D\subseteq I}$.
+
+Since~$I$ is finite, for every~$t\geq0$,
+\begin{equation*}
+P_t^{I,\xi}
+=
+\lim_{n\to\infty}
+\bb{
+I+\frac{t}{n}\Lcal^{I,\xi}
+}^n
+\end{equation*}
+as operators on functions on~$\cb{0,1}^I$. For all sufficiently large~$n$,
+the preceding argument applies with~$r=t/n$. Thus, if~$\mu\in\mathcal M_\star^I$, then for every~$B\subseteq I$,
+\begin{equation*}
+(\mu P_t^{I,\xi})(\chi_B^\star)
+=
+\lim_{n\to\infty}
+\mu\bb{
+\bb{
+I+\frac{t}{n}\Lcal^{I,\xi}
+}^n
+\chi_B^\star
+}
+\geq0.
+\end{equation*}
+Hence~$\mu P_t^{I,\xi}\in\mathcal M_\star^I$.
+\end{proof}
+
+
+
+
+\bibliographystyle{paper/amsplain-fullnames}
+\bibliography{paper/references}
+
+\end{document}
