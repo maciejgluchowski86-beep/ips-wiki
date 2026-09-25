@@ -20,8 +20,8 @@ mkdocs build
 
 The Overleaf entry point is the repository-level `main.tex`. The manuscript is self-contained in that file, including its TikZ figures. Its only repository-local support files are:
 
-- `references.bib`;
-- `amsplain-fullnames.bst`;
+- `paper/references.bib`;
+- `paper/amsplain-fullnames.bst`;
 - `ejpecp.cls`.
 
 To compile it locally:
