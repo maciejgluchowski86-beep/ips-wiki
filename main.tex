@@ -59,8 +59,11 @@
 \definecolor{changegreen}{rgb}{0,0.39,0}
 \newcommand{\chg}[1]{{\color{changegreen}#1}}
 
-\SHORTTITLE{Patch positive spin systems}
-\TITLE{Patch positive spin systems}
+% Marks statements added during the restructuring that the authors must check.
+\newcommand{\authorcheck}[1]{{\color{blue}[\textbf{Check:} #1]}}
+
+\SHORTTITLE{Ergodicity without monotonicity}
+\TITLE{Ergodicity without monotonicity: patch-positive spin systems}
 \AUTHORS{%
 Maciej~G{\l}uchowski\footnote{Department of Mathematics, University of
 California, Los Angeles, CA 90095, USA. Corresponding author: Maciej
@@ -69,263 +72,251 @@ G{\l}uchowski. \mbox{\EMAIL{mgluchowski@math.ucla.edu}};
 \and
 Georg~Menz\footnotemark[1]}%AUTHORS
 \KEYWORDS{spin systems; interacting particle systems; kinetically constrained spin models;
-  centered monomial order; graphical representation; ergodicity}
+  ergodicity; noise; positive rates problem; graphical representation; duality}
 \AMSSUBJ{60K35}
 \AMSSUBJSECONDARY{60E15; 82C22}
 
 \ABSTRACT{%
-In kinetically constrained spin models such as FA-1f and East, adding
-vacancies can make more updates possible even though the dynamics are not
-monotone in the usual configuration order. We introduce patch-positive spin
-systems, a class for which the semigroup preserves an order on probability
-laws defined by monomials centered around a density profile inherent to the system. This yields comparison principles between initial laws and between
-systems that differ by additional independent~$1\to0$ transitions.
+Monotonicity is the classical tool for proving ergodicity of interacting
+particle systems: it reduces ergodicity to the coincidence of two extremal
+invariant measures. For non-monotone systems whose invariant measures are not
+known explicitly, much less is available. Kinetically constrained spin models
+such as the Fredrickson--Andersen one-spin facilitated model (FA-1f) and the
+East model are the simplest systems in which monotonicity breaks down. Adding
+vacancies to these models unblocks frozen regions, which suggests that noise
+should cause ergodicity, but noise in general also destroys the explicit reversible
+invariant measure on which the analysis of these models is based.
 
-On neighbourhood graphs of polynomial growth, a uniformly positive rate of
-such transitions implies convergence from a broad class of initial laws to a
-common invariant measure. Under an additional condition on the reference
-density the convergence is uniform and exponential, while for oriented
-systems it is uniform without this restriction. In particular, the perturbed
-East models considered here are uniformly ergodic for every refresh
-density~$p\in(0,1)$. The same framework gives new results for the biased
-annihilating branching process and for the positive-rates problem for
-one-dimensional spin systems. The proof is based on a signed dual
-representation in which local randomness is factorized over spacetime patches.}
+We introduce patch-positive spin systems, a class defined by explicit sign
+conditions on the local rates that contains FA-1f, the East model and the
+biased annihilating branching process. On neighbourhood graphs of polynomial
+growth, we show that a patch-positive spin system with a uniformly positive
+rate of independent~$1\to0$ transitions converges to a common invariant
+measure from a broad class of initial laws, including every configuration
+with finitely many vacancies. The convergence is uniform and exponential if
+the threshold density of the system is at most~$\tfrac12$, and uniform on
+orientable neighbourhood graphs. In particular, the East model with added
+noise is uniformly ergodic for every refresh density~$p\in(0,1)$, and we
+obtain a new region of ergodicity in the positive-rates problem for
+one-dimensional, one-sided nearest-neighbour spin systems. The proof is based
+on a signed dual representation in which local randomness factorizes over
+spacetime patches, and on a comparison between the duals of the system with
+and without the added transitions.}
 
 \begin{document}
 
 \setcounter{tocdepth}{1}
 \tableofcontents
 
-
-{\color{red} Comments:
+{\color{red} Restructuring notes (remove before submission):
   \begin{itemize}
-  \item In Theorem 3.5 make the consequence of occupation probabiltis a corollary, with one sentence explanation.
-  \item Open problems for KCSMs: (good to mention to show that ergodicity on KCSM is not ``trivial'' or solved, but an active research area.)
-    \begin{itemize}
-    \item Converge to equilibirum from configurations with facilitating states. (Specifically FA-1f more complicated FA-jf)      
-    \end{itemize}
-    \item Definition orientable spin model, standard definition or not? Mention it is equivalent to known definitions.....
+  \item The paper has been reorganized around ergodicity of non-monotone
+    systems. The centered monomial order, the pure-death comparison of
+    monomials, the BABP sandwich result and the contact process have been
+    moved verbatim to \texttt{paper2-babp-draft.tex}.
+  \item Blue \textbf{[Check: \dots]} marks are statements added during the
+    restructuring that need to be checked by the authors.
+  \item Definition of orientability: standard definition or not? Mention
+    that it is equivalent to known definitions.
   \end{itemize}
-
-
 }
 
 \section{Introduction}
 \label{sec:introduction}
 
+\subsection{Ergodicity and monotonicity}
+
 Interacting particle systems are stochastic models in which local random
 updates at many sites combine to produce collective behaviour. We study spin
-systems, continuous-time Markov processes on~$\cb{0,1}^{\Lambda}$\chg{, where~$\Lambda$ is a countable set of sites,} in which
-one spin is updated at a time and the update rule may depend on nearby spins;
-see~\cite{Liggett1985} for the general theory. A basic question is how the
-local update rule determines the dependence of the process on its initial
-condition, in particular its invariant measures and long-time behaviour.
+systems, continuous-time Markov processes on~$\cb{0,1}^{\Lambda}$, where
+$\Lambda$ is a countable set of sites, in which one spin is updated at a time
+and the update rule may depend on nearby spins; see~\cite{Liggett1985} for the
+general theory. A basic question is whether a given spin system is ergodic,
+that is, whether it has a unique invariant measure~$\pi$ and the law of the
+process converges to~$\pi$ from every initial configuration. This question is
+difficult in general, and the answer depends on the local update rule in a
+subtle way.
 
-\chg{Comparison principles are among the most useful tools for this
-question. By a comparison principle we mean an order on probability laws
-that the dynamics preserve. The classical example is monotonicity, where
-the order is stochastic domination. A spin system is monotone,
-traditionally called attractive, if processes started from configurations
-ordered coordinatewise,~$\eta\leq\xi$, can be coupled so that the order is
-preserved at all later times~\cite{Harris1977}, \cite[Chapter~III,
-Theorem~2.2]{Liggett1985}; equivalently, stochastically ordered initial
-laws have stochastically ordered evolutions~\cite[Chapter~II, Theorem~2.2
-and Definition~2.3]{Liggett1985}. For monotone spin systems this has the
-following standard consequences. Evolutions started from the all-$0$ and
-all-$1$ configurations are monotone in time and converge to the lower and
-upper invariant measures, every other evolution is sandwiched between them,
-and ergodicity reduces to showing that these two measures
-coincide~\cite[Chapter~III, Theorem~2.3 and Corollary~2.4]{Liggett1985}.
-Moreover, spin systems whose rates are suitably ordered can be compared
-with each other~\cite[Chapter~III, Theorem~1.5 and
-Corollary~1.7]{Liggett1985}.}
+The classical tool for this question is monotonicity. A spin system is
+monotone, traditionally called attractive, if processes started from
+configurations ordered coordinatewise,~$\eta\leq\xi$, can be coupled so that
+the order is preserved at all later times~\cite{Harris1977},
+\cite[Chapter~III, Theorem~2.2]{Liggett1985}; equivalently, stochastically
+ordered initial laws have stochastically ordered
+evolutions~\cite[Chapter~II, Theorem~2.2 and Definition~2.3]{Liggett1985}.
+Examples are independent Bernoulli flips, ferromagnetic stochastic Ising
+models and the contact process. For monotone spin systems, evolutions started
+from the all-$0$ and all-$1$ configurations are monotone in time and converge
+to the lower and upper invariant measures~$\pi^-$ and~$\pi^+$, every other
+evolution is sandwiched between them, and ergodicity reduces to showing
+that~$\pi^-=\pi^+$~\cite[Chapter~III, Theorem~2.3 and
+Corollary~2.4]{Liggett1985}. The question that motivates this paper is what
+can be done without monotonicity, in particular when no explicit formula for
+the candidate invariant measure is available.
 
-\chg{We start from the simplest spin system, independent Bernoulli refreshes:
-every site is resampled from~$\operatorname{Bern}(p)$ at rate one,
-regardless of the other spins. These dynamics are monotone, since two
-ordered initial configurations driven by the same clocks and the same coins
-stay ordered, so they satisfy a comparison principle. We then constrain the dynamics: an update at a site is carried
-out only if a local condition on the neighbouring spins is satisfied. This
-gives the kinetically constrained spin models
-(KCSMs)~\cite{FredricksonAndersen1984,CancriniEtAl2008,HartarskyToninelli2025}.}
-For example, in the Fredrickson--Andersen
-one-spin facilitated model (FA-1f), an update is allowed when at least one
-neighbouring site is vacant. The East model imposes the same type of
-constraint but on an oriented neighbourhood graph. Thus these models have a
-simple Bernoulli product equilibrium measure, while the kinetic constraint can
-make relaxation slow and the out-of-equilibrium behaviour difficult. {\color{red} Natural point to stae open question for ergodicity from unconstrained state for FA. Why to show that this is an avtive research area of interest!} Precise
-definitions of the models used in this paper are given in
-Section~\ref{sec:setup}.
+\subsection{Breaking monotonicity: kinetically constrained spin models}
 
-\chg{The constraint destroys monotonicity, the classical comparison
-principle. For example, in FA-1f or East
+The simplest way to break monotonicity is to constrain a monotone system. We
+start from independent Bernoulli refreshes: every site is resampled
+from~$\operatorname{Bern}(p)$ at rate one, regardless of the other spins.
+These dynamics are monotone, since two ordered initial configurations driven
+by the same clocks and the same coins stay ordered. We then constrain the
+dynamics: an update at a site is carried out only if a local condition on the
+neighbouring spins is satisfied. This gives the kinetically constrained spin
+models (KCSMs)~\cite{FredricksonAndersen1984,CancriniEtAl2008,HartarskyToninelli2025}.
+We use the convention that state~$0$ is vacant and facilitating. In the
+Fredrickson--Andersen one-spin facilitated model (FA-1f), an update at~$i$ is
+allowed when at least one neighbouring site is vacant. The East model imposes
+the same constraint on an oriented neighbourhood graph; on~$\Z$, a site can
+update only if its right neighbour is vacant. KCSMs are toy models for the
+freezing and melting of glasses: fully occupied regions are frozen and can
+only be unfrozen by vacancies arriving from outside.
+
+The constraint destroys monotonicity. For example, in FA-1f or East
 let~$j\in N(i)$, $\eta(x)=\ind(x\neq i,j)$ and~$\xi(x)=\ind(x\neq i)$.
 Then~$\eta\leq\xi$, but an update at~$i$ that refreshes to~$1$ is legal
 in~$\eta$ and blocked in~$\xi$, so afterwards~$\eta(i)=1>\xi(i)=0$. The
 reason is general. Monotonicity requires the~$0\to1$ rate to increase and
-the~$1\to0$ rate to decrease as spins are added~\cite[Chapter~III, Definition~2.1 and
-Theorem~2.2]{Liggett1985}, but in a
-KCSM both rates are proportional to the same constraint. Hence a KCSM is
-monotone only if its constraint is trivial.
+the~$1\to0$ rate to decrease as spins are added~\cite[Chapter~III,
+Definition~2.1 and Theorem~2.2]{Liggett1985}, but in a KCSM both rates are
+proportional to the same constraint. Hence a KCSM is monotone only if its
+constraint is trivial. On the other hand, the constraint does not change the
+equilibrium: the Bernoulli product measure~$\mu_p$ is reversible for every
+KCSM with refresh density~$p$. Precise definitions of the models used in this
+paper are given in Section~\ref{sec:setup}.
 
-This raises the question that motivates the paper: does a comparison
-principle survive the kinetic constraint, and does it still give access to
-invariant measures and convergence? More generally, can one recover such a
-principle for a large class of spin systems whose dynamics are not monotone
-in configuration order?}
+\subsection{Adding noise}
 
-\chg{We identify a class of spin systems, called \emph{patch-positive}, for which a
-comparison principle survives. Patch positivity is an explicit sign
-condition on the local update rates, stated in
-Definition~\ref{def:patch-positivity} and interpreted probabilistically in
-Section~\ref{sec:patches}. The class contains FA-1f and East, but not
-FA-$j$f with~$j\geq2$. It also contains models outside the KCSM class, such
-as the biased annihilating branching process (BABP) and, after exchanging
-the two spin values, the contact process. These examples are worked out in
-Section~\ref{sec:applications}.}
+Since vacancies facilitate updates, adding vacancies should unfreeze
+blocked regions and remove the bottlenecks that slow down the relaxation of
+KCSMs. It is therefore natural to ask whether adding noise, for example
+independent~$1\to0$ transitions or independent Bernoulli refreshes at a small
+rate~$\varepsilon>0$, makes a KCSM ergodic. More generally one may ask
+whether adding noise to an interacting particle system causes, facilitates,
+or at least preserves ergodicity.
+\authorcheck{Add references on the effect of noise on ergodicity, if any.}
 
-\chg{Our first result is a comparison principle for patch-positive spin
-systems. It uses an order on probability laws rather than on configurations.} \chg{Each patch-positive system has
-a threshold profile~$\mb p^\star=(p_i^\star)_{i\in\Lambda} \in [0,1]^\Lambda$;
-for FA-1f and East it equals the refresh density~$p$.} For a finite
-set~$A\subseteq\Lambda$, define the centered monomial
+Even for KCSMs this question is not easy. The constraint has already removed
+monotonicity. The other structure on which the analysis of KCSMs rests is the
+explicit reversible measure~$\mu_p$, which makes spectral-gap and
+Dirichlet-form methods available~\cite{CancriniEtAl2008}. Noise that is not
+itself reversible with respect to~$\mu_p$ destroys this structure, and the
+invariant measures of the perturbed system are not known explicitly. Thus
+KCSMs with added noise are a natural test case for the problem of proving
+ergodicity for a non-monotone system without an explicit formula for its
+invariant measure.
+
+\subsection{What is known, and two conjectures}
+
+Even without noise, the out-of-equilibrium behaviour of KCSMs is an active
+area of research; see~\cite{HartarskyToninelli2024,MartinelliShapiraToninelli2025}
+for surveys. For FA-1f, Cancrini, Martinelli, Roberto and Toninelli proved
+that the spectral gap is positive for every~$p<1$~\cite{CancriniEtAl2008}.
+In infinite volume this does not suffice to control the evolution from
+initial laws far from~$\mu_p$, such as deterministic configurations, and no
+uniform logarithmic Sobolev inequality is available for these models.
+\authorcheck{Reference for the absence of a uniform log-Sobolev inequality.}
+Convergence to equilibrium from out-of-equilibrium initial laws has been
+proved in particular regimes, for instance for FA-1f in the high facilitating
+regime~\cite{BlondelEtAl2013}, and for the East
+model~\cite{CancriniEtAl2010,Mareche2019}; see
+also~\cite{MountfordValle2019,HartarskyToninelli2024,MartinelliShapiraToninelli2025}.
+The general question remains open. Since the all-$1$ configuration is frozen,
+convergence can only be expected from initial states containing a vacancy.
+
+\begin{conjecture}[\cite{MartinelliShapiraToninelli2025}]
+\label{conj:fa1f}
+Consider FA-1f on~$\Z^d$ with refresh density~$p\in(0,1)$. For every initial
+configuration~$\eta$ with~$\eta(i)=0$ for some~$i\in\Z^d$, the law of the
+process started from~$\eta$ converges to~$\mu_p$.
+\authorcheck{Precise formulation (initial states, dimension, notion of
+convergence) to be matched with~\cite{MartinelliShapiraToninelli2025}.}
+\end{conjecture}
+
+Adding noise also connects KCSMs with the positive-rates problem. For
+one-dimensional finite-range spin systems with positive rates the natural
+conjecture that they are ergodic is false in general, as shown by
+G\'acs~\cite{Gacs1986,Gacs2001}; see also Gray's guide~\cite{Gray2001}.
+For simple spin systems, binary systems on~$\Z$ in which the update at~$i$
+depends only on the spins at~$i$ and~$i+1$, the problem remains open, and
+earlier work covers large parts of the parameter
+space~\cite{GluchowskiMenz2025,GluchowskiMenz2026}. One of the cases that is
+not covered is the East model with added deaths.
+
+\begin{conjecture}
+\label{conj:east-deaths}
+Let~$p\in(0,1)$ and~$\varepsilon>0$. The East model on~$\Z$ with refresh
+density~$p$ and additional independent~$1\to0$ transitions at
+rate~$\varepsilon$ at every site is ergodic.
+\authorcheck{State precisely in which sense this is the remaining case of the
+positive-rates conjecture for simple spin systems, with reference
+to~\cite{GluchowskiMenz2026}, and which parameters are already known.}
+\end{conjecture}
+
+\subsection{Main results}
+
+We introduce a class of spin systems, called \emph{patch-positive}, defined
+by an explicit sign condition on the local update rates
+(Definition~\ref{def:patch-positivity}). The class contains FA-1f and East,
+but not FA-$j$f with~$j\geq2$. It also contains models outside the KCSM
+class, such as the biased annihilating branching process (BABP). Each
+patch-positive system has a threshold profile~$\mb p^\star\in[0,1]^\Lambda$;
+for FA-1f and East it equals the refresh density~$p$.
+
+Our main result, Theorem~\ref{thm:common-invariant-limit}, states that for
+patch-positive systems noise causes ergodicity on a large class of initial
+laws. Suppose that the neighbourhood graph has polynomial growth and that the
+system contains independent~$1\to0$ transitions, which we call pure deaths,
+at a uniformly positive rate~$\varepsilon$. Then there is an invariant
+measure~$\pi$ such that the law of the process converges to~$\pi$ from every
+initial law in an explicit class~$\mathcal M_-$, and the convergence is
+exponential, uniformly over the initial laws in suitable subclasses. The
+class~$\mathcal M_-$ is defined through the joint moments
 \begin{equation*}
+\mu\bb{\chi_A^\star},
+\qquad
 \chi_A^\star(\eta)
 =
-\prod_{i\in A}\bb{\eta(i)-p_i^\star}.
+\prod_{i\in A}\bb{\eta(i)-p_i^\star},
 \end{equation*}
-\chg{Its expectation~$\mu(\chi_A^\star)$ is a joint moment of the spins
-in~$A$, centered at the threshold profile rather than at the mean
-of~$\mu$.} For probability measures~$\mu$ and~$\nu$, we write~$\mu\preceq_\star\nu$
-when
-\begin{equation*}
-\mu\bb{\chi_A^\star}
-\leq
-\nu\bb{\chi_A^\star}
-\qquad
-\text{for every finite }A\subseteq\Lambda.
-\end{equation*}
-We call this the \emph{centered monomial order}. \chg{Writing
-$\eta(i)=(\eta(i)-p_i^\star)+p_i^\star$ and expanding the product shows
-that~$\mu\preceq_\star\nu$ implies
-\begin{equation*}
-\mu\bb{\eta(i)=1\text{ for all }i\in A}
-\leq
-\nu\bb{\eta(i)=1\text{ for all }i\in A}
-\qquad
-\text{for every finite }A\subseteq\Lambda,
-\end{equation*}
-so every finite set is at least as likely to be fully occupied under~$\nu$
-as under~$\mu$. The centered monomial order strengthens this comparison. It
-is easiest to read for laws with~$\mu(\chi_A^\star)\geq0$ for all~$A$,
-which is where our comparison results apply. {\color{blue}\textbf{reformulate, actually improve and give the simplest example of a class of probabitlity measures that satisfy a centered monomial order...}} The Bernoulli product law with
-profile~$\mb p^\star$ is the smallest such law, since all its nonconstant
-centered monomials have expectation zero, and~$\nu$ lies above~$\mu$ if on
-every finite set the spins exceed~$\mb p^\star$ jointly at least as
-strongly under~$\nu$ as under~$\mu$.} \chg{The result of
-Theorem~\ref{thm:centered-monomial-monotonicity} is that patch-positive
-dynamics preserve this order: writing~$P_t$ for the Markov semigroup,}
-\begin{equation*}
-\mu\preceq_\star\nu
-\quad\Longrightarrow\quad
-\mu P_t\preceq_\star\nu P_t
-\qquad
-\text{for every }t\geq0.
-\end{equation*}
-\chg{Thus the configuration
-order is lost along trajectories, but a comparison principle survives at the
-level of probability laws. Patch positivity is sufficient for this
-comparison principle, but not necessary: the semigroup can preserve the
-centered monomial order also for spin systems that are not patch-positive.}
+of the spins centered at the threshold profile, see
+Definition~\ref{def:m-minus}. It contains every configuration with finitely
+many vacancies, every product measure with densities at
+least~$\max\cb{2p_i^\star-1,0}$, and, if~$\mb p^\star\leq\mbs{\tfrac12}$,
+every probability measure.
 
-\chg{This comparison principle has the same kinds of consequences as in the
-  monotone case.} {\color{blue}\textbf{weitermachen}}
+Two consequences give convergence uniformly over all initial configurations.
+If~$\mb p^\star\leq\mbs{\tfrac12}$, the system is uniformly exponentially
+ergodic (Corollary~\ref{cor:uniform-exponential-ergodicity}). If the
+neighbourhood graph is orientable, as for the East model, the system is
+uniformly ergodic without any restriction on~$\mb p^\star$
+(Corollary~\ref{cor:oriented-ergodicity}).
 
-{\color{red}
-\begin{itemize}
-\item Now explain analog to monotonicity what the consequences of this comparison principle are:
-  \begin{itemize}
-  \item Essentially all carry over just not on the full set but on a constraint set of initial laws $\mathcal{M}_{*}$.
-\item Need to explain what is~$\mathcal{M}_{*}$. It is the set of highly contrained measures. as it is defined as the measures with nonnegative expectation of centered monomials. 
+For KCSMs the noise is added as independent Bernoulli refreshes at
+rate~$\varepsilon$ with density~$s_i$ at site~$i$. The perturbed FA-1f is
+patch-positive if and only if~$s_i\geq p$ for every~$i$, and it then contains
+pure deaths at rate~$\varepsilon\inf_i(1-s_i)$. Hence FA-1f with such noise
+is uniformly exponentially ergodic if~$p\leq\tfrac12$, and the East model
+with such noise is uniformly ergodic for every~$p\in(0,1)$
+(Corollaries~\ref{cor:perturbed-fa-babp-ergodicity}
+and~\ref{cor:perturbed-east}). The same results hold for BABP. Applied to
+simple spin systems, the orientable case gives a new region of the parameter
+space in which the positive-rates conjecture holds
+(Corollary~\ref{cor:simple-positive-rates}).
 
-\item Sandwiching works on ~$\mathcal{M}_{*}$ (refer to above Ligget....and Corollary 3.6), application is: For BABP, known exponential convergence from homogeneous
-product measures can be used as the endpoints for a sandwiching argument. This gives
-exponential convergence to equilibrium for a class of dependent and non-translation-invariant
-initial laws; see Corollary 4.2.
-\item comparison principle comparing evolution of different spin system also works in the following way......(Corollary 3.7))
-\end{itemize}
-\item Observation: Conseqeunces of monomial order comparison principle are weaker than the consequences of monotonicity.
-  \begin{itemize}
+The restriction~$s_i\geq p$ is essential for our method. In particular,
+Conjecture~\ref{conj:east-deaths} corresponds to~$s_i=0$, and adding only
+pure deaths to FA-1f or East leaves the patch-positive class for
+every~$p\in(0,1)$. Conversely, removing pure deaths from a patch-positive
+system keeps it patch-positive (Proposition~\ref{prop:death-removal}).
+Conjecture~\ref{conj:fa1f}, which concerns the dynamics without noise, is
+also not addressed by our results.
 
+\subsection{Method}
 
-  \item Example of type 1:  
-  
-  
-  \end{itemize}
-\end{itemize}
-}
-
-
-
-
-
-
-
-{\color{red} Patch representation allows to compare contributions patches of different models this yields beautful results:
-\begin{itemize}
-  \item On neighbourhood graphs of
-polynomial growth, if a patch-positive system contains pure deaths at a uniformly positive
-rate, then a broad class (i.e.~$\mathcal{M}_{-}$) of initial laws converges to a common invariant measure. This class
-includes every configuration with only finitely many 0s. See Theorem 3.9.
-\item Consequences of Theorem 3.9:
-  \begin{itemize}
-  \item   ~$p^{*} \leq \frac{1}{2}$ (meaning a lot of activity)) then~$\mathcal{M}_{-}$ is everything. Corollary 3.10.
-  \item  Patch positive, polynomial graph plus oriented interaction like East model are uniformly ergodic. (not exponential). Corollary 3.11. Good result! Contains the perturbed east model (Corollary 4.6). 
-  \end{itemize}
-\end{itemize}
-  
-
-
-
-
-}
-
-The Bernoulli product law
-with profile~$\mb p^\star$ evolves monotonically upward in time and converges to an
-invariant measure. When~$\mb p^\star\leq\mbs{\tfrac12}$ the same is true about the evolution of the all~$1$ configuration.  More generally, the order admits a sandwiching argument, see Corollary~\ref{cor:extremal-limits-comparison}. The order also
-compares different dynamics. In particular, if a patch-positive system is
-obtained from another one by adding independent~$1\to0$ transitions, which we call pure deaths, then
-for the initial laws covered by Corollary~\ref{cor:pure-death-comparison-revision},
-the expectations of all finite spin monomials are smaller in the system with
-the additional transitions.
-
-The comparison principle also leads to convergence results. On neighbourhood
-graphs of polynomial growth, if a patch-positive system contains pure deaths at a uniformly positive rate, then a broad class of
-initial laws converges to a common invariant measure. This class includes every
-configuration with only finitely many~$0$s. See
-Theorem~\ref{thm:common-invariant-limit}.
-
-There are two routes from this result to convergence uniformly
-over all initial configurations. If
-$\mb p^\star\leq\mbs{\tfrac12}$, the system is uniformly exponentially
-ergodic; see Corollary~\ref{cor:uniform-exponential-ergodicity}. Alternatively,
-if the neighbourhood graph is orientable, then the system is uniformly
-ergodic without any restriction of this kind on~$\mb p^\star$; see
-Corollary~\ref{cor:oriented-ergodicity}. The perturbed East model gives the main example
-of the second route; see Corollary~\ref{cor:perturbed-east}.
-
-The applications also show how the centered monomial order can be combined
-with information specific to a model. For BABP, known exponential convergence
-from homogeneous product measures can be used as the endpoints for a sandwiching argument. This gives exponential convergence to equilibrium for a
-class of dependent and non-translation-invariant initial laws; see
-Corollary~\ref{cor:babp-centered-convergence}. For one-dimensional, one-sided nearest neighbor spin systems, called Simple~\cite{GluchowskiMenz2025,GluchowskiMenz2026}, patch positivity together with orientability gives a new sufficient
-condition for uniform ergodicity under positive rates, extending the regions
-covered by earlier criteria; see
-Corollary~\ref{cor:simple-positive-rates}.
-
-The main construction is a representation of the action of the Markov semigroup on monomials. For~$\chi_A(\eta)=\prod_{i\in A}\eta(i)$, the starting point is
-the set-valued Feynman--Kac representation
+The main construction is a representation of the action of the Markov
+semigroup on monomials. For~$\chi_A(\eta)=\prod_{i\in A}\eta(i)$, the
+starting point is the set-valued Feynman--Kac representation
 \begin{equation}
 \label{eq:intro-signed-duality}
 P_t\chi_A(\eta)
@@ -339,9 +330,10 @@ P_t\chi_A(\eta)
 Here~$A_s$ is the finite set-valued dual process,~$\sigma_s\in\cb{+,-}$, and~$V$
 is the Feynman--Kac potential. Set-valued dual constructions for spin systems
 are standard; see, for example,
-\cite{Harris1978,Griffeath1979,Gray1986,JansenKurt2014}. The important feature
-for us is that the right-hand side of~\eqref{eq:intro-signed-duality} is
-signed, which is an obstruction for monotonicity or convergence arguments.
+\cite{Harris1974,Harris1978,Griffeath1979,HolleyStroock1979,Gray1986,JansenKurt2014}.
+For non-monotone systems the right-hand side
+of~\eqref{eq:intro-signed-duality} is signed, which is an obstruction for
+convergence arguments.
 
 The new step is to reveal only part of the graphical construction. We define a~$\sigma$-algebra
 $\mathcal G_t$ that records interactions between sites that occur in the
@@ -351,11 +343,10 @@ information is fixed, the recorded interactions divide each site line~$\cb{i}\ti
 consecutive time intervals. We call these intervals \emph{patches}. Thus a
 patch is a piece of one site line between two consecutive recorded
 interactions, or between such an interaction and the observation time.
-
-Conditioning on~$\mathcal G_t$ makes the reason for this choice visible. The
-forgotten randomness has a conditional law that factorizes over the patches,
-and the signed random variable in~\eqref{eq:intro-signed-duality} is itself a
-product of local factors. Consequently, schematically,
+Conditioning on~$\mathcal G_t$, the forgotten randomness has a conditional
+law that factorizes over the patches, and the signed random variable
+in~\eqref{eq:intro-signed-duality} is itself a product of local factors.
+Consequently, schematically,
 \begin{equation}
 \label{eq:intro-patch-factorization}
 \E_A\Cb{
@@ -370,57 +361,90 @@ product of local factors. Consequently, schematically,
 \prod_{\substack{\text{patch }P\text{ reaching}\\\text{time }t}}
 C\bb{\eta\bb{i(P)},P}.
 \end{equation}
-The notation in~\eqref{eq:intro-patch-factorization} is only schematic. 
 Patches and their contributions are defined precisely in
-Section~\ref{sec:patches}. The point is this conditioning allows for local averaging, which gives explicit contributions and captures cancellations from sign process in~\eqref{eq:intro-signed-duality}.
+Section~\ref{sec:patches}. The conditioning allows for local averaging, which
+gives explicit contributions and captures the cancellations of the sign
+process in~\eqref{eq:intro-signed-duality}.
 
-The factorization~\eqref{eq:intro-patch-factorization} also explains the
-condition of patch positivity. A patch that ends before time~$t$ leaves no
-spin variable in the representation and, after the local averaging above,
-contributes a number~$C(P)$. Patch positivity means that every such
-contribution is nonnegative. A patch that reaches time~$t$ instead contributes
-$C(z,P)$, an affine function of the remaining spin argument~$z$. For a site
-$i$, the threshold~$p_i^\star$ is the smallest~$p\in[0,1]$ for which
-\begin{equation*}
-C(p,P)\geq0
-\end{equation*}
-for every patch reaching time~$t$ on the site~$i$. Thus the threshold profile
-is the minimal density profile~$\mb p$ such that for a product measure~$\mu = \otimes_{i\in\Lambda}\operatorname{Ber}(p_i)$ the~$\mu P_t \chi_A$ can be represented using only nonnegative factors. This supplies enough monotonicity to yield the order preservation result and earlier stated convergence results.
+Patch positivity means exactly that every contribution~$C(P)$ of a patch
+ending before time~$t$ is nonnegative. A patch reaching time~$t$
+contributes~$C(z,P)$, an affine function of the remaining spin argument~$z$,
+and the threshold~$p_i^\star$ is the smallest~$p\in[0,1]$ for which
+$C(p,P)\geq0$ for every such patch at~$i$. For initial laws with nonnegative
+centered moments~$\mu(\chi_A^\star)$, the representation then involves only
+nonnegative quantities. This is the role of the class~$\mathcal M_-$.
+
+The key step in the proof of convergence is a comparison of two dual
+processes. Removing the pure deaths from the system does not change the dual
+jump process, the recorded interactions or the patches; it only increases
+the Feynman--Kac potential. Patch positivity makes the comparison termwise:
+every patch contribution of the original system is dominated by the
+corresponding contribution of the system without the added deaths, and on
+patches that end with an outgoing interaction the original contribution is
+smaller by the factor~$e^{-\varepsilon u}$, where~$u$ is the length of the
+patch. The ancestry of a successful interaction at time~$u$ consists of such
+patches, with lengths adding up to~$u$. Since the system without the added
+deaths still gives an integrable bound, realizations
+of the dual with a successful interaction after a late time~$T$ contribute
+only~$O(e^{-\varepsilon T})$. On the remaining event the dependence on the
+initial law decays because end patches relax, and polynomial growth together
+with finite propagation controls the number of end patches. Thus the two
+coupled duals play the role that the two coupled extremal evolutions play in
+the monotone case.
+
+\subsection{Scope and related work}
+
+The patch representation is not restricted to patch-positive systems. Patch
+positivity makes the patch contributions nonnegative and allows termwise
+comparison. A different possibility is quantitative contraction even when the
+contributions have mixed signs: if the relevant patch factors satisfy a
+uniform bound of the form~$\abs{C(z,P)}\leq1-\varepsilon$, then realizations
+with many patches have small contribution, while realizations with few
+patches have long patches whose terminal contributions depend only weakly on
+the initial configuration. Models such as FA-2f, which are not
+patch-positive, are a natural test case for this possibility.
+
+The condition~$\mb p^\star\leq\mbs{\tfrac12}$ in
+Corollary~\ref{cor:uniform-exponential-ergodicity} appears to be a feature
+of the proof rather than a real threshold; see
+Remark~\ref{rem:threshold-one-half}. The orientability argument suggests a
+route to removing it: instead of requiring the initial law to belong
+to~$\mathcal M_-$, one shows that after a burn-in period the evolution
+approaches this class. Orientability provides one mechanism for such a
+burn-in, by reducing the problem locally to a finite system with autonomous
+boundary.
 
 The duality in~\eqref{eq:intro-signed-duality} belongs to the standard
 graphical and set-valued duality framework for spin systems
 \cite{Harris1974,Harris1978,Griffeath1979,HolleyStroock1979,Gray1986,JansenKurt2014}.
-The new ingredient here is the choice of the smaller~$\sigma$-algebra~$\mathcal G_t$.
+The new ingredient is the choice of the smaller~$\sigma$-algebra~$\mathcal G_t$.
 It is this conditional factorization, rather than the duality itself, that
 exposes the local cancellations used in our arguments. Information
 percolation also records updates that carry information
 \cite{LubetzkySly2016}, but uses them for a different decomposition.
-
 Classical comparison results for monotone spin systems are based on couplings
 that preserve the coordinatewise order on configurations and on related
-association inequalities
-\cite{Harris1977,Liggett1985,Liggett2006}. Duality can also yield correlation
-inequalities in particular interacting particle systems
-\cite{GiardinaRedigVafayi2010}. Patch-positive systems need not admit such a
-coupling. Instead, the local sign conditions revealed by the patch
-factorization lead to the centered monomial order on probability laws. Thus
-the comparison principle developed here plays a similar role for the models
-considered in this paper, while being formulated in terms of centered
-monomials rather than configuration order.
+association inequalities \cite{Harris1977,Liggett1985,Liggett2006}. Duality
+can also yield correlation inequalities in particular interacting particle
+systems \cite{GiardinaRedigVafayi2010}. Patch-positive systems need not admit
+such couplings; the comparison used here takes place between dual processes.
+Patch positivity also yields a comparison principle on the level of
+probability laws, which will be developed in a companion paper together with
+applications to BABP. \authorcheck{Keep or remove the pointer to the
+companion paper.}
 
-The paper is organized so that the results and applications can be read
-without the patch construction. Section~\ref{sec:setup} introduces the general
-spin-system framework and the examples used throughout the paper.
-Section~\ref{sec:main-results} defines patch positivity and the centered
-monomial order and states the comparison and convergence results.
-Section~\ref{sec:applications} applies them to FA-1f, the East model, BABP,
-the contact process, and simple spin systems. The remaining sections develop
-the proofs. Section~\ref{sec:dual} constructs the signed dual and its graphical
-representation, and Section~\ref{sec:patches} introduces the conditioning,
-patches, and patch factorization described above. Section~\ref{sec:proofs}
-uses this representation to prove the main results.
-Section~\ref{sec:discussion} discusses the scope and limitations of the
-approach. The appendices contain technical details of main proofs.
+\subsection{Organization}
+
+The paper is organized so that the results can be read without the patch
+construction. Section~\ref{sec:setup} introduces the spin-system framework
+and the examples. Section~\ref{sec:main-results} defines patch positivity,
+states the main theorem and its consequences, and applies them to FA-1f, the
+East model, BABP and simple spin systems. The remaining sections develop the
+proofs. Section~\ref{sec:dual} constructs the signed dual and its graphical
+representation, Section~\ref{sec:patches} introduces the conditioning,
+patches and the patch factorization described above, and
+Section~\ref{sec:proofs} uses this representation to prove the main results.
+The appendices contain technical details of the proofs.
 
 \section{Setup and examples}
 \label{sec:setup}
@@ -547,6 +571,15 @@ functions is equivalent to weak convergence of probability measures.
 
 We now give a few examples of familiar spin systems and how to represent them using the refresh convention.
 
+\begin{example}[Independent refreshes]
+The simplest spin system has~$\lambda_i\equiv1$ and~$\rho_i\equiv p_i$:
+every site is refreshed from~$\operatorname{Bern}(p_i)$ at rate one,
+independently of all other spins. Its unique invariant measure is the
+Bernoulli product measure with profile~$(p_i)_{i\in\Lambda}$. These dynamics
+are monotone and serve as the starting point for the kinetically constrained
+models below.
+\end{example}
+
 \begin{example}[Kinetically constrained spin models]
 In a kinetically constrained spin model (KCSM), the refresh parameter is
 constant,
@@ -595,21 +628,6 @@ has
 \end{equation*}
 Thus the update rate is the number of vacant neighbours. In the complementary
 variables~$\xi(i)=1-\eta(i)$, vacancies are particles.
-\end{example}
-
-\begin{example}[Contact process]
-The contact process~\cite{Harris1974} is usually written with state~$1$
-infected and state~$0$ healthy. With recovery rate one and infection
-parameter~$\beta\geq0$, it is given by
-\begin{equation*}
-\lambda_i(\eta)
-=
-1+\beta\sum_{j\in N(i)}\eta(j),
-\qquad
-\rho_i(\eta)
-=
-\frac{\beta\sum_{j\in N(i)}\eta(j)}{1+\beta\sum_{j\in N(i)}\eta(j)}.
-\end{equation*}
 \end{example}
 
 \begin{example}[Simple spin systems]
@@ -760,11 +778,17 @@ For a constant profile, we write~$\mu_p$.
 \section{Main results}
 \label{sec:main-results}
 
-We now state the main results. We first introduce a condition
-on the update rates called patch positivity. The name comes from the representation for spin systems developed in Sections~\ref{sec:dual} and~\ref{sec:patches}, where
-the condition is shown to have a probabilistic interpretation. We also introduce an order on probability measures defined
-through centered monomials. We show that patch-positive spin systems preserve this
-order, which leads to comparison and convergence results. 
+We now state the main results. We first introduce a condition on the update
+rates called patch positivity, together with a threshold profile and the
+class of initial laws for which our convergence result holds. The name comes
+from the representation developed in Sections~\ref{sec:dual}
+and~\ref{sec:patches}, where the condition is shown to have a probabilistic
+interpretation; see Proposition~\ref{prop:patch-contribution-positivity}. We
+then state the main theorem and apply it to FA-1f, the East model, BABP and
+simple spin systems.
+
+\subsection{Patch positivity}
+\label{subsec:patch-positivity}
 
 \begin{definition}[Patch positivity]
 \label{def:patch-positivity}
@@ -798,27 +822,16 @@ p_i^\star
 \end{equation}
 We call~$\mb p^\star$ the \emph{threshold profile}.
 \end{definition}
-The threshold profile determines the centering used in our order.
 
-\begin{definition}[Centered monomial order]
-For~$A\Subset\Lambda$, define the centered monomial
+The threshold profile determines the centering of the spins. For~$A\Subset\Lambda$, define the centered monomial
 \begin{equation*}
 \chi_A^\star(\eta)
 =
 \prod_{i\in A}\bb{\eta(i)-p_i^\star},
 \qquad
-\chi_\vn^\star=1.
+\chi_\vn^\star=1,
 \end{equation*}
-For probability measures~$\mu$ and~$\nu$ on~$\Omega$, we set
-\begin{equation}
-\label{eq:centered-monomial-order}
-\mu\preceq_\star\nu \qquad \iff \quad \mu\bb{\chi_A^\star}
-\leq
-\nu\bb{\chi_A^\star}
-\qquad
-\text{for every }A\Subset\Lambda.
-\end{equation}
-We also define
+and let
 \begin{equation}
 \label{eq:m-star-definition-revision}
 \mathcal M_\star
@@ -829,88 +842,16 @@ We also define
 \text{ for every }A\Subset\Lambda
 }.
 \end{equation}
-\end{definition}
-
-To understand this order it is useful to see how it compares the product measures. If~$\mb p^\star\leq\mb p\leq\mb q$, then~$\mu_{\mb p^*}\preceq_* \mu_{\mb p}\preceq_* \mu_{\mb q}$. Product measures with profiles that stray below~$\mb p^*$ are not comparable in the order.
-
-
-\begin{remark}
-The measure~$\mu_{\mb p^\star}$ is the minimum of~$\mathcal M_\star$ under
-$\preceq_\star$, since all of its nonconstant centered monomials have
-expectation zero. In general~$\mathcal M_\star$ need not have a maximum. If~$\mb p^\star\leq\mbs{\tfrac12}$ then~$\mu_{\mb 1}$ is a maximum.
-\end{remark}
-
-\begin{theorem}[Centered monomial monotonicity]
-\label{thm:centered-monomial-monotonicity}
-Suppose that the spin system is patch-positive. If~$\mu$ and~$\nu$ are signed measures on~$\Omega$ and~$\mu\preceq_\star\nu$, then~$\mu P_t\preceq_\star\nu P_t$ for every~$t\geq 0$.
-Moreover,~$P_t$ preserves~$\mathcal M_\star$. The centered monomial order also
-implies the corresponding order for ordinary monomials: if
-$\mu\preceq_\star\nu$, then
-\begin{equation}
-\label{eq:ordinary-monomial-comparison}
-(\mu P_t)(\chi_A)
-\leq
-(\nu P_t)(\chi_A)
-\qquad
-\text{for every }A\Subset\Lambda\text{ and }t\geq0.
-\end{equation}
-\end{theorem}
-
-The theorem gives monotone evolution at the bottom of
-$\mathcal M_\star$, and also at the top whenever a maximum exists.
-
-\begin{corollary}[Extremal limits and sandwiching]
-\label{cor:extremal-limits-comparison}
-Suppose that the spin system is patch-positive.
-\begin{enumerate}[label=\textup{(\roman*)}]
-\item The sequence~$\mu_{\mb p^\star}P_t$ is increasing in~$t$ under
-$\preceq_\star$ and converges weakly to an invariant measure~$\pi^-\in\mathcal M_\star$.
-
-\item If~$\mb p^\star\leq\mbs{\tfrac12}$, then
-$\mu_{\mb 1}P_t$ is decreasing in~$t$ under~$\preceq_\star$ and converges
-weakly to an invariant measure~$\pi^+\in\mathcal M_\star$.
-
-\item More generally, suppose that
-\begin{equation*}
-\underline\mu\preceq_\star\mu\preceq_\star\overline\mu
-\end{equation*}
-and that both~$\underline\mu P_t$ and~$\overline\mu P_t$ converge weakly to
-the same measure~$\pi$. Then~$\mu P_t\Rightarrow\pi$.
-\end{enumerate}
-\end{corollary}
-
-\begin{corollary}[Pure-death comparison]
-\label{cor:pure-death-comparison-revision}
-Let~$\Lcal$ and~$\Lcal'$ be spin-system generators. Suppose that~$\Lcal$ is
-patch-positive and that
-\begin{equation}
-\label{eq:pure-death-decomposition-revision}
-\Lcal f(\eta)
-=
-\Lcal'f(\eta)
-+
-\sum_{i\in\Lambda}d_i
-\bb{f\bb{\eta^{i,0}}-f(\eta)},
-\qquad d_i\geq0,
-\end{equation}
-so~$\mathcal{L}$ is perturbation of~$\mathcal{L}'$ by adding independent deaths.
-Then~$\Lcal'$ is patch-positive with the same threshold profile~$\mb p^\star$.
-If~$P_t'$ denotes its semigroup, then
-\begin{equation}
-\label{eq:pure-death-comparison-revision}
-(\mu P_t)(\chi_A)
-\leq
-(\mu P_t')(\chi_A)
-\end{equation}
-for every~$\mu\in\mathcal M_\star$, every~$A\Subset\Lambda$, and every
-$t\geq0$.
-\end{corollary}
-
-Thus, within~$\mathcal M_\star$, adding deaths can only decrease the expectations of the monomials. The result becomes stronger if the invariant measures for one of the systems are known, for example for perturbed KCSMs.
-
-For the convergence results we use a larger class of initial measures.
+Thus~$\mathcal M_\star$ consists of the laws under which, on every finite
+set, the spins exceed the threshold profile jointly in the sense of
+nonnegative centered moments. The Bernoulli product measure~$\mu_{\mb p^\star}$
+belongs to~$\mathcal M_\star$, since all of its nonconstant centered
+monomials have expectation zero, and so do~$\mu_{\mb 1}$ and every product
+measure~$\mu_{\mb p}$ with~$\mb p\geq\mb p^\star$. For the convergence results
+we use a larger class of initial measures.
 
 \begin{definition}
+\label{def:m-minus}
 For~$K\geq0$, define
 \begin{equation}
 \label{eq:m-minus-affine-characterization}
@@ -932,6 +873,13 @@ measures that enter~$\mathcal M_\star$ after mixing with~$\mu_{\mb 1}$.
 If~$p_i^-:=\max\cb{2p_i^\star-1,0}$, then a Bernoulli product measure~$\mu_{\mb p}$ belongs to
 $\mathcal M_{-,1}$ exactly when~$\mb p\geq\mb p^-$. In particular, if
 $\mb p^\star\leq\mbs{\tfrac12}$, then every probability measure on~$\Omega$ belongs to~$\mathcal M_{-,1}$.
+
+\subsection{Ergodicity of patch-positive spin systems}
+\label{subsec:main-theorem}
+
+The main result of the paper states that, for patch-positive spin systems, a
+uniformly positive rate of pure deaths causes convergence to a common
+invariant measure from every initial law in~$\mathcal M_-$.
 
 \begin{theorem}[Common invariant limit]
 \label{thm:common-invariant-limit}
@@ -989,23 +937,38 @@ measure and, for every local function~$f$,
 \end{equation*}
 \end{corollary}
 
-The next section applies these results to the examples from
-Section~\ref{sec:setup}. Sections~\ref{sec:dual} and~\ref{sec:patches}
-develop the representation behind patch positivity, and
-Section~\ref{sec:proofs} contains the proofs.
+\begin{remark}
+\label{rem:threshold-one-half}
+The condition~$\mb p^\star\leq\mbs{\tfrac12}$ in
+Corollary~\ref{cor:uniform-exponential-ergodicity} appears to be a feature
+of the proof rather than a real threshold. The value~$\tfrac12$ enters only
+because it implies that every probability measure belongs
+to~$\mathcal M_{-,1}$, after which Theorem~\ref{thm:common-invariant-limit}
+applies directly to every initial law. Nothing in the patch representation
+or the definition of patch positivity changes at this value.
+Corollary~\ref{cor:oriented-ergodicity} gives further evidence that the
+restriction is not intrinsic: on orientable neighbourhood graphs, uniform
+ergodicity holds without any assumption on~$\mb p^\star$. Its proof
+suggests a route to removing the restriction on general neighbourhood
+graphs: rather than requiring the initial law itself to belong
+to~$\mathcal M_-$, one may try to prove that after a burn-in period its
+evolution approaches~$\mathcal M_\star$ on finite sets, in the sense that
+\begin{equation*}
+\liminf_{t\to\infty}
+\inf_{\eta\in\Omega}
+P_t\chi_A^\star(\eta)
+\geq0
+\qquad
+\text{for every }A\Subset\Lambda.
+\end{equation*}
+Once such a statement is available, Theorem~\ref{thm:common-invariant-limit}
+gives convergence to~$\pi$ from every initial configuration; see
+Section~\ref{subsec:proof-orientability}. Orientability provides one
+mechanism for this burn-in by reducing the problem locally to a finite system
+with autonomous boundary.
+\end{remark}
 
-\section{Applications}
-\label{sec:applications}
-
-We now apply the results of Section~\ref{sec:main-results} to the examples from
-Section~\ref{sec:setup}. For each model we first check patch positivity and
-identify its threshold profile, and then state the comparison or ergodicity
-consequences that follow. FA-1f and the East model are the main KCSM examples, and the similarly behaving
-BABP illustrates the centered monomial order outside the KCSM class. For the monotone
-contact process the usual configuration order gives a stronger comparison. The final application is partial progress on the 
-positive-rates problem for simple spin systems.
-
-\subsection{FA-1f and the East model}
+\subsection{FA-1f, the East model and BABP with noise}
 \label{subsec:fa-east-applications}
 
 For FA-1f, the only nonzero nonconstant coefficient of the update rate~$\lambda_i=1-\chi_{N(i)}$ is
@@ -1031,16 +994,6 @@ Its expansion in the monomials~$\chi_S$ contains positive nonconstant
 coefficients, so the first condition in~\eqref{eq:patch-positivity} fails.
 \end{remark}
 
-The out-of-equilibrium behaviour of FA-1f and East has been studied in a
-number of settings; see
-\cite{CancriniEtAl2010,BlondelEtAl2013,MountfordValle2019,Mareche2019,
-HartarskyToninelli2024}. These results provide model-specific convergence
-theorems for the hard dynamics, complementary to the comparison and noisy
-ergodicity results proved here.
-
-\subsection{Biased annihilating branching process}
-\label{subsec:babp-applications}
-
 For BABP, the only nonzero nonconstant coefficients of
 \begin{equation*}
 \lambda_i(\eta)
@@ -1062,109 +1015,12 @@ Moreover, for every~$j\in N(i)$,
 p,
 \end{equation*}
 so its threshold profile is~$\mb p^\star=\mb p$.
+Without noise, qualitative convergence of BABP from translation-invariant
+initial laws was proved by Sudbury~\cite{Sudbury1997}, and on~$\Z^d$ every
+homogeneous product law~$\mu_u$ with~$u<1$ converges exponentially
+to~$\mu_p$ \cite[Application~2 and Section~5.1.1]{MartinelliShapiraToninelli2025}.
 
-Qualitative convergence of BABP from translation-invariant initial laws was
-proved by Sudbury~\cite{Sudbury1997}, while quasi-duality and thinning
-relations were developed by Lloyd and Sudbury~\cite{LloydSudbury1997}.
-On~$\Z^d$, every homogeneous product law~$\mu_u$ with~$u<1$ converges
-exponentially to~$\mu_p$
-\cite[Application~2 and Section~5.1.1]{MartinelliShapiraToninelli2025}.
-The centered monomial order allows these product laws to be used as comparison
-laws for more general initial distributions.
-
-\begin{corollary}[Centered monomial comparison for BABP]
-\label{cor:babp-centered-convergence}
-Consider nearest-neighbour BABP on~$\Z^d$. Let~$0\leq u\leq v<1$ satisfy
-\begin{equation*}
-v\geq p,
-\qquad
-\abs{u-p}\leq v-p.
-\end{equation*}
-If a probability measure~$\nu$ satisfies
-\begin{equation}
-\label{eq:babp-centered-sandwich}
-(u-p)^{\abs A}
-\leq
-\nu\bb{\prod_{i\in A}\bb{\eta(i)-p}}
-\leq
-(v-p)^{\abs A}
-\qquad
-\text{for every }A\Subset\Z^d,
-\end{equation}
-then~$\nu P_t$ converges exponentially to~$\mu_p$ on local functions.
-\end{corollary}
-
-\begin{proof}
-Condition~\eqref{eq:babp-centered-sandwich} is exactly
-\begin{equation*}
-\mu_u\preceq_\star\nu\preceq_\star\mu_v.
-\end{equation*}
-By Theorem~\ref{thm:centered-monomial-monotonicity}, this ordering is preserved
-by~$P_t$. Both endpoint laws converge exponentially to~$\mu_p$, so every
-centered monomial expectation under~$\nu P_t$ is squeezed between two
-quantities converging exponentially to its~$\mu_p$ expectation. Since centered
-monomials form a basis for the functions on every finite set of sites, the same
-holds for every local function.
-\end{proof}
-
-This includes dependent and non-translation-invariant initial laws. In
-particular, taking~$u=p$, every inhomogeneous product law with one-site
-parameters
-\begin{equation*}
-p\leq p_i\leq v<1
-\end{equation*}
-satisfies~\eqref{eq:babp-centered-sandwich} and therefore converges
-exponentially to~$\mu_p$. This allows parameters above the bound
-$p_i\leq\sqrt p$ appearing in
-\cite[Remark~5.5]{MartinelliShapiraToninelli2025}, provided they are uniformly
-bounded away from~$1$.
-
-\subsection{Contact process}
-\label{subsec:contact-process-applications}
-
-In the usual labeling from Section~\ref{sec:setup}, the contact process has
-state~$1$ infected and
-\begin{equation*}
-\lambda_i(\eta)
-=
-1+\beta\sum_{j\in N(i)}\eta(j).
-\end{equation*}
-Its nonconstant coefficients are positive, so this labeling does not satisfy
-the first condition in~\eqref{eq:patch-positivity}. Exchange the roles of
-states~$0$ and~$1$. In the resulting variables,
-\begin{equation*}
-\lambda_i(\eta)
-=
-1+\beta\sum_{j\in N(i)}\bb{1-\eta(j)},
-\qquad
-\rho_i(\eta)
-=
-\frac{1}{1+\beta\sum_{j\in N(i)}\bb{1-\eta(j)}}.
-\end{equation*}
-Thus~$\lambda_i\rho_i=1$, while the only nonzero nonconstant coefficients of
-$\lambda_i$ are
-\begin{equation*}
-\widehat{\lambda_i}\bb{\cb{j}}=-\beta,
-\qquad j\in N(i).
-\end{equation*}
-For every nonempty~$S\subseteq N(i)$,
-\begin{equation*}
-\widehat{\lambda_i\bb{\rho_i-\rho_i(\mb0)}}(S)
-=
--\rho_i(\mb0)\widehat{\lambda_i}(S)
-\geq0.
-\end{equation*}
-Hence the complemented contact process is patch-positive. Since
-$\lambda_i\rho_i$ is constant, its threshold profile is~$\mb p^\star=\mb0$.
-
-The contact process is already monotone in the usual configuration order, and
-the classical monotone coupling gives stronger comparisons than the centered
-monomial order. We only mention it to demonstrate the scope of patch
-positivity.
-
-\subsection{Perturbed FA-1f and BABP}
-\label{subsec:perturbed-fa-babp}
-
+We now add noise in the form of independent refreshes.
 Let~$\Lcal$ denote either FA-1f or BABP with refresh parameter~$p\in(0,1)$,
 and assume that~$N(i)\neq\vn$ for every~$i\in\Lambda$. For
 $\varepsilon>0$ and~$\mb s\in[0,1]^\Lambda$, consider
@@ -1248,61 +1104,27 @@ rate~$\varepsilon(1-s_i)$. Thus~$\delta>0$ gives a pure-death component and the 
 Theorem~\ref{thm:common-invariant-limit}.
 \end{proof}
 
-The limiting measure can also be compared with the Bernoulli product measure
-of the unperturbed system.
+\begin{remark}
+\label{rem:pure-deaths-not-patch-positive}
+Condition~\eqref{eq:perturbed-fa-babp-patch-positive} excludes noise that
+consists only of pure deaths,~$\mb s=\mb 0$. Thus FA-1f and East with added
+pure deaths are not patch-positive for any~$p\in(0,1)$, and
+Conjecture~\ref{conj:east-deaths} lies outside the scope of
+Proposition~\ref{prop:perturbed-fa-babp-convergence}. In the opposite
+direction, removing pure deaths from a patch-positive system preserves patch
+positivity and the threshold profile; see
+Proposition~\ref{prop:death-removal}. This is the direction used in the
+proof of Theorem~\ref{thm:common-invariant-limit}.
+\end{remark}
 
-\begin{corollary}[Comparison with the Bernoulli measure]
-\label{cor:perturbed-fa-babp-comparison}
-Under the assumptions of
-Proposition~\ref{prop:perturbed-fa-babp-convergence},
-\begin{equation}
-\label{eq:perturbed-fa-babp-stationary-comparison}
-p^{\abs A}
-\leq
-\pi(\chi_A)
-\qquad
-\text{for every }A\Subset\Lambda.
-\end{equation}
-If~$\mb s=\mb p$, then~$\pi=\mu_p$.
-\end{corollary}
-
-\begin{proof}
-Set
-\begin{equation*}
-d_i=\varepsilon\frac{s_i-p}{p}\geq0
-\end{equation*}
-and define
-\begin{equation*}
-\widetilde\Lcal
-=
-\Lcal^{\varepsilon,\mb s}
-+
-\sum_{i\in\Lambda}d_i\bb{E_{i,0}-I}.
-\end{equation*}
-Then
-\begin{equation*}
-\widetilde\Lcal
-=
-\Lcal
-+
-\sum_{i\in\Lambda}
-\frac{\varepsilon s_i}{p}\bb{E_{i,p}-I}.
-\end{equation*}
-Hence~$\widetilde\Lcal$ is patch-positive with threshold~$p$, and~$\mu_p$
-is invariant for its semigroup~$\widetilde P_t$. By
-Corollary~\ref{cor:pure-death-comparison-revision},
-\begin{equation*}
-p^{\abs A}
-=
-(\mu_p\widetilde P_t)(\chi_A)
-\leq
-(\mu_pP_t^{\varepsilon,\mb s})(\chi_A).
-\end{equation*}
-Letting~$t\to\infty$ gives~\eqref{eq:perturbed-fa-babp-stationary-comparison}.
-If~$\mb s=\mb p$, then~$\mu_p$ is itself invariant for
-$\Lcal^{\varepsilon,\mb p}$, so convergence from~$\mu_p$ gives
-$\pi=\mu_p$.
-\end{proof}
+\begin{remark}
+\label{rem:perturbed-bernoulli-invariant}
+If~$\mb s=\mb p$, then~$\mu_p$ is invariant both for~$\Lcal$ and
+for~$\Ncal^{\mb p}$, hence for~$\Lcal^{\varepsilon,\mb p}$. Since the
+threshold profile is~$\mb p$, we have~$\mu_p\in\mathcal M_\star$, and
+convergence from~$\mu_p$ shows that in this case the measure~$\pi$ in
+Proposition~\ref{prop:perturbed-fa-babp-convergence} is~$\mu_p$.
+\end{remark}
 
 \begin{corollary}[Ergodicity of the perturbed models]
 \label{cor:perturbed-fa-babp-ergodicity}
@@ -1362,8 +1184,8 @@ Corollary~\ref{cor:perturbed-fa-babp-ergodicity}.
 
 \begin{proof}
 The East neighbourhood graph has polynomial growth and is orientable, so this
-is Corollaries~\ref{cor:perturbed-fa-babp-comparison} and
-\ref{cor:perturbed-fa-babp-ergodicity}.
+is Corollary~\ref{cor:perturbed-fa-babp-ergodicity} and
+Remark~\ref{rem:perturbed-bernoulli-invariant}.
 \end{proof}
 
 \subsection{Positive rates for simple spin systems}
@@ -1387,6 +1209,8 @@ spin systems: every system satisfying~\eqref{eq:simple-positive-rates} should
 be ergodic. Earlier sufficient conditions cover parts of the parameter space
 \cite{GluchowskiMenz2025,GluchowskiMenz2026}. The orientability result above
 gives an additional region.
+\authorcheck{Explain where Conjecture~\ref{conj:east-deaths} sits relative to the
+white region of Figure~\ref{fig:simple-ips-ergodicity-regions}.}
 
 \begin{corollary}[Positive rates for simple spin systems]
 \label{cor:simple-positive-rates}
@@ -1564,7 +1388,6 @@ covered by these criteria. The improvement is greatest when spontaneous births a
 \label{fig:simple-ips-ergodicity-regions}
 \end{figure}
 \FloatBarrier
-
 \section{Dual process}
 \label{sec:dual}
 
@@ -1771,11 +1594,7 @@ Thus two spin systems that only differ by adding pure deaths have the same dual 
 \section{Patches}
 \label{sec:patches}
 
-The duality formula~\eqref{eq:monomial-feynman-kac-duality} represents the nonnegative~$P_t\chi_A$ in a way that includes the sign process~$\sigma_t$. If the sign process was not there then monotonicity in monomial order would be immediate:
-\begin{equation*}
- \mu P_t \chi_A \E\Cb{\exp\bb{\int_0^t V(A_s)ds}\mu (\chi_A)}\leq \E\Cb{\exp\bb{\int_0^t V(A_s)ds}\nu (\chi_A)} \leq \nu P_t,
-\end{equation*}
-for any~$\mu\leq \nu$. Hence, to get monotonicity one needs to control the cancellations from the sign process.
+The duality formula~\eqref{eq:monomial-feynman-kac-duality} represents the nonnegative~$P_t\chi_A$ in a way that includes the sign process~$\sigma_t$. If the sign process were absent, the right-hand side would be an expectation of nonnegative weights. Inequalities between the potentials of two systems, such as a system and the system obtained by removing pure deaths, would then carry over directly to the semigroups, and the dependence on the initial law could be controlled termwise. To use the representation for convergence one therefore needs to control the cancellations from the sign process.
 To capture these cancellations, we introduce a~$\sigma$-algebra that reveals when sites interact, but not exactly how. For each site~$i$, the consecutive incoming and outgoing interactions divide~$\cb{i}\times [0,\infty)$ into intervals, which we call patches. Conditional on the the interaction skeleton the law of the dual process factorizes over these patches. Then~$P_t\chi_A$ can be represented via expectation over a product of contributions, one per patch, and given patch positivity these contributions capture all necessary cancellations.
 
 \subsection{Interaction skeleton}
@@ -3059,15 +2878,26 @@ Taking the maximum in~\eqref{eq:threshold-profile} proves
 \eqref{eq:threshold-below-zero-neighbour-refresh}.
 \end{proof}
 
-\subsection{Centered monomial monotonicity}
-\label{subsec:proof-centered-monomial-monotonicity}
+\subsection{Preservation of nonnegative centered moments}
+\label{subsec:proof-centered-moment-preservation}
 
-The proof of Theorem~\ref{thm:centered-monomial-monotonicity} is based on the
-action of the generator in the centered-monomial basis. Patch positivity and
-the threshold bound from Proposition~\ref{prop:patch-contribution-positivity}
-make every off-diagonal coefficient in this basis nonnegative. The resulting semigroup therefore preserve nonnegative centered moments.
+The following lemma is used twice: to identify the limit in
+Theorem~\ref{thm:common-invariant-limit}, and, for restricted dynamics, in
+the proof of Corollary~\ref{cor:oriented-ergodicity}. Its proof is based on
+the action of the generator in the centered-monomial basis. Patch positivity
+and the threshold bound from Proposition~\ref{prop:patch-contribution-positivity}
+make every off-diagonal coefficient in this basis nonnegative.
 
-\begin{proof}[Proof of Theorem~\ref{thm:centered-monomial-monotonicity}]
+\begin{lemma}
+\label{lem:centered-cone-preservation}
+Suppose that the spin system is patch-positive. If~$\sigma$ is a finite
+signed measure on~$\Omega$ with~$\sigma(\chi_A^\star)\geq0$ for
+every~$A\Subset\Lambda$, then~$(\sigma P_t)(\chi_A^\star)\geq0$ for
+every~$A\Subset\Lambda$ and every~$t\geq0$. In particular,~$P_t$
+preserves~$\mathcal M_\star$.
+\end{lemma}
+
+\begin{proof}[Proof of Lemma~\ref{lem:centered-cone-preservation}]
 If~$i\in A$, then
 \begin{equation*}
 \lambda_i\bb{E_{i,\rho_i}-I}\chi_A^\star
@@ -3166,46 +2996,31 @@ finite signed measure whose centered moments are all nonnegative, then
 e^{tM}(A,B)\,\sigma(\chi_B^\star)
 \geq0.
 \end{equation*}
-Taking~$\sigma=\nu-\mu$ proves
-$\mu P_t\preceq_\star\nu P_t$ whenever~$\mu\preceq_\star\nu$. The same argument with~$\nu\in\mathcal M_\star$ and~$\mu = 0$ shows that~$P_t$ preserves~$\mathcal M_\star$.
-
- To obtain the comparison for
-monomials, expand
-\begin{equation*}
-\chi_A
-=
-\sum_{B\subseteq A}
-\bb{\prod_{i\in A\setminus B}p_i^\star}
-\chi_B^\star.
-\end{equation*}
-All coefficients are nonnegative. Therefore
-$\mu P_t\preceq_\star\nu P_t$ implies
-\begin{equation*}
-(\mu P_t)(\chi_A)
-\leq
-(\nu P_t)(\chi_A)
-\end{equation*}
-for every~$A\Subset\Lambda$, which proves
-Theorem~\ref{thm:centered-monomial-monotonicity}.
+This proves the lemma. Taking~$\sigma\in\mathcal M_\star$ shows that~$P_t$
+preserves~$\mathcal M_\star$.
 \end{proof}
 
-\begin{proof}[Proof of Corollary~\ref{cor:extremal-limits-comparison}]
-Since~$\mu_{\mb p^\star}$ is the minimal element of~$\mathcal M_\star$ and~$P_t$ preserves~$\mathcal M_\star$, for every~$s\geq0$,
-\begin{equation*}
-\mu_{\mb p^\star}
-\preceq_\star
-\mu_{\mb p^\star}P_s.
-\end{equation*}
-Applying Theorem~\ref{thm:centered-monomial-monotonicity} and using the
+\begin{lemma}
+\label{lem:threshold-product-limit}
+Suppose that the spin system is patch-positive. Then, for every~$A\Subset\Lambda$, the centered moment~$(\mu_{\mb p^\star}P_t)(\chi_A^\star)$ is nondecreasing in~$t$, and~$\mu_{\mb p^\star}P_t$ converges weakly to an invariant measure~$\pi^-\in\mathcal M_\star$.
+\end{lemma}
+
+\begin{proof}
+Since all nonconstant centered monomials have expectation zero
+under~$\mu_{\mb p^\star}$, and~$\mu_{\mb p^\star}P_s\in\mathcal M_\star$ by
+Lemma~\ref{lem:centered-cone-preservation}, the signed measure
+$\sigma=\mu_{\mb p^\star}P_s-\mu_{\mb p^\star}$ satisfies
+$\sigma(\chi_A^\star)\geq0$ for every~$A\Subset\Lambda$ and~$s\geq0$.
+Applying Lemma~\ref{lem:centered-cone-preservation} to~$\sigma$ and using the
 semigroup property gives
 \begin{equation*}
-\mu_{\mb p^\star}P_t
-\preceq_\star
-\mu_{\mb p^\star}P_{t+s}
+(\mu_{\mb p^\star}P_t)(\chi_A^\star)
+\leq
+(\mu_{\mb p^\star}P_{t+s})(\chi_A^\star)
 \qquad
-\text{for every }s,t\geq0.
+\text{for every }s,t\geq0\text{ and }A\Subset\Lambda.
 \end{equation*}
-Thus, for every~$A\Subset\Lambda$, the centered moment~$(\mu_{\mb p^\star}P_t)(\chi_A^\star)$ is increasing in~$t$ and bounded,
+Thus, for every~$A\Subset\Lambda$, the centered moment~$(\mu_{\mb p^\star}P_t)(\chi_A^\star)$ is nondecreasing in~$t$ and bounded,
 so it has a limit. Any subsequential weak limit of~$\mu_{\mb p^\star}P_t$ therefore has the same centered monomial moments.
 Since centered monomials form a basis for the functions of every finite set of
 spins, these moments determine the weak limit. Hence~$\mu_{\mb p^\star}P_t\Rightarrow\pi^-$ for some probability measure~$\pi^-$. The cone~$\mathcal M_\star$ is closed under weak convergence, so~$\pi^-\in\mathcal M_\star$. Finally, for every~$s\geq0$, the Feller
@@ -3216,41 +3031,59 @@ property and the semigroup identity
 \bb{\mu_{\mb p^\star}P_t}P_s
 \end{equation*}
 give~$\pi^-P_s=\pi^-$.
-
-Suppose now that~$\mb p^\star\leq\mbs{\tfrac12}$. Then~$\mu_{\mb1}$ is
-the maximal element of~$\mathcal M_\star$, and the same
-argument as above gives~$\mu_{\mb1}P_t\Rightarrow\pi^+$ for some invariant~$\pi^+\in\mathcal M_\star$.
-
-For part~\textup{(iii)}, suppose that~$\underline\mu\preceq_\star\mu\preceq_\star\overline\mu$. By
-Theorem~\ref{thm:centered-monomial-monotonicity},
-\begin{equation*}
-\underline\mu P_t
-\preceq_\star
-\mu P_t
-\preceq_\star
-\overline\mu P_t
-\qquad
-\text{for every }t\geq0.
-\end{equation*}
-Hence, for every~$A\Subset\Lambda$,
-\begin{equation*}
-(\underline\mu P_t)(\chi_A^\star)
-\leq
-(\mu P_t)(\chi_A^\star)
-\leq
-(\overline\mu P_t)(\chi_A^\star).
-\end{equation*}
-If the two outer measures converge weakly to~$\pi$, the outer terms both
-converge to~$\pi(\chi_A^\star)$, so the middle term does as well. Since the
-centered monomials form a basis for the functions of every finite set of spins,
-expectations of every local function converge to their~$\pi$-expectation.
-Thus~$\mu P_t\Rightarrow\pi$.
 \end{proof}
 
-\subsection{Pure-death comparison}
+\subsection{Removing deaths: comparison of the duals}
 \label{subsec:proof-pure-death-comparison}
 
-\begin{proof}[Proof of Corollary~\ref{cor:pure-death-comparison-revision}]
+The key comparison in the proof of Theorem~\ref{thm:common-invariant-limit}
+is between a patch-positive system and the system obtained by removing
+independent deaths from it. The two systems have the same dual process, and
+their patch contributions can be compared termwise.
+
+\begin{proposition}
+\label{prop:death-removal}
+Let~$\Lcal$ and~$\Lcal'$ be spin-system generators. Suppose that~$\Lcal$ is
+patch-positive and that
+\begin{equation}
+\label{eq:pure-death-decomposition-revision}
+\Lcal f(\eta)
+=
+\Lcal'f(\eta)
++
+\sum_{i\in\Lambda}d_i
+\bb{f\bb{\eta^{i,0}}-f(\eta)},
+\qquad d_i\geq0.
+\end{equation}
+Write~$C'$ for the patch contributions of~$\Lcal'$. Then:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item The two systems have the same dual process, successful-interaction
+skeleton, patch families and patch laws.
+\item $\Lcal'$ is patch-positive with the same threshold profile~$\mb p^\star$.
+\item Every bulk patch satisfies~$0\leq C(P)\leq C'(P)$, and every patch~$P$
+ending with an outgoing interaction satisfies
+$C(P)=e^{-d_{i(P)}(e(P)-s(P))}C'(P)$.
+\item For every~$\mu\in\mathcal M_\star$ and every~$t\geq0$, almost surely,
+\begin{equation}
+\label{eq:death-removal-weight-comparison}
+0
+\leq
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}
+C\bb{\eta\bb{i(P)},P}
+}
+\leq
+\prod_{P\in\mathcal B_t}C'(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}
+C'\bb{\eta\bb{i(P)},P}
+}.
+\end{equation}
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Proof of Proposition~\ref{prop:death-removal}]
 Let~$H((A,\sigma),\eta)=\sigma\chi_A(\eta)$ be the duality function from
 Section~\ref{sec:dual}. The pure-death term in
 \eqref{eq:pure-death-decomposition-revision} acts diagonally on~$H$:
@@ -3387,6 +3220,8 @@ The same expansion holds with~$C,\kappa$ replaced by~$C',\kappa'$. If~$\mu\in\ma
 \eqref{eq:pure-death-centered-end-expansion} is nonnegative, so
 \eqref{eq:pure-death-end-patch-comparison} yields
 \begin{equation*}
+0
+\leq
 \mu\bb{
 \prod_{P\in\mathcal E_t}
 C\bb{\eta\bb{i(P)},P}
@@ -3397,14 +3232,8 @@ C\bb{\eta\bb{i(P)},P}
 C'\bb{\eta\bb{i(P)},P}
 }.
 \end{equation*}
-Combining this with~\eqref{eq:pure-death-bulk-patch-comparison} in the two
-patch representations~\eqref{eq:patch-representation-general-law} gives
-\begin{equation*}
-(\mu P_t)(\chi_A)
-\leq
-(\mu P_t')(\chi_A),
-\end{equation*}
-which proves the corollary.
+Combining this with~\eqref{eq:pure-death-bulk-patch-comparison} proves
+\eqref{eq:death-removal-weight-comparison}.
 \end{proof}
 
 \subsection{Common invariant limit}
@@ -3587,7 +3416,7 @@ W^\varepsilon
 \prod_{P\in\mathcal P}C^\varepsilon(P)
 \ind\bb{\abs{\mathcal P}<\infty}.
 \end{align*}
-In Section~\ref{subsec:proof-pure-death-comparison} we have shown, that the two systems have the
+By Proposition~\ref{prop:death-removal}, applied with~$d_i=\varepsilon$, the two systems have the
 same dual process and thus the same successful-interaction skeleton and patch families, and for~$\mu\in\mathcal M_\star$,
 \begin{equation}
 \label{eq:death-removed-weight-comparison}
@@ -4370,7 +4199,7 @@ K_A(1+t)^D e^{-\varepsilon t/2}
 for some~$K_A<\infty$.
 
 We next identify the limits in~\eqref{eq:m-star-monomial-convergence} with a
-probability measure. In Corollary~\ref{cor:extremal-limits-comparison} we prove that~$\mu_{\mb p^*}P_t$ converges weakly to an invariant measure~$\pi$. Then
+probability measure. By Lemma~\ref{lem:threshold-product-limit},~$\mu_{\mb p^*}P_t$ converges weakly to an invariant measure~$\pi$. Then
 \begin{equation}
 \label{eq:pi-patch-moments}
 \pi(\chi_A)
@@ -4613,56 +4442,6 @@ configurations for every local~$f$ and thus uniform ergodicity.
 
 \par
 \end{proof}
-
-\section{Discussion}
-\label{sec:discussion}
-
-The patch representation is not restricted to patch-positive systems. Patch
-positivity is one way of making the representation useful: it makes the patch
-contributions nonnegative and allows termwise comparison. A different
-possibility is quantitative contraction even when the contributions have mixed
-signs. For example, if the relevant patch factors satisfy a uniform bound of
-the form
-\begin{equation*}
-\abs{C(z,P)}
-\leq
-1-\varepsilon
-\end{equation*}
-for some~$\varepsilon>0$, then event where many patches exist has small contribution, exponentially in the number of patches. On the other hand,
-if there are only few patches then the dual process likely died out and the patches are very long, so their terminal contributions depend only weakly on the initial configuration. This is the usual mechanism in duality arguments for ergodicity. Thus the patch representation may remain useful well
-outside the patch-positive class, provided the signed patch contributions provide enough cancellations. Models such as
-FA-2f, which are not patch-positive, are a natural test case for this
-possibility.
-
-The condition~$\mb p^\star\leq\mbs{\tfrac12}$ in
-Corollary~\ref{cor:uniform-exponential-ergodicity} also appears to be a
-feature of the proof rather than a real threshold. The value~$1/2$ enters
-only because it implies that every probability measure belongs to~$\mathcal M_{-,1}$, after which Theorem~\ref{thm:common-invariant-limit}
-applies directly to every initial law. Nothing in the patch representation or
-the definition of patch positivity changes at this value. Corollary~\ref{cor:oriented-ergodicity} gives further evidence that the restriction is
-not intrinsic: on orientable neighbourhood graphs, uniform ergodicity holds
-without any assumption that~$\mb p^\star\leq\mbs{\tfrac12}$. In
-particular, the perturbed East model is uniformly ergodic for every~$p\in(0,1)$ under the assumptions of Corollary~\ref{cor:perturbed-east}.
-
-The orientability proof suggests a possible route to removing the restriction
-on general neighbourhood graphs. Rather than requiring the initial law itself
-to belong to~$\mathcal M_\star$ or~$\mathcal M_-$, one may try to prove
-that after a burn-in period its evolution approaches one of these classes on
-finite sets. A natural target is
-\begin{equation*}
-\liminf_{t\to\infty}
-\inf_{\eta\in\Omega}
-P_t\chi_A^\star(\eta)
-\geq0
-\qquad
-\text{for every }A\Subset\Lambda,
-\end{equation*}
-or an analogous approximation to~$\mathcal M_-$. Once such a statement is
-available, Theorem~\ref{thm:common-invariant-limit} gives convergence to the invariant measure unique in~$\mathcal{M}_-$. Orientability provides one mechanism for this
-burn-in by reducing the problem locally to a finite system with autonomous
-boundary. A replacement for this mechanism on general neighbourhood
-graphs would extend the convergence result beyond the present restriction on
-the initial law.
 
 \appendix
 
@@ -5822,8 +5601,8 @@ By~\eqref{eq:centered-generator-positive-coefficients}, every term in
 \text{for every }S\subseteq N(i)\cap I.
 \end{equation}
 
-We now repeat the centered-generator calculation from
-Theorem~\ref{thm:centered-monomial-monotonicity}. For~$B\subseteq I$,
+We now repeat the centered-generator calculation from the proof of
+Lemma~\ref{lem:centered-cone-preservation}. For~$B\subseteq I$,
 \begin{align*}
 \Lcal^{I,\xi}\chi_B^\star
 ={}&
