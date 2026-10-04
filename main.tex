@@ -53,6 +53,12 @@
   #5 &\text{ if } #6
 \end{array}\right.}
 
+% Revision markup: text changed in this revision is dark green.
+% To remove the colour, replace the definition by \newcommand{\chg}[1]{#1}.
+\usepackage{xcolor}
+\definecolor{changegreen}{rgb}{0,0.39,0}
+\newcommand{\chg}[1]{{\color{changegreen}#1}}
+
 \SHORTTITLE{Patch positive spin systems}
 \TITLE{Patch positive spin systems}
 \AUTHORS{%
@@ -88,78 +94,110 @@ representation in which local randomness is factorized over spacetime patches.}
 
 \begin{document}
 
+\setcounter{tocdepth}{1}
 \tableofcontents
+
+
+{\color{red} Comments:
+  \begin{itemize}
+  \item In Theorem 3.5 make the consequence of occupation probabiltis a corollary, with one sentence explanation.
+  \item Open problems for KCSMs: (good to mention to show that ergodicity on KCSM is not ``trivial'' or solved, but an active research area.)
+    \begin{itemize}
+    \item Converge to equilibirum from configurations with facilitating states. (Specifically FA-1f more complicated FA-jf)      
+    \end{itemize}
+    \item Definition orientable spin model, standard definition or not? Mention it is equivalent to known definitions.....
+  \end{itemize}
+
+
+}
 
 \section{Introduction}
 \label{sec:introduction}
 
 Interacting particle systems are stochastic models in which local random
 updates at many sites combine to produce collective behaviour. We study spin
-systems, continuous-time Markov processes on~$\cb{0,1}^{\Lambda}$ in which
+systems, continuous-time Markov processes on~$\cb{0,1}^{\Lambda}$\chg{, where~$\Lambda$ is a countable set of sites,} in which
 one spin is updated at a time and the update rule may depend on nearby spins;
 see~\cite{Liggett1985} for the general theory. A basic question is how the
 local update rule determines the dependence of the process on its initial
 condition, in particular its invariant measures and long-time behaviour.
 
-One of the main tools for such questions is monotonicity. The configuration
-space carries the coordinatewise order~$\eta\leq\xi$. A spin system is
-monotone, traditionally called attractive in the IPS
-literature, if processes started from ordered configurations can be coupled so
-that the order is preserved at all later times. Such couplings give direct
-comparisons between different initial conditions and are a standard tool for
-studying invariant measures and convergence
-\cite{Harris1977,Liggett1985}.
+\chg{Comparison principles are among the most useful tools for this
+question. By a comparison principle we mean an order on probability laws
+that the dynamics preserve. The classical example is monotonicity, where
+the order is stochastic domination. A spin system is monotone,
+traditionally called attractive, if processes started from configurations
+ordered coordinatewise,~$\eta\leq\xi$, can be coupled so that the order is
+preserved at all later times~\cite{Harris1977}, \cite[Chapter~III,
+Theorem~2.2]{Liggett1985}; equivalently, stochastically ordered initial
+laws have stochastically ordered evolutions~\cite[Chapter~II, Theorem~2.2
+and Definition~2.3]{Liggett1985}. For monotone spin systems this has the
+following standard consequences. Evolutions started from the all-$0$ and
+all-$1$ configurations are monotone in time and converge to the lower and
+upper invariant measures, every other evolution is sandwiched between them,
+and ergodicity reduces to showing that these two measures
+coincide~\cite[Chapter~III, Theorem~2.3 and Corollary~2.4]{Liggett1985}.
+Moreover, spin systems whose rates are suitably ordered can be compared
+with each other~\cite[Chapter~III, Theorem~1.5 and
+Corollary~1.7]{Liggett1985}.}
 
-A principal motivation for this paper comes from kinetically constrained spin
-models (KCSMs)~\cite{FredricksonAndersen1984,CancriniEtAl2008,HartarskyToninelli2025}.
-In the standard two-state models relevant here, a site may update only when a
-local kinetic constraint is satisfied, and a legal update refreshes the spin
-from a fixed Bernoulli law. For example, in the Fredrickson--Andersen
+\chg{We start from the simplest spin system, independent Bernoulli refreshes:
+every site is resampled from~$\operatorname{Bern}(p)$ at rate one,
+regardless of the other spins. These dynamics are monotone, since two
+ordered initial configurations driven by the same clocks and the same coins
+stay ordered, so they satisfy a comparison principle. We then constrain the dynamics: an update at a site is carried
+out only if a local condition on the neighbouring spins is satisfied. This
+gives the kinetically constrained spin models
+(KCSMs)~\cite{FredricksonAndersen1984,CancriniEtAl2008,HartarskyToninelli2025}.}
+For example, in the Fredrickson--Andersen
 one-spin facilitated model (FA-1f), an update is allowed when at least one
 neighbouring site is vacant. The East model imposes the same type of
 constraint but on an oriented neighbourhood graph. Thus these models have a
 simple Bernoulli product equilibrium measure, while the kinetic constraint can
-make relaxation slow and the out-of-equilibrium behaviour difficult. Precise
+make relaxation slow and the out-of-equilibrium behaviour difficult. {\color{red} Natural point to stae open question for ergodicity from unconstrained state for FA. Why to show that this is an avtive research area of interest!} Precise
 definitions of the models used in this paper are given in
 Section~\ref{sec:setup}.
 
-The constraint in FA-1f and East has a clear monotone direction: adding
-vacancies can make more updates legal, but this does not produce the usual
-monotone coupling. Indeed, if~$\eta\leq\xi$, an update may be legal in
-$\eta$ because it has more vacancies while the same update is blocked in
-$\xi$. For example, if for two neighboring sites~$i\sim j$ we have~$\eta(x) = \ind(x\neq i,j)$ and~$\xi(x)=\ind(x\neq i)$, then~$\eta\leq \xi$ but and update at~$i$ turns~$\eta(i)\to 1$ and leaves~$\xi(i)=0$, so the order is lost.
-Thus monotonicity of the constraint does not imply monotonicity of the spin
-system.
+\chg{The constraint destroys monotonicity, the classical comparison
+principle. For example, in FA-1f or East
+let~$j\in N(i)$, $\eta(x)=\ind(x\neq i,j)$ and~$\xi(x)=\ind(x\neq i)$.
+Then~$\eta\leq\xi$, but an update at~$i$ that refreshes to~$1$ is legal
+in~$\eta$ and blocked in~$\xi$, so afterwards~$\eta(i)=1>\xi(i)=0$. The
+reason is general. Monotonicity requires the~$0\to1$ rate to increase and
+the~$1\to0$ rate to decrease as spins are added~\cite[Chapter~III, Definition~2.1 and
+Theorem~2.2]{Liggett1985}, but in a
+KCSM both rates are proportional to the same constraint. Hence a KCSM is
+monotone only if its constraint is trivial.
 
-This raises the question that motivates the paper: does any kind of monotonicity survive? More generally, can one recover a useful comparison principle for a large class of
-spin systems whose dynamics are not monotone in configuration order?
+This raises the question that motivates the paper: does a comparison
+principle survive the kinetic constraint, and does it still give access to
+invariant measures and convergence? More generally, can one recover such a
+principle for a large class of spin systems whose dynamics are not monotone
+in configuration order?}
 
-We describe the systems considered here in a form based on KCSMs. At each
-site, updates occur at a rate determined by the neighbouring spins and, when an
-update occurs, the new spin is sampled from a Bernoulli law whose parameter may
-also depend on the neighbours. For a KCSM the Bernoulli parameter is fixed and
-the update rate contains the kinetic constraint. We identify a condition on
-these more general local update rules, called \emph{patch positivity}. Its
-formal definition is given in Section~\ref{sec:main-results}, and probabilistic interpretation, which explains the name, in Section~\ref{sec:patches}.
+\chg{We identify a class of spin systems, called \emph{patch-positive}, for which a
+comparison principle survives. Patch positivity is an explicit sign
+condition on the local update rates, stated in
+Definition~\ref{def:patch-positivity} and interpreted probabilistically in
+Section~\ref{sec:patches}. The class contains FA-1f and East, but not
+FA-$j$f with~$j\geq2$. It also contains models outside the KCSM class, such
+as the biased annihilating branching process (BABP) and, after exchanging
+the two spin values, the contact process. These examples are worked out in
+Section~\ref{sec:applications}.}
 
-Patch positivite spin systems include the main examples that motivate the paper but is not
-a condition satisfied by all KCSMs. FA-1f and East are patch-positive, whereas
-FA-$j$f with~$j\geq2$ are not. The biased annihilating branching process
-(BABP) is another patch-positive example outside the KCSM class. After
-exchanging the two spin values, the contact process is patch-positive as well,
-although that model is also monotone in the usual configuration order. These examples are worked out in
-Section~\ref{sec:applications}.
-
-Our first result is that a patch positive spin system admits an order on
-probability laws that the system preserves. Each patch-positive system has
-a reference profile~$\mb p^\star=(p_i^\star)_{i\in\Lambda} \in [0,1]^\Lambda$. For a finite
+\chg{Our first result is a comparison principle for patch-positive spin
+systems. It uses an order on probability laws rather than on configurations.} \chg{Each patch-positive system has
+a threshold profile~$\mb p^\star=(p_i^\star)_{i\in\Lambda} \in [0,1]^\Lambda$;
+for FA-1f and East it equals the refresh density~$p$.} For a finite
 set~$A\subseteq\Lambda$, define the centered monomial
 \begin{equation*}
 \chi_A^\star(\eta)
 =
 \prod_{i\in A}\bb{\eta(i)-p_i^\star}.
 \end{equation*}
-For probability measures~$\mu$ and~$\nu$, we write~$\mu\preceq_\star\nu$
+\chg{Its expectation~$\mu(\chi_A^\star)$ is a joint moment of the spins
+in~$A$, centered at the threshold profile rather than at the mean
+of~$\mu$.} For probability measures~$\mu$ and~$\nu$, we write~$\mu\preceq_\star\nu$
 when
 \begin{equation*}
 \mu\bb{\chi_A^\star}
@@ -168,8 +206,26 @@ when
 \qquad
 \text{for every finite }A\subseteq\Lambda.
 \end{equation*}
-We call this the \emph{centered monomial order}. The result is that patch-positive dynamics preserve this order.
-Writing~$P_t$ for the Markov semigroup,
+We call this the \emph{centered monomial order}. \chg{Writing
+$\eta(i)=(\eta(i)-p_i^\star)+p_i^\star$ and expanding the product shows
+that~$\mu\preceq_\star\nu$ implies
+\begin{equation*}
+\mu\bb{\eta(i)=1\text{ for all }i\in A}
+\leq
+\nu\bb{\eta(i)=1\text{ for all }i\in A}
+\qquad
+\text{for every finite }A\subseteq\Lambda,
+\end{equation*}
+so every finite set is at least as likely to be fully occupied under~$\nu$
+as under~$\mu$. The centered monomial order strengthens this comparison. It
+is easiest to read for laws with~$\mu(\chi_A^\star)\geq0$ for all~$A$,
+which is where our comparison results apply. {\color{blue}\textbf{reformulate, actually improve and give the simplest example of a class of probabitlity measures that satisfy a centered monomial order...}} The Bernoulli product law with
+profile~$\mb p^\star$ is the smallest such law, since all its nonconstant
+centered monomials have expectation zero, and~$\nu$ lies above~$\mu$ if on
+every finite set the spins exceed~$\mb p^\star$ jointly at least as
+strongly under~$\nu$ as under~$\mu$.} \chg{The result of
+Theorem~\ref{thm:centered-monomial-monotonicity} is that patch-positive
+dynamics preserve this order: writing~$P_t$ for the Markov semigroup,}
 \begin{equation*}
 \mu\preceq_\star\nu
 \quad\Longrightarrow\quad
@@ -177,11 +233,65 @@ Writing~$P_t$ for the Markov semigroup,
 \qquad
 \text{for every }t\geq0.
 \end{equation*}
-See Theorem~\ref{thm:centered-monomial-monotonicity}. Thus the configuration
-order need not be preserved along trajectories, but a monotone comparison
-survives at the level of probability laws.
+\chg{Thus the configuration
+order is lost along trajectories, but a comparison principle survives at the
+level of probability laws. Patch positivity is sufficient for this
+comparison principle, but not necessary: the semigroup can preserve the
+centered monomial order also for spin systems that are not patch-positive.}
 
-The order has immediate comparison consequences. The Bernoulli product law
+\chg{This comparison principle has the same kinds of consequences as in the
+  monotone case.} {\color{blue}\textbf{weitermachen}}
+
+{\color{red}
+\begin{itemize}
+\item Now explain analog to monotonicity what the consequences of this comparison principle are:
+  \begin{itemize}
+  \item Essentially all carry over just not on the full set but on a constraint set of initial laws $\mathcal{M}_{*}$.
+\item Need to explain what is~$\mathcal{M}_{*}$. It is the set of highly contrained measures. as it is defined as the measures with nonnegative expectation of centered monomials. 
+
+\item Sandwiching works on ~$\mathcal{M}_{*}$ (refer to above Ligget....and Corollary 3.6), application is: For BABP, known exponential convergence from homogeneous
+product measures can be used as the endpoints for a sandwiching argument. This gives
+exponential convergence to equilibrium for a class of dependent and non-translation-invariant
+initial laws; see Corollary 4.2.
+\item comparison principle comparing evolution of different spin system also works in the following way......(Corollary 3.7))
+\end{itemize}
+\item Observation: Conseqeunces of monomial order comparison principle are weaker than the consequences of monotonicity.
+  \begin{itemize}
+
+
+  \item Example of type 1:  
+  
+  
+  \end{itemize}
+\end{itemize}
+}
+
+
+
+
+
+
+
+{\color{red} Patch representation allows to compare contributions patches of different models this yields beautful results:
+\begin{itemize}
+  \item On neighbourhood graphs of
+polynomial growth, if a patch-positive system contains pure deaths at a uniformly positive
+rate, then a broad class (i.e.~$\mathcal{M}_{-}$) of initial laws converges to a common invariant measure. This class
+includes every configuration with only finitely many 0s. See Theorem 3.9.
+\item Consequences of Theorem 3.9:
+  \begin{itemize}
+  \item   ~$p^{*} \leq \frac{1}{2}$ (meaning a lot of activity)) then~$\mathcal{M}_{-}$ is everything. Corollary 3.10.
+  \item  Patch positive, polynomial graph plus oriented interaction like East model are uniformly ergodic. (not exponential). Corollary 3.11. Good result! Contains the perturbed east model (Corollary 4.6). 
+  \end{itemize}
+\end{itemize}
+  
+
+
+
+
+}
+
+The Bernoulli product law
 with profile~$\mb p^\star$ evolves monotonically upward in time and converges to an
 invariant measure. When~$\mb p^\star\leq\mbs{\tfrac12}$ the same is true about the evolution of the all~$1$ configuration.  More generally, the order admits a sandwiching argument, see Corollary~\ref{cor:extremal-limits-comparison}. The order also
 compares different dynamics. In particular, if a patch-positive system is
@@ -657,6 +767,7 @@ through centered monomials. We show that patch-positive spin systems preserve th
 order, which leads to comparison and convergence results. 
 
 \begin{definition}[Patch positivity]
+\label{def:patch-positivity}
 A spin system is \emph{patch-positive} if, for every~$i\in\Lambda$ and every
 nonempty~$S\subseteq N(i)$,
 \begin{equation}
