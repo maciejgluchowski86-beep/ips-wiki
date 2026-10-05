@@ -415,8 +415,8 @@ states the main theorem and its consequences, and applies them to FA-1f, the
 East model, BABP and simple spin systems.
 Section~\ref{sec:probabilistic-interpretation} develops the patch
 representation and the two properties of the patch contributions used in the
-proofs, and Section~\ref{sec:proofs} proves the main results. The appendices
-contain the derivation of the dual and the explicit patch-contribution
+proofs, and Section~\ref{sec:proofs} proves the main results.
+Appendix~\ref{app:contribution-formulas} proves the patch-contribution
 formulas, and Appendix~\ref{app:dependencies} shows how the results depend on
 each other.
 
@@ -1496,9 +1496,8 @@ a_i^\beta(\varnothing)
 =
 -\lambda_i(\mb 0).
 \end{equation*}
-In Appendix~\ref{app:generator-action}, we derive
-\eqref{eq:signed-dual-generator-expansion} directly from the spin-system
-generator.
+This follows by applying the generator to~$\chi_A$; see the proof of
+Proposition~\ref{thm:monomial-duality}.
 
 We now construct the generator of the dual process.
 For~$r\in\R$, let~$\operatorname{sgn}_{\pm}(r)$ be~$+$ when~$r\geq0$ and~$-$
@@ -1580,7 +1579,8 @@ V_i
 +
 a_i^\beta(\varnothing).
 \end{equation}
-With this choice, the generator identity~\eqref{eq:monomial-generator-duality} holds, which we check in Appendix~\ref{app:dual-data}. The uniform bounds on the
+With this choice, the generator identity~\eqref{eq:monomial-generator-duality} holds, which we check in the proof of
+Proposition~\ref{thm:monomial-duality}. The uniform bounds on the
 neighbourhood sizes and update rates imply that the total dual jump rate per
 active site and~$\abs{V_i}$ are uniformly bounded.
 
@@ -1619,7 +1619,27 @@ P_t\chi_A(\eta)
 }.
 \end{equation}
 \end{proposition}
-This is a standard Feynman--Kac duality argument; see, for example,~\cite{JansenKurt2014}.
+\begin{proof}
+If~$i\notin A$, then~$\bb{E_{i,\rho_i(\eta)}-I}\chi_A=0$. If~$i\in A$, then
+\begin{equation*}
+\lambda_i\bb{E_{i,\rho_i}-I}\chi_A
+=
+\lambda_i\rho_i\chi_{A\setminus\cb{i}}
+-
+\lambda_i\chi_A.
+\end{equation*}
+Expanding~$\lambda_i\rho_i$ and~$\lambda_i$ in monomials and
+using~$\chi_S\chi_B=\chi_{S\cup B}$ gives~\eqref{eq:signed-dual-generator-expansion}
+with the coefficients~\eqref{eq:signed-dual-coefficients}.
+By~\eqref{eq:death-split-data} and~\eqref{eq:birth-data}, each dual rate
+multiplied by its sign is the corresponding coefficient, so~$\Dcal H$
+reproduces the off-diagonal terms of~\eqref{eq:signed-dual-generator-expansion},
+and adding~$V(A)H$ with~$V$ from~\eqref{eq:dual-potential} gives the diagonal
+terms. This is the generator identity~\eqref{eq:monomial-generator-duality}.
+Under~\eqref{eq:fk-integrability}, the standard Feynman--Kac duality
+argument, see for example~\cite{JansenKurt2014}, turns it
+into~\eqref{eq:monomial-feynman-kac-duality}.
+\end{proof}
 
 Pure deaths have a particularly simple effect on this representation. Since
 \begin{equation*}
@@ -2548,7 +2568,7 @@ Z_t^\eta
 \qquad
 P_t\chi_A(\eta)=\E_A\Cb{Z_t^\eta}.
 \end{equation*}
-Theorem~\ref{thm:patch-factorization} applies once~$Z_t^\eta$ is written as a
+Lemma~\ref{thm:patch-factorization} applies once~$Z_t^\eta$ is written as a
 product of factors over patches. We therefore split its sign, Feynman--Kac
 integral, and terminal monomial over the patch decomposition.
 
@@ -2663,14 +2683,14 @@ For any initial law~$\mu$,
 \begin{proof}
 By~\eqref{eq:fk-integrability}, we may condition
 \eqref{eq:pathwise-patch-factorization} on~$\mathcal G_t$.
-Theorem~\ref{thm:patch-factorization} gives
+Lemma~\ref{thm:patch-factorization} gives
 \begin{equation*}
 \CE{Z_t^\eta}{\mathcal G_t}
 =
 \prod_{P\in\mathcal B_t}C(P)
 \prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}.
 \end{equation*}
-Taking expectation and using Theorem~\ref{thm:monomial-duality} gives
+Taking expectation and using Proposition~\ref{thm:monomial-duality} gives
 \eqref{eq:patch-representation}. Integrating this identity with respect to an
 arbitrary initial law~$\mu$ gives
 \eqref{eq:patch-representation-general-law}.
@@ -2706,6 +2726,192 @@ target~$S(P)$ but not whether that interaction was a split or a birth, so this
 hidden kind and the sign it may carry are also averaged under the patch expectation. When a split and a birth with the same target carry opposite signs, their
 contributions can cancel inside~$C(P)$ or~$C(z,P)$.
 
+\subsubsection*{Explicit patch contributions}
+
+The patch contributions can be computed explicitly. Fix a patch based at~$i$, and write
+\begin{equation*}
+\alpha_i
+=
+\sum_{R\subseteq N(i)}\delta_i(R)
++
+\sum_{\substack{R\subseteq N(i)\\R\neq\varnothing}}\beta_i(R).
+\end{equation*}
+Thus~$\alpha_i$ is the total rate of outgoing interactions at~$i$, and
+$V_i=\alpha_i+a_i^\beta(\varnothing)$. For~$\Delta\in[0,\infty]$ and
+$z\in[0,1]$, set
+\begin{align}
+\varphi_i(\Delta)
+&=
+e^{-\alpha_i\Delta}
++
+\delta_i(\varnothing)
+\int_0^\Delta e^{-\alpha_i u}\,du,
+\label{eq:patch-phi}
+\\
+\psi_i(\Delta,z)
+&=
+\delta_i(\varnothing)
+\int_0^\Delta e^{a_i^\beta(\varnothing)u}\,du
++
+z e^{a_i^\beta(\varnothing)\Delta}.
+\label{eq:patch-psi}
+\end{align}
+At~$\Delta=\infty$, these expressions are interpreted by their limits.
+
+\begin{lemma}[Patch-contribution formulas]
+\label{lem:contribution-formulas}
+The patch contributions are given as follows.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item Let~$P$ be an end patch, and put
+\begin{equation*}
+i=i(P),
+\qquad
+S=S(P),
+\qquad
+\Delta=e(P)-s(P).
+\end{equation*}
+Then
+\begin{equation}
+\label{eq:end-contribution-formulas}
+C(z,P)
+=
+\pw{
+\displaystyle
+\frac{\psi_i(\Delta,z)}{\varphi_i(\Delta)}
+}{\mathsf X(P)=\mathsf I}
+{
+\displaystyle
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,z)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}
+}{\mathsf X(P)=\mathsf O}.
+\end{equation}
+In particular, every end contribution is affine in~$z$.
+\item Let~$P\in\mathcal P$, and write
+\begin{equation*}
+i=i(P),
+\qquad
+S=S(P),
+\qquad
+\Delta=e(P)-s(P).
+\end{equation*}
+For finite and infinite patches, the contribution is
+\begin{equation}
+\label{eq:full-contribution-formulas}
+C(P)
+=
+\begin{cases}
+\displaystyle
+\frac{\psi_i(\Delta,1)}{\varphi_i(\Delta)},
+&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{II},\mathsf{IE}},
+\\[1.4em]
+e^{V_i\Delta},
+&\mathsf X(P)\mathsf Y(P)=\mathsf{IO},
+\\[0.8em]
+\displaystyle
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,1)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+},
+&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{OI},\mathsf{OE}},
+\\[1.4em]
+\sigma_i^\beta(S)e^{V_i\Delta},
+&\mathsf X(P)\mathsf Y(P)=\mathsf{OO}.
+\end{cases}
+\end{equation}
+An infinite patch has type~$\mathsf{IE}$ or~$\mathsf{OE}$, and the
+corresponding row is read at~$\Delta=\infty$. If a denominator in~\eqref{eq:end-contribution-formulas} or
+\eqref{eq:full-contribution-formulas} vanishes, that patch has zero
+probability of occurring, so the formula is irrelevant.
+\end{enumerate}
+\end{lemma}
+
+The proof is a direct computation, given in
+Appendix~\ref{app:contribution-formulas}. By the definitions in Section~\ref{sec:dual}, these
+quantities satisfy
+\begin{equation}
+\label{eq:dual-to-spin-contribution-data}
+\begin{aligned}
+\alpha_i
+&=
+\sum_{R\subseteq N(i)}\abs{\widehat{\lambda_i\rho_i}(R)}
++
+\sum_{\substack{R\subseteq N(i)\\R\neq\varnothing}}
+\abs{\widehat{\lambda_i}(R)},
+\\
+a_i^\beta(\varnothing)
+&=
+-\widehat{\lambda_i}(\varnothing)
+=
+-\lambda_i(\mb 0),
+\\
+\delta_i(S)\sigma_i^\delta(S)
+&=
+\widehat{\lambda_i\rho_i}(S),
+&\delta_i(S)
+&=
+\abs{\widehat{\lambda_i\rho_i}(S)},
+\\
+\beta_i(S)\sigma_i^\beta(S)
+&=
+-\widehat{\lambda_i}(S),
+&\beta_i(S)
+&=
+\abs{\widehat{\lambda_i}(S)}.
+\end{aligned}
+\end{equation}
+Since
+\begin{equation*}
+\widehat{\lambda_i}(\varnothing)=\lambda_i(\mb 0),
+\qquad
+\widehat{\lambda_i\rho_i}(\varnothing)
+=
+\lambda_i(\mb 0)\rho_i(\mb 0),
+\end{equation*}
+we also have
+\begin{align*}
+\varphi_i(\Delta)
+&=
+e^{-\alpha_i\Delta}
++
+\lambda_i(\mb 0)\rho_i(\mb 0)
+\int_0^\Delta e^{-\alpha_i u}\,du,
+\\
+\psi_i(\Delta,z)
+&=
+\lambda_i(\mb 0)\rho_i(\mb 0)
+\int_0^\Delta e^{-\lambda_i(\mb 0)u}\,du
++
+z e^{-\lambda_i(\mb 0)\Delta}.
+\end{align*}
+
+If~$\lambda_i(\mb 0)>0$, then
+\begin{equation}
+\label{eq:all-zero-neighbourhood-relaxation}
+\psi_i(u,z)
+=
+\rho_i(\mb 0)
++
+\bb{z-\rho_i(\mb 0)}e^{-\lambda_i(\mb 0)u},
+\qquad
+\psi_i(u+v,z)
+=
+\psi_i\bb{u,\psi_i(v,z)}.
+\end{equation}
+If~$\lambda_i(\mb 0)=0$, then~$\psi_i(u,z)=z$, and the second identity remains
+valid.
+
+Thus, when~$\lambda_i(\mb 0)>0$, the value~$z$ is forgotten
+exponentially fast and replaced in the limit by~$\rho_i(\mb 0)$.
+
+
 
 \FloatBarrier
 
@@ -2714,7 +2920,7 @@ contributions can cancel inside~$C(P)$ or~$C(z,P)$.
 
 We now give the probabilistic interpretation of patch positivity and of the threshold profile~$\mb p^*$. Conditions in~\eqref{eq:patch-positivity} are equivalent to non-negativity of bulk patch contributions, and~$\mb p^*$ is defined so that the end patch contributions are also non-negative, when integrated against a measure in~$\mathcal{M}_*$. The
 explicit formulas for~$C(P)$ and~$C(z,P)$ are given in
-Appendix~\ref{app:contribution-formulas}. Their consequences are
+Lemma~\ref{lem:contribution-formulas}. Their consequences are
 summarized in the following proposition.
 
 \begin{proposition}
@@ -3972,7 +4178,7 @@ C\bb{z,P^{\uparrow t}}
 }
 }{\mathsf X(P)=\mathsf O}.
 \end{equation}
-This is the end-patch formula from Appendix~\ref{app:end-formulas} applied to
+This is the end-patch formula from Lemma~\ref{lem:contribution-formulas} applied to
 the longer patch.
 
 The same formulas give the probability that the patch remains consistent
@@ -4622,7 +4828,7 @@ Z_t^\eta
 \exp\bb{\int_0^tV(A_s)\,ds}
 \chi_{A_t}(\eta).
 \end{equation*}
-By the patch factorization, Theorem~\ref{thm:patch-factorization},
+By the patch factorization, Lemma~\ref{thm:patch-factorization},
 \begin{equation*}
 W_t^{\delta_\eta}
 =
@@ -4711,7 +4917,7 @@ we have
 \end{equation}
 
 Combining it with the
-original duality, Theorem~\ref{thm:monomial-duality}, for the remaining time~$t-T$ and using the Markov property
+original duality, Proposition~\ref{thm:monomial-duality}, for the remaining time~$t-T$ and using the Markov property
 gives
 \begin{align*}
 \E_A\Cb{Z_t^\eta\ind\bb{E_T^R}} &= \bb{P_{t-T}e^{T\bb{\mathcal{D}_R +\bb{V-\kappa_R}}}\chi_A}\bb{\eta}\\
@@ -5321,6 +5527,9 @@ configurations for every local~$f$ and thus uniform ergodicity.
 
 \appendix
 
+% Appendix "Derivation of the monomial dual" is commented out: it is a direct
+% computation, summarized in the proof of Proposition~\ref{thm:monomial-duality}.
+\iffalse
 \section{Derivation of the monomial dual}
 \label{app:dual-calculation}
 
@@ -5435,178 +5644,12 @@ The resulting expression is~$\sigma$ times the right-hand side of
 \eqref{eq:generator-action-monomials}, hence equals~$\Lcal_\eta H((A,\sigma),\eta)$. This proves
 \eqref{eq:monomial-generator-duality}. Therefore, by the standard Feynman--Kac duality argument applied to~\eqref{eq:monomial-generator-duality}, condition~\eqref{eq:fk-integrability} gives
 \eqref{eq:monomial-feynman-kac-duality}.
+\fi
 
-
-\section{Patch-contribution formulas}
+\section{\texorpdfstring{Proof of Lemma~\ref{lem:contribution-formulas}}{Proof of the patch-contribution formulas}}
 \label{app:contribution-formulas}
 
-Fix a patch based at~$i$, and write
-\begin{equation*}
-\alpha_i
-=
-\sum_{R\subseteq N(i)}\delta_i(R)
-+
-\sum_{\substack{R\subseteq N(i)\\R\neq\varnothing}}\beta_i(R).
-\end{equation*}
-Thus~$\alpha_i$ is the total rate of outgoing interactions at~$i$, and
-$V_i=\alpha_i+a_i^\beta(\varnothing)$. For~$\Delta\in[0,\infty]$ and
-$z\in[0,1]$, set
-\begin{align}
-\varphi_i(\Delta)
-&=
-e^{-\alpha_i\Delta}
-+
-\delta_i(\varnothing)
-\int_0^\Delta e^{-\alpha_i u}\,du,
-\label{eq:patch-phi}
-\\
-\psi_i(\Delta,z)
-&=
-\delta_i(\varnothing)
-\int_0^\Delta e^{a_i^\beta(\varnothing)u}\,du
-+
-z e^{a_i^\beta(\varnothing)\Delta}.
-\label{eq:patch-psi}
-\end{align}
-At~$\Delta=\infty$, these expressions are interpreted by their limits.
-
-\subsection{End contributions}
-\label{app:end-formulas}
-
-Let~$P$ be an end patch, and put
-\begin{equation*}
-i=i(P),
-\qquad
-S=S(P),
-\qquad
-\Delta=e(P)-s(P).
-\end{equation*}
-Then
-\begin{equation}
-\label{eq:end-contribution-formulas}
-C(z,P)
-=
-\pw{
-\displaystyle
-\frac{\psi_i(\Delta,z)}{\varphi_i(\Delta)}
-}{\mathsf X(P)=\mathsf I}
-{
-\displaystyle
-\frac{
-\delta_i(S)\sigma_i^\delta(S)
-+
-\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,z)
-}{
-\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
-}
-}{\mathsf X(P)=\mathsf O}.
-\end{equation}
-In particular, every end contribution is affine in~$z$.
-
-\subsection{Bulk and infinite patch contributions}
-\label{app:bulk-formulas}
-
-Let~$P\in\mathcal P$, and write
-\begin{equation*}
-i=i(P),
-\qquad
-S=S(P),
-\qquad
-\Delta=e(P)-s(P).
-\end{equation*}
-For finite and infinite patches, the contribution is
-\begin{equation}
-\label{eq:full-contribution-formulas}
-C(P)
-=
-\begin{cases}
-\displaystyle
-\frac{\psi_i(\Delta,1)}{\varphi_i(\Delta)},
-&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{II},\mathsf{IE}},
-\\[1.4em]
-e^{V_i\Delta},
-&\mathsf X(P)\mathsf Y(P)=\mathsf{IO},
-\\[0.8em]
-\displaystyle
-\frac{
-\delta_i(S)\sigma_i^\delta(S)
-+
-\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,1)
-}{
-\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
-},
-&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{OI},\mathsf{OE}},
-\\[1.4em]
-\sigma_i^\beta(S)e^{V_i\Delta},
-&\mathsf X(P)\mathsf Y(P)=\mathsf{OO}.
-\end{cases}
-\end{equation}
-An infinite patch has type~$\mathsf{IE}$ or~$\mathsf{OE}$, and the
-corresponding row is read at~$\Delta=\infty$. If a denominator in~\eqref{eq:end-contribution-formulas} or
-\eqref{eq:full-contribution-formulas} vanishes, that patch has zero
-probability of occurring, so the formula is irrelevant.
-
-By the definitions in Section~\ref{sec:dual}, these
-quantities satisfy
-\begin{equation}
-\label{eq:dual-to-spin-contribution-data}
-\begin{aligned}
-\alpha_i
-&=
-\sum_{R\subseteq N(i)}\abs{\widehat{\lambda_i\rho_i}(R)}
-+
-\sum_{\substack{R\subseteq N(i)\\R\neq\varnothing}}
-\abs{\widehat{\lambda_i}(R)},
-\\
-a_i^\beta(\varnothing)
-&=
--\widehat{\lambda_i}(\varnothing)
-=
--\lambda_i(\mb 0),
-\\
-\delta_i(S)\sigma_i^\delta(S)
-&=
-\widehat{\lambda_i\rho_i}(S),
-&\delta_i(S)
-&=
-\abs{\widehat{\lambda_i\rho_i}(S)},
-\\
-\beta_i(S)\sigma_i^\beta(S)
-&=
--\widehat{\lambda_i}(S),
-&\beta_i(S)
-&=
-\abs{\widehat{\lambda_i}(S)}.
-\end{aligned}
-\end{equation}
-Since
-\begin{equation*}
-\widehat{\lambda_i}(\varnothing)=\lambda_i(\mb 0),
-\qquad
-\widehat{\lambda_i\rho_i}(\varnothing)
-=
-\lambda_i(\mb 0)\rho_i(\mb 0),
-\end{equation*}
-we also have
-\begin{align*}
-\varphi_i(\Delta)
-&=
-e^{-\alpha_i\Delta}
-+
-\lambda_i(\mb 0)\rho_i(\mb 0)
-\int_0^\Delta e^{-\alpha_i u}\,du,
-\\
-\psi_i(\Delta,z)
-&=
-\lambda_i(\mb 0)\rho_i(\mb 0)
-\int_0^\Delta e^{-\lambda_i(\mb 0)u}\,du
-+
-z e^{-\lambda_i(\mb 0)\Delta}.
-\end{align*}
-
-\subsection{Derivation}
-\label{app:contribution-derivation}
-
+\begin{proof}[Proof of Lemma~\ref{lem:contribution-formulas}]
 Suppose first that the initial interaction is incoming, so~$X_s^P=1$, and the terminal interaction is incoming or absent,
 corresponding to~$\mathsf I$ or~$\mathsf E$. Consistency occurs either when
 there is no outgoing interaction before the endpoint or death. Therefore
@@ -5670,30 +5713,7 @@ the~$\mathsf{OI}$,~$\mathsf{OE}$ formulas of
 remain active throughout the patch. If the initial interaction is
 incoming, the patch contributes~$e^{V_i\Delta}$. If the initial interaction
 is outgoing, consistency also forces~$\alpha(P)=\beta$, leaving~$\sigma_i^\beta(S)e^{V_i\Delta}$. These are the remaining two formulas of~\eqref{eq:full-contribution-formulas}. The formulas extend to~$\Delta=\infty$ by taking limits.
-
-\subsection{All-zero-neighbourhood relaxation}
-\label{app:positivity-algebra}
-
-If~$\lambda_i(\mb 0)>0$, then
-\begin{equation}
-\label{eq:all-zero-neighbourhood-relaxation}
-\psi_i(u,z)
-=
-\rho_i(\mb 0)
-+
-\bb{z-\rho_i(\mb 0)}e^{-\lambda_i(\mb 0)u},
-\qquad
-\psi_i(u+v,z)
-=
-\psi_i\bb{u,\psi_i(v,z)}.
-\end{equation}
-If~$\lambda_i(\mb 0)=0$, then~$\psi_i(u,z)=z$, and the second identity remains
-valid.
-
-Thus, when~$\lambda_i(\mb 0)>0$, the value~$z$ is forgotten
-exponentially fast and replaced in the limit by~$\rho_i(\mb 0)$.
-
-
+\end{proof}
 
 \section{Dependencies of the main results}
 \label{app:dependencies}
@@ -5728,11 +5748,10 @@ Table~\ref{tab:dependencies} lists the same information by statement.
 \node[rep]  (P48)  at (-4,-4.5)  {Proposition~\ref{prop:patch-contribution-positivity}\\ patch positivity\\ $\Leftrightarrow C\geq0$};
 \node[rep]  (P49)  at (-1.7,-4.5){Proposition~\ref{prop:death-removal}\\ removing deaths};
 \node[rep]  (T47)  at (2.9,-4.5) {Theorem~\ref{thm:patch-representation}\\ patch\\ representation};
-\node[app]  (AB)   at (-1.7,-6)  {Appendix~\ref{app:contribution-formulas}\\ patch-contribution\\ formulas};
+\node[rep]  (AB)   at (-1.7,-6)  {Lemma~\ref{lem:contribution-formulas}\\ patch-contribution\\ formulas};
 \node[rep]  (P42)  at (0.6,-6)   {Proposition~\ref{thm:monomial-duality}\\ Feynman--Kac\\ duality};
 \node[rep]  (L46)  at (2.9,-6)   {Lemma~\ref{thm:patch-factorization}\\ patch\\ factorization};
 \node[rep]  (L44)  at (5.2,-6)   {Lemma~\ref{lem:dual-local-finiteness}\\ local finiteness};
-\node[app]  (AA)   at (0.6,-7.5) {Appendix~\ref{app:dual-calculation}\\ derivation\\ of the dual};
 % X -> Y : X is used in the proof of Y
 \draw[dep] (T310) -- (C312);
 \draw[dep] (L51) -- (C312);
@@ -5760,14 +5779,12 @@ Table~\ref{tab:dependencies} lists the same information by statement.
 \draw[dep] (P42) -- (T47);
 \draw[dep] (L46) -- (T47);
 \draw[dep] (L44) -- (L46);
-\draw[dep] (AA) -- (P42);
 \end{tikzpicture}}
 \caption{Dependencies of Theorem~\ref{thm:common-invariant-limit} and
 Corollary~\ref{cor:oriented-ergodicity}. An arrow from~$X$ to~$Y$ means
 that~$X$ is used in the proof of~$Y$. Bold: main results. Solid: the
 auxiliary results of Section~\ref{subsec:auxiliary}. Dashed: the patch
-representation of Section~\ref{sec:probabilistic-interpretation}. Dotted:
-computations in the appendices.}
+representation of Section~\ref{sec:probabilistic-interpretation}.}
 \label{fig:dependency-graph}
 \end{figure}
 
@@ -5794,7 +5811,7 @@ Theorem~\ref{thm:patch-representation} \\
 Lemma~\ref{lem:no-late-relaxation} &
 Lemma~\ref{lem:late-interactions},
 Proposition~\ref{prop:death-removal},
-Appendix~\ref{app:contribution-formulas} \\
+Lemma~\ref{lem:contribution-formulas} \\
 Lemma~\ref{lem:late-interactions} &
 Lemma~\ref{lem:dual-local-finiteness},
 Proposition~\ref{prop:death-removal} \\
@@ -5802,16 +5819,16 @@ Lemma~\ref{lem:centered-cone-preservation} &
 Proposition~\ref{prop:patch-contribution-positivity} \\
 Proposition~\ref{prop:death-removal} &
 Propositions~\ref{thm:monomial-duality} and~\ref{prop:patch-contribution-positivity},
-Appendix~\ref{app:contribution-formulas} \\
+Lemma~\ref{lem:contribution-formulas} \\
 Proposition~\ref{prop:patch-contribution-positivity} &
-Appendix~\ref{app:contribution-formulas} \\
+Lemma~\ref{lem:contribution-formulas} \\
 Theorem~\ref{thm:patch-representation} &
 Proposition~\ref{thm:monomial-duality},
 Lemma~\ref{thm:patch-factorization} \\
 Lemma~\ref{thm:patch-factorization} &
 Lemma~\ref{lem:dual-local-finiteness} \\
-Proposition~\ref{thm:monomial-duality} &
-Appendix~\ref{app:dual-calculation} \\
+Lemma~\ref{lem:contribution-formulas} &
+direct computation (Appendix~\ref{app:contribution-formulas}) \\
 \hline
 \end{tabularx}
 \caption{The results used in each proof, as in
@@ -5824,7 +5841,7 @@ results of Section~\ref{sec:probabilistic-interpretation}.
 Propositions~\ref{prop:patch-contribution-positivity}
 and~\ref{prop:death-removal} are statements about the patch contributions
 defined in Section~\ref{subsec:patch-representation}; they are read off from
-the explicit formulas in Appendix~\ref{app:contribution-formulas}.
+the explicit formulas of Lemma~\ref{lem:contribution-formulas}.
 
 \begin{figure}[htbp]
 \centering
@@ -5841,11 +5858,9 @@ the explicit formulas in Appendix~\ref{app:contribution-formulas}.
 \node[rep] (P49) at (6,0)      {Proposition~\ref{prop:death-removal}\\ removing deaths};
 \node[rep] (L46) at (-1.2,-1.7){Lemma~\ref{thm:patch-factorization}\\ patch\\ factorization};
 \node[rep] (P42) at (1.6,-1.7) {Proposition~\ref{thm:monomial-duality}\\ Feynman--Kac\\ duality};
-\node[app] (AB)  at (4.5,-1.7) {Appendix~\ref{app:contribution-formulas}\\ patch-contribution\\ formulas};
+\node[rep] (AB)  at (4.5,-1.7) {Lemma~\ref{lem:contribution-formulas}\\ patch-contribution\\ formulas};
 \node[rep] (L44) at (-1.2,-3.4){Lemma~\ref{lem:dual-local-finiteness}\\ local finiteness};
-\node[app] (AA)  at (1.6,-3.4) {Appendix~\ref{app:dual-calculation}\\ derivation\\ of the dual};
 \draw[dep] (L44) -- (L46);
-\draw[dep] (AA) -- (P42);
 \draw[dep] (L46) -- (T47);
 \draw[dep] (P42) -- (T47);
 \draw[dep] (P42) -- (P49);
