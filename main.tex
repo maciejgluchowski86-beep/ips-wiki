@@ -858,7 +858,10 @@ $p_i^-:=\max\cb{2p_i^\star-1,0}$, then a Bernoulli product
 measure~$\mu_{\mb p}$ belongs to~$\mathcal M_{-,1}$ exactly
 when~$\mb p\geq\mb p^-$. In particular, if~$\mb p^\star\leq\mbs{\tfrac12}$,
 then~$\abs{\chi_A^\star}\leq\prod_{i\in A}\bb{1-p_i^\star}$, so every
-probability measure on~$\Omega$ belongs to~$\mathcal M_{-,1}$.
+probability measure on~$\Omega$ belongs to~$\mathcal M_{-,1}$. Moreover,
+if the system contains a pure-death component, then every point mass on a
+configuration with finitely many~$0$s belongs to~$\mathcal M_-$; see
+Section~\ref{subsec:proof-common-invariant-limit}.
 \end{remark}
 
 \subsection{Ergodicity of patch-positive spin systems}
@@ -888,10 +891,6 @@ for every~$K\geq0$ and~$t\geq0$. Consequently,
 \text{for every }\mu\in\mathcal M_-.
 \end{equation*}
 \end{theorem}
-
-Every point mass on a configuration with finitely many~$0$s belongs to
-$\mathcal M_-$. Thus Theorem~\ref{thm:common-invariant-limit} also gives
-convergence from every such configuration.
 
 \begin{corollary}[Uniform exponential ergodicity]
 \label{cor:uniform-exponential-ergodicity}
@@ -4220,8 +4219,8 @@ proves~\eqref{eq:uniform-m-minus-convergence}. Since~$\mathcal M_- = \bigcup_{K\
 \end{equation*}
 \end{proof}
 
-We also verify the claim following Theorem~\ref{thm:common-invariant-limit}
-that every configuration with finitely many~$0$s gives an initial law in~$\mathcal M_-$. The pure-death component gives
+We also verify the claim in Remark~\ref{rem:m-minus-examples}
+that, in the presence of a pure-death component, every configuration with finitely many~$0$s gives an initial law in~$\mathcal M_-$. The pure-death component gives
 \begin{equation*}
 \lambda_i(\mb 0)\bb{1-\rho_i(\mb 0)}
 \geq
