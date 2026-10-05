@@ -691,6 +691,7 @@ N_*(\bar A\cup U)=\bar A\cup U.
 \end{definition}
 
 \begin{example}
+\label{ex:east-orientable}
 The neighbourhood graph of the East model is orientable. Indeed, for any
 $A\Subset\Z^d$, choose a finite box
 \begin{equation*}
@@ -1063,21 +1064,33 @@ time; see Section~\ref{subsec:proof-orientability}.
 
 \paragraph{Applications.}
 \label{subsec:fa-east-applications}
-We now apply these results to FA-1f, East and BABP with the noise from
-Example~\ref{ex:pp-noisy}.
+Without noise, FA-1f and East have the explicit reversible measure~$\mu_p$, but
+convergence to it is known only from restricted classes of initial laws; see
+Conjecture~\ref{conj:fa1f}. Once independent refreshes with
+density~$\mb s\neq\mb p$ are added, the invariant measure is no longer known
+explicitly. Theorem~\ref{thm:common-invariant-limit} and its corollaries apply
+directly to the noisy models of Example~\ref{ex:pp-noisy}.
 
-
-\begin{proposition}[Convergence for perturbed FA-1f and BABP]
+\begin{corollary}[FA-1f and BABP with noise]
+\label{cor:perturbed-fa-babp-ergodicity}
 \label{prop:perturbed-fa-babp-convergence}
-Assume~\eqref{eq:perturbed-fa-babp-patch-positive}, suppose that the
-neighbourhood graph has polynomial growth with exponent~$D$, and set
+Let~$\Lcal$ be FA-1f or BABP with refresh density~$p\in(0,1)$ on a
+neighbourhood graph of polynomial growth with exponent~$D$, and assume
+that~$N(i)\neq\vn$ for every~$i\in\Lambda$. Let~$\varepsilon>0$
+and~$\mb s\in[0,1]^\Lambda$ satisfy
 \begin{equation*}
+\mb s\geq\mb p,
+\qquad
 \delta
-=
-\varepsilon\inf_{i\in\Lambda}\bb{1-s_i}.
+:=
+\varepsilon\inf_{i\in\Lambda}\bb{1-s_i}
+>0,
 \end{equation*}
-If~$\delta>0$, then there is an invariant probability measure~$\pi$ such that,
-for every local function~$f$, there is~$K_f<\infty$ satisfying
+and let~$P_t^{\varepsilon,\mb s}$ be the semigroup of
+$\Lcal^{\varepsilon,\mb s}=\Lcal+\varepsilon\Ncal^{\mb s}$.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item There is an invariant probability measure~$\pi$ such that, for every
+local function~$f$, there is~$K_f<\infty$ satisfying
 \begin{equation}
 \label{eq:perturbed-fa-babp-convergence}
 \sup_{\mu\in\mathcal M_{-,K}}
@@ -1085,38 +1098,11 @@ for every local function~$f$, there is~$K_f<\infty$ satisfying
 \leq
 (1+2K)K_f(1+t)^D e^{-\delta t/2}
 \end{equation}
-for every~$K\geq0$ and~$t\geq0$. Consequently,
-$\mu P_t^{\varepsilon,\mb s}\Rightarrow\pi$ for every
-$\mu\in\mathcal M_-$. In particular, this holds for every homogeneous
-product law~$\mu_u$ with
-\begin{equation*}
-u\geq p^-:=\max\cb{2p-1,0},
-\end{equation*}
-and for every point mass on a configuration with finitely many sites in
-state~$0$.
-\end{proposition}
+for every~$K\geq0$ and~$t\geq0$. In particular,
+$\mu P_t^{\varepsilon,\mb s}\Rightarrow\pi$ for every homogeneous product
+law~$\mu_u$ with~$u\geq\max\cb{2p-1,0}$ and for every point mass on a
+configuration with finitely many~$0$s. If~$\mb s=\mb p$, then~$\pi=\mu_p$.
 
-\begin{proof}
-The added refreshes contain~$1\to0$ transitions at site~$i$ at
-rate~$\varepsilon(1-s_i)$. Thus~$\delta>0$ gives a pure-death component and the claim follows from
-Theorem~\ref{thm:common-invariant-limit}.
-\end{proof}
-
-
-\begin{remark}
-\label{rem:perturbed-bernoulli-invariant}
-If~$\mb s=\mb p$, then~$\mu_p$ is invariant both for~$\Lcal$ and
-for~$\Ncal^{\mb p}$, hence for~$\Lcal^{\varepsilon,\mb p}$. Since the
-threshold profile is~$\mb p$, we have~$\mu_p\in\mathcal M_\star$, and
-convergence from~$\mu_p$ shows that in this case the measure~$\pi$ in
-Proposition~\ref{prop:perturbed-fa-babp-convergence} is~$\mu_p$.
-\end{remark}
-
-\begin{corollary}[Ergodicity of the perturbed models]
-\label{cor:perturbed-fa-babp-ergodicity}
-Under the assumptions of
-Proposition~\ref{prop:perturbed-fa-babp-convergence}, the following holds:
-\begin{enumerate}[label=\textup{(\roman*)}]
 \item If~$p\leq\frac12$, then~$\pi$ is the unique invariant measure and,
 for every local function~$f$,
 \begin{equation*}
@@ -1139,23 +1125,29 @@ invariant measure and, for every local function~$f$,
 \end{corollary}
 
 \begin{proof}
-Part~\textup{(i)} follows from
-Corollary~\ref{cor:uniform-exponential-ergodicity}, since the threshold is
-$p$. Part~\textup{(ii)} follows from
-Corollary~\ref{cor:oriented-ergodicity}.
+By Example~\ref{ex:pp-noisy},~$\Lcal^{\varepsilon,\mb s}$ is patch-positive
+with threshold profile~$\mb p$. The added refreshes contain~$1\to0$
+transitions at site~$i$ at rate~$\varepsilon(1-s_i)\geq\delta$, so
+$\Lcal^{\varepsilon,\mb s}$ contains a pure-death component of rate~$\delta$.
+Part~\textup{(i)} therefore follows from
+Theorem~\ref{thm:common-invariant-limit} and
+Remark~\ref{rem:m-minus-examples}, part~\textup{(ii)} from
+Corollary~\ref{cor:uniform-exponential-ergodicity}, and part~\textup{(iii)}
+from Corollary~\ref{cor:oriented-ergodicity}. If~$\mb s=\mb p$, then~$\mu_p$ is
+invariant both for~$\Lcal$ and for~$\Ncal^{\mb p}$, hence
+for~$\Lcal^{\varepsilon,\mb p}$. Since~$\mu_p\in\mathcal M_\star$, convergence
+from~$\mu_p$ gives~$\pi=\mu_p$.
 \end{proof}
 
-\begin{corollary}[Perturbed East model]
+Since the neighbourhood graph of the East model is orientable
+(Example~\ref{ex:east-orientable}), part~\textup{(iii)} applies to it for every
+density.
+
+\begin{corollary}[East model with noise]
 \label{cor:perturbed-east}
-Consider the East model on~$\Z^d$ and add independent refreshes
-$\varepsilon\Ncal^{\mb s}$ with
-\begin{equation*}
-\mb s\geq\mb p,
-\qquad
-\inf_{i\in\Z^d}(1-s_i)>0.
-\end{equation*}
-Then, for every~$p\in(0,1)$, the perturbed process has a unique invariant
-measure~$\pi$ and
+Let~$p\in(0,1)$,~$\varepsilon>0$ and~$\mb s\in[0,1]^{\Z^d}$ with~$\mb s\geq\mb p$
+and~$\inf_{i}(1-s_i)>0$. The East model on~$\Z^d$ with refresh density~$p$ and
+added noise~$\varepsilon\Ncal^{\mb s}$ has a unique invariant measure~$\pi$, and
 \begin{equation*}
 \lim_{t\to\infty}
 \sup_{\eta\in\Omega}
@@ -1164,14 +1156,13 @@ measure~$\pi$ and
 0
 \end{equation*}
 for every local function~$f$. If~$\mb s=\mb p$, then~$\pi=\mu_p$.
-For~$p\leq\frac12$, the convergence satisfies the exponential bound in
-Corollary~\ref{cor:perturbed-fa-babp-ergodicity}.
 \end{corollary}
 
 \begin{proof}
-The East neighbourhood graph has polynomial growth and is orientable, so this
-is Corollary~\ref{cor:perturbed-fa-babp-ergodicity} and
-Remark~\ref{rem:perturbed-bernoulli-invariant}.
+The East neighbourhood graph on~$\Z^d$ has polynomial growth and is
+orientable, so this is
+Corollary~\ref{cor:perturbed-fa-babp-ergodicity}\textup{(iii)}
+and~\textup{(i)}.
 \end{proof}
 
 \subsection{Positive rates for simple spin systems}
