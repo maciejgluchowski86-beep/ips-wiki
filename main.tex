@@ -221,18 +221,23 @@ G\'acs~\cite{Gacs1986,Gacs2001}; see also Gray's guide~\cite{Gray2001}.
 For simple spin systems, binary systems on~$\Z$ in which the update at~$i$
 depends only on the spins at~$i$ and~$i+1$, the problem remains open, and
 earlier work covers large parts of the parameter
-space~\cite{GluchowskiMenz2025,GluchowskiMenz2026}. One of the cases that is
-not covered is the East model with added deaths.
+space~\cite{GluchowskiMenz2025,GluchowskiMenz2026}. The part that remains
+open consists of East models with added noise.
 
 \begin{conjecture}
 \label{conj:east-deaths}
-Let~$p\in(0,1)$ and~$\varepsilon>0$. The East model on~$\Z$ with refresh
-density~$p$ and additional independent~$1\to0$ transitions at
-rate~$\varepsilon$ at every site is ergodic.
-\authorcheck{State precisely in which sense this is the remaining case of the
-positive-rates conjecture for simple spin systems, with reference
-to~\cite{GluchowskiMenz2026}, and which parameters are already known.}
+Let~$p\in(0,1)$,~$\varepsilon>0$ and~$s\in[0,1)$. The East model on~$\Z$ with
+refresh density~$p$, in which in addition every site is resampled
+from~$\operatorname{Bern}(s)$ at rate~$\varepsilon$, is ergodic.
 \end{conjecture}
+
+For~$s\in(0,1)$ these systems have positive rates, and the open part of the
+positive-rates conjecture for simple spin systems consists of such models
+with~$s<p$; see Remark~\ref{rem:simple-remaining-region}. The case~$s=0$, in
+which the noise consists of independent~$1\to0$ transitions only, lies at
+the boundary of the positive-rates region and is the most constrained case.
+\authorcheck{Check which parameters of Conjecture~\ref{conj:east-deaths}
+with~$s<p$ are already covered by~\cite{GluchowskiMenz2025,GluchowskiMenz2026}.}
 
 We introduce a class of spin systems, called \emph{patch-positive}, defined
 by an explicit sign condition on the local update rates
@@ -282,10 +287,10 @@ simple spin systems, the orientable case gives a new region of the parameter
 space in which the positive-rates conjecture holds
 (Corollary~\ref{cor:simple-positive-rates}).
 
-The restriction~$s_i\geq p$ is essential for our method. In particular,
-Conjecture~\ref{conj:east-deaths} corresponds to~$s_i=0$, and adding only
-pure deaths to FA-1f or East leaves the patch-positive class for
-every~$p\in(0,1)$. Conversely, removing pure deaths from a patch-positive
+Thus Conjecture~\ref{conj:east-deaths} holds for~$s\geq p$. The
+restriction~$s_i\geq p$ is essential for our method, so the conjecture
+remains open for~$s<p$, including the case~$s=0$: adding only pure deaths to
+FA-1f or East leaves the patch-positive class for every~$p\in(0,1)$. Conversely, removing pure deaths from a patch-positive
 system keeps it patch-positive (Proposition~\ref{prop:death-removal}).
 Conjecture~\ref{conj:fa1f}, which concerns the dynamics without noise, is
 also not addressed by our results.
@@ -891,8 +896,9 @@ Whenever this holds, its threshold profile remains~$\mb p^\star=\mb p$.
 \label{rem:pure-deaths-not-patch-positive}
 Condition~\eqref{eq:perturbed-fa-babp-patch-positive} excludes noise that
 consists only of pure deaths,~$\mb s=\mb 0$. Thus FA-1f and East with added
-pure deaths are not patch-positive for any~$p\in(0,1)$, and
-Conjecture~\ref{conj:east-deaths} lies outside the scope of our results. In the opposite
+pure deaths are not patch-positive for any~$p\in(0,1)$, and the
+case~$s<p$ of Conjecture~\ref{conj:east-deaths} lies outside the scope of our
+results. In the opposite
 direction, removing pure deaths from a patch-positive system preserves patch
 positivity and the threshold profile; see
 Proposition~\ref{prop:death-removal}. This is the direction used in the
@@ -1401,9 +1407,10 @@ model, that is, proving uniform ergodicity of the East model with added
 noise~$\varepsilon\Ncal^{s}$ for all~$\varepsilon>0$ and~$s\in(0,1)$, would,
 together with the reductions and results
 of~\cite{GluchowskiMenz2025,GluchowskiMenz2026}, prove
-Conjecture~\ref{conj:simple-positive-rates}. The East model with pure deaths
-in Conjecture~\ref{conj:east-deaths} is the endpoint~$s=0$, where the
-positive-rates condition~\eqref{eq:simple-positive-rates} fails.
+Conjecture~\ref{conj:simple-positive-rates}; this is the case~$s\in(0,p)$ of
+Conjecture~\ref{conj:east-deaths}. Its endpoint~$s=0$, pure deaths, lies
+outside the positive-rates region, since there~\eqref{eq:simple-positive-rates}
+fails.
 \authorcheck{Verify this reduction, in particular that the reductions
 of~\cite{GluchowskiMenz2025} leave only the face~$p_{1\mid11}=0$.}
 \end{remark}
