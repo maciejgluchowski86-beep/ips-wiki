@@ -379,15 +379,9 @@ patches have long patches whose terminal contributions depend only weakly on
 the initial configuration. Models such as FA-2f, which are not
 patch-positive, are a natural test case for this possibility.
 
-The condition~$\mb p^\star\leq\mbs{\tfrac12}$ in
-Corollary~\ref{cor:uniform-exponential-ergodicity} appears to be a feature
-of the proof rather than a real threshold; see
-Remark~\ref{rem:threshold-one-half}. The orientability argument suggests a
-route to removing it: instead of requiring the initial law to belong
-to~$\mathcal M_-$, one shows that after a burn-in period the evolution
-approaches this class. Orientability provides one mechanism for such a
-burn-in, by reducing the problem locally to a finite system with autonomous
-boundary.
+Corollaries~\ref{cor:uniform-exponential-ergodicity}
+and~\ref{cor:oriented-ergodicity} reach all initial configurations in two
+different ways, explained in Remark~\ref{rem:threshold-one-half}.
 
 The duality in~\eqref{eq:intro-signed-duality} belongs to the standard
 graphical and set-valued duality framework for spin systems
@@ -925,33 +919,25 @@ measure and, for every local function~$f$,
 
 \begin{remark}
 \label{rem:threshold-one-half}
-The condition~$\mb p^\star\leq\mbs{\tfrac12}$ in
-Corollary~\ref{cor:uniform-exponential-ergodicity} appears to be a feature
-of the proof rather than a real threshold. The value~$\tfrac12$ enters only
-because it implies that every probability measure belongs
-to~$\mathcal M_{-,1}$, after which Theorem~\ref{thm:common-invariant-limit}
-applies directly to every initial law. Nothing in the patch representation
-or the definition of patch positivity changes at this value.
-Corollary~\ref{cor:oriented-ergodicity} gives further evidence that the
-restriction is not intrinsic: on orientable neighbourhood graphs, uniform
-ergodicity holds without any assumption on~$\mb p^\star$. Its proof
-suggests a route to removing the restriction on general neighbourhood
-graphs: rather than requiring the initial law itself to belong
-to~$\mathcal M_-$, one may try to prove that after a burn-in period its
-evolution approaches~$\mathcal M_\star$ on finite sets, in the sense that
+Theorem~\ref{thm:common-invariant-limit} gives convergence from every initial
+law in~$\mathcal M_-$, and the two corollaries extend it to all initial
+configurations in two different ways. If~$\mb p^\star\leq\mbs{\tfrac12}$, then
+$\abs{\chi_A^\star}\leq\prod_{i\in A}\bb{1-p_i^\star}$, so~$\mathcal M_{-,1}$
+contains every probability measure and Theorem~\ref{thm:common-invariant-limit}
+applies directly; this is the only place where the condition enters. On
+orientable neighbourhood graphs we use a burn-in argument instead: we show
+that every evolution approaches~$\mathcal M_\star$ on finite sets,
 \begin{equation*}
-\liminf_{t\to\infty}
-\inf_{\eta\in\Omega}
-P_t\chi_A^\star(\eta)
-\geq0
-\qquad
-\text{for every }A\Subset\Lambda.
+\liminf_{t\to\infty}\inf_{\eta\in\Omega}P_t\chi_A^\star(\eta)\geq0
+\qquad\text{for every }A\Subset\Lambda,
 \end{equation*}
-Once such a statement is available, Theorem~\ref{thm:common-invariant-limit}
-gives convergence to~$\pi$ from every initial configuration; see
-Section~\ref{subsec:proof-orientability}. Orientability provides one
-mechanism for this burn-in by reducing the problem locally to a finite system
-with autonomous boundary.
+and then apply Theorem~\ref{thm:common-invariant-limit}. Orientability makes
+this possible because, after conditioning on the dynamics on an autonomous
+set outside a finite box around~$A$, the dynamics inside the box is a finite
+patch-positive system with a time-dependent boundary condition. Such a system
+preserves nonnegative centered moments and, thanks to the pure deaths, enters
+$\mathcal M_\star$ with a uniformly positive probability in every unit of
+time; see Section~\ref{subsec:proof-orientability}.
 \end{remark}
 
 \subsection{FA-1f, the East model and BABP with noise}
