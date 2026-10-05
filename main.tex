@@ -1420,74 +1420,51 @@ of~\cite{GluchowskiMenz2025} leave only the face~$p_{1\mid11}=0$.}
 \section{The patch representation}
 \label{sec:probabilistic-interpretation}
 
-The main technical idea of this paper is a natural coupling. Adding
-independent deaths to a spin system does not change its signed dual process:
-the dual jump process, its interactions and its patches stay the same, and
-only the Feynman--Kac potential decreases by the death rate of every active
-site. Hence a spin system and the same system with a smaller rate of pure
-deaths, for instance with the pure deaths removed, can be realized on the
-same dual process. For a general spin system this coupling gives no
-inequality, because the dual weights carry signs. Patch positivity is exactly
-the condition under which, after conditioning on the interactions, all
-weights are nonnegative. The coupling then becomes a termwise comparison:
-every patch contribution of the system with deaths is bounded by the
-corresponding contribution of the system with fewer deaths, and on patches
-that end with an outgoing interaction it is smaller by the factor~$e^{-du}$,
-where~$d$ is the removed death rate and~$u$ the length of the patch
-(Proposition~\ref{prop:death-removal}). For patch-positive systems this
-coupling of duals takes the place of the coupling of ordered configurations
-used for monotone systems.
+\chg{The main technical idea of this paper is a natural coupling. Adding
+independent deaths to a spin system does not change its signed dual process;
+it only lowers the Feynman--Kac potential by the death rate of every active
+site. Hence a system and the same system with fewer pure deaths live on the
+same dual. Since the dual weights carry signs, this gives no inequality in
+general. Patch positivity is exactly the condition under which all weights
+become nonnegative once the interactions between sites are revealed. The
+coupling then becomes a termwise comparison: the contributions of the system
+with deaths are bounded by those of the system with fewer deaths, and are
+smaller by the factor~$e^{-du}$ on patches of length~$u$ that end with an
+outgoing interaction (Proposition~\ref{prop:death-removal}). For
+patch-positive systems this coupling of duals replaces the coupling of
+ordered configurations used for monotone systems.
 
-In this section we develop the representation behind this coupling. In
-Section~\ref{sec:dual} we write the
-action of the semigroup on monomials as a signed set-valued Feynman--Kac
-formula. In Section~\ref{sec:patches} we reveal only the interactions between
-sites in this dual, which divides each site line into patches. In
-Section~\ref{subsec:patch-representation} we show that, conditionally on these
-interactions, the signed weight factorizes into one contribution per patch
-(Theorem~\ref{thm:patch-representation}). Patch positivity is exactly the
-nonnegativity of these contributions
-(Proposition~\ref{prop:patch-contribution-positivity},
-Section~\ref{subsec:proof-patch-positivity-threshold}), and removing pure
-deaths changes the contributions in a monotone way
-(Proposition~\ref{prop:death-removal},
-Section~\ref{subsec:proof-pure-death-comparison}). Figure~\ref{fig:dependency-graph-sec4} in
-Appendix~\ref{app:dependencies} shows how these results depend on each other.
+Section~\ref{sec:dual} introduces the signed dual, Section~\ref{sec:patches}
+the patches, and Section~\ref{subsec:patch-representation} the patch
+representation (Theorem~\ref{thm:patch-representation}) with explicit
+contributions (Lemma~\ref{lem:contribution-formulas}).
+Sections~\ref{subsec:proof-patch-positivity-threshold}
+and~\ref{subsec:proof-pure-death-comparison} prove the two properties of the
+contributions used later: nonnegativity
+(Proposition~\ref{prop:patch-contribution-positivity}) and the comparison
+under removing deaths (Proposition~\ref{prop:death-removal}).
+Figure~\ref{fig:dependency-graph-sec4} shows the dependencies.}
 
 \subsection{Dual process}
 \label{sec:dual}
 
-In this subsection, we derive the standard set-valued Feynman--Kac duality for
-spin systems in the signed form needed for the patch representation; see~\cite{Harris1978,Griffeath1979,Gray1986,JansenKurt2014}. We identify the
-signed dual directly from the action of the generator on monomials and record
-the effect of pure deaths on its Feynman--Kac potential. The graphical
-construction used to define patches is introduced in
-Section~\ref{sec:patches}.
-
-The idea behind the dual is to trace the dependence on the initial
-configuration backward in time. The value~$\chi_A(\eta_t)$ depends on the
-spins in~$A$ at time~$t$. Following the graphical construction backward
-from time~$t$, the dual set~$A_s$ records the sites whose spins at
-time~$t-s$ the value~$\chi_A(\eta_t)$ may still depend on. Roughly speaking,
-when a site of~$A_s$ is updated, three things can happen. If the new spin is
-drawn independently of all other spins, the earlier spin of the site is
-irrelevant and the site is removed (a \emph{death}). If the new spin is
-determined by the spins of a set~$S$ of neighbours, the site is replaced
-by~$S$ (a \emph{split}). If the outcome depends both on the earlier spin of
-the site and on the spins in~$S$, for example because the update may be
-blocked by a constraint, then~$S$ is added and the site is kept
-(a \emph{birth}). If the dual set becomes empty, then~$\chi_A(\eta_t)$ does
-not depend on the initial configuration at all.
-Figure~\ref{fig:dual-idea} shows an example. Set-valued duals of this kind go
-back to Harris~\cite{Harris1978} and Griffeath~\cite{Griffeath1979}, who used
-them for additive and cancellative systems; see also~\cite{Liggett1985}
-and~\cite{Gray1986}, and~\cite{JansenKurt2014} for a general discussion of
-duality. Information percolation~\cite{LubetzkySly2016} is based on a related
-backward exploration of the updates that carry information. In general the
-coefficients of the dual transitions have signs, which are recorded by a
-second coordinate~$\sigma_s\in\cb{+,-}$; these signs implement the
-inclusion--exclusion in the expansion of the update rates and are the source
-of the cancellations discussed in Section~\ref{sec:patches}.
+\chg{The dual traces the dependence on the initial configuration backward in
+time: the dual set~$A_s$ consists of the sites whose spins at time~$t-s$ the
+value~$\chi_A(\eta_t)$ may still depend on. Roughly speaking, when a site
+of~$A_s$ is updated, it is removed if its new spin is drawn independently of
+all other spins (a \emph{death}); it is replaced by a set~$S$ of neighbours
+if the new spin is determined by the spins in~$S$ (a \emph{split}); and~$S$
+is added if the outcome depends both on its earlier spin and on~$S$, for
+example because the update may be blocked (a \emph{birth}). If the dual set
+becomes empty,~$\chi_A(\eta_t)$ no longer depends on the initial
+configuration; see Figure~\ref{fig:dual-idea}. Such set-valued duals go back
+to Harris~\cite{Harris1978} and Griffeath~\cite{Griffeath1979} for additive
+and cancellative systems; see also~\cite{Liggett1985,Gray1986,JansenKurt2014},
+and~\cite{LubetzkySly2016} for a related backward exploration. In general the
+dual transitions carry signs, recorded in a second
+coordinate~$\sigma_s\in\cb{+,-}$; they implement the inclusion--exclusion in
+the expansion of the rates and cause the cancellations treated in
+Section~\ref{sec:patches}.}
 \authorcheck{Add precise chapter and section references for the set-valued
 duals in~\cite{Liggett1985} and~\cite{Griffeath1979}.}
 
@@ -1557,11 +1534,9 @@ such that
 +
 V(A)H((A,\sigma),\eta),
 \end{equation}
-where~$\Dcal$ is the generator of~$(A_t,\sigma_t)$. Once the duality
-function~\eqref{eq:monomial-duality-function} is fixed, possible transitions in the dual process and the potential are read directly from the action of~$\Lcal$
-on monomials.
-
-Indeed, expanding~$\Lcal\chi_A$ in the monomial basis gives
+where~$\Dcal$ is the generator of~$(A_t,\sigma_t)$. \chg{The transitions and the
+potential are read off from the expansion of~$\Lcal\chi_A$ in the monomial
+basis,}
 \begin{equation}
 \label{eq:signed-dual-generator-expansion}
 \Lcal\chi_A
@@ -1592,14 +1567,11 @@ a_i^\beta(\varnothing)
 =
 -\lambda_i(\mb 0).
 \end{equation*}
-This follows by applying the generator to~$\chi_A$; see the proof of
-Proposition~\ref{thm:monomial-duality}.
-
-We now construct the generator of the dual process.
-For~$r\in\R$, let~$\operatorname{sgn}_{\pm}(r)$ be~$+$ when~$r\geq0$ and~$-$
-when~$r<0$. We turn the off-diagonal coefficients in
-\eqref{eq:signed-dual-generator-expansion} into jump rates by taking absolute
-values, while their signs are carried by the second coordinate. For~$S\subseteq N(i)$, set
+\chg{(See the proof of Proposition~\ref{thm:monomial-duality}.) The off-diagonal
+coefficients in~\eqref{eq:signed-dual-generator-expansion} become jump rates
+after taking absolute values, and their signs are carried by the second
+coordinate. With~$\operatorname{sgn}_{\pm}(r)=+$ for~$r\geq0$
+and~$\operatorname{sgn}_{\pm}(r)=-$ for~$r<0$, set, for~$S\subseteq N(i)$,}
 \begin{equation}
 \label{eq:death-split-data}
 \delta_i(S)
@@ -1637,9 +1609,9 @@ A\cup S,
 \sigma\sigma_i^\beta(S)
 }.
 \end{align*}
-Thus the update operator~$D_{i,\varnothing}$ removes~$i$, the operator~$D_{i,S}$ with~$S\neq\varnothing$ replaces~$i$ by~$S$, and~$B_{i,S}$
-adds~$S$. We refer to these transitions as a death, split, and birth,
-respectively. The dual generator is
+\chg{Thus~$D_{i,\varnothing}$ removes~$i$ (death),~$D_{i,S}$ with~$S\neq\varnothing$
+replaces~$i$ by~$S$ (split), and~$B_{i,S}$ adds~$S$ (birth). The dual
+generator is}
 \begin{align}
 \label{eq:signed-dual-generator}
 \Dcal g(A,\sigma)
@@ -1659,8 +1631,9 @@ g\bb{B_{i,S}(A,\sigma)}-g(A,\sigma)
 }.
 \end{align}
 
-The off-diagonal terms of~\eqref{eq:signed-dual-generator-expansion} are now
-reproduced by~$\Dcal H$. For the duality equation to hold the remaining diagonal terms must be included in the Feynman--Kac potential, which therefore is
+\chg{Then~$\Dcal H$ reproduces the off-diagonal terms
+of~\eqref{eq:signed-dual-generator-expansion}, and the diagonal terms go into
+the potential}
 \begin{equation}
 \label{eq:dual-potential}
 V(A)
@@ -1675,10 +1648,9 @@ V_i
 +
 a_i^\beta(\varnothing).
 \end{equation}
-With this choice, the generator identity~\eqref{eq:monomial-generator-duality} holds, which we check in the proof of
-Proposition~\ref{thm:monomial-duality}. The uniform bounds on the
-neighbourhood sizes and update rates imply that the total dual jump rate per
-active site and~$\abs{V_i}$ are uniformly bounded.
+\chg{With this choice~\eqref{eq:monomial-generator-duality} holds. By the uniform
+bounds on~$\abs{N(i)}$ and the rates, the dual jump rate per active site
+and~$\abs{V_i}$ are uniformly bounded.}
 
 
 We write~$\pP_A$ and~$\E_A$ for the law and expectation of the signed
@@ -1737,35 +1709,25 @@ argument, see for example~\cite{JansenKurt2014}, turns it
 into~\eqref{eq:monomial-feynman-kac-duality}.
 \end{proof}
 
-Pure deaths have a particularly simple effect on this representation. Since
-\begin{equation*}
-\Ncal^{\mb 0}\chi_A
-=
--\abs{A}\chi_A,
-\end{equation*}
-adding~$\varepsilon\Ncal^{\mb 0}$ to the spin system generator changes no
-off-diagonal coefficient in~\eqref{eq:signed-dual-generator-expansion}.
-Consequently, the signed dual jump process is unchanged, while the potential
-is replaced by
-\begin{equation*}
-V(A)-\varepsilon\abs{A}.
-\end{equation*}
-Thus two spin systems that only differ by adding pure deaths have the same dual process but the one with more deaths has smaller Feynman--Kac weight.
-This gives the natural coupling of the two duals described at the beginning of
-this section; Proposition~\ref{prop:death-removal} turns it into a termwise
-comparison for patch-positive systems.
+\chg{Pure deaths act diagonally,~$\Ncal^{\mb 0}\chi_A=-\abs{A}\chi_A$. Hence
+adding~$\varepsilon\Ncal^{\mb 0}$ changes no off-diagonal coefficient
+in~\eqref{eq:signed-dual-generator-expansion}: the signed dual jump process is
+unchanged and the potential becomes~$V(A)-\varepsilon\abs{A}$. This is the
+coupling described at the beginning of this section.}
 
 
 \subsection{Patches}
 \label{sec:patches}
 
-The duality formula~\eqref{eq:monomial-feynman-kac-duality} represents the nonnegative~$P_t\chi_A$ in a way that includes the sign process~$\sigma_t$. If the sign process were absent, the right-hand side would be an expectation of nonnegative weights. Inequalities between the potentials of two systems, such as a system and the system obtained by removing pure deaths, would then carry over directly to the semigroups, and the dependence on the initial law could be controlled termwise. To use the representation for convergence one therefore needs to control the cancellations from the sign process.
-To capture these cancellations, we introduce a~$\sigma$-algebra that reveals when sites interact, but not exactly how. For each site~$i$, the consecutive incoming and outgoing interactions divide~$\cb{i}\times [0,\infty)$ into intervals, which we call patches. Conditional on the the interaction skeleton the law of the dual process factorizes over these patches. Then~$P_t\chi_A$ can be represented via expectation over a product of contributions, one per patch, and given patch positivity these contributions capture all necessary cancellations.
-
-To obtain the patch representation, we define a~$\sigma$-algebra that
-records how dependence passes between sites while revealing as little of the
-remaining randomness as possible. The~$\sigma$-algebra should reveal every interaction between sites, but suppress local events and any additional information. To make this notion precise,
-we first construct the dual process graphically.
+\chg{Without the sign~$\sigma_t$, the duality~\eqref{eq:monomial-feynman-kac-duality}
+would express~$P_t\chi_A$ through nonnegative weights, and inequalities
+between the potentials of two systems would carry over directly to the
+semigroups. To control the cancellations of the signs, we introduce
+a~$\sigma$-algebra that reveals when sites interact, but not how. The
+interactions divide each site line into intervals, the patches, and
+conditionally on the interactions the dual factorizes over the patches
+(Section~\ref{subsec:patch-representation}). We first construct the dual
+graphically.}
 
 We use the standard Poisson graphical construction for the dual process. For
 every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
@@ -1806,13 +1768,11 @@ i\in A_{t-}.
 \end{equation*}
 Its \emph{record} is the triple~$(i,t,S)$.
 \end{definition}
-The record retains exactly the source, time, and target of the interaction.
-The kind~$\alpha$ is not retained: a split and a birth with the same source
-and target connect the same sites. Deaths are not retained because their target
-is empty, and marks at inactive sources are not retained because they do not
-affect the dual.
-
-It is convenient for later construction of patches to add the initial successful interaction record~$(\infty,0,A)$, where~$\infty\notin\Lambda$ is a formal source. For~$T<\infty$, define the successful-interaction skeleton up to time~$T$ by
+\chg{The record omits the kind~$\alpha$, since a split and a birth with the same
+source and target connect the same sites; deaths and marks at inactive
+sources do not connect sites. We also add the formal initial
+record~$(\infty,0,A)$ with source~$\infty\notin\Lambda$. For~$T<\infty$, the
+successful-interaction skeleton up to time~$T$ is}
 \begin{equation}
 \label{eq:successful-interaction-skeleton}
 \mathcal I_T
@@ -1836,10 +1796,8 @@ We also set
 =
 \sigma\bb{\mathcal I_T}.
 \end{equation*}
-Thus~$\mathcal G_T$ reveals the complete record of interactions through which
-dependence passes between sites up to time~$T$, but does not reveal deaths,
-marks at inactive sources, or the split/birth kind of a successful
-interaction.
+\chg{Thus~$\mathcal G_T$ reveals all interactions between sites up to time~$T$,
+but not deaths, marks at inactive sources, or the kind of an interaction.}
 
 
 \begin{lemma}[Local finiteness]
@@ -1860,12 +1818,10 @@ at active sources on~$[0,T]$, and therefore only finitely many of them are
 successful interactions.
 \end{proof}
 
-Each record~$(i,t,S)\in\mathcal I$ is outgoing at its source~$i$ and incoming
-at every site in~$S$. Consequently, on each site line~$\cb{i}\times [0,\infty)$ the retained interaction
-times divide time into consecutive intervals between one incoming or outgoing successful
-interaction and the next. These intervals are the patches. Below we give the precise construction.
-
-For~$i\in\Lambda$, define the times of incoming and outgoing successful interactions at~$i$:
+\chg{Each record~$(i,t,S)\in\mathcal I$ is outgoing at~$i$ and incoming at every
+site of~$S$. On each site line these times cut time into consecutive
+intervals, the patches. For~$i\in\Lambda$, the times of incoming and outgoing
+successful interactions at~$i$ are}
 \begin{align*}
 \mathcal T^{\mathsf I}(i)
 &=
@@ -1880,9 +1836,9 @@ For~$i\in\Lambda$, define the times of incoming and outgoing successful interact
 &=
 \mathcal T^{\mathsf I}(i)\cup\mathcal T^{\mathsf O}(i).
 \end{align*}
-The formal record~$(\infty,0,A)$ implies that~$0\in\mathcal T^{\mathsf I}(i)$, meaning we interpret the initial conditions of the process as an incoming successful interaction.
-For~$s\in\mathcal T(i)$, the next successful interaction involving~$i$ occurs
-at
+\chg{By the formal record,~$0\in\mathcal T^{\mathsf I}(i)$ for~$i\in A$: the
+initial set counts as an incoming interaction. For~$s\in\mathcal T(i)$, the
+next successful interaction at~$i$ occurs at}
 \begin{equation*}
 e_i(s)
 =
@@ -1933,8 +1889,8 @@ Let~$\mathcal P$ be the family of all patches. For this infinite-horizon family,
 a patch with terminal label~$\mathsf E$ is infinite, while a patch with terminal
 label~$\mathsf I$ or~$\mathsf O$ is finite.
 
-For the representation at a finite time~$t$, patches which continue beyond~$t$
-must be cut at the observation time. For~$P\in\mathcal P$ with~$s(P)\leq t$,
+\chg{At a finite time~$t$, patches that continue beyond~$t$ are cut at~$t$.}
+For~$P\in\mathcal P$ with~$s(P)\leq t$,
 let~$P^{\downarrow t}$ be obtained by replacing its endpoint by
 $\min\cb{e(P),t}$ and, when~$t<e(P)$, replacing its terminal label by
 $\mathsf E$. Thus
@@ -1968,11 +1924,10 @@ The families of bulk patches, end patches, and all finite-horizon patches are
 &=
 \mathcal B_t\cup\mathcal E_t.
 \end{align*}
-Thus the bulk patches are completed by time~$t$, while the end patches are the
-patches crossing~$t$, truncated at the observation time. By Lemma~\ref{lem:dual-local-finiteness}, the family~$\mathcal P_t$ is finite
-almost surely. Distinct end patches have distinct sites, since the successful-interaction
-times divide each site line into consecutive intervals. Figure~\ref{fig:patch-geometry} shows the full graphical realization and the
-finite-horizon patch family induced by its successful-interaction skeleton.
+\chg{Bulk patches end by time~$t$; end patches cross~$t$ and are cut there. By
+Lemma~\ref{lem:dual-local-finiteness},~$\mathcal P_t$ is almost surely
+finite, and distinct end patches have distinct sites.
+Figure~\ref{fig:patch-geometry} shows a realization and its patch family.}
 \begin{figure}[htbp]
 \centering
 \resizebox{\linewidth}{!}{\begingroup
@@ -2214,29 +2169,20 @@ Thus~$P^{\uparrow t}=P$.
 \subsection{Patch representation}
 \label{subsec:patch-representation}
 
-Conditioning on~$\mathcal G_T$ fixes the successful-interaction skeleton up to time~$T$, and
-hence the patch family~$\mathcal P_T$.
-It leaves unresolved the local information that was omitted from the skeleton.
-In particular, deaths inside patches are not revealed, and for a successful interaction the skeleton does not say whether it was a split or a
-birth. The fixed patch boundaries restrict this remaining randomness:
-depending on the boundary types, they may force the interaction kind or
-exclude deaths. These restrictions involve only one patch at a time.
-Consequently, conditional on~$\mathcal G_T$, the unresolved randomness
-factorizes over the patches.
-
-Fix a patch~$P$, and write~$i=i(P)$,~$s=s(P)$,~$e=e(P)$, and~$S=S(P)$.
-We first define a reference law for the information in the patch~$P$, that is
-not revealed by the skeleton. Inside the patch, the outgoing marks from~$i$ are
+\chg{Conditioning on~$\mathcal G_T$ fixes the skeleton and hence the patch
+family~$\mathcal P_T$. What remains random are the deaths inside patches and
+the kind, split or birth, of each interaction. The patch boundaries restrict
+this randomness one patch at a time, so conditionally on~$\mathcal G_T$ it
+factorizes over the patches. We first describe the law of one patch. Fix a
+patch~$P$, write~$i=i(P)$,~$s=s(P)$,~$e=e(P)$,~$S=S(P)$, and let}
 \begin{equation*}
 \Sigma_P^\circ
 =
 \cb{(i,u,\gamma,R)\in I^{\mathrm P}:s<u<e}.
 \end{equation*}
-For each~$R$, the~$(\delta,R)$ and~$(\beta,R)$ marks in~$(s,e)$ are
-independent Poisson processes with rates~$\delta_i(R)$ and~$\beta_i(R)$,
-respectively.
-
-It remains to specify the information at the initial boundary. If
+\chg{be the marks from~$i$ inside the patch; for each~$R$, the~$(\delta,R)$
+and~$(\beta,R)$ marks are independent Poisson processes with
+rates~$\delta_i(R)$ and~$\beta_i(R)$. At the initial boundary,} if
 $\mathsf X(P)=\mathsf I$, the boundary is incoming, so there is no outgoing
 mark from~$i$ to add and we set~$\Sigma_P=\Sigma_P^\circ$. If
 $\mathsf X(P)=\mathsf O$, the boundary record specifies the target~$S$ but not
@@ -2253,7 +2199,8 @@ $\Sigma_P^\circ$, with
 =
 \frac{\beta_i(S)}{\delta_i(S)+\beta_i(S)}.
 \end{equation}
-Note that almost surely, for every patch~$P\in\mathcal{P_T}$ we have~$\delta_{i}(S)+\beta_i(S)>0$, as otherwise the successful interaction that begins the patch would have rate zero and would have never happened. Hence, in the case~$\mathsf{X}(P)=\mathsf{O}$ we set
+\chg{(Almost surely~$\delta_i(S)+\beta_i(S)>0$, since the interaction starting the
+patch has positive rate.) In this case we set}
 \begin{equation*}
 \Sigma_P
 =
@@ -2276,13 +2223,11 @@ $\delta$-mark sets~$X_u^P=0$ and a~$\beta$-mark leaves~$X_u^P=1$; when
 $X_{u-}^P=0$, either mark leaves~$X_u^P=0$. Between marks,~$X^P$ is constant.
 For a finite patch with terminal label~$\mathsf E$, set~$X_e^P=X_{e-}^P$.
 
-Not every realization under~$\pP_P$ is compatible with the patch boundaries
-fixed by the skeleton. A mark with nonempty target inside the patch
-would be a successful interaction whenever the patch site is active immediately
-before it, and would create an additional successful-interaction cutting the patch into smaller patches. Hence such marks can only occur with~$X_{u-}^P=0$. If the terminal boundary is outgoing, the recorded interaction
-must itself be successful, so~$X_{e-}^P=1$. There is no additional endpoint
-condition for an incoming or end boundary. We therefore define the consistency
-event
+\chg{Not every realization is compatible with the boundaries fixed by the
+skeleton. A mark with nonempty target at an active site would be a further
+successful interaction and cut the patch, so such marks need~$X_{u-}^P=0$; and
+an outgoing terminal interaction must be successful, so~$X_{e-}^P=1$. This
+gives the consistency event}
 \begin{equation*}
 \operatorname{Con}(P)
 =
@@ -2529,11 +2474,8 @@ times at which the patch site is active, i.e.~$X_s^P = 1$.}
 \label{fig:patch-interiors}
 \end{figure}
 
-The one-patch laws above describe exactly the randomness left after the
-successful-interaction skeleton is fixed. Conditional on~$\mathcal G_T$,
-different patches are independent and each patch has its consistent law. Thus a
-conditional expectation of a product of patch-local quantities reduces to a
-product of one-patch expectations.
+\chg{The next lemma shows that, conditionally on~$\mathcal G_T$, the patches are
+independent with their consistent laws.}
 
 \begin{lemma}[Patch factorization]
 \label{thm:patch-factorization}
@@ -2656,8 +2598,8 @@ identifies the conditional law. The integrable signed case follows from this
 conditional-law statement.
 \end{proof}
 
-We now apply the conditional factorization to the Feynman--Kac random variable
-from Section~\ref{sec:dual}. For fixed~$t\geq0$ and~$\eta\in\Omega$, write
+\chg{To apply Lemma~\ref{thm:patch-factorization} to the Feynman--Kac weight,
+fix~$t\geq0$ and~$\eta\in\Omega$, write}
 \begin{equation*}
 Z_t^\eta
 =
@@ -2667,13 +2609,9 @@ Z_t^\eta
 \qquad
 P_t\chi_A(\eta)=\E_A\Cb{Z_t^\eta}.
 \end{equation*}
-Lemma~\ref{thm:patch-factorization} applies once~$Z_t^\eta$ is written as a
-product of factors over patches. We therefore split its sign, Feynman--Kac
-integral, and terminal monomial over the patch decomposition.
-
-Each successful nonempty-target interaction contributes its sign to the
-outgoing patch beginning at its source. Deaths have
-positive sign because
+\chg{and split its sign, potential integral and terminal monomial over the
+patches. Each successful interaction contributes its sign to the outgoing
+patch at its source; deaths have positive sign since}
 \begin{equation*}
 a_i^\delta(\varnothing)
 =
@@ -2713,8 +2651,7 @@ V_{i(P)}\int_{s(P)}^tX_u^P\,du,
 \eta\bb{i(P)}^{X_t^P}.
 \end{align*}
 
-These are exactly the pieces that make up the local patch factors. For a full
-patch~$P\in\mathcal P$, set
+\chg{For a full patch~$P\in\mathcal P$, set}
 \begin{equation*}
 F(P)
 =
@@ -2743,8 +2680,8 @@ Z_t^\eta
 \prod_{P\in\mathcal B_t}F(P)
 \prod_{P\in\mathcal E_t}F\bb{\eta\bb{i(P)},P}.
 \end{equation}
-Patch factorization tells us to average each local factor under its consistent
-patch law. We define
+\chg{Averaging each factor under its consistent patch law defines the patch
+contributions}
 \begin{equation*}
 C(P)=\E_P^{\mathrm{con}}\Cb{F(P)},
 \qquad
@@ -2818,12 +2755,11 @@ Therefore
 }.
 \end{equation}
 
-The patch expectation~$\E_P^{\operatorname{con}}$ average the local information omitted from the
-skeleton. In particular, all deaths are integrated out.
-If a patch begins with an outgoing boundary, the skeleton determines its
-target~$S(P)$ but not whether that interaction was a split or a birth, so this
-hidden kind and the sign it may carry are also averaged under the patch expectation. When a split and a birth with the same target carry opposite signs, their
-contributions can cancel inside~$C(P)$ or~$C(z,P)$.
+\chg{The contributions average out the information omitted from the skeleton:
+the deaths and, for outgoing patches, the kind and sign of the initial
+interaction. When a split and a birth with the same target carry opposite
+signs, they cancel inside~$C(P)$ or~$C(z,P)$; this is where the cancellations
+of the sign process are captured.}
 
 \subsubsection*{Explicit patch contributions}
 
@@ -2932,9 +2868,8 @@ probability of occurring, so the formula is irrelevant.
 \end{enumerate}
 \end{lemma}
 
-The proof is a direct computation, given in
-Appendix~\ref{app:contribution-formulas}. By the definitions in Section~\ref{sec:dual}, these
-quantities satisfy
+\chg{The proof is a direct computation, given in
+Appendix~\ref{app:contribution-formulas}. In terms of the spin rates,}
 \begin{equation}
 \label{eq:dual-to-spin-contribution-data}
 \begin{aligned}
@@ -3007,8 +2942,8 @@ If~$\lambda_i(\mb 0)>0$, then
 If~$\lambda_i(\mb 0)=0$, then~$\psi_i(u,z)=z$, and the second identity remains
 valid.
 
-Thus, when~$\lambda_i(\mb 0)>0$, the value~$z$ is forgotten
-exponentially fast and replaced in the limit by~$\rho_i(\mb 0)$.
+\chg{Thus, when~$\lambda_i(\mb 0)>0$, the value~$z$ is forgotten exponentially
+fast and replaced by~$\rho_i(\mb 0)$.}
 
 
 
@@ -3017,10 +2952,11 @@ exponentially fast and replaced in the limit by~$\rho_i(\mb 0)$.
 \subsection{Patch positivity}
 \label{subsec:proof-patch-positivity-threshold}
 
-We now give the probabilistic interpretation of patch positivity and of the threshold profile~$\mb p^*$. Conditions in~\eqref{eq:patch-positivity} are equivalent to non-negativity of bulk patch contributions, and~$\mb p^*$ is defined so that the end patch contributions are also non-negative, when integrated against a measure in~$\mathcal{M}_*$. The
-explicit formulas for~$C(P)$ and~$C(z,P)$ are given in
-Lemma~\ref{lem:contribution-formulas}. Their consequences are
-summarized in the following proposition.
+\chg{The following proposition gives the probabilistic meaning of patch
+positivity and of the threshold profile: patch positivity is the
+nonnegativity of all patch contributions, and~$p_i^\star$ is the smallest
+density at which the end contributions are nonnegative. It is read off from
+Lemma~\ref{lem:contribution-formulas}.}
 
 \begin{proposition}
 \label{prop:patch-contribution-positivity}
@@ -3221,12 +3157,9 @@ Taking the maximum in~\eqref{eq:threshold-profile} proves
 \subsection{Removing pure deaths}
 \label{subsec:proof-pure-death-comparison}
 
-We now make the coupling described at the beginning of this section
-precise. The key comparison in the proof of
-Theorem~\ref{thm:common-invariant-limit} is between a patch-positive system
-and the system obtained by removing independent deaths from it. The two
-systems have the same dual process, and by patch positivity their patch
-contributions can be compared termwise.
+\chg{We now make the coupling precise: a patch-positive system and the system
+with some of its pure deaths removed have the same dual, and their patch
+contributions compare termwise.}
 
 \begin{proposition}
 \label{prop:death-removal}
