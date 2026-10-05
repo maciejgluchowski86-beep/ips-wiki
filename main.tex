@@ -1431,7 +1431,8 @@ nonnegativity of these contributions
 Section~\ref{subsec:proof-patch-positivity-threshold}), and removing pure
 deaths changes the contributions in a monotone way
 (Proposition~\ref{prop:death-removal},
-Section~\ref{subsec:proof-pure-death-comparison}).
+Section~\ref{subsec:proof-pure-death-comparison}). Figure~\ref{fig:dependency-graph-sec4} in
+Appendix~\ref{app:dependencies} shows how these results depend on each other.
 
 \subsection{Dual process}
 \label{sec:dual}
@@ -3115,10 +3116,19 @@ Combining this with~\eqref{eq:pure-death-bulk-patch-comparison} proves
 \eqref{eq:death-removal-weight-comparison}.
 \end{proof}
 
-\section{Proofs of the main results}
+\section{Proofs}
 \label{sec:proofs}
 
-\subsection{Preservation of nonnegative centered moments}
+Section~\ref{subsec:auxiliary} collects the auxiliary results, with their
+proofs. Section~\ref{subsec:proofs-main} proves
+Theorem~\ref{thm:common-invariant-limit} and
+Corollaries~\ref{cor:uniform-exponential-ergodicity}
+and~\ref{cor:oriented-ergodicity}.
+
+\subsection{Auxiliary results}
+\label{subsec:auxiliary}
+
+\subsubsection{Nonnegative centered moments}
 \label{subsec:proof-centered-moment-preservation}
 
 The following lemma is used twice: to identify the limit in
@@ -3397,11 +3407,11 @@ property and the semigroup identity
 give~$\pi^-P_s=\pi^-$.
 \end{proof}
 
-\subsection{\texorpdfstring{Proof of Theorem~\ref{thm:common-invariant-limit}}{Proof of the main theorem}}
-\label{subsec:proof-common-invariant-limit}
+\subsubsection{Three estimates for the patch weights}
+\label{subsec:three-estimates}
 
-The proof starts from the patch representation,
-Theorem~\ref{thm:patch-representation}. For~$A\Subset\Lambda$ and a
+The proof of Theorem~\ref{thm:common-invariant-limit} starts from the patch
+representation, Theorem~\ref{thm:patch-representation}. For~$A\Subset\Lambda$ and a
 probability measure~$\mu$ we have
 \begin{equation*}
 (\mu P_t)(\chi_A)
@@ -3452,41 +3462,11 @@ most~$\abs R$ end patches. On the complementary event the interaction cone
 exits~$R$ before time~$T$, and its contribution is controlled by finite
 propagation. We take~$R$ with radius proportional to~$T$. Polynomial growth
 ensures~$\abs R\lesssim(1+T)^D$, while the finite-propagation error is
-exponentially small. In the proof below we make these three estimates precise
-and then combine them with~$T=t/2$. 
-
-It is enough to prove the convergence uniformly over~$\mathcal M_\star$. Indeed, let~$K\geq0$ and
-$\mu\in\mathcal M_{-,K}$, and set
-\begin{equation*}
-\overline\mu
-=
-\frac{\mu+K\mu_{\mb 1}}{1+K}
-\in\mathcal M_\star.
-\end{equation*}
-Then
-\begin{equation*}
-\mu
-=
-(1+K)\overline\mu-K\mu_{\mb 1},
-\end{equation*}
-while~$\mu_{\mb 1}\in\mathcal M_\star$. Hence, if for some local
-function~$f$ and some quantity~$\ell(f)$ we have
-\begin{equation*}
-\sup_{\nu\in\mathcal M_\star}
-\abs{(\nu P_t)(f)-\ell(f)}
-\leq
-B_f(t),
-\end{equation*}
-then
-\begin{equation}
-\label{eq:m-minus-reduction}
-\sup_{\mu\in\mathcal M_{-,K}}
-\abs{(\mu P_t)(f)-\ell(f)}
-\leq
-(1+2K)B_f(t).
-\end{equation}
-We therefore work with initial laws in~$\mathcal M_\star$ until the end of
-the proof.
+exponentially small. Lemmas~\ref{lem:late-interactions},
+\ref{lem:no-late-relaxation} and~\ref{lem:spatial-confinement} below make
+these three estimates precise, and the proof of
+Theorem~\ref{thm:common-invariant-limit} in
+Section~\ref{subsec:proof-common-invariant-limit} combines them with~$T=t/2$. 
 
 For a probability measure~$\mu$, define the weight
 \begin{equation}
@@ -4900,6 +4880,9 @@ which proves~\eqref{eq:limiting-confinement-bound}.
 
 We now combine the three estimates.
 
+\subsubsection{Finite propagation}
+\label{subsec:finite-propagation}
+
 The following estimate is the standard finite speed of propagation for spin
 systems with bounded rates; see~\cite{Liggett1985}. We include a proof for the
 convenience of the reader.
@@ -4972,6 +4955,45 @@ every~$\eta\in\Omega$,
 \end{equation*}
 This proves~\eqref{eq:finite-propagation}.
 \end{proof}
+
+\subsection{Proofs of the main results}
+\label{subsec:proofs-main}
+
+\subsubsection{\texorpdfstring{Proof of Theorem~\ref{thm:common-invariant-limit}}{Proof of the main theorem}}
+\label{subsec:proof-common-invariant-limit}
+
+It is enough to prove the convergence uniformly over~$\mathcal M_\star$. Indeed, let~$K\geq0$ and
+$\mu\in\mathcal M_{-,K}$, and set
+\begin{equation*}
+\overline\mu
+=
+\frac{\mu+K\mu_{\mb 1}}{1+K}
+\in\mathcal M_\star.
+\end{equation*}
+Then
+\begin{equation*}
+\mu
+=
+(1+K)\overline\mu-K\mu_{\mb 1},
+\end{equation*}
+while~$\mu_{\mb 1}\in\mathcal M_\star$. Hence, if for some local
+function~$f$ and some quantity~$\ell(f)$ we have
+\begin{equation*}
+\sup_{\nu\in\mathcal M_\star}
+\abs{(\nu P_t)(f)-\ell(f)}
+\leq
+B_f(t),
+\end{equation*}
+then
+\begin{equation}
+\label{eq:m-minus-reduction}
+\sup_{\mu\in\mathcal M_{-,K}}
+\abs{(\mu P_t)(f)-\ell(f)}
+\leq
+(1+2K)B_f(t).
+\end{equation}
+We therefore work with initial laws in~$\mathcal M_\star$ until the end of
+the proof.
 
 \begin{proof}[Proof of Theorem~\ref{thm:common-invariant-limit}]
 Fix~$A\Subset\Lambda$,~$\mu\in\mathcal M_\star$,~$0\leq T<t$, and a
@@ -5139,7 +5161,7 @@ Hence
 \end{equation*}
 so~$\delta_\eta\in\mathcal M_{-,K}\subseteq\mathcal M_-$.
 
-\subsection{\texorpdfstring{Proof of Corollary~\ref{cor:uniform-exponential-ergodicity}}{Proof of the first corollary}}
+\subsubsection{\texorpdfstring{Proof of Corollary~\ref{cor:uniform-exponential-ergodicity}}{Proof of the first corollary}}
 \label{subsec:proof-uniform-exponential}
 
 \begin{proof}[Proof of Corollary~\ref{cor:uniform-exponential-ergodicity}]
@@ -5165,7 +5187,7 @@ Thus every probability measure belongs to~$\mathcal M_{-,1}$ and
 Theorem~\ref{thm:common-invariant-limit} gives uniform, exponential ergodicity with rate~$\frac{\varepsilon}{2}$.
 \end{proof}
 
-\subsection{\texorpdfstring{Proof of Corollary~\ref{cor:oriented-ergodicity}}{Proof of the second corollary}}
+\subsubsection{\texorpdfstring{Proof of Corollary~\ref{cor:oriented-ergodicity}}{Proof of the second corollary}}
 \label{subsec:proof-orientability}
 
 We now prove Corollary~\ref{cor:oriented-ergodicity}. By
@@ -5743,7 +5765,7 @@ Table~\ref{tab:dependencies} lists the same information by statement.
 \caption{Dependencies of Theorem~\ref{thm:common-invariant-limit} and
 Corollary~\ref{cor:oriented-ergodicity}. An arrow from~$X$ to~$Y$ means
 that~$X$ is used in the proof of~$Y$. Bold: main results. Solid: the
-auxiliary results of Section~\ref{sec:proofs}. Dashed: the patch
+auxiliary results of Section~\ref{subsec:auxiliary}. Dashed: the patch
 representation of Section~\ref{sec:probabilistic-interpretation}. Dotted:
 computations in the appendices.}
 \label{fig:dependency-graph}
@@ -5796,6 +5818,46 @@ Appendix~\ref{app:dual-calculation} \\
 Figure~\ref{fig:dependency-graph}.}
 \label{tab:dependencies}
 \end{table}
+
+Figure~\ref{fig:dependency-graph-sec4} shows the dependencies among the
+results of Section~\ref{sec:probabilistic-interpretation}.
+Propositions~\ref{prop:patch-contribution-positivity}
+and~\ref{prop:death-removal} are statements about the patch contributions
+defined in Section~\ref{subsec:patch-representation}; they are read off from
+the explicit formulas in Appendix~\ref{app:contribution-formulas}.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  x=1.3cm, y=1.15cm,
+  res/.style={draw, rounded corners=2pt, align=center, font=\footnotesize,
+    minimum width=2.4cm, minimum height=0.85cm, inner sep=2pt, fill=white},
+  rep/.style={res, fill=gray!5, dashed},
+  app/.style={res, densely dotted},
+  dep/.style={-{Stealth[length=2mm]}, line width=0.5pt, gray!55!black},
+]
+\node[rep] (T47) at (0,0)      {Theorem~\ref{thm:patch-representation}\\ patch\\ representation};
+\node[rep] (P48) at (3,0)      {Proposition~\ref{prop:patch-contribution-positivity}\\ patch positivity\\ $\Leftrightarrow C\geq0$};
+\node[rep] (P49) at (6,0)      {Proposition~\ref{prop:death-removal}\\ removing deaths};
+\node[rep] (L46) at (-1.2,-1.7){Lemma~\ref{thm:patch-factorization}\\ patch\\ factorization};
+\node[rep] (P42) at (1.6,-1.7) {Proposition~\ref{thm:monomial-duality}\\ Feynman--Kac\\ duality};
+\node[app] (AB)  at (4.5,-1.7) {Appendix~\ref{app:contribution-formulas}\\ patch-contribution\\ formulas};
+\node[rep] (L44) at (-1.2,-3.4){Lemma~\ref{lem:dual-local-finiteness}\\ local finiteness};
+\node[app] (AA)  at (1.6,-3.4) {Appendix~\ref{app:dual-calculation}\\ derivation\\ of the dual};
+\draw[dep] (L44) -- (L46);
+\draw[dep] (AA) -- (P42);
+\draw[dep] (L46) -- (T47);
+\draw[dep] (P42) -- (T47);
+\draw[dep] (P42) -- (P49);
+\draw[dep] (AB) -- (P48);
+\draw[dep] (AB) -- (P49);
+\draw[dep] (P48) -- (P49);
+\end{tikzpicture}
+\caption{Dependencies among the results of
+Section~\ref{sec:probabilistic-interpretation}. An arrow from~$X$ to~$Y$
+means that~$X$ is used in the proof of~$Y$.}
+\label{fig:dependency-graph-sec4}
+\end{figure}
 \FloatBarrier
 
 \bibliographystyle{amsplain-fullnames}
