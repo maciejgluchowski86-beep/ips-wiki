@@ -1189,9 +1189,9 @@ Every simple spin system satisfying~\eqref{eq:simple-positive-rates} is ergodic.
 
 Earlier sufficient conditions cover parts of the parameter space
 \cite{GluchowskiMenz2025,GluchowskiMenz2026}. The orientability result above
-gives an additional region.
-\authorcheck{Explain where Conjecture~\ref{conj:east-deaths} sits relative to the
-white region of Figure~\ref{fig:simple-ips-ergodicity-regions}.}
+gives an additional region. The remaining region consists of noisy East
+models that are not patch-positive; see
+Remark~\ref{rem:simple-remaining-region}.
 
 \begin{corollary}[Positive rates for simple spin systems]
 \label{cor:simple-positive-rates}
@@ -1369,6 +1369,44 @@ covered by these criteria. The improvement is greatest when spontaneous births a
 \label{fig:simple-ips-ergodicity-regions}
 \end{figure}
 \FloatBarrier
+
+\begin{remark}[The remaining region]
+\label{rem:simple-remaining-region}
+The parameters left uncovered in
+Figure~\ref{fig:simple-ips-ergodicity-regions} correspond to noisy East models
+with~$\mb s<\mb p$. Indeed, on the face~$p_{1\mid11}=0$ these parameters
+satisfy~$p_{1\mid01}>p_{1\mid00}$. After exchanging the states~$0$ and~$1$
+and changing time by the factor
+$c=p_{1\mid10}+p_{1\mid01}-p_{1\mid00}>0$, such a system becomes the East
+model on~$\Z$ with refresh density~$p$ and added noise~$\varepsilon\Ncal^{\mb s}$
+with constant~$\mb s\equiv s$, where
+\begin{equation*}
+p=\frac{p_{1\mid10}}{c},
+\qquad
+\varepsilon=\frac{1-p_{1\mid10}+p_{1\mid00}}{c},
+\qquad
+s=\frac{1-p_{1\mid10}}{1-p_{1\mid10}+p_{1\mid00}},
+\end{equation*}
+and~$p,s\in(0,1)$,~$\varepsilon>0$. In these coordinates
+\begin{equation*}
+p_{1\mid01}\bb{1-p_{1\mid10}}-p_{1\mid00}\bb{1-p_{1\mid11}}
+=
+c^2\varepsilon\,(s-p),
+\end{equation*}
+so criterion~\eqref{eq:simple-positive-rates-criterion} is exactly the
+patch-positivity condition~$s\geq p$ of Example~\ref{ex:pp-noisy}. Consequently,
+removing the restriction~$\mb s\geq\mb p$ from
+Corollary~\ref{cor:perturbed-fa-babp-ergodicity}\textup{(iii)} for the East
+model, that is, proving uniform ergodicity of the East model with added
+noise~$\varepsilon\Ncal^{s}$ for all~$\varepsilon>0$ and~$s\in(0,1)$, would,
+together with the reductions and results
+of~\cite{GluchowskiMenz2025,GluchowskiMenz2026}, prove
+Conjecture~\ref{conj:simple-positive-rates}. The East model with pure deaths
+in Conjecture~\ref{conj:east-deaths} is the endpoint~$s=0$, where the
+positive-rates condition~\eqref{eq:simple-positive-rates} fails.
+\authorcheck{Verify this reduction, in particular that the reductions
+of~\cite{GluchowskiMenz2025} leave only the face~$p_{1\mid11}=0$.}
+\end{remark}
 \section{Probabilistic interpretation of patch positivity}
 \label{sec:probabilistic-interpretation}
 
