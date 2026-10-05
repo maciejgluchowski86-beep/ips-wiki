@@ -407,10 +407,10 @@ construction. Section~\ref{sec:setup} introduces the spin-system framework
 and the examples. Section~\ref{sec:main-results} defines patch positivity,
 states the main theorem and its consequences, and applies them to FA-1f, the
 East model, BABP and simple spin systems. The remaining sections develop the
-proofs. Section~\ref{sec:dual} constructs the signed dual and its graphical
-representation, Section~\ref{sec:patches} introduces the conditioning,
-patches and the patch factorization described above, and
-Section~\ref{sec:proofs} uses this representation to prove the main results.
+proofs. Section~\ref{sec:probabilistic-interpretation} constructs the signed
+dual, introduces the conditioning, patches and the patch factorization
+described above, and Section~\ref{sec:proofs} uses this representation to
+prove the main results.
 The appendices contain technical details of the proofs.
 
 \section{Setup and examples}
@@ -597,24 +597,6 @@ Thus the update rate is the number of vacant neighbours. In the complementary
 variables~$\xi(i)=1-\eta(i)$, vacancies are particles.
 \end{example}
 
-\begin{example}[Simple spin systems]
-A Simple spin system\cite{GluchowskiMenz2025, GluchowskiMenz2026} is a translation-invariant spin system~ on~$\Z$ with
-$N(i)=\cb{i+1}$. It is parametrized by four numbers
-$p_{1\mid ab}\in[0,1]$, $a,b\in\cb{0,1}$. When the spins at~$i$ and~$i+1$
-are~$a$ and~$b$, respectively, a rate-one update at~$i$ sets the spin to~$1$
-with probability~$p_{1\mid ab}$, and to~$0$ with probability~$p_{0\mid ab} = 1 -p_{1\mid ab}$. Equivalently, its refresh representation is
-\begin{equation*}
-\lambda_i(\eta)
-=
-p_{1\mid0\eta(i+1)}+1-p_{1\mid1\eta(i+1)},
-\qquad
-\rho_i(\eta)
-=
-\frac{p_{1\mid0\eta(i+1)}}{\lambda_i(\eta)}
-\end{equation*}
-when~$\lambda_i(\eta)>0$; again, if~$\lambda_i(\eta)=0$ then~$\rho_i(\eta)$ is irrelevant.
-\end{example}
-
 We also consider spin systems obtained by adding noise in the form of independent refreshes to
 the dynamics. 
 
@@ -751,8 +733,9 @@ class of initial laws for which our convergence result holds. The name comes
 from the representation developed in Sections~\ref{sec:dual}
 and~\ref{sec:patches}, where the condition is shown to have a probabilistic
 interpretation; see Proposition~\ref{prop:patch-contribution-positivity}. We
-then state the main theorem and apply it to FA-1f, the East model, BABP and
-simple spin systems.
+check the condition for FA-1f, the East model, BABP and their noisy
+versions, state the main theorem with its applications to these models, and
+finally apply it to the positive-rates problem for simple spin systems.
 
 \subsection{Patch positivity}
 \label{subsec:patch-positivity}
@@ -789,6 +772,130 @@ p_i^\star
 \end{equation}
 We call~$\mb p^\star$ the \emph{threshold profile}.
 \end{definition}
+
+Patch positivity is a sign condition on the coefficients of the expansions of
+$\lambda_i$ and~$\lambda_i\rho_i$ in the monomial basis. We check it for the
+examples of Section~\ref{sec:setup}.
+
+\begin{example}[FA-1f and East]
+\label{ex:pp-fa-east}
+For FA-1f, the only nonzero nonconstant coefficient of the update rate~$\lambda_i=1-\chi_{N(i)}$ is
+\begin{equation*}
+\widehat{\lambda_i}\bb{N(i)}=-1.
+\end{equation*}
+Since~$\rho_i=p$ is constant,
+\begin{equation*}
+\lambda_i\bb{\rho_i-\rho_i(\mb 0)}=0.
+\end{equation*}
+Thus FA-1f is patch-positive. Moreover,
+\begin{equation*}
+\frac{\widehat{\lambda_i\rho_i}\bb{N(i)}}
+{\widehat{\lambda_i}\bb{N(i)}}
+=p,
+\end{equation*}
+so its threshold profile is~$\mb p^\star=\mb p$.
+The East model is a particular case of FA-1f, hence it is also patch-positive with the same threshold profile.
+\end{example}
+
+\begin{example}[FA-$j$f, $j\geq2$]
+\label{ex:pp-fajf}
+Patch positivity does not hold for all FA models. For FA-$j$f with~$j\geq2$,
+the update rate is the indicator that at least~$j$ sites in~$N(i)$ are vacant.
+Its expansion in the monomials~$\chi_S$ contains positive nonconstant
+coefficients, so the first condition in~\eqref{eq:patch-positivity} fails.
+\end{example}
+
+\begin{example}[BABP]
+\label{ex:pp-babp}
+For BABP, the only nonzero nonconstant coefficients of
+\begin{equation*}
+\lambda_i(\eta)
+=
+\sum_{j\in N(i)}\bb{1-\eta(j)}
+\end{equation*}
+are
+\begin{equation*}
+\widehat{\lambda_i}\bb{\cb{j}}=-1,
+\qquad j\in N(i).
+\end{equation*}
+Again~$\rho_i=p$ is constant, so
+$\lambda_i\bb{\rho_i-\rho_i(\mb0)}=0$. Hence BABP is patch-positive.
+Moreover, for every~$j\in N(i)$,
+\begin{equation*}
+\frac{\widehat{\lambda_i\rho_i}\bb{\cb{j}}}
+{\widehat{\lambda_i}\bb{\cb{j}}}
+=
+p,
+\end{equation*}
+so its threshold profile is~$\mb p^\star=\mb p$.
+Without noise, qualitative convergence of BABP from translation-invariant
+initial laws was proved by Sudbury~\cite{Sudbury1997}, and on~$\Z^d$ every
+homogeneous product law~$\mu_u$ with~$u<1$ converges exponentially
+to~$\mu_p$ \cite[Application~2 and Section~5.1.1]{MartinelliShapiraToninelli2025}.
+\end{example}
+
+\begin{example}[FA-1f, East and BABP with noise]
+\label{ex:pp-noisy}
+Let~$\Lcal$ denote either FA-1f or BABP with refresh parameter~$p\in(0,1)$,
+and assume that~$N(i)\neq\vn$ for every~$i\in\Lambda$. For
+$\varepsilon>0$ and~$\mb s\in[0,1]^\Lambda$, consider
+\begin{equation*}
+\Lcal^{\varepsilon,\mb s}
+=
+\Lcal+\varepsilon\Ncal^{\mb s}.
+\end{equation*}
+Its update rate and refresh parameter are
+\begin{equation*}
+\lambda_i^{\varepsilon,\mb s}
+=
+\lambda_i+\varepsilon,
+\qquad
+\rho_i^{\varepsilon,\mb s}
+=
+\frac{p\lambda_i+\varepsilon s_i}
+{\lambda_i+\varepsilon}.
+\end{equation*}
+For every nonempty~$S\subseteq N(i)$,
+\begin{equation*}
+\widehat{\lambda_i^{\varepsilon,\mb s}}(S)
+=
+\widehat{\lambda_i}(S),
+\qquad
+\widehat{\lambda_i^{\varepsilon,\mb s}
+\rho_i^{\varepsilon,\mb s}}(S)
+=
+p\widehat{\lambda_i}(S),
+\end{equation*}
+and therefore
+\begin{equation*}
+\widehat{\lambda_i^{\varepsilon,\mb s}
+\bb{\rho_i^{\varepsilon,\mb s}
+-\rho_i^{\varepsilon,\mb s}(\mb0)}}(S)
+=
+\bb{p-\rho_i^{\varepsilon,\mb s}(\mb0)}
+\widehat{\lambda_i}(S).
+\end{equation*}
+The nonconstant coefficients of~$\lambda_i$ are nonpositive in both models,
+and at least one is strictly negative. Hence~$\Lcal^{\varepsilon,\mb s}$ is
+patch-positive if and only if
+\begin{equation}
+\label{eq:perturbed-fa-babp-patch-positive}
+\mb s\geq\mb p.
+\end{equation}
+Whenever this holds, its threshold profile remains~$\mb p^\star=\mb p$.
+\end{example}
+
+\begin{remark}
+\label{rem:pure-deaths-not-patch-positive}
+Condition~\eqref{eq:perturbed-fa-babp-patch-positive} excludes noise that
+consists only of pure deaths,~$\mb s=\mb 0$. Thus FA-1f and East with added
+pure deaths are not patch-positive for any~$p\in(0,1)$, and
+Conjecture~\ref{conj:east-deaths} lies outside the scope of our results. In the opposite
+direction, removing pure deaths from a patch-positive system preserves patch
+positivity and the threshold profile; see
+Proposition~\ref{prop:death-removal}. This is the direction used in the
+proof of Theorem~\ref{thm:common-invariant-limit}.
+\end{remark}
 
 The threshold profile determines the centering of the spins. For~$A\Subset\Lambda$, define the centered monomial
 \begin{equation*}
@@ -886,6 +993,18 @@ for every~$K\geq0$ and~$t\geq0$. Consequently,
 \end{equation*}
 \end{theorem}
 
+Theorem~\ref{thm:common-invariant-limit} is proved in
+Section~\ref{subsec:proof-common-invariant-limit}; the main idea is to compare,
+in the patch representation, the system with the one obtained by removing the
+pure deaths (Proposition~\ref{prop:death-removal}), which shows that dual
+interactions after time~$T$ contribute only~$O(e^{-\varepsilon T})$, while the
+end patches relax at rate~$\varepsilon$.
+
+A direct consequence of Theorem~\ref{thm:common-invariant-limit} and the fact
+that~$\mathcal M_{-,1}$ contains every probability measure
+if~$\mb p^\star\leq\mbs{\tfrac12}$ (Remark~\ref{rem:m-minus-examples}) is the
+following corollary.
+
 \begin{corollary}[Uniform exponential ergodicity]
 \label{cor:uniform-exponential-ergodicity}
 Under the hypotheses of Theorem~\ref{thm:common-invariant-limit}, suppose also
@@ -917,6 +1036,12 @@ measure and, for every local function~$f$,
 \end{equation*}
 \end{corollary}
 
+Corollary~\ref{cor:oriented-ergodicity} is proved in
+Section~\ref{subsec:proof-orientability} by a burn-in argument: orientability
+reduces the dynamics near a finite set to a finite patch-positive system,
+which drives every evolution towards~$\mathcal M_\star$, where
+Theorem~\ref{thm:common-invariant-limit} applies.
+
 \begin{remark}
 \label{rem:threshold-one-half}
 Theorem~\ref{thm:common-invariant-limit} gives convergence from every initial
@@ -940,106 +1065,11 @@ $\mathcal M_\star$ with a uniformly positive probability in every unit of
 time; see Section~\ref{subsec:proof-orientability}.
 \end{remark}
 
-\subsection{FA-1f, the East model and BABP with noise}
+\paragraph{Applications.}
 \label{subsec:fa-east-applications}
+We now apply these results to FA-1f, East and BABP with the noise from
+Example~\ref{ex:pp-noisy}.
 
-For FA-1f, the only nonzero nonconstant coefficient of the update rate~$\lambda_i=1-\chi_{N(i)}$ is
-\begin{equation*}
-\widehat{\lambda_i}\bb{N(i)}=-1.
-\end{equation*}
-Since~$\rho_i=p$ is constant,
-\begin{equation*}
-\lambda_i\bb{\rho_i-\rho_i(\mb 0)}=0.
-\end{equation*}
-Thus FA-1f is patch-positive. Moreover,
-\begin{equation*}
-\frac{\widehat{\lambda_i\rho_i}\bb{N(i)}}
-{\widehat{\lambda_i}\bb{N(i)}}
-=p,
-\end{equation*}
-so its threshold profile is~$\mb p^\star=\mb p$.
-The East model is a particular case of FA-1f, hence it is also patch-positive with the same threshold profile.
-\begin{remark}
-Patch positivity does not hold for all FA models. For FA-$j$f with~$j\geq2$,
-the update rate is the indicator that at least~$j$ sites in~$N(i)$ are vacant.
-Its expansion in the monomials~$\chi_S$ contains positive nonconstant
-coefficients, so the first condition in~\eqref{eq:patch-positivity} fails.
-\end{remark}
-
-For BABP, the only nonzero nonconstant coefficients of
-\begin{equation*}
-\lambda_i(\eta)
-=
-\sum_{j\in N(i)}\bb{1-\eta(j)}
-\end{equation*}
-are
-\begin{equation*}
-\widehat{\lambda_i}\bb{\cb{j}}=-1,
-\qquad j\in N(i).
-\end{equation*}
-Again~$\rho_i=p$ is constant, so
-$\lambda_i\bb{\rho_i-\rho_i(\mb0)}=0$. Hence BABP is patch-positive.
-Moreover, for every~$j\in N(i)$,
-\begin{equation*}
-\frac{\widehat{\lambda_i\rho_i}\bb{\cb{j}}}
-{\widehat{\lambda_i}\bb{\cb{j}}}
-=
-p,
-\end{equation*}
-so its threshold profile is~$\mb p^\star=\mb p$.
-Without noise, qualitative convergence of BABP from translation-invariant
-initial laws was proved by Sudbury~\cite{Sudbury1997}, and on~$\Z^d$ every
-homogeneous product law~$\mu_u$ with~$u<1$ converges exponentially
-to~$\mu_p$ \cite[Application~2 and Section~5.1.1]{MartinelliShapiraToninelli2025}.
-
-We now add noise in the form of independent refreshes.
-Let~$\Lcal$ denote either FA-1f or BABP with refresh parameter~$p\in(0,1)$,
-and assume that~$N(i)\neq\vn$ for every~$i\in\Lambda$. For
-$\varepsilon>0$ and~$\mb s\in[0,1]^\Lambda$, consider
-\begin{equation*}
-\Lcal^{\varepsilon,\mb s}
-=
-\Lcal+\varepsilon\Ncal^{\mb s}.
-\end{equation*}
-Its update rate and refresh parameter are
-\begin{equation*}
-\lambda_i^{\varepsilon,\mb s}
-=
-\lambda_i+\varepsilon,
-\qquad
-\rho_i^{\varepsilon,\mb s}
-=
-\frac{p\lambda_i+\varepsilon s_i}
-{\lambda_i+\varepsilon}.
-\end{equation*}
-For every nonempty~$S\subseteq N(i)$,
-\begin{equation*}
-\widehat{\lambda_i^{\varepsilon,\mb s}}(S)
-=
-\widehat{\lambda_i}(S),
-\qquad
-\widehat{\lambda_i^{\varepsilon,\mb s}
-\rho_i^{\varepsilon,\mb s}}(S)
-=
-p\widehat{\lambda_i}(S),
-\end{equation*}
-and therefore
-\begin{equation*}
-\widehat{\lambda_i^{\varepsilon,\mb s}
-\bb{\rho_i^{\varepsilon,\mb s}
--\rho_i^{\varepsilon,\mb s}(\mb0)}}(S)
-=
-\bb{p-\rho_i^{\varepsilon,\mb s}(\mb0)}
-\widehat{\lambda_i}(S).
-\end{equation*}
-The nonconstant coefficients of~$\lambda_i$ are nonpositive in both models,
-and at least one is strictly negative. Hence~$\Lcal^{\varepsilon,\mb s}$ is
-patch-positive if and only if
-\begin{equation}
-\label{eq:perturbed-fa-babp-patch-positive}
-\mb s\geq\mb p.
-\end{equation}
-Whenever this holds, its threshold profile remains~$\mb p^\star=\mb p$.
 
 \begin{proposition}[Convergence for perturbed FA-1f and BABP]
 \label{prop:perturbed-fa-babp-convergence}
@@ -1076,18 +1106,6 @@ rate~$\varepsilon(1-s_i)$. Thus~$\delta>0$ gives a pure-death component and the 
 Theorem~\ref{thm:common-invariant-limit}.
 \end{proof}
 
-\begin{remark}
-\label{rem:pure-deaths-not-patch-positive}
-Condition~\eqref{eq:perturbed-fa-babp-patch-positive} excludes noise that
-consists only of pure deaths,~$\mb s=\mb 0$. Thus FA-1f and East with added
-pure deaths are not patch-positive for any~$p\in(0,1)$, and
-Conjecture~\ref{conj:east-deaths} lies outside the scope of
-Proposition~\ref{prop:perturbed-fa-babp-convergence}. In the opposite
-direction, removing pure deaths from a patch-positive system preserves patch
-positivity and the threshold profile; see
-Proposition~\ref{prop:death-removal}. This is the direction used in the
-proof of Theorem~\ref{thm:common-invariant-limit}.
-\end{remark}
 
 \begin{remark}
 \label{rem:perturbed-bernoulli-invariant}
@@ -1163,7 +1181,29 @@ Remark~\ref{rem:perturbed-bernoulli-invariant}.
 \subsection{Positive rates for simple spin systems}
 \label{subsec:simple-positive-rates}
 
-Recall the simple spin systems from Section~\ref{sec:setup}. Both flips have
+We now turn to the positive-rates problem for a class of one-dimensional spin
+systems.
+
+\begin{definition}[Simple spin systems]
+\label{def:simple-spin-systems}
+A simple spin system~\cite{GluchowskiMenz2025, GluchowskiMenz2026} is a translation-invariant spin system on~$\Z$ with
+$N(i)=\cb{i+1}$. It is parametrized by four numbers
+$p_{1\mid ab}\in[0,1]$, $a,b\in\cb{0,1}$. When the spins at~$i$ and~$i+1$
+are~$a$ and~$b$, respectively, a rate-one update at~$i$ sets the spin to~$1$
+with probability~$p_{1\mid ab}$, and to~$0$ with probability~$p_{0\mid ab} = 1 -p_{1\mid ab}$. Equivalently, its refresh representation is
+\begin{equation*}
+\lambda_i(\eta)
+=
+p_{1\mid0\eta(i+1)}+1-p_{1\mid1\eta(i+1)},
+\qquad
+\rho_i(\eta)
+=
+\frac{p_{1\mid0\eta(i+1)}}{\lambda_i(\eta)}
+\end{equation*}
+when~$\lambda_i(\eta)>0$; again, if~$\lambda_i(\eta)=0$ then~$\rho_i(\eta)$ is irrelevant.
+\end{definition}
+
+Both flips have
 positive rates for either value of the right neighbour precisely when
 \begin{equation}
 \label{eq:simple-positive-rates}
@@ -1176,9 +1216,14 @@ is false in general: G\'acs constructed counterexamples
 \cite{Gacs1986,Gacs2001}; see also Gray's guide~\cite{Gray2001}. Classical
 positive-rate results for monotone nearest-neighbour spin systems include
 \cite{Gray1982}. The binary, one-sided nearest-neighbour problem considered
-here remains open. We refer to it as the positive rates conjecture for simple
-spin systems: every system satisfying~\eqref{eq:simple-positive-rates} should
-be ergodic. Earlier sufficient conditions cover parts of the parameter space
+here remains open.
+
+\begin{conjecture}[Positive rates for simple spin systems]
+\label{conj:simple-positive-rates}
+Every simple spin system satisfying~\eqref{eq:simple-positive-rates} is ergodic.
+\end{conjecture}
+
+Earlier sufficient conditions cover parts of the parameter space
 \cite{GluchowskiMenz2025,GluchowskiMenz2026}. The orientability result above
 gives an additional region.
 \authorcheck{Explain where Conjecture~\ref{conj:east-deaths} sits relative to the
@@ -1360,10 +1405,22 @@ covered by these criteria. The improvement is greatest when spontaneous births a
 \label{fig:simple-ips-ergodicity-regions}
 \end{figure}
 \FloatBarrier
-\section{Dual process}
+\section{Probabilistic interpretation of patch positivity}
+\label{sec:probabilistic-interpretation}
+
+In this section we develop the representation behind patch positivity. In
+Section~\ref{sec:dual} we write the action of the semigroup on monomials as a
+signed set-valued Feynman--Kac formula. In Section~\ref{sec:patches} we reveal
+only the interactions between sites in this dual, which divides each site
+line into patches, and show that, conditionally on these interactions, the
+signed weight factorizes into one contribution per patch. Patch positivity
+is exactly the nonnegativity of these contributions; see
+Proposition~\ref{prop:patch-contribution-positivity}.
+
+\subsection{Dual process}
 \label{sec:dual}
 
-In this section, we derive the standard set-valued Feynman--Kac duality for
+In this subsection, we derive the standard set-valued Feynman--Kac duality for
 spin systems in the signed form needed for the patch representation; see~\cite{Harris1978,Griffeath1979,Gray1986,JansenKurt2014}. We identify the
 signed dual directly from the action of the generator on monomials and record
 the effect of pure deaths on its Feynman--Kac potential. The graphical
@@ -1563,13 +1620,13 @@ V(A)-\varepsilon\abs{A}.
 Thus two spin systems that only differ by adding pure deaths have the same dual process but the one with more deaths has smaller Feynman--Kac weight.
 
 
-\section{Patches}
+\subsection{Patches}
 \label{sec:patches}
 
 The duality formula~\eqref{eq:monomial-feynman-kac-duality} represents the nonnegative~$P_t\chi_A$ in a way that includes the sign process~$\sigma_t$. If the sign process were absent, the right-hand side would be an expectation of nonnegative weights. Inequalities between the potentials of two systems, such as a system and the system obtained by removing pure deaths, would then carry over directly to the semigroups, and the dependence on the initial law could be controlled termwise. To use the representation for convergence one therefore needs to control the cancellations from the sign process.
 To capture these cancellations, we introduce a~$\sigma$-algebra that reveals when sites interact, but not exactly how. For each site~$i$, the consecutive incoming and outgoing interactions divide~$\cb{i}\times [0,\infty)$ into intervals, which we call patches. Conditional on the the interaction skeleton the law of the dual process factorizes over these patches. Then~$P_t\chi_A$ can be represented via expectation over a product of contributions, one per patch, and given patch positivity these contributions capture all necessary cancellations.
 
-\subsection{Interaction skeleton}
+\subsubsection{Interaction skeleton}
 \label{subsec:interaction-skeleton}
 
 To obtain the patch representation, we define a~$\sigma$-algebra that
@@ -1670,7 +1727,7 @@ at active sources on~$[0,T]$, and therefore only finitely many of them are
 successful interactions.
 \end{proof}
 
-\subsection{Patches}
+\subsubsection{Patches}
 \label{subsec:patches}
 Each record~$(i,t,S)\in\mathcal I$ is outgoing at its source~$i$ and incoming
 at every site in~$S$. Consequently, on each site line~$\cb{i}\times [0,\infty)$ the retained interaction
@@ -2023,7 +2080,7 @@ P^{\uparrow u}
 \end{equation}
 Thus~$P^{\uparrow t}=P$.
 
-\subsection{Patch factorization}
+\subsubsection{Patch factorization}
 \label{subsec:patch-factorization}
 
 Conditioning on~$\mathcal G_T$ fixes the successful-interaction skeleton up to time~$T$, and
@@ -2468,7 +2525,7 @@ identifies the conditional law. The integrable signed case follows from this
 conditional-law statement.
 \end{proof}
 
-\subsection{Patch representation}
+\subsubsection{Patch representation}
 \label{subsec:patch-representation}
 
 We now apply the conditional factorization to the Feynman--Kac random variable
