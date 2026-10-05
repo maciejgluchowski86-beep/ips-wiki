@@ -113,8 +113,6 @@ and without the added vacancies.}
 \section{Introduction}
 \label{sec:introduction}
 
-\subsection{Ergodicity and monotonicity}
-
 Interacting particle systems are stochastic models in which local random
 updates at many sites combine to produce collective behaviour. We study spin
 systems, continuous-time Markov processes on~$\cb{0,1}^{\Lambda}$, where
@@ -142,8 +140,6 @@ that~$\pi^-=\pi^+$~\cite[Chapter~III, Theorem~2.3 and
 Corollary~2.4]{Liggett1985}. The question that motivates this paper is what
 can be done without monotonicity, in particular when no explicit formula for
 the candidate invariant measure is available.
-
-\subsection{Breaking monotonicity: kinetically constrained spin models}
 
 The simplest way to break monotonicity is to constrain a monotone system. We
 start from independent Bernoulli refreshes: every site is resampled
@@ -174,8 +170,6 @@ equilibrium: the Bernoulli product measure~$\mu_p$ is reversible for every
 KCSM with refresh density~$p$. Precise definitions of the models used in this
 paper are given in Section~\ref{sec:setup}.
 
-\subsection{Adding noise}
-
 Since vacancies facilitate updates, adding vacancies should unfreeze
 blocked regions and remove the bottlenecks that slow down the relaxation of
 KCSMs. It is therefore natural to ask whether adding noise, for example
@@ -194,8 +188,6 @@ invariant measures of the perturbed system are not known explicitly. Thus
 KCSMs with added noise are a natural test case for the problem of proving
 ergodicity for a non-monotone system without an explicit formula for its
 invariant measure.
-
-\subsection{What is known, and two conjectures}
 
 Even without noise, the out-of-equilibrium behaviour of KCSMs is an active
 area of research; see~\cite{HartarskyToninelli2024,MartinelliShapiraToninelli2025}
@@ -241,8 +233,6 @@ rate~$\varepsilon$ at every site is ergodic.
 positive-rates conjecture for simple spin systems, with reference
 to~\cite{GluchowskiMenz2026}, and which parameters are already known.}
 \end{conjecture}
-
-\subsection{Main results}
 
 We introduce a class of spin systems, called \emph{patch-positive}, defined
 by an explicit sign condition on the local update rates
@@ -300,8 +290,6 @@ every~$p\in(0,1)$. Conversely, removing pure deaths from a patch-positive
 system keeps it patch-positive (Proposition~\ref{prop:death-removal}).
 Conjecture~\ref{conj:fa1f}, which concerns the dynamics without noise, is
 also not addressed by our results.
-
-\subsection{Method}
 
 The main construction is a representation of the action of the Markov
 semigroup on monomials. For~$\chi_A(\eta)=\prod_{i\in A}\eta(i)$, the
@@ -381,8 +369,6 @@ with finite propagation controls the number of end patches. Thus the two
 coupled duals play the role that the two coupled extremal evolutions play in
 the monotone case.
 
-\subsection{Scope and related work}
-
 The patch representation is not restricted to patch-positive systems. Patch
 positivity makes the patch contributions nonnegative and allows termwise
 comparison. A different possibility is quantitative contraction even when the
@@ -421,8 +407,6 @@ Patch positivity also yields a comparison principle on the level of
 probability laws, which will be developed in a companion paper together with
 applications to BABP. \authorcheck{Keep or remove the pointer to the
 companion paper.}
-
-\subsection{Organization}
 
 The paper is organized so that the results can be read without the patch
 construction. Section~\ref{sec:setup} introduces the spin-system framework
@@ -841,27 +825,41 @@ we use a larger class of initial measures.
 
 \begin{definition}
 \label{def:m-minus}
-For~$K\geq0$, define
+For~$K\geq0$, let~$\mathcal M_{-,K}$ be the set of probability measures~$\mu$
+whose centered moments satisfy the lower bounds
 \begin{equation}
-\label{eq:m-minus-affine-characterization}
-\mathcal M_{-,K}
-=
-\cb{
-\mu:
-\frac{\mu+K\mu_{\mb 1}}{1+K}\in\mathcal M_\star
-},
+\label{eq:m-minus-moment-bound}
+\mu\bb{\chi_A^\star}
+\geq
+-K\prod_{i\in A}\bb{1-p_i^\star}
 \qquad
+\text{for every }A\Subset\Lambda,
+\end{equation}
+and set
+\begin{equation*}
 \mathcal M_-
 =
 \bigcup_{K\geq0}\mathcal M_{-,K}.
+\end{equation*}
+Since~$\mu_{\mb 1}\bb{\chi_A^\star}=\prod_{i\in A}\bb{1-p_i^\star}$,
+condition~\eqref{eq:m-minus-moment-bound} is equivalent to
+\begin{equation}
+\label{eq:m-minus-affine-characterization}
+\frac{\mu+K\mu_{\mb 1}}{1+K}\in\mathcal M_\star .
 \end{equation}
-Thus~$\mathcal M_{-,0}=\mathcal M_\star$, while~$\mathcal M_-$ also contains
-measures that enter~$\mathcal M_\star$ after mixing with~$\mu_{\mb 1}$.
 \end{definition}
 
-If~$p_i^-:=\max\cb{2p_i^\star-1,0}$, then a Bernoulli product measure~$\mu_{\mb p}$ belongs to
-$\mathcal M_{-,1}$ exactly when~$\mb p\geq\mb p^-$. In particular, if
-$\mb p^\star\leq\mbs{\tfrac12}$, then every probability measure on~$\Omega$ belongs to~$\mathcal M_{-,1}$.
+\begin{remark}
+\label{rem:m-minus-examples}
+We have~$\mathcal M_{-,0}=\mathcal M_\star$, while~$\mathcal M_-$ also
+contains measures whose centered moments may be negative, but not more
+negative than a fixed multiple of those of~$\mu_{\mb 1}$. If
+$p_i^-:=\max\cb{2p_i^\star-1,0}$, then a Bernoulli product
+measure~$\mu_{\mb p}$ belongs to~$\mathcal M_{-,1}$ exactly
+when~$\mb p\geq\mb p^-$. In particular, if~$\mb p^\star\leq\mbs{\tfrac12}$,
+then~$\abs{\chi_A^\star}\leq\prod_{i\in A}\bb{1-p_i^\star}$, so every
+probability measure on~$\Omega$ belongs to~$\mathcal M_{-,1}$.
+\end{remark}
 
 \subsection{Ergodicity of patch-positive spin systems}
 \label{subsec:main-theorem}
