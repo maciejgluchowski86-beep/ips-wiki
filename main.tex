@@ -277,8 +277,7 @@ patch-positive if and only if~$s_i\geq p$ for every~$i$, and it then contains
 pure deaths at rate~$\varepsilon\inf_i(1-s_i)$. Hence FA-1f with such noise
 is uniformly exponentially ergodic if~$p\leq\tfrac12$, and the East model
 with such noise is uniformly ergodic for every~$p\in(0,1)$
-(Corollaries~\ref{cor:perturbed-fa-babp-ergodicity}
-and~\ref{cor:perturbed-east}). The same results hold for BABP. Applied to
+(Corollary~\ref{cor:perturbed-fa-babp-ergodicity}). The same results hold for BABP. Applied to
 simple spin systems, the orientable case gives a new region of the parameter
 space in which the positive-rates conjecture holds
 (Corollary~\ref{cor:simple-positive-rates}).
@@ -1121,6 +1120,10 @@ invariant measure and, for every local function~$f$,
 =
 0.
 \end{equation*}
+In particular, since the East model on~$\Z^d$ is FA-1f on the orientable
+neighbourhood graph~$N(i)=\cb{i+e_k:k\leq d}$
+(Example~\ref{ex:east-orientable}), the East model with such noise is
+uniformly ergodic for every~$p\in(0,1)$.
 \end{enumerate}
 \end{corollary}
 
@@ -1137,32 +1140,6 @@ from Corollary~\ref{cor:oriented-ergodicity}. If~$\mb s=\mb p$, then~$\mu_p$ is
 invariant both for~$\Lcal$ and for~$\Ncal^{\mb p}$, hence
 for~$\Lcal^{\varepsilon,\mb p}$. Since~$\mu_p\in\mathcal M_\star$, convergence
 from~$\mu_p$ gives~$\pi=\mu_p$.
-\end{proof}
-
-Since the neighbourhood graph of the East model is orientable
-(Example~\ref{ex:east-orientable}), part~\textup{(iii)} applies to it for every
-density.
-
-\begin{corollary}[East model with noise]
-\label{cor:perturbed-east}
-Let~$p\in(0,1)$,~$\varepsilon>0$ and~$\mb s\in[0,1]^{\Z^d}$ with~$\mb s\geq\mb p$
-and~$\inf_{i}(1-s_i)>0$. The East model on~$\Z^d$ with refresh density~$p$ and
-added noise~$\varepsilon\Ncal^{\mb s}$ has a unique invariant measure~$\pi$, and
-\begin{equation*}
-\lim_{t\to\infty}
-\sup_{\eta\in\Omega}
-\abs{P_t^{\varepsilon,\mb s}f(\eta)-\pi(f)}
-=
-0
-\end{equation*}
-for every local function~$f$. If~$\mb s=\mb p$, then~$\pi=\mu_p$.
-\end{corollary}
-
-\begin{proof}
-The East neighbourhood graph on~$\Z^d$ has polynomial growth and is
-orientable, so this is
-Corollary~\ref{cor:perturbed-fa-babp-ergodicity}\textup{(iii)}
-and~\textup{(i)}.
 \end{proof}
 
 \subsection{Positive rates for simple spin systems}
