@@ -417,7 +417,8 @@ proofs. Section~\ref{sec:probabilistic-interpretation} constructs the signed
 dual, introduces the conditioning, patches and the patch factorization
 described above, and Section~\ref{sec:proofs} uses this representation to
 prove the main results.
-The appendices contain technical details of the proofs.
+The appendices contain technical details of the proofs, and
+Appendix~\ref{app:dependencies} shows how the results depend on each other.
 
 \section{Setup and examples}
 \label{sec:setup}
@@ -3278,7 +3279,8 @@ Combining this with~\eqref{eq:pure-death-bulk-patch-comparison} proves
 \subsection{Common invariant limit}
 \label{subsec:proof-common-invariant-limit}
 
-The proof starts from the patch representation. For~$A\Subset\Lambda$ and a
+The proof starts from the patch representation,
+Theorem~\ref{thm:patch-representation}. For~$A\Subset\Lambda$ and a
 probability measure~$\mu$ we have
 \begin{equation*}
 (\mu P_t)(\chi_A)
@@ -3376,7 +3378,7 @@ W_t^\mu
 C\bb{\eta\bb{i(P)},P}
 },
 \end{equation}
-so that the patch representation gives
+so that the patch representation, Theorem~\ref{thm:patch-representation}, gives
 \begin{equation*}
 (\mu P_t)(\chi_A)=\E_A\Cb{W_t^\mu}.
 \end{equation*}
@@ -4113,7 +4115,7 @@ Proposition~\ref{prop:confined-interaction-identity} gives
 \end{figure}
 \FloatBarrier
 
-The patch representation and the semigroup property give
+The patch representation, Theorem~\ref{thm:patch-representation}, and the semigroup property give
 \begin{equation*}
 \E_A\Cb{W_t^\mu}
 =
@@ -4954,7 +4956,7 @@ Z_t^\eta
 \exp\bb{\int_0^tV(A_s)\,ds}
 \chi_{A_t}(\eta).
 \end{equation*}
-By the patch factorization,
+By the patch factorization, Theorem~\ref{thm:patch-factorization},
 \begin{equation*}
 W_t^{\delta_\eta}
 =
@@ -5043,7 +5045,7 @@ we have
 \end{equation}
 
 Combining it with the
-original duality for the remaining time~$t-T$ and using the Markov property
+original duality, Theorem~\ref{thm:monomial-duality}, for the remaining time~$t-T$ and using the Markov property
 gives
 \begin{align*}
 \E_A\Cb{Z_t^\eta\ind\bb{E_T^R}} &= \bb{P_{t-T}e^{T\bb{\mathcal{D}_R +\bb{V-\kappa_R}}}\chi_A}\bb{\eta}\\
@@ -5702,6 +5704,156 @@ Hence~$\mu P_t^{I,\xi}\in\mathcal M_\star^I$.
 
 
 
+
+\section{Dependencies of the main results}
+\label{app:dependencies}
+
+Figure~\ref{fig:dependency-graph} shows which results are used in the proofs
+of the main results, Theorem~\ref{thm:common-invariant-limit} and
+Corollary~\ref{cor:oriented-ergodicity}. An arrow from~$X$ to~$Y$ means that
+$X$ is used in the proof of~$Y$. The graph records the results cited in the
+proofs; definitions and notation are not shown. Table~\ref{tab:dependencies}
+lists the same information by statement.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+  x=1.3cm, y=1.15cm,
+  res/.style={draw, rounded corners=2pt, align=center, font=\footnotesize,
+    minimum width=2.4cm, minimum height=0.85cm, inner sep=2pt, fill=white},
+  main/.style={res, line width=1pt, fill=gray!12},
+  rep/.style={res, fill=gray!5, dashed},
+  app/.style={res, densely dotted},
+  dep/.style={-{Stealth[length=2mm]}, line width=0.5pt, gray!55!black, rounded corners=4pt},
+]
+% columns -4, -1.7, 0.6, 2.9, 5.2
+\node[main] (C312) at (0.6,0)    {Corollary~\ref{cor:oriented-ergodicity}\\ uniform ergodicity,\\ orientable graphs};
+\node[app]  (C5)   at (5.2,0)    {Lemma~\ref{lem:finite-propagation}\\ finite propagation};
+\node[app]  (C6)   at (-4,-1.5)  {Lemma~\ref{lem:boundary-moment-preservation}\\ restricted cone\\ preservation};
+\node[main] (T310) at (0.6,-1.5) {Theorem~\ref{thm:common-invariant-limit}\\ common\\ invariant limit};
+\node[res]  (L52)  at (-1.7,-3)  {Lemma~\ref{lem:threshold-product-limit}\\ limit from~$\mu_{\mb p^\star}$};
+\node[res]  (L55)  at (0.6,-3)   {Lemma~\ref{lem:no-late-relaxation}\\ relaxation after\\ the last interaction};
+\node[res]  (L56)  at (2.9,-3)   {Lemma~\ref{lem:spatial-confinement}\\ spatial confinement};
+\node[res]  (L51)  at (-4,-4.5)  {Lemma~\ref{lem:centered-cone-preservation}\\ cone preservation};
+\node[res]  (L54)  at (-1.7,-4.5){Lemma~\ref{lem:late-interactions}\\ late interactions};
+\node[app]  (CC4)  at (0.6,-4.5) {Lemma~\ref{lem:end-factor-relaxation}\\ end-factor\\ relaxation};
+\node[app]  (CC2)  at (2.9,-4.5) {Proposition~\ref{prop:confined-interaction-identity}\\ confined\\ interactions};
+\node[rep]  (P48)  at (-4,-6)    {Proposition~\ref{prop:patch-contribution-positivity}\\ patch positivity\\ $\Leftrightarrow C\geq0$};
+\node[res]  (P53)  at (-1.7,-6)  {Proposition~\ref{prop:death-removal}\\ removing deaths};
+\node[app]  (CC3)  at (0.6,-6)   {Proposition~\ref{prop:no-late-continuation-identity}\\ continuation\\ identity};
+\node[rep]  (T47)  at (5.2,-6)   {Theorem~\ref{thm:patch-representation}\\ patch\\ representation};
+\node[app]  (AB)   at (-4,-7.5)  {Appendix~\ref{app:contribution-formulas}\\ patch-contribution\\ formulas};
+\node[rep]  (T42)  at (0.6,-7.5) {Theorem~\ref{thm:monomial-duality}\\ Feynman--Kac\\ duality};
+\node[rep]  (T46)  at (2.9,-7.5) {Theorem~\ref{thm:patch-factorization}\\ patch\\ factorization};
+\node[app]  (AA)   at (0.6,-9)   {Appendix~\ref{app:dual-calculation}\\ derivation\\ of the dual};
+\node[rep]  (L44)  at (2.9,-9)   {Lemma~\ref{lem:dual-local-finiteness}\\ local finiteness};
+% X -> Y : X is used in the proof of Y
+% main results
+\draw[dep] (T310) -- (C312);
+\draw[dep] (C5) -- (C312);
+\draw[dep] (C6) -- (C312);
+\draw[dep] (C5) -- (T310);
+\draw[dep] (L52) -- (T310);
+\draw[dep] (L55) -- (T310);
+\draw[dep] (L56) -- (T310);
+\draw[dep] (L54.north east) -- (-0.64,-3.75) -- (-0.64,-2.3) -- (T310.south west);
+\draw[dep] (P53.north east) -- (-0.46,-5.25) -- (-0.46,-2.45) -- ([xshift=0.3cm]T310.south west);
+\draw[dep] (P48.west) -| (-5.15,-2.25) -- ([yshift=0.12cm]T310.south west);
+\draw[dep] (T47.north) |- (T310.east);
+% proof of the main theorem
+\draw[dep] (L51) -- (C6);
+\draw[dep] (L51) -- (L52);
+\draw[dep] (L54) -- (L55);
+\draw[dep] (CC4) -- (L55);
+\draw[dep] (CC3.north east) -- (1.75,-5.25) -- (1.75,-3.75) -- (L55.south east);
+\draw[dep] (CC2) -- (L56);
+\draw[dep] (T47) -- (L56);
+\draw[dep] (P48) -- (L51);
+\draw[dep] (P53) -- (L54);
+\draw[dep] (L44.south) -- ++(0,-0.45) -| (-2.85,-5.25) -- (-2.2,-5.25) -- (L54.south);
+\draw[dep] (CC3) -- (CC4);
+\draw[dep] (P53) -- (CC4);
+\draw[dep] (P48) -- (P53);
+\draw[dep] (P53) -- (CC3);
+% patch representation and appendices
+\draw[dep] (AB) -- (P48);
+\draw[dep] (AB) -- (P53);
+\draw[dep] (AB) -- (CC3);
+\draw[dep] (T42) -- (P53);
+\draw[dep] (T42) -- (T47);
+\draw[dep] (T42) -- (CC2);
+\draw[dep] (T46) -- (CC2);
+\draw[dep] (T46) -- (T47);
+\draw[dep] (AA) -- (T42);
+\draw[dep] (L44) -- (T46);
+\end{tikzpicture}}
+\caption{Dependencies of Theorem~\ref{thm:common-invariant-limit} and
+Corollary~\ref{cor:oriented-ergodicity}. An arrow from~$X$ to~$Y$ means
+that~$X$ is used in the proof of~$Y$. Bold: main results. Dashed: the
+patch representation of Section~\ref{sec:probabilistic-interpretation}.
+Solid: results of Section~\ref{sec:proofs}. Dotted: results and formulas from
+the appendices.}
+\label{fig:dependency-graph}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\hline
+Result & Its proof uses \\
+\hline
+Corollary~\ref{cor:oriented-ergodicity} &
+Theorem~\ref{thm:common-invariant-limit},
+Lemmas~\ref{lem:finite-propagation} and~\ref{lem:boundary-moment-preservation} \\
+Theorem~\ref{thm:common-invariant-limit} &
+Theorem~\ref{thm:patch-representation},
+Propositions~\ref{prop:patch-contribution-positivity} and~\ref{prop:death-removal},
+Lemmas~\ref{lem:threshold-product-limit}, \ref{lem:late-interactions},
+\ref{lem:no-late-relaxation}, \ref{lem:spatial-confinement}
+and~\ref{lem:finite-propagation} \\
+Lemma~\ref{lem:boundary-moment-preservation} &
+Lemma~\ref{lem:centered-cone-preservation} \\
+Lemma~\ref{lem:no-late-relaxation} &
+Lemmas~\ref{lem:late-interactions} and~\ref{lem:end-factor-relaxation},
+Proposition~\ref{prop:no-late-continuation-identity} \\
+Lemma~\ref{lem:spatial-confinement} &
+Theorem~\ref{thm:patch-representation},
+Proposition~\ref{prop:confined-interaction-identity} \\
+Lemma~\ref{lem:late-interactions} &
+Lemma~\ref{lem:dual-local-finiteness},
+Proposition~\ref{prop:death-removal} \\
+Lemma~\ref{lem:end-factor-relaxation} &
+Propositions~\ref{prop:death-removal} and~\ref{prop:no-late-continuation-identity} \\
+Proposition~\ref{prop:no-late-continuation-identity} &
+Proposition~\ref{prop:death-removal},
+Appendix~\ref{app:contribution-formulas} \\
+Proposition~\ref{prop:confined-interaction-identity} &
+Theorems~\ref{thm:monomial-duality} and~\ref{thm:patch-factorization} \\
+Lemma~\ref{lem:threshold-product-limit} &
+Lemma~\ref{lem:centered-cone-preservation} \\
+Lemma~\ref{lem:centered-cone-preservation} &
+Proposition~\ref{prop:patch-contribution-positivity} \\
+Proposition~\ref{prop:death-removal} &
+Theorem~\ref{thm:monomial-duality},
+Proposition~\ref{prop:patch-contribution-positivity},
+Appendix~\ref{app:contribution-formulas} \\
+Proposition~\ref{prop:patch-contribution-positivity} &
+Appendix~\ref{app:contribution-formulas} \\
+Theorem~\ref{thm:patch-representation} &
+Theorems~\ref{thm:monomial-duality} and~\ref{thm:patch-factorization} \\
+Theorem~\ref{thm:patch-factorization} &
+Lemma~\ref{lem:dual-local-finiteness} \\
+Theorem~\ref{thm:monomial-duality} &
+Appendix~\ref{app:dual-calculation} \\
+\hline
+\end{tabularx}
+\caption{The results used in each proof, as in
+Figure~\ref{fig:dependency-graph}.}
+\label{tab:dependencies}
+\end{table}
+\FloatBarrier
 
 \bibliographystyle{amsplain-fullnames}
 \bibliography{references}
