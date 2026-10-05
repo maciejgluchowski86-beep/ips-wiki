@@ -355,10 +355,12 @@ $C(p,P)\geq0$ for every such patch at~$i$. For initial laws with nonnegative
 centered moments~$\mu(\chi_A^\star)$, the representation then involves only
 nonnegative quantities. This is the role of the class~$\mathcal M_-$.
 
-The key step in the proof of convergence is a comparison of two dual
-processes. Removing the pure deaths from the system does not change the dual
-jump process, the recorded interactions or the patches; it only increases
-the Feynman--Kac potential. Patch positivity makes the comparison termwise:
+The main technical idea is a natural coupling of two dual processes.
+Removing the pure deaths from the system does not change the dual jump
+process, the recorded interactions or the patches; it only increases the
+Feynman--Kac potential. This holds for every spin system, but in general the
+dual weights carry signs and the coupling gives no inequality. Patch
+positivity makes the comparison termwise:
 every patch contribution of the original system is dominated by the
 corresponding contribution of the system without the added deaths, and on
 patches that end with an outgoing interaction the original contribution is
@@ -1418,8 +1420,26 @@ of~\cite{GluchowskiMenz2025} leave only the face~$p_{1\mid11}=0$.}
 \section{The patch representation}
 \label{sec:probabilistic-interpretation}
 
-In this section we develop the representation behind patch positivity and
-the three tools used in the proofs. In Section~\ref{sec:dual} we write the
+The main technical idea of this paper is a natural coupling. Adding
+independent deaths to a spin system does not change its signed dual process:
+the dual jump process, its interactions and its patches stay the same, and
+only the Feynman--Kac potential decreases by the death rate of every active
+site. Hence a spin system and the same system with a smaller rate of pure
+deaths, for instance with the pure deaths removed, can be realized on the
+same dual process. For a general spin system this coupling gives no
+inequality, because the dual weights carry signs. Patch positivity is exactly
+the condition under which, after conditioning on the interactions, all
+weights are nonnegative. The coupling then becomes a termwise comparison:
+every patch contribution of the system with deaths is bounded by the
+corresponding contribution of the system with fewer deaths, and on patches
+that end with an outgoing interaction it is smaller by the factor~$e^{-du}$,
+where~$d$ is the removed death rate and~$u$ the length of the patch
+(Proposition~\ref{prop:death-removal}). For patch-positive systems this
+coupling of duals takes the place of the coupling of ordered configurations
+used for monotone systems.
+
+In this section we develop the representation behind this coupling. In
+Section~\ref{sec:dual} we write the
 action of the semigroup on monomials as a signed set-valued Feynman--Kac
 formula. In Section~\ref{sec:patches} we reveal only the interactions between
 sites in this dual, which divides each site line into patches. In
@@ -1731,6 +1751,9 @@ is replaced by
 V(A)-\varepsilon\abs{A}.
 \end{equation*}
 Thus two spin systems that only differ by adding pure deaths have the same dual process but the one with more deaths has smaller Feynman--Kac weight.
+This gives the natural coupling of the two duals described at the beginning of
+this section; Proposition~\ref{prop:death-removal} turns it into a termwise
+comparison for patch-positive systems.
 
 
 \subsection{Patches}
@@ -3198,10 +3221,12 @@ Taking the maximum in~\eqref{eq:threshold-profile} proves
 \subsection{Removing pure deaths}
 \label{subsec:proof-pure-death-comparison}
 
-The key comparison in the proof of Theorem~\ref{thm:common-invariant-limit}
-is between a patch-positive system and the system obtained by removing
-independent deaths from it. The two systems have the same dual process, and
-their patch contributions can be compared termwise.
+We now make the coupling described at the beginning of this section
+precise. The key comparison in the proof of
+Theorem~\ref{thm:common-invariant-limit} is between a patch-positive system
+and the system obtained by removing independent deaths from it. The two
+systems have the same dual process, and by patch positivity their patch
+contributions can be compared termwise.
 
 \begin{proposition}
 \label{prop:death-removal}
