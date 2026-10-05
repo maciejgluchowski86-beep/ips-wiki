@@ -1444,6 +1444,82 @@ the effect of pure deaths on its Feynman--Kac potential. The graphical
 construction used to define patches is introduced in
 Section~\ref{sec:patches}.
 
+The idea behind the dual is to trace the dependence on the initial
+configuration backward in time. The value~$\chi_A(\eta_t)$ depends on the
+spins in~$A$ at time~$t$. Following the graphical construction backward
+from time~$t$, the dual set~$A_s$ records the sites whose spins at
+time~$t-s$ the value~$\chi_A(\eta_t)$ may still depend on. Roughly speaking,
+when a site of~$A_s$ is updated, three things can happen. If the new spin is
+drawn independently of all other spins, the earlier spin of the site is
+irrelevant and the site is removed (a \emph{death}). If the new spin is
+determined by the spins of a set~$S$ of neighbours, the site is replaced
+by~$S$ (a \emph{split}). If the outcome depends both on the earlier spin of
+the site and on the spins in~$S$, for example because the update may be
+blocked by a constraint, then~$S$ is added and the site is kept
+(a \emph{birth}). If the dual set becomes empty, then~$\chi_A(\eta_t)$ does
+not depend on the initial configuration at all.
+Figure~\ref{fig:dual-idea} shows an example. Set-valued duals of this kind go
+back to Harris~\cite{Harris1978} and Griffeath~\cite{Griffeath1979}, who used
+them for additive and cancellative systems; see also~\cite{Liggett1985}
+and~\cite{Gray1986}, and~\cite{JansenKurt2014} for a general discussion of
+duality. Information percolation~\cite{LubetzkySly2016} is based on a related
+backward exploration of the updates that carry information. In general the
+coefficients of the dual transitions have signs, which are recorded by a
+second coordinate~$\sigma_s\in\cb{+,-}$; these signs implement the
+inclusion--exclusion in the expansion of the update rates and are the source
+of the cancellations discussed in Section~\ref{sec:patches}.
+\authorcheck{Add precise chapter and section references for the set-valued
+duals in~\cite{Liggett1985} and~\cite{Griffeath1979}.}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=1.05cm, y=0.95cm,
+  site/.style={draw=gray!60, line width=0.4pt},
+  active/.style={line width=3pt, gray!45, line cap=butt},
+  inter/.style={-{Stealth[length=2.2mm]}, line width=0.8pt},
+  lab/.style={font=\footnotesize},
+]
+% site lines
+\foreach \x/\n in {0/1,1/2,2/3,3/4,4/5,5/6} {
+  \draw[site] (\x,0) -- (\x,4.4);
+  \node[lab, below] at (\x,-0.05) {$\n$};
+}
+\draw[gray!70] (-0.4,0) -- (5.4,0);
+\draw[gray!70] (-0.4,4.4) -- (5.4,4.4);
+% active pieces of the dual set
+\draw[active] (2,0) -- (2,2);      % site 3 until the split
+\draw[active] (3,0) -- (3,1);      % site 4 until the death
+\draw[active] (1,2) -- (1,4.4);    % site 2 after the split
+\draw[active] (0,3.2) -- (0,4.4);  % site 1 after the birth
+% events
+\node[font=\large] at (3,1) {$\times$};
+\draw[gray!50, densely dotted] (3.2,1) -- (5.5,1);
+\node[lab, right] at (5.5,1) {death: site~$4$ is removed};
+\draw[inter] (2,2) -- (1,2);
+\draw[gray!50, densely dotted] (2.1,2) -- (5.5,2);
+\node[lab, right] at (5.5,2) {split: site~$3$ is replaced by~$\cb{2}$};
+\fill (2,2) circle[radius=1.6pt];
+\draw[inter] (1,3.2) -- (0,3.2);
+\fill (1,3.2) circle[radius=1.6pt];
+\draw[gray!50, densely dotted] (1.1,3.2) -- (5.5,3.2);
+\node[lab, right] at (5.5,3.2) {birth: $\cb{1}$ is added, site~$2$ is kept};
+% time axis
+\draw[-{Stealth[length=2mm]}] (-1.1,0) -- (-1.1,4.4);
+\node[lab, rotate=90, above] at (-1.1,2.2) {dual time~$s$};
+\node[lab, left] at (-1.15,0) {$0$};
+\node[lab, left] at (-1.15,4.4) {$t$};
+\node[lab, right] at (5.5,0) {$A_0=A=\cb{3,4}$, time~$t$};
+\node[lab, right] at (5.5,4.4) {$A_t=\cb{1,2}$, time~$0$};
+\end{tikzpicture}
+\caption{A trajectory of the dual set, with dual time going up. At dual
+time~$0$ the dual set is~$A=\cb{3,4}$. Going backward in the original time,
+site~$4$ is refreshed independently (death), the spin at site~$3$ is
+determined by site~$2$ (split), and the update at site~$2$ depends also on
+site~$1$ (birth). Hence~$\chi_A(\eta_t)$ depends on the initial configuration
+only through the spins at sites~$1$ and~$2$. Signs are not shown.}
+\label{fig:dual-idea}
+\end{figure}
+
 The duality function we choose is given through monomials. For~$A\Subset\Lambda$ and~$\sigma\in\cb{+,-}$  define
 \begin{equation}
 \label{eq:monomial-duality-function}
