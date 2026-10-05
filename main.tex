@@ -381,7 +381,9 @@ patch-positive, are a natural test case for this possibility.
 
 Corollaries~\ref{cor:uniform-exponential-ergodicity}
 and~\ref{cor:oriented-ergodicity} reach all initial configurations in two
-different ways, explained in Remark~\ref{rem:threshold-one-half}.
+different ways: the first because~$\mathcal M_-$ contains every probability
+measure when~$\mb p^\star\leq\mbs{\tfrac12}$, the second by a burn-in
+argument explained in Remark~\ref{rem:threshold-one-half}.
 
 The duality in~\eqref{eq:intro-signed-duality} belongs to the standard
 graphical and set-valued duality framework for spin systems
@@ -1044,19 +1046,13 @@ Theorem~\ref{thm:common-invariant-limit} applies.
 
 \begin{remark}
 \label{rem:threshold-one-half}
-Theorem~\ref{thm:common-invariant-limit} gives convergence from every initial
-law in~$\mathcal M_-$, and the two corollaries extend it to all initial
-configurations in two different ways. If~$\mb p^\star\leq\mbs{\tfrac12}$, then
-$\abs{\chi_A^\star}\leq\prod_{i\in A}\bb{1-p_i^\star}$, so~$\mathcal M_{-,1}$
-contains every probability measure and Theorem~\ref{thm:common-invariant-limit}
-applies directly; this is the only place where the condition enters. On
-orientable neighbourhood graphs we use a burn-in argument instead: we show
-that every evolution approaches~$\mathcal M_\star$ on finite sets,
+The burn-in argument for Corollary~\ref{cor:oriented-ergodicity} shows that
+every evolution approaches~$\mathcal M_\star$ on finite sets,
 \begin{equation*}
 \liminf_{t\to\infty}\inf_{\eta\in\Omega}P_t\chi_A^\star(\eta)\geq0
 \qquad\text{for every }A\Subset\Lambda,
 \end{equation*}
-and then apply Theorem~\ref{thm:common-invariant-limit}. Orientability makes
+and then applies Theorem~\ref{thm:common-invariant-limit}. Orientability makes
 this possible because, after conditioning on the dynamics on an autonomous
 set outside a finite box around~$A$, the dynamics inside the box is a finite
 patch-positive system with a time-dependent boundary condition. Such a system
@@ -1414,7 +1410,8 @@ signed set-valued Feynman--Kac formula. In Section~\ref{sec:patches} we reveal
 only the interactions between sites in this dual, which divides each site
 line into patches, and show that, conditionally on these interactions, the
 signed weight factorizes into one contribution per patch. Patch positivity
-is exactly the nonnegativity of these contributions; see
+is exactly the nonnegativity of these contributions; this is shown in
+Section~\ref{subsec:proof-patch-positivity-threshold}, see
 Proposition~\ref{prop:patch-contribution-positivity}.
 
 \subsection{Dual process}
@@ -2700,13 +2697,10 @@ contributions can cancel inside~$C(P)$ or~$C(z,P)$.
 
 \FloatBarrier
 
-\section{Proofs}
-\label{sec:proofs}
-
-\subsection{Patch positivity and threshold}
+\subsection{Patch positivity and nonnegative contributions}
 \label{subsec:proof-patch-positivity-threshold}
 
-We now give the probabilistic interpretation to the earlier definition of patch-positivity the threshold profile~$\mb p^*$. Conditions in~\eqref{eq:patch-positivity} are equivalent to non-negativity of bulk patch contributions, and~$\mb p^*$ is defined so that the end patch contributions are also non-negative, when integrated against a measure in~$\mathcal{M}_*$. The
+We now give the probabilistic interpretation of patch positivity and of the threshold profile~$\mb p^*$. Conditions in~\eqref{eq:patch-positivity} are equivalent to non-negativity of bulk patch contributions, and~$\mb p^*$ is defined so that the end patch contributions are also non-negative, when integrated against a measure in~$\mathcal{M}_*$. The
 explicit formulas for~$C(P)$ and~$C(z,P)$ are given in
 Appendix~\ref{app:contribution-formulas}. Their consequences are
 summarized in the following proposition.
@@ -2906,6 +2900,9 @@ Dividing by~$\widehat{\lambda_i}(S)<0$ yields
 Taking the maximum in~\eqref{eq:threshold-profile} proves
 \eqref{eq:threshold-below-zero-neighbour-refresh}.
 \end{proof}
+
+\section{Proofs}
+\label{sec:proofs}
 
 \subsection{Preservation of nonnegative centered moments}
 \label{subsec:proof-centered-moment-preservation}
