@@ -4521,7 +4521,9 @@ C\bb{z,P^{\uparrow t}}
 This is the end-patch formula from \chg{Definition~\ref{def:patch-contributions}} applied to
 the longer patch.
 
-The same formulas give the probability that the patch remains consistent
+The \chg{consistency probabilities of Lemma~\ref{lem:contribution-formulas},
+together with the patch factorization, Lemma~\ref{thm:patch-factorization},}
+give the probability that the patch remains consistent
 during the added interval. Conditional on~$\mathcal G_T$,
 \begin{equation}
 \label{eq:local-continuation-probability}
@@ -5809,6 +5811,9 @@ of the main results, Theorem~\ref{thm:common-invariant-limit} and
 Corollary~\ref{cor:oriented-ergodicity}. An arrow from~$X$ to~$Y$ means that
 $X$ is used in the proof of~$Y$. The graph records the results cited in the
 proofs; definitions, notation and the claims inside proofs are not shown.
+\chg{The dependencies among the results of
+Section~\ref{sec:probabilistic-interpretation} are shown separately in
+Figure~\ref{fig:dependency-graph-sec4}.}
 Table~\ref{tab:dependencies} lists the same information by statement.
 
 \begin{figure}[htbp]
@@ -5820,57 +5825,55 @@ Table~\ref{tab:dependencies} lists the same information by statement.
     minimum width=2.4cm, minimum height=0.85cm, inner sep=2pt, fill=white},
   main/.style={res, line width=1pt, fill=gray!12},
   rep/.style={res, fill=gray!5, dashed},
-  app/.style={res, densely dotted},
   dep/.style={-{Stealth[length=2mm]}, line width=0.5pt, gray!55!black, rounded corners=4pt},
 ]
-% columns -4, -1.7, 0.6, 2.9, 5.2
-\node[main] (C312) at (-1.7,0)   {Corollary~\ref{cor:oriented-ergodicity}\\ uniform ergodicity,\\ orientable graphs};
-\node[main] (T310) at (0.6,-1.5) {Theorem~\ref{thm:common-invariant-limit}\\ common\\ invariant limit};
-\node[res]  (L51)  at (-4,-3)    {Lemma~\ref{lem:centered-cone-preservation}\\ centered moments};
-\node[res]  (L53)  at (-1.7,-3)  {Lemma~\ref{lem:late-interactions}\\ Step 1:\\ late interactions};
-\node[res]  (L54)  at (0.6,-3)   {Lemma~\ref{lem:no-late-relaxation}\\ Step 2:\\ relaxation after\\ last interaction};
-\node[res]  (L57)  at (2.9,-3)   {Lemma~\ref{lem:spatial-confinement}\\ Step 3:\\ spatial confinement};
-\node[res]  (L59)  at (5.2,-3)   {Lemma~\ref{lem:finite-propagation}\\ finite propagation};
-\node[rep]  (P48)  at (-4,-6)    {Proposition~\ref{prop:patch-contribution-positivity}\\ patch positivity\\ $\Leftrightarrow C\geq0$};
-\node[rep]  (P49)  at (-1.7,-4.5){Proposition~\ref{prop:death-removal}\\ removing deaths};
-\node[rep]  (T47)  at (2.9,-4.5) {Theorem~\ref{thm:patch-representation}\\ patch\\ representation};
-\node[rep]  (AB)   at (-1.7,-6)  {Lemma~\ref{lem:contribution-formulas}\\ patch-contribution\\ formulas};
-\node[rep]  (P42)  at (0.6,-6)   {Proposition~\ref{thm:monomial-duality}\\ Feynman--Kac\\ duality};
-\node[rep]  (L46)  at (2.9,-6)   {Lemma~\ref{thm:patch-factorization}\\ patch\\ factorization};
-\node[rep]  (L44)  at (5.2,-6)   {Lemma~\ref{lem:dual-local-finiteness}\\ local finiteness};
+% main results
+\node[main] (C312) at (-2.5,0)    {Corollary~\ref{cor:oriented-ergodicity}\\ uniform ergodicity,\\ orientable graphs};
+\node[main] (T310) at (0.2,-1.5)  {Theorem~\ref{thm:common-invariant-limit}\\ common\\ invariant limit};
+% auxiliary results of Section 5.2
+\node[res]  (L58)  at (-5.0,-3)   {Lemma~\ref{lem:centered-cone-preservation}\\ centered moments};
+\node[res]  (L510) at (-2.5,-3)   {Lemma~\ref{lem:late-interactions}\\ Step 1:\\ late interactions};
+\node[res]  (L511) at (0.2,-3)    {Lemma~\ref{lem:no-late-relaxation}\\ Step 2:\\ relaxation after\\ last interaction};
+\node[res]  (L514) at (2.9,-3)    {Lemma~\ref{lem:spatial-confinement}\\ Step 3:\\ spatial confinement};
+% results of Section 4 and lemmas of Section 5.1
+\node[rep]  (C420) at (5.8,-3)    {Corollary~\ref{cor:infinite-volume-representation}\\ patch representation\\ in infinite volume};
+\node[rep]  (L46)  at (5.8,-1.5)  {Lemma~\ref{lem:finite-propagation}\\ finite propagation};
+\node[rep]  (P419) at (-5.0,-5.0) {Proposition~\ref{prop:patch-contribution-positivity}\\ patch positivity\\ $\Leftrightarrow C\geq0$};
+\node[rep]  (P421) at (-2.5,-5.0) {Proposition~\ref{prop:death-removal}\\ removing deaths};
+\node[rep]  (L57)  at (0,-5.0)    {Lemma~\ref{lem:contribution-formulas}\\ contributions as\\ conditional averages};
+\node[rep]  (L54)  at (2.4,-5.0)  {Lemma~\ref{thm:patch-factorization}\\ patch\\ factorization};
+\node[rep]  (T416) at (4.8,-5.0)  {Theorem~\ref{thm:patch-representation}\\ patch representation\\ in finite volume};
+\node[rep]  (P44)  at (7.2,-5.0)  {Proposition~\ref{thm:monomial-duality}\\ Feynman--Kac duality\\ in finite volume};
+\node[rep]  (L411) at (-3.75,-6.7) {Lemma~\ref{lem:dual-local-finiteness}\\ local finiteness};
 % X -> Y : X is used in the proof of Y
 \draw[dep] (T310) -- (C312);
-\draw[dep] (L51) -- (C312);
-\draw[dep] (L51) -- (T310);
-\draw[dep] (L53) -- (T310);
-\draw[dep] (L54) -- (T310);
-\draw[dep] (L57) -- (T310);
-\draw[dep] (L59) -- (T310);
-\draw[dep] (P48.west) -| (-5.15,-2.25) -- ([yshift=0.1cm]T310.south west);
-\draw[dep] (P49.north east) -- (-0.55,-3.75) -- (-0.55,-2.3) -- ([xshift=0.25cm]T310.south west);
-\draw[dep] (T47.east) -- (4.25,-4.5) -- (4.25,-2.25) -- (T310.south east);
-\draw[dep] (P48) -- (L51);
-\draw[dep] (P49) -- (L53);
-\draw[dep] (L44.north) -- (5.2,-3.75) -- (-1.4,-3.75) -- (-1.4,-3.42);
-\draw[dep] (L53) -- (L54);
-\draw[dep] (P49) -- (L54);
-\draw[dep] (AB) -- (L54);
-\draw[dep] (T47) -- (L57);
-\draw[dep] (P42) -- (L57);
-\draw[dep] (L46.north east) -- (3.95,-5.25) -- (3.95,-3.75) -- (L57.south east);
-\draw[dep] (P48) -- (P49);
-\draw[dep] (AB) -- (P48);
-\draw[dep] (AB) -- (P49);
-\draw[dep] (P42) -- (P49);
-\draw[dep] (P42) -- (T47);
-\draw[dep] (L46) -- (T47);
-\draw[dep] (L44) -- (L46);
+\draw[dep] (L58) -- (C312);
+\draw[dep] (L58) -- (T310);
+\draw[dep] (L510) -- (T310);
+\draw[dep] (L511) -- (T310);
+\draw[dep] (L514) -- (T310);
+\draw[dep] (L46) -- (T310);
+\draw[dep] (C420) -- (T310);
+\draw[dep] (L46) -- (L514);
+\draw[dep] (C420) -- (L514);
+\draw[dep] (C420.south) -- (5.8,-3.95) -- (-2.05,-3.95) -- ([xshift=0.45cm]L510.south);
+\draw[dep] (P419) -- (L58);
+\draw[dep] (P421) -- (L510);
+\draw[dep] (P421) -- (L511);
+\draw[dep] (L57) -- (L511);
+\draw[dep] (L54) -- (L511);
+\draw[dep] (T416) -- (L514);
+\draw[dep] (P44) -- (L514);
+\draw[dep] (L411.north) -- (-3.75,-4.1) -- ([xshift=-0.45cm]L510.south);
+\draw[dep] (L411.east) -- (3.6,-6.7) -- (3.6,-4.2) -- ([xshift=0.5cm]L514.south);
 \end{tikzpicture}}
 \caption{Dependencies of Theorem~\ref{thm:common-invariant-limit} and
 Corollary~\ref{cor:oriented-ergodicity}. An arrow from~$X$ to~$Y$ means
 that~$X$ is used in the proof of~$Y$. Bold: main results. Solid: the
-auxiliary results of Section~\ref{subsec:auxiliary}. Dashed: the patch
-representation of Section~\ref{sec:probabilistic-interpretation}.}
+auxiliary results of Section~\ref{subsec:auxiliary}. Dashed: the results of
+Section~\ref{sec:probabilistic-interpretation} and the lemmas of
+Section~\ref{subsec:proofs-section-4} used here; the arrows among them are
+shown in Figure~\ref{fig:dependency-graph-sec4}.}
 \label{fig:dependency-graph}
 \end{figure}
 
@@ -5885,38 +5888,38 @@ Corollary~\ref{cor:oriented-ergodicity} &
 Theorem~\ref{thm:common-invariant-limit},
 Lemma~\ref{lem:centered-cone-preservation}\textup{(b)} \\
 Theorem~\ref{thm:common-invariant-limit} &
-\chg{Corollary~\ref{cor:infinite-volume-representation}},
-Propositions~\ref{prop:patch-contribution-positivity} and~\ref{prop:death-removal},
+Corollary~\ref{cor:infinite-volume-representation},
 Lemma~\ref{lem:centered-cone-preservation}\textup{(c)},
 Lemmas~\ref{lem:late-interactions}, \ref{lem:no-late-relaxation},
 \ref{lem:spatial-confinement} and~\ref{lem:finite-propagation} \\
 Lemma~\ref{lem:spatial-confinement} &
 Proposition~\ref{thm:monomial-duality},
 Theorem~\ref{thm:patch-representation},
-\chg{Corollary~\ref{cor:infinite-volume-representation},
-Lemma~\ref{lem:finite-propagation}} \\
-\chg{Corollary~\ref{cor:infinite-volume-representation}} &
-\chg{Theorem~\ref{thm:patch-representation},
-Proposition~\ref{prop:patch-contribution-positivity},
-Lemmas~\ref{lem:dual-local-finiteness} and~\ref{lem:finite-propagation}} \\
+Corollary~\ref{cor:infinite-volume-representation},
+Lemmas~\ref{lem:finite-propagation} and~\ref{lem:dual-local-finiteness} \\
 Lemma~\ref{lem:no-late-relaxation} &
 Lemma~\ref{lem:late-interactions},
 Proposition~\ref{prop:death-removal},
-Lemma~\ref{lem:contribution-formulas} \\
+Lemmas~\ref{thm:patch-factorization} and~\ref{lem:contribution-formulas} \\
 Lemma~\ref{lem:late-interactions} &
 Lemma~\ref{lem:dual-local-finiteness},
-Proposition~\ref{prop:death-removal} \\
+Proposition~\ref{prop:death-removal},
+Corollary~\ref{cor:infinite-volume-representation} \\
 Lemma~\ref{lem:centered-cone-preservation} &
 Proposition~\ref{prop:patch-contribution-positivity} \\
 Proposition~\ref{prop:death-removal} &
 Propositions~\ref{thm:monomial-duality} and~\ref{prop:patch-contribution-positivity},
-\chg{Definition~\ref{def:patch-contributions}} \\
+Corollary~\ref{cor:infinite-volume-representation} \\
+Corollary~\ref{cor:infinite-volume-representation} &
+Theorem~\ref{thm:patch-representation},
+Proposition~\ref{prop:patch-contribution-positivity},
+Lemmas~\ref{lem:dual-local-finiteness} and~\ref{lem:finite-propagation} \\
 Proposition~\ref{prop:patch-contribution-positivity} &
-\chg{Definition~\ref{def:patch-contributions}} \\
+Definition~\ref{def:patch-contributions} \\
 Theorem~\ref{thm:patch-representation} &
 Proposition~\ref{thm:monomial-duality},
-\chg{Lemmas~\ref{thm:patch-factorization}, \ref{lem:pathwise-factorization}
-and~\ref{lem:contribution-formulas}} \\
+Lemmas~\ref{thm:patch-factorization}, \ref{lem:pathwise-factorization}
+and~\ref{lem:contribution-formulas} \\
 Lemma~\ref{thm:patch-factorization} &
 Lemma~\ref{lem:dual-local-finiteness} \\
 Lemma~\ref{lem:contribution-formulas} &
@@ -5924,45 +5927,57 @@ direct computation \\
 \hline
 \end{tabularx}
 \caption{The results used in each proof, as in
-Figure~\ref{fig:dependency-graph}.}
+Figures~\ref{fig:dependency-graph} and~\ref{fig:dependency-graph-sec4}.}
 \label{tab:dependencies}
 \end{table}
 
 Figure~\ref{fig:dependency-graph-sec4} shows the dependencies among the
-results of Section~\ref{sec:probabilistic-interpretation}.
+results of Section~\ref{sec:probabilistic-interpretation}\chg{, including the
+lemmas of Section~\ref{subsec:proofs-section-4} used to prove them}.
 Propositions~\ref{prop:patch-contribution-positivity}
 and~\ref{prop:death-removal} are statements about the patch contributions
 defined in Section~\ref{subsec:patch-representation}; they are read off from
-the explicit formulas of Lemma~\ref{lem:contribution-formulas}.
+the explicit formulas of \chg{Definition~\ref{def:patch-contributions}}.
 
 \begin{figure}[htbp]
 \centering
+\resizebox{\linewidth}{!}{%
 \begin{tikzpicture}[
   x=1.3cm, y=1.15cm,
   res/.style={draw, rounded corners=2pt, align=center, font=\footnotesize,
     minimum width=2.4cm, minimum height=0.85cm, inner sep=2pt, fill=white},
   rep/.style={res, fill=gray!5, dashed},
-  app/.style={res, densely dotted},
-  dep/.style={-{Stealth[length=2mm]}, line width=0.5pt, gray!55!black},
+  sub/.style={res, densely dotted},
+  dep/.style={-{Stealth[length=2mm]}, line width=0.5pt, gray!55!black, rounded corners=4pt},
 ]
-\node[rep] (T47) at (0,0)      {Theorem~\ref{thm:patch-representation}\\ patch\\ representation};
-\node[rep] (P48) at (7.4,-1.7)  {Proposition~\ref{prop:patch-contribution-positivity}\\ patch positivity\\ $\Leftrightarrow C\geq0$};
-\node[rep] (P49) at (4.5,0)    {Proposition~\ref{prop:death-removal}\\ removing deaths};
-\node[rep] (L46) at (-1.2,-1.7){Lemma~\ref{thm:patch-factorization}\\ patch\\ factorization};
-\node[rep] (P42) at (1.6,-1.7) {Proposition~\ref{thm:monomial-duality}\\ Feynman--Kac\\ duality};
-\node[rep] (AB)  at (4.5,-1.7) {Lemma~\ref{lem:contribution-formulas}\\ patch-contribution\\ formulas};
-\node[rep] (L44) at (-1.2,-3.4){Lemma~\ref{lem:dual-local-finiteness}\\ local finiteness};
-\draw[dep] (L44) -- (L46);
-\draw[dep] (L46) -- (T47);
-\draw[dep] (P42) -- (T47);
-\draw[dep] (P42) -- (P49);
-\draw[dep] (AB) -- (P48);
-\draw[dep] (AB) -- (P49);
-\draw[dep] (P48) -- (P49);
-\end{tikzpicture}
+\node[rep] (P421) at (3.45,3.4)   {Proposition~\ref{prop:death-removal}\\ removing deaths};
+\node[rep] (C420) at (1.15,1.7)   {Corollary~\ref{cor:infinite-volume-representation}\\ patch representation\\ in infinite volume};
+\node[rep] (L46)  at (-1.15,0)    {Lemma~\ref{lem:finite-propagation}\\ finite propagation};
+\node[rep] (T416) at (1.15,0)     {Theorem~\ref{thm:patch-representation}\\ patch representation\\ in finite volume};
+\node[rep] (P419) at (3.45,0)     {Proposition~\ref{prop:patch-contribution-positivity}\\ patch positivity\\ $\Leftrightarrow C\geq0$};
+\node[sub] (L54)  at (-2.3,-1.7)  {Lemma~\ref{thm:patch-factorization}\\ patch\\ factorization};
+\node[sub] (L56)  at (0,-1.7)     {Lemma~\ref{lem:pathwise-factorization}\\ pathwise\\ factorization};
+\node[sub] (L57)  at (2.3,-1.7)   {Lemma~\ref{lem:contribution-formulas}\\ contributions as\\ conditional averages};
+\node[rep] (P44)  at (4.6,-1.7)   {Proposition~\ref{thm:monomial-duality}\\ Feynman--Kac duality\\ in finite volume};
+\node[rep] (L411) at (-2.3,-3.4)  {Lemma~\ref{lem:dual-local-finiteness}\\ local finiteness};
+% X -> Y : X is used in the proof of Y
+\draw[dep] (L411) -- (L54);
+\draw[dep] (L54) -- (T416);
+\draw[dep] (L56) -- (T416);
+\draw[dep] (L57) -- (T416);
+\draw[dep] (P44) -- (T416);
+\draw[dep] (T416) -- (C420);
+\draw[dep] (L46) -- (C420);
+\draw[dep] (P419) -- (C420);
+\draw[dep] (L411.west) -- (-3.6,-3.4) -- (-3.6,1.7) -- (C420.west);
+\draw[dep] (P419) -- (P421);
+\draw[dep] (C420) -- (P421);
+\draw[dep] (P44.east) -- (5.9,-1.7) -- (5.9,3.4) -- (P421.east);
+\end{tikzpicture}}
 \caption{Dependencies among the results of
-Section~\ref{sec:probabilistic-interpretation}. An arrow from~$X$ to~$Y$
-means that~$X$ is used in the proof of~$Y$.}
+Section~\ref{sec:probabilistic-interpretation} \chg{(dashed) and the lemmas of
+Section~\ref{subsec:proofs-section-4} used to prove them (dotted)}. An arrow
+from~$X$ to~$Y$ means that~$X$ is used in the proof of~$Y$.}
 \label{fig:dependency-graph-sec4}
 \end{figure}
 \FloatBarrier
