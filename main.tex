@@ -415,12 +415,11 @@ construction. Section~\ref{sec:setup} introduces the spin-system framework
 and the examples. Section~\ref{sec:main-results} defines patch positivity,
 states the main theorem and its consequences, and applies them to FA-1f, the
 East model, BABP and simple spin systems.
-Section~\ref{sec:probabilistic-interpretation} develops the patch
-representation and the two properties of the patch contributions used in the
-proofs, and Section~\ref{sec:proofs} proves the main results.
-Appendix~\ref{app:contribution-formulas} proves the patch-contribution
-formulas, and Appendix~\ref{app:dependencies} shows how the results depend on
-each other.
+\chg{Section~\ref{sec:probabilistic-interpretation} introduces the dual process
+and the patch representation, and states the two properties of the patch
+contributions used in the proofs. Section~\ref{sec:proofs} proves these
+results and the main results.} Appendix~\ref{app:dependencies} shows how the
+results depend on each other.
 
 \section{Setup and examples}
 \label{sec:setup}
@@ -1433,16 +1432,18 @@ smaller by the factor~$e^{-du}$ on patches of length~$u$ that end with an
 outgoing interaction (Proposition~\ref{prop:death-removal}). For
 patch-positive systems this coupling of duals replaces the coupling of
 ordered configurations used for monotone systems.
+}
 
-Section~\ref{sec:dual} introduces the signed dual, Section~\ref{sec:patches}
+\chg{Section~\ref{sec:dual} introduces the signed dual, Section~\ref{sec:patches}
 the patches, and Section~\ref{subsec:patch-representation} the patch
-representation (Theorem~\ref{thm:patch-representation}) with explicit
-contributions (Lemma~\ref{lem:contribution-formulas}).
+contributions and the patch representation
+(Theorem~\ref{thm:patch-representation}).
 Sections~\ref{subsec:proof-patch-positivity-threshold}
-and~\ref{subsec:proof-pure-death-comparison} prove the two properties of the
+and~\ref{subsec:proof-pure-death-comparison} state the two properties of the
 contributions used later: nonnegativity
 (Proposition~\ref{prop:patch-contribution-positivity}) and the comparison
-under removing deaths (Proposition~\ref{prop:death-removal}).
+under removing deaths (Proposition~\ref{prop:death-removal}). The proofs are
+given in Section~\ref{subsec:proofs-section-4}.
 Figure~\ref{fig:dependency-graph-sec4} shows the dependencies.}
 
 \subsection{Dual process}
@@ -1558,20 +1559,16 @@ a_i^\beta(S)
 =
 -\widehat{\lambda_i}(S).
 \end{equation}
-In the second sum, the term with~$S=\varnothing$ leaves the index unchanged
-and is therefore a diagonal term. Its coefficient is
-\begin{equation*}
-a_i^\beta(\varnothing)
-=
--\widehat{\lambda_i}(\varnothing)
-=
--\lambda_i(\mb 0).
-\end{equation*}
-\chg{(See the proof of Proposition~\ref{thm:monomial-duality}.) The off-diagonal
-coefficients in~\eqref{eq:signed-dual-generator-expansion} become jump rates
-after taking absolute values, and their signs are carried by the second
-coordinate. With~$\operatorname{sgn}_{\pm}(r)=+$ for~$r\geq0$
-and~$\operatorname{sgn}_{\pm}(r)=-$ for~$r<0$, set, for~$S\subseteq N(i)$,}
+\chg{(see the proof of Proposition~\ref{thm:monomial-duality}). In the second
+sum, the term with~$S=\varnothing$ leaves the index unchanged; it is a diagonal
+term with coefficient~$a_i^\beta(\varnothing)=-\widehat{\lambda_i}(\varnothing)
+=-\lambda_i(\mb 0)$. The off-diagonal coefficients become jump rates after
+taking absolute values, and their signs are carried by the second coordinate.}
+
+\chg{\begin{definition}[Signed dual]
+\label{def:signed-dual}
+With~$\operatorname{sgn}_{\pm}(r)=+$ for~$r\geq0$
+and~$\operatorname{sgn}_{\pm}(r)=-$ for~$r<0$, set, for~$S\subseteq N(i)$,
 \begin{equation}
 \label{eq:death-split-data}
 \delta_i(S)
@@ -1582,7 +1579,7 @@ and~$\operatorname{sgn}_{\pm}(r)=-$ for~$r<0$, set, for~$S\subseteq N(i)$,}
 =
 \operatorname{sgn}_{\pm}\bb{a_i^\delta(S)},
 \end{equation}
-and, for~$\varnothing\neq S\subseteq N(i)$, set
+and, for~$\varnothing\neq S\subseteq N(i)$,
 \begin{equation}
 \label{eq:birth-data}
 \beta_i(S)
@@ -1609,9 +1606,7 @@ A\cup S,
 \sigma\sigma_i^\beta(S)
 }.
 \end{align*}
-\chg{Thus~$D_{i,\varnothing}$ removes~$i$ (death),~$D_{i,S}$ with~$S\neq\varnothing$
-replaces~$i$ by~$S$ (split), and~$B_{i,S}$ adds~$S$ (birth). The dual
-generator is}
+The \emph{signed dual} is the Markov process~$(A_t,\sigma_t)$ with generator
 \begin{align}
 \label{eq:signed-dual-generator}
 \Dcal g(A,\sigma)
@@ -1630,10 +1625,7 @@ g\bb{D_{i,S}(A,\sigma)}-g(A,\sigma)
 g\bb{B_{i,S}(A,\sigma)}-g(A,\sigma)
 }.
 \end{align}
-
-\chg{Then~$\Dcal H$ reproduces the off-diagonal terms
-of~\eqref{eq:signed-dual-generator-expansion}, and the diagonal terms go into
-the potential}
+and \emph{potential}
 \begin{equation}
 \label{eq:dual-potential}
 V(A)
@@ -1648,13 +1640,16 @@ V_i
 +
 a_i^\beta(\varnothing).
 \end{equation}
-\chg{With this choice~\eqref{eq:monomial-generator-duality} holds. By the uniform
-bounds on~$\abs{N(i)}$ and the rates, the dual jump rate per active site
-and~$\abs{V_i}$ are uniformly bounded.}
+We write~$\pP_A$ and~$\E_A$ for the law and expectation of the signed dual
+started from~$(A,+)$.
+\end{definition}}
 
-
-We write~$\pP_A$ and~$\E_A$ for the law and expectation of the signed
-set-valued process started from~$(A,+)$.
+\chg{\begin{remark}
+The map~$D_{i,\varnothing}$ removes~$i$ (death),~$D_{i,S}$
+with~$S\neq\varnothing$ replaces~$i$ by~$S$ (split), and~$B_{i,S}$ adds~$S$
+(birth). By the uniform bounds on~$\abs{N(i)}$ and the rates, the dual jump
+rate per active site and~$\abs{V_i}$ are uniformly bounded.
+\end{remark}}
 
 \begin{definition}[Feynman--Kac integrability]
 \label{def:fk-integrability}
@@ -1671,8 +1666,9 @@ The signed dual satisfies \emph{Feynman--Kac integrability} if
 \end{equation}
 \end{definition}
 
-Under this condition, the generator identity~\eqref{eq:monomial-generator-duality} gives the standard Feynman--Kac
-duality relation
+\chg{With the choices of Definition~\ref{def:signed-dual}, the generator
+identity~\eqref{eq:monomial-generator-duality} holds, and under
+Feynman--Kac integrability it gives the standard Feynman--Kac duality relation.}
 \begin{proposition}[Monomial Feynman--Kac duality]
 \label{thm:monomial-duality}
 For every~$A\Subset\Lambda$, $t\geq0$, and~$\eta\in\Omega$,
@@ -1687,33 +1683,15 @@ P_t\chi_A(\eta)
 }.
 \end{equation}
 \end{proposition}
-\begin{proof}
-If~$i\notin A$, then~$\bb{E_{i,\rho_i(\eta)}-I}\chi_A=0$. If~$i\in A$, then
-\begin{equation*}
-\lambda_i\bb{E_{i,\rho_i}-I}\chi_A
-=
-\lambda_i\rho_i\chi_{A\setminus\cb{i}}
--
-\lambda_i\chi_A.
-\end{equation*}
-Expanding~$\lambda_i\rho_i$ and~$\lambda_i$ in monomials and
-using~$\chi_S\chi_B=\chi_{S\cup B}$ gives~\eqref{eq:signed-dual-generator-expansion}
-with the coefficients~\eqref{eq:signed-dual-coefficients}.
-By~\eqref{eq:death-split-data} and~\eqref{eq:birth-data}, each dual rate
-multiplied by its sign is the corresponding coefficient, so~$\Dcal H$
-reproduces the off-diagonal terms of~\eqref{eq:signed-dual-generator-expansion},
-and adding~$V(A)H$ with~$V$ from~\eqref{eq:dual-potential} gives the diagonal
-terms. This is the generator identity~\eqref{eq:monomial-generator-duality}.
-Under~\eqref{eq:fk-integrability}, the standard Feynman--Kac duality
-argument, see for example~\cite{JansenKurt2014}, turns it
-into~\eqref{eq:monomial-feynman-kac-duality}.
-\end{proof}
 
-\chg{Pure deaths act diagonally,~$\Ncal^{\mb 0}\chi_A=-\abs{A}\chi_A$. Hence
+\chg{\begin{remark}[Pure deaths act diagonally]
+\label{rem:pure-deaths-diagonal}
+Pure deaths act diagonally,~$\Ncal^{\mb 0}\chi_A=-\abs{A}\chi_A$. Hence
 adding~$\varepsilon\Ncal^{\mb 0}$ changes no off-diagonal coefficient
 in~\eqref{eq:signed-dual-generator-expansion}: the signed dual jump process is
 unchanged and the potential becomes~$V(A)-\varepsilon\abs{A}$. This is the
-coupling described at the beginning of this section.}
+coupling described at the beginning of this section.
+\end{remark}}
 
 
 \subsection{Patches}
@@ -1732,7 +1710,9 @@ realization of the dual (left) and the patches it induces, split at a finite
 time~$t$ into bulk patches and end patches (right). We first construct the dual
 graphically.}
 
-We use the standard Poisson graphical construction for the dual process. For
+\chg{\begin{definition}[Graphical construction]
+\label{def:graphical-construction}
+For
 every~$i\in\Lambda$ and~$S\subseteq N(i)$, let
 $I_{i,S}^\delta\subseteq(0,\infty)$ be a Poisson point process of
 rate~$\delta_i(S)$. For every nonempty~$S\subseteq N(i)$, let
@@ -1755,10 +1735,10 @@ For a mark~$(i,t,\alpha,S)$, the site~$i$ is its \emph{source},~$S$ its
 \emph{target}, and~$\alpha$ its \emph{kind}. Starting from~$(A,+)$, a
 mark~$(i,t,\delta,S)$ with~$i\in A_{t-}$ applies~$D_{i,S}$, while a
 mark~$(i,t,\beta,S)$ with~$i\in A_{t-}$ applies~$B_{i,S}$. A mark whose
-source is not active does not change the process. This gives the signed dual
-with generator~$\Dcal$ from~\eqref{eq:signed-dual-generator}.
-
-The marks through which dependence passes between distinct sites are exactly
+source is not active does not change the process.
+\end{definition}}
+\chg{This gives the signed dual with generator~$\Dcal$
+from~\eqref{eq:signed-dual-generator}.} The marks through which dependence passes between distinct sites are exactly
 those with nonempty target that occur at active sources.
 \begin{definition}[Successful interaction and its record]
 \label{def:successful-interaction}
@@ -1770,12 +1750,9 @@ S\neq\varnothing
 i\in A_{t-}.
 \end{equation*}
 Its \emph{record} is the triple~$(i,t,S)$.
-\end{definition}
-\chg{The record omits the kind~$\alpha$, since a split and a birth with the same
-source and target connect the same sites; deaths and marks at inactive
-sources do not connect sites. We also add the formal initial
-record~$(\infty,0,A)$ with source~$\infty\notin\Lambda$. For~$T<\infty$, the
-successful-interaction skeleton up to time~$T$ is}
+\chg{Together with the formal initial record~$(\infty,0,A)$, with
+source~$\infty\notin\Lambda$, the \emph{successful-interaction skeleton} up
+to time~$T<\infty$ is}
 \begin{equation}
 \label{eq:successful-interaction-skeleton}
 \mathcal I_T
@@ -1789,7 +1766,7 @@ t\leq T
 \alpha\in\cb{\delta,\beta}
 }.
 \end{equation}
-We also set
+\chg{We also set}
 \begin{equation*}
 \mathcal I
 =
@@ -1799,9 +1776,15 @@ We also set
 =
 \sigma\bb{\mathcal I_T}.
 \end{equation*}
-\chg{Thus~$\mathcal G_T$ reveals all interactions between sites up to time~$T$,
-but not deaths, marks at inactive sources, or the kind of an interaction.}
+\end{definition}
 
+\chg{\begin{remark}
+The record omits the kind~$\alpha$, since a split and a birth with the same
+source and target connect the same sites; deaths and marks at inactive
+sources do not connect sites. Thus~$\mathcal G_T$ reveals all interactions
+between sites up to time~$T$, but not deaths, marks at inactive sources, or
+the kind of an interaction.
+\end{remark}}
 
 \begin{lemma}[Local finiteness]
 \label{lem:dual-local-finiteness}
@@ -1809,22 +1792,14 @@ For every~$T<\infty$, the successful-interaction skeleton~$\mathcal I_T$ is
 almost surely finite.
 \end{lemma}
 
-\begin{proof}
-The total rate of marks whose source is active is bounded by~$C\abs{A_t}$ for some finite~$C$, uniformly in the state. Moreover, a single
-mark can add at most
-\begin{equation*}
-\sup_{i\in\Lambda}\abs{N(i)}<\infty
-\end{equation*}
-sites to the active set. Hence~$\abs{A_t}$ is dominated by a nonexplosive
-continuous-time branching process. Almost surely only finitely many marks occur
-at active sources on~$[0,T]$, and therefore only finitely many of them are
-successful interactions.
-\end{proof}
-
 \chg{Each record~$(i,t,S)\in\mathcal I$ is outgoing at~$i$ and incoming at every
 site of~$S$. On each site line these times cut time into consecutive
-intervals, the patches. For~$i\in\Lambda$, the times of incoming and outgoing
-successful interactions at~$i$ are}
+intervals, the patches.}
+
+\chg{\begin{definition}[Patch]
+\label{def:patch}
+For~$i\in\Lambda$, the times of incoming and outgoing successful interactions
+at~$i$ are
 \begin{align*}
 \mathcal T^{\mathsf I}(i)
 &=
@@ -1839,9 +1814,9 @@ successful interactions at~$i$ are}
 &=
 \mathcal T^{\mathsf I}(i)\cup\mathcal T^{\mathsf O}(i).
 \end{align*}
-\chg{By the formal record,~$0\in\mathcal T^{\mathsf I}(i)$ for~$i\in A$: the
+By the formal record,~$0\in\mathcal T^{\mathsf I}(i)$ for~$i\in A$: the
 initial set counts as an incoming interaction. For~$s\in\mathcal T(i)$, the
-next successful interaction at~$i$ occurs at}
+next successful interaction at~$i$ occurs at
 \begin{equation*}
 e_i(s)
 =
@@ -1849,9 +1824,6 @@ e_i(s)
 \qquad
 \inf\varnothing=\infty.
 \end{equation*}
-
-\begin{definition}[Patch]
-\label{def:patch}
 Let~$(j,s,S)\in\mathcal I$ be a record for which~$i=j$ or~$i\in S$. The patch
 beginning at~$(i,s)$ is
 \begin{equation*}
@@ -1886,11 +1858,8 @@ the same site line, with~$\mathsf E$ meaning that there is no such interaction:
 {\mathsf O}{e(P)<\infty\text{ and }e(P)\in\mathcal T^{\mathsf O}\bb{i(P)}}
 {\mathsf E}{e(P)=\infty}.
 \end{equation*}
-\end{definition}
-
-Let~$\mathcal P$ be the family of all patches. For this infinite-horizon family,
-a patch with terminal label~$\mathsf E$ is infinite, while a patch with terminal
-label~$\mathsf I$ or~$\mathsf O$ is finite.
+Let~$\mathcal P$ be the family of all patches.
+\end{definition}}
 
 \chg{\begin{definition}[Bulk and end patches]
 \label{def:bulk-end-patches}
@@ -1936,7 +1905,9 @@ P^{\uparrow u}
 \end{definition}
 
 \begin{remark}
-Bulk patches end by time~$t$; end patches cross~$t$ and are cut there, and
+In the infinite-horizon family~$\mathcal P$, a patch with terminal
+label~$\mathsf E$ is infinite, while a patch with terminal label~$\mathsf I$
+or~$\mathsf O$ is finite. Bulk patches end by time~$t$; end patches cross~$t$ and are cut there, and
 $P^{\uparrow t}=P$ for~$P\in\mathcal E_t$. By
 Lemma~\ref{lem:dual-local-finiteness},~$\mathcal P_t$ is almost surely
 finite, and distinct end patches have distinct sites.
@@ -2171,99 +2142,150 @@ patches from end patches.}
 \end{figure}
 \FloatBarrier
 
-
-
 \subsection{Patch representation}
 \label{subsec:patch-representation}
 
 \chg{Conditioning on~$\mathcal G_T$ fixes the skeleton and hence the patch
-family~$\mathcal P_T$. What remains random are the deaths inside patches and
-the kind, split or birth, of each interaction. The patch boundaries restrict
-this randomness one patch at a time, so conditionally on~$\mathcal G_T$ it
-factorizes over the patches. We first describe the law of one patch. Fix a
-patch~$P$, write~$i=i(P)$,~$s=s(P)$,~$e=e(P)$,~$S=S(P)$, and let}
+family~$\mathcal P_T$. What remains random inside a patch are the deaths at
+its site and, if the patch starts with an outgoing interaction, the kind of
+this interaction, split or birth. Averaging the Feynman--Kac weight over this
+hidden randomness gives one number per patch, its contribution. The
+contributions are explicit.}
+
+\chg{\begin{definition}[Patch contributions]
+\label{def:patch-contributions}
+For~$i\in\Lambda$, let
 \begin{equation*}
-\Sigma_P^\circ
+\alpha_i
 =
-\cb{(i,u,\gamma,R)\in I^{\mathrm P}:s<u<e}.
+\sum_{R\subseteq N(i)}\delta_i(R)
++
+\sum_{\substack{R\subseteq N(i)\\R\neq\varnothing}}\beta_i(R).
 \end{equation*}
-\chg{be the marks from~$i$ inside the patch; for each~$R$, the~$(\delta,R)$
-and~$(\beta,R)$ marks are independent Poisson processes with
-rates~$\delta_i(R)$ and~$\beta_i(R)$. At the initial boundary,} if
-$\mathsf X(P)=\mathsf I$, the boundary is incoming, so there is no outgoing
-mark from~$i$ to add and we set~$\Sigma_P=\Sigma_P^\circ$. If
-$\mathsf X(P)=\mathsf O$, the boundary record specifies the target~$S$ but not
-whether the interaction is a split or a birth. Let
-$\alpha(P)\in\cb{\delta,\beta}$ denote its kind, independent of
-$\Sigma_P^\circ$, with
-\begin{equation}
-\label{eq:patch-initial-kind-law}
-\pP_P\bb{\alpha(P)=\delta}
-=
-\frac{\delta_i(S)}{\delta_i(S)+\beta_i(S)},
+be the total rate of outgoing interactions at~$i$, so
+that~$V_i=\alpha_i+a_i^\beta(\varnothing)$. For~$\Delta\in[0,\infty]$
+and~$z\in[0,1]$, set
+\begin{align}
+\varphi_i(\Delta)
+&=
+e^{-\alpha_i\Delta}
++
+\delta_i(\varnothing)
+\int_0^\Delta e^{-\alpha_i u}\,du,
+\label{eq:patch-phi}
+\\
+\psi_i(\Delta,z)
+&=
+\delta_i(\varnothing)
+\int_0^\Delta e^{a_i^\beta(\varnothing)u}\,du
++
+z e^{a_i^\beta(\varnothing)\Delta}.
+\label{eq:patch-psi}
+\end{align}
+interpreted by their limits at~$\Delta=\infty$. Let~$P$ be a patch and write
+\begin{equation*}
+i=i(P),
 \qquad
-\pP_P\bb{\alpha(P)=\beta}
-=
-\frac{\beta_i(S)}{\delta_i(S)+\beta_i(S)}.
-\end{equation}
-\chg{(Almost surely~$\delta_i(S)+\beta_i(S)>0$, since the interaction starting the
-patch has positive rate.) In this case we set}
-\begin{equation*}
-\Sigma_P
-=
-\Sigma_P^\circ\cup\cb{(i,s,\alpha(P),S)}.
+S=S(P),
+\qquad
+\Delta=e(P)-s(P).
 \end{equation*}
-Together, the interior Poisson marks and, when present, the random initial kind
-define the law~$\pP_P$ of the patch~$P$ interaction record~$\Sigma_P$. Write~$\E_P$ for expectation under
-$\pP_P$.
-
-The marks in~$\Sigma_P$ determine a one-site process~$X^P\in\cb{0,1}$, where
-$X_u^P=1$ means that the patch site is active at time~$u$. Its initial value is
-\begin{equation*}
-X_s^P
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item If~$P$ is an end patch, its \emph{contribution} with terminal
+value~$z\in[0,1]$ is
+\begin{equation}
+\label{eq:end-contribution-formulas}
+C(z,P)
 =
-\pw{1}{\mathsf X(P)=\mathsf I}
-{\ind\cb{\alpha(P)=\beta}}{\mathsf X(P)=\mathsf O}.
-\end{equation*}
-The interior marks are then read in chronological order. When~$X_{u-}^P=1$, a
-$\delta$-mark sets~$X_u^P=0$ and a~$\beta$-mark leaves~$X_u^P=1$; when
-$X_{u-}^P=0$, either mark leaves~$X_u^P=0$. Between marks,~$X^P$ is constant.
-For a finite patch with terminal label~$\mathsf E$, set~$X_e^P=X_{e-}^P$.
-
-\chg{Not every realization is compatible with the boundaries fixed by the
-skeleton. A mark with nonempty target at an active site would be a further
-successful interaction and cut the patch, so such marks need~$X_{u-}^P=0$; and
-an outgoing terminal interaction must be successful, so~$X_{e-}^P=1$. This
-gives the consistency event}
-\begin{equation*}
-\operatorname{Con}(P)
-=
-\cb{
-\begin{aligned}
-X_{u-}^P=0
-&\quad\text{for every }(i,u,\gamma,R)\in\Sigma_P^\circ\\[-0.2em]
-&\quad\text{with }R\neq\varnothing
-\end{aligned}
+\pw{
+\displaystyle
+\frac{\psi_i(\Delta,z)}{\varphi_i(\Delta)}
+}{\mathsf X(P)=\mathsf I}
+{
+\displaystyle
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,z)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
 }
-\cap
-\pw{\cb{X_{e-}^P=1}}{\mathsf Y(P)=\mathsf O}
-{\Omega_P}{\mathsf Y(P)\in\cb{\mathsf I,\mathsf E}},
-\end{equation*}
-where~$\Omega_P$ is the sample space of the patch law. Depending on the
-boundary types, this condition can determine the hidden initial interaction
-kind or exclude deaths inside the patch.
-
-For almost every patch arising from the graphical construction,
-$\pP_P\bb{\operatorname{Con}(P)}>0$. Its consistent patch law is
-\begin{equation*}
-\pP_P^{\mathrm{con}}(\cdot)
+}{\mathsf X(P)=\mathsf O}.
+\end{equation}
+\item If~$P\in\mathcal P$, its \emph{contribution} is
+\begin{equation}
+\label{eq:full-contribution-formulas}
+C(P)
 =
-\pP_P\bb{\,\cdot\,\middle|\,\operatorname{Con}(P)},
-\end{equation*}
-and~$\E_P^{\mathrm{con}}$ denotes expectation under this law.
+\begin{cases}
+\displaystyle
+\frac{\psi_i(\Delta,1)}{\varphi_i(\Delta)},
+&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{II},\mathsf{IE}},
+\\[1.4em]
+e^{V_i\Delta},
+&\mathsf X(P)\mathsf Y(P)=\mathsf{IO},
+\\[0.8em]
+\displaystyle
+\frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,1)
+}{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+},
+&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{OI},\mathsf{OE}},
+\\[1.4em]
+\sigma_i^\beta(S)e^{V_i\Delta},
+&\mathsf X(P)\mathsf Y(P)=\mathsf{OO}.
+\end{cases}
+\end{equation}
+An infinite patch has type~$\mathsf{IE}$ or~$\mathsf{OE}$, and the
+corresponding row is read at~$\Delta=\infty$.
+\end{enumerate}
+\end{definition}}
 
-Figure~\ref{fig:patch-interiors} shows the possible one-site processes for the
-four patch types on the consistency event.
+\begin{theorem}[Patch representation]
+\label{thm:patch-representation}
+For every~$A\Subset\Lambda$,~$t\geq0$, and~$\eta\in\Omega$,
+\begin{equation}
+\label{eq:patch-representation}
+P_t\chi_A(\eta)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C(P)
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}.
+\end{equation}
+For any initial law~$\mu$,
+\begin{equation}
+\label{eq:patch-representation-general-law}
+(\mu P_t)(\chi_A)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+}.
+\end{equation}
+\end{theorem}
+
+\chg{\begin{remark}[Meaning of the contributions]
+\label{rem:meaning-contributions}
+Every end contribution is affine in~$z$. The contribution of a patch is the
+average of its share of the Feynman--Kac weight---the sign of its initial
+interaction, the potential collected while its site is active and, for an end
+patch, the terminal monomial---over the deaths at its site and the kind of its
+initial interaction, given that these are consistent with the skeleton
+(Lemma~\ref{lem:contribution-formulas}). A denominator
+in~\eqref{eq:end-contribution-formulas}
+or~\eqref{eq:full-contribution-formulas} vanishes only for patches that occur
+with probability zero. Figure~\ref{fig:patch-interiors} shows the possible
+activity trajectories of the patch site for each patch type. When a split and
+a birth with the same target carry opposite signs, they cancel inside~$C(P)$
+or~$C(z,P)$; this is where the cancellations of the sign process are
+captured.
+\end{remark}}
 
 \begin{figure}[p]
 \centering
@@ -2476,17 +2498,330 @@ four patch types on the consistency event.
 \endgroup
 \caption{One-site processes compatible with the four patch types. For each type, the diagram on the left specifies the incoming or
 outgoing boundary interactions, and the diagrams on the right show the
-possible trajectories of~$X^P$ under~$\pP_P^{\operatorname{con}}$. Gray shading indicates
-times at which the patch site is active, i.e.~$X_s^P = 1$.}
+\chg{possible activity trajectories of the patch site that are consistent with
+these boundary interactions. Gray shading indicates times at which the patch
+site is active.}}
 \label{fig:patch-interiors}
 \end{figure}
+
+\chg{\begin{remark}[Contributions in terms of the spin rates]
+\label{rem:spin-rate-contributions}
+In terms of the spin rates,
+\begin{equation}
+\label{eq:dual-to-spin-contribution-data}
+\begin{aligned}
+\alpha_i
+&=
+\sum_{R\subseteq N(i)}\abs{\widehat{\lambda_i\rho_i}(R)}
++
+\sum_{\substack{R\subseteq N(i)\\R\neq\varnothing}}
+\abs{\widehat{\lambda_i}(R)},
+\\
+a_i^\beta(\varnothing)
+&=
+-\widehat{\lambda_i}(\varnothing)
+=
+-\lambda_i(\mb 0),
+\\
+\delta_i(S)\sigma_i^\delta(S)
+&=
+\widehat{\lambda_i\rho_i}(S),
+&\delta_i(S)
+&=
+\abs{\widehat{\lambda_i\rho_i}(S)},
+\\
+\beta_i(S)\sigma_i^\beta(S)
+&=
+-\widehat{\lambda_i}(S),
+&\beta_i(S)
+&=
+\abs{\widehat{\lambda_i}(S)}.
+\end{aligned}
+\end{equation}
+Since
+\begin{equation*}
+\widehat{\lambda_i}(\varnothing)=\lambda_i(\mb 0),
+\qquad
+\widehat{\lambda_i\rho_i}(\varnothing)
+=
+\lambda_i(\mb 0)\rho_i(\mb 0),
+\end{equation*}
+we also have
+\begin{align*}
+\varphi_i(\Delta)
+&=
+e^{-\alpha_i\Delta}
++
+\lambda_i(\mb 0)\rho_i(\mb 0)
+\int_0^\Delta e^{-\alpha_i u}\,du,
+\\
+\psi_i(\Delta,z)
+&=
+\lambda_i(\mb 0)\rho_i(\mb 0)
+\int_0^\Delta e^{-\lambda_i(\mb 0)u}\,du
++
+z e^{-\lambda_i(\mb 0)\Delta}.
+\end{align*}
+
+If~$\lambda_i(\mb 0)>0$, then
+\begin{equation}
+\label{eq:all-zero-neighbourhood-relaxation}
+\psi_i(u,z)
+=
+\rho_i(\mb 0)
++
+\bb{z-\rho_i(\mb 0)}e^{-\lambda_i(\mb 0)u},
+\qquad
+\psi_i(u+v,z)
+=
+\psi_i\bb{u,\psi_i(v,z)}.
+\end{equation}
+If~$\lambda_i(\mb 0)=0$, then~$\psi_i(u,z)=z$, and the second identity remains
+valid.
+Thus, when~$\lambda_i(\mb 0)>0$, the value~$z$ is forgotten exponentially
+fast and replaced by~$\rho_i(\mb 0)$.
+\end{remark}}
+
+\FloatBarrier
+
+\subsection{Patch positivity}
+\label{subsec:proof-patch-positivity-threshold}
+
+\chg{The following proposition gives the probabilistic meaning of patch
+positivity and of the threshold profile: patch positivity is the
+nonnegativity of all patch contributions, and~$p_i^\star$ is the smallest
+density at which the end contributions are nonnegative. It is read off from
+Definition~\ref{def:patch-contributions}; the proof is in
+Section~\ref{subsec:proofs-section-4}.}
+
+\begin{proposition}
+\label{prop:patch-contribution-positivity}
+A spin system is patch positive if and only if
+\begin{equation*}
+C(P)\geq0 \qquad \text{ for every }P\in\mathcal{P}, \text{ almost surely.}
+\end{equation*}
+For every site~$i$, the threshold~$p_i^\star$ from
+\eqref{eq:threshold-profile} is the smallest~$p\in[0,1]$ such that
+\begin{equation*}
+C(p,P)\geq0
+\end{equation*}
+for every end patch~$P$ based at~$i$. Moreover, for every end patch the map~$z\mapsto C(z,P)$ is nondecreasing, and
+\begin{equation}
+\label{eq:threshold-below-zero-neighbour-refresh}
+p_i^\star\leq\rho_i(\mb 0).
+\end{equation}
+\end{proposition}
+
+\subsection{Removing pure deaths}
+\label{subsec:proof-pure-death-comparison}
+
+\chg{We now make the coupling precise: a patch-positive system and the system
+with some of its pure deaths removed have the same dual, and their patch
+contributions compare termwise. The proof is in
+Section~\ref{subsec:proofs-section-4}.}
+
+\begin{proposition}
+\label{prop:death-removal}
+Let~$\Lcal$ and~$\Lcal'$ be spin-system generators. Suppose that~$\Lcal$ is
+patch-positive and that
+\begin{equation}
+\label{eq:pure-death-decomposition-revision}
+\Lcal f(\eta)
+=
+\Lcal'f(\eta)
++
+\sum_{i\in\Lambda}d_i
+\bb{f\bb{\eta^{i,0}}-f(\eta)},
+\qquad d_i\geq0.
+\end{equation}
+Write~$C'$ for the patch contributions of~$\Lcal'$. Then:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item The two systems have the same dual process, successful-interaction
+skeleton, patch families and patch laws
+\chg{(Definition~\ref{def:patch-law})}.
+\item $\Lcal'$ is patch-positive with the same threshold profile~$\mb p^\star$.
+\item Every bulk patch satisfies~$0\leq C(P)\leq C'(P)$, and every patch~$P$
+ending with an outgoing interaction satisfies
+$C(P)=e^{-d_{i(P)}(e(P)-s(P))}C'(P)$.
+\item For every~$\mu\in\mathcal M_\star$ and every~$t\geq0$, almost surely,
+\begin{equation}
+\label{eq:death-removal-weight-comparison}
+0
+\leq
+\prod_{P\in\mathcal B_t}C(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}
+C\bb{\eta\bb{i(P)},P}
+}
+\leq
+\prod_{P\in\mathcal B_t}C'(P)\,
+\mu\bb{
+\prod_{P\in\mathcal E_t}
+C'\bb{\eta\bb{i(P)},P}
+}.
+\end{equation}
+\end{enumerate}
+\end{proposition}
+
+\section{Proofs}
+\label{sec:proofs}
+
+\chg{Section~\ref{subsec:proofs-section-4} proves the results of
+Section~\ref{sec:probabilistic-interpretation}.
+Section~\ref{subsec:auxiliary} collects the auxiliary results for the main
+theorem, with their proofs, and} Section~\ref{subsec:proofs-main} proves
+Theorem~\ref{thm:common-invariant-limit} and
+Corollaries~\ref{cor:uniform-exponential-ergodicity}
+and~\ref{cor:oriented-ergodicity}.
+
+\subsection{\texorpdfstring{Proofs of the results of Section~\ref{sec:probabilistic-interpretation}}{Proofs of the results of Section 4}}
+\label{subsec:proofs-section-4}
+
+\begin{proof}[Proof of Proposition~\ref{thm:monomial-duality}]
+If~$i\notin A$, then~$\bb{E_{i,\rho_i(\eta)}-I}\chi_A=0$. If~$i\in A$, then
+\begin{equation*}
+\lambda_i\bb{E_{i,\rho_i}-I}\chi_A
+=
+\lambda_i\rho_i\chi_{A\setminus\cb{i}}
+-
+\lambda_i\chi_A.
+\end{equation*}
+Expanding~$\lambda_i\rho_i$ and~$\lambda_i$ in monomials and
+using~$\chi_S\chi_B=\chi_{S\cup B}$ gives~\eqref{eq:signed-dual-generator-expansion}
+with the coefficients~\eqref{eq:signed-dual-coefficients}.
+By~\eqref{eq:death-split-data} and~\eqref{eq:birth-data}, each dual rate
+multiplied by its sign is the corresponding coefficient, so~$\Dcal H$
+reproduces the off-diagonal terms of~\eqref{eq:signed-dual-generator-expansion},
+and adding~$V(A)H$ with~$V$ from~\eqref{eq:dual-potential} gives the diagonal
+terms. This is the generator identity~\eqref{eq:monomial-generator-duality}.
+Under~\eqref{eq:fk-integrability}, the standard Feynman--Kac duality
+argument, see for example~\cite{JansenKurt2014}, turns it
+into~\eqref{eq:monomial-feynman-kac-duality}.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:dual-local-finiteness}]
+The total rate of marks whose source is active is bounded by~$C\abs{A_t}$ for some finite~$C$, uniformly in the state. Moreover, a single
+mark can add at most
+\begin{equation*}
+\sup_{i\in\Lambda}\abs{N(i)}<\infty
+\end{equation*}
+sites to the active set. Hence~$\abs{A_t}$ is dominated by a nonexplosive
+continuous-time branching process. Almost surely only finitely many marks occur
+at active sources on~$[0,T]$, and therefore only finitely many of them are
+successful interactions.
+\end{proof}
+
+\chg{We now prove the patch representation. Conditioning on~$\mathcal G_T$
+fixes the skeleton and hence the patch family~$\mathcal P_T$. What remains
+random are the deaths inside patches and the kind, split or birth, of each
+interaction. We first describe this randomness for one patch.}
+
+\chg{\begin{definition}[Patch law]
+\label{def:patch-law}
+Fix a patch~$P$, write~$i=i(P)$,~$s=s(P)$,~$e=e(P)$,~$S=S(P)$, and let
+\begin{equation*}
+\Sigma_P^\circ
+=
+\cb{(i,u,\gamma,R)\in I^{\mathrm P}:s<u<e}.
+\end{equation*}
+be the marks from~$i$ inside the patch; for each~$R$, the~$(\delta,R)$
+and~$(\beta,R)$ marks are independent Poisson processes with
+rates~$\delta_i(R)$ and~$\beta_i(R)$. If~$\mathsf X(P)=\mathsf I$, the initial
+boundary is incoming and we set~$\Sigma_P=\Sigma_P^\circ$.
+If~$\mathsf X(P)=\mathsf O$, the boundary record specifies the target~$S$ but
+not whether the interaction is a split or a birth; let
+$\alpha(P)\in\cb{\delta,\beta}$ denote its kind, independent
+of~$\Sigma_P^\circ$, with
+\begin{equation}
+\label{eq:patch-initial-kind-law}
+\pP_P\bb{\alpha(P)=\delta}
+=
+\frac{\delta_i(S)}{\delta_i(S)+\beta_i(S)},
+\qquad
+\pP_P\bb{\alpha(P)=\beta}
+=
+\frac{\beta_i(S)}{\delta_i(S)+\beta_i(S)}.
+\end{equation}
+and set
+\begin{equation*}
+\Sigma_P
+=
+\Sigma_P^\circ\cup\cb{(i,s,\alpha(P),S)}.
+\end{equation*}
+The \emph{patch law}~$\pP_P$ is the law of~$\Sigma_P$, and~$\E_P$ denotes
+expectation under~$\pP_P$.
+The marks in~$\Sigma_P$ determine a one-site process~$X^P\in\cb{0,1}$, where
+$X_u^P=1$ means that the patch site is active at time~$u$. Its initial value is
+\begin{equation*}
+X_s^P
+=
+\pw{1}{\mathsf X(P)=\mathsf I}
+{\ind\cb{\alpha(P)=\beta}}{\mathsf X(P)=\mathsf O}.
+\end{equation*}
+The interior marks are then read in chronological order. When~$X_{u-}^P=1$, a
+$\delta$-mark sets~$X_u^P=0$ and a~$\beta$-mark leaves~$X_u^P=1$; when
+$X_{u-}^P=0$, either mark leaves~$X_u^P=0$. Between marks,~$X^P$ is constant.
+For a finite patch with terminal label~$\mathsf E$, set~$X_e^P=X_{e-}^P$.
+\end{definition}}
+
+\chg{Almost surely~$\delta_i(S)+\beta_i(S)>0$ in~\eqref{eq:patch-initial-kind-law},
+since the interaction starting the patch has positive rate.}
+
+\chg{\begin{definition}[Consistent patch law]
+\label{def:consistent-patch-law}
+The \emph{consistency event} of~$P$ is
+\begin{equation*}
+\operatorname{Con}(P)
+=
+\cb{
+\begin{aligned}
+X_{u-}^P=0
+&\quad\text{for every }(i,u,\gamma,R)\in\Sigma_P^\circ\\[-0.2em]
+&\quad\text{with }R\neq\varnothing
+\end{aligned}
+}
+\cap
+\pw{\cb{X_{e-}^P=1}}{\mathsf Y(P)=\mathsf O}
+{\Omega_P}{\mathsf Y(P)\in\cb{\mathsf I,\mathsf E}},
+\end{equation*}
+where~$\Omega_P$ is the sample space of the patch law.
+If~$\pP_P\bb{\operatorname{Con}(P)}>0$, the \emph{consistent patch law} is
+\begin{equation*}
+\pP_P^{\mathrm{con}}(\cdot)
+=
+\pP_P\bb{\,\cdot\,\middle|\,\operatorname{Con}(P)},
+\end{equation*}
+and~$\E_P^{\mathrm{con}}$ denotes expectation under this law.
+\end{definition}}
+
+\chg{\begin{remark}[Meaning of consistency]
+\label{rem:consistency}
+The skeleton fixes the boundaries of~$P$, and~$\operatorname{Con}(P)$ is the
+event that the hidden randomness of~$P$ does not contradict them. First, the
+patch contains no further successful interaction: every mark from~$i$ with
+nonempty target inside the patch occurs while the site is inactive. Second, if
+the patch ends with an outgoing interaction, this interaction is successful,
+so the site is active just before~$e$. For the patch types this means:
+\begin{itemize}
+\item $\mathsf{IO}$: the site stays active, so there is no mark from~$i$
+inside the patch;
+\item $\mathsf{OO}$: in addition, the initial interaction is a birth;
+\item $\mathsf{II}$,~$\mathsf{IE}$: no mark with nonempty target occurs before
+the first death;
+\item $\mathsf{OI}$,~$\mathsf{OE}$: either the initial interaction is a split,
+and there is no further constraint, or it is a birth, and the constraint is as
+for~$\mathsf{II}$.
+\end{itemize}
+Figure~\ref{fig:patch-interiors} shows the resulting trajectories of~$X^P$.
+\end{remark}}
 
 \chg{The next lemma shows that, conditionally on~$\mathcal G_T$, the patches are
 independent with their consistent laws.}
 
 \begin{lemma}[Patch factorization]
 \label{thm:patch-factorization}
-Fix~$T<\infty$. Conditional on~$\mathcal G_T$, the variables~$\Sigma_P$ are
+Fix~$T<\infty$. \chg{Almost surely,~$\pP_P\bb{\operatorname{Con}(P)}>0$
+for every~$P\in\mathcal P_T$.} Conditional on~$\mathcal G_T$, the variables~$\Sigma_P$ are
 independent, and the conditional law of~$\Sigma_P$ is
 $\pP_P^{\mathrm{con}}$ for each~$P\in\mathcal P_T$. Equivalently, for
 bounded measurable functions~$f_P$ such that either all~$f_P$ are nonnegative
@@ -2502,8 +2837,7 @@ or the product on the left below is integrable,
 \end{equation}
 \end{lemma}
 
-\begin{proof}
-
+\begin{proof}[Proof of Lemma~\ref{thm:patch-factorization}]
 Since the initial record~$(\infty,0,A)$ is deterministic under~$\pP_A$, let~$G_T$ denote the positive-time records in~$\mathcal I_T$. Then~$\mathcal G_T=\sigma(G_T)$.
 We compute the joint law of~$G_T$ and the patch variables relative to a
 reference measure on possible successful-interaction records. Setting all patch
@@ -2580,7 +2914,9 @@ of the skeleton record,
 \pP_P\bb{\operatorname{Con}(P)}
 \,m_T(dg).
 \end{equation*}
-Therefore, for~$\pP_A\circ G_T^{-1}$-almost every~$g$, the Radon--Nikodym
+\chg{In particular, for~$\pP_A\circ G_T^{-1}$-almost every~$g$, every
+factor~$\pP_P\bb{\operatorname{Con}(P)}$ with~$P\in\mathcal P_T(g)$ is
+positive.} Therefore, for~$\pP_A\circ G_T^{-1}$-almost every~$g$, the Radon--Nikodym
 quotient of the joint density in~\eqref{eq:patch-factorization-mecke} by this
 marginal density is
 \begin{align*}
@@ -2606,7 +2942,7 @@ conditional-law statement.
 \end{proof}
 
 \chg{To apply Lemma~\ref{thm:patch-factorization} to the Feynman--Kac weight,
-fix~$t\geq0$ and~$\eta\in\Omega$, write}
+fix~$t\geq0$ and~$\eta\in\Omega$, and write}
 \begin{equation*}
 Z_t^\eta
 =
@@ -2616,9 +2952,53 @@ Z_t^\eta
 \qquad
 P_t\chi_A(\eta)=\E_A\Cb{Z_t^\eta}.
 \end{equation*}
-\chg{and split its sign, potential integral and terminal monomial over the
-patches. Each successful interaction contributes its sign to the outgoing
-patch at its source; deaths have positive sign since}
+
+\chg{\begin{definition}[Patch weights]
+\label{def:patch-weights}
+The \emph{sign} of a patch~$P$ is
+\begin{equation*}
+\sigma(P)
+=
+\pw{+}{\mathsf X(P)=\mathsf I}
+{\sigma_{i(P)}^{\alpha(P)}\bb{S(P)}}{\mathsf X(P)=\mathsf O},
+\end{equation*}
+For a full patch~$P\in\mathcal P$, set
+\begin{equation*}
+F(P)
+=
+\sigma(P)
+\exp\bb{
+V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
+}.
+\end{equation*}
+When~$e(P)=\infty$, the exponential is interpreted as the limit over finite
+upper endpoints. For an end patch~$P\in\mathcal E_t$ and~$z\in[0,1]$, set
+\begin{equation*}
+F(z,P)
+=
+\sigma(P)
+\exp\bb{
+V_{i(P)}\int_{s(P)}^tX_u^P\,du
+}
+z^{X_t^P}.
+\end{equation*}
+\end{definition}}
+
+\chg{\begin{lemma}[Pathwise factorization]
+\label{lem:pathwise-factorization}
+For every~$t\geq0$ and~$\eta\in\Omega$,
+\begin{equation}
+\label{eq:pathwise-patch-factorization}
+Z_t^\eta
+=
+\prod_{P\in\mathcal B_t}F(P)
+\prod_{P\in\mathcal E_t}F\bb{\eta\bb{i(P)},P}.
+\end{equation}
+\end{lemma}}
+
+\begin{proof}[\chg{Proof of Lemma~\ref{lem:pathwise-factorization}}]
+\chg{Each successful interaction contributes its sign to the outgoing patch at
+its source; deaths have positive sign since}
 \begin{equation*}
 a_i^\delta(\varnothing)
 =
@@ -2627,14 +3007,7 @@ a_i^\delta(\varnothing)
 \lambda_i(\mb 0)\rho_i(\mb 0)
 \geq0.
 \end{equation*}
-Define
-\begin{equation*}
-\sigma(P)
-=
-\pw{+}{\mathsf X(P)=\mathsf I}
-{\sigma_{i(P)}^{\alpha(P)}\bb{S(P)}}{\mathsf X(P)=\mathsf O},
-\end{equation*}
-so that
+\chg{Hence}
 \begin{equation*}
 \sigma_t
 =
@@ -2657,76 +3030,112 @@ V_{i(P)}\int_{s(P)}^tX_u^P\,du,
 \prod_{P\in\mathcal E_t}
 \eta\bb{i(P)}^{X_t^P}.
 \end{align*}
+\chg{Multiplying these identities gives~\eqref{eq:pathwise-patch-factorization}.}
+\end{proof}
 
-\chg{For a full patch~$P\in\mathcal P$, set}
+\chg{\begin{lemma}[Patch contributions as conditional averages]
+\label{lem:contribution-formulas}
+Let~$P$ be a patch, and write~$i=i(P)$,~$S=S(P)$,~$\Delta=e(P)-s(P)$. If
+$\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{II},\mathsf{IE}}$, then
 \begin{equation*}
-F(P)
+\pP_P\bb{\operatorname{Con}(P)}
 =
-\sigma(P)
-\exp\bb{
-V_{i(P)}\int_{s(P)}^{e(P)}X_u^P\,du
+\varphi_i(\Delta),
+\end{equation*}
+and if~$\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{OI},\mathsf{OE}}$, then
+\begin{equation*}
+\pP_P\bb{\operatorname{Con}(P)}
+=
+\frac{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}{
+\delta_i(S)+\beta_i(S)
 }.
 \end{equation*}
-When~$e(P)=\infty$, the exponential is interpreted as the limit over finite
-upper endpoints. For an end patch~$P\in\mathcal E_t$ and~$z\in[0,1]$, include
-the terminal factor and set
-\begin{equation*}
-F(z,P)
-=
-\sigma(P)
-\exp\bb{
-V_{i(P)}\int_{s(P)}^tX_u^P\,du
-}
-z^{X_t^P}.
-\end{equation*}
-The preceding identities give the factorization
-\begin{equation}
-\label{eq:pathwise-patch-factorization}
-Z_t^\eta
-=
-\prod_{P\in\mathcal B_t}F(P)
-\prod_{P\in\mathcal E_t}F\bb{\eta\bb{i(P)},P}.
-\end{equation}
-\chg{Averaging each factor under its consistent patch law defines the patch
-contributions}
+Whenever~$\pP_P\bb{\operatorname{Con}(P)}>0$, the contributions of
+Definition~\ref{def:patch-contributions} satisfy
 \begin{equation*}
 C(P)=\E_P^{\mathrm{con}}\Cb{F(P)},
 \qquad
 C(z,P)=\E_P^{\mathrm{con}}\Cb{F(z,P)}.
 \end{equation*}
-Since~$X_t^P\in\cb{0,1}$, the map~$z\mapsto C(z,P)$ is affine.
+\end{lemma}}
 
-
-\begin{theorem}[Patch representation]
-\label{thm:patch-representation}
-For every~$A\Subset\Lambda$,~$t\geq0$, and~$\eta\in\Omega$,
-\begin{equation}
-\label{eq:patch-representation}
-P_t\chi_A(\eta)
+\begin{proof}[Proof of Lemma~\ref{lem:contribution-formulas}]
+\chg{By definition,~$\E_P^{\mathrm{con}}\Cb{F}
+=\E_P\Cb{F\ind_{\operatorname{Con}(P)}}/\pP_P\bb{\operatorname{Con}(P)}$; we
+compute numerator and denominator.}
+Suppose first that the initial interaction is incoming, so~$X_s^P=1$, and the terminal interaction is incoming or absent,
+corresponding to~$\mathsf I$ or~$\mathsf E$. Consistency occurs either when
+there is no outgoing interaction before the endpoint or death. Therefore
+\begin{equation*}
+\pP_P\bb{\operatorname{Con}(P)}
 =
-\E_A\Cb{
-\prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
-}.
-\end{equation}
-For any initial law~$\mu$,
-\begin{equation}
-\label{eq:patch-representation-general-law}
-(\mu P_t)(\chi_A)
+e^{-\alpha_i\Delta}
++
+\delta_i(\varnothing)
+\int_0^\Delta e^{-\alpha_i u}\,du
 =
-\E_A\Cb{
-\prod_{P\in\mathcal B_t}C(P)\,
-\mu\bb{
-\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
-}
-}.
-\end{equation}
-\end{theorem}
+\varphi_i(\Delta).
+\end{equation*}
+To compute~$C(z,P)$, we also need the numerator of
+the conditional expectation defining the patch contribution,
+\begin{equation*}
+\E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}}.
+\end{equation*}
+If there is a death at time~$u$, the site is active
+until~$u$ and contributes~$e^{V_i u}$. If there is no death,
+the site remains active for the whole patch and contributes the terminal
+factor~$z$. Hence
+\begin{equation*}
+\E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}}
+=
+\delta_i(\varnothing)
+\int_0^\Delta e^{\bb{V_i-\alpha_i}u}\,du
++
+z e^{\bb{V_i-\alpha_i}\Delta}
+=
+\psi_i(\Delta,z).
+\end{equation*}
+Thus the first formula in~\eqref{eq:end-contribution-formulas} is justified.
+Setting~$z=1$ gives the~$\mathsf{II}$ and~$\mathsf{IE}$ formulas in
+\eqref{eq:full-contribution-formulas}.
 
-\begin{proof}
+Suppose next that the initial interaction is outgoing and the
+terminal interaction is incoming or absent, corresponding to~$\mathsf I$ or~$\mathsf E$. If~$\alpha(P)=\delta$, the source becomes inactive at
+the initial interaction, so consistency is automatic and the local factor
+is~$\sigma_i^\delta(S)$. If~$\alpha(P)=\beta$, the source remains active
+and the preceding calculation applies. By~\eqref{eq:patch-initial-kind-law},
+we have
+\begin{align*}
+\pP_P\bb{\operatorname{Con}(P)} &= 
+\frac{
+\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
+}{
+\delta_i(S)+\beta_i(S)
+},\\
+\E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}} &= \frac{
+\delta_i(S)\sigma_i^\delta(S)
++
+\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,z)
+}{
+\delta_i(S)+\beta_i(S)
+}.
+\end{align*}
+Their ratio gives the second formula of~\eqref{eq:end-contribution-formulas} and
+the~$\mathsf{OI}$,~$\mathsf{OE}$ formulas of
+\eqref{eq:full-contribution-formulas}. If the terminal interaction is outgoing, the source must
+remain active throughout the patch. If the initial interaction is
+incoming, the patch contributes~$e^{V_i\Delta}$. If the initial interaction
+is outgoing, consistency also forces~$\alpha(P)=\beta$, leaving~$\sigma_i^\beta(S)e^{V_i\Delta}$. These are the remaining two formulas of~\eqref{eq:full-contribution-formulas}. The formulas extend to~$\Delta=\infty$ by taking limits.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:patch-representation}]
 By~\eqref{eq:fk-integrability}, we may condition
 \eqref{eq:pathwise-patch-factorization} on~$\mathcal G_t$.
-Lemma~\ref{thm:patch-factorization} gives
+\chg{Since~$F(P)$ and~$F(z,P)$ are functions of~$\Sigma_P$,
+Lemmas~\ref{thm:patch-factorization} and~\ref{lem:contribution-formulas}
+give}
 \begin{equation*}
 \CE{Z_t^\eta}{\mathcal G_t}
 =
@@ -2739,251 +3148,7 @@ arbitrary initial law~$\mu$ gives
 \eqref{eq:patch-representation-general-law}.
 \end{proof}
 
-For a Bernoulli product measure~$\mu_{\mb p}$ with
-$\mu_{\mb p}\bb{\eta(i)=1}=p_i$, the sites~$i(P)$,
-$P\in\mathcal E_t$, are distinct. Hence independence of the spins at these
-sites and~$z\mapsto C(z,P)$ being affine gives
-\begin{equation*}
-\mu_{\mb p}\bb{
-\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
-}
-=
-\prod_{P\in\mathcal E_t}
-C\bb{p_{i(P)},P}.
-\end{equation*}
-Therefore
-\begin{equation}
-\label{eq:patch-representation-product-law}
-(\mu_{\mb p}P_t)(\chi_A)
-=
-\E_A\Cb{
-\prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal E_t}C\bb{p_{i(P)},P}
-}.
-\end{equation}
-
-\chg{The contributions average out the information omitted from the skeleton:
-the deaths and, for outgoing patches, the kind and sign of the initial
-interaction. When a split and a birth with the same target carry opposite
-signs, they cancel inside~$C(P)$ or~$C(z,P)$; this is where the cancellations
-of the sign process are captured.}
-
-\subsubsection*{Explicit patch contributions}
-
-The patch contributions can be computed explicitly. Fix a patch based at~$i$, and write
-\begin{equation*}
-\alpha_i
-=
-\sum_{R\subseteq N(i)}\delta_i(R)
-+
-\sum_{\substack{R\subseteq N(i)\\R\neq\varnothing}}\beta_i(R).
-\end{equation*}
-Thus~$\alpha_i$ is the total rate of outgoing interactions at~$i$, and
-$V_i=\alpha_i+a_i^\beta(\varnothing)$. For~$\Delta\in[0,\infty]$ and
-$z\in[0,1]$, set
-\begin{align}
-\varphi_i(\Delta)
-&=
-e^{-\alpha_i\Delta}
-+
-\delta_i(\varnothing)
-\int_0^\Delta e^{-\alpha_i u}\,du,
-\label{eq:patch-phi}
-\\
-\psi_i(\Delta,z)
-&=
-\delta_i(\varnothing)
-\int_0^\Delta e^{a_i^\beta(\varnothing)u}\,du
-+
-z e^{a_i^\beta(\varnothing)\Delta}.
-\label{eq:patch-psi}
-\end{align}
-At~$\Delta=\infty$, these expressions are interpreted by their limits.
-
-\begin{lemma}[Patch-contribution formulas]
-\label{lem:contribution-formulas}
-The patch contributions are given as follows.
-\begin{enumerate}[label=\textup{(\alph*)}]
-\item Let~$P$ be an end patch, and put
-\begin{equation*}
-i=i(P),
-\qquad
-S=S(P),
-\qquad
-\Delta=e(P)-s(P).
-\end{equation*}
-Then
-\begin{equation}
-\label{eq:end-contribution-formulas}
-C(z,P)
-=
-\pw{
-\displaystyle
-\frac{\psi_i(\Delta,z)}{\varphi_i(\Delta)}
-}{\mathsf X(P)=\mathsf I}
-{
-\displaystyle
-\frac{
-\delta_i(S)\sigma_i^\delta(S)
-+
-\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,z)
-}{
-\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
-}
-}{\mathsf X(P)=\mathsf O}.
-\end{equation}
-In particular, every end contribution is affine in~$z$.
-\item Let~$P\in\mathcal P$, and write
-\begin{equation*}
-i=i(P),
-\qquad
-S=S(P),
-\qquad
-\Delta=e(P)-s(P).
-\end{equation*}
-For finite and infinite patches, the contribution is
-\begin{equation}
-\label{eq:full-contribution-formulas}
-C(P)
-=
-\begin{cases}
-\displaystyle
-\frac{\psi_i(\Delta,1)}{\varphi_i(\Delta)},
-&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{II},\mathsf{IE}},
-\\[1.4em]
-e^{V_i\Delta},
-&\mathsf X(P)\mathsf Y(P)=\mathsf{IO},
-\\[0.8em]
-\displaystyle
-\frac{
-\delta_i(S)\sigma_i^\delta(S)
-+
-\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,1)
-}{
-\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
-},
-&\mathsf X(P)\mathsf Y(P)\in\cb{\mathsf{OI},\mathsf{OE}},
-\\[1.4em]
-\sigma_i^\beta(S)e^{V_i\Delta},
-&\mathsf X(P)\mathsf Y(P)=\mathsf{OO}.
-\end{cases}
-\end{equation}
-An infinite patch has type~$\mathsf{IE}$ or~$\mathsf{OE}$, and the
-corresponding row is read at~$\Delta=\infty$. If a denominator in~\eqref{eq:end-contribution-formulas} or
-\eqref{eq:full-contribution-formulas} vanishes, that patch has zero
-probability of occurring, so the formula is irrelevant.
-\end{enumerate}
-\end{lemma}
-
-\chg{The proof is a direct computation, given in
-Appendix~\ref{app:contribution-formulas}. In terms of the spin rates,}
-\begin{equation}
-\label{eq:dual-to-spin-contribution-data}
-\begin{aligned}
-\alpha_i
-&=
-\sum_{R\subseteq N(i)}\abs{\widehat{\lambda_i\rho_i}(R)}
-+
-\sum_{\substack{R\subseteq N(i)\\R\neq\varnothing}}
-\abs{\widehat{\lambda_i}(R)},
-\\
-a_i^\beta(\varnothing)
-&=
--\widehat{\lambda_i}(\varnothing)
-=
--\lambda_i(\mb 0),
-\\
-\delta_i(S)\sigma_i^\delta(S)
-&=
-\widehat{\lambda_i\rho_i}(S),
-&\delta_i(S)
-&=
-\abs{\widehat{\lambda_i\rho_i}(S)},
-\\
-\beta_i(S)\sigma_i^\beta(S)
-&=
--\widehat{\lambda_i}(S),
-&\beta_i(S)
-&=
-\abs{\widehat{\lambda_i}(S)}.
-\end{aligned}
-\end{equation}
-Since
-\begin{equation*}
-\widehat{\lambda_i}(\varnothing)=\lambda_i(\mb 0),
-\qquad
-\widehat{\lambda_i\rho_i}(\varnothing)
-=
-\lambda_i(\mb 0)\rho_i(\mb 0),
-\end{equation*}
-we also have
-\begin{align*}
-\varphi_i(\Delta)
-&=
-e^{-\alpha_i\Delta}
-+
-\lambda_i(\mb 0)\rho_i(\mb 0)
-\int_0^\Delta e^{-\alpha_i u}\,du,
-\\
-\psi_i(\Delta,z)
-&=
-\lambda_i(\mb 0)\rho_i(\mb 0)
-\int_0^\Delta e^{-\lambda_i(\mb 0)u}\,du
-+
-z e^{-\lambda_i(\mb 0)\Delta}.
-\end{align*}
-
-If~$\lambda_i(\mb 0)>0$, then
-\begin{equation}
-\label{eq:all-zero-neighbourhood-relaxation}
-\psi_i(u,z)
-=
-\rho_i(\mb 0)
-+
-\bb{z-\rho_i(\mb 0)}e^{-\lambda_i(\mb 0)u},
-\qquad
-\psi_i(u+v,z)
-=
-\psi_i\bb{u,\psi_i(v,z)}.
-\end{equation}
-If~$\lambda_i(\mb 0)=0$, then~$\psi_i(u,z)=z$, and the second identity remains
-valid.
-
-\chg{Thus, when~$\lambda_i(\mb 0)>0$, the value~$z$ is forgotten exponentially
-fast and replaced by~$\rho_i(\mb 0)$.}
-
-
-
-\FloatBarrier
-
-\subsection{Patch positivity}
-\label{subsec:proof-patch-positivity-threshold}
-
-\chg{The following proposition gives the probabilistic meaning of patch
-positivity and of the threshold profile: patch positivity is the
-nonnegativity of all patch contributions, and~$p_i^\star$ is the smallest
-density at which the end contributions are nonnegative. It is read off from
-Lemma~\ref{lem:contribution-formulas}.}
-
-\begin{proposition}
-\label{prop:patch-contribution-positivity}
-A spin system is patch positive if and only if
-\begin{equation*}
-C(P)\geq0 \qquad \text{ for every }P\in\mathcal{P}, \text{ almost surely.}
-\end{equation*}
-For every site~$i$, the threshold~$p_i^\star$ from
-\eqref{eq:threshold-profile} is the smallest~$p\in[0,1]$ such that
-\begin{equation*}
-C(p,P)\geq0
-\end{equation*}
-for every end patch~$P$ based at~$i$. Moreover, for every end patch the map~$z\mapsto C(z,P)$ is nondecreasing, and
-\begin{equation}
-\label{eq:threshold-below-zero-neighbour-refresh}
-p_i^\star\leq\rho_i(\mb 0).
-\end{equation}
-\end{proposition}
-
-\begin{proof}
+\begin{proof}[Proof of Proposition~\ref{prop:patch-contribution-positivity}]
 Fix a patch~$P$ based at~$i$ and write
 $\Delta=e(P)-s(P)\in(0,\infty]$. We use
 \begin{equation}
@@ -3161,55 +3326,6 @@ Taking the maximum in~\eqref{eq:threshold-profile} proves
 \eqref{eq:threshold-below-zero-neighbour-refresh}.
 \end{proof}
 
-\subsection{Removing pure deaths}
-\label{subsec:proof-pure-death-comparison}
-
-\chg{We now make the coupling precise: a patch-positive system and the system
-with some of its pure deaths removed have the same dual, and their patch
-contributions compare termwise.}
-
-\begin{proposition}
-\label{prop:death-removal}
-Let~$\Lcal$ and~$\Lcal'$ be spin-system generators. Suppose that~$\Lcal$ is
-patch-positive and that
-\begin{equation}
-\label{eq:pure-death-decomposition-revision}
-\Lcal f(\eta)
-=
-\Lcal'f(\eta)
-+
-\sum_{i\in\Lambda}d_i
-\bb{f\bb{\eta^{i,0}}-f(\eta)},
-\qquad d_i\geq0.
-\end{equation}
-Write~$C'$ for the patch contributions of~$\Lcal'$. Then:
-\begin{enumerate}[label=\textup{(\roman*)}]
-\item The two systems have the same dual process, successful-interaction
-skeleton, patch families and patch laws.
-\item $\Lcal'$ is patch-positive with the same threshold profile~$\mb p^\star$.
-\item Every bulk patch satisfies~$0\leq C(P)\leq C'(P)$, and every patch~$P$
-ending with an outgoing interaction satisfies
-$C(P)=e^{-d_{i(P)}(e(P)-s(P))}C'(P)$.
-\item For every~$\mu\in\mathcal M_\star$ and every~$t\geq0$, almost surely,
-\begin{equation}
-\label{eq:death-removal-weight-comparison}
-0
-\leq
-\prod_{P\in\mathcal B_t}C(P)\,
-\mu\bb{
-\prod_{P\in\mathcal E_t}
-C\bb{\eta\bb{i(P)},P}
-}
-\leq
-\prod_{P\in\mathcal B_t}C'(P)\,
-\mu\bb{
-\prod_{P\in\mathcal E_t}
-C'\bb{\eta\bb{i(P)},P}
-}.
-\end{equation}
-\end{enumerate}
-\end{proposition}
-
 \begin{proof}[Proof of Proposition~\ref{prop:death-removal}]
 Let~$H((A,\sigma),\eta)=\sigma\chi_A(\eta)$ be the duality function from
 Section~\ref{sec:dual}. The pure-death term in
@@ -3362,15 +3478,6 @@ C'\bb{\eta\bb{i(P)},P}
 Combining this with~\eqref{eq:pure-death-bulk-patch-comparison} proves
 \eqref{eq:death-removal-weight-comparison}.
 \end{proof}
-
-\section{Proofs}
-\label{sec:proofs}
-
-Section~\ref{subsec:auxiliary} collects the auxiliary results, with their
-proofs. Section~\ref{subsec:proofs-main} proves
-Theorem~\ref{thm:common-invariant-limit} and
-Corollaries~\ref{cor:uniform-exponential-ergodicity}
-and~\ref{cor:oriented-ergodicity}.
 
 \subsection{Auxiliary results}
 \label{subsec:auxiliary}
@@ -4213,7 +4320,7 @@ C\bb{z,P^{\uparrow t}}
 }
 }{\mathsf X(P)=\mathsf O}.
 \end{equation}
-This is the end-patch formula from Lemma~\ref{lem:contribution-formulas} applied to
+This is the end-patch formula from \chg{Definition~\ref{def:patch-contributions}} applied to
 the longer patch.
 
 The same formulas give the probability that the patch remains consistent
@@ -5678,75 +5785,6 @@ The resulting expression is~$\sigma$ times the right-hand side of
 \eqref{eq:monomial-feynman-kac-duality}.
 \fi
 
-\section{\texorpdfstring{Proof of Lemma~\ref{lem:contribution-formulas}}{Proof of the patch-contribution formulas}}
-\label{app:contribution-formulas}
-
-\begin{proof}[Proof of Lemma~\ref{lem:contribution-formulas}]
-Suppose first that the initial interaction is incoming, so~$X_s^P=1$, and the terminal interaction is incoming or absent,
-corresponding to~$\mathsf I$ or~$\mathsf E$. Consistency occurs either when
-there is no outgoing interaction before the endpoint or death. Therefore
-\begin{equation*}
-\pP_P\bb{\operatorname{Con}(P)}
-=
-e^{-\alpha_i\Delta}
-+
-\delta_i(\varnothing)
-\int_0^\Delta e^{-\alpha_i u}\,du
-=
-\varphi_i(\Delta).
-\end{equation*}
-To compute~$C(z,P)$, we also need the numerator of
-the conditional expectation defining the patch contribution,
-\begin{equation*}
-\E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}}.
-\end{equation*}
-If there is a death at time~$u$, the site is active
-until~$u$ and contributes~$e^{V_i u}$. If there is no death,
-the site remains active for the whole patch and contributes the terminal
-factor~$z$. Hence
-\begin{equation*}
-\E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}}
-=
-\delta_i(\varnothing)
-\int_0^\Delta e^{\bb{V_i-\alpha_i}u}\,du
-+
-z e^{\bb{V_i-\alpha_i}\Delta}
-=
-\psi_i(\Delta,z).
-\end{equation*}
-Thus the first formula in~\eqref{eq:end-contribution-formulas} is justified.
-Setting~$z=1$ gives the~$\mathsf{II}$ and~$\mathsf{IE}$ formulas in
-\eqref{eq:full-contribution-formulas}.
-
-Suppose next that the initial interaction is outgoing and the
-terminal interaction is incoming or absent, corresponding to~$\mathsf I$ or~$\mathsf E$. If~$\alpha(P)=\delta$, the source becomes inactive at
-the initial interaction, so consistency is automatic and the local factor
-is~$\sigma_i^\delta(S)$. If~$\alpha(P)=\beta$, the source remains active
-and the preceding calculation applies. By~\eqref{eq:patch-initial-kind-law},
-we have
-\begin{align*}
-\pP_P\bb{\operatorname{Con}(P)} &= 
-\frac{
-\delta_i(S)+\beta_i(S)\varphi_i(\Delta)
-}{
-\delta_i(S)+\beta_i(S)
-},\\
-\E_P\Cb{F(z,P)\ind_{\operatorname{Con}(P)}} &= \frac{
-\delta_i(S)\sigma_i^\delta(S)
-+
-\beta_i(S)\sigma_i^\beta(S)\psi_i(\Delta,z)
-}{
-\delta_i(S)+\beta_i(S)
-}.
-\end{align*}
-Their ratio gives the second formula of~\eqref{eq:end-contribution-formulas} and
-the~$\mathsf{OI}$,~$\mathsf{OE}$ formulas of
-\eqref{eq:full-contribution-formulas}. If the terminal interaction is outgoing, the source must
-remain active throughout the patch. If the initial interaction is
-incoming, the patch contributes~$e^{V_i\Delta}$. If the initial interaction
-is outgoing, consistency also forces~$\alpha(P)=\beta$, leaving~$\sigma_i^\beta(S)e^{V_i\Delta}$. These are the remaining two formulas of~\eqref{eq:full-contribution-formulas}. The formulas extend to~$\Delta=\infty$ by taking limits.
-\end{proof}
-
 \section{Dependencies of the main results}
 \label{app:dependencies}
 
@@ -5851,16 +5889,17 @@ Lemma~\ref{lem:centered-cone-preservation} &
 Proposition~\ref{prop:patch-contribution-positivity} \\
 Proposition~\ref{prop:death-removal} &
 Propositions~\ref{thm:monomial-duality} and~\ref{prop:patch-contribution-positivity},
-Lemma~\ref{lem:contribution-formulas} \\
+\chg{Definition~\ref{def:patch-contributions}} \\
 Proposition~\ref{prop:patch-contribution-positivity} &
-Lemma~\ref{lem:contribution-formulas} \\
+\chg{Definition~\ref{def:patch-contributions}} \\
 Theorem~\ref{thm:patch-representation} &
 Proposition~\ref{thm:monomial-duality},
-Lemma~\ref{thm:patch-factorization} \\
+\chg{Lemmas~\ref{thm:patch-factorization}, \ref{lem:pathwise-factorization}
+and~\ref{lem:contribution-formulas}} \\
 Lemma~\ref{thm:patch-factorization} &
 Lemma~\ref{lem:dual-local-finiteness} \\
 Lemma~\ref{lem:contribution-formulas} &
-direct computation (Appendix~\ref{app:contribution-formulas}) \\
+direct computation \\
 \hline
 \end{tabularx}
 \caption{The results used in each proof, as in

@@ -1022,3 +1022,31 @@ boundary. A replacement for this mechanism on general neighbourhood
 graphs would extend the convergence result beyond the present restriction on
 the initial law.
 
+%==============================================================================
+% Parked from main.tex (Section 4.3, 2026-10-06): Bernoulli product law form
+% of the patch representation. Not used in the ergodicity paper.
+%==============================================================================
+
+For a Bernoulli product measure~$\mu_{\mb p}$ with
+$\mu_{\mb p}\bb{\eta(i)=1}=p_i$, the sites~$i(P)$,
+$P\in\mathcal E_t$, are distinct. Hence independence of the spins at these
+sites and~$z\mapsto C(z,P)$ being affine gives
+\begin{equation*}
+\mu_{\mb p}\bb{
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+}
+=
+\prod_{P\in\mathcal E_t}
+C\bb{p_{i(P)},P}.
+\end{equation*}
+Therefore
+\begin{equation}
+\label{eq:patch-representation-product-law}
+(\mu_{\mb p}P_t)(\chi_A)
+=
+\E_A\Cb{
+\prod_{P\in\mathcal B_t}C(P)
+\prod_{P\in\mathcal E_t}C\bb{p_{i(P)},P}
+}.
+\end{equation}
+
