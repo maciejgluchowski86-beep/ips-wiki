@@ -1726,7 +1726,10 @@ semigroups. To control the cancellations of the signs, we introduce
 a~$\sigma$-algebra that reveals when sites interact, but not how. The
 interactions divide each site line into intervals, the patches, and
 conditionally on the interactions the dual factorizes over the patches
-(Section~\ref{subsec:patch-representation}). We first construct the dual
+(Section~\ref{subsec:patch-representation}).
+Figure~\ref{fig:patch-geometry} shows the outcome of this section: a
+realization of the dual (left) and the patches it induces, split at a finite
+time~$t$ into bulk patches and end patches (right). We first construct the dual
 graphically.}
 
 We use the standard Poisson graphical construction for the dual process. For
@@ -1889,11 +1892,10 @@ Let~$\mathcal P$ be the family of all patches. For this infinite-horizon family,
 a patch with terminal label~$\mathsf E$ is infinite, while a patch with terminal
 label~$\mathsf I$ or~$\mathsf O$ is finite.
 
-\chg{At a finite time~$t$, patches that continue beyond~$t$ are cut at~$t$.}
-For~$P\in\mathcal P$ with~$s(P)\leq t$,
-let~$P^{\downarrow t}$ be obtained by replacing its endpoint by
-$\min\cb{e(P),t}$ and, when~$t<e(P)$, replacing its terminal label by
-$\mathsf E$. Thus
+\chg{\begin{definition}[Bulk and end patches]
+\label{def:bulk-end-patches}
+Fix a finite time~$t\geq0$. For~$P\in\mathcal P$ with~$s(P)\leq t$, the patch
+\emph{cut at time~$t$} is
 \begin{equation*}
 P^{\downarrow t}
 =
@@ -1903,31 +1905,44 @@ P^{\downarrow t}
  \mathsf X(P)\mathsf Y^{\downarrow t}(P),
  S(P)
 },
-\end{equation*}
-where
-\begin{equation*}
+\qquad
 \mathsf Y^{\downarrow t}(P)
 =
 \pw{\mathsf Y(P)}{e(P)\leq t}{\mathsf E}{t<e(P)}.
 \end{equation*}
-The families of bulk patches, end patches, and all finite-horizon patches are
+The families of \emph{bulk patches}, \emph{end patches}, and
+\emph{finite-horizon patches} are
 \begin{align*}
 \mathcal B_t
 &=
 \cb{P\in\mathcal P:e(P)\leq t},
-\\
+\
 \mathcal E_t
 &=
 \cb{P^{\downarrow t}:P\in\mathcal P,\ s(P)\leq t<e(P)},
-\\
+\
 \mathcal P_t
 &=
 \mathcal B_t\cup\mathcal E_t.
 \end{align*}
-\chg{Bulk patches end by time~$t$; end patches cross~$t$ and are cut there. By
+For~$P\in\mathcal E_t$ and finite~$u\geq t$, the \emph{extension} of~$P$
+through time~$u$ is
+\begin{equation}
+\label{eq:geometric-patch-extension}
+P^{\uparrow u}
+=
+\bb{i(P),[s(P),u),\mathsf X(P)\mathsf E,S(P)}.
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Bulk patches end by time~$t$; end patches cross~$t$ and are cut there, and
+$P^{\uparrow t}=P$ for~$P\in\mathcal E_t$. By
 Lemma~\ref{lem:dual-local-finiteness},~$\mathcal P_t$ is almost surely
 finite, and distinct end patches have distinct sites.
-Figure~\ref{fig:patch-geometry} shows a realization and its patch family.}
+Figure~\ref{fig:patch-geometry} shows a realization and its patch family; the
+thick red line separates~$\mathcal B_t$ from~$\mathcal E_t$.
+\end{remark}}
 \begin{figure}[htbp]
 \centering
 \resizebox{\linewidth}{!}{\begingroup
@@ -2156,15 +2171,7 @@ patches from end patches.}
 \end{figure}
 \FloatBarrier
 
-If~$P\in\mathcal E_t$ and~$u\geq t$ is finite, define its extension through
-time~$u$ by
-\begin{equation}
-\label{eq:geometric-patch-extension}
-P^{\uparrow u}
-=
-\bb{i(P),[s(P),u),\mathsf X(P)\mathsf E,S(P)}.
-\end{equation}
-Thus~$P^{\uparrow t}=P$.
+
 
 \subsection{Patch representation}
 \label{subsec:patch-representation}
