@@ -314,7 +314,10 @@ are standard; see, for example,
 \cite{Harris1974,Harris1978,Griffeath1979,HolleyStroock1979,Gray1986,JansenKurt2014}.
 For non-monotone systems the right-hand side
 of~\eqref{eq:intro-signed-duality} is signed, which is an obstruction for
-convergence arguments.
+convergence arguments. \chg{In infinite volume the expectation need not even
+converge absolutely. We therefore prove the representation in finite volume,
+where it holds for every spin system, and pass to infinite volume using the
+positivity described below.}
 
 The new step is to reveal only part of the graphical construction. We define a~$\sigma$-algebra
 $\mathcal G_t$ that records interactions between sites that occur in the
@@ -1432,6 +1435,13 @@ smaller by the factor~$e^{-du}$ on patches of length~$u$ that end with an
 outgoing interaction (Proposition~\ref{prop:death-removal}). For
 patch-positive systems this coupling of duals replaces the coupling of
 ordered configurations used for monotone systems.
+
+The same positivity also replaces an integrability condition. In infinite
+volume the Feynman--Kac weights of the dual need not be integrable. We
+therefore prove the duality and the patch representation in finite volume,
+where they hold for every spin system, and remove the finite volume by
+monotone convergence once the weights are nonnegative
+(Corollary~\ref{cor:infinite-volume-representation}).
 }
 
 \chg{Section~\ref{sec:dual} introduces the signed dual, Section~\ref{sec:patches}
@@ -1441,7 +1451,9 @@ contributions and the patch representation
 Sections~\ref{subsec:proof-patch-positivity-threshold}
 and~\ref{subsec:proof-pure-death-comparison} state the two properties of the
 contributions used later: nonnegativity
-(Proposition~\ref{prop:patch-contribution-positivity}) and the comparison
+(Proposition~\ref{prop:patch-contribution-positivity}), which yields the
+representation in infinite volume
+(Corollary~\ref{cor:infinite-volume-representation}), and the comparison
 under removing deaths (Proposition~\ref{prop:death-removal}). The proofs are
 given in Section~\ref{subsec:proofs-section-4}.
 Figure~\ref{fig:dependency-graph-sec4} shows the dependencies.}
@@ -1651,38 +1663,94 @@ with~$S\neq\varnothing$ replaces~$i$ by~$S$ (split), and~$B_{i,S}$ adds~$S$
 rate per active site and~$\abs{V_i}$ are uniformly bounded.
 \end{remark}}
 
-\begin{definition}[Feynman--Kac integrability]
-\label{def:fk-integrability}
-The signed dual satisfies \emph{Feynman--Kac integrability} if
-\begin{equation}
-\tag{FK}
-\label{eq:fk-integrability}
-\E_A\Cb{
-\exp\bb{\int_0^t V(A_s)\,ds}
-}
-<\infty
-\qquad
-\text{for every }A\Subset\Lambda\text{ and }t\geq0.
-\end{equation}
-\end{definition}
+\chg{The duality holds in finite volume for every spin system. For~$R\Subset\Lambda$
+and~$\eta\in\Omega$, let~$\eta^{R,0}$ agree with~$\eta$ on~$R$ and vanish
+outside~$R$.}
 
-\chg{With the choices of Definition~\ref{def:signed-dual}, the generator
-identity~\eqref{eq:monomial-generator-duality} holds, and under
-Feynman--Kac integrability it gives the standard Feynman--Kac duality relation.}
-\begin{proposition}[Monomial Feynman--Kac duality]
+\chg{\begin{definition}[Zero-boundary dynamics and exit time]
+\label{def:finite-volume}
+Let~$R\Subset\Lambda$. The \emph{zero-boundary dynamics in~$R$} is the
+Markov chain on~$\cb{0,1}^R$ with generator
+\begin{equation}
+\label{eq:zero-boundary-generator}
+\Lcal^{R,0}f(\eta)
+=
+\sum_{i\in R}
+\lambda_i\bb{\eta^{R,0}}
+\bb{E_{i,\rho_i(\eta^{R,0})}-I}f(\eta),
+\end{equation}
+acting on functions~$f$ that depend only on the spins in~$R$. We write~$P_t^{R,0}$
+for its semigroup. For the signed dual started from~$A\subseteq R$, the
+\emph{exit time} from~$R$ and the \emph{confinement event} are
+\begin{equation}
+\label{eq:confinement-event}
+\tau_R=\inf\cb{s\geq0:A_s\nsubseteq R},
+\qquad
+E_t^R=\cb{\tau_R>t}.
+\end{equation}
+\end{definition}}
+
+\begin{proposition}[Monomial Feynman--Kac duality in finite volume]
 \label{thm:monomial-duality}
-For every~$A\Subset\Lambda$, $t\geq0$, and~$\eta\in\Omega$,
+\chg{For every~$R\Subset\Lambda$,~$A\subseteq R$,~$t\geq0$, and~$\eta\in\Omega$,}
 \begin{equation}
 \label{eq:monomial-feynman-kac-duality}
-P_t\chi_A(\eta)
+\chg{P_t^{R,0}\chi_A(\eta)}
 =
 \E_A\Cb{
 \sigma_t
 \exp\bb{\int_0^t V(A_s)\,ds}
 \chi_{A_t}(\eta)
+\chg{\ind\bb{E_t^R}}
 }.
 \end{equation}
 \end{proposition}
+
+\chg{\begin{remark}[Infinite volume]
+\label{rem:fk-infinite-volume}
+On~$E_t^R$ the integrand in~\eqref{eq:monomial-feynman-kac-duality} is bounded
+by~$\exp\bb{t\abs R\sup_i\abs{V_i}}$, so no integrability condition is needed.
+If~$\E_A\Cb{\exp\bb{\int_0^tV(A_s)\,ds}}<\infty$ for all~$A$ and~$t$, then
+letting~$R\uparrow\Lambda$, Lemma~\ref{lem:finite-propagation} and dominated
+convergence give the infinite-volume duality~\eqref{eq:intro-signed-duality}.
+We do not use this condition: for patch-positive systems, positivity of the
+patch contributions takes its place
+(Corollary~\ref{cor:infinite-volume-representation}).
+\end{remark}}
+
+\chg{The zero-boundary dynamics approximate the original dynamics; this is the
+standard finite speed of propagation for spin systems with bounded rates,
+see~\cite[Chapter~I]{Liggett1985}.}
+\authorcheck{Give the precise location in~\cite{Liggett1985}.}
+\chg{Set}
+\begin{equation*}
+\overline\lambda
+=
+\sup_{i\in\Lambda,\,\eta\in\Omega}\lambda_i(\eta),
+\qquad
+m
+=
+\sup_{i\in\Lambda}\abs{N(i)\cup\cb{i}},
+\end{equation*}
+\chg{and let~$B(A,n)$ denote the set of sites at graph distance at most~$n$
+from~$A$.}
+
+\begin{lemma}[Finite propagation]
+\label{lem:finite-propagation}
+Let~$f$ be supported on~$A\Subset\Lambda$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item For every~$a>0$, there are~$v<\infty$ and~$C_A<\infty$ such that
+\begin{equation}
+\label{eq:finite-propagation}
+\norm{\bb{P_t-P_t^{R,0}}f}_\infty
+\leq
+C_Ae^{-at}\norm f_\infty
+\end{equation}
+for every~$t\geq0$ and every finite~$R$ containing~$B\bb{A,\lceil vt\rceil}$.
+\item \chg{For every~$t\geq0$,~$\norm{\bb{P_t-P_t^{R,0}}f}_\infty\to0$
+as~$R\uparrow\Lambda$ along finite sets.}
+\end{enumerate}
+\end{lemma}
 
 \chg{\begin{remark}[Pure deaths act diagonally]
 \label{rem:pure-deaths-diagonal}
@@ -1698,7 +1766,7 @@ coupling described at the beginning of this section.
 \label{sec:patches}
 
 \chg{Without the sign~$\sigma_t$, the duality~\eqref{eq:monomial-feynman-kac-duality}
-would express~$P_t\chi_A$ through nonnegative weights, and inequalities
+would express~\chg{$P_t^{R,0}\chi_A$} through nonnegative weights, and inequalities
 between the potentials of two systems would carry over directly to the
 semigroups. To control the cancellations of the signs, we introduce
 a~$\sigma$-algebra that reveals when sites interact, but not how. The
@@ -2244,29 +2312,24 @@ corresponding row is read at~$\Delta=\infty$.
 \end{enumerate}
 \end{definition}}
 
-\begin{theorem}[Patch representation]
+\begin{theorem}[Patch representation in finite volume]
 \label{thm:patch-representation}
-For every~$A\Subset\Lambda$,~$t\geq0$, and~$\eta\in\Omega$,
+\chg{For a probability measure~$\mu$ on~$\Omega$ and~$t\geq0$, let}
 \begin{equation}
-\label{eq:patch-representation}
-P_t\chi_A(\eta)
+\label{eq:finite-horizon-weight}
+\chg{W_t^\mu}
 =
-\E_A\Cb{
-\prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
-}.
-\end{equation}
-For any initial law~$\mu$,
-\begin{equation}
-\label{eq:patch-representation-general-law}
-(\mu P_t)(\chi_A)
-=
-\E_A\Cb{
 \prod_{P\in\mathcal B_t}C(P)\,
 \mu\bb{
 \prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
-}
 }.
+\end{equation}
+\chg{Then, for every~$R\Subset\Lambda$,~$A\subseteq R$, and~$t\geq0$,}
+\begin{equation}
+\label{eq:patch-representation}
+\chg{(\mu P_t^{R,0})(\chi_A)
+=
+\E_A\Cb{W_t^\mu\ind\bb{E_t^R}}.}
 \end{equation}
 \end{theorem}
 
@@ -2612,6 +2675,22 @@ p_i^\star\leq\rho_i(\mb 0).
 \end{equation}
 \end{proposition}
 
+\chg{For initial laws in~$\mathcal M_\star$, patch positivity makes the
+weights~$W_t^\mu$ from~\eqref{eq:finite-horizon-weight} nonnegative. This
+removes the finite volume in Theorem~\ref{thm:patch-representation}.}
+
+\chg{\begin{corollary}[Patch representation in infinite volume]
+\label{cor:infinite-volume-representation}
+Suppose that the spin system is patch positive, and let~$\mu\in\mathcal M_\star$.
+Then, for every~$A\Subset\Lambda$ and~$t\geq0$, almost surely~$W_t^\mu\geq0$, and
+\begin{equation}
+\label{eq:infinite-volume-representation}
+(\mu P_t)(\chi_A)
+=
+\E_A\Cb{W_t^\mu}.
+\end{equation}
+\end{corollary}}
+
 \subsection{Removing pure deaths}
 \label{subsec:proof-pure-death-comparison}
 
@@ -2694,9 +2773,62 @@ multiplied by its sign is the corresponding coefficient, so~$\Dcal H$
 reproduces the off-diagonal terms of~\eqref{eq:signed-dual-generator-expansion},
 and adding~$V(A)H$ with~$V$ from~\eqref{eq:dual-potential} gives the diagonal
 terms. This is the generator identity~\eqref{eq:monomial-generator-duality}.
-Under~\eqref{eq:fk-integrability}, the standard Feynman--Kac duality
-argument, see for example~\cite{JansenKurt2014}, turns it
-into~\eqref{eq:monomial-feynman-kac-duality}.
+
+\chg{Now fix~$R\Subset\Lambda$. For~$S\Subset\Lambda$ we
+have~$\chi_S(\eta^{R,0})=\chi_S(\eta)\ind\cb{S\subseteq R}$. Hence the same
+computation with the rates evaluated at~$\eta^{R,0}$ gives, for~$B\subseteq R$,}
+\begin{equation}
+\label{eq:confined-spin-generator-on-H}
+\Lcal^{R,0}\chi_B
+=
+\sum_{i\in B}
+\sum_{S\subseteq N(i)\cap R}
+a_i^\delta(S)
+\chi_{\bb{B\setminus\cb{i}}\cup S}
++
+\sum_{i\in B}
+\sum_{S\subseteq N(i)\cap R}
+a_i^\beta(S)
+\chi_{B\cup S}.
+\end{equation}
+\chg{Let~$\Dcal_R$ be the generator of the signed set process on the finite
+state space~$\cb{(B,\sigma):B\subseteq R,\ \sigma\in\cb{+,-}}$ obtained
+from~$\Dcal$ by removing the jumps with target~$S\nsubseteq R$, and let}
+\begin{equation*}
+\kappa_R(B)
+=
+\sum_{i\in B}
+\sum_{\substack{\varnothing\neq S\subseteq N(i)\\S\nsubseteq R}}
+\bb{\delta_i(S)+\beta_i(S)}
+\end{equation*}
+\chg{be the total rate of the removed jumps. Comparing~\eqref{eq:confined-spin-generator-on-H}
+with~\eqref{eq:signed-dual-generator} and~\eqref{eq:dual-potential} as above gives}
+\begin{equation}
+\label{eq:confined-generator-duality}
+\Lcal_\eta^{R,0}H((B,\sigma),\eta)
+=
+\Dcal_RH((B,\sigma),\eta)
++
+\bb{V(B)-\kappa_R(B)}H((B,\sigma),\eta),
+\qquad B\subseteq R.
+\end{equation}
+\chg{Both generators are bounded operators on finite spaces, so this identity
+integrates to}
+\begin{equation*}
+P_t^{R,0}H((A,+),\cdot)(\eta)
+=
+e^{t\bb{\Dcal_R+V-\kappa_R}}H(\cdot,\eta)(A,+),
+\end{equation*}
+\chg{see for example~\cite{JansenKurt2014}. By the Feynman--Kac formula for the
+finite-state chain with generator~$\Dcal_R$, the right-hand side is the
+expectation of~$\exp\bb{\int_0^t(V-\kappa_R)}\,H$ along that chain. Up to
+time~$\tau_R$, this chain and the signed dual make the same jumps at the same
+rates; the dual additionally makes the removed jumps, at total
+rate~$\kappa_R$, and the first of them occurs exactly at~$\tau_R$. Hence the
+weight~$\exp\bb{-\int_0^t\kappa_R}$ is the probability that the dual makes no
+removed jump along a given path of the chain, and the right-hand side
+equals~$\E_A\Cb{\sigma_t\exp\bb{\int_0^tV(A_s)\,ds}\chi_{A_t}(\eta)\ind\bb{E_t^R}}$.
+This proves~\eqref{eq:monomial-feynman-kac-duality}.}
 \end{proof}
 
 \begin{proof}[Proof of Lemma~\ref{lem:dual-local-finiteness}]
@@ -2709,6 +2841,57 @@ sites to the active set. Hence~$\abs{A_t}$ is dominated by a nonexplosive
 continuous-time branching process. Almost surely only finitely many marks occur
 at active sources on~$[0,T]$, and therefore only finitely many of them are
 successful interactions.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:finite-propagation}]
+Construct the process using rate-$\overline\lambda$ Poisson clocks at each site,
+together with independent randomness deciding whether a proposed update is
+accepted and, if so, the refreshed spin. Trace the dependence of the spins in~$A$ at time~$t$ backwards through this construction. Whenever a clock at~$i$ is encountered, the earlier states at the sites in~$N(i)\cup\cb{i}$ may be needed, so these sites are added to the dependence
+set.
+
+Couple the infinite-volume process and the process with zero boundary outside~$R$ using the same graphical construction in~$R$. If the backward dependence
+set stays inside~$R$, the two processes agree on~$A$ at time~$t$.
+
+To leave~$B(A,n)$, the backward dependence set must contain a time-ordered path
+of at least~$n$ clock rings. For a path of length~$k$, there are at most~$\abs A\,m^k$ possible spatial paths, while the expected number of
+chronologically ordered~$k$-tuples of clock rings along any fixed path is~$(\overline\lambda t)^k/k!$. Hence, for every~$\theta>0$,
+\begin{align*}
+\pP\bb{\text{the backward dependence set leaves }B(A,n)}
+&\leq
+\abs A
+\sum_{k\geq n}
+\frac{\bb{m\overline\lambda t}^k}{k!}
+\\
+&\leq
+\abs A
+\exp\bb{
+m\overline\lambda t e^\theta-\theta n
+}.
+\end{align*}
+Choose~$v$ so that
+\begin{equation*}
+\theta v-m\overline\lambda e^\theta>a.
+\end{equation*}
+With~$n=\lceil vt\rceil$, the preceding probability is bounded by~$\abs A e^{-at}$. Therefore, for
+every~$\eta\in\Omega$,
+\begin{equation*}
+\abs{P_tf(\eta)-P_t^{R,0}f(\eta)}
+\leq
+2\norm f_\infty
+\pP\bb{\text{the backward dependence set leaves }R}
+\leq
+2\abs A e^{-at}\norm f_\infty.
+\end{equation*}
+This proves~\eqref{eq:finite-propagation}. \chg{For~(b), if~$R\supseteq B(A,n)$,
+the same bound gives}
+\begin{equation*}
+\chg{\norm{\bb{P_t-P_t^{R,0}}f}_\infty
+\leq
+2\abs A\norm f_\infty
+\sum_{k\geq n}
+\frac{\bb{m\overline\lambda t}^k}{k!},}
+\end{equation*}
+\chg{which tends to~$0$ as~$n\to\infty$.}
 \end{proof}
 
 \chg{We now prove the patch representation. Conditioning on~$\mathcal G_T$
@@ -2948,9 +3131,7 @@ Z_t^\eta
 =
 \sigma_t
 \exp\bb{\int_0^tV(A_u)\,du}
-\chi_{A_t}(\eta),
-\qquad
-P_t\chi_A(\eta)=\E_A\Cb{Z_t^\eta}.
+\chi_{A_t}(\eta).
 \end{equation*}
 
 \chg{\begin{definition}[Patch weights]
@@ -3131,21 +3312,28 @@ is outgoing, consistency also forces~$\alpha(P)=\beta$, leaving~$\sigma_i^\beta(
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:patch-representation}]
-By~\eqref{eq:fk-integrability}, we may condition
-\eqref{eq:pathwise-patch-factorization} on~$\mathcal G_t$.
-\chg{Since~$F(P)$ and~$F(z,P)$ are functions of~$\Sigma_P$,
-Lemmas~\ref{thm:patch-factorization} and~\ref{lem:contribution-formulas}
+\chg{Fix~$\eta\in\Omega$. On~$E_t^R$ we have~$A_s\subseteq R$ for~$s\leq t$, so
+$\abs{Z_t^\eta\ind(E_t^R)}\leq\exp\bb{t\abs R\sup_i\abs{V_i}}$, and
+Proposition~\ref{thm:monomial-duality} gives}
+\begin{equation*}
+\chg{P_t^{R,0}\chi_A(\eta)=\E_A\Cb{Z_t^\eta\ind\bb{E_t^R}}.}
+\end{equation*}
+\chg{Sites enter the dual set only through successful interactions, so~$E_t^R$
+is the event that every successful interaction up to time~$t$ has its target
+in~$R$; in particular~$E_t^R\in\mathcal G_t$. Since~$F(P)$ and~$F(z,P)$ are
+functions of~$\Sigma_P$, the pathwise factorization~\eqref{eq:pathwise-patch-factorization}
+and Lemmas~\ref{thm:patch-factorization} and~\ref{lem:contribution-formulas}
 give}
 \begin{equation*}
-\CE{Z_t^\eta}{\mathcal G_t}
+\CE{Z_t^\eta\ind\bb{E_t^R}}{\mathcal G_t}
 =
+\chg{\ind\bb{E_t^R}}
 \prod_{P\in\mathcal B_t}C(P)
-\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}.
+\prod_{P\in\mathcal E_t}C\bb{\eta\bb{i(P)},P}
+\chg{=\ind\bb{E_t^R}\,W_t^{\delta_\eta}.}
 \end{equation*}
-Taking expectation and using Proposition~\ref{thm:monomial-duality} gives
-\eqref{eq:patch-representation}. Integrating this identity with respect to an
-arbitrary initial law~$\mu$ gives
-\eqref{eq:patch-representation-general-law}.
+\chg{Taking expectations and integrating over~$\eta$ with respect to~$\mu$, which
+is allowed since the integrand is bounded, proves~\eqref{eq:patch-representation}.}
 \end{proof}
 
 \begin{proof}[Proof of Proposition~\ref{prop:patch-contribution-positivity}]
@@ -3326,6 +3514,50 @@ Taking the maximum in~\eqref{eq:threshold-profile} proves
 \eqref{eq:threshold-below-zero-neighbour-refresh}.
 \end{proof}
 
+\chg{\begin{proof}[Proof of Corollary~\ref{cor:infinite-volume-representation}]
+By Proposition~\ref{prop:patch-contribution-positivity},~$C(P)\geq0$ for every
+bulk patch. For an end patch~$P$ based at~$i$, the map~$z\mapsto C(z,P)$ is
+affine and nondecreasing, and~$C(p_i^\star,P)\geq0$. With~$\kappa(P)=\partial_zC(z,P)\geq0$,
+\begin{equation*}
+C\bb{\eta(i),P}
+=
+C\bb{p_i^\star,P}
++
+\kappa(P)\bb{\eta(i)-p_i^\star}.
+\end{equation*}
+Distinct end patches are based at distinct sites. Therefore
+\begin{equation}
+\label{eq:centered-end-expansion}
+\mu\bb{
+\prod_{P\in\mathcal E_t}
+C\bb{\eta\bb{i(P)},P}
+} =
+\sum_{\mathcal Q\subseteq\mathcal E_t}
+\mu\bb{
+\chi_{\cb{i(P):P\in\mathcal Q}}^\star
+}
+\prod_{P\in\mathcal Q}\kappa(P)
+\prod_{P\in\mathcal E_t\setminus\mathcal Q}
+C\bb{p_{i(P)}^\star,P}.
+\end{equation}
+For~$\mu\in\mathcal M_\star$ every term is nonnegative, so~$W_t^\mu\geq0$.
+
+Let~$R_1\subseteq R_2\subseteq\cdots$ be finite sets containing~$A$ with union~$\Lambda$.
+By Theorem~\ref{thm:patch-representation},
+\begin{equation*}
+(\mu P_t^{R_n,0})(\chi_A)
+=
+\E_A\Cb{W_t^\mu\ind\bb{E_t^{R_n}}}.
+\end{equation*}
+By Lemma~\ref{lem:finite-propagation}(b), the left-hand side converges
+to~$(\mu P_t)(\chi_A)$. The events~$E_t^{R_n}$ increase in~$n$, and their union
+is the event that~$\bigcup_{s\leq t}A_s$ is finite. By
+Lemma~\ref{lem:dual-local-finiteness}, only finitely many successful
+interactions occur up to time~$t$, each adding finitely many sites, so this
+event has probability one. Since~$W_t^\mu\geq0$, monotone convergence gives
+$\E_A\Cb{W_t^\mu\ind\bb{E_t^{R_n}}}\to\E_A\Cb{W_t^\mu}$.
+\end{proof}}
+
 \begin{proof}[Proof of Proposition~\ref{prop:death-removal}]
 Let~$H((A,\sigma),\eta)=\sigma\chi_A(\eta)$ be the duality function from
 Section~\ref{sec:dual}. The pure-death term in
@@ -3444,23 +3676,9 @@ C\bb{p_i^\star,P}
 +
 \kappa(P)\bb{\eta(i)-p_i^\star}.
 \end{equation*}
-Distinct end patches are based at distinct sites. Therefore
-\begin{equation}
-\mu\bb{
-\prod_{P\in\mathcal E_t}
-C\bb{\eta\bb{i(P)},P}
-} =
-\sum_{\mathcal Q\subseteq\mathcal E_t}
-\mu\bb{
-\chi_{\cb{i(P):P\in\mathcal Q}}^\star
-}
-\prod_{P\in\mathcal Q}\kappa(P)
-\prod_{P\in\mathcal E_t\setminus\mathcal Q}
-C\bb{p_{i(P)}^\star,P}.
-\label{eq:pure-death-centered-end-expansion}
-\end{equation}
-The same expansion holds with~$C,\kappa$ replaced by~$C',\kappa'$. If~$\mu\in\mathcal M_\star$, every centered moment in
-\eqref{eq:pure-death-centered-end-expansion} is nonnegative, so
+\chg{The expansion~\eqref{eq:centered-end-expansion} holds for both systems.}
+If~$\mu\in\mathcal M_\star$, every centered moment in
+\chg{\eqref{eq:centered-end-expansion}} is nonnegative, so
 \eqref{eq:pure-death-end-patch-comparison} yields
 \begin{equation*}
 0
@@ -3759,8 +3977,9 @@ give~$\pi^-P_s=\pi^-$.
 \end{proof}
 
 The proof of Theorem~\ref{thm:common-invariant-limit} starts from the patch
-representation, Theorem~\ref{thm:patch-representation}. For~$A\Subset\Lambda$ and a
-probability measure~$\mu$ we have
+representation \chg{in infinite volume,
+Corollary~\ref{cor:infinite-volume-representation}. For~$A\Subset\Lambda$
+and~$\mu\in\mathcal M_\star$} we have
 \begin{equation*}
 (\mu P_t)(\chi_A)
 =
@@ -3816,18 +4035,9 @@ these three estimates precise, and the proof of
 Theorem~\ref{thm:common-invariant-limit} in
 Section~\ref{subsec:proof-common-invariant-limit} combines them with~$T=t/2$. 
 
-For a probability measure~$\mu$, define the weight
-\begin{equation}
-\label{eq:finite-horizon-weight}
-W_t^\mu
-=
-\prod_{P\in\mathcal B_t}C(P)\,
-\mu\bb{
-\prod_{P\in\mathcal E_t}
-C\bb{\eta\bb{i(P)},P}
-},
-\end{equation}
-so that the patch representation, Theorem~\ref{thm:patch-representation}, gives
+\chg{We use the weights~$W_t^\mu$ from~\eqref{eq:finite-horizon-weight}. For
+$\mu\in\mathcal M_\star$, Corollary~\ref{cor:infinite-volume-representation}
+gives~$W_t^\mu\geq0$ and}
 \begin{equation*}
 (\mu P_t)(\chi_A)=\E_A\Cb{W_t^\mu}.
 \end{equation*}
@@ -3885,25 +4095,11 @@ after time~$n$. Since each successful interaction creates only finitely many
 patches,~$\mathcal P$ is finite.
 \end{proof}
 
-To control the number of end patches, let
-\begin{equation*}
-\mb{Cone}_T
-=
-\bigcup_{(i,u,S)\in\mathcal I_T}
-\bb{\cb{i}\cup S}\setminus\cb{\infty}
-\end{equation*}
-be the set of sites appearing in the successful-interaction skeleton up to
-time~$T$. For~$A\subseteq R\Subset\Lambda$, set
-\begin{equation}
-\label{eq:confinement-event}
-E_T^R
-=
-\cb{\mb{Cone}_T\subseteq R}.
-\end{equation}
-On~$E_T^R$, there are at most~$\abs R$ end patches at time~$T$.
-
-Let~$P_t^{R,0}$ denote the semigroup of the dynamics in~$R$ with the spins
-outside~$R$ fixed at~$0$, and define
+\chg{To control the number of end patches, we use the confinement
+event~$E_T^R=\cb{\tau_R>T}$ from Definition~\ref{def:finite-volume}. On~$E_T^R$,
+every site of a successful interaction up to time~$T$ lies in~$R$, so there are
+at most~$\abs R$ end patches at time~$T$. With the zero-boundary
+semigroup~$P_t^{R,0}$, define}
 \begin{equation}
 \label{eq:confinement-error}
 \rho_A(T,R)
@@ -3941,7 +4137,9 @@ W^\varepsilon
 \ind\bb{\abs{\mathcal P}<\infty}.
 \end{align*}
 By Proposition~\ref{prop:death-removal}, applied with~$d_i=\varepsilon$, the two systems have the
-same dual process and thus the same successful-interaction skeleton and patch families, and for~$\mu\in\mathcal M_\star$,
+same dual process and thus the same successful-interaction skeleton and patch families\chg{,
+and~$\Lcal^\varepsilon$ is patch positive. Corollary~\ref{cor:infinite-volume-representation},
+applied to~$\Lcal^\varepsilon$, therefore gives}, for~$\mu\in\mathcal M_\star$,
 \begin{equation}
 \label{eq:death-removed-weight-comparison}
 0\leq W_t^\mu\leq W_t^{\varepsilon,\mu},
@@ -4918,41 +5116,9 @@ For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_\star$, and~$0\leq T<t$,
 \begin{proof}
 We first prove a claim.
 
-We relate the event that all successful interactions up to time~$T$ remain on
-a finite set~$R$ to the spin system with zero boundary condition outside~$R$. For~$R\subseteq\Lambda$, let~$\eta^{R,0}$ agree with~$\eta$ on~$R$ and be
-zero on~$R^c$. Define
-\begin{align*}
-\lambda_i^R(\eta)
-&=
-\pw{\lambda_i\bb{\eta^{R,0}}}{i\in R}
-{\lambda_i(\mb 0)}{i\notin R},
-&
-\rho_i^R(\eta)
-&=
-\pw{\rho_i\bb{\eta^{R,0}}}{i\in R}
-{\rho_i(\mb 0)}{i\notin R},
-\end{align*}
-and let
-\begin{equation*}
-\Lcal^R f(\eta)
-=
-\sum_{i\in\Lambda}
-\lambda_i^R(\eta)
-\bb{E_{i,\rho_i^R(\eta)}-I}f(\eta).
-\end{equation*}
-Write~$P_t^R$ for its semigroup. On~$R$, this is the original dynamics with
-all spins outside~$R$ fixed at~$0$. Outside~$R$, the sites evolve
-independently and do not affect the spins in~$R$. Hence, if~$f$ depends only on
-spins in~$R$,
-\begin{equation}
-\label{eq:modified-zero-boundary-agreement}
-P_t^Rf=P_t^{R,0}f.
-\end{equation}
-
 \begin{claim}[Confined-interaction identity]
 \label{prop:confined-interaction-identity}
-Let~$A\subseteq R\Subset\Lambda$,~$0\leq T\leq t$, and let~$\mu$ be any
-probability measure. Then
+Let~$A\subseteq R\Subset\Lambda$,~$0\leq T\leq t$, and~\chg{$\mu\in\mathcal M_\star$}. Then
 \begin{equation}
 \label{eq:confined-interaction-identity}
 \E_A\Cb{W_t^\mu\ind\bb{E_T^R}}
@@ -4961,8 +5127,9 @@ probability measure. Then
 \end{equation}
 \end{claim}
 
-\begin{proof}[Proof of Claim~\ref{prop:confined-interaction-identity}]
-For~$\eta\in\Omega$, write
+\chg{\begin{proof}[Proof of Claim~\ref{prop:confined-interaction-identity}]
+Fix a finite set~$R'\supseteq R$, and let~$F^{R'}$ be the event that~$A_s\subseteq R'$
+for every~$s\in(T,t]$. For~$\eta\in\Omega$, write
 \begin{equation*}
 Z_t^\eta
 =
@@ -4970,108 +5137,29 @@ Z_t^\eta
 \exp\bb{\int_0^tV(A_s)\,ds}
 \chi_{A_t}(\eta).
 \end{equation*}
-By the patch factorization, Lemma~\ref{thm:patch-factorization},
+The function~$P_T^{R,0}\chi_A$ depends only on the spins in~$R\subseteq R'$.
+Apply Proposition~\ref{thm:monomial-duality} in~$R$ on~$[0,T]$, then in~$R'$
+to the monomials~$\chi_{A_T}$ on the remaining time~$t-T$, and use the Markov
+property of the dual at time~$T$. Since all weights are bounded on~$E_T^R\cap F^{R'}$,
 \begin{equation*}
-W_t^{\delta_\eta}
+P_{t-T}^{R',0}P_T^{R,0}\chi_A(\eta)
 =
-\CE{Z_t^\eta}{\mathcal G_t}.
+\E_A\Cb{Z_t^\eta\ind\bb{E_T^R\cap F^{R'}}}.
 \end{equation*}
-Since~$E_T^R\in\mathcal G_t$,
-\begin{equation}
-\label{eq:confined-weight-to-dual}
-\E_A\Cb{W_t^{\delta_\eta}\ind\bb{E_T^R}}
-=
-\E_A\Cb{Z_t^\eta\ind\bb{E_T^R}}.
-\end{equation}
-
-We now identify the expectation on the right. Let~$\Dcal_R$ be the generator of a signed set process like~$\mathcal{D}$, but with the rates of interactions reaching outside~$R$ set to zero. If
-the active set is~$B\subseteq R$, the total rate of the discarded
-interactions is
+Both events are~$\mathcal G_t$-measurable, so conditioning on~$\mathcal G_t$ as in
+the proof of Theorem~\ref{thm:patch-representation} and integrating over~$\mu$ give
 \begin{equation*}
-\kappa_R(B)
+(\mu P_{t-T}^{R',0}P_T^{R,0})(\chi_A)
 =
-\sum_{i\in B}
-\sum_{\substack{\varnothing\neq S\subseteq N(i)\\S\nsubseteq R}}
-\bb{\delta_i(S)+\beta_i(S)}.
+\E_A\Cb{W_t^\mu\ind\bb{E_T^R\cap F^{R'}}}.
 \end{equation*}
-The event~$E_T^R$ is exactly the event that no discarded interaction is
-successful before time~$T$. Thus multiplication by~$\ind(E_T^R)$ is
-equivalent to killing the dual at the first such interaction, with killing
-rate~$\kappa_R$, meaning
-\begin{equation}
-    \E_{(A,\sigma)}\Cb{f(A_s,\sigma_s) \ind\bb{E_s^R}} = e^{s(\mathcal{D}_R - \kappa_R)}(f)(A,\sigma).
-\end{equation}
-
-For~$i\in R$, the monomial expansions in
-\eqref{eq:rate-expansion-revision} give
-\begin{align*}
-\lambda_i^R(\eta)\rho_i^R(\eta)
-&=
-\sum_{S\subseteq N(i)\cap R}
-\widehat{\lambda_i\rho_i}(S)\chi_S(\eta),
-\\
-\lambda_i^R(\eta)
-&=
-\sum_{S\subseteq N(i)\cap R}
-\widehat{\lambda_i}(S)\chi_S(\eta).
-\end{align*}
-Therefore, for~$B\subseteq R$,
-\begin{align}
-\Lcal_\eta^R H((B,\sigma),\eta)
-={}&
-\sigma
-\sum_{i\in B}
-\sum_{S\subseteq N(i)\cap R}
-a_i^\delta(S)
-\chi_{\bb{B\setminus\cb{i}}\cup S}(\eta)
-\notag
-\\
-&+
-\sigma
-\sum_{i\in B}
-\sum_{S\subseteq N(i)\cap R}
-a_i^\beta(S)
-\chi_{B\cup S}(\eta).
-\label{eq:confined-spin-generator-on-H}
-\end{align}
-On the other hand,~$\Dcal_RH((B,\sigma),\eta)$ contains the same
-off-diagonal terms. Since
-\begin{equation*}
-V(B)-\kappa_R(B)
-=
-\sum_{i\in B}
-\bb{
-\sum_{S\subseteq N(i)\cap R}\delta_i(S)
-+
-\sum_{\substack{\varnothing\neq S\subseteq N(i)\cap R}}\beta_i(S)
-+
-a_i^\beta(\varnothing)
-},
-\end{equation*}
-we have
-\begin{equation}
-\label{eq:confined-generator-duality}
-\Lcal_\eta^R H((B,\sigma),\eta)
-=
-\Dcal_RH((B,\sigma),\eta)
-+
-\bb{V(B)-\kappa_R(B)}H((B,\sigma),\eta).
-\end{equation}
-
-Combining it with the
-original duality, Proposition~\ref{thm:monomial-duality}, for the remaining time~$t-T$ and using the Markov property
-gives
-\begin{align*}
-\E_A\Cb{Z_t^\eta\ind\bb{E_T^R}} &= \bb{P_{t-T}e^{T\bb{\mathcal{D}_R +\bb{V-\kappa_R}}}\chi_A}\bb{\eta}\\
-&=\bb{P_{t-T}P_T^R \chi_A}\bb{\eta}.
-\end{align*}
-Since~$A\subseteq R$, the function~$\chi_A$ depends only on~$R$, so
-\eqref{eq:modified-zero-boundary-agreement} gives
-\begin{equation*}
-P_T^R\chi_A=P_T^{R,0}\chi_A.
-\end{equation*}
-Combining this with~\eqref{eq:confined-weight-to-dual} and integrating over~$\mu$ proves~\eqref{eq:confined-interaction-identity}.
-\end{proof}
+Now let~$R'\uparrow\Lambda$. Since~$P_T^{R,0}\chi_A$ is a finite linear combination of
+monomials~$\chi_B$ with~$B\subseteq R$, Lemma~\ref{lem:finite-propagation}(b)
+shows that the left-hand side converges to~$(\mu P_{t-T}P_T^{R,0})(\chi_A)$. On
+the right,~$W_t^\mu\geq0$ by Corollary~\ref{cor:infinite-volume-representation},
+and the events~$E_T^R\cap F^{R'}$ increase to~$E_T^R$ up to a null set, by
+Lemma~\ref{lem:dual-local-finiteness}. Monotone convergence proves~\eqref{eq:confined-interaction-identity}.
+\end{proof}}
 
 We now prove the lemma.
 On~$E_T^R$, every successful interaction up to time~$T$ stays inside~$R$.
@@ -5181,7 +5269,7 @@ Claim~\ref{prop:confined-interaction-identity} gives
 \end{figure}
 \FloatBarrier
 
-The patch representation, Theorem~\ref{thm:patch-representation}, and the semigroup property give
+\chg{Corollary~\ref{cor:infinite-volume-representation}} and the semigroup property give
 \begin{equation*}
 \E_A\Cb{W_t^\mu}
 =
@@ -5228,78 +5316,6 @@ which proves~\eqref{eq:limiting-confinement-bound}.
 
 We now combine the three estimates.
 
-The following estimate is the standard finite speed of propagation for spin
-systems with bounded rates; see~\cite{Liggett1985}. We include a proof for the
-convenience of the reader.
-\authorcheck{Give the precise location in~\cite{Liggett1985}.}
-
-Set
-\begin{equation*}
-\overline\lambda
-=
-\sup_{i\in\Lambda,\,\eta\in\Omega}\lambda_i(\eta),
-\qquad
-m
-=
-\sup_{i\in\Lambda}\abs{N(i)\cup\cb{i}}.
-\end{equation*}
-Both quantities are finite by the assumptions on the spin system. We use the
-following standard finite-speed estimate for the Harris graphical
-construction; see, for example,~\cite[Chapter~I]{Liggett1985}.
-
-\begin{lemma}[Finite propagation]
-\label{lem:finite-propagation}
-Let~$f$ be supported on~$A\Subset\Lambda$. For every~$a>0$, there are~$v<\infty$ and~$C_A<\infty$ such that
-\begin{equation}
-\label{eq:finite-propagation}
-\norm{\bb{P_t-P_t^{R,0}}f}_\infty
-\leq
-C_Ae^{-at}\norm f_\infty
-\end{equation}
-for every~$t\geq0$ and every finite~$R$ containing~$B\bb{A,\lceil vt\rceil}$.
-\end{lemma}
-
-\begin{proof}
-Construct the process using rate-$\overline\lambda$ Poisson clocks at each site,
-together with independent randomness deciding whether a proposed update is
-accepted and, if so, the refreshed spin. Trace the dependence of the spins in~$A$ at time~$t$ backwards through this construction. Whenever a clock at~$i$ is encountered, the earlier states at the sites in~$N(i)\cup\cb{i}$ may be needed, so these sites are added to the dependence
-set.
-
-Couple the infinite-volume process and the process with zero boundary outside~$R$ using the same graphical construction in~$R$. If the backward dependence
-set stays inside~$R$, the two processes agree on~$A$ at time~$t$.
-
-To leave~$B(A,n)$, the backward dependence set must contain a time-ordered path
-of at least~$n$ clock rings. For a path of length~$k$, there are at most~$\abs A\,m^k$ possible spatial paths, while the expected number of
-chronologically ordered~$k$-tuples of clock rings along any fixed path is~$(\overline\lambda t)^k/k!$. Hence, for every~$\theta>0$,
-\begin{align*}
-\pP\bb{\text{the backward dependence set leaves }B(A,n)}
-&\leq
-\abs A
-\sum_{k\geq n}
-\frac{\bb{m\overline\lambda t}^k}{k!}
-\\
-&\leq
-\abs A
-\exp\bb{
-m\overline\lambda t e^\theta-\theta n
-}.
-\end{align*}
-Choose~$v$ so that
-\begin{equation*}
-\theta v-m\overline\lambda e^\theta>a.
-\end{equation*}
-With~$n=\lceil vt\rceil$, the preceding probability is bounded by~$\abs A e^{-at}$. Therefore, for
-every~$\eta\in\Omega$,
-\begin{equation*}
-\abs{P_tf(\eta)-P_t^{R,0}f(\eta)}
-\leq
-2\norm f_\infty
-\pP\bb{\text{the backward dependence set leaves }R}
-\leq
-2\abs A e^{-at}\norm f_\infty.
-\end{equation*}
-This proves~\eqref{eq:finite-propagation}.
-\end{proof}
 
 \subsection{Proofs of the main results}
 \label{subsec:proofs-main}
@@ -5869,15 +5885,20 @@ Corollary~\ref{cor:oriented-ergodicity} &
 Theorem~\ref{thm:common-invariant-limit},
 Lemma~\ref{lem:centered-cone-preservation}\textup{(b)} \\
 Theorem~\ref{thm:common-invariant-limit} &
-Theorem~\ref{thm:patch-representation},
+\chg{Corollary~\ref{cor:infinite-volume-representation}},
 Propositions~\ref{prop:patch-contribution-positivity} and~\ref{prop:death-removal},
 Lemma~\ref{lem:centered-cone-preservation}\textup{(c)},
 Lemmas~\ref{lem:late-interactions}, \ref{lem:no-late-relaxation},
 \ref{lem:spatial-confinement} and~\ref{lem:finite-propagation} \\
 Lemma~\ref{lem:spatial-confinement} &
 Proposition~\ref{thm:monomial-duality},
-Lemma~\ref{thm:patch-factorization},
-Theorem~\ref{thm:patch-representation} \\
+Theorem~\ref{thm:patch-representation},
+\chg{Corollary~\ref{cor:infinite-volume-representation},
+Lemma~\ref{lem:finite-propagation}} \\
+\chg{Corollary~\ref{cor:infinite-volume-representation}} &
+\chg{Theorem~\ref{thm:patch-representation},
+Proposition~\ref{prop:patch-contribution-positivity},
+Lemmas~\ref{lem:dual-local-finiteness} and~\ref{lem:finite-propagation}} \\
 Lemma~\ref{lem:no-late-relaxation} &
 Lemma~\ref{lem:late-interactions},
 Proposition~\ref{prop:death-removal},
