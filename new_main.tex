@@ -3284,7 +3284,7 @@ For~$\mu\in\mathcal M_\star$ every term is nonnegative, so~$W_t^\mu\geq0$.
 The last lemma is the role of the centered-moment condition on the initial law. In the next section, these nonnegative weights allow a comparison between systems with different pure-death rates.
 }
 
-\section{\texorpdfstring{\rev{Convergence to a common invariant measure}}{Convergence to a common invariant measure}}
+\section{Proofs}
 \label{sec:proofs}
 
 {\color{red}
@@ -3307,17 +3307,16 @@ The classical duality argument gives ergodicity, assuming~$V(A)\leq -\gamma\ind\
 \tau=\inf\cb{s\geq0:A_s=\vn}.
 \end{equation*}
 The empty dual set is absorbing and~$V(\vn)=0$, so the duality gives
-\begin{align}
+\begin{equation}
 P_t\chi_A(\eta)
-={}&
+=
 \E_A\Cb{\sigma_\tau
  e^{\int_0^\tau V(A_s)\,ds}\ind\bb{\tau\leq t}}
-\notag\\
-&+\E_A\Cb{\sigma_t
++\E_A\Cb{\sigma_t
  e^{\int_0^t V(A_s)\,ds}\chi_{A_t}(\eta)
  \ind\bb{\tau>t}}.
 \label{eq:classical-duality-split}
-\end{align}
+\end{equation}
 The first term is independent of~$\eta$ and converges as~$t\to\infty$. The second has absolute value at most~$e^{-\gamma t}$. Hence for each~$A$ the~$P_t\chi_A(\eta)$ converges to a limit independent of the initial configuration. The monomials are a basis of space of local functions, so uniform exponential ergodicity at rate~$\gamma$ follows.
 
 
