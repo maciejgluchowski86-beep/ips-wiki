@@ -3289,108 +3289,269 @@ The last lemma is the role of the centered-moment condition on the initial law. 
 
 {\color{red}
 We prove Theorem~\ref{thm:common-invariant-limit} by adapting the classical
-duality argument for ergodicity. We first work on a finite lattice, so that the proof has
-only two parts: a contribution independent of the initial law and a remainder
-that vanishes. The estimates keep track of the size of the lattice.
-Section~\ref{subsec:infinite-volume-proof} then passes to the countable
-lattice by finite propagation. The two ergodicity corollaries are proved in
-Section~\ref{subsec:ergodicity-corollaries}.
+duality argument for ergodicity. We first give the decomposition and the two
+estimates used in the proof. Section~\ref{subsec:proof-common-invariant-limit}
+then proves the theorem from these estimates. Their detailed proofs follow in
+Sections~\ref{subsec:proof-pure-death-comparison}
+and~\ref{subsec:terminal-relaxation}; the auxiliary facts used in passing to
+infinite volume are proved in Section~\ref{subsec:auxiliary}.
+Throughout the section the system is patch-positive and contains a pure-death
+component of rate~$\varepsilon>0$.
 }
 
-\subsection{\texorpdfstring{\rev{The duality argument and the proof plan}}{The duality argument and the proof plan}}
+\subsection{\texorpdfstring{\rev{The decomposition and the two estimates}}{The decomposition and the two estimates}}
 \label{subsec:duality-proof-plan}
-
-{\color{red}
-Throughout Sections~\ref{subsec:duality-proof-plan}--\ref{subsec:finite-volume-convergence},
-assume that~$\Lambda$ is finite, the system is patch-positive, and it contains
-a pure-death component of rate~$\varepsilon>0$.
-Theorem~\ref{thm:patch-representation}, with~$R=\Lambda$, and
-Lemma~\ref{lem:nonnegative-patch-weights} give, for~$\mu\in\mathcal M_\star$,
-\begin{equation*}
-(\mu P_t)(\chi_A)=\E_A\Cb{W_t^\mu},
-\qquad W_t^\mu\geq0.
-\end{equation*}
-}
-
 
 The classical duality argument gives ergodicity, assuming~$V(A)\leq -\gamma\ind\bb{A\neq\vn}$, for some~$\gamma>0$. Let
 \begin{equation*}
 \tau=\inf\cb{s\geq0:A_s=\vn}.
 \end{equation*}
 The empty dual set is absorbing and~$V(\vn)=0$, so the duality gives
-\begin{equation}\label{eq:classical-duality-split}
+\begin{align}
 P_t\chi_A(\eta)
-=
+={}&
 \E_A\Cb{\sigma_\tau
  e^{\int_0^\tau V(A_s)\,ds}\ind\bb{\tau\leq t}}
-+\E_A\Cb{\sigma_t
+\notag\\
+&+\E_A\Cb{\sigma_t
  e^{\int_0^t V(A_s)\,ds}\chi_{A_t}(\eta)
  \ind\bb{\tau>t}}.
-\end{equation}
+\label{eq:classical-duality-split}
+\end{align}
 The first term is independent of~$\eta$ and converges as~$t\to\infty$. The second has absolute value at most~$e^{-\gamma t}$. Hence for each~$A$ the~$P_t\chi_A(\eta)$ converges to a limit independent of the initial configuration. The monomials are a basis of space of local functions, so uniform exponential ergodicity at rate~$\gamma$ follows.
 
 
-The argument above fails if the potential~$V$ can be positive, as we lose the upper bound on the~$\eta$-dependent term in~\eqref{eq:classical-duality-split}. The patch representation, gives us a better control over this term, because patch contributions in~\ref{thm:patch-representation} capture the cancellations from sign~$\sigma_t$: there is extra averaging over randomness not determined by~$\mathcal{G}_t$. These cancellations suffice to show dependence on~$\eta$ decays.
+The argument above fails if the potential~$V$ can be positive, as we lose the upper bound on the~$\eta$-dependent term in~\eqref{eq:classical-duality-split}. The patch representation gives us a better control over this term, because patch contributions in Theorem~\ref{thm:patch-representation} capture the cancellations from sign~$\sigma_t$: there is extra averaging over randomness not determined by~$\mathcal{G}_t$. These cancellations suffice to show dependence on~$\eta$ decays.
 
-The only technical snag is that we still need to split~$P_t\chi_A$ into two terms, one decaying and one weakly dependent on initial measure, but we cannot use the event~$\cb{\tau >t}$, because it's not~$\mathcal{G}_t$-measurable: when and where the successful interactions happen before time~$t$ does not determine whether the underlying process is dead by time~$t$. We solve this problem by using a~$\mathcal{G}_t$-measurable proxy event: whether there are no successful interactions after time~$T=\frac{t}{2}$ and before~$t$. No successful interactions means no new sites can become active during~$[T,t)$, but the active ones still die at rate~$\delta$. Thus, for very large~$t$ this event is almost equivalent to~$\cb{\tau\leq t}$.
-
-
-We also define the limiting weight
-\begin{equation}
-\label{eq:limiting-patch-weight}
-W
-=
-\prod_{P\in\mathcal P}C(P)
-\ind\bb{\abs{\mathcal P}<\infty}.
-\end{equation}
-
-For~$0\leq T<t$, let
-\begin{align}
-\label{eq:no-late-interaction-events}
-L_{T,t}
-&=
-\cb{\text{no successful interaction occurs in }(T,t]},
-\notag\\
-L_T
-&=
-\cb{\text{no successful interaction occurs after }T}.
-\end{align}
-
-{\color{red}
-The analogue of the first term in~\eqref{eq:classical-duality-split} is
-the relaxed contribution
-\begin{equation}
-H_T=
-\E_A\Cb{
- \prod_{P\in\mathcal B_T}C(P)
- \prod_{P\in\mathcal E_T}C\bb{\rho_{i(P)}(\mb0),P}
-}.
-\label{eq:relaxed-contribution}
-\end{equation}
-It is independent of~$\mu$. We will prove the decomposition
-\begin{equation}
-(\mu P_t)(\chi_A)=H_T+R_{T,t}^\mu,
-\qquad
-\abs{R_{T,t}^\mu}
-\leq e^{-\varepsilon T}
- +(1+\abs\Lambda)e^{-\varepsilon(t-T)}.
-\label{eq:two-term-proof-plan}
-\end{equation}
-The first error comes from late successful interactions. Removing the pure
-deaths gives a comparison of patch contributions that bounds this error.
-The second comes from the terminal values of the end patches when there are
-no late interactions. The continuation identity makes their relaxation
-explicit. We prove these two estimates in the next two subsections and
-combine them in Section~\ref{subsec:finite-volume-convergence}.
-The event~$L_{T,t}$ belongs to~$\mathcal G_t$; the event~$L_T$ concerns the
-whole future and is used only to describe the limiting contribution.
+The only technical snag is that we still need to split~$P_t\chi_A$ into two terms, one decaying and one weakly dependent on initial measure, but we cannot use the event~$\cb{\tau >t}$, because it's not~$\mathcal{G}_t$-measurable: when and where the successful interactions happen before time~$t$ does not determine whether the underlying process is dead by time~$t$. We solve this problem by using a~$\mathcal{G}_t$-measurable proxy event: whether there are no successful interactions after time~$T=\frac{t}{2}$ and before~$t$. {\color{red}
+On this event no new sites become active after~$T$. The dependence on the
+initial configuration is carried by the end patches present at~$T$.
+We will show that their contributions forget the terminal values at rate
+at least~$\varepsilon$, without requiring extinction of the dual.
 }
 
-\subsection{\texorpdfstring{\rev{Removing deaths and controlling late interactions}}{Removing deaths and controlling late interactions}}
+{\color{red}
+Fix~$A\subseteq R\Subset\Lambda$ and consider the zero-boundary system
+on~$R$. A superscript~$R$ denotes its patch objects and dual expectation.
+Using the contributions from Definition~\ref{def:patch-contributions}, write
+\begin{align*}
+W_t^R(\eta)
+&=\prod_{P\in\mathcal B_t^R}C^R(P)
+  \prod_{P\in\mathcal E_t^R}C^R\bb{\eta(i(P)),P},
+\\
+W_t^{R,\mu}&=\mu\bb{W_t^R(\eta)},
+\\
+W^R&=\prod_{P\in\mathcal P^R}C^R(P)\,
+\ind\bb{\abs{\mathcal P^R}<\infty}.
+\end{align*}
+Here and below~$\mu$ also denotes its marginal on~$R$.
+For~$0\leq T<t$, let
+\begin{align}
+L_{T,t}^R
+&=\cb{\text{no successful interaction occurs in }(T,t]},
+\notag\\
+L_T^R
+&=\cb{\text{no successful interaction occurs after }T}.
+\label{eq:no-late-interaction-events}
+\end{align}
+The first event belongs to~$\mathcal G_t^R$; the second concerns the whole
+future. The patch representation gives the required decomposition:
+\begin{align}
+P_t\chi_A(\eta)
+={}&\bb{P_t-P_t^{R,0}}\chi_A(\eta)
+\notag\\
+&+\E_A^R\Cb{W_t^R(\eta)\ind\bb{L_{T,t}^R}}
+ +\E_A^R\Cb{W_t^R(\eta)\ind\bb{(L_{T,t}^R)^c}}.
+\label{eq:two-term-proof-plan}
+\end{align}
+The first line is the spatial approximation error. After integration
+against~$\mu\in\mathcal M_\star$,~$W_t^R(\eta)$ becomes~$W_t^{R,\mu}$.
+The contribution on~$L_{T,t}^R$ will approach a quantity independent of~$\mu$,
+while the contribution on its complement will be small. These are the two
+terms corresponding to those in~\eqref{eq:classical-duality-split}.
+For~$R=B(A,\lceil vt\rceil)$ with~$v$ sufficiently large, finite propagation
+bounds the first line by~$C_Ae^{-\varepsilon t}$; see
+Lemma~\ref{lem:finite-propagation}.
+
+The zero-boundary system is patch-positive, has the same pure-death component,
+and its threshold satisfies~$p_i^{\star,R}\leq p_i^\star$.
+Consequently, every~$\mu\in\mathcal M_\star$ has nonnegative centered moments
+also for the restricted system; see Lemma~\ref{lem:zero-boundary-compatibility}.
+In particular,~$W_t^{R,\mu}\geq0$.
+The two estimates below are uniform in~$R$ except for the displayed factor~$\abs R$.
+}
+
+{\color{red}
+\begin{lemma}[Late interactions]
+\label{lem:late-interactions}
+For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_\star$, and~$0\leq T<t$,
+\begin{align}
+0\leq\E_A^R\Cb{W_t^{R,\mu}\ind\bb{(L_{T,t}^R)^c}}
+&\leq e^{-\varepsilon T},
+\label{eq:finite-late-interaction-bound}\\
+0\leq\E_A^R\Cb{W^R\ind\bb{(L_T^R)^c}}
+&\leq e^{-\varepsilon T}.
+\label{eq:limiting-late-interaction-bound}
+\end{align}
+\end{lemma}
+}
+
+{\color{red}
+To see why this bound holds, remove the pure-death component. The dual paths
+and patch laws are unchanged, and patch positivity gives an upper bound by
+the weights of the death-removed system. For a patch ending with an outgoing interaction, the two
+contributions differ by the factor~$e^{-\varepsilon(e(P)-s(P))}$.
+A successful interaction at time~$u>T$ has an ancestry of such patches
+whose lengths sum to~$u$. Their product therefore supplies the factor
+\begin{equation*}
+\prod_{P\text{ in the ancestry}}
+e^{-\varepsilon(e(P)-s(P))}=e^{-\varepsilon u}\leq e^{-\varepsilon T}.
+\end{equation*}
+The total expected weight of the death-removed system is at most~$1$,
+which gives the estimate. The comparison and the ancestry argument are
+proved in Section~\ref{subsec:proof-pure-death-comparison}.
+}
+
+{\color{red}
+\begin{lemma}[Relaxation after the last interaction]
+\label{lem:no-late-relaxation}
+For~$A\subseteq R\Subset\Lambda$,~$\mu\in\mathcal M_\star$, and~$0\leq T<t$,
+\begin{equation}
+\abs{
+\E_A^R\Cb{W_t^{R,\mu}\ind\bb{L_{T,t}^R}}
+-\E_A^R\Cb{W^R\ind\bb{L_T^R}}
+}
+\leq(1+\abs R)e^{-\varepsilon(t-T)}.
+\label{eq:no-late-relaxation-bound}
+\end{equation}
+\end{lemma}
+}
+
+{\color{red}
+On~$L_{T,t}^R$, the bulk patches are unchanged after~$T$ and every end patch
+present at~$T$ extends to time~$t$. Only these end patches retain a dependence
+on the initial law. Conditional on the skeleton at~$T$, multiply each end
+contribution by the probability that it produces no further successful
+interaction up to~$t$. The resulting factor is affine in the terminal spin,
+and its dependence on that spin decays at least as~$e^{-\varepsilon(t-T)}$.
+There are at most~$\abs R$ end patches.
+The limiting contribution in the lemma depends only on~$A$ and the rates.
+Section~\ref{subsec:terminal-relaxation} proves the continuation identity and
+the end-factor estimate that make this argument precise.
+}
+
+\subsection{\texorpdfstring{\rev{Proof of the common invariant limit}}{Proof of the common invariant limit}}
+\label{subsec:proof-common-invariant-limit}
+
+\label{subsec:infinite-volume-proof}
+\label{subsec:proofs-main}
+
+{\color{red}
+We now combine the two estimates. We also use finite propagation,
+zero-boundary compatibility, and the existence of an invariant measure in
+$\mathcal M_\star$. These auxiliary facts are proved independently in
+Section~\ref{subsec:auxiliary}.
+}
+
+\begin{proof}[Proof of Theorem~\ref{thm:common-invariant-limit}]
+{\color{red}
+By Lemma~\ref{lem:centered-cone-preservation}(b), there is an invariant
+measure~$\pi\in\mathcal M_\star$.
+For~$A\subseteq R\Subset\Lambda$ and~$\mu\in\mathcal M_\star$,
+the two terms in the second line of~\eqref{eq:two-term-proof-plan}, bounded
+by Lemmas~\ref{lem:late-interactions} and~\ref{lem:no-late-relaxation}, give
+\begin{equation}
+\abs{(\mu P_t^{R,0})(\chi_A)-\E_A^R\Cb{W^R}}
+\leq2e^{-\varepsilon T}+(1+\abs R)e^{-\varepsilon(t-T)}.
+\label{eq:finite-volume-patch-convergence}
+\end{equation}
+The two late-interaction contributions each cost~$e^{-\varepsilon T}$;
+the remaining difference is~\eqref{eq:no-late-relaxation-bound}.
+Lemma~\ref{lem:zero-boundary-compatibility} allows the same estimate for~$\pi$.
+Taking~$T=t/2$ and subtracting the common limit therefore gives
+\begin{equation*}
+\abs{(\mu P_t^{R,0})(\chi_A)-(\pi P_t^{R,0})(\chi_A)}
+\leq2(3+\abs R)e^{-\varepsilon t/2}.
+\end{equation*}
+Since~$\pi P_t=\pi$,
+\begin{align}
+\abs{(\mu P_t)(\chi_A)-\pi(\chi_A)}
+&\leq2\norm{\bb{P_t-P_t^{R,0}}\chi_A}_\infty
+ +2(3+\abs R)e^{-\varepsilon t/2}.
+\label{eq:infinite-volume-approximation}
+\end{align}
+Apply Lemma~\ref{lem:finite-propagation} with~$a=\varepsilon$ and take
+\begin{equation*}
+R_t=B\bb{A,\lceil vt\rceil}.
+\end{equation*}
+The approximation error is at most~$C_Ae^{-\varepsilon t}$, while polynomial
+growth gives~$\abs{R_t}\leq C_A(1+t)^D$, after increasing~$C_A$ if necessary.
+Thus
+\begin{equation}
+\sup_{\mu\in\mathcal M_\star}
+\abs{(\mu P_t)(\chi_A)-\pi(\chi_A)}
+\leq K_A(1+t)^De^{-\varepsilon t/2}.
+\label{eq:m-star-monomial-convergence}
+\end{equation}
+}
+
+Every local function is a finite linear combination of monomials. Hence
+\eqref{eq:m-star-monomial-convergence} \rev{gives},
+for every local~$f$,
+\begin{equation}
+\label{eq:m-star-local-convergence}
+\sup_{\mu\in\mathcal M_\star}
+\abs{(\mu P_t)(f)-\pi(f)}
+\leq
+K_f(1+t)^D e^{-\varepsilon t/2}
+\end{equation}
+for some~$K_f<\infty$.
+
+\rev{To extend the bound to~$\mathcal M_-$, let~$K\geq0$ and}
+$\mu\in\mathcal M_{-,K}$, and set
+\begin{equation*}
+\overline\mu
+=
+\frac{\mu+K\mu_{\mb 1}}{1+K}
+\in\mathcal M_\star.
+\end{equation*}
+Then
+\begin{equation*}
+\mu
+=
+(1+K)\overline\mu-K\mu_{\mb 1},
+\end{equation*}
+while~$\mu_{\mb 1}\in\mathcal M_\star$.
+
+{\color{red}
+Applying~\eqref{eq:m-star-local-convergence} to~$\overline\mu$ and~$\mu_{\mb1}$ gives
+\begin{equation}
+\label{eq:m-minus-reduction}
+\sup_{\mu\in\mathcal M_{-,K}}
+\abs{(\mu P_t)(f)-\pi(f)}
+\leq(1+2K)K_f(1+t)^D e^{-\varepsilon t/2}.
+\end{equation}
+}
+\rev{This proves~\eqref{eq:uniform-m-minus-convergence}.} Since~$\mathcal M_- = \bigcup_{K\geq0}\mathcal M_{-,K}$, it also follows that
+\begin{equation*}
+\mu P_t\Rightarrow\pi
+\qquad
+\text{for every }\mu\in\mathcal M_-.
+\end{equation*}
+\end{proof}
+
+\subsection{\texorpdfstring{\rev{Proof of the late-interaction estimate}}{Proof of the late-interaction estimate}}
 \label{subsec:proof-pure-death-comparison}
 
 {\color{red}
-The comparison needed for the first error is particularly simple at the
+In this subsection and in Section~\ref{subsec:terminal-relaxation}, we work
+with a finite system and suppress the superscript~$R$ used above.
+Thus~$\Lambda=R$ and all weights, events and expectations refer to that system.
+The threshold profile and~$\mathcal M_\star$ are also those of this finite system.
+}
+
+{\color{red}
+The comparison needed for Lemma~\ref{lem:late-interactions} is particularly simple at the
 level of the dual: pure deaths change its potential without changing its
 jump process.
 }
@@ -3660,27 +3821,9 @@ after time~$n$. Since each successful interaction creates only finitely many
 patches,~$\mathcal P$ is finite.
 \end{proof}
 
-\begin{lemma}[Late interactions]
-\label{lem:late-interactions}
-For~$\mu\in\mathcal M_\star$ and~$0\leq T<t$,
-\begin{align}
-0
-&\leq
-\E_A\Cb{W_t^\mu\ind\bb{L_{T,t}^c}}
-\leq
-e^{-\varepsilon T},
-\label{eq:finite-late-interaction-bound}
-\\
-0
-&\leq
-\E_A\Cb{W\ind\bb{L_T^c}}
-\leq
-e^{-\varepsilon T}.
-\label{eq:limiting-late-interaction-bound}
-\end{align}
-\end{lemma}
 
-\begin{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:late-interactions}]
 We first describe the ancestry of a successful interaction at time~$u>0$.
 The source of this interaction lies in a patch ending with an outgoing
 interaction. That patch starts at another successful interaction, so move to
@@ -3902,7 +4045,7 @@ expectations and using~\eqref{eq:limiting-death-removed-mass} proves
 \eqref{eq:limiting-late-interaction-bound}.
 \end{proof}
 
-\subsection{\texorpdfstring{\rev{Relaxation of the terminal values}}{Relaxation of the terminal values}}
+\subsection{\texorpdfstring{\rev{Proof of the terminal-relaxation estimate}}{Proof of the terminal-relaxation estimate}}
 \label{subsec:terminal-relaxation}
 
 We next consider the event with no successful interaction after~$T$. The
@@ -4458,22 +4601,7 @@ Both quantities compared in the lemma are at least~$\prod_{P\in\mathcal E_T}a_t(
 \end{proof}
 
 {\color{red}
-\begin{lemma}[Relaxation after the last interaction]
-\label{lem:no-late-relaxation}
-For~$\mu\in\mathcal M_\star$ and~$0\leq T<t$,
-\begin{equation}
-\abs{
- \E_A\Cb{W_t^\mu\ind\bb{L_{T,t}}}
- -\E_A\Cb{W\ind\bb{L_T}}
-}
-\leq(1+\abs\Lambda)e^{-\varepsilon(t-T)}.
-\label{eq:no-late-relaxation-bound}
-\end{equation}
-\end{lemma}
-}
-
-{\color{red}
-\begin{proof}
+\begin{proof}[Proof of Lemma~\ref{lem:no-late-relaxation}]
 Write~$B_T=\prod_{P\in\mathcal B_T}C(P)$ and
 $B_T^\varepsilon=\prod_{P\in\mathcal B_T}C^\varepsilon(P)$.
 Lemma~\ref{prop:no-late-continuation-identity} expresses both conditional
@@ -4501,70 +4629,11 @@ $0\leq W\leq W^\varepsilon$, and
 \end{proof}
 }
 
-\subsection{\texorpdfstring{\rev{The finite-volume conclusion}}{The finite-volume conclusion}}
-\label{subsec:finite-volume-convergence}
-
-{\color{red}
-\begin{proposition}[Finite-volume convergence]
-\label{prop:finite-volume-convergence}
-The finite system has a unique invariant probability measure~$\pi_\Lambda$.
-For every~$A\subseteq\Lambda$,~$\mu\in\mathcal M_\star$, and~$0\leq T<t$,
-\begin{equation}
-\abs{(\mu P_t)(\chi_A)-\pi_\Lambda(\chi_A)}
-\leq 2e^{-\varepsilon T}
- +(1+\abs\Lambda)e^{-\varepsilon(t-T)}.
-\label{eq:finite-volume-convergence}
-\end{equation}
-In particular, setting~$T=t/2$ bounds the right-hand side by
-$(3+\abs\Lambda)e^{-\varepsilon t/2}$.
-\end{proposition}
-}
-
-{\color{red}
-\begin{proof}
-The pure-death component gives a positive-probability path from every
-configuration to the all-$0$ configuration. The finite Markov chain therefore
-has one closed communicating class, a unique invariant measure~$\pi_\Lambda$,
-and its law converges to~$\pi_\Lambda$ from every initial configuration.
-
-Lemma~\ref{prop:no-late-continuation-identity} gives
-$H_T=\E_A\Cb{W\ind(L_T)}$.
-The patch representation and the decomposition into~$L_{T,t}$ and its
-complement give
-\begin{align*}
-(\mu P_t)(\chi_A)-H_T
-={}&\E_A\Cb{W_t^\mu\ind\bb{L_{T,t}^c}}\\
-&+\E_A\Cb{W_t^\mu\ind\bb{L_{T,t}}}
- -\E_A\Cb{W\ind\bb{L_T}}.
-\end{align*}
-Lemmas~\ref{lem:late-interactions} and~\ref{lem:no-late-relaxation} prove
-\eqref{eq:two-term-proof-plan}. Moreover,
-\begin{equation*}
-0\leq\E_A\Cb W-H_T
-=\E_A\Cb{W\ind\bb{L_T^c}}
-\leq e^{-\varepsilon T}.
-\end{equation*}
-Consequently,
-\begin{equation*}
-\abs{(\mu P_t)(\chi_A)-\E_A\Cb W}
-\leq2e^{-\varepsilon T}
- +(1+\abs\Lambda)e^{-\varepsilon(t-T)}.
-\end{equation*}
-Taking~$T=t/2$ and letting~$t\to\infty$ identifies
-$\E_A\Cb W=\pi_\Lambda(\chi_A)$ and proves the proposition.
-\end{proof}
-}
-
-\subsection{\texorpdfstring{\rev{Passage to infinite volume}}{Passage to infinite volume}}
-\label{subsec:infinite-volume-proof}
-
+\subsection{\texorpdfstring{\rev{Auxiliary facts}}{Auxiliary facts}}
 \label{subsec:auxiliary}
-\label{subsec:proofs-main}
-\label{subsec:proof-common-invariant-limit}
 
-{\color{red}
-We now allow~$\Lambda$ to be countably infinite. The spatial estimate enters only in this final approximation step.
-}
+\subsubsection{\texorpdfstring{\rev{Finite propagation}}{Finite propagation}}
+\label{subsec:finite-propagation-proof}
 
 The following estimate is the standard finite speed of propagation for spin
 systems with bounded rates; see~\cite{Liggett1985}. We include a proof for the
@@ -4653,6 +4722,9 @@ the same bound gives
 which tends to~$0$ as~$n\to\infty$.
 \end{proof}
 
+\subsubsection{\texorpdfstring{\rev{Restriction to finite sets}}{Restriction to finite sets}}
+\label{subsec:zero-boundary-proof}
+
 {\color{red}
 \begin{lemma}[Zero-boundary restrictions]
 \label{lem:zero-boundary-compatibility}
@@ -4662,6 +4734,9 @@ $p_i^{\star,R}\leq p_i^\star$ for~$i\in R$.
 If~$\mu\in\mathcal M_\star$, its marginal on~$R$ belongs to the
 nonnegative-centered-moment class of this restricted system.
 \end{lemma}
+}
+
+{\color{red}
 \begin{proof}
 Setting the spins outside~$R$ to zero removes exactly the monomial terms
 whose indices are not contained in~$R$. Thus, for~$S\subseteq N(i)\cap R$,
@@ -4685,10 +4760,13 @@ Every term has a nonnegative coefficient and a nonnegative expectation under~$\m
 \end{proof}
 }
 
+\subsubsection{\texorpdfstring{\rev{Preservation of centered moments}}{Preservation of centered moments}}
+\label{subsec:centered-moments-proof}
+
 {\color{red}
-Before passing the convergence estimate to infinite volume, we identify an
-invariant measure in~$\mathcal M_\star$. The following argument uses the
-generator in the centered-monomial basis.
+The following lemma supplies the invariant measure used in
+Section~\ref{subsec:proof-common-invariant-limit}. Its proof uses only the
+centered-monomial generator calculation and finite propagation.
 }
 
 \begin{lemma}
@@ -4852,85 +4930,45 @@ property and the semigroup identity
 give~$\pi^-P_s=\pi^-$.
 \end{proof}
 
-\begin{proof}[Proof of Theorem~\ref{thm:common-invariant-limit}]
-{\color{red}
-By Lemma~\ref{lem:centered-cone-preservation}(b), there is an invariant
-measure~$\pi\in\mathcal M_\star$.
-Fix~$A\Subset\Lambda$,~$\mu\in\mathcal M_\star$, and a finite set~$R\supseteq A$.
-By Lemma~\ref{lem:zero-boundary-compatibility}, Proposition~\ref{prop:finite-volume-convergence}
-applies to the zero-boundary dynamics in~$R$ and to the marginals of both~$\mu$
-and~$\pi$. Writing~$\pi_R$ for its invariant measure, we obtain
-\begin{equation*}
-\abs{(\mu P_t^{R,0})(\chi_A)-(\pi P_t^{R,0})(\chi_A)}
-\leq2(3+\abs R)e^{-\varepsilon t/2}.
-\end{equation*}
-Since~$\pi P_t=\pi$,
-\begin{align}
-\abs{(\mu P_t)(\chi_A)-\pi(\chi_A)}
-&\leq
-2\norm{\bb{P_t-P_t^{R,0}}\chi_A}_\infty
- +2(3+\abs R)e^{-\varepsilon t/2}.
-\label{eq:infinite-volume-approximation}
-\end{align}
-Apply Lemma~\ref{lem:finite-propagation} with~$a=\varepsilon$ and take
-\begin{equation*}
-R_t=B\bb{A,\lceil vt\rceil}.
-\end{equation*}
-The approximation error is at most~$C_Ae^{-\varepsilon t}$, while polynomial
-growth gives~$\abs{R_t}\leq C_A(1+t)^D$, after increasing~$C_A$ if necessary.
-Thus
-\begin{equation}
-\sup_{\mu\in\mathcal M_\star}
-\abs{(\mu P_t)(\chi_A)-\pi(\chi_A)}
-\leq K_A(1+t)^De^{-\varepsilon t/2}.
-\label{eq:m-star-monomial-convergence}
-\end{equation}
-}
-
-Every local function is a finite linear combination of monomials. Hence
-\eqref{eq:m-star-monomial-convergence} \rev{gives},
-for every local~$f$,
-\begin{equation}
-\label{eq:m-star-local-convergence}
-\sup_{\mu\in\mathcal M_\star}
-\abs{(\mu P_t)(f)-\pi(f)}
-\leq
-K_f(1+t)^D e^{-\varepsilon t/2}
-\end{equation}
-for some~$K_f<\infty$.
-
-\rev{To extend the bound to~$\mathcal M_-$, let~$K\geq0$ and}
-$\mu\in\mathcal M_{-,K}$, and set
-\begin{equation*}
-\overline\mu
-=
-\frac{\mu+K\mu_{\mb 1}}{1+K}
-\in\mathcal M_\star.
-\end{equation*}
-Then
-\begin{equation*}
-\mu
-=
-(1+K)\overline\mu-K\mu_{\mb 1},
-\end{equation*}
-while~$\mu_{\mb 1}\in\mathcal M_\star$.
+\subsubsection{\texorpdfstring{\rev{The finite-volume invariant measure}}{The finite-volume invariant measure}}
+\label{subsec:finite-volume-convergence}
 
 {\color{red}
-Applying~\eqref{eq:m-star-local-convergence} to~$\overline\mu$ and~$\mu_{\mb1}$ gives
+\begin{proposition}[Finite-volume convergence]
+\label{prop:finite-volume-convergence}
+Suppose that~$\Lambda$ is finite. The system has a unique invariant probability measure~$\pi_\Lambda$.
+For every~$A\subseteq\Lambda$,~$\mu\in\mathcal M_\star$, and~$0\leq T<t$,
 \begin{equation}
-\label{eq:m-minus-reduction}
-\sup_{\mu\in\mathcal M_{-,K}}
-\abs{(\mu P_t)(f)-\pi(f)}
-\leq(1+2K)K_f(1+t)^D e^{-\varepsilon t/2}.
+\abs{(\mu P_t)(\chi_A)-\pi_\Lambda(\chi_A)}
+\leq 2e^{-\varepsilon T}
+ +(1+\abs\Lambda)e^{-\varepsilon(t-T)}.
+\label{eq:finite-volume-convergence}
 \end{equation}
+In particular, setting~$T=t/2$ bounds the right-hand side by
+$(3+\abs\Lambda)e^{-\varepsilon t/2}$.
+\end{proposition}
 }
-\rev{This proves~\eqref{eq:uniform-m-minus-convergence}.} Since~$\mathcal M_- = \bigcup_{K\geq0}\mathcal M_{-,K}$, it also follows that
+
+{\color{red}
+\begin{proof}
+The pure-death component gives a positive-probability path from every
+configuration to the all-$0$ configuration. The finite Markov chain therefore
+has one closed communicating class, a unique invariant measure~$\pi_\Lambda$,
+and its law converges to~$\pi_\Lambda$ from every initial configuration.
+
+With~$R=\Lambda$, Lemmas~\ref{lem:late-interactions}
+and~\ref{lem:no-late-relaxation} give
 \begin{equation*}
-\mu P_t\Rightarrow\pi
-\qquad
-\text{for every }\mu\in\mathcal M_-.
+\abs{(\mu P_t)(\chi_A)-\E_A\Cb W}
+\leq2e^{-\varepsilon T}+(1+\abs\Lambda)e^{-\varepsilon(t-T)}.
 \end{equation*}
+Taking~$T=t/2$ and letting~$t\to\infty$ identifies
+$\E_A\Cb W=\pi_\Lambda(\chi_A)$ and proves the proposition.
 \end{proof}
+}
+
+\subsubsection{\texorpdfstring{\rev{Initial configurations with finitely many zeros}}{Initial configurations with finitely many zeros}}
+\label{subsec:finite-zero-configurations}
 
 We also verify the claim in Remark~\ref{rem:m-minus-examples}
 that, in the presence of a pure-death component, every configuration with finitely many~$0$s gives an initial law in~$\mathcal M_-$. The pure-death component gives
@@ -5514,7 +5552,13 @@ conditional-law statement.
 \label{app:spatial-confinement}
 
 {\color{red}
-Here~$\Lambda$ is countable. The patch representation also gives the following identities in infinite volume. They are useful descriptions of the weights, although the proof of Theorem~\ref{thm:common-invariant-limit} above uses finite-volume approximation instead of a separate spatial-confinement estimate. The definitions of~$W_t^\mu$ and~$W$ are unchanged.
+Here~$\Lambda$ is countable. The patch representation also gives the following identities in infinite volume. They are useful descriptions of the weights, although the proof of Theorem~\ref{thm:common-invariant-limit} above uses finite-volume approximation instead of a separate spatial-confinement estimate. Here~$W_t^\mu$ and~$W$ refer to the full countable system, with
+\begin{equation}
+\label{eq:limiting-patch-weight}
+W=\prod_{P\in\mathcal P}C(P)\,\ind\bb{\abs{\mathcal P}<\infty}.
+\end{equation}
+The events~$L_{T,t}$ and~$L_T$ are defined as in
+\eqref{eq:no-late-interaction-events}, with the superscript~$R$ omitted.
 }
 
 \begin{remark}[Infinite volume]
@@ -5861,7 +5905,9 @@ and then let~$T\to\infty$.
 \section{\texorpdfstring{\rev{Dependencies of the revised argument}}{Dependencies of the revised argument}}
 \label{app:dependencies}
 
-\rev{The results are ordered according to their use in the proofs.
+\rev{Section~\ref{subsec:duality-proof-plan} states the two estimates used
+to prove the main theorem. Their proofs and the auxiliary facts follow the
+proof of the theorem. The figures record the logical dependencies.
 Figure~\ref{fig:dependency-graph-sec4} records the construction in Section~\ref{sec:probabilistic-interpretation}.
 Figure~\ref{fig:dependency-graph} records the convergence argument in Section~\ref{sec:proofs}.
 An arrow from~$X$ to~$Y$ means that~$X$ is used to prove~$Y$.
@@ -5885,7 +5931,7 @@ route to Theorem~\ref{thm:common-invariant-limit}.}
 \node[res] (late) at (-2,-1.6) {Lemma~\ref{lem:late-interactions}\\late interactions};
 \node[res] (end) at (1,-1.6) {Lemma~\ref{lem:end-factor-relaxation}\\end factors};
 \node[res] (relax) at (1,-3.2) {Lemma~\ref{lem:no-late-relaxation}\\terminal relaxation};
-\node[res] (finite) at (-2,-4.8) {Proposition~\ref{prop:finite-volume-convergence}\\finite-volume convergence};
+\node[res] (compat) at (-2,-4.8) {Lemma~\ref{lem:zero-boundary-compatibility}\\zero-boundary restriction};
 \node[res] (propagation) at (1,-4.8) {Lemma~\ref{lem:finite-propagation}\\finite propagation};
 \node[res] (cone) at (4,-4.8) {Lemma~\ref{lem:centered-cone-preservation}\\centered moments\\and invariant limit};
 \node[main] (main) at (1,-6.4) {Theorem~\ref{thm:common-invariant-limit}\\common invariant limit};
@@ -5897,9 +5943,9 @@ route to Theorem~\ref{thm:common-invariant-limit}.}
 \draw[dep] (continue)--(end);
 \draw[dep] (continue.east)--(2.6,0)--(2.6,-3.2)--(relax.east);
 \draw[dep] (end)--(relax);
-\draw[dep] (late)--(finite);
-\draw[dep] (relax)--(finite);
-\draw[dep] (finite)--(main);
+\draw[dep] (late.west)--(-3.6,-1.6)--(-3.6,-6.4)--(main.west);
+\draw[dep] (relax.south west)--(-0.5,-3.8)--(-0.5,-6.4)--(main.west);
+\draw[dep] (compat)--(main);
 \draw[dep] (propagation)--(main);
 \draw[dep] (propagation)--(cone);
 \draw[dep] (cone)--(main);
@@ -5907,10 +5953,9 @@ route to Theorem~\ref{thm:common-invariant-limit}.}
 \draw[dep] (main)--(oriented);
 \draw[dep] (boundary)--(oriented);
 \end{tikzpicture}}
-\caption{\rev{The convergence argument. The finite-volume estimate uses the
-late-interaction and terminal-relaxation bounds. Finite propagation and the
-invariant limit of the centered moments give the infinite-volume theorem.
-The zero-boundary compatibility lemma is omitted from the diagram.}}
+\caption{\rev{The two estimates and the auxiliary facts used in the
+short proof of the main theorem. The separate finite-volume proposition is
+a consequence of the same two estimates.}}
 \label{fig:dependency-graph}
 \end{figure}
 
@@ -5982,14 +6027,13 @@ Lemma~\ref{lem:no-late-relaxation} &
 Lemmas~\ref{prop:no-late-continuation-identity}, \ref{lem:end-factor-relaxation},
 \ref{lem:late-interactions}\\
 Proposition~\ref{prop:finite-volume-convergence} &
-Lemmas~\ref{lem:late-interactions}, \ref{lem:no-late-relaxation},
-\ref{prop:no-late-continuation-identity}\\
+Lemmas~\ref{lem:late-interactions}, \ref{lem:no-late-relaxation}\\
 Lemma~\ref{lem:centered-cone-preservation} &
 Proposition~\ref{prop:patch-contribution-positivity};
 Lemma~\ref{lem:finite-propagation}\\
 Theorem~\ref{thm:common-invariant-limit} &
-Proposition~\ref{prop:finite-volume-convergence};
-Lemmas~\ref{lem:finite-propagation}, \ref{lem:zero-boundary-compatibility},
+Lemmas~\ref{lem:late-interactions}, \ref{lem:no-late-relaxation},
+\ref{lem:finite-propagation}, \ref{lem:zero-boundary-compatibility},
 \ref{lem:centered-cone-preservation}\\
 Corollary~\ref{cor:oriented-ergodicity} &
 Theorem~\ref{thm:common-invariant-limit};
