@@ -3323,12 +3323,7 @@ The first term is independent of~$\eta$ and converges as~$t\to\infty$. The secon
 
 The argument above fails if the potential~$V$ can be positive, as we lose the upper bound on the~$\eta$-dependent term in~\eqref{eq:classical-duality-split}. The patch representation gives us a better control over this term, because patch contributions in Theorem~\ref{thm:patch-representation} capture the cancellations from sign~$\sigma_t$: there is extra averaging over randomness not determined by~$\mathcal{G}_t$. These cancellations suffice to show dependence on~$\eta$ decays.
 
-The only technical snag is that we still need to split~$P_t\chi_A$ into two terms, one decaying and one weakly dependent on initial measure, but we cannot use the event~$\cb{\tau >t}$, because it's not~$\mathcal{G}_t$-measurable: when and where the successful interactions happen before time~$t$ does not determine whether the underlying process is dead by time~$t$. We solve this problem by using a~$\mathcal{G}_t$-measurable proxy event: whether there are no successful interactions after time~$T=\frac{t}{2}$ and before~$t$. {\color{red}
-On this event no new sites become active after~$T$. The dependence on the
-initial configuration is carried by the end patches present at~$T$.
-We will show that their contributions forget the terminal values at rate
-at least~$\varepsilon$, without requiring extinction of the dual.
-}
+The only technical snag is that we still need to split~$P_t\chi_A$ into two terms, one decaying and one weakly dependent on initial measure, but we cannot use the event~$\cb{\tau >t}$, because it's not~$\mathcal{G}_t$-measurable: when and where the successful interactions happen before time~$t$ does not determine whether the underlying process is dead by time~$t$. We solve this problem by using a~$\mathcal{G}_t$-measurable proxy event: whether there are no successful interactions after time~$T=\frac{t}{2}$ and before~$t$. No successful interactions means no new sites can become active during~$[T,t)$, but the active ones still die at rate~$\delta$. Thus, for very large~$t$ this event is almost equivalent to~$\cb{\tau\leq t}$.
 
 {\color{red}
 Fix~$A\subseteq R\Subset\Lambda$ and consider the zero-boundary system
