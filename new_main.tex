@@ -3288,8 +3288,8 @@ The last lemma is the role of the centered-moment condition on the initial law. 
 \label{sec:proofs}
 
 {\color{red}
-We prove Theorem~\ref{thm:common-invariant-limit} by adapting the usual
-duality argument. We first work on a finite lattice, so that the proof has
+We prove Theorem~\ref{thm:common-invariant-limit} by adapting the classical
+duality argument for ergodicity. We first work on a finite lattice, so that the proof has
 only two parts: a contribution independent of the initial law and a remainder
 that vanishes. The estimates keep track of the size of the lattice.
 Section~\ref{subsec:infinite-volume-proof} then passes to the countable
@@ -3312,34 +3312,28 @@ Lemma~\ref{lem:nonnegative-patch-weights} give, for~$\mu\in\mathcal M_\star$,
 \end{equation*}
 }
 
-{\color{red}
-For the classical argument, suppose that~$V(B)\leq-\gamma$ whenever
-$B\neq\vn$, for some~$\gamma>0$, and let
+
+The classical duality argument gives ergodicity, assuming~$V(A)\leq -\gamma\ind\bb{A\neq\vn}$, for some~$\gamma>0$. Let
 \begin{equation*}
 \tau=\inf\cb{s\geq0:A_s=\vn}.
 \end{equation*}
 The empty dual set is absorbing and~$V(\vn)=0$, so the duality gives
-\begin{align}
+\begin{equation}\label{eq:classical-duality-split}
 P_t\chi_A(\eta)
-={}&
+=
 \E_A\Cb{\sigma_\tau
  e^{\int_0^\tau V(A_s)\,ds}\ind\bb{\tau\leq t}}
-\notag\\
-&+\E_A\Cb{\sigma_t
++\E_A\Cb{\sigma_t
  e^{\int_0^t V(A_s)\,ds}\chi_{A_t}(\eta)
  \ind\bb{\tau>t}}.
-\label{eq:classical-duality-split}
-\end{align}
-The first term is independent of~$\eta$ and converges as~$t\to\infty$.
-The second has absolute value at most~$e^{-\gamma t}$.
+\end{equation}
+The first term is independent of~$\eta$ and converges as~$t\to\infty$. The second has absolute value at most~$e^{-\gamma t}$. Hence for each~$A$ the~$P_t\chi_A(\eta)$ converges to a limit independent of the initial configuration. The monomials are a basis of space of local functions, so uniform exponential ergodicity at rate~$\gamma$ follows.
 
-For the systems considered here, the potential need not satisfy this bound.
-We instead use the patch representation and separate realizations according
-to whether a successful interaction occurs after a time~$T<t$.
-The event with no such interaction is measurable with respect to the
-revealed skeleton. On this event, the remaining dependence on the initial
-law is carried by the end patches and relaxes locally.
-}
+
+The argument above fails if the potential~$V$ can be positive, as we lose the upper bound on the~$\eta$-dependent term in~\eqref{eq:classical-duality-split}. The patch representation, gives us a better control over this term, because patch contributions in~\ref{thm:patch-representation} capture the cancellations from sign~$\sigma_t$: there is extra averaging over randomness not determined by~$\mathcal{G}_t$. These cancellations suffice to show dependence on~$\eta$ decays.
+
+The only technical snag is that we still need to split~$P_t\chi_A$ into two terms, one decaying and one weakly dependent on initial measure, but we cannot use the event~$\cb{\tau >t}$, because it's not~$\mathcal{G}_t$-measurable: when and where the successful interactions happen before time~$t$ does not determine whether the underlying process is dead by time~$t$. We solve this problem by using a~$\mathcal{G}_t$-measurable proxy event: whether there are no successful interactions after time~$T=\frac{t}{2}$ and before~$t$. No successful interactions means no new sites can become active during~$[T,t)$, but the active ones still die at rate~$\delta$. Thus, for very large~$t$ this event is almost equivalent to~$\cb{\tau\leq t}$.
+
 
 We also define the limiting weight
 \begin{equation}
