@@ -3327,20 +3327,22 @@ The argument above fails if the potential~$V$ can be positive, as we lose the up
 The only technical snag is that we still need to split~$P_t\chi_A$ into two terms, one decaying and one weakly dependent on initial measure, but we cannot use the event~$\cb{\tau >t}$, because it is not in~$\mathcal{G}_t$: when and where the successful interactions happen before time~$t$ does not determine whether the underlying process is dead by time~$t$. We solve this problem by using a proxy event in~$\mathcal{G}_t$: whether there are no successful interactions after time~$T=\frac{t}{2}$ and before~$t$. No successful interactions means no new sites can become active during~$[T,t)$, but the active ones still die at rate~$\delta$. Thus, for very large~$t$ this event is almost equivalent to~$\cb{\tau\leq t}$, and we show the corresponding event has negligible dependence on the initial configuration.
 
 {\color{red}
-Fix~$A\subseteq R\Subset\Lambda$ and consider the zero-boundary system
+Fix~$A\subseteq R\Subset\Lambda$ and~$\mu\in\mathcal M_\star$, and consider the zero-boundary system
 on~$R$ with semigroup~$P_t^{R,0}$. We add superscript~$R$ to denote objects defined with respect to this process.
 Using the contributions from Definition~\ref{def:patch-contributions}, set
 \begin{align*}
-W_t^R(\eta)
-&=\prod_{P\in\mathcal B_t^R}C^R(P)
-  \prod_{P\in\mathcal E_t^R}C^R\bb{\eta(i(P)),P},
-\\
-W_t^{R,\mu}&=\mu\bb{W_t^R(\eta)},
+W_t^{R,\mu}
+&=\prod_{P\in\mathcal B_t^R}C^R(P)\,
+  \mu\bb{\prod_{P\in\mathcal E_t^R}C^R\bb{\eta(i(P)),P}},
 \\
 W^R&=\prod_{P\in\mathcal P^R}C^R(P)\,
 \ind\bb{\abs{\mathcal P^R}<\infty}.
 \end{align*}
 Here and below~$\mu$ also denotes its marginal on~$R$.
+By Lemma~\ref{lem:zero-boundary-compatibility}, the restricted system is
+patch-positive, has the same pure-death component, and its threshold
+satisfies~$p_i^{\star,R}\leq p_i^\star$. The marginal of~$\mu$ therefore has
+nonnegative centered moments for the restricted system, and~$W_t^{R,\mu}\geq0$.
 For~$0\leq T<t$, let
 \begin{align}
 L_{T,t}^R
@@ -3350,30 +3352,17 @@ L_T^R
 &=\cb{\text{no successful interaction occurs after }T}.
 \label{eq:no-late-interaction-events}
 \end{align}
-The first event belongs to~$\mathcal G_t^R$, the second in~$\mathcal{G}_\infty^R$. The patch representation gives the required decomposition:
+The first event belongs to~$\mathcal G_t^R$, the second in~$\mathcal{G}_\infty^R$.
+
+The patch representation gives
 \begin{align}
-P_t\chi_A(\eta)
-={}&\bb{P_t-P_t^{R,0}}\chi_A(\eta)
+(\mu P_t)(\chi_A)
+={}&\mu\bb{\bb{P_t-P_t^{R,0}}\chi_A}
 \notag\\
-&+\E_A^R\Cb{W_t^R(\eta)\ind\bb{L_{T,t}^R}}
- +\E_A^R\Cb{W_t^R(\eta)\ind\bb{(L_{T,t}^R)^c}}.
+&+\E_A^R\Cb{W_t^{R,\mu}\ind\bb{L_{T,t}^R}}
+ +\E_A^R\Cb{W_t^{R,\mu}\ind\bb{(L_{T,t}^R)^c}}.
 \label{eq:two-term-proof-plan}
 \end{align}
-The first line is the error from approximation by finite sublattice. After integration
-against~$\mu\in\mathcal M_\star$,~$W_t^R(\eta)$ becomes~$W_t^{R,\mu}$.
-The contribution on~$L_{T,t}^R$ will approach a quantity independent of~$\mu$,
-while the contribution on its complement will be small. These are the two
-terms corresponding to those in~\eqref{eq:classical-duality-split}.
-For~$R=B(A,\lceil vt\rceil)$ with~$v$ sufficiently large, finite propagation
-bounds the first line by~$C_Ae^{-\varepsilon t}$; see
-Lemma~\ref{lem:finite-propagation}.
-
-The zero-boundary system is patch-positive, has the same pure-death component,
-and its threshold satisfies~$p_i^{\star,R}\leq p_i^\star$.
-Consequently, every~$\mu\in\mathcal M_\star$ has nonnegative centered moments
-also for the restricted system; see Lemma~\ref{lem:zero-boundary-compatibility}.
-In particular,~$W_t^{R,\mu}\geq0$.
-The two estimates below are uniform in~$R$ except for the displayed factor~$\abs R$.
 }
 
 {\color{red}
