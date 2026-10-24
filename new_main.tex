@@ -3324,12 +3324,12 @@ The first term is independent of~$\eta$ and converges as~$t\to\infty$. The secon
 
 The argument above fails if the potential~$V$ can be positive, as we lose the upper bound on the~$\eta$-dependent term in~\eqref{eq:classical-duality-split}. The patch representation gives us a better control over this term, because patch contributions in Theorem~\ref{thm:patch-representation} capture the cancellations from sign~$\sigma_t$: there is extra averaging over randomness not determined by~$\mathcal{G}_t$. These cancellations suffice to show dependence on~$\eta$ decays.
 
-The only technical snag is that we still need to split~$P_t\chi_A$ into two terms, one decaying and one weakly dependent on initial measure, but we cannot use the event~$\cb{\tau >t}$, because it's not~$\mathcal{G}_t$-measurable: when and where the successful interactions happen before time~$t$ does not determine whether the underlying process is dead by time~$t$. We solve this problem by using a~$\mathcal{G}_t$-measurable proxy event: whether there are no successful interactions after time~$T=\frac{t}{2}$ and before~$t$. No successful interactions means no new sites can become active during~$[T,t)$, but the active ones still die at rate~$\delta$. Thus, for very large~$t$ this event is almost equivalent to~$\cb{\tau\leq t}$.
+The only technical snag is that we still need to split~$P_t\chi_A$ into two terms, one decaying and one weakly dependent on initial measure, but we cannot use the event~$\cb{\tau >t}$, because it is not in~$\mathcal{G}_t$: when and where the successful interactions happen before time~$t$ does not determine whether the underlying process is dead by time~$t$. We solve this problem by using a proxy event in~$\mathcal{G}_t$: whether there are no successful interactions after time~$T=\frac{t}{2}$ and before~$t$. No successful interactions means no new sites can become active during~$[T,t)$, but the active ones still die at rate~$\delta$. Thus, for very large~$t$ this event is almost equivalent to~$\cb{\tau\leq t}$, and we show the corresponding event has negligible dependence on the initial configuration.
 
 {\color{red}
 Fix~$A\subseteq R\Subset\Lambda$ and consider the zero-boundary system
-on~$R$. A superscript~$R$ denotes its patch objects and dual expectation.
-Using the contributions from Definition~\ref{def:patch-contributions}, write
+on~$R$ with semigroup~$P_t^{R,0}$. We add superscript~$R$ to denote objects defined with respect to this process.
+Using the contributions from Definition~\ref{def:patch-contributions}, set
 \begin{align*}
 W_t^R(\eta)
 &=\prod_{P\in\mathcal B_t^R}C^R(P)
@@ -3350,8 +3350,7 @@ L_T^R
 &=\cb{\text{no successful interaction occurs after }T}.
 \label{eq:no-late-interaction-events}
 \end{align}
-The first event belongs to~$\mathcal G_t^R$; the second concerns the whole
-future. The patch representation gives the required decomposition:
+The first event belongs to~$\mathcal G_t^R$, the second in~$\mathcal{G}_\infty^R$. The patch representation gives the required decomposition:
 \begin{align}
 P_t\chi_A(\eta)
 ={}&\bb{P_t-P_t^{R,0}}\chi_A(\eta)
@@ -3360,7 +3359,7 @@ P_t\chi_A(\eta)
  +\E_A^R\Cb{W_t^R(\eta)\ind\bb{(L_{T,t}^R)^c}}.
 \label{eq:two-term-proof-plan}
 \end{align}
-The first line is the spatial approximation error. After integration
+The first line is the error from approximation by finite sublattice. After integration
 against~$\mu\in\mathcal M_\star$,~$W_t^R(\eta)$ becomes~$W_t^{R,\mu}$.
 The contribution on~$L_{T,t}^R$ will approach a quantity independent of~$\mu$,
 while the contribution on its complement will be small. These are the two
