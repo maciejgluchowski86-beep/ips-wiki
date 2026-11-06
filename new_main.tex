@@ -1849,23 +1849,14 @@ t\leq T
 \alpha\in\cb{\delta,\beta}
 }.
 \end{equation}
-We also set
-\begin{equation*}
-\mathcal I
+We also set~$\mathcal I
 =
-\bigcup_{T<\infty}\mathcal I_T,
-\qquad
-\mathcal G_T
-=
-\sigma\bb{\mathcal I_T}.
-\end{equation*}
+\bigcup_{T<\infty}\mathcal I_T$.
 \end{definition}
 
 \begin{remark}
-The record omits the kind~$\alpha$, since a split and a birth with the same
-source and target connect the same sites; deaths and marks at inactive
-sources do not connect sites. Thus~$\mathcal G_T$ reveals all interactions
-between sites up to time~$T$, but not deaths, marks at inactive sources, or
+The set of records~$\mathcal{I}_T$ contains the information about where and when interactions
+between sites up to time~$T$ happen, but stays invariant under adding or removing deaths, adding or removing marks at inactive sources, or changing
 the kind of an interaction.
 \end{remark}
 
@@ -2239,10 +2230,11 @@ patches from end patches.}
 \end{figure}
 \FloatBarrier
 
-\subsection{\texorpdfstring{\rev{Conditional patch laws}}{Conditional patch laws}}
+\subsection{\texorpdfstring{Factorization into patch laws}{}}
 \label{subsec:patch-laws}
 
-\rev{We now describe the randomness hidden by the successful-interaction skeleton.} Conditioning on~$\mathcal G_T$
+Averaging with respect to~$\mathcal{G}_T$ is only useful if the conditional law
+ Conditioning on~$\mathcal G_T$
 fixes the skeleton and hence the patch family~$\mathcal P_T$. What remains
 random are the deaths inside patches and the kind, split or birth, of each
 interaction. We first describe this randomness for one patch.
