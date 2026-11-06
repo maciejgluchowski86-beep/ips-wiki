@@ -1854,7 +1854,7 @@ We also set~$\mathcal I
 \bigcup_{T<\infty}\mathcal I_T$.
 \end{definition}
 
-\begin{remark}
+\begin{remark}\label{rem:interaction-records}
 The set of records~$\mathcal{I}_T$ contains the information about where and when interactions
 between sites up to time~$T$ happen, but stays invariant under adding or removing deaths, adding or removing marks at inactive sources, or changing
 the kind of an interaction.
@@ -2233,11 +2233,15 @@ patches from end patches.}
 \subsection{\texorpdfstring{Factorization into patch laws}{}}
 \label{subsec:patch-laws}
 
-Averaging with respect to~$\mathcal{G}_T$ is only useful if the conditional law
- Conditioning on~$\mathcal G_T$
-fixes the skeleton and hence the patch family~$\mathcal P_T$. What remains
-random are the deaths inside patches and the kind, split or birth, of each
-interaction. We first describe this randomness for one patch.
+To average over the randomness left inside the patches, we condition on the successful-interaction records. For~$T<\infty$, define
+\begin{equation*}
+\mathcal G_T:=\sigma(\mathcal I_T),
+\qquad
+\mathcal G_\infty:=\sigma(\mathcal I).
+\end{equation*}
+Conditioning on~$\mathcal{G}_T$ fixes the interaction times, sources and targets, and hence the patch family~$\mathcal P_T$. The kinds of the interactions and the marks inside patches remain random, see Remark~\ref{rem:interaction-records}.
+
+Conditional on a realization of~$\mathcal{I}_T$ the events inside each patch must be consistent with~$\mathcal{I}_T$: no successful interaction can originate inside a patch, and patches of type~$\mathsf{IO}$ or~$\mathsf{OO}$ must be active throughout to facilitate the terminal outgoing interaction. We first describe a law for the randomness in one patch and the consistency conditions. We show that, conditional on~$\mathcal G_T$, the law of~$\cb{\bb{\sigma_t,A_t}}_{t\leq T}$ factorizes over patches, with each patch law obtained by imposing its own consistency conditions.
 
 \begin{definition}[Patch law]
 \label{def:patch-law}
@@ -2578,9 +2582,7 @@ or the product on the left below is integrable,
 \end{equation}
 \end{lemma}
 
-{\color{red}
-The proof, which computes the joint law of the skeleton and the patch variables, is given in Appendix~\ref{app:conditional-factorization}.
-}
+We placed the proof in~Appendix~\ref{app:conditional-factorization} because the proof is purely technical: one verifies that, since~$\mathcal{G}_T$ already reveals all the ways different sites interact, the process in each patch evolves independently, and according to the conditional law~$\pP_P^{\operatorname{con}}$.
 
 \subsection{\texorpdfstring{\rev{Patch contributions and representation}}{Patch contributions and representation}}
 \label{subsec:patch-representation}
