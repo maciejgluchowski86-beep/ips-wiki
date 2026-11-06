@@ -1425,7 +1425,7 @@ The duality relation gives the representation of~$P_t\chi_A(\eta) = \E\Cb{\sigma
 
 Ours is the second route. We aim to average with respect to a~$\sigma$-algebra that is small enough to yield sufficient averaging but rich enough for the calculation to be tractable. Our choice is a~$\sigma$-algebra that reveals when and where the interactions between sites in the dual occur, and nothing else. In particular what exactly those interactions are is omitted. These interactions divide the timeline at each site into time intervals, which we call patches. Conditional on this~$\sigma$-algebra the remaining randomness factorizes over patches, with laws simple enough to permit explicit computation.
 
-This gives the patch representation and explains the conditions introduced in Section 3: patch positivity makes the contributions to~$P_t\chi_A$ of patches that don't reach time~$t$ (bulk patches) nonnegative, and the threshold profile determines which initial laws give a nonnegative contribution from patches that cross~$t$ (end patches).
+This gives the patch representation and explains the conditions introduced in Section 3: patch positivity makes the contributions to~$P_t\chi_A$ of patches that don't reach time~$t$ (bulk patches) nonnegative, and the threshold profile determines which initial laws give a nonnegative contribution from patches that cross~$t$ (end patches). 
 
 \subsection{Dual process}
 \label{sec:dual}
@@ -1652,7 +1652,7 @@ with~$S\neq\varnothing$ replaces~$i$ by~$S$ (split), and~$B_{i,S}$ adds~$S$
 rate per active site and~$\abs{V_i}$ are uniformly bounded.
 \end{remark}
 
-The duality holds in finite volume for every spin system. For~$R\Subset\Lambda$
+The duality holds for infinite spin systems given an integrability condition, but it always holds in finite volume. Thus, to make our results not depend on a technical condition we introduce the zero-boundary finite approximation of the spin system. For~$R\Subset\Lambda$
 and~$\eta\in\Omega$, let~$\eta^{R,0}$ agree with~$\eta$ on~$R$ and vanish
 outside~$R$.
 
@@ -1678,7 +1678,7 @@ for its semigroup. For the signed dual started from~$A\subseteq R$, the
 E_t^R=\cb{\tau_R>t}.
 \end{equation}
 \end{definition}
-
+In Lemma~\ref{lem:finite-propagation} we show that~$P_t^{R,0}$ locally approximates~$P_t$ as~$R\uparrow \Lambda$, in a way that is sufficient to push our results from finite to infinite volume. 
 \begin{proposition}[Monomial Feynman--Kac duality in finite volume]
 \label{thm:monomial-duality}
 For every~$R\Subset\Lambda$,~$A\subseteq R$,~$t\geq0$, and~$\eta\in\Omega$,
