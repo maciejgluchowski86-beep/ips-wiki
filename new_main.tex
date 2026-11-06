@@ -101,6 +101,7 @@ and without the added vacancies.}
 
 {\color{red} Restructuring notes (remove before submission):
   \begin{itemize}
+  \item Make the figures that show dependencies between results. One figure for section 4. Then one figure for theorem 3.10 with the three (or two?) lemmas that prove it, and then for each of these a figure that shows how these are proven. The goal is for the reader to understand what the main ingredients are.
   \item The paper has been reorganized around ergodicity of non-monotone
     systems. The centered monomial order, the pure-death comparison of
     monomials, the BABP sandwich result and the contact process have been
@@ -316,10 +317,7 @@ are standard; see, for example,
 \cite{Harris1974,Harris1978,Griffeath1979,HolleyStroock1979,Gray1986,JansenKurt2014}.
 For non-monotone systems the right-hand side
 of~\eqref{eq:intro-signed-duality} is signed, which is an obstruction for
-convergence arguments. \chg{In infinite volume the expectation need not even
-converge absolutely. We therefore prove the representation in finite volume,
-where it holds for every spin system, and pass to infinite volume using the
-positivity described below.}
+convergence arguments. 
 
 The new step is to reveal only part of the graphical construction. We define a~$\sigma$-algebra
 $\mathcal G_t$ that records interactions between sites that occur in the
@@ -361,8 +359,8 @@ centered moments~$\mu(\chi_A^\star)$, the representation then involves only
 nonnegative quantities. This is the role of the class~$\mathcal M_-$.
 
 The main technical idea is a natural coupling of two dual processes.
-Removing the pure deaths from the system does not change the dual jump
-process, the recorded interactions or the patches; it only increases the
+Removing the pure deaths from the system does not change the dual
+process, but only increases the
 Feynman--Kac potential. This holds for every spin system, but in general the
 dual weights carry signs and the coupling gives no inequality. Patch
 positivity makes the comparison termwise:
@@ -372,13 +370,11 @@ patches that end with an outgoing interaction the original contribution is
 smaller by the factor~$e^{-\varepsilon u}$, where~$u$ is the length of the
 patch. The ancestry of a successful interaction at time~$u$ consists of such
 patches, with lengths adding up to~$u$. Since the system without the added
-deaths still gives an integrable bound, realizations
-of the dual with a successful interaction after a late time~$T$ contribute
+deaths still gives an integrable bound, the event with a successful interaction after a late time~$T$ contribute to~$P_t\chi_A$
 only~$O(e^{-\varepsilon T})$. On the remaining event the dependence on the
 initial law decays because end patches relax, and polynomial growth together
 with finite propagation controls the number of end patches. Thus the two
-coupled duals play the role that the two coupled extremal evolutions play in
-the monotone case.
+coupled duals allow to push through an analogue of the classic argument for ergodicity via duality: use the duality to split~$P_t\chi_A$ into one term that decays and another that doesn't depend on initial configuration.
 
 The patch representation is not restricted to patch-positive systems. Patch
 positivity makes the patch contributions nonnegative and allows termwise
@@ -420,10 +416,9 @@ construction. Section~\ref{sec:setup} introduces the spin-system framework
 and the examples. Section~\ref{sec:main-results} defines patch positivity,
 states the main theorem and its consequences, and applies them to FA-1f, the
 East model, BABP and simple spin systems.
-\chg{Section~\ref{sec:probabilistic-interpretation} introduces the dual process
-and the patch representation, and states the two properties of the patch
-contributions used in the proofs. Section~\ref{sec:proofs} proves these
-results and the main results.} Appendix~\ref{app:dependencies} shows how the
+Section~\ref{sec:probabilistic-interpretation} introduces the dual process
+and the patches. Section~\ref{sec:proofs} proves these
+results and the main results. Appendix~\ref{app:dependencies} shows how the
 results depend on each other.
 
 \section{Setup and examples}
@@ -1425,14 +1420,12 @@ of~\cite{GluchowskiMenz2025} leave only the face~$p_{1\mid11}=0$.}
 \label{sec:probabilistic-interpretation}
 \label{subsec:proofs-section-4}
 
-{\color{red}
-This section gives the probabilistic meaning of patch positivity and of the
-threshold profile. We construct the signed dual, reveal its successful
-interactions, and average the remaining randomness over the resulting patches.
-The contributions obtained in this way are nonnegative precisely under the
-conditions of Section~\ref{subsec:patch-positivity}. We first establish the
-representation in finite volume, where all weights are integrable.
-}
+We now construct the representation used to prove the main convergence theorem. We begin with the classic dual process~$\bb{\sigma,A}$, with~$\sigma_t\in\cb{+,-}$,~$A_t\Subset \Lambda$, which traces dependence of the spin system on the initial configuration. 
+The duality relation gives the representation of~$P_t\chi_A(\eta) = \E\Cb{\sigma_t \exp\bb{\int_0^t V(A_s)ds}\chi_{A_t}(\eta)}$, for a potential~$V$. For an ergodicity argument one typically needs to argue the event~$\cb{A_t\neq\vn}$ has negligible contribution, which boils down to showing~$e^{\int V}$ is small or capturing cancellations from~$\sigma$.
+
+Ours is the second route. We aim to average with respect to a~$\sigma$-algebra that is small enough to yield sufficient averaging but rich enough for the calculation to be tractable. Our choice is a~$\sigma$-algebra that reveals when and where the interactions between sites in the dual occur, and nothing else. In particular what exactly those interactions are is omitted. These interactions divide the timeline at each site into time intervals, which we call patches. Conditional on this~$\sigma$-algebra the remaining randomness factorizes over patches, with laws simple enough to permit explicit computation.
+
+This gives the patch representation and explains the conditions introduced in Section 3: patch positivity makes the contributions to~$P_t\chi_A$ of patches that don't reach time~$t$ (bulk patches) nonnegative, and the threshold profile determines which initial laws give a nonnegative contribution from patches that cross~$t$ (end patches).
 
 \subsection{Dual process}
 \label{sec:dual}
@@ -3288,7 +3281,7 @@ The last lemma is the role of the centered-moment condition on the initial law. 
 \label{sec:proofs}
 
 {\color{red}
-We prove Theorem~\ref{thm:common-invariant-limit} by adapting the classical
+We prove Theorem~\ref{thm:common-invariant-limit} by adapting the classic
 duality argument for ergodicity. We first give the decomposition and the two
 estimates, then prove the theorem from these estimates. Their detailed proofs follow in
 Sections~\ref{subsec:proof-pure-death-comparison}
@@ -3298,7 +3291,7 @@ Throughout the section the system is patch-positive and contains a pure-death
 component of rate~$\varepsilon>0$.
 }
 
-\subsection{\texorpdfstring{\rev{Proof of the common invariant limit}}{Proof of the common invariant limit}}
+\subsection{Proof of the common invariant limit Theorem~\ref{thm:common-invariant-limit}}
 \label{subsec:duality-proof-plan}
 \label{subsec:proof-common-invariant-limit}
 \label{subsec:infinite-volume-proof}
