@@ -1,0 +1,44 @@
+% Full spoken scripts for the opening, revised from the long introduction recording.
+% Both the presentation and rehearsal versions read this file.
+
+\newcommand{\OpeningTitleScript}{%
+{\color{talkblue}\bfseries Slide 1: Opening}\par
+{\small 0:00--0:25 (25 seconds)}\par\medskip
+Hello everyone. This is joint work with Georg Menz, as part of a larger project where we ask the question: \keyscript{When does adding arbitrarily weak noise make a spin system ergodic?} Today I'll present one result from that project. To introduce the setting, let me begin with the Fredrickson--Andersen model, or FA-1f.%
+}
+
+\newcommand{\OpeningModelScript}{%
+{\color{talkblue}\bfseries Slide 2: The FA-1f model}\par
+{\small 0:25--1:25 (60 seconds)}\par\medskip
+In FA-1f, each lattice site is either occupied, denoted by one, or vacant, denoted by zero.
+
+Each site has a rate-one clock. \keyscript{When it rings, we replace the site's state by an independent Bernoulli-$p$ random variable, provided at least one neighbour is vacant.} The new state is one with probability p and zero with probability one minus p. If all neighbours are occupied, the update is blocked.
+
+Here is the generator. I denote the constraint by $\lambda_i(\eta)$, and $E_{i,p}$ is the Bernoulli refresh operator at site i.
+
+\keyscript{The Bernoulli-$p$ product measure is by construction invariant and reversible.}%
+}
+
+\newcommand{\OpeningQuestionScript}{%
+{\color{talkblue}\bfseries Slide 3: Convergence to equilibrium}\par
+{\small 1:25--2:20 (55 seconds)}\par\medskip
+\keyscript{A long-standing conjecture says that FA-1f converges to this equilibrium from every initial configuration which contains at least one vacancy.} \keyscript{The fully occupied configuration is frozen.}
+
+There are several partial results. For example, when p is less than one half, convergence is known from every Bernoulli product initial law whose occupation density is below one. The general statement for arbitrary initial configurations and all p remains open.
+
+If true, the conjecture would leave only the fully occupied state as an obstruction to ergodicity.%
+}
+
+\newcommand{\OpeningNoiseScript}{%
+{\color{talkblue}\bfseries Slide 4: Noisy FA-1f}\par
+{\small 2:20--4:00 (100 seconds)}\par\medskip
+\keyscript{Now add independent Bernoulli-$q$ refreshes at some small rate epsilon, without any constraint.} These destroy the fully occupied absorbing state.
+
+\keyscript{If we believe the original conjecture, it is natural to expect that this perturbation makes FA-1f ergodic, however small epsilon is.} This is an example of the larger noise question.
+
+One reason this is difficult is the lack of monotonicity. Monotonicity gives couplings, which are a standard tool for proving convergence. FA-1f is not monotone, so that standard argument is unavailable.
+
+There is also a new difficulty: if q differs from p, the noise no longer preserves the original equilibrium, and the invariant measure is generally neither known explicitly nor reversible.
+
+Our contribution is a way to prove ergodicity despite these obstacles, for a more general class of spin systems. To state our results, let me first introduce the notation.%
+}

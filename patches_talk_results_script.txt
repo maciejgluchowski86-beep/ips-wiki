@@ -1,0 +1,50 @@
+PATCH POSITIVITY: RESULTS SCRIPT
+Joint work with Georg Menz
+Slides 5-9, planned for 4:00-8:00.
+Times are pacing estimates, not a measured rehearsal.
+
+Slide 5: General setting
+------------------------
+4:00--4:25 (25 seconds)
+
+We write a general spin system in the refresh form borrowed from kinetically constrained models. At site i, lambda_i(eta) is the update rate, and rho_i(eta) is the probability that the new spin is one.
+
+Every spin system can be written this way. This representation is convenient for our graphical construction.
+
+Slide 6: Patch positivity and the density profile
+-------------------------------------------------
+4:25--5:35 (70 seconds)
+
+To describe the spin systems for which our results apply, we use monomial coefficients of the update rate and refresh parameter; see the hat notation on the slide. We call the spin systems defined by these two systems of inequalities patch-positive spin systems. This is an explicit condition on the rates; its probabilistic meaning will be derived later from our graphical construction of patches.
+
+The class includes FA-1f and related models such as the biased annihilating branching process and the contact process.
+
+Each patch-positive spin system also has an explicit density profile, shown on the slide. This formula too has a natural meaning in our graphical construction of patches. For FA-1f, this density is simply p.
+
+Slide 7: The initial laws
+-------------------------
+5:35--6:15 (40 seconds)
+
+In the main result, we prove convergence to a common invariant limit from a class of initial laws defined using p-star. To define this class, we introduce monomials centered at p-star; see the formula on the slide. Let M-star consist of the laws with nonnegative centered moments on every finite set. In particular, M-star contains every Bernoulli product law with density at least p-star.
+
+We can cheaply extend our results to a larger class, M-minus. It contains the laws that enter M-star when averaged with delta-one.
+
+Slide 8: Convergence with a pure-death component
+------------------------------------------------
+6:15--7:15 (60 seconds)
+
+Here is the main result. Suppose the system is patch-positive, its neighbourhood graph has polynomial growth, and it contains independent one-to-zero transitions at a positive rate epsilon. Then every initial law in M-minus converges exponentially to the same invariant measure. The estimate is uniform on M-minus-K.
+
+To obtain ergodicity, we need convergence from every initial law. This follows under either of two additional conditions. In the high-temperature or high-vacancy regime, meaning p_i-star at most one half, M-minus-1 contains every probability law, so we get uniform exponential ergodicity.
+
+Alternatively, we can upgrade the result to uniform ergodicity, with no condition on p-star, but assuming the neighbourhood graph is orientable. In both cases, epsilon may be arbitrarily small.
+
+Slide 9: Noisy FA-1f: two ergodicity regimes
+--------------------------------------------
+7:15--8:00 (45 seconds)
+
+Let's return to our noisy FA-1f question. The noisy system is patch-positive exactly when q is at least p. With q below one, the noise gives pure one-to-zero transitions.
+
+This proves our noisy ergodicity claim in two cases: the high-vacancy regime p at most one half, and when the neighbourhood graph is orientable.
+
+The noise can be arbitrarily weak, provided p is at most q and q is below one. Let me now explain the proof.

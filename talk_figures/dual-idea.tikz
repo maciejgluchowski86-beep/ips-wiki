@@ -1,0 +1,64 @@
+% Figure code from the paper, without its caption or outer sizing.
+
+
+\begingroup
+% Match the site-column design of Figure~\ref{fig:patch-geometry}.
+\definecolor{dualfigactive}{gray}{0.86}
+\definecolor{dualfigused}{gray}{0.32}
+\definecolor{dualfigoutline}{gray}{0.15}
+\begin{tikzpicture}[x=0.92cm,y=0.78cm]
+\tikzset{
+  dualfig site/.style={draw=dualfigoutline,line width=0.48pt},
+  dualfig active/.style={fill=dualfigactive,draw=none},
+  dualfig interaction/.style={draw=black,line width=0.86pt,
+    -{Stealth[length=2.0mm,width=1.35mm]}},
+  dualfig horizon/.style={draw=dualfigoutline,line width=0.72pt},
+  dualfig guide/.style={draw=gray!50,line width=0.40pt,densely dotted},
+  dualfig label/.style={font=\footnotesize,text=black,inner sep=1pt},
+  dualfig small/.style={font=\scriptsize,text=dualfigoutline,inner sep=1pt},
+  dualfig death/.style={font=\normalsize,text=dualfigused,inner sep=0pt}
+}
+% Each unit-width column represents one site; gray blocks mark activity.
+\path[dualfig active] (2,0) rectangle (3,2);
+\path[dualfig active] (3,0) rectangle (4,1);
+\path[dualfig active] (3,2) rectangle (4,4.4);
+\path[dualfig active] (1,2) rectangle (2,4.4);
+\path[dualfig active] (0,3.2) rectangle (1,4.4);
+\path[dualfig active] (2,3.2) rectangle (3,4.4);
+\foreach \x in {0,...,6}{\draw[dualfig site] (\x,0)--(\x,4.4);}
+\draw[dualfig horizon] (0,0)--(6,0);
+\draw[dualfig horizon] (0,4.4)--(6,4.4);
+\foreach \x/\n in {0.5/1,1.5/2,2.5/3,3.5/4,4.5/5,5.5/6}{
+  \node[dualfig small,anchor=north] at (\x,-0.10) {$\n$};
+}
+% A death removes site 4 from the dual set.
+\node[dualfig death] at (3.5,1) {$\times$};
+\draw[dualfig guide] (3.75,1)--(6.35,1);
+\node[dualfig label,anchor=west] at (6.55,1)
+  {death: $\cb{3,4}\longrightarrow\cb{3}$};
+% A split removes site 3 and adds sites 2 and 4.
+\draw[dualfig interaction] (2.5,2)--(1.5,2);
+\draw[dualfig interaction] (2.5,2)--(3.5,2);
+\fill[black] (2.5,2) circle[radius=1.25pt];
+\draw[dualfig guide] (3.75,2)--(6.35,2);
+\node[dualfig label,anchor=west] at (6.55,2)
+  {split: $\cb{3}\longrightarrow\cb{2,4}$};
+% A birth adds sites 1 and 3 and keeps sites 2 and 4 active.
+\draw[dualfig interaction] (1.5,3.2)--(0.5,3.2);
+\draw[dualfig interaction] (1.5,3.2)--(2.5,3.2);
+\fill[black] (1.5,3.2) circle[radius=1.25pt];
+\draw[dualfig guide] (2.75,3.2)--(6.35,3.2);
+\node[dualfig label,anchor=west] at (6.55,3.2)
+  {birth: $\cb{2,4}\longrightarrow\cb{1,2,3,4}$};
+% Dual time increases upward, opposite to the time of the spin system.
+\draw[dualfig interaction] (-0.75,0)--(-0.75,4.4);
+\node[dualfig label,rotate=90,anchor=south] at (-0.92,2.2)
+  {dual time~$s$};
+\node[dualfig small,anchor=east] at (-0.87,0) {$0$};
+\node[dualfig small,anchor=east] at (-0.87,4.4) {$t$};
+\node[dualfig label,anchor=west] at (6.55,0)
+  {$A_0=A=\cb{3,4}$, time~$t$};
+\node[dualfig label,anchor=west] at (6.55,4.4)
+  {$A_t=\cb{1,2,3,4}$, time~$0$};
+\end{tikzpicture}
+\endgroup

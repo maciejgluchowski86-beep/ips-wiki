@@ -1,0 +1,58 @@
+% Full spoken proof scripts, revised from the second proof-end recording.
+% The presentation and rehearsal versions read this file.
+
+\newcommand{\ProofPositivityScript}{%
+{\color{talkblue}\bfseries Slide 18: Patch positivity and the meaning of p-star}\par
+{\small 15:00--15:35 (35 seconds)}\par\medskip
+Here is the meaning of the two conditions we stated earlier. \keyscript{Patch positivity is the condition that $C(P)$ is nonnegative for every bulk patch P.} \keyscript{The profile $\boldsymbol p^\star$ gives the smallest densities at which the end contributions are nonnegative.}
+
+It defines the class $\mathcal M_\star$, for which the averaged product of end contributions is also nonnegative. All the factors in the patch factorization are nonnegative, so the sigma-algebra $\mathcal G_t$ captures all the cancellations we wanted.%
+}
+
+\newcommand{\ProofSplitScript}{%
+{\color{talkblue}\bfseries Slide 19: Splitting by late interactions}\par
+{\small 15:35--16:30 (55 seconds)}\par\medskip
+The proof now follows the structure of the classical duality argument. We split $(\mu P_t)(\chi_A)$ into two terms: one with weak dependence on the initial law, and one whose contribution is negligible.
+
+The extinction event $\{A_t=\varnothing\}$ is no longer the right event to split by: it is not $\mathcal G_t$-measurable, because the process A is hidden behind the patches. But we have a good proxy that is $\mathcal G_t$-measurable: $L_t$, the event that there is no interaction between t over two and t.
+
+\keyscript{On $L_t$, we show weak dependence on $\mu$.} \keyscript{On its complement, we show that the whole contribution is small.}%
+}
+
+\newcommand{\ProofLateScript}{%
+{\color{talkblue}\bfseries Slide 20: Late interaction term}\par
+{\small 16:30--18:00 (90 seconds)}\par\medskip
+To control the late-interaction term, we make the following observation. \keyscript{A spin system and its less noisy version, obtained by removing the independent one-to-zero transitions at rate epsilon, have exactly the same dual process.} The less noisy system has a larger Feynman--Kac potential.
+
+They therefore share the random patches, but the less noisy system has larger patch contributions. We use primes for that system. For a patch ending with an outgoing interaction, the ratio is exactly $e^{-\varepsilon\abs P}$.
+
+A late interaction at $u>t/2$ has an ancestry trail of patches ending with outgoing interactions, from time zero to u. \keyscript{Multiplying the ratios along the trail gives $e^{-\varepsilon u}\leq e^{-\varepsilon t/2}$.}
+
+This gives the displayed chain of inequalities. The primed expectation, after dropping the event, is $(\mu P_t')(\chi_A)$, where $P_t'$ is the semigroup of the less noisy system. It is at most one, because $\chi_A$ is bounded by one. The late-interaction term is therefore negligible.%
+}
+
+\newcommand{\ProofEndScript}{%
+{\color{talkblue}\bfseries Slide 21: No-late-interaction term}\par
+{\small 18:00--18:45 (45 seconds)}\par\medskip
+\keyscript{On $L_t$, there is no interaction after t over two, so every end patch extends for at least t over two.} These are the only patches that carry dependence on the initial law.
+
+\keyscript{In the contribution from this event, the dependence on the spin z in $C(z,P)$ decays exponentially with the added patch length.} All the end patches are long, so we can compare the contributions from two initial laws and obtain the displayed estimate.
+
+The errors accumulate over the number of end patches, $\abs{\mathcal E_t}$. This factor is controlled using polynomial growth of the lattice. This is where that assumption enters.%
+}
+
+\newcommand{\ProofLimitScript}{%
+{\color{talkblue}\bfseries Slide 22: The common invariant limit}\par
+{\small 18:45--19:20 (35 seconds)}\par\medskip
+\keyscript{The two estimates give exponential loss of dependence on the initial law and hence convergence from $\mathcal M_\star$ to the same invariant law $\pi$.} We identify the common limit by comparing with an invariant law in $\mathcal M_\star$. Such a law exists because $\mathcal M_\star$ is preserved by the spin-system semigroup.
+
+\keyscript{A simple linearity trick extends the convergence from $\mathcal M_\star$ to the larger class $\mathcal M_-$.} This proves the theorem.%
+}
+
+\newcommand{\ProofErgodicityScript}{%
+{\color{talkblue}\bfseries Slide 23: From convergence to ergodicity}\par
+{\small 19:20--20:00 (40 seconds)}\par\medskip
+Finally, the theorem gives full ergodicity in the two regimes stated earlier. \keyscript{The first case, $p_i^\star\leq1/2$ for every i, is immediate because $\mathcal M_{-,1}$ contains every probability law.} We get uniform exponential ergodicity from the theorem.
+
+\keyscript{On an orientable neighbourhood graph, a separate burn-in argument shows that every initial law approaches $\mathcal M_\star$, in the sense of the displayed bound on centered moments.} We already know convergence to the common invariant law from that class, which gives uniform ergodicity. Thank you.%
+}

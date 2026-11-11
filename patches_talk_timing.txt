@@ -1,0 +1,40 @@
+PATCH POSITIVITY: CURRENT PACING PLAN
+23 main slides and three backups. Planned main route: 20:00.
+This is a pacing plan, not a measured rehearsal.
+Full spoken scripts cover all 23 main slides.
+The five scripted sections are paced for four, four, three, four and five minutes.
+The final slide states the two ergodicity extensions without their proofs.
+
+TIMING CHECKPOINTS
+
+ 1.  0:00 -  0:25  Opening
+ 2.  0:25 -  1:25  The Fredrickson--Andersen model (FA-1f)
+ 3.  1:25 -  2:20  Convergence to equilibrium
+ 4.  2:20 -  4:00  Noisy FA-1f
+ 5.  4:00 -  4:25  General setting
+ 6.  4:25 -  5:35  Patch positivity and the density profile
+ 7.  5:35 -  6:15  The initial laws
+ 8.  6:15 -  7:15  Convergence with a pure-death component
+ 9.  7:15 -  8:00  Noisy FA-1f: two ergodicity regimes
+10.  8:00 -  9:25  Duality: tracing dependence backwards
+11.  9:25 - 10:25  The usual duality argument
+12. 10:25 - 11:00  Why the standard estimate fails
+13. 11:00 - 11:50  How much of the dual should we reveal?
+14. 11:50 - 12:50  The interactions define the patches
+15. 12:50 - 13:35  Conditional independence across patches
+16. 13:35 - 13:45  The four bulk patch types
+17. 13:45 - 15:00  The patch representation
+18. 15:00 - 15:35  Patch positivity and the meaning of p-star
+19. 15:35 - 16:30  Splitting by late interactions
+20. 16:30 - 18:00  Late interaction term
+21. 18:00 - 18:45  No-late-interaction term
+22. 18:45 - 19:20  The common invariant limit
+23. 19:20 - 20:00  From convergence to ergodicity
+
+FULL PROOF SCRIPT
+
+The full sentences for slides 18-23 are in patches_talk_proof_script.txt.
+
+BACKUPS
+-------
+The coefficient calculation; the one-half threshold; the signed dual transition rates.

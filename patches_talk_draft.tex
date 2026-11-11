@@ -1,0 +1,666 @@
+% Compile this document for the 20-minute talk. The paper entry point is main.tex.
+% Spoken text is edited in the script .tex files, not in the rehearsal wrapper.
+% Slides 1--4:   patches_talk_opening_script.tex
+% Slides 5--9:   patches_talk_results_script.tex
+% Slides 10--12: patches_talk_duality_script.tex
+% Slides 13--17: patches_talk_patches_script.tex
+% Slides 18--23: patches_talk_proof_script.tex
+% Search each script file for the slide number or title. The .txt files are exports.
+\ifdefined\TalkRehearsal
+  % The rehearsal wrapper has already declared the document class.
+\else
+  \documentclass[t,aspectratio=169,11pt]{beamer}
+\fi
+\usetheme{Madrid}
+\usecolortheme{default}
+\usefonttheme{professionalfonts}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,mathtools,booktabs,graphicx,pgfpages,tikz,adjustbox}
+\usetikzlibrary{arrows.meta,calc,patterns.meta}
+\definecolor{talkblue}{RGB}{31,65,133}
+\definecolor{talkred}{RGB}{175,32,38}
+\setbeamercolor{structure}{fg=talkblue}
+\setbeamercolor{frametitle}{bg=talkblue,fg=white}
+\setbeamercolor{title}{bg=talkblue,fg=white}
+\setbeamercolor{block title}{bg=talkblue!12,fg=talkblue}
+\setbeamercolor{block body}{bg=talkblue!4,fg=black}
+\setbeamercolor{alerted text}{fg=talkred}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{itemize item}{fg=talkblue}
+\setbeamertemplate{itemize item}{\tikz[baseline=-.55ex]\fill[talkblue] (0,0) circle (1.05pt);}
+\setbeamertemplate{headline}{}
+\setbeamersize{text margin left=7mm,text margin right=7mm}
+\setbeamerfont{frametitle}{size=\large}
+\setbeamerfont{block title}{size=\normalsize}
+\setbeamerfont{footline}{size=\tiny}
+\ifdefined\TalkRehearsal
+  \setbeameroption{show notes on second screen=right}
+  \setbeamertemplate{note page}{%
+    \fontsize{10.5}{13.2}\selectfont
+    \setlength{\parindent}{0pt}%
+    \setlength{\parskip}{.65em}%
+    \insertnote
+  }
+\else
+  \setbeameroption{hide notes}
+\fi
+% Dark-red sentences in the rehearsal script are the lines to memorize.
+\newcommand{\keyscript}[1]{{\color{talkred}#1}}
+\input{patches_talk_opening_script.tex}
+\input{patches_talk_results_script.tex}
+\input{patches_talk_duality_script.tex}
+\input{patches_talk_patches_script.tex}
+\input{patches_talk_proof_script.tex}
+\newcommand{\MainFrames}{23}
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox{%
+    \begin{beamercolorbox}[wd=.29\paperwidth,ht=2.6ex,dp=1.1ex,leftskip=2mm]{author in head/foot}M. G{\l}uchowski\end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.54\paperwidth,ht=2.6ex,dp=1.1ex,center]{title in head/foot}Patch positivity and ergodicity\end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.17\paperwidth,ht=2.6ex,dp=1.1ex,center]{date in head/foot}\insertframenumber\,/\,\MainFrames\end{beamercolorbox}}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\E}{\mathbb E}
+\newcommand{\pP}{\mathbb P}
+\newcommand{\ind}{\mathbf1}
+\newcommand{\one}{\mathbf1}
+\newcommand{\Lcal}{\mathcal L}
+\newcommand{\Dcal}{\mathcal D}
+\newcommand{\Mstar}{\mathcal M_\star}
+\newcommand{\Mminus}{\mathcal M_-}
+\newcommand{\bb}[1]{\left(#1\right)}
+\newcommand{\Cb}[1]{\left[#1\right]}
+\newcommand{\cb}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\smallline}[1]{\par\smallskip{\small #1\par}}
+\newenvironment{talkpoints}{\begin{itemize}\setlength{\itemsep}{.65em}}{\end{itemize}}
+\setlength{\abovedisplayskip}{.65em}
+\setlength{\belowdisplayskip}{.55em}
+\newcommand{\talkfigure}[3]{\begingroup\rmfamily\adjustbox{width=#2,max height=#3}{\input{talk_figures/#1.tikz}}\endgroup}
+\newcommand{\paperfigure}[2]{\talkfigure{#1}{\linewidth}{#2}}
+\title[Patch positivity and ergodicity]{Patch positivity and applications\\to kinetically constrained spin models}
+\author{Maciej G{\l}uchowski}
+\institute{University of California, Los Angeles\\[2mm]Joint work with Georg Menz}
+\date{AMS Special Session on Lattice Models of Statistical Mechanics\\Tempe, Arizona \quad November 2026}
+\hypersetup{pdftitle={Patch positivity and applications to kinetically constrained spin models},pdfauthor={Maciej Gluchowski},pdfsubject={Draft 20-minute talk; joint work with Georg Menz}}
+\begin{document}
+
+% 1. 0:00--0:25
+\begin{frame}[c,label=opening-title]
+\titlepage
+% Spoken text: patches_talk_opening_script.tex; search for OpeningTitleScript.
+\note{\OpeningTitleScript}
+\end{frame}
+
+% 2. 0:25--1:25
+\begin{frame}[label=opening-model]{The Fredrickson--Andersen model (FA-1f)}
+\begin{talkpoints}
+\item $\eta\in\{0,1\}^{\Z^d}$, with $0$ vacant and $1$ occupied.
+\item At rate one, site $i$ refreshes to $\operatorname{Bern}(p)$
+\textbf{if at least one neighbour is vacant.}
+\begin{equation*}
+1\text{ with probability }p,\qquad 0\text{ with probability }1-p.
+\end{equation*}
+\end{talkpoints}
+\medskip
+\begin{equation*}
+\Lcal_{\mathrm{FA}}f
+=\sum_i\underbrace{\left(1-\prod_{j\sim i}\eta(j)\right)}_{\lambda_i(\eta)}
+\bigl(E_{i,p}-I\bigr)f.
+\end{equation*}
+\smallline{$\lambda_i(\eta)$ is the constraint; $E_{i,p}$ is the Bernoulli refresh operator at $i$.}
+\medskip
+\begin{equation*}
+\mu_p=\bigotimes_i\operatorname{Bern}(p)\quad\text{is invariant and reversible},
+\qquad 0<p<1.
+\end{equation*}
+% Spoken text: patches_talk_opening_script.tex; search for OpeningModelScript.
+\note{\OpeningModelScript}
+\end{frame}
+
+% 3. 1:25--2:20
+\begin{frame}[label=opening-question]{Convergence to equilibrium}
+\begin{block}{The FA-1f convergence conjecture}
+For every initial configuration which contains at least one vacancy,
+\begin{equation*}
+\delta_\eta P_t\Longrightarrow\mu_p,\qquad \eta\neq\one.
+\end{equation*}
+\end{block}
+\medskip
+\begin{talkpoints}
+\item The fully occupied configuration is frozen:
+\begin{equation*}
+\delta_{\one}P_t=\delta_{\one}.
+\end{equation*}
+\item A partial result in the high-vacancy regime:
+\begin{equation*}
+0<p<\tfrac12,\quad 0\leq u<1
+\quad\Longrightarrow\quad \mu_uP_t\Longrightarrow\mu_p.
+\end{equation*}
+\smallline{Blondel et al. (2013), Theorem 2.1 and Remark 2.3.}
+\end{talkpoints}
+% Spoken text: patches_talk_opening_script.tex; search for OpeningQuestionScript.
+\note{\OpeningQuestionScript}
+\end{frame}
+
+% 4. 2:20--4:00
+\begin{frame}[label=opening-noise]{Noisy FA-1f}
+\begin{equation*}
+\Lcal^{\varepsilon,q}
+=\Lcal_{\mathrm{FA}}+\varepsilon\sum_i(E_{i,q}-I),
+\qquad \varepsilon>0,\quad 0\leq q<1.
+\end{equation*}
+\begin{talkpoints}
+\item Independent refreshes create vacancies even in the fully occupied state.
+\end{talkpoints}
+\medskip
+\begin{block}{The noisy ergodicity question}
+Is there a common invariant law $\pi$ such that
+\begin{equation*}
+\delta_\eta P_t^{\varepsilon,q}\Longrightarrow\pi
+\qquad\text{for every }\eta?
+\end{equation*}
+\end{block}
+% Spoken text: patches_talk_opening_script.tex; search for OpeningNoiseScript.
+\note{\OpeningNoiseScript}
+\end{frame}
+
+% 5. 4:00--4:25
+\begin{frame}[label=results-setting]{General setting}
+\begin{equation*}
+\eta\in\{0,1\}^{\Lambda},\qquad
+\Lcal f=\sum_{i\in\Lambda}\lambda_i(\eta)
+\bigl(E_{i,\rho_i(\eta)}-I\bigr)f.
+\end{equation*}
+\medskip
+\begin{talkpoints}
+\item $\lambda_i(\eta)\geq0$: update rate at site $i$.
+\item $\rho_i(\eta)\in[0,1]$: probability of setting the new spin to $1$.
+\end{talkpoints}
+\medskip
+Every spin system admits this refresh representation.
+% Spoken text: patches_talk_results_script.tex; search for ResultsSettingScript.
+\note{\ResultsSettingScript}
+\end{frame}
+
+% 6. 4:25--5:35
+\begin{frame}[label=results-positivity]{Patch positivity and the density profile}
+\smallline{Monomial coefficients of a function of the spins in $N(i)$:}
+\begin{equation*}
+g(\eta)=\sum_{S\subseteq N(i)}\widehat g(S)\prod_{j\in S}\eta(j).
+\end{equation*}
+\begin{block}{Patch positivity: an explicit condition on the rates}
+\begin{equation*}
+\widehat\lambda_i(S)\leq0,\qquad
+\widehat{\lambda_i\bigl(\rho_i-\rho_i(\mathbf0)\bigr)}(S)\geq0,
+\quad \varnothing\neq S\subseteq N(i).
+\end{equation*}
+\end{block}
+\smallline{Examples: FA-1f, biased annihilating branching process, contact process.}
+\medskip
+Each patch-positive system has an explicit density profile $\boldsymbol p^\star\in[0,1]^\Lambda$:
+\begin{equation*}
+p_i^\star=\max\!\left(\{0\}\cup
+\left\{\frac{\widehat{\lambda_i\rho_i}(S)}{\widehat\lambda_i(S)}:
+\substack{\varnothing\neq S\subseteq N(i)\\\widehat\lambda_i(S)<0}\right\}\right).
+\end{equation*}
+\smallline{For FA-1f, $p_i^\star=p$.}
+% Spoken text: patches_talk_results_script.tex; search for ResultsPositivityScript.
+\note{\ResultsPositivityScript}
+\end{frame}
+
+% 7. 5:35--6:15
+\begin{frame}[label=results-laws]{Some extra notation}
+\begin{talkpoints}
+\item $\displaystyle\chi_B^\star(\eta)=\prod_{i\in B}\bigl(\eta(i)-p_i^\star\bigr),
+\qquad B\subset\Lambda\text{ finite}.$
+\item $\displaystyle\Mstar=\cb{\mu:\ \mu(\chi_B^\star)\geq0\text{ for every finite }B}.$
+\par\medskip
+$\Mstar$ contains every product law with density at least $\boldsymbol p^\star$.
+\item $\displaystyle\mathcal M_{-,K}=\cb{\mu:\ \frac{\mu+K\delta_{\one}}{1+K}\in\Mstar},
+\qquad K\geq0.$
+\begin{equation*}
+\Mminus=\bigcup_{K\geq0}\mathcal M_{-,K}.
+\end{equation*}
+\end{talkpoints}
+% Spoken text: patches_talk_results_script.tex; search for ResultsLawsScript.
+\note{\ResultsLawsScript}
+\end{frame}
+
+% 8. 6:15--7:15
+\begin{frame}[label=results-theorem]{Main result}
+\begin{block}{Theorem (G{\l}uchowski--Menz)}
+Assume patch positivity, polynomial graph growth with exponent $D$, and independent $1\to0$ transitions at rate $\varepsilon>0$.
+\smallskip
+There is an invariant law $\pi$ such that, for every local $f$,
+\begin{equation*}
+\sup_{\mu\in\mathcal M_{-,K}}
+\abs{(\mu P_t)(f)-\pi(f)}
+\leq (1+2K)C_f(1+t)^D e^{-\varepsilon t/2}.
+\end{equation*}
+\end{block}
+\medskip
+\textbf{Ergodicity under either additional condition:}
+\par\medskip
+\begin{tabular}{@{}p{.44\textwidth}@{\quad$\Longrightarrow$\quad}p{.45\textwidth}@{}}
+High temperature / high vacancy:\newline $p_i^\star\leq\tfrac12$ for every $i$
+& uniform exponential ergodicity\\[1.5mm]\midrule\addlinespace[1.5mm]
+Orientable neighbourhood graph
+& uniform ergodicity for every $\boldsymbol p^\star$
+\end{tabular}
+\par\medskip
+\smallline{In the first case, $\mathcal M_{-,1}$ contains every initial law. The rate $\varepsilon$ may be arbitrarily small.}
+% Spoken text: patches_talk_results_script.tex; search for ResultsTheoremScript.
+\note{\ResultsTheoremScript}
+\end{frame}
+
+% 9. 7:15--8:00
+\begin{frame}[label=results-applications]{Results for noisy FA-1f}
+\begin{equation*}
+\Lcal^{\varepsilon,q}=\Lcal_{\mathrm{FA}}+\varepsilon\sum_i(E_{i,q}-I),
+\qquad \varepsilon>0.
+\end{equation*}
+\begin{equation*}
+\text{the noisy system is patch-positive}\quad\Longleftrightarrow\quad q\geq p.
+\end{equation*}
+\smallline{For $q<1$, the noise gives pure $1\to0$ transitions.}
+\medskip
+\textbf{With $p\leq q<1$, the noisy system is ergodic in two cases:}
+\par\medskip
+\begin{tabular}{@{}p{.44\textwidth}@{\quad$\Longrightarrow$\quad}p{.45\textwidth}@{}}
+High temperature / high vacancy:\newline $p\leq\tfrac12$
+& uniform exponential ergodicity\\[1.5mm]\midrule\addlinespace[1.5mm]
+Orientable neighbourhood graph\newline (in particular, East)
+& uniform ergodicity for every $p\in(0,1)$
+\end{tabular}
+\par\medskip
+\smallline{The noise strength $\varepsilon$ may be arbitrarily small.}
+% Spoken text: patches_talk_results_script.tex; search for ResultsApplicationsScript.
+\note{\ResultsApplicationsScript}
+\end{frame}
+
+% 10. 8:00--9:25
+\begin{frame}[label=duality-process]{Duality}
+Finite set $A_s\subset\Lambda$ and sign $\sigma_s\in\{-1,1\}$.
+\begin{equation*}
+\chi_A(\eta)=\prod_{i\in A}\eta(i),
+\qquad (A_0,\sigma_0)=(A,1).
+\end{equation*}
+\begin{center}
+\talkfigure{dual-idea}{.94\textwidth}{3.45cm}
+\end{center}
+% As in the paper, first read the signed identity in finite volume.
+% Localization and passage to infinite volume are suppressed in this talk.
+\begin{equation*}
+P_t\chi_A(\eta)
+=\E_A\!\left[
+\sigma_t e^{\int_0^t V(A_u)\,du}\chi_{A_t}(\eta)
+\right].
+\end{equation*}
+% Spoken text: patches_talk_duality_script.tex; search for DualityProcessScript.
+\note{\DualityProcessScript}
+\end{frame}
+
+% 11. 9:25--10:25
+\begin{frame}[label=duality-classical]{The usual duality argument...}
+\begin{align*}
+P_t\chi_A(\eta)
+&=\underbrace{\E_A\!\left[
+\sigma_t e^{\int_0^t V(A_u)\,du}\ind_{\{A_t=\varnothing\}}
+\right]}_{\text{independent of }\eta\text{, since }\chi_\varnothing=1}
+\\[3mm]
+&\quad+\E_A\!\left[
+\sigma_t e^{\int_0^t V(A_u)\,du}\chi_{A_t}(\eta)
+\ind_{\{A_t\neq\varnothing\}}
+\right].
+\end{align*}
+\medskip
+\begin{talkpoints}
+\item If $V(B)\leq-\gamma\ind_{\{B\neq\varnothing\}}$ for some $\gamma>0$, then
+\begin{equation*}
+e^{\int_0^tV(A_u)\,du}\ind_{\{A_t\neq\varnothing\}}
+\leq e^{-\gamma t}.
+\end{equation*}
+\item The term depending on $\eta$ vanishes exponentially.
+\end{talkpoints}
+% Spoken text: patches_talk_duality_script.tex; search for DualityClassicalScript.
+\note{\DualityClassicalScript}
+\end{frame}
+
+% 12. 10:25--11:00
+\begin{frame}[label=duality-obstruction]{...fails}
+For noisy FA-1f,
+\begin{equation*}
+V(A)=\bigl(2p-\varepsilon(1-q)\bigr)\abs A>0
+\end{equation*}
+when $A\neq\varnothing$ and $\varepsilon(1-q)<2p$.
+\par\bigskip
+The term still depending on $\eta$ is
+\begin{equation*}
+\E_A\!\left[
+\sigma_t e^{\int_0^t V(A_u)\,du}\chi_{A_t}(\eta)
+\ind_{\{A_t\neq\varnothing\}}
+\right].
+\end{equation*}
+\medskip
+\begin{talkpoints}
+\item We need control of the cancellations carried by $\sigma_t$.
+\item Even rare events can make substantial contributions.
+\end{talkpoints}
+% Spoken text: patches_talk_duality_script.tex; search for DualityObstructionScript.
+\note{\DualityObstructionScript}
+\end{frame}
+
+% 13. 11:00--11:50
+\begin{frame}[label=patches-conditioning]{How to capture cancellations?}
+Choose $\mathcal G_t$ so that the conditional expectation
+\begin{equation*}
+\E_A\!\left[\sigma_t e^{\int_0^t V(A_u)\,du}\,\middle|\,\mathcal G_t\right]
+\end{equation*}
+has both properties:
+\medskip
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.47\textwidth}
+\begin{block}{$\mathcal{G}_t$ small}
+A nonnegative conditional mean.
+\end{block}
+\end{column}
+\begin{column}{.47\textwidth}
+\begin{block}{$\mathcal{G}_t$ rich}
+An explicit conditional mean.
+\end{block}
+\end{column}
+\end{columns}
+\bigskip
+\begin{talkpoints}
+\item Reveal nothing,~$\mathcal{G}_t = \cb{\varnothing,\Omega}$: nonnegative mean $P_t\chi_A(\one)$, hard to analyse.
+\item Reveal everything,~$\mathcal{G}_t=\mathcal{F}_t$: trivially explicit but signed.
+\end{talkpoints}
+% Spoken text: patches_talk_patches_script.tex; search for PatchesConditioningScript.
+\note{\PatchesConditioningScript}
+\end{frame}
+
+% 14. 11:50--12:50
+\begin{frame}[label=patches-geometry]{Patches}
+\begin{equation*}
+\mathcal G_t=\sigma\!\left(\text{spacetime positions and sites of interactions up to }t\right).
+\end{equation*}
+\smallline{The birth-or-split labels and deaths are not revealed.}
+\begin{center}
+\talkfigure{patch-geometry}{.96\textwidth}{5.25cm}
+\end{center}
+% Spoken text: patches_talk_patches_script.tex; search for PatchesGeometryScript.
+\note{\PatchesGeometryScript}
+\end{frame}
+
+% 15. 12:50--13:35
+\begin{frame}[label=patches-independence]{Conditional independence across patches}
+\begin{talkpoints}
+    \item The process, conditional on $\mathcal G_t$, is independent in each patch, meaning the process law factorizes
+\end{talkpoints}
+\bigskip
+\begin{equation*}
+\operatorname{Law}\!\left((A_s,\sigma_s)_{0\leq s\leq t}\,\middle|\,\mathcal G_t\right)
+=\bigotimes_{\text{patches }P}\pP_P^{\mathrm{con}}.
+\end{equation*}
+\bigskip
+Each patch has an explicit one-site law $\pP_P^{\mathrm{con}}$.
+% Spoken text: patches_talk_patches_script.tex; search for PatchesIndependenceScript.
+\note{\PatchesIndependenceScript}
+\end{frame}
+
+% 16. 13:35--13:45
+\begin{frame}[label=patches-interiors]{Patch law~$\pP_P^{\mathrm{con}}$}
+\begin{center}
+\talkfigure{patch-interiors-all}{.98\textwidth}{6.65cm}
+\end{center}
+% Spoken text: patches_talk_patches_script.tex; search for PatchesInteriorsScript.
+\note{\PatchesInteriorsScript}
+\end{frame}
+
+% 17. 13:45--15:00
+\begin{frame}[label=patches-representation]{The patch representation}
+We define
+\begin{equation*}
+\boxed{\displaystyle
+W_t^\mu
+=\prod_{P\in\mathcal B_t}C(P)\;
+\mu\!\left[\prod_{P\in\mathcal E_t}C\bigl(\eta(i(P)),P\bigr)\right].}
+\end{equation*}
+\begin{equation*}
+(\mu P_t)(\chi_A)=\E_A[W_t^\mu].
+\end{equation*}
+\bigskip
+\begin{tabular}{@{}ll@{}}
+$\mathcal B_t$ & bulk patches, ending before $t$\\[2mm]
+$\mathcal E_t$ & end patches, reaching $t$\\[2mm]
+$C(P),\ C(z,P)$ & contributions to~$\E_A\Cb{\sigma_t e^{\int_0^t V(A_s)ds}\chi_{A_t}\mid\mathcal{G}_t}$ from bulk\\
+& and end patches
+\end{tabular}
+\bigskip
+\begin{center}
+Only the end contributions depend on initial configuration.
+\end{center}
+% Spoken text: patches_talk_patches_script.tex; search for PatchesRepresentationScript.
+\note{\PatchesRepresentationScript}
+\end{frame}
+
+% 18. 15:00--15:35
+\begin{frame}[label=proof-positivity]{\texorpdfstring{Patch positivity and $p^\star$}{Patch positivity and the density profile}}
+\begin{talkpoints}
+\item $\displaystyle\text{patch positivity}\quad\Longleftrightarrow\quad C(P)\geq0
+\quad\text{for every bulk patch }P.$
+\item $\displaystyle p_i^\star
+=\min\cb{z\in[0,1]:C(z,P)\geq0\text{ for every end patch at }i}.$
+\item $\displaystyle\mu\in\Mstar\quad\Longrightarrow\quad
+\mu\!\left[\prod_{P\in\mathcal E_t}C\bigl(\eta(i(P)),P\bigr)\right]\geq0.$
+\end{talkpoints}
+\medskip
+\begin{equation*}
+\boxed{W_t^\mu\geq0\qquad(\mu\in\Mstar).}
+\end{equation*}
+% Spoken text: patches_talk_proof_script.tex; search for ProofPositivityScript.
+\note{\ProofPositivityScript}
+\end{frame}
+
+% 19. 15:35--16:30
+\begin{frame}[label=proof-split]{Proof of main result}
+\begin{equation*}
+L_t:=\{\text{no interaction in }(t/2,t]\}\in\mathcal G_t.
+\end{equation*}
+\bigskip
+\begin{equation*}
+(\mu P_t)(\chi_A)
+=\underbrace{\E_A[W_t^\mu\ind_{L_t}]}_{\text{weak dependence on }\mu}
++\underbrace{\E_A[W_t^\mu\ind_{L_t^c}]}_{\text{small contribution}}.
+\end{equation*}
+\bigskip
+\begin{itemize}
+\item The extinction event $\{A_t=\varnothing\}$ is hidden behind the patches.
+\medskip
+\item $L_t$ is a $\mathcal G_t$-measurable proxy for extinction.
+\end{itemize}
+% Spoken text: patches_talk_proof_script.tex; search for ProofSplitScript.
+\note{\ProofSplitScript}
+\end{frame}
+
+% 20. 16:30--18:00
+\begin{frame}[label=proof-late]{Late interaction term}
+\smallline{Primes denote the system with the independent $1\to0$ transitions at rate $\varepsilon$ removed.}
+\medskip
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.34\textwidth}
+\centering
+\paperfigure{backward-outgoing-chain}{3.8cm}
+\end{column}
+\begin{column}{.63\textwidth}
+\begin{talkpoints}
+\item Same dual process and patches; larger potential.
+\item For a patch ending with an outgoing interaction,
+\begin{equation*}
+C(P)=e^{-\varepsilon\abs P}C'(P).
+\end{equation*}
+\item For an ancestry reaching $u>t/2$,
+\begin{equation*}
+\sum_{P\text{ in the ancestry}}\abs P=u,
+\qquad e^{-\varepsilon u}\leq e^{-\varepsilon t/2}.
+\end{equation*}
+\end{talkpoints}
+\end{column}
+\end{columns}
+\medskip
+\begin{align*}
+0\leq\E_A[W_t^\mu\ind_{L_t^c}]
+&\leq e^{-\varepsilon t/2}\E_A[(W_t^\mu)']\\
+&=e^{-\varepsilon t/2}(\mu P_t')(\chi_A)
+\leq e^{-\varepsilon t/2}.
+\end{align*}
+% Spoken text: patches_talk_proof_script.tex; search for ProofLateScript.
+\note{\ProofLateScript}
+\end{frame}
+
+% 21. 18:00--18:45
+\begin{frame}[label=proof-end]{No-late-interaction term}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.45\textwidth}
+\centering
+\paperfigure{no-late-end-patches}{3.8cm}
+\end{column}
+\begin{column}{.52\textwidth}
+\begin{talkpoints}
+\item On $L_t$, every end patch extends for at least $t/2$.
+\item In this event's contribution, dependence on $z$ in $C(z,P)$ decays exponentially with the added length.
+\item Errors accumulate over the $\abs{\mathcal E_t}$ end patches.
+\end{talkpoints}
+\end{column}
+\end{columns}
+\medskip
+\begin{align*}
+\abs{\E_A[(W_t^\mu-W_t^\nu)\ind_{L_t}]}
+\leq e^{-\varepsilon t/2}\E_A\!\left[
+(1+\abs{\mathcal E_t})\bigl((W_t^\mu)'+(W_t^\nu)'\bigr)\ind_{L_t}\right],
+\quad \mu,\nu\in\Mstar.
+\end{align*}
+\smallline{Polynomial graph growth controls the accumulated end-patch error.}
+% Spoken text: patches_talk_proof_script.tex; search for ProofEndScript.
+\note{\ProofEndScript}
+\end{frame}
+
+% 22. 18:45--19:20
+\begin{frame}[label=proof-limit]{Proof finish}
+\begin{itemize}
+\item The two estimates give exponential loss of dependence on the initial law:
+\begin{equation*}
+\abs{(\mu P_t)(\chi_A)-(\nu P_t)(\chi_A)}\longrightarrow0,
+\qquad \mu,\nu\in\Mstar.
+\end{equation*}
+\medskip
+\item The semigroup preserves $\Mstar$, so there is invariant law $\pi\in\Mstar$ that must be the common limit:
+\begin{equation*}
+\mu P_t\Longrightarrow\pi,
+\qquad \mu\in\Mstar.
+\end{equation*}
+\medskip
+\item A linearity argument extends the convergence to every $\mu\in\Mminus$.
+\end{itemize}
+% Spoken text: patches_talk_proof_script.tex; search for ProofLimitScript.
+\note{\ProofLimitScript}
+\end{frame}
+
+% 23. 19:20--20:00
+\begin{frame}[label=proof-ergodicity]{Upgrade result to ergodicity}
+\begin{talkpoints}
+\item If $p_i^\star\leq\tfrac12$ for every $i$, then $\mathcal M_{-,1}$ contains every probability law.
+\par\medskip
+Hence uniform exponential ergodicity.
+\item On an orientable neighbourhood graph, a separate burn-in argument gives
+\begin{equation*}
+\liminf_{t\to\infty}\inf_{\eta\in\Omega}P_t\chi_A^\star(\eta)\geq0
+\qquad\text{for every finite }A\subset\Lambda.
+\end{equation*}
+Every initial law approaches $\Mstar$; hence uniform ergodicity.
+\end{talkpoints}
+% Spoken text: patches_talk_proof_script.tex; search for ProofErgodicityScript.
+\note{\ProofErgodicityScript}
+\end{frame}
+
+\appendix
+\setbeamertemplate{footline}{\hfill\usebeamerfont{footline}Backup\hspace{3mm}\vspace{2mm}}
+
+\begin{frame}[noframenumbering]{The coefficient criterion}
+For $g(\eta)=\sum_S\widehat g(S)\prod_{j\in S}\eta(j)$, patch positivity is
+\begin{equation*}
+\widehat\lambda_i(S)\leq0,
+\qquad
+\widehat{\lambda_i(\rho_i-\rho_i(\mathbf0))}(S)\geq0,
+\qquad \varnothing\neq S\subseteq N(i).
+\end{equation*}
+\begin{equation*}
+p_i^\star
+=\max\!\left(\{0\}\cup
+\left\{\frac{\widehat{\lambda_i\rho_i}(S)}{\widehat\lambda_i(S)}:
+\varnothing\neq S\subseteq N(i),\ \widehat\lambda_i(S)<0\right\}\right).
+\end{equation*}
+\medskip
+For noisy FA-1f,
+\begin{equation*}
+\lambda_i=1-\chi_{N(i)}+\varepsilon,\qquad
+\lambda_i\rho_i=p(1-\chi_{N(i)})+\varepsilon q.
+\end{equation*}
+\begin{equation*}
+\widehat{\lambda_i(\rho_i-\rho_i(\mathbf0))}\bigl(N(i)\bigr)
+=\frac{\varepsilon(q-p)}{1+\varepsilon}.
+\end{equation*}
+\note{Source: current manuscript, definitions of patch positivity and threshold profile, and the noisy FA-1f example. There is only one nonconstant coefficient of lambda, equal to minus one. The only nonconstant coefficient of lambda rho is minus p. Thus the threshold is p and the second sign condition holds exactly when q is at least p. This calculation does not prove an ergodicity result for q below p.}
+\end{frame}
+
+\begin{frame}[noframenumbering]{\texorpdfstring{Why the threshold $\frac12$ reaches every initial law}{Why one half reaches every initial law}}
+If $p_i^\star\leq\frac12$, then
+\begin{equation*}
+\abs{\eta(i)-p_i^\star}\leq1-p_i^\star,
+\qquad
+\abs{\chi_B^\star(\eta)}\leq\prod_{i\in B}(1-p_i^\star).
+\end{equation*}
+Hence every probability measure satisfies
+\begin{equation*}
+\mu(\chi_B^\star)\geq-\prod_{i\in B}(1-p_i^\star),
+\qquad\text{so }\mu\in\mathcal M_{-,1}.
+\end{equation*}
+\bigskip
+For a constant threshold $p$, product measures satisfy
+\begin{equation*}
+\mu_u\in\mathcal M_{-,1}
+\quad\Longleftrightarrow\quad u\geq\max\{2p-1,0\}.
+\end{equation*}
+\note{The one-half threshold comes from the elementary bound on the centered spins, rather than from the geometry of the graph. For the product-measure characterization assume the underlying lattice is infinite, as in the talk.}
+\end{frame}
+
+\begin{frame}[noframenumbering]{The signed dual for noisy FA-1f}
+\begin{equation*}
+\Lcal_\eta H=\Dcal H+VH,
+\qquad H((A,\sigma),\eta)=\sigma\chi_A(\eta).
+\end{equation*}
+At each active $i$, with $S=N(i)$:
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Update & new active set & sign multiplier & rate\\
+\midrule
+death & $A\setminus\{i\}$ & $+$ & $p+\varepsilon q$\\[1mm]
+split & $(A\setminus\{i\})\cup S$ & $-$ & $p$\\[1mm]
+birth & $A\cup S$ & $+$ & $1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{equation*}
+V(A)=(2p-\varepsilon(1-q))\abs A.
+\end{equation*}
+\smallline{Removing original $1\to0$ noise changes the potential, while preserving these dual jumps.}
+\note{These are the bulk coefficients with the full neighbourhood; boundary coefficients of the zero-boundary restriction may differ. A dual death comes from the constant birth coefficient of the original spin generator. It must not be confused with an original pure-death transition. Removing original deaths leaves lambda rho and all nonconstant lambda coefficients unchanged, and therefore leaves the dual jump rates unchanged. The potential increases.}
+\end{frame}
+
+\end{document}
+
+
+

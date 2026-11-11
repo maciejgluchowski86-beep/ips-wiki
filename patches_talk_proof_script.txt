@@ -1,0 +1,60 @@
+PATCH POSITIVITY: PROOF AND ERGODICITY SCRIPT
+Joint work with Georg Menz
+Slides 18-23, planned for 15:00-20:00.
+Times are pacing estimates, not a measured rehearsal.
+
+Slide 18: Patch positivity and the meaning of p-star
+----------------------------------------------------
+15:00--15:35 (35 seconds)
+
+Here is the meaning of the two conditions we stated earlier. Patch positivity is the condition that C(P) is nonnegative for every bulk patch P. The profile p-star gives the smallest densities at which the end contributions are nonnegative.
+
+It defines the class M-star, for which the averaged product of end contributions is also nonnegative. All the factors in the patch factorization are nonnegative, so the sigma-algebra G-t captures all the cancellations we wanted.
+
+Slide 19: Splitting by late interactions
+----------------------------------------
+15:35--16:30 (55 seconds)
+
+The proof now follows the structure of the classical duality argument. We split (mu P_t)(chi_A) into two terms: one with weak dependence on the initial law, and one whose contribution is negligible.
+
+The extinction event A_t is empty is no longer the right event to split by: it is not G-t-measurable, because the process A is hidden behind the patches. But we have a good proxy that is G-t-measurable: L_t, the event that there is no interaction between t over two and t.
+
+On L_t, we show weak dependence on mu. On its complement, we show that the whole contribution is small.
+
+Slide 20: Late interaction term
+-------------------------------
+16:30--18:00 (90 seconds)
+
+To control the late-interaction term, we make the following observation. A spin system and its less noisy version, obtained by removing the independent one-to-zero transitions at rate epsilon, have exactly the same dual process. The less noisy system has a larger Feynman-Kac potential.
+
+They therefore share the random patches, but the less noisy system has larger patch contributions. We use primes for that system. For a patch ending with an outgoing interaction, the ratio is exactly exp(-epsilon times the patch length).
+
+A late interaction at u > t/2 has an ancestry trail of patches ending with outgoing interactions, from time zero to u. Multiplying the ratios along the trail gives exp(-epsilon u) <= exp(-epsilon t/2).
+
+This gives the displayed chain of inequalities. The primed expectation, after dropping the event, is (mu P_t')(chi_A), where P_t' is the semigroup of the less noisy system. It is at most one, because chi_A is bounded by one. The late-interaction term is therefore negligible.
+
+Slide 21: No-late-interaction term
+----------------------------------
+18:00--18:45 (45 seconds)
+
+On L_t, there is no interaction after t over two, so every end patch extends for at least t over two. These are the only patches that carry dependence on the initial law.
+
+In the contribution from this event, the dependence on the spin z in C(z,P) decays exponentially with the added patch length. All the end patches are long, so we can compare the contributions from two initial laws and obtain the displayed estimate.
+
+The errors accumulate over the number of end patches, |E_t|. This factor is controlled using polynomial growth of the lattice. This is where that assumption enters.
+
+Slide 22: The common invariant limit
+------------------------------------
+18:45--19:20 (35 seconds)
+
+The two estimates give exponential loss of dependence on the initial law and hence convergence from M-star to the same invariant law pi. We identify the common limit by comparing with an invariant law in M-star. Such a law exists because M-star is preserved by the spin-system semigroup.
+
+A simple linearity trick extends the convergence from M-star to the larger class M-minus. This proves the theorem.
+
+Slide 23: From convergence to ergodicity
+----------------------------------------
+19:20--20:00 (40 seconds)
+
+Finally, the theorem gives full ergodicity in the two regimes stated earlier. The first case, p_i-star is at most one half for every i, is immediate because M-minus-1 contains every probability law. We get uniform exponential ergodicity from the theorem.
+
+On an orientable neighbourhood graph, a separate burn-in argument shows that every initial law approaches M-star, in the sense of the displayed bound on centered moments. We already know convergence to the common invariant law from that class, which gives uniform ergodicity. Thank you.

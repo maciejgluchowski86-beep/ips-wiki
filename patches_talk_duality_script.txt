@@ -1,0 +1,36 @@
+PATCH POSITIVITY: STANDARD DUALITY SCRIPT
+Joint work with Georg Menz
+Slides 10-12, planned for 8:00-11:00.
+Times are pacing estimates, not a measured rehearsal.
+
+Slide 10: Duality: tracing dependence backwards
+-----------------------------------------------
+8:00--9:25 (85 seconds)
+
+Our proof starts from duality because it is a standard way to study convergence without coupling and without a priori knowing the limiting measure. Classically, this proves ergodicity when interactions are sufficiently weak compared with independent updates.
+
+The dual consists of a finite set A_s and a sign sigma_s. Starting from A, think of A_s as tracing backwards which earlier spins can influence the spins in A at time t.
+
+The three types of updates are deaths, splits and births. The picture shows an example trajectory starting from sites three and four. A death removes site four. A split removes site three and adds sites two and four. A birth then adds sites one and three, while leaving sites two and four active.
+
+Duality gives the Feynman-Kac representation below. chi_A is the product of the spins in A. The representation also features a sign process sigma_t and an exponential weight involving a potential V.
+
+Slide 11: The usual duality argument
+------------------------------------
+9:25--10:25 (60 seconds)
+
+For ergodicity, we want P_t chi_A to converge to a constant with respect to eta, for every finite A.
+
+Duality lets us split P_t chi_A into a term which does not depend on the initial configuration and a term which is negligible if the process is ergodic. We make this split according to whether A_t is empty.
+
+The classical argument assumes that the potential is bounded above by a strictly negative constant while the dual set is nonempty. On that event, the exponential weight is at most exp(-gamma t). The second term vanishes, giving a limit independent of the initial configuration.
+
+Slide 12: Why the standard estimate fails
+-----------------------------------------
+10:25--11:00 (35 seconds)
+
+For weakly noisy FA-1f, this estimate fails. The potential is positive rather than negative, so the exponential weight can be very large.
+
+To show that the term depending on eta is negligible, we have to control the cancellations from sigma_t. The large weight makes that control particularly demanding because even rare events can make substantial contributions.
+
+Next we consider how to average over part of the graphical construction to capture these cancellations.

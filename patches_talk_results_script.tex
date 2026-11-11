@@ -1,0 +1,48 @@
+% Full spoken results scripts, revised from the second results recording.
+% The presentation and rehearsal versions read this file.
+
+\newcommand{\ResultsSettingScript}{%
+{\color{talkblue}\bfseries Slide 5: General setting}\par
+{\small 4:00--4:25 (25 seconds)}\par\medskip
+We write a general spin system in the refresh form borrowed from kinetically constrained models. \keyscript{At site i, $\lambda_i(\eta)$ is the update rate, and $\rho_i(\eta)$ is the probability that the new spin is one.}
+
+\keyscript{Every spin system can be written this way.} This representation is convenient for our graphical construction.%
+}
+
+\newcommand{\ResultsPositivityScript}{%
+{\color{talkblue}\bfseries Slide 6: Patch positivity and the density profile}\par
+{\small 4:25--5:35 (70 seconds)}\par\medskip
+To describe the spin systems for which our results apply, we use monomial coefficients of the update rate and refresh parameter; see the hat notation on the slide. \keyscript{We call the spin systems defined by these two systems of inequalities patch-positive spin systems.} This is an explicit condition on the rates; its probabilistic meaning will be derived later from our graphical construction of patches.
+
+The class includes FA-1f and related models such as the biased annihilating branching process and the contact process.
+
+\keyscript{Each patch-positive spin system also has an explicit density profile, shown on the slide.} This formula too has a natural meaning in our graphical construction of patches. For FA-1f, this density is simply p.%
+}
+
+\newcommand{\ResultsLawsScript}{%
+{\color{talkblue}\bfseries Slide 7: The initial laws}\par
+{\small 5:35--6:15 (40 seconds)}\par\medskip
+\keyscript{In the main result, we prove convergence to a common invariant limit from a class of initial laws defined using $\boldsymbol p^\star$.} To define this class, we introduce monomials centered at $\boldsymbol p^\star$; see the formula on the slide. \keyscript{Let $\mathcal M_\star$ consist of the laws with nonnegative centered moments on every finite set.} In particular, $\mathcal M_\star$ contains every Bernoulli product law with density at least $\boldsymbol p^\star$.
+
+We can cheaply extend our results to a larger class, $\mathcal M_-$. It contains the laws that enter $\mathcal M_\star$ when averaged with $\delta_{\mathbf1}$.%
+}
+
+\newcommand{\ResultsTheoremScript}{%
+{\color{talkblue}\bfseries Slide 8: Convergence with a pure-death component}\par
+{\small 6:15--7:15 (60 seconds)}\par\medskip
+Here is the main result. \keyscript{Suppose the system is patch-positive, its neighbourhood graph has polynomial growth, and it contains independent one-to-zero transitions at a positive rate epsilon.} \keyscript{Then every initial law in $\mathcal M_-$ converges exponentially to the same invariant measure.} The estimate is uniform on $\mathcal M_{-,K}$.
+
+To obtain ergodicity, we need convergence from every initial law. This follows under either of two additional conditions. In the high-temperature or high-vacancy regime, meaning $p_i^\star\leq1/2$, $\mathcal M_{-,1}$ contains every probability law, so we get uniform exponential ergodicity.
+
+Alternatively, we can upgrade the result to uniform ergodicity, with no condition on $\boldsymbol p^\star$, but assuming the neighbourhood graph is orientable. In both cases, epsilon may be arbitrarily small.%
+}
+
+\newcommand{\ResultsApplicationsScript}{%
+{\color{talkblue}\bfseries Slide 9: Noisy FA-1f: two ergodicity regimes}\par
+{\small 7:15--8:00 (45 seconds)}\par\medskip
+Let's return to our noisy FA-1f question. The noisy system is patch-positive exactly when q is at least p. With q below one, the noise gives pure one-to-zero transitions.
+
+\keyscript{This proves our noisy ergodicity claim in two cases: the high-vacancy regime p at most one half, and when the neighbourhood graph is orientable.}
+
+\keyscript{The noise can be arbitrarily weak, provided p is at most q and q is below one.} Let me now explain the proof.%
+}
