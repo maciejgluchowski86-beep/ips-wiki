@@ -1472,8 +1472,10 @@ duals in~\cite{Liggett1985} and~\cite{Griffeath1979}.}
 % Each unit-width column represents one site; gray blocks mark activity.
 \path[dualfig active] (2,0) rectangle (3,2);
 \path[dualfig active] (3,0) rectangle (4,1);
+\path[dualfig active] (3,2) rectangle (4,4.4);
 \path[dualfig active] (1,2) rectangle (2,4.4);
 \path[dualfig active] (0,3.2) rectangle (1,4.4);
+\path[dualfig active] (2,3.2) rectangle (3,4.4);
 \foreach \x in {0,...,6}{\draw[dualfig site] (\x,0)--(\x,4.4);}
 \draw[dualfig horizon] (0,0)--(6,0);
 \draw[dualfig horizon] (0,4.4)--(6,4.4);
@@ -1484,19 +1486,21 @@ duals in~\cite{Liggett1985} and~\cite{Griffeath1979}.}
 \node[dualfig death] at (3.5,1) {$\times$};
 \draw[dualfig guide] (3.75,1)--(6.35,1);
 \node[dualfig label,anchor=west] at (6.55,1)
-  {death: site~$4$ is removed};
-% A split replaces site 3 by site 2.
+  {death: $\cb{3,4}\longrightarrow\cb{3}$};
+% A split removes site 3 and adds sites 2 and 4.
 \draw[dualfig interaction] (2.5,2)--(1.5,2);
+\draw[dualfig interaction] (2.5,2)--(3.5,2);
 \fill[black] (2.5,2) circle[radius=1.25pt];
-\draw[dualfig guide] (2.75,2)--(6.35,2);
+\draw[dualfig guide] (3.75,2)--(6.35,2);
 \node[dualfig label,anchor=west] at (6.55,2)
-  {split: site~$3$ is replaced by~$\cb{2}$};
-% A birth adds site 1 and keeps site 2 active.
+  {split: $\cb{3}\longrightarrow\cb{2,4}$};
+% A birth adds sites 1 and 3 and keeps sites 2 and 4 active.
 \draw[dualfig interaction] (1.5,3.2)--(0.5,3.2);
+\draw[dualfig interaction] (1.5,3.2)--(2.5,3.2);
 \fill[black] (1.5,3.2) circle[radius=1.25pt];
-\draw[dualfig guide] (1.75,3.2)--(6.35,3.2);
+\draw[dualfig guide] (2.75,3.2)--(6.35,3.2);
 \node[dualfig label,anchor=west] at (6.55,3.2)
-  {birth: $\cb{1}$ is added, site~$2$ is kept};
+  {birth: $\cb{2,4}\longrightarrow\cb{1,2,3,4}$};
 % Dual time increases upward, opposite to the time of the spin system.
 \draw[dualfig interaction] (-0.75,0)--(-0.75,4.4);
 \node[dualfig label,rotate=90,anchor=south] at (-0.92,2.2)
@@ -1506,16 +1510,15 @@ duals in~\cite{Liggett1985} and~\cite{Griffeath1979}.}
 \node[dualfig label,anchor=west] at (6.55,0)
   {$A_0=A=\cb{3,4}$, time~$t$};
 \node[dualfig label,anchor=west] at (6.55,4.4)
-  {$A_t=\cb{1,2}$, time~$0$};
+  {$A_t=\cb{1,2,3,4}$, time~$0$};
 \end{tikzpicture}
 \endgroup
-\caption{A trajectory of the dual set, with dual time going up. Gray shading
-marks membership in the dual set. At dual time~$0$ the dual set
-is~$A=\cb{3,4}$. Going backward in the original time,
-site~$4$ is refreshed independently (death), the spin at site~$3$ is
-determined by site~$2$ (split), and the update at site~$2$ depends also on
-site~$1$ (birth). Hence~$\chi_A(\eta_t)$ depends on the initial configuration
-only through the spins at sites~$1$ and~$2$. The sign part of the dual process is not shown.}
+\caption{An example trajectory of the dual set, with dual time~$s$ increasing
+upward (backward in the original spin-system time). Gray shading marks the
+sites in~$A_s$. Starting from~$A_0=A=\cb{3,4}$, a death removes site~$4$,
+a split replaces site~$3$ by~$\cb{2,4}$, and a birth adds sites~$1$ and~$3$
+while keeping sites~$2$ and~$4$. Thus~$A_t=\cb{1,2,3,4}$.
+The sign coordinate~$\sigma_s$ is not shown.}
 \label{fig:dual-idea}
 \end{figure}
 
